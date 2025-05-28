@@ -20,10 +20,10 @@ type SearchProperty string
 
 // List of SearchProperty
 const (
-	SEARCHPROPERTY_DESCRIPTION SearchProperty = "Description"
-	SEARCHPROPERTY_IS_ASSIGNED SearchProperty = "IsAssigned"
-	SEARCHPROPERTY_NAME SearchProperty = "Name"
-	SEARCHPROPERTY_POLICY_COUNT SearchProperty = "PolicyCount"
+	SEARCHPROPERTY_DESCRIPTION     SearchProperty = "Description"
+	SEARCHPROPERTY_IS_ASSIGNED     SearchProperty = "IsAssigned"
+	SEARCHPROPERTY_NAME            SearchProperty = "Name"
+	SEARCHPROPERTY_POLICY_COUNT    SearchProperty = "PolicyCount"
 	SEARCHPROPERTY_POLICY_SET_TYPE SearchProperty = "PolicySetType"
 )
 
@@ -42,7 +42,7 @@ func (v *SearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SearchProperty(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableSearchProperty) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

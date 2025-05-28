@@ -17,7 +17,7 @@ import (
 // checks if the AppVPackageResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AppVPackageResponseModel{}
 
-// AppVPackageResponseModel Default response field (Only return the fields specified there if supported in  API ): AppVApplications,Description,Exists,LibraryUid,LibraryName,LibraryDescription,Name,Id,Path,Version,VersionGuid,SourceName,SourceType,SourceTypeName,OrderNumber,ExplicitInclusion,NumOfBrokerApplications,NumOfBrokerDeliveryGroups.               Response object for an App-V package.              
+// AppVPackageResponseModel Default response field (Only return the fields specified there if supported in  API ): AppVApplications,Description,Exists,LibraryUid,LibraryName,LibraryDescription,Name,Id,Path,Version,VersionGuid,SourceName,SourceType,SourceTypeName,OrderNumber,ExplicitInclusion,NumOfBrokerApplications,NumOfBrokerDeliveryGroups.               Response object for an App-V package.
 type AppVPackageResponseModel struct {
 	// List of applications in the package.
 	AppVApplications []AppVApplicationResponseModel `json:"AppVApplications"`
@@ -46,7 +46,7 @@ type AppVPackageResponseModel struct {
 	VersionGuid string `json:"VersionGuid"`
 	// Gets or sets SourceName
 	SourceName NullableString `json:"SourceName,omitempty"`
-	SourceType *AppVSource `json:"SourceType,omitempty"`
+	SourceType *AppVSource    `json:"SourceType,omitempty"`
 	// Gets or sets SourceType name
 	SourceTypeName NullableString `json:"SourceTypeName,omitempty"`
 	// Gets or sets OrderNumber
@@ -139,6 +139,7 @@ func (o *AppVPackageResponseModel) HasDescription() bool {
 func (o *AppVPackageResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *AppVPackageResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -205,6 +206,7 @@ func (o *AppVPackageResponseModel) HasLibraryUid() bool {
 func (o *AppVPackageResponseModel) SetLibraryUid(v int32) {
 	o.LibraryUid.Set(&v)
 }
+
 // SetLibraryUidNil sets the value for LibraryUid to be an explicit nil
 func (o *AppVPackageResponseModel) SetLibraryUidNil() {
 	o.LibraryUid.Set(nil)
@@ -247,6 +249,7 @@ func (o *AppVPackageResponseModel) HasLibraryName() bool {
 func (o *AppVPackageResponseModel) SetLibraryName(v string) {
 	o.LibraryName.Set(&v)
 }
+
 // SetLibraryNameNil sets the value for LibraryName to be an explicit nil
 func (o *AppVPackageResponseModel) SetLibraryNameNil() {
 	o.LibraryName.Set(nil)
@@ -289,6 +292,7 @@ func (o *AppVPackageResponseModel) HasLibraryDescription() bool {
 func (o *AppVPackageResponseModel) SetLibraryDescription(v string) {
 	o.LibraryDescription.Set(&v)
 }
+
 // SetLibraryDescriptionNil sets the value for LibraryDescription to be an explicit nil
 func (o *AppVPackageResponseModel) SetLibraryDescriptionNil() {
 	o.LibraryDescription.Set(nil)
@@ -486,6 +490,7 @@ func (o *AppVPackageResponseModel) HasSourceName() bool {
 func (o *AppVPackageResponseModel) SetSourceName(v string) {
 	o.SourceName.Set(&v)
 }
+
 // SetSourceNameNil sets the value for SourceName to be an explicit nil
 func (o *AppVPackageResponseModel) SetSourceNameNil() {
 	o.SourceName.Set(nil)
@@ -560,6 +565,7 @@ func (o *AppVPackageResponseModel) HasSourceTypeName() bool {
 func (o *AppVPackageResponseModel) SetSourceTypeName(v string) {
 	o.SourceTypeName.Set(&v)
 }
+
 // SetSourceTypeNameNil sets the value for SourceTypeName to be an explicit nil
 func (o *AppVPackageResponseModel) SetSourceTypeNameNil() {
 	o.SourceTypeName.Set(nil)
@@ -699,7 +705,7 @@ func (o *AppVPackageResponseModel) SetNumOfBrokerDeliveryGroups(v int32) {
 }
 
 func (o AppVPackageResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -789,5 +795,3 @@ func (v *NullableAppVPackageResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

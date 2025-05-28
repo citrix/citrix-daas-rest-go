@@ -74,6 +74,7 @@ func (o *DeliveryControllerDeleteScriptModel) HasFileName() bool {
 func (o *DeliveryControllerDeleteScriptModel) SetFileName(v string) {
 	o.FileName.Set(&v)
 }
+
 // SetFileNameNil sets the value for FileName to be an explicit nil
 func (o *DeliveryControllerDeleteScriptModel) SetFileNameNil() {
 	o.FileName.Set(nil)
@@ -116,6 +117,7 @@ func (o *DeliveryControllerDeleteScriptModel) HasContent() bool {
 func (o *DeliveryControllerDeleteScriptModel) SetContent(v string) {
 	o.Content.Set(&v)
 }
+
 // SetContentNil sets the value for Content to be an explicit nil
 func (o *DeliveryControllerDeleteScriptModel) SetContentNil() {
 	o.Content.Set(nil)
@@ -127,7 +129,7 @@ func (o *DeliveryControllerDeleteScriptModel) UnsetContent() {
 }
 
 func (o DeliveryControllerDeleteScriptModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableDeliveryControllerDeleteScriptModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

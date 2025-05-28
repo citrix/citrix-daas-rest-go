@@ -19,9 +19,11 @@ var _ MappedNullable = &Group{}
 
 // Group struct for Group
 type Group struct {
-	GroupId NullableString `json:"groupId,omitempty"`
+	GroupId     NullableString `json:"groupId,omitempty"`
 	DisplayName NullableString `json:"displayName,omitempty"`
+	// Group license operation type                DO NOT RENAME the enum values!  They are stored in DB as strings.
 	OperationType *GroupLicenseOperationType `json:"operationType,omitempty"`
+	// Group License operation status    DO NOT RENAME the enum values!  They are stored in DB as strings.
 	OperationStatus *GroupLicenseOperationStatus `json:"operationStatus,omitempty"`
 }
 
@@ -74,6 +76,7 @@ func (o *Group) HasGroupId() bool {
 func (o *Group) SetGroupId(v string) {
 	o.GroupId.Set(&v)
 }
+
 // SetGroupIdNil sets the value for GroupId to be an explicit nil
 func (o *Group) SetGroupIdNil() {
 	o.GroupId.Set(nil)
@@ -116,6 +119,7 @@ func (o *Group) HasDisplayName() bool {
 func (o *Group) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *Group) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -191,7 +195,7 @@ func (o *Group) SetOperationStatus(v GroupLicenseOperationStatus) {
 }
 
 func (o Group) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -250,5 +254,3 @@ func (v *NullableGroup) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

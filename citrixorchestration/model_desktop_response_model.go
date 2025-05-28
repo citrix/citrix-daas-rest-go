@@ -23,7 +23,7 @@ type DesktopResponseModel struct {
 	Id NullableString `json:"Id,omitempty"`
 	// `DEPRECATED` DEPRECATED. Use Id.
 	// Deprecated
-	Uid *int32 `json:"Uid,omitempty"`
+	Uid        *int32      `json:"Uid,omitempty"`
 	ColorDepth *ColorDepth `json:"ColorDepth,omitempty"`
 	// Optional description of the desktop. The text may be visible to the end user, for example, as a tooltip associated with the desktop within receiver.
 	Description NullableString `json:"Description,omitempty"`
@@ -38,17 +38,17 @@ type DesktopResponseModel struct {
 	// Indicates whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group's access policy is implicitly granted an entitlement to the published desktop.
 	IncludedUserFilterEnabled *bool `json:"IncludedUserFilterEnabled,omitempty"`
 	// The included users filter of the desktop; that is, the users and groups who are explicitly granted access to the published desktop.
-	IncludedUsers []IdentityUserResponseModel `json:"IncludedUsers,omitempty"`
-	LeasingBehavior *LeasingBehavior `json:"LeasingBehavior,omitempty"`
+	IncludedUsers   []IdentityUserResponseModel `json:"IncludedUsers,omitempty"`
+	LeasingBehavior *LeasingBehavior            `json:"LeasingBehavior,omitempty"`
 	// The number of machines from the delivery group which a user may privately allocate.
 	MaxDesktops NullableInt32 `json:"MaxDesktops,omitempty"`
 	// The administrative name of the desktop.
 	Name NullableString `json:"Name,omitempty"`
 	// The name of the published desktop as seen by the user, and of assigned desktop(s) in the case where SharingKind is equal to Private.
-	PublishedName NullableString `json:"PublishedName,omitempty"`
+	PublishedName NullableString    `json:"PublishedName,omitempty"`
 	RestrictToTag *RefResponseModel `json:"RestrictToTag,omitempty"`
 	// Indicates whether the desktop requires the SecureICA protocol for desktop sessions.
-	SecureIcaRequired *bool `json:"SecureIcaRequired,omitempty"`
+	SecureIcaRequired   *bool                `json:"SecureIcaRequired,omitempty"`
 	SessionReconnection *SessionReconnection `json:"SessionReconnection,omitempty"`
 	// Indicates the number of machines which are available for assignment based on this desktop configuration.
 	MachinesForAssignment NullableInt32 `json:"MachinesForAssignment,omitempty"`
@@ -105,6 +105,7 @@ func (o *DesktopResponseModel) HasId() bool {
 func (o *DesktopResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *DesktopResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -214,6 +215,7 @@ func (o *DesktopResponseModel) HasDescription() bool {
 func (o *DesktopResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *DesktopResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -353,6 +355,7 @@ func (o *DesktopResponseModel) HasIconId() bool {
 func (o *DesktopResponseModel) SetIconId(v string) {
 	o.IconId.Set(&v)
 }
+
 // SetIconIdNil sets the value for IconId to be an explicit nil
 func (o *DesktopResponseModel) SetIconIdNil() {
 	o.IconId.Set(nil)
@@ -492,6 +495,7 @@ func (o *DesktopResponseModel) HasMaxDesktops() bool {
 func (o *DesktopResponseModel) SetMaxDesktops(v int32) {
 	o.MaxDesktops.Set(&v)
 }
+
 // SetMaxDesktopsNil sets the value for MaxDesktops to be an explicit nil
 func (o *DesktopResponseModel) SetMaxDesktopsNil() {
 	o.MaxDesktops.Set(nil)
@@ -534,6 +538,7 @@ func (o *DesktopResponseModel) HasName() bool {
 func (o *DesktopResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *DesktopResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -576,6 +581,7 @@ func (o *DesktopResponseModel) HasPublishedName() bool {
 func (o *DesktopResponseModel) SetPublishedName(v string) {
 	o.PublishedName.Set(&v)
 }
+
 // SetPublishedNameNil sets the value for PublishedName to be an explicit nil
 func (o *DesktopResponseModel) SetPublishedNameNil() {
 	o.PublishedName.Set(nil)
@@ -714,6 +720,7 @@ func (o *DesktopResponseModel) HasMachinesForAssignment() bool {
 func (o *DesktopResponseModel) SetMachinesForAssignment(v int32) {
 	o.MachinesForAssignment.Set(&v)
 }
+
 // SetMachinesForAssignmentNil sets the value for MachinesForAssignment to be an explicit nil
 func (o *DesktopResponseModel) SetMachinesForAssignmentNil() {
 	o.MachinesForAssignment.Set(nil)
@@ -758,7 +765,7 @@ func (o *DesktopResponseModel) SetTenants(v []RefResponseModel) {
 }
 
 func (o DesktopResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -862,5 +869,3 @@ func (v *NullableDesktopResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -26,8 +26,8 @@ type ImageSchemeResponseModel struct {
 	// The properties of the image scheme that are specific to the target hosting infrastructure.
 	CustomProperties []NameValueStringPairModel `json:"CustomProperties,omitempty"`
 	// The properties of the image scheme that are specific to the target hosting infrastructure in string format.
-	CustomPropertiesInString NullableString `json:"CustomPropertiesInString,omitempty"`
-	MachineProfile *HypervisorResourceRefResponseModel `json:"MachineProfile,omitempty"`
+	CustomPropertiesInString NullableString                      `json:"CustomPropertiesInString,omitempty"`
+	MachineProfile           *HypervisorResourceRefResponseModel `json:"MachineProfile,omitempty"`
 	// The maximum amount of memory that VMs will be created with when using this scheme.
 	MemoryMB *int32 `json:"MemoryMB,omitempty"`
 	// Networks used by image scheme.
@@ -175,6 +175,7 @@ func (o *ImageSchemeResponseModel) HasCustomPropertiesInString() bool {
 func (o *ImageSchemeResponseModel) SetCustomPropertiesInString(v string) {
 	o.CustomPropertiesInString.Set(&v)
 }
+
 // SetCustomPropertiesInStringNil sets the value for CustomPropertiesInString to be an explicit nil
 func (o *ImageSchemeResponseModel) SetCustomPropertiesInStringNil() {
 	o.CustomPropertiesInString.Set(nil)
@@ -314,6 +315,7 @@ func (o *ImageSchemeResponseModel) HasServiceOffering() bool {
 func (o *ImageSchemeResponseModel) SetServiceOffering(v string) {
 	o.ServiceOffering.Set(&v)
 }
+
 // SetServiceOfferingNil sets the value for ServiceOffering to be an explicit nil
 func (o *ImageSchemeResponseModel) SetServiceOfferingNil() {
 	o.ServiceOffering.Set(nil)
@@ -325,7 +327,7 @@ func (o *ImageSchemeResponseModel) UnsetServiceOffering() {
 }
 
 func (o ImageSchemeResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -394,5 +396,3 @@ func (v *NullableImageSchemeResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

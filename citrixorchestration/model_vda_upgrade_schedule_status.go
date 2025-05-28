@@ -20,12 +20,12 @@ type VdaUpgradeScheduleStatus string
 
 // List of VdaUpgradeScheduleStatus
 const (
-	VDAUPGRADESCHEDULESTATUS_NOT_SCHEDULED VdaUpgradeScheduleStatus = "NotScheduled"
-	VDAUPGRADESCHEDULESTATUS_UPGRADE_SCHEDULED VdaUpgradeScheduleStatus = "UpgradeScheduled"
+	VDAUPGRADESCHEDULESTATUS_NOT_SCHEDULED       VdaUpgradeScheduleStatus = "NotScheduled"
+	VDAUPGRADESCHEDULESTATUS_UPGRADE_SCHEDULED   VdaUpgradeScheduleStatus = "UpgradeScheduled"
 	VDAUPGRADESCHEDULESTATUS_UPGRADE_IN_PROGRESS VdaUpgradeScheduleStatus = "UpgradeInProgress"
-	VDAUPGRADESCHEDULESTATUS_UPGRADE_CANCELLED VdaUpgradeScheduleStatus = "UpgradeCancelled"
-	VDAUPGRADESCHEDULESTATUS_UPGRADE_FAILED VdaUpgradeScheduleStatus = "UpgradeFailed"
-	VDAUPGRADESCHEDULESTATUS_UPGRADE_SUCCESSFUL VdaUpgradeScheduleStatus = "UpgradeSuccessful"
+	VDAUPGRADESCHEDULESTATUS_UPGRADE_CANCELLED   VdaUpgradeScheduleStatus = "UpgradeCancelled"
+	VDAUPGRADESCHEDULESTATUS_UPGRADE_FAILED      VdaUpgradeScheduleStatus = "UpgradeFailed"
+	VDAUPGRADESCHEDULESTATUS_UPGRADE_SUCCESSFUL  VdaUpgradeScheduleStatus = "UpgradeSuccessful"
 )
 
 // All allowed values of VdaUpgradeScheduleStatus enum
@@ -44,7 +44,7 @@ func (v *VdaUpgradeScheduleStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = VdaUpgradeScheduleStatus(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableVdaUpgradeScheduleStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

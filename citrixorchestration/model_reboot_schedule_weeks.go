@@ -21,11 +21,11 @@ type RebootScheduleWeeks string
 // List of RebootScheduleWeeks
 const (
 	REBOOTSCHEDULEWEEKS_UNKNOWN RebootScheduleWeeks = "Unknown"
-	REBOOTSCHEDULEWEEKS_FIRST RebootScheduleWeeks = "First"
-	REBOOTSCHEDULEWEEKS_SECOND RebootScheduleWeeks = "Second"
-	REBOOTSCHEDULEWEEKS_THIRD RebootScheduleWeeks = "Third"
-	REBOOTSCHEDULEWEEKS_FOURTH RebootScheduleWeeks = "Fourth"
-	REBOOTSCHEDULEWEEKS_LAST RebootScheduleWeeks = "Last"
+	REBOOTSCHEDULEWEEKS_FIRST   RebootScheduleWeeks = "First"
+	REBOOTSCHEDULEWEEKS_SECOND  RebootScheduleWeeks = "Second"
+	REBOOTSCHEDULEWEEKS_THIRD   RebootScheduleWeeks = "Third"
+	REBOOTSCHEDULEWEEKS_FOURTH  RebootScheduleWeeks = "Fourth"
+	REBOOTSCHEDULEWEEKS_LAST    RebootScheduleWeeks = "Last"
 )
 
 // All allowed values of RebootScheduleWeeks enum
@@ -44,7 +44,7 @@ func (v *RebootScheduleWeeks) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = RebootScheduleWeeks(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableRebootScheduleWeeks) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

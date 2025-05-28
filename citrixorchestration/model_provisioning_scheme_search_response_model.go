@@ -197,6 +197,7 @@ func (o *ProvisioningSchemeSearchResponseModel) HasId() bool {
 func (o *ProvisioningSchemeSearchResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *ProvisioningSchemeSearchResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -271,6 +272,7 @@ func (o *ProvisioningSchemeSearchResponseModel) HasIdentityType() bool {
 func (o *ProvisioningSchemeSearchResponseModel) SetIdentityType(v string) {
 	o.IdentityType.Set(&v)
 }
+
 // SetIdentityTypeNil sets the value for IdentityType to be an explicit nil
 func (o *ProvisioningSchemeSearchResponseModel) SetIdentityTypeNil() {
 	o.IdentityType.Set(nil)
@@ -377,6 +379,7 @@ func (o *ProvisioningSchemeSearchResponseModel) HasName() bool {
 func (o *ProvisioningSchemeSearchResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ProvisioningSchemeSearchResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -451,6 +454,7 @@ func (o *ProvisioningSchemeSearchResponseModel) HasProvisioningSchemeType() bool
 func (o *ProvisioningSchemeSearchResponseModel) SetProvisioningSchemeType(v string) {
 	o.ProvisioningSchemeType.Set(&v)
 }
+
 // SetProvisioningSchemeTypeNil sets the value for ProvisioningSchemeType to be an explicit nil
 func (o *ProvisioningSchemeSearchResponseModel) SetProvisioningSchemeTypeNil() {
 	o.ProvisioningSchemeType.Set(nil)
@@ -493,6 +497,7 @@ func (o *ProvisioningSchemeSearchResponseModel) HasState() bool {
 func (o *ProvisioningSchemeSearchResponseModel) SetState(v string) {
 	o.State.Set(&v)
 }
+
 // SetStateNil sets the value for State to be an explicit nil
 func (o *ProvisioningSchemeSearchResponseModel) SetStateNil() {
 	o.State.Set(nil)
@@ -632,7 +637,7 @@ func (o *ProvisioningSchemeSearchResponseModel) SetVersion(v int32) {
 }
 
 func (o ProvisioningSchemeSearchResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -727,5 +732,3 @@ func (v *NullableProvisioningSchemeSearchResponseModel) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -25,7 +25,7 @@ type IdentitySiteResponseModel struct {
 	Guid NullableString `json:"Guid,omitempty"`
 	// The subnets in the site.
 	Subnets []IdentitySubnetResponseModel `json:"Subnets,omitempty"`
-	//     For individual identity lookup, usually an exception will be thrown.     
+	//     For individual identity lookup, usually an exception will be thrown.
 	PossibleLookupFailure *bool `json:"PossibleLookupFailure,omitempty"`
 	// Properties fetched and populated in the Site object.  This is a bitfield indicating the fetched properties.
 	PropertiesFetched int32 `json:"PropertiesFetched"`
@@ -81,6 +81,7 @@ func (o *IdentitySiteResponseModel) HasName() bool {
 func (o *IdentitySiteResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *IdentitySiteResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -123,6 +124,7 @@ func (o *IdentitySiteResponseModel) HasGuid() bool {
 func (o *IdentitySiteResponseModel) SetGuid(v string) {
 	o.Guid.Set(&v)
 }
+
 // SetGuidNil sets the value for Guid to be an explicit nil
 func (o *IdentitySiteResponseModel) SetGuidNil() {
 	o.Guid.Set(nil)
@@ -223,7 +225,7 @@ func (o *IdentitySiteResponseModel) SetPropertiesFetched(v int32) {
 }
 
 func (o IdentitySiteResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -283,5 +285,3 @@ func (v *NullableIdentitySiteResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

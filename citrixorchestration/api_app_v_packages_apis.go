@@ -19,24 +19,23 @@ import (
 	"strings"
 )
 
-
 // AppVPackagesAPIsDAASService AppVPackagesAPIsDAAS service
 type AppVPackagesAPIsDAASService service
 
 type ApiAppVPackagesGetAppVPackageRequest struct {
-	ctx context.Context
-	ApiService *AppVPackagesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppVPackagesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	libraryUid *int32
-	versionId *string
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	libraryUid          *int32
+	versionId           *string
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -93,7 +92,7 @@ func (r ApiAppVPackagesGetAppVPackageRequest) VersionId(versionId string) ApiApp
 	return r
 }
 
-// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.             
+// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.
 func (r ApiAppVPackagesGetAppVPackageRequest) Fields(fields string) ApiAppVPackagesGetAppVPackageRequest {
 	r.fields = &fields
 	return r
@@ -108,26 +107,27 @@ AppVPackagesGetAppVPackage Get the details for a single App-V package within the
 
 Get the details for a single App-V package within the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the App-V package.
- @return ApiAppVPackagesGetAppVPackageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the App-V package.
+	@return ApiAppVPackagesGetAppVPackageRequest
 */
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackage(ctx context.Context, id string) ApiAppVPackagesGetAppVPackageRequest {
 	return ApiAppVPackagesGetAppVPackageRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AppVPackageResponseModel
+//
+//	@return AppVPackageResponseModel
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageExecute(r ApiAppVPackagesGetAppVPackageRequest) (*AppVPackageResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppVPackageResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AppVPackageResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVPackagesAPIsDAASService.AppVPackagesGetAppVPackage")
@@ -234,8 +234,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageExecute(r ApiApp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -245,8 +245,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageExecute(r ApiApp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -256,8 +256,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageExecute(r ApiApp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -267,8 +267,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageExecute(r ApiApp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -278,8 +278,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageExecute(r ApiApp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -289,8 +289,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageExecute(r ApiApp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -300,8 +300,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageExecute(r ApiApp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -311,8 +311,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageExecute(r ApiApp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -330,17 +330,17 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageExecute(r ApiApp
 }
 
 type ApiAppVPackagesGetAppVPackageApplicationRequest struct {
-	ctx context.Context
-	ApiService *AppVPackagesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	appId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppVPackagesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	appId               string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -394,28 +394,29 @@ AppVPackagesGetAppVPackageApplication Get details for a single App-V application
 
 Get details for a single App-V application within an App-V package.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the App-V package.
- @param appId ID of the App-V application within the package.
- @return ApiAppVPackagesGetAppVPackageApplicationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the App-V package.
+	@param appId ID of the App-V application within the package.
+	@return ApiAppVPackagesGetAppVPackageApplicationRequest
 */
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplication(ctx context.Context, id string, appId string) ApiAppVPackagesGetAppVPackageApplicationRequest {
 	return ApiAppVPackagesGetAppVPackageApplicationRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		appId: appId,
+		ctx:        ctx,
+		id:         id,
+		appId:      appId,
 	}
 }
 
 // Execute executes the request
-//  @return AppVApplicationDetailResponseModel
+//
+//	@return AppVApplicationDetailResponseModel
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationExecute(r ApiAppVPackagesGetAppVPackageApplicationRequest) (*AppVApplicationDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppVApplicationDetailResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AppVApplicationDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVPackagesAPIsDAASService.AppVPackagesGetAppVPackageApplication")
@@ -514,8 +515,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -525,8 +526,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -536,8 +537,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -547,8 +548,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -558,8 +559,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -569,8 +570,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -580,8 +581,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -591,8 +592,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -610,18 +611,18 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationExecu
 }
 
 type ApiAppVPackagesGetAppVPackageApplicationIconRequest struct {
-	ctx context.Context
-	ApiService *AppVPackagesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	appId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppVPackagesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	appId               string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	iconFormat *string
+	accept              *string
+	citrixLocale        *string
+	iconFormat          *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -681,28 +682,29 @@ AppVPackagesGetAppVPackageApplicationIcon Get the icon for a single App-V applic
 
 Get the icon for a single App-V application within an App-V package.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the App-V package.
- @param appId ID of the App-V application within the package.
- @return ApiAppVPackagesGetAppVPackageApplicationIconRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the App-V package.
+	@param appId ID of the App-V application within the package.
+	@return ApiAppVPackagesGetAppVPackageApplicationIconRequest
 */
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationIcon(ctx context.Context, id string, appId string) ApiAppVPackagesGetAppVPackageApplicationIconRequest {
 	return ApiAppVPackagesGetAppVPackageApplicationIconRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		appId: appId,
+		ctx:        ctx,
+		id:         id,
+		appId:      appId,
 	}
 }
 
 // Execute executes the request
-//  @return IconDataResponseModel
+//
+//	@return IconDataResponseModel
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationIconExecute(r ApiAppVPackagesGetAppVPackageApplicationIconRequest) (*IconDataResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IconDataResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IconDataResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVPackagesAPIsDAASService.AppVPackagesGetAppVPackageApplicationIcon")
@@ -804,8 +806,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationIconE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -815,8 +817,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationIconE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -826,8 +828,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationIconE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -837,8 +839,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationIconE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -848,8 +850,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationIconE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -859,8 +861,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationIconE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -870,8 +872,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationIconE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -881,8 +883,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationIconE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -900,16 +902,16 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationIconE
 }
 
 type ApiAppVPackagesGetAppVPackageApplicationsRequest struct {
-	ctx context.Context
-	ApiService *AppVPackagesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppVPackagesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -963,26 +965,27 @@ AppVPackagesGetAppVPackageApplications Get App-V applications within an App-V pa
 
 Get App-V applications within an App-V package.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the App-V package.
- @return ApiAppVPackagesGetAppVPackageApplicationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the App-V package.
+	@return ApiAppVPackagesGetAppVPackageApplicationsRequest
 */
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplications(ctx context.Context, id string) ApiAppVPackagesGetAppVPackageApplicationsRequest {
 	return ApiAppVPackagesGetAppVPackageApplicationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AppVApplicationResponseModelCollection
+//
+//	@return AppVApplicationResponseModelCollection
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationsExecute(r ApiAppVPackagesGetAppVPackageApplicationsRequest) (*AppVApplicationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppVApplicationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AppVApplicationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVPackagesAPIsDAASService.AppVPackagesGetAppVPackageApplications")
@@ -1080,8 +1083,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1091,8 +1094,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1102,8 +1105,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1113,8 +1116,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1124,8 +1127,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1135,8 +1138,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1146,8 +1149,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1157,8 +1160,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1176,22 +1179,22 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationsExec
 }
 
 type ApiAppVPackagesGetAppVPackageBrokerApplicationsRequest struct {
-	ctx context.Context
-	ApiService *AppVPackagesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppVPackagesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	libraryUid *int32
-	versionId *string
-	limit *int32
-	continuationToken *string
-	fields *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	libraryUid          *int32
+	versionId           *string
+	limit               *int32
+	continuationToken   *string
+	fields              *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1281,26 +1284,27 @@ AppVPackagesGetAppVPackageBrokerApplications Get Broker applications delivered f
 
 Get Broker applications delivered from the App-V package.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the App-V package.
- @return ApiAppVPackagesGetAppVPackageBrokerApplicationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the App-V package.
+	@return ApiAppVPackagesGetAppVPackageBrokerApplicationsRequest
 */
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageBrokerApplications(ctx context.Context, id string) ApiAppVPackagesGetAppVPackageBrokerApplicationsRequest {
 	return ApiAppVPackagesGetAppVPackageBrokerApplicationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationResponseModelCollection
+//
+//	@return ApplicationResponseModelCollection
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageBrokerApplicationsExecute(r ApiAppVPackagesGetAppVPackageBrokerApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVPackagesAPIsDAASService.AppVPackagesGetAppVPackageBrokerApplications")
@@ -1416,8 +1420,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageBrokerApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1427,8 +1431,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageBrokerApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1438,8 +1442,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageBrokerApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1449,8 +1453,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageBrokerApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1460,8 +1464,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageBrokerApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1471,8 +1475,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageBrokerApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1482,8 +1486,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageBrokerApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1493,8 +1497,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageBrokerApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1512,22 +1516,22 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageBrokerApplicatio
 }
 
 type ApiAppVPackagesGetAppVPackageDeliveryGroupsRequest struct {
-	ctx context.Context
-	ApiService *AppVPackagesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppVPackagesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	libraryUid *int32
-	versionId *string
-	limit *int32
-	continuationToken *string
-	fields *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	libraryUid          *int32
+	versionId           *string
+	limit               *int32
+	continuationToken   *string
+	fields              *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1617,26 +1621,27 @@ AppVPackagesGetAppVPackageDeliveryGroups Get delivery groups which contain appli
 
 Get delivery groups which contain applications in the App-V package.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the App-V package.
- @return ApiAppVPackagesGetAppVPackageDeliveryGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the App-V package.
+	@return ApiAppVPackagesGetAppVPackageDeliveryGroupsRequest
 */
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageDeliveryGroups(ctx context.Context, id string) ApiAppVPackagesGetAppVPackageDeliveryGroupsRequest {
 	return ApiAppVPackagesGetAppVPackageDeliveryGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeliveryGroupResponseModelCollection
+//
+//	@return DeliveryGroupResponseModelCollection
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageDeliveryGroupsExecute(r ApiAppVPackagesGetAppVPackageDeliveryGroupsRequest) (*DeliveryGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeliveryGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeliveryGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVPackagesAPIsDAASService.AppVPackagesGetAppVPackageDeliveryGroups")
@@ -1752,8 +1757,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageDeliveryGroupsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1763,8 +1768,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageDeliveryGroupsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1774,8 +1779,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageDeliveryGroupsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1785,8 +1790,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageDeliveryGroupsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1796,8 +1801,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageDeliveryGroupsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1807,8 +1812,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageDeliveryGroupsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1818,8 +1823,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageDeliveryGroupsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1829,8 +1834,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageDeliveryGroupsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1848,17 +1853,17 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageDeliveryGroupsEx
 }
 
 type ApiAppVPackagesGetAppVPackageIconRequest struct {
-	ctx context.Context
-	ApiService *AppVPackagesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppVPackagesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	iconFormat *string
+	accept              *string
+	citrixLocale        *string
+	iconFormat          *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1918,26 +1923,27 @@ AppVPackagesGetAppVPackageIcon Get the icon for a single App-V package within th
 
 Get the icon for a single App-V package within the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the App-V package.
- @return ApiAppVPackagesGetAppVPackageIconRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the App-V package.
+	@return ApiAppVPackagesGetAppVPackageIconRequest
 */
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageIcon(ctx context.Context, id string) ApiAppVPackagesGetAppVPackageIconRequest {
 	return ApiAppVPackagesGetAppVPackageIconRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return IconDataResponseModel
+//
+//	@return IconDataResponseModel
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageIconExecute(r ApiAppVPackagesGetAppVPackageIconRequest) (*IconDataResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IconDataResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IconDataResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVPackagesAPIsDAASService.AppVPackagesGetAppVPackageIcon")
@@ -2038,8 +2044,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageIconExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2049,8 +2055,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageIconExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2060,8 +2066,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageIconExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2071,8 +2077,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageIconExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2082,8 +2088,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageIconExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2093,8 +2099,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageIconExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2104,8 +2110,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageIconExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2115,8 +2121,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageIconExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2134,17 +2140,17 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageIconExecute(r Ap
 }
 
 type ApiAppVPackagesGetAppVPackagesRequest struct {
-	ctx context.Context
-	ApiService *AppVPackagesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppVPackagesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2195,7 +2201,7 @@ func (r ApiAppVPackagesGetAppVPackagesRequest) Async(async bool) ApiAppVPackages
 	return r
 }
 
-// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.             
+// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.
 func (r ApiAppVPackagesGetAppVPackagesRequest) Fields(fields string) ApiAppVPackagesGetAppVPackagesRequest {
 	r.fields = &fields
 	return r
@@ -2210,24 +2216,25 @@ AppVPackagesGetAppVPackages Get the App-V packages configured in the site
 
 Get all App-V packages configured in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAppVPackagesGetAppVPackagesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAppVPackagesGetAppVPackagesRequest
 */
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackages(ctx context.Context) ApiAppVPackagesGetAppVPackagesRequest {
 	return ApiAppVPackagesGetAppVPackagesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AppVPackageResponseModelCollection
+//
+//	@return AppVPackageResponseModelCollection
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackagesExecute(r ApiAppVPackagesGetAppVPackagesRequest) (*AppVPackageResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppVPackageResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AppVPackageResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVPackagesAPIsDAASService.AppVPackagesGetAppVPackages")
@@ -2330,8 +2337,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackagesExecute(r ApiAp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2341,8 +2348,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackagesExecute(r ApiAp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2352,8 +2359,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackagesExecute(r ApiAp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2363,8 +2370,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackagesExecute(r ApiAp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2374,8 +2381,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackagesExecute(r ApiAp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2385,8 +2392,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackagesExecute(r ApiAp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2396,8 +2403,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackagesExecute(r ApiAp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2415,19 +2422,19 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackagesExecute(r ApiAp
 }
 
 type ApiAppVPackagesGetPackageApplicationFileTypesRequest struct {
-	ctx context.Context
-	ApiService *AppVPackagesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	appId string
-	libraryUid *int32
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppVPackagesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	appId               string
+	libraryUid          *int32
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2492,28 +2499,29 @@ AppVPackagesGetPackageApplicationFileTypes Get the fileTypes for an application 
 
 Get the file types for an application within a package.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the package.
- @param appId Identifier of the application within the package.
- @return ApiAppVPackagesGetPackageApplicationFileTypesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the package.
+	@param appId Identifier of the application within the package.
+	@return ApiAppVPackagesGetPackageApplicationFileTypesRequest
 */
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetPackageApplicationFileTypes(ctx context.Context, id string, appId string) ApiAppVPackagesGetPackageApplicationFileTypesRequest {
 	return ApiAppVPackagesGetPackageApplicationFileTypesRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		appId: appId,
+		ctx:        ctx,
+		id:         id,
+		appId:      appId,
 	}
 }
 
 // Execute executes the request
-//  @return FtaResponseModelCollection
+//
+//	@return FtaResponseModelCollection
 func (a *AppVPackagesAPIsDAASService) AppVPackagesGetPackageApplicationFileTypesExecute(r ApiAppVPackagesGetPackageApplicationFileTypesRequest) (*FtaResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FtaResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FtaResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVPackagesAPIsDAASService.AppVPackagesGetPackageApplicationFileTypes")
@@ -2619,8 +2627,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetPackageApplicationFileTypes
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2630,8 +2638,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetPackageApplicationFileTypes
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2641,8 +2649,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetPackageApplicationFileTypes
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2652,8 +2660,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetPackageApplicationFileTypes
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2663,8 +2671,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetPackageApplicationFileTypes
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2674,8 +2682,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetPackageApplicationFileTypes
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2685,8 +2693,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetPackageApplicationFileTypes
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2696,8 +2704,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetPackageApplicationFileTypes
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2715,17 +2723,17 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetPackageApplicationFileTypes
 }
 
 type ApiAppVPackagesImportAppVPackagesRequest struct {
-	ctx context.Context
-	ApiService *AppVPackagesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                     context.Context
+	ApiService              *AppVPackagesAPIsDAASService
+	citrixCustomerId        *string
+	citrixInstanceId        *string
 	appVPackageRequestModel *AppVPackageRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent               *string
+	authorization           *string
+	citrixTransactionId     *string
+	accept                  *string
+	citrixLocale            *string
+	async                   *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2791,22 +2799,22 @@ AppVPackagesImportAppVPackages Import App-V packages to the site
 
 Import App-V packages to the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAppVPackagesImportAppVPackagesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAppVPackagesImportAppVPackagesRequest
 */
 func (a *AppVPackagesAPIsDAASService) AppVPackagesImportAppVPackages(ctx context.Context) ApiAppVPackagesImportAppVPackagesRequest {
 	return ApiAppVPackagesImportAppVPackagesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *AppVPackagesAPIsDAASService) AppVPackagesImportAppVPackagesExecute(r ApiAppVPackagesImportAppVPackagesRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVPackagesAPIsDAASService.AppVPackagesImportAppVPackages")
@@ -2911,8 +2919,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesImportAppVPackagesExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2922,8 +2930,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesImportAppVPackagesExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2933,8 +2941,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesImportAppVPackagesExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2944,8 +2952,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesImportAppVPackagesExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2955,8 +2963,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesImportAppVPackagesExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2966,8 +2974,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesImportAppVPackagesExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2977,8 +2985,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesImportAppVPackagesExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2988,8 +2996,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesImportAppVPackagesExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2999,8 +3007,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesImportAppVPackagesExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3009,18 +3017,18 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesImportAppVPackagesExecute(r Ap
 }
 
 type ApiAppVPackagesRemoveAppVPackageRequest struct {
-	ctx context.Context
-	ApiService *AppVPackagesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppVPackagesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	versionId *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	versionId           *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3086,24 +3094,24 @@ AppVPackagesRemoveAppVPackage Remove a single App-V package within the site
 
 Removea single App-V package within the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the App-V package.
- @return ApiAppVPackagesRemoveAppVPackageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the App-V package.
+	@return ApiAppVPackagesRemoveAppVPackageRequest
 */
 func (a *AppVPackagesAPIsDAASService) AppVPackagesRemoveAppVPackage(ctx context.Context, id string) ApiAppVPackagesRemoveAppVPackageRequest {
 	return ApiAppVPackagesRemoveAppVPackageRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *AppVPackagesAPIsDAASService) AppVPackagesRemoveAppVPackageExecute(r ApiAppVPackagesRemoveAppVPackageRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVPackagesAPIsDAASService.AppVPackagesRemoveAppVPackage")
@@ -3207,8 +3215,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesRemoveAppVPackageExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3218,8 +3226,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesRemoveAppVPackageExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3229,8 +3237,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesRemoveAppVPackageExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3240,8 +3248,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesRemoveAppVPackageExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3251,8 +3259,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesRemoveAppVPackageExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3262,8 +3270,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesRemoveAppVPackageExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3273,8 +3281,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesRemoveAppVPackageExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3284,8 +3292,8 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesRemoveAppVPackageExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

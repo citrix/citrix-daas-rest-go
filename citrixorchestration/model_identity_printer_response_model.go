@@ -82,6 +82,7 @@ func (o *IdentityPrinterResponseModel) HasPrintShareName() bool {
 func (o *IdentityPrinterResponseModel) SetPrintShareName(v string) {
 	o.PrintShareName.Set(&v)
 }
+
 // SetPrintShareNameNil sets the value for PrintShareName to be an explicit nil
 func (o *IdentityPrinterResponseModel) SetPrintShareNameNil() {
 	o.PrintShareName.Set(nil)
@@ -124,6 +125,7 @@ func (o *IdentityPrinterResponseModel) HasServerName() bool {
 func (o *IdentityPrinterResponseModel) SetServerName(v string) {
 	o.ServerName.Set(&v)
 }
+
 // SetServerNameNil sets the value for ServerName to be an explicit nil
 func (o *IdentityPrinterResponseModel) SetServerNameNil() {
 	o.ServerName.Set(nil)
@@ -166,6 +168,7 @@ func (o *IdentityPrinterResponseModel) HasUncName() bool {
 func (o *IdentityPrinterResponseModel) SetUncName(v string) {
 	o.UncName.Set(&v)
 }
+
 // SetUncNameNil sets the value for UncName to be an explicit nil
 func (o *IdentityPrinterResponseModel) SetUncNameNil() {
 	o.UncName.Set(nil)
@@ -208,6 +211,7 @@ func (o *IdentityPrinterResponseModel) HasDriverName() bool {
 func (o *IdentityPrinterResponseModel) SetDriverName(v string) {
 	o.DriverName.Set(&v)
 }
+
 // SetDriverNameNil sets the value for DriverName to be an explicit nil
 func (o *IdentityPrinterResponseModel) SetDriverNameNil() {
 	o.DriverName.Set(nil)
@@ -250,6 +254,7 @@ func (o *IdentityPrinterResponseModel) HasLocation() bool {
 func (o *IdentityPrinterResponseModel) SetLocation(v string) {
 	o.Location.Set(&v)
 }
+
 // SetLocationNil sets the value for Location to be an explicit nil
 func (o *IdentityPrinterResponseModel) SetLocationNil() {
 	o.Location.Set(nil)
@@ -292,6 +297,7 @@ func (o *IdentityPrinterResponseModel) HasDescription() bool {
 func (o *IdentityPrinterResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *IdentityPrinterResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -303,7 +309,7 @@ func (o *IdentityPrinterResponseModel) UnsetDescription() {
 }
 
 func (o IdentityPrinterResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -368,5 +374,3 @@ func (v *NullableIdentityPrinterResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

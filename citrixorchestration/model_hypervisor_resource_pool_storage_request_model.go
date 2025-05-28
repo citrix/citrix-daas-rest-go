@@ -103,6 +103,7 @@ func (o *HypervisorResourcePoolStorageRequestModel) HasSuperseded() bool {
 func (o *HypervisorResourcePoolStorageRequestModel) SetSuperseded(v bool) {
 	o.Superseded.Set(&v)
 }
+
 // SetSupersededNil sets the value for Superseded to be an explicit nil
 func (o *HypervisorResourcePoolStorageRequestModel) SetSupersededNil() {
 	o.Superseded.Set(nil)
@@ -114,7 +115,7 @@ func (o *HypervisorResourcePoolStorageRequestModel) UnsetSuperseded() {
 }
 
 func (o HypervisorResourcePoolStorageRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -165,5 +166,3 @@ func (v *NullableHypervisorResourcePoolStorageRequestModel) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

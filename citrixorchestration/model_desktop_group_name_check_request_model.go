@@ -72,6 +72,7 @@ func (o *DesktopGroupNameCheckRequestModel) HasName() bool {
 func (o *DesktopGroupNameCheckRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *DesktopGroupNameCheckRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -83,7 +84,7 @@ func (o *DesktopGroupNameCheckRequestModel) UnsetName() {
 }
 
 func (o DesktopGroupNameCheckRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -133,5 +134,3 @@ func (v *NullableDesktopGroupNameCheckRequestModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

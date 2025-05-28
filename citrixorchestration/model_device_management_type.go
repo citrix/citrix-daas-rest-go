@@ -20,11 +20,11 @@ type DeviceManagementType string
 
 // List of DeviceManagementType
 const (
-	DEVICEMANAGEMENTTYPE_UNKNOWN DeviceManagementType = "Unknown"
-	DEVICEMANAGEMENTTYPE_NONE DeviceManagementType = "None"
-	DEVICEMANAGEMENTTYPE_INTUNE DeviceManagementType = "Intune"
+	DEVICEMANAGEMENTTYPE_UNKNOWN                 DeviceManagementType = "Unknown"
+	DEVICEMANAGEMENTTYPE_NONE                    DeviceManagementType = "None"
+	DEVICEMANAGEMENTTYPE_INTUNE                  DeviceManagementType = "Intune"
 	DEVICEMANAGEMENTTYPE_INTUNE_WITH_CITRIX_TAGS DeviceManagementType = "IntuneWithCitrixTags"
-	DEVICEMANAGEMENTTYPE_INTUNE_WITH_SCCM DeviceManagementType = "IntuneWithSCCM"
+	DEVICEMANAGEMENTTYPE_INTUNE_WITH_SCCM        DeviceManagementType = "IntuneWithSCCM"
 )
 
 // All allowed values of DeviceManagementType enum
@@ -42,7 +42,7 @@ func (v *DeviceManagementType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DeviceManagementType(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableDeviceManagementType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

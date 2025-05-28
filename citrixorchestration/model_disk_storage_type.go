@@ -20,14 +20,14 @@ type DiskStorageType string
 
 // List of DiskStorageType
 const (
-	DISKSTORAGETYPE_UNKNOWN DiskStorageType = "Unknown"
-	DISKSTORAGETYPE_PREMIUM_LRS DiskStorageType = "Premium_LRS"
-	DISKSTORAGETYPE_STANDARD_LRS DiskStorageType = "Standard_LRS"
+	DISKSTORAGETYPE_UNKNOWN          DiskStorageType = "Unknown"
+	DISKSTORAGETYPE_PREMIUM_LRS      DiskStorageType = "Premium_LRS"
+	DISKSTORAGETYPE_STANDARD_LRS     DiskStorageType = "Standard_LRS"
 	DISKSTORAGETYPE_STANDARD_SSD_LRS DiskStorageType = "StandardSSD_LRS"
-	DISKSTORAGETYPE_PREMIUM_ZRS DiskStorageType = "Premium_ZRS"
+	DISKSTORAGETYPE_PREMIUM_ZRS      DiskStorageType = "Premium_ZRS"
 	DISKSTORAGETYPE_STANDARD_SSD_ZRS DiskStorageType = "StandardSSD_ZRS"
-	DISKSTORAGETYPE_PREMIUM_V2_LRS DiskStorageType = "PremiumV2_LRS"
-	DISKSTORAGETYPE_ULTRA_SSD_LRS DiskStorageType = "UltraSSD_LRS"
+	DISKSTORAGETYPE_PREMIUM_V2_LRS   DiskStorageType = "PremiumV2_LRS"
+	DISKSTORAGETYPE_ULTRA_SSD_LRS    DiskStorageType = "UltraSSD_LRS"
 )
 
 // All allowed values of DiskStorageType enum
@@ -48,7 +48,7 @@ func (v *DiskStorageType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DiskStorageType(value)
 	return nil
 }
@@ -114,4 +114,3 @@ func (v *NullableDiskStorageType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

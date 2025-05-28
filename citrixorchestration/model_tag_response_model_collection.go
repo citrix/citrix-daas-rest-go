@@ -101,6 +101,7 @@ func (o *TagResponseModelCollection) HasContinuationToken() bool {
 func (o *TagResponseModelCollection) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *TagResponseModelCollection) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -143,6 +144,7 @@ func (o *TagResponseModelCollection) HasTotalItems() bool {
 func (o *TagResponseModelCollection) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *TagResponseModelCollection) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -154,7 +156,7 @@ func (o *TagResponseModelCollection) UnsetTotalItems() {
 }
 
 func (o TagResponseModelCollection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableTagResponseModelCollection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

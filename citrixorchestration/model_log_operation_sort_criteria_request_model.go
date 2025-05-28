@@ -19,8 +19,8 @@ var _ MappedNullable = &LogOperationSortCriteriaRequestModel{}
 
 // LogOperationSortCriteriaRequestModel Log operation sort criteria.
 type LogOperationSortCriteriaRequestModel struct {
-	Property LogOperationSearchProperty `json:"Property"`
-	SortDirection ListSortDirection `json:"SortDirection"`
+	Property      LogOperationSearchProperty `json:"Property"`
+	SortDirection ListSortDirection          `json:"SortDirection"`
 }
 
 // NewLogOperationSortCriteriaRequestModel instantiates a new LogOperationSortCriteriaRequestModel object
@@ -91,7 +91,7 @@ func (o *LogOperationSortCriteriaRequestModel) SetSortDirection(v ListSortDirect
 }
 
 func (o LogOperationSortCriteriaRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableLogOperationSortCriteriaRequestModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

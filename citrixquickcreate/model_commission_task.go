@@ -20,8 +20,11 @@ var _ MappedNullable = &CommissionTask{}
 // CommissionTask struct for CommissionTask
 type CommissionTask struct {
 	TaskBase
+	// Task Type
 	Operation NullableCommissionTaskOperationType `json:"operation,omitempty"`
 }
+
+type _CommissionTask CommissionTask
 
 // NewCommissionTask instantiates a new CommissionTask object
 // This constructor will assign default values to properties that have it defined,
@@ -73,6 +76,7 @@ func (o *CommissionTask) HasOperation() bool {
 func (o *CommissionTask) SetOperation(v CommissionTaskOperationType) {
 	o.Operation.Set(&v)
 }
+
 // SetOperationNil sets the value for Operation to be an explicit nil
 func (o *CommissionTask) SetOperationNil() {
 	o.Operation.Set(nil)
@@ -84,7 +88,7 @@ func (o *CommissionTask) UnsetOperation() {
 }
 
 func (o CommissionTask) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -142,5 +146,3 @@ func (v *NullableCommissionTask) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

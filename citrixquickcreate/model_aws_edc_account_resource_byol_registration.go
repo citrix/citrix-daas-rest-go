@@ -26,12 +26,15 @@ type AwsEdcAccountResourceByolRegistration struct {
 	DedicatedTenancyManagementCidrRange NullableString `json:"dedicatedTenancyManagementCidrRange,omitempty"`
 }
 
+type _AwsEdcAccountResourceByolRegistration AwsEdcAccountResourceByolRegistration
+
 // NewAwsEdcAccountResourceByolRegistration instantiates a new AwsEdcAccountResourceByolRegistration object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAwsEdcAccountResourceByolRegistration(accountType AccountType) *AwsEdcAccountResourceByolRegistration {
+func NewAwsEdcAccountResourceByolRegistration(resourceType AwsAccountResourceType, accountType AccountType) *AwsEdcAccountResourceByolRegistration {
 	this := AwsEdcAccountResourceByolRegistration{}
+	this.ResourceType = resourceType
 	this.AccountType = accountType
 	return &this
 }
@@ -108,6 +111,7 @@ func (o *AwsEdcAccountResourceByolRegistration) HasDedicatedTenancyManagementCid
 func (o *AwsEdcAccountResourceByolRegistration) SetDedicatedTenancyManagementCidrRange(v string) {
 	o.DedicatedTenancyManagementCidrRange.Set(&v)
 }
+
 // SetDedicatedTenancyManagementCidrRangeNil sets the value for DedicatedTenancyManagementCidrRange to be an explicit nil
 func (o *AwsEdcAccountResourceByolRegistration) SetDedicatedTenancyManagementCidrRangeNil() {
 	o.DedicatedTenancyManagementCidrRange.Set(nil)
@@ -119,7 +123,7 @@ func (o *AwsEdcAccountResourceByolRegistration) UnsetDedicatedTenancyManagementC
 }
 
 func (o AwsEdcAccountResourceByolRegistration) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +184,3 @@ func (v *NullableAwsEdcAccountResourceByolRegistration) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

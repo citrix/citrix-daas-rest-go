@@ -20,9 +20,9 @@ type IdentityPasswordFormat string
 
 // List of IdentityPasswordFormat
 const (
-	IDENTITYPASSWORDFORMAT_UNKNOWN IdentityPasswordFormat = "Unknown"
+	IDENTITYPASSWORDFORMAT_UNKNOWN    IdentityPasswordFormat = "Unknown"
 	IDENTITYPASSWORDFORMAT_PLAIN_TEXT IdentityPasswordFormat = "PlainText"
-	IDENTITYPASSWORDFORMAT_BASE64 IdentityPasswordFormat = "Base64"
+	IDENTITYPASSWORDFORMAT_BASE64     IdentityPasswordFormat = "Base64"
 )
 
 // All allowed values of IdentityPasswordFormat enum
@@ -38,7 +38,7 @@ func (v *IdentityPasswordFormat) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = IdentityPasswordFormat(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableIdentityPasswordFormat) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

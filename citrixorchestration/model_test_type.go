@@ -20,14 +20,14 @@ type TestType string
 
 // List of TestType
 const (
-	TESTTYPE_SITE TestType = "Site"
-	TESTTYPE_DELIVERY_GROUP TestType = "DeliveryGroup"
+	TESTTYPE_SITE            TestType = "Site"
+	TESTTYPE_DELIVERY_GROUP  TestType = "DeliveryGroup"
 	TESTTYPE_MACHINE_CATALOG TestType = "MachineCatalog"
-	TESTTYPE_RESOURCE_POOL TestType = "ResourcePool"
-	TESTTYPE_HYPERVISOR TestType = "Hypervisor"
-	TESTTYPE_MACHINE TestType = "Machine"
+	TESTTYPE_RESOURCE_POOL   TestType = "ResourcePool"
+	TESTTYPE_HYPERVISOR      TestType = "Hypervisor"
+	TESTTYPE_MACHINE         TestType = "Machine"
 	TESTTYPE_SERVICE_ACCOUNT TestType = "ServiceAccount"
-	TESTTYPE_UNKNOWN TestType = "Unknown"
+	TESTTYPE_UNKNOWN         TestType = "Unknown"
 )
 
 // All allowed values of TestType enum
@@ -48,7 +48,7 @@ func (v *TestType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = TestType(value)
 	return nil
 }
@@ -114,4 +114,3 @@ func (v *NullableTestType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

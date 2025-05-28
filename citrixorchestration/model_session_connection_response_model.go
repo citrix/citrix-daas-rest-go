@@ -22,13 +22,13 @@ type SessionConnectionResponseModel struct {
 	// The host name of the incoming connection. This is usually a gateway, router or client.
 	ConnectedViaHostName NullableString `json:"ConnectedViaHostName,omitempty"`
 	// The IP address of the incoming connection This is usually a gateway, router or client.
-	ConnectedViaIP NullableString `json:"ConnectedViaIP,omitempty"`
+	ConnectedViaIP NullableString  `json:"ConnectedViaIP,omitempty"`
 	ConnectionMode *ConnectionMode `json:"ConnectionMode,omitempty"`
 	// The host name of the StoreFront server used to launch the session.
 	LaunchedViaHostName NullableString `json:"LaunchedViaHostName,omitempty"`
 	// The IP address of the StoreFront server used to launch the session.
 	LaunchedViaIP NullableString `json:"LaunchedViaIP,omitempty"`
-	Protocol *ProtocolType `json:"Protocol,omitempty"`
+	Protocol      *ProtocolType  `json:"Protocol,omitempty"`
 	// Indicates whether SecureICA is active on the session.
 	SecureIcaActive NullableBool `json:"SecureIcaActive,omitempty"`
 	// The Smart Access tags for this session.
@@ -86,6 +86,7 @@ func (o *SessionConnectionResponseModel) HasConnectedViaHostName() bool {
 func (o *SessionConnectionResponseModel) SetConnectedViaHostName(v string) {
 	o.ConnectedViaHostName.Set(&v)
 }
+
 // SetConnectedViaHostNameNil sets the value for ConnectedViaHostName to be an explicit nil
 func (o *SessionConnectionResponseModel) SetConnectedViaHostNameNil() {
 	o.ConnectedViaHostName.Set(nil)
@@ -128,6 +129,7 @@ func (o *SessionConnectionResponseModel) HasConnectedViaIP() bool {
 func (o *SessionConnectionResponseModel) SetConnectedViaIP(v string) {
 	o.ConnectedViaIP.Set(&v)
 }
+
 // SetConnectedViaIPNil sets the value for ConnectedViaIP to be an explicit nil
 func (o *SessionConnectionResponseModel) SetConnectedViaIPNil() {
 	o.ConnectedViaIP.Set(nil)
@@ -202,6 +204,7 @@ func (o *SessionConnectionResponseModel) HasLaunchedViaHostName() bool {
 func (o *SessionConnectionResponseModel) SetLaunchedViaHostName(v string) {
 	o.LaunchedViaHostName.Set(&v)
 }
+
 // SetLaunchedViaHostNameNil sets the value for LaunchedViaHostName to be an explicit nil
 func (o *SessionConnectionResponseModel) SetLaunchedViaHostNameNil() {
 	o.LaunchedViaHostName.Set(nil)
@@ -244,6 +247,7 @@ func (o *SessionConnectionResponseModel) HasLaunchedViaIP() bool {
 func (o *SessionConnectionResponseModel) SetLaunchedViaIP(v string) {
 	o.LaunchedViaIP.Set(&v)
 }
+
 // SetLaunchedViaIPNil sets the value for LaunchedViaIP to be an explicit nil
 func (o *SessionConnectionResponseModel) SetLaunchedViaIPNil() {
 	o.LaunchedViaIP.Set(nil)
@@ -318,6 +322,7 @@ func (o *SessionConnectionResponseModel) HasSecureIcaActive() bool {
 func (o *SessionConnectionResponseModel) SetSecureIcaActive(v bool) {
 	o.SecureIcaActive.Set(&v)
 }
+
 // SetSecureIcaActiveNil sets the value for SecureIcaActive to be an explicit nil
 func (o *SessionConnectionResponseModel) SetSecureIcaActiveNil() {
 	o.SecureIcaActive.Set(nil)
@@ -393,6 +398,7 @@ func (o *SessionConnectionResponseModel) HasLaunchedViaPublishedName() bool {
 func (o *SessionConnectionResponseModel) SetLaunchedViaPublishedName(v string) {
 	o.LaunchedViaPublishedName.Set(&v)
 }
+
 // SetLaunchedViaPublishedNameNil sets the value for LaunchedViaPublishedName to be an explicit nil
 func (o *SessionConnectionResponseModel) SetLaunchedViaPublishedNameNil() {
 	o.LaunchedViaPublishedName.Set(nil)
@@ -404,7 +410,7 @@ func (o *SessionConnectionResponseModel) UnsetLaunchedViaPublishedName() {
 }
 
 func (o SessionConnectionResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -478,5 +484,3 @@ func (v *NullableSessionConnectionResponseModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

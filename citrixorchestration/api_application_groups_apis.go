@@ -19,23 +19,22 @@ import (
 	"strings"
 )
 
-
 // ApplicationGroupsAPIsDAASService ApplicationGroupsAPIsDAAS service
 type ApplicationGroupsAPIsDAASService service
 
 type ApiApplicationGroupsAddApplicationGroupTagRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	tagNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	tagNameOrId         string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -93,28 +92,29 @@ func (r ApiApplicationGroupsAddApplicationGroupTagRequest) Execute() (*TagRespon
 /*
 ApplicationGroupsAddApplicationGroupTag Add a tag to an application group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
- @param tagNameOrId Name or ID of the tag to add.
- @return ApiApplicationGroupsAddApplicationGroupTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	@param tagNameOrId Name or ID of the tag to add.
+	@return ApiApplicationGroupsAddApplicationGroupTagRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationGroupTag(ctx context.Context, nameOrId string, tagNameOrId string) ApiApplicationGroupsAddApplicationGroupTagRequest {
 	return ApiApplicationGroupsAddApplicationGroupTagRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:  a,
+		ctx:         ctx,
+		nameOrId:    nameOrId,
 		tagNameOrId: tagNameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return TagResponseModelCollection
+//
+//	@return TagResponseModelCollection
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationGroupTagExecute(r ApiApplicationGroupsAddApplicationGroupTagRequest) (*TagResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TagResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TagResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsAddApplicationGroupTag")
@@ -216,8 +216,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -227,8 +227,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -238,8 +238,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -249,8 +249,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -260,8 +260,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -271,8 +271,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -282,8 +282,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -293,8 +293,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -304,8 +304,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -323,18 +323,18 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationGroupT
 }
 
 type ApiApplicationGroupsAddApplicationsRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                         context.Context
+	ApiService                                  *ApplicationGroupsAPIsDAASService
+	citrixCustomerId                            *string
+	citrixInstanceId                            *string
+	nameOrId                                    string
 	applicationGroupAddApplicationsRequestModel *ApplicationGroupAddApplicationsRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                   *string
+	authorization                               *string
+	citrixTransactionId                         *string
+	accept                                      *string
+	citrixLocale                                *string
+	async                                       *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -398,24 +398,24 @@ func (r ApiApplicationGroupsAddApplicationsRequest) Execute() (*http.Response, e
 /*
 ApplicationGroupsAddApplications Add applications to the application group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
- @return ApiApplicationGroupsAddApplicationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	@return ApiApplicationGroupsAddApplicationsRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplications(ctx context.Context, nameOrId string) ApiApplicationGroupsAddApplicationsRequest {
 	return ApiApplicationGroupsAddApplicationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationsExecute(r ApiApplicationGroupsAddApplicationsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsAddApplications")
@@ -521,8 +521,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationsExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -532,8 +532,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationsExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -543,8 +543,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationsExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -554,8 +554,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationsExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -565,8 +565,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationsExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -576,8 +576,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationsExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -587,8 +587,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationsExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -598,8 +598,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationsExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -609,8 +609,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationsExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -620,8 +620,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationsExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -630,16 +630,16 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationsExecu
 }
 
 type ApiApplicationGroupsCheckApplicationGroupExistsRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -695,24 +695,24 @@ If the name is found to be available, this returns 404 Not Found. If the name
 is not available (i.e. an application group with the name was found), this
 returns 204 No Content.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name Name of the application group.
- @return ApiApplicationGroupsCheckApplicationGroupExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name Name of the application group.
+	@return ApiApplicationGroupsCheckApplicationGroupExistsRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCheckApplicationGroupExists(ctx context.Context, name string) ApiApplicationGroupsCheckApplicationGroupExistsRequest {
 	return ApiApplicationGroupsCheckApplicationGroupExistsRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCheckApplicationGroupExistsExecute(r ApiApplicationGroupsCheckApplicationGroupExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodHead
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodHead
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsCheckApplicationGroupExists")
@@ -810,8 +810,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCheckApplicationGrou
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -821,8 +821,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCheckApplicationGrou
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -832,8 +832,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCheckApplicationGrou
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -843,8 +843,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCheckApplicationGrou
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -854,8 +854,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCheckApplicationGrou
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -865,8 +865,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCheckApplicationGrou
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -876,8 +876,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCheckApplicationGrou
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -887,8 +887,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCheckApplicationGrou
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -897,17 +897,17 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCheckApplicationGrou
 }
 
 type ApiApplicationGroupsCreateApplicationGroupRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                context.Context
+	ApiService                         *ApplicationGroupsAPIsDAASService
+	citrixCustomerId                   *string
+	citrixInstanceId                   *string
 	createApplicationGroupRequestModel *CreateApplicationGroupRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                          *string
+	authorization                      *string
+	citrixTransactionId                *string
+	accept                             *string
+	citrixLocale                       *string
+	async                              *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -971,24 +971,25 @@ func (r ApiApplicationGroupsCreateApplicationGroupRequest) Execute() (*Applicati
 /*
 ApplicationGroupsCreateApplicationGroup Create an application group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApplicationGroupsCreateApplicationGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiApplicationGroupsCreateApplicationGroupRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCreateApplicationGroup(ctx context.Context) ApiApplicationGroupsCreateApplicationGroupRequest {
 	return ApiApplicationGroupsCreateApplicationGroupRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationGroupDetailResponseModel
+//
+//	@return ApplicationGroupDetailResponseModel
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCreateApplicationGroupExecute(r ApiApplicationGroupsCreateApplicationGroupRequest) (*ApplicationGroupDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationGroupDetailResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationGroupDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsCreateApplicationGroup")
@@ -1093,8 +1094,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCreateApplicationGro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1104,8 +1105,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCreateApplicationGro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1115,8 +1116,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCreateApplicationGro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1126,8 +1127,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCreateApplicationGro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1137,8 +1138,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCreateApplicationGro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1148,8 +1149,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCreateApplicationGro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1159,8 +1160,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCreateApplicationGro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1170,8 +1171,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCreateApplicationGro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1181,8 +1182,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCreateApplicationGro
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1200,17 +1201,17 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCreateApplicationGro
 }
 
 type ApiApplicationGroupsDeleteApplicationGroupRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1273,24 +1274,24 @@ application group will also be deleted.  The impact can be determined
 beforehand by use of the `exclusive` option with
 GetApplicationGroupApplications.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the application group to delete. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
- @return ApiApplicationGroupsDeleteApplicationGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the application group to delete. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	@return ApiApplicationGroupsDeleteApplicationGroupRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDeleteApplicationGroup(ctx context.Context, nameOrId string) ApiApplicationGroupsDeleteApplicationGroupRequest {
 	return ApiApplicationGroupsDeleteApplicationGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDeleteApplicationGroupExecute(r ApiApplicationGroupsDeleteApplicationGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsDeleteApplicationGroup")
@@ -1391,8 +1392,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDeleteApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1402,8 +1403,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDeleteApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1413,8 +1414,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDeleteApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1424,8 +1425,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDeleteApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1435,8 +1436,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDeleteApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1446,8 +1447,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDeleteApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1457,8 +1458,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDeleteApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1468,8 +1469,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDeleteApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1478,20 +1479,20 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDeleteApplicationGro
 }
 
 type ApiApplicationGroupsDoApplicationGroupSearchRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                context.Context
+	ApiService                         *ApplicationGroupsAPIsDAASService
+	citrixCustomerId                   *string
+	citrixInstanceId                   *string
 	applicationGroupSearchRequestModel *ApplicationGroupSearchRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	fields *string
-	async *bool
+	userAgent                          *string
+	authorization                      *string
+	citrixTransactionId                *string
+	accept                             *string
+	citrixLocale                       *string
+	limit                              *int32
+	continuationToken                  *string
+	fields                             *string
+	async                              *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1576,24 +1577,25 @@ ApplicationGroupsDoApplicationGroupSearch Perform an advanced search for applica
 Perform an advanced search for application groups.  Note that some combinations
 of search parameters may result in slow performance.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApplicationGroupsDoApplicationGroupSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiApplicationGroupsDoApplicationGroupSearchRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDoApplicationGroupSearch(ctx context.Context) ApiApplicationGroupsDoApplicationGroupSearchRequest {
 	return ApiApplicationGroupsDoApplicationGroupSearchRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationGroupResponseModelCollection
+//
+//	@return ApplicationGroupResponseModelCollection
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDoApplicationGroupSearchExecute(r ApiApplicationGroupsDoApplicationGroupSearchRequest) (*ApplicationGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsDoApplicationGroupSearch")
@@ -1707,8 +1709,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDoApplicationGroupSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1718,8 +1720,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDoApplicationGroupSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1729,8 +1731,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDoApplicationGroupSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1740,8 +1742,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDoApplicationGroupSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1751,8 +1753,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDoApplicationGroupSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1762,8 +1764,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDoApplicationGroupSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1773,8 +1775,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDoApplicationGroupSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1784,8 +1786,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDoApplicationGroupSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1795,8 +1797,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDoApplicationGroupSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1814,18 +1816,18 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDoApplicationGroupSe
 }
 
 type ApiApplicationGroupsGetApplicationGroupRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	fields *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	fields              *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1870,7 +1872,7 @@ func (r ApiApplicationGroupsGetApplicationGroupRequest) CitrixLocale(citrixLocal
 	return r
 }
 
-// Optional filter, removing unspecified properties that otherwise would have been sent by the server             
+// Optional filter, removing unspecified properties that otherwise would have been sent by the server
 func (r ApiApplicationGroupsGetApplicationGroupRequest) Fields(fields string) ApiApplicationGroupsGetApplicationGroupRequest {
 	r.fields = &fields
 	return r
@@ -1889,26 +1891,27 @@ func (r ApiApplicationGroupsGetApplicationGroupRequest) Execute() (*ApplicationG
 /*
 ApplicationGroupsGetApplicationGroup Get details of a single application group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the application group. If the application group is present in an application group folder,              specify the name in this format: {application group folder path plus application group name}.              For example, FolderName1|FolderName2|ApplicationGroupName.
- @return ApiApplicationGroupsGetApplicationGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,              specify the name in this format: {application group folder path plus application group name}.              For example, FolderName1|FolderName2|ApplicationGroupName.
+	@return ApiApplicationGroupsGetApplicationGroupRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroup(ctx context.Context, nameOrId string) ApiApplicationGroupsGetApplicationGroupRequest {
 	return ApiApplicationGroupsGetApplicationGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationGroupDetailResponseModel
+//
+//	@return ApplicationGroupDetailResponseModel
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupExecute(r ApiApplicationGroupsGetApplicationGroupRequest) (*ApplicationGroupDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationGroupDetailResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationGroupDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsGetApplicationGroup")
@@ -2012,8 +2015,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2023,8 +2026,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2034,8 +2037,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2045,8 +2048,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2056,8 +2059,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2067,8 +2070,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2078,8 +2081,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2089,8 +2092,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2108,20 +2111,20 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupE
 }
 
 type ApiApplicationGroupsGetApplicationGroupApplicationsRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	fields *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	fields              *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2199,26 +2202,27 @@ ApplicationGroupsGetApplicationGroupApplications Get applications in an applicat
 
 Get all applications in an application group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
- @return ApiApplicationGroupsGetApplicationGroupApplicationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	@return ApiApplicationGroupsGetApplicationGroupApplicationsRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupApplications(ctx context.Context, nameOrId string) ApiApplicationGroupsGetApplicationGroupApplicationsRequest {
 	return ApiApplicationGroupsGetApplicationGroupApplicationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationResponseModelCollection
+//
+//	@return ApplicationResponseModelCollection
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupApplicationsExecute(r ApiApplicationGroupsGetApplicationGroupApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsGetApplicationGroupApplications")
@@ -2328,8 +2332,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2339,8 +2343,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2350,8 +2354,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2361,8 +2365,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2372,8 +2376,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2383,8 +2387,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2394,8 +2398,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2405,8 +2409,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2424,19 +2428,19 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupA
 }
 
 type ApiApplicationGroupsGetApplicationGroupDeliveryGroupsRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2513,7 +2517,6 @@ association specifies the priority of the mapping between the application
 group and delivery group. Lower numbers imply higher priority with zero being
 highest.
 
-
 If one association has a higher priority than the other, machines from that
 group will be selected for launching sessions until all machines are at
 maximum load, in maintenance mode, unregistered, or unavailable for any other
@@ -2525,26 +2528,27 @@ If multiple associations with equal priorities are encountered, session
 launches will be load balanced across all machines in both delivery groups.
 The least-loaded machine across the delivery groups will be chosen.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
- @return ApiApplicationGroupsGetApplicationGroupDeliveryGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	@return ApiApplicationGroupsGetApplicationGroupDeliveryGroupsRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupDeliveryGroups(ctx context.Context, nameOrId string) ApiApplicationGroupsGetApplicationGroupDeliveryGroupsRequest {
 	return ApiApplicationGroupsGetApplicationGroupDeliveryGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationGroupDeliveryGroupResponseModelCollection
+//
+//	@return ApplicationGroupDeliveryGroupResponseModelCollection
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupDeliveryGroupsExecute(r ApiApplicationGroupsGetApplicationGroupDeliveryGroupsRequest) (*ApplicationGroupDeliveryGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationGroupDeliveryGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationGroupDeliveryGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsGetApplicationGroupDeliveryGroups")
@@ -2651,8 +2655,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2662,8 +2666,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2673,8 +2677,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2684,8 +2688,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2695,8 +2699,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2706,8 +2710,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2717,8 +2721,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2728,8 +2732,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2747,17 +2751,17 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupD
 }
 
 type ApiApplicationGroupsGetApplicationGroupTagsRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2822,26 +2826,27 @@ application group. To find tags that are directly associated with the applicatio
 group only, filter the results to those with
 NumApplicationGroups equal to `1`.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
- @return ApiApplicationGroupsGetApplicationGroupTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	@return ApiApplicationGroupsGetApplicationGroupTagsRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupTags(ctx context.Context, nameOrId string) ApiApplicationGroupsGetApplicationGroupTagsRequest {
 	return ApiApplicationGroupsGetApplicationGroupTagsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return TagResponseModelCollection
+//
+//	@return TagResponseModelCollection
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupTagsExecute(r ApiApplicationGroupsGetApplicationGroupTagsRequest) (*TagResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TagResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TagResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsGetApplicationGroupTags")
@@ -2942,8 +2947,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2953,8 +2958,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2964,8 +2969,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2975,8 +2980,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2986,8 +2991,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2997,8 +3002,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3008,8 +3013,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3019,8 +3024,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3038,20 +3043,20 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupT
 }
 
 type ApiApplicationGroupsGetApplicationGroupsRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	adminFolder *string
-	limit *int32
-	continuationToken *string
-	fields *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	adminFolder         *string
+	limit               *int32
+	continuationToken   *string
+	fields              *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3114,7 +3119,7 @@ func (r ApiApplicationGroupsGetApplicationGroupsRequest) ContinuationToken(conti
 	return r
 }
 
-// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.             
+// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.
 func (r ApiApplicationGroupsGetApplicationGroupsRequest) Fields(fields string) ApiApplicationGroupsGetApplicationGroupsRequest {
 	r.fields = &fields
 	return r
@@ -3135,24 +3140,25 @@ ApplicationGroupsGetApplicationGroups Get application groups.
 
 Get all application groups in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApplicationGroupsGetApplicationGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiApplicationGroupsGetApplicationGroupsRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups(ctx context.Context) ApiApplicationGroupsGetApplicationGroupsRequest {
 	return ApiApplicationGroupsGetApplicationGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationGroupResponseModelCollection
+//
+//	@return ApplicationGroupResponseModelCollection
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupsExecute(r ApiApplicationGroupsGetApplicationGroupsRequest) (*ApplicationGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsGetApplicationGroups")
@@ -3264,8 +3270,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3275,8 +3281,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3286,8 +3292,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3297,8 +3303,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3308,8 +3314,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3319,8 +3325,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3330,8 +3336,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3349,20 +3355,20 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 }
 
 type ApiApplicationGroupsGetApplicationGroupsV2Request struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	adminFolder *string
-	limit *int32
-	continuationToken *string
-	fields *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	adminFolder         *string
+	limit               *int32
+	continuationToken   *string
+	fields              *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3425,7 +3431,7 @@ func (r ApiApplicationGroupsGetApplicationGroupsV2Request) ContinuationToken(con
 	return r
 }
 
-// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.             
+// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.
 func (r ApiApplicationGroupsGetApplicationGroupsV2Request) Fields(fields string) ApiApplicationGroupsGetApplicationGroupsV2Request {
 	r.fields = &fields
 	return r
@@ -3446,24 +3452,25 @@ ApplicationGroupsGetApplicationGroupsV2 The V2  version of get application group
 
 Get all application groups in the site with default response fields if no fields parameters specified.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApplicationGroupsGetApplicationGroupsV2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiApplicationGroupsGetApplicationGroupsV2Request
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupsV2(ctx context.Context) ApiApplicationGroupsGetApplicationGroupsV2Request {
 	return ApiApplicationGroupsGetApplicationGroupsV2Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationGroupResponseModelCollection
+//
+//	@return ApplicationGroupResponseModelCollection
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupsV2Execute(r ApiApplicationGroupsGetApplicationGroupsV2Request) (*ApplicationGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsGetApplicationGroupsV2")
@@ -3575,8 +3582,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3586,8 +3593,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3597,8 +3604,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3608,8 +3615,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3619,8 +3626,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3630,8 +3637,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3641,8 +3648,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3660,18 +3667,18 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 }
 
 type ApiApplicationGroupsRemoveApplicationRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	appNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	appNameOrId         string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3733,16 +3740,16 @@ Remove an application from the application group.  If the application is not
 associated with any other application group or delivery group, the application
 will be deleted; otherwise, the application itself will remain in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
- @param appNameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
- @return ApiApplicationGroupsRemoveApplicationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	@param appNameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+	@return ApiApplicationGroupsRemoveApplicationRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplication(ctx context.Context, nameOrId string, appNameOrId string) ApiApplicationGroupsRemoveApplicationRequest {
 	return ApiApplicationGroupsRemoveApplicationRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:  a,
+		ctx:         ctx,
+		nameOrId:    nameOrId,
 		appNameOrId: appNameOrId,
 	}
 }
@@ -3750,9 +3757,9 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplication(ct
 // Execute executes the request
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationExecute(r ApiApplicationGroupsRemoveApplicationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsRemoveApplication")
@@ -3854,8 +3861,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3865,8 +3872,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3876,8 +3883,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3887,8 +3894,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3898,8 +3905,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3909,8 +3916,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3920,8 +3927,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3931,8 +3938,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3941,18 +3948,18 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationExe
 }
 
 type ApiApplicationGroupsRemoveApplicationGroupTagRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	tagNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	tagNameOrId         string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4013,16 +4020,16 @@ ApplicationGroupsRemoveApplicationGroupTag Remove a tag from an application grou
 Remove a tag from an application group.  Does not delete the tag, only its
 association to the application group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
- @param tagNameOrId Name or ID of the tag to remove.
- @return ApiApplicationGroupsRemoveApplicationGroupTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	@param tagNameOrId Name or ID of the tag to remove.
+	@return ApiApplicationGroupsRemoveApplicationGroupTagRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationGroupTag(ctx context.Context, nameOrId string, tagNameOrId string) ApiApplicationGroupsRemoveApplicationGroupTagRequest {
 	return ApiApplicationGroupsRemoveApplicationGroupTagRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:  a,
+		ctx:         ctx,
+		nameOrId:    nameOrId,
 		tagNameOrId: tagNameOrId,
 	}
 }
@@ -4030,9 +4037,9 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationGro
 // Execute executes the request
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationGroupTagExecute(r ApiApplicationGroupsRemoveApplicationGroupTagRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsRemoveApplicationGroupTag")
@@ -4134,8 +4141,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4145,8 +4152,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4156,8 +4163,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4167,8 +4174,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4178,8 +4185,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4189,8 +4196,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4200,8 +4207,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4211,8 +4218,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -4221,18 +4228,18 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationGro
 }
 
 type ApiApplicationGroupsSetApplicationGroupTagsRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	tagsRequestModel *TagsRequestModel
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	tagsRequestModel    *TagsRequestModel
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4300,24 +4307,24 @@ Set the tags associated with an application group.
 Any tag that is not specified will be removed from the application group if it
 was previously associated.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
- @return ApiApplicationGroupsSetApplicationGroupTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	@return ApiApplicationGroupsSetApplicationGroupTagsRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsSetApplicationGroupTags(ctx context.Context, nameOrId string) ApiApplicationGroupsSetApplicationGroupTagsRequest {
 	return ApiApplicationGroupsSetApplicationGroupTagsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsSetApplicationGroupTagsExecute(r ApiApplicationGroupsSetApplicationGroupTagsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsSetApplicationGroupTags")
@@ -4423,8 +4430,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsSetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4434,8 +4441,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsSetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4445,8 +4452,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsSetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4456,8 +4463,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsSetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4467,8 +4474,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsSetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -4478,8 +4485,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsSetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4489,8 +4496,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsSetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4500,8 +4507,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsSetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4511,8 +4518,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsSetApplicationGroupT
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -4521,16 +4528,16 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsSetApplicationGroupT
 }
 
 type ApiApplicationGroupsTestApplicationGroupExistsRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                   context.Context
+	ApiService                            *ApplicationGroupsAPIsDAASService
+	citrixCustomerId                      *string
+	citrixInstanceId                      *string
 	applicationGroupNameCheckRequestModel *ApplicationGroupNameCheckRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                             *string
+	authorization                         *string
+	citrixTransactionId                   *string
+	accept                                *string
+	citrixLocale                          *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4592,22 +4599,22 @@ If the name is found to be available, this returns 404 Not Found. If the name
 is not available (i.e. an application group with the name was found), this
 returns 204 No Content.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApplicationGroupsTestApplicationGroupExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiApplicationGroupsTestApplicationGroupExistsRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsTestApplicationGroupExists(ctx context.Context) ApiApplicationGroupsTestApplicationGroupExistsRequest {
 	return ApiApplicationGroupsTestApplicationGroupExistsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsTestApplicationGroupExistsExecute(r ApiApplicationGroupsTestApplicationGroupExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsTestApplicationGroupExists")
@@ -4709,8 +4716,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsTestApplicationGroup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4720,8 +4727,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsTestApplicationGroup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4731,8 +4738,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsTestApplicationGroup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4742,8 +4749,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsTestApplicationGroup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4753,8 +4760,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsTestApplicationGroup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -4764,8 +4771,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsTestApplicationGroup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4775,8 +4782,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsTestApplicationGroup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4786,8 +4793,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsTestApplicationGroup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4797,8 +4804,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsTestApplicationGroup
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -4807,18 +4814,18 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsTestApplicationGroup
 }
 
 type ApiApplicationGroupsUpdateApplicationGroupRequest struct {
-	ctx context.Context
-	ApiService *ApplicationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                              context.Context
+	ApiService                       *ApplicationGroupsAPIsDAASService
+	citrixCustomerId                 *string
+	citrixInstanceId                 *string
+	nameOrId                         string
 	editApplicationGroupRequestModel *EditApplicationGroupRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                        *string
+	authorization                    *string
+	citrixTransactionId              *string
+	accept                           *string
+	citrixLocale                     *string
+	async                            *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4884,24 +4891,24 @@ ApplicationGroupsUpdateApplicationGroup Update an application group.
 
 Update an application group's properties.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the application group to update. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
- @return ApiApplicationGroupsUpdateApplicationGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the application group to update. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	@return ApiApplicationGroupsUpdateApplicationGroupRequest
 */
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsUpdateApplicationGroup(ctx context.Context, nameOrId string) ApiApplicationGroupsUpdateApplicationGroupRequest {
 	return ApiApplicationGroupsUpdateApplicationGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsUpdateApplicationGroupExecute(r ApiApplicationGroupsUpdateApplicationGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsUpdateApplicationGroup")
@@ -5007,8 +5014,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsUpdateApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5018,8 +5025,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsUpdateApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5029,8 +5036,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsUpdateApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5040,8 +5047,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsUpdateApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5051,8 +5058,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsUpdateApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -5062,8 +5069,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsUpdateApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5073,8 +5080,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsUpdateApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5084,8 +5091,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsUpdateApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5095,8 +5102,8 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsUpdateApplicationGro
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

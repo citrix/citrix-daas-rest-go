@@ -19,8 +19,8 @@ var _ MappedNullable = &EmbargoedPersonId{}
 
 // EmbargoedPersonId struct for EmbargoedPersonId
 type EmbargoedPersonId struct {
-	Embargoed NullableBool `json:"embargoed,omitempty"`
-	PersonId NullableString `json:"personId,omitempty"`
+	Embargoed NullableBool   `json:"embargoed,omitempty"`
+	PersonId  NullableString `json:"personId,omitempty"`
 }
 
 // NewEmbargoedPersonId instantiates a new EmbargoedPersonId object
@@ -72,6 +72,7 @@ func (o *EmbargoedPersonId) HasEmbargoed() bool {
 func (o *EmbargoedPersonId) SetEmbargoed(v bool) {
 	o.Embargoed.Set(&v)
 }
+
 // SetEmbargoedNil sets the value for Embargoed to be an explicit nil
 func (o *EmbargoedPersonId) SetEmbargoedNil() {
 	o.Embargoed.Set(nil)
@@ -114,6 +115,7 @@ func (o *EmbargoedPersonId) HasPersonId() bool {
 func (o *EmbargoedPersonId) SetPersonId(v string) {
 	o.PersonId.Set(&v)
 }
+
 // SetPersonIdNil sets the value for PersonId to be an explicit nil
 func (o *EmbargoedPersonId) SetPersonIdNil() {
 	o.PersonId.Set(nil)
@@ -125,7 +127,7 @@ func (o *EmbargoedPersonId) UnsetPersonId() {
 }
 
 func (o EmbargoedPersonId) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -178,5 +180,3 @@ func (v *NullableEmbargoedPersonId) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

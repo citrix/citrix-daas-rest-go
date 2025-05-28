@@ -78,6 +78,7 @@ func (o *SessionTrendItem) HasDate() bool {
 func (o *SessionTrendItem) SetDate(v string) {
 	o.Date.Set(&v)
 }
+
 // SetDateNil sets the value for Date to be an explicit nil
 func (o *SessionTrendItem) SetDateNil() {
 	o.Date.Set(nil)
@@ -120,6 +121,7 @@ func (o *SessionTrendItem) HasConcurrentSessions() bool {
 func (o *SessionTrendItem) SetConcurrentSessions(v int32) {
 	o.ConcurrentSessions.Set(&v)
 }
+
 // SetConcurrentSessionsNil sets the value for ConcurrentSessions to be an explicit nil
 func (o *SessionTrendItem) SetConcurrentSessionsNil() {
 	o.ConcurrentSessions.Set(nil)
@@ -162,6 +164,7 @@ func (o *SessionTrendItem) HasConnectedSessions() bool {
 func (o *SessionTrendItem) SetConnectedSessions(v int32) {
 	o.ConnectedSessions.Set(&v)
 }
+
 // SetConnectedSessionsNil sets the value for ConnectedSessions to be an explicit nil
 func (o *SessionTrendItem) SetConnectedSessionsNil() {
 	o.ConnectedSessions.Set(nil)
@@ -204,6 +207,7 @@ func (o *SessionTrendItem) HasDisconnectedSessions() bool {
 func (o *SessionTrendItem) SetDisconnectedSessions(v int32) {
 	o.DisconnectedSessions.Set(&v)
 }
+
 // SetDisconnectedSessionsNil sets the value for DisconnectedSessions to be an explicit nil
 func (o *SessionTrendItem) SetDisconnectedSessionsNil() {
 	o.DisconnectedSessions.Set(nil)
@@ -215,7 +219,7 @@ func (o *SessionTrendItem) UnsetDisconnectedSessions() {
 }
 
 func (o SessionTrendItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,5 +278,3 @@ func (v *NullableSessionTrendItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

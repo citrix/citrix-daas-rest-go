@@ -82,6 +82,7 @@ func (o *ImageDefinitionHypervisorConnectionResponseModel) HasId() bool {
 func (o *ImageDefinitionHypervisorConnectionResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *ImageDefinitionHypervisorConnectionResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -124,6 +125,7 @@ func (o *ImageDefinitionHypervisorConnectionResponseModel) HasUid() bool {
 func (o *ImageDefinitionHypervisorConnectionResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *ImageDefinitionHypervisorConnectionResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -166,6 +168,7 @@ func (o *ImageDefinitionHypervisorConnectionResponseModel) HasName() bool {
 func (o *ImageDefinitionHypervisorConnectionResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ImageDefinitionHypervisorConnectionResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -274,6 +277,7 @@ func (o *ImageDefinitionHypervisorConnectionResponseModel) HasPluginFactoryName(
 func (o *ImageDefinitionHypervisorConnectionResponseModel) SetPluginFactoryName(v string) {
 	o.PluginFactoryName.Set(&v)
 }
+
 // SetPluginFactoryNameNil sets the value for PluginFactoryName to be an explicit nil
 func (o *ImageDefinitionHypervisorConnectionResponseModel) SetPluginFactoryNameNil() {
 	o.PluginFactoryName.Set(nil)
@@ -285,7 +289,7 @@ func (o *ImageDefinitionHypervisorConnectionResponseModel) UnsetPluginFactoryNam
 }
 
 func (o ImageDefinitionHypervisorConnectionResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -350,5 +354,3 @@ func (v *NullableImageDefinitionHypervisorConnectionResponseModel) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ComputeType** | Pointer to [**NullableAwsEdcWorkspaceCompute**](AwsEdcWorkspaceCompute.md) |  | [optional] 
+**ComputeType** | Pointer to [**NullableAwsEdcWorkspaceCompute**](AwsEdcWorkspaceCompute.md) | Performance size for bundle creation | [optional] 
 **RootVolumeSize** | Pointer to **NullableInt32** | Size of operating system volume for bundle creation | [optional] 
 **UserVolumeSize** | Pointer to **NullableInt32** | Size of user storage volume for bundle creation | [optional] 
 **VolumesEncrypted** | Pointer to **NullableBool** | Is root and user storage volume encrypted | [optional] 
 **VolumesEncryptionKey** | Pointer to **NullableString** | Volume encryption key | [optional] 
 **ImageId** | Pointer to **NullableString** | Image Id | [optional] 
 **ImageName** | Pointer to **NullableString** | Image Name | [optional] 
-**RunningMode** | Pointer to [**NullableAwsEdcWorkspaceRunningMode**](AwsEdcWorkspaceRunningMode.md) |  | [optional] 
+**RunningMode** | Pointer to [**NullableAwsEdcWorkspaceRunningMode**](AwsEdcWorkspaceRunningMode.md) | Running mode to apply to all workspaces | [optional] 
 **Workspaces** | Pointer to [**[]AwsEdcDeploymentMachine**](AwsEdcDeploymentMachine.md) | Configuration for individual workspace | [optional] 
 **UserDecoupledWorkspaces** | Pointer to **NullableBool** | Image Name | [optional] 
 **DirectoryName** | Pointer to **NullableString** | The name of the directory associated with the deployment | [optional] 

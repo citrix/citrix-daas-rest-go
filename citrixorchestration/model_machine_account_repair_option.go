@@ -20,9 +20,9 @@ type MachineAccountRepairOption string
 
 // List of MachineAccountRepairOption
 const (
-	MACHINEACCOUNTREPAIROPTION_UNKNOWN MachineAccountRepairOption = "Unknown"
+	MACHINEACCOUNTREPAIROPTION_UNKNOWN          MachineAccountRepairOption = "Unknown"
 	MACHINEACCOUNTREPAIROPTION_USER_CERTIFICATE MachineAccountRepairOption = "UserCertificate"
-	MACHINEACCOUNTREPAIROPTION_IDENTITY_INFO MachineAccountRepairOption = "IdentityInfo"
+	MACHINEACCOUNTREPAIROPTION_IDENTITY_INFO    MachineAccountRepairOption = "IdentityInfo"
 )
 
 // All allowed values of MachineAccountRepairOption enum
@@ -38,7 +38,7 @@ func (v *MachineAccountRepairOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MachineAccountRepairOption(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableMachineAccountRepairOption) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

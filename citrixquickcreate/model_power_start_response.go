@@ -19,6 +19,7 @@ var _ MappedNullable = &PowerStartResponse{}
 
 // PowerStartResponse Response of power operation
 type PowerStartResponse struct {
+	// Code for the response
 	Code *PowerResponseCode `json:"code,omitempty"`
 	// Description about the error
 	ErrorDescription NullableString `json:"errorDescription,omitempty"`
@@ -105,6 +106,7 @@ func (o *PowerStartResponse) HasErrorDescription() bool {
 func (o *PowerStartResponse) SetErrorDescription(v string) {
 	o.ErrorDescription.Set(&v)
 }
+
 // SetErrorDescriptionNil sets the value for ErrorDescription to be an explicit nil
 func (o *PowerStartResponse) SetErrorDescriptionNil() {
 	o.ErrorDescription.Set(nil)
@@ -116,7 +118,7 @@ func (o *PowerStartResponse) UnsetErrorDescription() {
 }
 
 func (o PowerStartResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -169,5 +171,3 @@ func (v *NullablePowerStartResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

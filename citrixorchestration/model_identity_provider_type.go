@@ -20,12 +20,12 @@ type IdentityProviderType string
 
 // List of IdentityProviderType
 const (
-	IDENTITYPROVIDERTYPE_UNKNOWN IdentityProviderType = "Unknown"
-	IDENTITYPROVIDERTYPE_AD IdentityProviderType = "AD"
+	IDENTITYPROVIDERTYPE_UNKNOWN  IdentityProviderType = "Unknown"
+	IDENTITYPROVIDERTYPE_AD       IdentityProviderType = "AD"
 	IDENTITYPROVIDERTYPE_AZURE_AD IdentityProviderType = "AzureAD"
-	IDENTITYPROVIDERTYPE_OKTA IdentityProviderType = "Okta"
-	IDENTITYPROVIDERTYPE_GOOGLE IdentityProviderType = "Google"
-	IDENTITYPROVIDERTYPE_ALL IdentityProviderType = "All"
+	IDENTITYPROVIDERTYPE_OKTA     IdentityProviderType = "Okta"
+	IDENTITYPROVIDERTYPE_GOOGLE   IdentityProviderType = "Google"
+	IDENTITYPROVIDERTYPE_ALL      IdentityProviderType = "All"
 )
 
 // All allowed values of IdentityProviderType enum
@@ -44,7 +44,7 @@ func (v *IdentityProviderType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = IdentityProviderType(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableIdentityProviderType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -21,13 +21,13 @@ type BackupRestoreScheduleDays string
 // List of BackupRestoreScheduleDays
 const (
 	BACKUPRESTORESCHEDULEDAYS_NOT_DEFINED BackupRestoreScheduleDays = "NotDefined"
-	BACKUPRESTORESCHEDULEDAYS_SUNDAY BackupRestoreScheduleDays = "Sunday"
-	BACKUPRESTORESCHEDULEDAYS_MONDAY BackupRestoreScheduleDays = "Monday"
-	BACKUPRESTORESCHEDULEDAYS_TUESDAY BackupRestoreScheduleDays = "Tuesday"
-	BACKUPRESTORESCHEDULEDAYS_WEDNESDAY BackupRestoreScheduleDays = "Wednesday"
-	BACKUPRESTORESCHEDULEDAYS_THURSDAY BackupRestoreScheduleDays = "Thursday"
-	BACKUPRESTORESCHEDULEDAYS_FRIDAY BackupRestoreScheduleDays = "Friday"
-	BACKUPRESTORESCHEDULEDAYS_SATURDAY BackupRestoreScheduleDays = "Saturday"
+	BACKUPRESTORESCHEDULEDAYS_SUNDAY      BackupRestoreScheduleDays = "Sunday"
+	BACKUPRESTORESCHEDULEDAYS_MONDAY      BackupRestoreScheduleDays = "Monday"
+	BACKUPRESTORESCHEDULEDAYS_TUESDAY     BackupRestoreScheduleDays = "Tuesday"
+	BACKUPRESTORESCHEDULEDAYS_WEDNESDAY   BackupRestoreScheduleDays = "Wednesday"
+	BACKUPRESTORESCHEDULEDAYS_THURSDAY    BackupRestoreScheduleDays = "Thursday"
+	BACKUPRESTORESCHEDULEDAYS_FRIDAY      BackupRestoreScheduleDays = "Friday"
+	BACKUPRESTORESCHEDULEDAYS_SATURDAY    BackupRestoreScheduleDays = "Saturday"
 )
 
 // All allowed values of BackupRestoreScheduleDays enum
@@ -48,7 +48,7 @@ func (v *BackupRestoreScheduleDays) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = BackupRestoreScheduleDays(value)
 	return nil
 }
@@ -114,4 +114,3 @@ func (v *NullableBackupRestoreScheduleDays) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

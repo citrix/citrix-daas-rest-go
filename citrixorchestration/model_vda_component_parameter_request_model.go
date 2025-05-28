@@ -99,6 +99,7 @@ func (o *VDAComponentParameterRequestModel) HasParameterValue() bool {
 func (o *VDAComponentParameterRequestModel) SetParameterValue(v string) {
 	o.ParameterValue.Set(&v)
 }
+
 // SetParameterValueNil sets the value for ParameterValue to be an explicit nil
 func (o *VDAComponentParameterRequestModel) SetParameterValueNil() {
 	o.ParameterValue.Set(nil)
@@ -110,7 +111,7 @@ func (o *VDAComponentParameterRequestModel) UnsetParameterValue() {
 }
 
 func (o VDAComponentParameterRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -161,5 +162,3 @@ func (v *NullableVDAComponentParameterRequestModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

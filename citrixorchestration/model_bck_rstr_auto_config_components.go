@@ -20,30 +20,30 @@ type BckRstrAutoConfigComponents string
 
 // List of BckRstrAutoConfigComponents
 const (
-	BCKRSTRAUTOCONFIGCOMPONENTS_TAGS BckRstrAutoConfigComponents = "Tags"
-	BCKRSTRAUTOCONFIGCOMPONENTS_ADMIN_SCOPES BckRstrAutoConfigComponents = "AdminScopes"
-	BCKRSTRAUTOCONFIGCOMPONENTS_ADMIN_ROLES BckRstrAutoConfigComponents = "AdminRoles"
-	BCKRSTRAUTOCONFIGCOMPONENTS_ADMIN_ADMINISTRATORS BckRstrAutoConfigComponents = "AdminAdministrators"
-	BCKRSTRAUTOCONFIGCOMPONENTS_HOST_CONNECTIONS BckRstrAutoConfigComponents = "HostConnections"
-	BCKRSTRAUTOCONFIGCOMPONENTS_ICONS BckRstrAutoConfigComponents = "Icons"
-	BCKRSTRAUTOCONFIGCOMPONENTS_ADMIN_FOLDERS BckRstrAutoConfigComponents = "AdminFolders"
-	BCKRSTRAUTOCONFIGCOMPONENTS_MACHINE_CATALOGS BckRstrAutoConfigComponents = "MachineCatalogs"
-	BCKRSTRAUTOCONFIGCOMPONENTS_STORE_FRONTS BckRstrAutoConfigComponents = "StoreFronts"
-	BCKRSTRAUTOCONFIGCOMPONENTS_DELIVERY_GROUPS BckRstrAutoConfigComponents = "DeliveryGroups"
-	BCKRSTRAUTOCONFIGCOMPONENTS_APPLICATION_GROUPS BckRstrAutoConfigComponents = "ApplicationGroups"
-	BCKRSTRAUTOCONFIGCOMPONENTS_APPLICATION_FOLDERS BckRstrAutoConfigComponents = "ApplicationFolders"
-	BCKRSTRAUTOCONFIGCOMPONENTS_APPLICATIONS BckRstrAutoConfigComponents = "Applications"
-	BCKRSTRAUTOCONFIGCOMPONENTS_APP_V_SERVERS BckRstrAutoConfigComponents = "AppVServers"
+	BCKRSTRAUTOCONFIGCOMPONENTS_TAGS                      BckRstrAutoConfigComponents = "Tags"
+	BCKRSTRAUTOCONFIGCOMPONENTS_ADMIN_SCOPES              BckRstrAutoConfigComponents = "AdminScopes"
+	BCKRSTRAUTOCONFIGCOMPONENTS_ADMIN_ROLES               BckRstrAutoConfigComponents = "AdminRoles"
+	BCKRSTRAUTOCONFIGCOMPONENTS_ADMIN_ADMINISTRATORS      BckRstrAutoConfigComponents = "AdminAdministrators"
+	BCKRSTRAUTOCONFIGCOMPONENTS_HOST_CONNECTIONS          BckRstrAutoConfigComponents = "HostConnections"
+	BCKRSTRAUTOCONFIGCOMPONENTS_ICONS                     BckRstrAutoConfigComponents = "Icons"
+	BCKRSTRAUTOCONFIGCOMPONENTS_ADMIN_FOLDERS             BckRstrAutoConfigComponents = "AdminFolders"
+	BCKRSTRAUTOCONFIGCOMPONENTS_MACHINE_CATALOGS          BckRstrAutoConfigComponents = "MachineCatalogs"
+	BCKRSTRAUTOCONFIGCOMPONENTS_STORE_FRONTS              BckRstrAutoConfigComponents = "StoreFronts"
+	BCKRSTRAUTOCONFIGCOMPONENTS_DELIVERY_GROUPS           BckRstrAutoConfigComponents = "DeliveryGroups"
+	BCKRSTRAUTOCONFIGCOMPONENTS_APPLICATION_GROUPS        BckRstrAutoConfigComponents = "ApplicationGroups"
+	BCKRSTRAUTOCONFIGCOMPONENTS_APPLICATION_FOLDERS       BckRstrAutoConfigComponents = "ApplicationFolders"
+	BCKRSTRAUTOCONFIGCOMPONENTS_APPLICATIONS              BckRstrAutoConfigComponents = "Applications"
+	BCKRSTRAUTOCONFIGCOMPONENTS_APP_V_SERVERS             BckRstrAutoConfigComponents = "AppVServers"
 	BCKRSTRAUTOCONFIGCOMPONENTS_APP_LIB_PACKAGE_DISCOVERY BckRstrAutoConfigComponents = "AppLibPackageDiscovery"
-	BCKRSTRAUTOCONFIGCOMPONENTS_APP_V_ISOLATION_GROUPS BckRstrAutoConfigComponents = "AppVIsolationGroups"
-	BCKRSTRAUTOCONFIGCOMPONENTS_GROUP_POLICIES BckRstrAutoConfigComponents = "GroupPolicies"
-	BCKRSTRAUTOCONFIGCOMPONENTS_USER_ZONE_PREFERENCES BckRstrAutoConfigComponents = "UserZonePreferences"
-	BCKRSTRAUTOCONFIGCOMPONENTS_SITE_DATA BckRstrAutoConfigComponents = "SiteData"
-	BCKRSTRAUTOCONFIGCOMPONENTS_ZONES BckRstrAutoConfigComponents = "Zones"
-	BCKRSTRAUTOCONFIGCOMPONENTS_BACKUP_SCHEDULES BckRstrAutoConfigComponents = "BackupSchedules"
-	BCKRSTRAUTOCONFIGCOMPONENTS_ALL BckRstrAutoConfigComponents = "All"
-	BCKRSTRAUTOCONFIGCOMPONENTS_MULTIPLE BckRstrAutoConfigComponents = "Multiple"
-	BCKRSTRAUTOCONFIGCOMPONENTS_UNDEFINED BckRstrAutoConfigComponents = "Undefined"
+	BCKRSTRAUTOCONFIGCOMPONENTS_APP_V_ISOLATION_GROUPS    BckRstrAutoConfigComponents = "AppVIsolationGroups"
+	BCKRSTRAUTOCONFIGCOMPONENTS_GROUP_POLICIES            BckRstrAutoConfigComponents = "GroupPolicies"
+	BCKRSTRAUTOCONFIGCOMPONENTS_USER_ZONE_PREFERENCES     BckRstrAutoConfigComponents = "UserZonePreferences"
+	BCKRSTRAUTOCONFIGCOMPONENTS_SITE_DATA                 BckRstrAutoConfigComponents = "SiteData"
+	BCKRSTRAUTOCONFIGCOMPONENTS_ZONES                     BckRstrAutoConfigComponents = "Zones"
+	BCKRSTRAUTOCONFIGCOMPONENTS_BACKUP_SCHEDULES          BckRstrAutoConfigComponents = "BackupSchedules"
+	BCKRSTRAUTOCONFIGCOMPONENTS_ALL                       BckRstrAutoConfigComponents = "All"
+	BCKRSTRAUTOCONFIGCOMPONENTS_MULTIPLE                  BckRstrAutoConfigComponents = "Multiple"
+	BCKRSTRAUTOCONFIGCOMPONENTS_UNDEFINED                 BckRstrAutoConfigComponents = "Undefined"
 )
 
 // All allowed values of BckRstrAutoConfigComponents enum
@@ -80,7 +80,7 @@ func (v *BckRstrAutoConfigComponents) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = BckRstrAutoConfigComponents(value)
 	return nil
 }
@@ -146,4 +146,3 @@ func (v *NullableBckRstrAutoConfigComponents) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

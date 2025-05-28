@@ -78,6 +78,7 @@ func (o *HypervisorFaultResponseModel) HasState() bool {
 func (o *HypervisorFaultResponseModel) SetState(v string) {
 	o.State.Set(&v)
 }
+
 // SetStateNil sets the value for State to be an explicit nil
 func (o *HypervisorFaultResponseModel) SetStateNil() {
 	o.State.Set(nil)
@@ -120,6 +121,7 @@ func (o *HypervisorFaultResponseModel) HasReason() bool {
 func (o *HypervisorFaultResponseModel) SetReason(v string) {
 	o.Reason.Set(&v)
 }
+
 // SetReasonNil sets the value for Reason to be an explicit nil
 func (o *HypervisorFaultResponseModel) SetReasonNil() {
 	o.Reason.Set(nil)
@@ -162,6 +164,7 @@ func (o *HypervisorFaultResponseModel) HasTimeEntered() bool {
 func (o *HypervisorFaultResponseModel) SetTimeEntered(v string) {
 	o.TimeEntered.Set(&v)
 }
+
 // SetTimeEnteredNil sets the value for TimeEntered to be an explicit nil
 func (o *HypervisorFaultResponseModel) SetTimeEnteredNil() {
 	o.TimeEntered.Set(nil)
@@ -204,6 +207,7 @@ func (o *HypervisorFaultResponseModel) HasDurationInSeconds() bool {
 func (o *HypervisorFaultResponseModel) SetDurationInSeconds(v float64) {
 	o.DurationInSeconds.Set(&v)
 }
+
 // SetDurationInSecondsNil sets the value for DurationInSeconds to be an explicit nil
 func (o *HypervisorFaultResponseModel) SetDurationInSecondsNil() {
 	o.DurationInSeconds.Set(nil)
@@ -215,7 +219,7 @@ func (o *HypervisorFaultResponseModel) UnsetDurationInSeconds() {
 }
 
 func (o HypervisorFaultResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,5 +278,3 @@ func (v *NullableHypervisorFaultResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

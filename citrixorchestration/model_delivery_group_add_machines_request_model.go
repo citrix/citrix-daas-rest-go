@@ -101,6 +101,7 @@ func (o *DeliveryGroupAddMachinesRequestModel) HasCount() bool {
 func (o *DeliveryGroupAddMachinesRequestModel) SetCount(v int32) {
 	o.Count.Set(&v)
 }
+
 // SetCountNil sets the value for Count to be an explicit nil
 func (o *DeliveryGroupAddMachinesRequestModel) SetCountNil() {
 	o.Count.Set(nil)
@@ -145,7 +146,7 @@ func (o *DeliveryGroupAddMachinesRequestModel) SetAssignMachinesToUsers(v []Assi
 }
 
 func (o DeliveryGroupAddMachinesRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -199,5 +200,3 @@ func (v *NullableDeliveryGroupAddMachinesRequestModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

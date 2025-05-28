@@ -20,11 +20,11 @@ type AwsEdcDirectoryType string
 
 // List of AwsEdcDirectoryType
 const (
-	AWSEDCDIRECTORYTYPE_ADCONNECTOR AwsEdcDirectoryType = "ADCONNECTOR"
-	AWSEDCDIRECTORYTYPE_AD_CONNECTOR AwsEdcDirectoryType = "AD_CONNECTOR"
-	AWSEDCDIRECTORYTYPE_SIMPLEAD AwsEdcDirectoryType = "SIMPLEAD"
-	AWSEDCDIRECTORYTYPE_SIMPLE_AD AwsEdcDirectoryType = "SIMPLE_AD"
-	AWSEDCDIRECTORYTYPE_MICROSOFTAD AwsEdcDirectoryType = "MICROSOFTAD"
+	AWSEDCDIRECTORYTYPE_ADCONNECTOR       AwsEdcDirectoryType = "ADCONNECTOR"
+	AWSEDCDIRECTORYTYPE_AD_CONNECTOR      AwsEdcDirectoryType = "AD_CONNECTOR"
+	AWSEDCDIRECTORYTYPE_SIMPLEAD          AwsEdcDirectoryType = "SIMPLEAD"
+	AWSEDCDIRECTORYTYPE_SIMPLE_AD         AwsEdcDirectoryType = "SIMPLE_AD"
+	AWSEDCDIRECTORYTYPE_MICROSOFTAD       AwsEdcDirectoryType = "MICROSOFTAD"
 	AWSEDCDIRECTORYTYPE_SHAREDMICROSOFTAD AwsEdcDirectoryType = "SHAREDMICROSOFTAD"
 )
 
@@ -116,4 +116,3 @@ func (v *NullableAwsEdcDirectoryType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

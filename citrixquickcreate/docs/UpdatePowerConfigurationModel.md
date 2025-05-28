@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RunningMode** | Pointer to [**NullableAwsEdcWorkspaceRunningMode**](AwsEdcWorkspaceRunningMode.md) |  | [optional] 
+**RunningMode** | Pointer to [**NullableAwsEdcWorkspaceRunningMode**](AwsEdcWorkspaceRunningMode.md) | Running Mode (Manual or AlwaysOn for AWS Deployments) | [optional] 
 **AutoScaleEnabled** | Pointer to **NullableBool** | Whether auto-scale is enabled for the delivery group. | [optional] 
 **OffPeakDisconnectTimeoutMinutes** | Pointer to **NullableInt32** | The number of minutes before the configured action should be  performed after a user session disconnects outside peak hours. | [optional] 
 **OffPeakBufferSizePercent** | Pointer to **NullableInt32** | The percentage of machines in the delivery group that should be  kept available in an idle state outside peak hours. | [optional] 
 **DisconnectOffPeakIdleSessionAfterSeconds** | Pointer to **NullableInt32** | Specifies the time in seconds after which an idle session  belonging to the delivery group is disconnected during off-peak time. | [optional] 
 **TimeZone** | Pointer to **NullableString** | The time zone in which this delivery group&#39;s machines reside. | [optional] 
-**OffPeakLogOffAction** | Pointer to [**NullableSessionChangeHostingAction**](SessionChangeHostingAction.md) |  | [optional] 
-**OffPeakDisconnectAction** | Pointer to [**NullableSessionChangeHostingAction**](SessionChangeHostingAction.md) |  | [optional] 
+**OffPeakLogOffAction** | Pointer to [**NullableSessionChangeHostingAction**](SessionChangeHostingAction.md) | The action to be performed after a configurable period of a user  session ending outside peak hours. | [optional] 
+**OffPeakDisconnectAction** | Pointer to [**NullableSessionChangeHostingAction**](SessionChangeHostingAction.md) | The action to be performed after a second configurable period of a  user session disconnecting outside peak hours. | [optional] 
 **OffPeakLogOffTimeoutMinutes** | Pointer to **NullableInt32** | The number of minutes before the configured action should be  performed after a user session ends outside peak hours. | [optional] 
 
 ## Methods

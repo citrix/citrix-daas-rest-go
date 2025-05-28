@@ -24,8 +24,8 @@ type ProvisioningOperationEventSearchRequestModel struct {
 	// List of advanced search filters.
 	SearchFilters []ProvisioningOperationEventSearchFilterRequestModel `json:"SearchFilters,omitempty"`
 	// List of advanced search filter groups.
-	SearchFilterGroups []ProvisioningOperationEventSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
-	SearchFilterGroupsType *ProvisioningOperationEventSearchFilterGroupsType `json:"SearchFilterGroupsType,omitempty"`
+	SearchFilterGroups     []ProvisioningOperationEventSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
+	SearchFilterGroupsType *ProvisioningOperationEventSearchFilterGroupsType         `json:"SearchFilterGroupsType,omitempty"`
 	// Sort criteria for the results, multiple sorting criteria can be specified here.
 	SortCriteriaItems []ProvisioningOperationEventSortCriteriaRequestModel `json:"SortCriteriaItems,omitempty"`
 }
@@ -79,6 +79,7 @@ func (o *ProvisioningOperationEventSearchRequestModel) HasBasicSearchString() bo
 func (o *ProvisioningOperationEventSearchRequestModel) SetBasicSearchString(v string) {
 	o.BasicSearchString.Set(&v)
 }
+
 // SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
 func (o *ProvisioningOperationEventSearchRequestModel) SetBasicSearchStringNil() {
 	o.BasicSearchString.Set(nil)
@@ -221,7 +222,7 @@ func (o *ProvisioningOperationEventSearchRequestModel) SetSortCriteriaItems(v []
 }
 
 func (o ProvisioningOperationEventSearchRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -283,5 +284,3 @@ func (v *NullableProvisioningOperationEventSearchRequestModel) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

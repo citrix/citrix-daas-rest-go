@@ -20,13 +20,13 @@ type SamlAuthContextType string
 
 // List of SamlAuthContextType
 const (
-	SAMLAUTHCONTEXTTYPE_UNSPECIFIED SamlAuthContextType = "Unspecified"
-	SAMLAUTHCONTEXTTYPE_USER_NAME_AND_PASSWORD SamlAuthContextType = "UserNameAndPassword"
-	SAMLAUTHCONTEXTTYPE_X509_CERT SamlAuthContextType = "X509Cert"
-	SAMLAUTHCONTEXTTYPE_INTEGRATED_WIN_AUTH SamlAuthContextType = "IntegratedWinAuth"
-	SAMLAUTHCONTEXTTYPE_KERBEROS SamlAuthContextType = "Kerberos"
+	SAMLAUTHCONTEXTTYPE_UNSPECIFIED                  SamlAuthContextType = "Unspecified"
+	SAMLAUTHCONTEXTTYPE_USER_NAME_AND_PASSWORD       SamlAuthContextType = "UserNameAndPassword"
+	SAMLAUTHCONTEXTTYPE_X509_CERT                    SamlAuthContextType = "X509Cert"
+	SAMLAUTHCONTEXTTYPE_INTEGRATED_WIN_AUTH          SamlAuthContextType = "IntegratedWinAuth"
+	SAMLAUTHCONTEXTTYPE_KERBEROS                     SamlAuthContextType = "Kerberos"
 	SAMLAUTHCONTEXTTYPE_PASSWORD_PROTECTED_TRANSPORT SamlAuthContextType = "PasswordProtectedTransport"
-	SAMLAUTHCONTEXTTYPE_TLS_CLIENT SamlAuthContextType = "TLSClient"
+	SAMLAUTHCONTEXTTYPE_TLS_CLIENT                   SamlAuthContextType = "TLSClient"
 )
 
 // All allowed values of SamlAuthContextType enum
@@ -118,4 +118,3 @@ func (v *NullableSamlAuthContextType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

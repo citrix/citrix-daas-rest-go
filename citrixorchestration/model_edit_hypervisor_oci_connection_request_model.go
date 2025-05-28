@@ -20,7 +20,7 @@ var _ MappedNullable = &EditHypervisorOciConnectionRequestModel{}
 // EditHypervisorOciConnectionRequestModel struct for EditHypervisorOciConnectionRequestModel
 type EditHypervisorOciConnectionRequestModel struct {
 	// Name of the hypervisor to create.  Optional; if not specified, will not be changed.
-	Name NullableString `json:"Name,omitempty"`
+	Name NullableString `json:"Name,omitempty" validate:"regexp=(.*)*"`
 	// Specifies whether the hypervisor is in maintenance mode, which disables all communication between XenApp & XenDesktop and the Hypervisor.  Optional; if not specified, will not be changed.
 	InMaintenanceMode NullableBool `json:"InMaintenanceMode,omitempty"`
 	// Administrative scopes which the newly created hypervisor will be a part of. If not specified, will not be changed. The \"All\" scope, and any tenant scopes, are implicit and cannot be removed.  To remove from all non-implicit scopes, specify an empty array ([]). Specifying tenant scopes is equivalent to specifying the Tenants property and is subject to the same constraints.
@@ -34,48 +34,48 @@ type EditHypervisorOciConnectionRequestModel struct {
 	// Maximum percentage of machines on the hypervisor which can have their power state changed simultaneously.  Optional; if not specified, will not be changed.
 	MaxPowerActionsPercentageOfMachines NullableInt32 `json:"MaxPowerActionsPercentageOfMachines,omitempty"`
 	// Connection options to use for the hypervisor.  Optional; if not specified, will not be changed.  May be removed by specifying an empty string (`\"\"`).
-	ConnectionOptions NullableString `json:"ConnectionOptions,omitempty"`
-	ConnectionType HypervisorConnectionType `json:"ConnectionType"`
+	ConnectionOptions NullableString           `json:"ConnectionOptions,omitempty" validate:"regexp=((.|\\\\n)*)"`
+	ConnectionType    HypervisorConnectionType `json:"ConnectionType"`
 	// Metadata for hypervisor connection. When set the property value equal to null/empty means to remove this property.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// The API key used to authenticate with the AWS APIs.  Optional.  If not specified, will not be changed.  If specified, the SecretKey must also be specified.
-	ApiKey NullableString `json:"ApiKey,omitempty"`
+	ApiKey NullableString `json:"ApiKey,omitempty" validate:"regexp=(.*)*"`
 	// The secret key used to authenticate with the AWS APIs.  Optional. Must be specified in the format indicated by SecretKeyFormat.
-	SecretKey NullableString `json:"SecretKey,omitempty"`
+	SecretKey       NullableString          `json:"SecretKey,omitempty" validate:"regexp=(.*)*"`
 	SecretKeyFormat *IdentityPasswordFormat `json:"SecretKeyFormat,omitempty"`
 	// Maximum number of concurrent AWS provisioning operations. Optional.  If not specified, will not be changed.
 	MaximumConcurrentProvisioningOperations NullableInt32 `json:"MaximumConcurrentProvisioningOperations,omitempty"`
 	// Custom AWS Address. Only when the connection without the resourcePool can be updated.
 	Address NullableString `json:"Address,omitempty"`
 	// The properties of host connection that are specific to the target hosting infrastructure.
-	CustomProperties NullableString `json:"CustomProperties,omitempty"`
+	CustomProperties NullableString `json:"CustomProperties,omitempty" validate:"regexp=((.|\\\\n)*)"`
 	// Application ID of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, then ApplicationSecret must also be specified.
-	ApplicationId NullableString `json:"ApplicationId,omitempty"`
+	ApplicationId NullableString `json:"ApplicationId,omitempty" validate:"regexp=^([0-9A-Fa-f]{8}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{12})$"`
 	// The Application Secret of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, must in the format indicated by ApplicationSecretFormat.
-	ApplicationSecret NullableString `json:"ApplicationSecret,omitempty"`
+	ApplicationSecret       NullableString          `json:"ApplicationSecret,omitempty"`
 	ApplicationSecretFormat *IdentityPasswordFormat `json:"ApplicationSecretFormat,omitempty"`
 	// The service account ID used to access the Oracle Cloud Infrastructure APIs. Required.
-	ServiceAccountId string `json:"ServiceAccountId"`
+	ServiceAccountId string `json:"ServiceAccountId" validate:"regexp=(.*)*"`
 	// the JSON-encoded service account credentials used to access the Google Cloud APIs.  Optional.  If not specified, will not be changed.  If specified, must be in the format indicated by ServiceAccountCredentialsFormat.
-	ServiceAccountCredentials NullableString `json:"ServiceAccountCredentials,omitempty"`
+	ServiceAccountCredentials       NullableString          `json:"ServiceAccountCredentials,omitempty" validate:"regexp=((.|\\\\n)*)"`
 	ServiceAccountCredentialsFormat *IdentityPasswordFormat `json:"ServiceAccountCredentialsFormat,omitempty"`
 	// Hypervisor user name.  Optional.  If not specified, will not be changed.  If specified, Password must also be specified.
-	UserName NullableString `json:"UserName,omitempty"`
+	UserName NullableString `json:"UserName,omitempty" validate:"regexp=(.*)*"`
 	// Hypervisor password.  Optional.  If specified, must be in the format indicated by PasswordFormat.
-	Password NullableString `json:"Password,omitempty"`
+	Password       NullableString          `json:"Password,omitempty" validate:"regexp=(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\\\$%\\\\^&\\\\*]).{8,}|^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$|(.*)*"`
 	PasswordFormat *IdentityPasswordFormat `json:"PasswordFormat,omitempty"`
 	// Hypervisor address(es).  Optional.  If not specified, will not be changed.
 	Addresses []string `json:"Addresses,omitempty"`
 	// SSL certificate thumbprints to consider acceptable for this connection.  Optional.  If not specified, will not be changed.  To remove previously specified values, specify an empty array (`[]`).
 	SslThumbprints []string `json:"SslThumbprints,omitempty"`
 	// Specifies whether to use Microsoft System Center Configuration Manager 2012 SP1 Wake-up Proxy for power management.  Optional.  If not specified, will not be changed.
-	SccmWakeUpProxy NullableBool `json:"SccmWakeUpProxy,omitempty"`
+	SccmWakeUpProxy  NullableBool           `json:"SccmWakeUpProxy,omitempty"`
 	WakeOnLanPackets *WakeOnLanTransmission `json:"WakeOnLanPackets,omitempty"`
 	// The private key string to access the Oracle Cloud Infrastructure APIs. Required. Must be specified in the format indicated by ServiceAccountCredentialFormat.
-	ServiceAccountCredential string `json:"ServiceAccountCredential"`
+	ServiceAccountCredential       string                  `json:"ServiceAccountCredential" validate:"regexp=((.|\\\\n)*)"`
 	ServiceAccountCredentialFormat *IdentityPasswordFormat `json:"ServiceAccountCredentialFormat,omitempty"`
 	// The fingerprint of the public key associate with the ServiceAccountCredential.
-	ServiceAccountFingerprint string `json:"ServiceAccountFingerprint"`
+	ServiceAccountFingerprint string `json:"ServiceAccountFingerprint" validate:"regexp=(.*)*"`
 }
 
 // NewEditHypervisorOciConnectionRequestModel instantiates a new EditHypervisorOciConnectionRequestModel object
@@ -131,6 +131,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasName() bool {
 func (o *EditHypervisorOciConnectionRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -173,6 +174,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasInMaintenanceMode() bool {
 func (o *EditHypervisorOciConnectionRequestModel) SetInMaintenanceMode(v bool) {
 	o.InMaintenanceMode.Set(&v)
 }
+
 // SetInMaintenanceModeNil sets the value for InMaintenanceMode to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetInMaintenanceModeNil() {
 	o.InMaintenanceMode.Set(nil)
@@ -281,6 +283,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasMaxAbsoluteActiveActions() 
 func (o *EditHypervisorOciConnectionRequestModel) SetMaxAbsoluteActiveActions(v int32) {
 	o.MaxAbsoluteActiveActions.Set(&v)
 }
+
 // SetMaxAbsoluteActiveActionsNil sets the value for MaxAbsoluteActiveActions to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetMaxAbsoluteActiveActionsNil() {
 	o.MaxAbsoluteActiveActions.Set(nil)
@@ -323,6 +326,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasMaxAbsoluteNewActionsPerMin
 func (o *EditHypervisorOciConnectionRequestModel) SetMaxAbsoluteNewActionsPerMinute(v int32) {
 	o.MaxAbsoluteNewActionsPerMinute.Set(&v)
 }
+
 // SetMaxAbsoluteNewActionsPerMinuteNil sets the value for MaxAbsoluteNewActionsPerMinute to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetMaxAbsoluteNewActionsPerMinuteNil() {
 	o.MaxAbsoluteNewActionsPerMinute.Set(nil)
@@ -365,6 +369,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasMaxPowerActionsPercentageOf
 func (o *EditHypervisorOciConnectionRequestModel) SetMaxPowerActionsPercentageOfMachines(v int32) {
 	o.MaxPowerActionsPercentageOfMachines.Set(&v)
 }
+
 // SetMaxPowerActionsPercentageOfMachinesNil sets the value for MaxPowerActionsPercentageOfMachines to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetMaxPowerActionsPercentageOfMachinesNil() {
 	o.MaxPowerActionsPercentageOfMachines.Set(nil)
@@ -407,6 +412,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasConnectionOptions() bool {
 func (o *EditHypervisorOciConnectionRequestModel) SetConnectionOptions(v string) {
 	o.ConnectionOptions.Set(&v)
 }
+
 // SetConnectionOptionsNil sets the value for ConnectionOptions to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetConnectionOptionsNil() {
 	o.ConnectionOptions.Set(nil)
@@ -506,6 +512,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasApiKey() bool {
 func (o *EditHypervisorOciConnectionRequestModel) SetApiKey(v string) {
 	o.ApiKey.Set(&v)
 }
+
 // SetApiKeyNil sets the value for ApiKey to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetApiKeyNil() {
 	o.ApiKey.Set(nil)
@@ -548,6 +555,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasSecretKey() bool {
 func (o *EditHypervisorOciConnectionRequestModel) SetSecretKey(v string) {
 	o.SecretKey.Set(&v)
 }
+
 // SetSecretKeyNil sets the value for SecretKey to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetSecretKeyNil() {
 	o.SecretKey.Set(nil)
@@ -622,6 +630,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasMaximumConcurrentProvisioni
 func (o *EditHypervisorOciConnectionRequestModel) SetMaximumConcurrentProvisioningOperations(v int32) {
 	o.MaximumConcurrentProvisioningOperations.Set(&v)
 }
+
 // SetMaximumConcurrentProvisioningOperationsNil sets the value for MaximumConcurrentProvisioningOperations to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetMaximumConcurrentProvisioningOperationsNil() {
 	o.MaximumConcurrentProvisioningOperations.Set(nil)
@@ -664,6 +673,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasAddress() bool {
 func (o *EditHypervisorOciConnectionRequestModel) SetAddress(v string) {
 	o.Address.Set(&v)
 }
+
 // SetAddressNil sets the value for Address to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetAddressNil() {
 	o.Address.Set(nil)
@@ -706,6 +716,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasCustomProperties() bool {
 func (o *EditHypervisorOciConnectionRequestModel) SetCustomProperties(v string) {
 	o.CustomProperties.Set(&v)
 }
+
 // SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetCustomPropertiesNil() {
 	o.CustomProperties.Set(nil)
@@ -748,6 +759,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasApplicationId() bool {
 func (o *EditHypervisorOciConnectionRequestModel) SetApplicationId(v string) {
 	o.ApplicationId.Set(&v)
 }
+
 // SetApplicationIdNil sets the value for ApplicationId to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetApplicationIdNil() {
 	o.ApplicationId.Set(nil)
@@ -790,6 +802,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasApplicationSecret() bool {
 func (o *EditHypervisorOciConnectionRequestModel) SetApplicationSecret(v string) {
 	o.ApplicationSecret.Set(&v)
 }
+
 // SetApplicationSecretNil sets the value for ApplicationSecret to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetApplicationSecretNil() {
 	o.ApplicationSecret.Set(nil)
@@ -888,6 +901,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasServiceAccountCredentials()
 func (o *EditHypervisorOciConnectionRequestModel) SetServiceAccountCredentials(v string) {
 	o.ServiceAccountCredentials.Set(&v)
 }
+
 // SetServiceAccountCredentialsNil sets the value for ServiceAccountCredentials to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetServiceAccountCredentialsNil() {
 	o.ServiceAccountCredentials.Set(nil)
@@ -962,6 +976,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasUserName() bool {
 func (o *EditHypervisorOciConnectionRequestModel) SetUserName(v string) {
 	o.UserName.Set(&v)
 }
+
 // SetUserNameNil sets the value for UserName to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetUserNameNil() {
 	o.UserName.Set(nil)
@@ -1004,6 +1019,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasPassword() bool {
 func (o *EditHypervisorOciConnectionRequestModel) SetPassword(v string) {
 	o.Password.Set(&v)
 }
+
 // SetPasswordNil sets the value for Password to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetPasswordNil() {
 	o.Password.Set(nil)
@@ -1143,6 +1159,7 @@ func (o *EditHypervisorOciConnectionRequestModel) HasSccmWakeUpProxy() bool {
 func (o *EditHypervisorOciConnectionRequestModel) SetSccmWakeUpProxy(v bool) {
 	o.SccmWakeUpProxy.Set(&v)
 }
+
 // SetSccmWakeUpProxyNil sets the value for SccmWakeUpProxy to be an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) SetSccmWakeUpProxyNil() {
 	o.SccmWakeUpProxy.Set(nil)
@@ -1266,7 +1283,7 @@ func (o *EditHypervisorOciConnectionRequestModel) SetServiceAccountFingerprint(v
 }
 
 func (o EditHypervisorOciConnectionRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1401,5 +1418,3 @@ func (v *NullableEditHypervisorOciConnectionRequestModel) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

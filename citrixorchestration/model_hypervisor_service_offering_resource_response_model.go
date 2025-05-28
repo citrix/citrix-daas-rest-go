@@ -19,44 +19,24 @@ var _ MappedNullable = &HypervisorServiceOfferingResourceResponseModel{}
 
 // HypervisorServiceOfferingResourceResponseModel struct for HypervisorServiceOfferingResourceResponseModel
 type HypervisorServiceOfferingResourceResponseModel struct {
-	// Id of the resource.
-	Id NullableString `json:"Id,omitempty"`
-	// Name of the resource.
-	Name NullableString `json:"Name,omitempty"`
-	// XenApp & XenDesktop path to the resource on the hypervisor.  An example value is: `XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot` or `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}`
-	XDPath NullableString `json:"XDPath,omitempty"`
-	// Path to the object, relative to the resource pool from which it was queried. `{{vm name}}.vm/{{snapshot name}}.snapshot`
-	RelativePath NullableString `json:"RelativePath,omitempty"`
-	// Full path to the resource, including the hypervisor, relative to the root of the API. Example: `Hypervisors/{{hypervisor id}}/ResourcePools/{{resource pool id}}/Resources/{{RelativePath}}`
-	FullRelativePath NullableString `json:"FullRelativePath,omitempty"`
-	// Type of resource.
-	ResourceType string `json:"ResourceType"`
-	// The type name of the hypervisor resource object.
-	ObjectTypeName NullableString `json:"ObjectTypeName,omitempty"`
-	ResourceContainer *HypervisorResourceRefResponseModel `json:"ResourceContainer,omitempty"`
-	// Citrix Apps and Desktops path to the resource on the ResourcePool.  An example value is: `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}` This value 
-	ResourcePoolXDPath NullableString `json:"ResourcePoolXDPath,omitempty"`
-	// Name of the resource, with the type concatenated. i.e. \"name.type\".
-	FullName string `json:"FullName"`
-	// Indicates whether the resource is a container.
-	IsContainer bool `json:"IsContainer"`
-	// Child resources, when the resource is a container.
-	Children []HypervisorResourceResponseModel `json:"Children,omitempty"`
-	// Indicates whether the resource is a machine.
-	IsMachine bool `json:"IsMachine"`
-	// Indicates whether the resource can have a snapshot taken.
-	IsSnapshotable bool `json:"IsSnapshotable"`
-	// Path to the resource, relative to the special \"AllResources\" resource pool associated with the hypervisor.
-	AllResourcesRelativePath string `json:"AllResourcesRelativePath"`
-	ResourcePool HypervisorResourcePoolRefResponseModel `json:"ResourcePool"`
-	// Indicates whether the object is a valid symbolic link.
-	IsSymLink bool `json:"IsSymLink"`
-	// Additional data about the object in the form of key-value pairs.
-	AdditionalData []NameValueStringPairModel `json:"AdditionalData,omitempty"`
-	// Indicates whether this service offering prescribes dedicated tenancy for the instances that use it.
-	DedicatedTenancy NullableString `json:"DedicatedTenancy,omitempty"`
+	// Indicates whether this zone supports the use of security groups for isolation.
+	SupportsSecurityGroups bool `json:"SupportsSecurityGroups"`
+	// Indicates whether the GPU type is enabled on the hypervisor.
+	Enabled bool `json:"Enabled"`
+	// Frame Buffer Size in MB
+	FrameBufferSizeMB int32 `json:"FrameBufferSizeMB"`
+	// Indicates whether the GPU type has resources dedicated to it.
+	HasDedicatedResource bool `json:"HasDedicatedResource"`
 	// A human-readable description of this service offering, as supplied when the offering was created in the cloud management API or console.
 	Description NullableString `json:"Description,omitempty"`
+	// Egress rules governing outbound network traffic.
+	EgressRules []HypervisorSecurityGroupRuleResponseModel `json:"EgressRules"`
+	// Ingress rules governing inbound network traffic.
+	IngressRules []HypervisorSecurityGroupRuleResponseModel `json:"IngressRules"`
+	// The identifier of the associated VPC.
+	VirtualPrivateCloudId NullableString `json:"VirtualPrivateCloudId,omitempty"`
+	// Indicates whether this service offering prescribes dedicated tenancy for the instances that use it.
+	DedicatedTenancy NullableString `json:"DedicatedTenancy,omitempty"`
 	// The amount of memory that is available to instances using this service offering, measured in megabytes.
 	MemorySizeMB float32 `json:"MemorySizeMB"`
 	// The number of virtual cores that are available to instances using this service offering.
@@ -75,14 +55,92 @@ type HypervisorServiceOfferingResourceResponseModel struct {
 	IsUsedInSite bool `json:"IsUsedInSite"`
 	// Indicates whether the service offering supports premium storage. This property is only meaningful on Azure.
 	SupportsAzurePremiumStorage NullableBool `json:"SupportsAzurePremiumStorage,omitempty"`
+	// Indicates whether storage has been superseded.  Superseded storage may be used for existing virtual machines, but is not used when provisioning new virtual machines.
+	Superseded bool `json:"Superseded"`
+	// The account ID for the owner of this template.
+	Owner NullableString `json:"Owner,omitempty"`
+	// Indicates whether this is a Windows OS template, if known.
+	IsWindowsTemplate NullableBool `json:"IsWindowsTemplate,omitempty"`
+	// Indicates whether this template has a persistent root volume (eg. is an EBS-backed image on AWS).
+	HasPersistentRootVolume bool `json:"HasPersistentRootVolume"`
+	// Id of the VM, as defined by the hypervisor.
+	VMId string `json:"VMId"`
+	// MAC address of the VM.
+	MacAddress NullableString `json:"MacAddress,omitempty"`
+	// Number of CPUs, if known.
+	CpuCount NullableInt32 `json:"CpuCount,omitempty"`
+	// Memory in megabytes, if known.
+	MemoryMB NullableInt32 `json:"MemoryMB,omitempty"`
+	// Hard disk size in gigabytes, if known.
+	HardDiskSizeGB NullableInt32 `json:"HardDiskSizeGB,omitempty"`
+	// Minimum memory required to run this VM or snapshot, in megabytes, if known.
+	MinMemoryMB NullableInt32 `json:"MinMemoryMB,omitempty"`
+	// Network mappings associated with the VM, if known.
+	NetworkMappings []NetworkMapResponseModel `json:"NetworkMappings,omitempty"`
+	// Disks attached to the VM, if known.
+	AttachedDisks []AttachedDiskResponseModel `json:"AttachedDisks,omitempty"`
+	// Indicates the maximum number of security groups allowed per instance in this VPC
+	InstanceSecurityGroupLimit int32 `json:"InstanceSecurityGroupLimit"`
+	// The API address with the region.
+	Endpoint NullableString `json:"Endpoint,omitempty"`
+	// Id of the resource.
+	Id NullableString `json:"Id,omitempty"`
+	// Name of the resource.
+	Name NullableString `json:"Name,omitempty"`
+	// XenApp & XenDesktop path to the resource on the hypervisor.  An example value is: `XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot` or `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}`
+	XDPath NullableString `json:"XDPath,omitempty"`
+	// Path to the object, relative to the resource pool from which it was queried. `{{vm name}}.vm/{{snapshot name}}.snapshot`
+	RelativePath NullableString `json:"RelativePath,omitempty"`
+	// Full path to the resource, including the hypervisor, relative to the root of the API. Example: `Hypervisors/{{hypervisor id}}/ResourcePools/{{resource pool id}}/Resources/{{RelativePath}}`
+	FullRelativePath NullableString `json:"FullRelativePath,omitempty"`
+	// Type of resource.
+	ResourceType string `json:"ResourceType"`
+	// The type name of the hypervisor resource object.
+	ObjectTypeName    NullableString                      `json:"ObjectTypeName,omitempty"`
+	ResourceContainer *HypervisorResourceRefResponseModel `json:"ResourceContainer,omitempty"`
+	// Citrix Apps and Desktops path to the resource on the ResourcePool.  An example value is: `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}` This value
+	ResourcePoolXDPath NullableString `json:"ResourcePoolXDPath,omitempty"`
+	// Name of the resource, with the type concatenated. i.e. \"name.type\".
+	FullName string `json:"FullName"`
+	// Indicates whether the resource is a container.
+	IsContainer bool `json:"IsContainer"`
+	// Child resources, when the resource is a container.
+	Children []HypervisorResourceResponseModel `json:"Children,omitempty"`
+	// Indicates whether the resource is a machine.
+	IsMachine bool `json:"IsMachine"`
+	// Indicates whether the resource can have a snapshot taken.
+	IsSnapshotable bool `json:"IsSnapshotable"`
+	// Path to the resource, relative to the special \"AllResources\" resource pool associated with the hypervisor.
+	AllResourcesRelativePath string                                 `json:"AllResourcesRelativePath"`
+	ResourcePool             HypervisorResourcePoolRefResponseModel `json:"ResourcePool"`
+	// Indicates whether the object is a valid symbolic link.
+	IsSymLink bool `json:"IsSymLink"`
+	// Additional data about the object in the form of key-value pairs.
+	AdditionalData []NameValueStringPairModel `json:"AdditionalData,omitempty"`
 }
 
 // NewHypervisorServiceOfferingResourceResponseModel instantiates a new HypervisorServiceOfferingResourceResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHypervisorServiceOfferingResourceResponseModel(resourceType string, fullName string, isContainer bool, isMachine bool, isSnapshotable bool, allResourcesRelativePath string, resourcePool HypervisorResourcePoolRefResponseModel, isSymLink bool, memorySizeMB float32, numberOfCores float32, optimizedForPooledDesktops bool, networkPerformanceIsUnlimited bool, networkPerformanceIsDefault bool, isUsedInSite bool) *HypervisorServiceOfferingResourceResponseModel {
+func NewHypervisorServiceOfferingResourceResponseModel(supportsSecurityGroups bool, enabled bool, frameBufferSizeMB int32, hasDedicatedResource bool, egressRules []HypervisorSecurityGroupRuleResponseModel, ingressRules []HypervisorSecurityGroupRuleResponseModel, memorySizeMB float32, numberOfCores float32, optimizedForPooledDesktops bool, networkPerformanceIsUnlimited bool, networkPerformanceIsDefault bool, isUsedInSite bool, superseded bool, hasPersistentRootVolume bool, vMId string, instanceSecurityGroupLimit int32, resourceType string, fullName string, isContainer bool, isMachine bool, isSnapshotable bool, allResourcesRelativePath string, resourcePool HypervisorResourcePoolRefResponseModel, isSymLink bool) *HypervisorServiceOfferingResourceResponseModel {
 	this := HypervisorServiceOfferingResourceResponseModel{}
+	this.SupportsSecurityGroups = supportsSecurityGroups
+	this.Enabled = enabled
+	this.FrameBufferSizeMB = frameBufferSizeMB
+	this.HasDedicatedResource = hasDedicatedResource
+	this.EgressRules = egressRules
+	this.IngressRules = ingressRules
+	this.MemorySizeMB = memorySizeMB
+	this.NumberOfCores = numberOfCores
+	this.OptimizedForPooledDesktops = optimizedForPooledDesktops
+	this.NetworkPerformanceIsUnlimited = networkPerformanceIsUnlimited
+	this.NetworkPerformanceIsDefault = networkPerformanceIsDefault
+	this.IsUsedInSite = isUsedInSite
+	this.Superseded = superseded
+	this.HasPersistentRootVolume = hasPersistentRootVolume
+	this.VMId = vMId
+	this.InstanceSecurityGroupLimit = instanceSecurityGroupLimit
 	this.ResourceType = resourceType
 	this.FullName = fullName
 	this.IsContainer = isContainer
@@ -91,12 +149,6 @@ func NewHypervisorServiceOfferingResourceResponseModel(resourceType string, full
 	this.AllResourcesRelativePath = allResourcesRelativePath
 	this.ResourcePool = resourcePool
 	this.IsSymLink = isSymLink
-	this.MemorySizeMB = memorySizeMB
-	this.NumberOfCores = numberOfCores
-	this.OptimizedForPooledDesktops = optimizedForPooledDesktops
-	this.NetworkPerformanceIsUnlimited = networkPerformanceIsUnlimited
-	this.NetworkPerformanceIsDefault = networkPerformanceIsDefault
-	this.IsUsedInSite = isUsedInSite
 	return &this
 }
 
@@ -106,6 +158,1058 @@ func NewHypervisorServiceOfferingResourceResponseModel(resourceType string, full
 func NewHypervisorServiceOfferingResourceResponseModelWithDefaults() *HypervisorServiceOfferingResourceResponseModel {
 	this := HypervisorServiceOfferingResourceResponseModel{}
 	return &this
+}
+
+// GetSupportsSecurityGroups returns the SupportsSecurityGroups field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetSupportsSecurityGroups() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.SupportsSecurityGroups
+}
+
+// GetSupportsSecurityGroupsOk returns a tuple with the SupportsSecurityGroups field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetSupportsSecurityGroupsOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SupportsSecurityGroups, true
+}
+
+// SetSupportsSecurityGroups sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetSupportsSecurityGroups(v bool) {
+	o.SupportsSecurityGroups = v
+}
+
+// GetEnabled returns the Enabled field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetEnabled() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Enabled
+}
+
+// GetEnabledOk returns a tuple with the Enabled field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Enabled, true
+}
+
+// SetEnabled sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetEnabled(v bool) {
+	o.Enabled = v
+}
+
+// GetFrameBufferSizeMB returns the FrameBufferSizeMB field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetFrameBufferSizeMB() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FrameBufferSizeMB
+}
+
+// GetFrameBufferSizeMBOk returns a tuple with the FrameBufferSizeMB field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetFrameBufferSizeMBOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FrameBufferSizeMB, true
+}
+
+// SetFrameBufferSizeMB sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetFrameBufferSizeMB(v int32) {
+	o.FrameBufferSizeMB = v
+}
+
+// GetHasDedicatedResource returns the HasDedicatedResource field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetHasDedicatedResource() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.HasDedicatedResource
+}
+
+// GetHasDedicatedResourceOk returns a tuple with the HasDedicatedResource field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetHasDedicatedResourceOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HasDedicatedResource, true
+}
+
+// SetHasDedicatedResource sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetHasDedicatedResource(v bool) {
+	o.HasDedicatedResource = v
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetDescription() string {
+	if o == nil || IsNil(o.Description.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Description.Get()
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Description.Get(), o.Description.IsSet()
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasDescription() bool {
+	if o != nil && o.Description.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetDescription(v string) {
+	o.Description.Set(&v)
+}
+
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetEgressRules returns the EgressRules field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetEgressRules() []HypervisorSecurityGroupRuleResponseModel {
+	if o == nil {
+		var ret []HypervisorSecurityGroupRuleResponseModel
+		return ret
+	}
+
+	return o.EgressRules
+}
+
+// GetEgressRulesOk returns a tuple with the EgressRules field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetEgressRulesOk() ([]HypervisorSecurityGroupRuleResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EgressRules, true
+}
+
+// SetEgressRules sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetEgressRules(v []HypervisorSecurityGroupRuleResponseModel) {
+	o.EgressRules = v
+}
+
+// GetIngressRules returns the IngressRules field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetIngressRules() []HypervisorSecurityGroupRuleResponseModel {
+	if o == nil {
+		var ret []HypervisorSecurityGroupRuleResponseModel
+		return ret
+	}
+
+	return o.IngressRules
+}
+
+// GetIngressRulesOk returns a tuple with the IngressRules field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetIngressRulesOk() ([]HypervisorSecurityGroupRuleResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IngressRules, true
+}
+
+// SetIngressRules sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetIngressRules(v []HypervisorSecurityGroupRuleResponseModel) {
+	o.IngressRules = v
+}
+
+// GetVirtualPrivateCloudId returns the VirtualPrivateCloudId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetVirtualPrivateCloudId() string {
+	if o == nil || IsNil(o.VirtualPrivateCloudId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VirtualPrivateCloudId.Get()
+}
+
+// GetVirtualPrivateCloudIdOk returns a tuple with the VirtualPrivateCloudId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetVirtualPrivateCloudIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VirtualPrivateCloudId.Get(), o.VirtualPrivateCloudId.IsSet()
+}
+
+// HasVirtualPrivateCloudId returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasVirtualPrivateCloudId() bool {
+	if o != nil && o.VirtualPrivateCloudId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVirtualPrivateCloudId gets a reference to the given NullableString and assigns it to the VirtualPrivateCloudId field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetVirtualPrivateCloudId(v string) {
+	o.VirtualPrivateCloudId.Set(&v)
+}
+
+// SetVirtualPrivateCloudIdNil sets the value for VirtualPrivateCloudId to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetVirtualPrivateCloudIdNil() {
+	o.VirtualPrivateCloudId.Set(nil)
+}
+
+// UnsetVirtualPrivateCloudId ensures that no value is present for VirtualPrivateCloudId, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetVirtualPrivateCloudId() {
+	o.VirtualPrivateCloudId.Unset()
+}
+
+// GetDedicatedTenancy returns the DedicatedTenancy field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetDedicatedTenancy() string {
+	if o == nil || IsNil(o.DedicatedTenancy.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.DedicatedTenancy.Get()
+}
+
+// GetDedicatedTenancyOk returns a tuple with the DedicatedTenancy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetDedicatedTenancyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DedicatedTenancy.Get(), o.DedicatedTenancy.IsSet()
+}
+
+// HasDedicatedTenancy returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasDedicatedTenancy() bool {
+	if o != nil && o.DedicatedTenancy.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDedicatedTenancy gets a reference to the given NullableString and assigns it to the DedicatedTenancy field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetDedicatedTenancy(v string) {
+	o.DedicatedTenancy.Set(&v)
+}
+
+// SetDedicatedTenancyNil sets the value for DedicatedTenancy to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetDedicatedTenancyNil() {
+	o.DedicatedTenancy.Set(nil)
+}
+
+// UnsetDedicatedTenancy ensures that no value is present for DedicatedTenancy, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetDedicatedTenancy() {
+	o.DedicatedTenancy.Unset()
+}
+
+// GetMemorySizeMB returns the MemorySizeMB field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetMemorySizeMB() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.MemorySizeMB
+}
+
+// GetMemorySizeMBOk returns a tuple with the MemorySizeMB field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetMemorySizeMBOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MemorySizeMB, true
+}
+
+// SetMemorySizeMB sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetMemorySizeMB(v float32) {
+	o.MemorySizeMB = v
+}
+
+// GetNumberOfCores returns the NumberOfCores field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetNumberOfCores() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.NumberOfCores
+}
+
+// GetNumberOfCoresOk returns a tuple with the NumberOfCores field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetNumberOfCoresOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NumberOfCores, true
+}
+
+// SetNumberOfCores sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetNumberOfCores(v float32) {
+	o.NumberOfCores = v
+}
+
+// GetAmazonComputeUnits returns the AmazonComputeUnits field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetAmazonComputeUnits() float32 {
+	if o == nil || IsNil(o.AmazonComputeUnits.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.AmazonComputeUnits.Get()
+}
+
+// GetAmazonComputeUnitsOk returns a tuple with the AmazonComputeUnits field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetAmazonComputeUnitsOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AmazonComputeUnits.Get(), o.AmazonComputeUnits.IsSet()
+}
+
+// HasAmazonComputeUnits returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasAmazonComputeUnits() bool {
+	if o != nil && o.AmazonComputeUnits.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAmazonComputeUnits gets a reference to the given NullableFloat32 and assigns it to the AmazonComputeUnits field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetAmazonComputeUnits(v float32) {
+	o.AmazonComputeUnits.Set(&v)
+}
+
+// SetAmazonComputeUnitsNil sets the value for AmazonComputeUnits to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetAmazonComputeUnitsNil() {
+	o.AmazonComputeUnits.Set(nil)
+}
+
+// UnsetAmazonComputeUnits ensures that no value is present for AmazonComputeUnits, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetAmazonComputeUnits() {
+	o.AmazonComputeUnits.Unset()
+}
+
+// GetOptimizedForPooledDesktops returns the OptimizedForPooledDesktops field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetOptimizedForPooledDesktops() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.OptimizedForPooledDesktops
+}
+
+// GetOptimizedForPooledDesktopsOk returns a tuple with the OptimizedForPooledDesktops field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetOptimizedForPooledDesktopsOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OptimizedForPooledDesktops, true
+}
+
+// SetOptimizedForPooledDesktops sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetOptimizedForPooledDesktops(v bool) {
+	o.OptimizedForPooledDesktops = v
+}
+
+// GetNetworkPerformance returns the NetworkPerformance field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkPerformance() string {
+	if o == nil || IsNil(o.NetworkPerformance.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.NetworkPerformance.Get()
+}
+
+// GetNetworkPerformanceOk returns a tuple with the NetworkPerformance field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkPerformanceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NetworkPerformance.Get(), o.NetworkPerformance.IsSet()
+}
+
+// HasNetworkPerformance returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasNetworkPerformance() bool {
+	if o != nil && o.NetworkPerformance.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkPerformance gets a reference to the given NullableString and assigns it to the NetworkPerformance field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetNetworkPerformance(v string) {
+	o.NetworkPerformance.Set(&v)
+}
+
+// SetNetworkPerformanceNil sets the value for NetworkPerformance to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetNetworkPerformanceNil() {
+	o.NetworkPerformance.Set(nil)
+}
+
+// UnsetNetworkPerformance ensures that no value is present for NetworkPerformance, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetNetworkPerformance() {
+	o.NetworkPerformance.Unset()
+}
+
+// GetNetworkPerformanceIsUnlimited returns the NetworkPerformanceIsUnlimited field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkPerformanceIsUnlimited() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.NetworkPerformanceIsUnlimited
+}
+
+// GetNetworkPerformanceIsUnlimitedOk returns a tuple with the NetworkPerformanceIsUnlimited field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkPerformanceIsUnlimitedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NetworkPerformanceIsUnlimited, true
+}
+
+// SetNetworkPerformanceIsUnlimited sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetNetworkPerformanceIsUnlimited(v bool) {
+	o.NetworkPerformanceIsUnlimited = v
+}
+
+// GetNetworkPerformanceIsDefault returns the NetworkPerformanceIsDefault field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkPerformanceIsDefault() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.NetworkPerformanceIsDefault
+}
+
+// GetNetworkPerformanceIsDefaultOk returns a tuple with the NetworkPerformanceIsDefault field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkPerformanceIsDefaultOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NetworkPerformanceIsDefault, true
+}
+
+// SetNetworkPerformanceIsDefault sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetNetworkPerformanceIsDefault(v bool) {
+	o.NetworkPerformanceIsDefault = v
+}
+
+// GetIsUsedInSite returns the IsUsedInSite field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetIsUsedInSite() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsUsedInSite
+}
+
+// GetIsUsedInSiteOk returns a tuple with the IsUsedInSite field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetIsUsedInSiteOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsUsedInSite, true
+}
+
+// SetIsUsedInSite sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetIsUsedInSite(v bool) {
+	o.IsUsedInSite = v
+}
+
+// GetSupportsAzurePremiumStorage returns the SupportsAzurePremiumStorage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetSupportsAzurePremiumStorage() bool {
+	if o == nil || IsNil(o.SupportsAzurePremiumStorage.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.SupportsAzurePremiumStorage.Get()
+}
+
+// GetSupportsAzurePremiumStorageOk returns a tuple with the SupportsAzurePremiumStorage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetSupportsAzurePremiumStorageOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SupportsAzurePremiumStorage.Get(), o.SupportsAzurePremiumStorage.IsSet()
+}
+
+// HasSupportsAzurePremiumStorage returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasSupportsAzurePremiumStorage() bool {
+	if o != nil && o.SupportsAzurePremiumStorage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSupportsAzurePremiumStorage gets a reference to the given NullableBool and assigns it to the SupportsAzurePremiumStorage field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetSupportsAzurePremiumStorage(v bool) {
+	o.SupportsAzurePremiumStorage.Set(&v)
+}
+
+// SetSupportsAzurePremiumStorageNil sets the value for SupportsAzurePremiumStorage to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetSupportsAzurePremiumStorageNil() {
+	o.SupportsAzurePremiumStorage.Set(nil)
+}
+
+// UnsetSupportsAzurePremiumStorage ensures that no value is present for SupportsAzurePremiumStorage, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetSupportsAzurePremiumStorage() {
+	o.SupportsAzurePremiumStorage.Unset()
+}
+
+// GetSuperseded returns the Superseded field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetSuperseded() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Superseded
+}
+
+// GetSupersededOk returns a tuple with the Superseded field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetSupersededOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Superseded, true
+}
+
+// SetSuperseded sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetSuperseded(v bool) {
+	o.Superseded = v
+}
+
+// GetOwner returns the Owner field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetOwner() string {
+	if o == nil || IsNil(o.Owner.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Owner.Get()
+}
+
+// GetOwnerOk returns a tuple with the Owner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetOwnerOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Owner.Get(), o.Owner.IsSet()
+}
+
+// HasOwner returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasOwner() bool {
+	if o != nil && o.Owner.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOwner gets a reference to the given NullableString and assigns it to the Owner field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetOwner(v string) {
+	o.Owner.Set(&v)
+}
+
+// SetOwnerNil sets the value for Owner to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetOwnerNil() {
+	o.Owner.Set(nil)
+}
+
+// UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetOwner() {
+	o.Owner.Unset()
+}
+
+// GetIsWindowsTemplate returns the IsWindowsTemplate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetIsWindowsTemplate() bool {
+	if o == nil || IsNil(o.IsWindowsTemplate.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.IsWindowsTemplate.Get()
+}
+
+// GetIsWindowsTemplateOk returns a tuple with the IsWindowsTemplate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetIsWindowsTemplateOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IsWindowsTemplate.Get(), o.IsWindowsTemplate.IsSet()
+}
+
+// HasIsWindowsTemplate returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasIsWindowsTemplate() bool {
+	if o != nil && o.IsWindowsTemplate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIsWindowsTemplate gets a reference to the given NullableBool and assigns it to the IsWindowsTemplate field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetIsWindowsTemplate(v bool) {
+	o.IsWindowsTemplate.Set(&v)
+}
+
+// SetIsWindowsTemplateNil sets the value for IsWindowsTemplate to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetIsWindowsTemplateNil() {
+	o.IsWindowsTemplate.Set(nil)
+}
+
+// UnsetIsWindowsTemplate ensures that no value is present for IsWindowsTemplate, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetIsWindowsTemplate() {
+	o.IsWindowsTemplate.Unset()
+}
+
+// GetHasPersistentRootVolume returns the HasPersistentRootVolume field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetHasPersistentRootVolume() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.HasPersistentRootVolume
+}
+
+// GetHasPersistentRootVolumeOk returns a tuple with the HasPersistentRootVolume field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetHasPersistentRootVolumeOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HasPersistentRootVolume, true
+}
+
+// SetHasPersistentRootVolume sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetHasPersistentRootVolume(v bool) {
+	o.HasPersistentRootVolume = v
+}
+
+// GetVMId returns the VMId field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetVMId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.VMId
+}
+
+// GetVMIdOk returns a tuple with the VMId field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetVMIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.VMId, true
+}
+
+// SetVMId sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetVMId(v string) {
+	o.VMId = v
+}
+
+// GetMacAddress returns the MacAddress field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetMacAddress() string {
+	if o == nil || IsNil(o.MacAddress.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.MacAddress.Get()
+}
+
+// GetMacAddressOk returns a tuple with the MacAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetMacAddressOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MacAddress.Get(), o.MacAddress.IsSet()
+}
+
+// HasMacAddress returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasMacAddress() bool {
+	if o != nil && o.MacAddress.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMacAddress gets a reference to the given NullableString and assigns it to the MacAddress field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetMacAddress(v string) {
+	o.MacAddress.Set(&v)
+}
+
+// SetMacAddressNil sets the value for MacAddress to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetMacAddressNil() {
+	o.MacAddress.Set(nil)
+}
+
+// UnsetMacAddress ensures that no value is present for MacAddress, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetMacAddress() {
+	o.MacAddress.Unset()
+}
+
+// GetCpuCount returns the CpuCount field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetCpuCount() int32 {
+	if o == nil || IsNil(o.CpuCount.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.CpuCount.Get()
+}
+
+// GetCpuCountOk returns a tuple with the CpuCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetCpuCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CpuCount.Get(), o.CpuCount.IsSet()
+}
+
+// HasCpuCount returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasCpuCount() bool {
+	if o != nil && o.CpuCount.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCpuCount gets a reference to the given NullableInt32 and assigns it to the CpuCount field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetCpuCount(v int32) {
+	o.CpuCount.Set(&v)
+}
+
+// SetCpuCountNil sets the value for CpuCount to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetCpuCountNil() {
+	o.CpuCount.Set(nil)
+}
+
+// UnsetCpuCount ensures that no value is present for CpuCount, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetCpuCount() {
+	o.CpuCount.Unset()
+}
+
+// GetMemoryMB returns the MemoryMB field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetMemoryMB() int32 {
+	if o == nil || IsNil(o.MemoryMB.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.MemoryMB.Get()
+}
+
+// GetMemoryMBOk returns a tuple with the MemoryMB field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetMemoryMBOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MemoryMB.Get(), o.MemoryMB.IsSet()
+}
+
+// HasMemoryMB returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasMemoryMB() bool {
+	if o != nil && o.MemoryMB.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMemoryMB gets a reference to the given NullableInt32 and assigns it to the MemoryMB field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetMemoryMB(v int32) {
+	o.MemoryMB.Set(&v)
+}
+
+// SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetMemoryMBNil() {
+	o.MemoryMB.Set(nil)
+}
+
+// UnsetMemoryMB ensures that no value is present for MemoryMB, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetMemoryMB() {
+	o.MemoryMB.Unset()
+}
+
+// GetHardDiskSizeGB returns the HardDiskSizeGB field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetHardDiskSizeGB() int32 {
+	if o == nil || IsNil(o.HardDiskSizeGB.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.HardDiskSizeGB.Get()
+}
+
+// GetHardDiskSizeGBOk returns a tuple with the HardDiskSizeGB field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetHardDiskSizeGBOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.HardDiskSizeGB.Get(), o.HardDiskSizeGB.IsSet()
+}
+
+// HasHardDiskSizeGB returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasHardDiskSizeGB() bool {
+	if o != nil && o.HardDiskSizeGB.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHardDiskSizeGB gets a reference to the given NullableInt32 and assigns it to the HardDiskSizeGB field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetHardDiskSizeGB(v int32) {
+	o.HardDiskSizeGB.Set(&v)
+}
+
+// SetHardDiskSizeGBNil sets the value for HardDiskSizeGB to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetHardDiskSizeGBNil() {
+	o.HardDiskSizeGB.Set(nil)
+}
+
+// UnsetHardDiskSizeGB ensures that no value is present for HardDiskSizeGB, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetHardDiskSizeGB() {
+	o.HardDiskSizeGB.Unset()
+}
+
+// GetMinMemoryMB returns the MinMemoryMB field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetMinMemoryMB() int32 {
+	if o == nil || IsNil(o.MinMemoryMB.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.MinMemoryMB.Get()
+}
+
+// GetMinMemoryMBOk returns a tuple with the MinMemoryMB field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetMinMemoryMBOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MinMemoryMB.Get(), o.MinMemoryMB.IsSet()
+}
+
+// HasMinMemoryMB returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasMinMemoryMB() bool {
+	if o != nil && o.MinMemoryMB.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMinMemoryMB gets a reference to the given NullableInt32 and assigns it to the MinMemoryMB field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetMinMemoryMB(v int32) {
+	o.MinMemoryMB.Set(&v)
+}
+
+// SetMinMemoryMBNil sets the value for MinMemoryMB to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetMinMemoryMBNil() {
+	o.MinMemoryMB.Set(nil)
+}
+
+// UnsetMinMemoryMB ensures that no value is present for MinMemoryMB, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetMinMemoryMB() {
+	o.MinMemoryMB.Unset()
+}
+
+// GetNetworkMappings returns the NetworkMappings field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkMappings() []NetworkMapResponseModel {
+	if o == nil {
+		var ret []NetworkMapResponseModel
+		return ret
+	}
+	return o.NetworkMappings
+}
+
+// GetNetworkMappingsOk returns a tuple with the NetworkMappings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkMappingsOk() ([]NetworkMapResponseModel, bool) {
+	if o == nil || IsNil(o.NetworkMappings) {
+		return nil, false
+	}
+	return o.NetworkMappings, true
+}
+
+// HasNetworkMappings returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasNetworkMappings() bool {
+	if o != nil && IsNil(o.NetworkMappings) {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkMappings gets a reference to the given []NetworkMapResponseModel and assigns it to the NetworkMappings field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetNetworkMappings(v []NetworkMapResponseModel) {
+	o.NetworkMappings = v
+}
+
+// GetAttachedDisks returns the AttachedDisks field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetAttachedDisks() []AttachedDiskResponseModel {
+	if o == nil {
+		var ret []AttachedDiskResponseModel
+		return ret
+	}
+	return o.AttachedDisks
+}
+
+// GetAttachedDisksOk returns a tuple with the AttachedDisks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetAttachedDisksOk() ([]AttachedDiskResponseModel, bool) {
+	if o == nil || IsNil(o.AttachedDisks) {
+		return nil, false
+	}
+	return o.AttachedDisks, true
+}
+
+// HasAttachedDisks returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasAttachedDisks() bool {
+	if o != nil && IsNil(o.AttachedDisks) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttachedDisks gets a reference to the given []AttachedDiskResponseModel and assigns it to the AttachedDisks field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetAttachedDisks(v []AttachedDiskResponseModel) {
+	o.AttachedDisks = v
+}
+
+// GetInstanceSecurityGroupLimit returns the InstanceSecurityGroupLimit field value
+func (o *HypervisorServiceOfferingResourceResponseModel) GetInstanceSecurityGroupLimit() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.InstanceSecurityGroupLimit
+}
+
+// GetInstanceSecurityGroupLimitOk returns a tuple with the InstanceSecurityGroupLimit field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) GetInstanceSecurityGroupLimitOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.InstanceSecurityGroupLimit, true
+}
+
+// SetInstanceSecurityGroupLimit sets field value
+func (o *HypervisorServiceOfferingResourceResponseModel) SetInstanceSecurityGroupLimit(v int32) {
+	o.InstanceSecurityGroupLimit = v
+}
+
+// GetEndpoint returns the Endpoint field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorServiceOfferingResourceResponseModel) GetEndpoint() string {
+	if o == nil || IsNil(o.Endpoint.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Endpoint.Get()
+}
+
+// GetEndpointOk returns a tuple with the Endpoint field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorServiceOfferingResourceResponseModel) GetEndpointOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Endpoint.Get(), o.Endpoint.IsSet()
+}
+
+// HasEndpoint returns a boolean if a field has been set.
+func (o *HypervisorServiceOfferingResourceResponseModel) HasEndpoint() bool {
+	if o != nil && o.Endpoint.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEndpoint gets a reference to the given NullableString and assigns it to the Endpoint field.
+func (o *HypervisorServiceOfferingResourceResponseModel) SetEndpoint(v string) {
+	o.Endpoint.Set(&v)
+}
+
+// SetEndpointNil sets the value for Endpoint to be an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) SetEndpointNil() {
+	o.Endpoint.Set(nil)
+}
+
+// UnsetEndpoint ensures that no value is present for Endpoint, not even an explicit nil
+func (o *HypervisorServiceOfferingResourceResponseModel) UnsetEndpoint() {
+	o.Endpoint.Unset()
 }
 
 // GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -140,6 +1244,7 @@ func (o *HypervisorServiceOfferingResourceResponseModel) HasId() bool {
 func (o *HypervisorServiceOfferingResourceResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *HypervisorServiceOfferingResourceResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -182,6 +1287,7 @@ func (o *HypervisorServiceOfferingResourceResponseModel) HasName() bool {
 func (o *HypervisorServiceOfferingResourceResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *HypervisorServiceOfferingResourceResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -224,6 +1330,7 @@ func (o *HypervisorServiceOfferingResourceResponseModel) HasXDPath() bool {
 func (o *HypervisorServiceOfferingResourceResponseModel) SetXDPath(v string) {
 	o.XDPath.Set(&v)
 }
+
 // SetXDPathNil sets the value for XDPath to be an explicit nil
 func (o *HypervisorServiceOfferingResourceResponseModel) SetXDPathNil() {
 	o.XDPath.Set(nil)
@@ -266,6 +1373,7 @@ func (o *HypervisorServiceOfferingResourceResponseModel) HasRelativePath() bool 
 func (o *HypervisorServiceOfferingResourceResponseModel) SetRelativePath(v string) {
 	o.RelativePath.Set(&v)
 }
+
 // SetRelativePathNil sets the value for RelativePath to be an explicit nil
 func (o *HypervisorServiceOfferingResourceResponseModel) SetRelativePathNil() {
 	o.RelativePath.Set(nil)
@@ -308,6 +1416,7 @@ func (o *HypervisorServiceOfferingResourceResponseModel) HasFullRelativePath() b
 func (o *HypervisorServiceOfferingResourceResponseModel) SetFullRelativePath(v string) {
 	o.FullRelativePath.Set(&v)
 }
+
 // SetFullRelativePathNil sets the value for FullRelativePath to be an explicit nil
 func (o *HypervisorServiceOfferingResourceResponseModel) SetFullRelativePathNil() {
 	o.FullRelativePath.Set(nil)
@@ -374,6 +1483,7 @@ func (o *HypervisorServiceOfferingResourceResponseModel) HasObjectTypeName() boo
 func (o *HypervisorServiceOfferingResourceResponseModel) SetObjectTypeName(v string) {
 	o.ObjectTypeName.Set(&v)
 }
+
 // SetObjectTypeNameNil sets the value for ObjectTypeName to be an explicit nil
 func (o *HypervisorServiceOfferingResourceResponseModel) SetObjectTypeNameNil() {
 	o.ObjectTypeName.Set(nil)
@@ -448,6 +1558,7 @@ func (o *HypervisorServiceOfferingResourceResponseModel) HasResourcePoolXDPath()
 func (o *HypervisorServiceOfferingResourceResponseModel) SetResourcePoolXDPath(v string) {
 	o.ResourcePoolXDPath.Set(&v)
 }
+
 // SetResourcePoolXDPathNil sets the value for ResourcePoolXDPath to be an explicit nil
 func (o *HypervisorServiceOfferingResourceResponseModel) SetResourcePoolXDPathNil() {
 	o.ResourcePoolXDPath.Set(nil)
@@ -692,362 +1803,8 @@ func (o *HypervisorServiceOfferingResourceResponseModel) SetAdditionalData(v []N
 	o.AdditionalData = v
 }
 
-// GetDedicatedTenancy returns the DedicatedTenancy field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HypervisorServiceOfferingResourceResponseModel) GetDedicatedTenancy() string {
-	if o == nil || IsNil(o.DedicatedTenancy.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.DedicatedTenancy.Get()
-}
-
-// GetDedicatedTenancyOk returns a tuple with the DedicatedTenancy field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HypervisorServiceOfferingResourceResponseModel) GetDedicatedTenancyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.DedicatedTenancy.Get(), o.DedicatedTenancy.IsSet()
-}
-
-// HasDedicatedTenancy returns a boolean if a field has been set.
-func (o *HypervisorServiceOfferingResourceResponseModel) HasDedicatedTenancy() bool {
-	if o != nil && o.DedicatedTenancy.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDedicatedTenancy gets a reference to the given NullableString and assigns it to the DedicatedTenancy field.
-func (o *HypervisorServiceOfferingResourceResponseModel) SetDedicatedTenancy(v string) {
-	o.DedicatedTenancy.Set(&v)
-}
-// SetDedicatedTenancyNil sets the value for DedicatedTenancy to be an explicit nil
-func (o *HypervisorServiceOfferingResourceResponseModel) SetDedicatedTenancyNil() {
-	o.DedicatedTenancy.Set(nil)
-}
-
-// UnsetDedicatedTenancy ensures that no value is present for DedicatedTenancy, not even an explicit nil
-func (o *HypervisorServiceOfferingResourceResponseModel) UnsetDedicatedTenancy() {
-	o.DedicatedTenancy.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HypervisorServiceOfferingResourceResponseModel) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Description.Get()
-}
-
-// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HypervisorServiceOfferingResourceResponseModel) GetDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Description.Get(), o.Description.IsSet()
-}
-
-// HasDescription returns a boolean if a field has been set.
-func (o *HypervisorServiceOfferingResourceResponseModel) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
-func (o *HypervisorServiceOfferingResourceResponseModel) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *HypervisorServiceOfferingResourceResponseModel) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *HypervisorServiceOfferingResourceResponseModel) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetMemorySizeMB returns the MemorySizeMB field value
-func (o *HypervisorServiceOfferingResourceResponseModel) GetMemorySizeMB() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.MemorySizeMB
-}
-
-// GetMemorySizeMBOk returns a tuple with the MemorySizeMB field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorServiceOfferingResourceResponseModel) GetMemorySizeMBOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.MemorySizeMB, true
-}
-
-// SetMemorySizeMB sets field value
-func (o *HypervisorServiceOfferingResourceResponseModel) SetMemorySizeMB(v float32) {
-	o.MemorySizeMB = v
-}
-
-// GetNumberOfCores returns the NumberOfCores field value
-func (o *HypervisorServiceOfferingResourceResponseModel) GetNumberOfCores() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.NumberOfCores
-}
-
-// GetNumberOfCoresOk returns a tuple with the NumberOfCores field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorServiceOfferingResourceResponseModel) GetNumberOfCoresOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.NumberOfCores, true
-}
-
-// SetNumberOfCores sets field value
-func (o *HypervisorServiceOfferingResourceResponseModel) SetNumberOfCores(v float32) {
-	o.NumberOfCores = v
-}
-
-// GetAmazonComputeUnits returns the AmazonComputeUnits field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HypervisorServiceOfferingResourceResponseModel) GetAmazonComputeUnits() float32 {
-	if o == nil || IsNil(o.AmazonComputeUnits.Get()) {
-		var ret float32
-		return ret
-	}
-	return *o.AmazonComputeUnits.Get()
-}
-
-// GetAmazonComputeUnitsOk returns a tuple with the AmazonComputeUnits field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HypervisorServiceOfferingResourceResponseModel) GetAmazonComputeUnitsOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AmazonComputeUnits.Get(), o.AmazonComputeUnits.IsSet()
-}
-
-// HasAmazonComputeUnits returns a boolean if a field has been set.
-func (o *HypervisorServiceOfferingResourceResponseModel) HasAmazonComputeUnits() bool {
-	if o != nil && o.AmazonComputeUnits.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAmazonComputeUnits gets a reference to the given NullableFloat32 and assigns it to the AmazonComputeUnits field.
-func (o *HypervisorServiceOfferingResourceResponseModel) SetAmazonComputeUnits(v float32) {
-	o.AmazonComputeUnits.Set(&v)
-}
-// SetAmazonComputeUnitsNil sets the value for AmazonComputeUnits to be an explicit nil
-func (o *HypervisorServiceOfferingResourceResponseModel) SetAmazonComputeUnitsNil() {
-	o.AmazonComputeUnits.Set(nil)
-}
-
-// UnsetAmazonComputeUnits ensures that no value is present for AmazonComputeUnits, not even an explicit nil
-func (o *HypervisorServiceOfferingResourceResponseModel) UnsetAmazonComputeUnits() {
-	o.AmazonComputeUnits.Unset()
-}
-
-// GetOptimizedForPooledDesktops returns the OptimizedForPooledDesktops field value
-func (o *HypervisorServiceOfferingResourceResponseModel) GetOptimizedForPooledDesktops() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.OptimizedForPooledDesktops
-}
-
-// GetOptimizedForPooledDesktopsOk returns a tuple with the OptimizedForPooledDesktops field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorServiceOfferingResourceResponseModel) GetOptimizedForPooledDesktopsOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.OptimizedForPooledDesktops, true
-}
-
-// SetOptimizedForPooledDesktops sets field value
-func (o *HypervisorServiceOfferingResourceResponseModel) SetOptimizedForPooledDesktops(v bool) {
-	o.OptimizedForPooledDesktops = v
-}
-
-// GetNetworkPerformance returns the NetworkPerformance field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkPerformance() string {
-	if o == nil || IsNil(o.NetworkPerformance.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.NetworkPerformance.Get()
-}
-
-// GetNetworkPerformanceOk returns a tuple with the NetworkPerformance field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkPerformanceOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.NetworkPerformance.Get(), o.NetworkPerformance.IsSet()
-}
-
-// HasNetworkPerformance returns a boolean if a field has been set.
-func (o *HypervisorServiceOfferingResourceResponseModel) HasNetworkPerformance() bool {
-	if o != nil && o.NetworkPerformance.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetNetworkPerformance gets a reference to the given NullableString and assigns it to the NetworkPerformance field.
-func (o *HypervisorServiceOfferingResourceResponseModel) SetNetworkPerformance(v string) {
-	o.NetworkPerformance.Set(&v)
-}
-// SetNetworkPerformanceNil sets the value for NetworkPerformance to be an explicit nil
-func (o *HypervisorServiceOfferingResourceResponseModel) SetNetworkPerformanceNil() {
-	o.NetworkPerformance.Set(nil)
-}
-
-// UnsetNetworkPerformance ensures that no value is present for NetworkPerformance, not even an explicit nil
-func (o *HypervisorServiceOfferingResourceResponseModel) UnsetNetworkPerformance() {
-	o.NetworkPerformance.Unset()
-}
-
-// GetNetworkPerformanceIsUnlimited returns the NetworkPerformanceIsUnlimited field value
-func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkPerformanceIsUnlimited() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.NetworkPerformanceIsUnlimited
-}
-
-// GetNetworkPerformanceIsUnlimitedOk returns a tuple with the NetworkPerformanceIsUnlimited field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkPerformanceIsUnlimitedOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.NetworkPerformanceIsUnlimited, true
-}
-
-// SetNetworkPerformanceIsUnlimited sets field value
-func (o *HypervisorServiceOfferingResourceResponseModel) SetNetworkPerformanceIsUnlimited(v bool) {
-	o.NetworkPerformanceIsUnlimited = v
-}
-
-// GetNetworkPerformanceIsDefault returns the NetworkPerformanceIsDefault field value
-func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkPerformanceIsDefault() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.NetworkPerformanceIsDefault
-}
-
-// GetNetworkPerformanceIsDefaultOk returns a tuple with the NetworkPerformanceIsDefault field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorServiceOfferingResourceResponseModel) GetNetworkPerformanceIsDefaultOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.NetworkPerformanceIsDefault, true
-}
-
-// SetNetworkPerformanceIsDefault sets field value
-func (o *HypervisorServiceOfferingResourceResponseModel) SetNetworkPerformanceIsDefault(v bool) {
-	o.NetworkPerformanceIsDefault = v
-}
-
-// GetIsUsedInSite returns the IsUsedInSite field value
-func (o *HypervisorServiceOfferingResourceResponseModel) GetIsUsedInSite() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.IsUsedInSite
-}
-
-// GetIsUsedInSiteOk returns a tuple with the IsUsedInSite field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorServiceOfferingResourceResponseModel) GetIsUsedInSiteOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IsUsedInSite, true
-}
-
-// SetIsUsedInSite sets field value
-func (o *HypervisorServiceOfferingResourceResponseModel) SetIsUsedInSite(v bool) {
-	o.IsUsedInSite = v
-}
-
-// GetSupportsAzurePremiumStorage returns the SupportsAzurePremiumStorage field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HypervisorServiceOfferingResourceResponseModel) GetSupportsAzurePremiumStorage() bool {
-	if o == nil || IsNil(o.SupportsAzurePremiumStorage.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.SupportsAzurePremiumStorage.Get()
-}
-
-// GetSupportsAzurePremiumStorageOk returns a tuple with the SupportsAzurePremiumStorage field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HypervisorServiceOfferingResourceResponseModel) GetSupportsAzurePremiumStorageOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.SupportsAzurePremiumStorage.Get(), o.SupportsAzurePremiumStorage.IsSet()
-}
-
-// HasSupportsAzurePremiumStorage returns a boolean if a field has been set.
-func (o *HypervisorServiceOfferingResourceResponseModel) HasSupportsAzurePremiumStorage() bool {
-	if o != nil && o.SupportsAzurePremiumStorage.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetSupportsAzurePremiumStorage gets a reference to the given NullableBool and assigns it to the SupportsAzurePremiumStorage field.
-func (o *HypervisorServiceOfferingResourceResponseModel) SetSupportsAzurePremiumStorage(v bool) {
-	o.SupportsAzurePremiumStorage.Set(&v)
-}
-// SetSupportsAzurePremiumStorageNil sets the value for SupportsAzurePremiumStorage to be an explicit nil
-func (o *HypervisorServiceOfferingResourceResponseModel) SetSupportsAzurePremiumStorageNil() {
-	o.SupportsAzurePremiumStorage.Set(nil)
-}
-
-// UnsetSupportsAzurePremiumStorage ensures that no value is present for SupportsAzurePremiumStorage, not even an explicit nil
-func (o *HypervisorServiceOfferingResourceResponseModel) UnsetSupportsAzurePremiumStorage() {
-	o.SupportsAzurePremiumStorage.Unset()
-}
-
 func (o HypervisorServiceOfferingResourceResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1056,6 +1813,70 @@ func (o HypervisorServiceOfferingResourceResponseModel) MarshalJSON() ([]byte, e
 
 func (o HypervisorServiceOfferingResourceResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["SupportsSecurityGroups"] = o.SupportsSecurityGroups
+	toSerialize["Enabled"] = o.Enabled
+	toSerialize["FrameBufferSizeMB"] = o.FrameBufferSizeMB
+	toSerialize["HasDedicatedResource"] = o.HasDedicatedResource
+	if o.Description.IsSet() {
+		toSerialize["Description"] = o.Description.Get()
+	}
+	toSerialize["EgressRules"] = o.EgressRules
+	toSerialize["IngressRules"] = o.IngressRules
+	if o.VirtualPrivateCloudId.IsSet() {
+		toSerialize["VirtualPrivateCloudId"] = o.VirtualPrivateCloudId.Get()
+	}
+	if o.DedicatedTenancy.IsSet() {
+		toSerialize["DedicatedTenancy"] = o.DedicatedTenancy.Get()
+	}
+	toSerialize["MemorySizeMB"] = o.MemorySizeMB
+	toSerialize["NumberOfCores"] = o.NumberOfCores
+	if o.AmazonComputeUnits.IsSet() {
+		toSerialize["AmazonComputeUnits"] = o.AmazonComputeUnits.Get()
+	}
+	toSerialize["OptimizedForPooledDesktops"] = o.OptimizedForPooledDesktops
+	if o.NetworkPerformance.IsSet() {
+		toSerialize["NetworkPerformance"] = o.NetworkPerformance.Get()
+	}
+	toSerialize["NetworkPerformanceIsUnlimited"] = o.NetworkPerformanceIsUnlimited
+	toSerialize["NetworkPerformanceIsDefault"] = o.NetworkPerformanceIsDefault
+	toSerialize["IsUsedInSite"] = o.IsUsedInSite
+	if o.SupportsAzurePremiumStorage.IsSet() {
+		toSerialize["SupportsAzurePremiumStorage"] = o.SupportsAzurePremiumStorage.Get()
+	}
+	toSerialize["Superseded"] = o.Superseded
+	if o.Owner.IsSet() {
+		toSerialize["Owner"] = o.Owner.Get()
+	}
+	if o.IsWindowsTemplate.IsSet() {
+		toSerialize["IsWindowsTemplate"] = o.IsWindowsTemplate.Get()
+	}
+	toSerialize["HasPersistentRootVolume"] = o.HasPersistentRootVolume
+	toSerialize["VMId"] = o.VMId
+	if o.MacAddress.IsSet() {
+		toSerialize["MacAddress"] = o.MacAddress.Get()
+	}
+	if o.CpuCount.IsSet() {
+		toSerialize["CpuCount"] = o.CpuCount.Get()
+	}
+	if o.MemoryMB.IsSet() {
+		toSerialize["MemoryMB"] = o.MemoryMB.Get()
+	}
+	if o.HardDiskSizeGB.IsSet() {
+		toSerialize["HardDiskSizeGB"] = o.HardDiskSizeGB.Get()
+	}
+	if o.MinMemoryMB.IsSet() {
+		toSerialize["MinMemoryMB"] = o.MinMemoryMB.Get()
+	}
+	if o.NetworkMappings != nil {
+		toSerialize["NetworkMappings"] = o.NetworkMappings
+	}
+	if o.AttachedDisks != nil {
+		toSerialize["AttachedDisks"] = o.AttachedDisks
+	}
+	toSerialize["InstanceSecurityGroupLimit"] = o.InstanceSecurityGroupLimit
+	if o.Endpoint.IsSet() {
+		toSerialize["Endpoint"] = o.Endpoint.Get()
+	}
 	if o.Id.IsSet() {
 		toSerialize["Id"] = o.Id.Get()
 	}
@@ -1093,27 +1914,6 @@ func (o HypervisorServiceOfferingResourceResponseModel) ToMap() (map[string]inte
 	toSerialize["IsSymLink"] = o.IsSymLink
 	if o.AdditionalData != nil {
 		toSerialize["AdditionalData"] = o.AdditionalData
-	}
-	if o.DedicatedTenancy.IsSet() {
-		toSerialize["DedicatedTenancy"] = o.DedicatedTenancy.Get()
-	}
-	if o.Description.IsSet() {
-		toSerialize["Description"] = o.Description.Get()
-	}
-	toSerialize["MemorySizeMB"] = o.MemorySizeMB
-	toSerialize["NumberOfCores"] = o.NumberOfCores
-	if o.AmazonComputeUnits.IsSet() {
-		toSerialize["AmazonComputeUnits"] = o.AmazonComputeUnits.Get()
-	}
-	toSerialize["OptimizedForPooledDesktops"] = o.OptimizedForPooledDesktops
-	if o.NetworkPerformance.IsSet() {
-		toSerialize["NetworkPerformance"] = o.NetworkPerformance.Get()
-	}
-	toSerialize["NetworkPerformanceIsUnlimited"] = o.NetworkPerformanceIsUnlimited
-	toSerialize["NetworkPerformanceIsDefault"] = o.NetworkPerformanceIsDefault
-	toSerialize["IsUsedInSite"] = o.IsUsedInSite
-	if o.SupportsAzurePremiumStorage.IsSet() {
-		toSerialize["SupportsAzurePremiumStorage"] = o.SupportsAzurePremiumStorage.Get()
 	}
 	return toSerialize, nil
 }
@@ -1153,5 +1953,3 @@ func (v *NullableHypervisorServiceOfferingResourceResponseModel) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

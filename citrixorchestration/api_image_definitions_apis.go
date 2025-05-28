@@ -19,21 +19,20 @@ import (
 	"strings"
 )
 
-
 // ImageDefinitionsAPIsDAASService ImageDefinitionsAPIsDAAS service
 type ImageDefinitionsAPIsDAASService service
 
 type ApiImageDefinitionsCheckImageDefinitionExistRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ImageDefinitionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -89,24 +88,24 @@ If the name is found to be available, this returns 404 Not Found. If the name
 is not available (i.e. an image definition with the name was found), this returns
 204 No Content.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name Name of the image definition.
- @return ApiImageDefinitionsCheckImageDefinitionExistRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name Name of the image definition.
+	@return ApiImageDefinitionsCheckImageDefinitionExistRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCheckImageDefinitionExist(ctx context.Context, name string) ApiImageDefinitionsCheckImageDefinitionExistRequest {
 	return ApiImageDefinitionsCheckImageDefinitionExistRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCheckImageDefinitionExistExecute(r ApiImageDefinitionsCheckImageDefinitionExistRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodHead
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodHead
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsCheckImageDefinitionExist")
@@ -204,8 +203,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCheckImageDefinitionEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -215,8 +214,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCheckImageDefinitionEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -226,8 +225,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCheckImageDefinitionEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -237,8 +236,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCheckImageDefinitionEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -248,8 +247,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCheckImageDefinitionEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -259,8 +258,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCheckImageDefinitionEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -270,8 +269,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCheckImageDefinitionEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -281,8 +280,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCheckImageDefinitionEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -291,17 +290,17 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCheckImageDefinitionEx
 }
 
 type ApiImageDefinitionsCreateImageDefinitionRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                               context.Context
+	ApiService                        *ImageDefinitionsAPIsDAASService
+	citrixCustomerId                  *string
+	citrixInstanceId                  *string
 	createImageDefinitionRequestModel *CreateImageDefinitionRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                         *string
+	authorization                     *string
+	citrixTransactionId               *string
+	accept                            *string
+	citrixLocale                      *string
+	async                             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -365,24 +364,25 @@ func (r ApiImageDefinitionsCreateImageDefinitionRequest) Execute() (*ImageDefini
 /*
 ImageDefinitionsCreateImageDefinition Create an image definition.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiImageDefinitionsCreateImageDefinitionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiImageDefinitionsCreateImageDefinitionRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageDefinition(ctx context.Context) ApiImageDefinitionsCreateImageDefinitionRequest {
 	return ApiImageDefinitionsCreateImageDefinitionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ImageDefinitionResponseModel
+//
+//	@return ImageDefinitionResponseModel
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageDefinitionExecute(r ApiImageDefinitionsCreateImageDefinitionRequest) (*ImageDefinitionResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImageDefinitionResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImageDefinitionResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsCreateImageDefinition")
@@ -487,8 +487,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -498,8 +498,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -509,8 +509,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -520,8 +520,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -531,8 +531,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -542,8 +542,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -553,8 +553,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -564,8 +564,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -575,8 +575,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -594,18 +594,18 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageDefinitionE
 }
 
 type ApiImageDefinitionsCreateImageVersionRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                            context.Context
+	ApiService                     *ImageDefinitionsAPIsDAASService
+	citrixCustomerId               *string
+	citrixInstanceId               *string
+	nameOrId                       string
 	createImageVersionRequestModel *CreateImageVersionRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                      *string
+	authorization                  *string
+	citrixTransactionId            *string
+	accept                         *string
+	citrixLocale                   *string
+	async                          *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -669,26 +669,27 @@ func (r ApiImageDefinitionsCreateImageVersionRequest) Execute() (*ImageVersionRe
 /*
 ImageDefinitionsCreateImageVersion Create an image version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the image definition.
- @return ApiImageDefinitionsCreateImageVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the image definition.
+	@return ApiImageDefinitionsCreateImageVersionRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersion(ctx context.Context, nameOrId string) ApiImageDefinitionsCreateImageVersionRequest {
 	return ApiImageDefinitionsCreateImageVersionRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ImageVersionResponseModel
+//
+//	@return ImageVersionResponseModel
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersionExecute(r ApiImageDefinitionsCreateImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImageVersionResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImageVersionResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsCreateImageVersion")
@@ -794,8 +795,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -805,8 +806,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -816,8 +817,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -827,8 +828,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -838,8 +839,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -849,8 +850,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -860,8 +861,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -871,8 +872,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -882,8 +883,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -893,8 +894,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -912,17 +913,17 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersionExec
 }
 
 type ApiImageDefinitionsDeleteImageDefinitionRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ImageDefinitionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -980,24 +981,24 @@ func (r ApiImageDefinitionsDeleteImageDefinitionRequest) Execute() (*http.Respon
 /*
 ImageDefinitionsDeleteImageDefinition Delete an image definition.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the image definition to delete.
- @return ApiImageDefinitionsDeleteImageDefinitionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the image definition to delete.
+	@return ApiImageDefinitionsDeleteImageDefinitionRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinition(ctx context.Context, nameOrId string) ApiImageDefinitionsDeleteImageDefinitionRequest {
 	return ApiImageDefinitionsDeleteImageDefinitionRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionExecute(r ApiImageDefinitionsDeleteImageDefinitionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsDeleteImageDefinition")
@@ -1098,8 +1099,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1109,8 +1110,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1120,8 +1121,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1131,8 +1132,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1142,8 +1143,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1153,8 +1154,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1164,8 +1165,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1175,8 +1176,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1185,19 +1186,19 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionE
 }
 
 type ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	versionNumberOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ImageDefinitionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	versionNumberOrId   string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	purgeDBOnly *bool
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	purgeDBOnly         *bool
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1261,16 +1262,16 @@ func (r ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest) Execute() (
 /*
 ImageDefinitionsDeleteImageDefinitionImageVersion Delete an image version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the image definition.
- @param versionNumberOrId Number or ID of the image version to delete.
- @return ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the image definition.
+	@param versionNumberOrId Number or ID of the image version to delete.
+	@return ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionImageVersion(ctx context.Context, nameOrId string, versionNumberOrId string) ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest {
 	return ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:        a,
+		ctx:               ctx,
+		nameOrId:          nameOrId,
 		versionNumberOrId: versionNumberOrId,
 	}
 }
@@ -1278,9 +1279,9 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionI
 // Execute executes the request
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionImageVersionExecute(r ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsDeleteImageDefinitionImageVersion")
@@ -1385,8 +1386,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1396,8 +1397,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1407,8 +1408,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1418,8 +1419,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1429,8 +1430,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1440,8 +1441,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1451,8 +1452,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1462,8 +1463,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1472,17 +1473,17 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionI
 }
 
 type ApiImageDefinitionsDoImageDefinitionAndImageVersionSearchRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                              context.Context
+	ApiService                                       *ImageDefinitionsAPIsDAASService
+	citrixCustomerId                                 *string
+	citrixInstanceId                                 *string
 	imageDefinitionAndImageVersionSearchRequestModel *ImageDefinitionAndImageVersionSearchRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                        *string
+	authorization                                    *string
+	citrixTransactionId                              *string
+	accept                                           *string
+	citrixLocale                                     *string
+	async                                            *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1548,24 +1549,25 @@ ImageDefinitionsDoImageDefinitionAndImageVersionSearch Perform an advanced searc
 
 Perform an advanced search for image definitions and image versions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiImageDefinitionsDoImageDefinitionAndImageVersionSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiImageDefinitionsDoImageDefinitionAndImageVersionSearchRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDoImageDefinitionAndImageVersionSearch(ctx context.Context) ApiImageDefinitionsDoImageDefinitionAndImageVersionSearchRequest {
 	return ApiImageDefinitionsDoImageDefinitionAndImageVersionSearchRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ImageDefinitionsAndImageVersionsResponseModelCollection
+//
+//	@return ImageDefinitionsAndImageVersionsResponseModelCollection
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDoImageDefinitionAndImageVersionSearchExecute(r ApiImageDefinitionsDoImageDefinitionAndImageVersionSearchRequest) (*ImageDefinitionsAndImageVersionsResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImageDefinitionsAndImageVersionsResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImageDefinitionsAndImageVersionsResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsDoImageDefinitionAndImageVersionSearch")
@@ -1670,8 +1672,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDoImageDefinitionAndIm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1681,8 +1683,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDoImageDefinitionAndIm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1692,8 +1694,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDoImageDefinitionAndIm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1703,8 +1705,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDoImageDefinitionAndIm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1714,8 +1716,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDoImageDefinitionAndIm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1725,8 +1727,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDoImageDefinitionAndIm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1736,8 +1738,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDoImageDefinitionAndIm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1747,8 +1749,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDoImageDefinitionAndIm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1758,8 +1760,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDoImageDefinitionAndIm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1777,16 +1779,16 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDoImageDefinitionAndIm
 }
 
 type ApiImageDefinitionsGetImageDefinitionRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ImageDefinitionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1838,26 +1840,27 @@ func (r ApiImageDefinitionsGetImageDefinitionRequest) Execute() (*ImageDefinitio
 /*
 ImageDefinitionsGetImageDefinition Get details about a single image definition.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the image definition.
- @return ApiImageDefinitionsGetImageDefinitionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the image definition.
+	@return ApiImageDefinitionsGetImageDefinitionRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinition(ctx context.Context, nameOrId string) ApiImageDefinitionsGetImageDefinitionRequest {
 	return ApiImageDefinitionsGetImageDefinitionRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ImageDefinitionResponseModel
+//
+//	@return ImageDefinitionResponseModel
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionExecute(r ApiImageDefinitionsGetImageDefinitionRequest) (*ImageDefinitionResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImageDefinitionResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImageDefinitionResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsGetImageDefinition")
@@ -1955,8 +1958,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1966,8 +1969,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1977,8 +1980,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1988,8 +1991,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1999,8 +2002,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2010,8 +2013,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2021,8 +2024,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2032,8 +2035,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2051,17 +2054,17 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionExec
 }
 
 type ApiImageDefinitionsGetImageDefinitionImageVersionRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	versionNumberOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ImageDefinitionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	versionNumberOrId   string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2113,28 +2116,29 @@ func (r ApiImageDefinitionsGetImageDefinitionImageVersionRequest) Execute() (*Im
 /*
 ImageDefinitionsGetImageDefinitionImageVersion Get details about a single image version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the image definition.
- @param versionNumberOrId Number or ID of the image version.
- @return ApiImageDefinitionsGetImageDefinitionImageVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the image definition.
+	@param versionNumberOrId Number or ID of the image version.
+	@return ApiImageDefinitionsGetImageDefinitionImageVersionRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImageVersion(ctx context.Context, nameOrId string, versionNumberOrId string) ApiImageDefinitionsGetImageDefinitionImageVersionRequest {
 	return ApiImageDefinitionsGetImageDefinitionImageVersionRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:        a,
+		ctx:               ctx,
+		nameOrId:          nameOrId,
 		versionNumberOrId: versionNumberOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ImageVersionResponseModel
+//
+//	@return ImageVersionResponseModel
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImageVersionExecute(r ApiImageDefinitionsGetImageDefinitionImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImageVersionResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImageVersionResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsGetImageDefinitionImageVersion")
@@ -2233,8 +2237,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2244,8 +2248,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2255,8 +2259,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2266,8 +2270,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2277,8 +2281,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2288,8 +2292,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2299,8 +2303,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2310,8 +2314,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2329,18 +2333,18 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 }
 
 type ApiImageDefinitionsGetImageDefinitionImageVersionsRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ImageDefinitionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2404,26 +2408,27 @@ func (r ApiImageDefinitionsGetImageDefinitionImageVersionsRequest) Execute() (*I
 /*
 ImageDefinitionsGetImageDefinitionImageVersions Get all image versions associated with an image definition.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or Id of the image definition.
- @return ApiImageDefinitionsGetImageDefinitionImageVersionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or Id of the image definition.
+	@return ApiImageDefinitionsGetImageDefinitionImageVersionsRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImageVersions(ctx context.Context, nameOrId string) ApiImageDefinitionsGetImageDefinitionImageVersionsRequest {
 	return ApiImageDefinitionsGetImageDefinitionImageVersionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ImageVersionResponseModelCollection
+//
+//	@return ImageVersionResponseModelCollection
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImageVersionsExecute(r ApiImageDefinitionsGetImageDefinitionImageVersionsRequest) (*ImageVersionResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImageVersionResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImageVersionResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsGetImageDefinitionImageVersions")
@@ -2527,8 +2532,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2538,8 +2543,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2549,8 +2554,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2560,8 +2565,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2571,8 +2576,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2582,8 +2587,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2593,8 +2598,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2604,8 +2609,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2623,17 +2628,17 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 }
 
 type ApiImageDefinitionsGetImageDefinitionsRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ImageDefinitionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2697,24 +2702,25 @@ func (r ApiImageDefinitionsGetImageDefinitionsRequest) Execute() (*ImageDefiniti
 /*
 ImageDefinitionsGetImageDefinitions Get all image definitions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiImageDefinitionsGetImageDefinitionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiImageDefinitionsGetImageDefinitionsRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitions(ctx context.Context) ApiImageDefinitionsGetImageDefinitionsRequest {
 	return ApiImageDefinitionsGetImageDefinitionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ImageDefinitionResponseModelCollection
+//
+//	@return ImageDefinitionResponseModelCollection
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionsExecute(r ApiImageDefinitionsGetImageDefinitionsRequest) (*ImageDefinitionResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImageDefinitionResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImageDefinitionResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsGetImageDefinitions")
@@ -2817,8 +2823,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2828,8 +2834,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2839,8 +2845,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2850,8 +2856,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2861,8 +2867,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2872,8 +2878,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2883,8 +2889,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2902,17 +2908,17 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionsExe
 }
 
 type ApiImageDefinitionsGetImageVersionProvisioningSchemesRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	versionNumberOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ImageDefinitionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	versionNumberOrId   string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2964,28 +2970,29 @@ func (r ApiImageDefinitionsGetImageVersionProvisioningSchemesRequest) Execute() 
 /*
 ImageDefinitionsGetImageVersionProvisioningSchemes Get provisioning schemes associated with an image version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of image definition.
- @param versionNumberOrId Number or ID of image version.
- @return ApiImageDefinitionsGetImageVersionProvisioningSchemesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of image definition.
+	@param versionNumberOrId Number or ID of image version.
+	@return ApiImageDefinitionsGetImageVersionProvisioningSchemesRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageVersionProvisioningSchemes(ctx context.Context, nameOrId string, versionNumberOrId string) ApiImageDefinitionsGetImageVersionProvisioningSchemesRequest {
 	return ApiImageDefinitionsGetImageVersionProvisioningSchemesRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:        a,
+		ctx:               ctx,
+		nameOrId:          nameOrId,
 		versionNumberOrId: versionNumberOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ImageVersionProvisioningSchemeRefResponseModelCollection
+//
+//	@return ImageVersionProvisioningSchemeRefResponseModelCollection
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageVersionProvisioningSchemesExecute(r ApiImageDefinitionsGetImageVersionProvisioningSchemesRequest) (*ImageVersionProvisioningSchemeRefResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImageVersionProvisioningSchemeRefResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImageVersionProvisioningSchemeRefResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsGetImageVersionProvisioningSchemes")
@@ -3084,8 +3091,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageVersionProvisi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3095,8 +3102,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageVersionProvisi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3106,8 +3113,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageVersionProvisi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3117,8 +3124,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageVersionProvisi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3128,8 +3135,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageVersionProvisi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3139,8 +3146,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageVersionProvisi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3150,8 +3157,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageVersionProvisi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3161,8 +3168,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageVersionProvisi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3180,19 +3187,19 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageVersionProvisi
 }
 
 type ApiImageDefinitionsSetImageDefinitionImageVersionRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	versionNumberOrId string
+	ctx                            context.Context
+	ApiService                     *ImageDefinitionsAPIsDAASService
+	citrixCustomerId               *string
+	citrixInstanceId               *string
+	nameOrId                       string
+	versionNumberOrId              string
 	createImageVersionRequestModel *CreateImageVersionRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                      *string
+	authorization                  *string
+	citrixTransactionId            *string
+	accept                         *string
+	citrixLocale                   *string
+	async                          *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3256,16 +3263,16 @@ func (r ApiImageDefinitionsSetImageDefinitionImageVersionRequest) Execute() (*ht
 /*
 ImageDefinitionsSetImageDefinitionImageVersion Set properties associated with an image version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the image definition.
- @param versionNumberOrId Number or ID of the image version to update.
- @return ApiImageDefinitionsSetImageDefinitionImageVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the image definition.
+	@param versionNumberOrId Number or ID of the image version to update.
+	@return ApiImageDefinitionsSetImageDefinitionImageVersionRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImageVersion(ctx context.Context, nameOrId string, versionNumberOrId string) ApiImageDefinitionsSetImageDefinitionImageVersionRequest {
 	return ApiImageDefinitionsSetImageDefinitionImageVersionRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:        a,
+		ctx:               ctx,
+		nameOrId:          nameOrId,
 		versionNumberOrId: versionNumberOrId,
 	}
 }
@@ -3273,9 +3280,9 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImag
 // Execute executes the request
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImageVersionExecute(r ApiImageDefinitionsSetImageDefinitionImageVersionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsSetImageDefinitionImageVersion")
@@ -3382,8 +3389,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3393,8 +3400,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3404,8 +3411,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3415,8 +3422,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3426,8 +3433,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -3437,8 +3444,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3448,8 +3455,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3459,8 +3466,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3470,8 +3477,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImag
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3480,17 +3487,17 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImag
 }
 
 type ApiImageDefinitionsUpdateImageDefinitionRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                               context.Context
+	ApiService                        *ImageDefinitionsAPIsDAASService
+	citrixCustomerId                  *string
+	citrixInstanceId                  *string
+	nameOrId                          string
 	updateImageDefinitionRequestModel *UpdateImageDefinitionRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                         *string
+	authorization                     *string
+	citrixTransactionId               *string
+	accept                            *string
+	citrixLocale                      *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3548,26 +3555,27 @@ func (r ApiImageDefinitionsUpdateImageDefinitionRequest) Execute() (*ImageDefini
 /*
 ImageDefinitionsUpdateImageDefinition Update an image definition.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the image definition to update.
- @return ApiImageDefinitionsUpdateImageDefinitionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the image definition to update.
+	@return ApiImageDefinitionsUpdateImageDefinitionRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinition(ctx context.Context, nameOrId string) ApiImageDefinitionsUpdateImageDefinitionRequest {
 	return ApiImageDefinitionsUpdateImageDefinitionRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ImageDefinitionResponseModel
+//
+//	@return ImageDefinitionResponseModel
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionExecute(r ApiImageDefinitionsUpdateImageDefinitionRequest) (*ImageDefinitionResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImageDefinitionResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImageDefinitionResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsUpdateImageDefinition")
@@ -3670,8 +3678,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3681,8 +3689,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3692,8 +3700,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3703,8 +3711,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3714,8 +3722,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -3725,8 +3733,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3736,8 +3744,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3747,8 +3755,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3758,8 +3766,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3777,18 +3785,18 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionE
 }
 
 type ApiImageDefinitionsUpdateImageDefinitionImageVersionRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	versionNumberOrId string
+	ctx                            context.Context
+	ApiService                     *ImageDefinitionsAPIsDAASService
+	citrixCustomerId               *string
+	citrixInstanceId               *string
+	nameOrId                       string
+	versionNumberOrId              string
 	updateImageVersionRequestModel *UpdateImageVersionRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                      *string
+	authorization                  *string
+	citrixTransactionId            *string
+	accept                         *string
+	citrixLocale                   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3846,28 +3854,29 @@ func (r ApiImageDefinitionsUpdateImageDefinitionImageVersionRequest) Execute() (
 /*
 ImageDefinitionsUpdateImageDefinitionImageVersion Update an image version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the image definition.
- @param versionNumberOrId Number or ID of the image version to update.
- @return ApiImageDefinitionsUpdateImageDefinitionImageVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the image definition.
+	@param versionNumberOrId Number or ID of the image version to update.
+	@return ApiImageDefinitionsUpdateImageDefinitionImageVersionRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionImageVersion(ctx context.Context, nameOrId string, versionNumberOrId string) ApiImageDefinitionsUpdateImageDefinitionImageVersionRequest {
 	return ApiImageDefinitionsUpdateImageDefinitionImageVersionRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:        a,
+		ctx:               ctx,
+		nameOrId:          nameOrId,
 		versionNumberOrId: versionNumberOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ImageVersionResponseModel
+//
+//	@return ImageVersionResponseModel
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionImageVersionExecute(r ApiImageDefinitionsUpdateImageDefinitionImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImageVersionResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImageVersionResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsUpdateImageDefinitionImageVersion")
@@ -3971,8 +3980,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3982,8 +3991,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3993,8 +4002,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4004,8 +4013,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4015,8 +4024,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -4026,8 +4035,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4037,8 +4046,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4048,8 +4057,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4059,8 +4068,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4078,19 +4087,19 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionI
 }
 
 type ApiImageDefinitionsUpdateImageVersionResourcePoolsRequest struct {
-	ctx context.Context
-	ApiService *ImageDefinitionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	versionNumberOrId string
+	ctx                                         context.Context
+	ApiService                                  *ImageDefinitionsAPIsDAASService
+	citrixCustomerId                            *string
+	citrixInstanceId                            *string
+	nameOrId                                    string
+	versionNumberOrId                           string
 	updateImageVersionResourcePoolsRequestModel *UpdateImageVersionResourcePoolsRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                   *string
+	authorization                               *string
+	citrixTransactionId                         *string
+	accept                                      *string
+	citrixLocale                                *string
+	async                                       *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4156,16 +4165,16 @@ ImageDefinitionsUpdateImageVersionResourcePools Update resource pools associated
 
 Update resource pools associated with an image version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of image definition.
- @param versionNumberOrId Number or ID of image version.
- @return ApiImageDefinitionsUpdateImageVersionResourcePoolsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of image definition.
+	@param versionNumberOrId Number or ID of image version.
+	@return ApiImageDefinitionsUpdateImageVersionResourcePoolsRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageVersionResourcePools(ctx context.Context, nameOrId string, versionNumberOrId string) ApiImageDefinitionsUpdateImageVersionResourcePoolsRequest {
 	return ApiImageDefinitionsUpdateImageVersionResourcePoolsRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:        a,
+		ctx:               ctx,
+		nameOrId:          nameOrId,
 		versionNumberOrId: versionNumberOrId,
 	}
 }
@@ -4173,9 +4182,9 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageVersionReso
 // Execute executes the request
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageVersionResourcePoolsExecute(r ApiImageDefinitionsUpdateImageVersionResourcePoolsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageDefinitionsAPIsDAASService.ImageDefinitionsUpdateImageVersionResourcePools")
@@ -4282,8 +4291,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageVersionReso
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4293,8 +4302,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageVersionReso
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4304,8 +4313,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageVersionReso
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4315,8 +4324,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageVersionReso
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4326,8 +4335,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageVersionReso
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -4337,8 +4346,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageVersionReso
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4348,8 +4357,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageVersionReso
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4359,8 +4368,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageVersionReso
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4370,8 +4379,8 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageVersionReso
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

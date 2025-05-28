@@ -20,24 +20,23 @@ import (
 	"time"
 )
 
-
 // DeliveryGroupsAPIsDAASService DeliveryGroupsAPIsDAAS service
 type DeliveryGroupsAPIsDAASService service
 
 type ApiDeliveryGroupsAddDeliveryGroupMachineCatalogRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                     context.Context
+	ApiService              *DeliveryGroupsAPIsDAASService
+	citrixCustomerId        *string
+	citrixInstanceId        *string
+	nameOrId                string
 	priorityRefRequestModel *PriorityRefRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	detailResponseRequired *bool
-	async *bool
+	userAgent               *string
+	authorization           *string
+	citrixTransactionId     *string
+	accept                  *string
+	citrixLocale            *string
+	detailResponseRequired  *bool
+	async                   *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -117,26 +116,27 @@ a delivery group if there is at least one machine from that catalog associated
 with the delivery group. Adding a machine from a machine catalog to a delivery
 group will cause the machine catalog to be associated with the delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsAddDeliveryGroupMachineCatalogRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsAddDeliveryGroupMachineCatalogRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCatalog(ctx context.Context, nameOrId string) ApiDeliveryGroupsAddDeliveryGroupMachineCatalogRequest {
 	return ApiDeliveryGroupsAddDeliveryGroupMachineCatalogRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return DeliveryGroupDetailResponseModel
+//
+//	@return DeliveryGroupDetailResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCatalogExecute(r ApiDeliveryGroupsAddDeliveryGroupMachineCatalogRequest) (*DeliveryGroupDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeliveryGroupDetailResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeliveryGroupDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsAddDeliveryGroupMachineCatalog")
@@ -245,8 +245,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -256,8 +256,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -267,8 +267,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -278,8 +278,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -289,8 +289,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -300,8 +300,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -311,8 +311,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -322,8 +322,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -333,8 +333,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -344,8 +344,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -363,18 +363,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 }
 
 type ApiDeliveryGroupsAddDeliveryGroupTagsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	tagNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	tagNameOrId         string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -432,28 +432,29 @@ func (r ApiDeliveryGroupsAddDeliveryGroupTagsRequest) Execute() (*TagResponseMod
 /*
 DeliveryGroupsAddDeliveryGroupTags Add a tag to a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param tagNameOrId Name or ID of the tag to add.
- @return ApiDeliveryGroupsAddDeliveryGroupTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param tagNameOrId Name or ID of the tag to add.
+	@return ApiDeliveryGroupsAddDeliveryGroupTagsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiDeliveryGroupsAddDeliveryGroupTagsRequest {
 	return ApiDeliveryGroupsAddDeliveryGroupTagsRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:  a,
+		ctx:         ctx,
+		nameOrId:    nameOrId,
 		tagNameOrId: tagNameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return TagResponseModelCollection
+//
+//	@return TagResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecute(r ApiDeliveryGroupsAddDeliveryGroupTagsRequest) (*TagResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TagResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TagResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsAddDeliveryGroupTags")
@@ -555,8 +556,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -566,8 +567,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -577,8 +578,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -588,8 +589,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -599,8 +600,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -610,8 +611,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -621,8 +622,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -632,8 +633,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -643,8 +644,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -662,16 +663,16 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 }
 
 type ApiDeliveryGroupsCheckDeliveryGroupExistsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -723,24 +724,24 @@ func (r ApiDeliveryGroupsCheckDeliveryGroupExistsRequest) Execute() (*http.Respo
 /*
 DeliveryGroupsCheckDeliveryGroupExists Check for the existence of a delivery group by name.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name Name of the delivery group.
- @return ApiDeliveryGroupsCheckDeliveryGroupExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name Name of the delivery group.
+	@return ApiDeliveryGroupsCheckDeliveryGroupExistsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExists(ctx context.Context, name string) ApiDeliveryGroupsCheckDeliveryGroupExistsRequest {
 	return ApiDeliveryGroupsCheckDeliveryGroupExistsRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExistsExecute(r ApiDeliveryGroupsCheckDeliveryGroupExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodHead
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodHead
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsCheckDeliveryGroupExists")
@@ -838,8 +839,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExistsEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -849,8 +850,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExistsEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -860,8 +861,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExistsEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -871,8 +872,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExistsEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -882,8 +883,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExistsEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -893,8 +894,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExistsEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -904,8 +905,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExistsEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -915,8 +916,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExistsEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -925,17 +926,17 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExistsEx
 }
 
 type ApiDeliveryGroupsCheckRebootScheduleNameExistsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1000,26 +1001,26 @@ delivery group, this returns 303 See Other, and the `Location`
 response header refers to location of the reboot schedule with that
 name.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param name Name of the reboot schedule.
- @return ApiDeliveryGroupsCheckRebootScheduleNameExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param name Name of the reboot schedule.
+	@return ApiDeliveryGroupsCheckRebootScheduleNameExistsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExists(ctx context.Context, nameOrId string, name string) ApiDeliveryGroupsCheckRebootScheduleNameExistsRequest {
 	return ApiDeliveryGroupsCheckRebootScheduleNameExistsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		name: name,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExistsExecute(r ApiDeliveryGroupsCheckRebootScheduleNameExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodHead
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodHead
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsCheckRebootScheduleNameExists")
@@ -1118,8 +1119,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1129,8 +1130,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1140,8 +1141,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1151,8 +1152,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1162,8 +1163,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1173,8 +1174,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1184,8 +1185,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1195,8 +1196,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1205,18 +1206,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExi
 }
 
 type ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	type_ string
+	ctx                                       context.Context
+	ApiService                                *DeliveryGroupsAPIsDAASService
+	citrixCustomerId                          *string
+	citrixInstanceId                          *string
+	type_                                     string
 	createAutoscalePluginTemplateRequestModel *CreateAutoscalePluginTemplateRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                 *string
+	authorization                             *string
+	citrixTransactionId                       *string
+	accept                                    *string
+	citrixLocale                              *string
+	async                                     *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1280,24 +1281,24 @@ func (r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) Execute() (*http.
 /*
 DeliveryGroupsCreateAutoscalePluginTemplate Create a new autoscale plugin configuration template for the specified plugin type.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param type_ The type of the plugin.                 The supported types are: \"Holiday\", \"Intelligent\"             
- @return ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param type_ The type of the plugin.                 The supported types are: \"Holiday\", \"Intelligent\"
+	@return ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTemplate(ctx context.Context, type_ string) ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest {
 	return ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest{
 		ApiService: a,
-		ctx: ctx,
-		type_: type_,
+		ctx:        ctx,
+		type_:      type_,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTemplateExecute(r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsCreateAutoscalePluginTemplate")
@@ -1403,8 +1404,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1414,8 +1415,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1425,8 +1426,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1436,8 +1437,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1447,8 +1448,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1458,8 +1459,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1469,8 +1470,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1480,8 +1481,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1491,8 +1492,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1502,8 +1503,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1512,18 +1513,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 }
 
 type ApiDeliveryGroupsCreateDeliveryGroupRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                             context.Context
+	ApiService                      *DeliveryGroupsAPIsDAASService
+	citrixCustomerId                *string
+	citrixInstanceId                *string
 	createDeliveryGroupRequestModel *CreateDeliveryGroupRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	detailResponseRequired *bool
-	async *bool
+	userAgent                       *string
+	authorization                   *string
+	citrixTransactionId             *string
+	accept                          *string
+	citrixLocale                    *string
+	detailResponseRequired          *bool
+	async                           *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1593,24 +1594,25 @@ func (r ApiDeliveryGroupsCreateDeliveryGroupRequest) Execute() (*DeliveryGroupDe
 /*
 DeliveryGroupsCreateDeliveryGroup Create a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeliveryGroupsCreateDeliveryGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeliveryGroupsCreateDeliveryGroupRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroup(ctx context.Context) ApiDeliveryGroupsCreateDeliveryGroupRequest {
 	return ApiDeliveryGroupsCreateDeliveryGroupRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return DeliveryGroupDetailResponseModel
+//
+//	@return DeliveryGroupDetailResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute(r ApiDeliveryGroupsCreateDeliveryGroupRequest) (*DeliveryGroupDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeliveryGroupDetailResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeliveryGroupDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsCreateDeliveryGroup")
@@ -1718,8 +1720,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1729,8 +1731,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1740,8 +1742,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1751,8 +1753,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1762,8 +1764,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1773,8 +1775,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1784,8 +1786,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1795,8 +1797,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1806,8 +1808,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1825,18 +1827,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 }
 
 type ApiDeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                              context.Context
+	ApiService                       *DeliveryGroupsAPIsDAASService
+	citrixCustomerId                 *string
+	citrixInstanceId                 *string
+	nameOrId                         string
 	advancedAccessPolicyRequestModel *AdvancedAccessPolicyRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                        *string
+	authorization                    *string
+	citrixTransactionId              *string
+	accept                           *string
+	citrixLocale                     *string
+	async                            *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1900,26 +1902,27 @@ func (r ApiDeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyRequest) Execute
 /*
 DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicy Create an advanced access policy associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicy(ctx context.Context, nameOrId string) ApiDeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyRequest {
 	return ApiDeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return AdvancedAccessPolicyResponseModel
+//
+//	@return AdvancedAccessPolicyResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyExecute(r ApiDeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyRequest) (*AdvancedAccessPolicyResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdvancedAccessPolicyResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdvancedAccessPolicyResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicy")
@@ -2025,8 +2028,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2036,8 +2039,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2047,8 +2050,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2058,8 +2061,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2069,8 +2072,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2080,8 +2083,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2091,8 +2094,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2102,8 +2105,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2113,8 +2116,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2124,8 +2127,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2143,18 +2146,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 }
 
 type ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                    context.Context
+	ApiService                             *DeliveryGroupsAPIsDAASService
+	citrixCustomerId                       *string
+	citrixInstanceId                       *string
+	nameOrId                               string
 	createAutoscaleGroupPluginRequestModel *CreateAutoscaleGroupPluginRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                              *string
+	authorization                          *string
+	citrixTransactionId                    *string
+	accept                                 *string
+	citrixLocale                           *string
+	async                                  *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2218,24 +2221,24 @@ func (r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) Execute
 /*
 DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin Create an autoscale group plugin for the speicified delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,                 specify the name in this format: {admin folder path plus delivery group name}.                 For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,                 specify the name in this format: {admin folder path plus delivery group name}.                 For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin(ctx context.Context, nameOrId string) ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest {
 	return ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginExecute(r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin")
@@ -2341,8 +2344,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2352,8 +2355,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2363,8 +2366,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2374,8 +2377,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2385,8 +2388,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2396,8 +2399,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2407,8 +2410,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2418,8 +2421,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2429,8 +2432,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2440,8 +2443,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2450,18 +2453,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 }
 
 type ApiDeliveryGroupsCreateDeliveryGroupPowerTimeSchemeRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                         context.Context
+	ApiService                  *DeliveryGroupsAPIsDAASService
+	citrixCustomerId            *string
+	citrixInstanceId            *string
+	nameOrId                    string
 	powerTimeSchemeRequestModel *PowerTimeSchemeRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                   *string
+	authorization               *string
+	citrixTransactionId         *string
+	accept                      *string
+	citrixLocale                *string
+	async                       *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2527,26 +2530,27 @@ DeliveryGroupsCreateDeliveryGroupPowerTimeScheme Create a power time scheme for 
 
 Create a power time scheme for a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsCreateDeliveryGroupPowerTimeSchemeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsCreateDeliveryGroupPowerTimeSchemeRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTimeScheme(ctx context.Context, nameOrId string) ApiDeliveryGroupsCreateDeliveryGroupPowerTimeSchemeRequest {
 	return ApiDeliveryGroupsCreateDeliveryGroupPowerTimeSchemeRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return PowerTimeSchemeResponseModel
+//
+//	@return PowerTimeSchemeResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTimeSchemeExecute(r ApiDeliveryGroupsCreateDeliveryGroupPowerTimeSchemeRequest) (*PowerTimeSchemeResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PowerTimeSchemeResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PowerTimeSchemeResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsCreateDeliveryGroupPowerTimeScheme")
@@ -2652,8 +2656,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2663,8 +2667,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2674,8 +2678,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2685,8 +2689,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2696,8 +2700,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2707,8 +2711,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2718,8 +2722,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2729,8 +2733,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2740,8 +2744,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2751,8 +2755,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2770,17 +2774,17 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 }
 
 type ApiDeliveryGroupsCreateDeliveryGroupRebootScheduleRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                        context.Context
+	ApiService                 *DeliveryGroupsAPIsDAASService
+	citrixCustomerId           *string
+	citrixInstanceId           *string
+	nameOrId                   string
 	rebootScheduleRequestModel *RebootScheduleRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                  *string
+	authorization              *string
+	citrixTransactionId        *string
+	accept                     *string
+	citrixLocale               *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2838,26 +2842,27 @@ func (r ApiDeliveryGroupsCreateDeliveryGroupRebootScheduleRequest) Execute() (*R
 /*
 DeliveryGroupsCreateDeliveryGroupRebootSchedule Create a reboot schedule for a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsCreateDeliveryGroupRebootScheduleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsCreateDeliveryGroupRebootScheduleRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootSchedule(ctx context.Context, nameOrId string) ApiDeliveryGroupsCreateDeliveryGroupRebootScheduleRequest {
 	return ApiDeliveryGroupsCreateDeliveryGroupRebootScheduleRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return RebootScheduleResponseModel
+//
+//	@return RebootScheduleResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootScheduleExecute(r ApiDeliveryGroupsCreateDeliveryGroupRebootScheduleRequest) (*RebootScheduleResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RebootScheduleResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RebootScheduleResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsCreateDeliveryGroupRebootSchedule")
@@ -2960,8 +2965,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2971,8 +2976,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2982,8 +2987,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2993,8 +2998,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3004,8 +3009,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3015,8 +3020,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -3026,8 +3031,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3037,8 +3042,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3048,8 +3053,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3059,8 +3064,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3078,18 +3083,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 }
 
 type ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	type_ string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	type_               string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3147,26 +3152,26 @@ func (r ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest) Execute() (*http.
 /*
 DeliveryGroupsDeleteAutoscalePluginTemplate Delete the autoscale plugin configuration template for the specified plugin type and name.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param type_ The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"             
- @param name The name of the template.
- @return ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param type_ The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"
+	@param name The name of the template.
+	@return ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTemplate(ctx context.Context, type_ string, name string) ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest {
 	return ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest{
 		ApiService: a,
-		ctx: ctx,
-		type_: type_,
-		name: name,
+		ctx:        ctx,
+		type_:      type_,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTemplateExecute(r ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDeleteAutoscalePluginTemplate")
@@ -3268,8 +3273,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3279,8 +3284,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3290,8 +3295,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3301,8 +3306,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3312,8 +3317,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3323,8 +3328,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3334,8 +3339,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3345,8 +3350,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3355,18 +3360,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTempl
 }
 
 type ApiDeliveryGroupsDeleteDeliveryGroupRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	force *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	force               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3430,24 +3435,24 @@ func (r ApiDeliveryGroupsDeleteDeliveryGroupRequest) Execute() (*http.Response, 
 /*
 DeliveryGroupsDeleteDeliveryGroup Delete a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Delivery group name or ID. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsDeleteDeliveryGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Delivery group name or ID. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsDeleteDeliveryGroupRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroup(ctx context.Context, nameOrId string) ApiDeliveryGroupsDeleteDeliveryGroupRequest {
 	return ApiDeliveryGroupsDeleteDeliveryGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute(r ApiDeliveryGroupsDeleteDeliveryGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDeleteDeliveryGroup")
@@ -3551,8 +3556,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3562,8 +3567,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3573,8 +3578,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3584,8 +3589,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3595,8 +3600,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3606,8 +3611,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3617,8 +3622,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3628,8 +3633,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3638,18 +3643,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute
 }
 
 type ApiDeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	policyId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	policyId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3707,26 +3712,26 @@ func (r ApiDeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyRequest) Execute
 /*
 DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy Delete an advanced access policy associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param policyId ID of the advanced access policy.
- @return ApiDeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param policyId ID of the advanced access policy.
+	@return ApiDeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy(ctx context.Context, nameOrId string, policyId string) ApiDeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyRequest {
 	return ApiDeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		policyId: policyId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		policyId:   policyId,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyExecute(r ApiDeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy")
@@ -3828,8 +3833,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3839,8 +3844,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3850,8 +3855,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3861,8 +3866,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3872,8 +3877,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3883,8 +3888,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3894,8 +3899,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3905,8 +3910,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3915,18 +3920,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 }
 
 type ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	uid int32
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	uid                 int32
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3984,26 +3989,26 @@ func (r ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest) Execute
 /*
 DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin Delete the autoscale group plugin by uid.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param uid
- @return ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param uid
+	@return ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin(ctx context.Context, nameOrId string, uid int32) ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest {
 	return ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		uid: uid,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginExecute(r ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin")
@@ -4105,8 +4110,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4116,8 +4121,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4127,8 +4132,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4138,8 +4143,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4149,8 +4154,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4160,8 +4165,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4171,8 +4176,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4182,8 +4187,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -4192,18 +4197,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutosca
 }
 
 type ApiDeliveryGroupsDeleteDeliveryGroupPowerTimeSchemeRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	schemeNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	schemeNameOrId      string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4263,16 +4268,16 @@ DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme Delete a power time scheme from
 
 Delete a power time scheme from a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group.If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param schemeNameOrId Name or ID of the power time scheme.
- @return ApiDeliveryGroupsDeleteDeliveryGroupPowerTimeSchemeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group.If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param schemeNameOrId Name or ID of the power time scheme.
+	@return ApiDeliveryGroupsDeleteDeliveryGroupPowerTimeSchemeRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme(ctx context.Context, nameOrId string, schemeNameOrId string) ApiDeliveryGroupsDeleteDeliveryGroupPowerTimeSchemeRequest {
 	return ApiDeliveryGroupsDeleteDeliveryGroupPowerTimeSchemeRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:     a,
+		ctx:            ctx,
+		nameOrId:       nameOrId,
 		schemeNameOrId: schemeNameOrId,
 	}
 }
@@ -4280,9 +4285,9 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTimeSchemeExecute(r ApiDeliveryGroupsDeleteDeliveryGroupPowerTimeSchemeRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme")
@@ -4384,8 +4389,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4395,8 +4400,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4406,8 +4411,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4417,8 +4422,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4428,8 +4433,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4439,8 +4444,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4450,8 +4455,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4461,8 +4466,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -4471,17 +4476,17 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 }
 
 type ApiDeliveryGroupsDeleteDeliveryGroupRebootScheduleRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	scheduleNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	scheduleNameOrId    string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4533,16 +4538,16 @@ func (r ApiDeliveryGroupsDeleteDeliveryGroupRebootScheduleRequest) Execute() (*h
 /*
 DeliveryGroupsDeleteDeliveryGroupRebootSchedule Delete a reboot schedule from a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param scheduleNameOrId Name or ID of the reboot schedule.
- @return ApiDeliveryGroupsDeleteDeliveryGroupRebootScheduleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param scheduleNameOrId Name or ID of the reboot schedule.
+	@return ApiDeliveryGroupsDeleteDeliveryGroupRebootScheduleRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootSchedule(ctx context.Context, nameOrId string, scheduleNameOrId string) ApiDeliveryGroupsDeleteDeliveryGroupRebootScheduleRequest {
 	return ApiDeliveryGroupsDeleteDeliveryGroupRebootScheduleRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:       a,
+		ctx:              ctx,
+		nameOrId:         nameOrId,
 		scheduleNameOrId: scheduleNameOrId,
 	}
 }
@@ -4550,9 +4555,9 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootScheduleExecute(r ApiDeliveryGroupsDeleteDeliveryGroupRebootScheduleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDeleteDeliveryGroupRebootSchedule")
@@ -4651,8 +4656,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4662,8 +4667,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4673,8 +4678,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4684,8 +4689,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4695,8 +4700,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4706,8 +4711,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4717,8 +4722,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4728,8 +4733,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -4738,18 +4743,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 }
 
 type ApiDeliveryGroupsDoAddApplicationsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                      context.Context
+	ApiService                               *DeliveryGroupsAPIsDAASService
+	citrixCustomerId                         *string
+	citrixInstanceId                         *string
+	nameOrId                                 string
 	deliveryGroupAddApplicationsRequestModel *DeliveryGroupAddApplicationsRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                *string
+	authorization                            *string
+	citrixTransactionId                      *string
+	accept                                   *string
+	citrixLocale                             *string
+	async                                    *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4813,24 +4818,24 @@ func (r ApiDeliveryGroupsDoAddApplicationsRequest) Execute() (*http.Response, er
 /*
 DeliveryGroupsDoAddApplications Add applications and/or application groups to a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsDoAddApplicationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsDoAddApplicationsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplications(ctx context.Context, nameOrId string) ApiDeliveryGroupsDoAddApplicationsRequest {
 	return ApiDeliveryGroupsDoAddApplicationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r ApiDeliveryGroupsDoAddApplicationsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDoAddApplications")
@@ -4936,8 +4941,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4947,8 +4952,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4958,8 +4963,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4969,8 +4974,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4980,8 +4985,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4991,8 +4996,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -5002,8 +5007,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5013,8 +5018,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5024,8 +5029,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5035,8 +5040,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -5045,19 +5050,19 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 }
 
 type ApiDeliveryGroupsDoAddMachinesRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                  context.Context
+	ApiService                           *DeliveryGroupsAPIsDAASService
+	citrixCustomerId                     *string
+	citrixInstanceId                     *string
+	nameOrId                             string
 	deliveryGroupAddMachinesRequestModel *DeliveryGroupAddMachinesRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	detailResponseRequired *bool
-	async *bool
+	userAgent                            *string
+	authorization                        *string
+	citrixTransactionId                  *string
+	accept                               *string
+	citrixLocale                         *string
+	detailResponseRequired               *bool
+	async                                *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5127,26 +5132,27 @@ func (r ApiDeliveryGroupsDoAddMachinesRequest) Execute() (*DeliveryGroupDetailRe
 /*
 DeliveryGroupsDoAddMachines Add machines to a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group to add machines to.             If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsDoAddMachinesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group to add machines to.             If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsDoAddMachinesRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachines(ctx context.Context, nameOrId string) ApiDeliveryGroupsDoAddMachinesRequest {
 	return ApiDeliveryGroupsDoAddMachinesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return DeliveryGroupDetailResponseModel
+//
+//	@return DeliveryGroupDetailResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r ApiDeliveryGroupsDoAddMachinesRequest) (*DeliveryGroupDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeliveryGroupDetailResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeliveryGroupDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDoAddMachines")
@@ -5255,8 +5261,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5266,8 +5272,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5277,8 +5283,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5288,8 +5294,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5299,8 +5305,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5310,8 +5316,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -5321,8 +5327,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5332,8 +5338,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5343,8 +5349,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5354,8 +5360,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5373,20 +5379,20 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 }
 
 type ApiDeliveryGroupsDoDeliveryGroupSearchRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                             context.Context
+	ApiService                      *DeliveryGroupsAPIsDAASService
+	citrixCustomerId                *string
+	citrixInstanceId                *string
 	deliveryGroupSearchRequestModel *DeliveryGroupSearchRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	limit *int32
-	continuationToken *string
-	fields *string
+	userAgent                       *string
+	authorization                   *string
+	citrixTransactionId             *string
+	accept                          *string
+	citrixLocale                    *string
+	async                           *bool
+	limit                           *int32
+	continuationToken               *string
+	fields                          *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5471,24 +5477,25 @@ DeliveryGroupsDoDeliveryGroupSearch Perform an advanced search for deliveryGroup
 Perform an advanced search for deliveryGroups.  Note that some combinations
 of search parameters may result in slow performance.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeliveryGroupsDoDeliveryGroupSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeliveryGroupsDoDeliveryGroupSearchRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearch(ctx context.Context) ApiDeliveryGroupsDoDeliveryGroupSearchRequest {
 	return ApiDeliveryGroupsDoDeliveryGroupSearchRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return DeliveryGroupResponseModelCollection
+//
+//	@return DeliveryGroupResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecute(r ApiDeliveryGroupsDoDeliveryGroupSearchRequest) (*DeliveryGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeliveryGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeliveryGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDoDeliveryGroupSearch")
@@ -5602,8 +5609,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5613,8 +5620,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5624,8 +5631,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5635,8 +5642,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5646,8 +5653,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -5657,8 +5664,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5668,8 +5675,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5679,8 +5686,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5690,8 +5697,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5709,18 +5716,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 }
 
 type ApiDeliveryGroupsDoRemoveApplicationGroupsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	appGroupNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	appGroupNameOrId    string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5778,16 +5785,16 @@ func (r ApiDeliveryGroupsDoRemoveApplicationGroupsRequest) Execute() (*http.Resp
 /*
 DeliveryGroupsDoRemoveApplicationGroups Remove an application group from a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param appGroupNameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
- @return ApiDeliveryGroupsDoRemoveApplicationGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param appGroupNameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	@return ApiDeliveryGroupsDoRemoveApplicationGroupsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroups(ctx context.Context, nameOrId string, appGroupNameOrId string) ApiDeliveryGroupsDoRemoveApplicationGroupsRequest {
 	return ApiDeliveryGroupsDoRemoveApplicationGroupsRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:       a,
+		ctx:              ctx,
+		nameOrId:         nameOrId,
 		appGroupNameOrId: appGroupNameOrId,
 	}
 }
@@ -5795,9 +5802,9 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroups(
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsExecute(r ApiDeliveryGroupsDoRemoveApplicationGroupsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDoRemoveApplicationGroups")
@@ -5899,8 +5906,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5910,8 +5917,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5921,8 +5928,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5932,8 +5939,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5943,8 +5950,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5954,8 +5961,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5965,8 +5972,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5976,8 +5983,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -5986,18 +5993,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsE
 }
 
 type ApiDeliveryGroupsDoRemoveApplicationsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	appNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	appNameOrId         string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6055,16 +6062,16 @@ func (r ApiDeliveryGroupsDoRemoveApplicationsRequest) Execute() (*http.Response,
 /*
 DeliveryGroupsDoRemoveApplications Remove an application from a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param appNameOrId Name or ID of the application.
- @return ApiDeliveryGroupsDoRemoveApplicationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param appNameOrId Name or ID of the application.
+	@return ApiDeliveryGroupsDoRemoveApplicationsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplications(ctx context.Context, nameOrId string, appNameOrId string) ApiDeliveryGroupsDoRemoveApplicationsRequest {
 	return ApiDeliveryGroupsDoRemoveApplicationsRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:  a,
+		ctx:         ctx,
+		nameOrId:    nameOrId,
 		appNameOrId: appNameOrId,
 	}
 }
@@ -6072,9 +6079,9 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplications(ctx c
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecute(r ApiDeliveryGroupsDoRemoveApplicationsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDoRemoveApplications")
@@ -6176,8 +6183,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6187,8 +6194,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6198,8 +6205,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6209,8 +6216,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -6220,8 +6227,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6231,8 +6238,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6242,8 +6249,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6253,8 +6260,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -6263,18 +6270,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecut
 }
 
 type ApiDeliveryGroupsDoRemoveMachinesRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	machineNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	machineNameOrId     string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6332,16 +6339,16 @@ func (r ApiDeliveryGroupsDoRemoveMachinesRequest) Execute() (*http.Response, err
 /*
 DeliveryGroupsDoRemoveMachines Remove a machine from a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param machineNameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'.             For instance, if a MachineName is \"DomainA\\NameB\", the param will be \"DomainA|NameB\".
- @return ApiDeliveryGroupsDoRemoveMachinesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param machineNameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'.             For instance, if a MachineName is \"DomainA\\NameB\", the param will be \"DomainA|NameB\".
+	@return ApiDeliveryGroupsDoRemoveMachinesRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachines(ctx context.Context, nameOrId string, machineNameOrId string) ApiDeliveryGroupsDoRemoveMachinesRequest {
 	return ApiDeliveryGroupsDoRemoveMachinesRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:      a,
+		ctx:             ctx,
+		nameOrId:        nameOrId,
 		machineNameOrId: machineNameOrId,
 	}
 }
@@ -6349,9 +6356,9 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachines(ctx conte
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r ApiDeliveryGroupsDoRemoveMachinesRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDoRemoveMachines")
@@ -6453,8 +6460,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6464,8 +6471,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6475,8 +6482,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6486,8 +6493,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -6497,8 +6504,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6508,8 +6515,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6519,8 +6526,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6530,8 +6537,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -6540,18 +6547,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 }
 
 type ApiDeliveryGroupsGetAutoscalePluginTemplateRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	type_ string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	type_               string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6609,28 +6616,29 @@ func (r ApiDeliveryGroupsGetAutoscalePluginTemplateRequest) Execute() (*Autoscal
 /*
 DeliveryGroupsGetAutoscalePluginTemplate Return the autoscale plugin configuration template for the specified plugin type and name.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param type_ The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"             
- @param name The name of the template.
- @return ApiDeliveryGroupsGetAutoscalePluginTemplateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param type_ The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"
+	@param name The name of the template.
+	@return ApiDeliveryGroupsGetAutoscalePluginTemplateRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate(ctx context.Context, type_ string, name string) ApiDeliveryGroupsGetAutoscalePluginTemplateRequest {
 	return ApiDeliveryGroupsGetAutoscalePluginTemplateRequest{
 		ApiService: a,
-		ctx: ctx,
-		type_: type_,
-		name: name,
+		ctx:        ctx,
+		type_:      type_,
+		name:       name,
 	}
 }
 
 // Execute executes the request
-//  @return AutoscalePluginTemplateResponseModel
+//
+//	@return AutoscalePluginTemplateResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplateExecute(r ApiDeliveryGroupsGetAutoscalePluginTemplateRequest) (*AutoscalePluginTemplateResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AutoscalePluginTemplateResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AutoscalePluginTemplateResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetAutoscalePluginTemplate")
@@ -6732,8 +6740,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6743,8 +6751,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6754,8 +6762,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6765,8 +6773,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6776,8 +6784,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6787,8 +6795,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6798,8 +6806,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6809,8 +6817,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6828,17 +6836,17 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 }
 
 type ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	type_ string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	type_               string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6896,26 +6904,27 @@ func (r ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest) Execute() (*Autosca
 /*
 DeliveryGroupsGetAutoscalePluginTemplates Return all autoscale plugin configuration templates for the specified plugin type.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param type_ The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"             
- @return ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param type_ The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"
+	@return ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplates(ctx context.Context, type_ string) ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest {
 	return ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest{
 		ApiService: a,
-		ctx: ctx,
-		type_: type_,
+		ctx:        ctx,
+		type_:      type_,
 	}
 }
 
 // Execute executes the request
-//  @return AutoscalePluginTemplateResponseModelCollection
+//
+//	@return AutoscalePluginTemplateResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplatesExecute(r ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest) (*AutoscalePluginTemplateResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AutoscalePluginTemplateResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AutoscalePluginTemplateResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetAutoscalePluginTemplates")
@@ -7016,8 +7025,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7027,8 +7036,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7038,8 +7047,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7049,8 +7058,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7060,8 +7069,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7071,8 +7080,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7082,8 +7091,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7093,8 +7102,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7112,18 +7121,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 }
 
 type ApiDeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	fromDate *time.Time
-	numberOfDays *int32
+	accept              *string
+	citrixLocale        *string
+	fromDate            *time.Time
+	numberOfDays        *int32
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7187,26 +7196,27 @@ func (r ApiDeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesRequest) Exe
 /*
 DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines Gets the projected number of machines that Autoscale will keep powered on over the specified period
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.             
- @return ApiDeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesRequest {
 	return ApiDeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ProjectedAutoscaleMachinesResponseModel
+//
+//	@return ProjectedAutoscaleMachinesResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesExecute(r ApiDeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesRequest) (*ProjectedAutoscaleMachinesResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProjectedAutoscaleMachinesResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProjectedAutoscaleMachinesResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines")
@@ -7310,8 +7320,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjected
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7321,8 +7331,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjected
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7332,8 +7342,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjected
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7343,8 +7353,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjected
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7354,8 +7364,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjected
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7365,8 +7375,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjected
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7376,8 +7386,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjected
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7387,8 +7397,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjected
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7406,17 +7416,17 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjected
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7474,26 +7484,27 @@ func (r ApiDeliveryGroupsGetDeliveryGroupRequest) Execute() (*DeliveryGroupDetai
 /*
 DeliveryGroupsGetDeliveryGroup Get details of a single delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroup(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return DeliveryGroupDetailResponseModel
+//
+//	@return DeliveryGroupDetailResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r ApiDeliveryGroupsGetDeliveryGroupRequest) (*DeliveryGroupDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeliveryGroupDetailResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeliveryGroupDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroup")
@@ -7594,8 +7605,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7605,8 +7616,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7616,8 +7627,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7627,8 +7638,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7638,8 +7649,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7649,8 +7660,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7660,8 +7671,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7671,8 +7682,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7690,18 +7701,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r 
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7765,26 +7776,27 @@ func (r ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesRequest) Execute(
 /*
 DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies Get the advanced access policies associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return AdvancedAccessPolicyResponseModelCollection
+//
+//	@return AdvancedAccessPolicyResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesExecute(r ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesRequest) (*AdvancedAccessPolicyResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdvancedAccessPolicyResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdvancedAccessPolicyResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies")
@@ -7888,8 +7900,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7899,8 +7911,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7910,8 +7922,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7921,8 +7933,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7932,8 +7944,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7943,8 +7955,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7954,8 +7966,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7965,8 +7977,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7984,17 +7996,17 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	policyId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	policyId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8046,28 +8058,29 @@ func (r ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyRequest) Execute() 
 /*
 DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy Get the details of a single advanced access policy associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param policyId ID of the advanced access policy.
- @return ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param policyId ID of the advanced access policy.
+	@return ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy(ctx context.Context, nameOrId string, policyId string) ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		policyId: policyId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		policyId:   policyId,
 	}
 }
 
 // Execute executes the request
-//  @return AdvancedAccessPolicyResponseModel
+//
+//	@return AdvancedAccessPolicyResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyExecute(r ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyRequest) (*AdvancedAccessPolicyResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdvancedAccessPolicyResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdvancedAccessPolicyResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy")
@@ -8166,8 +8179,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8177,8 +8190,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8188,8 +8201,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8199,8 +8212,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8210,8 +8223,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8221,8 +8234,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8232,8 +8245,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8243,8 +8256,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8262,19 +8275,19 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupApplicationsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8343,26 +8356,27 @@ func (r ApiDeliveryGroupsGetDeliveryGroupApplicationsRequest) Execute() (*Applic
 /*
 DeliveryGroupsGetDeliveryGroupApplications Get the applications associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupApplicationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupApplicationsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplications(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupApplicationsRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupApplicationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationResponseModelCollection
+//
+//	@return ApplicationResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicationsExecute(r ApiDeliveryGroupsGetDeliveryGroupApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupApplications")
@@ -8469,8 +8483,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8480,8 +8494,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8491,8 +8505,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8502,8 +8516,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8513,8 +8527,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8524,8 +8538,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8535,8 +8549,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8546,8 +8560,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8565,18 +8579,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	type_ *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	type_               *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8621,7 +8635,7 @@ func (r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) CitrixLoc
 	return r
 }
 
-// The type of the plugin.             The supported types are: \&quot;Holiday\&quot;, \&quot;Intelligent\&quot;             
+// The type of the plugin.             The supported types are: \&quot;Holiday\&quot;, \&quot;Intelligent\&quot;
 func (r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) Type_(type_ string) ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest {
 	r.type_ = &type_
 	return r
@@ -8640,26 +8654,27 @@ func (r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) Execute()
 /*
 DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins Get the autoscale group plugins for the specified delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return AutoscaleGroupPluginModelCollection
+//
+//	@return AutoscaleGroupPluginModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsExecute(r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) (*AutoscaleGroupPluginModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AutoscaleGroupPluginModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AutoscaleGroupPluginModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins")
@@ -8763,8 +8778,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8774,8 +8789,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8785,8 +8800,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8796,8 +8811,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8807,8 +8822,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8818,8 +8833,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8829,8 +8844,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8840,8 +8855,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8859,18 +8874,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleG
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupFtasRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                           context.Context
+	ApiService                    *DeliveryGroupsAPIsDAASService
+	citrixCustomerId              *string
+	citrixInstanceId              *string
 	deliveryGroupsFtaRequestModel *DeliveryGroupsFtaRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	executableName *string
-	async *bool
+	userAgent                     *string
+	authorization                 *string
+	citrixTransactionId           *string
+	accept                        *string
+	citrixLocale                  *string
+	executableName                *string
+	async                         *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8943,24 +8958,25 @@ Get the imported file-type for a delivery group. The imported file type associat
 because the system expects all machines in the same desktop group to have the same file type associations.
 That may not be true, however, across desktop groups.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeliveryGroupsGetDeliveryGroupFtasRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeliveryGroupsGetDeliveryGroupFtasRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtas(ctx context.Context) ApiDeliveryGroupsGetDeliveryGroupFtasRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupFtasRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return FtaResponseModelCollection
+//
+//	@return FtaResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecute(r ApiDeliveryGroupsGetDeliveryGroupFtasRequest) (*FtaResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FtaResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FtaResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupFtas")
@@ -9068,8 +9084,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9079,8 +9095,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9090,8 +9106,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9101,8 +9117,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9112,8 +9128,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -9123,8 +9139,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9134,8 +9150,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9145,8 +9161,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9156,8 +9172,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9175,18 +9191,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupMachinesRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9250,26 +9266,27 @@ func (r ApiDeliveryGroupsGetDeliveryGroupMachinesRequest) Execute() (*MachineRes
 /*
 DeliveryGroupsGetDeliveryGroupMachines Get the machines associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupMachinesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupMachinesRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachines(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupMachinesRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupMachinesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return MachineResponseModelCollection
+//
+//	@return MachineResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesExecute(r ApiDeliveryGroupsGetDeliveryGroupMachinesRequest) (*MachineResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupMachines")
@@ -9373,8 +9390,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9384,8 +9401,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9395,8 +9412,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9406,8 +9423,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9417,8 +9434,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9428,8 +9445,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9439,8 +9456,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9450,8 +9467,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9469,17 +9486,17 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesEx
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemeRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	schemeNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	schemeNameOrId      string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9534,28 +9551,29 @@ DeliveryGroupsGetDeliveryGroupPowerTimeScheme Get the details about a single pow
 Get the details about a single power time scheme associated with a delivery
 group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param schemeNameOrId Name or ID of the power time scheme.
- @return ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param schemeNameOrId Name or ID of the power time scheme.
+	@return ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemeRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeScheme(ctx context.Context, nameOrId string, schemeNameOrId string) ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemeRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemeRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:     a,
+		ctx:            ctx,
+		nameOrId:       nameOrId,
 		schemeNameOrId: schemeNameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return PowerTimeSchemeResponseModel
+//
+//	@return PowerTimeSchemeResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeSchemeExecute(r ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemeRequest) (*PowerTimeSchemeResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PowerTimeSchemeResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PowerTimeSchemeResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupPowerTimeScheme")
@@ -9654,8 +9672,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9665,8 +9683,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9676,8 +9694,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9687,8 +9705,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9698,8 +9716,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9709,8 +9727,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9720,8 +9738,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9731,8 +9749,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9750,18 +9768,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemesRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9827,26 +9845,27 @@ DeliveryGroupsGetDeliveryGroupPowerTimeSchemes Get the power time schemes associ
 
 Get the power time schemes associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemesRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeSchemes(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemesRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return PowerTimeSchemeResponseModelCollection
+//
+//	@return PowerTimeSchemeResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeSchemesExecute(r ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemesRequest) (*PowerTimeSchemeResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PowerTimeSchemeResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PowerTimeSchemeResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupPowerTimeSchemes")
@@ -9950,8 +9969,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9961,8 +9980,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9972,8 +9991,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9983,8 +10002,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9994,8 +10013,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10005,8 +10024,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10016,8 +10035,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10027,8 +10046,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10046,17 +10065,17 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupRebootScheduleRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	scheduleNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	scheduleNameOrId    string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10108,28 +10127,29 @@ func (r ApiDeliveryGroupsGetDeliveryGroupRebootScheduleRequest) Execute() (*Rebo
 /*
 DeliveryGroupsGetDeliveryGroupRebootSchedule Get the details about a single reboot schedule associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param scheduleNameOrId Name or ID of the reboot schedule.
- @return ApiDeliveryGroupsGetDeliveryGroupRebootScheduleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param scheduleNameOrId Name or ID of the reboot schedule.
+	@return ApiDeliveryGroupsGetDeliveryGroupRebootScheduleRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSchedule(ctx context.Context, nameOrId string, scheduleNameOrId string) ApiDeliveryGroupsGetDeliveryGroupRebootScheduleRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupRebootScheduleRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:       a,
+		ctx:              ctx,
+		nameOrId:         nameOrId,
 		scheduleNameOrId: scheduleNameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return RebootScheduleResponseModel
+//
+//	@return RebootScheduleResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootScheduleExecute(r ApiDeliveryGroupsGetDeliveryGroupRebootScheduleRequest) (*RebootScheduleResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RebootScheduleResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RebootScheduleResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupRebootSchedule")
@@ -10228,8 +10248,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10239,8 +10259,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10250,8 +10270,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10261,8 +10281,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10272,8 +10292,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10283,8 +10303,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10294,8 +10314,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10305,8 +10325,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10324,18 +10344,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupRebootSchedulesRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10399,26 +10419,27 @@ func (r ApiDeliveryGroupsGetDeliveryGroupRebootSchedulesRequest) Execute() (*Reb
 /*
 DeliveryGroupsGetDeliveryGroupRebootSchedules Get the reboot schedules associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupRebootSchedulesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupRebootSchedulesRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSchedules(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupRebootSchedulesRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupRebootSchedulesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return RebootScheduleResponseModelCollection
+//
+//	@return RebootScheduleResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSchedulesExecute(r ApiDeliveryGroupsGetDeliveryGroupRebootSchedulesRequest) (*RebootScheduleResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RebootScheduleResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RebootScheduleResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupRebootSchedules")
@@ -10522,8 +10543,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10533,8 +10554,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10544,8 +10565,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10555,8 +10576,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10566,8 +10587,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10577,8 +10598,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10588,8 +10609,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10599,8 +10620,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10618,18 +10639,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupStartMenuApplicationsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	tagRestriction *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	tagRestriction      *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10695,26 +10716,27 @@ DeliveryGroupsGetDeliveryGroupStartMenuApplications Get the start menu applicati
 
 Get the start menu applications from a machine in the delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupStartMenuApplicationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupStartMenuApplicationsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuApplications(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupStartMenuApplicationsRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupStartMenuApplicationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return StartMenuApplicationResponseModelCollection
+//
+//	@return StartMenuApplicationResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuApplicationsExecute(r ApiDeliveryGroupsGetDeliveryGroupStartMenuApplicationsRequest) (*StartMenuApplicationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *StartMenuApplicationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *StartMenuApplicationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupStartMenuApplications")
@@ -10818,8 +10840,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10829,8 +10851,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10840,8 +10862,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10851,8 +10873,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10862,8 +10884,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10873,8 +10895,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10884,8 +10906,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10895,8 +10917,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10914,18 +10936,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuA
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupTagsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	fields *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	fields              *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10996,26 +11018,27 @@ delivery group.  To find only tags directly associated with the delivery
 group, filter the results to those with
 NumDeliveryGroups equal to `1`.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupTagsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTags(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupTagsRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupTagsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return TagResponseModelCollection
+//
+//	@return TagResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecute(r ApiDeliveryGroupsGetDeliveryGroupTagsRequest) (*TagResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TagResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TagResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupTags")
@@ -11119,8 +11142,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11130,8 +11153,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11141,8 +11164,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11152,8 +11175,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -11163,8 +11186,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11174,8 +11197,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -11185,8 +11208,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11196,8 +11219,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -11215,16 +11238,16 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupTestReportRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11279,26 +11302,27 @@ DeliveryGroupsGetDeliveryGroupTestReport Get the most recent test report of a de
 Get the test report from the last run of
 TestDeliveryGroup.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupTestReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupTestReportRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReport(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupTestReportRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupTestReportRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return TestReportResponseModel
+//
+//	@return TestReportResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReportExecute(r ApiDeliveryGroupsGetDeliveryGroupTestReportRequest) (*TestReportResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TestReportResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TestReportResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupTestReport")
@@ -11396,8 +11420,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReport
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11407,8 +11431,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReport
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11418,8 +11442,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReport
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11429,8 +11453,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReport
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -11440,8 +11464,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReport
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11451,8 +11475,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReport
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -11462,8 +11486,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReport
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11473,8 +11497,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReport
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -11492,20 +11516,20 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReport
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	adminFolder *string
-	async *bool
-	limit *int32
-	continuationToken *string
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	adminFolder         *string
+	async               *bool
+	limit               *int32
+	continuationToken   *string
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11573,7 +11597,7 @@ func (r ApiDeliveryGroupsGetDeliveryGroupsRequest) ContinuationToken(continuatio
 	return r
 }
 
-// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.             
+// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.
 func (r ApiDeliveryGroupsGetDeliveryGroupsRequest) Fields(fields string) ApiDeliveryGroupsGetDeliveryGroupsRequest {
 	r.fields = &fields
 	return r
@@ -11588,24 +11612,25 @@ DeliveryGroupsGetDeliveryGroups Get all delivery groups.
 
 Get delivery groups in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeliveryGroupsGetDeliveryGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeliveryGroupsGetDeliveryGroupsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroups(ctx context.Context) ApiDeliveryGroupsGetDeliveryGroupsRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return DeliveryGroupResponseModelCollection
+//
+//	@return DeliveryGroupResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsExecute(r ApiDeliveryGroupsGetDeliveryGroupsRequest) (*DeliveryGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeliveryGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeliveryGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroups")
@@ -11717,8 +11742,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11728,8 +11753,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11739,8 +11764,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -11750,8 +11775,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11761,8 +11786,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -11772,8 +11797,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11783,8 +11808,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -11802,18 +11827,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsExecute(r
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupsAdministratorsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11877,26 +11902,27 @@ func (r ApiDeliveryGroupsGetDeliveryGroupsAdministratorsRequest) Execute() (*Adm
 /*
 DeliveryGroupsGetDeliveryGroupsAdministrators Get administrators who can administer a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupsAdministratorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupsAdministratorsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministrators(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupsAdministratorsRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupsAdministratorsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorResponseModelCollection
+//
+//	@return AdministratorResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministratorsExecute(r ApiDeliveryGroupsGetDeliveryGroupsAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupsAdministrators")
@@ -12000,8 +12026,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12011,8 +12037,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12022,8 +12048,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12033,8 +12059,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -12044,8 +12070,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -12055,8 +12081,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -12066,8 +12092,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12077,8 +12103,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -12096,18 +12122,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministr
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupsApplicationGroupsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -12171,26 +12197,27 @@ func (r ApiDeliveryGroupsGetDeliveryGroupsApplicationGroupsRequest) Execute() (*
 /*
 DeliveryGroupsGetDeliveryGroupsApplicationGroups Get the application groups associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupsApplicationGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupsApplicationGroupsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicationGroups(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupsApplicationGroupsRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupsApplicationGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationGroupResponseModelCollection
+//
+//	@return ApplicationGroupResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicationGroupsExecute(r ApiDeliveryGroupsGetDeliveryGroupsApplicationGroupsRequest) (*ApplicationGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupsApplicationGroups")
@@ -12294,8 +12321,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12305,8 +12332,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12316,8 +12343,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12327,8 +12354,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -12338,8 +12365,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -12349,8 +12376,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -12360,8 +12387,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12371,8 +12398,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -12390,19 +12417,19 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicati
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupsDesktopsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -12471,26 +12498,27 @@ func (r ApiDeliveryGroupsGetDeliveryGroupsDesktopsRequest) Execute() (*DesktopRe
 /*
 DeliveryGroupsGetDeliveryGroupsDesktops Get the published desktops associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupsDesktopsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupsDesktopsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktops(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupsDesktopsRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupsDesktopsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return DesktopResponseModelCollection
+//
+//	@return DesktopResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsExecute(r ApiDeliveryGroupsGetDeliveryGroupsDesktopsRequest) (*DesktopResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DesktopResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DesktopResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupsDesktops")
@@ -12597,8 +12625,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12608,8 +12636,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12619,8 +12647,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12630,8 +12658,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -12641,8 +12669,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -12652,8 +12680,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -12663,8 +12691,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12674,8 +12702,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -12693,17 +12721,17 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsE
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -12755,28 +12783,29 @@ func (r ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsRequest) Execute(
 /*
 DeliveryGroupsGetDeliveryGroupsMachineCatalogDetails Get the details of machine catalog associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param id Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {delivery group folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param id Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {delivery group folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCatalogDetails(ctx context.Context, nameOrId string, id string) ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		id: id,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return MachineCatalogDetailResponseModel
+//
+//	@return MachineCatalogDetailResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsExecute(r ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsRequest) (*MachineCatalogDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineCatalogDetailResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineCatalogDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupsMachineCatalogDetails")
@@ -12875,8 +12904,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12886,8 +12915,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12897,8 +12926,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12908,8 +12937,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -12919,8 +12948,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -12930,8 +12959,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -12941,8 +12970,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12952,8 +12981,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -12971,19 +13000,19 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -13053,26 +13082,27 @@ func (r ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogsRequest) Execute() (*Ma
 /*
 DeliveryGroupsGetDeliveryGroupsMachineCatalogs Get machine catalogs associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCatalogs(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogsRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return MachineCatalogResponseModelCollection
+//
+//	@return MachineCatalogResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCatalogsExecute(r ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogsRequest) (*MachineCatalogResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineCatalogResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineCatalogResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupsMachineCatalogs")
@@ -13179,8 +13209,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -13190,8 +13220,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -13201,8 +13231,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -13212,8 +13242,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -13223,8 +13253,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -13234,8 +13264,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -13245,8 +13275,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -13256,8 +13286,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -13275,18 +13305,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupsUsageRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	continuationToken *string
-	limit *int32
+	accept              *string
+	citrixLocale        *string
+	continuationToken   *string
+	limit               *int32
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -13350,26 +13380,27 @@ func (r ApiDeliveryGroupsGetDeliveryGroupsUsageRequest) Execute() (*DesktopUsage
 /*
 DeliveryGroupsGetDeliveryGroupsUsage Get usage data about a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsGetDeliveryGroupsUsageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsGetDeliveryGroupsUsageRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsage(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupsUsageRequest {
 	return ApiDeliveryGroupsGetDeliveryGroupsUsageRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return DesktopUsageResponseModelCollection
+//
+//	@return DesktopUsageResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExecute(r ApiDeliveryGroupsGetDeliveryGroupsUsageRequest) (*DesktopUsageResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DesktopUsageResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DesktopUsageResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupsUsage")
@@ -13473,8 +13504,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -13484,8 +13515,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -13495,8 +13526,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -13506,8 +13537,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -13517,8 +13548,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -13528,8 +13559,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -13539,8 +13570,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -13550,8 +13581,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -13569,20 +13600,20 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExec
 }
 
 type ApiDeliveryGroupsGetDeliveryGroupsV2Request struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	adminFolder *string
-	async *bool
-	limit *int32
-	continuationToken *string
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	adminFolder         *string
+	async               *bool
+	limit               *int32
+	continuationToken   *string
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -13650,7 +13681,7 @@ func (r ApiDeliveryGroupsGetDeliveryGroupsV2Request) ContinuationToken(continuat
 	return r
 }
 
-// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.             
+// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.
 func (r ApiDeliveryGroupsGetDeliveryGroupsV2Request) Fields(fields string) ApiDeliveryGroupsGetDeliveryGroupsV2Request {
 	r.fields = &fields
 	return r
@@ -13665,24 +13696,25 @@ DeliveryGroupsGetDeliveryGroupsV2 The V2 version of get all delivery groups.
 
 Get delivery groups in the site with default response fields if no fields parameters specified.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeliveryGroupsGetDeliveryGroupsV2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeliveryGroupsGetDeliveryGroupsV2Request
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2(ctx context.Context) ApiDeliveryGroupsGetDeliveryGroupsV2Request {
 	return ApiDeliveryGroupsGetDeliveryGroupsV2Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return DeliveryGroupResponseModelCollection
+//
+//	@return DeliveryGroupResponseModelCollection
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute(r ApiDeliveryGroupsGetDeliveryGroupsV2Request) (*DeliveryGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeliveryGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeliveryGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupsV2")
@@ -13794,8 +13826,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -13805,8 +13837,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -13816,8 +13848,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -13827,8 +13859,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -13838,8 +13870,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -13849,8 +13881,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -13860,8 +13892,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -13879,18 +13911,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute
 }
 
 type ApiDeliveryGroupsPatchDeliveryGroupRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                           context.Context
+	ApiService                    *DeliveryGroupsAPIsDAASService
+	citrixCustomerId              *string
+	citrixInstanceId              *string
+	nameOrId                      string
 	editDeliveryGroupRequestModel *EditDeliveryGroupRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                     *string
+	authorization                 *string
+	citrixTransactionId           *string
+	accept                        *string
+	citrixLocale                  *string
+	async                         *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -13954,24 +13986,24 @@ func (r ApiDeliveryGroupsPatchDeliveryGroupRequest) Execute() (*http.Response, e
 /*
 DeliveryGroupsPatchDeliveryGroup Modify a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group to update. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsPatchDeliveryGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group to update. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsPatchDeliveryGroupRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroup(ctx context.Context, nameOrId string) ApiDeliveryGroupsPatchDeliveryGroupRequest {
 	return ApiDeliveryGroupsPatchDeliveryGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(r ApiDeliveryGroupsPatchDeliveryGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsPatchDeliveryGroup")
@@ -14077,8 +14109,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -14088,8 +14120,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -14099,8 +14131,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -14110,8 +14142,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -14121,8 +14153,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -14132,8 +14164,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -14143,8 +14175,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -14154,8 +14186,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -14165,8 +14197,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -14175,19 +14207,19 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 }
 
 type ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	policyId string
+	ctx                              context.Context
+	ApiService                       *DeliveryGroupsAPIsDAASService
+	citrixCustomerId                 *string
+	citrixInstanceId                 *string
+	nameOrId                         string
+	policyId                         string
 	advancedAccessPolicyRequestModel *AdvancedAccessPolicyRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                        *string
+	authorization                    *string
+	citrixTransactionId              *string
+	accept                           *string
+	citrixLocale                     *string
+	async                            *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -14238,7 +14270,7 @@ func (r ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest) CitrixLo
 	return r
 }
 
-// If &#x60;true&#x60;, the advanced access policy will be updated as a background task. 
+// If &#x60;true&#x60;, the advanced access policy will be updated as a background task.
 func (r ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest) Async(async bool) ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest {
 	r.async = &async
 	return r
@@ -14251,28 +14283,29 @@ func (r ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest) Execute(
 /*
 DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy Update an advanced access policy associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param policyId ID of the advanced access policy.
- @return ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param policyId ID of the advanced access policy.
+	@return ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy(ctx context.Context, nameOrId string, policyId string) ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest {
 	return ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		policyId: policyId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		policyId:   policyId,
 	}
 }
 
 // Execute executes the request
-//  @return AdvancedAccessPolicyResponseModel
+//
+//	@return AdvancedAccessPolicyResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyExecute(r ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest) (*AdvancedAccessPolicyResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdvancedAccessPolicyResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdvancedAccessPolicyResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy")
@@ -14379,8 +14412,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -14390,8 +14423,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -14401,8 +14434,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -14412,8 +14445,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -14423,8 +14456,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -14434,8 +14467,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -14445,8 +14478,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -14456,8 +14489,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -14467,8 +14500,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -14486,19 +14519,19 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 }
 
 type ApiDeliveryGroupsPatchDeliveryGroupPowerTimeSchemeRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	schemeNameOrId string
+	ctx                         context.Context
+	ApiService                  *DeliveryGroupsAPIsDAASService
+	citrixCustomerId            *string
+	citrixInstanceId            *string
+	nameOrId                    string
+	schemeNameOrId              string
 	powerTimeSchemeRequestModel *PowerTimeSchemeRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                   *string
+	authorization               *string
+	citrixTransactionId         *string
+	accept                      *string
+	citrixLocale                *string
+	async                       *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -14564,28 +14597,29 @@ DeliveryGroupsPatchDeliveryGroupPowerTimeScheme Update a power time scheme for a
 
 Update a power time scheme for a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param schemeNameOrId Name or ID of the power time scheme to update.
- @return ApiDeliveryGroupsPatchDeliveryGroupPowerTimeSchemeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param schemeNameOrId Name or ID of the power time scheme to update.
+	@return ApiDeliveryGroupsPatchDeliveryGroupPowerTimeSchemeRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTimeScheme(ctx context.Context, nameOrId string, schemeNameOrId string) ApiDeliveryGroupsPatchDeliveryGroupPowerTimeSchemeRequest {
 	return ApiDeliveryGroupsPatchDeliveryGroupPowerTimeSchemeRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:     a,
+		ctx:            ctx,
+		nameOrId:       nameOrId,
 		schemeNameOrId: schemeNameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return PowerTimeSchemeResponseModel
+//
+//	@return PowerTimeSchemeResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTimeSchemeExecute(r ApiDeliveryGroupsPatchDeliveryGroupPowerTimeSchemeRequest) (*PowerTimeSchemeResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PowerTimeSchemeResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PowerTimeSchemeResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsPatchDeliveryGroupPowerTimeScheme")
@@ -14692,8 +14726,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -14703,8 +14737,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -14714,8 +14748,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -14725,8 +14759,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -14736,8 +14770,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -14747,8 +14781,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -14758,8 +14792,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -14769,8 +14803,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -14780,8 +14814,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -14799,18 +14833,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 }
 
 type ApiDeliveryGroupsPatchDeliveryGroupRebootScheduleRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	scheduleNameOrId string
+	ctx                        context.Context
+	ApiService                 *DeliveryGroupsAPIsDAASService
+	citrixCustomerId           *string
+	citrixInstanceId           *string
+	nameOrId                   string
+	scheduleNameOrId           string
 	rebootScheduleRequestModel *RebootScheduleRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                  *string
+	authorization              *string
+	citrixTransactionId        *string
+	accept                     *string
+	citrixLocale               *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -14868,28 +14902,29 @@ func (r ApiDeliveryGroupsPatchDeliveryGroupRebootScheduleRequest) Execute() (*Re
 /*
 DeliveryGroupsPatchDeliveryGroupRebootSchedule Update a reboot schedule for a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param scheduleNameOrId Name or ID of the reboot schedule to update.
- @return ApiDeliveryGroupsPatchDeliveryGroupRebootScheduleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param scheduleNameOrId Name or ID of the reboot schedule to update.
+	@return ApiDeliveryGroupsPatchDeliveryGroupRebootScheduleRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSchedule(ctx context.Context, nameOrId string, scheduleNameOrId string) ApiDeliveryGroupsPatchDeliveryGroupRebootScheduleRequest {
 	return ApiDeliveryGroupsPatchDeliveryGroupRebootScheduleRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:       a,
+		ctx:              ctx,
+		nameOrId:         nameOrId,
 		scheduleNameOrId: scheduleNameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return RebootScheduleResponseModel
+//
+//	@return RebootScheduleResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootScheduleExecute(r ApiDeliveryGroupsPatchDeliveryGroupRebootScheduleRequest) (*RebootScheduleResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RebootScheduleResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RebootScheduleResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsPatchDeliveryGroupRebootSchedule")
@@ -14993,8 +15028,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -15004,8 +15039,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -15015,8 +15050,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -15026,8 +15061,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -15037,8 +15072,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -15048,8 +15083,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -15059,8 +15094,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -15070,8 +15105,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -15081,8 +15116,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -15100,19 +15135,19 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 }
 
 type ApiDeliveryGroupsRemoveDeliveryGroupMachineCatalogRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	catalogNameOrId string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	ctx                    context.Context
+	ApiService             *DeliveryGroupsAPIsDAASService
+	citrixCustomerId       *string
+	citrixInstanceId       *string
+	nameOrId               string
+	catalogNameOrId        string
+	userAgent              *string
+	authorization          *string
+	citrixTransactionId    *string
+	accept                 *string
+	citrixLocale           *string
 	detailResponseRequired *bool
-	async *bool
+	async                  *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -15186,16 +15221,16 @@ associated with the delivery group. Removing all machines within a machine
 catalog from a delivery group will cause the machine catalog to be
 disassociated from the delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param catalogNameOrId Name or ID of the machine catalog to associate. If the ctalog is present in a catalog folder,             specify the name in this format: {delivery group folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiDeliveryGroupsRemoveDeliveryGroupMachineCatalogRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param catalogNameOrId Name or ID of the machine catalog to associate. If the ctalog is present in a catalog folder,             specify the name in this format: {delivery group folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiDeliveryGroupsRemoveDeliveryGroupMachineCatalogRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachineCatalog(ctx context.Context, nameOrId string, catalogNameOrId string) ApiDeliveryGroupsRemoveDeliveryGroupMachineCatalogRequest {
 	return ApiDeliveryGroupsRemoveDeliveryGroupMachineCatalogRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:      a,
+		ctx:             ctx,
+		nameOrId:        nameOrId,
 		catalogNameOrId: catalogNameOrId,
 	}
 }
@@ -15203,9 +15238,9 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachineCatalogExecute(r ApiDeliveryGroupsRemoveDeliveryGroupMachineCatalogRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsRemoveDeliveryGroupMachineCatalog")
@@ -15310,8 +15345,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -15321,8 +15356,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -15332,8 +15367,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -15343,8 +15378,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -15354,8 +15389,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -15365,8 +15400,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -15376,8 +15411,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -15387,8 +15422,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -15397,18 +15432,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 }
 
 type ApiDeliveryGroupsRemoveDeliveryGroupTagsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	tagNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	tagNameOrId         string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -15469,16 +15504,16 @@ DeliveryGroupsRemoveDeliveryGroupTags Remove a tag from a delivery group.
 Remove a tag from a delivery group.  Does not delete the tag,
 only its association to the delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param tagNameOrId Name or ID of the tag.
- @return ApiDeliveryGroupsRemoveDeliveryGroupTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param tagNameOrId Name or ID of the tag.
+	@return ApiDeliveryGroupsRemoveDeliveryGroupTagsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiDeliveryGroupsRemoveDeliveryGroupTagsRequest {
 	return ApiDeliveryGroupsRemoveDeliveryGroupTagsRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:  a,
+		ctx:         ctx,
+		nameOrId:    nameOrId,
 		tagNameOrId: tagNameOrId,
 	}
 }
@@ -15486,9 +15521,9 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTags(ct
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExecute(r ApiDeliveryGroupsRemoveDeliveryGroupTagsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsRemoveDeliveryGroupTags")
@@ -15590,8 +15625,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -15601,8 +15636,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -15612,8 +15647,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -15623,8 +15658,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -15634,8 +15669,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -15645,8 +15680,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -15656,8 +15691,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -15667,8 +15702,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -15677,18 +15712,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExe
 }
 
 type ApiDeliveryGroupsSetDeliveryGroupTagsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	tagsRequestModel *TagsRequestModel
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	tagsRequestModel    *TagsRequestModel
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -15752,24 +15787,24 @@ func (r ApiDeliveryGroupsSetDeliveryGroupTagsRequest) Execute() (*http.Response,
 /*
 DeliveryGroupsSetDeliveryGroupTags Set tags associated with a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsSetDeliveryGroupTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsSetDeliveryGroupTagsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTags(ctx context.Context, nameOrId string) ApiDeliveryGroupsSetDeliveryGroupTagsRequest {
 	return ApiDeliveryGroupsSetDeliveryGroupTagsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecute(r ApiDeliveryGroupsSetDeliveryGroupTagsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsSetDeliveryGroupTags")
@@ -15875,8 +15910,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -15886,8 +15921,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -15897,8 +15932,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -15908,8 +15943,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -15919,8 +15954,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -15930,8 +15965,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -15941,8 +15976,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -15952,8 +15987,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -15963,8 +15998,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -15973,18 +16008,18 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 }
 
 type ApiDeliveryGroupsStartDeliveryGroupRebootCycleRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                     context.Context
+	ApiService              *DeliveryGroupsAPIsDAASService
+	citrixCustomerId        *string
+	citrixInstanceId        *string
+	nameOrId                string
 	rebootCycleRequestModel *RebootCycleRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent               *string
+	authorization           *string
+	citrixTransactionId     *string
+	accept                  *string
+	citrixLocale            *string
+	async                   *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -16048,24 +16083,24 @@ func (r ApiDeliveryGroupsStartDeliveryGroupRebootCycleRequest) Execute() (*http.
 /*
 DeliveryGroupsStartDeliveryGroupRebootCycle Start a reboot cycle for machines in a delivery group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsStartDeliveryGroupRebootCycleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsStartDeliveryGroupRebootCycleRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCycle(ctx context.Context, nameOrId string) ApiDeliveryGroupsStartDeliveryGroupRebootCycleRequest {
 	return ApiDeliveryGroupsStartDeliveryGroupRebootCycleRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCycleExecute(r ApiDeliveryGroupsStartDeliveryGroupRebootCycleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsStartDeliveryGroupRebootCycle")
@@ -16171,8 +16206,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -16182,8 +16217,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -16193,8 +16228,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -16204,8 +16239,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -16215,8 +16250,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -16226,8 +16261,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -16237,8 +16272,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -16248,8 +16283,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -16259,8 +16294,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -16270,8 +16305,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -16280,17 +16315,17 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 }
 
 type ApiDeliveryGroupsTestDeliveryGroupRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *DeliveryGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -16348,26 +16383,27 @@ func (r ApiDeliveryGroupsTestDeliveryGroupRequest) Execute() (*DeliveryGroupTest
 /*
 DeliveryGroupsTestDeliveryGroup Run tests on a delivery group and create a test report.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group to test. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @return ApiDeliveryGroupsTestDeliveryGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group to test. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@return ApiDeliveryGroupsTestDeliveryGroupRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroup(ctx context.Context, nameOrId string) ApiDeliveryGroupsTestDeliveryGroupRequest {
 	return ApiDeliveryGroupsTestDeliveryGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return DeliveryGroupTestResponseModel
+//
+//	@return DeliveryGroupTestResponseModel
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r ApiDeliveryGroupsTestDeliveryGroupRequest) (*DeliveryGroupTestResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeliveryGroupTestResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeliveryGroupTestResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsTestDeliveryGroup")
@@ -16468,8 +16504,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -16479,8 +16515,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -16490,8 +16526,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -16501,8 +16537,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -16512,8 +16548,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -16523,8 +16559,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -16534,8 +16570,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -16545,8 +16581,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -16556,8 +16592,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -16575,16 +16611,16 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 }
 
 type ApiDeliveryGroupsTestDeliveryGroupExistsRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                               context.Context
+	ApiService                        *DeliveryGroupsAPIsDAASService
+	citrixCustomerId                  *string
+	citrixInstanceId                  *string
 	desktopGroupNameCheckRequestModel *DesktopGroupNameCheckRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                         *string
+	authorization                     *string
+	citrixTransactionId               *string
+	accept                            *string
+	citrixLocale                      *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -16642,22 +16678,22 @@ func (r ApiDeliveryGroupsTestDeliveryGroupExistsRequest) Execute() (*http.Respon
 /*
 DeliveryGroupsTestDeliveryGroupExists Test the existence of a delivery group by name.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeliveryGroupsTestDeliveryGroupExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeliveryGroupsTestDeliveryGroupExistsRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExists(ctx context.Context) ApiDeliveryGroupsTestDeliveryGroupExistsRequest {
 	return ApiDeliveryGroupsTestDeliveryGroupExistsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExecute(r ApiDeliveryGroupsTestDeliveryGroupExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsTestDeliveryGroupExists")
@@ -16759,8 +16795,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -16770,8 +16806,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -16781,8 +16817,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -16792,8 +16828,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -16803,8 +16839,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -16814,8 +16850,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -16825,8 +16861,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -16836,8 +16872,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -16847,8 +16883,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -16857,19 +16893,19 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 }
 
 type ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	type_ string
-	name string
+	ctx                                       context.Context
+	ApiService                                *DeliveryGroupsAPIsDAASService
+	citrixCustomerId                          *string
+	citrixInstanceId                          *string
+	type_                                     string
+	name                                      string
 	updateAutoscalePluginTemplateRequestModel *UpdateAutoscalePluginTemplateRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                 *string
+	authorization                             *string
+	citrixTransactionId                       *string
+	accept                                    *string
+	citrixLocale                              *string
+	async                                     *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -16933,26 +16969,26 @@ func (r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) Execute() (*http.
 /*
 DeliveryGroupsUpdateAutoscalePluginTemplate Update the autoscale plugin configuration template for the specified plugin type.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param type_ The type of the plugin.                 The supported types are: \"Holiday\", \"Intelligent\"             
- @param name The name of the template.
- @return ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param type_ The type of the plugin.                 The supported types are: \"Holiday\", \"Intelligent\"
+	@param name The name of the template.
+	@return ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTemplate(ctx context.Context, type_ string, name string) ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest {
 	return ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest{
 		ApiService: a,
-		ctx: ctx,
-		type_: type_,
-		name: name,
+		ctx:        ctx,
+		type_:      type_,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTemplateExecute(r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsUpdateAutoscalePluginTemplate")
@@ -17059,8 +17095,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -17070,8 +17106,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -17081,8 +17117,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -17092,8 +17128,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -17103,8 +17139,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -17114,8 +17150,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -17125,8 +17161,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -17136,8 +17172,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -17147,8 +17183,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -17157,19 +17193,19 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 }
 
 type ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest struct {
-	ctx context.Context
-	ApiService *DeliveryGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	uid int32
+	ctx                                    context.Context
+	ApiService                             *DeliveryGroupsAPIsDAASService
+	citrixCustomerId                       *string
+	citrixInstanceId                       *string
+	nameOrId                               string
+	uid                                    int32
 	updateAutoscaleGroupPluginRequestModel *UpdateAutoscaleGroupPluginRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                              *string
+	authorization                          *string
+	citrixTransactionId                    *string
+	accept                                 *string
+	citrixLocale                           *string
+	async                                  *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -17233,26 +17269,26 @@ func (r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) Execute
 /*
 DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin Update the autoscale group plugin by uid.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
- @param uid The group plugin uid
- @return ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+	@param uid The group plugin uid
+	@return ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest
 */
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin(ctx context.Context, nameOrId string, uid int32) ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest {
 	return ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		uid: uid,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
 func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginExecute(r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin")
@@ -17359,8 +17395,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -17370,8 +17406,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -17381,8 +17417,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -17392,8 +17428,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -17403,8 +17439,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -17414,8 +17450,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -17425,8 +17461,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -17436,8 +17472,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -17447,8 +17483,8 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutosca
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

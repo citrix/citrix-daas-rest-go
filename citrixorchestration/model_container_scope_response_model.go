@@ -20,8 +20,8 @@ var _ MappedNullable = &ContainerScopeResponseModel{}
 // ContainerScopeResponseModel Response object for delegated admin container scopes.
 type ContainerScopeResponseModel struct {
 	// List of delegated admin scopes.
-	Scopes []ScopeResponseModel `json:"Scopes"`
-	ScopeType ContainerScopeType `json:"ScopeType"`
+	Scopes    []ScopeResponseModel `json:"Scopes"`
+	ScopeType ContainerScopeType   `json:"ScopeType"`
 }
 
 // NewContainerScopeResponseModel instantiates a new ContainerScopeResponseModel object
@@ -92,7 +92,7 @@ func (o *ContainerScopeResponseModel) SetScopeType(v ContainerScopeType) {
 }
 
 func (o ContainerScopeResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -141,5 +141,3 @@ func (v *NullableContainerScopeResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

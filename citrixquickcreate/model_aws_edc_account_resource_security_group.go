@@ -36,12 +36,15 @@ type AwsEdcAccountResourceSecurityGroup struct {
 	Tags []Tag `json:"tags,omitempty"`
 }
 
+type _AwsEdcAccountResourceSecurityGroup AwsEdcAccountResourceSecurityGroup
+
 // NewAwsEdcAccountResourceSecurityGroup instantiates a new AwsEdcAccountResourceSecurityGroup object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAwsEdcAccountResourceSecurityGroup(accountType AccountType) *AwsEdcAccountResourceSecurityGroup {
+func NewAwsEdcAccountResourceSecurityGroup(resourceType AwsAccountResourceType, accountType AccountType) *AwsEdcAccountResourceSecurityGroup {
 	this := AwsEdcAccountResourceSecurityGroup{}
+	this.ResourceType = resourceType
 	this.AccountType = accountType
 	return &this
 }
@@ -86,6 +89,7 @@ func (o *AwsEdcAccountResourceSecurityGroup) HasSecurityGroupId() bool {
 func (o *AwsEdcAccountResourceSecurityGroup) SetSecurityGroupId(v string) {
 	o.SecurityGroupId.Set(&v)
 }
+
 // SetSecurityGroupIdNil sets the value for SecurityGroupId to be an explicit nil
 func (o *AwsEdcAccountResourceSecurityGroup) SetSecurityGroupIdNil() {
 	o.SecurityGroupId.Set(nil)
@@ -128,6 +132,7 @@ func (o *AwsEdcAccountResourceSecurityGroup) HasName() bool {
 func (o *AwsEdcAccountResourceSecurityGroup) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AwsEdcAccountResourceSecurityGroup) SetNameNil() {
 	o.Name.Set(nil)
@@ -170,6 +175,7 @@ func (o *AwsEdcAccountResourceSecurityGroup) HasDescription() bool {
 func (o *AwsEdcAccountResourceSecurityGroup) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *AwsEdcAccountResourceSecurityGroup) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -212,6 +218,7 @@ func (o *AwsEdcAccountResourceSecurityGroup) HasVpcId() bool {
 func (o *AwsEdcAccountResourceSecurityGroup) SetVpcId(v string) {
 	o.VpcId.Set(&v)
 }
+
 // SetVpcIdNil sets the value for VpcId to be an explicit nil
 func (o *AwsEdcAccountResourceSecurityGroup) SetVpcIdNil() {
 	o.VpcId.Set(nil)
@@ -243,7 +250,7 @@ func (o *AwsEdcAccountResourceSecurityGroup) GetInboundPermissionsOk() ([]IpPerm
 
 // HasInboundPermissions returns a boolean if a field has been set.
 func (o *AwsEdcAccountResourceSecurityGroup) HasInboundPermissions() bool {
-	if o != nil && IsNil(o.InboundPermissions) {
+	if o != nil && !IsNil(o.InboundPermissions) {
 		return true
 	}
 
@@ -276,7 +283,7 @@ func (o *AwsEdcAccountResourceSecurityGroup) GetOutboundPermissionsOk() ([]IpPer
 
 // HasOutboundPermissions returns a boolean if a field has been set.
 func (o *AwsEdcAccountResourceSecurityGroup) HasOutboundPermissions() bool {
-	if o != nil && IsNil(o.OutboundPermissions) {
+	if o != nil && !IsNil(o.OutboundPermissions) {
 		return true
 	}
 
@@ -309,7 +316,7 @@ func (o *AwsEdcAccountResourceSecurityGroup) GetTagsOk() ([]Tag, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *AwsEdcAccountResourceSecurityGroup) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -322,7 +329,7 @@ func (o *AwsEdcAccountResourceSecurityGroup) SetTags(v []Tag) {
 }
 
 func (o AwsEdcAccountResourceSecurityGroup) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -398,5 +405,3 @@ func (v *NullableAwsEdcAccountResourceSecurityGroup) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,15 +20,15 @@ var _ MappedNullable = &FtaRequestModel{}
 // FtaRequestModel Request object for a file-type association.
 type FtaRequestModel struct {
 	// Content-type.  (Mime type)  Optional.  If not specified, and an imported file type exists for the application with the same ExtensionName, this value will be retained.  Otherwise the default is an empty string.
-	ContentType NullableString `json:"ContentType,omitempty"`
+	ContentType NullableString `json:"ContentType,omitempty" validate:"regexp=^[A-Za-z]+$"`
 	// The extension name for the file type association. For example, \".txt\" or \".doc\".   Required.  When enabling a file type association for an application, the extension name must not already be enabled for the same application.  To change properties of an already-enabled file type association, disable the file type association first.
-	ExtensionName string `json:"ExtensionName"`
+	ExtensionName string `json:"ExtensionName" validate:"regexp=\\\\..+"`
 	// The description of the handler for the file type association.   Optional.  If not specified, and an imported file type exists for the application with the same , this value will be retained.  Otherwise the default is an empty string.
-	Description NullableString `json:"Description,omitempty"`
+	Description NullableString `json:"Description,omitempty" validate:"regexp=^[A-Za-z]+$"`
 	// The name of the handler for the file type association (as seen in the Registry).   Optional.  If not specified, a handler name will be chosen automatically based on the application's . In most cases, callers should NOT override the default behavior and should not pass a value for this property.
-	HandlerName NullableString `json:"HandlerName,omitempty"`
+	HandlerName NullableString `json:"HandlerName,omitempty" validate:"regexp=^[A-Za-z]+$"`
 	// The arguments for the open command that the handler should use. For example, \"%1\".   Required.  When enabling a file type association for an application, the extension name must not already be enabled for the same application.  To change properties of an already-enabled file type association, you must disable the file type association first.
-	OpenArguments NullableString `json:"OpenArguments,omitempty"`
+	OpenArguments NullableString `json:"OpenArguments,omitempty" validate:"regexp=^[A-Za-z]+$"`
 }
 
 // NewFtaRequestModel instantiates a new FtaRequestModel object
@@ -81,6 +81,7 @@ func (o *FtaRequestModel) HasContentType() bool {
 func (o *FtaRequestModel) SetContentType(v string) {
 	o.ContentType.Set(&v)
 }
+
 // SetContentTypeNil sets the value for ContentType to be an explicit nil
 func (o *FtaRequestModel) SetContentTypeNil() {
 	o.ContentType.Set(nil)
@@ -147,6 +148,7 @@ func (o *FtaRequestModel) HasDescription() bool {
 func (o *FtaRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *FtaRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -189,6 +191,7 @@ func (o *FtaRequestModel) HasHandlerName() bool {
 func (o *FtaRequestModel) SetHandlerName(v string) {
 	o.HandlerName.Set(&v)
 }
+
 // SetHandlerNameNil sets the value for HandlerName to be an explicit nil
 func (o *FtaRequestModel) SetHandlerNameNil() {
 	o.HandlerName.Set(nil)
@@ -231,6 +234,7 @@ func (o *FtaRequestModel) HasOpenArguments() bool {
 func (o *FtaRequestModel) SetOpenArguments(v string) {
 	o.OpenArguments.Set(&v)
 }
+
 // SetOpenArgumentsNil sets the value for OpenArguments to be an explicit nil
 func (o *FtaRequestModel) SetOpenArgumentsNil() {
 	o.OpenArguments.Set(nil)
@@ -242,7 +246,7 @@ func (o *FtaRequestModel) UnsetOpenArguments() {
 }
 
 func (o FtaRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -302,5 +306,3 @@ func (v *NullableFtaRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

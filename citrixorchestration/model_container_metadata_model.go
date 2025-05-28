@@ -17,10 +17,10 @@ import (
 // checks if the ContainerMetadataModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ContainerMetadataModel{}
 
-// ContainerMetadataModel About model of Container metadata for machine.             
+// ContainerMetadataModel About model of Container metadata for machine.
 type ContainerMetadataModel struct {
-	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
-	ContainerType *ContainerMetadataType `json:"ContainerType,omitempty"`
+	Metadata      []NameValueStringPairModel `json:"Metadata,omitempty"`
+	ContainerType *ContainerMetadataType     `json:"ContainerType,omitempty"`
 }
 
 // NewContainerMetadataModel instantiates a new ContainerMetadataModel object
@@ -106,7 +106,7 @@ func (o *ContainerMetadataModel) SetContainerType(v ContainerMetadataType) {
 }
 
 func (o ContainerMetadataModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullableContainerMetadataModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

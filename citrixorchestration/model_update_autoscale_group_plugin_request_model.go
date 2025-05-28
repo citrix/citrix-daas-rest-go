@@ -84,6 +84,7 @@ func (o *UpdateAutoscaleGroupPluginRequestModel) HasName() bool {
 func (o *UpdateAutoscaleGroupPluginRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *UpdateAutoscaleGroupPluginRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -126,6 +127,7 @@ func (o *UpdateAutoscaleGroupPluginRequestModel) HasPriority() bool {
 func (o *UpdateAutoscaleGroupPluginRequestModel) SetPriority(v int32) {
 	o.Priority.Set(&v)
 }
+
 // SetPriorityNil sets the value for Priority to be an explicit nil
 func (o *UpdateAutoscaleGroupPluginRequestModel) SetPriorityNil() {
 	o.Priority.Set(nil)
@@ -168,6 +170,7 @@ func (o *UpdateAutoscaleGroupPluginRequestModel) HasEnabled() bool {
 func (o *UpdateAutoscaleGroupPluginRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *UpdateAutoscaleGroupPluginRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -210,6 +213,7 @@ func (o *UpdateAutoscaleGroupPluginRequestModel) HasDescription() bool {
 func (o *UpdateAutoscaleGroupPluginRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *UpdateAutoscaleGroupPluginRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -252,6 +256,7 @@ func (o *UpdateAutoscaleGroupPluginRequestModel) HasAutoApprove() bool {
 func (o *UpdateAutoscaleGroupPluginRequestModel) SetAutoApprove(v bool) {
 	o.AutoApprove.Set(&v)
 }
+
 // SetAutoApproveNil sets the value for AutoApprove to be an explicit nil
 func (o *UpdateAutoscaleGroupPluginRequestModel) SetAutoApproveNil() {
 	o.AutoApprove.Set(nil)
@@ -327,6 +332,7 @@ func (o *UpdateAutoscaleGroupPluginRequestModel) HasApprovedUntil() bool {
 func (o *UpdateAutoscaleGroupPluginRequestModel) SetApprovedUntil(v string) {
 	o.ApprovedUntil.Set(&v)
 }
+
 // SetApprovedUntilNil sets the value for ApprovedUntil to be an explicit nil
 func (o *UpdateAutoscaleGroupPluginRequestModel) SetApprovedUntilNil() {
 	o.ApprovedUntil.Set(nil)
@@ -338,7 +344,7 @@ func (o *UpdateAutoscaleGroupPluginRequestModel) UnsetApprovedUntil() {
 }
 
 func (o UpdateAutoscaleGroupPluginRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -406,5 +412,3 @@ func (v *NullableUpdateAutoscaleGroupPluginRequestModel) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,8 +20,8 @@ type AdministratorAccessType string
 
 // List of AdministratorAccessType
 const (
-	ADMINISTRATORACCESSTYPE_FULL AdministratorAccessType = "Full"
-	ADMINISTRATORACCESSTYPE_CUSTOM AdministratorAccessType = "Custom"
+	ADMINISTRATORACCESSTYPE_FULL     AdministratorAccessType = "Full"
+	ADMINISTRATORACCESSTYPE_CUSTOM   AdministratorAccessType = "Custom"
 	ADMINISTRATORACCESSTYPE_REINVITE AdministratorAccessType = "Reinvite"
 )
 
@@ -110,4 +110,3 @@ func (v *NullableAdministratorAccessType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

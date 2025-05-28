@@ -20,12 +20,12 @@ type FaultState string
 
 // List of FaultState
 const (
-	FAULTSTATE_UNKNOWN FaultState = "Unknown"
-	FAULTSTATE_NONE FaultState = "None"
-	FAULTSTATE_FAILED_TO_START FaultState = "FailedToStart"
-	FAULTSTATE_STUCK_ON_BOOT FaultState = "StuckOnBoot"
-	FAULTSTATE_UNREGISTERED FaultState = "Unregistered"
-	FAULTSTATE_MAX_CAPACITY FaultState = "MaxCapacity"
+	FAULTSTATE_UNKNOWN                   FaultState = "Unknown"
+	FAULTSTATE_NONE                      FaultState = "None"
+	FAULTSTATE_FAILED_TO_START           FaultState = "FailedToStart"
+	FAULTSTATE_STUCK_ON_BOOT             FaultState = "StuckOnBoot"
+	FAULTSTATE_UNREGISTERED              FaultState = "Unregistered"
+	FAULTSTATE_MAX_CAPACITY              FaultState = "MaxCapacity"
 	FAULTSTATE_VIRTUAL_MACHINE_NOT_FOUND FaultState = "VirtualMachineNotFound"
 )
 
@@ -46,7 +46,7 @@ func (v *FaultState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = FaultState(value)
 	return nil
 }
@@ -112,4 +112,3 @@ func (v *NullableFaultState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

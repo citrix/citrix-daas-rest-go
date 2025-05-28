@@ -22,7 +22,7 @@ type CreateLicensingAdminRequestModel struct {
 	// The same name of the account
 	AccountSamName string `json:"AccountSamName"`
 	// The sid of the account
-	AccountSid NullableString `json:"AccountSid,omitempty"`
+	AccountSid  NullableString            `json:"AccountSid,omitempty"`
 	Permissions *LicensingPermissionLevel `json:"Permissions,omitempty"`
 	// Whether this account is a group account
 	IsGroup *bool `json:"IsGroup,omitempty"`
@@ -102,6 +102,7 @@ func (o *CreateLicensingAdminRequestModel) HasAccountSid() bool {
 func (o *CreateLicensingAdminRequestModel) SetAccountSid(v string) {
 	o.AccountSid.Set(&v)
 }
+
 // SetAccountSidNil sets the value for AccountSid to be an explicit nil
 func (o *CreateLicensingAdminRequestModel) SetAccountSidNil() {
 	o.AccountSid.Set(nil)
@@ -177,7 +178,7 @@ func (o *CreateLicensingAdminRequestModel) SetIsGroup(v bool) {
 }
 
 func (o CreateLicensingAdminRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +235,3 @@ func (v *NullableCreateLicensingAdminRequestModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

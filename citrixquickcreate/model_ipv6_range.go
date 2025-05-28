@@ -19,7 +19,7 @@ var _ MappedNullable = &Ipv6Range{}
 
 // Ipv6Range struct for Ipv6Range
 type Ipv6Range struct {
-	CidrIpv6 NullableString `json:"cidrIpv6,omitempty"`
+	CidrIpv6    NullableString `json:"cidrIpv6,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 }
 
@@ -72,6 +72,7 @@ func (o *Ipv6Range) HasCidrIpv6() bool {
 func (o *Ipv6Range) SetCidrIpv6(v string) {
 	o.CidrIpv6.Set(&v)
 }
+
 // SetCidrIpv6Nil sets the value for CidrIpv6 to be an explicit nil
 func (o *Ipv6Range) SetCidrIpv6Nil() {
 	o.CidrIpv6.Set(nil)
@@ -114,6 +115,7 @@ func (o *Ipv6Range) HasDescription() bool {
 func (o *Ipv6Range) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *Ipv6Range) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -125,7 +127,7 @@ func (o *Ipv6Range) UnsetDescription() {
 }
 
 func (o Ipv6Range) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -178,5 +180,3 @@ func (v *NullableIpv6Range) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

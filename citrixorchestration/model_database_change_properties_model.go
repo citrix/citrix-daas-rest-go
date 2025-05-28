@@ -147,7 +147,7 @@ func (o *DatabaseChangePropertiesModel) SetSkipWarning(v bool) {
 }
 
 func (o DatabaseChangePropertiesModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -198,5 +198,3 @@ func (v *NullableDatabaseChangePropertiesModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

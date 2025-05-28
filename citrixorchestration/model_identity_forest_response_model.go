@@ -85,6 +85,7 @@ func (o *IdentityForestResponseModel) HasName() bool {
 func (o *IdentityForestResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *IdentityForestResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -127,6 +128,7 @@ func (o *IdentityForestResponseModel) HasRootDomain() bool {
 func (o *IdentityForestResponseModel) SetRootDomain(v string) {
 	o.RootDomain.Set(&v)
 }
+
 // SetRootDomainNil sets the value for RootDomain to be an explicit nil
 func (o *IdentityForestResponseModel) SetRootDomainNil() {
 	o.RootDomain.Set(nil)
@@ -293,7 +295,7 @@ func (o *IdentityForestResponseModel) SetPropertiesFetched(v int32) {
 }
 
 func (o IdentityForestResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -359,5 +361,3 @@ func (v *NullableIdentityForestResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

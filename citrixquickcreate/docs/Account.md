@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountType** | [**AccountType**](AccountType.md) |  | 
+**AccountType** | [**AccountType**](AccountType.md) | The type of cloud provider the account is associated with. | 
 **AccountId** | Pointer to **NullableString** | ID of the account | [optional] 
 **Name** | Pointer to **NullableString** | Name of the account | [optional] 
-**AccountState** | Pointer to [**AccountState**](AccountState.md) |  | [optional] 
+**AccountState** | Pointer to [**AccountState**](AccountState.md) | State of the account | [optional] 
 **AssociatedDeployments** | Pointer to [**[]AssociatedDeployment**](AssociatedDeployment.md) |  | [optional] 
 **AssociatedResourceConnections** | Pointer to [**[]AssociatedResourceConnection**](AssociatedResourceConnection.md) |  | [optional] 
 **AssociatedImages** | Pointer to [**[]AssociatedImage**](AssociatedImage.md) |  | [optional] 

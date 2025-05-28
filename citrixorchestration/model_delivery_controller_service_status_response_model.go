@@ -19,7 +19,7 @@ var _ MappedNullable = &DeliveryControllerServiceStatusResponseModel{}
 
 // DeliveryControllerServiceStatusResponseModel Service status response model of the delivery controller.
 type DeliveryControllerServiceStatusResponseModel struct {
-	ServiceType *ControllerServiceType `json:"ServiceType,omitempty"`
+	ServiceType   *ControllerServiceType   `json:"ServiceType,omitempty"`
 	ServiceStatus *ControllerServiceStatus `json:"ServiceStatus,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *DeliveryControllerServiceStatusResponseModel) SetServiceStatus(v Contro
 }
 
 func (o DeliveryControllerServiceStatusResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableDeliveryControllerServiceStatusResponseModel) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

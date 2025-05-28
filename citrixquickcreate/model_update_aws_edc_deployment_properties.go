@@ -20,9 +20,13 @@ var _ MappedNullable = &UpdateAwsEdcDeploymentProperties{}
 // UpdateAwsEdcDeploymentProperties struct for UpdateAwsEdcDeploymentProperties
 type UpdateAwsEdcDeploymentProperties struct {
 	UpdateDeploymentProperties
+	// Running mode to apply to all workspaces
 	RunningMode NullableAwsEdcWorkspaceRunningMode `json:"runningMode,omitempty"`
+	// Power Configuration for AWS Deployment
 	ScaleSettings NullableScaleSettings `json:"scaleSettings,omitempty"`
 }
+
+type _UpdateAwsEdcDeploymentProperties UpdateAwsEdcDeploymentProperties
 
 // NewUpdateAwsEdcDeploymentProperties instantiates a new UpdateAwsEdcDeploymentProperties object
 // This constructor will assign default values to properties that have it defined,
@@ -74,6 +78,7 @@ func (o *UpdateAwsEdcDeploymentProperties) HasRunningMode() bool {
 func (o *UpdateAwsEdcDeploymentProperties) SetRunningMode(v AwsEdcWorkspaceRunningMode) {
 	o.RunningMode.Set(&v)
 }
+
 // SetRunningModeNil sets the value for RunningMode to be an explicit nil
 func (o *UpdateAwsEdcDeploymentProperties) SetRunningModeNil() {
 	o.RunningMode.Set(nil)
@@ -116,6 +121,7 @@ func (o *UpdateAwsEdcDeploymentProperties) HasScaleSettings() bool {
 func (o *UpdateAwsEdcDeploymentProperties) SetScaleSettings(v ScaleSettings) {
 	o.ScaleSettings.Set(&v)
 }
+
 // SetScaleSettingsNil sets the value for ScaleSettings to be an explicit nil
 func (o *UpdateAwsEdcDeploymentProperties) SetScaleSettingsNil() {
 	o.ScaleSettings.Set(nil)
@@ -127,7 +133,7 @@ func (o *UpdateAwsEdcDeploymentProperties) UnsetScaleSettings() {
 }
 
 func (o UpdateAwsEdcDeploymentProperties) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +194,3 @@ func (v *NullableUpdateAwsEdcDeploymentProperties) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

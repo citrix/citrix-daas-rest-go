@@ -23,7 +23,7 @@ type LicenseRequestModel struct {
 	ProductCode NullableString `json:"ProductCode,omitempty"`
 	// The product edition.
 	ProductEdition NullableString `json:"ProductEdition,omitempty"`
-	LicenseModel *LicenseModel `json:"LicenseModel,omitempty"`
+	LicenseModel   *LicenseModel  `json:"LicenseModel,omitempty"`
 }
 
 // NewLicenseRequestModel instantiates a new LicenseRequestModel object
@@ -75,6 +75,7 @@ func (o *LicenseRequestModel) HasProductCode() bool {
 func (o *LicenseRequestModel) SetProductCode(v string) {
 	o.ProductCode.Set(&v)
 }
+
 // SetProductCodeNil sets the value for ProductCode to be an explicit nil
 func (o *LicenseRequestModel) SetProductCodeNil() {
 	o.ProductCode.Set(nil)
@@ -117,6 +118,7 @@ func (o *LicenseRequestModel) HasProductEdition() bool {
 func (o *LicenseRequestModel) SetProductEdition(v string) {
 	o.ProductEdition.Set(&v)
 }
+
 // SetProductEditionNil sets the value for ProductEdition to be an explicit nil
 func (o *LicenseRequestModel) SetProductEditionNil() {
 	o.ProductEdition.Set(nil)
@@ -160,7 +162,7 @@ func (o *LicenseRequestModel) SetLicenseModel(v LicenseModel) {
 }
 
 func (o LicenseRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -216,5 +218,3 @@ func (v *NullableLicenseRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

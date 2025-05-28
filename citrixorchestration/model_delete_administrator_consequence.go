@@ -15,15 +15,15 @@ import (
 	"fmt"
 )
 
-// DeleteAdministratorConsequence 
+// DeleteAdministratorConsequence
 type DeleteAdministratorConsequence string
 
 // List of DeleteAdministratorConsequence
 const (
-	DELETEADMINISTRATORCONSEQUENCE_UNKNOWN DeleteAdministratorConsequence = "Unknown"
-	DELETEADMINISTRATORCONSEQUENCE_NO_RIGHTS_LOST DeleteAdministratorConsequence = "NoRightsLost"
-	DELETEADMINISTRATORCONSEQUENCE_SOME_RIGHTS_LOST DeleteAdministratorConsequence = "SomeRightsLost"
-	DELETEADMINISTRATORCONSEQUENCE_ALL_RIGHTS_LOST DeleteAdministratorConsequence = "AllRightsLost"
+	DELETEADMINISTRATORCONSEQUENCE_UNKNOWN                       DeleteAdministratorConsequence = "Unknown"
+	DELETEADMINISTRATORCONSEQUENCE_NO_RIGHTS_LOST                DeleteAdministratorConsequence = "NoRightsLost"
+	DELETEADMINISTRATORCONSEQUENCE_SOME_RIGHTS_LOST              DeleteAdministratorConsequence = "SomeRightsLost"
+	DELETEADMINISTRATORCONSEQUENCE_ALL_RIGHTS_LOST               DeleteAdministratorConsequence = "AllRightsLost"
 	DELETEADMINISTRATORCONSEQUENCE_CANNOT_DELETE_LAST_FULL_ADMIN DeleteAdministratorConsequence = "CannotDeleteLastFullAdmin"
 )
 
@@ -42,7 +42,7 @@ func (v *DeleteAdministratorConsequence) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DeleteAdministratorConsequence(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableDeleteAdministratorConsequence) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -28,7 +28,7 @@ type CreateServiceAccountRequestModel struct {
 	// The secret expiration time for the service account
 	SecretExpiryTime string `json:"SecretExpiryTime"`
 	// The secret for the service account. E.g. Azure application (client) secret if 'IdentityProviderType' is AzureAD.
-	AccountSecret string `json:"AccountSecret"`
+	AccountSecret       string                  `json:"AccountSecret"`
 	AccountSecretFormat *IdentityPasswordFormat `json:"AccountSecretFormat,omitempty"`
 	// The capabilities for the service account
 	Capabilities []string `json:"Capabilities,omitempty"`
@@ -316,6 +316,7 @@ func (o *CreateServiceAccountRequestModel) HasTenantId() bool {
 func (o *CreateServiceAccountRequestModel) SetTenantId(v string) {
 	o.TenantId.Set(&v)
 }
+
 // SetTenantIdNil sets the value for TenantId to be an explicit nil
 func (o *CreateServiceAccountRequestModel) SetTenantIdNil() {
 	o.TenantId.Set(nil)
@@ -358,6 +359,7 @@ func (o *CreateServiceAccountRequestModel) HasDisplayName() bool {
 func (o *CreateServiceAccountRequestModel) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *CreateServiceAccountRequestModel) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -400,6 +402,7 @@ func (o *CreateServiceAccountRequestModel) HasDescription() bool {
 func (o *CreateServiceAccountRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *CreateServiceAccountRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -442,6 +445,7 @@ func (o *CreateServiceAccountRequestModel) HasCustomProperties() bool {
 func (o *CreateServiceAccountRequestModel) SetCustomProperties(v string) {
 	o.CustomProperties.Set(&v)
 }
+
 // SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
 func (o *CreateServiceAccountRequestModel) SetCustomPropertiesNil() {
 	o.CustomProperties.Set(nil)
@@ -453,7 +457,7 @@ func (o *CreateServiceAccountRequestModel) UnsetCustomProperties() {
 }
 
 func (o CreateServiceAccountRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -526,5 +530,3 @@ func (v *NullableCreateServiceAccountRequestModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

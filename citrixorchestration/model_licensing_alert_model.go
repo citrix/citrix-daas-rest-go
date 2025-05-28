@@ -20,7 +20,7 @@ var _ MappedNullable = &LicensingAlertModel{}
 // LicensingAlertModel Licensing alert.
 type LicensingAlertModel struct {
 	// The priority of the licensing alert.
-	Priority *int32 `json:"Priority,omitempty"`
+	Priority            *int32               `json:"Priority,omitempty"`
 	LicensingAlertLevel *LicensingAlertLevel `json:"LicensingAlertLevel,omitempty"`
 	// The type code of the licensing alert (internal code used by licensing).
 	TypeCode NullableString `json:"TypeCode,omitempty"`
@@ -145,6 +145,7 @@ func (o *LicensingAlertModel) HasTypeCode() bool {
 func (o *LicensingAlertModel) SetTypeCode(v string) {
 	o.TypeCode.Set(&v)
 }
+
 // SetTypeCodeNil sets the value for TypeCode to be an explicit nil
 func (o *LicensingAlertModel) SetTypeCodeNil() {
 	o.TypeCode.Set(nil)
@@ -187,6 +188,7 @@ func (o *LicensingAlertModel) HasTitle() bool {
 func (o *LicensingAlertModel) SetTitle(v string) {
 	o.Title.Set(&v)
 }
+
 // SetTitleNil sets the value for Title to be an explicit nil
 func (o *LicensingAlertModel) SetTitleNil() {
 	o.Title.Set(nil)
@@ -229,6 +231,7 @@ func (o *LicensingAlertModel) HasDetail() bool {
 func (o *LicensingAlertModel) SetDetail(v string) {
 	o.Detail.Set(&v)
 }
+
 // SetDetailNil sets the value for Detail to be an explicit nil
 func (o *LicensingAlertModel) SetDetailNil() {
 	o.Detail.Set(nil)
@@ -271,6 +274,7 @@ func (o *LicensingAlertModel) HasAction() bool {
 func (o *LicensingAlertModel) SetAction(v string) {
 	o.Action.Set(&v)
 }
+
 // SetActionNil sets the value for Action to be an explicit nil
 func (o *LicensingAlertModel) SetActionNil() {
 	o.Action.Set(nil)
@@ -282,7 +286,7 @@ func (o *LicensingAlertModel) UnsetAction() {
 }
 
 func (o LicensingAlertModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -347,5 +351,3 @@ func (v *NullableLicensingAlertModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

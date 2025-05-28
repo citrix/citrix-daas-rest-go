@@ -86,6 +86,7 @@ func (o *TimeZoneResponseModel) HasName() bool {
 func (o *TimeZoneResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *TimeZoneResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -128,6 +129,7 @@ func (o *TimeZoneResponseModel) HasFullName() bool {
 func (o *TimeZoneResponseModel) SetFullName(v string) {
 	o.FullName.Set(&v)
 }
+
 // SetFullNameNil sets the value for FullName to be an explicit nil
 func (o *TimeZoneResponseModel) SetFullNameNil() {
 	o.FullName.Set(nil)
@@ -170,6 +172,7 @@ func (o *TimeZoneResponseModel) HasPrimary() bool {
 func (o *TimeZoneResponseModel) SetPrimary(v string) {
 	o.Primary.Set(&v)
 }
+
 // SetPrimaryNil sets the value for Primary to be an explicit nil
 func (o *TimeZoneResponseModel) SetPrimaryNil() {
 	o.Primary.Set(nil)
@@ -212,6 +215,7 @@ func (o *TimeZoneResponseModel) HasCanonical() bool {
 func (o *TimeZoneResponseModel) SetCanonical(v string) {
 	o.Canonical.Set(&v)
 }
+
 // SetCanonicalNil sets the value for Canonical to be an explicit nil
 func (o *TimeZoneResponseModel) SetCanonicalNil() {
 	o.Canonical.Set(nil)
@@ -254,6 +258,7 @@ func (o *TimeZoneResponseModel) HasWindowsId() bool {
 func (o *TimeZoneResponseModel) SetWindowsId(v string) {
 	o.WindowsId.Set(&v)
 }
+
 // SetWindowsIdNil sets the value for WindowsId to be an explicit nil
 func (o *TimeZoneResponseModel) SetWindowsIdNil() {
 	o.WindowsId.Set(nil)
@@ -328,6 +333,7 @@ func (o *TimeZoneResponseModel) HasUtcOffset() bool {
 func (o *TimeZoneResponseModel) SetUtcOffset(v string) {
 	o.UtcOffset.Set(&v)
 }
+
 // SetUtcOffsetNil sets the value for UtcOffset to be an explicit nil
 func (o *TimeZoneResponseModel) SetUtcOffsetNil() {
 	o.UtcOffset.Set(nil)
@@ -372,7 +378,7 @@ func (o *TimeZoneResponseModel) SetTzdbIds(v []string) {
 }
 
 func (o TimeZoneResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -443,5 +449,3 @@ func (v *NullableTimeZoneResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

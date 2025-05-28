@@ -15,18 +15,18 @@ import (
 	"fmt"
 )
 
-// BackupRestoreValidateStorageErrors 
+// BackupRestoreValidateStorageErrors
 type BackupRestoreValidateStorageErrors string
 
 // List of BackupRestoreValidateStorageErrors
 const (
-	BACKUPRESTOREVALIDATESTORAGEERRORS_UNDEFINED BackupRestoreValidateStorageErrors = "Undefined"
-	BACKUPRESTOREVALIDATESTORAGEERRORS_PERMISSIONS BackupRestoreValidateStorageErrors = "Permissions"
+	BACKUPRESTOREVALIDATESTORAGEERRORS_UNDEFINED          BackupRestoreValidateStorageErrors = "Undefined"
+	BACKUPRESTOREVALIDATESTORAGEERRORS_PERMISSIONS        BackupRestoreValidateStorageErrors = "Permissions"
 	BACKUPRESTOREVALIDATESTORAGEERRORS_EXPIRATION_WARNING BackupRestoreValidateStorageErrors = "ExpirationWarning"
-	BACKUPRESTOREVALIDATESTORAGEERRORS_EXPIRED BackupRestoreValidateStorageErrors = "Expired"
-	BACKUPRESTOREVALIDATESTORAGEERRORS_START_DATE_ERROR BackupRestoreValidateStorageErrors = "StartDateError"
-	BACKUPRESTOREVALIDATESTORAGEERRORS_SOURCE_TYPE BackupRestoreValidateStorageErrors = "SourceType"
-	BACKUPRESTOREVALIDATESTORAGEERRORS_OTHER BackupRestoreValidateStorageErrors = "Other"
+	BACKUPRESTOREVALIDATESTORAGEERRORS_EXPIRED            BackupRestoreValidateStorageErrors = "Expired"
+	BACKUPRESTOREVALIDATESTORAGEERRORS_START_DATE_ERROR   BackupRestoreValidateStorageErrors = "StartDateError"
+	BACKUPRESTOREVALIDATESTORAGEERRORS_SOURCE_TYPE        BackupRestoreValidateStorageErrors = "SourceType"
+	BACKUPRESTOREVALIDATESTORAGEERRORS_OTHER              BackupRestoreValidateStorageErrors = "Other"
 )
 
 // All allowed values of BackupRestoreValidateStorageErrors enum
@@ -46,7 +46,7 @@ func (v *BackupRestoreValidateStorageErrors) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = BackupRestoreValidateStorageErrors(value)
 	return nil
 }
@@ -112,4 +112,3 @@ func (v *NullableBackupRestoreValidateStorageErrors) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

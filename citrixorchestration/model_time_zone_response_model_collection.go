@@ -101,6 +101,7 @@ func (o *TimeZoneResponseModelCollection) HasContinuationToken() bool {
 func (o *TimeZoneResponseModelCollection) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *TimeZoneResponseModelCollection) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -143,6 +144,7 @@ func (o *TimeZoneResponseModelCollection) HasTotalItems() bool {
 func (o *TimeZoneResponseModelCollection) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *TimeZoneResponseModelCollection) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -154,7 +156,7 @@ func (o *TimeZoneResponseModelCollection) UnsetTotalItems() {
 }
 
 func (o TimeZoneResponseModelCollection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableTimeZoneResponseModelCollection) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

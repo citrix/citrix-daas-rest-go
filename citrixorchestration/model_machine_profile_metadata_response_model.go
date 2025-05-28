@@ -86,6 +86,7 @@ func (o *MachineProfileMetadataResponseModel) HasMachineSize() bool {
 func (o *MachineProfileMetadataResponseModel) SetMachineSize(v string) {
 	o.MachineSize.Set(&v)
 }
+
 // SetMachineSizeNil sets the value for MachineSize to be an explicit nil
 func (o *MachineProfileMetadataResponseModel) SetMachineSizeNil() {
 	o.MachineSize.Set(nil)
@@ -128,6 +129,7 @@ func (o *MachineProfileMetadataResponseModel) HasOsDiskCaching() bool {
 func (o *MachineProfileMetadataResponseModel) SetOsDiskCaching(v string) {
 	o.OsDiskCaching.Set(&v)
 }
+
 // SetOsDiskCachingNil sets the value for OsDiskCaching to be an explicit nil
 func (o *MachineProfileMetadataResponseModel) SetOsDiskCachingNil() {
 	o.OsDiskCaching.Set(nil)
@@ -170,6 +172,7 @@ func (o *MachineProfileMetadataResponseModel) HasTags() bool {
 func (o *MachineProfileMetadataResponseModel) SetTags(v string) {
 	o.Tags.Set(&v)
 }
+
 // SetTagsNil sets the value for Tags to be an explicit nil
 func (o *MachineProfileMetadataResponseModel) SetTagsNil() {
 	o.Tags.Set(nil)
@@ -212,6 +215,7 @@ func (o *MachineProfileMetadataResponseModel) HasBootDiagnostics() bool {
 func (o *MachineProfileMetadataResponseModel) SetBootDiagnostics(v bool) {
 	o.BootDiagnostics.Set(&v)
 }
+
 // SetBootDiagnosticsNil sets the value for BootDiagnostics to be an explicit nil
 func (o *MachineProfileMetadataResponseModel) SetBootDiagnosticsNil() {
 	o.BootDiagnostics.Set(nil)
@@ -254,6 +258,7 @@ func (o *MachineProfileMetadataResponseModel) HasAcceleratedNetwork() bool {
 func (o *MachineProfileMetadataResponseModel) SetAcceleratedNetwork(v bool) {
 	o.AcceleratedNetwork.Set(&v)
 }
+
 // SetAcceleratedNetworkNil sets the value for AcceleratedNetwork to be an explicit nil
 func (o *MachineProfileMetadataResponseModel) SetAcceleratedNetworkNil() {
 	o.AcceleratedNetwork.Set(nil)
@@ -296,6 +301,7 @@ func (o *MachineProfileMetadataResponseModel) HasSupportsHibernation() bool {
 func (o *MachineProfileMetadataResponseModel) SetSupportsHibernation(v bool) {
 	o.SupportsHibernation.Set(&v)
 }
+
 // SetSupportsHibernationNil sets the value for SupportsHibernation to be an explicit nil
 func (o *MachineProfileMetadataResponseModel) SetSupportsHibernationNil() {
 	o.SupportsHibernation.Set(nil)
@@ -338,6 +344,7 @@ func (o *MachineProfileMetadataResponseModel) HasZoneName() bool {
 func (o *MachineProfileMetadataResponseModel) SetZoneName(v string) {
 	o.ZoneName.Set(&v)
 }
+
 // SetZoneNameNil sets the value for ZoneName to be an explicit nil
 func (o *MachineProfileMetadataResponseModel) SetZoneNameNil() {
 	o.ZoneName.Set(nil)
@@ -380,6 +387,7 @@ func (o *MachineProfileMetadataResponseModel) HasLabels() bool {
 func (o *MachineProfileMetadataResponseModel) SetLabels(v string) {
 	o.Labels.Set(&v)
 }
+
 // SetLabelsNil sets the value for Labels to be an explicit nil
 func (o *MachineProfileMetadataResponseModel) SetLabelsNil() {
 	o.Labels.Set(nil)
@@ -391,7 +399,7 @@ func (o *MachineProfileMetadataResponseModel) UnsetLabels() {
 }
 
 func (o MachineProfileMetadataResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -462,5 +470,3 @@ func (v *NullableMachineProfileMetadataResponseModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -26,13 +26,19 @@ type AwsEdcAccountResourceAmiImage struct {
 	Name NullableString `json:"name,omitempty"`
 	// Image Description
 	Description NullableString `json:"description,omitempty"`
+	// Image Status  Enum values AVAILABLE, DEREGISTERED, ERROR, FAILED, INVALID, PENDING, TRANSIENT
 	Status NullableAwsEdcAmiImageStatus `json:"status,omitempty"`
 	// Image Location
 	Location NullableString `json:"location,omitempty"`
+	// Image Type  Enum values KERNEL, MACHINE, RAMDISK
 	ImageType NullableAwsEdcAmiImageType `json:"imageType,omitempty"`
+	// Vpc CIDR Block  Enum values WINDOWS
 	PlatformType NullableAwsEdcAmiImagePlatform `json:"platformType,omitempty"`
+	// Image Boot Type  Enum values LEGACYBIOS, UEFI
 	BootMode NullableAwsEdcAmiImageBootMode `json:"bootMode,omitempty"`
+	// Image Architecture  Enum values ARM64, I386, X86_64
 	ArchitectureType NullableAwsEdcAmiImageArchitecture `json:"architectureType,omitempty"`
+	// Image Virtualization  Enum values HVM, PARAVIRTUAL
 	VirtualizationType NullableAwsEdcAmiImageVirtualization `json:"virtualizationType,omitempty"`
 	// Image IsPublic
 	Public NullableBool `json:"public,omitempty"`
@@ -40,12 +46,15 @@ type AwsEdcAccountResourceAmiImage struct {
 	Tags []Tag `json:"tags,omitempty"`
 }
 
+type _AwsEdcAccountResourceAmiImage AwsEdcAccountResourceAmiImage
+
 // NewAwsEdcAccountResourceAmiImage instantiates a new AwsEdcAccountResourceAmiImage object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAwsEdcAccountResourceAmiImage(accountType AccountType) *AwsEdcAccountResourceAmiImage {
+func NewAwsEdcAccountResourceAmiImage(resourceType AwsAccountResourceType, accountType AccountType) *AwsEdcAccountResourceAmiImage {
 	this := AwsEdcAccountResourceAmiImage{}
+	this.ResourceType = resourceType
 	this.AccountType = accountType
 	return &this
 }
@@ -90,6 +99,7 @@ func (o *AwsEdcAccountResourceAmiImage) HasImageId() bool {
 func (o *AwsEdcAccountResourceAmiImage) SetImageId(v string) {
 	o.ImageId.Set(&v)
 }
+
 // SetImageIdNil sets the value for ImageId to be an explicit nil
 func (o *AwsEdcAccountResourceAmiImage) SetImageIdNil() {
 	o.ImageId.Set(nil)
@@ -132,6 +142,7 @@ func (o *AwsEdcAccountResourceAmiImage) HasName() bool {
 func (o *AwsEdcAccountResourceAmiImage) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AwsEdcAccountResourceAmiImage) SetNameNil() {
 	o.Name.Set(nil)
@@ -174,6 +185,7 @@ func (o *AwsEdcAccountResourceAmiImage) HasDescription() bool {
 func (o *AwsEdcAccountResourceAmiImage) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *AwsEdcAccountResourceAmiImage) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -216,6 +228,7 @@ func (o *AwsEdcAccountResourceAmiImage) HasStatus() bool {
 func (o *AwsEdcAccountResourceAmiImage) SetStatus(v AwsEdcAmiImageStatus) {
 	o.Status.Set(&v)
 }
+
 // SetStatusNil sets the value for Status to be an explicit nil
 func (o *AwsEdcAccountResourceAmiImage) SetStatusNil() {
 	o.Status.Set(nil)
@@ -258,6 +271,7 @@ func (o *AwsEdcAccountResourceAmiImage) HasLocation() bool {
 func (o *AwsEdcAccountResourceAmiImage) SetLocation(v string) {
 	o.Location.Set(&v)
 }
+
 // SetLocationNil sets the value for Location to be an explicit nil
 func (o *AwsEdcAccountResourceAmiImage) SetLocationNil() {
 	o.Location.Set(nil)
@@ -300,6 +314,7 @@ func (o *AwsEdcAccountResourceAmiImage) HasImageType() bool {
 func (o *AwsEdcAccountResourceAmiImage) SetImageType(v AwsEdcAmiImageType) {
 	o.ImageType.Set(&v)
 }
+
 // SetImageTypeNil sets the value for ImageType to be an explicit nil
 func (o *AwsEdcAccountResourceAmiImage) SetImageTypeNil() {
 	o.ImageType.Set(nil)
@@ -342,6 +357,7 @@ func (o *AwsEdcAccountResourceAmiImage) HasPlatformType() bool {
 func (o *AwsEdcAccountResourceAmiImage) SetPlatformType(v AwsEdcAmiImagePlatform) {
 	o.PlatformType.Set(&v)
 }
+
 // SetPlatformTypeNil sets the value for PlatformType to be an explicit nil
 func (o *AwsEdcAccountResourceAmiImage) SetPlatformTypeNil() {
 	o.PlatformType.Set(nil)
@@ -384,6 +400,7 @@ func (o *AwsEdcAccountResourceAmiImage) HasBootMode() bool {
 func (o *AwsEdcAccountResourceAmiImage) SetBootMode(v AwsEdcAmiImageBootMode) {
 	o.BootMode.Set(&v)
 }
+
 // SetBootModeNil sets the value for BootMode to be an explicit nil
 func (o *AwsEdcAccountResourceAmiImage) SetBootModeNil() {
 	o.BootMode.Set(nil)
@@ -426,6 +443,7 @@ func (o *AwsEdcAccountResourceAmiImage) HasArchitectureType() bool {
 func (o *AwsEdcAccountResourceAmiImage) SetArchitectureType(v AwsEdcAmiImageArchitecture) {
 	o.ArchitectureType.Set(&v)
 }
+
 // SetArchitectureTypeNil sets the value for ArchitectureType to be an explicit nil
 func (o *AwsEdcAccountResourceAmiImage) SetArchitectureTypeNil() {
 	o.ArchitectureType.Set(nil)
@@ -468,6 +486,7 @@ func (o *AwsEdcAccountResourceAmiImage) HasVirtualizationType() bool {
 func (o *AwsEdcAccountResourceAmiImage) SetVirtualizationType(v AwsEdcAmiImageVirtualization) {
 	o.VirtualizationType.Set(&v)
 }
+
 // SetVirtualizationTypeNil sets the value for VirtualizationType to be an explicit nil
 func (o *AwsEdcAccountResourceAmiImage) SetVirtualizationTypeNil() {
 	o.VirtualizationType.Set(nil)
@@ -510,6 +529,7 @@ func (o *AwsEdcAccountResourceAmiImage) HasPublic() bool {
 func (o *AwsEdcAccountResourceAmiImage) SetPublic(v bool) {
 	o.Public.Set(&v)
 }
+
 // SetPublicNil sets the value for Public to be an explicit nil
 func (o *AwsEdcAccountResourceAmiImage) SetPublicNil() {
 	o.Public.Set(nil)
@@ -541,7 +561,7 @@ func (o *AwsEdcAccountResourceAmiImage) GetTagsOk() ([]Tag, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *AwsEdcAccountResourceAmiImage) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -554,7 +574,7 @@ func (o *AwsEdcAccountResourceAmiImage) SetTags(v []Tag) {
 }
 
 func (o AwsEdcAccountResourceAmiImage) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -645,5 +665,3 @@ func (v *NullableAwsEdcAccountResourceAmiImage) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

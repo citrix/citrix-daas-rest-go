@@ -17,7 +17,7 @@ import (
 // checks if the CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel{}
 
-// CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel 
+// CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel
 type CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel struct {
 	// A list of resource locations.
 	Items []CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel `json:"items,omitempty"`
@@ -73,7 +73,7 @@ func (o *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsMo
 }
 
 func (o CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableCitrixCloudServicesRegistryApiModelsLocationsResourceLocationsR
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

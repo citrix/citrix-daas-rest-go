@@ -74,6 +74,7 @@ func (o *SettingResponseContract) HasSettingName() bool {
 func (o *SettingResponseContract) SetSettingName(v string) {
 	o.SettingName.Set(&v)
 }
+
 // SetSettingNameNil sets the value for SettingName to be an explicit nil
 func (o *SettingResponseContract) SetSettingNameNil() {
 	o.SettingName.Set(nil)
@@ -116,6 +117,7 @@ func (o *SettingResponseContract) HasCurrentValue() bool {
 func (o *SettingResponseContract) SetCurrentValue(v string) {
 	o.CurrentValue.Set(&v)
 }
+
 // SetCurrentValueNil sets the value for CurrentValue to be an explicit nil
 func (o *SettingResponseContract) SetCurrentValueNil() {
 	o.CurrentValue.Set(nil)
@@ -127,7 +129,7 @@ func (o *SettingResponseContract) UnsetCurrentValue() {
 }
 
 func (o SettingResponseContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableSettingResponseContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

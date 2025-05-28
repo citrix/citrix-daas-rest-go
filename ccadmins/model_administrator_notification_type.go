@@ -20,10 +20,10 @@ type AdministratorNotificationType string
 
 // List of AdministratorNotificationType
 const (
-	ADMINISTRATORNOTIFICATIONTYPE_ERROR AdministratorNotificationType = "Error"
-	ADMINISTRATORNOTIFICATIONTYPE_WARNING AdministratorNotificationType = "Warning"
+	ADMINISTRATORNOTIFICATIONTYPE_ERROR       AdministratorNotificationType = "Error"
+	ADMINISTRATORNOTIFICATIONTYPE_WARNING     AdministratorNotificationType = "Warning"
 	ADMINISTRATORNOTIFICATIONTYPE_INFORMATION AdministratorNotificationType = "Information"
-	ADMINISTRATORNOTIFICATIONTYPE_CRITICAL AdministratorNotificationType = "Critical"
+	ADMINISTRATORNOTIFICATIONTYPE_CRITICAL    AdministratorNotificationType = "Critical"
 )
 
 // All allowed values of AdministratorNotificationType enum
@@ -112,4 +112,3 @@ func (v *NullableAdministratorNotificationType) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

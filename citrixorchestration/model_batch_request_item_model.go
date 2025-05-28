@@ -20,7 +20,7 @@ var _ MappedNullable = &BatchRequestItemModel{}
 // BatchRequestItemModel Request object for a single item in a batch request.
 type BatchRequestItemModel struct {
 	// Reference.  Required, and must be unique within all items in a single batch request.
-	Reference string `json:"Reference"`
+	Reference string `json:"Reference" validate:"regexp=^[-_0-9a-zA-Z]*$"`
 	// HTTP method of the request endpoint.  (GET, HEAD, PUT, PATCH, POST, DELETE)
 	Method NullableString `json:"Method,omitempty"`
 	// Relative URL of the request endpoint vs. the site root. Must start with the API version i.e. `\"v1/{customerid}/{siteid}/...\"`
@@ -110,6 +110,7 @@ func (o *BatchRequestItemModel) HasMethod() bool {
 func (o *BatchRequestItemModel) SetMethod(v string) {
 	o.Method.Set(&v)
 }
+
 // SetMethodNil sets the value for Method to be an explicit nil
 func (o *BatchRequestItemModel) SetMethodNil() {
 	o.Method.Set(nil)
@@ -209,6 +210,7 @@ func (o *BatchRequestItemModel) HasBody() bool {
 func (o *BatchRequestItemModel) SetBody(v string) {
 	o.Body.Set(&v)
 }
+
 // SetBodyNil sets the value for Body to be an explicit nil
 func (o *BatchRequestItemModel) SetBodyNil() {
 	o.Body.Set(nil)
@@ -220,7 +222,7 @@ func (o *BatchRequestItemModel) UnsetBody() {
 }
 
 func (o BatchRequestItemModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -278,5 +280,3 @@ func (v *NullableBatchRequestItemModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

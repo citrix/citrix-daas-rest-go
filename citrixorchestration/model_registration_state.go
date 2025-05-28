@@ -20,11 +20,11 @@ type RegistrationState string
 
 // List of RegistrationState
 const (
-	REGISTRATIONSTATE_UNKNOWN RegistrationState = "Unknown"
+	REGISTRATIONSTATE_UNKNOWN      RegistrationState = "Unknown"
 	REGISTRATIONSTATE_UNREGISTERED RegistrationState = "Unregistered"
 	REGISTRATIONSTATE_INITIALIZING RegistrationState = "Initializing"
-	REGISTRATIONSTATE_REGISTERED RegistrationState = "Registered"
-	REGISTRATIONSTATE_AGENT_ERROR RegistrationState = "AgentError"
+	REGISTRATIONSTATE_REGISTERED   RegistrationState = "Registered"
+	REGISTRATIONSTATE_AGENT_ERROR  RegistrationState = "AgentError"
 )
 
 // All allowed values of RegistrationState enum
@@ -42,7 +42,7 @@ func (v *RegistrationState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = RegistrationState(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableRegistrationState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

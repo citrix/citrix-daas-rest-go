@@ -19,7 +19,7 @@ var _ MappedNullable = &MCSImportData{}
 
 // MCSImportData struct for MCSImportData
 type MCSImportData struct {
-	IdentityPool NullableString `json:"IdentityPool,omitempty"`
+	IdentityPool       NullableString `json:"IdentityPool,omitempty"`
 	ProvisioningScheme NullableString `json:"ProvisioningScheme,omitempty"`
 }
 
@@ -72,6 +72,7 @@ func (o *MCSImportData) HasIdentityPool() bool {
 func (o *MCSImportData) SetIdentityPool(v string) {
 	o.IdentityPool.Set(&v)
 }
+
 // SetIdentityPoolNil sets the value for IdentityPool to be an explicit nil
 func (o *MCSImportData) SetIdentityPoolNil() {
 	o.IdentityPool.Set(nil)
@@ -114,6 +115,7 @@ func (o *MCSImportData) HasProvisioningScheme() bool {
 func (o *MCSImportData) SetProvisioningScheme(v string) {
 	o.ProvisioningScheme.Set(&v)
 }
+
 // SetProvisioningSchemeNil sets the value for ProvisioningScheme to be an explicit nil
 func (o *MCSImportData) SetProvisioningSchemeNil() {
 	o.ProvisioningScheme.Set(nil)
@@ -125,7 +127,7 @@ func (o *MCSImportData) UnsetProvisioningScheme() {
 }
 
 func (o MCSImportData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -178,5 +180,3 @@ func (v *NullableMCSImportData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

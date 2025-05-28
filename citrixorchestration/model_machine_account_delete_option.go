@@ -21,10 +21,10 @@ type MachineAccountDeleteOption string
 // List of MachineAccountDeleteOption
 const (
 	MACHINEACCOUNTDELETEOPTION_UNKNOWN MachineAccountDeleteOption = "Unknown"
-	MACHINEACCOUNTDELETEOPTION_LEAVE MachineAccountDeleteOption = "Leave"
-	MACHINEACCOUNTDELETEOPTION_NONE MachineAccountDeleteOption = "None"
+	MACHINEACCOUNTDELETEOPTION_LEAVE   MachineAccountDeleteOption = "Leave"
+	MACHINEACCOUNTDELETEOPTION_NONE    MachineAccountDeleteOption = "None"
 	MACHINEACCOUNTDELETEOPTION_DISABLE MachineAccountDeleteOption = "Disable"
-	MACHINEACCOUNTDELETEOPTION_DELETE MachineAccountDeleteOption = "Delete"
+	MACHINEACCOUNTDELETEOPTION_DELETE  MachineAccountDeleteOption = "Delete"
 )
 
 // All allowed values of MachineAccountDeleteOption enum
@@ -42,7 +42,7 @@ func (v *MachineAccountDeleteOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MachineAccountDeleteOption(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableMachineAccountDeleteOption) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

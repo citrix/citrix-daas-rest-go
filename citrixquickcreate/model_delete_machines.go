@@ -19,11 +19,15 @@ var _ MappedNullable = &DeleteMachines{}
 
 // DeleteMachines Delete machines by id
 type DeleteMachines struct {
+	// The type of provider associated with the account
 	AccountType AccountType `json:"accountType"`
 	// The list of machine ids to be deleted
 	MachineIds []string `json:"machineIds"`
-	Credentials NullableDeleteMachinesCredentials `json:"credentials,omitempty"`
+	// Optional domain credentials details
+	Credentials NullableDeploymentCredentials `json:"credentials,omitempty"`
 }
+
+type _DeleteMachines DeleteMachines
 
 // NewDeleteMachines instantiates a new DeleteMachines object
 // This constructor will assign default values to properties that have it defined,
@@ -93,9 +97,9 @@ func (o *DeleteMachines) SetMachineIds(v []string) {
 }
 
 // GetCredentials returns the Credentials field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DeleteMachines) GetCredentials() DeleteMachinesCredentials {
+func (o *DeleteMachines) GetCredentials() DeploymentCredentials {
 	if o == nil || IsNil(o.Credentials.Get()) {
-		var ret DeleteMachinesCredentials
+		var ret DeploymentCredentials
 		return ret
 	}
 	return *o.Credentials.Get()
@@ -104,7 +108,7 @@ func (o *DeleteMachines) GetCredentials() DeleteMachinesCredentials {
 // GetCredentialsOk returns a tuple with the Credentials field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DeleteMachines) GetCredentialsOk() (*DeleteMachinesCredentials, bool) {
+func (o *DeleteMachines) GetCredentialsOk() (*DeploymentCredentials, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -120,10 +124,11 @@ func (o *DeleteMachines) HasCredentials() bool {
 	return false
 }
 
-// SetCredentials gets a reference to the given NullableDeleteMachinesCredentials and assigns it to the Credentials field.
-func (o *DeleteMachines) SetCredentials(v DeleteMachinesCredentials) {
+// SetCredentials gets a reference to the given NullableDeploymentCredentials and assigns it to the Credentials field.
+func (o *DeleteMachines) SetCredentials(v DeploymentCredentials) {
 	o.Credentials.Set(&v)
 }
+
 // SetCredentialsNil sets the value for Credentials to be an explicit nil
 func (o *DeleteMachines) SetCredentialsNil() {
 	o.Credentials.Set(nil)
@@ -135,7 +140,7 @@ func (o *DeleteMachines) UnsetCredentials() {
 }
 
 func (o DeleteMachines) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -187,5 +192,3 @@ func (v *NullableDeleteMachines) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

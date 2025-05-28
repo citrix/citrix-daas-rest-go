@@ -19,12 +19,14 @@ var _ MappedNullable = &AdministratorAccessPolicyModel{}
 
 // AdministratorAccessPolicyModel struct for AdministratorAccessPolicyModel
 type AdministratorAccessPolicyModel struct {
-	Name string `json:"name"`
-	ServiceName string `json:"serviceName"`
-	DisplayName NullableString `json:"displayName,omitempty"`
-	Checkable BooleanPolicyProperty `json:"checkable"`
+	Name         string                           `json:"name" validate:"regexp=^[a-zA-Z0-9_\\\\-]{1,36}$"`
+	ServiceName  string                           `json:"serviceName" validate:"regexp=^[a-zA-Z0-9_\\\\-]{1,36}$"`
+	DisplayName  NullableString                   `json:"displayName,omitempty"`
+	Checkable    BooleanPolicyProperty            `json:"checkable"`
 	ScopeChoices *AdministratorAccessScopeChoices `json:"scopeChoices,omitempty"`
 }
+
+type _AdministratorAccessPolicyModel AdministratorAccessPolicyModel
 
 // NewAdministratorAccessPolicyModel instantiates a new AdministratorAccessPolicyModel object
 // This constructor will assign default values to properties that have it defined,
@@ -126,6 +128,7 @@ func (o *AdministratorAccessPolicyModel) HasDisplayName() bool {
 func (o *AdministratorAccessPolicyModel) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *AdministratorAccessPolicyModel) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -193,7 +196,7 @@ func (o *AdministratorAccessPolicyModel) SetScopeChoices(v AdministratorAccessSc
 }
 
 func (o AdministratorAccessPolicyModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -249,5 +252,3 @@ func (v *NullableAdministratorAccessPolicyModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -102,6 +102,7 @@ func (o *ProvisioningSchemeImageVersionHistoryResponseModel) HasDate() bool {
 func (o *ProvisioningSchemeImageVersionHistoryResponseModel) SetDate(v string) {
 	o.Date.Set(&v)
 }
+
 // SetDateNil sets the value for Date to be an explicit nil
 func (o *ProvisioningSchemeImageVersionHistoryResponseModel) SetDateNil() {
 	o.Date.Set(nil)
@@ -144,6 +145,7 @@ func (o *ProvisioningSchemeImageVersionHistoryResponseModel) HasImageAssignmentN
 func (o *ProvisioningSchemeImageVersionHistoryResponseModel) SetImageAssignmentNote(v string) {
 	o.ImageAssignmentNote.Set(&v)
 }
+
 // SetImageAssignmentNoteNil sets the value for ImageAssignmentNote to be an explicit nil
 func (o *ProvisioningSchemeImageVersionHistoryResponseModel) SetImageAssignmentNoteNil() {
 	o.ImageAssignmentNote.Set(nil)
@@ -187,7 +189,7 @@ func (o *ProvisioningSchemeImageVersionHistoryResponseModel) SetIsImageAvailable
 }
 
 func (o ProvisioningSchemeImageVersionHistoryResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -244,5 +246,3 @@ func (v *NullableProvisioningSchemeImageVersionHistoryResponseModel) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

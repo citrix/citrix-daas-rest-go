@@ -20,10 +20,10 @@ type ImageVersionStatus string
 
 // List of ImageVersionStatus
 const (
-	IMAGEVERSIONSTATUS_UNKNOWN ImageVersionStatus = "Unknown"
+	IMAGEVERSIONSTATUS_UNKNOWN     ImageVersionStatus = "Unknown"
 	IMAGEVERSIONSTATUS_IN_PROGRESS ImageVersionStatus = "InProgress"
-	IMAGEVERSIONSTATUS_SUCCESS ImageVersionStatus = "Success"
-	IMAGEVERSIONSTATUS_FAILED ImageVersionStatus = "Failed"
+	IMAGEVERSIONSTATUS_SUCCESS     ImageVersionStatus = "Success"
+	IMAGEVERSIONSTATUS_FAILED      ImageVersionStatus = "Failed"
 )
 
 // All allowed values of ImageVersionStatus enum
@@ -40,7 +40,7 @@ func (v *ImageVersionStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ImageVersionStatus(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableImageVersionStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

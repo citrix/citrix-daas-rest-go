@@ -19,7 +19,7 @@ var _ MappedNullable = &SiteConfigurationProfileModel{}
 
 // SiteConfigurationProfileModel struct for SiteConfigurationProfileModel
 type SiteConfigurationProfileModel struct {
-	DatabaseServerEdition *DatabaseServerEdition `json:"DatabaseServerEdition,omitempty"`
+	DatabaseServerEdition      *DatabaseServerEdition      `json:"DatabaseServerEdition,omitempty"`
 	DatabaseAuthenticationMode *DatabaseAuthenticationMode `json:"DatabaseAuthenticationMode,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *SiteConfigurationProfileModel) SetDatabaseAuthenticationMode(v Database
 }
 
 func (o SiteConfigurationProfileModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableSiteConfigurationProfileModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

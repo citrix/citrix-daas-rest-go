@@ -23,10 +23,10 @@ type MachineAndSessionSearchRequestModel struct {
 	BasicSearchString NullableString `json:"BasicSearchString,omitempty"`
 	// List of advanced search filters.
 	SearchFilters []MachineAndSessionSearchFilterRequestModel `json:"SearchFilters,omitempty"`
-	SortCriteria *MachineAndSessionSortCriteriaRequestModel `json:"SortCriteria,omitempty"`
+	SortCriteria  *MachineAndSessionSortCriteriaRequestModel  `json:"SortCriteria,omitempty"`
 	// List of advanced search filter groups.
-	SearchFilterGroups []MachineAndSessionSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
-	SearchFilterGroupsType *MachineAndSessionSearchFilterGroupsType `json:"SearchFilterGroupsType,omitempty"`
+	SearchFilterGroups     []MachineAndSessionSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
+	SearchFilterGroupsType *MachineAndSessionSearchFilterGroupsType         `json:"SearchFilterGroupsType,omitempty"`
 	// Sort criteria for the results, multiple sorting criteria can be specified here.
 	SortCriteriaItems []MachineAndSessionSortCriteriaRequestModel `json:"SortCriteriaItems,omitempty"`
 }
@@ -80,6 +80,7 @@ func (o *MachineAndSessionSearchRequestModel) HasBasicSearchString() bool {
 func (o *MachineAndSessionSearchRequestModel) SetBasicSearchString(v string) {
 	o.BasicSearchString.Set(&v)
 }
+
 // SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
 func (o *MachineAndSessionSearchRequestModel) SetBasicSearchStringNil() {
 	o.BasicSearchString.Set(nil)
@@ -254,7 +255,7 @@ func (o *MachineAndSessionSearchRequestModel) SetSortCriteriaItems(v []MachineAn
 }
 
 func (o MachineAndSessionSearchRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -319,5 +320,3 @@ func (v *NullableMachineAndSessionSearchRequestModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

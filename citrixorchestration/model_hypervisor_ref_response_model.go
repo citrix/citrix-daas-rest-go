@@ -24,7 +24,7 @@ type HypervisorRefResponseModel struct {
 	// DEPRECATED. Use Id.
 	Uid NullableInt32 `json:"Uid,omitempty"`
 	// Name of the object.
-	Name NullableString `json:"Name,omitempty"`
+	Name           NullableString            `json:"Name,omitempty"`
 	ConnectionType *HypervisorConnectionType `json:"ConnectionType,omitempty"`
 	// The class name for the Citrix Managed Machine library that is used to access the hypervisor.
 	PluginFactoryName NullableString `json:"PluginFactoryName,omitempty"`
@@ -79,6 +79,7 @@ func (o *HypervisorRefResponseModel) HasId() bool {
 func (o *HypervisorRefResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *HypervisorRefResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -121,6 +122,7 @@ func (o *HypervisorRefResponseModel) HasUid() bool {
 func (o *HypervisorRefResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *HypervisorRefResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -163,6 +165,7 @@ func (o *HypervisorRefResponseModel) HasName() bool {
 func (o *HypervisorRefResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *HypervisorRefResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -237,6 +240,7 @@ func (o *HypervisorRefResponseModel) HasPluginFactoryName() bool {
 func (o *HypervisorRefResponseModel) SetPluginFactoryName(v string) {
 	o.PluginFactoryName.Set(&v)
 }
+
 // SetPluginFactoryNameNil sets the value for PluginFactoryName to be an explicit nil
 func (o *HypervisorRefResponseModel) SetPluginFactoryNameNil() {
 	o.PluginFactoryName.Set(nil)
@@ -248,7 +252,7 @@ func (o *HypervisorRefResponseModel) UnsetPluginFactoryName() {
 }
 
 func (o HypervisorRefResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -310,5 +314,3 @@ func (v *NullableHypervisorRefResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

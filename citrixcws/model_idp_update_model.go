@@ -19,9 +19,9 @@ var _ MappedNullable = &IdpUpdateModel{}
 
 // IdpUpdateModel struct for IdpUpdateModel
 type IdpUpdateModel struct {
-	AdOtpDetails *AdOtpConnectionModel `json:"adOtpDetails,omitempty"`
-	AuthDomainName NullableString `json:"authDomainName,omitempty"`
-	Nickname NullableString `json:"nickname,omitempty"`
+	AdOtpDetails   *AdOtpConnectionModel `json:"adOtpDetails,omitempty"`
+	AuthDomainName NullableString        `json:"authDomainName,omitempty"`
+	Nickname       NullableString        `json:"nickname,omitempty"`
 }
 
 // NewIdpUpdateModel instantiates a new IdpUpdateModel object
@@ -105,6 +105,7 @@ func (o *IdpUpdateModel) HasAuthDomainName() bool {
 func (o *IdpUpdateModel) SetAuthDomainName(v string) {
 	o.AuthDomainName.Set(&v)
 }
+
 // SetAuthDomainNameNil sets the value for AuthDomainName to be an explicit nil
 func (o *IdpUpdateModel) SetAuthDomainNameNil() {
 	o.AuthDomainName.Set(nil)
@@ -147,6 +148,7 @@ func (o *IdpUpdateModel) HasNickname() bool {
 func (o *IdpUpdateModel) SetNickname(v string) {
 	o.Nickname.Set(&v)
 }
+
 // SetNicknameNil sets the value for Nickname to be an explicit nil
 func (o *IdpUpdateModel) SetNicknameNil() {
 	o.Nickname.Set(nil)
@@ -158,7 +160,7 @@ func (o *IdpUpdateModel) UnsetNickname() {
 }
 
 func (o IdpUpdateModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -214,5 +216,3 @@ func (v *NullableIdpUpdateModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

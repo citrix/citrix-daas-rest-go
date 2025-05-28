@@ -20,13 +20,13 @@ type PackagedApplicationType string
 
 // List of PackagedApplicationType
 const (
-	PACKAGEDAPPLICATIONTYPE_NOT_APPLICABLE PackagedApplicationType = "NotApplicable"
+	PACKAGEDAPPLICATIONTYPE_NOT_APPLICABLE     PackagedApplicationType = "NotApplicable"
 	PACKAGEDAPPLICATIONTYPE_APP_V_SINGLE_ADMIN PackagedApplicationType = "AppVSingleAdmin"
-	PACKAGEDAPPLICATIONTYPE_APP_V_DUAL_ADMIN PackagedApplicationType = "AppVDualAdmin"
-	PACKAGEDAPPLICATIONTYPE_MSIX PackagedApplicationType = "Msix"
-	PACKAGEDAPPLICATIONTYPE_APP_ATTACH PackagedApplicationType = "AppAttach"
-	PACKAGEDAPPLICATIONTYPE_FLEX_APP PackagedApplicationType = "FlexApp"
-	PACKAGEDAPPLICATIONTYPE_ELASTIC_APP_LAYER PackagedApplicationType = "ElasticAppLayer"
+	PACKAGEDAPPLICATIONTYPE_APP_V_DUAL_ADMIN   PackagedApplicationType = "AppVDualAdmin"
+	PACKAGEDAPPLICATIONTYPE_MSIX               PackagedApplicationType = "Msix"
+	PACKAGEDAPPLICATIONTYPE_APP_ATTACH         PackagedApplicationType = "AppAttach"
+	PACKAGEDAPPLICATIONTYPE_FLEX_APP           PackagedApplicationType = "FlexApp"
+	PACKAGEDAPPLICATIONTYPE_ELASTIC_APP_LAYER  PackagedApplicationType = "ElasticAppLayer"
 )
 
 // All allowed values of PackagedApplicationType enum
@@ -46,7 +46,7 @@ func (v *PackagedApplicationType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = PackagedApplicationType(value)
 	return nil
 }
@@ -112,4 +112,3 @@ func (v *NullablePackagedApplicationType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

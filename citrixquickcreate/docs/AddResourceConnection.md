@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountType** | [**AccountType**](AccountType.md) |  | 
+**AccountType** | [**AccountType**](AccountType.md) | The type of provider associated with the account | 
 **Name** | **string** | The name of the resource connection to create | 
 **ZoneId** | Pointer to **NullableString** | Zone id | [optional] 
 **ResourceLocationId** | Pointer to **NullableString** | The ID of the CC resource location  Ignored if ZoneId is specified | [optional] 

@@ -29,10 +29,10 @@ type ApplicationGroupSearchRequestModel struct {
 	BasicSearchString NullableString `json:"BasicSearchString,omitempty"`
 	// List of advanced search filters.
 	SearchFilters []AppSearchFilterRequestModel `json:"SearchFilters,omitempty"`
-	SortCriteria *AppSortCriteriaRequestModel `json:"SortCriteria,omitempty"`
+	SortCriteria  *AppSortCriteriaRequestModel  `json:"SortCriteria,omitempty"`
 	// List of advanced search filter groups.
-	SearchFilterGroups []AppSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
-	SearchFilterGroupsType *AppSearchFilterGroupsType `json:"SearchFilterGroupsType,omitempty"`
+	SearchFilterGroups     []AppSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
+	SearchFilterGroupsType *AppSearchFilterGroupsType         `json:"SearchFilterGroupsType,omitempty"`
 	// Application group folder in which to search for the application group.
 	ApplicationGroupFolder NullableString `json:"ApplicationGroupFolder,omitempty"`
 }
@@ -90,6 +90,7 @@ func (o *ApplicationGroupSearchRequestModel) HasApplicationFolder() bool {
 func (o *ApplicationGroupSearchRequestModel) SetApplicationFolder(v string) {
 	o.ApplicationFolder.Set(&v)
 }
+
 // SetApplicationFolderNil sets the value for ApplicationFolder to be an explicit nil
 func (o *ApplicationGroupSearchRequestModel) SetApplicationFolderNil() {
 	o.ApplicationFolder.Set(nil)
@@ -132,6 +133,7 @@ func (o *ApplicationGroupSearchRequestModel) HasIncludeSubFolders() bool {
 func (o *ApplicationGroupSearchRequestModel) SetIncludeSubFolders(v bool) {
 	o.IncludeSubFolders.Set(&v)
 }
+
 // SetIncludeSubFoldersNil sets the value for IncludeSubFolders to be an explicit nil
 func (o *ApplicationGroupSearchRequestModel) SetIncludeSubFoldersNil() {
 	o.IncludeSubFolders.Set(nil)
@@ -174,6 +176,7 @@ func (o *ApplicationGroupSearchRequestModel) HasApplicationGroup() bool {
 func (o *ApplicationGroupSearchRequestModel) SetApplicationGroup(v string) {
 	o.ApplicationGroup.Set(&v)
 }
+
 // SetApplicationGroupNil sets the value for ApplicationGroup to be an explicit nil
 func (o *ApplicationGroupSearchRequestModel) SetApplicationGroupNil() {
 	o.ApplicationGroup.Set(nil)
@@ -216,6 +219,7 @@ func (o *ApplicationGroupSearchRequestModel) HasBasicSearchString() bool {
 func (o *ApplicationGroupSearchRequestModel) SetBasicSearchString(v string) {
 	o.BasicSearchString.Set(&v)
 }
+
 // SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
 func (o *ApplicationGroupSearchRequestModel) SetBasicSearchStringNil() {
 	o.BasicSearchString.Set(nil)
@@ -388,6 +392,7 @@ func (o *ApplicationGroupSearchRequestModel) HasApplicationGroupFolder() bool {
 func (o *ApplicationGroupSearchRequestModel) SetApplicationGroupFolder(v string) {
 	o.ApplicationGroupFolder.Set(&v)
 }
+
 // SetApplicationGroupFolderNil sets the value for ApplicationGroupFolder to be an explicit nil
 func (o *ApplicationGroupSearchRequestModel) SetApplicationGroupFolderNil() {
 	o.ApplicationGroupFolder.Set(nil)
@@ -399,7 +404,7 @@ func (o *ApplicationGroupSearchRequestModel) UnsetApplicationGroupFolder() {
 }
 
 func (o ApplicationGroupSearchRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -473,5 +478,3 @@ func (v *NullableApplicationGroupSearchRequestModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

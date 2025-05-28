@@ -74,6 +74,7 @@ func (o *DatabaseChangeScriptModel) HasFileName() bool {
 func (o *DatabaseChangeScriptModel) SetFileName(v string) {
 	o.FileName.Set(&v)
 }
+
 // SetFileNameNil sets the value for FileName to be an explicit nil
 func (o *DatabaseChangeScriptModel) SetFileNameNil() {
 	o.FileName.Set(nil)
@@ -116,6 +117,7 @@ func (o *DatabaseChangeScriptModel) HasContent() bool {
 func (o *DatabaseChangeScriptModel) SetContent(v string) {
 	o.Content.Set(&v)
 }
+
 // SetContentNil sets the value for Content to be an explicit nil
 func (o *DatabaseChangeScriptModel) SetContentNil() {
 	o.Content.Set(nil)
@@ -127,7 +129,7 @@ func (o *DatabaseChangeScriptModel) UnsetContent() {
 }
 
 func (o DatabaseChangeScriptModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableDatabaseChangeScriptModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

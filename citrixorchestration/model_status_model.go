@@ -24,9 +24,9 @@ type StatusModel struct {
 	// The Product internal version.
 	ProductInternalVersion NullableString `json:"ProductInternalVersion,omitempty"`
 	// The product external version.
-	ProductExternalVersion NullableString `json:"ProductExternalVersion,omitempty"`
-	OrchServiceStatus *ServiceStatus `json:"OrchServiceStatus,omitempty"`
-	OrchRESTFulApiStatus *RestApiStatus `json:"OrchRESTFulApiStatus,omitempty"`
+	ProductExternalVersion  NullableString `json:"ProductExternalVersion,omitempty"`
+	OrchServiceStatus       *ServiceStatus `json:"OrchServiceStatus,omitempty"`
+	OrchRESTFulApiStatus    *RestApiStatus `json:"OrchRESTFulApiStatus,omitempty"`
 	SupportedAuthenticators *Authenticator `json:"SupportedAuthenticators,omitempty"`
 	// Indicate whether to display security banner on the login page.
 	ShowSecurityBannerOnLoginPage NullableBool `json:"ShowSecurityBannerOnLoginPage,omitempty"`
@@ -85,6 +85,7 @@ func (o *StatusModel) HasOrchServiceVersion() bool {
 func (o *StatusModel) SetOrchServiceVersion(v string) {
 	o.OrchServiceVersion.Set(&v)
 }
+
 // SetOrchServiceVersionNil sets the value for OrchServiceVersion to be an explicit nil
 func (o *StatusModel) SetOrchServiceVersionNil() {
 	o.OrchServiceVersion.Set(nil)
@@ -127,6 +128,7 @@ func (o *StatusModel) HasProductInternalVersion() bool {
 func (o *StatusModel) SetProductInternalVersion(v string) {
 	o.ProductInternalVersion.Set(&v)
 }
+
 // SetProductInternalVersionNil sets the value for ProductInternalVersion to be an explicit nil
 func (o *StatusModel) SetProductInternalVersionNil() {
 	o.ProductInternalVersion.Set(nil)
@@ -169,6 +171,7 @@ func (o *StatusModel) HasProductExternalVersion() bool {
 func (o *StatusModel) SetProductExternalVersion(v string) {
 	o.ProductExternalVersion.Set(&v)
 }
+
 // SetProductExternalVersionNil sets the value for ProductExternalVersion to be an explicit nil
 func (o *StatusModel) SetProductExternalVersionNil() {
 	o.ProductExternalVersion.Set(nil)
@@ -307,6 +310,7 @@ func (o *StatusModel) HasShowSecurityBannerOnLoginPage() bool {
 func (o *StatusModel) SetShowSecurityBannerOnLoginPage(v bool) {
 	o.ShowSecurityBannerOnLoginPage.Set(&v)
 }
+
 // SetShowSecurityBannerOnLoginPageNil sets the value for ShowSecurityBannerOnLoginPage to be an explicit nil
 func (o *StatusModel) SetShowSecurityBannerOnLoginPageNil() {
 	o.ShowSecurityBannerOnLoginPage.Set(nil)
@@ -349,6 +353,7 @@ func (o *StatusModel) HasSecurityBannerOnLoginPage() bool {
 func (o *StatusModel) SetSecurityBannerOnLoginPage(v string) {
 	o.SecurityBannerOnLoginPage.Set(&v)
 }
+
 // SetSecurityBannerOnLoginPageNil sets the value for SecurityBannerOnLoginPage to be an explicit nil
 func (o *StatusModel) SetSecurityBannerOnLoginPageNil() {
 	o.SecurityBannerOnLoginPage.Set(nil)
@@ -391,6 +396,7 @@ func (o *StatusModel) HasShowConnectedControllerOnLoginPage() bool {
 func (o *StatusModel) SetShowConnectedControllerOnLoginPage(v bool) {
 	o.ShowConnectedControllerOnLoginPage.Set(&v)
 }
+
 // SetShowConnectedControllerOnLoginPageNil sets the value for ShowConnectedControllerOnLoginPage to be an explicit nil
 func (o *StatusModel) SetShowConnectedControllerOnLoginPageNil() {
 	o.ShowConnectedControllerOnLoginPage.Set(nil)
@@ -402,7 +408,7 @@ func (o *StatusModel) UnsetShowConnectedControllerOnLoginPage() {
 }
 
 func (o StatusModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -476,5 +482,3 @@ func (v *NullableStatusModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

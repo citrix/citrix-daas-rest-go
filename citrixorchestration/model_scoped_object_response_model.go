@@ -21,8 +21,8 @@ var _ MappedNullable = &ScopedObjectResponseModel{}
 type ScopedObjectResponseModel struct {
 	Object RefResponseModel `json:"Object"`
 	// Description of the scoped object, if it has one.
-	ObjectDescription NullableString `json:"ObjectDescription,omitempty"`
-	ObjectType ScopedObjectType `json:"ObjectType"`
+	ObjectDescription NullableString   `json:"ObjectDescription,omitempty"`
+	ObjectType        ScopedObjectType `json:"ObjectType"`
 }
 
 // NewScopedObjectResponseModel instantiates a new ScopedObjectResponseModel object
@@ -100,6 +100,7 @@ func (o *ScopedObjectResponseModel) HasObjectDescription() bool {
 func (o *ScopedObjectResponseModel) SetObjectDescription(v string) {
 	o.ObjectDescription.Set(&v)
 }
+
 // SetObjectDescriptionNil sets the value for ObjectDescription to be an explicit nil
 func (o *ScopedObjectResponseModel) SetObjectDescriptionNil() {
 	o.ObjectDescription.Set(nil)
@@ -135,7 +136,7 @@ func (o *ScopedObjectResponseModel) SetObjectType(v ScopedObjectType) {
 }
 
 func (o ScopedObjectResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -187,5 +188,3 @@ func (v *NullableScopedObjectResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

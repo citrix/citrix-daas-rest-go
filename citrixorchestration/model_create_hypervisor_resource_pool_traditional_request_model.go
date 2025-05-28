@@ -20,28 +20,28 @@ var _ MappedNullable = &CreateHypervisorResourcePoolTraditionalRequestModel{}
 // CreateHypervisorResourcePoolTraditionalRequestModel struct for CreateHypervisorResourcePoolTraditionalRequestModel
 type CreateHypervisorResourcePoolTraditionalRequestModel struct {
 	// Name of the resource pool to create.  Required.
-	Name string `json:"Name"`
+	Name string `json:"Name" validate:"regexp=(.*)*"`
 	// Indicates whether VMs created by Virtual Apps & Desktops provisioning operations should be tagged.  Tagged VMs are filtered out of queries by default. Optional.  Default is `true`.
 	VmTagging NullableBool `json:"VmTagging,omitempty"`
 	// Path to the GPU type resource(s) that are available for provisioning operations in this resource pool.  Optional.  Not supported by all hypervisor types.
-	GpuTypes []string `json:"GpuTypes,omitempty"`
+	GpuTypes       []string                 `json:"GpuTypes,omitempty"`
 	ConnectionType HypervisorConnectionType `json:"ConnectionType"`
 	// Metadata of the resource pool. Optional.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// AWS Virtual Private Cloud (VPC) resource which the resource pool is connected to.  Required.
-	VirtualPrivateCloud *string `json:"VirtualPrivateCloud,omitempty"`
+	VirtualPrivateCloud *string "json:\"VirtualPrivateCloud,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// Path to the availability zone resource to use for provisioning operations in this resource pool.  Required.
-	AvailabilityZone *string `json:"AvailabilityZone,omitempty"`
+	AvailabilityZone *string "json:\"AvailabilityZone,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// Path to the network resource(s) that are available for provisioning operations in this resource pool.  At least one is required.
 	Networks []string `json:"Networks"`
 	// Azure region which the resource pool is connected to.  Required.
-	Region *string `json:"Region,omitempty"`
+	Region *string "json:\"Region,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// Azure virtual network which the resource pool is connected to. Required.
-	VirtualNetwork *string `json:"VirtualNetwork,omitempty"`
+	VirtualNetwork *string "json:\"VirtualNetwork,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// Path to the subnet(s) that are available for provisioning operations in this resource pool.  At least one is required.
 	Subnets []string `json:"Subnets,omitempty"`
 	// Root path of the resources on the hypervisor which should be included in the resource pool.  Required.
-	RootPath NullableString `json:"RootPath,omitempty"`
+	RootPath NullableString "json:\"RootPath,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// Indicates whether local storage on the hypervisor will be used for caching purposes. Not all hypervisor types support this.  Defaults to `false`.
 	UseLocalStorageCaching NullableBool `json:"UseLocalStorageCaching,omitempty"`
 	// Path to the storage resource(s) that are available for provisioning operations in this resource pool.  Required for some hypervisor types.
@@ -51,7 +51,7 @@ type CreateHypervisorResourcePoolTraditionalRequestModel struct {
 	// Path to the storage resource(s) that are used for temporary operations in this resource pool.  Required for some hypervisor types.
 	TemporaryStorage []string `json:"TemporaryStorage,omitempty"`
 	// Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom.
-	CustomProperties NullableString `json:"CustomProperties,omitempty"`
+	CustomProperties   NullableString      `json:"CustomProperties,omitempty" validate:"regexp=((.|\\\\n)*)"`
 	StorageBalanceType *StorageBalanceType `json:"StorageBalanceType,omitempty"`
 }
 
@@ -139,6 +139,7 @@ func (o *CreateHypervisorResourcePoolTraditionalRequestModel) HasVmTagging() boo
 func (o *CreateHypervisorResourcePoolTraditionalRequestModel) SetVmTagging(v bool) {
 	o.VmTagging.Set(&v)
 }
+
 // SetVmTaggingNil sets the value for VmTagging to be an explicit nil
 func (o *CreateHypervisorResourcePoolTraditionalRequestModel) SetVmTaggingNil() {
 	o.VmTagging.Set(nil)
@@ -455,6 +456,7 @@ func (o *CreateHypervisorResourcePoolTraditionalRequestModel) HasRootPath() bool
 func (o *CreateHypervisorResourcePoolTraditionalRequestModel) SetRootPath(v string) {
 	o.RootPath.Set(&v)
 }
+
 // SetRootPathNil sets the value for RootPath to be an explicit nil
 func (o *CreateHypervisorResourcePoolTraditionalRequestModel) SetRootPathNil() {
 	o.RootPath.Set(nil)
@@ -497,6 +499,7 @@ func (o *CreateHypervisorResourcePoolTraditionalRequestModel) HasUseLocalStorage
 func (o *CreateHypervisorResourcePoolTraditionalRequestModel) SetUseLocalStorageCaching(v bool) {
 	o.UseLocalStorageCaching.Set(&v)
 }
+
 // SetUseLocalStorageCachingNil sets the value for UseLocalStorageCaching to be an explicit nil
 func (o *CreateHypervisorResourcePoolTraditionalRequestModel) SetUseLocalStorageCachingNil() {
 	o.UseLocalStorageCaching.Set(nil)
@@ -638,6 +641,7 @@ func (o *CreateHypervisorResourcePoolTraditionalRequestModel) HasCustomPropertie
 func (o *CreateHypervisorResourcePoolTraditionalRequestModel) SetCustomProperties(v string) {
 	o.CustomProperties.Set(&v)
 }
+
 // SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
 func (o *CreateHypervisorResourcePoolTraditionalRequestModel) SetCustomPropertiesNil() {
 	o.CustomProperties.Set(nil)
@@ -681,7 +685,7 @@ func (o *CreateHypervisorResourcePoolTraditionalRequestModel) SetStorageBalanceT
 }
 
 func (o CreateHypervisorResourcePoolTraditionalRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -776,5 +780,3 @@ func (v *NullableCreateHypervisorResourcePoolTraditionalRequestModel) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

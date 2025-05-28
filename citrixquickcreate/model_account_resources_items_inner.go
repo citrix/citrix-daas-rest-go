@@ -17,17 +17,17 @@ import (
 
 // AccountResourcesItemsInner - struct for AccountResourcesItemsInner
 type AccountResourcesItemsInner struct {
-	AwsEdcAccountResourceAmiImage *AwsEdcAccountResourceAmiImage
+	AwsEdcAccountResourceAmiImage         *AwsEdcAccountResourceAmiImage
 	AwsEdcAccountResourceByolRegistration *AwsEdcAccountResourceByolRegistration
-	AwsEdcAccountResourceCidrRange *AwsEdcAccountResourceCidrRange
-	AwsEdcAccountResourceDirectory *AwsEdcAccountResourceDirectory
-	AwsEdcAccountResourceEc2InstanceType *AwsEdcAccountResourceEc2InstanceType
-	AwsEdcAccountResourceFile *AwsEdcAccountResourceFile
-	AwsEdcAccountResourceKeyPair *AwsEdcAccountResourceKeyPair
-	AwsEdcAccountResourceRegion *AwsEdcAccountResourceRegion
-	AwsEdcAccountResourceSecurityGroup *AwsEdcAccountResourceSecurityGroup
-	AwsEdcAccountResourceSubnet *AwsEdcAccountResourceSubnet
-	AwsEdcAccountResourceVpc *AwsEdcAccountResourceVpc
+	AwsEdcAccountResourceCidrRange        *AwsEdcAccountResourceCidrRange
+	AwsEdcAccountResourceDirectory        *AwsEdcAccountResourceDirectory
+	AwsEdcAccountResourceEc2InstanceType  *AwsEdcAccountResourceEc2InstanceType
+	AwsEdcAccountResourceFile             *AwsEdcAccountResourceFile
+	AwsEdcAccountResourceKeyPair          *AwsEdcAccountResourceKeyPair
+	AwsEdcAccountResourceRegion           *AwsEdcAccountResourceRegion
+	AwsEdcAccountResourceSecurityGroup    *AwsEdcAccountResourceSecurityGroup
+	AwsEdcAccountResourceSubnet           *AwsEdcAccountResourceSubnet
+	AwsEdcAccountResourceVpc              *AwsEdcAccountResourceVpc
 }
 
 // AwsEdcAccountResourceAmiImageAsAccountResourcesItemsInner is a convenience function that returns AwsEdcAccountResourceAmiImage wrapped in AccountResourcesItemsInner
@@ -106,7 +106,6 @@ func AwsEdcAccountResourceVpcAsAccountResourcesItemsInner(v *AwsEdcAccountResour
 		AwsEdcAccountResourceVpc: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *AccountResourcesItemsInner) UnmarshalJSON(data []byte) error {
@@ -435,7 +434,7 @@ func (src AccountResourcesItemsInner) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *AccountResourcesItemsInner) GetActualInstance() (interface{}) {
+func (obj *AccountResourcesItemsInner) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -487,6 +486,56 @@ func (obj *AccountResourcesItemsInner) GetActualInstance() (interface{}) {
 	return nil
 }
 
+// Get the actual instance value
+func (obj AccountResourcesItemsInner) GetActualInstanceValue() interface{} {
+	if obj.AwsEdcAccountResourceAmiImage != nil {
+		return *obj.AwsEdcAccountResourceAmiImage
+	}
+
+	if obj.AwsEdcAccountResourceByolRegistration != nil {
+		return *obj.AwsEdcAccountResourceByolRegistration
+	}
+
+	if obj.AwsEdcAccountResourceCidrRange != nil {
+		return *obj.AwsEdcAccountResourceCidrRange
+	}
+
+	if obj.AwsEdcAccountResourceDirectory != nil {
+		return *obj.AwsEdcAccountResourceDirectory
+	}
+
+	if obj.AwsEdcAccountResourceEc2InstanceType != nil {
+		return *obj.AwsEdcAccountResourceEc2InstanceType
+	}
+
+	if obj.AwsEdcAccountResourceFile != nil {
+		return *obj.AwsEdcAccountResourceFile
+	}
+
+	if obj.AwsEdcAccountResourceKeyPair != nil {
+		return *obj.AwsEdcAccountResourceKeyPair
+	}
+
+	if obj.AwsEdcAccountResourceRegion != nil {
+		return *obj.AwsEdcAccountResourceRegion
+	}
+
+	if obj.AwsEdcAccountResourceSecurityGroup != nil {
+		return *obj.AwsEdcAccountResourceSecurityGroup
+	}
+
+	if obj.AwsEdcAccountResourceSubnet != nil {
+		return *obj.AwsEdcAccountResourceSubnet
+	}
+
+	if obj.AwsEdcAccountResourceVpc != nil {
+		return *obj.AwsEdcAccountResourceVpc
+	}
+
+	// all schemas are nil
+	return nil
+}
+
 type NullableAccountResourcesItemsInner struct {
 	value *AccountResourcesItemsInner
 	isSet bool
@@ -522,5 +571,3 @@ func (v *NullableAccountResourcesItemsInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

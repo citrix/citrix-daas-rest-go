@@ -20,12 +20,15 @@ var _ MappedNullable = &SearchAwsEdcAccountResourceRequest{}
 // SearchAwsEdcAccountResourceRequest struct for SearchAwsEdcAccountResourceRequest
 type SearchAwsEdcAccountResourceRequest struct {
 	SearchAccountResourceRequest
+	// AWS Resource type to search
 	ResourceType *AwsAccountResourceType `json:"resourceType,omitempty"`
 	// The ARN of the role to assume when searching for resources in an account that has not been added yet
-	AwsRoleArn NullableString `json:"awsRoleArn,omitempty"`
+	AwsRoleArn NullableString `json:"awsRoleArn,omitempty" validate:"regexp=^arn:aws(-us-gov)?:iam::[0-9]{12}:role\\/[a-zA-Z0-9+=,.@\\\\-_]{1,64}$"`
 	// The AWS region to use
-	AwsRegion NullableString `json:"awsRegion,omitempty"`
+	AwsRegion NullableString `json:"awsRegion,omitempty" validate:"regexp=^[a-zA-Z0-9\\\\-]+$"`
 }
+
+type _SearchAwsEdcAccountResourceRequest SearchAwsEdcAccountResourceRequest
 
 // NewSearchAwsEdcAccountResourceRequest instantiates a new SearchAwsEdcAccountResourceRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -109,6 +112,7 @@ func (o *SearchAwsEdcAccountResourceRequest) HasAwsRoleArn() bool {
 func (o *SearchAwsEdcAccountResourceRequest) SetAwsRoleArn(v string) {
 	o.AwsRoleArn.Set(&v)
 }
+
 // SetAwsRoleArnNil sets the value for AwsRoleArn to be an explicit nil
 func (o *SearchAwsEdcAccountResourceRequest) SetAwsRoleArnNil() {
 	o.AwsRoleArn.Set(nil)
@@ -151,6 +155,7 @@ func (o *SearchAwsEdcAccountResourceRequest) HasAwsRegion() bool {
 func (o *SearchAwsEdcAccountResourceRequest) SetAwsRegion(v string) {
 	o.AwsRegion.Set(&v)
 }
+
 // SetAwsRegionNil sets the value for AwsRegion to be an explicit nil
 func (o *SearchAwsEdcAccountResourceRequest) SetAwsRegionNil() {
 	o.AwsRegion.Set(nil)
@@ -162,7 +167,7 @@ func (o *SearchAwsEdcAccountResourceRequest) UnsetAwsRegion() {
 }
 
 func (o SearchAwsEdcAccountResourceRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -226,5 +231,3 @@ func (v *NullableSearchAwsEdcAccountResourceRequest) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -1,6 +1,6 @@
 # \SiteDAAS
 
-All URIs are relative to *https://api.wem.cloud.com*
+All URIs are relative to *https://.wem.cloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,26 +27,26 @@ Create a Site
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "235ca558-a454-42ee-be58-54f57a0b87cc")
-    body := SiteModel(987) // SiteModel |  (optional)
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "235ca558-a454-42ee-be58-54f57a0b87cc")
+	body := *openapiclient.NewSiteModel() // SiteModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SiteDAAS.SiteCreate(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteCreate``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SiteDAAS.SiteCreate(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
  **authorization** | **string** | Citrix Cloud authorization token. | 
  **citrixCustomerId** | **string** | Citrix Cloud customer ID. | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. | [default to &quot;235ca558-a454-42ee-be58-54f57a0b87cc&quot;]
- **body** | **SiteModel** |  | 
+ **body** | [**SiteModel**](SiteModel.md) |  | 
 
 ### Return type
 
@@ -97,26 +97,26 @@ Delete a Site
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    id := int64(789) // int64 | The ID of the resource you want to delete.
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "c64a0e4a-426e-4271-ab2d-49fa019d8de3")
+	id := int64(789) // int64 | The ID of the resource you want to delete.
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "c64a0e4a-426e-4271-ab2d-49fa019d8de3")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SiteDAAS.SiteDelete(context.Background(), id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SiteDAAS.SiteDelete(context.Background(), id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -171,29 +171,29 @@ Export a Site
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    id := int64(789) // int64 | The ID of the resource you want to export. (optional)
-    name := "name_example" // string | The name of the resource you want to export. (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "2bd401c7-e7d0-4d18-90e2-9d92584ddde3")
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	id := int64(789) // int64 | The ID of the resource you want to export. (optional)
+	name := "name_example" // string | The name of the resource you want to export. (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "2bd401c7-e7d0-4d18-90e2-9d92584ddde3")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SiteDAAS.SiteExport(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Id(id).Name(name).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteExport``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SiteExport`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `SiteDAAS.SiteExport`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SiteDAAS.SiteExport(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Id(id).Name(name).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteExport``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SiteExport`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `SiteDAAS.SiteExport`: %v\n", resp)
 }
 ```
 
@@ -245,26 +245,26 @@ Import a Site
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "d0948dc7-4861-45b9-8ae2-b5b40229237a")
-    body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "d0948dc7-4861-45b9-8ae2-b5b40229237a")
+	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SiteDAAS.SiteImport(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteImport``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SiteDAAS.SiteImport(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteImport``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -315,29 +315,29 @@ Query Sites
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    name := "name_example" // string | The name is used to filter the query results. (optional)
-    id := int64(789) // int64 | The ID is used to filter the query results. (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "cecfb7dd-4c50-4b11-b4d5-6688946f69ee")
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	name := "name_example" // string | The name is used to filter the query results. (optional)
+	id := int64(789) // int64 | The ID is used to filter the query results. (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "cecfb7dd-4c50-4b11-b4d5-6688946f69ee")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SiteDAAS.SiteQuery(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Name(name).Id(id).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteQuery``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SiteQuery`: SiteQuery200Response
-    fmt.Fprintf(os.Stdout, "Response from `SiteDAAS.SiteQuery`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SiteDAAS.SiteQuery(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Name(name).Id(id).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteQuery``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SiteQuery`: SiteQuery200Response
+	fmt.Fprintf(os.Stdout, "Response from `SiteDAAS.SiteQuery`: %v\n", resp)
 }
 ```
 
@@ -389,28 +389,28 @@ Query Sites by Identity
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    id := int64(789) // int64 | The ID of the resource you want to query.
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "b6155b53-555d-4898-a4bb-3540339a1ac7")
+	id := int64(789) // int64 | The ID of the resource you want to query.
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "b6155b53-555d-4898-a4bb-3540339a1ac7")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SiteDAAS.SiteQueryById(context.Background(), id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteQueryById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SiteQueryById`: SiteModel
-    fmt.Fprintf(os.Stdout, "Response from `SiteDAAS.SiteQueryById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SiteDAAS.SiteQueryById(context.Background(), id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteQueryById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SiteQueryById`: SiteModel
+	fmt.Fprintf(os.Stdout, "Response from `SiteDAAS.SiteQueryById`: %v\n", resp)
 }
 ```
 
@@ -465,27 +465,27 @@ Replicate a Site
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    id := int64(789) // int64 |  (optional)
-    name := "name_example" // string |  (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "ea86ad5e-3bf7-4d95-98c7-6993e25a153e")
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	id := int64(789) // int64 |  (optional)
+	name := "name_example" // string |  (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "ea86ad5e-3bf7-4d95-98c7-6993e25a153e")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SiteDAAS.SiteReplicate(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Id(id).Name(name).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteReplicate``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SiteDAAS.SiteReplicate(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Id(id).Name(name).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteReplicate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -537,26 +537,26 @@ Update a Site
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "773b417e-4dc8-4312-86aa-bcf7e7266467")
-    body := SiteModel(987) // SiteModel |  (optional)
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "773b417e-4dc8-4312-86aa-bcf7e7266467")
+	body := *openapiclient.NewSiteModel() // SiteModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SiteDAAS.SiteUpdate(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteUpdate``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SiteDAAS.SiteUpdate(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SiteDAAS.SiteUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
  **authorization** | **string** | Citrix Cloud authorization token. | 
  **citrixCustomerId** | **string** | Citrix Cloud customer ID. | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. | [default to &quot;773b417e-4dc8-4312-86aa-bcf7e7266467&quot;]
- **body** | **SiteModel** |  | 
+ **body** | [**SiteModel**](SiteModel.md) |  | 
 
 ### Return type
 

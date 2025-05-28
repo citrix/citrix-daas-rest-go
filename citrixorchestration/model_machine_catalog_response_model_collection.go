@@ -101,6 +101,7 @@ func (o *MachineCatalogResponseModelCollection) HasContinuationToken() bool {
 func (o *MachineCatalogResponseModelCollection) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *MachineCatalogResponseModelCollection) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -143,6 +144,7 @@ func (o *MachineCatalogResponseModelCollection) HasTotalItems() bool {
 func (o *MachineCatalogResponseModelCollection) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *MachineCatalogResponseModelCollection) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -154,7 +156,7 @@ func (o *MachineCatalogResponseModelCollection) UnsetTotalItems() {
 }
 
 func (o MachineCatalogResponseModelCollection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableMachineCatalogResponseModelCollection) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

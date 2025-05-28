@@ -19,11 +19,11 @@ var _ MappedNullable = &UpdatedCustomerModel{}
 
 // UpdatedCustomerModel struct for UpdatedCustomerModel
 type UpdatedCustomerModel struct {
-	Id NullableString `json:"id,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	AuthDomainNames []string `json:"authDomainNames,omitempty"`
-	AuthDomains []AuthDomainModel `json:"authDomains,omitempty"`
-	Aliases []AliasModel `json:"aliases,omitempty"`
+	Id              NullableString    `json:"id,omitempty"`
+	Name            NullableString    `json:"name,omitempty"`
+	AuthDomainNames []string          `json:"authDomainNames,omitempty"`
+	AuthDomains     []AuthDomainModel `json:"authDomains,omitempty"`
+	Aliases         []AliasModel      `json:"aliases,omitempty"`
 }
 
 // NewUpdatedCustomerModel instantiates a new UpdatedCustomerModel object
@@ -75,6 +75,7 @@ func (o *UpdatedCustomerModel) HasId() bool {
 func (o *UpdatedCustomerModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *UpdatedCustomerModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -117,6 +118,7 @@ func (o *UpdatedCustomerModel) HasName() bool {
 func (o *UpdatedCustomerModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *UpdatedCustomerModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -148,7 +150,7 @@ func (o *UpdatedCustomerModel) GetAuthDomainNamesOk() ([]string, bool) {
 
 // HasAuthDomainNames returns a boolean if a field has been set.
 func (o *UpdatedCustomerModel) HasAuthDomainNames() bool {
-	if o != nil && IsNil(o.AuthDomainNames) {
+	if o != nil && !IsNil(o.AuthDomainNames) {
 		return true
 	}
 
@@ -181,7 +183,7 @@ func (o *UpdatedCustomerModel) GetAuthDomainsOk() ([]AuthDomainModel, bool) {
 
 // HasAuthDomains returns a boolean if a field has been set.
 func (o *UpdatedCustomerModel) HasAuthDomains() bool {
-	if o != nil && IsNil(o.AuthDomains) {
+	if o != nil && !IsNil(o.AuthDomains) {
 		return true
 	}
 
@@ -214,7 +216,7 @@ func (o *UpdatedCustomerModel) GetAliasesOk() ([]AliasModel, bool) {
 
 // HasAliases returns a boolean if a field has been set.
 func (o *UpdatedCustomerModel) HasAliases() bool {
-	if o != nil && IsNil(o.Aliases) {
+	if o != nil && !IsNil(o.Aliases) {
 		return true
 	}
 
@@ -227,7 +229,7 @@ func (o *UpdatedCustomerModel) SetAliases(v []AliasModel) {
 }
 
 func (o UpdatedCustomerModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -289,5 +291,3 @@ func (v *NullableUpdatedCustomerModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

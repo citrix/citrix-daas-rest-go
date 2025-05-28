@@ -19,18 +19,20 @@ var _ MappedNullable = &PendingAdministratorInviteExternal{}
 
 // PendingAdministratorInviteExternal struct for PendingAdministratorInviteExternal
 type PendingAdministratorInviteExternal struct {
-	Email string `json:"email"`
-	RequestorEmail NullableString `json:"requestorEmail,omitempty"`
-	FirstName NullableString `json:"firstName,omitempty"`
-	LastName NullableString `json:"lastName,omitempty"`
-	Access *AdministratorAccessModel `json:"access,omitempty"`
-	DisplayName NullableString `json:"displayName,omitempty"`
-	ExternalProviderType AdministratorExternalProviderType `json:"externalProviderType"`
-	ExternalProviderId string `json:"externalProviderId"`
-	ExternalUserId string `json:"externalUserId"`
-	ExternalProviderProperties map[string]interface{} `json:"externalProviderProperties,omitempty"`
-	ExternalProviderAuthDomain NullableString `json:"externalProviderAuthDomain,omitempty"`
+	Email                      string                            `json:"email"`
+	RequestorEmail             NullableString                    `json:"requestorEmail,omitempty"`
+	FirstName                  NullableString                    `json:"firstName,omitempty"`
+	LastName                   NullableString                    `json:"lastName,omitempty"`
+	Access                     *AdministratorAccessModel         `json:"access,omitempty"`
+	DisplayName                NullableString                    `json:"displayName,omitempty"`
+	ExternalProviderType       AdministratorExternalProviderType `json:"externalProviderType"`
+	ExternalProviderId         string                            `json:"externalProviderId"`
+	ExternalUserId             string                            `json:"externalUserId"`
+	ExternalProviderProperties map[string]interface{}            `json:"externalProviderProperties,omitempty"`
+	ExternalProviderAuthDomain NullableString                    `json:"externalProviderAuthDomain,omitempty"`
 }
+
+type _PendingAdministratorInviteExternal PendingAdministratorInviteExternal
 
 // NewPendingAdministratorInviteExternal instantiates a new PendingAdministratorInviteExternal object
 // This constructor will assign default values to properties that have it defined,
@@ -109,6 +111,7 @@ func (o *PendingAdministratorInviteExternal) HasRequestorEmail() bool {
 func (o *PendingAdministratorInviteExternal) SetRequestorEmail(v string) {
 	o.RequestorEmail.Set(&v)
 }
+
 // SetRequestorEmailNil sets the value for RequestorEmail to be an explicit nil
 func (o *PendingAdministratorInviteExternal) SetRequestorEmailNil() {
 	o.RequestorEmail.Set(nil)
@@ -151,6 +154,7 @@ func (o *PendingAdministratorInviteExternal) HasFirstName() bool {
 func (o *PendingAdministratorInviteExternal) SetFirstName(v string) {
 	o.FirstName.Set(&v)
 }
+
 // SetFirstNameNil sets the value for FirstName to be an explicit nil
 func (o *PendingAdministratorInviteExternal) SetFirstNameNil() {
 	o.FirstName.Set(nil)
@@ -193,6 +197,7 @@ func (o *PendingAdministratorInviteExternal) HasLastName() bool {
 func (o *PendingAdministratorInviteExternal) SetLastName(v string) {
 	o.LastName.Set(&v)
 }
+
 // SetLastNameNil sets the value for LastName to be an explicit nil
 func (o *PendingAdministratorInviteExternal) SetLastNameNil() {
 	o.LastName.Set(nil)
@@ -267,6 +272,7 @@ func (o *PendingAdministratorInviteExternal) HasDisplayName() bool {
 func (o *PendingAdministratorInviteExternal) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *PendingAdministratorInviteExternal) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -370,7 +376,7 @@ func (o *PendingAdministratorInviteExternal) GetExternalProviderPropertiesOk() (
 
 // HasExternalProviderProperties returns a boolean if a field has been set.
 func (o *PendingAdministratorInviteExternal) HasExternalProviderProperties() bool {
-	if o != nil && IsNil(o.ExternalProviderProperties) {
+	if o != nil && !IsNil(o.ExternalProviderProperties) {
 		return true
 	}
 
@@ -414,6 +420,7 @@ func (o *PendingAdministratorInviteExternal) HasExternalProviderAuthDomain() boo
 func (o *PendingAdministratorInviteExternal) SetExternalProviderAuthDomain(v string) {
 	o.ExternalProviderAuthDomain.Set(&v)
 }
+
 // SetExternalProviderAuthDomainNil sets the value for ExternalProviderAuthDomain to be an explicit nil
 func (o *PendingAdministratorInviteExternal) SetExternalProviderAuthDomainNil() {
 	o.ExternalProviderAuthDomain.Set(nil)
@@ -425,7 +432,7 @@ func (o *PendingAdministratorInviteExternal) UnsetExternalProviderAuthDomain() {
 }
 
 func (o PendingAdministratorInviteExternal) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -497,5 +504,3 @@ func (v *NullablePendingAdministratorInviteExternal) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

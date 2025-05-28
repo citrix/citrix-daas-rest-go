@@ -20,15 +20,17 @@ var _ MappedNullable = &IdpInstanceCreateConnectModel{}
 // IdpInstanceCreateConnectModel struct for IdpInstanceCreateConnectModel
 type IdpInstanceCreateConnectModel struct {
 	AdaptiveAuthenticationConnectionDetails *AdaptiveAuthenticationConnectionModel `json:"adaptiveAuthenticationConnectionDetails,omitempty"`
-	AuthDomainName NullableString `json:"authDomainName,omitempty"`
-	AzureAd *AzureAdConnectionSettings `json:"azureAd,omitempty"`
-	GatewayConnectionDetails *GatewayConnectionModel `json:"gatewayConnectionDetails,omitempty"`
-	GoogleConnectionModel *GoogleConnectionModel `json:"googleConnectionModel,omitempty"`
-	IdentityProviderType string `json:"identityProviderType"`
-	OktaConnectionModel *OktaConnectionModel `json:"oktaConnectionModel,omitempty"`
-	SamlConnectionModel *SamlConnectionModel `json:"samlConnectionModel,omitempty"`
-	IdentityProviderNickname string `json:"identityProviderNickname"`
+	AuthDomainName                          NullableString                         `json:"authDomainName,omitempty"`
+	AzureAd                                 *AzureAdConnectionSettings             `json:"azureAd,omitempty"`
+	GatewayConnectionDetails                *GatewayConnectionModel                `json:"gatewayConnectionDetails,omitempty"`
+	GoogleConnectionModel                   *GoogleConnectionModel                 `json:"googleConnectionModel,omitempty"`
+	IdentityProviderType                    string                                 `json:"identityProviderType"`
+	OktaConnectionModel                     *OktaConnectionModel                   `json:"oktaConnectionModel,omitempty"`
+	SamlConnectionModel                     *SamlConnectionModel                   `json:"samlConnectionModel,omitempty"`
+	IdentityProviderNickname                string                                 `json:"identityProviderNickname"`
 }
+
+type _IdpInstanceCreateConnectModel IdpInstanceCreateConnectModel
 
 // NewIdpInstanceCreateConnectModel instantiates a new IdpInstanceCreateConnectModel object
 // This constructor will assign default values to properties that have it defined,
@@ -113,6 +115,7 @@ func (o *IdpInstanceCreateConnectModel) HasAuthDomainName() bool {
 func (o *IdpInstanceCreateConnectModel) SetAuthDomainName(v string) {
 	o.AuthDomainName.Set(&v)
 }
+
 // SetAuthDomainNameNil sets the value for AuthDomainName to be an explicit nil
 func (o *IdpInstanceCreateConnectModel) SetAuthDomainNameNil() {
 	o.AuthDomainName.Set(nil)
@@ -332,7 +335,7 @@ func (o *IdpInstanceCreateConnectModel) SetIdentityProviderNickname(v string) {
 }
 
 func (o IdpInstanceCreateConnectModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -402,5 +405,3 @@ func (v *NullableIdpInstanceCreateConnectModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

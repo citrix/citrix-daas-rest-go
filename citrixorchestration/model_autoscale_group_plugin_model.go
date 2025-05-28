@@ -30,8 +30,8 @@ type AutoscaleGroupPluginModel struct {
 	// Optional description of the group plugin.
 	Description NullableString `json:"Description,omitempty"`
 	// The unique ID of the desktop group associated with this group plugin.
-	DesktopGroupUid *int32 `json:"DesktopGroupUid,omitempty"`
-	Type *AutoscalePluginType `json:"Type,omitempty"`
+	DesktopGroupUid *int32               `json:"DesktopGroupUid,omitempty"`
+	Type            *AutoscalePluginType `json:"Type,omitempty"`
 	// If True, indicates that any schedule override produced by the plugin is automatically accepted as the schedule for the target date. Otherwise the schedule is only accepted if the target date is on or before the date specified in ApprovedUtil. If AutoApprove is False and the ApprovedUtil date is not set, or is in the past, then any schedule override produced is discarded without being used.
 	AutoApprove *bool `json:"AutoApprove,omitempty"`
 	// If AutoApprove is False, specifies the date until which any schedule override produced by the plugin is automatically accepted as the schedule for the target date. See AutoApprove for more information.
@@ -121,6 +121,7 @@ func (o *AutoscaleGroupPluginModel) HasName() bool {
 func (o *AutoscaleGroupPluginModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AutoscaleGroupPluginModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -227,6 +228,7 @@ func (o *AutoscaleGroupPluginModel) HasDescription() bool {
 func (o *AutoscaleGroupPluginModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *AutoscaleGroupPluginModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -365,6 +367,7 @@ func (o *AutoscaleGroupPluginModel) HasApprovedUntil() bool {
 func (o *AutoscaleGroupPluginModel) SetApprovedUntil(v string) {
 	o.ApprovedUntil.Set(&v)
 }
+
 // SetApprovedUntilNil sets the value for ApprovedUntil to be an explicit nil
 func (o *AutoscaleGroupPluginModel) SetApprovedUntilNil() {
 	o.ApprovedUntil.Set(nil)
@@ -409,7 +412,7 @@ func (o *AutoscaleGroupPluginModel) SetDates(v []string) {
 }
 
 func (o AutoscaleGroupPluginModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -486,5 +489,3 @@ func (v *NullableAutoscaleGroupPluginModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

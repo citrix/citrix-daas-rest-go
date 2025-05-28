@@ -24,8 +24,8 @@ type ZonedItemResponseModel struct {
 	// Name of the zoned item.
 	Name string `json:"Name"`
 	// Description of the zoned item.
-	Description NullableString `json:"Description,omitempty"`
-	ItemType ZonableItemType `json:"ItemType"`
+	Description NullableString  `json:"Description,omitempty"`
+	ItemType    ZonableItemType `json:"ItemType"`
 	// Administrative scopes of the zoned item.
 	Scopes []ScopeResponseModel `json:"Scopes,omitempty"`
 	// Additional properties of the zoned item.
@@ -136,6 +136,7 @@ func (o *ZonedItemResponseModel) HasDescription() bool {
 func (o *ZonedItemResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *ZonedItemResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -268,6 +269,7 @@ func (o *ZonedItemResponseModel) HasZoneId() bool {
 func (o *ZonedItemResponseModel) SetZoneId(v string) {
 	o.ZoneId.Set(&v)
 }
+
 // SetZoneIdNil sets the value for ZoneId to be an explicit nil
 func (o *ZonedItemResponseModel) SetZoneIdNil() {
 	o.ZoneId.Set(nil)
@@ -310,6 +312,7 @@ func (o *ZonedItemResponseModel) HasZoneName() bool {
 func (o *ZonedItemResponseModel) SetZoneName(v string) {
 	o.ZoneName.Set(&v)
 }
+
 // SetZoneNameNil sets the value for ZoneName to be an explicit nil
 func (o *ZonedItemResponseModel) SetZoneNameNil() {
 	o.ZoneName.Set(nil)
@@ -321,7 +324,7 @@ func (o *ZonedItemResponseModel) UnsetZoneName() {
 }
 
 func (o ZonedItemResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -386,5 +389,3 @@ func (v *NullableZonedItemResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

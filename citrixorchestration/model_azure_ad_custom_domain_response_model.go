@@ -76,6 +76,7 @@ func (o *AzureADCustomDomainResponseModel) HasTenantId() bool {
 func (o *AzureADCustomDomainResponseModel) SetTenantId(v string) {
 	o.TenantId.Set(&v)
 }
+
 // SetTenantIdNil sets the value for TenantId to be an explicit nil
 func (o *AzureADCustomDomainResponseModel) SetTenantIdNil() {
 	o.TenantId.Set(nil)
@@ -118,6 +119,7 @@ func (o *AzureADCustomDomainResponseModel) HasTenantDisplayName() bool {
 func (o *AzureADCustomDomainResponseModel) SetTenantDisplayName(v string) {
 	o.TenantDisplayName.Set(&v)
 }
+
 // SetTenantDisplayNameNil sets the value for TenantDisplayName to be an explicit nil
 func (o *AzureADCustomDomainResponseModel) SetTenantDisplayNameNil() {
 	o.TenantDisplayName.Set(nil)
@@ -160,6 +162,7 @@ func (o *AzureADCustomDomainResponseModel) HasAuthenticationType() bool {
 func (o *AzureADCustomDomainResponseModel) SetAuthenticationType(v string) {
 	o.AuthenticationType.Set(&v)
 }
+
 // SetAuthenticationTypeNil sets the value for AuthenticationType to be an explicit nil
 func (o *AzureADCustomDomainResponseModel) SetAuthenticationTypeNil() {
 	o.AuthenticationType.Set(nil)
@@ -171,7 +174,7 @@ func (o *AzureADCustomDomainResponseModel) UnsetAuthenticationType() {
 }
 
 func (o AzureADCustomDomainResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +230,3 @@ func (v *NullableAzureADCustomDomainResponseModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

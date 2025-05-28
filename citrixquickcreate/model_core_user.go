@@ -74,6 +74,7 @@ func (o *CoreUser) HasUserId() bool {
 func (o *CoreUser) SetUserId(v string) {
 	o.UserId.Set(&v)
 }
+
 // SetUserIdNil sets the value for UserId to be an explicit nil
 func (o *CoreUser) SetUserIdNil() {
 	o.UserId.Set(nil)
@@ -116,6 +117,7 @@ func (o *CoreUser) HasUserPrincipalName() bool {
 func (o *CoreUser) SetUserPrincipalName(v string) {
 	o.UserPrincipalName.Set(&v)
 }
+
 // SetUserPrincipalNameNil sets the value for UserPrincipalName to be an explicit nil
 func (o *CoreUser) SetUserPrincipalNameNil() {
 	o.UserPrincipalName.Set(nil)
@@ -127,7 +129,7 @@ func (o *CoreUser) UnsetUserPrincipalName() {
 }
 
 func (o CoreUser) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableCoreUser) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

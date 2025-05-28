@@ -20,9 +20,9 @@ type SessionReconnection string
 
 // List of SessionReconnection
 const (
-	SESSIONRECONNECTION_UNKNOWN SessionReconnection = "Unknown"
-	SESSIONRECONNECTION_ALWAYS SessionReconnection = "Always"
-	SESSIONRECONNECTION_DISCONNECTED_ONLY SessionReconnection = "DisconnectedOnly"
+	SESSIONRECONNECTION_UNKNOWN            SessionReconnection = "Unknown"
+	SESSIONRECONNECTION_ALWAYS             SessionReconnection = "Always"
+	SESSIONRECONNECTION_DISCONNECTED_ONLY  SessionReconnection = "DisconnectedOnly"
 	SESSIONRECONNECTION_SAME_ENDPOINT_ONLY SessionReconnection = "SameEndpointOnly"
 )
 
@@ -40,7 +40,7 @@ func (v *SessionReconnection) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SessionReconnection(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableSessionReconnection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

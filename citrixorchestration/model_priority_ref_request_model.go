@@ -78,6 +78,7 @@ func (o *PriorityRefRequestModel) HasItem() bool {
 func (o *PriorityRefRequestModel) SetItem(v string) {
 	o.Item.Set(&v)
 }
+
 // SetItemNil sets the value for Item to be an explicit nil
 func (o *PriorityRefRequestModel) SetItemNil() {
 	o.Item.Set(nil)
@@ -120,6 +121,7 @@ func (o *PriorityRefRequestModel) HasPriority() bool {
 func (o *PriorityRefRequestModel) SetPriority(v int32) {
 	o.Priority.Set(&v)
 }
+
 // SetPriorityNil sets the value for Priority to be an explicit nil
 func (o *PriorityRefRequestModel) SetPriorityNil() {
 	o.Priority.Set(nil)
@@ -131,7 +133,7 @@ func (o *PriorityRefRequestModel) UnsetPriority() {
 }
 
 func (o PriorityRefRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -184,5 +186,3 @@ func (v *NullablePriorityRefRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

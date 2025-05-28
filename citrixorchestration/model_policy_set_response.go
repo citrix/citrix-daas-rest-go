@@ -20,7 +20,7 @@ var _ MappedNullable = &PolicySetResponse{}
 // PolicySetResponse GPO policy set data.
 type PolicySetResponse struct {
 	// Guid of the policy set.
-	PolicySetGuid *string `json:"policySetGuid,omitempty"`
+	PolicySetGuid *string              `json:"policySetGuid,omitempty"`
 	PolicySetType *SdkGpoPolicySetType `json:"policySetType,omitempty"`
 	// Name of the policy set.
 	Name NullableString `json:"name,omitempty"`
@@ -151,6 +151,7 @@ func (o *PolicySetResponse) HasName() bool {
 func (o *PolicySetResponse) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *PolicySetResponse) SetNameNil() {
 	o.Name.Set(nil)
@@ -193,6 +194,7 @@ func (o *PolicySetResponse) HasDescription() bool {
 func (o *PolicySetResponse) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *PolicySetResponse) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -365,6 +367,7 @@ func (o *PolicySetResponse) HasLastError() bool {
 func (o *PolicySetResponse) SetLastError(v string) {
 	o.LastError.Set(&v)
 }
+
 // SetLastErrorNil sets the value for LastError to be an explicit nil
 func (o *PolicySetResponse) SetLastErrorNil() {
 	o.LastError.Set(nil)
@@ -376,7 +379,7 @@ func (o *PolicySetResponse) UnsetLastError() {
 }
 
 func (o PolicySetResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -450,5 +453,3 @@ func (v *NullablePolicySetResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

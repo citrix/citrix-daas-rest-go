@@ -24,28 +24,28 @@ Makes a copy of a workspace image
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of the account
-    imageId := "imageId_example" // string | ID of the image
-    imageName := "imageName_example" // string | Optional new image name (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of the account
+	imageId := "imageId_example" // string | ID of the image
+	imageName := "imageName_example" // string | Optional new image name (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ImageQCS.CopyImageAsync(context.Background(), customerId, accountId, imageId).ImageName(imageName).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ImageQCS.CopyImageAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CopyImageAsync`: AwsEdcImage
-    fmt.Fprintf(os.Stdout, "Response from `ImageQCS.CopyImageAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ImageQCS.CopyImageAsync(context.Background(), customerId, accountId, imageId).ImageName(imageName).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ImageQCS.CopyImageAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CopyImageAsync`: AwsEdcImage
+	fmt.Fprintf(os.Stdout, "Response from `ImageQCS.CopyImageAsync`: %v\n", resp)
 }
 ```
 
@@ -102,27 +102,27 @@ Gets image from workspace
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of account
-    imageId := "imageId_example" // string | Id of image
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of account
+	imageId := "imageId_example" // string | Id of image
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ImageQCS.GetImageAsync(context.Background(), customerId, accountId, imageId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ImageQCS.GetImageAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetImageAsync`: AwsEdcImage
-    fmt.Fprintf(os.Stdout, "Response from `ImageQCS.GetImageAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ImageQCS.GetImageAsync(context.Background(), customerId, accountId, imageId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ImageQCS.GetImageAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetImageAsync`: AwsEdcImage
+	fmt.Fprintf(os.Stdout, "Response from `ImageQCS.GetImageAsync`: %v\n", resp)
 }
 ```
 
@@ -178,26 +178,26 @@ Gets images from workspace
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of account
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of account
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ImageQCS.GetImagesAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ImageQCS.GetImagesAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetImagesAsync`: Images
-    fmt.Fprintf(os.Stdout, "Response from `ImageQCS.GetImagesAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ImageQCS.GetImagesAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ImageQCS.GetImagesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetImagesAsync`: Images
+	fmt.Fprintf(os.Stdout, "Response from `ImageQCS.GetImagesAsync`: %v\n", resp)
 }
 ```
 
@@ -251,27 +251,27 @@ Imports image to workspace
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of hypervisor
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := ImportAwsEdcImage(987) // ImportAwsEdcImage | Import image configuration (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of hypervisor
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	body := ImportAwsEdcImage(987) // ImportAwsEdcImage | Import image configuration (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ImageQCS.ImportImageAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ImageQCS.ImportImageAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ImportImageAsync`: AwsEdcImage
-    fmt.Fprintf(os.Stdout, "Response from `ImageQCS.ImportImageAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ImageQCS.ImportImageAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ImageQCS.ImportImageAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ImportImageAsync`: AwsEdcImage
+	fmt.Fprintf(os.Stdout, "Response from `ImageQCS.ImportImageAsync`: %v\n", resp)
 }
 ```
 
@@ -326,26 +326,26 @@ Removes image to workspace
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of hypervisor
-    imageId := "imageId_example" // string | ID of image
-    forceDelete := true // bool | Force delete an image (optional) (default to false)
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of hypervisor
+	imageId := "imageId_example" // string | ID of image
+	forceDelete := true // bool | Force delete an image (optional) (default to false)
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ImageQCS.RemoveImageAsync(context.Background(), customerId, accountId, imageId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ImageQCS.RemoveImageAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ImageQCS.RemoveImageAsync(context.Background(), customerId, accountId, imageId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ImageQCS.RemoveImageAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

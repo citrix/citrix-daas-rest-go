@@ -20,18 +20,21 @@ var _ MappedNullable = &AwsEdcAccountResourceEc2InstanceType{}
 // AwsEdcAccountResourceEc2InstanceType struct for AwsEdcAccountResourceEc2InstanceType
 type AwsEdcAccountResourceEc2InstanceType struct {
 	AwsEdcAccountResource
-	Name NullableString `json:"name,omitempty"`
-	VCpus NullableInt32 `json:"vCpus,omitempty"`
-	MemoryInMB NullableInt64 `json:"memoryInMB,omitempty"`
-	IsDefault *bool `json:"isDefault,omitempty"`
+	Name       NullableString `json:"name,omitempty"`
+	VCpus      NullableInt32  `json:"vCpus,omitempty"`
+	MemoryInMB NullableInt64  `json:"memoryInMB,omitempty"`
+	IsDefault  *bool          `json:"isDefault,omitempty"`
 }
+
+type _AwsEdcAccountResourceEc2InstanceType AwsEdcAccountResourceEc2InstanceType
 
 // NewAwsEdcAccountResourceEc2InstanceType instantiates a new AwsEdcAccountResourceEc2InstanceType object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAwsEdcAccountResourceEc2InstanceType(accountType AccountType) *AwsEdcAccountResourceEc2InstanceType {
+func NewAwsEdcAccountResourceEc2InstanceType(resourceType AwsAccountResourceType, accountType AccountType) *AwsEdcAccountResourceEc2InstanceType {
 	this := AwsEdcAccountResourceEc2InstanceType{}
+	this.ResourceType = resourceType
 	this.AccountType = accountType
 	return &this
 }
@@ -76,6 +79,7 @@ func (o *AwsEdcAccountResourceEc2InstanceType) HasName() bool {
 func (o *AwsEdcAccountResourceEc2InstanceType) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AwsEdcAccountResourceEc2InstanceType) SetNameNil() {
 	o.Name.Set(nil)
@@ -118,6 +122,7 @@ func (o *AwsEdcAccountResourceEc2InstanceType) HasVCpus() bool {
 func (o *AwsEdcAccountResourceEc2InstanceType) SetVCpus(v int32) {
 	o.VCpus.Set(&v)
 }
+
 // SetVCpusNil sets the value for VCpus to be an explicit nil
 func (o *AwsEdcAccountResourceEc2InstanceType) SetVCpusNil() {
 	o.VCpus.Set(nil)
@@ -160,6 +165,7 @@ func (o *AwsEdcAccountResourceEc2InstanceType) HasMemoryInMB() bool {
 func (o *AwsEdcAccountResourceEc2InstanceType) SetMemoryInMB(v int64) {
 	o.MemoryInMB.Set(&v)
 }
+
 // SetMemoryInMBNil sets the value for MemoryInMB to be an explicit nil
 func (o *AwsEdcAccountResourceEc2InstanceType) SetMemoryInMBNil() {
 	o.MemoryInMB.Set(nil)
@@ -203,7 +209,7 @@ func (o *AwsEdcAccountResourceEc2InstanceType) SetIsDefault(v bool) {
 }
 
 func (o AwsEdcAccountResourceEc2InstanceType) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -270,5 +276,3 @@ func (v *NullableAwsEdcAccountResourceEc2InstanceType) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

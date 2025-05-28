@@ -101,7 +101,7 @@ func (o *AssignHypervisorConnectionToImageDefinitionRequestModel) SetCustomPrope
 }
 
 func (o AssignHypervisorConnectionToImageDefinitionRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,5 +152,3 @@ func (v *NullableAssignHypervisorConnectionToImageDefinitionRequestModel) Unmars
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -306,7 +306,7 @@ components:
   schemas:
     AdministratorAccessModel:
       example:
-        accessType: null
+        accessType: Full
         policies:
         - checkable:
             canChangeValue: true
@@ -471,7 +471,7 @@ components:
       type: string
     AdministratorNotification:
       example:
-        type: null
+        type: Error
         enabled: true
       properties:
         type:
@@ -492,9 +492,9 @@ components:
         enabledDate: 2000-01-23
         sendNotificationEmails: true
         notificationsSubscribed:
-        - type: null
+        - type: Error
           enabled: true
-        - type: null
+        - type: Error
           enabled: true
       properties:
         sendNotificationEmails:
@@ -530,11 +530,11 @@ components:
           tid: tid
         emailPreferences: emailPreferences
         updatedDate: 2000-01-23T04:56:07.000+00:00
-        type: null
+        type: AdministratorUser
         userId: userId
-        providerType: null
+        providerType: Ad
         authDomain: authDomain
-        accessType: null
+        accessType: Full
         firstName: firstName
         invitationExpired: true
         createdDate: 2000-01-23T04:56:07.000+00:00
@@ -551,9 +551,9 @@ components:
           enabledDate: 2000-01-23
           sendNotificationEmails: true
           notificationsSubscribed:
-          - type: null
+          - type: Error
             enabled: true
-          - type: null
+          - type: Error
             enabled: true
       properties:
         customerId:
@@ -645,11 +645,11 @@ components:
             tid: tid
           emailPreferences: emailPreferences
           updatedDate: 2000-01-23T04:56:07.000+00:00
-          type: null
+          type: AdministratorUser
           userId: userId
-          providerType: null
+          providerType: Ad
           authDomain: authDomain
-          accessType: null
+          accessType: Full
           firstName: firstName
           invitationExpired: true
           createdDate: 2000-01-23T04:56:07.000+00:00
@@ -666,9 +666,9 @@ components:
             enabledDate: 2000-01-23
             sendNotificationEmails: true
             notificationsSubscribed:
-            - type: null
+            - type: Error
               enabled: true
-            - type: null
+            - type: Error
               enabled: true
         - lastName: lastName
           ucOid: ucOid
@@ -679,11 +679,11 @@ components:
             tid: tid
           emailPreferences: emailPreferences
           updatedDate: 2000-01-23T04:56:07.000+00:00
-          type: null
+          type: AdministratorUser
           userId: userId
-          providerType: null
+          providerType: Ad
           authDomain: authDomain
-          accessType: null
+          accessType: Full
           firstName: firstName
           invitationExpired: true
           createdDate: 2000-01-23T04:56:07.000+00:00
@@ -700,9 +700,9 @@ components:
             enabledDate: 2000-01-23
             sendNotificationEmails: true
             notificationsSubscribed:
-            - type: null
+            - type: Error
               enabled: true
-            - type: null
+            - type: Error
               enabled: true
         continuationToken: continuationToken
       properties:
@@ -729,7 +729,7 @@ components:
       type: object
     CreateAdministratorInputModel:
       example:
-        accessType: null
+        accessType: Full
         firstName: Jenny
         lastName: Rosen
         externalUserId: externalUserId
@@ -776,7 +776,7 @@ components:
           serviceName: Platform
         type: type
         email: email
-        providerType: null
+        providerType: Ad
       properties:
         accessType:
           $ref: '#/components/schemas/AdministratorAccessType'
@@ -920,6 +920,12 @@ components:
       type: object
     ProblemDetails:
       additionalProperties: {}
+      example:
+        instance: instance
+        detail: detail
+        type: type
+        title: title
+        status: 0
       properties:
         type:
           nullable: true

@@ -27,7 +27,7 @@ type AdminFolderResponseModel struct {
 	// Child folders.
 	Children []RefResponseModel `json:"Children,omitempty"`
 	// Name of the folder.
-	Name NullableString `json:"Name,omitempty"`
+	Name   NullableString    `json:"Name,omitempty"`
 	Parent *RefResponseModel `json:"Parent,omitempty"`
 	// Full path to the folder. Used to be: FullName
 	Path NullableString `json:"Path,omitempty"`
@@ -92,6 +92,7 @@ func (o *AdminFolderResponseModel) HasId() bool {
 func (o *AdminFolderResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *AdminFolderResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -137,6 +138,7 @@ func (o *AdminFolderResponseModel) HasUid() bool {
 func (o *AdminFolderResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *AdminFolderResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -212,6 +214,7 @@ func (o *AdminFolderResponseModel) HasName() bool {
 func (o *AdminFolderResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AdminFolderResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -286,6 +289,7 @@ func (o *AdminFolderResponseModel) HasPath() bool {
 func (o *AdminFolderResponseModel) SetPath(v string) {
 	o.Path.Set(&v)
 }
+
 // SetPathNil sets the value for Path to be an explicit nil
 func (o *AdminFolderResponseModel) SetPathNil() {
 	o.Path.Set(nil)
@@ -458,7 +462,7 @@ func (o *AdminFolderResponseModel) SetMetadata(v []NameValueStringPairModel) {
 }
 
 func (o AdminFolderResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -538,5 +542,3 @@ func (v *NullableAdminFolderResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

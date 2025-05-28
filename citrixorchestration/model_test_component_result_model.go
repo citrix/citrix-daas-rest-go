@@ -29,7 +29,7 @@ type TestComponentResultModel struct {
 	TestComponentEndTime NullableString `json:"TestComponentEndTime,omitempty"`
 	// Gets or sets the formatted test component end time. If the test has not yet been run, this may be null. RFC 3339 compatible format.
 	FormattedTestComponentEndTime NullableString `json:"FormattedTestComponentEndTime,omitempty"`
-	TestComponentStatus *TestStatus `json:"TestComponentStatus,omitempty"`
+	TestComponentStatus           *TestStatus    `json:"TestComponentStatus,omitempty"`
 	// Gets or sets the result details, which is a list of additional information about the state of a machine when a test succeeds, but has warnings, or fails.  There may be more than one value for each severity, for example, multiple warnings about the state of the License server. The values must be localized.
 	ResultDetails []TestComponentResultDetailModel `json:"ResultDetails,omitempty"`
 }
@@ -83,6 +83,7 @@ func (o *TestComponentResultModel) HasTestComponentTarget() bool {
 func (o *TestComponentResultModel) SetTestComponentTarget(v string) {
 	o.TestComponentTarget.Set(&v)
 }
+
 // SetTestComponentTargetNil sets the value for TestComponentTarget to be an explicit nil
 func (o *TestComponentResultModel) SetTestComponentTargetNil() {
 	o.TestComponentTarget.Set(nil)
@@ -125,6 +126,7 @@ func (o *TestComponentResultModel) HasTestComponentStartTime() bool {
 func (o *TestComponentResultModel) SetTestComponentStartTime(v string) {
 	o.TestComponentStartTime.Set(&v)
 }
+
 // SetTestComponentStartTimeNil sets the value for TestComponentStartTime to be an explicit nil
 func (o *TestComponentResultModel) SetTestComponentStartTimeNil() {
 	o.TestComponentStartTime.Set(nil)
@@ -167,6 +169,7 @@ func (o *TestComponentResultModel) HasFormattedTestComponentStartTime() bool {
 func (o *TestComponentResultModel) SetFormattedTestComponentStartTime(v string) {
 	o.FormattedTestComponentStartTime.Set(&v)
 }
+
 // SetFormattedTestComponentStartTimeNil sets the value for FormattedTestComponentStartTime to be an explicit nil
 func (o *TestComponentResultModel) SetFormattedTestComponentStartTimeNil() {
 	o.FormattedTestComponentStartTime.Set(nil)
@@ -209,6 +212,7 @@ func (o *TestComponentResultModel) HasTestComponentEndTime() bool {
 func (o *TestComponentResultModel) SetTestComponentEndTime(v string) {
 	o.TestComponentEndTime.Set(&v)
 }
+
 // SetTestComponentEndTimeNil sets the value for TestComponentEndTime to be an explicit nil
 func (o *TestComponentResultModel) SetTestComponentEndTimeNil() {
 	o.TestComponentEndTime.Set(nil)
@@ -251,6 +255,7 @@ func (o *TestComponentResultModel) HasFormattedTestComponentEndTime() bool {
 func (o *TestComponentResultModel) SetFormattedTestComponentEndTime(v string) {
 	o.FormattedTestComponentEndTime.Set(&v)
 }
+
 // SetFormattedTestComponentEndTimeNil sets the value for FormattedTestComponentEndTime to be an explicit nil
 func (o *TestComponentResultModel) SetFormattedTestComponentEndTimeNil() {
 	o.FormattedTestComponentEndTime.Set(nil)
@@ -327,7 +332,7 @@ func (o *TestComponentResultModel) SetResultDetails(v []TestComponentResultDetai
 }
 
 func (o TestComponentResultModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -395,5 +400,3 @@ func (v *NullableTestComponentResultModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

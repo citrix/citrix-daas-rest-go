@@ -142,7 +142,7 @@ func (o *LogOperationSearchFilterGroupRequestModel) SetSearchFilterGroups(v []Lo
 }
 
 func (o LogOperationSearchFilterGroupRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -198,5 +198,3 @@ func (v *NullableLogOperationSearchFilterGroupRequestModel) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

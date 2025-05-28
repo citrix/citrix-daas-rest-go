@@ -101,6 +101,7 @@ func (o *BackupRestoreScheduleModelCollection) HasContinuationToken() bool {
 func (o *BackupRestoreScheduleModelCollection) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *BackupRestoreScheduleModelCollection) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -143,6 +144,7 @@ func (o *BackupRestoreScheduleModelCollection) HasTotalItems() bool {
 func (o *BackupRestoreScheduleModelCollection) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *BackupRestoreScheduleModelCollection) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -154,7 +156,7 @@ func (o *BackupRestoreScheduleModelCollection) UnsetTotalItems() {
 }
 
 func (o BackupRestoreScheduleModelCollection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableBackupRestoreScheduleModelCollection) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

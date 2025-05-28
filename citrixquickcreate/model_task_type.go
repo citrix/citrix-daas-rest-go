@@ -20,11 +20,11 @@ type TaskType string
 
 // List of TaskType
 const (
-	TASKTYPE_ACCOUNT TaskType = "ACCOUNT"
-	TASKTYPE_DEPLOYMENT TaskType = "DEPLOYMENT"
+	TASKTYPE_ACCOUNT             TaskType = "ACCOUNT"
+	TASKTYPE_DEPLOYMENT          TaskType = "DEPLOYMENT"
 	TASKTYPE_RESOURCE_CONNECTION TaskType = "RESOURCE_CONNECTION"
-	TASKTYPE_COMMISSION TaskType = "COMMISSION"
-	TASKTYPE_WORKER_TEST TaskType = "WORKER_TEST"
+	TASKTYPE_COMMISSION          TaskType = "COMMISSION"
+	TASKTYPE_WORKER_TEST         TaskType = "WORKER_TEST"
 )
 
 // All allowed values of TaskType enum
@@ -114,4 +114,3 @@ func (v *NullableTaskType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

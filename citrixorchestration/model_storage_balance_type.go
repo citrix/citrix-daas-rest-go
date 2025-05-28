@@ -20,8 +20,8 @@ type StorageBalanceType string
 
 // List of StorageBalanceType
 const (
-	STORAGEBALANCETYPE_UNKNOWN StorageBalanceType = "Unknown"
-	STORAGEBALANCETYPE_NONE StorageBalanceType = "None"
+	STORAGEBALANCETYPE_UNKNOWN                   StorageBalanceType = "Unknown"
+	STORAGEBALANCETYPE_NONE                      StorageBalanceType = "None"
 	STORAGEBALANCETYPE_VM_COUNT_BASED_LEAST_LOAD StorageBalanceType = "VMCountBasedLeastLoad"
 )
 
@@ -38,7 +38,7 @@ func (v *StorageBalanceType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = StorageBalanceType(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableStorageBalanceType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

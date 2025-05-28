@@ -19,8 +19,8 @@ var _ MappedNullable = &MachineCatalogUpgradeInfo{}
 
 // MachineCatalogUpgradeInfo Machine catalog level VDA upgrade status info. This is included in the machine catalog response model and used to render available upgrade options.
 type MachineCatalogUpgradeInfo struct {
-	UpgradeType *VdaUpgradeType `json:"UpgradeType,omitempty"`
-	UpgradeState *VdaUpgradeState `json:"UpgradeState,omitempty"`
+	UpgradeType           *VdaUpgradeType           `json:"UpgradeType,omitempty"`
+	UpgradeState          *VdaUpgradeState          `json:"UpgradeState,omitempty"`
 	UpgradeScheduleStatus *VdaUpgradeScheduleStatus `json:"UpgradeScheduleStatus,omitempty"`
 	// Number of machines in the machine catalog with in-progress upgrades.
 	UpgradeOngoingMachinesCount *int32 `json:"UpgradeOngoingMachinesCount,omitempty"`
@@ -206,7 +206,7 @@ func (o *MachineCatalogUpgradeInfo) SetUpgradeFailedMachinesCount(v int32) {
 }
 
 func (o MachineCatalogUpgradeInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -268,5 +268,3 @@ func (v *NullableMachineCatalogUpgradeInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

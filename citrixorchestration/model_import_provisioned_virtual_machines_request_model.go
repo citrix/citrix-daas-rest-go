@@ -72,6 +72,7 @@ func (o *ImportProvisionedVirtualMachinesRequestModel) HasProvisionedVirtualMach
 func (o *ImportProvisionedVirtualMachinesRequestModel) SetProvisionedVirtualMachinesData(v string) {
 	o.ProvisionedVirtualMachinesData.Set(&v)
 }
+
 // SetProvisionedVirtualMachinesDataNil sets the value for ProvisionedVirtualMachinesData to be an explicit nil
 func (o *ImportProvisionedVirtualMachinesRequestModel) SetProvisionedVirtualMachinesDataNil() {
 	o.ProvisionedVirtualMachinesData.Set(nil)
@@ -83,7 +84,7 @@ func (o *ImportProvisionedVirtualMachinesRequestModel) UnsetProvisionedVirtualMa
 }
 
 func (o ImportProvisionedVirtualMachinesRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -133,5 +134,3 @@ func (v *NullableImportProvisionedVirtualMachinesRequestModel) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,17 +19,22 @@ import (
 	"strings"
 )
 
-
 // LocationsDAASService LocationsDAAS service
 type LocationsDAASService service
 
 type ApiLocationsCreateRequest struct {
-	ctx context.Context
-	ApiService *LocationsDAASService
-	authorization *string
+	ctx              context.Context
+	ApiService       *LocationsDAASService
+	accept           *string
+	authorization    *string
 	citrixCustomerId *string
-	accept *string
-	model *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
+	model            *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
+}
+
+// Only supports application/json
+func (r ApiLocationsCreateRequest) Accept(accept string) ApiLocationsCreateRequest {
+	r.accept = &accept
+	return r
 }
 
 // The access token.
@@ -41,12 +46,6 @@ func (r ApiLocationsCreateRequest) Authorization(authorization string) ApiLocati
 // ID of the customer.
 func (r ApiLocationsCreateRequest) CitrixCustomerId(citrixCustomerId string) ApiLocationsCreateRequest {
 	r.citrixCustomerId = &citrixCustomerId
-	return r
-}
-
-// Only supports application/json
-func (r ApiLocationsCreateRequest) Accept(accept string) ApiLocationsCreateRequest {
-	r.accept = &accept
 	return r
 }
 
@@ -63,24 +62,25 @@ func (r ApiLocationsCreateRequest) Execute() (*CitrixCloudServicesRegistryApiMod
 /*
 LocationsCreate Create a resource location for a customer.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiLocationsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiLocationsCreateRequest
 */
 func (a *LocationsDAASService) LocationsCreate(ctx context.Context) ApiLocationsCreateRequest {
 	return ApiLocationsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
+//
+//	@return CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
 func (a *LocationsDAASService) LocationsCreateExecute(r ApiLocationsCreateRequest) (*CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LocationsDAASService.LocationsCreate")
@@ -93,14 +93,14 @@ func (a *LocationsDAASService) LocationsCreateExecute(r ApiLocationsCreateReques
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.accept == nil {
+		return localVarReturnValue, nil, reportError("accept is required and must be specified")
+	}
 	if r.authorization == nil {
 		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
 	}
 	if r.citrixCustomerId == nil {
 		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
-	}
-	if r.accept == nil {
-		return localVarReturnValue, nil, reportError("accept is required and must be specified")
 	}
 	if r.model == nil {
 		return localVarReturnValue, nil, reportError("model is required and must be specified")
@@ -123,9 +123,9 @@ func (a *LocationsDAASService) LocationsCreateExecute(r ApiLocationsCreateReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	// body params
 	localVarPostBody = r.model
 	if r.ctx != nil {
@@ -187,12 +187,18 @@ func (a *LocationsDAASService) LocationsCreateExecute(r ApiLocationsCreateReques
 }
 
 type ApiLocationsDeleteRequest struct {
-	ctx context.Context
-	ApiService *LocationsDAASService
-	authorization *string
-	id string
+	ctx              context.Context
+	ApiService       *LocationsDAASService
+	accept           *string
+	authorization    *string
+	id               string
 	citrixCustomerId *string
-	accept *string
+}
+
+// Only supports application/json
+func (r ApiLocationsDeleteRequest) Accept(accept string) ApiLocationsDeleteRequest {
+	r.accept = &accept
+	return r
 }
 
 // The access token.
@@ -207,12 +213,6 @@ func (r ApiLocationsDeleteRequest) CitrixCustomerId(citrixCustomerId string) Api
 	return r
 }
 
-// Only supports application/json
-func (r ApiLocationsDeleteRequest) Accept(accept string) ApiLocationsDeleteRequest {
-	r.accept = &accept
-	return r
-}
-
 func (r ApiLocationsDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.LocationsDeleteExecute(r)
 }
@@ -220,24 +220,24 @@ func (r ApiLocationsDeleteRequest) Execute() (*http.Response, error) {
 /*
 LocationsDelete Delete a resource location.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The resource location id.
- @return ApiLocationsDeleteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The resource location id.
+	@return ApiLocationsDeleteRequest
 */
 func (a *LocationsDAASService) LocationsDelete(ctx context.Context, id string) ApiLocationsDeleteRequest {
 	return ApiLocationsDeleteRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *LocationsDAASService) LocationsDeleteExecute(r ApiLocationsDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LocationsDAASService.LocationsDelete")
@@ -251,14 +251,14 @@ func (a *LocationsDAASService) LocationsDeleteExecute(r ApiLocationsDeleteReques
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.accept == nil {
+		return nil, reportError("accept is required and must be specified")
+	}
 	if r.authorization == nil {
 		return nil, reportError("authorization is required and must be specified")
 	}
 	if r.citrixCustomerId == nil {
 		return nil, reportError("citrixCustomerId is required and must be specified")
-	}
-	if r.accept == nil {
-		return nil, reportError("accept is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -278,9 +278,9 @@ func (a *LocationsDAASService) LocationsDeleteExecute(r ApiLocationsDeleteReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -331,12 +331,18 @@ func (a *LocationsDAASService) LocationsDeleteExecute(r ApiLocationsDeleteReques
 }
 
 type ApiLocationsGetRequest struct {
-	ctx context.Context
-	ApiService *LocationsDAASService
-	authorization *string
-	id string
+	ctx              context.Context
+	ApiService       *LocationsDAASService
+	accept           *string
+	authorization    *string
+	id               string
 	citrixCustomerId *string
-	accept *string
+}
+
+// Only supports application/json
+func (r ApiLocationsGetRequest) Accept(accept string) ApiLocationsGetRequest {
+	r.accept = &accept
+	return r
 }
 
 // The access token.
@@ -351,12 +357,6 @@ func (r ApiLocationsGetRequest) CitrixCustomerId(citrixCustomerId string) ApiLoc
 	return r
 }
 
-// Only supports application/json
-func (r ApiLocationsGetRequest) Accept(accept string) ApiLocationsGetRequest {
-	r.accept = &accept
-	return r
-}
-
 func (r ApiLocationsGetRequest) Execute() (*CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel, *http.Response, error) {
 	return r.ApiService.LocationsGetExecute(r)
 }
@@ -364,26 +364,27 @@ func (r ApiLocationsGetRequest) Execute() (*CitrixCloudServicesRegistryApiModels
 /*
 LocationsGet Get a resource location from id.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The resource location id
- @return ApiLocationsGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The resource location id
+	@return ApiLocationsGetRequest
 */
 func (a *LocationsDAASService) LocationsGet(ctx context.Context, id string) ApiLocationsGetRequest {
 	return ApiLocationsGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
+//
+//	@return CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
 func (a *LocationsDAASService) LocationsGetExecute(r ApiLocationsGetRequest) (*CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LocationsDAASService.LocationsGet")
@@ -397,14 +398,14 @@ func (a *LocationsDAASService) LocationsGetExecute(r ApiLocationsGetRequest) (*C
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.accept == nil {
+		return localVarReturnValue, nil, reportError("accept is required and must be specified")
+	}
 	if r.authorization == nil {
 		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
 	}
 	if r.citrixCustomerId == nil {
 		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
-	}
-	if r.accept == nil {
-		return localVarReturnValue, nil, reportError("accept is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -424,9 +425,9 @@ func (a *LocationsDAASService) LocationsGetExecute(r ApiLocationsGetRequest) (*C
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -486,11 +487,10 @@ func (a *LocationsDAASService) LocationsGetExecute(r ApiLocationsGetRequest) (*C
 }
 
 type ApiLocationsGetAllRequest struct {
-	ctx context.Context
-	ApiService *LocationsDAASService
-	authorization *string
+	ctx              context.Context
+	ApiService       *LocationsDAASService
+	authorization    *string
 	citrixCustomerId *string
-	accept *string
 }
 
 // The access token.
@@ -505,12 +505,6 @@ func (r ApiLocationsGetAllRequest) CitrixCustomerId(citrixCustomerId string) Api
 	return r
 }
 
-// Only supports application/json
-func (r ApiLocationsGetAllRequest) Accept(accept string) ApiLocationsGetAllRequest {
-	r.accept = &accept
-	return r
-}
-
 func (r ApiLocationsGetAllRequest) Execute() (*CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel, *http.Response, error) {
 	return r.ApiService.LocationsGetAllExecute(r)
 }
@@ -518,24 +512,25 @@ func (r ApiLocationsGetAllRequest) Execute() (*CitrixCloudServicesRegistryApiMod
 /*
 LocationsGetAll Get all resource locations for a customer.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiLocationsGetAllRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiLocationsGetAllRequest
 */
 func (a *LocationsDAASService) LocationsGetAll(ctx context.Context) ApiLocationsGetAllRequest {
 	return ApiLocationsGetAllRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel
+//
+//	@return CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel
 func (a *LocationsDAASService) LocationsGetAllExecute(r ApiLocationsGetAllRequest) (*CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LocationsDAASService.LocationsGetAll")
@@ -553,9 +548,6 @@ func (a *LocationsDAASService) LocationsGetAllExecute(r ApiLocationsGetAllReques
 	}
 	if r.citrixCustomerId == nil {
 		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
-	}
-	if r.accept == nil {
-		return localVarReturnValue, nil, reportError("accept is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -575,9 +567,8 @@ func (a *LocationsDAASService) LocationsGetAllExecute(r ApiLocationsGetAllReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -637,13 +628,19 @@ func (a *LocationsDAASService) LocationsGetAllExecute(r ApiLocationsGetAllReques
 }
 
 type ApiLocationsUpdateRequest struct {
-	ctx context.Context
-	ApiService *LocationsDAASService
-	authorization *string
+	ctx              context.Context
+	ApiService       *LocationsDAASService
+	accept           *string
+	authorization    *string
 	citrixCustomerId *string
-	accept *string
-	id string
-	model *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationUpdateModel
+	id               string
+	model            *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationUpdateModel
+}
+
+// Only supports application/json
+func (r ApiLocationsUpdateRequest) Accept(accept string) ApiLocationsUpdateRequest {
+	r.accept = &accept
+	return r
 }
 
 // The access token.
@@ -655,12 +652,6 @@ func (r ApiLocationsUpdateRequest) Authorization(authorization string) ApiLocati
 // ID of the customer.
 func (r ApiLocationsUpdateRequest) CitrixCustomerId(citrixCustomerId string) ApiLocationsUpdateRequest {
 	r.citrixCustomerId = &citrixCustomerId
-	return r
-}
-
-// Only supports application/json
-func (r ApiLocationsUpdateRequest) Accept(accept string) ApiLocationsUpdateRequest {
-	r.accept = &accept
 	return r
 }
 
@@ -677,26 +668,27 @@ func (r ApiLocationsUpdateRequest) Execute() (*CitrixCloudServicesRegistryApiMod
 /*
 LocationsUpdate Update the customer resource location information.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The resource location id.
- @return ApiLocationsUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The resource location id.
+	@return ApiLocationsUpdateRequest
 */
 func (a *LocationsDAASService) LocationsUpdate(ctx context.Context, id string) ApiLocationsUpdateRequest {
 	return ApiLocationsUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
+//
+//	@return CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
 func (a *LocationsDAASService) LocationsUpdateExecute(r ApiLocationsUpdateRequest) (*CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LocationsDAASService.LocationsUpdate")
@@ -710,14 +702,14 @@ func (a *LocationsDAASService) LocationsUpdateExecute(r ApiLocationsUpdateReques
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.accept == nil {
+		return localVarReturnValue, nil, reportError("accept is required and must be specified")
+	}
 	if r.authorization == nil {
 		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
 	}
 	if r.citrixCustomerId == nil {
 		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
-	}
-	if r.accept == nil {
-		return localVarReturnValue, nil, reportError("accept is required and must be specified")
 	}
 	if r.model == nil {
 		return localVarReturnValue, nil, reportError("model is required and must be specified")
@@ -740,9 +732,9 @@ func (a *LocationsDAASService) LocationsUpdateExecute(r ApiLocationsUpdateReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	// body params
 	localVarPostBody = r.model
 	if r.ctx != nil {

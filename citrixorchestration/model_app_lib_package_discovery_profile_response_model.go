@@ -102,6 +102,7 @@ func (o *AppLibPackageDiscoveryProfileResponseModel) HasUid() bool {
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -144,6 +145,7 @@ func (o *AppLibPackageDiscoveryProfileResponseModel) HasName() bool {
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -218,6 +220,7 @@ func (o *AppLibPackageDiscoveryProfileResponseModel) HasPath() bool {
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetPath(v string) {
 	o.Path.Set(&v)
 }
+
 // SetPathNil sets the value for Path to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetPathNil() {
 	o.Path.Set(nil)
@@ -292,6 +295,7 @@ func (o *AppLibPackageDiscoveryProfileResponseModel) HasManagementServer() bool 
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetManagementServer(v string) {
 	o.ManagementServer.Set(&v)
 }
+
 // SetManagementServerNil sets the value for ManagementServer to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetManagementServerNil() {
 	o.ManagementServer.Set(nil)
@@ -334,6 +338,7 @@ func (o *AppLibPackageDiscoveryProfileResponseModel) HasPublishingServer() bool 
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetPublishingServer(v string) {
 	o.PublishingServer.Set(&v)
 }
+
 // SetPublishingServerNil sets the value for PublishingServer to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetPublishingServerNil() {
 	o.PublishingServer.Set(nil)
@@ -376,6 +381,7 @@ func (o *AppLibPackageDiscoveryProfileResponseModel) HasUsername() bool {
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetUsername(v string) {
 	o.Username.Set(&v)
 }
+
 // SetUsernameNil sets the value for Username to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetUsernameNil() {
 	o.Username.Set(nil)
@@ -610,6 +616,7 @@ func (o *AppLibPackageDiscoveryProfileResponseModel) HasAutoDiscoveryPeriod() bo
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetAutoDiscoveryPeriod(v string) {
 	o.AutoDiscoveryPeriod.Set(&v)
 }
+
 // SetAutoDiscoveryPeriodNil sets the value for AutoDiscoveryPeriod to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileResponseModel) SetAutoDiscoveryPeriodNil() {
 	o.AutoDiscoveryPeriod.Set(nil)
@@ -653,7 +660,7 @@ func (o *AppLibPackageDiscoveryProfileResponseModel) SetAutoDiscoveryCadence(v i
 }
 
 func (o AppLibPackageDiscoveryProfileResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -748,5 +755,3 @@ func (v *NullableAppLibPackageDiscoveryProfileResponseModel) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

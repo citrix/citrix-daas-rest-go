@@ -20,10 +20,10 @@ type ContainerScopeType string
 
 // List of ContainerScopeType
 const (
-	CONTAINERSCOPETYPE_UNKNOWN ContainerScopeType = "Unknown"
-	CONTAINERSCOPETYPE_DELIVERY_GROUP ContainerScopeType = "DeliveryGroup"
-	CONTAINERSCOPETYPE_APPLICATION_GROUP ContainerScopeType = "ApplicationGroup"
-	CONTAINERSCOPETYPE_MACHINE_CATALOG ContainerScopeType = "MachineCatalog"
+	CONTAINERSCOPETYPE_UNKNOWN               ContainerScopeType = "Unknown"
+	CONTAINERSCOPETYPE_DELIVERY_GROUP        ContainerScopeType = "DeliveryGroup"
+	CONTAINERSCOPETYPE_APPLICATION_GROUP     ContainerScopeType = "ApplicationGroup"
+	CONTAINERSCOPETYPE_MACHINE_CATALOG       ContainerScopeType = "MachineCatalog"
 	CONTAINERSCOPETYPE_HYPERVISOR_CONNECTION ContainerScopeType = "HypervisorConnection"
 )
 
@@ -42,7 +42,7 @@ func (v *ContainerScopeType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ContainerScopeType(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableContainerScopeType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

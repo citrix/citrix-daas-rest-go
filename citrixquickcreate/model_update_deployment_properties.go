@@ -19,8 +19,11 @@ var _ MappedNullable = &UpdateDeploymentProperties{}
 
 // UpdateDeploymentProperties Update deployment properties which includes machine performance, running mode and power management settings  depending on deployment type
 type UpdateDeploymentProperties struct {
+	// The type of provider associated with the account
 	AccountType AccountType `json:"accountType"`
 }
+
+type _UpdateDeploymentProperties UpdateDeploymentProperties
 
 // NewUpdateDeploymentProperties instantiates a new UpdateDeploymentProperties object
 // This constructor will assign default values to properties that have it defined,
@@ -65,7 +68,7 @@ func (o *UpdateDeploymentProperties) SetAccountType(v AccountType) {
 }
 
 func (o UpdateDeploymentProperties) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -113,5 +116,3 @@ func (v *NullableUpdateDeploymentProperties) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

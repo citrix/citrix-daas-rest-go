@@ -84,6 +84,7 @@ func (o *PolicyResponseContract) HasPolicyName() bool {
 func (o *PolicyResponseContract) SetPolicyName(v string) {
 	o.PolicyName.Set(&v)
 }
+
 // SetPolicyNameNil sets the value for PolicyName to be an explicit nil
 func (o *PolicyResponseContract) SetPolicyNameNil() {
 	o.PolicyName.Set(nil)
@@ -190,6 +191,7 @@ func (o *PolicyResponseContract) HasDescription() bool {
 func (o *PolicyResponseContract) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *PolicyResponseContract) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -299,7 +301,7 @@ func (o *PolicyResponseContract) SetFilters(v []FilterResponseContract) {
 }
 
 func (o PolicyResponseContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -367,5 +369,3 @@ func (v *NullablePolicyResponseContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

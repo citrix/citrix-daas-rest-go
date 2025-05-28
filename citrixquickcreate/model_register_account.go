@@ -19,11 +19,15 @@ var _ MappedNullable = &RegisterAccount{}
 
 // RegisterAccount Register account
 type RegisterAccount struct {
+	// The type of provider associated with the account
 	AccountType AccountType `json:"accountType"`
+	// Task type
 	TaskType *TaskType `json:"taskType,omitempty"`
 	// Task Id
 	TaskId NullableString `json:"taskId,omitempty"`
 }
+
+type _RegisterAccount RegisterAccount
 
 // NewRegisterAccount instantiates a new RegisterAccount object
 // This constructor will assign default values to properties that have it defined,
@@ -131,6 +135,7 @@ func (o *RegisterAccount) HasTaskId() bool {
 func (o *RegisterAccount) SetTaskId(v string) {
 	o.TaskId.Set(&v)
 }
+
 // SetTaskIdNil sets the value for TaskId to be an explicit nil
 func (o *RegisterAccount) SetTaskIdNil() {
 	o.TaskId.Set(nil)
@@ -142,7 +147,7 @@ func (o *RegisterAccount) UnsetTaskId() {
 }
 
 func (o RegisterAccount) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +201,3 @@ func (v *NullableRegisterAccount) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

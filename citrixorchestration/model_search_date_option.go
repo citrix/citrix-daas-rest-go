@@ -20,19 +20,19 @@ type SearchDateOption string
 
 // List of SearchDateOption
 const (
-	SEARCHDATEOPTION_LAST_MINUTE SearchDateOption = "LastMinute"
-	SEARCHDATEOPTION_LAST5_MINUTES SearchDateOption = "Last5Minutes"
-	SEARCHDATEOPTION_LAST30_MINUTES SearchDateOption = "Last30Minutes"
-	SEARCHDATEOPTION_LAST_HOUR SearchDateOption = "LastHour"
-	SEARCHDATEOPTION_LAST12_HOURS SearchDateOption = "Last12Hours"
-	SEARCHDATEOPTION_LAST24_HOURS SearchDateOption = "Last24Hours"
-	SEARCHDATEOPTION_TODAY SearchDateOption = "Today"
-	SEARCHDATEOPTION_YESTERDAY SearchDateOption = "Yesterday"
-	SEARCHDATEOPTION_LAST7_DAYS SearchDateOption = "Last7Days"
-	SEARCHDATEOPTION_LAST28_DAYS SearchDateOption = "Last28Days"
-	SEARCHDATEOPTION_LAST_MONTH SearchDateOption = "LastMonth"
+	SEARCHDATEOPTION_LAST_MINUTE       SearchDateOption = "LastMinute"
+	SEARCHDATEOPTION_LAST5_MINUTES     SearchDateOption = "Last5Minutes"
+	SEARCHDATEOPTION_LAST30_MINUTES    SearchDateOption = "Last30Minutes"
+	SEARCHDATEOPTION_LAST_HOUR         SearchDateOption = "LastHour"
+	SEARCHDATEOPTION_LAST12_HOURS      SearchDateOption = "Last12Hours"
+	SEARCHDATEOPTION_LAST24_HOURS      SearchDateOption = "Last24Hours"
+	SEARCHDATEOPTION_TODAY             SearchDateOption = "Today"
+	SEARCHDATEOPTION_YESTERDAY         SearchDateOption = "Yesterday"
+	SEARCHDATEOPTION_LAST7_DAYS        SearchDateOption = "Last7Days"
+	SEARCHDATEOPTION_LAST28_DAYS       SearchDateOption = "Last28Days"
+	SEARCHDATEOPTION_LAST_MONTH        SearchDateOption = "LastMonth"
 	SEARCHDATEOPTION_LAST_THREE_MONTHS SearchDateOption = "LastThreeMonths"
-	SEARCHDATEOPTION_LAST_SIX_MONTHS SearchDateOption = "LastSixMonths"
+	SEARCHDATEOPTION_LAST_SIX_MONTHS   SearchDateOption = "LastSixMonths"
 )
 
 // All allowed values of SearchDateOption enum
@@ -58,7 +58,7 @@ func (v *SearchDateOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SearchDateOption(value)
 	return nil
 }
@@ -124,4 +124,3 @@ func (v *NullableSearchDateOption) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -20,11 +20,11 @@ var _ MappedNullable = &MachineAccountRequestModel{}
 // MachineAccountRequestModel Active directory machine account which was externally created.
 type MachineAccountRequestModel struct {
 	// The Active Directory account name to be imported.
-	ADAccountName string `json:"ADAccountName"`
+	ADAccountName string `json:"ADAccountName" validate:"regexp=.*"`
 	// Indicates whether the machine account password should be reset.
 	ResetPassword NullableBool `json:"ResetPassword,omitempty"`
 	// The current password for the machine account , in the format specified by PasswordFormat.
-	Password NullableString `json:"Password,omitempty"`
+	Password       NullableString          `json:"Password,omitempty"`
 	PasswordFormat *IdentityPasswordFormat `json:"PasswordFormat,omitempty"`
 }
 
@@ -106,6 +106,7 @@ func (o *MachineAccountRequestModel) HasResetPassword() bool {
 func (o *MachineAccountRequestModel) SetResetPassword(v bool) {
 	o.ResetPassword.Set(&v)
 }
+
 // SetResetPasswordNil sets the value for ResetPassword to be an explicit nil
 func (o *MachineAccountRequestModel) SetResetPasswordNil() {
 	o.ResetPassword.Set(nil)
@@ -148,6 +149,7 @@ func (o *MachineAccountRequestModel) HasPassword() bool {
 func (o *MachineAccountRequestModel) SetPassword(v string) {
 	o.Password.Set(&v)
 }
+
 // SetPasswordNil sets the value for Password to be an explicit nil
 func (o *MachineAccountRequestModel) SetPasswordNil() {
 	o.Password.Set(nil)
@@ -191,7 +193,7 @@ func (o *MachineAccountRequestModel) SetPasswordFormat(v IdentityPasswordFormat)
 }
 
 func (o MachineAccountRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -248,5 +250,3 @@ func (v *NullableMachineAccountRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

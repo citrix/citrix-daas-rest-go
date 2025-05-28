@@ -19,7 +19,7 @@ var _ MappedNullable = &MachineCatalogWarningResponseModel{}
 
 // MachineCatalogWarningResponseModel Describes a warning on a machine catalog.
 type MachineCatalogWarningResponseModel struct {
-	Type MachineCatalogWarningType `json:"Type"`
+	Type    MachineCatalogWarningType     `json:"Type"`
 	Subtype *MachineCatalogWarningSubtype `json:"Subtype,omitempty"`
 	// Message associated with warning
 	Message NullableString `json:"Message,omitempty"`
@@ -131,6 +131,7 @@ func (o *MachineCatalogWarningResponseModel) HasMessage() bool {
 func (o *MachineCatalogWarningResponseModel) SetMessage(v string) {
 	o.Message.Set(&v)
 }
+
 // SetMessageNil sets the value for Message to be an explicit nil
 func (o *MachineCatalogWarningResponseModel) SetMessageNil() {
 	o.Message.Set(nil)
@@ -142,7 +143,7 @@ func (o *MachineCatalogWarningResponseModel) UnsetMessage() {
 }
 
 func (o MachineCatalogWarningResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +197,3 @@ func (v *NullableMachineCatalogWarningResponseModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

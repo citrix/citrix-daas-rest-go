@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GroupId** | Pointer to **NullableString** |  | [optional] 
 **DisplayName** | Pointer to **NullableString** |  | [optional] 
-**OperationType** | Pointer to [**GroupLicenseOperationType**](GroupLicenseOperationType.md) |  | [optional] 
-**OperationStatus** | Pointer to [**GroupLicenseOperationStatus**](GroupLicenseOperationStatus.md) |  | [optional] 
+**OperationType** | Pointer to [**GroupLicenseOperationType**](GroupLicenseOperationType.md) | Group license operation type                DO NOT RENAME the enum values!  They are stored in DB as strings. | [optional] 
+**OperationStatus** | Pointer to [**GroupLicenseOperationStatus**](GroupLicenseOperationStatus.md) | Group License operation status    DO NOT RENAME the enum values!  They are stored in DB as strings. | [optional] 
 
 ## Methods
 

@@ -20,14 +20,14 @@ type RebootScheduleDays string
 
 // List of RebootScheduleDays
 const (
-	REBOOTSCHEDULEDAYS_UNKNOWN RebootScheduleDays = "Unknown"
-	REBOOTSCHEDULEDAYS_MONDAY RebootScheduleDays = "Monday"
-	REBOOTSCHEDULEDAYS_TUESDAY RebootScheduleDays = "Tuesday"
+	REBOOTSCHEDULEDAYS_UNKNOWN   RebootScheduleDays = "Unknown"
+	REBOOTSCHEDULEDAYS_MONDAY    RebootScheduleDays = "Monday"
+	REBOOTSCHEDULEDAYS_TUESDAY   RebootScheduleDays = "Tuesday"
 	REBOOTSCHEDULEDAYS_WEDNESDAY RebootScheduleDays = "Wednesday"
-	REBOOTSCHEDULEDAYS_THURSDAY RebootScheduleDays = "Thursday"
-	REBOOTSCHEDULEDAYS_FRIDAY RebootScheduleDays = "Friday"
-	REBOOTSCHEDULEDAYS_SATURDAY RebootScheduleDays = "Saturday"
-	REBOOTSCHEDULEDAYS_SUNDAY RebootScheduleDays = "Sunday"
+	REBOOTSCHEDULEDAYS_THURSDAY  RebootScheduleDays = "Thursday"
+	REBOOTSCHEDULEDAYS_FRIDAY    RebootScheduleDays = "Friday"
+	REBOOTSCHEDULEDAYS_SATURDAY  RebootScheduleDays = "Saturday"
+	REBOOTSCHEDULEDAYS_SUNDAY    RebootScheduleDays = "Sunday"
 )
 
 // All allowed values of RebootScheduleDays enum
@@ -48,7 +48,7 @@ func (v *RebootScheduleDays) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = RebootScheduleDays(value)
 	return nil
 }
@@ -114,4 +114,3 @@ func (v *NullableRebootScheduleDays) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

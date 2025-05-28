@@ -88,6 +88,7 @@ func (o *FtaResponseModel) HasContentType() bool {
 func (o *FtaResponseModel) SetContentType(v string) {
 	o.ContentType.Set(&v)
 }
+
 // SetContentTypeNil sets the value for ContentType to be an explicit nil
 func (o *FtaResponseModel) SetContentTypeNil() {
 	o.ContentType.Set(nil)
@@ -154,6 +155,7 @@ func (o *FtaResponseModel) HasDescription() bool {
 func (o *FtaResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *FtaResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -220,6 +222,7 @@ func (o *FtaResponseModel) HasOpenArguments() bool {
 func (o *FtaResponseModel) SetOpenArguments(v string) {
 	o.OpenArguments.Set(&v)
 }
+
 // SetOpenArgumentsNil sets the value for OpenArguments to be an explicit nil
 func (o *FtaResponseModel) SetOpenArgumentsNil() {
 	o.OpenArguments.Set(nil)
@@ -279,7 +282,7 @@ func (o *FtaResponseModel) SetIsImported(v bool) {
 }
 
 func (o FtaResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -339,5 +342,3 @@ func (v *NullableFtaResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

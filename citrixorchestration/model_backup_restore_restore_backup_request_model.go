@@ -19,19 +19,19 @@ var _ MappedNullable = &BackupRestoreRestoreBackupRequestModel{}
 
 // BackupRestoreRestoreBackupRequestModel Restore Backup Request Model
 type BackupRestoreRestoreBackupRequestModel struct {
-	// Name of backup to restore 
+	// Name of backup to restore
 	BackupName string `json:"BackupName"`
 	// Hisotry Uid
-	HistoryUid int32 `json:"HistoryUid"`
-	Component BckRstrAutoConfigComponents `json:"Component"`
+	HistoryUid int32                       `json:"HistoryUid"`
+	Component  BckRstrAutoConfigComponents `json:"Component"`
 	// Comma delimted component member names to restore; may include wildcards
 	Filters NullableString `json:"Filters,omitempty"`
 	// Restore component prerequisites as necessary
 	WithPrereq *bool `json:"WithPrereq,omitempty"`
-	// Determine what should be restored but to not do the actual restore; report only             
+	// Determine what should be restored but to not do the actual restore; report only
 	Checkmode *bool `json:"Checkmode,omitempty"`
 	// Admin entered notes
-	Notes NullableString `json:"Notes,omitempty"`
+	Notes       NullableString             `json:"Notes,omitempty"`
 	RestoreType *BackupRestoreRestoreTypes `json:"RestoreType,omitempty"`
 	// Cvad Security info valid only when Component is HostConnections
 	CvadSecurityInfo []BackupRestoreCvadSecurityInfo `json:"CvadSecurityInfo,omitempty"`
@@ -161,6 +161,7 @@ func (o *BackupRestoreRestoreBackupRequestModel) HasFilters() bool {
 func (o *BackupRestoreRestoreBackupRequestModel) SetFilters(v string) {
 	o.Filters.Set(&v)
 }
+
 // SetFiltersNil sets the value for Filters to be an explicit nil
 func (o *BackupRestoreRestoreBackupRequestModel) SetFiltersNil() {
 	o.Filters.Set(nil)
@@ -267,6 +268,7 @@ func (o *BackupRestoreRestoreBackupRequestModel) HasNotes() bool {
 func (o *BackupRestoreRestoreBackupRequestModel) SetNotes(v string) {
 	o.Notes.Set(&v)
 }
+
 // SetNotesNil sets the value for Notes to be an explicit nil
 func (o *BackupRestoreRestoreBackupRequestModel) SetNotesNil() {
 	o.Notes.Set(nil)
@@ -343,7 +345,7 @@ func (o *BackupRestoreRestoreBackupRequestModel) SetCvadSecurityInfo(v []BackupR
 }
 
 func (o BackupRestoreRestoreBackupRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -411,5 +413,3 @@ func (v *NullableBackupRestoreRestoreBackupRequestModel) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

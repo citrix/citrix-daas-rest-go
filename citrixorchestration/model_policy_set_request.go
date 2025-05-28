@@ -78,6 +78,7 @@ func (o *PolicySetRequest) HasPolicySetType() bool {
 func (o *PolicySetRequest) SetPolicySetType(v string) {
 	o.PolicySetType.Set(&v)
 }
+
 // SetPolicySetTypeNil sets the value for PolicySetType to be an explicit nil
 func (o *PolicySetRequest) SetPolicySetTypeNil() {
 	o.PolicySetType.Set(nil)
@@ -120,6 +121,7 @@ func (o *PolicySetRequest) HasName() bool {
 func (o *PolicySetRequest) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *PolicySetRequest) SetNameNil() {
 	o.Name.Set(nil)
@@ -162,6 +164,7 @@ func (o *PolicySetRequest) HasDescription() bool {
 func (o *PolicySetRequest) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *PolicySetRequest) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -206,7 +209,7 @@ func (o *PolicySetRequest) SetScopes(v []string) {
 }
 
 func (o PolicySetRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -265,5 +268,3 @@ func (v *NullablePolicySetRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

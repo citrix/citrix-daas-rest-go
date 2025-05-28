@@ -15,15 +15,15 @@ import (
 	"fmt"
 )
 
-// MisConfigurationCategory 
+// MisConfigurationCategory
 type MisConfigurationCategory string
 
 // List of MisConfigurationCategory
 const (
 	MISCONFIGURATIONCATEGORY_UNKNOWN MisConfigurationCategory = "Unknown"
 	MISCONFIGURATIONCATEGORY_WARNING MisConfigurationCategory = "Warning"
-	MISCONFIGURATIONCATEGORY_ERROR MisConfigurationCategory = "Error"
-	MISCONFIGURATIONCATEGORY_INFO MisConfigurationCategory = "Info"
+	MISCONFIGURATIONCATEGORY_ERROR   MisConfigurationCategory = "Error"
+	MISCONFIGURATIONCATEGORY_INFO    MisConfigurationCategory = "Info"
 )
 
 // All allowed values of MisConfigurationCategory enum
@@ -40,7 +40,7 @@ func (v *MisConfigurationCategory) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MisConfigurationCategory(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableMisConfigurationCategory) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

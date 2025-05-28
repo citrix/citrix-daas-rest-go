@@ -17,7 +17,7 @@ import (
 // checks if the SessionRecordingStatusResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SessionRecordingStatusResponseModel{}
 
-// SessionRecordingStatusResponseModel Session Recording Status model of current Orchestration instance.             
+// SessionRecordingStatusResponseModel Session Recording Status model of current Orchestration instance.
 type SessionRecordingStatusResponseModel struct {
 	// Indicates if current session is being recorded.
 	IsSessionBeingRecorded *bool `json:"IsSessionBeingRecorded,omitempty"`
@@ -73,7 +73,7 @@ func (o *SessionRecordingStatusResponseModel) SetIsSessionBeingRecorded(v bool) 
 }
 
 func (o SessionRecordingStatusResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableSessionRecordingStatusResponseModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

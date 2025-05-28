@@ -20,17 +20,17 @@ type FilterType string
 
 // List of FilterType
 const (
-	FILTERTYPE_ACCESS_CONTROL FilterType = "AccessControl"
-	FILTERTYPE_BRANCH_REPEATER FilterType = "BranchRepeater"
-	FILTERTYPE_CLIENT_IP FilterType = "ClientIP"
-	FILTERTYPE_CLIENT_NAME FilterType = "ClientName"
-	FILTERTYPE_DESKTOP_GROUP FilterType = "DesktopGroup"
-	FILTERTYPE_DESKTOP_KIND FilterType = "DesktopKind"
-	FILTERTYPE_DESKTOP_TAG FilterType = "DesktopTag"
-	FILTERTYPE_OU FilterType = "OU"
-	FILTERTYPE_USER FilterType = "User"
+	FILTERTYPE_ACCESS_CONTROL     FilterType = "AccessControl"
+	FILTERTYPE_BRANCH_REPEATER    FilterType = "BranchRepeater"
+	FILTERTYPE_CLIENT_IP          FilterType = "ClientIP"
+	FILTERTYPE_CLIENT_NAME        FilterType = "ClientName"
+	FILTERTYPE_DESKTOP_GROUP      FilterType = "DesktopGroup"
+	FILTERTYPE_DESKTOP_KIND       FilterType = "DesktopKind"
+	FILTERTYPE_DESKTOP_TAG        FilterType = "DesktopTag"
+	FILTERTYPE_OU                 FilterType = "OU"
+	FILTERTYPE_USER               FilterType = "User"
 	FILTERTYPE_SECURE_BROWSER_TAG FilterType = "SecureBrowserTag"
-	FILTERTYPE_CLIENT_PLATFORM FilterType = "ClientPlatform"
+	FILTERTYPE_CLIENT_PLATFORM    FilterType = "ClientPlatform"
 )
 
 // All allowed values of FilterType enum
@@ -54,7 +54,7 @@ func (v *FilterType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = FilterType(value)
 	return nil
 }
@@ -120,4 +120,3 @@ func (v *NullableFilterType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

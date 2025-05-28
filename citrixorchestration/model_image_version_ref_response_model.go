@@ -22,7 +22,7 @@ type ImageVersionRefResponseModel struct {
 	// The Id of the image version.
 	Id string `json:"Id"`
 	// The version number associated with the image version.
-	Number int32 `json:"Number"`
+	Number          int32            `json:"Number"`
 	ImageDefinition RefResponseModel `json:"ImageDefinition"`
 	// The image version's description
 	Description NullableString `json:"Description,omitempty"`
@@ -154,6 +154,7 @@ func (o *ImageVersionRefResponseModel) HasDescription() bool {
 func (o *ImageVersionRefResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *ImageVersionRefResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -198,7 +199,7 @@ func (o *ImageVersionRefResponseModel) SetImageVersionSpecs(v []ImageVersionSpec
 }
 
 func (o ImageVersionRefResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -254,5 +255,3 @@ func (v *NullableImageVersionRefResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

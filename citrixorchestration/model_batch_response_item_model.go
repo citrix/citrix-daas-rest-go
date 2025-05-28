@@ -161,6 +161,7 @@ func (o *BatchResponseItemModel) HasBody() bool {
 func (o *BatchResponseItemModel) SetBody(v string) {
 	o.Body.Set(&v)
 }
+
 // SetBodyNil sets the value for Body to be an explicit nil
 func (o *BatchResponseItemModel) SetBodyNil() {
 	o.Body.Set(nil)
@@ -172,7 +173,7 @@ func (o *BatchResponseItemModel) UnsetBody() {
 }
 
 func (o BatchResponseItemModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +228,3 @@ func (v *NullableBatchResponseItemModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

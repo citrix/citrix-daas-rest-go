@@ -31,7 +31,7 @@ type ErrorData struct {
 	SupportLink NullableString `json:"SupportLink,omitempty"`
 	// Represents a citrix.com error report.
 	ErrorReportXml NullableString `json:"ErrorReportXml,omitempty"`
-	ErrorReport *ErrorReport `json:"ErrorReport,omitempty"`
+	ErrorReport    *ErrorReport   `json:"ErrorReport,omitempty"`
 }
 
 // NewErrorData instantiates a new ErrorData object
@@ -84,6 +84,7 @@ func (o *ErrorData) HasErrorMessage() bool {
 func (o *ErrorData) SetErrorMessage(v string) {
 	o.ErrorMessage.Set(&v)
 }
+
 // SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
 func (o *ErrorData) SetErrorMessageNil() {
 	o.ErrorMessage.Set(nil)
@@ -150,6 +151,7 @@ func (o *ErrorData) HasErrorType() bool {
 func (o *ErrorData) SetErrorType(v string) {
 	o.ErrorType.Set(&v)
 }
+
 // SetErrorTypeNil sets the value for ErrorType to be an explicit nil
 func (o *ErrorData) SetErrorTypeNil() {
 	o.ErrorType.Set(nil)
@@ -192,6 +194,7 @@ func (o *ErrorData) HasErrorDetails() bool {
 func (o *ErrorData) SetErrorDetails(v string) {
 	o.ErrorDetails.Set(&v)
 }
+
 // SetErrorDetailsNil sets the value for ErrorDetails to be an explicit nil
 func (o *ErrorData) SetErrorDetailsNil() {
 	o.ErrorDetails.Set(nil)
@@ -234,6 +237,7 @@ func (o *ErrorData) HasSupportLink() bool {
 func (o *ErrorData) SetSupportLink(v string) {
 	o.SupportLink.Set(&v)
 }
+
 // SetSupportLinkNil sets the value for SupportLink to be an explicit nil
 func (o *ErrorData) SetSupportLinkNil() {
 	o.SupportLink.Set(nil)
@@ -276,6 +280,7 @@ func (o *ErrorData) HasErrorReportXml() bool {
 func (o *ErrorData) SetErrorReportXml(v string) {
 	o.ErrorReportXml.Set(&v)
 }
+
 // SetErrorReportXmlNil sets the value for ErrorReportXml to be an explicit nil
 func (o *ErrorData) SetErrorReportXmlNil() {
 	o.ErrorReportXml.Set(nil)
@@ -319,7 +324,7 @@ func (o *ErrorData) SetErrorReport(v ErrorReport) {
 }
 
 func (o ErrorData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -385,5 +390,3 @@ func (v *NullableErrorData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,11 +20,11 @@ type DeliveryControllerState string
 
 // List of DeliveryControllerState
 const (
-	DELIVERYCONTROLLERSTATE_UNKNOWN DeliveryControllerState = "Unknown"
-	DELIVERYCONTROLLERSTATE_FAILED DeliveryControllerState = "Failed"
-	DELIVERYCONTROLLERSTATE_OFF DeliveryControllerState = "Off"
+	DELIVERYCONTROLLERSTATE_UNKNOWN       DeliveryControllerState = "Unknown"
+	DELIVERYCONTROLLERSTATE_FAILED        DeliveryControllerState = "Failed"
+	DELIVERYCONTROLLERSTATE_OFF           DeliveryControllerState = "Off"
 	DELIVERYCONTROLLERSTATE_TRANSITIONING DeliveryControllerState = "Transitioning"
-	DELIVERYCONTROLLERSTATE_ACTIVE DeliveryControllerState = "Active"
+	DELIVERYCONTROLLERSTATE_ACTIVE        DeliveryControllerState = "Active"
 )
 
 // All allowed values of DeliveryControllerState enum
@@ -42,7 +42,7 @@ func (v *DeliveryControllerState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DeliveryControllerState(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableDeliveryControllerState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

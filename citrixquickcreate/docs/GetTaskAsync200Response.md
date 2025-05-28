@@ -4,16 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TaskType** | [**TaskType**](TaskType.md) |  | 
+**Operation** | Pointer to [**NullableResourceConnectionTaskOperationType**](ResourceConnectionTaskOperationType.md) | Task Type | [optional] 
+**DeploymentId** | Pointer to **NullableString** | Deployment Id this task is working on | [optional] 
+**TaskType** | [**TaskType**](TaskType.md) | The type of task | 
 **TaskId** | Pointer to **NullableString** | Task Id | [optional] 
-**TaskState** | Pointer to [**NullableTaskState**](TaskState.md) |  | [optional] 
+**TaskState** | Pointer to [**NullableTaskState**](TaskState.md) | The state of the task | [optional] 
 **Status** | Pointer to **NullableString** | Status of the task | [optional] 
-**AccountType** | Pointer to [**AccountType**](AccountType.md) |  | [optional] 
+**AccountType** | Pointer to [**AccountType**](AccountType.md) | The type of account the task is associated with | [optional] 
 **StartedAt** | Pointer to **NullableTime** | DateTime when the task started | [optional] 
 **CompletedAt** | Pointer to **NullableTime** | Datetime when the task completed | [optional] 
 **Warnings** | Pointer to [**[]TaskWarning**](TaskWarning.md) | Warnings that occurred in task processing | [optional] 
 **Errors** | Pointer to [**[]TaskError**](TaskError.md) | Errors that occurred in task processing | [optional] 
 **TransactionId** | Pointer to **NullableString** | ID of the transaction the task is associated with | [optional] 
+**ResourceConnectionId** | Pointer to **NullableString** | The ResourceConnectionId this task is working on | [optional] 
 
 ## Methods
 
@@ -34,6 +37,76 @@ NewGetTaskAsync200ResponseWithDefaults instantiates a new GetTaskAsync200Respons
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetOperation
+
+`func (o *GetTaskAsync200Response) GetOperation() ResourceConnectionTaskOperationType`
+
+GetOperation returns the Operation field if non-nil, zero value otherwise.
+
+### GetOperationOk
+
+`func (o *GetTaskAsync200Response) GetOperationOk() (*ResourceConnectionTaskOperationType, bool)`
+
+GetOperationOk returns a tuple with the Operation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperation
+
+`func (o *GetTaskAsync200Response) SetOperation(v ResourceConnectionTaskOperationType)`
+
+SetOperation sets Operation field to given value.
+
+### HasOperation
+
+`func (o *GetTaskAsync200Response) HasOperation() bool`
+
+HasOperation returns a boolean if a field has been set.
+
+### SetOperationNil
+
+`func (o *GetTaskAsync200Response) SetOperationNil(b bool)`
+
+ SetOperationNil sets the value for Operation to be an explicit nil
+
+### UnsetOperation
+`func (o *GetTaskAsync200Response) UnsetOperation()`
+
+UnsetOperation ensures that no value is present for Operation, not even an explicit nil
+### GetDeploymentId
+
+`func (o *GetTaskAsync200Response) GetDeploymentId() string`
+
+GetDeploymentId returns the DeploymentId field if non-nil, zero value otherwise.
+
+### GetDeploymentIdOk
+
+`func (o *GetTaskAsync200Response) GetDeploymentIdOk() (*string, bool)`
+
+GetDeploymentIdOk returns a tuple with the DeploymentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentId
+
+`func (o *GetTaskAsync200Response) SetDeploymentId(v string)`
+
+SetDeploymentId sets DeploymentId field to given value.
+
+### HasDeploymentId
+
+`func (o *GetTaskAsync200Response) HasDeploymentId() bool`
+
+HasDeploymentId returns a boolean if a field has been set.
+
+### SetDeploymentIdNil
+
+`func (o *GetTaskAsync200Response) SetDeploymentIdNil(b bool)`
+
+ SetDeploymentIdNil sets the value for DeploymentId to be an explicit nil
+
+### UnsetDeploymentId
+`func (o *GetTaskAsync200Response) UnsetDeploymentId()`
+
+UnsetDeploymentId ensures that no value is present for DeploymentId, not even an explicit nil
 ### GetTaskType
 
 `func (o *GetTaskAsync200Response) GetTaskType() TaskType`
@@ -359,6 +432,41 @@ HasTransactionId returns a boolean if a field has been set.
 `func (o *GetTaskAsync200Response) UnsetTransactionId()`
 
 UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+### GetResourceConnectionId
+
+`func (o *GetTaskAsync200Response) GetResourceConnectionId() string`
+
+GetResourceConnectionId returns the ResourceConnectionId field if non-nil, zero value otherwise.
+
+### GetResourceConnectionIdOk
+
+`func (o *GetTaskAsync200Response) GetResourceConnectionIdOk() (*string, bool)`
+
+GetResourceConnectionIdOk returns a tuple with the ResourceConnectionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceConnectionId
+
+`func (o *GetTaskAsync200Response) SetResourceConnectionId(v string)`
+
+SetResourceConnectionId sets ResourceConnectionId field to given value.
+
+### HasResourceConnectionId
+
+`func (o *GetTaskAsync200Response) HasResourceConnectionId() bool`
+
+HasResourceConnectionId returns a boolean if a field has been set.
+
+### SetResourceConnectionIdNil
+
+`func (o *GetTaskAsync200Response) SetResourceConnectionIdNil(b bool)`
+
+ SetResourceConnectionIdNil sets the value for ResourceConnectionId to be an explicit nil
+
+### UnsetResourceConnectionId
+`func (o *GetTaskAsync200Response) UnsetResourceConnectionId()`
+
+UnsetResourceConnectionId ensures that no value is present for ResourceConnectionId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

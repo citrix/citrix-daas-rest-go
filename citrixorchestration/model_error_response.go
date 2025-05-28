@@ -19,7 +19,7 @@ var _ MappedNullable = &ErrorResponse{}
 
 // ErrorResponse Common error response model mandated by API guidelines
 type ErrorResponse struct {
-	// URI that indicates the type of error that occurred (need not be actually accessible). The format is: https://errors-api.cloud.com/{service}/{error} 
+	// URI that indicates the type of error that occurred (need not be actually accessible). The format is: https://errors-api.cloud.com/{service}/{error}
 	Type string `json:"type"`
 	// Human-readable description of the error that occurred, localized into the caller's language.
 	Detail string `json:"detail"`
@@ -128,7 +128,7 @@ func (o *ErrorResponse) SetParameters(v []ErrorResponseParameter) {
 }
 
 func (o ErrorResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +180,3 @@ func (v *NullableErrorResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -35,24 +35,24 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    customer := "customer_example" // string | 
+	customer := "customer_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersAllStatusGet(context.Background(), customer).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersAllStatusGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersAllStatusGet`: IdentityProvidersStatus
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersAllStatusGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersAllStatusGet(context.Background(), customer).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersAllStatusGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersAllStatusGet`: IdentityProvidersStatus
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersAllStatusGet`: %v\n", resp)
 }
 ```
 
@@ -103,25 +103,25 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    customer := "customer_example" // string | 
-    fqdn := "fqdn_example" // string |  (optional)
+	customer := "customer_example" // string | 
+	fqdn := "fqdn_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersClientGet(context.Background(), customer).Fqdn(fqdn).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersClientGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersClientGet`: CipClientResultModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersClientGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersClientGet(context.Background(), customer).Fqdn(fqdn).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersClientGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersClientGet`: CipClientResultModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersClientGet`: %v\n", resp)
 }
 ```
 
@@ -173,25 +173,25 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    id := "id_example" // string | 
-    customer := "customer_example" // string | 
+	id := "id_example" // string | 
+	customer := "customer_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersConfigurationSamlIdGet(context.Background(), id, customer).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersConfigurationSamlIdGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersConfigurationSamlIdGet`: SamlConfigModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersConfigurationSamlIdGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersConfigurationSamlIdGet(context.Background(), id, customer).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersConfigurationSamlIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersConfigurationSamlIdGet`: SamlConfigModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersConfigurationSamlIdGet`: %v\n", resp)
 }
 ```
 
@@ -244,25 +244,25 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    customer := "customer_example" // string | 
-    googleConnectionModel := *openapiclient.NewGoogleConnectionModel("GoogleClientEmail_example", "GooglePrivateKey_example", "GoogleImpersonatedUser_example") // GoogleConnectionModel |  (optional)
+	customer := "customer_example" // string | 
+	googleConnectionModel := *openapiclient.NewGoogleConnectionModel("GoogleClientEmail_example", "GooglePrivateKey_example", "GoogleImpersonatedUser_example") // GoogleConnectionModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersConfigureGooglePost(context.Background(), customer).GoogleConnectionModel(googleConnectionModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersConfigureGooglePost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersConfigureGooglePost`: GoogleResultModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersConfigureGooglePost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersConfigureGooglePost(context.Background(), customer).GoogleConnectionModel(googleConnectionModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersConfigureGooglePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersConfigureGooglePost`: GoogleResultModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersConfigureGooglePost`: %v\n", resp)
 }
 ```
 
@@ -314,25 +314,25 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    customer := "customer_example" // string | 
-    oktaConnectionModel := *openapiclient.NewOktaConnectionModel() // OktaConnectionModel |  (optional)
+	customer := "customer_example" // string | 
+	oktaConnectionModel := *openapiclient.NewOktaConnectionModel() // OktaConnectionModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersConfigureOktaPost(context.Background(), customer).OktaConnectionModel(oktaConnectionModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersConfigureOktaPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersConfigureOktaPost`: OktaResultModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersConfigureOktaPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersConfigureOktaPost(context.Background(), customer).OktaConnectionModel(oktaConnectionModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersConfigureOktaPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersConfigureOktaPost`: OktaResultModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersConfigureOktaPost`: %v\n", resp)
 }
 ```
 
@@ -384,24 +384,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    customer := "customer_example" // string | 
+	customer := "customer_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersGet(context.Background(), customer).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersGet`: []string
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersGet(context.Background(), customer).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersGet`: []string
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersGet`: %v\n", resp)
 }
 ```
 
@@ -452,26 +452,26 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    id := "id_example" // string | 
-    customer := "customer_example" // string | 
-    idpInstanceConnectModel := *openapiclient.NewIdpInstanceConnectModel("IdentityProviderType_example") // IdpInstanceConnectModel |  (optional)
+	id := "id_example" // string | 
+	customer := "customer_example" // string | 
+	idpInstanceConnectModel := *openapiclient.NewIdpInstanceConnectModel("IdentityProviderType_example") // IdpInstanceConnectModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersIdPost(context.Background(), id, customer).IdpInstanceConnectModel(idpInstanceConnectModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersIdPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersIdPost`: IdpStatusModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersIdPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersIdPost(context.Background(), id, customer).IdpInstanceConnectModel(idpInstanceConnectModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersIdPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersIdPost`: IdpStatusModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersIdPost`: %v\n", resp)
 }
 ```
 
@@ -525,27 +525,27 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    identityProvider := "identityProvider_example" // string | 
-    id := "id_example" // string | 
-    customer := "customer_example" // string | 
-    idpUpdateModel := *openapiclient.NewIdpUpdateModel() // IdpUpdateModel |  (optional)
+	identityProvider := "identityProvider_example" // string | 
+	id := "id_example" // string | 
+	customer := "customer_example" // string | 
+	idpUpdateModel := *openapiclient.NewIdpUpdateModel() // IdpUpdateModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersIdentityProviderIdPut(context.Background(), identityProvider, id, customer).IdpUpdateModel(idpUpdateModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersIdentityProviderIdPut``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersIdentityProviderIdPut`: IdpUpdateModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersIdentityProviderIdPut`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersIdentityProviderIdPut(context.Background(), identityProvider, id, customer).IdpUpdateModel(idpUpdateModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersIdentityProviderIdPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersIdentityProviderIdPut`: IdpUpdateModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersIdentityProviderIdPut`: %v\n", resp)
 }
 ```
 
@@ -601,27 +601,27 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    idpType := "idpType_example" // string | 
-    customer := "customer_example" // string | 
-    limit := int32(56) // int32 |  (optional) (default to 30)
-    continuationToken := "continuationToken_example" // string |  (optional)
+	idpType := "idpType_example" // string | 
+	customer := "customer_example" // string | 
+	limit := int32(56) // int32 |  (optional) (default to 30)
+	continuationToken := "continuationToken_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersIdpTypeGet(context.Background(), idpType, customer).Limit(limit).ContinuationToken(continuationToken).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersIdpTypeGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersIdpTypeGet`: IdpStatusesModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersIdpTypeGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersIdpTypeGet(context.Background(), idpType, customer).Limit(limit).ContinuationToken(continuationToken).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersIdpTypeGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersIdpTypeGet`: IdpStatusesModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersIdpTypeGet`: %v\n", resp)
 }
 ```
 
@@ -676,25 +676,25 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    customer := "customer_example" // string | 
-    idpCreateModel := *openapiclient.NewIdpCreateModel("IdentityProviderId_example", "IdentityProviderNickname_example") // IdpCreateModel |  (optional)
+	customer := "customer_example" // string | 
+	idpCreateModel := *openapiclient.NewIdpCreateModel("IdentityProviderId_example", "IdentityProviderNickname_example") // IdpCreateModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersMultiIdentityProvidersPost(context.Background(), customer).IdpCreateModel(idpCreateModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersMultiIdentityProvidersPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersMultiIdentityProvidersPost`: IdpStatusModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersMultiIdentityProvidersPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersMultiIdentityProvidersPost(context.Background(), customer).IdpCreateModel(idpCreateModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersMultiIdentityProvidersPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersMultiIdentityProvidersPost`: IdpStatusModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersMultiIdentityProvidersPost`: %v\n", resp)
 }
 ```
 
@@ -746,25 +746,25 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    customer := "customer_example" // string | 
-    idpConnectModel := *openapiclient.NewIdpConnectModel("IdentityProviderId_example") // IdpConnectModel |  (optional)
+	customer := "customer_example" // string | 
+	idpConnectModel := *openapiclient.NewIdpConnectModel("IdentityProviderId_example") // IdpConnectModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersPost(context.Background(), customer).IdpConnectModel(idpConnectModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersPost`: IdpStatusModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersPost(context.Background(), customer).IdpConnectModel(idpConnectModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersPost`: IdpStatusModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersPost`: %v\n", resp)
 }
 ```
 
@@ -816,26 +816,26 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    type_ := "type__example" // string | 
-    id := "id_example" // string | 
-    customer := "customer_example" // string | 
+	type_ := "type__example" // string | 
+	id := "id_example" // string | 
+	customer := "customer_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersTypeIdDelete(context.Background(), type_, id, customer).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersTypeIdDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersTypeIdDelete`: IdpStatusModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersTypeIdDelete`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersTypeIdDelete(context.Background(), type_, id, customer).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersTypeIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersTypeIdDelete`: IdpStatusModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersTypeIdDelete`: %v\n", resp)
 }
 ```
 
@@ -890,25 +890,25 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    clientId := "clientId_example" // string | 
-    customer := "customer_example" // string | 
+	clientId := "clientId_example" // string | 
+	customer := "customer_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersValidateClientsClientIdGet(context.Background(), clientId, customer).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersValidateClientsClientIdGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersValidateClientsClientIdGet`: bool
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersValidateClientsClientIdGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersValidateClientsClientIdGet(context.Background(), clientId, customer).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersValidateClientsClientIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersValidateClientsClientIdGet`: bool
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersValidateClientsClientIdGet`: %v\n", resp)
 }
 ```
 
@@ -961,25 +961,25 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    customer := "customer_example" // string | 
-    fqdn := "fqdn_example" // string |  (optional)
+	customer := "customer_example" // string | 
+	fqdn := "fqdn_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersValidateFqdnGet(context.Background(), customer).Fqdn(fqdn).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersValidateFqdnGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersValidateFqdnGet`: bool
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersValidateFqdnGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersValidateFqdnGet(context.Background(), customer).Fqdn(fqdn).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersValidateFqdnGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersValidateFqdnGet`: bool
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersValidateFqdnGet`: %v\n", resp)
 }
 ```
 
@@ -1031,26 +1031,26 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    customer := "customer_example" // string | 
-    fileName := "fileName_example" // string |  (optional)
-    certFile := os.NewFile(1234, "some_file") // *os.File |  (optional)
+	customer := "customer_example" // string | 
+	fileName := "fileName_example" // string |  (optional)
+	certFile := os.NewFile(1234, "some_file") // *os.File |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersValidateSamlPost(context.Background(), customer).FileName(fileName).CertFile(certFile).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersValidateSamlPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityProvidersValidateSamlPost`: SamlCertInfoModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersValidateSamlPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityProvidersValidateSamlPost(context.Background(), customer).FileName(fileName).CertFile(certFile).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityProvidersValidateSamlPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityProvidersValidateSamlPost`: SamlCertInfoModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityProvidersValidateSamlPost`: %v\n", resp)
 }
 ```
 
@@ -1103,26 +1103,26 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    identityProvider := "identityProvider_example" // string | 
-    customer := "customer_example" // string | 
-    idpInstanceCreateConnectModel := *openapiclient.NewIdpInstanceCreateConnectModel("IdentityProviderType_example", "IdentityProviderNickname_example") // IdpInstanceCreateConnectModel |  (optional)
+	identityProvider := "identityProvider_example" // string | 
+	customer := "customer_example" // string | 
+	idpInstanceCreateConnectModel := *openapiclient.NewIdpInstanceCreateConnectModel("IdentityProviderType_example", "IdentityProviderNickname_example") // IdpInstanceCreateConnectModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityprovidersIdentityProviderCreateconnectPost(context.Background(), identityProvider, customer).IdpInstanceCreateConnectModel(idpInstanceCreateConnectModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityprovidersIdentityProviderCreateconnectPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerIdentityprovidersIdentityProviderCreateconnectPost`: IdpStatusModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityprovidersIdentityProviderCreateconnectPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityProvidersDAAS.CustomerIdentityprovidersIdentityProviderCreateconnectPost(context.Background(), identityProvider, customer).IdpInstanceCreateConnectModel(idpInstanceCreateConnectModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProvidersDAAS.CustomerIdentityprovidersIdentityProviderCreateconnectPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerIdentityprovidersIdentityProviderCreateconnectPost`: IdpStatusModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityProvidersDAAS.CustomerIdentityprovidersIdentityProviderCreateconnectPost`: %v\n", resp)
 }
 ```
 

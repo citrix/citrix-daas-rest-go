@@ -26,12 +26,15 @@ type AwsEdcAccountResourceCidrRange struct {
 	DerivedCidrRanges []string `json:"derivedCidrRanges,omitempty"`
 }
 
+type _AwsEdcAccountResourceCidrRange AwsEdcAccountResourceCidrRange
+
 // NewAwsEdcAccountResourceCidrRange instantiates a new AwsEdcAccountResourceCidrRange object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAwsEdcAccountResourceCidrRange(accountType AccountType) *AwsEdcAccountResourceCidrRange {
+func NewAwsEdcAccountResourceCidrRange(resourceType AwsAccountResourceType, accountType AccountType) *AwsEdcAccountResourceCidrRange {
 	this := AwsEdcAccountResourceCidrRange{}
+	this.ResourceType = resourceType
 	this.AccountType = accountType
 	return &this
 }
@@ -76,6 +79,7 @@ func (o *AwsEdcAccountResourceCidrRange) HasBaseCidrRange() bool {
 func (o *AwsEdcAccountResourceCidrRange) SetBaseCidrRange(v string) {
 	o.BaseCidrRange.Set(&v)
 }
+
 // SetBaseCidrRangeNil sets the value for BaseCidrRange to be an explicit nil
 func (o *AwsEdcAccountResourceCidrRange) SetBaseCidrRangeNil() {
 	o.BaseCidrRange.Set(nil)
@@ -107,7 +111,7 @@ func (o *AwsEdcAccountResourceCidrRange) GetDerivedCidrRangesOk() ([]string, boo
 
 // HasDerivedCidrRanges returns a boolean if a field has been set.
 func (o *AwsEdcAccountResourceCidrRange) HasDerivedCidrRanges() bool {
-	if o != nil && IsNil(o.DerivedCidrRanges) {
+	if o != nil && !IsNil(o.DerivedCidrRanges) {
 		return true
 	}
 
@@ -120,7 +124,7 @@ func (o *AwsEdcAccountResourceCidrRange) SetDerivedCidrRanges(v []string) {
 }
 
 func (o AwsEdcAccountResourceCidrRange) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -181,5 +185,3 @@ func (v *NullableAwsEdcAccountResourceCidrRange) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

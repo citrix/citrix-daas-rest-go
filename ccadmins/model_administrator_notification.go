@@ -19,8 +19,8 @@ var _ MappedNullable = &AdministratorNotification{}
 
 // AdministratorNotification struct for AdministratorNotification
 type AdministratorNotification struct {
-	Type *AdministratorNotificationType `json:"type,omitempty"`
-	Enabled NullableBool `json:"enabled,omitempty"`
+	Type    *AdministratorNotificationType `json:"type,omitempty"`
+	Enabled NullableBool                   `json:"enabled,omitempty"`
 }
 
 // NewAdministratorNotification instantiates a new AdministratorNotification object
@@ -104,6 +104,7 @@ func (o *AdministratorNotification) HasEnabled() bool {
 func (o *AdministratorNotification) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *AdministratorNotification) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -115,7 +116,7 @@ func (o *AdministratorNotification) UnsetEnabled() {
 }
 
 func (o AdministratorNotification) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -168,5 +169,3 @@ func (v *NullableAdministratorNotification) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

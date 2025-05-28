@@ -177,6 +177,7 @@ func (o *ApplicationDiscoveryRequestModel) HasServerOrPath() bool {
 func (o *ApplicationDiscoveryRequestModel) SetServerOrPath(v string) {
 	o.ServerOrPath.Set(&v)
 }
+
 // SetServerOrPathNil sets the value for ServerOrPath to be an explicit nil
 func (o *ApplicationDiscoveryRequestModel) SetServerOrPathNil() {
 	o.ServerOrPath.Set(nil)
@@ -188,7 +189,7 @@ func (o *ApplicationDiscoveryRequestModel) UnsetServerOrPath() {
 }
 
 func (o ApplicationDiscoveryRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -247,5 +248,3 @@ func (v *NullableApplicationDiscoveryRequestModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

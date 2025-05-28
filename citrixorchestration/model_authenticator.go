@@ -20,13 +20,13 @@ type Authenticator string
 
 // List of Authenticator
 const (
-	AUTHENTICATOR_NONE Authenticator = "None"
-	AUTHENTICATOR_BASIC Authenticator = "Basic"
-	AUTHENTICATOR_INTEGRATED_WINDOWS_AUTHENTICATION Authenticator = "IntegratedWindowsAuthentication"
+	AUTHENTICATOR_NONE                                        Authenticator = "None"
+	AUTHENTICATOR_BASIC                                       Authenticator = "Basic"
+	AUTHENTICATOR_INTEGRATED_WINDOWS_AUTHENTICATION           Authenticator = "IntegratedWindowsAuthentication"
 	AUTHENTICATOR_BASIC_AND_INTEGRATED_WINDOWS_AUTHENTICATION Authenticator = "BasicAndIntegratedWindowsAuthentication"
-	AUTHENTICATOR_SMART_CARD Authenticator = "SmartCard"
-	AUTHENTICATOR_BASIC_AND_SMART_CARD Authenticator = "BasicAndSmartCard"
-	AUTHENTICATOR_ALL Authenticator = "All"
+	AUTHENTICATOR_SMART_CARD                                  Authenticator = "SmartCard"
+	AUTHENTICATOR_BASIC_AND_SMART_CARD                        Authenticator = "BasicAndSmartCard"
+	AUTHENTICATOR_ALL                                         Authenticator = "All"
 )
 
 // All allowed values of Authenticator enum
@@ -46,7 +46,7 @@ func (v *Authenticator) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = Authenticator(value)
 	return nil
 }
@@ -112,4 +112,3 @@ func (v *NullableAuthenticator) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -20,11 +20,11 @@ type AzureEnvironment string
 
 // List of AzureEnvironment
 const (
-	AZUREENVIRONMENT_CUSTOM AzureEnvironment = "Custom"
-	AZUREENVIRONMENT_AZURE_CLOUD AzureEnvironment = "AzureCloud"
-	AZUREENVIRONMENT_AZURE_CHINA_CLOUD AzureEnvironment = "AzureChinaCloud"
+	AZUREENVIRONMENT_CUSTOM              AzureEnvironment = "Custom"
+	AZUREENVIRONMENT_AZURE_CLOUD         AzureEnvironment = "AzureCloud"
+	AZUREENVIRONMENT_AZURE_CHINA_CLOUD   AzureEnvironment = "AzureChinaCloud"
 	AZUREENVIRONMENT_AZURE_US_GOVERNMENT AzureEnvironment = "AzureUSGovernment"
-	AZUREENVIRONMENT_AZURE_GERMAN_CLOUD AzureEnvironment = "AzureGermanCloud"
+	AZUREENVIRONMENT_AZURE_GERMAN_CLOUD  AzureEnvironment = "AzureGermanCloud"
 )
 
 // All allowed values of AzureEnvironment enum
@@ -42,7 +42,7 @@ func (v *AzureEnvironment) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AzureEnvironment(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableAzureEnvironment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

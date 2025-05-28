@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    name := "name_example" // string | 
-    customer := "customer_example" // string | 
+	name := "name_example" // string | 
+	customer := "customer_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthDomainsDAAS.CustomerAuthDomainsCheckGet(context.Background(), customer).Name(name).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthDomainsDAAS.CustomerAuthDomainsCheckGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerAuthDomainsCheckGet`: bool
-    fmt.Fprintf(os.Stdout, "Response from `AuthDomainsDAAS.CustomerAuthDomainsCheckGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AuthDomainsDAAS.CustomerAuthDomainsCheckGet(context.Background(), customer).Name(name).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthDomainsDAAS.CustomerAuthDomainsCheckGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerAuthDomainsCheckGet`: bool
+	fmt.Fprintf(os.Stdout, "Response from `AuthDomainsDAAS.CustomerAuthDomainsCheckGet`: %v\n", resp)
 }
 ```
 
@@ -91,26 +91,26 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func main() {
-    oldName := "oldName_example" // string | 
-    newName := "newName_example" // string | 
-    customer := "customer_example" // string | 
+	oldName := "oldName_example" // string | 
+	newName := "newName_example" // string | 
+	customer := "customer_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthDomainsDAAS.CustomerAuthDomainsPut(context.Background(), customer).OldName(oldName).NewName(newName).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthDomainsDAAS.CustomerAuthDomainsPut``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CustomerAuthDomainsPut`: UpdatedCustomerModel
-    fmt.Fprintf(os.Stdout, "Response from `AuthDomainsDAAS.CustomerAuthDomainsPut`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AuthDomainsDAAS.CustomerAuthDomainsPut(context.Background(), customer).OldName(oldName).NewName(newName).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthDomainsDAAS.CustomerAuthDomainsPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerAuthDomainsPut`: UpdatedCustomerModel
+	fmt.Fprintf(os.Stdout, "Response from `AuthDomainsDAAS.CustomerAuthDomainsPut`: %v\n", resp)
 }
 ```
 

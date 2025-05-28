@@ -20,7 +20,7 @@ type AwsEdcDirectoryTenancy string
 
 // List of AwsEdcDirectoryTenancy
 const (
-	AWSEDCDIRECTORYTENANCY_SHARED AwsEdcDirectoryTenancy = "SHARED"
+	AWSEDCDIRECTORYTENANCY_SHARED    AwsEdcDirectoryTenancy = "SHARED"
 	AWSEDCDIRECTORYTENANCY_DEDICATED AwsEdcDirectoryTenancy = "DEDICATED"
 )
 
@@ -108,4 +108,3 @@ func (v *NullableAwsEdcDirectoryTenancy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

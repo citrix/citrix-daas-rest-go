@@ -97,6 +97,7 @@ func (o *BackupRestoreBackupResponseModel) HasBackupName() bool {
 func (o *BackupRestoreBackupResponseModel) SetBackupName(v string) {
 	o.BackupName.Set(&v)
 }
+
 // SetBackupNameNil sets the value for BackupName to be an explicit nil
 func (o *BackupRestoreBackupResponseModel) SetBackupNameNil() {
 	o.BackupName.Set(nil)
@@ -139,6 +140,7 @@ func (o *BackupRestoreBackupResponseModel) HasNotes() bool {
 func (o *BackupRestoreBackupResponseModel) SetNotes(v string) {
 	o.Notes.Set(&v)
 }
+
 // SetNotesNil sets the value for Notes to be an explicit nil
 func (o *BackupRestoreBackupResponseModel) SetNotesNil() {
 	o.Notes.Set(nil)
@@ -405,6 +407,7 @@ func (o *BackupRestoreBackupResponseModel) HasAdministratorName() bool {
 func (o *BackupRestoreBackupResponseModel) SetAdministratorName(v string) {
 	o.AdministratorName.Set(&v)
 }
+
 // SetAdministratorNameNil sets the value for AdministratorName to be an explicit nil
 func (o *BackupRestoreBackupResponseModel) SetAdministratorNameNil() {
 	o.AdministratorName.Set(nil)
@@ -513,7 +516,7 @@ func (o *BackupRestoreBackupResponseModel) SetBackupSize(v int64) {
 }
 
 func (o BackupRestoreBackupResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -599,5 +602,3 @@ func (v *NullableBackupRestoreBackupResponseModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

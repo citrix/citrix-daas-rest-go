@@ -24,7 +24,7 @@ type SiteDetailResponseModel struct {
 	// Site name.  Not guaranteed to be unique.
 	Name string `json:"Name"`
 	// Orchestration API version
-	OrchestationApiVersion int32 `json:"OrchestationApiVersion"`
+	OrchestationApiVersion  int32 `json:"OrchestationApiVersion"`
 	AppProtectionAuthorized *bool `json:"AppProtectionAuthorized,omitempty"`
 	// The Uid for the Configuration Service Group.
 	ConfigurationServiceGroupUid NullableString `json:"ConfigurationServiceGroupUid,omitempty"`
@@ -34,11 +34,11 @@ type SiteDetailResponseModel struct {
 	LicenseServerPort NullableInt32 `json:"LicenseServerPort,omitempty"`
 	// License server URI. Will be null for XenApp & XenDesktop service.
 	LicenseServerUri NullableString `json:"LicenseServerUri,omitempty"`
-	LicensingModel *LicenseModel `json:"LicensingModel,omitempty"`
+	LicensingModel   *LicenseModel  `json:"LicensingModel,omitempty"`
 	// Indicates whether the site's initial configuration is complete.
-	SiteConfigurationComplete *bool `json:"SiteConfigurationComplete,omitempty"`
-	SiteConfigurationProfile *SiteConfigurationProfileModel `json:"SiteConfigurationProfile,omitempty"`
-	PrimaryZone RefResponseModel `json:"PrimaryZone"`
+	SiteConfigurationComplete *bool                          `json:"SiteConfigurationComplete,omitempty"`
+	SiteConfigurationProfile  *SiteConfigurationProfileModel `json:"SiteConfigurationProfile,omitempty"`
+	PrimaryZone               RefResponseModel               `json:"PrimaryZone"`
 	// Product code for the site license.
 	ProductCode string `json:"ProductCode"`
 	// Product edition for the site license.
@@ -54,10 +54,10 @@ type SiteDetailResponseModel struct {
 	// Enabled features within the site.
 	EnabledFeatures []string `json:"EnabledFeatures"`
 	// The objectGUID property identifying the base OU in Active Directory used for desktop registrations.
-	BaseOU NullableString `json:"BaseOU,omitempty"`
-	ColorDepth ColorDepth `json:"ColorDepth"`
+	BaseOU     NullableString `json:"BaseOU,omitempty"`
+	ColorDepth ColorDepth     `json:"ColorDepth"`
 	// Indicates whether connection leasing is enabled.
-	ConnectionLeasingEnabled *bool `json:"ConnectionLeasingEnabled,omitempty"`
+	ConnectionLeasingEnabled      *bool            `json:"ConnectionLeasingEnabled,omitempty"`
 	DefaultMinimumFunctionalLevel *FunctionalLevel `json:"DefaultMinimumFunctionalLevel,omitempty"`
 	// The default desktop icon used for new delivery groups.
 	DefaultDesktopIconId string `json:"DefaultDesktopIconId"`
@@ -255,6 +255,7 @@ func (o *SiteDetailResponseModel) HasConfigurationServiceGroupUid() bool {
 func (o *SiteDetailResponseModel) SetConfigurationServiceGroupUid(v string) {
 	o.ConfigurationServiceGroupUid.Set(&v)
 }
+
 // SetConfigurationServiceGroupUidNil sets the value for ConfigurationServiceGroupUid to be an explicit nil
 func (o *SiteDetailResponseModel) SetConfigurationServiceGroupUidNil() {
 	o.ConfigurationServiceGroupUid.Set(nil)
@@ -297,6 +298,7 @@ func (o *SiteDetailResponseModel) HasLicenseServerName() bool {
 func (o *SiteDetailResponseModel) SetLicenseServerName(v string) {
 	o.LicenseServerName.Set(&v)
 }
+
 // SetLicenseServerNameNil sets the value for LicenseServerName to be an explicit nil
 func (o *SiteDetailResponseModel) SetLicenseServerNameNil() {
 	o.LicenseServerName.Set(nil)
@@ -339,6 +341,7 @@ func (o *SiteDetailResponseModel) HasLicenseServerPort() bool {
 func (o *SiteDetailResponseModel) SetLicenseServerPort(v int32) {
 	o.LicenseServerPort.Set(&v)
 }
+
 // SetLicenseServerPortNil sets the value for LicenseServerPort to be an explicit nil
 func (o *SiteDetailResponseModel) SetLicenseServerPortNil() {
 	o.LicenseServerPort.Set(nil)
@@ -381,6 +384,7 @@ func (o *SiteDetailResponseModel) HasLicenseServerUri() bool {
 func (o *SiteDetailResponseModel) SetLicenseServerUri(v string) {
 	o.LicenseServerUri.Set(&v)
 }
+
 // SetLicenseServerUriNil sets the value for LicenseServerUri to be an explicit nil
 func (o *SiteDetailResponseModel) SetLicenseServerUriNil() {
 	o.LicenseServerUri.Set(nil)
@@ -615,6 +619,7 @@ func (o *SiteDetailResponseModel) HasLicenseExpirationDate() bool {
 func (o *SiteDetailResponseModel) SetLicenseExpirationDate(v string) {
 	o.LicenseExpirationDate.Set(&v)
 }
+
 // SetLicenseExpirationDateNil sets the value for LicenseExpirationDate to be an explicit nil
 func (o *SiteDetailResponseModel) SetLicenseExpirationDateNil() {
 	o.LicenseExpirationDate.Set(nil)
@@ -738,6 +743,7 @@ func (o *SiteDetailResponseModel) HasBaseOU() bool {
 func (o *SiteDetailResponseModel) SetBaseOU(v string) {
 	o.BaseOU.Set(&v)
 }
+
 // SetBaseOUNil sets the value for BaseOU to be an explicit nil
 func (o *SiteDetailResponseModel) SetBaseOUNil() {
 	o.BaseOU.Set(nil)
@@ -924,6 +930,7 @@ func (o *SiteDetailResponseModel) HasLicenseGraceSessionsRemaining() bool {
 func (o *SiteDetailResponseModel) SetLicenseGraceSessionsRemaining(v int32) {
 	o.LicenseGraceSessionsRemaining.Set(&v)
 }
+
 // SetLicenseGraceSessionsRemainingNil sets the value for LicenseGraceSessionsRemaining to be an explicit nil
 func (o *SiteDetailResponseModel) SetLicenseGraceSessionsRemainingNil() {
 	o.LicenseGraceSessionsRemaining.Set(nil)
@@ -966,6 +973,7 @@ func (o *SiteDetailResponseModel) HasLicensedSessionsActive() bool {
 func (o *SiteDetailResponseModel) SetLicensedSessionsActive(v int32) {
 	o.LicensedSessionsActive.Set(&v)
 }
+
 // SetLicensedSessionsActiveNil sets the value for LicensedSessionsActive to be an explicit nil
 func (o *SiteDetailResponseModel) SetLicensedSessionsActiveNil() {
 	o.LicensedSessionsActive.Set(nil)
@@ -1008,6 +1016,7 @@ func (o *SiteDetailResponseModel) HasLicensingGraceHoursLeft() bool {
 func (o *SiteDetailResponseModel) SetLicensingGraceHoursLeft(v int32) {
 	o.LicensingGraceHoursLeft.Set(&v)
 }
+
 // SetLicensingGraceHoursLeftNil sets the value for LicensingGraceHoursLeft to be an explicit nil
 func (o *SiteDetailResponseModel) SetLicensingGraceHoursLeftNil() {
 	o.LicensingGraceHoursLeft.Set(nil)
@@ -1050,6 +1059,7 @@ func (o *SiteDetailResponseModel) HasLicensingGracePeriodActive() bool {
 func (o *SiteDetailResponseModel) SetLicensingGracePeriodActive(v bool) {
 	o.LicensingGracePeriodActive.Set(&v)
 }
+
 // SetLicensingGracePeriodActiveNil sets the value for LicensingGracePeriodActive to be an explicit nil
 func (o *SiteDetailResponseModel) SetLicensingGracePeriodActiveNil() {
 	o.LicensingGracePeriodActive.Set(nil)
@@ -1092,6 +1102,7 @@ func (o *SiteDetailResponseModel) HasLicensingOutOfBoxGracePeriodActive() bool {
 func (o *SiteDetailResponseModel) SetLicensingOutOfBoxGracePeriodActive(v bool) {
 	o.LicensingOutOfBoxGracePeriodActive.Set(&v)
 }
+
 // SetLicensingOutOfBoxGracePeriodActiveNil sets the value for LicensingOutOfBoxGracePeriodActive to be an explicit nil
 func (o *SiteDetailResponseModel) SetLicensingOutOfBoxGracePeriodActiveNil() {
 	o.LicensingOutOfBoxGracePeriodActive.Set(nil)
@@ -1134,6 +1145,7 @@ func (o *SiteDetailResponseModel) HasPeakConcurrentLicenseUsers() bool {
 func (o *SiteDetailResponseModel) SetPeakConcurrentLicenseUsers(v int32) {
 	o.PeakConcurrentLicenseUsers.Set(&v)
 }
+
 // SetPeakConcurrentLicenseUsersNil sets the value for PeakConcurrentLicenseUsers to be an explicit nil
 func (o *SiteDetailResponseModel) SetPeakConcurrentLicenseUsersNil() {
 	o.PeakConcurrentLicenseUsers.Set(nil)
@@ -1240,6 +1252,7 @@ func (o *SiteDetailResponseModel) HasTotalUniqueLicenseUsers() bool {
 func (o *SiteDetailResponseModel) SetTotalUniqueLicenseUsers(v int32) {
 	o.TotalUniqueLicenseUsers.Set(&v)
 }
+
 // SetTotalUniqueLicenseUsersNil sets the value for TotalUniqueLicenseUsers to be an explicit nil
 func (o *SiteDetailResponseModel) SetTotalUniqueLicenseUsersNil() {
 	o.TotalUniqueLicenseUsers.Set(nil)
@@ -1282,6 +1295,7 @@ func (o *SiteDetailResponseModel) HasTrustRequestsSentToTheXmlServicePort() bool
 func (o *SiteDetailResponseModel) SetTrustRequestsSentToTheXmlServicePort(v bool) {
 	o.TrustRequestsSentToTheXmlServicePort.Set(&v)
 }
+
 // SetTrustRequestsSentToTheXmlServicePortNil sets the value for TrustRequestsSentToTheXmlServicePort to be an explicit nil
 func (o *SiteDetailResponseModel) SetTrustRequestsSentToTheXmlServicePortNil() {
 	o.TrustRequestsSentToTheXmlServicePort.Set(nil)
@@ -1324,6 +1338,7 @@ func (o *SiteDetailResponseModel) HasLicensesWithExpiredSwm() bool {
 func (o *SiteDetailResponseModel) SetLicensesWithExpiredSwm(v string) {
 	o.LicensesWithExpiredSwm.Set(&v)
 }
+
 // SetLicensesWithExpiredSwmNil sets the value for LicensesWithExpiredSwm to be an explicit nil
 func (o *SiteDetailResponseModel) SetLicensesWithExpiredSwmNil() {
 	o.LicensesWithExpiredSwm.Set(nil)
@@ -1366,6 +1381,7 @@ func (o *SiteDetailResponseModel) HasGpoDataNoError() bool {
 func (o *SiteDetailResponseModel) SetGpoDataNoError(v bool) {
 	o.GpoDataNoError.Set(&v)
 }
+
 // SetGpoDataNoErrorNil sets the value for GpoDataNoError to be an explicit nil
 func (o *SiteDetailResponseModel) SetGpoDataNoErrorNil() {
 	o.GpoDataNoError.Set(nil)
@@ -1410,7 +1426,7 @@ func (o *SiteDetailResponseModel) SetLicensingAlerts(v []LicensingAlertResponseM
 }
 
 func (o SiteDetailResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1549,5 +1565,3 @@ func (v *NullableSiteDetailResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

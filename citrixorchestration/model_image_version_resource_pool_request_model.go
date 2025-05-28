@@ -74,6 +74,7 @@ func (o *ImageVersionResourcePoolRequestModel) HasResourcePool() bool {
 func (o *ImageVersionResourcePoolRequestModel) SetResourcePool(v string) {
 	o.ResourcePool.Set(&v)
 }
+
 // SetResourcePoolNil sets the value for ResourcePool to be an explicit nil
 func (o *ImageVersionResourcePoolRequestModel) SetResourcePoolNil() {
 	o.ResourcePool.Set(nil)
@@ -118,7 +119,7 @@ func (o *ImageVersionResourcePoolRequestModel) SetCustomProperties(v []NameValue
 }
 
 func (o ImageVersionResourcePoolRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -171,5 +172,3 @@ func (v *NullableImageVersionResourcePoolRequestModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

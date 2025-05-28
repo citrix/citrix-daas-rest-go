@@ -20,18 +20,18 @@ type LogOperationSearchProperty string
 
 // List of LogOperationSearchProperty
 const (
-	LOGOPERATIONSEARCHPROPERTY_ID LogOperationSearchProperty = "Id"
-	LOGOPERATIONSEARCHPROPERTY_TEXT LogOperationSearchProperty = "Text"
-	LOGOPERATIONSEARCHPROPERTY_USER LogOperationSearchProperty = "User"
-	LOGOPERATIONSEARCHPROPERTY_SOURCE LogOperationSearchProperty = "Source"
+	LOGOPERATIONSEARCHPROPERTY_ID               LogOperationSearchProperty = "Id"
+	LOGOPERATIONSEARCHPROPERTY_TEXT             LogOperationSearchProperty = "Text"
+	LOGOPERATIONSEARCHPROPERTY_USER             LogOperationSearchProperty = "User"
+	LOGOPERATIONSEARCHPROPERTY_SOURCE           LogOperationSearchProperty = "Source"
 	LOGOPERATIONSEARCHPROPERTY_ADMIN_MACHINE_IP LogOperationSearchProperty = "AdminMachineIP"
-	LOGOPERATIONSEARCHPROPERTY_END_TIME LogOperationSearchProperty = "EndTime"
-	LOGOPERATIONSEARCHPROPERTY_START_TIME LogOperationSearchProperty = "StartTime"
-	LOGOPERATIONSEARCHPROPERTY_IS_SUCCESSFUL LogOperationSearchProperty = "IsSuccessful"
-	LOGOPERATIONSEARCHPROPERTY_TARGET_TYPE LogOperationSearchProperty = "TargetType"
-	LOGOPERATIONSEARCHPROPERTY_OPERATION_TYPE LogOperationSearchProperty = "OperationType"
-	LOGOPERATIONSEARCHPROPERTY_LABELS LogOperationSearchProperty = "Labels"
-	LOGOPERATIONSEARCHPROPERTY_USER_IDENTITY LogOperationSearchProperty = "UserIdentity"
+	LOGOPERATIONSEARCHPROPERTY_END_TIME         LogOperationSearchProperty = "EndTime"
+	LOGOPERATIONSEARCHPROPERTY_START_TIME       LogOperationSearchProperty = "StartTime"
+	LOGOPERATIONSEARCHPROPERTY_IS_SUCCESSFUL    LogOperationSearchProperty = "IsSuccessful"
+	LOGOPERATIONSEARCHPROPERTY_TARGET_TYPE      LogOperationSearchProperty = "TargetType"
+	LOGOPERATIONSEARCHPROPERTY_OPERATION_TYPE   LogOperationSearchProperty = "OperationType"
+	LOGOPERATIONSEARCHPROPERTY_LABELS           LogOperationSearchProperty = "Labels"
+	LOGOPERATIONSEARCHPROPERTY_USER_IDENTITY    LogOperationSearchProperty = "UserIdentity"
 )
 
 // All allowed values of LogOperationSearchProperty enum
@@ -56,7 +56,7 @@ func (v *LogOperationSearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = LogOperationSearchProperty(value)
 	return nil
 }
@@ -122,4 +122,3 @@ func (v *NullableLogOperationSearchProperty) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

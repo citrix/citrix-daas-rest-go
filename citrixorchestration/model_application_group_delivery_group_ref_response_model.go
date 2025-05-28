@@ -30,8 +30,8 @@ type ApplicationGroupDeliveryGroupRefResponseModel struct {
 	// Number of machines within the delivery group that are capable of hosting the applications in the application group.
 	NumMachines *int32 `json:"NumMachines,omitempty"`
 	// Number of tagged machines within the delivery group that are capable of hosting the applications in the application group.
-	NumTaggedMachines *int32 `json:"NumTaggedMachines,omitempty"`
-	SessionSupport *SessionSupport `json:"SessionSupport,omitempty"`
+	NumTaggedMachines *int32          `json:"NumTaggedMachines,omitempty"`
+	SessionSupport    *SessionSupport `json:"SessionSupport,omitempty"`
 }
 
 // NewApplicationGroupDeliveryGroupRefResponseModel instantiates a new ApplicationGroupDeliveryGroupRefResponseModel object
@@ -83,6 +83,7 @@ func (o *ApplicationGroupDeliveryGroupRefResponseModel) HasId() bool {
 func (o *ApplicationGroupDeliveryGroupRefResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *ApplicationGroupDeliveryGroupRefResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -125,6 +126,7 @@ func (o *ApplicationGroupDeliveryGroupRefResponseModel) HasUid() bool {
 func (o *ApplicationGroupDeliveryGroupRefResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *ApplicationGroupDeliveryGroupRefResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -167,6 +169,7 @@ func (o *ApplicationGroupDeliveryGroupRefResponseModel) HasName() bool {
 func (o *ApplicationGroupDeliveryGroupRefResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ApplicationGroupDeliveryGroupRefResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -306,7 +309,7 @@ func (o *ApplicationGroupDeliveryGroupRefResponseModel) SetSessionSupport(v Sess
 }
 
 func (o ApplicationGroupDeliveryGroupRefResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -374,5 +377,3 @@ func (v *NullableApplicationGroupDeliveryGroupRefResponseModel) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

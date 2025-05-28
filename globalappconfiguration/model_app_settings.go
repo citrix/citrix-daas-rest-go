@@ -19,13 +19,13 @@ var _ MappedNullable = &AppSettings{}
 
 // AppSettings struct for AppSettings
 type AppSettings struct {
-	Android []PlatformSettings `json:"android,omitempty"`
+	Android  []PlatformSettings `json:"android,omitempty"`
 	Chromeos []PlatformSettings `json:"chromeos,omitempty"`
-	Html5 []PlatformSettings `json:"html5,omitempty"`
-	Ios []PlatformSettings `json:"ios,omitempty"`
-	Linux []PlatformSettings `json:"linux,omitempty"`
-	Macos []PlatformSettings `json:"macos,omitempty"`
-	Windows []PlatformSettings `json:"windows,omitempty"`
+	Html5    []PlatformSettings `json:"html5,omitempty"`
+	Ios      []PlatformSettings `json:"ios,omitempty"`
+	Linux    []PlatformSettings `json:"linux,omitempty"`
+	Macos    []PlatformSettings `json:"macos,omitempty"`
+	Windows  []PlatformSettings `json:"windows,omitempty"`
 }
 
 // NewAppSettings instantiates a new AppSettings object
@@ -270,7 +270,7 @@ func (o *AppSettings) SetWindows(v []PlatformSettings) {
 }
 
 func (o AppSettings) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -338,5 +338,3 @@ func (v *NullableAppSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

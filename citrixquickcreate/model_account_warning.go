@@ -76,6 +76,7 @@ func (o *AccountWarning) HasWarning() bool {
 func (o *AccountWarning) SetWarning(v string) {
 	o.Warning.Set(&v)
 }
+
 // SetWarningNil sets the value for Warning to be an explicit nil
 func (o *AccountWarning) SetWarningNil() {
 	o.Warning.Set(nil)
@@ -151,7 +152,7 @@ func (o *AccountWarning) SetIsDismissible(v bool) {
 }
 
 func (o AccountWarning) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -207,5 +208,3 @@ func (v *NullableAccountWarning) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

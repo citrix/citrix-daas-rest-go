@@ -20,10 +20,10 @@ type TenancyType string
 
 // List of TenancyType
 const (
-	TENANCYTYPE_UNKNOWN TenancyType = "Unknown"
-	TENANCYTYPE_SHARED TenancyType = "Shared"
+	TENANCYTYPE_UNKNOWN  TenancyType = "Unknown"
+	TENANCYTYPE_SHARED   TenancyType = "Shared"
 	TENANCYTYPE_INSTANCE TenancyType = "Instance"
-	TENANCYTYPE_HOST TenancyType = "Host"
+	TENANCYTYPE_HOST     TenancyType = "Host"
 )
 
 // All allowed values of TenancyType enum
@@ -112,4 +112,3 @@ func (v *NullableTenancyType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

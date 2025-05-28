@@ -19,10 +19,13 @@ var _ MappedNullable = &AddAccount{}
 
 // AddAccount Adds account
 type AddAccount struct {
+	// The type of provider associated with the account
 	AccountType AccountType `json:"accountType"`
 	// The name of the account to create
 	Name string `json:"name"`
 }
+
+type _AddAccount AddAccount
 
 // NewAddAccount instantiates a new AddAccount object
 // This constructor will assign default values to properties that have it defined,
@@ -92,7 +95,7 @@ func (o *AddAccount) SetName(v string) {
 }
 
 func (o AddAccount) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -141,5 +144,3 @@ func (v *NullableAddAccount) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

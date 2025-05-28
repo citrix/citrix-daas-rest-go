@@ -19,8 +19,8 @@ var _ MappedNullable = &ProvisionedVirtualMachineSortCriteriaRequestModel{}
 
 // ProvisionedVirtualMachineSortCriteriaRequestModel Machine sort criteria.
 type ProvisionedVirtualMachineSortCriteriaRequestModel struct {
-	Property ProvisionedVirtualMachineSearchProperty `json:"Property"`
-	SortDirection ListSortDirection `json:"SortDirection"`
+	Property      ProvisionedVirtualMachineSearchProperty `json:"Property"`
+	SortDirection ListSortDirection                       `json:"SortDirection"`
 }
 
 // NewProvisionedVirtualMachineSortCriteriaRequestModel instantiates a new ProvisionedVirtualMachineSortCriteriaRequestModel object
@@ -91,7 +91,7 @@ func (o *ProvisionedVirtualMachineSortCriteriaRequestModel) SetSortDirection(v L
 }
 
 func (o ProvisionedVirtualMachineSortCriteriaRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableProvisionedVirtualMachineSortCriteriaRequestModel) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

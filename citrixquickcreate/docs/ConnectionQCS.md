@@ -25,27 +25,27 @@ Adds resource connection asyncronously
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of account
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := AddAwsEdcDirectoryConnection(987) // AddAwsEdcDirectoryConnection | Connection configuration (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of account
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	body := AddAwsEdcDirectoryConnection(987) // AddAwsEdcDirectoryConnection | Connection configuration (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectionQCS.AddResourceConnectionAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectionQCS.AddResourceConnectionAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `AddResourceConnectionAsync`: ResourceConnectionTask
-    fmt.Fprintf(os.Stdout, "Response from `ConnectionQCS.AddResourceConnectionAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConnectionQCS.AddResourceConnectionAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConnectionQCS.AddResourceConnectionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AddResourceConnectionAsync`: ResourceConnectionTask
+	fmt.Fprintf(os.Stdout, "Response from `ConnectionQCS.AddResourceConnectionAsync`: %v\n", resp)
 }
 ```
 
@@ -100,26 +100,26 @@ Gets all resource connections without specifying account
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountType := openapiclient.AccountType("AWSEDC") // AccountType | Filtering parameter for account type (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountType := openapiclient.AccountType("AWSEDC") // AccountType | Filtering parameter for account type (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectionQCS.GetAllResourceConnectionsAsync(context.Background(), customerId).AccountType(accountType).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectionQCS.GetAllResourceConnectionsAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAllResourceConnectionsAsync`: ResourceConnections
-    fmt.Fprintf(os.Stdout, "Response from `ConnectionQCS.GetAllResourceConnectionsAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConnectionQCS.GetAllResourceConnectionsAsync(context.Background(), customerId).AccountType(accountType).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConnectionQCS.GetAllResourceConnectionsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAllResourceConnectionsAsync`: ResourceConnections
+	fmt.Fprintf(os.Stdout, "Response from `ConnectionQCS.GetAllResourceConnectionsAsync`: %v\n", resp)
 }
 ```
 
@@ -172,27 +172,27 @@ Gets resource connection
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of account
-    connectionId := "connectionId_example" // string | ID of connection
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of account
+	connectionId := "connectionId_example" // string | ID of connection
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectionQCS.GetResourceConnectionAsync(context.Background(), customerId, accountId, connectionId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectionQCS.GetResourceConnectionAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetResourceConnectionAsync`: AwsEdcDirectoryConnection
-    fmt.Fprintf(os.Stdout, "Response from `ConnectionQCS.GetResourceConnectionAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConnectionQCS.GetResourceConnectionAsync(context.Background(), customerId, accountId, connectionId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConnectionQCS.GetResourceConnectionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetResourceConnectionAsync`: AwsEdcDirectoryConnection
+	fmt.Fprintf(os.Stdout, "Response from `ConnectionQCS.GetResourceConnectionAsync`: %v\n", resp)
 }
 ```
 
@@ -248,27 +248,27 @@ Gets resource connections
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of account
-    citrixManaged := true // bool | citrix managed connections (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of account
+	citrixManaged := true // bool | citrix managed connections (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectionQCS.GetResourceConnectionsAsync(context.Background(), customerId, accountId).CitrixManaged(citrixManaged).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectionQCS.GetResourceConnectionsAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetResourceConnectionsAsync`: ResourceConnections
-    fmt.Fprintf(os.Stdout, "Response from `ConnectionQCS.GetResourceConnectionsAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConnectionQCS.GetResourceConnectionsAsync(context.Background(), customerId, accountId).CitrixManaged(citrixManaged).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConnectionQCS.GetResourceConnectionsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetResourceConnectionsAsync`: ResourceConnections
+	fmt.Fprintf(os.Stdout, "Response from `ConnectionQCS.GetResourceConnectionsAsync`: %v\n", resp)
 }
 ```
 
@@ -323,28 +323,28 @@ Modifies connection
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of account
-    connectionId := "connectionId_example" // string | ID of connection
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := UpdateAwsEdcDirectoryConnection(987) // UpdateAwsEdcDirectoryConnection | Update configuration (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of account
+	connectionId := "connectionId_example" // string | ID of connection
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	body := UpdateAwsEdcDirectoryConnection(987) // UpdateAwsEdcDirectoryConnection | Update configuration (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectionQCS.ModifyResourceConnectionAsync(context.Background(), customerId, accountId, connectionId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectionQCS.ModifyResourceConnectionAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ModifyResourceConnectionAsync`: AwsEdcDirectoryConnection
-    fmt.Fprintf(os.Stdout, "Response from `ConnectionQCS.ModifyResourceConnectionAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConnectionQCS.ModifyResourceConnectionAsync(context.Background(), customerId, accountId, connectionId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConnectionQCS.ModifyResourceConnectionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ModifyResourceConnectionAsync`: AwsEdcDirectoryConnection
+	fmt.Fprintf(os.Stdout, "Response from `ConnectionQCS.ModifyResourceConnectionAsync`: %v\n", resp)
 }
 ```
 
@@ -401,28 +401,28 @@ Removes connection
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of account
-    connectionId := "connectionId_example" // string | ID of connection
-    forceDelete := true // bool | Force delete a connection (optional) (default to false)
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of account
+	connectionId := "connectionId_example" // string | ID of connection
+	forceDelete := true // bool | Force delete a connection (optional) (default to false)
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectionQCS.RemoveResourceConnectionAsync(context.Background(), customerId, accountId, connectionId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectionQCS.RemoveResourceConnectionAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `RemoveResourceConnectionAsync`: ResourceConnectionTask
-    fmt.Fprintf(os.Stdout, "Response from `ConnectionQCS.RemoveResourceConnectionAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConnectionQCS.RemoveResourceConnectionAsync(context.Background(), customerId, accountId, connectionId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConnectionQCS.RemoveResourceConnectionAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RemoveResourceConnectionAsync`: ResourceConnectionTask
+	fmt.Fprintf(os.Stdout, "Response from `ConnectionQCS.RemoveResourceConnectionAsync`: %v\n", resp)
 }
 ```
 

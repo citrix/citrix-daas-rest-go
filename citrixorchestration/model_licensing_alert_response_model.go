@@ -20,7 +20,7 @@ var _ MappedNullable = &LicensingAlertResponseModel{}
 // LicensingAlertResponseModel Licensing alert.
 type LicensingAlertResponseModel struct {
 	// The priority of the licensing alert.
-	Priority *int32 `json:"Priority,omitempty"`
+	Priority   *int32                `json:"Priority,omitempty"`
 	AlertLevel *LicensingAlertLevel2 `json:"AlertLevel,omitempty"`
 	// The type code of the licensing alert (internal code used by licensing).
 	TypeCode NullableString `json:"TypeCode,omitempty"`
@@ -145,6 +145,7 @@ func (o *LicensingAlertResponseModel) HasTypeCode() bool {
 func (o *LicensingAlertResponseModel) SetTypeCode(v string) {
 	o.TypeCode.Set(&v)
 }
+
 // SetTypeCodeNil sets the value for TypeCode to be an explicit nil
 func (o *LicensingAlertResponseModel) SetTypeCodeNil() {
 	o.TypeCode.Set(nil)
@@ -187,6 +188,7 @@ func (o *LicensingAlertResponseModel) HasTitle() bool {
 func (o *LicensingAlertResponseModel) SetTitle(v string) {
 	o.Title.Set(&v)
 }
+
 // SetTitleNil sets the value for Title to be an explicit nil
 func (o *LicensingAlertResponseModel) SetTitleNil() {
 	o.Title.Set(nil)
@@ -229,6 +231,7 @@ func (o *LicensingAlertResponseModel) HasDetail() bool {
 func (o *LicensingAlertResponseModel) SetDetail(v string) {
 	o.Detail.Set(&v)
 }
+
 // SetDetailNil sets the value for Detail to be an explicit nil
 func (o *LicensingAlertResponseModel) SetDetailNil() {
 	o.Detail.Set(nil)
@@ -271,6 +274,7 @@ func (o *LicensingAlertResponseModel) HasAction() bool {
 func (o *LicensingAlertResponseModel) SetAction(v string) {
 	o.Action.Set(&v)
 }
+
 // SetActionNil sets the value for Action to be an explicit nil
 func (o *LicensingAlertResponseModel) SetActionNil() {
 	o.Action.Set(nil)
@@ -282,7 +286,7 @@ func (o *LicensingAlertResponseModel) UnsetAction() {
 }
 
 func (o LicensingAlertResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -347,5 +351,3 @@ func (v *NullableLicensingAlertResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -91,6 +91,7 @@ func (o *PvsStreamingVDiskResponseModel) HasADPasswordEnabled() bool {
 func (o *PvsStreamingVDiskResponseModel) SetADPasswordEnabled(v bool) {
 	o.ADPasswordEnabled.Set(&v)
 }
+
 // SetADPasswordEnabledNil sets the value for ADPasswordEnabled to be an explicit nil
 func (o *PvsStreamingVDiskResponseModel) SetADPasswordEnabledNil() {
 	o.ADPasswordEnabled.Set(nil)
@@ -133,6 +134,7 @@ func (o *PvsStreamingVDiskResponseModel) HasDiskLocatorId() bool {
 func (o *PvsStreamingVDiskResponseModel) SetDiskLocatorId(v string) {
 	o.DiskLocatorId.Set(&v)
 }
+
 // SetDiskLocatorIdNil sets the value for DiskLocatorId to be an explicit nil
 func (o *PvsStreamingVDiskResponseModel) SetDiskLocatorIdNil() {
 	o.DiskLocatorId.Set(nil)
@@ -199,6 +201,7 @@ func (o *PvsStreamingVDiskResponseModel) HasSiteId() bool {
 func (o *PvsStreamingVDiskResponseModel) SetSiteId(v string) {
 	o.SiteId.Set(&v)
 }
+
 // SetSiteIdNil sets the value for SiteId to be an explicit nil
 func (o *PvsStreamingVDiskResponseModel) SetSiteIdNil() {
 	o.SiteId.Set(nil)
@@ -241,6 +244,7 @@ func (o *PvsStreamingVDiskResponseModel) HasSiteName() bool {
 func (o *PvsStreamingVDiskResponseModel) SetSiteName(v string) {
 	o.SiteName.Set(&v)
 }
+
 // SetSiteNameNil sets the value for SiteName to be an explicit nil
 func (o *PvsStreamingVDiskResponseModel) SetSiteNameNil() {
 	o.SiteName.Set(nil)
@@ -283,6 +287,7 @@ func (o *PvsStreamingVDiskResponseModel) HasStoreId() bool {
 func (o *PvsStreamingVDiskResponseModel) SetStoreId(v string) {
 	o.StoreId.Set(&v)
 }
+
 // SetStoreIdNil sets the value for StoreId to be an explicit nil
 func (o *PvsStreamingVDiskResponseModel) SetStoreIdNil() {
 	o.StoreId.Set(nil)
@@ -325,6 +330,7 @@ func (o *PvsStreamingVDiskResponseModel) HasStoreName() bool {
 func (o *PvsStreamingVDiskResponseModel) SetStoreName(v string) {
 	o.StoreName.Set(&v)
 }
+
 // SetStoreNameNil sets the value for StoreName to be an explicit nil
 func (o *PvsStreamingVDiskResponseModel) SetStoreNameNil() {
 	o.StoreName.Set(nil)
@@ -367,6 +373,7 @@ func (o *PvsStreamingVDiskResponseModel) HasStreamingEnabled() bool {
 func (o *PvsStreamingVDiskResponseModel) SetStreamingEnabled(v bool) {
 	o.StreamingEnabled.Set(&v)
 }
+
 // SetStreamingEnabledNil sets the value for StreamingEnabled to be an explicit nil
 func (o *PvsStreamingVDiskResponseModel) SetStreamingEnabledNil() {
 	o.StreamingEnabled.Set(nil)
@@ -409,6 +416,7 @@ func (o *PvsStreamingVDiskResponseModel) HasWriteCacheSize() bool {
 func (o *PvsStreamingVDiskResponseModel) SetWriteCacheSize(v int32) {
 	o.WriteCacheSize.Set(&v)
 }
+
 // SetWriteCacheSizeNil sets the value for WriteCacheSize to be an explicit nil
 func (o *PvsStreamingVDiskResponseModel) SetWriteCacheSizeNil() {
 	o.WriteCacheSize.Set(nil)
@@ -451,6 +459,7 @@ func (o *PvsStreamingVDiskResponseModel) HasWriteCacheType() bool {
 func (o *PvsStreamingVDiskResponseModel) SetWriteCacheType(v int32) {
 	o.WriteCacheType.Set(&v)
 }
+
 // SetWriteCacheTypeNil sets the value for WriteCacheType to be an explicit nil
 func (o *PvsStreamingVDiskResponseModel) SetWriteCacheTypeNil() {
 	o.WriteCacheType.Set(nil)
@@ -462,7 +471,7 @@ func (o *PvsStreamingVDiskResponseModel) UnsetWriteCacheType() {
 }
 
 func (o PvsStreamingVDiskResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -537,5 +546,3 @@ func (v *NullablePvsStreamingVDiskResponseModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

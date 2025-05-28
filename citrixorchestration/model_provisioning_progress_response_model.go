@@ -24,8 +24,8 @@ type ProvisioningProgressResponseModel struct {
 	// Specifies the current progress of the provisioning task.
 	Progress int32 `json:"Progress"`
 	// Specifies the message of current provisioning task.
-	ProgressMessage NullableString `json:"ProgressMessage,omitempty"`
-	ProgressMessageList [][]string `json:"ProgressMessageList,omitempty"`
+	ProgressMessage     NullableString `json:"ProgressMessage,omitempty"`
+	ProgressMessageList [][]string     `json:"ProgressMessageList,omitempty"`
 }
 
 // NewProvisioningProgressResponseModel instantiates a new ProvisioningProgressResponseModel object
@@ -127,6 +127,7 @@ func (o *ProvisioningProgressResponseModel) HasProgressMessage() bool {
 func (o *ProvisioningProgressResponseModel) SetProgressMessage(v string) {
 	o.ProgressMessage.Set(&v)
 }
+
 // SetProgressMessageNil sets the value for ProgressMessage to be an explicit nil
 func (o *ProvisioningProgressResponseModel) SetProgressMessageNil() {
 	o.ProgressMessage.Set(nil)
@@ -171,7 +172,7 @@ func (o *ProvisioningProgressResponseModel) SetProgressMessageList(v [][]string)
 }
 
 func (o ProvisioningProgressResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -226,5 +227,3 @@ func (v *NullableProvisioningProgressResponseModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

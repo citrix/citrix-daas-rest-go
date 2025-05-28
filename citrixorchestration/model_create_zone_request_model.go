@@ -103,6 +103,7 @@ func (o *CreateZoneRequestModel) HasDescription() bool {
 func (o *CreateZoneRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *CreateZoneRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -145,6 +146,7 @@ func (o *CreateZoneRequestModel) HasResourceLocation() bool {
 func (o *CreateZoneRequestModel) SetResourceLocation(v string) {
 	o.ResourceLocation.Set(&v)
 }
+
 // SetResourceLocationNil sets the value for ResourceLocation to be an explicit nil
 func (o *CreateZoneRequestModel) SetResourceLocationNil() {
 	o.ResourceLocation.Set(nil)
@@ -189,7 +191,7 @@ func (o *CreateZoneRequestModel) SetMetadata(v []NameValueStringPairModel) {
 }
 
 func (o CreateZoneRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -246,5 +248,3 @@ func (v *NullableCreateZoneRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

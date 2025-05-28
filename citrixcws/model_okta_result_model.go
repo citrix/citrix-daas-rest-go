@@ -19,10 +19,10 @@ var _ MappedNullable = &OktaResultModel{}
 
 // OktaResultModel struct for OktaResultModel
 type OktaResultModel struct {
-	ValidApiToken *bool `json:"validApiToken,omitempty"`
-	ValidClientId *bool `json:"validClientId,omitempty"`
+	ValidApiToken     *bool `json:"validApiToken,omitempty"`
+	ValidClientId     *bool `json:"validClientId,omitempty"`
 	ValidClientSecret *bool `json:"validClientSecret,omitempty"`
-	ValidDomain *bool `json:"validDomain,omitempty"`
+	ValidDomain       *bool `json:"validDomain,omitempty"`
 }
 
 // NewOktaResultModel instantiates a new OktaResultModel object
@@ -171,7 +171,7 @@ func (o *OktaResultModel) SetValidDomain(v bool) {
 }
 
 func (o OktaResultModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,5 +230,3 @@ func (v *NullableOktaResultModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,9 +20,9 @@ type SessionState string
 
 // List of SessionState
 const (
-	SESSIONSTATE_UNKNOWN SessionState = "Unknown"
-	SESSIONSTATE_CONNECTED SessionState = "Connected"
-	SESSIONSTATE_ACTIVE SessionState = "Active"
+	SESSIONSTATE_UNKNOWN      SessionState = "Unknown"
+	SESSIONSTATE_CONNECTED    SessionState = "Connected"
+	SESSIONSTATE_ACTIVE       SessionState = "Active"
 	SESSIONSTATE_DISCONNECTED SessionState = "Disconnected"
 )
 
@@ -40,7 +40,7 @@ func (v *SessionState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SessionState(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableSessionState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

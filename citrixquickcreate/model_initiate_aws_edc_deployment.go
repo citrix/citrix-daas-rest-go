@@ -22,6 +22,7 @@ type InitiateAwsEdcDeployment struct {
 	InitiateDeployment
 	// Image Id
 	ImageId string `json:"imageId"`
+	// Performance size for bundle creation
 	ComputeType *AwsEdcWorkspaceCompute `json:"computeType,omitempty"`
 	// Size of operating system volume for bundle creation
 	RootVolumeSize *int32 `json:"rootVolumeSize,omitempty"`
@@ -31,13 +32,17 @@ type InitiateAwsEdcDeployment struct {
 	VolumesEncrypted NullableBool `json:"volumesEncrypted,omitempty"`
 	// Volume encryption key
 	VolumesEncryptionKey NullableString `json:"volumesEncryptionKey,omitempty"`
+	// Running mode to apply to all workspaces
 	RunningMode NullableAwsEdcWorkspaceRunningMode `json:"runningMode,omitempty"`
+	// Power Configuration for AWS Deployment
 	ScaleSettings NullableScaleSettings `json:"scaleSettings,omitempty"`
 	// Should workspaces be decoupled from the user during creation
 	UserDecoupledWorkspaces NullableBool `json:"userDecoupledWorkspaces,omitempty"`
 	// Configuration for individual workspace
 	Workspaces []AddAwsEdcWorkspace `json:"workspaces,omitempty"`
 }
+
+type _InitiateAwsEdcDeployment InitiateAwsEdcDeployment
 
 // NewInitiateAwsEdcDeployment instantiates a new InitiateAwsEdcDeployment object
 // This constructor will assign default values to properties that have it defined,
@@ -211,6 +216,7 @@ func (o *InitiateAwsEdcDeployment) HasVolumesEncrypted() bool {
 func (o *InitiateAwsEdcDeployment) SetVolumesEncrypted(v bool) {
 	o.VolumesEncrypted.Set(&v)
 }
+
 // SetVolumesEncryptedNil sets the value for VolumesEncrypted to be an explicit nil
 func (o *InitiateAwsEdcDeployment) SetVolumesEncryptedNil() {
 	o.VolumesEncrypted.Set(nil)
@@ -253,6 +259,7 @@ func (o *InitiateAwsEdcDeployment) HasVolumesEncryptionKey() bool {
 func (o *InitiateAwsEdcDeployment) SetVolumesEncryptionKey(v string) {
 	o.VolumesEncryptionKey.Set(&v)
 }
+
 // SetVolumesEncryptionKeyNil sets the value for VolumesEncryptionKey to be an explicit nil
 func (o *InitiateAwsEdcDeployment) SetVolumesEncryptionKeyNil() {
 	o.VolumesEncryptionKey.Set(nil)
@@ -295,6 +302,7 @@ func (o *InitiateAwsEdcDeployment) HasRunningMode() bool {
 func (o *InitiateAwsEdcDeployment) SetRunningMode(v AwsEdcWorkspaceRunningMode) {
 	o.RunningMode.Set(&v)
 }
+
 // SetRunningModeNil sets the value for RunningMode to be an explicit nil
 func (o *InitiateAwsEdcDeployment) SetRunningModeNil() {
 	o.RunningMode.Set(nil)
@@ -337,6 +345,7 @@ func (o *InitiateAwsEdcDeployment) HasScaleSettings() bool {
 func (o *InitiateAwsEdcDeployment) SetScaleSettings(v ScaleSettings) {
 	o.ScaleSettings.Set(&v)
 }
+
 // SetScaleSettingsNil sets the value for ScaleSettings to be an explicit nil
 func (o *InitiateAwsEdcDeployment) SetScaleSettingsNil() {
 	o.ScaleSettings.Set(nil)
@@ -379,6 +388,7 @@ func (o *InitiateAwsEdcDeployment) HasUserDecoupledWorkspaces() bool {
 func (o *InitiateAwsEdcDeployment) SetUserDecoupledWorkspaces(v bool) {
 	o.UserDecoupledWorkspaces.Set(&v)
 }
+
 // SetUserDecoupledWorkspacesNil sets the value for UserDecoupledWorkspaces to be an explicit nil
 func (o *InitiateAwsEdcDeployment) SetUserDecoupledWorkspacesNil() {
 	o.UserDecoupledWorkspaces.Set(nil)
@@ -410,7 +420,7 @@ func (o *InitiateAwsEdcDeployment) GetWorkspacesOk() ([]AddAwsEdcWorkspace, bool
 
 // HasWorkspaces returns a boolean if a field has been set.
 func (o *InitiateAwsEdcDeployment) HasWorkspaces() bool {
-	if o != nil && IsNil(o.Workspaces) {
+	if o != nil && !IsNil(o.Workspaces) {
 		return true
 	}
 
@@ -423,7 +433,7 @@ func (o *InitiateAwsEdcDeployment) SetWorkspaces(v []AddAwsEdcWorkspace) {
 }
 
 func (o InitiateAwsEdcDeployment) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -506,5 +516,3 @@ func (v *NullableInitiateAwsEdcDeployment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

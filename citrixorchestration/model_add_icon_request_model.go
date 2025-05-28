@@ -17,11 +17,11 @@ import (
 // checks if the AddIconRequestModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AddIconRequestModel{}
 
-// AddIconRequestModel Request model for adding icons to the site             
+// AddIconRequestModel Request model for adding icons to the site
 type AddIconRequestModel struct {
-	// Raw icon data, Base64-encoded.             
+	// Raw icon data, Base64-encoded.
 	RawData string `json:"RawData"`
-	// Icon format.             Must be: `{mime-type};{width}x{height}x{colordepth}`             * _mime-type_ must be `image/png`.  (Other formats may be supported in future.)             * _width_ and _height_ are specified in pixels.             * _colordepth_ (optional) is either `8` or `24`.              example: `\"image/png;32x32x24\"`             Optional.If specified, the formatted icon data  will be contained in the response.             
+	// Icon format.             Must be: `{mime-type};{width}x{height}x{colordepth}`             * _mime-type_ must be `image/png`.  (Other formats may be supported in future.)             * _width_ and _height_ are specified in pixels.             * _colordepth_ (optional) is either `8` or `24`.              example: `\"image/png;32x32x24\"`             Optional.If specified, the formatted icon data  will be contained in the response.
 	IconFormat NullableString `json:"IconFormat,omitempty"`
 }
 
@@ -99,6 +99,7 @@ func (o *AddIconRequestModel) HasIconFormat() bool {
 func (o *AddIconRequestModel) SetIconFormat(v string) {
 	o.IconFormat.Set(&v)
 }
+
 // SetIconFormatNil sets the value for IconFormat to be an explicit nil
 func (o *AddIconRequestModel) SetIconFormatNil() {
 	o.IconFormat.Set(nil)
@@ -110,7 +111,7 @@ func (o *AddIconRequestModel) UnsetIconFormat() {
 }
 
 func (o AddIconRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -161,5 +162,3 @@ func (v *NullableAddIconRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

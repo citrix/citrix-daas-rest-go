@@ -30,8 +30,8 @@ type StartMenuApplicationResponseModel struct {
 	// Path to the shortcut within the start menu.
 	ShortcutPath string `json:"ShortcutPath"`
 	// Working directory.
-	WorkingDirectory NullableString `json:"WorkingDirectory,omitempty"`
-	Machine RefResponseModel `json:"Machine"`
+	WorkingDirectory NullableString   `json:"WorkingDirectory,omitempty"`
+	Machine          RefResponseModel `json:"Machine"`
 }
 
 // NewStartMenuApplicationResponseModel instantiates a new StartMenuApplicationResponseModel object
@@ -87,6 +87,7 @@ func (o *StartMenuApplicationResponseModel) HasCommandLineArguments() bool {
 func (o *StartMenuApplicationResponseModel) SetCommandLineArguments(v string) {
 	o.CommandLineArguments.Set(&v)
 }
+
 // SetCommandLineArgumentsNil sets the value for CommandLineArguments to be an explicit nil
 func (o *StartMenuApplicationResponseModel) SetCommandLineArgumentsNil() {
 	o.CommandLineArguments.Set(nil)
@@ -153,6 +154,7 @@ func (o *StartMenuApplicationResponseModel) HasDescription() bool {
 func (o *StartMenuApplicationResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *StartMenuApplicationResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -243,6 +245,7 @@ func (o *StartMenuApplicationResponseModel) HasWorkingDirectory() bool {
 func (o *StartMenuApplicationResponseModel) SetWorkingDirectory(v string) {
 	o.WorkingDirectory.Set(&v)
 }
+
 // SetWorkingDirectoryNil sets the value for WorkingDirectory to be an explicit nil
 func (o *StartMenuApplicationResponseModel) SetWorkingDirectoryNil() {
 	o.WorkingDirectory.Set(nil)
@@ -278,7 +281,7 @@ func (o *StartMenuApplicationResponseModel) SetMachine(v RefResponseModel) {
 }
 
 func (o StartMenuApplicationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -338,5 +341,3 @@ func (v *NullableStartMenuApplicationResponseModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -111,6 +111,7 @@ func (o *TestReportResponseModel) HasCreatedBy() bool {
 func (o *TestReportResponseModel) SetCreatedBy(v string) {
 	o.CreatedBy.Set(&v)
 }
+
 // SetCreatedByNil sets the value for CreatedBy to be an explicit nil
 func (o *TestReportResponseModel) SetCreatedByNil() {
 	o.CreatedBy.Set(nil)
@@ -153,6 +154,7 @@ func (o *TestReportResponseModel) HasReportTime() bool {
 func (o *TestReportResponseModel) SetReportTime(v string) {
 	o.ReportTime.Set(&v)
 }
+
 // SetReportTimeNil sets the value for ReportTime to be an explicit nil
 func (o *TestReportResponseModel) SetReportTimeNil() {
 	o.ReportTime.Set(nil)
@@ -195,6 +197,7 @@ func (o *TestReportResponseModel) HasFormattedReportTime() bool {
 func (o *TestReportResponseModel) SetFormattedReportTime(v string) {
 	o.FormattedReportTime.Set(&v)
 }
+
 // SetFormattedReportTimeNil sets the value for FormattedReportTime to be an explicit nil
 func (o *TestReportResponseModel) SetFormattedReportTimeNil() {
 	o.FormattedReportTime.Set(nil)
@@ -239,7 +242,7 @@ func (o *TestReportResponseModel) SetTestResults(v []TestReportResultModel) {
 }
 
 func (o TestReportResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -301,5 +304,3 @@ func (v *NullableTestReportResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

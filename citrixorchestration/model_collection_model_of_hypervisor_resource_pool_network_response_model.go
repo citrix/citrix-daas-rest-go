@@ -101,6 +101,7 @@ func (o *CollectionModelOfHypervisorResourcePoolNetworkResponseModel) HasContinu
 func (o *CollectionModelOfHypervisorResourcePoolNetworkResponseModel) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *CollectionModelOfHypervisorResourcePoolNetworkResponseModel) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -143,6 +144,7 @@ func (o *CollectionModelOfHypervisorResourcePoolNetworkResponseModel) HasTotalIt
 func (o *CollectionModelOfHypervisorResourcePoolNetworkResponseModel) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *CollectionModelOfHypervisorResourcePoolNetworkResponseModel) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -154,7 +156,7 @@ func (o *CollectionModelOfHypervisorResourcePoolNetworkResponseModel) UnsetTotal
 }
 
 func (o CollectionModelOfHypervisorResourcePoolNetworkResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableCollectionModelOfHypervisorResourcePoolNetworkResponseModel) Un
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -113,6 +113,7 @@ func (o *FilterDetail) HasFilterValue() bool {
 func (o *FilterDetail) SetFilterValue(v string) {
 	o.FilterValue.Set(&v)
 }
+
 // SetFilterValueNil sets the value for FilterValue to be an explicit nil
 func (o *FilterDetail) SetFilterValueNil() {
 	o.FilterValue.Set(nil)
@@ -187,6 +188,7 @@ func (o *FilterDetail) HasFilterData() bool {
 func (o *FilterDetail) SetFilterData(v string) {
 	o.FilterData.Set(&v)
 }
+
 // SetFilterDataNil sets the value for FilterData to be an explicit nil
 func (o *FilterDetail) SetFilterDataNil() {
 	o.FilterData.Set(nil)
@@ -229,6 +231,7 @@ func (o *FilterDetail) HasIsWithout() bool {
 func (o *FilterDetail) SetIsWithout(v bool) {
 	o.IsWithout.Set(&v)
 }
+
 // SetIsWithoutNil sets the value for IsWithout to be an explicit nil
 func (o *FilterDetail) SetIsWithoutNil() {
 	o.IsWithout.Set(nil)
@@ -271,6 +274,7 @@ func (o *FilterDetail) HasGateway() bool {
 func (o *FilterDetail) SetGateway(v string) {
 	o.Gateway.Set(&v)
 }
+
 // SetGatewayNil sets the value for Gateway to be an explicit nil
 func (o *FilterDetail) SetGatewayNil() {
 	o.Gateway.Set(nil)
@@ -282,7 +286,7 @@ func (o *FilterDetail) UnsetGateway() {
 }
 
 func (o FilterDetail) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -347,5 +351,3 @@ func (v *NullableFilterDetail) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

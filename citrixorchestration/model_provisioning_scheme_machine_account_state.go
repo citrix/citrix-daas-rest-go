@@ -20,12 +20,12 @@ type ProvisioningSchemeMachineAccountState string
 
 // List of ProvisioningSchemeMachineAccountState
 const (
-	PROVISIONINGSCHEMEMACHINEACCOUNTSTATE_UNKNOWN ProvisioningSchemeMachineAccountState = "Unknown"
+	PROVISIONINGSCHEMEMACHINEACCOUNTSTATE_UNKNOWN   ProvisioningSchemeMachineAccountState = "Unknown"
 	PROVISIONINGSCHEMEMACHINEACCOUNTSTATE_AVAILABLE ProvisioningSchemeMachineAccountState = "Available"
-	PROVISIONINGSCHEMEMACHINEACCOUNTSTATE_IN_USE ProvisioningSchemeMachineAccountState = "InUse"
-	PROVISIONINGSCHEMEMACHINEACCOUNTSTATE_ERROR ProvisioningSchemeMachineAccountState = "Error"
-	PROVISIONINGSCHEMEMACHINEACCOUNTSTATE_TAINTED ProvisioningSchemeMachineAccountState = "Tainted"
-	PROVISIONINGSCHEMEMACHINEACCOUNTSTATE_LOCKED ProvisioningSchemeMachineAccountState = "Locked"
+	PROVISIONINGSCHEMEMACHINEACCOUNTSTATE_IN_USE    ProvisioningSchemeMachineAccountState = "InUse"
+	PROVISIONINGSCHEMEMACHINEACCOUNTSTATE_ERROR     ProvisioningSchemeMachineAccountState = "Error"
+	PROVISIONINGSCHEMEMACHINEACCOUNTSTATE_TAINTED   ProvisioningSchemeMachineAccountState = "Tainted"
+	PROVISIONINGSCHEMEMACHINEACCOUNTSTATE_LOCKED    ProvisioningSchemeMachineAccountState = "Locked"
 )
 
 // All allowed values of ProvisioningSchemeMachineAccountState enum
@@ -44,7 +44,7 @@ func (v *ProvisioningSchemeMachineAccountState) UnmarshalJSON(src []byte) error 
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ProvisioningSchemeMachineAccountState(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableProvisioningSchemeMachineAccountState) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -19,8 +19,8 @@ var _ MappedNullable = &MigrationUrl{}
 
 // MigrationUrl struct for MigrationUrl
 type MigrationUrl struct {
-	StoreFrontValidUntil *string `json:"storeFrontValidUntil,omitempty"`
-	Url *string `json:"url,omitempty"`
+	StoreFrontValidUntil interface{} `json:"storeFrontValidUntil,omitempty"`
+	Url                  *string     `json:"url,omitempty"`
 }
 
 // NewMigrationUrl instantiates a new MigrationUrl object
@@ -41,17 +41,17 @@ func NewMigrationUrlWithDefaults() *MigrationUrl {
 }
 
 // GetStoreFrontValidUntil returns the StoreFrontValidUntil field value if set, zero value otherwise.
-func (o *MigrationUrl) GetStoreFrontValidUntil() string {
+func (o *MigrationUrl) GetStoreFrontValidUntil() interface{} {
 	if o == nil || IsNil(o.StoreFrontValidUntil) {
-		var ret string
+		var ret interface{}
 		return ret
 	}
-	return *o.StoreFrontValidUntil
+	return o.StoreFrontValidUntil
 }
 
 // GetStoreFrontValidUntilOk returns a tuple with the StoreFrontValidUntil field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MigrationUrl) GetStoreFrontValidUntilOk() (*string, bool) {
+func (o *MigrationUrl) GetStoreFrontValidUntilOk() (interface{}, bool) {
 	if o == nil || IsNil(o.StoreFrontValidUntil) {
 		return nil, false
 	}
@@ -67,9 +67,9 @@ func (o *MigrationUrl) HasStoreFrontValidUntil() bool {
 	return false
 }
 
-// SetStoreFrontValidUntil gets a reference to the given string and assigns it to the StoreFrontValidUntil field.
-func (o *MigrationUrl) SetStoreFrontValidUntil(v string) {
-	o.StoreFrontValidUntil = &v
+// SetStoreFrontValidUntil gets a reference to the given interface and assigns it to the StoreFrontValidUntil field.
+func (o *MigrationUrl) SetStoreFrontValidUntil(v interface{}) {
+	o.StoreFrontValidUntil = v
 }
 
 // GetUrl returns the Url field value if set, zero value otherwise.
@@ -105,7 +105,7 @@ func (o *MigrationUrl) SetUrl(v string) {
 }
 
 func (o MigrationUrl) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableMigrationUrl) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

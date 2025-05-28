@@ -20,11 +20,11 @@ type AwsEdcDirectoryRegistrationStatus string
 
 // List of AwsEdcDirectoryRegistrationStatus
 const (
-	AWSEDCDIRECTORYREGISTRATIONSTATUS_REGISTERED AwsEdcDirectoryRegistrationStatus = "REGISTERED"
-	AWSEDCDIRECTORYREGISTRATIONSTATUS_REGISTERING AwsEdcDirectoryRegistrationStatus = "REGISTERING"
-	AWSEDCDIRECTORYREGISTRATIONSTATUS_DEREGISTERED AwsEdcDirectoryRegistrationStatus = "DEREGISTERED"
+	AWSEDCDIRECTORYREGISTRATIONSTATUS_REGISTERED    AwsEdcDirectoryRegistrationStatus = "REGISTERED"
+	AWSEDCDIRECTORYREGISTRATIONSTATUS_REGISTERING   AwsEdcDirectoryRegistrationStatus = "REGISTERING"
+	AWSEDCDIRECTORYREGISTRATIONSTATUS_DEREGISTERED  AwsEdcDirectoryRegistrationStatus = "DEREGISTERED"
 	AWSEDCDIRECTORYREGISTRATIONSTATUS_DEREGISTERING AwsEdcDirectoryRegistrationStatus = "DEREGISTERING"
-	AWSEDCDIRECTORYREGISTRATIONSTATUS_ERROR AwsEdcDirectoryRegistrationStatus = "ERROR"
+	AWSEDCDIRECTORYREGISTRATIONSTATUS_ERROR         AwsEdcDirectoryRegistrationStatus = "ERROR"
 )
 
 // All allowed values of AwsEdcDirectoryRegistrationStatus enum
@@ -114,4 +114,3 @@ func (v *NullableAwsEdcDirectoryRegistrationStatus) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

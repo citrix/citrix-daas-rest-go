@@ -20,10 +20,10 @@ type LasActivationStatus string
 
 // List of LasActivationStatus
 const (
-	LASACTIVATIONSTATUS_ACTIVATED LasActivationStatus = "Activated"
+	LASACTIVATIONSTATUS_ACTIVATED     LasActivationStatus = "Activated"
 	LASACTIVATIONSTATUS_NOT_ACTIVATED LasActivationStatus = "NotActivated"
-	LASACTIVATIONSTATUS_EXPIRED LasActivationStatus = "Expired"
-	LASACTIVATIONSTATUS_UNKNOWN LasActivationStatus = "Unknown"
+	LASACTIVATIONSTATUS_EXPIRED       LasActivationStatus = "Expired"
+	LASACTIVATIONSTATUS_UNKNOWN       LasActivationStatus = "Unknown"
 )
 
 // All allowed values of LasActivationStatus enum
@@ -40,7 +40,7 @@ func (v *LasActivationStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = LasActivationStatus(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableLasActivationStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

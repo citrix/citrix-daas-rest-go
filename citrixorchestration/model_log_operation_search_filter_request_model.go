@@ -21,7 +21,7 @@ var _ MappedNullable = &LogOperationSearchFilterRequestModel{}
 type LogOperationSearchFilterRequestModel struct {
 	Property LogOperationSearchProperty `json:"Property"`
 	// Value to match.
-	Value string `json:"Value"`
+	Value    string         `json:"Value"`
 	Operator SearchOperator `json:"Operator"`
 }
 
@@ -118,7 +118,7 @@ func (o *LogOperationSearchFilterRequestModel) SetOperator(v SearchOperator) {
 }
 
 func (o LogOperationSearchFilterRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -168,5 +168,3 @@ func (v *NullableLogOperationSearchFilterRequestModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

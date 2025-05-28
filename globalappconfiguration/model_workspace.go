@@ -19,8 +19,8 @@ var _ MappedNullable = &Workspace{}
 
 // Workspace struct for Workspace
 type Workspace struct {
-	ServiceURLs []DiscoveryServiceURL `json:"serviceURLs,omitempty"`
-	AllowedWebStoreURLs []AllowedWebStoreURL `json:"allowedWebStoreURLs,omitempty"`
+	AllowedWebStoreURLs []AdminDomainURL `json:"allowedWebStoreURLs,omitempty"`
+	ServiceURLs         []AdminDomainURL `json:"serviceURLs,omitempty"`
 }
 
 // NewWorkspace instantiates a new Workspace object
@@ -40,42 +40,10 @@ func NewWorkspaceWithDefaults() *Workspace {
 	return &this
 }
 
-// GetServiceURLs returns the ServiceURLs field value if set, zero value otherwise.
-func (o *Workspace) GetServiceURLs() []DiscoveryServiceURL {
-	if o == nil || IsNil(o.ServiceURLs) {
-		var ret []DiscoveryServiceURL
-		return ret
-	}
-	return o.ServiceURLs
-}
-
-// GetServiceURLsOk returns a tuple with the ServiceURLs field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Workspace) GetServiceURLsOk() ([]DiscoveryServiceURL, bool) {
-	if o == nil || IsNil(o.ServiceURLs) {
-		return nil, false
-	}
-	return o.ServiceURLs, true
-}
-
-// HasServiceURLs returns a boolean if a field has been set.
-func (o *Workspace) HasServiceURLs() bool {
-	if o != nil && !IsNil(o.ServiceURLs) {
-		return true
-	}
-
-	return false
-}
-
-// SetServiceURLs gets a reference to the given []DiscoveryServiceURL and assigns it to the ServiceURLs field.
-func (o *Workspace) SetServiceURLs(v []DiscoveryServiceURL) {
-	o.ServiceURLs = v
-}
-
 // GetAllowedWebStoreURLs returns the AllowedWebStoreURLs field value if set, zero value otherwise.
-func (o *Workspace) GetAllowedWebStoreURLs() []AllowedWebStoreURL {
+func (o *Workspace) GetAllowedWebStoreURLs() []AdminDomainURL {
 	if o == nil || IsNil(o.AllowedWebStoreURLs) {
-		var ret []AllowedWebStoreURL
+		var ret []AdminDomainURL
 		return ret
 	}
 	return o.AllowedWebStoreURLs
@@ -83,7 +51,7 @@ func (o *Workspace) GetAllowedWebStoreURLs() []AllowedWebStoreURL {
 
 // GetAllowedWebStoreURLsOk returns a tuple with the AllowedWebStoreURLs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Workspace) GetAllowedWebStoreURLsOk() ([]AllowedWebStoreURL, bool) {
+func (o *Workspace) GetAllowedWebStoreURLsOk() ([]AdminDomainURL, bool) {
 	if o == nil || IsNil(o.AllowedWebStoreURLs) {
 		return nil, false
 	}
@@ -99,13 +67,45 @@ func (o *Workspace) HasAllowedWebStoreURLs() bool {
 	return false
 }
 
-// SetAllowedWebStoreURLs gets a reference to the given []AllowedWebStoreURL and assigns it to the AllowedWebStoreURLs field.
-func (o *Workspace) SetAllowedWebStoreURLs(v []AllowedWebStoreURL) {
+// SetAllowedWebStoreURLs gets a reference to the given []AdminDomainURL and assigns it to the AllowedWebStoreURLs field.
+func (o *Workspace) SetAllowedWebStoreURLs(v []AdminDomainURL) {
 	o.AllowedWebStoreURLs = v
 }
 
+// GetServiceURLs returns the ServiceURLs field value if set, zero value otherwise.
+func (o *Workspace) GetServiceURLs() []AdminDomainURL {
+	if o == nil || IsNil(o.ServiceURLs) {
+		var ret []AdminDomainURL
+		return ret
+	}
+	return o.ServiceURLs
+}
+
+// GetServiceURLsOk returns a tuple with the ServiceURLs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Workspace) GetServiceURLsOk() ([]AdminDomainURL, bool) {
+	if o == nil || IsNil(o.ServiceURLs) {
+		return nil, false
+	}
+	return o.ServiceURLs, true
+}
+
+// HasServiceURLs returns a boolean if a field has been set.
+func (o *Workspace) HasServiceURLs() bool {
+	if o != nil && !IsNil(o.ServiceURLs) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceURLs gets a reference to the given []AdminDomainURL and assigns it to the ServiceURLs field.
+func (o *Workspace) SetServiceURLs(v []AdminDomainURL) {
+	o.ServiceURLs = v
+}
+
 func (o Workspace) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -114,11 +114,11 @@ func (o Workspace) MarshalJSON() ([]byte, error) {
 
 func (o Workspace) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ServiceURLs) {
-		toSerialize["serviceURLs"] = o.ServiceURLs
-	}
 	if !IsNil(o.AllowedWebStoreURLs) {
 		toSerialize["allowedWebStoreURLs"] = o.AllowedWebStoreURLs
+	}
+	if !IsNil(o.ServiceURLs) {
+		toSerialize["serviceURLs"] = o.ServiceURLs
 	}
 	return toSerialize, nil
 }
@@ -158,5 +158,3 @@ func (v *NullableWorkspace) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,9 +20,9 @@ var _ MappedNullable = &UpdateImageDefinitionRequestModel{}
 // UpdateImageDefinitionRequestModel Request object for updating image definition.
 type UpdateImageDefinitionRequestModel struct {
 	// The name associated with the image definition.
-	Name NullableString `json:"Name,omitempty"`
+	Name NullableString `json:"Name,omitempty" validate:"regexp=(.*)*"`
 	// The description associated with the image definition.
-	Description NullableString `json:"Description,omitempty"`
+	Description NullableString `json:"Description,omitempty" validate:"regexp=^[A-Za-z]+$"`
 }
 
 // NewUpdateImageDefinitionRequestModel instantiates a new UpdateImageDefinitionRequestModel object
@@ -74,6 +74,7 @@ func (o *UpdateImageDefinitionRequestModel) HasName() bool {
 func (o *UpdateImageDefinitionRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *UpdateImageDefinitionRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -116,6 +117,7 @@ func (o *UpdateImageDefinitionRequestModel) HasDescription() bool {
 func (o *UpdateImageDefinitionRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *UpdateImageDefinitionRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -127,7 +129,7 @@ func (o *UpdateImageDefinitionRequestModel) UnsetDescription() {
 }
 
 func (o UpdateImageDefinitionRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableUpdateImageDefinitionRequestModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

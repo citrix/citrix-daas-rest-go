@@ -19,7 +19,7 @@ var _ MappedNullable = &DiscoveryRecordModel{}
 
 // DiscoveryRecordModel struct for DiscoveryRecordModel
 type DiscoveryRecordModel struct {
-	App *Apps `json:"app,omitempty"`
+	App    *Apps   `json:"app,omitempty"`
 	Domain *Domain `json:"domain,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *DiscoveryRecordModel) SetDomain(v Domain) {
 }
 
 func (o DiscoveryRecordModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableDiscoveryRecordModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

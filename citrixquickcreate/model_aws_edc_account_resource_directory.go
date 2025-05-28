@@ -30,10 +30,15 @@ type AwsEdcAccountResourceDirectory struct {
 	Domain NullableString `json:"domain,omitempty"`
 	// Directory Organizational Unit
 	DefaultOU NullableString `json:"defaultOU,omitempty"`
+	// Directory Type  Enum values ADCONNECTOR, MICROSOFTAD, SIMPLEAD, SHAREDMICROSOFTAD
 	Type NullableAwsEdcDirectoryType `json:"type,omitempty"`
+	// Directory Size  Enum values SMALL, LARGE
 	Size NullableAwsEdcDirectorySize `json:"size,omitempty"`
+	// Directory State  Enum values ACTIVE, CREATED, CREATING, DELETED, DELETING, FAILED, IMPARED, INOPERABLE, REQUESTED, RESTOREFAILED, RESTORING
 	Status NullableAwsEdcDirectoryStatus `json:"status,omitempty"`
+	// Directory Registration State  Enum values REGISTERED, REGISTERING, DEREGISTERED, DEREGISTERING, ERROR
 	RegistrationStatus NullableAwsEdcDirectoryRegistrationStatus `json:"registrationStatus,omitempty"`
+	// Directory Registration Tenancy  Enum values SHARED, DEDICATED
 	Tenancy NullableAwsEdcDirectoryTenancy `json:"tenancy,omitempty"`
 	// Directory associated VPC
 	VpcId NullableString `json:"vpcId,omitempty"`
@@ -43,12 +48,15 @@ type AwsEdcAccountResourceDirectory struct {
 	SubnetIds []string `json:"subnetIds,omitempty"`
 }
 
+type _AwsEdcAccountResourceDirectory AwsEdcAccountResourceDirectory
+
 // NewAwsEdcAccountResourceDirectory instantiates a new AwsEdcAccountResourceDirectory object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAwsEdcAccountResourceDirectory(accountType AccountType) *AwsEdcAccountResourceDirectory {
+func NewAwsEdcAccountResourceDirectory(resourceType AwsAccountResourceType, accountType AccountType) *AwsEdcAccountResourceDirectory {
 	this := AwsEdcAccountResourceDirectory{}
+	this.ResourceType = resourceType
 	this.AccountType = accountType
 	return &this
 }
@@ -93,6 +101,7 @@ func (o *AwsEdcAccountResourceDirectory) HasDirectoryId() bool {
 func (o *AwsEdcAccountResourceDirectory) SetDirectoryId(v string) {
 	o.DirectoryId.Set(&v)
 }
+
 // SetDirectoryIdNil sets the value for DirectoryId to be an explicit nil
 func (o *AwsEdcAccountResourceDirectory) SetDirectoryIdNil() {
 	o.DirectoryId.Set(nil)
@@ -135,6 +144,7 @@ func (o *AwsEdcAccountResourceDirectory) HasName() bool {
 func (o *AwsEdcAccountResourceDirectory) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AwsEdcAccountResourceDirectory) SetNameNil() {
 	o.Name.Set(nil)
@@ -177,6 +187,7 @@ func (o *AwsEdcAccountResourceDirectory) HasDescription() bool {
 func (o *AwsEdcAccountResourceDirectory) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *AwsEdcAccountResourceDirectory) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -219,6 +230,7 @@ func (o *AwsEdcAccountResourceDirectory) HasDomain() bool {
 func (o *AwsEdcAccountResourceDirectory) SetDomain(v string) {
 	o.Domain.Set(&v)
 }
+
 // SetDomainNil sets the value for Domain to be an explicit nil
 func (o *AwsEdcAccountResourceDirectory) SetDomainNil() {
 	o.Domain.Set(nil)
@@ -261,6 +273,7 @@ func (o *AwsEdcAccountResourceDirectory) HasDefaultOU() bool {
 func (o *AwsEdcAccountResourceDirectory) SetDefaultOU(v string) {
 	o.DefaultOU.Set(&v)
 }
+
 // SetDefaultOUNil sets the value for DefaultOU to be an explicit nil
 func (o *AwsEdcAccountResourceDirectory) SetDefaultOUNil() {
 	o.DefaultOU.Set(nil)
@@ -303,6 +316,7 @@ func (o *AwsEdcAccountResourceDirectory) HasType() bool {
 func (o *AwsEdcAccountResourceDirectory) SetType(v AwsEdcDirectoryType) {
 	o.Type.Set(&v)
 }
+
 // SetTypeNil sets the value for Type to be an explicit nil
 func (o *AwsEdcAccountResourceDirectory) SetTypeNil() {
 	o.Type.Set(nil)
@@ -345,6 +359,7 @@ func (o *AwsEdcAccountResourceDirectory) HasSize() bool {
 func (o *AwsEdcAccountResourceDirectory) SetSize(v AwsEdcDirectorySize) {
 	o.Size.Set(&v)
 }
+
 // SetSizeNil sets the value for Size to be an explicit nil
 func (o *AwsEdcAccountResourceDirectory) SetSizeNil() {
 	o.Size.Set(nil)
@@ -387,6 +402,7 @@ func (o *AwsEdcAccountResourceDirectory) HasStatus() bool {
 func (o *AwsEdcAccountResourceDirectory) SetStatus(v AwsEdcDirectoryStatus) {
 	o.Status.Set(&v)
 }
+
 // SetStatusNil sets the value for Status to be an explicit nil
 func (o *AwsEdcAccountResourceDirectory) SetStatusNil() {
 	o.Status.Set(nil)
@@ -429,6 +445,7 @@ func (o *AwsEdcAccountResourceDirectory) HasRegistrationStatus() bool {
 func (o *AwsEdcAccountResourceDirectory) SetRegistrationStatus(v AwsEdcDirectoryRegistrationStatus) {
 	o.RegistrationStatus.Set(&v)
 }
+
 // SetRegistrationStatusNil sets the value for RegistrationStatus to be an explicit nil
 func (o *AwsEdcAccountResourceDirectory) SetRegistrationStatusNil() {
 	o.RegistrationStatus.Set(nil)
@@ -471,6 +488,7 @@ func (o *AwsEdcAccountResourceDirectory) HasTenancy() bool {
 func (o *AwsEdcAccountResourceDirectory) SetTenancy(v AwsEdcDirectoryTenancy) {
 	o.Tenancy.Set(&v)
 }
+
 // SetTenancyNil sets the value for Tenancy to be an explicit nil
 func (o *AwsEdcAccountResourceDirectory) SetTenancyNil() {
 	o.Tenancy.Set(nil)
@@ -513,6 +531,7 @@ func (o *AwsEdcAccountResourceDirectory) HasVpcId() bool {
 func (o *AwsEdcAccountResourceDirectory) SetVpcId(v string) {
 	o.VpcId.Set(&v)
 }
+
 // SetVpcIdNil sets the value for VpcId to be an explicit nil
 func (o *AwsEdcAccountResourceDirectory) SetVpcIdNil() {
 	o.VpcId.Set(nil)
@@ -555,6 +574,7 @@ func (o *AwsEdcAccountResourceDirectory) HasSecurityGroupId() bool {
 func (o *AwsEdcAccountResourceDirectory) SetSecurityGroupId(v string) {
 	o.SecurityGroupId.Set(&v)
 }
+
 // SetSecurityGroupIdNil sets the value for SecurityGroupId to be an explicit nil
 func (o *AwsEdcAccountResourceDirectory) SetSecurityGroupIdNil() {
 	o.SecurityGroupId.Set(nil)
@@ -586,7 +606,7 @@ func (o *AwsEdcAccountResourceDirectory) GetSubnetIdsOk() ([]string, bool) {
 
 // HasSubnetIds returns a boolean if a field has been set.
 func (o *AwsEdcAccountResourceDirectory) HasSubnetIds() bool {
-	if o != nil && IsNil(o.SubnetIds) {
+	if o != nil && !IsNil(o.SubnetIds) {
 		return true
 	}
 
@@ -599,7 +619,7 @@ func (o *AwsEdcAccountResourceDirectory) SetSubnetIds(v []string) {
 }
 
 func (o AwsEdcAccountResourceDirectory) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -693,5 +713,3 @@ func (v *NullableAwsEdcAccountResourceDirectory) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

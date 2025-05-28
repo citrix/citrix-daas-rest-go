@@ -34,7 +34,7 @@ type IdentityContainerResponseModel struct {
 	// Domain controller that performed the add/update operation on this object
 	DirectoryServer NullableString `json:"DirectoryServer,omitempty"`
 	// The name of the container.
-	Name NullableString `json:"Name,omitempty"`
+	Name NullableString         `json:"Name,omitempty"`
 	Type *IdentityContainerType `json:"Type,omitempty"`
 	// Properties fetched and populated in the Container object.  This is a bitfield indicating the fetched properties.
 	PropertiesFetched int32 `json:"PropertiesFetched"`
@@ -90,6 +90,7 @@ func (o *IdentityContainerResponseModel) HasDomain() bool {
 func (o *IdentityContainerResponseModel) SetDomain(v string) {
 	o.Domain.Set(&v)
 }
+
 // SetDomainNil sets the value for Domain to be an explicit nil
 func (o *IdentityContainerResponseModel) SetDomainNil() {
 	o.Domain.Set(nil)
@@ -132,6 +133,7 @@ func (o *IdentityContainerResponseModel) HasForest() bool {
 func (o *IdentityContainerResponseModel) SetForest(v string) {
 	o.Forest.Set(&v)
 }
+
 // SetForestNil sets the value for Forest to be an explicit nil
 func (o *IdentityContainerResponseModel) SetForestNil() {
 	o.Forest.Set(nil)
@@ -174,6 +176,7 @@ func (o *IdentityContainerResponseModel) HasGuid() bool {
 func (o *IdentityContainerResponseModel) SetGuid(v string) {
 	o.Guid.Set(&v)
 }
+
 // SetGuidNil sets the value for Guid to be an explicit nil
 func (o *IdentityContainerResponseModel) SetGuidNil() {
 	o.Guid.Set(nil)
@@ -216,6 +219,7 @@ func (o *IdentityContainerResponseModel) HasDistinguishedName() bool {
 func (o *IdentityContainerResponseModel) SetDistinguishedName(v string) {
 	o.DistinguishedName.Set(&v)
 }
+
 // SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
 func (o *IdentityContainerResponseModel) SetDistinguishedNameNil() {
 	o.DistinguishedName.Set(nil)
@@ -258,6 +262,7 @@ func (o *IdentityContainerResponseModel) HasCanonicalName() bool {
 func (o *IdentityContainerResponseModel) SetCanonicalName(v string) {
 	o.CanonicalName.Set(&v)
 }
+
 // SetCanonicalNameNil sets the value for CanonicalName to be an explicit nil
 func (o *IdentityContainerResponseModel) SetCanonicalNameNil() {
 	o.CanonicalName.Set(nil)
@@ -332,6 +337,7 @@ func (o *IdentityContainerResponseModel) HasDirectoryServer() bool {
 func (o *IdentityContainerResponseModel) SetDirectoryServer(v string) {
 	o.DirectoryServer.Set(&v)
 }
+
 // SetDirectoryServerNil sets the value for DirectoryServer to be an explicit nil
 func (o *IdentityContainerResponseModel) SetDirectoryServerNil() {
 	o.DirectoryServer.Set(nil)
@@ -374,6 +380,7 @@ func (o *IdentityContainerResponseModel) HasName() bool {
 func (o *IdentityContainerResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *IdentityContainerResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -441,7 +448,7 @@ func (o *IdentityContainerResponseModel) SetPropertiesFetched(v int32) {
 }
 
 func (o IdentityContainerResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -516,5 +523,3 @@ func (v *NullableIdentityContainerResponseModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

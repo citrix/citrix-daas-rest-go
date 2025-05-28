@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsDisconnectSession", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -38,7 +39,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsDoSessionSearch", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsDoSessionSearch(context.Background()).Execute()
 
@@ -50,7 +51,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsGetSession", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -64,7 +65,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsGetSessionApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -78,7 +79,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsGetSessionMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -92,7 +93,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsGetSessionRecordingStatus", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsGetSessionRecordingStatus(context.Background()).Execute()
 
@@ -104,7 +105,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsGetSessions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsGetSessions(context.Background()).Execute()
 
@@ -116,7 +117,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsGetSessionsV2", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsGetSessionsV2(context.Background()).Execute()
 
@@ -128,7 +129,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsHideSession", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -141,7 +142,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsLogoffSession", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -154,7 +155,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsSendSessionMessage", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -168,7 +169,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsStartSessionRecording", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -182,7 +183,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsStopSessionRecording", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -196,7 +197,7 @@ func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test SessionsAPIsDAASService SessionsUnhideSession", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 

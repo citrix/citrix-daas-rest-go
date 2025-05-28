@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_JobsAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_JobsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test JobsAPIsDAASService JobsCancelJob", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -38,7 +39,7 @@ func Test_citrixorchestration_JobsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test JobsAPIsDAASService JobsDeleteJob", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -51,7 +52,7 @@ func Test_citrixorchestration_JobsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test JobsAPIsDAASService JobsGetJob", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -65,7 +66,7 @@ func Test_citrixorchestration_JobsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test JobsAPIsDAASService JobsGetJobResults", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -79,7 +80,7 @@ func Test_citrixorchestration_JobsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test JobsAPIsDAASService JobsGetJobs", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.JobsAPIsDAAS.JobsGetJobs(context.Background()).Execute()
 
@@ -91,7 +92,7 @@ func Test_citrixorchestration_JobsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test JobsAPIsDAASService JobsSkipRemainingSubtasks", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 

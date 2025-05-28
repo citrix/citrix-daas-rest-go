@@ -20,10 +20,10 @@ type WakeOnLanTransmission string
 
 // List of WakeOnLanTransmission
 const (
-	WAKEONLANTRANSMISSION_UNKNOWN WakeOnLanTransmission = "Unknown"
-	WAKEONLANTRANSMISSION_NONE WakeOnLanTransmission = "None"
+	WAKEONLANTRANSMISSION_UNKNOWN                   WakeOnLanTransmission = "Unknown"
+	WAKEONLANTRANSMISSION_NONE                      WakeOnLanTransmission = "None"
 	WAKEONLANTRANSMISSION_SUBNET_DIRECTED_BROADCAST WakeOnLanTransmission = "SubnetDirectedBroadcast"
-	WAKEONLANTRANSMISSION_UNICAST WakeOnLanTransmission = "Unicast"
+	WAKEONLANTRANSMISSION_UNICAST                   WakeOnLanTransmission = "Unicast"
 )
 
 // All allowed values of WakeOnLanTransmission enum
@@ -40,7 +40,7 @@ func (v *WakeOnLanTransmission) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = WakeOnLanTransmission(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableWakeOnLanTransmission) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

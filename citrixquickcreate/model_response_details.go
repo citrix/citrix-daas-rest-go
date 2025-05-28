@@ -106,6 +106,7 @@ func (o *ResponseDetails) HasErrorDescription() bool {
 func (o *ResponseDetails) SetErrorDescription(v string) {
 	o.ErrorDescription.Set(&v)
 }
+
 // SetErrorDescriptionNil sets the value for ErrorDescription to be an explicit nil
 func (o *ResponseDetails) SetErrorDescriptionNil() {
 	o.ErrorDescription.Set(nil)
@@ -117,7 +118,7 @@ func (o *ResponseDetails) UnsetErrorDescription() {
 }
 
 func (o ResponseDetails) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +171,3 @@ func (v *NullableResponseDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

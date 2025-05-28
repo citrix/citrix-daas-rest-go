@@ -24,8 +24,8 @@ type ModelingResponseContract struct {
 	// The username.
 	User NullableString `json:"User,omitempty"`
 	// The machine name.
-	Machine NullableString `json:"Machine,omitempty"`
-	Result *ModelingResultContract `json:"Result,omitempty"`
+	Machine NullableString          `json:"Machine,omitempty"`
+	Result  *ModelingResultContract `json:"Result,omitempty"`
 }
 
 // NewModelingResponseContract instantiates a new ModelingResponseContract object
@@ -77,6 +77,7 @@ func (o *ModelingResponseContract) HasName() bool {
 func (o *ModelingResponseContract) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ModelingResponseContract) SetNameNil() {
 	o.Name.Set(nil)
@@ -119,6 +120,7 @@ func (o *ModelingResponseContract) HasUser() bool {
 func (o *ModelingResponseContract) SetUser(v string) {
 	o.User.Set(&v)
 }
+
 // SetUserNil sets the value for User to be an explicit nil
 func (o *ModelingResponseContract) SetUserNil() {
 	o.User.Set(nil)
@@ -161,6 +163,7 @@ func (o *ModelingResponseContract) HasMachine() bool {
 func (o *ModelingResponseContract) SetMachine(v string) {
 	o.Machine.Set(&v)
 }
+
 // SetMachineNil sets the value for Machine to be an explicit nil
 func (o *ModelingResponseContract) SetMachineNil() {
 	o.Machine.Set(nil)
@@ -204,7 +207,7 @@ func (o *ModelingResponseContract) SetResult(v ModelingResultContract) {
 }
 
 func (o ModelingResponseContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -263,5 +266,3 @@ func (v *NullableModelingResponseContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,9 +19,9 @@ var _ MappedNullable = &BackupRestoreOptionsModel{}
 
 // BackupRestoreOptionsModel struct for BackupRestoreOptionsModel
 type BackupRestoreOptionsModel struct {
-	OneScheduledBackupPerDay NullableBool `json:"OneScheduledBackupPerDay,omitempty"`
-	AutoPinScheduleUid NullableInt32 `json:"AutoPinScheduleUid,omitempty"`
-	AutoPinScheduleName NullableString `json:"AutoPinScheduleName,omitempty"`
+	OneScheduledBackupPerDay NullableBool   `json:"OneScheduledBackupPerDay,omitempty"`
+	AutoPinScheduleUid       NullableInt32  `json:"AutoPinScheduleUid,omitempty"`
+	AutoPinScheduleName      NullableString `json:"AutoPinScheduleName,omitempty"`
 }
 
 // NewBackupRestoreOptionsModel instantiates a new BackupRestoreOptionsModel object
@@ -73,6 +73,7 @@ func (o *BackupRestoreOptionsModel) HasOneScheduledBackupPerDay() bool {
 func (o *BackupRestoreOptionsModel) SetOneScheduledBackupPerDay(v bool) {
 	o.OneScheduledBackupPerDay.Set(&v)
 }
+
 // SetOneScheduledBackupPerDayNil sets the value for OneScheduledBackupPerDay to be an explicit nil
 func (o *BackupRestoreOptionsModel) SetOneScheduledBackupPerDayNil() {
 	o.OneScheduledBackupPerDay.Set(nil)
@@ -115,6 +116,7 @@ func (o *BackupRestoreOptionsModel) HasAutoPinScheduleUid() bool {
 func (o *BackupRestoreOptionsModel) SetAutoPinScheduleUid(v int32) {
 	o.AutoPinScheduleUid.Set(&v)
 }
+
 // SetAutoPinScheduleUidNil sets the value for AutoPinScheduleUid to be an explicit nil
 func (o *BackupRestoreOptionsModel) SetAutoPinScheduleUidNil() {
 	o.AutoPinScheduleUid.Set(nil)
@@ -157,6 +159,7 @@ func (o *BackupRestoreOptionsModel) HasAutoPinScheduleName() bool {
 func (o *BackupRestoreOptionsModel) SetAutoPinScheduleName(v string) {
 	o.AutoPinScheduleName.Set(&v)
 }
+
 // SetAutoPinScheduleNameNil sets the value for AutoPinScheduleName to be an explicit nil
 func (o *BackupRestoreOptionsModel) SetAutoPinScheduleNameNil() {
 	o.AutoPinScheduleName.Set(nil)
@@ -168,7 +171,7 @@ func (o *BackupRestoreOptionsModel) UnsetAutoPinScheduleName() {
 }
 
 func (o BackupRestoreOptionsModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -224,5 +227,3 @@ func (v *NullableBackupRestoreOptionsModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

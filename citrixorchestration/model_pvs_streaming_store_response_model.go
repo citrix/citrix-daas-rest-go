@@ -77,6 +77,7 @@ func (o *PvsStreamingStoreResponseModel) HasStoreId() bool {
 func (o *PvsStreamingStoreResponseModel) SetStoreId(v string) {
 	o.StoreId.Set(&v)
 }
+
 // SetStoreIdNil sets the value for StoreId to be an explicit nil
 func (o *PvsStreamingStoreResponseModel) SetStoreIdNil() {
 	o.StoreId.Set(nil)
@@ -143,6 +144,7 @@ func (o *PvsStreamingStoreResponseModel) HasSiteId() bool {
 func (o *PvsStreamingStoreResponseModel) SetSiteId(v string) {
 	o.SiteId.Set(&v)
 }
+
 // SetSiteIdNil sets the value for SiteId to be an explicit nil
 func (o *PvsStreamingStoreResponseModel) SetSiteIdNil() {
 	o.SiteId.Set(nil)
@@ -154,7 +156,7 @@ func (o *PvsStreamingStoreResponseModel) UnsetSiteId() {
 }
 
 func (o PvsStreamingStoreResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullablePvsStreamingStoreResponseModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

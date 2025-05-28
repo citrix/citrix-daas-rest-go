@@ -101,6 +101,7 @@ func (o *CollectionModelOfUserZonePreferenceResponseModel) HasContinuationToken(
 func (o *CollectionModelOfUserZonePreferenceResponseModel) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *CollectionModelOfUserZonePreferenceResponseModel) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -143,6 +144,7 @@ func (o *CollectionModelOfUserZonePreferenceResponseModel) HasTotalItems() bool 
 func (o *CollectionModelOfUserZonePreferenceResponseModel) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *CollectionModelOfUserZonePreferenceResponseModel) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -154,7 +156,7 @@ func (o *CollectionModelOfUserZonePreferenceResponseModel) UnsetTotalItems() {
 }
 
 func (o CollectionModelOfUserZonePreferenceResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableCollectionModelOfUserZonePreferenceResponseModel) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

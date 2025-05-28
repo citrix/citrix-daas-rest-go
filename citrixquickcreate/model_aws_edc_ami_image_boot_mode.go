@@ -21,7 +21,7 @@ type AwsEdcAmiImageBootMode string
 // List of AwsEdcAmiImageBootMode
 const (
 	AWSEDCAMIIMAGEBOOTMODE_LEGACYBIOS AwsEdcAmiImageBootMode = "LEGACYBIOS"
-	AWSEDCAMIIMAGEBOOTMODE_UEFI AwsEdcAmiImageBootMode = "UEFI"
+	AWSEDCAMIIMAGEBOOTMODE_UEFI       AwsEdcAmiImageBootMode = "UEFI"
 )
 
 // All allowed values of AwsEdcAmiImageBootMode enum
@@ -108,4 +108,3 @@ func (v *NullableAwsEdcAmiImageBootMode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

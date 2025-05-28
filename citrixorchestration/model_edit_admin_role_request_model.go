@@ -80,6 +80,7 @@ func (o *EditAdminRoleRequestModel) HasDescription() bool {
 func (o *EditAdminRoleRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *EditAdminRoleRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -122,6 +123,7 @@ func (o *EditAdminRoleRequestModel) HasName() bool {
 func (o *EditAdminRoleRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *EditAdminRoleRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -164,6 +166,7 @@ func (o *EditAdminRoleRequestModel) HasCanLaunchManage() bool {
 func (o *EditAdminRoleRequestModel) SetCanLaunchManage(v bool) {
 	o.CanLaunchManage.Set(&v)
 }
+
 // SetCanLaunchManageNil sets the value for CanLaunchManage to be an explicit nil
 func (o *EditAdminRoleRequestModel) SetCanLaunchManageNil() {
 	o.CanLaunchManage.Set(nil)
@@ -206,6 +209,7 @@ func (o *EditAdminRoleRequestModel) HasCanLaunchMonitor() bool {
 func (o *EditAdminRoleRequestModel) SetCanLaunchMonitor(v bool) {
 	o.CanLaunchMonitor.Set(&v)
 }
+
 // SetCanLaunchMonitorNil sets the value for CanLaunchMonitor to be an explicit nil
 func (o *EditAdminRoleRequestModel) SetCanLaunchMonitorNil() {
 	o.CanLaunchMonitor.Set(nil)
@@ -250,7 +254,7 @@ func (o *EditAdminRoleRequestModel) SetPermissions(v []string) {
 }
 
 func (o EditAdminRoleRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -312,5 +316,3 @@ func (v *NullableEditAdminRoleRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

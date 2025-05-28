@@ -80,6 +80,7 @@ func (o *PowerShellCommandErrorModel) HasFullyQualifiedErrorId() bool {
 func (o *PowerShellCommandErrorModel) SetFullyQualifiedErrorId(v string) {
 	o.FullyQualifiedErrorId.Set(&v)
 }
+
 // SetFullyQualifiedErrorIdNil sets the value for FullyQualifiedErrorId to be an explicit nil
 func (o *PowerShellCommandErrorModel) SetFullyQualifiedErrorIdNil() {
 	o.FullyQualifiedErrorId.Set(nil)
@@ -122,6 +123,7 @@ func (o *PowerShellCommandErrorModel) HasCategoryMessage() bool {
 func (o *PowerShellCommandErrorModel) SetCategoryMessage(v string) {
 	o.CategoryMessage.Set(&v)
 }
+
 // SetCategoryMessageNil sets the value for CategoryMessage to be an explicit nil
 func (o *PowerShellCommandErrorModel) SetCategoryMessageNil() {
 	o.CategoryMessage.Set(nil)
@@ -164,6 +166,7 @@ func (o *PowerShellCommandErrorModel) HasInvocationName() bool {
 func (o *PowerShellCommandErrorModel) SetInvocationName(v string) {
 	o.InvocationName.Set(&v)
 }
+
 // SetInvocationNameNil sets the value for InvocationName to be an explicit nil
 func (o *PowerShellCommandErrorModel) SetInvocationNameNil() {
 	o.InvocationName.Set(nil)
@@ -206,6 +209,7 @@ func (o *PowerShellCommandErrorModel) HasErrorMessage() bool {
 func (o *PowerShellCommandErrorModel) SetErrorMessage(v string) {
 	o.ErrorMessage.Set(&v)
 }
+
 // SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
 func (o *PowerShellCommandErrorModel) SetErrorMessageNil() {
 	o.ErrorMessage.Set(nil)
@@ -248,6 +252,7 @@ func (o *PowerShellCommandErrorModel) HasPositionMessage() bool {
 func (o *PowerShellCommandErrorModel) SetPositionMessage(v string) {
 	o.PositionMessage.Set(&v)
 }
+
 // SetPositionMessageNil sets the value for PositionMessage to be an explicit nil
 func (o *PowerShellCommandErrorModel) SetPositionMessageNil() {
 	o.PositionMessage.Set(nil)
@@ -259,7 +264,7 @@ func (o *PowerShellCommandErrorModel) UnsetPositionMessage() {
 }
 
 func (o PowerShellCommandErrorModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -321,5 +326,3 @@ func (v *NullablePowerShellCommandErrorModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

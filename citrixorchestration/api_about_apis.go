@@ -18,20 +18,19 @@ import (
 	"net/url"
 )
 
-
 // AboutAPIsDAASService AboutAPIsDAAS service
 type AboutAPIsDAASService service
 
 type ApiAboutGetAboutRequest struct {
-	ctx context.Context
-	ApiService *AboutAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AboutAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -83,24 +82,25 @@ func (r ApiAboutGetAboutRequest) Execute() (*AboutModel, *http.Response, error) 
 /*
 AboutGetAbout Get About info of this Orchestration instance.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAboutGetAboutRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAboutGetAboutRequest
 */
 func (a *AboutAPIsDAASService) AboutGetAbout(ctx context.Context) ApiAboutGetAboutRequest {
 	return ApiAboutGetAboutRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AboutModel
+//
+//	@return AboutModel
 func (a *AboutAPIsDAASService) AboutGetAboutExecute(r ApiAboutGetAboutRequest) (*AboutModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AboutModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AboutModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AboutAPIsDAASService.AboutGetAbout")
@@ -197,8 +197,8 @@ func (a *AboutAPIsDAASService) AboutGetAboutExecute(r ApiAboutGetAboutRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -208,8 +208,8 @@ func (a *AboutAPIsDAASService) AboutGetAboutExecute(r ApiAboutGetAboutRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -219,8 +219,8 @@ func (a *AboutAPIsDAASService) AboutGetAboutExecute(r ApiAboutGetAboutRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -230,8 +230,8 @@ func (a *AboutAPIsDAASService) AboutGetAboutExecute(r ApiAboutGetAboutRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -241,8 +241,8 @@ func (a *AboutAPIsDAASService) AboutGetAboutExecute(r ApiAboutGetAboutRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -252,8 +252,8 @@ func (a *AboutAPIsDAASService) AboutGetAboutExecute(r ApiAboutGetAboutRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -263,8 +263,8 @@ func (a *AboutAPIsDAASService) AboutGetAboutExecute(r ApiAboutGetAboutRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

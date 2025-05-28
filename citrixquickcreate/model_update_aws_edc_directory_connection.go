@@ -34,6 +34,8 @@ type UpdateAwsEdcDirectoryConnection struct {
 	SecurityGroupId NullableString `json:"securityGroupId,omitempty"`
 }
 
+type _UpdateAwsEdcDirectoryConnection UpdateAwsEdcDirectoryConnection
+
 // NewUpdateAwsEdcDirectoryConnection instantiates a new UpdateAwsEdcDirectoryConnection object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -84,6 +86,7 @@ func (o *UpdateAwsEdcDirectoryConnection) HasDefaultOU() bool {
 func (o *UpdateAwsEdcDirectoryConnection) SetDefaultOU(v string) {
 	o.DefaultOU.Set(&v)
 }
+
 // SetDefaultOUNil sets the value for DefaultOU to be an explicit nil
 func (o *UpdateAwsEdcDirectoryConnection) SetDefaultOUNil() {
 	o.DefaultOU.Set(nil)
@@ -126,6 +129,7 @@ func (o *UpdateAwsEdcDirectoryConnection) HasEnableWorkDocs() bool {
 func (o *UpdateAwsEdcDirectoryConnection) SetEnableWorkDocs(v bool) {
 	o.EnableWorkDocs.Set(&v)
 }
+
 // SetEnableWorkDocsNil sets the value for EnableWorkDocs to be an explicit nil
 func (o *UpdateAwsEdcDirectoryConnection) SetEnableWorkDocsNil() {
 	o.EnableWorkDocs.Set(nil)
@@ -168,6 +172,7 @@ func (o *UpdateAwsEdcDirectoryConnection) HasUserEnabledAsLocalAdministrator() b
 func (o *UpdateAwsEdcDirectoryConnection) SetUserEnabledAsLocalAdministrator(v bool) {
 	o.UserEnabledAsLocalAdministrator.Set(&v)
 }
+
 // SetUserEnabledAsLocalAdministratorNil sets the value for UserEnabledAsLocalAdministrator to be an explicit nil
 func (o *UpdateAwsEdcDirectoryConnection) SetUserEnabledAsLocalAdministratorNil() {
 	o.UserEnabledAsLocalAdministrator.Set(nil)
@@ -210,6 +215,7 @@ func (o *UpdateAwsEdcDirectoryConnection) HasEnableInternetAccess() bool {
 func (o *UpdateAwsEdcDirectoryConnection) SetEnableInternetAccess(v bool) {
 	o.EnableInternetAccess.Set(&v)
 }
+
 // SetEnableInternetAccessNil sets the value for EnableInternetAccess to be an explicit nil
 func (o *UpdateAwsEdcDirectoryConnection) SetEnableInternetAccessNil() {
 	o.EnableInternetAccess.Set(nil)
@@ -252,6 +258,7 @@ func (o *UpdateAwsEdcDirectoryConnection) HasEnableMaintananceMode() bool {
 func (o *UpdateAwsEdcDirectoryConnection) SetEnableMaintananceMode(v bool) {
 	o.EnableMaintananceMode.Set(&v)
 }
+
 // SetEnableMaintananceModeNil sets the value for EnableMaintananceMode to be an explicit nil
 func (o *UpdateAwsEdcDirectoryConnection) SetEnableMaintananceModeNil() {
 	o.EnableMaintananceMode.Set(nil)
@@ -294,6 +301,7 @@ func (o *UpdateAwsEdcDirectoryConnection) HasSecurityGroupId() bool {
 func (o *UpdateAwsEdcDirectoryConnection) SetSecurityGroupId(v string) {
 	o.SecurityGroupId.Set(&v)
 }
+
 // SetSecurityGroupIdNil sets the value for SecurityGroupId to be an explicit nil
 func (o *UpdateAwsEdcDirectoryConnection) SetSecurityGroupIdNil() {
 	o.SecurityGroupId.Set(nil)
@@ -305,7 +313,7 @@ func (o *UpdateAwsEdcDirectoryConnection) UnsetSecurityGroupId() {
 }
 
 func (o UpdateAwsEdcDirectoryConnection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -378,5 +386,3 @@ func (v *NullableUpdateAwsEdcDirectoryConnection) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

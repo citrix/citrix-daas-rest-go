@@ -101,6 +101,7 @@ func (o *CollectionModelOfStartMenuApplicationResponseModel) HasContinuationToke
 func (o *CollectionModelOfStartMenuApplicationResponseModel) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *CollectionModelOfStartMenuApplicationResponseModel) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -143,6 +144,7 @@ func (o *CollectionModelOfStartMenuApplicationResponseModel) HasTotalItems() boo
 func (o *CollectionModelOfStartMenuApplicationResponseModel) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *CollectionModelOfStartMenuApplicationResponseModel) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -154,7 +156,7 @@ func (o *CollectionModelOfStartMenuApplicationResponseModel) UnsetTotalItems() {
 }
 
 func (o CollectionModelOfStartMenuApplicationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableCollectionModelOfStartMenuApplicationResponseModel) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

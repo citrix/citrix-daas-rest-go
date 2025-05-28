@@ -78,6 +78,7 @@ func (o *LicenseEntitlementResponseModel) HasId() bool {
 func (o *LicenseEntitlementResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *LicenseEntitlementResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -120,6 +121,7 @@ func (o *LicenseEntitlementResponseModel) HasProductName() bool {
 func (o *LicenseEntitlementResponseModel) SetProductName(v string) {
 	o.ProductName.Set(&v)
 }
+
 // SetProductNameNil sets the value for ProductName to be an explicit nil
 func (o *LicenseEntitlementResponseModel) SetProductNameNil() {
 	o.ProductName.Set(nil)
@@ -195,7 +197,7 @@ func (o *LicenseEntitlementResponseModel) SetLicenseAvailable(v int32) {
 }
 
 func (o LicenseEntitlementResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -254,5 +256,3 @@ func (v *NullableLicenseEntitlementResponseModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

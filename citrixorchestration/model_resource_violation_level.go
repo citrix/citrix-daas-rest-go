@@ -21,7 +21,7 @@ type ResourceViolationLevel string
 // List of ResourceViolationLevel
 const (
 	RESOURCEVIOLATIONLEVEL_ERROR ResourceViolationLevel = "Error"
-	RESOURCEVIOLATIONLEVEL_WARN ResourceViolationLevel = "Warn"
+	RESOURCEVIOLATIONLEVEL_WARN  ResourceViolationLevel = "Warn"
 )
 
 // All allowed values of ResourceViolationLevel enum
@@ -36,7 +36,7 @@ func (v *ResourceViolationLevel) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ResourceViolationLevel(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableResourceViolationLevel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

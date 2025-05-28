@@ -21,7 +21,7 @@ var _ MappedNullable = &EnrollMachineMetaDataModel{}
 type EnrollMachineMetaDataModel struct {
 	// Presented if such an id could be found from the enrolled vda machine locally
 	HostedMachineId NullableString `json:"HostedMachineId,omitempty"`
-	// The enrolled machine's MAC addresses 
+	// The enrolled machine's MAC addresses
 	MacAddresses []string `json:"MacAddresses,omitempty"`
 }
 
@@ -74,6 +74,7 @@ func (o *EnrollMachineMetaDataModel) HasHostedMachineId() bool {
 func (o *EnrollMachineMetaDataModel) SetHostedMachineId(v string) {
 	o.HostedMachineId.Set(&v)
 }
+
 // SetHostedMachineIdNil sets the value for HostedMachineId to be an explicit nil
 func (o *EnrollMachineMetaDataModel) SetHostedMachineIdNil() {
 	o.HostedMachineId.Set(nil)
@@ -118,7 +119,7 @@ func (o *EnrollMachineMetaDataModel) SetMacAddresses(v []string) {
 }
 
 func (o EnrollMachineMetaDataModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -171,5 +172,3 @@ func (v *NullableEnrollMachineMetaDataModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

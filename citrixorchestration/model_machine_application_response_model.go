@@ -17,16 +17,16 @@ import (
 // checks if the MachineApplicationResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &MachineApplicationResponseModel{}
 
-// MachineApplicationResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,ApplicationFolder,ApplicationType,PackagedApplicationType,PackagedApplicationVisibility,ClientFolder,Description,DoNotEnumerate,Enabled,IconId,ContentLocation,Name,PublishedName,Visible,SharingKind,ZoneId.               Application published on, or in use on, a machine.              
+// MachineApplicationResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,ApplicationFolder,ApplicationType,PackagedApplicationType,PackagedApplicationVisibility,ClientFolder,Description,DoNotEnumerate,Enabled,IconId,ContentLocation,Name,PublishedName,Visible,SharingKind,ZoneId.               Application published on, or in use on, a machine.
 type MachineApplicationResponseModel struct {
 	// The id of the application. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility
 	Id NullableString `json:"Id,omitempty"`
 	// `DEPRECATED.  Use <see cref='Id'/>.` DEPRECATED. Use Id.
 	// Deprecated
-	Uid NullableInt32 `json:"Uid,omitempty"`
-	ApplicationFolder *RefResponseModel `json:"ApplicationFolder,omitempty"`
-	ApplicationType *ApplicationType `json:"ApplicationType,omitempty"`
-	PackagedApplicationType *PackagedApplicationType `json:"PackagedApplicationType,omitempty"`
+	Uid                           NullableInt32                  `json:"Uid,omitempty"`
+	ApplicationFolder             *RefResponseModel              `json:"ApplicationFolder,omitempty"`
+	ApplicationType               *ApplicationType               `json:"ApplicationType,omitempty"`
+	PackagedApplicationType       *PackagedApplicationType       `json:"PackagedApplicationType,omitempty"`
 	PackagedApplicationVisibility *PackagedApplicationVisibility `json:"PackagedApplicationVisibility,omitempty"`
 	// The folder that the application belongs to as the user sees it.
 	ClientFolder NullableString `json:"ClientFolder,omitempty"`
@@ -39,10 +39,10 @@ type MachineApplicationResponseModel struct {
 	// Indicates whether this application can be launched.
 	Enabled *bool `json:"Enabled,omitempty"`
 	// The id of the icon used for the application. Used to be: IconUid (and it was not globally unique) Needs to be globally unique Might be constructed from site ID + internal Uid
-	IconId NullableString `json:"IconId,omitempty"`
+	IconId                 NullableString             `json:"IconId,omitempty"`
 	InstalledAppProperties *InstalledAppResponseModel `json:"InstalledAppProperties,omitempty"`
-	PackagedAppProperties *AppVAppResponseModel `json:"PackagedAppProperties,omitempty"`
-	AppVAppProperties *AppVAppResponseModel `json:"AppVAppProperties,omitempty"`
+	PackagedAppProperties  *AppVAppResponseModel      `json:"PackagedAppProperties,omitempty"`
+	AppVAppProperties      *AppVAppResponseModel      `json:"AppVAppProperties,omitempty"`
 	// Location of published content.
 	ContentLocation NullableString `json:"ContentLocation,omitempty"`
 	// Name of the application.  Only seen by administrators.
@@ -52,7 +52,7 @@ type MachineApplicationResponseModel struct {
 	// The metadata of application.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// Indicates whether this application is visible to users.
-	Visible *bool `json:"Visible,omitempty"`
+	Visible     *bool        `json:"Visible,omitempty"`
 	SharingKind *SharingKind `json:"SharingKind,omitempty"`
 	// Tags associated with this application.
 	Tags []string `json:"Tags,omitempty"`
@@ -125,6 +125,7 @@ func (o *MachineApplicationResponseModel) HasId() bool {
 func (o *MachineApplicationResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *MachineApplicationResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -170,6 +171,7 @@ func (o *MachineApplicationResponseModel) HasUid() bool {
 func (o *MachineApplicationResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *MachineApplicationResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -340,6 +342,7 @@ func (o *MachineApplicationResponseModel) HasClientFolder() bool {
 func (o *MachineApplicationResponseModel) SetClientFolder(v string) {
 	o.ClientFolder.Set(&v)
 }
+
 // SetClientFolderNil sets the value for ClientFolder to be an explicit nil
 func (o *MachineApplicationResponseModel) SetClientFolderNil() {
 	o.ClientFolder.Set(nil)
@@ -415,6 +418,7 @@ func (o *MachineApplicationResponseModel) HasDescription() bool {
 func (o *MachineApplicationResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *MachineApplicationResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -521,6 +525,7 @@ func (o *MachineApplicationResponseModel) HasIconId() bool {
 func (o *MachineApplicationResponseModel) SetIconId(v string) {
 	o.IconId.Set(&v)
 }
+
 // SetIconIdNil sets the value for IconId to be an explicit nil
 func (o *MachineApplicationResponseModel) SetIconIdNil() {
 	o.IconId.Set(nil)
@@ -659,6 +664,7 @@ func (o *MachineApplicationResponseModel) HasContentLocation() bool {
 func (o *MachineApplicationResponseModel) SetContentLocation(v string) {
 	o.ContentLocation.Set(&v)
 }
+
 // SetContentLocationNil sets the value for ContentLocation to be an explicit nil
 func (o *MachineApplicationResponseModel) SetContentLocationNil() {
 	o.ContentLocation.Set(nil)
@@ -701,6 +707,7 @@ func (o *MachineApplicationResponseModel) HasName() bool {
 func (o *MachineApplicationResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *MachineApplicationResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -743,6 +750,7 @@ func (o *MachineApplicationResponseModel) HasPublishedName() bool {
 func (o *MachineApplicationResponseModel) SetPublishedName(v string) {
 	o.PublishedName.Set(&v)
 }
+
 // SetPublishedNameNil sets the value for PublishedName to be an explicit nil
 func (o *MachineApplicationResponseModel) SetPublishedNameNil() {
 	o.PublishedName.Set(nil)
@@ -1110,6 +1118,7 @@ func (o *MachineApplicationResponseModel) HasZoneId() bool {
 func (o *MachineApplicationResponseModel) SetZoneId(v string) {
 	o.ZoneId.Set(&v)
 }
+
 // SetZoneIdNil sets the value for ZoneId to be an explicit nil
 func (o *MachineApplicationResponseModel) SetZoneIdNil() {
 	o.ZoneId.Set(nil)
@@ -1185,7 +1194,7 @@ func (o *MachineApplicationResponseModel) SetInUse(v bool) {
 }
 
 func (o MachineApplicationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1325,5 +1334,3 @@ func (v *NullableMachineApplicationResponseModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

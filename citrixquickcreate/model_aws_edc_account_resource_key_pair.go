@@ -26,12 +26,15 @@ type AwsEdcAccountResourceKeyPair struct {
 	Tags []Tag `json:"tags,omitempty"`
 }
 
+type _AwsEdcAccountResourceKeyPair AwsEdcAccountResourceKeyPair
+
 // NewAwsEdcAccountResourceKeyPair instantiates a new AwsEdcAccountResourceKeyPair object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAwsEdcAccountResourceKeyPair(accountType AccountType) *AwsEdcAccountResourceKeyPair {
+func NewAwsEdcAccountResourceKeyPair(resourceType AwsAccountResourceType, accountType AccountType) *AwsEdcAccountResourceKeyPair {
 	this := AwsEdcAccountResourceKeyPair{}
+	this.ResourceType = resourceType
 	this.AccountType = accountType
 	return &this
 }
@@ -76,6 +79,7 @@ func (o *AwsEdcAccountResourceKeyPair) HasKeyName() bool {
 func (o *AwsEdcAccountResourceKeyPair) SetKeyName(v string) {
 	o.KeyName.Set(&v)
 }
+
 // SetKeyNameNil sets the value for KeyName to be an explicit nil
 func (o *AwsEdcAccountResourceKeyPair) SetKeyNameNil() {
 	o.KeyName.Set(nil)
@@ -107,7 +111,7 @@ func (o *AwsEdcAccountResourceKeyPair) GetTagsOk() ([]Tag, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *AwsEdcAccountResourceKeyPair) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -120,7 +124,7 @@ func (o *AwsEdcAccountResourceKeyPair) SetTags(v []Tag) {
 }
 
 func (o AwsEdcAccountResourceKeyPair) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -181,5 +185,3 @@ func (v *NullableAwsEdcAccountResourceKeyPair) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

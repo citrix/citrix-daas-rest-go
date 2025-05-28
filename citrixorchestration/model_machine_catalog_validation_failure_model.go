@@ -78,6 +78,7 @@ func (o *MachineCatalogValidationFailureModel) HasErrorId() bool {
 func (o *MachineCatalogValidationFailureModel) SetErrorId(v string) {
 	o.ErrorId.Set(&v)
 }
+
 // SetErrorIdNil sets the value for ErrorId to be an explicit nil
 func (o *MachineCatalogValidationFailureModel) SetErrorIdNil() {
 	o.ErrorId.Set(nil)
@@ -120,6 +121,7 @@ func (o *MachineCatalogValidationFailureModel) HasCategory() bool {
 func (o *MachineCatalogValidationFailureModel) SetCategory(v string) {
 	o.Category.Set(&v)
 }
+
 // SetCategoryNil sets the value for Category to be an explicit nil
 func (o *MachineCatalogValidationFailureModel) SetCategoryNil() {
 	o.Category.Set(nil)
@@ -162,6 +164,7 @@ func (o *MachineCatalogValidationFailureModel) HasErrorMessage() bool {
 func (o *MachineCatalogValidationFailureModel) SetErrorMessage(v string) {
 	o.ErrorMessage.Set(&v)
 }
+
 // SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
 func (o *MachineCatalogValidationFailureModel) SetErrorMessageNil() {
 	o.ErrorMessage.Set(nil)
@@ -206,7 +209,7 @@ func (o *MachineCatalogValidationFailureModel) SetParameters(v []string) {
 }
 
 func (o MachineCatalogValidationFailureModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -265,5 +268,3 @@ func (v *NullableMachineCatalogValidationFailureModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

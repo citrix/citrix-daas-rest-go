@@ -20,7 +20,7 @@ var _ MappedNullable = &CitrixCloudServicesRegistryApiModelsLocationsResourceLoc
 // CitrixCloudServicesRegistryApiModelsLocationsResourceLocationUpdateModel Information used to update a customer resource location.
 type CitrixCloudServicesRegistryApiModelsLocationsResourceLocationUpdateModel struct {
 	// The new Resource Location Name.
-	Name *string `json:"name,omitempty"`
+	Name *string `json:"name,omitempty" validate:"regexp=[^\\/\\\\\\\\#?%|\\\\[\\\\]{}<>$^&+]+"`
 	// Resource Location Connectivity
 	InternalOnly *bool `json:"internalOnly,omitempty"`
 	// Time zone.
@@ -175,7 +175,7 @@ func (o *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationUpdateMode
 }
 
 func (o CitrixCloudServicesRegistryApiModelsLocationsResourceLocationUpdateModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableCitrixCloudServicesRegistryApiModelsLocationsResourceLocationUp
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

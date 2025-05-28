@@ -78,6 +78,7 @@ func (o *VDAComponentModel) HasComponentId() bool {
 func (o *VDAComponentModel) SetComponentId(v string) {
 	o.ComponentId.Set(&v)
 }
+
 // SetComponentIdNil sets the value for ComponentId to be an explicit nil
 func (o *VDAComponentModel) SetComponentIdNil() {
 	o.ComponentId.Set(nil)
@@ -120,6 +121,7 @@ func (o *VDAComponentModel) HasComponentName() bool {
 func (o *VDAComponentModel) SetComponentName(v string) {
 	o.ComponentName.Set(&v)
 }
+
 // SetComponentNameNil sets the value for ComponentName to be an explicit nil
 func (o *VDAComponentModel) SetComponentNameNil() {
 	o.ComponentName.Set(nil)
@@ -162,6 +164,7 @@ func (o *VDAComponentModel) HasComponentDescription() bool {
 func (o *VDAComponentModel) SetComponentDescription(v string) {
 	o.ComponentDescription.Set(&v)
 }
+
 // SetComponentDescriptionNil sets the value for ComponentDescription to be an explicit nil
 func (o *VDAComponentModel) SetComponentDescriptionNil() {
 	o.ComponentDescription.Set(nil)
@@ -206,7 +209,7 @@ func (o *VDAComponentModel) SetParameters(v []VDAComponentParameterModel) {
 }
 
 func (o VDAComponentModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -265,5 +268,3 @@ func (v *NullableVDAComponentModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,9 +21,9 @@ var _ MappedNullable = &UpdateMaintenanceCycleRequestModel{}
 // UpdateMaintenanceCycleRequestModel Request object for updating of Maintenance Cycle.
 type UpdateMaintenanceCycleRequestModel struct {
 	// The name of the Maintenance Cycle. Name is globally unique.
-	MaintenanceCycleName NullableString `json:"MaintenanceCycleName,omitempty"`
+	MaintenanceCycleName NullableString `json:"MaintenanceCycleName,omitempty" validate:"regexp=(.*)*"`
 	// The description of the Maintenance Cycle.
-	MaintenanceCycleDescription NullableString `json:"MaintenanceCycleDescription,omitempty"`
+	MaintenanceCycleDescription NullableString `json:"MaintenanceCycleDescription,omitempty" validate:"regexp=^[A-Za-z]+$"`
 	// The maintenance cycle uid.
 	MaintenanceCycleUid string `json:"MaintenanceCycleUid"`
 	// The uid of provisioning scheme.
@@ -34,13 +34,13 @@ type UpdateMaintenanceCycleRequestModel struct {
 	MaxDurationInMinutes int32 `json:"MaxDurationInMinutes"`
 	// Purge history data after a certain number of days.
 	PurgeDBAfterInDays NullableInt32 `json:"PurgeDBAfterInDays,omitempty"`
-	// The title of session log off warning. 
-	SessionWarningLogOffTitle NullableString `json:"SessionWarningLogOffTitle,omitempty"`
+	// The title of session log off warning.
+	SessionWarningLogOffTitle NullableString `json:"SessionWarningLogOffTitle,omitempty" validate:"regexp=^[A-Za-z]+$"`
 	// The message of session log off warning.
-	SessionWarningLogOffMessage NullableString `json:"SessionWarningLogOffMessage,omitempty"`
-	// The countdown duration for session log off. 
+	SessionWarningLogOffMessage NullableString `json:"SessionWarningLogOffMessage,omitempty" validate:"regexp=^[A-Za-z]+$"`
+	// The countdown duration for session log off.
 	SessionWarningTimeInMinutes NullableInt32 `json:"SessionWarningTimeInMinutes,omitempty"`
-	// The vm names in maintenance cycle. 
+	// The vm names in maintenance cycle.
 	VMNames []string `json:"VMNames,omitempty"`
 }
 
@@ -95,6 +95,7 @@ func (o *UpdateMaintenanceCycleRequestModel) HasMaintenanceCycleName() bool {
 func (o *UpdateMaintenanceCycleRequestModel) SetMaintenanceCycleName(v string) {
 	o.MaintenanceCycleName.Set(&v)
 }
+
 // SetMaintenanceCycleNameNil sets the value for MaintenanceCycleName to be an explicit nil
 func (o *UpdateMaintenanceCycleRequestModel) SetMaintenanceCycleNameNil() {
 	o.MaintenanceCycleName.Set(nil)
@@ -137,6 +138,7 @@ func (o *UpdateMaintenanceCycleRequestModel) HasMaintenanceCycleDescription() bo
 func (o *UpdateMaintenanceCycleRequestModel) SetMaintenanceCycleDescription(v string) {
 	o.MaintenanceCycleDescription.Set(&v)
 }
+
 // SetMaintenanceCycleDescriptionNil sets the value for MaintenanceCycleDescription to be an explicit nil
 func (o *UpdateMaintenanceCycleRequestModel) SetMaintenanceCycleDescriptionNil() {
 	o.MaintenanceCycleDescription.Set(nil)
@@ -203,6 +205,7 @@ func (o *UpdateMaintenanceCycleRequestModel) HasProvisioningSchemeUid() bool {
 func (o *UpdateMaintenanceCycleRequestModel) SetProvisioningSchemeUid(v string) {
 	o.ProvisioningSchemeUid.Set(&v)
 }
+
 // SetProvisioningSchemeUidNil sets the value for ProvisioningSchemeUid to be an explicit nil
 func (o *UpdateMaintenanceCycleRequestModel) SetProvisioningSchemeUidNil() {
 	o.ProvisioningSchemeUid.Set(nil)
@@ -245,6 +248,7 @@ func (o *UpdateMaintenanceCycleRequestModel) HasScheduledStartTimeInUTC() bool {
 func (o *UpdateMaintenanceCycleRequestModel) SetScheduledStartTimeInUTC(v time.Time) {
 	o.ScheduledStartTimeInUTC.Set(&v)
 }
+
 // SetScheduledStartTimeInUTCNil sets the value for ScheduledStartTimeInUTC to be an explicit nil
 func (o *UpdateMaintenanceCycleRequestModel) SetScheduledStartTimeInUTCNil() {
 	o.ScheduledStartTimeInUTC.Set(nil)
@@ -311,6 +315,7 @@ func (o *UpdateMaintenanceCycleRequestModel) HasPurgeDBAfterInDays() bool {
 func (o *UpdateMaintenanceCycleRequestModel) SetPurgeDBAfterInDays(v int32) {
 	o.PurgeDBAfterInDays.Set(&v)
 }
+
 // SetPurgeDBAfterInDaysNil sets the value for PurgeDBAfterInDays to be an explicit nil
 func (o *UpdateMaintenanceCycleRequestModel) SetPurgeDBAfterInDaysNil() {
 	o.PurgeDBAfterInDays.Set(nil)
@@ -353,6 +358,7 @@ func (o *UpdateMaintenanceCycleRequestModel) HasSessionWarningLogOffTitle() bool
 func (o *UpdateMaintenanceCycleRequestModel) SetSessionWarningLogOffTitle(v string) {
 	o.SessionWarningLogOffTitle.Set(&v)
 }
+
 // SetSessionWarningLogOffTitleNil sets the value for SessionWarningLogOffTitle to be an explicit nil
 func (o *UpdateMaintenanceCycleRequestModel) SetSessionWarningLogOffTitleNil() {
 	o.SessionWarningLogOffTitle.Set(nil)
@@ -395,6 +401,7 @@ func (o *UpdateMaintenanceCycleRequestModel) HasSessionWarningLogOffMessage() bo
 func (o *UpdateMaintenanceCycleRequestModel) SetSessionWarningLogOffMessage(v string) {
 	o.SessionWarningLogOffMessage.Set(&v)
 }
+
 // SetSessionWarningLogOffMessageNil sets the value for SessionWarningLogOffMessage to be an explicit nil
 func (o *UpdateMaintenanceCycleRequestModel) SetSessionWarningLogOffMessageNil() {
 	o.SessionWarningLogOffMessage.Set(nil)
@@ -437,6 +444,7 @@ func (o *UpdateMaintenanceCycleRequestModel) HasSessionWarningTimeInMinutes() bo
 func (o *UpdateMaintenanceCycleRequestModel) SetSessionWarningTimeInMinutes(v int32) {
 	o.SessionWarningTimeInMinutes.Set(&v)
 }
+
 // SetSessionWarningTimeInMinutesNil sets the value for SessionWarningTimeInMinutes to be an explicit nil
 func (o *UpdateMaintenanceCycleRequestModel) SetSessionWarningTimeInMinutesNil() {
 	o.SessionWarningTimeInMinutes.Set(nil)
@@ -481,7 +489,7 @@ func (o *UpdateMaintenanceCycleRequestModel) SetVMNames(v []string) {
 }
 
 func (o UpdateMaintenanceCycleRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -557,5 +565,3 @@ func (v *NullableUpdateMaintenanceCycleRequestModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

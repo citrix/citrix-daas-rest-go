@@ -74,6 +74,7 @@ func (o *AssociatedDeployment) HasDeploymentId() bool {
 func (o *AssociatedDeployment) SetDeploymentId(v string) {
 	o.DeploymentId.Set(&v)
 }
+
 // SetDeploymentIdNil sets the value for DeploymentId to be an explicit nil
 func (o *AssociatedDeployment) SetDeploymentIdNil() {
 	o.DeploymentId.Set(nil)
@@ -116,6 +117,7 @@ func (o *AssociatedDeployment) HasDeploymentName() bool {
 func (o *AssociatedDeployment) SetDeploymentName(v string) {
 	o.DeploymentName.Set(&v)
 }
+
 // SetDeploymentNameNil sets the value for DeploymentName to be an explicit nil
 func (o *AssociatedDeployment) SetDeploymentNameNil() {
 	o.DeploymentName.Set(nil)
@@ -127,7 +129,7 @@ func (o *AssociatedDeployment) UnsetDeploymentName() {
 }
 
 func (o AssociatedDeployment) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableAssociatedDeployment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

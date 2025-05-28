@@ -78,6 +78,7 @@ func (o *GpoTestFilterData) HasErrorCode() bool {
 func (o *GpoTestFilterData) SetErrorCode(v string) {
 	o.ErrorCode.Set(&v)
 }
+
 // SetErrorCodeNil sets the value for ErrorCode to be an explicit nil
 func (o *GpoTestFilterData) SetErrorCodeNil() {
 	o.ErrorCode.Set(nil)
@@ -120,6 +121,7 @@ func (o *GpoTestFilterData) HasErrorMessage() bool {
 func (o *GpoTestFilterData) SetErrorMessage(v string) {
 	o.ErrorMessage.Set(&v)
 }
+
 // SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
 func (o *GpoTestFilterData) SetErrorMessageNil() {
 	o.ErrorMessage.Set(nil)
@@ -162,6 +164,7 @@ func (o *GpoTestFilterData) HasFilterType() bool {
 func (o *GpoTestFilterData) SetFilterType(v string) {
 	o.FilterType.Set(&v)
 }
+
 // SetFilterTypeNil sets the value for FilterType to be an explicit nil
 func (o *GpoTestFilterData) SetFilterTypeNil() {
 	o.FilterType.Set(nil)
@@ -204,6 +207,7 @@ func (o *GpoTestFilterData) HasFilterValue() bool {
 func (o *GpoTestFilterData) SetFilterValue(v string) {
 	o.FilterValue.Set(&v)
 }
+
 // SetFilterValueNil sets the value for FilterValue to be an explicit nil
 func (o *GpoTestFilterData) SetFilterValueNil() {
 	o.FilterValue.Set(nil)
@@ -215,7 +219,7 @@ func (o *GpoTestFilterData) UnsetFilterValue() {
 }
 
 func (o GpoTestFilterData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,5 +278,3 @@ func (v *NullableGpoTestFilterData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

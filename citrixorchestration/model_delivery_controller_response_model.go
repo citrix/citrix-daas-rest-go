@@ -45,18 +45,18 @@ type DeliveryControllerResponseModel struct {
 	OSType NullableString `json:"OSType,omitempty"`
 	// The service statuses of the delivery controller.
 	ServiceStatuses []DeliveryControllerServiceStatusResponseModel `json:"ServiceStatuses,omitempty"`
-	ControllerState *DeliveryControllerState `json:"ControllerState,omitempty"`
+	ControllerState *DeliveryControllerState                       `json:"ControllerState,omitempty"`
 	// Las unique env Id
-	LasUniqueEnvId NullableString `json:"LasUniqueEnvId,omitempty"`
+	LasUniqueEnvId      NullableString       `json:"LasUniqueEnvId,omitempty"`
 	LasActivationStatus *LasActivationStatus `json:"LasActivationStatus,omitempty"`
 	// Las activation expiry
 	LasActivationExpiry NullableString `json:"LasActivationExpiry,omitempty"`
-	// Las Aware of current DDC             
+	// Las Aware of current DDC
 	IsLasAware NullableBool `json:"IsLasAware,omitempty"`
 	// The ID of the zone this zonable item belongs to
 	ZoneId NullableString `json:"ZoneId,omitempty"`
 	// The Id of this zonable Item. This is a generic name to access non-generic properties
-	ZonableItemId NullableString `json:"ZonableItemId,omitempty"`
+	ZonableItemId   NullableString   `json:"ZonableItemId,omitempty"`
 	ZonableItemType *ZonableItemType `json:"ZonableItemType,omitempty"`
 	// The Zone's Name
 	ZoneName NullableString `json:"ZoneName,omitempty"`
@@ -115,6 +115,7 @@ func (o *DeliveryControllerResponseModel) HasSid() bool {
 func (o *DeliveryControllerResponseModel) SetSid(v string) {
 	o.Sid.Set(&v)
 }
+
 // SetSidNil sets the value for Sid to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetSidNil() {
 	o.Sid.Set(nil)
@@ -157,6 +158,7 @@ func (o *DeliveryControllerResponseModel) HasId() bool {
 func (o *DeliveryControllerResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -199,6 +201,7 @@ func (o *DeliveryControllerResponseModel) HasMachineName() bool {
 func (o *DeliveryControllerResponseModel) SetMachineName(v string) {
 	o.MachineName.Set(&v)
 }
+
 // SetMachineNameNil sets the value for MachineName to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetMachineNameNil() {
 	o.MachineName.Set(nil)
@@ -241,6 +244,7 @@ func (o *DeliveryControllerResponseModel) HasDnsName() bool {
 func (o *DeliveryControllerResponseModel) SetDnsName(v string) {
 	o.DnsName.Set(&v)
 }
+
 // SetDnsNameNil sets the value for DnsName to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetDnsNameNil() {
 	o.DnsName.Set(nil)
@@ -315,6 +319,7 @@ func (o *DeliveryControllerResponseModel) HasControllerVersion() bool {
 func (o *DeliveryControllerResponseModel) SetControllerVersion(v string) {
 	o.ControllerVersion.Set(&v)
 }
+
 // SetControllerVersionNil sets the value for ControllerVersion to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetControllerVersionNil() {
 	o.ControllerVersion.Set(nil)
@@ -357,6 +362,7 @@ func (o *DeliveryControllerResponseModel) HasControllerExternalVersion() bool {
 func (o *DeliveryControllerResponseModel) SetControllerExternalVersion(v string) {
 	o.ControllerExternalVersion.Set(&v)
 }
+
 // SetControllerExternalVersionNil sets the value for ControllerExternalVersion to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetControllerExternalVersionNil() {
 	o.ControllerExternalVersion.Set(nil)
@@ -431,6 +437,7 @@ func (o *DeliveryControllerResponseModel) HasLastActivityTime() bool {
 func (o *DeliveryControllerResponseModel) SetLastActivityTime(v string) {
 	o.LastActivityTime.Set(&v)
 }
+
 // SetLastActivityTimeNil sets the value for LastActivityTime to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetLastActivityTimeNil() {
 	o.LastActivityTime.Set(nil)
@@ -473,6 +480,7 @@ func (o *DeliveryControllerResponseModel) HasLastStartTime() bool {
 func (o *DeliveryControllerResponseModel) SetLastStartTime(v string) {
 	o.LastStartTime.Set(&v)
 }
+
 // SetLastStartTimeNil sets the value for LastStartTime to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetLastStartTimeNil() {
 	o.LastStartTime.Set(nil)
@@ -515,6 +523,7 @@ func (o *DeliveryControllerResponseModel) HasOSVersion() bool {
 func (o *DeliveryControllerResponseModel) SetOSVersion(v string) {
 	o.OSVersion.Set(&v)
 }
+
 // SetOSVersionNil sets the value for OSVersion to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetOSVersionNil() {
 	o.OSVersion.Set(nil)
@@ -557,6 +566,7 @@ func (o *DeliveryControllerResponseModel) HasOSType() bool {
 func (o *DeliveryControllerResponseModel) SetOSType(v string) {
 	o.OSType.Set(&v)
 }
+
 // SetOSTypeNil sets the value for OSType to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetOSTypeNil() {
 	o.OSType.Set(nil)
@@ -664,6 +674,7 @@ func (o *DeliveryControllerResponseModel) HasLasUniqueEnvId() bool {
 func (o *DeliveryControllerResponseModel) SetLasUniqueEnvId(v string) {
 	o.LasUniqueEnvId.Set(&v)
 }
+
 // SetLasUniqueEnvIdNil sets the value for LasUniqueEnvId to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetLasUniqueEnvIdNil() {
 	o.LasUniqueEnvId.Set(nil)
@@ -738,6 +749,7 @@ func (o *DeliveryControllerResponseModel) HasLasActivationExpiry() bool {
 func (o *DeliveryControllerResponseModel) SetLasActivationExpiry(v string) {
 	o.LasActivationExpiry.Set(&v)
 }
+
 // SetLasActivationExpiryNil sets the value for LasActivationExpiry to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetLasActivationExpiryNil() {
 	o.LasActivationExpiry.Set(nil)
@@ -780,6 +792,7 @@ func (o *DeliveryControllerResponseModel) HasIsLasAware() bool {
 func (o *DeliveryControllerResponseModel) SetIsLasAware(v bool) {
 	o.IsLasAware.Set(&v)
 }
+
 // SetIsLasAwareNil sets the value for IsLasAware to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetIsLasAwareNil() {
 	o.IsLasAware.Set(nil)
@@ -822,6 +835,7 @@ func (o *DeliveryControllerResponseModel) HasZoneId() bool {
 func (o *DeliveryControllerResponseModel) SetZoneId(v string) {
 	o.ZoneId.Set(&v)
 }
+
 // SetZoneIdNil sets the value for ZoneId to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetZoneIdNil() {
 	o.ZoneId.Set(nil)
@@ -864,6 +878,7 @@ func (o *DeliveryControllerResponseModel) HasZonableItemId() bool {
 func (o *DeliveryControllerResponseModel) SetZonableItemId(v string) {
 	o.ZonableItemId.Set(&v)
 }
+
 // SetZonableItemIdNil sets the value for ZonableItemId to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetZonableItemIdNil() {
 	o.ZonableItemId.Set(nil)
@@ -938,6 +953,7 @@ func (o *DeliveryControllerResponseModel) HasZoneName() bool {
 func (o *DeliveryControllerResponseModel) SetZoneName(v string) {
 	o.ZoneName.Set(&v)
 }
+
 // SetZoneNameNil sets the value for ZoneName to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetZoneNameNil() {
 	o.ZoneName.Set(nil)
@@ -980,6 +996,7 @@ func (o *DeliveryControllerResponseModel) HasZonableItemName() bool {
 func (o *DeliveryControllerResponseModel) SetZonableItemName(v string) {
 	o.ZonableItemName.Set(&v)
 }
+
 // SetZonableItemNameNil sets the value for ZonableItemName to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetZonableItemNameNil() {
 	o.ZonableItemName.Set(nil)
@@ -1022,6 +1039,7 @@ func (o *DeliveryControllerResponseModel) HasZonableItemDescription() bool {
 func (o *DeliveryControllerResponseModel) SetZonableItemDescription(v string) {
 	o.ZonableItemDescription.Set(&v)
 }
+
 // SetZonableItemDescriptionNil sets the value for ZonableItemDescription to be an explicit nil
 func (o *DeliveryControllerResponseModel) SetZonableItemDescriptionNil() {
 	o.ZonableItemDescription.Set(nil)
@@ -1033,7 +1051,7 @@ func (o *DeliveryControllerResponseModel) UnsetZonableItemDescription() {
 }
 
 func (o DeliveryControllerResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1152,5 +1170,3 @@ func (v *NullableDeliveryControllerResponseModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

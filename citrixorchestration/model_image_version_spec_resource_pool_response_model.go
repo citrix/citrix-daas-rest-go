@@ -26,8 +26,8 @@ type ImageVersionSpecResourcePoolResponseModel struct {
 	// XenApp & XenDesktop path to the resource on the hypervisor.  An example value is: `XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot` or `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}`
 	XDPath NullableString `json:"XDPath,omitempty"`
 	// Full path to the resources within the resource pool, including the hypervisor, relative to the root of the API. Example: `Hypervisors/{{hypervisor id}}/ResourcePools/{{resource pool id}}/Resources`
-	FullRelativePath string `json:"FullRelativePath"`
-	Hypervisor HypervisorRefResponseModel `json:"Hypervisor"`
+	FullRelativePath string                     `json:"FullRelativePath"`
+	Hypervisor       HypervisorRefResponseModel `json:"Hypervisor"`
 	// Indicates whether the resource pool is the primary resource pool for the image version. Resource pool used to prepare the image is the default primary resource pool.
 	IsPrimary *bool `json:"IsPrimary,omitempty"`
 	// The properties of the image that are specific to the target hosting infrastructure.
@@ -35,7 +35,7 @@ type ImageVersionSpecResourcePoolResponseModel struct {
 	// The properties of the image that are specific to the target hosting infrastructure in string format.
 	CustomPropertiesInString NullableString `json:"CustomPropertiesInString,omitempty"`
 	// The errors in this image version specification within this resource pool.
-	Errors []string `json:"Errors,omitempty"`
+	Errors                             []string                            `json:"Errors,omitempty"`
 	ImageVersionSpecResourcePoolStatus *ImageVersionSpecResourcePoolStatus `json:"ImageVersionSpecResourcePoolStatus,omitempty"`
 }
 
@@ -90,6 +90,7 @@ func (o *ImageVersionSpecResourcePoolResponseModel) HasId() bool {
 func (o *ImageVersionSpecResourcePoolResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *ImageVersionSpecResourcePoolResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -132,6 +133,7 @@ func (o *ImageVersionSpecResourcePoolResponseModel) HasName() bool {
 func (o *ImageVersionSpecResourcePoolResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ImageVersionSpecResourcePoolResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -174,6 +176,7 @@ func (o *ImageVersionSpecResourcePoolResponseModel) HasXDPath() bool {
 func (o *ImageVersionSpecResourcePoolResponseModel) SetXDPath(v string) {
 	o.XDPath.Set(&v)
 }
+
 // SetXDPathNil sets the value for XDPath to be an explicit nil
 func (o *ImageVersionSpecResourcePoolResponseModel) SetXDPathNil() {
 	o.XDPath.Set(nil)
@@ -329,6 +332,7 @@ func (o *ImageVersionSpecResourcePoolResponseModel) HasCustomPropertiesInString(
 func (o *ImageVersionSpecResourcePoolResponseModel) SetCustomPropertiesInString(v string) {
 	o.CustomPropertiesInString.Set(&v)
 }
+
 // SetCustomPropertiesInStringNil sets the value for CustomPropertiesInString to be an explicit nil
 func (o *ImageVersionSpecResourcePoolResponseModel) SetCustomPropertiesInStringNil() {
 	o.CustomPropertiesInString.Set(nil)
@@ -405,7 +409,7 @@ func (o *ImageVersionSpecResourcePoolResponseModel) SetImageVersionSpecResourceP
 }
 
 func (o ImageVersionSpecResourcePoolResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -478,5 +482,3 @@ func (v *NullableImageVersionSpecResourcePoolResponseModel) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

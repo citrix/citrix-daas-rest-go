@@ -117,6 +117,7 @@ func (o *HypervisorPluginResponseModel) HasDisplayName() bool {
 func (o *HypervisorPluginResponseModel) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *HypervisorPluginResponseModel) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -159,6 +160,7 @@ func (o *HypervisorPluginResponseModel) HasPluginFactoryName() bool {
 func (o *HypervisorPluginResponseModel) SetPluginFactoryName(v string) {
 	o.PluginFactoryName.Set(&v)
 }
+
 // SetPluginFactoryNameNil sets the value for PluginFactoryName to be an explicit nil
 func (o *HypervisorPluginResponseModel) SetPluginFactoryNameNil() {
 	o.PluginFactoryName.Set(nil)
@@ -266,6 +268,7 @@ func (o *HypervisorPluginResponseModel) HasCitrixVerified() bool {
 func (o *HypervisorPluginResponseModel) SetCitrixVerified(v bool) {
 	o.CitrixVerified.Set(&v)
 }
+
 // SetCitrixVerifiedNil sets the value for CitrixVerified to be an explicit nil
 func (o *HypervisorPluginResponseModel) SetCitrixVerifiedNil() {
 	o.CitrixVerified.Set(nil)
@@ -308,6 +311,7 @@ func (o *HypervisorPluginResponseModel) HasAvailable() bool {
 func (o *HypervisorPluginResponseModel) SetAvailable(v bool) {
 	o.Available.Set(&v)
 }
+
 // SetAvailableNil sets the value for Available to be an explicit nil
 func (o *HypervisorPluginResponseModel) SetAvailableNil() {
 	o.Available.Set(nil)
@@ -350,6 +354,7 @@ func (o *HypervisorPluginResponseModel) HasUnavailableReason() bool {
 func (o *HypervisorPluginResponseModel) SetUnavailableReason(v string) {
 	o.UnavailableReason.Set(&v)
 }
+
 // SetUnavailableReasonNil sets the value for UnavailableReason to be an explicit nil
 func (o *HypervisorPluginResponseModel) SetUnavailableReasonNil() {
 	o.UnavailableReason.Set(nil)
@@ -361,7 +366,7 @@ func (o *HypervisorPluginResponseModel) UnsetUnavailableReason() {
 }
 
 func (o HypervisorPluginResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -432,5 +437,3 @@ func (v *NullableHypervisorPluginResponseModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

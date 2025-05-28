@@ -126,6 +126,7 @@ func (o *SimplifiedAccessPolicyRequestModel) HasAllowAnonymous() bool {
 func (o *SimplifiedAccessPolicyRequestModel) SetAllowAnonymous(v bool) {
 	o.AllowAnonymous.Set(&v)
 }
+
 // SetAllowAnonymousNil sets the value for AllowAnonymous to be an explicit nil
 func (o *SimplifiedAccessPolicyRequestModel) SetAllowAnonymousNil() {
 	o.AllowAnonymous.Set(nil)
@@ -168,6 +169,7 @@ func (o *SimplifiedAccessPolicyRequestModel) HasAllowHdxAccess() bool {
 func (o *SimplifiedAccessPolicyRequestModel) SetAllowHdxAccess(v bool) {
 	o.AllowHdxAccess.Set(&v)
 }
+
 // SetAllowHdxAccessNil sets the value for AllowHdxAccess to be an explicit nil
 func (o *SimplifiedAccessPolicyRequestModel) SetAllowHdxAccessNil() {
 	o.AllowHdxAccess.Set(nil)
@@ -210,6 +212,7 @@ func (o *SimplifiedAccessPolicyRequestModel) HasAllowMachineRestart() bool {
 func (o *SimplifiedAccessPolicyRequestModel) SetAllowMachineRestart(v bool) {
 	o.AllowMachineRestart.Set(&v)
 }
+
 // SetAllowMachineRestartNil sets the value for AllowMachineRestart to be an explicit nil
 func (o *SimplifiedAccessPolicyRequestModel) SetAllowMachineRestartNil() {
 	o.AllowMachineRestart.Set(nil)
@@ -252,6 +255,7 @@ func (o *SimplifiedAccessPolicyRequestModel) HasAllowRdpAccess() bool {
 func (o *SimplifiedAccessPolicyRequestModel) SetAllowRdpAccess(v bool) {
 	o.AllowRdpAccess.Set(&v)
 }
+
 // SetAllowRdpAccessNil sets the value for AllowRdpAccess to be an explicit nil
 func (o *SimplifiedAccessPolicyRequestModel) SetAllowRdpAccessNil() {
 	o.AllowRdpAccess.Set(nil)
@@ -294,6 +298,7 @@ func (o *SimplifiedAccessPolicyRequestModel) HasConnectNotViaNetScalerGatewayAll
 func (o *SimplifiedAccessPolicyRequestModel) SetConnectNotViaNetScalerGatewayAllowed(v bool) {
 	o.ConnectNotViaNetScalerGatewayAllowed.Set(&v)
 }
+
 // SetConnectNotViaNetScalerGatewayAllowedNil sets the value for ConnectNotViaNetScalerGatewayAllowed to be an explicit nil
 func (o *SimplifiedAccessPolicyRequestModel) SetConnectNotViaNetScalerGatewayAllowedNil() {
 	o.ConnectNotViaNetScalerGatewayAllowed.Set(nil)
@@ -336,6 +341,7 @@ func (o *SimplifiedAccessPolicyRequestModel) HasConnectViaNetScalerGatewayAllowe
 func (o *SimplifiedAccessPolicyRequestModel) SetConnectViaNetScalerGatewayAllowed(v bool) {
 	o.ConnectViaNetScalerGatewayAllowed.Set(&v)
 }
+
 // SetConnectViaNetScalerGatewayAllowedNil sets the value for ConnectViaNetScalerGatewayAllowed to be an explicit nil
 func (o *SimplifiedAccessPolicyRequestModel) SetConnectViaNetScalerGatewayAllowedNil() {
 	o.ConnectViaNetScalerGatewayAllowed.Set(nil)
@@ -378,6 +384,7 @@ func (o *SimplifiedAccessPolicyRequestModel) HasIncludedSmartAccessFilterEnabled
 func (o *SimplifiedAccessPolicyRequestModel) SetIncludedSmartAccessFilterEnabled(v bool) {
 	o.IncludedSmartAccessFilterEnabled.Set(&v)
 }
+
 // SetIncludedSmartAccessFilterEnabledNil sets the value for IncludedSmartAccessFilterEnabled to be an explicit nil
 func (o *SimplifiedAccessPolicyRequestModel) SetIncludedSmartAccessFilterEnabledNil() {
 	o.IncludedSmartAccessFilterEnabled.Set(nil)
@@ -453,6 +460,7 @@ func (o *SimplifiedAccessPolicyRequestModel) HasIncludedUserFilterEnabled() bool
 func (o *SimplifiedAccessPolicyRequestModel) SetIncludedUserFilterEnabled(v bool) {
 	o.IncludedUserFilterEnabled.Set(&v)
 }
+
 // SetIncludedUserFilterEnabledNil sets the value for IncludedUserFilterEnabled to be an explicit nil
 func (o *SimplifiedAccessPolicyRequestModel) SetIncludedUserFilterEnabledNil() {
 	o.IncludedUserFilterEnabled.Set(nil)
@@ -528,6 +536,7 @@ func (o *SimplifiedAccessPolicyRequestModel) HasExcludedUserFilterEnabled() bool
 func (o *SimplifiedAccessPolicyRequestModel) SetExcludedUserFilterEnabled(v bool) {
 	o.ExcludedUserFilterEnabled.Set(&v)
 }
+
 // SetExcludedUserFilterEnabledNil sets the value for ExcludedUserFilterEnabled to be an explicit nil
 func (o *SimplifiedAccessPolicyRequestModel) SetExcludedUserFilterEnabledNil() {
 	o.ExcludedUserFilterEnabled.Set(nil)
@@ -572,7 +581,7 @@ func (o *SimplifiedAccessPolicyRequestModel) SetExcludedUsers(v []string) {
 }
 
 func (o SimplifiedAccessPolicyRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -655,5 +664,3 @@ func (v *NullableSimplifiedAccessPolicyRequestModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

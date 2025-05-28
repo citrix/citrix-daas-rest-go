@@ -101,6 +101,7 @@ func (o *CollectionModelOfPvsStreamingSiteResponseModel) HasContinuationToken() 
 func (o *CollectionModelOfPvsStreamingSiteResponseModel) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *CollectionModelOfPvsStreamingSiteResponseModel) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -143,6 +144,7 @@ func (o *CollectionModelOfPvsStreamingSiteResponseModel) HasTotalItems() bool {
 func (o *CollectionModelOfPvsStreamingSiteResponseModel) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *CollectionModelOfPvsStreamingSiteResponseModel) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -154,7 +156,7 @@ func (o *CollectionModelOfPvsStreamingSiteResponseModel) UnsetTotalItems() {
 }
 
 func (o CollectionModelOfPvsStreamingSiteResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableCollectionModelOfPvsStreamingSiteResponseModel) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

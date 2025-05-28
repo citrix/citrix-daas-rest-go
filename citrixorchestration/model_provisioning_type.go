@@ -20,11 +20,11 @@ type ProvisioningType string
 
 // List of ProvisioningType
 const (
-	PROVISIONINGTYPE_UNKNOWN ProvisioningType = "Unknown"
-	PROVISIONINGTYPE_MANUAL ProvisioningType = "Manual"
-	PROVISIONINGTYPE_MCS ProvisioningType = "MCS"
-	PROVISIONINGTYPE_MCS_IMPORT ProvisioningType = "MCSImport"
-	PROVISIONINGTYPE_PVS ProvisioningType = "PVS"
+	PROVISIONINGTYPE_UNKNOWN       ProvisioningType = "Unknown"
+	PROVISIONINGTYPE_MANUAL        ProvisioningType = "Manual"
+	PROVISIONINGTYPE_MCS           ProvisioningType = "MCS"
+	PROVISIONINGTYPE_MCS_IMPORT    ProvisioningType = "MCSImport"
+	PROVISIONINGTYPE_PVS           ProvisioningType = "PVS"
 	PROVISIONINGTYPE_PVS_STREAMING ProvisioningType = "PVSStreaming"
 )
 
@@ -44,7 +44,7 @@ func (v *ProvisioningType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ProvisioningType(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableProvisioningType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

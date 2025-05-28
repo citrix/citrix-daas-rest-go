@@ -20,7 +20,7 @@ var _ MappedNullable = &HypervisorVmValidationResponseModel{}
 // HypervisorVmValidationResponseModel struct for HypervisorVmValidationResponseModel
 type HypervisorVmValidationResponseModel struct {
 	HypervisorVmResource *HypervisorVmResourceResponseModel `json:"HypervisorVmResource,omitempty"`
-	HypervisorConnection *HypervisorResponseModel `json:"HypervisorConnection,omitempty"`
+	HypervisorConnection *HypervisorResponseModel           `json:"HypervisorConnection,omitempty"`
 }
 
 // NewHypervisorVmValidationResponseModel instantiates a new HypervisorVmValidationResponseModel object
@@ -105,7 +105,7 @@ func (o *HypervisorVmValidationResponseModel) SetHypervisorConnection(v Hypervis
 }
 
 func (o HypervisorVmValidationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableHypervisorVmValidationResponseModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

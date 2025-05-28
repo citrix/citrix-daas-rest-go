@@ -20,10 +20,13 @@ var _ MappedNullable = &DeploymentTask{}
 // DeploymentTask Deployment Task Configuration
 type DeploymentTask struct {
 	TaskBase
+	// Task Type
 	Operation NullableDeploymentTaskOperationType `json:"operation,omitempty"`
 	// Deployment Id this task is working on
 	DeploymentId NullableString `json:"deploymentId,omitempty"`
 }
+
+type _DeploymentTask DeploymentTask
 
 // NewDeploymentTask instantiates a new DeploymentTask object
 // This constructor will assign default values to properties that have it defined,
@@ -75,6 +78,7 @@ func (o *DeploymentTask) HasOperation() bool {
 func (o *DeploymentTask) SetOperation(v DeploymentTaskOperationType) {
 	o.Operation.Set(&v)
 }
+
 // SetOperationNil sets the value for Operation to be an explicit nil
 func (o *DeploymentTask) SetOperationNil() {
 	o.Operation.Set(nil)
@@ -117,6 +121,7 @@ func (o *DeploymentTask) HasDeploymentId() bool {
 func (o *DeploymentTask) SetDeploymentId(v string) {
 	o.DeploymentId.Set(&v)
 }
+
 // SetDeploymentIdNil sets the value for DeploymentId to be an explicit nil
 func (o *DeploymentTask) SetDeploymentIdNil() {
 	o.DeploymentId.Set(nil)
@@ -128,7 +133,7 @@ func (o *DeploymentTask) UnsetDeploymentId() {
 }
 
 func (o DeploymentTask) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -189,5 +194,3 @@ func (v *NullableDeploymentTask) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

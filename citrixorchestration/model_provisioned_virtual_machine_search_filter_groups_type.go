@@ -20,7 +20,7 @@ type ProvisionedVirtualMachineSearchFilterGroupsType string
 
 // List of ProvisionedVirtualMachineSearchFilterGroupsType
 const (
-	PROVISIONEDVIRTUALMACHINESEARCHFILTERGROUPSTYPE_OR ProvisionedVirtualMachineSearchFilterGroupsType = "Or"
+	PROVISIONEDVIRTUALMACHINESEARCHFILTERGROUPSTYPE_OR  ProvisionedVirtualMachineSearchFilterGroupsType = "Or"
 	PROVISIONEDVIRTUALMACHINESEARCHFILTERGROUPSTYPE_AND ProvisionedVirtualMachineSearchFilterGroupsType = "And"
 )
 
@@ -36,7 +36,7 @@ func (v *ProvisionedVirtualMachineSearchFilterGroupsType) UnmarshalJSON(src []by
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ProvisionedVirtualMachineSearchFilterGroupsType(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableProvisionedVirtualMachineSearchFilterGroupsType) UnmarshalJSON(
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

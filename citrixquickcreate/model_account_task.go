@@ -20,10 +20,13 @@ var _ MappedNullable = &AccountTask{}
 // AccountTask Enumerable of AccountTask
 type AccountTask struct {
 	TaskBase
+	// Task Type
 	Operation NullableAccountTaskOperationType `json:"operation"`
 	// Account Id this task is working on
 	AccountId NullableString `json:"accountId,omitempty"`
 }
+
+type _AccountTask AccountTask
 
 // NewAccountTask instantiates a new AccountTask object
 // This constructor will assign default values to properties that have it defined,
@@ -101,6 +104,7 @@ func (o *AccountTask) HasAccountId() bool {
 func (o *AccountTask) SetAccountId(v string) {
 	o.AccountId.Set(&v)
 }
+
 // SetAccountIdNil sets the value for AccountId to be an explicit nil
 func (o *AccountTask) SetAccountIdNil() {
 	o.AccountId.Set(nil)
@@ -112,7 +116,7 @@ func (o *AccountTask) UnsetAccountId() {
 }
 
 func (o AccountTask) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -171,5 +175,3 @@ func (v *NullableAccountTask) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

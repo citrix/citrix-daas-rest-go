@@ -19,9 +19,11 @@ var _ MappedNullable = &RestErrorParametersInner{}
 
 // RestErrorParametersInner struct for RestErrorParametersInner
 type RestErrorParametersInner struct {
-	Name string `json:"name"`
+	Name  string `json:"name"`
 	Value string `json:"value"`
 }
+
+type _RestErrorParametersInner RestErrorParametersInner
 
 // NewRestErrorParametersInner instantiates a new RestErrorParametersInner object
 // This constructor will assign default values to properties that have it defined,
@@ -91,7 +93,7 @@ func (o *RestErrorParametersInner) SetValue(v string) {
 }
 
 func (o RestErrorParametersInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +142,3 @@ func (v *NullableRestErrorParametersInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

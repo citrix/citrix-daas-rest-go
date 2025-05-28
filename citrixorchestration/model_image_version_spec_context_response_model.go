@@ -20,11 +20,11 @@ var _ MappedNullable = &ImageVersionSpecContextResponseModel{}
 // ImageVersionSpecContextResponseModel Response object for image version specification.
 type ImageVersionSpecContextResponseModel struct {
 	// Additional data about the object in the form of key-value pairs.
-	AdditionalData []NameValueStringPairModel `json:"AdditionalData,omitempty"`
-	ImageScheme *ImageSchemeResponseModel `json:"ImageScheme,omitempty"`
+	AdditionalData         []NameValueStringPairModel           `json:"AdditionalData,omitempty"`
+	ImageScheme            *ImageSchemeResponseModel            `json:"ImageScheme,omitempty"`
 	MachineProfileMetadata *MachineProfileMetadataResponseModel `json:"MachineProfileMetadata,omitempty"`
 	// Custom hypervisor plugin.
-	PluginFactoryName NullableString `json:"PluginFactoryName,omitempty"`
+	PluginFactoryName   NullableString       `json:"PluginFactoryName,omitempty"`
 	MachineAgentOptions *MachineAgentOptions `json:"MachineAgentOptions,omitempty"`
 }
 
@@ -174,6 +174,7 @@ func (o *ImageVersionSpecContextResponseModel) HasPluginFactoryName() bool {
 func (o *ImageVersionSpecContextResponseModel) SetPluginFactoryName(v string) {
 	o.PluginFactoryName.Set(&v)
 }
+
 // SetPluginFactoryNameNil sets the value for PluginFactoryName to be an explicit nil
 func (o *ImageVersionSpecContextResponseModel) SetPluginFactoryNameNil() {
 	o.PluginFactoryName.Set(nil)
@@ -217,7 +218,7 @@ func (o *ImageVersionSpecContextResponseModel) SetMachineAgentOptions(v MachineA
 }
 
 func (o ImageVersionSpecContextResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -279,5 +280,3 @@ func (v *NullableImageVersionSpecContextResponseModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

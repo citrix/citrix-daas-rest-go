@@ -21,7 +21,7 @@ type AwsEdcAccountAuthType string
 // List of AwsEdcAccountAuthType
 const (
 	AWSEDCACCOUNTAUTHTYPE_ASSUME_ROLE AwsEdcAccountAuthType = "ASSUME_ROLE"
-	AWSEDCACCOUNTAUTHTYPE_ACCESS_KEY AwsEdcAccountAuthType = "ACCESS_KEY"
+	AWSEDCACCOUNTAUTHTYPE_ACCESS_KEY  AwsEdcAccountAuthType = "ACCESS_KEY"
 )
 
 // All allowed values of AwsEdcAccountAuthType enum
@@ -108,4 +108,3 @@ func (v *NullableAwsEdcAccountAuthType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

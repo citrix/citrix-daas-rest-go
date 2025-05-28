@@ -16,25 +16,24 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"reflect"
+	"strings"
 )
-
 
 // HypervisorsAPIsDAASService HypervisorsAPIsDAAS service
 type HypervisorsAPIsDAASService service
 
 type ApiHypervisorsCheckHypervisorExistsRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -88,24 +87,24 @@ HypervisorsCheckHypervisorExists Check for the existence of a hypervisor by name
 
 Check for the existence of a hypervisor by name.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name Name of the hypervisor.
- @return ApiHypervisorsCheckHypervisorExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name Name of the hypervisor.
+	@return ApiHypervisorsCheckHypervisorExistsRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorExists(ctx context.Context, name string) ApiHypervisorsCheckHypervisorExistsRequest {
 	return ApiHypervisorsCheckHypervisorExistsRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorExistsExecute(r ApiHypervisorsCheckHypervisorExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodHead
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodHead
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsCheckHypervisorExists")
@@ -203,8 +202,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorExistsExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -214,8 +213,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorExistsExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -225,8 +224,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorExistsExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -236,8 +235,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorExistsExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -247,8 +246,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorExistsExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -258,8 +257,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorExistsExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -269,8 +268,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorExistsExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -280,8 +279,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorExistsExecute(r A
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -290,17 +289,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorExistsExecute(r A
 }
 
 type ApiHypervisorsCheckHypervisorResourcePoolExistsRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -363,26 +362,26 @@ pool by that name exists and is associated with a different
 hypervisor, this returns 303 See Other, and the `Location` response
 header refers to location of the resource pool with that name.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @param name Name of the resource pool.
- @return ApiHypervisorsCheckHypervisorResourcePoolExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@param name Name of the resource pool.
+	@return ApiHypervisorsCheckHypervisorResourcePoolExistsRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorResourcePoolExists(ctx context.Context, nameOrId string, name string) ApiHypervisorsCheckHypervisorResourcePoolExistsRequest {
 	return ApiHypervisorsCheckHypervisorResourcePoolExistsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		name: name,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorResourcePoolExistsExecute(r ApiHypervisorsCheckHypervisorResourcePoolExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodHead
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodHead
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsCheckHypervisorResourcePoolExists")
@@ -481,8 +480,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorResourcePoolExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -492,8 +491,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorResourcePoolExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -503,8 +502,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorResourcePoolExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -514,8 +513,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorResourcePoolExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -525,8 +524,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorResourcePoolExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -536,8 +535,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorResourcePoolExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -547,8 +546,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorResourcePoolExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -558,8 +557,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorResourcePoolExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -568,17 +567,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorResourcePoolExist
 }
 
 type ApiHypervisorsCreateHypervisorRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                          context.Context
+	ApiService                   *HypervisorsAPIsDAASService
+	citrixCustomerId             *string
+	citrixInstanceId             *string
 	createHypervisorRequestModel *CreateHypervisorRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                    *string
+	authorization                *string
+	citrixTransactionId          *string
+	accept                       *string
+	citrixLocale                 *string
+	async                        *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -644,24 +643,25 @@ HypervisorsCreateHypervisor Create a hypervisor, and optionally a resource pool 
 
 Create a hypervisor, and optionally a resource pool on the hypervisor.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiHypervisorsCreateHypervisorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHypervisorsCreateHypervisorRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsCreateHypervisor(ctx context.Context) ApiHypervisorsCreateHypervisorRequest {
 	return ApiHypervisorsCreateHypervisorRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorDetailResponseModel
+//
+//	@return HypervisorDetailResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsCreateHypervisorExecute(r ApiHypervisorsCreateHypervisorRequest) (*HypervisorDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorDetailResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsCreateHypervisor")
@@ -766,8 +766,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -777,8 +777,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -788,8 +788,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -799,8 +799,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -810,8 +810,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -821,8 +821,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -832,8 +832,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -843,8 +843,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -854,8 +854,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -873,18 +873,18 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateHypervisorExecute(r ApiHyp
 }
 
 type ApiHypervisorsCreateResourcePoolRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                      context.Context
+	ApiService                               *HypervisorsAPIsDAASService
+	citrixCustomerId                         *string
+	citrixInstanceId                         *string
+	nameOrId                                 string
 	createHypervisorResourcePoolRequestModel *CreateHypervisorResourcePoolRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                *string
+	authorization                            *string
+	citrixTransactionId                      *string
+	accept                                   *string
+	citrixLocale                             *string
+	async                                    *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -950,26 +950,27 @@ HypervisorsCreateResourcePool Create a new resource pool on an existing hypervis
 
 Create a new resource pool on an existing hypervisor.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @return ApiHypervisorsCreateResourcePoolRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@return ApiHypervisorsCreateResourcePoolRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePool(ctx context.Context, nameOrId string) ApiHypervisorsCreateResourcePoolRequest {
 	return ApiHypervisorsCreateResourcePoolRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourcePoolDetailResponseModel
+//
+//	@return HypervisorResourcePoolDetailResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePoolExecute(r ApiHypervisorsCreateResourcePoolRequest) (*HypervisorResourcePoolDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourcePoolDetailResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourcePoolDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsCreateResourcePool")
@@ -1075,8 +1076,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePoolExecute(r ApiH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1086,8 +1087,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePoolExecute(r ApiH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1097,8 +1098,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePoolExecute(r ApiH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1108,8 +1109,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePoolExecute(r ApiH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1119,8 +1120,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePoolExecute(r ApiH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1130,8 +1131,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePoolExecute(r ApiH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1141,8 +1142,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePoolExecute(r ApiH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1152,8 +1153,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePoolExecute(r ApiH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1163,8 +1164,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePoolExecute(r ApiH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1174,8 +1175,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePoolExecute(r ApiH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1193,17 +1194,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePoolExecute(r ApiH
 }
 
 type ApiHypervisorsDeleteHypervisorRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1248,7 +1249,7 @@ func (r ApiHypervisorsDeleteHypervisorRequest) CitrixLocale(citrixLocale string)
 	return r
 }
 
-// If the api call with async type. 
+// If the api call with async type.
 func (r ApiHypervisorsDeleteHypervisorRequest) Async(async bool) ApiHypervisorsDeleteHypervisorRequest {
 	r.async = &async
 	return r
@@ -1261,24 +1262,24 @@ func (r ApiHypervisorsDeleteHypervisorRequest) Execute() (*http.Response, error)
 /*
 HypervisorsDeleteHypervisor Delete a hypervisor and related resource pools.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The hypervisor connection name or id. 
- @return ApiHypervisorsDeleteHypervisorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The hypervisor connection name or id.
+	@return ApiHypervisorsDeleteHypervisorRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisor(ctx context.Context, nameOrId string) ApiHypervisorsDeleteHypervisorRequest {
 	return ApiHypervisorsDeleteHypervisorRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorExecute(r ApiHypervisorsDeleteHypervisorRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsDeleteHypervisor")
@@ -1379,8 +1380,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1390,8 +1391,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1401,8 +1402,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1412,8 +1413,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1423,8 +1424,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1434,8 +1435,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1445,8 +1446,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1456,8 +1457,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorExecute(r ApiHyp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1466,18 +1467,18 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorExecute(r ApiHyp
 }
 
 type ApiHypervisorsDeleteHypervisorResourcePoolRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	poolId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	poolId              string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1522,7 +1523,7 @@ func (r ApiHypervisorsDeleteHypervisorResourcePoolRequest) CitrixLocale(citrixLo
 	return r
 }
 
-// If the api call with async type. 
+// If the api call with async type.
 func (r ApiHypervisorsDeleteHypervisorResourcePoolRequest) Async(async bool) ApiHypervisorsDeleteHypervisorResourcePoolRequest {
 	r.async = &async
 	return r
@@ -1535,26 +1536,26 @@ func (r ApiHypervisorsDeleteHypervisorResourcePoolRequest) Execute() (*http.Resp
 /*
 HypervisorsDeleteHypervisorResourcePool Delete a hypervisor resource pool.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The name or id of hypervisor. 
- @param poolId The hypervisor resource pool id. 
- @return ApiHypervisorsDeleteHypervisorResourcePoolRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The name or id of hypervisor.
+	@param poolId The hypervisor resource pool id.
+	@return ApiHypervisorsDeleteHypervisorResourcePoolRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorResourcePool(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsDeleteHypervisorResourcePoolRequest {
 	return ApiHypervisorsDeleteHypervisorResourcePoolRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		poolId: poolId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
 	}
 }
 
 // Execute executes the request
 func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorResourcePoolExecute(r ApiHypervisorsDeleteHypervisorResourcePoolRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsDeleteHypervisorResourcePool")
@@ -1656,8 +1657,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorResourcePoolExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1667,8 +1668,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorResourcePoolExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1678,8 +1679,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorResourcePoolExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1689,8 +1690,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorResourcePoolExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1700,8 +1701,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorResourcePoolExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1711,8 +1712,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorResourcePoolExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1722,8 +1723,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorResourcePoolExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1733,8 +1734,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorResourcePoolExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1743,21 +1744,21 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorResourcePoolExec
 }
 
 type ApiHypervisorsDoHypervisorAllResourcesSearchRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                  context.Context
+	ApiService                           *HypervisorsAPIsDAASService
+	citrixCustomerId                     *string
+	citrixInstanceId                     *string
+	nameOrId                             string
 	hypervisorResourceSearchRequestModel *HypervisorResourceSearchRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	detail *bool
-	async *bool
+	userAgent                            *string
+	authorization                        *string
+	citrixTransactionId                  *string
+	accept                               *string
+	citrixLocale                         *string
+	limit                                *int32
+	continuationToken                    *string
+	detail                               *bool
+	async                                *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1826,7 +1827,7 @@ func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) Detail(detail bool)
 	return r
 }
 
-// Async request to get the resources with *path. 
+// Async request to get the resources with *path.
 func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) Async(async bool) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
 	r.async = &async
 	return r
@@ -1841,26 +1842,27 @@ HypervisorsDoHypervisorAllResourcesSearch Search the resources within a hypervis
 
 Currently, support AWS, Azure, VCenter and Nutanix.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @return ApiHypervisorsDoHypervisorAllResourcesSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@return ApiHypervisorsDoHypervisorAllResourcesSearchRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearch(ctx context.Context, nameOrId string) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
 	return ApiHypervisorsDoHypervisorAllResourcesSearchRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourceResponseModelCollection
+//
+//	@return HypervisorResourceResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchExecute(r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) (*HypervisorResourceResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourceResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourceResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsDoHypervisorAllResourcesSearch")
@@ -1975,8 +1977,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1986,8 +1988,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1997,8 +1999,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2008,8 +2010,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2019,8 +2021,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2030,8 +2032,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2041,8 +2043,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2052,8 +2054,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2063,8 +2065,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2074,8 +2076,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2093,20 +2095,20 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchEx
 }
 
 type ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                     context.Context
+	ApiService                              *HypervisorsAPIsDAASService
+	citrixCustomerId                        *string
+	citrixInstanceId                        *string
 	hypervisorAllResourceSearchRequestModel *HypervisorAllResourceSearchRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	detail *bool
-	async *bool
+	userAgent                               *string
+	authorization                           *string
+	citrixTransactionId                     *string
+	accept                                  *string
+	citrixLocale                            *string
+	limit                                   *int32
+	continuationToken                       *string
+	detail                                  *bool
+	async                                   *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2175,7 +2177,7 @@ func (r ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) De
 	return r
 }
 
-// Async request to get the resources with *path. 
+// Async request to get the resources with *path.
 func (r ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) Async(async bool) ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest {
 	r.async = &async
 	return r
@@ -2188,24 +2190,25 @@ func (r ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) Ex
 /*
 HypervisorsDoHypervisorAllResourcesSearchWithoutConnection Search all resources within a hypervisor, _without_ creating a persistent connection to the hypervisor.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchWithoutConnection(ctx context.Context) ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest {
 	return ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourceResponseModelCollection
+//
+//	@return HypervisorResourceResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchWithoutConnectionExecute(r ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) (*HypervisorResourceResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourceResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourceResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsDoHypervisorAllResourcesSearchWithoutConnection")
@@ -2319,8 +2322,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchWi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2330,8 +2333,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchWi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2341,8 +2344,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchWi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2352,8 +2355,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchWi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2363,8 +2366,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchWi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2374,8 +2377,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchWi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2385,8 +2388,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchWi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2396,8 +2399,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchWi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2407,8 +2410,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchWi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2426,22 +2429,22 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchWi
 }
 
 type ApiHypervisorsDoHypervisorResourceSearchRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	poolId string
+	ctx                                  context.Context
+	ApiService                           *HypervisorsAPIsDAASService
+	citrixCustomerId                     *string
+	citrixInstanceId                     *string
+	nameOrId                             string
+	poolId                               string
 	hypervisorResourceSearchRequestModel *HypervisorResourceSearchRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	detail *bool
-	async *bool
+	userAgent                            *string
+	authorization                        *string
+	citrixTransactionId                  *string
+	accept                               *string
+	citrixLocale                         *string
+	limit                                *int32
+	continuationToken                    *string
+	detail                               *bool
+	async                                *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2510,7 +2513,7 @@ func (r ApiHypervisorsDoHypervisorResourceSearchRequest) Detail(detail bool) Api
 	return r
 }
 
-// Async request to get the resources with *path. 
+// Async request to get the resources with *path.
 func (r ApiHypervisorsDoHypervisorResourceSearchRequest) Async(async bool) ApiHypervisorsDoHypervisorResourceSearchRequest {
 	r.async = &async
 	return r
@@ -2525,28 +2528,29 @@ HypervisorsDoHypervisorResourceSearch Search the resources within a hypervisor r
 
 Currently, support AWS, Azure, VCenter and Nutanix.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @param poolId Name or ID of the resource pool.
- @return ApiHypervisorsDoHypervisorResourceSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@param poolId Name or ID of the resource pool.
+	@return ApiHypervisorsDoHypervisorResourceSearchRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearch(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsDoHypervisorResourceSearchRequest {
 	return ApiHypervisorsDoHypervisorResourceSearchRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		poolId: poolId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourceResponseModelCollection
+//
+//	@return HypervisorResourceResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearchExecute(r ApiHypervisorsDoHypervisorResourceSearchRequest) (*HypervisorResourceResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourceResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourceResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsDoHypervisorResourceSearch")
@@ -2662,8 +2666,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearchExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2673,8 +2677,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearchExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2684,8 +2688,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearchExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2695,8 +2699,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearchExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2706,8 +2710,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearchExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2717,8 +2721,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearchExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2728,8 +2732,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearchExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2739,8 +2743,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearchExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2750,8 +2754,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearchExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2761,8 +2765,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearchExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2780,18 +2784,18 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearchExecut
 }
 
 type ApiHypervisorsGetHypervisorRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	noCache *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	noCache             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2836,13 +2840,13 @@ func (r ApiHypervisorsGetHypervisorRequest) CitrixLocale(citrixLocale string) Ap
 	return r
 }
 
-// Async request to hypervisor. 
+// Async request to hypervisor.
 func (r ApiHypervisorsGetHypervisorRequest) Async(async bool) ApiHypervisorsGetHypervisorRequest {
 	r.async = &async
 	return r
 }
 
-// Disable the cache. 
+// Disable the cache.
 func (r ApiHypervisorsGetHypervisorRequest) NoCache(noCache bool) ApiHypervisorsGetHypervisorRequest {
 	r.noCache = &noCache
 	return r
@@ -2858,26 +2862,27 @@ HypervisorsGetHypervisor Get the details for a single hypervisor.
 Get the details for a single hypervisor.
 URI with ?noCache=true can ignore the cache and fetch the data directly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @return ApiHypervisorsGetHypervisorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@return ApiHypervisorsGetHypervisorRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisor(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorRequest {
 	return ApiHypervisorsGetHypervisorRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorDetailResponseModel
+//
+//	@return HypervisorDetailResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorExecute(r ApiHypervisorsGetHypervisorRequest) (*HypervisorDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorDetailResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisor")
@@ -2981,8 +2986,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorExecute(r ApiHyperv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2992,8 +2997,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorExecute(r ApiHyperv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3003,8 +3008,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorExecute(r ApiHyperv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3014,8 +3019,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorExecute(r ApiHyperv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3025,8 +3030,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorExecute(r ApiHyperv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3036,8 +3041,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorExecute(r ApiHyperv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3047,8 +3052,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorExecute(r ApiHyperv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3058,8 +3063,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorExecute(r ApiHyperv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3077,19 +3082,19 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorExecute(r ApiHyperv
 }
 
 type ApiHypervisorsGetHypervisorAdministratorsRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3134,7 +3139,7 @@ func (r ApiHypervisorsGetHypervisorAdministratorsRequest) CitrixLocale(citrixLoc
 	return r
 }
 
-// If async execute. 
+// If async execute.
 func (r ApiHypervisorsGetHypervisorAdministratorsRequest) Async(async bool) ApiHypervisorsGetHypervisorAdministratorsRequest {
 	r.async = &async
 	return r
@@ -3161,26 +3166,27 @@ HypervisorsGetHypervisorAdministrators Get administrators who can administer a h
 
 Get administrators who can administer a hypervisor.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @return ApiHypervisorsGetHypervisorAdministratorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@return ApiHypervisorsGetHypervisorAdministratorsRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAdministrators(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorAdministratorsRequest {
 	return ApiHypervisorsGetHypervisorAdministratorsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorResponseModelCollection
+//
+//	@return AdministratorResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAdministratorsExecute(r ApiHypervisorsGetHypervisorAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorAdministrators")
@@ -3287,8 +3293,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAdministratorsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3298,8 +3304,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAdministratorsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3309,8 +3315,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAdministratorsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3320,8 +3326,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAdministratorsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3331,8 +3337,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAdministratorsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3342,8 +3348,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAdministratorsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3353,8 +3359,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAdministratorsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3364,8 +3370,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAdministratorsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3383,17 +3389,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAdministratorsExecu
 }
 
 type ApiHypervisorsGetHypervisorAllResourcePoolsRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	noCache *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	noCache             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3438,13 +3444,13 @@ func (r ApiHypervisorsGetHypervisorAllResourcePoolsRequest) CitrixLocale(citrixL
 	return r
 }
 
-// Async request to get the resource pool. 
+// Async request to get the resource pool.
 func (r ApiHypervisorsGetHypervisorAllResourcePoolsRequest) Async(async bool) ApiHypervisorsGetHypervisorAllResourcePoolsRequest {
 	r.async = &async
 	return r
 }
 
-// Disable the cache. 
+// Disable the cache.
 func (r ApiHypervisorsGetHypervisorAllResourcePoolsRequest) NoCache(noCache bool) ApiHypervisorsGetHypervisorAllResourcePoolsRequest {
 	r.noCache = &noCache
 	return r
@@ -3460,24 +3466,25 @@ HypervisorsGetHypervisorAllResourcePools Get the list of hypervisor resource poo
 Get the list of hypervisor resource pools from all hypervisors.
 URI with ?noCache=true can ignore the cache and fetch the data directly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiHypervisorsGetHypervisorAllResourcePoolsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHypervisorsGetHypervisorAllResourcePoolsRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcePools(ctx context.Context) ApiHypervisorsGetHypervisorAllResourcePoolsRequest {
 	return ApiHypervisorsGetHypervisorAllResourcePoolsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourcePoolResponseModelCollection
+//
+//	@return HypervisorResourcePoolResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcePoolsExecute(r ApiHypervisorsGetHypervisorAllResourcePoolsRequest) (*HypervisorResourcePoolResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourcePoolResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourcePoolResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorAllResourcePools")
@@ -3580,8 +3587,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcePoolsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3591,8 +3598,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcePoolsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3602,8 +3609,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcePoolsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3613,8 +3620,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcePoolsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3624,8 +3631,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcePoolsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3635,8 +3642,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcePoolsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3646,8 +3653,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcePoolsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3665,25 +3672,25 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcePoolsExe
 }
 
 type ApiHypervisorsGetHypervisorAllResourcesRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	path *string
-	children *int32
-	type_ *[]string
-	showTagged *bool
-	detail *bool
-	async *bool
-	noCache *bool
-	force *bool
-	recurse *bool
+	accept              *string
+	citrixLocale        *string
+	path                *string
+	children            *int32
+	type_               *[]string
+	showTagged          *bool
+	detail              *bool
+	async               *bool
+	noCache             *bool
+	force               *bool
+	recurse             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3764,19 +3771,19 @@ func (r ApiHypervisorsGetHypervisorAllResourcesRequest) Async(async bool) ApiHyp
 	return r
 }
 
-// Disable the cache. 
+// Disable the cache.
 func (r ApiHypervisorsGetHypervisorAllResourcesRequest) NoCache(noCache bool) ApiHypervisorsGetHypervisorAllResourcesRequest {
 	r.noCache = &noCache
 	return r
 }
 
-// Get the VMs provisioned by MCS. 
+// Get the VMs provisioned by MCS.
 func (r ApiHypervisorsGetHypervisorAllResourcesRequest) Force(force bool) ApiHypervisorsGetHypervisorAllResourcesRequest {
 	r.force = &force
 	return r
 }
 
-// Fetch all resources under this folder. 
+// Fetch all resources under this folder.
 func (r ApiHypervisorsGetHypervisorAllResourcesRequest) Recurse(recurse bool) ApiHypervisorsGetHypervisorAllResourcesRequest {
 	r.recurse = &recurse
 	return r
@@ -3792,38 +3799,40 @@ HypervisorsGetHypervisorAllResources Get all resources within a hypervisor.
 Get the resources within a hypervisor.  Note: in previous versions
 of the API, this was referred to as a "Connection".
 A caller can recursively enumerate by:
-* Call with no `path`, and `children` equal to `1`.
-* For each of the result's
-  Children where
-  IsContainer is
-  `true`, call with `path` equal to that item's
-  RelativePath and
-  `children` equal to `1`.
-* Repeat recursively.
+  - Call with no `path`, and `children` equal to `1`.
+  - For each of the result's
+    Children where
+    IsContainer is
+    `true`, call with `path` equal to that item's
+    RelativePath and
+    `children` equal to `1`.
+  - Repeat recursively.
+
 URI with ?noCache=true can ignore the cache and fetch the data directly.
 URI with ?force=true can get the VMs which provisioned by MCS.
 URI with ?recurse=true can recurse fetch all resources under this folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @return ApiHypervisorsGetHypervisorAllResourcesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@return ApiHypervisorsGetHypervisorAllResourcesRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResources(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorAllResourcesRequest {
 	return ApiHypervisorsGetHypervisorAllResourcesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourceResponseModel
+//
+//	@return HypervisorResourceResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesExecute(r ApiHypervisorsGetHypervisorAllResourcesRequest) (*HypervisorResourceResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourceResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourceResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorAllResources")
@@ -3956,8 +3965,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3967,8 +3976,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3978,8 +3987,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3989,8 +3998,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4000,8 +4009,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4011,8 +4020,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4022,8 +4031,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4033,8 +4042,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4052,24 +4061,24 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesExecute
 }
 
 type ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                    context.Context
+	ApiService                             *HypervisorsAPIsDAASService
+	citrixCustomerId                       *string
+	citrixInstanceId                       *string
 	hypervisorConnectionDetailRequestModel *HypervisorConnectionDetailRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	path *string
-	children *int32
-	type_ *[]string
-	showTagged *bool
-	detail *bool
-	async *bool
-	force *bool
-	recurse *bool
+	userAgent                              *string
+	authorization                          *string
+	citrixTransactionId                    *string
+	accept                                 *string
+	citrixLocale                           *string
+	path                                   *string
+	children                               *int32
+	type_                                  *[]string
+	showTagged                             *bool
+	detail                                 *bool
+	async                                  *bool
+	force                                  *bool
+	recurse                                *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4156,13 +4165,13 @@ func (r ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) Async(a
 	return r
 }
 
-// Get the VMs provisioned by MCS. 
+// Get the VMs provisioned by MCS.
 func (r ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) Force(force bool) ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest {
 	r.force = &force
 	return r
 }
 
-// Fetch all resources under this folder. 
+// Fetch all resources under this folder.
 func (r ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) Recurse(recurse bool) ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest {
 	r.recurse = &recurse
 	return r
@@ -4183,35 +4192,37 @@ create both a hypervisor and a resource pool, but without finalizing
 the creation of either.  The caller is free to browse resources that
 are available before deciding whether and how to proceed.
 A caller can recursively enumerate by:
-* Call with no `path`, and `children` equal to `1`.
-* For each of the result's
-  Children where
-  IsContainer is
-  `true`, call with `path` equal to that item's
-  RelativePath and
-  `children` equal to `1`.
- * Repeat recursively.
+  - Call with no `path`, and `children` equal to `1`.
+  - For each of the result's
+    Children where
+    IsContainer is
+    `true`, call with `path` equal to that item's
+    RelativePath and
+    `children` equal to `1`.
+  - Repeat recursively.
+
 URI with ?force=true can get the VMs which provisioned by MCS.
 URI with ?recurse=true can recurse fetch all resources under this folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesWithoutConnection(ctx context.Context) ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest {
 	return ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourceResponseModel
+//
+//	@return HypervisorResourceResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesWithoutConnectionExecute(r ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) (*HypervisorResourceResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourceResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourceResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorAllResourcesWithoutConnection")
@@ -4345,8 +4356,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesWithout
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4356,8 +4367,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesWithout
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4367,8 +4378,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesWithout
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4378,8 +4389,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesWithout
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4389,8 +4400,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesWithout
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -4400,8 +4411,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesWithout
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4411,8 +4422,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesWithout
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4422,8 +4433,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesWithout
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4433,8 +4444,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesWithout
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4452,17 +4463,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesWithout
 }
 
 type ApiHypervisorsGetHypervisorDeletePreviewRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4507,7 +4518,7 @@ func (r ApiHypervisorsGetHypervisorDeletePreviewRequest) CitrixLocale(citrixLoca
 	return r
 }
 
-// If execute this API asynchronous. 
+// If execute this API asynchronous.
 func (r ApiHypervisorsGetHypervisorDeletePreviewRequest) Async(async bool) ApiHypervisorsGetHypervisorDeletePreviewRequest {
 	r.async = &async
 	return r
@@ -4522,26 +4533,27 @@ HypervisorsGetHypervisorDeletePreview Get the hypervisor delete preview.
 
 Get the machine catalogs and related info that are using a hypervisor.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @return ApiHypervisorsGetHypervisorDeletePreviewRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@return ApiHypervisorsGetHypervisorDeletePreviewRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorDeletePreview(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorDeletePreviewRequest {
 	return ApiHypervisorsGetHypervisorDeletePreviewRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorDeletePreviewResponseModel
+//
+//	@return HypervisorDeletePreviewResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorDeletePreviewExecute(r ApiHypervisorsGetHypervisorDeletePreviewRequest) (*HypervisorDeletePreviewResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorDeletePreviewResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorDeletePreviewResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorDeletePreview")
@@ -4642,8 +4654,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorDeletePreviewExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4653,8 +4665,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorDeletePreviewExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4664,8 +4676,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorDeletePreviewExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4675,8 +4687,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorDeletePreviewExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4686,8 +4698,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorDeletePreviewExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4697,8 +4709,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorDeletePreviewExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4708,8 +4720,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorDeletePreviewExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4719,8 +4731,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorDeletePreviewExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4738,16 +4750,16 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorDeletePreviewExecut
 }
 
 type ApiHypervisorsGetHypervisorJobsRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4801,26 +4813,27 @@ HypervisorsGetHypervisorJobs Get the currently active jobs that are using a hype
 
 Get the currently active provisioning jobs that are using a hypervisor.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @return ApiHypervisorsGetHypervisorJobsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@return ApiHypervisorsGetHypervisorJobsRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorJobs(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorJobsRequest {
 	return ApiHypervisorsGetHypervisorJobsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return JobResponseModelCollection
+//
+//	@return JobResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorJobsExecute(r ApiHypervisorsGetHypervisorJobsRequest) (*JobResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *JobResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *JobResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorJobs")
@@ -4918,8 +4931,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorJobsExecute(r ApiHy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4929,8 +4942,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorJobsExecute(r ApiHy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4940,8 +4953,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorJobsExecute(r ApiHy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4951,8 +4964,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorJobsExecute(r ApiHy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4962,8 +4975,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorJobsExecute(r ApiHy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4973,8 +4986,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorJobsExecute(r ApiHy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4984,8 +4997,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorJobsExecute(r ApiHy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4995,8 +5008,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorJobsExecute(r ApiHy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5014,19 +5027,19 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorJobsExecute(r ApiHy
 }
 
 type ApiHypervisorsGetHypervisorMachineCatalogsRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5071,7 +5084,7 @@ func (r ApiHypervisorsGetHypervisorMachineCatalogsRequest) CitrixLocale(citrixLo
 	return r
 }
 
-// If async execute. 
+// If async execute.
 func (r ApiHypervisorsGetHypervisorMachineCatalogsRequest) Async(async bool) ApiHypervisorsGetHypervisorMachineCatalogsRequest {
 	r.async = &async
 	return r
@@ -5098,26 +5111,27 @@ HypervisorsGetHypervisorMachineCatalogs Get the machine catalogs that are using 
 
 Get the machine catalogs that are using a hypervisor.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @return ApiHypervisorsGetHypervisorMachineCatalogsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@return ApiHypervisorsGetHypervisorMachineCatalogsRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorMachineCatalogs(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorMachineCatalogsRequest {
 	return ApiHypervisorsGetHypervisorMachineCatalogsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorMachineCatalogResponseModelCollection
+//
+//	@return HypervisorMachineCatalogResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorMachineCatalogsExecute(r ApiHypervisorsGetHypervisorMachineCatalogsRequest) (*HypervisorMachineCatalogResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorMachineCatalogResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorMachineCatalogResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorMachineCatalogs")
@@ -5224,8 +5238,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorMachineCatalogsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5235,8 +5249,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorMachineCatalogsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5246,8 +5260,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorMachineCatalogsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5257,8 +5271,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorMachineCatalogsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5268,8 +5282,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorMachineCatalogsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5279,8 +5293,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorMachineCatalogsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5290,8 +5304,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorMachineCatalogsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5301,8 +5315,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorMachineCatalogsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5320,17 +5334,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorMachineCatalogsExec
 }
 
 type ApiHypervisorsGetHypervisorOrphanedResourcesRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5390,26 +5404,27 @@ HypervisorsGetHypervisorOrphanedResources Run detect on a hypervisor and retriev
 
 Run detect on a hypervisor and get a orphaned resources result.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor to detect.
- @return ApiHypervisorsGetHypervisorOrphanedResourcesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor to detect.
+	@return ApiHypervisorsGetHypervisorOrphanedResourcesRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorOrphanedResources(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorOrphanedResourcesRequest {
 	return ApiHypervisorsGetHypervisorOrphanedResourcesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return DetectOrphanedResourcesResponseModel
+//
+//	@return DetectOrphanedResourcesResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorOrphanedResourcesExecute(r ApiHypervisorsGetHypervisorOrphanedResourcesRequest) (*DetectOrphanedResourcesResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DetectOrphanedResourcesResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DetectOrphanedResourcesResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorOrphanedResources")
@@ -5510,8 +5525,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorOrphanedResourcesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5521,8 +5536,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorOrphanedResourcesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5532,8 +5547,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorOrphanedResourcesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5543,8 +5558,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorOrphanedResourcesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5554,8 +5569,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorOrphanedResourcesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5565,8 +5580,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorOrphanedResourcesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5576,8 +5591,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorOrphanedResourcesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5587,8 +5602,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorOrphanedResourcesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5606,19 +5621,19 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorOrphanedResourcesEx
 }
 
 type ApiHypervisorsGetHypervisorResourcePoolRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	poolId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	poolId              string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	noCache *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	noCache             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5663,13 +5678,13 @@ func (r ApiHypervisorsGetHypervisorResourcePoolRequest) CitrixLocale(citrixLocal
 	return r
 }
 
-// Async request to get the resource pool. 
+// Async request to get the resource pool.
 func (r ApiHypervisorsGetHypervisorResourcePoolRequest) Async(async bool) ApiHypervisorsGetHypervisorResourcePoolRequest {
 	r.async = &async
 	return r
 }
 
-// Disable the cache. 
+// Disable the cache.
 func (r ApiHypervisorsGetHypervisorResourcePoolRequest) NoCache(noCache bool) ApiHypervisorsGetHypervisorResourcePoolRequest {
 	r.noCache = &noCache
 	return r
@@ -5686,28 +5701,29 @@ Get details about a hypervisor resource pool.  Note: in previous versions of
 the API, resource pools were referred to as "HostingUnits".
 URI with ?noCache=true can ignore the cache and fetch the data directly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @param poolId Name or ID of the resource pool.
- @return ApiHypervisorsGetHypervisorResourcePoolRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@param poolId Name or ID of the resource pool.
+	@return ApiHypervisorsGetHypervisorResourcePoolRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePool(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolRequest {
 	return ApiHypervisorsGetHypervisorResourcePoolRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		poolId: poolId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourcePoolDetailResponseModel
+//
+//	@return HypervisorResourcePoolDetailResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolExecute(r ApiHypervisorsGetHypervisorResourcePoolRequest) (*HypervisorResourcePoolDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourcePoolDetailResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourcePoolDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorResourcePool")
@@ -5812,8 +5828,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5823,8 +5839,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5834,8 +5850,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5845,8 +5861,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5856,8 +5872,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5867,8 +5883,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5878,8 +5894,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5889,8 +5905,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5908,20 +5924,20 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolExecute
 }
 
 type ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	poolId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	poolId              string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5966,7 +5982,7 @@ func (r ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) CitrixLoca
 	return r
 }
 
-// If async execute. 
+// If async execute.
 func (r ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) Async(async bool) ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest {
 	r.async = &async
 	return r
@@ -5993,28 +6009,29 @@ HypervisorsGetHypervisorResourcePoolAdministrators Get administrators who can ad
 
 Get administrators who can administer a resource pool.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @param poolId Name or ID of the resource pool.
- @return ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@param poolId Name or ID of the resource pool.
+	@return ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAdministrators(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest {
 	return ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		poolId: poolId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorResponseModelCollection
+//
+//	@return AdministratorResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAdministratorsExecute(r ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorResourcePoolAdministrators")
@@ -6122,8 +6139,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAdminis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6133,8 +6150,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAdminis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6144,8 +6161,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAdminis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6155,8 +6172,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAdminis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6166,8 +6183,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAdminis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6177,8 +6194,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAdminis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6188,8 +6205,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAdminis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6199,8 +6216,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAdminis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6218,16 +6235,16 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAdminis
 }
 
 type ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6272,7 +6289,7 @@ func (r ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) Citr
 	return r
 }
 
-// If execute this API asynchronous. 
+// If execute this API asynchronous.
 func (r ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) Async(async bool) ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest {
 	r.async = &async
 	return r
@@ -6285,24 +6302,25 @@ func (r ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) Exec
 /*
 HypervisorsGetHypervisorResourcePoolAllAvailableNetworks Get all available networks among hypervisors and resource pools.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAllAvailableNetworks(ctx context.Context) ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest {
 	return ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourcePoolNetworkResponseModelCollection
+//
+//	@return HypervisorResourcePoolNetworkResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAllAvailableNetworksExecute(r ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) (*HypervisorResourcePoolNetworkResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourcePoolNetworkResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourcePoolNetworkResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorResourcePoolAllAvailableNetworks")
@@ -6402,8 +6420,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAllAvai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6413,8 +6431,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAllAvai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6424,8 +6442,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAllAvai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6435,8 +6453,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAllAvai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6446,8 +6464,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAllAvai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6457,8 +6475,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAllAvai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6468,8 +6486,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAllAvai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6487,18 +6505,18 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAllAvai
 }
 
 type ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	poolId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	poolId              string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6543,7 +6561,7 @@ func (r ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) CitrixLocal
 	return r
 }
 
-// If execute this API asynchronous. 
+// If execute this API asynchronous.
 func (r ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) Async(async bool) ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest {
 	r.async = &async
 	return r
@@ -6558,28 +6576,29 @@ HypervisorsGetHypervisorResourcePoolDeletePreview Get the hypervisor resource po
 
 Get the machine catalogs and related resources that are using by a resource pool.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @param poolId Name or ID of the resource pool.
- @return ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@param poolId Name or ID of the resource pool.
+	@return ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolDeletePreview(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest {
 	return ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		poolId: poolId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorDeletePreviewResponseModel
+//
+//	@return HypervisorDeletePreviewResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolDeletePreviewExecute(r ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) (*HypervisorDeletePreviewResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorDeletePreviewResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorDeletePreviewResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorResourcePoolDeletePreview")
@@ -6681,8 +6700,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolDeleteP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6692,8 +6711,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolDeleteP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6703,8 +6722,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolDeleteP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6714,8 +6733,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolDeleteP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6725,8 +6744,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolDeleteP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6736,8 +6755,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolDeleteP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6747,8 +6766,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolDeleteP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6758,8 +6777,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolDeleteP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6777,17 +6796,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolDeleteP
 }
 
 type ApiHypervisorsGetHypervisorResourcePoolJobsRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	poolId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	poolId              string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6841,28 +6860,29 @@ HypervisorsGetHypervisorResourcePoolJobs Get the currently active jobs that are 
 
 Get the currently active provisioning jobs that are using a resource pool.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @param poolId Name or ID of the resource pool.
- @return ApiHypervisorsGetHypervisorResourcePoolJobsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@param poolId Name or ID of the resource pool.
+	@return ApiHypervisorsGetHypervisorResourcePoolJobsRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolJobs(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolJobsRequest {
 	return ApiHypervisorsGetHypervisorResourcePoolJobsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		poolId: poolId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
 	}
 }
 
 // Execute executes the request
-//  @return JobResponseModelCollection
+//
+//	@return JobResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolJobsExecute(r ApiHypervisorsGetHypervisorResourcePoolJobsRequest) (*JobResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *JobResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *JobResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorResourcePoolJobs")
@@ -6961,8 +6981,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolJobsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6972,8 +6992,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolJobsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6983,8 +7003,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolJobsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6994,8 +7014,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolJobsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7005,8 +7025,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolJobsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7016,8 +7036,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolJobsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7027,8 +7047,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolJobsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7038,8 +7058,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolJobsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7057,20 +7077,20 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolJobsExe
 }
 
 type ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	poolId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	poolId              string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7115,7 +7135,7 @@ func (r ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) CitrixLoc
 	return r
 }
 
-// If async execute. 
+// If async execute.
 func (r ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) Async(async bool) ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest {
 	r.async = &async
 	return r
@@ -7142,28 +7162,29 @@ HypervisorsGetHypervisorResourcePoolMachineCatalogs Get the machine catalogs tha
 
 Get the machine catalogs that are using a resource pool.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @param poolId Name or ID of the resource pool.
- @return ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@param poolId Name or ID of the resource pool.
+	@return ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolMachineCatalogs(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest {
 	return ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		poolId: poolId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorMachineCatalogResponseModelCollection
+//
+//	@return HypervisorMachineCatalogResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolMachineCatalogsExecute(r ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) (*HypervisorMachineCatalogResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorMachineCatalogResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorMachineCatalogResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorResourcePoolMachineCatalogs")
@@ -7271,8 +7292,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7282,8 +7303,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7293,8 +7314,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7304,8 +7325,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7315,8 +7336,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7326,8 +7347,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7337,8 +7358,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7348,8 +7369,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7367,19 +7388,19 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolMachine
 }
 
 type ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	poolId string
+	ctx                                            context.Context
+	ApiService                                     *HypervisorsAPIsDAASService
+	citrixCustomerId                               *string
+	citrixInstanceId                               *string
+	nameOrId                                       string
+	poolId                                         string
 	hypervisorResourcePoolPatchPreviewRequestModel *HypervisorResourcePoolPatchPreviewRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                      *string
+	authorization                                  *string
+	citrixTransactionId                            *string
+	accept                                         *string
+	citrixLocale                                   *string
+	async                                          *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7443,28 +7464,29 @@ func (r ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) Execute() (*
 /*
 HypervisorsGetHypervisorResourcePoolPatchPreview Get the hypervisor resource pool patch preview.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @param poolId Name or ID of the resource pool.
- @return ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@param poolId Name or ID of the resource pool.
+	@return ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPreview(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest {
 	return ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		poolId: poolId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourcePoolPatchPreviewResponseModel
+//
+//	@return HypervisorResourcePoolPatchPreviewResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPreviewExecute(r ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) (*HypervisorResourcePoolPatchPreviewResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourcePoolPatchPreviewResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourcePoolPatchPreviewResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorResourcePoolPatchPreview")
@@ -7571,8 +7593,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7582,8 +7604,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7593,8 +7615,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7604,8 +7626,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7615,8 +7637,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -7626,8 +7648,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -7637,8 +7659,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7648,8 +7670,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7659,8 +7681,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7670,8 +7692,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7689,26 +7711,26 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPr
 }
 
 type ApiHypervisorsGetHypervisorResourcePoolResourcesRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	poolId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	poolId              string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	path *string
-	children *int32
-	type_ *[]string
-	showTagged *bool
-	detail *bool
-	async *bool
-	noCache *bool
-	force *bool
-	recurse *bool
+	accept              *string
+	citrixLocale        *string
+	path                *string
+	children            *int32
+	type_               *[]string
+	showTagged          *bool
+	detail              *bool
+	async               *bool
+	noCache             *bool
+	force               *bool
+	recurse             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7783,25 +7805,25 @@ func (r ApiHypervisorsGetHypervisorResourcePoolResourcesRequest) Detail(detail b
 	return r
 }
 
-// Async request to get the resources with *path. 
+// Async request to get the resources with *path.
 func (r ApiHypervisorsGetHypervisorResourcePoolResourcesRequest) Async(async bool) ApiHypervisorsGetHypervisorResourcePoolResourcesRequest {
 	r.async = &async
 	return r
 }
 
-// Disable the cache. 
+// Disable the cache.
 func (r ApiHypervisorsGetHypervisorResourcePoolResourcesRequest) NoCache(noCache bool) ApiHypervisorsGetHypervisorResourcePoolResourcesRequest {
 	r.noCache = &noCache
 	return r
 }
 
-// Get the VMs provisioned by MCS. 
+// Get the VMs provisioned by MCS.
 func (r ApiHypervisorsGetHypervisorResourcePoolResourcesRequest) Force(force bool) ApiHypervisorsGetHypervisorResourcePoolResourcesRequest {
 	r.force = &force
 	return r
 }
 
-// Fetch all resources under this folder. 
+// Fetch all resources under this folder.
 func (r ApiHypervisorsGetHypervisorResourcePoolResourcesRequest) Recurse(recurse bool) ApiHypervisorsGetHypervisorResourcePoolResourcesRequest {
 	r.recurse = &recurse
 	return r
@@ -7817,40 +7839,42 @@ HypervisorsGetHypervisorResourcePoolResources Get the resources within a hypervi
 Get the resources within a hypervisor resource pool.  Note: in previous
 versions of the API, resource pools were referred to as "HostingUnits".
 A caller can recursively enumerate by:
-* Call with no `path`, and `children` equal to `1`.
-* For each of the result's
-  Children where
-  IsContainer is `true`, call
-  with `path` equal to that item's
-  RelativePath and `children`
-  equal to `1`.
-* Repeat recursively.
+  - Call with no `path`, and `children` equal to `1`.
+  - For each of the result's
+    Children where
+    IsContainer is `true`, call
+    with `path` equal to that item's
+    RelativePath and `children`
+    equal to `1`.
+  - Repeat recursively.
+
 URI with ?noCache=true can ignore the cache and fetch the data directly.
 URI with ?force=true can get the VMs which provisioned by MCS.
 URI with ?recurse=true can recurse fetch all resources under this folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @param poolId Name or ID of the resource pool.
- @return ApiHypervisorsGetHypervisorResourcePoolResourcesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@param poolId Name or ID of the resource pool.
+	@return ApiHypervisorsGetHypervisorResourcePoolResourcesRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolResources(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolResourcesRequest {
 	return ApiHypervisorsGetHypervisorResourcePoolResourcesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		poolId: poolId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourceResponseModel
+//
+//	@return HypervisorResourceResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolResourcesExecute(r ApiHypervisorsGetHypervisorResourcePoolResourcesRequest) (*HypervisorResourceResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourceResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourceResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorResourcePoolResources")
@@ -7984,8 +8008,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolResourc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7995,8 +8019,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolResourc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8006,8 +8030,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolResourc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8017,8 +8041,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolResourc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8028,8 +8052,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolResourc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8039,8 +8063,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolResourc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8050,8 +8074,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolResourc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8061,8 +8085,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolResourc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8080,17 +8104,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolResourc
 }
 
 type ApiHypervisorsGetHypervisorResourcePoolTestReportRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	poolId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	poolId              string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8145,28 +8169,29 @@ HypervisorsGetHypervisorResourcePoolTestReport Get the most recent test report f
 Get the test report from the last run of
 TestHypervisorResourcePool.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @param poolId Name or ID of the resource pool.
- @return ApiHypervisorsGetHypervisorResourcePoolTestReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@param poolId Name or ID of the resource pool.
+	@return ApiHypervisorsGetHypervisorResourcePoolTestReportRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolTestReport(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolTestReportRequest {
 	return ApiHypervisorsGetHypervisorResourcePoolTestReportRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		poolId: poolId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
 	}
 }
 
 // Execute executes the request
-//  @return TestReportResponseModel
+//
+//	@return TestReportResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolTestReportExecute(r ApiHypervisorsGetHypervisorResourcePoolTestReportRequest) (*TestReportResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TestReportResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TestReportResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorResourcePoolTestReport")
@@ -8265,8 +8290,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8276,8 +8301,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8287,8 +8312,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8298,8 +8323,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8309,8 +8334,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8320,8 +8345,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8331,8 +8356,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8342,8 +8367,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8361,18 +8386,18 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolTestRep
 }
 
 type ApiHypervisorsGetHypervisorResourcePoolsRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	noCache *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	noCache             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8417,13 +8442,13 @@ func (r ApiHypervisorsGetHypervisorResourcePoolsRequest) CitrixLocale(citrixLoca
 	return r
 }
 
-// Async request to get the resource pool. 
+// Async request to get the resource pool.
 func (r ApiHypervisorsGetHypervisorResourcePoolsRequest) Async(async bool) ApiHypervisorsGetHypervisorResourcePoolsRequest {
 	r.async = &async
 	return r
 }
 
-// Disable the cache. 
+// Disable the cache.
 func (r ApiHypervisorsGetHypervisorResourcePoolsRequest) NoCache(noCache bool) ApiHypervisorsGetHypervisorResourcePoolsRequest {
 	r.noCache = &noCache
 	return r
@@ -8440,26 +8465,27 @@ Get the list of hypervisor resource pools.  Note: in previous versions of the AP
 resource pools were referred to as "HostingUnits".
 URI with ?noCache=true can ignore the cache and fetch the data directly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @return ApiHypervisorsGetHypervisorResourcePoolsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@return ApiHypervisorsGetHypervisorResourcePoolsRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePools(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorResourcePoolsRequest {
 	return ApiHypervisorsGetHypervisorResourcePoolsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourcePoolResponseModelCollection
+//
+//	@return HypervisorResourcePoolResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolsExecute(r ApiHypervisorsGetHypervisorResourcePoolsRequest) (*HypervisorResourcePoolResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourcePoolResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourcePoolResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorResourcePools")
@@ -8563,8 +8589,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8574,8 +8600,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8585,8 +8611,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8596,8 +8622,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8607,8 +8633,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8618,8 +8644,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8629,8 +8655,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8640,8 +8666,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8659,18 +8685,18 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolsExecut
 }
 
 type ApiHypervisorsGetHypervisorResourcePricesRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                    context.Context
+	ApiService                             *HypervisorsAPIsDAASService
+	citrixCustomerId                       *string
+	citrixInstanceId                       *string
+	nameOrId                               string
 	hypervisorResourceSettingsRequestModel *HypervisorResourceSettingsRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                              *string
+	authorization                          *string
+	citrixTransactionId                    *string
+	accept                                 *string
+	citrixLocale                           *string
+	async                                  *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8734,26 +8760,27 @@ func (r ApiHypervisorsGetHypervisorResourcePricesRequest) Execute() (*Hypervisor
 /*
 HypervisorsGetHypervisorResourcePrices Get the hypervisor resource prices from settings.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The hypervisor connection name or id.
- @return ApiHypervisorsGetHypervisorResourcePricesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The hypervisor connection name or id.
+	@return ApiHypervisorsGetHypervisorResourcePricesRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePrices(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorResourcePricesRequest {
 	return ApiHypervisorsGetHypervisorResourcePricesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourcePricesResponseModel
+//
+//	@return HypervisorResourcePricesResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePricesExecute(r ApiHypervisorsGetHypervisorResourcePricesRequest) (*HypervisorResourcePricesResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourcePricesResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourcePricesResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorResourcePrices")
@@ -8859,8 +8886,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePricesExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8870,8 +8897,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePricesExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8881,8 +8908,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePricesExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8892,8 +8919,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePricesExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8903,8 +8930,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePricesExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8914,8 +8941,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePricesExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -8925,8 +8952,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePricesExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8936,8 +8963,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePricesExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8947,8 +8974,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePricesExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8958,8 +8985,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePricesExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8977,18 +9004,18 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePricesExecu
 }
 
 type ApiHypervisorsGetHypervisorServerHAAddressesRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	noCache *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	noCache             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9033,13 +9060,13 @@ func (r ApiHypervisorsGetHypervisorServerHAAddressesRequest) CitrixLocale(citrix
 	return r
 }
 
-// If the execution with async model. 
+// If the execution with async model.
 func (r ApiHypervisorsGetHypervisorServerHAAddressesRequest) Async(async bool) ApiHypervisorsGetHypervisorServerHAAddressesRequest {
 	r.async = &async
 	return r
 }
 
-// Disable the cache. 
+// Disable the cache.
 func (r ApiHypervisorsGetHypervisorServerHAAddressesRequest) NoCache(noCache bool) ApiHypervisorsGetHypervisorServerHAAddressesRequest {
 	r.noCache = &noCache
 	return r
@@ -9054,26 +9081,27 @@ HypervisorsGetHypervisorServerHAAddresses Get hypervisor server HA addresses. Cu
 
 URI with ?noCache=true can ignore the cache and fetch the data directly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The hypervisor connection name or id. 
- @return ApiHypervisorsGetHypervisorServerHAAddressesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The hypervisor connection name or id.
+	@return ApiHypervisorsGetHypervisorServerHAAddressesRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorServerHAAddresses(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorServerHAAddressesRequest {
 	return ApiHypervisorsGetHypervisorServerHAAddressesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorServerHAAddressesResponseModel
+//
+//	@return HypervisorServerHAAddressesResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorServerHAAddressesExecute(r ApiHypervisorsGetHypervisorServerHAAddressesRequest) (*HypervisorServerHAAddressesResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorServerHAAddressesResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorServerHAAddressesResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorServerHAAddresses")
@@ -9177,8 +9205,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorServerHAAddressesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9188,8 +9216,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorServerHAAddressesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9199,8 +9227,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorServerHAAddressesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9210,8 +9238,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorServerHAAddressesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9221,8 +9249,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorServerHAAddressesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9232,8 +9260,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorServerHAAddressesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9243,8 +9271,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorServerHAAddressesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9254,8 +9282,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorServerHAAddressesEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9273,16 +9301,16 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorServerHAAddressesEx
 }
 
 type ApiHypervisorsGetHypervisorTestReportRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9337,26 +9365,27 @@ HypervisorsGetHypervisorTestReport Get the most recent test report for a hypervi
 Get the test report from the last run of
 TestHypervisor.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @return ApiHypervisorsGetHypervisorTestReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@return ApiHypervisorsGetHypervisorTestReportRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorTestReport(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorTestReportRequest {
 	return ApiHypervisorsGetHypervisorTestReportRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return TestReportResponseModel
+//
+//	@return TestReportResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorTestReportExecute(r ApiHypervisorsGetHypervisorTestReportRequest) (*TestReportResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TestReportResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TestReportResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorTestReport")
@@ -9454,8 +9483,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorTestReportExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9465,8 +9494,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorTestReportExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9476,8 +9505,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorTestReportExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9487,8 +9516,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorTestReportExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9498,8 +9527,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorTestReportExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9509,8 +9538,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorTestReportExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9520,8 +9549,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorTestReportExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9531,8 +9560,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorTestReportExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9550,17 +9579,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorTestReportExecute(r
 }
 
 type ApiHypervisorsGetHypervisorWithoutConnectionRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                    context.Context
+	ApiService                             *HypervisorsAPIsDAASService
+	citrixCustomerId                       *string
+	citrixInstanceId                       *string
 	hypervisorConnectionDetailRequestModel *HypervisorConnectionDetailRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                              *string
+	authorization                          *string
+	citrixTransactionId                    *string
+	accept                                 *string
+	citrixLocale                           *string
+	async                                  *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9611,7 +9640,7 @@ func (r ApiHypervisorsGetHypervisorWithoutConnectionRequest) CitrixLocale(citrix
 	return r
 }
 
-// Async request to get the hypervisor. 
+// Async request to get the hypervisor.
 func (r ApiHypervisorsGetHypervisorWithoutConnectionRequest) Async(async bool) ApiHypervisorsGetHypervisorWithoutConnectionRequest {
 	r.async = &async
 	return r
@@ -9624,24 +9653,25 @@ func (r ApiHypervisorsGetHypervisorWithoutConnectionRequest) Execute() (*Hypervi
 /*
 HypervisorsGetHypervisorWithoutConnection Get a hypervisor details without creating persistent connection.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiHypervisorsGetHypervisorWithoutConnectionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHypervisorsGetHypervisorWithoutConnectionRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorWithoutConnection(ctx context.Context) ApiHypervisorsGetHypervisorWithoutConnectionRequest {
 	return ApiHypervisorsGetHypervisorWithoutConnectionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorDetailResponseModel
+//
+//	@return HypervisorDetailResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorWithoutConnectionExecute(r ApiHypervisorsGetHypervisorWithoutConnectionRequest) (*HypervisorDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorDetailResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorWithoutConnection")
@@ -9746,8 +9776,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorWithoutConnectionEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9757,8 +9787,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorWithoutConnectionEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9768,8 +9798,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorWithoutConnectionEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9779,8 +9809,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorWithoutConnectionEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9790,8 +9820,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorWithoutConnectionEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -9801,8 +9831,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorWithoutConnectionEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9812,8 +9842,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorWithoutConnectionEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9823,8 +9853,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorWithoutConnectionEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9834,8 +9864,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorWithoutConnectionEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9853,17 +9883,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorWithoutConnectionEx
 }
 
 type ApiHypervisorsGetHypervisorsRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	noCache *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	noCache             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9908,13 +9938,13 @@ func (r ApiHypervisorsGetHypervisorsRequest) CitrixLocale(citrixLocale string) A
 	return r
 }
 
-// Async request to hypervisor. 
+// Async request to hypervisor.
 func (r ApiHypervisorsGetHypervisorsRequest) Async(async bool) ApiHypervisorsGetHypervisorsRequest {
 	r.async = &async
 	return r
 }
 
-// Disable the cache. 
+// Disable the cache.
 func (r ApiHypervisorsGetHypervisorsRequest) NoCache(noCache bool) ApiHypervisorsGetHypervisorsRequest {
 	r.noCache = &noCache
 	return r
@@ -9930,24 +9960,25 @@ HypervisorsGetHypervisors Get the hypervisors.
 Get all hypervisors configured in the site.
 URI with ?noCache=true can ignore the cache and fetch the data directly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiHypervisorsGetHypervisorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHypervisorsGetHypervisorsRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisors(ctx context.Context) ApiHypervisorsGetHypervisorsRequest {
 	return ApiHypervisorsGetHypervisorsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResponseModelCollection
+//
+//	@return HypervisorResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsExecute(r ApiHypervisorsGetHypervisorsRequest) (*HypervisorResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisors")
@@ -10050,8 +10081,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10061,8 +10092,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10072,8 +10103,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10083,8 +10114,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10094,8 +10125,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10105,8 +10136,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10116,8 +10147,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10135,17 +10166,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsExecute(r ApiHyper
 }
 
 type ApiHypervisorsGetHypervisorsAndResourcePoolsRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	noCache *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	noCache             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10190,13 +10221,13 @@ func (r ApiHypervisorsGetHypervisorsAndResourcePoolsRequest) CitrixLocale(citrix
 	return r
 }
 
-// If execute this API asynchronous. 
+// If execute this API asynchronous.
 func (r ApiHypervisorsGetHypervisorsAndResourcePoolsRequest) Async(async bool) ApiHypervisorsGetHypervisorsAndResourcePoolsRequest {
 	r.async = &async
 	return r
 }
 
-// Disable the cache. 
+// Disable the cache.
 func (r ApiHypervisorsGetHypervisorsAndResourcePoolsRequest) NoCache(noCache bool) ApiHypervisorsGetHypervisorsAndResourcePoolsRequest {
 	r.noCache = &noCache
 	return r
@@ -10211,24 +10242,25 @@ HypervisorsGetHypervisorsAndResourcePools Get hypervisors and resource pools. Th
 
 URI with ?noCache=true can ignore the cache and fetch the data directly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiHypervisorsGetHypervisorsAndResourcePoolsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHypervisorsGetHypervisorsAndResourcePoolsRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsAndResourcePools(ctx context.Context) ApiHypervisorsGetHypervisorsAndResourcePoolsRequest {
 	return ApiHypervisorsGetHypervisorsAndResourcePoolsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorsAndResourcePoolsResponseModelCollection
+//
+//	@return HypervisorsAndResourcePoolsResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsAndResourcePoolsExecute(r ApiHypervisorsGetHypervisorsAndResourcePoolsRequest) (*HypervisorsAndResourcePoolsResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorsAndResourcePoolsResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorsAndResourcePoolsResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetHypervisorsAndResourcePools")
@@ -10331,8 +10363,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsAndResourcePoolsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10342,8 +10374,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsAndResourcePoolsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10353,8 +10385,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsAndResourcePoolsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10364,8 +10396,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsAndResourcePoolsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10375,8 +10407,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsAndResourcePoolsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10386,8 +10418,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsAndResourcePoolsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10397,8 +10429,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsAndResourcePoolsEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10416,19 +10448,19 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsAndResourcePoolsEx
 }
 
 type ApiHypervisorsGetSupportHypervisorsRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	zoneNameOrId *string
-	includeUnavailable *bool
-	noCache *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	zoneNameOrId        *string
+	includeUnavailable  *bool
+	noCache             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10473,13 +10505,13 @@ func (r ApiHypervisorsGetSupportHypervisorsRequest) CitrixLocale(citrixLocale st
 	return r
 }
 
-// If execute this API asynchronous. 
+// If execute this API asynchronous.
 func (r ApiHypervisorsGetSupportHypervisorsRequest) Async(async bool) ApiHypervisorsGetSupportHypervisorsRequest {
 	r.async = &async
 	return r
 }
 
-// The zone name or id. 
+// The zone name or id.
 func (r ApiHypervisorsGetSupportHypervisorsRequest) ZoneNameOrId(zoneNameOrId string) ApiHypervisorsGetSupportHypervisorsRequest {
 	r.zoneNameOrId = &zoneNameOrId
 	return r
@@ -10491,7 +10523,7 @@ func (r ApiHypervisorsGetSupportHypervisorsRequest) IncludeUnavailable(includeUn
 	return r
 }
 
-// Disable the cache. 
+// Disable the cache.
 func (r ApiHypervisorsGetSupportHypervisorsRequest) NoCache(noCache bool) ApiHypervisorsGetSupportHypervisorsRequest {
 	r.noCache = &noCache
 	return r
@@ -10506,24 +10538,25 @@ HypervisorsGetSupportHypervisors Get current server support hypervisors.
 
 URI with ?noCache=true can ignore the cache and fetch the data directly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiHypervisorsGetSupportHypervisorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHypervisorsGetSupportHypervisorsRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsGetSupportHypervisors(ctx context.Context) ApiHypervisorsGetSupportHypervisorsRequest {
 	return ApiHypervisorsGetSupportHypervisorsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorPluginResponseModelCollection
+//
+//	@return HypervisorPluginResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsGetSupportHypervisorsExecute(r ApiHypervisorsGetSupportHypervisorsRequest) (*HypervisorPluginResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorPluginResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorPluginResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsGetSupportHypervisors")
@@ -10632,8 +10665,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetSupportHypervisorsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10643,8 +10676,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetSupportHypervisorsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10654,8 +10687,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetSupportHypervisorsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10665,8 +10698,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetSupportHypervisorsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10676,8 +10709,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetSupportHypervisorsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10687,8 +10720,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetSupportHypervisorsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10698,8 +10731,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetSupportHypervisorsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10717,18 +10750,18 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetSupportHypervisorsExecute(r A
 }
 
 type ApiHypervisorsPatchHypervisorRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                  context.Context
+	ApiService                           *HypervisorsAPIsDAASService
+	citrixCustomerId                     *string
+	citrixInstanceId                     *string
+	nameOrId                             string
 	editHypervisorConnectionRequestModel *EditHypervisorConnectionRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                            *string
+	authorization                        *string
+	citrixTransactionId                  *string
+	accept                               *string
+	citrixLocale                         *string
+	async                                *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10794,24 +10827,24 @@ HypervisorsPatchHypervisor Update a hypervisor.
 
 Update a hypervisor.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @return ApiHypervisorsPatchHypervisorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@return ApiHypervisorsPatchHypervisorRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisor(ctx context.Context, nameOrId string) ApiHypervisorsPatchHypervisorRequest {
 	return ApiHypervisorsPatchHypervisorRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorExecute(r ApiHypervisorsPatchHypervisorRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsPatchHypervisor")
@@ -10917,8 +10950,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorExecute(r ApiHype
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10928,8 +10961,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorExecute(r ApiHype
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10939,8 +10972,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorExecute(r ApiHype
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10950,8 +10983,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorExecute(r ApiHype
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10961,8 +10994,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorExecute(r ApiHype
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -10972,8 +11005,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorExecute(r ApiHype
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10983,8 +11016,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorExecute(r ApiHype
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10994,8 +11027,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorExecute(r ApiHype
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11005,8 +11038,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorExecute(r ApiHype
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -11015,19 +11048,19 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorExecute(r ApiHype
 }
 
 type ApiHypervisorsPatchHypervisorResourcePoolRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	poolId string
+	ctx                                    context.Context
+	ApiService                             *HypervisorsAPIsDAASService
+	citrixCustomerId                       *string
+	citrixInstanceId                       *string
+	nameOrId                               string
+	poolId                                 string
 	editHypervisorResourcePoolRequestModel *EditHypervisorResourcePoolRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                              *string
+	authorization                          *string
+	citrixTransactionId                    *string
+	accept                                 *string
+	citrixLocale                           *string
+	async                                  *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11093,26 +11126,26 @@ HypervisorsPatchHypervisorResourcePool Update a hypervisor resource pool.
 
 Update a hypervisor resource pool.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor.
- @param poolId Name or ID of the resource pool.
- @return ApiHypervisorsPatchHypervisorResourcePoolRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor.
+	@param poolId Name or ID of the resource pool.
+	@return ApiHypervisorsPatchHypervisorResourcePoolRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorResourcePool(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsPatchHypervisorResourcePoolRequest {
 	return ApiHypervisorsPatchHypervisorResourcePoolRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		poolId: poolId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
 	}
 }
 
 // Execute executes the request
 func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorResourcePoolExecute(r ApiHypervisorsPatchHypervisorResourcePoolRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsPatchHypervisorResourcePool")
@@ -11219,8 +11252,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorResourcePoolExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11230,8 +11263,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorResourcePoolExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11241,8 +11274,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorResourcePoolExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11252,8 +11285,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorResourcePoolExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -11263,8 +11296,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorResourcePoolExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -11274,8 +11307,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorResourcePoolExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11285,8 +11318,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorResourcePoolExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -11296,8 +11329,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorResourcePoolExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11307,8 +11340,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorResourcePoolExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -11317,18 +11350,18 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorResourcePoolExecu
 }
 
 type ApiHypervisorsPutBrokerHypervisorConnectionRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                        context.Context
+	ApiService                                 *HypervisorsAPIsDAASService
+	citrixCustomerId                           *string
+	citrixInstanceId                           *string
+	nameOrId                                   string
 	editBrokerHypervisorConnectionRequestModel *EditBrokerHypervisorConnectionRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                  *string
+	authorization                              *string
+	citrixTransactionId                        *string
+	accept                                     *string
+	citrixLocale                               *string
+	async                                      *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11343,7 +11376,7 @@ func (r ApiHypervisorsPutBrokerHypervisorConnectionRequest) CitrixInstanceId(cit
 	return r
 }
 
-// EditBrokerHypervisorConnectionRequestModel or derived objects. 
+// EditBrokerHypervisorConnectionRequestModel or derived objects.
 func (r ApiHypervisorsPutBrokerHypervisorConnectionRequest) EditBrokerHypervisorConnectionRequestModel(editBrokerHypervisorConnectionRequestModel EditBrokerHypervisorConnectionRequestModel) ApiHypervisorsPutBrokerHypervisorConnectionRequest {
 	r.editBrokerHypervisorConnectionRequestModel = &editBrokerHypervisorConnectionRequestModel
 	return r
@@ -11379,7 +11412,7 @@ func (r ApiHypervisorsPutBrokerHypervisorConnectionRequest) CitrixLocale(citrixL
 	return r
 }
 
-// If async calling. 
+// If async calling.
 func (r ApiHypervisorsPutBrokerHypervisorConnectionRequest) Async(async bool) ApiHypervisorsPutBrokerHypervisorConnectionRequest {
 	r.async = &async
 	return r
@@ -11392,24 +11425,24 @@ func (r ApiHypervisorsPutBrokerHypervisorConnectionRequest) Execute() (*http.Res
 /*
 HypervisorsPutBrokerHypervisorConnection Set the properties on a broker hypervisor connection.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Hypervisor connection name or id. 
- @return ApiHypervisorsPutBrokerHypervisorConnectionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Hypervisor connection name or id.
+	@return ApiHypervisorsPutBrokerHypervisorConnectionRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsPutBrokerHypervisorConnection(ctx context.Context, nameOrId string) ApiHypervisorsPutBrokerHypervisorConnectionRequest {
 	return ApiHypervisorsPutBrokerHypervisorConnectionRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *HypervisorsAPIsDAASService) HypervisorsPutBrokerHypervisorConnectionExecute(r ApiHypervisorsPutBrokerHypervisorConnectionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsPutBrokerHypervisorConnection")
@@ -11515,8 +11548,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPutBrokerHypervisorConnectionExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11526,8 +11559,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPutBrokerHypervisorConnectionExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11537,8 +11570,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPutBrokerHypervisorConnectionExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11548,8 +11581,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPutBrokerHypervisorConnectionExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -11559,8 +11592,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPutBrokerHypervisorConnectionExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -11570,8 +11603,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPutBrokerHypervisorConnectionExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11581,8 +11614,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPutBrokerHypervisorConnectionExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -11592,8 +11625,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPutBrokerHypervisorConnectionExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11603,8 +11636,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPutBrokerHypervisorConnectionExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -11613,17 +11646,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPutBrokerHypervisorConnectionExe
 }
 
 type ApiHypervisorsResetBrokerHypervisorConnectionRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11668,7 +11701,7 @@ func (r ApiHypervisorsResetBrokerHypervisorConnectionRequest) CitrixLocale(citri
 	return r
 }
 
-// If async calling. 
+// If async calling.
 func (r ApiHypervisorsResetBrokerHypervisorConnectionRequest) Async(async bool) ApiHypervisorsResetBrokerHypervisorConnectionRequest {
 	r.async = &async
 	return r
@@ -11681,24 +11714,24 @@ func (r ApiHypervisorsResetBrokerHypervisorConnectionRequest) Execute() (*http.R
 /*
 HypervisorsResetBrokerHypervisorConnection Requests the broker hypervisor connection to be reset. The connection is dropped, details including credentials refreshed and the connection reestablished. The reset request is asynchronous and may take a moment to occur.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Hypervisor connection name or id. 
- @return ApiHypervisorsResetBrokerHypervisorConnectionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Hypervisor connection name or id.
+	@return ApiHypervisorsResetBrokerHypervisorConnectionRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsResetBrokerHypervisorConnection(ctx context.Context, nameOrId string) ApiHypervisorsResetBrokerHypervisorConnectionRequest {
 	return ApiHypervisorsResetBrokerHypervisorConnectionRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *HypervisorsAPIsDAASService) HypervisorsResetBrokerHypervisorConnectionExecute(r ApiHypervisorsResetBrokerHypervisorConnectionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsResetBrokerHypervisorConnection")
@@ -11799,8 +11832,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsResetBrokerHypervisorConnectionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11810,8 +11843,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsResetBrokerHypervisorConnectionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11821,8 +11854,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsResetBrokerHypervisorConnectionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11832,8 +11865,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsResetBrokerHypervisorConnectionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -11843,8 +11876,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsResetBrokerHypervisorConnectionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -11854,8 +11887,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsResetBrokerHypervisorConnectionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11865,8 +11898,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsResetBrokerHypervisorConnectionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -11876,8 +11909,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsResetBrokerHypervisorConnectionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11887,8 +11920,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsResetBrokerHypervisorConnectionE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -11897,17 +11930,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsResetBrokerHypervisorConnectionE
 }
 
 type ApiHypervisorsTestHypervisorRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11969,26 +12002,27 @@ Run tests on a hypervisor and create a test report.  Obtain the most
 recent report from
 GetHypervisorTestReport.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor to test.
- @return ApiHypervisorsTestHypervisorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor to test.
+	@return ApiHypervisorsTestHypervisorRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisor(ctx context.Context, nameOrId string) ApiHypervisorsTestHypervisorRequest {
 	return ApiHypervisorsTestHypervisorRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorTestResponseModel
+//
+//	@return HypervisorTestResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorExecute(r ApiHypervisorsTestHypervisorRequest) (*HypervisorTestResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorTestResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorTestResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsTestHypervisor")
@@ -12089,8 +12123,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12100,8 +12134,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12111,8 +12145,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12122,8 +12156,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -12133,8 +12167,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -12144,8 +12178,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -12155,8 +12189,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -12166,8 +12200,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12177,8 +12211,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -12196,18 +12230,18 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorExecute(r ApiHyper
 }
 
 type ApiHypervisorsTestHypervisorResourcePoolRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	poolId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HypervisorsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	poolId              string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -12269,28 +12303,29 @@ Run tests on a resource pool and create a test report.  Obtain the most
 recent report from
 GetHypervisorResourcePoolTestReport.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the hypervisor containing the resource pool.
- @param poolId Name or ID of the resource pool to test.
- @return ApiHypervisorsTestHypervisorResourcePoolRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the hypervisor containing the resource pool.
+	@param poolId Name or ID of the resource pool to test.
+	@return ApiHypervisorsTestHypervisorResourcePoolRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorResourcePool(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsTestHypervisorResourcePoolRequest {
 	return ApiHypervisorsTestHypervisorResourcePoolRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		poolId: poolId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourcePoolTestResponseModel
+//
+//	@return HypervisorResourcePoolTestResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorResourcePoolExecute(r ApiHypervisorsTestHypervisorResourcePoolRequest) (*HypervisorResourcePoolTestResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourcePoolTestResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourcePoolTestResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsTestHypervisorResourcePool")
@@ -12392,8 +12427,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorResourcePoolExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12403,8 +12438,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorResourcePoolExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12414,8 +12449,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorResourcePoolExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12425,8 +12460,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorResourcePoolExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -12436,8 +12471,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorResourcePoolExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -12447,8 +12482,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorResourcePoolExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -12458,8 +12493,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorResourcePoolExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -12469,8 +12504,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorResourcePoolExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12480,8 +12515,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorResourcePoolExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -12499,19 +12534,19 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorResourcePoolExecut
 }
 
 type ApiHypervisorsValidateHypervisorResourcePoolResourceRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	poolId string
+	ctx                                      context.Context
+	ApiService                               *HypervisorsAPIsDAASService
+	citrixCustomerId                         *string
+	citrixInstanceId                         *string
+	nameOrId                                 string
+	poolId                                   string
 	hypervisorResourceValidationRequestModel *HypervisorResourceValidationRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                *string
+	authorization                            *string
+	citrixTransactionId                      *string
+	accept                                   *string
+	citrixLocale                             *string
+	async                                    *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -12575,28 +12610,29 @@ func (r ApiHypervisorsValidateHypervisorResourcePoolResourceRequest) Execute() (
 /*
 HypervisorsValidateHypervisorResourcePoolResource Validate a resource for certain usages, currently default and only usage is for Machine Profile.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or Id of the hypervisor.
- @param poolId Name or Id of the resource pool.
- @return ApiHypervisorsValidateHypervisorResourcePoolResourceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or Id of the hypervisor.
+	@param poolId Name or Id of the resource pool.
+	@return ApiHypervisorsValidateHypervisorResourcePoolResourceRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolResource(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsValidateHypervisorResourcePoolResourceRequest {
 	return ApiHypervisorsValidateHypervisorResourcePoolResourceRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		poolId: poolId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorResourceValidationResponseModel
+//
+//	@return HypervisorResourceValidationResponseModel
 func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolResourceExecute(r ApiHypervisorsValidateHypervisorResourcePoolResourceRequest) (*HypervisorResourceValidationResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorResourceValidationResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorResourceValidationResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsValidateHypervisorResourcePoolResource")
@@ -12703,8 +12739,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12714,8 +12750,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12725,8 +12761,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12736,8 +12772,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -12747,8 +12783,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -12758,8 +12794,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -12769,8 +12805,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -12780,8 +12816,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -12791,8 +12827,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12802,8 +12838,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -12821,17 +12857,17 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolRe
 }
 
 type ApiHypervisorsValidateVmPathRequest struct {
-	ctx context.Context
-	ApiService *HypervisorsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                context.Context
+	ApiService                         *HypervisorsAPIsDAASService
+	citrixCustomerId                   *string
+	citrixInstanceId                   *string
 	hypervisorVmValidationRequestModel *HypervisorVmValidationRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                          *string
+	authorization                      *string
+	citrixTransactionId                *string
+	accept                             *string
+	citrixLocale                       *string
+	async                              *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -12897,24 +12933,25 @@ HypervisorsValidateVmPath Validate a list of hypervisor Vm Path.
 
 Validate a list of hypervisor Vm Path.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiHypervisorsValidateVmPathRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHypervisorsValidateVmPathRequest
 */
 func (a *HypervisorsAPIsDAASService) HypervisorsValidateVmPath(ctx context.Context) ApiHypervisorsValidateVmPathRequest {
 	return ApiHypervisorsValidateVmPathRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return HypervisorVmValidationResponseModelCollection
+//
+//	@return HypervisorVmValidationResponseModelCollection
 func (a *HypervisorsAPIsDAASService) HypervisorsValidateVmPathExecute(r ApiHypervisorsValidateVmPathRequest) (*HypervisorVmValidationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *HypervisorVmValidationResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *HypervisorVmValidationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsValidateVmPath")
@@ -13019,8 +13056,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateVmPathExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -13030,8 +13067,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateVmPathExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -13041,8 +13078,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateVmPathExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -13052,8 +13089,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateVmPathExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -13063,8 +13100,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateVmPathExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -13074,8 +13111,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateVmPathExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -13085,8 +13122,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateVmPathExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -13096,8 +13133,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateVmPathExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -13107,8 +13144,8 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateVmPathExecute(r ApiHyper
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

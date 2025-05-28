@@ -21,8 +21,8 @@ var _ MappedNullable = &LicensingUserResponseModel{}
 type LicensingUserResponseModel struct {
 	// Gets or sets the account name
 	Account NullableString `json:"Account,omitempty"`
-	// Gets or sets the account SID 
-	AccountSid NullableString `json:"AccountSid,omitempty"`
+	// Gets or sets the account SID
+	AccountSid      NullableString            `json:"AccountSid,omitempty"`
 	PermissionLevel *LicensingPermissionLevel `json:"PermissionLevel,omitempty"`
 	// Gets or sets a value indicating whether it is an individual account or a group
 	IsGroup *bool `json:"IsGroup,omitempty"`
@@ -77,6 +77,7 @@ func (o *LicensingUserResponseModel) HasAccount() bool {
 func (o *LicensingUserResponseModel) SetAccount(v string) {
 	o.Account.Set(&v)
 }
+
 // SetAccountNil sets the value for Account to be an explicit nil
 func (o *LicensingUserResponseModel) SetAccountNil() {
 	o.Account.Set(nil)
@@ -119,6 +120,7 @@ func (o *LicensingUserResponseModel) HasAccountSid() bool {
 func (o *LicensingUserResponseModel) SetAccountSid(v string) {
 	o.AccountSid.Set(&v)
 }
+
 // SetAccountSidNil sets the value for AccountSid to be an explicit nil
 func (o *LicensingUserResponseModel) SetAccountSidNil() {
 	o.AccountSid.Set(nil)
@@ -194,7 +196,7 @@ func (o *LicensingUserResponseModel) SetIsGroup(v bool) {
 }
 
 func (o LicensingUserResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -253,5 +255,3 @@ func (v *NullableLicensingUserResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

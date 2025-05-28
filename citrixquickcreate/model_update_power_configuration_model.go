@@ -19,6 +19,7 @@ var _ MappedNullable = &UpdatePowerConfigurationModel{}
 
 // UpdatePowerConfigurationModel struct for UpdatePowerConfigurationModel
 type UpdatePowerConfigurationModel struct {
+	// Running Mode (Manual or AlwaysOn for AWS Deployments)
 	RunningMode NullableAwsEdcWorkspaceRunningMode `json:"runningMode,omitempty"`
 	// Whether auto-scale is enabled for the delivery group.
 	AutoScaleEnabled NullableBool `json:"autoScaleEnabled,omitempty"`
@@ -30,7 +31,9 @@ type UpdatePowerConfigurationModel struct {
 	DisconnectOffPeakIdleSessionAfterSeconds NullableInt32 `json:"disconnectOffPeakIdleSessionAfterSeconds,omitempty"`
 	// The time zone in which this delivery group's machines reside.
 	TimeZone NullableString `json:"timeZone,omitempty"`
+	// The action to be performed after a configurable period of a user  session ending outside peak hours.
 	OffPeakLogOffAction NullableSessionChangeHostingAction `json:"offPeakLogOffAction,omitempty"`
+	// The action to be performed after a second configurable period of a  user session disconnecting outside peak hours.
 	OffPeakDisconnectAction NullableSessionChangeHostingAction `json:"offPeakDisconnectAction,omitempty"`
 	// The number of minutes before the configured action should be  performed after a user session ends outside peak hours.
 	OffPeakLogOffTimeoutMinutes NullableInt32 `json:"offPeakLogOffTimeoutMinutes,omitempty"`
@@ -85,6 +88,7 @@ func (o *UpdatePowerConfigurationModel) HasRunningMode() bool {
 func (o *UpdatePowerConfigurationModel) SetRunningMode(v AwsEdcWorkspaceRunningMode) {
 	o.RunningMode.Set(&v)
 }
+
 // SetRunningModeNil sets the value for RunningMode to be an explicit nil
 func (o *UpdatePowerConfigurationModel) SetRunningModeNil() {
 	o.RunningMode.Set(nil)
@@ -127,6 +131,7 @@ func (o *UpdatePowerConfigurationModel) HasAutoScaleEnabled() bool {
 func (o *UpdatePowerConfigurationModel) SetAutoScaleEnabled(v bool) {
 	o.AutoScaleEnabled.Set(&v)
 }
+
 // SetAutoScaleEnabledNil sets the value for AutoScaleEnabled to be an explicit nil
 func (o *UpdatePowerConfigurationModel) SetAutoScaleEnabledNil() {
 	o.AutoScaleEnabled.Set(nil)
@@ -169,6 +174,7 @@ func (o *UpdatePowerConfigurationModel) HasOffPeakDisconnectTimeoutMinutes() boo
 func (o *UpdatePowerConfigurationModel) SetOffPeakDisconnectTimeoutMinutes(v int32) {
 	o.OffPeakDisconnectTimeoutMinutes.Set(&v)
 }
+
 // SetOffPeakDisconnectTimeoutMinutesNil sets the value for OffPeakDisconnectTimeoutMinutes to be an explicit nil
 func (o *UpdatePowerConfigurationModel) SetOffPeakDisconnectTimeoutMinutesNil() {
 	o.OffPeakDisconnectTimeoutMinutes.Set(nil)
@@ -211,6 +217,7 @@ func (o *UpdatePowerConfigurationModel) HasOffPeakBufferSizePercent() bool {
 func (o *UpdatePowerConfigurationModel) SetOffPeakBufferSizePercent(v int32) {
 	o.OffPeakBufferSizePercent.Set(&v)
 }
+
 // SetOffPeakBufferSizePercentNil sets the value for OffPeakBufferSizePercent to be an explicit nil
 func (o *UpdatePowerConfigurationModel) SetOffPeakBufferSizePercentNil() {
 	o.OffPeakBufferSizePercent.Set(nil)
@@ -253,6 +260,7 @@ func (o *UpdatePowerConfigurationModel) HasDisconnectOffPeakIdleSessionAfterSeco
 func (o *UpdatePowerConfigurationModel) SetDisconnectOffPeakIdleSessionAfterSeconds(v int32) {
 	o.DisconnectOffPeakIdleSessionAfterSeconds.Set(&v)
 }
+
 // SetDisconnectOffPeakIdleSessionAfterSecondsNil sets the value for DisconnectOffPeakIdleSessionAfterSeconds to be an explicit nil
 func (o *UpdatePowerConfigurationModel) SetDisconnectOffPeakIdleSessionAfterSecondsNil() {
 	o.DisconnectOffPeakIdleSessionAfterSeconds.Set(nil)
@@ -295,6 +303,7 @@ func (o *UpdatePowerConfigurationModel) HasTimeZone() bool {
 func (o *UpdatePowerConfigurationModel) SetTimeZone(v string) {
 	o.TimeZone.Set(&v)
 }
+
 // SetTimeZoneNil sets the value for TimeZone to be an explicit nil
 func (o *UpdatePowerConfigurationModel) SetTimeZoneNil() {
 	o.TimeZone.Set(nil)
@@ -337,6 +346,7 @@ func (o *UpdatePowerConfigurationModel) HasOffPeakLogOffAction() bool {
 func (o *UpdatePowerConfigurationModel) SetOffPeakLogOffAction(v SessionChangeHostingAction) {
 	o.OffPeakLogOffAction.Set(&v)
 }
+
 // SetOffPeakLogOffActionNil sets the value for OffPeakLogOffAction to be an explicit nil
 func (o *UpdatePowerConfigurationModel) SetOffPeakLogOffActionNil() {
 	o.OffPeakLogOffAction.Set(nil)
@@ -379,6 +389,7 @@ func (o *UpdatePowerConfigurationModel) HasOffPeakDisconnectAction() bool {
 func (o *UpdatePowerConfigurationModel) SetOffPeakDisconnectAction(v SessionChangeHostingAction) {
 	o.OffPeakDisconnectAction.Set(&v)
 }
+
 // SetOffPeakDisconnectActionNil sets the value for OffPeakDisconnectAction to be an explicit nil
 func (o *UpdatePowerConfigurationModel) SetOffPeakDisconnectActionNil() {
 	o.OffPeakDisconnectAction.Set(nil)
@@ -421,6 +432,7 @@ func (o *UpdatePowerConfigurationModel) HasOffPeakLogOffTimeoutMinutes() bool {
 func (o *UpdatePowerConfigurationModel) SetOffPeakLogOffTimeoutMinutes(v int32) {
 	o.OffPeakLogOffTimeoutMinutes.Set(&v)
 }
+
 // SetOffPeakLogOffTimeoutMinutesNil sets the value for OffPeakLogOffTimeoutMinutes to be an explicit nil
 func (o *UpdatePowerConfigurationModel) SetOffPeakLogOffTimeoutMinutesNil() {
 	o.OffPeakLogOffTimeoutMinutes.Set(nil)
@@ -432,7 +444,7 @@ func (o *UpdatePowerConfigurationModel) UnsetOffPeakLogOffTimeoutMinutes() {
 }
 
 func (o UpdatePowerConfigurationModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -506,5 +518,3 @@ func (v *NullableUpdatePowerConfigurationModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

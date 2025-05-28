@@ -76,6 +76,7 @@ func (o *EnumerationMember) HasName() bool {
 func (o *EnumerationMember) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *EnumerationMember) SetNameNil() {
 	o.Name.Set(nil)
@@ -150,6 +151,7 @@ func (o *EnumerationMember) HasDisplayName() bool {
 func (o *EnumerationMember) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *EnumerationMember) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -161,7 +163,7 @@ func (o *EnumerationMember) UnsetDisplayName() {
 }
 
 func (o EnumerationMember) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -217,5 +219,3 @@ func (v *NullableEnumerationMember) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -153,6 +153,7 @@ func (o *TagResponseModel) HasDescription() bool {
 func (o *TagResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *TagResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -198,6 +199,7 @@ func (o *TagResponseModel) HasUid() bool {
 func (o *TagResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *TagResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -450,7 +452,7 @@ func (o *TagResponseModel) SetScopeReferences(v []ScopeReferenceModel) {
 }
 
 func (o TagResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -520,5 +522,3 @@ func (v *NullableTagResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

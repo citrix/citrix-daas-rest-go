@@ -94,7 +94,7 @@ func (o *UpdateUpgradeScheduleRequestModel) SetDurationInHours(v int32) {
 }
 
 func (o UpdateUpgradeScheduleRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -143,5 +143,3 @@ func (v *NullableUpdateUpgradeScheduleRequestModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

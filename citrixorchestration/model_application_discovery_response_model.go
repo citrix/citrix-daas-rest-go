@@ -20,7 +20,7 @@ var _ MappedNullable = &ApplicationDiscoveryResponseModel{}
 // ApplicationDiscoveryResponseModel Response object for application discovery.
 type ApplicationDiscoveryResponseModel struct {
 	// Serialized string that is a list of machine shares, or a list of directories, or application properties that parsed from a selected executable file.
-	Item NullableString `json:"item,omitempty"`
+	Item NullableString                `json:"item,omitempty"`
 	Type *ApplicationDiscoveryItemType `json:"type,omitempty"`
 }
 
@@ -73,6 +73,7 @@ func (o *ApplicationDiscoveryResponseModel) HasItem() bool {
 func (o *ApplicationDiscoveryResponseModel) SetItem(v string) {
 	o.Item.Set(&v)
 }
+
 // SetItemNil sets the value for Item to be an explicit nil
 func (o *ApplicationDiscoveryResponseModel) SetItemNil() {
 	o.Item.Set(nil)
@@ -116,7 +117,7 @@ func (o *ApplicationDiscoveryResponseModel) SetType(v ApplicationDiscoveryItemTy
 }
 
 func (o ApplicationDiscoveryResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -169,5 +170,3 @@ func (v *NullableApplicationDiscoveryResponseModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

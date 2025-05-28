@@ -18,20 +18,19 @@ import (
 	"net/url"
 )
 
-
 // RebootSchedulesAPIsDAASService RebootSchedulesAPIsDAAS service
 type RebootSchedulesAPIsDAASService service
 
 type ApiRebootSchedulesGetRebootSchedulesRequest struct {
-	ctx context.Context
-	ApiService *RebootSchedulesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *RebootSchedulesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -85,24 +84,25 @@ RebootSchedulesGetRebootSchedules Get all reboot schedules in the site.
 
 Get a list of reboot schedules from all delivery groups.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiRebootSchedulesGetRebootSchedulesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiRebootSchedulesGetRebootSchedulesRequest
 */
 func (a *RebootSchedulesAPIsDAASService) RebootSchedulesGetRebootSchedules(ctx context.Context) ApiRebootSchedulesGetRebootSchedulesRequest {
 	return ApiRebootSchedulesGetRebootSchedulesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return RebootScheduleResponseModelCollection
+//
+//	@return RebootScheduleResponseModelCollection
 func (a *RebootSchedulesAPIsDAASService) RebootSchedulesGetRebootSchedulesExecute(r ApiRebootSchedulesGetRebootSchedulesRequest) (*RebootScheduleResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RebootScheduleResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RebootScheduleResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RebootSchedulesAPIsDAASService.RebootSchedulesGetRebootSchedules")
@@ -199,8 +199,8 @@ func (a *RebootSchedulesAPIsDAASService) RebootSchedulesGetRebootSchedulesExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -210,8 +210,8 @@ func (a *RebootSchedulesAPIsDAASService) RebootSchedulesGetRebootSchedulesExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -221,8 +221,8 @@ func (a *RebootSchedulesAPIsDAASService) RebootSchedulesGetRebootSchedulesExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -232,8 +232,8 @@ func (a *RebootSchedulesAPIsDAASService) RebootSchedulesGetRebootSchedulesExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -243,8 +243,8 @@ func (a *RebootSchedulesAPIsDAASService) RebootSchedulesGetRebootSchedulesExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -254,8 +254,8 @@ func (a *RebootSchedulesAPIsDAASService) RebootSchedulesGetRebootSchedulesExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -265,8 +265,8 @@ func (a *RebootSchedulesAPIsDAASService) RebootSchedulesGetRebootSchedulesExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -20,14 +20,14 @@ var _ MappedNullable = &MachineAccountCreationRulesRequestModel{}
 // MachineAccountCreationRulesRequestModel Rules for creation of machine accounts in Active Directory.
 type MachineAccountCreationRulesRequestModel struct {
 	// Defines the template name for AD accounts created in the identity pool.  Required.
-	NamingScheme string `json:"NamingScheme"`
+	NamingScheme     string            "json:\"NamingScheme\" validate:\"regexp=^(?=^.{2,15}$)(?=^[^\\\\\\\\\\/:\\\\*\\\\?\\\"<>|,~!@$%^&'`=+;.(){}_\\\\s]*$)(?=^[^\\\\.])(?=^.*[^\\\\d].*$).*(?<!-([tT][aA][cC])|([gG][wW])|([gG][aA][tT][eE][wW][aA][yY]))$\""
 	NamingSchemeType *NamingSchemeType `json:"NamingSchemeType,omitempty"`
 	// The OU that computer accounts will be created into.  Optional.
-	OU NullableString `json:"OU,omitempty"`
+	OU NullableString `json:"OU,omitempty" validate:"regexp=.*"`
 	// The AD domain name for the pool. Specify this in FQDN format; for example, MyDomain.com. Required.
-	Domain string `json:"Domain"`
+	Domain string `json:"Domain" validate:"regexp=^(?=^.{2,15}$)(?=^[^\\\\\\\\\\/:\\\\*\\\\?\\"<>|,~!@$%^&'(){}_\\\\s]*$).*$"`
 	// Defines the next value that will be used if creating new AD accounts.  Optional.
-	NextValue NullableString `json:"NextValue,omitempty"`
+	NextValue NullableString `json:"NextValue,omitempty" validate:"regexp=^\\\\w+$"`
 	// Existing identity pool id
 	IdentityPoolId NullableString `json:"IdentityPoolId,omitempty"`
 }
@@ -139,6 +139,7 @@ func (o *MachineAccountCreationRulesRequestModel) HasOU() bool {
 func (o *MachineAccountCreationRulesRequestModel) SetOU(v string) {
 	o.OU.Set(&v)
 }
+
 // SetOUNil sets the value for OU to be an explicit nil
 func (o *MachineAccountCreationRulesRequestModel) SetOUNil() {
 	o.OU.Set(nil)
@@ -205,6 +206,7 @@ func (o *MachineAccountCreationRulesRequestModel) HasNextValue() bool {
 func (o *MachineAccountCreationRulesRequestModel) SetNextValue(v string) {
 	o.NextValue.Set(&v)
 }
+
 // SetNextValueNil sets the value for NextValue to be an explicit nil
 func (o *MachineAccountCreationRulesRequestModel) SetNextValueNil() {
 	o.NextValue.Set(nil)
@@ -247,6 +249,7 @@ func (o *MachineAccountCreationRulesRequestModel) HasIdentityPoolId() bool {
 func (o *MachineAccountCreationRulesRequestModel) SetIdentityPoolId(v string) {
 	o.IdentityPoolId.Set(&v)
 }
+
 // SetIdentityPoolIdNil sets the value for IdentityPoolId to be an explicit nil
 func (o *MachineAccountCreationRulesRequestModel) SetIdentityPoolIdNil() {
 	o.IdentityPoolId.Set(nil)
@@ -258,7 +261,7 @@ func (o *MachineAccountCreationRulesRequestModel) UnsetIdentityPoolId() {
 }
 
 func (o MachineAccountCreationRulesRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -319,5 +322,3 @@ func (v *NullableMachineAccountCreationRulesRequestModel) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

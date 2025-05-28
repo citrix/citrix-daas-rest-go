@@ -22,7 +22,7 @@ type SiteStatusResponseModel struct {
 	SiteState SiteState `json:"SiteState"`
 	// If the current administrator can perform upgrade.
 	CurrentUserCanPerformUpgrade *bool `json:"CurrentUserCanPerformUpgrade,omitempty"`
-	// These controllers have been upgraded and will function normally at the latest version.             
+	// These controllers have been upgraded and will function normally at the latest version.
 	UpgradedControllers []string `json:"UpgradedControllers,omitempty"`
 	// These controllers require their binaries to be upgraded to bring them inline with the rest of the site.
 	ControllersRequiringBinaryUpgrade []string `json:"ControllersRequiringBinaryUpgrade,omitempty"`
@@ -206,6 +206,7 @@ func (o *SiteStatusResponseModel) HasLatestControllerVersion() bool {
 func (o *SiteStatusResponseModel) SetLatestControllerVersion(v string) {
 	o.LatestControllerVersion.Set(&v)
 }
+
 // SetLatestControllerVersionNil sets the value for LatestControllerVersion to be an explicit nil
 func (o *SiteStatusResponseModel) SetLatestControllerVersionNil() {
 	o.LatestControllerVersion.Set(nil)
@@ -283,7 +284,7 @@ func (o *SiteStatusResponseModel) SetDataStoresRequiringUpgrade(v []string) {
 }
 
 func (o SiteStatusResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -349,5 +350,3 @@ func (v *NullableSiteStatusResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

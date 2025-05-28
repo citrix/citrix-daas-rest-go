@@ -132,6 +132,7 @@ func (o *RecommendationModel) HasRecommendationDescription() bool {
 func (o *RecommendationModel) SetRecommendationDescription(v string) {
 	o.RecommendationDescription.Set(&v)
 }
+
 // SetRecommendationDescriptionNil sets the value for RecommendationDescription to be an explicit nil
 func (o *RecommendationModel) SetRecommendationDescriptionNil() {
 	o.RecommendationDescription.Set(nil)
@@ -174,6 +175,7 @@ func (o *RecommendationModel) HasRecommendationSource() bool {
 func (o *RecommendationModel) SetRecommendationSource(v string) {
 	o.RecommendationSource.Set(&v)
 }
+
 // SetRecommendationSourceNil sets the value for RecommendationSource to be an explicit nil
 func (o *RecommendationModel) SetRecommendationSourceNil() {
 	o.RecommendationSource.Set(nil)
@@ -216,6 +218,7 @@ func (o *RecommendationModel) HasRecommendationType() bool {
 func (o *RecommendationModel) SetRecommendationType(v string) {
 	o.RecommendationType.Set(&v)
 }
+
 // SetRecommendationTypeNil sets the value for RecommendationType to be an explicit nil
 func (o *RecommendationModel) SetRecommendationTypeNil() {
 	o.RecommendationType.Set(nil)
@@ -258,6 +261,7 @@ func (o *RecommendationModel) HasRecommendationState() bool {
 func (o *RecommendationModel) SetRecommendationState(v string) {
 	o.RecommendationState.Set(&v)
 }
+
 // SetRecommendationStateNil sets the value for RecommendationState to be an explicit nil
 func (o *RecommendationModel) SetRecommendationStateNil() {
 	o.RecommendationState.Set(nil)
@@ -300,6 +304,7 @@ func (o *RecommendationModel) HasRecommendationMetadata() bool {
 func (o *RecommendationModel) SetRecommendationMetadata(v string) {
 	o.RecommendationMetadata.Set(&v)
 }
+
 // SetRecommendationMetadataNil sets the value for RecommendationMetadata to be an explicit nil
 func (o *RecommendationModel) SetRecommendationMetadataNil() {
 	o.RecommendationMetadata.Set(nil)
@@ -342,6 +347,7 @@ func (o *RecommendationModel) HasReason() bool {
 func (o *RecommendationModel) SetReason(v string) {
 	o.Reason.Set(&v)
 }
+
 // SetReasonNil sets the value for Reason to be an explicit nil
 func (o *RecommendationModel) SetReasonNil() {
 	o.Reason.Set(nil)
@@ -416,6 +422,7 @@ func (o *RecommendationModel) HasTargetName() bool {
 func (o *RecommendationModel) SetTargetName(v string) {
 	o.TargetName.Set(&v)
 }
+
 // SetTargetNameNil sets the value for TargetName to be an explicit nil
 func (o *RecommendationModel) SetTargetNameNil() {
 	o.TargetName.Set(nil)
@@ -458,6 +465,7 @@ func (o *RecommendationModel) HasTargetType() bool {
 func (o *RecommendationModel) SetTargetType(v string) {
 	o.TargetType.Set(&v)
 }
+
 // SetTargetTypeNil sets the value for TargetType to be an explicit nil
 func (o *RecommendationModel) SetTargetTypeNil() {
 	o.TargetType.Set(nil)
@@ -500,6 +508,7 @@ func (o *RecommendationModel) HasCreatedDateTimeInUtc() bool {
 func (o *RecommendationModel) SetCreatedDateTimeInUtc(v string) {
 	o.CreatedDateTimeInUtc.Set(&v)
 }
+
 // SetCreatedDateTimeInUtcNil sets the value for CreatedDateTimeInUtc to be an explicit nil
 func (o *RecommendationModel) SetCreatedDateTimeInUtcNil() {
 	o.CreatedDateTimeInUtc.Set(nil)
@@ -542,6 +551,7 @@ func (o *RecommendationModel) HasUpdatedDateTimeInUtc() bool {
 func (o *RecommendationModel) SetUpdatedDateTimeInUtc(v string) {
 	o.UpdatedDateTimeInUtc.Set(&v)
 }
+
 // SetUpdatedDateTimeInUtcNil sets the value for UpdatedDateTimeInUtc to be an explicit nil
 func (o *RecommendationModel) SetUpdatedDateTimeInUtcNil() {
 	o.UpdatedDateTimeInUtc.Set(nil)
@@ -584,6 +594,7 @@ func (o *RecommendationModel) HasRemindInDateTimeInUtc() bool {
 func (o *RecommendationModel) SetRemindInDateTimeInUtc(v string) {
 	o.RemindInDateTimeInUtc.Set(&v)
 }
+
 // SetRemindInDateTimeInUtcNil sets the value for RemindInDateTimeInUtc to be an explicit nil
 func (o *RecommendationModel) SetRemindInDateTimeInUtcNil() {
 	o.RemindInDateTimeInUtc.Set(nil)
@@ -626,6 +637,7 @@ func (o *RecommendationModel) HasMachineCatalogId() bool {
 func (o *RecommendationModel) SetMachineCatalogId(v string) {
 	o.MachineCatalogId.Set(&v)
 }
+
 // SetMachineCatalogIdNil sets the value for MachineCatalogId to be an explicit nil
 func (o *RecommendationModel) SetMachineCatalogIdNil() {
 	o.MachineCatalogId.Set(nil)
@@ -668,6 +680,7 @@ func (o *RecommendationModel) HasMachineCatalogName() bool {
 func (o *RecommendationModel) SetMachineCatalogName(v string) {
 	o.MachineCatalogName.Set(&v)
 }
+
 // SetMachineCatalogNameNil sets the value for MachineCatalogName to be an explicit nil
 func (o *RecommendationModel) SetMachineCatalogNameNil() {
 	o.MachineCatalogName.Set(nil)
@@ -679,7 +692,7 @@ func (o *RecommendationModel) UnsetMachineCatalogName() {
 }
 
 func (o RecommendationModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -771,5 +784,3 @@ func (v *NullableRecommendationModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

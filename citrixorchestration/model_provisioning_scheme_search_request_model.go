@@ -24,8 +24,8 @@ type ProvisioningSchemeSearchRequestModel struct {
 	// List of advanced search filters.
 	SearchFilters []ProvisioningSchemeSearchFilterRequestModel `json:"SearchFilters,omitempty"`
 	// List of advanced search filter groups.
-	SearchFilterGroups []ProvisioningSchemeSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
-	SearchFilterGroupsType *ProvisioningSchemeSearchFilterGroupsType `json:"SearchFilterGroupsType,omitempty"`
+	SearchFilterGroups     []ProvisioningSchemeSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
+	SearchFilterGroupsType *ProvisioningSchemeSearchFilterGroupsType         `json:"SearchFilterGroupsType,omitempty"`
 	// Sort criteria for the results, multiple sorting criteria can be specified here.
 	SortCriteriaItems []ProvisioningSchemeSortCriteriaRequestModel `json:"SortCriteriaItems,omitempty"`
 }
@@ -79,6 +79,7 @@ func (o *ProvisioningSchemeSearchRequestModel) HasBasicSearchString() bool {
 func (o *ProvisioningSchemeSearchRequestModel) SetBasicSearchString(v string) {
 	o.BasicSearchString.Set(&v)
 }
+
 // SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
 func (o *ProvisioningSchemeSearchRequestModel) SetBasicSearchStringNil() {
 	o.BasicSearchString.Set(nil)
@@ -221,7 +222,7 @@ func (o *ProvisioningSchemeSearchRequestModel) SetSortCriteriaItems(v []Provisio
 }
 
 func (o ProvisioningSchemeSearchRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -283,5 +284,3 @@ func (v *NullableProvisioningSchemeSearchRequestModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

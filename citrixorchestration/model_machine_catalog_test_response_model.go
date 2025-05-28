@@ -146,7 +146,7 @@ func (o *MachineCatalogTestResponseModel) SetNumFailures(v int32) {
 }
 
 func (o MachineCatalogTestResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableMachineCatalogTestResponseModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

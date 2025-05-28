@@ -20,14 +20,14 @@ type CwsIdentityProviderType string
 
 // List of CwsIdentityProviderType
 const (
-	CWSIDENTITYPROVIDERTYPE_AD CwsIdentityProviderType = "Ad"
-	CWSIDENTITYPROVIDERTYPE_ADAPTIVE_AUTH CwsIdentityProviderType = "AdaptiveAuth"
-	CWSIDENTITYPROVIDERTYPE_AD_OPT CwsIdentityProviderType = "AdOpt"
-	CWSIDENTITYPROVIDERTYPE_AZURE_AD CwsIdentityProviderType = "AzureAd"
-	CWSIDENTITYPROVIDERTYPE_GOOGLE CwsIdentityProviderType = "Google"
-	CWSIDENTITYPROVIDERTYPE_OKTA CwsIdentityProviderType = "Okta"
+	CWSIDENTITYPROVIDERTYPE_AD              CwsIdentityProviderType = "Ad"
+	CWSIDENTITYPROVIDERTYPE_ADAPTIVE_AUTH   CwsIdentityProviderType = "AdaptiveAuth"
+	CWSIDENTITYPROVIDERTYPE_AD_OPT          CwsIdentityProviderType = "AdOpt"
+	CWSIDENTITYPROVIDERTYPE_AZURE_AD        CwsIdentityProviderType = "AzureAd"
+	CWSIDENTITYPROVIDERTYPE_GOOGLE          CwsIdentityProviderType = "Google"
+	CWSIDENTITYPROVIDERTYPE_OKTA            CwsIdentityProviderType = "Okta"
 	CWSIDENTITYPROVIDERTYPE_ON_PREM_GATEWAY CwsIdentityProviderType = "OnPremGateway"
-	CWSIDENTITYPROVIDERTYPE_SAML CwsIdentityProviderType = "Saml"
+	CWSIDENTITYPROVIDERTYPE_SAML            CwsIdentityProviderType = "Saml"
 )
 
 // All allowed values of CwsIdentityProviderType enum
@@ -120,4 +120,3 @@ func (v *NullableCwsIdentityProviderType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

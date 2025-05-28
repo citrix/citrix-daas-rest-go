@@ -11,10 +11,11 @@ package citrixcws
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func Test_citrixcws_AuthDomainsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixcws_AuthDomainsDAASService(t *testing.T) {
 
 	t.Run("Test AuthDomainsDAASService CustomerAuthDomainsCheckGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customer string
 
@@ -38,7 +39,7 @@ func Test_citrixcws_AuthDomainsDAASService(t *testing.T) {
 
 	t.Run("Test AuthDomainsDAASService CustomerAuthDomainsPut", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customer string
 

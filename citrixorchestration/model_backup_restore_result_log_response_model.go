@@ -71,6 +71,7 @@ func (o *BackupRestoreResultLogResponseModel) HasResultLog() bool {
 func (o *BackupRestoreResultLogResponseModel) SetResultLog(v string) {
 	o.ResultLog.Set(&v)
 }
+
 // SetResultLogNil sets the value for ResultLog to be an explicit nil
 func (o *BackupRestoreResultLogResponseModel) SetResultLogNil() {
 	o.ResultLog.Set(nil)
@@ -82,7 +83,7 @@ func (o *BackupRestoreResultLogResponseModel) UnsetResultLog() {
 }
 
 func (o BackupRestoreResultLogResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -132,5 +133,3 @@ func (v *NullableBackupRestoreResultLogResponseModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

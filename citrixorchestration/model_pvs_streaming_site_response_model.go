@@ -80,6 +80,7 @@ func (o *PvsStreamingSiteResponseModel) HasFarmId() bool {
 func (o *PvsStreamingSiteResponseModel) SetFarmId(v string) {
 	o.FarmId.Set(&v)
 }
+
 // SetFarmIdNil sets the value for FarmId to be an explicit nil
 func (o *PvsStreamingSiteResponseModel) SetFarmIdNil() {
 	o.FarmId.Set(nil)
@@ -122,6 +123,7 @@ func (o *PvsStreamingSiteResponseModel) HasFarmName() bool {
 func (o *PvsStreamingSiteResponseModel) SetFarmName(v string) {
 	o.FarmName.Set(&v)
 }
+
 // SetFarmNameNil sets the value for FarmName to be an explicit nil
 func (o *PvsStreamingSiteResponseModel) SetFarmNameNil() {
 	o.FarmName.Set(nil)
@@ -164,6 +166,7 @@ func (o *PvsStreamingSiteResponseModel) HasResourceLocation() bool {
 func (o *PvsStreamingSiteResponseModel) SetResourceLocation(v string) {
 	o.ResourceLocation.Set(&v)
 }
+
 // SetResourceLocationNil sets the value for ResourceLocation to be an explicit nil
 func (o *PvsStreamingSiteResponseModel) SetResourceLocationNil() {
 	o.ResourceLocation.Set(nil)
@@ -206,6 +209,7 @@ func (o *PvsStreamingSiteResponseModel) HasSiteId() bool {
 func (o *PvsStreamingSiteResponseModel) SetSiteId(v string) {
 	o.SiteId.Set(&v)
 }
+
 // SetSiteIdNil sets the value for SiteId to be an explicit nil
 func (o *PvsStreamingSiteResponseModel) SetSiteIdNil() {
 	o.SiteId.Set(nil)
@@ -248,6 +252,7 @@ func (o *PvsStreamingSiteResponseModel) HasSiteName() bool {
 func (o *PvsStreamingSiteResponseModel) SetSiteName(v string) {
 	o.SiteName.Set(&v)
 }
+
 // SetSiteNameNil sets the value for SiteName to be an explicit nil
 func (o *PvsStreamingSiteResponseModel) SetSiteNameNil() {
 	o.SiteName.Set(nil)
@@ -259,7 +264,7 @@ func (o *PvsStreamingSiteResponseModel) UnsetSiteName() {
 }
 
 func (o PvsStreamingSiteResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -321,5 +326,3 @@ func (v *NullablePvsStreamingSiteResponseModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

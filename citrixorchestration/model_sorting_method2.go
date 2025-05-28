@@ -19,7 +19,7 @@ var _ MappedNullable = &SortingMethod2{}
 
 // SortingMethod2 Policy search result sort criteria.
 type SortingMethod2 struct {
-	Property PolicyProperty `json:"Property"`
+	Property      PolicyProperty    `json:"Property"`
 	SortDirection ListSortDirection `json:"SortDirection"`
 }
 
@@ -91,7 +91,7 @@ func (o *SortingMethod2) SetSortDirection(v ListSortDirection) {
 }
 
 func (o SortingMethod2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableSortingMethod2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

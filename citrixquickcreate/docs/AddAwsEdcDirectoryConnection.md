@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **DirectoryId** | Pointer to **NullableString** | Directory Id | [optional] 
 **Subnet1Id** | Pointer to **NullableString** | First Subnet Id | [optional] 
 **Subnet2Id** | Pointer to **NullableString** | Second Subnet Id | [optional] 
-**Tenancy** | Pointer to [**NullableAwsEdcDirectoryTenancy**](AwsEdcDirectoryTenancy.md) |  | [optional] 
+**Tenancy** | Pointer to [**NullableAwsEdcDirectoryTenancy**](AwsEdcDirectoryTenancy.md) | Tenancy of directory  Enum values SHARED, DEDICATED | [optional] 
 **EnableWorkDocs** | Pointer to **bool** | Enable Work Docs | [optional] 
 **UserEnabledAsLocalAdministrator** | Pointer to **bool** | Enable Local Administrator | [optional] 
 **SecurityGroupId** | Pointer to **NullableString** | The identifier of the security group | [optional] 

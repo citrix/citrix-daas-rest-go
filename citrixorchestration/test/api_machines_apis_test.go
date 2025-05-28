@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesAddMachineTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
@@ -39,7 +40,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesCheckMachineExists", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var name string
 
@@ -52,7 +53,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesCreateMachineUpgradeSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -65,7 +66,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesDisconnectSessions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -79,7 +80,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesDoMachineSearch", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesDoMachineSearch(context.Background()).Execute()
 
@@ -91,7 +92,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -105,7 +106,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachineApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -119,7 +120,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachineDeliveryGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -133,7 +134,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachineDesktop", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -147,7 +148,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachineMachineCatalog", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -161,7 +162,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachinePowerActionSchedules", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -175,7 +176,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachineSessions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -189,7 +190,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachineStartMenuShortcutIcon", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -203,7 +204,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachineStartMenuShortcuts", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -217,7 +218,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachineTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -231,7 +232,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachineUpgradeVersions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -245,7 +246,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachines", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachines(context.Background()).Execute()
 
@@ -257,7 +258,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachinesAdministrators", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -271,7 +272,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachinesV2", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachinesV2(context.Background()).Execute()
 
@@ -283,7 +284,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetTestMachineReport", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var reportId string
@@ -298,7 +299,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGetVDAComponentsAndFeatures", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -312,7 +313,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesGroupMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGroupMachine(context.Background()).Execute()
 
@@ -324,7 +325,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesImportFileTypes", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -338,7 +339,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesLogoffMachineSessions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -352,7 +353,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesRebootMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -366,7 +367,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesRemoveMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -379,7 +380,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesRemoveMachineTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
@@ -393,7 +394,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesRemoveMachineUpgradeSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -406,7 +407,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesRemovePowerActionSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -419,7 +420,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesResumeMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -433,7 +434,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesSetMachineTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -446,7 +447,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesShutdownMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -460,7 +461,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesStartMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -474,7 +475,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesSuspendMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -488,7 +489,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesTestMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -502,7 +503,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesUpdateMachineCatalogMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -515,7 +516,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesUpdateMachineUpgradeSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -528,7 +529,7 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MachinesAPIsDAASService MachinesValidateVDAComponentsAndFeaturesSelection", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 

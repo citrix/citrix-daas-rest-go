@@ -20,13 +20,13 @@ type JobStatus string
 
 // List of JobStatus
 const (
-	JOBSTATUS_UNKNOWN JobStatus = "Unknown"
-	JOBSTATUS_NOT_STARTED JobStatus = "NotStarted"
-	JOBSTATUS_IN_PROGRESS JobStatus = "InProgress"
-	JOBSTATUS_COMPLETE JobStatus = "Complete"
+	JOBSTATUS_UNKNOWN               JobStatus = "Unknown"
+	JOBSTATUS_NOT_STARTED           JobStatus = "NotStarted"
+	JOBSTATUS_IN_PROGRESS           JobStatus = "InProgress"
+	JOBSTATUS_COMPLETE              JobStatus = "Complete"
 	JOBSTATUS_COMPLETE_WITH_WARNING JobStatus = "CompleteWithWarning"
-	JOBSTATUS_FAILED JobStatus = "Failed"
-	JOBSTATUS_CANCELED JobStatus = "Canceled"
+	JOBSTATUS_FAILED                JobStatus = "Failed"
+	JOBSTATUS_CANCELED              JobStatus = "Canceled"
 	JOBSTATUS_NON_TERMINATING_ERROR JobStatus = "NonTerminatingError"
 )
 
@@ -48,7 +48,7 @@ func (v *JobStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = JobStatus(value)
 	return nil
 }
@@ -114,4 +114,3 @@ func (v *NullableJobStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

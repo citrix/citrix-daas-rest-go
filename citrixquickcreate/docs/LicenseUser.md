@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**HdxLicenseState** | Pointer to [**LicenseState**](LicenseState.md) |  | [optional] 
+**HdxLicenseState** | Pointer to [**LicenseState**](LicenseState.md) | Denotes whether the user has an active license or not | [optional] 
 **DisplayName** | Pointer to **NullableString** |  | [optional] 
 **Windows365Licenses** | Pointer to **[]string** |  | [optional] 
 **UserId** | Pointer to **NullableString** | AAD User ID for which we want to assign/revoke license | [optional] 

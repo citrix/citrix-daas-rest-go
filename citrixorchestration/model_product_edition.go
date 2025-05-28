@@ -20,13 +20,13 @@ type ProductEdition string
 
 // List of ProductEdition
 const (
-	PRODUCTEDITION_UNKNOWN ProductEdition = "Unknown"
-	PRODUCTEDITION_PLATINUM ProductEdition = "Platinum"
+	PRODUCTEDITION_UNKNOWN    ProductEdition = "Unknown"
+	PRODUCTEDITION_PLATINUM   ProductEdition = "Platinum"
 	PRODUCTEDITION_ENTERPRISE ProductEdition = "Enterprise"
-	PRODUCTEDITION_APPS ProductEdition = "Apps"
-	PRODUCTEDITION_VDI ProductEdition = "Vdi"
-	PRODUCTEDITION_ADVANCED ProductEdition = "Advanced"
-	PRODUCTEDITION_PRE ProductEdition = "PRE"
+	PRODUCTEDITION_APPS       ProductEdition = "Apps"
+	PRODUCTEDITION_VDI        ProductEdition = "Vdi"
+	PRODUCTEDITION_ADVANCED   ProductEdition = "Advanced"
+	PRODUCTEDITION_PRE        ProductEdition = "PRE"
 )
 
 // All allowed values of ProductEdition enum
@@ -46,7 +46,7 @@ func (v *ProductEdition) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ProductEdition(value)
 	return nil
 }
@@ -112,4 +112,3 @@ func (v *NullableProductEdition) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

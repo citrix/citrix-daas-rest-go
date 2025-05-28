@@ -25,6 +25,7 @@ type AddAwsEdcWorkspace struct {
 	RootVolumeSize *int32 `json:"rootVolumeSize,omitempty"`
 	// Size of user storage volume
 	UserVolumeSize *int32 `json:"userVolumeSize,omitempty"`
+	// Running mode of this workspace
 	RunningMode NullableAwsEdcWorkspaceRunningMode `json:"runningMode,omitempty"`
 }
 
@@ -77,6 +78,7 @@ func (o *AddAwsEdcWorkspace) HasUsername() bool {
 func (o *AddAwsEdcWorkspace) SetUsername(v string) {
 	o.Username.Set(&v)
 }
+
 // SetUsernameNil sets the value for Username to be an explicit nil
 func (o *AddAwsEdcWorkspace) SetUsernameNil() {
 	o.Username.Set(nil)
@@ -183,6 +185,7 @@ func (o *AddAwsEdcWorkspace) HasRunningMode() bool {
 func (o *AddAwsEdcWorkspace) SetRunningMode(v AwsEdcWorkspaceRunningMode) {
 	o.RunningMode.Set(&v)
 }
+
 // SetRunningModeNil sets the value for RunningMode to be an explicit nil
 func (o *AddAwsEdcWorkspace) SetRunningModeNil() {
 	o.RunningMode.Set(nil)
@@ -194,7 +197,7 @@ func (o *AddAwsEdcWorkspace) UnsetRunningMode() {
 }
 
 func (o AddAwsEdcWorkspace) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -253,5 +256,3 @@ func (v *NullableAddAwsEdcWorkspace) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

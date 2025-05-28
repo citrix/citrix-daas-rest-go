@@ -74,6 +74,7 @@ func (o *PoolSizeScheduleRequestModel) HasTimeRange() bool {
 func (o *PoolSizeScheduleRequestModel) SetTimeRange(v string) {
 	o.TimeRange.Set(&v)
 }
+
 // SetTimeRangeNil sets the value for TimeRange to be an explicit nil
 func (o *PoolSizeScheduleRequestModel) SetTimeRangeNil() {
 	o.TimeRange.Set(nil)
@@ -117,7 +118,7 @@ func (o *PoolSizeScheduleRequestModel) SetPoolSize(v int32) {
 }
 
 func (o PoolSizeScheduleRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +171,3 @@ func (v *NullablePoolSizeScheduleRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

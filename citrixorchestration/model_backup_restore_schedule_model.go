@@ -22,11 +22,11 @@ type BackupRestoreScheduleModel struct {
 	// Name
 	Name NullableString `json:"Name,omitempty"`
 	// Id
-	Uid *int32 `json:"Uid,omitempty"`
+	Uid *int32                     `json:"Uid,omitempty"`
 	Day *BackupRestoreScheduleDays `json:"Day,omitempty"`
 	// Days in Week
-	DaysInWeek []BackupRestoreScheduleDays `json:"DaysInWeek,omitempty"`
-	DayInMonth *BackupRestoreScheduleDays `json:"DayInMonth,omitempty"`
+	DaysInWeek  []BackupRestoreScheduleDays `json:"DaysInWeek,omitempty"`
+	DayInMonth  *BackupRestoreScheduleDays  `json:"DayInMonth,omitempty"`
 	WeekInMonth *BackupRestoreScheduleWeeks `json:"WeekInMonth,omitempty"`
 	// Start Date
 	StartDate NullableString `json:"StartDate,omitempty"`
@@ -34,14 +34,14 @@ type BackupRestoreScheduleModel struct {
 	FrequencyFactor NullableInt32 `json:"FrequencyFactor,omitempty"`
 	// Description
 	Description NullableString `json:"Description,omitempty"`
-	// Enabled             
-	Enabled *bool `json:"Enabled,omitempty"`
+	// Enabled
+	Enabled   *bool                           `json:"Enabled,omitempty"`
 	Frequency *BackupRestoreScheduleFrequency `json:"Frequency,omitempty"`
 	// Start Time
 	StartTime NullableString `json:"StartTime,omitempty"`
-	// Time Zone Id             
+	// Time Zone Id
 	TimeZoneId NullableString `json:"TimeZoneId,omitempty"`
-	// Notes added to backup 
+	// Notes added to backup
 	Notes NullableString `json:"Notes,omitempty"`
 	// Last Run Time
 	LastRunTime NullableString `json:"LastRunTime,omitempty"`
@@ -96,6 +96,7 @@ func (o *BackupRestoreScheduleModel) HasName() bool {
 func (o *BackupRestoreScheduleModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *BackupRestoreScheduleModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -299,6 +300,7 @@ func (o *BackupRestoreScheduleModel) HasStartDate() bool {
 func (o *BackupRestoreScheduleModel) SetStartDate(v string) {
 	o.StartDate.Set(&v)
 }
+
 // SetStartDateNil sets the value for StartDate to be an explicit nil
 func (o *BackupRestoreScheduleModel) SetStartDateNil() {
 	o.StartDate.Set(nil)
@@ -341,6 +343,7 @@ func (o *BackupRestoreScheduleModel) HasFrequencyFactor() bool {
 func (o *BackupRestoreScheduleModel) SetFrequencyFactor(v int32) {
 	o.FrequencyFactor.Set(&v)
 }
+
 // SetFrequencyFactorNil sets the value for FrequencyFactor to be an explicit nil
 func (o *BackupRestoreScheduleModel) SetFrequencyFactorNil() {
 	o.FrequencyFactor.Set(nil)
@@ -383,6 +386,7 @@ func (o *BackupRestoreScheduleModel) HasDescription() bool {
 func (o *BackupRestoreScheduleModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *BackupRestoreScheduleModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -489,6 +493,7 @@ func (o *BackupRestoreScheduleModel) HasStartTime() bool {
 func (o *BackupRestoreScheduleModel) SetStartTime(v string) {
 	o.StartTime.Set(&v)
 }
+
 // SetStartTimeNil sets the value for StartTime to be an explicit nil
 func (o *BackupRestoreScheduleModel) SetStartTimeNil() {
 	o.StartTime.Set(nil)
@@ -531,6 +536,7 @@ func (o *BackupRestoreScheduleModel) HasTimeZoneId() bool {
 func (o *BackupRestoreScheduleModel) SetTimeZoneId(v string) {
 	o.TimeZoneId.Set(&v)
 }
+
 // SetTimeZoneIdNil sets the value for TimeZoneId to be an explicit nil
 func (o *BackupRestoreScheduleModel) SetTimeZoneIdNil() {
 	o.TimeZoneId.Set(nil)
@@ -573,6 +579,7 @@ func (o *BackupRestoreScheduleModel) HasNotes() bool {
 func (o *BackupRestoreScheduleModel) SetNotes(v string) {
 	o.Notes.Set(&v)
 }
+
 // SetNotesNil sets the value for Notes to be an explicit nil
 func (o *BackupRestoreScheduleModel) SetNotesNil() {
 	o.Notes.Set(nil)
@@ -615,6 +622,7 @@ func (o *BackupRestoreScheduleModel) HasLastRunTime() bool {
 func (o *BackupRestoreScheduleModel) SetLastRunTime(v string) {
 	o.LastRunTime.Set(&v)
 }
+
 // SetLastRunTimeNil sets the value for LastRunTime to be an explicit nil
 func (o *BackupRestoreScheduleModel) SetLastRunTimeNil() {
 	o.LastRunTime.Set(nil)
@@ -626,7 +634,7 @@ func (o *BackupRestoreScheduleModel) UnsetLastRunTime() {
 }
 
 func (o BackupRestoreScheduleModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -718,5 +726,3 @@ func (v *NullableBackupRestoreScheduleModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

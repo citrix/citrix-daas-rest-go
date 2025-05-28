@@ -21,7 +21,7 @@ type AwsEdcAmiImportApplications string
 // List of AwsEdcAmiImportApplications
 const (
 	AWSEDCAMIIMPORTAPPLICATIONS_MICROSOFT_OFFICE_2019 AwsEdcAmiImportApplications = "Microsoft_Office_2019"
-	AWSEDCAMIIMPORTAPPLICATIONS_NONE AwsEdcAmiImportApplications = "None"
+	AWSEDCAMIIMPORTAPPLICATIONS_NONE                  AwsEdcAmiImportApplications = "None"
 )
 
 // All allowed values of AwsEdcAmiImportApplications enum
@@ -108,4 +108,3 @@ func (v *NullableAwsEdcAmiImportApplications) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

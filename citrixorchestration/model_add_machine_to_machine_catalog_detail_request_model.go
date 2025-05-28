@@ -36,13 +36,13 @@ type AddMachineToMachineCatalogDetailRequestModel struct {
 	// The metadata of machine.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// IP address of the PVS server to be used.  This only applies if the ProvisioningType is PVS.
-	PvsAddress NullableString `json:"PvsAddress,omitempty"`
+	PvsAddress NullableString `json:"PvsAddress,omitempty" validate:"regexp=UNKNOWN"`
 	// The domain of the PVS server to be used. This only applies if the ProvisioningType is PVS.
-	PvsDomain NullableString `json:"PvsDomain,omitempty"`
+	PvsDomain NullableString `json:"PvsDomain,omitempty" validate:"regexp=UNKNOWN"`
 	// Collection IDs of PVS collections containing machines that should be added to the catalog.  This only applies if the ProvisioningType is PVS, and is required in that case.  Each item must be a valid PVS collection ID residing on the PVS server located at the specified .
-	PvsCollectionIds []string `json:"PvsCollectionIds,omitempty"`
+	PvsCollectionIds            []string                                       `json:"PvsCollectionIds,omitempty"`
 	MachineAccountCreationRules *UpdateMachineAccountCreationRulesRequestModel `json:"MachineAccountCreationRules,omitempty"`
-	AddAvailableMachineAccount *MachineAccountRequestModel `json:"AddAvailableMachineAccount,omitempty"`
+	AddAvailableMachineAccount  *MachineAccountRequestModel                    `json:"AddAvailableMachineAccount,omitempty"`
 }
 
 // NewAddMachineToMachineCatalogDetailRequestModel instantiates a new AddMachineToMachineCatalogDetailRequestModel object
@@ -98,6 +98,7 @@ func (o *AddMachineToMachineCatalogDetailRequestModel) HasMachineName() bool {
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetMachineName(v string) {
 	o.MachineName.Set(&v)
 }
+
 // SetMachineNameNil sets the value for MachineName to be an explicit nil
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetMachineNameNil() {
 	o.MachineName.Set(nil)
@@ -140,6 +141,7 @@ func (o *AddMachineToMachineCatalogDetailRequestModel) HasAssignedClientName() b
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetAssignedClientName(v string) {
 	o.AssignedClientName.Set(&v)
 }
+
 // SetAssignedClientNameNil sets the value for AssignedClientName to be an explicit nil
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetAssignedClientNameNil() {
 	o.AssignedClientName.Set(nil)
@@ -182,6 +184,7 @@ func (o *AddMachineToMachineCatalogDetailRequestModel) HasAssignedIPAddress() bo
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetAssignedIPAddress(v string) {
 	o.AssignedIPAddress.Set(&v)
 }
+
 // SetAssignedIPAddressNil sets the value for AssignedIPAddress to be an explicit nil
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetAssignedIPAddressNil() {
 	o.AssignedIPAddress.Set(nil)
@@ -257,6 +260,7 @@ func (o *AddMachineToMachineCatalogDetailRequestModel) HasHostedMachineId() bool
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetHostedMachineId(v string) {
 	o.HostedMachineId.Set(&v)
 }
+
 // SetHostedMachineIdNil sets the value for HostedMachineId to be an explicit nil
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetHostedMachineIdNil() {
 	o.HostedMachineId.Set(nil)
@@ -299,6 +303,7 @@ func (o *AddMachineToMachineCatalogDetailRequestModel) HasHypervisorConnection()
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetHypervisorConnection(v string) {
 	o.HypervisorConnection.Set(&v)
 }
+
 // SetHypervisorConnectionNil sets the value for HypervisorConnection to be an explicit nil
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetHypervisorConnectionNil() {
 	o.HypervisorConnection.Set(nil)
@@ -341,6 +346,7 @@ func (o *AddMachineToMachineCatalogDetailRequestModel) HasInMaintenanceMode() bo
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetInMaintenanceMode(v bool) {
 	o.InMaintenanceMode.Set(&v)
 }
+
 // SetInMaintenanceModeNil sets the value for InMaintenanceMode to be an explicit nil
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetInMaintenanceModeNil() {
 	o.InMaintenanceMode.Set(nil)
@@ -416,6 +422,7 @@ func (o *AddMachineToMachineCatalogDetailRequestModel) HasPvsAddress() bool {
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetPvsAddress(v string) {
 	o.PvsAddress.Set(&v)
 }
+
 // SetPvsAddressNil sets the value for PvsAddress to be an explicit nil
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetPvsAddressNil() {
 	o.PvsAddress.Set(nil)
@@ -458,6 +465,7 @@ func (o *AddMachineToMachineCatalogDetailRequestModel) HasPvsDomain() bool {
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetPvsDomain(v string) {
 	o.PvsDomain.Set(&v)
 }
+
 // SetPvsDomainNil sets the value for PvsDomain to be an explicit nil
 func (o *AddMachineToMachineCatalogDetailRequestModel) SetPvsDomainNil() {
 	o.PvsDomain.Set(nil)
@@ -566,7 +574,7 @@ func (o *AddMachineToMachineCatalogDetailRequestModel) SetAddAvailableMachineAcc
 }
 
 func (o AddMachineToMachineCatalogDetailRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -652,5 +660,3 @@ func (v *NullableAddMachineToMachineCatalogDetailRequestModel) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

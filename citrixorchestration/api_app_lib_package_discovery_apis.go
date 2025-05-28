@@ -19,22 +19,21 @@ import (
 	"strings"
 )
 
-
 // AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryAPIsDAAS service
 type AppLibPackageDiscoveryAPIsDAASService service
 
 type ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest struct {
-	ctx context.Context
-	ApiService *AppLibPackageDiscoveryAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                context.Context
+	ApiService                         *AppLibPackageDiscoveryAPIsDAASService
+	citrixCustomerId                   *string
+	citrixInstanceId                   *string
 	appLibPackageDiscoveryRequestModel *AppLibPackageDiscoveryRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                          *string
+	authorization                      *string
+	citrixTransactionId                *string
+	accept                             *string
+	citrixLocale                       *string
+	async                              *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -98,24 +97,25 @@ func (r ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) Execute() 
 /*
 AppLibPackageDiscoveryCreateAppLibPackageDiscovery Create AppLib Package Discovery session
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest
 */
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppLibPackageDiscovery(ctx context.Context) ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest {
 	return ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AppLibPackageDiscoveryResponseModel
+//
+//	@return AppLibPackageDiscoveryResponseModel
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppLibPackageDiscoveryExecute(r ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) (*AppLibPackageDiscoveryResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppLibPackageDiscoveryResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AppLibPackageDiscoveryResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppLibPackageDiscoveryAPIsDAASService.AppLibPackageDiscoveryCreateAppLibPackageDiscovery")
@@ -220,8 +220,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -231,8 +231,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -242,8 +242,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -253,8 +253,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -264,8 +264,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -275,8 +275,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -286,8 +286,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -297,8 +297,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -308,8 +308,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -327,17 +327,17 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 }
 
 type ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest struct {
-	ctx context.Context
-	ApiService *AppLibPackageDiscoveryAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                       context.Context
+	ApiService                                *AppLibPackageDiscoveryAPIsDAASService
+	citrixCustomerId                          *string
+	citrixInstanceId                          *string
 	appLibPackageDiscoveryProfileRequestModel *AppLibPackageDiscoveryProfileRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                 *string
+	authorization                             *string
+	citrixTransactionId                       *string
+	accept                                    *string
+	citrixLocale                              *string
+	async                                     *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -401,24 +401,25 @@ func (r ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) Exe
 /*
 AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile Create an AppLib Package Discovery profile.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest
 */
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile(ctx context.Context) ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest {
 	return ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AppLibPackageDiscoveryProfileResponseModel
+//
+//	@return AppLibPackageDiscoveryProfileResponseModel
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileExecute(r ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) (*AppLibPackageDiscoveryProfileResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppLibPackageDiscoveryProfileResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AppLibPackageDiscoveryProfileResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppLibPackageDiscoveryAPIsDAASService.AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile")
@@ -523,8 +524,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -534,8 +535,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -545,8 +546,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -556,8 +557,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -567,8 +568,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -578,8 +579,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -589,8 +590,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -600,8 +601,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -611,8 +612,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -630,17 +631,17 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 }
 
 type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest struct {
-	ctx context.Context
-	ApiService *AppLibPackageDiscoveryAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppLibPackageDiscoveryAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -698,26 +699,27 @@ func (r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) Execute() (*A
 /*
 AppLibPackageDiscoveryGetAppLibPackageDiscovery Get details of an AppLib Package Discovery session.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Guid of the applib package discovery session that need to be fetched.
- @return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id Guid of the applib package discovery session that need to be fetched.
+	@return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest
 */
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibPackageDiscovery(ctx context.Context, id string) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest {
 	return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AppLibPackageDiscoveryResponseModel
+//
+//	@return AppLibPackageDiscoveryResponseModel
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibPackageDiscoveryExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) (*AppLibPackageDiscoveryResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppLibPackageDiscoveryResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AppLibPackageDiscoveryResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppLibPackageDiscoveryAPIsDAASService.AppLibPackageDiscoveryGetAppLibPackageDiscovery")
@@ -818,8 +820,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -829,8 +831,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -840,8 +842,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -851,8 +853,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -862,8 +864,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -873,8 +875,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -884,8 +886,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -895,8 +897,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -914,16 +916,16 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 }
 
 type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest struct {
-	ctx context.Context
-	ApiService *AppLibPackageDiscoveryAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	uid int32
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppLibPackageDiscoveryAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	uid                 int32
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -975,26 +977,27 @@ func (r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfile
 /*
 AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId Get the latest AppLib Package Discovery session for the specified profile id.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param uid The profile id.
- @return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param uid The profile id.
+	@return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest
 */
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId(ctx context.Context, uid int32) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest {
 	return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		uid: uid,
+		ctx:        ctx,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
-//  @return AppLibPackageDiscoveryResponseModel
+//
+//	@return AppLibPackageDiscoveryResponseModel
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) (*AppLibPackageDiscoveryResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppLibPackageDiscoveryResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AppLibPackageDiscoveryResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppLibPackageDiscoveryAPIsDAASService.AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId")
@@ -1092,8 +1095,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1103,8 +1106,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1114,8 +1117,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1125,8 +1128,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1136,8 +1139,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1147,8 +1150,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1158,8 +1161,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1169,8 +1172,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1188,17 +1191,17 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 }
 
 type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest struct {
-	ctx context.Context
-	ApiService *AppLibPackageDiscoveryAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	uid int32
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppLibPackageDiscoveryAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	uid                 int32
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1256,26 +1259,27 @@ func (r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) Execut
 /*
 AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile Get details of an AppLib Package Discovery profile.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param uid Uid of the appLib package discovery profile that need to be fetched.
- @return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param uid Uid of the appLib package discovery profile that need to be fetched.
+	@return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest
 */
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile(ctx context.Context, uid int32) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest {
 	return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest{
 		ApiService: a,
-		ctx: ctx,
-		uid: uid,
+		ctx:        ctx,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
-//  @return AppLibPackageDiscoveryProfileResponseModel
+//
+//	@return AppLibPackageDiscoveryProfileResponseModel
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) (*AppLibPackageDiscoveryProfileResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppLibPackageDiscoveryProfileResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AppLibPackageDiscoveryProfileResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppLibPackageDiscoveryAPIsDAASService.AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile")
@@ -1376,8 +1380,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1387,8 +1391,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1398,8 +1402,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1409,8 +1413,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1420,8 +1424,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1431,8 +1435,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1442,8 +1446,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1453,8 +1457,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1472,16 +1476,16 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 }
 
 type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest struct {
-	ctx context.Context
-	ApiService *AppLibPackageDiscoveryAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppLibPackageDiscoveryAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1539,24 +1543,25 @@ func (r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) Execu
 /*
 AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles Get a list of AppLib Package Discovery profiles.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest
 */
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles(ctx context.Context) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest {
 	return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AppLibPackageDiscoveryProfileResponseModelCollection
+//
+//	@return AppLibPackageDiscoveryProfileResponseModelCollection
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) (*AppLibPackageDiscoveryProfileResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppLibPackageDiscoveryProfileResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AppLibPackageDiscoveryProfileResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppLibPackageDiscoveryAPIsDAASService.AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles")
@@ -1656,8 +1661,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1667,8 +1672,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1678,8 +1683,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1689,8 +1694,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1700,8 +1705,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1711,8 +1716,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1722,8 +1727,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1741,16 +1746,16 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 }
 
 type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest struct {
-	ctx context.Context
-	ApiService *AppLibPackageDiscoveryAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppLibPackageDiscoveryAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1808,24 +1813,25 @@ func (r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) Execu
 /*
 AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions Get a list of AppLib Package Discovery sessions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest
 */
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions(ctx context.Context) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest {
 	return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AppLibPackageDiscoveryResponseModelCollection
+//
+//	@return AppLibPackageDiscoveryResponseModelCollection
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) (*AppLibPackageDiscoveryResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppLibPackageDiscoveryResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AppLibPackageDiscoveryResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppLibPackageDiscoveryAPIsDAASService.AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions")
@@ -1925,8 +1931,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1936,8 +1942,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1947,8 +1953,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1958,8 +1964,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1969,8 +1975,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1980,8 +1986,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1991,8 +1997,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2010,17 +2016,17 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 }
 
 type ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest struct {
-	ctx context.Context
-	ApiService *AppLibPackageDiscoveryAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	uid int32
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppLibPackageDiscoveryAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	uid                 int32
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2078,24 +2084,24 @@ func (r ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) Exe
 /*
 AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile Remove an AppLib Package Discovery profile.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param uid Uid of the appLib package discovery profile that need to be removed.
- @return ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param uid Uid of the appLib package discovery profile that need to be removed.
+	@return ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest
 */
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile(ctx context.Context, uid int32) ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest {
 	return ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest{
 		ApiService: a,
-		ctx: ctx,
-		uid: uid,
+		ctx:        ctx,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileExecute(r ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppLibPackageDiscoveryAPIsDAASService.AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile")
@@ -2196,8 +2202,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryRemoveAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2207,8 +2213,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryRemoveAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2218,8 +2224,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryRemoveAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2229,8 +2235,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryRemoveAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2240,8 +2246,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryRemoveAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2251,8 +2257,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryRemoveAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2262,8 +2268,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryRemoveAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2273,8 +2279,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryRemoveAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2283,18 +2289,18 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryRemoveAppL
 }
 
 type ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest struct {
-	ctx context.Context
-	ApiService *AppLibPackageDiscoveryAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	uid int32
+	ctx                                           context.Context
+	ApiService                                    *AppLibPackageDiscoveryAPIsDAASService
+	citrixCustomerId                              *string
+	citrixInstanceId                              *string
+	uid                                           int32
 	editAppLibPackageDiscoveryProfileRequestModel *EditAppLibPackageDiscoveryProfileRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                     *string
+	authorization                                 *string
+	citrixTransactionId                           *string
+	accept                                        *string
+	citrixLocale                                  *string
+	async                                         *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2358,24 +2364,24 @@ func (r ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) Exe
 /*
 AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile Update the specified AppLib Package Discovery profile.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param uid Uid of the appLib package discovery profile that need to be fetched.
- @return ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param uid Uid of the appLib package discovery profile that need to be fetched.
+	@return ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest
 */
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile(ctx context.Context, uid int32) ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest {
 	return ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest{
 		ApiService: a,
-		ctx: ctx,
-		uid: uid,
+		ctx:        ctx,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
 func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileExecute(r ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppLibPackageDiscoveryAPIsDAASService.AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile")
@@ -2481,8 +2487,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryUpdateAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2492,8 +2498,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryUpdateAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2503,8 +2509,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryUpdateAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2514,8 +2520,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryUpdateAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2525,8 +2531,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryUpdateAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2536,8 +2542,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryUpdateAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2547,8 +2553,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryUpdateAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2558,8 +2564,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryUpdateAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2569,8 +2575,8 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryUpdateAppL
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

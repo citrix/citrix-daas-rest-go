@@ -20,22 +20,22 @@ type CatalogSearchProperty string
 
 // List of CatalogSearchProperty
 const (
-	CATALOGSEARCHPROPERTY_NAME CatalogSearchProperty = "Name"
-	CATALOGSEARCHPROPERTY_FULL_NAME CatalogSearchProperty = "FullName"
-	CATALOGSEARCHPROPERTY_UID CatalogSearchProperty = "Uid"
-	CATALOGSEARCHPROPERTY_ALLOCATION_TYPE CatalogSearchProperty = "AllocationType"
-	CATALOGSEARCHPROPERTY_ASSIGNED_COUNT CatalogSearchProperty = "AssignedCount"
-	CATALOGSEARCHPROPERTY_AVAILABLE_COUNT CatalogSearchProperty = "AvailableCount"
-	CATALOGSEARCHPROPERTY_DESCRIPTION CatalogSearchProperty = "Description"
-	CATALOGSEARCHPROPERTY_IS_REMOTE_PC CatalogSearchProperty = "IsRemotePC"
-	CATALOGSEARCHPROPERTY_MACHINES_ARE_PHYSICAL CatalogSearchProperty = "MachinesArePhysical"
-	CATALOGSEARCHPROPERTY_PROVISIONING_TYPE CatalogSearchProperty = "ProvisioningType"
-	CATALOGSEARCHPROPERTY_PVS_ADDRESS CatalogSearchProperty = "PvsAddress"
-	CATALOGSEARCHPROPERTY_PVS_DOMAIN CatalogSearchProperty = "PvsDomain"
-	CATALOGSEARCHPROPERTY_SESSION_SUPPORT CatalogSearchProperty = "SessionSupport"
-	CATALOGSEARCHPROPERTY_UNASSIGNED_COUNT CatalogSearchProperty = "UnassignedCount"
-	CATALOGSEARCHPROPERTY_USED_COUNT CatalogSearchProperty = "UsedCount"
-	CATALOGSEARCHPROPERTY_PERSIST_CHANGES CatalogSearchProperty = "PersistChanges"
+	CATALOGSEARCHPROPERTY_NAME                   CatalogSearchProperty = "Name"
+	CATALOGSEARCHPROPERTY_FULL_NAME              CatalogSearchProperty = "FullName"
+	CATALOGSEARCHPROPERTY_UID                    CatalogSearchProperty = "Uid"
+	CATALOGSEARCHPROPERTY_ALLOCATION_TYPE        CatalogSearchProperty = "AllocationType"
+	CATALOGSEARCHPROPERTY_ASSIGNED_COUNT         CatalogSearchProperty = "AssignedCount"
+	CATALOGSEARCHPROPERTY_AVAILABLE_COUNT        CatalogSearchProperty = "AvailableCount"
+	CATALOGSEARCHPROPERTY_DESCRIPTION            CatalogSearchProperty = "Description"
+	CATALOGSEARCHPROPERTY_IS_REMOTE_PC           CatalogSearchProperty = "IsRemotePC"
+	CATALOGSEARCHPROPERTY_MACHINES_ARE_PHYSICAL  CatalogSearchProperty = "MachinesArePhysical"
+	CATALOGSEARCHPROPERTY_PROVISIONING_TYPE      CatalogSearchProperty = "ProvisioningType"
+	CATALOGSEARCHPROPERTY_PVS_ADDRESS            CatalogSearchProperty = "PvsAddress"
+	CATALOGSEARCHPROPERTY_PVS_DOMAIN             CatalogSearchProperty = "PvsDomain"
+	CATALOGSEARCHPROPERTY_SESSION_SUPPORT        CatalogSearchProperty = "SessionSupport"
+	CATALOGSEARCHPROPERTY_UNASSIGNED_COUNT       CatalogSearchProperty = "UnassignedCount"
+	CATALOGSEARCHPROPERTY_USED_COUNT             CatalogSearchProperty = "UsedCount"
+	CATALOGSEARCHPROPERTY_PERSIST_CHANGES        CatalogSearchProperty = "PersistChanges"
 	CATALOGSEARCHPROPERTY_PROVISIONING_SCHEME_ID CatalogSearchProperty = "ProvisioningSchemeId"
 )
 
@@ -66,7 +66,7 @@ func (v *CatalogSearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = CatalogSearchProperty(value)
 	return nil
 }
@@ -132,4 +132,3 @@ func (v *NullableCatalogSearchProperty) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

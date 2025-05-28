@@ -19,6 +19,7 @@ var _ MappedNullable = &Image{}
 
 // Image Base class for image
 type Image struct {
+	// The type of account the resource is associated with
 	AccountType AccountType `json:"accountType"`
 	// The ID of the account the resource is associated with
 	AccountId NullableString `json:"accountId,omitempty"`
@@ -30,10 +31,14 @@ type Image struct {
 	Description NullableString `json:"description,omitempty"`
 	// The notes of the image
 	Notes NullableString `json:"notes,omitempty"`
+	// Session Type
 	SessionSupport NullableSessionSupport `json:"sessionSupport,omitempty"`
-	OperatingSystem NullableOperatingSystemType `json:"operatingSystem,omitempty"`
-	AssociatedDeployments []AssociatedDeployment `json:"associatedDeployments,omitempty"`
+	// The operating system of the image
+	OperatingSystem       NullableOperatingSystemType `json:"operatingSystem,omitempty"`
+	AssociatedDeployments []AssociatedDeployment      `json:"associatedDeployments,omitempty"`
 }
+
+type _Image Image
 
 // NewImage instantiates a new Image object
 // This constructor will assign default values to properties that have it defined,
@@ -109,6 +114,7 @@ func (o *Image) HasAccountId() bool {
 func (o *Image) SetAccountId(v string) {
 	o.AccountId.Set(&v)
 }
+
 // SetAccountIdNil sets the value for AccountId to be an explicit nil
 func (o *Image) SetAccountIdNil() {
 	o.AccountId.Set(nil)
@@ -151,6 +157,7 @@ func (o *Image) HasImageId() bool {
 func (o *Image) SetImageId(v string) {
 	o.ImageId.Set(&v)
 }
+
 // SetImageIdNil sets the value for ImageId to be an explicit nil
 func (o *Image) SetImageIdNil() {
 	o.ImageId.Set(nil)
@@ -193,6 +200,7 @@ func (o *Image) HasName() bool {
 func (o *Image) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *Image) SetNameNil() {
 	o.Name.Set(nil)
@@ -235,6 +243,7 @@ func (o *Image) HasDescription() bool {
 func (o *Image) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *Image) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -277,6 +286,7 @@ func (o *Image) HasNotes() bool {
 func (o *Image) SetNotes(v string) {
 	o.Notes.Set(&v)
 }
+
 // SetNotesNil sets the value for Notes to be an explicit nil
 func (o *Image) SetNotesNil() {
 	o.Notes.Set(nil)
@@ -319,6 +329,7 @@ func (o *Image) HasSessionSupport() bool {
 func (o *Image) SetSessionSupport(v SessionSupport) {
 	o.SessionSupport.Set(&v)
 }
+
 // SetSessionSupportNil sets the value for SessionSupport to be an explicit nil
 func (o *Image) SetSessionSupportNil() {
 	o.SessionSupport.Set(nil)
@@ -361,6 +372,7 @@ func (o *Image) HasOperatingSystem() bool {
 func (o *Image) SetOperatingSystem(v OperatingSystemType) {
 	o.OperatingSystem.Set(&v)
 }
+
 // SetOperatingSystemNil sets the value for OperatingSystem to be an explicit nil
 func (o *Image) SetOperatingSystemNil() {
 	o.OperatingSystem.Set(nil)
@@ -392,7 +404,7 @@ func (o *Image) GetAssociatedDeploymentsOk() ([]AssociatedDeployment, bool) {
 
 // HasAssociatedDeployments returns a boolean if a field has been set.
 func (o *Image) HasAssociatedDeployments() bool {
-	if o != nil && IsNil(o.AssociatedDeployments) {
+	if o != nil && !IsNil(o.AssociatedDeployments) {
 		return true
 	}
 
@@ -405,7 +417,7 @@ func (o *Image) SetAssociatedDeployments(v []AssociatedDeployment) {
 }
 
 func (o Image) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -477,5 +489,3 @@ func (v *NullableImage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

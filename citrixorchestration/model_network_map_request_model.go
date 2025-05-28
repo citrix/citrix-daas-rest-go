@@ -21,11 +21,11 @@ var _ MappedNullable = &NetworkMapRequestModel{}
 type NetworkMapRequestModel struct {
 	// `DEPRECATED.  Use <see cref='NetworkDeviceNameOrId'/>.` The name or Id of the network.  Required.
 	// Deprecated
-	DeviceNameOrId NullableString `json:"DeviceNameOrId,omitempty"`
+	DeviceNameOrId NullableString `json:"DeviceNameOrId,omitempty" validate:"regexp=UNKNOWN"`
 	// The name or Id of the network device.
-	NetworkDeviceNameOrId NullableString `json:"NetworkDeviceNameOrId,omitempty"`
+	NetworkDeviceNameOrId NullableString `json:"NetworkDeviceNameOrId,omitempty" validate:"regexp=UNKNOWN"`
 	// The path in the resource pool to the virtual network that the device should be attached to. This must be a path to a Network item in the resource pool to which the Machine Catalog is associated.
-	NetworkPath string `json:"NetworkPath"`
+	NetworkPath string "json:\"NetworkPath\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 }
 
 // NewNetworkMapRequestModel instantiates a new NetworkMapRequestModel object
@@ -81,6 +81,7 @@ func (o *NetworkMapRequestModel) HasDeviceNameOrId() bool {
 func (o *NetworkMapRequestModel) SetDeviceNameOrId(v string) {
 	o.DeviceNameOrId.Set(&v)
 }
+
 // SetDeviceNameOrIdNil sets the value for DeviceNameOrId to be an explicit nil
 func (o *NetworkMapRequestModel) SetDeviceNameOrIdNil() {
 	o.DeviceNameOrId.Set(nil)
@@ -123,6 +124,7 @@ func (o *NetworkMapRequestModel) HasNetworkDeviceNameOrId() bool {
 func (o *NetworkMapRequestModel) SetNetworkDeviceNameOrId(v string) {
 	o.NetworkDeviceNameOrId.Set(&v)
 }
+
 // SetNetworkDeviceNameOrIdNil sets the value for NetworkDeviceNameOrId to be an explicit nil
 func (o *NetworkMapRequestModel) SetNetworkDeviceNameOrIdNil() {
 	o.NetworkDeviceNameOrId.Set(nil)
@@ -158,7 +160,7 @@ func (o *NetworkMapRequestModel) SetNetworkPath(v string) {
 }
 
 func (o NetworkMapRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -212,5 +214,3 @@ func (v *NullableNetworkMapRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

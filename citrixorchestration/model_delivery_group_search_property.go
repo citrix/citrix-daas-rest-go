@@ -20,19 +20,19 @@ type DeliveryGroupSearchProperty string
 
 // List of DeliveryGroupSearchProperty
 const (
-	DELIVERYGROUPSEARCHPROPERTY_UID DeliveryGroupSearchProperty = "Uid"
-	DELIVERYGROUPSEARCHPROPERTY_DESCRIPTION DeliveryGroupSearchProperty = "Description"
-	DELIVERYGROUPSEARCHPROPERTY_DELIVERY_TYPE DeliveryGroupSearchProperty = "DeliveryType"
-	DELIVERYGROUPSEARCHPROPERTY_ENABLED DeliveryGroupSearchProperty = "Enabled"
+	DELIVERYGROUPSEARCHPROPERTY_UID                 DeliveryGroupSearchProperty = "Uid"
+	DELIVERYGROUPSEARCHPROPERTY_DESCRIPTION         DeliveryGroupSearchProperty = "Description"
+	DELIVERYGROUPSEARCHPROPERTY_DELIVERY_TYPE       DeliveryGroupSearchProperty = "DeliveryType"
+	DELIVERYGROUPSEARCHPROPERTY_ENABLED             DeliveryGroupSearchProperty = "Enabled"
 	DELIVERYGROUPSEARCHPROPERTY_IN_MAINTENANCE_MODE DeliveryGroupSearchProperty = "InMaintenanceMode"
-	DELIVERYGROUPSEARCHPROPERTY_IS_REMOTE_PC DeliveryGroupSearchProperty = "IsRemotePC"
+	DELIVERYGROUPSEARCHPROPERTY_IS_REMOTE_PC        DeliveryGroupSearchProperty = "IsRemotePC"
 	DELIVERYGROUPSEARCHPROPERTY_MACHINE_LOG_ON_TYPE DeliveryGroupSearchProperty = "MachineLogOnType"
-	DELIVERYGROUPSEARCHPROPERTY_NAME DeliveryGroupSearchProperty = "Name"
-	DELIVERYGROUPSEARCHPROPERTY_PRODUCT_CODE DeliveryGroupSearchProperty = "ProductCode"
-	DELIVERYGROUPSEARCHPROPERTY_SESSION_SUPPORT DeliveryGroupSearchProperty = "SessionSupport"
-	DELIVERYGROUPSEARCHPROPERTY_TOTAL_APPLICATIONS DeliveryGroupSearchProperty = "TotalApplications"
-	DELIVERYGROUPSEARCHPROPERTY_SHARING_KIND DeliveryGroupSearchProperty = "SharingKind"
-	DELIVERYGROUPSEARCHPROPERTY_TAGS DeliveryGroupSearchProperty = "Tags"
+	DELIVERYGROUPSEARCHPROPERTY_NAME                DeliveryGroupSearchProperty = "Name"
+	DELIVERYGROUPSEARCHPROPERTY_PRODUCT_CODE        DeliveryGroupSearchProperty = "ProductCode"
+	DELIVERYGROUPSEARCHPROPERTY_SESSION_SUPPORT     DeliveryGroupSearchProperty = "SessionSupport"
+	DELIVERYGROUPSEARCHPROPERTY_TOTAL_APPLICATIONS  DeliveryGroupSearchProperty = "TotalApplications"
+	DELIVERYGROUPSEARCHPROPERTY_SHARING_KIND        DeliveryGroupSearchProperty = "SharingKind"
+	DELIVERYGROUPSEARCHPROPERTY_TAGS                DeliveryGroupSearchProperty = "Tags"
 )
 
 // All allowed values of DeliveryGroupSearchProperty enum
@@ -58,7 +58,7 @@ func (v *DeliveryGroupSearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DeliveryGroupSearchProperty(value)
 	return nil
 }
@@ -124,4 +124,3 @@ func (v *NullableDeliveryGroupSearchProperty) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

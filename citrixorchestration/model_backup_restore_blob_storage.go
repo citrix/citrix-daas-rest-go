@@ -20,15 +20,15 @@ type BackupRestoreBlobStorage string
 
 // List of BackupRestoreBlobStorage
 const (
-	BACKUPRESTOREBLOBSTORAGE_UNDEFINED BackupRestoreBlobStorage = "Undefined"
-	BACKUPRESTOREBLOBSTORAGE_FILE_STORAGE BackupRestoreBlobStorage = "FileStorage"
-	BACKUPRESTOREBLOBSTORAGE_AZURE_STORAGE BackupRestoreBlobStorage = "AzureStorage"
-	BACKUPRESTOREBLOBSTORAGE_CUSTOMER_AZURE_STORAGE BackupRestoreBlobStorage = "CustomerAzureStorage"
-	BACKUPRESTOREBLOBSTORAGE_AWS_STORAGE BackupRestoreBlobStorage = "AwsStorage"
-	BACKUPRESTOREBLOBSTORAGE_CUSTOMER_AWS_STORAGE BackupRestoreBlobStorage = "CustomerAwsStorage"
-	BACKUPRESTOREBLOBSTORAGE_GOOGLE_CLOUD_STORAGE BackupRestoreBlobStorage = "GoogleCloudStorage"
+	BACKUPRESTOREBLOBSTORAGE_UNDEFINED                     BackupRestoreBlobStorage = "Undefined"
+	BACKUPRESTOREBLOBSTORAGE_FILE_STORAGE                  BackupRestoreBlobStorage = "FileStorage"
+	BACKUPRESTOREBLOBSTORAGE_AZURE_STORAGE                 BackupRestoreBlobStorage = "AzureStorage"
+	BACKUPRESTOREBLOBSTORAGE_CUSTOMER_AZURE_STORAGE        BackupRestoreBlobStorage = "CustomerAzureStorage"
+	BACKUPRESTOREBLOBSTORAGE_AWS_STORAGE                   BackupRestoreBlobStorage = "AwsStorage"
+	BACKUPRESTOREBLOBSTORAGE_CUSTOMER_AWS_STORAGE          BackupRestoreBlobStorage = "CustomerAwsStorage"
+	BACKUPRESTOREBLOBSTORAGE_GOOGLE_CLOUD_STORAGE          BackupRestoreBlobStorage = "GoogleCloudStorage"
 	BACKUPRESTOREBLOBSTORAGE_CUSTOMER_GOOGLE_CLOUD_STORAGE BackupRestoreBlobStorage = "CustomerGoogleCloudStorage"
-	BACKUPRESTOREBLOBSTORAGE_CUSTOM_STORAGE BackupRestoreBlobStorage = "CustomStorage"
+	BACKUPRESTOREBLOBSTORAGE_CUSTOM_STORAGE                BackupRestoreBlobStorage = "CustomStorage"
 )
 
 // All allowed values of BackupRestoreBlobStorage enum
@@ -50,7 +50,7 @@ func (v *BackupRestoreBlobStorage) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = BackupRestoreBlobStorage(value)
 	return nil
 }
@@ -116,4 +116,3 @@ func (v *NullableBackupRestoreBlobStorage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

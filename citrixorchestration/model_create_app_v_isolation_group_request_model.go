@@ -128,6 +128,7 @@ func (o *CreateAppVIsolationGroupRequestModel) HasDescription() bool {
 func (o *CreateAppVIsolationGroupRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *CreateAppVIsolationGroupRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -172,7 +173,7 @@ func (o *CreateAppVIsolationGroupRequestModel) SetIncludedAppVPackages(v []AppVI
 }
 
 func (o CreateAppVIsolationGroupRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +228,3 @@ func (v *NullableCreateAppVIsolationGroupRequestModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

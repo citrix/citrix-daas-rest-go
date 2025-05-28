@@ -18,18 +18,17 @@ import (
 	"net/url"
 )
 
-
 // TrustAPIsDAASService TrustAPIsDAAS service
 type TrustAPIsDAASService service
 
 type ApiTrustExchangeTokenRequest struct {
-	ctx context.Context
-	ApiService *TrustAPIsDAASService
-	citrixCustomerId *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TrustAPIsDAASService
+	citrixCustomerId    *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -69,24 +68,25 @@ func (r ApiTrustExchangeTokenRequest) Execute() (*AuthTokenResponseModel, *http.
 /*
 TrustExchangeToken Exchange the FMA token by using the domain credential. Basic authentication required for current Web Api.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiTrustExchangeTokenRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTrustExchangeTokenRequest
 */
 func (a *TrustAPIsDAASService) TrustExchangeToken(ctx context.Context) ApiTrustExchangeTokenRequest {
 	return ApiTrustExchangeTokenRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AuthTokenResponseModel
+//
+//	@return AuthTokenResponseModel
 func (a *TrustAPIsDAASService) TrustExchangeTokenExecute(r ApiTrustExchangeTokenRequest) (*AuthTokenResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AuthTokenResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AuthTokenResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TrustAPIsDAASService.TrustExchangeToken")
@@ -176,8 +176,8 @@ func (a *TrustAPIsDAASService) TrustExchangeTokenExecute(r ApiTrustExchangeToken
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -187,8 +187,8 @@ func (a *TrustAPIsDAASService) TrustExchangeTokenExecute(r ApiTrustExchangeToken
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -198,8 +198,8 @@ func (a *TrustAPIsDAASService) TrustExchangeTokenExecute(r ApiTrustExchangeToken
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -209,8 +209,8 @@ func (a *TrustAPIsDAASService) TrustExchangeTokenExecute(r ApiTrustExchangeToken
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -220,8 +220,8 @@ func (a *TrustAPIsDAASService) TrustExchangeTokenExecute(r ApiTrustExchangeToken
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -231,8 +231,8 @@ func (a *TrustAPIsDAASService) TrustExchangeTokenExecute(r ApiTrustExchangeToken
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -242,8 +242,8 @@ func (a *TrustAPIsDAASService) TrustExchangeTokenExecute(r ApiTrustExchangeToken
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -253,8 +253,8 @@ func (a *TrustAPIsDAASService) TrustExchangeTokenExecute(r ApiTrustExchangeToken
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -272,13 +272,13 @@ func (a *TrustAPIsDAASService) TrustExchangeTokenExecute(r ApiTrustExchangeToken
 }
 
 type ApiTrustGetBearerTokenWithWindowsAuthenticationRequest struct {
-	ctx context.Context
-	ApiService *TrustAPIsDAASService
-	citrixCustomerId *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TrustAPIsDAASService
+	citrixCustomerId    *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -318,24 +318,25 @@ func (r ApiTrustGetBearerTokenWithWindowsAuthenticationRequest) Execute() (*Auth
 /*
 TrustGetBearerTokenWithWindowsAuthentication Exchange the FMA token via Windows Authentication. Kerberos or NTLM authentication required for current Web Api.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiTrustGetBearerTokenWithWindowsAuthenticationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTrustGetBearerTokenWithWindowsAuthenticationRequest
 */
 func (a *TrustAPIsDAASService) TrustGetBearerTokenWithWindowsAuthentication(ctx context.Context) ApiTrustGetBearerTokenWithWindowsAuthenticationRequest {
 	return ApiTrustGetBearerTokenWithWindowsAuthenticationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AuthTokenResponseModel
+//
+//	@return AuthTokenResponseModel
 func (a *TrustAPIsDAASService) TrustGetBearerTokenWithWindowsAuthenticationExecute(r ApiTrustGetBearerTokenWithWindowsAuthenticationRequest) (*AuthTokenResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AuthTokenResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AuthTokenResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TrustAPIsDAASService.TrustGetBearerTokenWithWindowsAuthentication")
@@ -425,8 +426,8 @@ func (a *TrustAPIsDAASService) TrustGetBearerTokenWithWindowsAuthenticationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -436,8 +437,8 @@ func (a *TrustAPIsDAASService) TrustGetBearerTokenWithWindowsAuthenticationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -447,8 +448,8 @@ func (a *TrustAPIsDAASService) TrustGetBearerTokenWithWindowsAuthenticationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -458,8 +459,8 @@ func (a *TrustAPIsDAASService) TrustGetBearerTokenWithWindowsAuthenticationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -469,8 +470,8 @@ func (a *TrustAPIsDAASService) TrustGetBearerTokenWithWindowsAuthenticationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -480,8 +481,8 @@ func (a *TrustAPIsDAASService) TrustGetBearerTokenWithWindowsAuthenticationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -491,8 +492,8 @@ func (a *TrustAPIsDAASService) TrustGetBearerTokenWithWindowsAuthenticationExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -510,13 +511,13 @@ func (a *TrustAPIsDAASService) TrustGetBearerTokenWithWindowsAuthenticationExecu
 }
 
 type ApiTrustRefreshTokenRequest struct {
-	ctx context.Context
-	ApiService *TrustAPIsDAASService
-	citrixCustomerId *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TrustAPIsDAASService
+	citrixCustomerId    *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -556,24 +557,25 @@ func (r ApiTrustRefreshTokenRequest) Execute() (*AuthTokenResponseModel, *http.R
 /*
 TrustRefreshToken Refresh the auth token.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiTrustRefreshTokenRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTrustRefreshTokenRequest
 */
 func (a *TrustAPIsDAASService) TrustRefreshToken(ctx context.Context) ApiTrustRefreshTokenRequest {
 	return ApiTrustRefreshTokenRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AuthTokenResponseModel
+//
+//	@return AuthTokenResponseModel
 func (a *TrustAPIsDAASService) TrustRefreshTokenExecute(r ApiTrustRefreshTokenRequest) (*AuthTokenResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AuthTokenResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AuthTokenResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TrustAPIsDAASService.TrustRefreshToken")
@@ -663,8 +665,8 @@ func (a *TrustAPIsDAASService) TrustRefreshTokenExecute(r ApiTrustRefreshTokenRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -674,8 +676,8 @@ func (a *TrustAPIsDAASService) TrustRefreshTokenExecute(r ApiTrustRefreshTokenRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -685,8 +687,8 @@ func (a *TrustAPIsDAASService) TrustRefreshTokenExecute(r ApiTrustRefreshTokenRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -696,8 +698,8 @@ func (a *TrustAPIsDAASService) TrustRefreshTokenExecute(r ApiTrustRefreshTokenRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -707,8 +709,8 @@ func (a *TrustAPIsDAASService) TrustRefreshTokenExecute(r ApiTrustRefreshTokenRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -718,8 +720,8 @@ func (a *TrustAPIsDAASService) TrustRefreshTokenExecute(r ApiTrustRefreshTokenRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -729,8 +731,8 @@ func (a *TrustAPIsDAASService) TrustRefreshTokenExecute(r ApiTrustRefreshTokenRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -740,8 +742,8 @@ func (a *TrustAPIsDAASService) TrustRefreshTokenExecute(r ApiTrustRefreshTokenRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -37,6 +37,8 @@ type UserModel struct {
 	Priority *int64 `json:"priority,omitempty"`
 }
 
+type _UserModel UserModel
+
 // NewUserModel instantiates a new UserModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -283,7 +285,7 @@ func (o *UserModel) SetPriority(v int64) {
 }
 
 func (o UserModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -346,5 +348,3 @@ func (v *NullableUserModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

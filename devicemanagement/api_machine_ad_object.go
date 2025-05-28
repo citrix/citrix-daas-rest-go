@@ -19,18 +19,17 @@ import (
 	"strings"
 )
 
-
 // MachineADObjectDAASService MachineADObjectDAAS service
 type MachineADObjectDAASService service
 
 type ApiAdObjectCreateRequest struct {
-	ctx context.Context
-	ApiService *MachineADObjectDAASService
-	accept *string
-	authorization *string
-	citrixCustomerId *string
+	ctx                 context.Context
+	ApiService          *MachineADObjectDAASService
+	accept              *string
+	authorization       *string
+	citrixCustomerId    *string
 	citrixTransactionId *string
-	body *MachineModel
+	body                *MachineModel
 }
 
 // Only \&quot;application/json\&quot; is supported.
@@ -69,22 +68,22 @@ func (r ApiAdObjectCreateRequest) Execute() (*http.Response, error) {
 /*
 AdObjectCreate Create a Machine-level AD Object
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdObjectCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdObjectCreateRequest
 */
 func (a *MachineADObjectDAASService) AdObjectCreate(ctx context.Context) ApiAdObjectCreateRequest {
 	return ApiAdObjectCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *MachineADObjectDAASService) AdObjectCreateExecute(r ApiAdObjectCreateRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineADObjectDAASService.AdObjectCreate")
@@ -124,12 +123,12 @@ func (a *MachineADObjectDAASService) AdObjectCreateExecute(r ApiAdObjectCreateRe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "", "")
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	// body params
 	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -149,6 +148,13 @@ func (a *MachineADObjectDAASService) AdObjectCreateExecute(r ApiAdObjectCreateRe
 		return localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -161,8 +167,8 @@ func (a *MachineADObjectDAASService) AdObjectCreateExecute(r ApiAdObjectCreateRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -172,8 +178,8 @@ func (a *MachineADObjectDAASService) AdObjectCreateExecute(r ApiAdObjectCreateRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -183,8 +189,8 @@ func (a *MachineADObjectDAASService) AdObjectCreateExecute(r ApiAdObjectCreateRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -194,8 +200,8 @@ func (a *MachineADObjectDAASService) AdObjectCreateExecute(r ApiAdObjectCreateRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -205,8 +211,8 @@ func (a *MachineADObjectDAASService) AdObjectCreateExecute(r ApiAdObjectCreateRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -215,12 +221,12 @@ func (a *MachineADObjectDAASService) AdObjectCreateExecute(r ApiAdObjectCreateRe
 }
 
 type ApiAdObjectDeleteRequest struct {
-	ctx context.Context
-	ApiService *MachineADObjectDAASService
-	id string
-	accept *string
-	authorization *string
-	citrixCustomerId *string
+	ctx                 context.Context
+	ApiService          *MachineADObjectDAASService
+	id                  string
+	accept              *string
+	authorization       *string
+	citrixCustomerId    *string
 	citrixTransactionId *string
 }
 
@@ -255,24 +261,24 @@ func (r ApiAdObjectDeleteRequest) Execute() (*http.Response, error) {
 /*
 AdObjectDelete Delete a Machine-level AD Object
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the resource you want to delete.
- @return ApiAdObjectDeleteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the resource you want to delete.
+	@return ApiAdObjectDeleteRequest
 */
 func (a *MachineADObjectDAASService) AdObjectDelete(ctx context.Context, id string) ApiAdObjectDeleteRequest {
 	return ApiAdObjectDeleteRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *MachineADObjectDAASService) AdObjectDeleteExecute(r ApiAdObjectDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineADObjectDAASService.AdObjectDelete")
@@ -313,12 +319,12 @@ func (a *MachineADObjectDAASService) AdObjectDeleteExecute(r ApiAdObjectDeleteRe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "", "")
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -336,6 +342,13 @@ func (a *MachineADObjectDAASService) AdObjectDeleteExecute(r ApiAdObjectDeleteRe
 		return localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -348,8 +361,8 @@ func (a *MachineADObjectDAASService) AdObjectDeleteExecute(r ApiAdObjectDeleteRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -359,8 +372,8 @@ func (a *MachineADObjectDAASService) AdObjectDeleteExecute(r ApiAdObjectDeleteRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -370,8 +383,8 @@ func (a *MachineADObjectDAASService) AdObjectDeleteExecute(r ApiAdObjectDeleteRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -381,8 +394,8 @@ func (a *MachineADObjectDAASService) AdObjectDeleteExecute(r ApiAdObjectDeleteRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -392,8 +405,8 @@ func (a *MachineADObjectDAASService) AdObjectDeleteExecute(r ApiAdObjectDeleteRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -402,14 +415,14 @@ func (a *MachineADObjectDAASService) AdObjectDeleteExecute(r ApiAdObjectDeleteRe
 }
 
 type ApiAdObjectQueryRequest struct {
-	ctx context.Context
-	ApiService *MachineADObjectDAASService
-	accept *string
-	authorization *string
-	citrixCustomerId *string
-	sid *string
-	siteId *int64
-	id *int64
+	ctx                 context.Context
+	ApiService          *MachineADObjectDAASService
+	accept              *string
+	authorization       *string
+	citrixCustomerId    *string
+	sid                 *string
+	siteId              *int64
+	id                  *int64
 	citrixTransactionId *string
 }
 
@@ -462,24 +475,25 @@ func (r ApiAdObjectQueryRequest) Execute() (*AdObjectQuery200Response, *http.Res
 /*
 AdObjectQuery Query Machine-level AD Objects
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdObjectQueryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdObjectQueryRequest
 */
 func (a *MachineADObjectDAASService) AdObjectQuery(ctx context.Context) ApiAdObjectQueryRequest {
 	return ApiAdObjectQueryRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AdObjectQuery200Response
+//
+//	@return AdObjectQuery200Response
 func (a *MachineADObjectDAASService) AdObjectQueryExecute(r ApiAdObjectQueryRequest) (*AdObjectQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdObjectQuery200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdObjectQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineADObjectDAASService.AdObjectQuery")
@@ -503,13 +517,13 @@ func (a *MachineADObjectDAASService) AdObjectQueryExecute(r ApiAdObjectQueryRequ
 	}
 
 	if r.sid != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sid", r.sid, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sid", r.sid, "", "")
 	}
 	if r.siteId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "siteId", r.siteId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "siteId", r.siteId, "", "")
 	}
 	if r.id != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -528,12 +542,12 @@ func (a *MachineADObjectDAASService) AdObjectQueryExecute(r ApiAdObjectQueryRequ
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "", "")
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -551,6 +565,13 @@ func (a *MachineADObjectDAASService) AdObjectQueryExecute(r ApiAdObjectQueryRequ
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -563,8 +584,8 @@ func (a *MachineADObjectDAASService) AdObjectQueryExecute(r ApiAdObjectQueryRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -574,8 +595,8 @@ func (a *MachineADObjectDAASService) AdObjectQueryExecute(r ApiAdObjectQueryRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -585,8 +606,8 @@ func (a *MachineADObjectDAASService) AdObjectQueryExecute(r ApiAdObjectQueryRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -596,8 +617,8 @@ func (a *MachineADObjectDAASService) AdObjectQueryExecute(r ApiAdObjectQueryRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -615,12 +636,12 @@ func (a *MachineADObjectDAASService) AdObjectQueryExecute(r ApiAdObjectQueryRequ
 }
 
 type ApiAdObjectQueryByIdRequest struct {
-	ctx context.Context
-	ApiService *MachineADObjectDAASService
-	id int64
-	accept *string
-	authorization *string
-	citrixCustomerId *string
+	ctx                 context.Context
+	ApiService          *MachineADObjectDAASService
+	id                  int64
+	accept              *string
+	authorization       *string
+	citrixCustomerId    *string
 	citrixTransactionId *string
 }
 
@@ -655,26 +676,27 @@ func (r ApiAdObjectQueryByIdRequest) Execute() (*MachineModel, *http.Response, e
 /*
 AdObjectQueryById Query Machine-level AD Objects by Identity
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the resource you want to query.
- @return ApiAdObjectQueryByIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the resource you want to query.
+	@return ApiAdObjectQueryByIdRequest
 */
 func (a *MachineADObjectDAASService) AdObjectQueryById(ctx context.Context, id int64) ApiAdObjectQueryByIdRequest {
 	return ApiAdObjectQueryByIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return MachineModel
+//
+//	@return MachineModel
 func (a *MachineADObjectDAASService) AdObjectQueryByIdExecute(r ApiAdObjectQueryByIdRequest) (*MachineModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineADObjectDAASService.AdObjectQueryById")
@@ -715,12 +737,12 @@ func (a *MachineADObjectDAASService) AdObjectQueryByIdExecute(r ApiAdObjectQuery
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "", "")
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -738,6 +760,13 @@ func (a *MachineADObjectDAASService) AdObjectQueryByIdExecute(r ApiAdObjectQuery
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -750,8 +779,8 @@ func (a *MachineADObjectDAASService) AdObjectQueryByIdExecute(r ApiAdObjectQuery
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -761,8 +790,8 @@ func (a *MachineADObjectDAASService) AdObjectQueryByIdExecute(r ApiAdObjectQuery
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -772,8 +801,8 @@ func (a *MachineADObjectDAASService) AdObjectQueryByIdExecute(r ApiAdObjectQuery
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -783,8 +812,8 @@ func (a *MachineADObjectDAASService) AdObjectQueryByIdExecute(r ApiAdObjectQuery
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -802,13 +831,13 @@ func (a *MachineADObjectDAASService) AdObjectQueryByIdExecute(r ApiAdObjectQuery
 }
 
 type ApiAdObjectUpdateRequest struct {
-	ctx context.Context
-	ApiService *MachineADObjectDAASService
-	accept *string
-	authorization *string
-	citrixCustomerId *string
+	ctx                 context.Context
+	ApiService          *MachineADObjectDAASService
+	accept              *string
+	authorization       *string
+	citrixCustomerId    *string
 	citrixTransactionId *string
-	body *MachineModel
+	body                *MachineModel
 }
 
 // Only \&quot;application/json\&quot; is supported.
@@ -847,22 +876,22 @@ func (r ApiAdObjectUpdateRequest) Execute() (*http.Response, error) {
 /*
 AdObjectUpdate Update a Machine-level AD Object
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdObjectUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdObjectUpdateRequest
 */
 func (a *MachineADObjectDAASService) AdObjectUpdate(ctx context.Context) ApiAdObjectUpdateRequest {
 	return ApiAdObjectUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *MachineADObjectDAASService) AdObjectUpdateExecute(r ApiAdObjectUpdateRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineADObjectDAASService.AdObjectUpdate")
@@ -902,12 +931,12 @@ func (a *MachineADObjectDAASService) AdObjectUpdateExecute(r ApiAdObjectUpdateRe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "", "")
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	// body params
 	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -927,6 +956,13 @@ func (a *MachineADObjectDAASService) AdObjectUpdateExecute(r ApiAdObjectUpdateRe
 		return localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -939,8 +975,8 @@ func (a *MachineADObjectDAASService) AdObjectUpdateExecute(r ApiAdObjectUpdateRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -950,8 +986,8 @@ func (a *MachineADObjectDAASService) AdObjectUpdateExecute(r ApiAdObjectUpdateRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -961,8 +997,8 @@ func (a *MachineADObjectDAASService) AdObjectUpdateExecute(r ApiAdObjectUpdateRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -972,8 +1008,8 @@ func (a *MachineADObjectDAASService) AdObjectUpdateExecute(r ApiAdObjectUpdateRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -983,8 +1019,8 @@ func (a *MachineADObjectDAASService) AdObjectUpdateExecute(r ApiAdObjectUpdateRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

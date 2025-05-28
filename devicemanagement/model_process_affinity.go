@@ -20,7 +20,7 @@ var _ MappedNullable = &ProcessAffinity{}
 // ProcessAffinity struct for ProcessAffinity
 type ProcessAffinity struct {
 	ProcessName *string `json:"processName,omitempty"`
-	Affinity *int32 `json:"affinity,omitempty"`
+	Affinity    *int32  `json:"affinity,omitempty"`
 }
 
 // NewProcessAffinity instantiates a new ProcessAffinity object
@@ -105,7 +105,7 @@ func (o *ProcessAffinity) SetAffinity(v int32) {
 }
 
 func (o ProcessAffinity) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableProcessAffinity) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

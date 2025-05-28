@@ -11,10 +11,11 @@ package citrixquickcreate
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService AddMachineAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var deploymentId string
@@ -39,7 +40,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService DeleteDeploymentAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var deploymentId string
@@ -54,7 +55,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService GetDeploymentAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var deploymentId string
@@ -69,7 +70,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService GetDeploymentsAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 
@@ -83,7 +84,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService InitiateDeleteDeploymentAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var deploymentId string
@@ -98,7 +99,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService InitiateDeploymentAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 
@@ -112,7 +113,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService InitiateRemoveMachineAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var deploymentId string
@@ -128,7 +129,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService PatchMachinesAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var deploymentId string
@@ -142,7 +143,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService RemoveMachineAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var deploymentId string
@@ -158,7 +159,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService RemoveMachinesAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var deploymentId string
@@ -173,7 +174,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService RestartMachineAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var deploymentId string
@@ -188,7 +189,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService SaveAsImageAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var deploymentId string
@@ -204,7 +205,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService UpdateDeploymentImageAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var deploymentId string
@@ -219,7 +220,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService UpdateDeploymentPropertiesAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var deploymentId string
@@ -234,7 +235,7 @@ func Test_citrixquickcreate_DeploymentQCSService(t *testing.T) {
 
 	t.Run("Test DeploymentQCSService UpdateMachineAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var deploymentId string

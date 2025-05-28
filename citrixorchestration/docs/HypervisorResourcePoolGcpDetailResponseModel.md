@@ -4,6 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**VirtualPrivateCloud** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
+**AvailabilityZone** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
+**Networks** | [**[]HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) | List of networks in the VirtualPrivateCloud that may be used within the resource pool. | 
+**Region** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
+**VirtualNetwork** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
+**Subnets** | [**[]HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) | List of subnets in the VirtualNetwork that may be used within the resource pool. | 
+**Project** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
+**RootPath** | Pointer to [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | [optional] 
+**Storage** | [**[]HypervisorStorageResourceResponseModel**](HypervisorStorageResourceResponseModel.md) | List of hypervisor-connected storage in the resource pool that is used for OS disks of virtual machines. | 
+**TemporaryStorage** | [**[]HypervisorStorageResourceResponseModel**](HypervisorStorageResourceResponseModel.md) | List of hypervisor-connected storage in the resource pool that is used for temporary data storage for virtual machines. | 
+**UseLocalStorageCaching** | Pointer to **NullableBool** | Indicates whether virtual machines created within this resource pool will use local storage caching for their disk images. | [optional] 
+**CustomProperties** | Pointer to **NullableString** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
+**PersonalvDiskStorage** | Pointer to [**[]HypervisorStorageResourceResponseModel**](HypervisorStorageResourceResponseModel.md) | List of hypervisor-connected storage in the resource pool that is used for personal v disk data storage for virtual machines. | [optional] 
+**StorageBalanceType** | Pointer to [**StorageBalanceType**](StorageBalanceType.md) |  | [optional] 
 **Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
 **Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
 **XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
@@ -17,16 +31,12 @@ Name | Type | Description | Notes
 **UsesExplicitStorage** | Pointer to **bool** | If the hypervisor resource pool use ExplicitStorage. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata for hypervisor resource pool.  | [optional] 
 **ContainerScopes** | Pointer to [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the resource pool reside. | [optional] 
-**Project** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
-**Region** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
-**VirtualPrivateCloud** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
-**Networks** | [**[]HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) | List of networks in the VirtualPrivateCloud that may be used within the resource pool. | 
 
 ## Methods
 
 ### NewHypervisorResourcePoolGcpDetailResponseModel
 
-`func NewHypervisorResourcePoolGcpDetailResponseModel(hypervisorConnection RefResponseModel, connectionType HypervisorConnectionType, defaultNetwork HypervisorResourceRefResponseModel, vMTaggingEnabled bool, project HypervisorResourceRefResponseModel, region HypervisorResourceRefResponseModel, virtualPrivateCloud HypervisorResourceRefResponseModel, networks []HypervisorResourceRefResponseModel, ) *HypervisorResourcePoolGcpDetailResponseModel`
+`func NewHypervisorResourcePoolGcpDetailResponseModel(virtualPrivateCloud HypervisorResourceRefResponseModel, availabilityZone HypervisorResourceRefResponseModel, networks []HypervisorResourceRefResponseModel, region HypervisorResourceRefResponseModel, virtualNetwork HypervisorResourceRefResponseModel, subnets []HypervisorResourceRefResponseModel, project HypervisorResourceRefResponseModel, storage []HypervisorStorageResourceResponseModel, temporaryStorage []HypervisorStorageResourceResponseModel, hypervisorConnection RefResponseModel, connectionType HypervisorConnectionType, defaultNetwork HypervisorResourceRefResponseModel, vMTaggingEnabled bool, ) *HypervisorResourcePoolGcpDetailResponseModel`
 
 NewHypervisorResourcePoolGcpDetailResponseModel instantiates a new HypervisorResourcePoolGcpDetailResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -40,6 +50,341 @@ will change when the set of required properties is changed
 NewHypervisorResourcePoolGcpDetailResponseModelWithDefaults instantiates a new HypervisorResourcePoolGcpDetailResponseModel object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetVirtualPrivateCloud
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetVirtualPrivateCloud() HypervisorResourceRefResponseModel`
+
+GetVirtualPrivateCloud returns the VirtualPrivateCloud field if non-nil, zero value otherwise.
+
+### GetVirtualPrivateCloudOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetVirtualPrivateCloudOk() (*HypervisorResourceRefResponseModel, bool)`
+
+GetVirtualPrivateCloudOk returns a tuple with the VirtualPrivateCloud field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVirtualPrivateCloud
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetVirtualPrivateCloud(v HypervisorResourceRefResponseModel)`
+
+SetVirtualPrivateCloud sets VirtualPrivateCloud field to given value.
+
+
+### GetAvailabilityZone
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetAvailabilityZone() HypervisorResourceRefResponseModel`
+
+GetAvailabilityZone returns the AvailabilityZone field if non-nil, zero value otherwise.
+
+### GetAvailabilityZoneOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetAvailabilityZoneOk() (*HypervisorResourceRefResponseModel, bool)`
+
+GetAvailabilityZoneOk returns a tuple with the AvailabilityZone field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailabilityZone
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetAvailabilityZone(v HypervisorResourceRefResponseModel)`
+
+SetAvailabilityZone sets AvailabilityZone field to given value.
+
+
+### GetNetworks
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetNetworks() []HypervisorResourceRefResponseModel`
+
+GetNetworks returns the Networks field if non-nil, zero value otherwise.
+
+### GetNetworksOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetNetworksOk() (*[]HypervisorResourceRefResponseModel, bool)`
+
+GetNetworksOk returns a tuple with the Networks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworks
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetNetworks(v []HypervisorResourceRefResponseModel)`
+
+SetNetworks sets Networks field to given value.
+
+
+### GetRegion
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetRegion() HypervisorResourceRefResponseModel`
+
+GetRegion returns the Region field if non-nil, zero value otherwise.
+
+### GetRegionOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetRegionOk() (*HypervisorResourceRefResponseModel, bool)`
+
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegion
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetRegion(v HypervisorResourceRefResponseModel)`
+
+SetRegion sets Region field to given value.
+
+
+### GetVirtualNetwork
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetVirtualNetwork() HypervisorResourceRefResponseModel`
+
+GetVirtualNetwork returns the VirtualNetwork field if non-nil, zero value otherwise.
+
+### GetVirtualNetworkOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetVirtualNetworkOk() (*HypervisorResourceRefResponseModel, bool)`
+
+GetVirtualNetworkOk returns a tuple with the VirtualNetwork field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVirtualNetwork
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetVirtualNetwork(v HypervisorResourceRefResponseModel)`
+
+SetVirtualNetwork sets VirtualNetwork field to given value.
+
+
+### GetSubnets
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetSubnets() []HypervisorResourceRefResponseModel`
+
+GetSubnets returns the Subnets field if non-nil, zero value otherwise.
+
+### GetSubnetsOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetSubnetsOk() (*[]HypervisorResourceRefResponseModel, bool)`
+
+GetSubnetsOk returns a tuple with the Subnets field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubnets
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetSubnets(v []HypervisorResourceRefResponseModel)`
+
+SetSubnets sets Subnets field to given value.
+
+
+### GetProject
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetProject() HypervisorResourceRefResponseModel`
+
+GetProject returns the Project field if non-nil, zero value otherwise.
+
+### GetProjectOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetProjectOk() (*HypervisorResourceRefResponseModel, bool)`
+
+GetProjectOk returns a tuple with the Project field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProject
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetProject(v HypervisorResourceRefResponseModel)`
+
+SetProject sets Project field to given value.
+
+
+### GetRootPath
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetRootPath() HypervisorResourceRefResponseModel`
+
+GetRootPath returns the RootPath field if non-nil, zero value otherwise.
+
+### GetRootPathOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetRootPathOk() (*HypervisorResourceRefResponseModel, bool)`
+
+GetRootPathOk returns a tuple with the RootPath field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRootPath
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetRootPath(v HypervisorResourceRefResponseModel)`
+
+SetRootPath sets RootPath field to given value.
+
+### HasRootPath
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) HasRootPath() bool`
+
+HasRootPath returns a boolean if a field has been set.
+
+### GetStorage
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetStorage() []HypervisorStorageResourceResponseModel`
+
+GetStorage returns the Storage field if non-nil, zero value otherwise.
+
+### GetStorageOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetStorageOk() (*[]HypervisorStorageResourceResponseModel, bool)`
+
+GetStorageOk returns a tuple with the Storage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorage
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetStorage(v []HypervisorStorageResourceResponseModel)`
+
+SetStorage sets Storage field to given value.
+
+
+### GetTemporaryStorage
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetTemporaryStorage() []HypervisorStorageResourceResponseModel`
+
+GetTemporaryStorage returns the TemporaryStorage field if non-nil, zero value otherwise.
+
+### GetTemporaryStorageOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetTemporaryStorageOk() (*[]HypervisorStorageResourceResponseModel, bool)`
+
+GetTemporaryStorageOk returns a tuple with the TemporaryStorage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTemporaryStorage
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetTemporaryStorage(v []HypervisorStorageResourceResponseModel)`
+
+SetTemporaryStorage sets TemporaryStorage field to given value.
+
+
+### GetUseLocalStorageCaching
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetUseLocalStorageCaching() bool`
+
+GetUseLocalStorageCaching returns the UseLocalStorageCaching field if non-nil, zero value otherwise.
+
+### GetUseLocalStorageCachingOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetUseLocalStorageCachingOk() (*bool, bool)`
+
+GetUseLocalStorageCachingOk returns a tuple with the UseLocalStorageCaching field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUseLocalStorageCaching
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetUseLocalStorageCaching(v bool)`
+
+SetUseLocalStorageCaching sets UseLocalStorageCaching field to given value.
+
+### HasUseLocalStorageCaching
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) HasUseLocalStorageCaching() bool`
+
+HasUseLocalStorageCaching returns a boolean if a field has been set.
+
+### SetUseLocalStorageCachingNil
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetUseLocalStorageCachingNil(b bool)`
+
+ SetUseLocalStorageCachingNil sets the value for UseLocalStorageCaching to be an explicit nil
+
+### UnsetUseLocalStorageCaching
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) UnsetUseLocalStorageCaching()`
+
+UnsetUseLocalStorageCaching ensures that no value is present for UseLocalStorageCaching, not even an explicit nil
+### GetCustomProperties
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetCustomProperties() string`
+
+GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
+
+### GetCustomPropertiesOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetCustomPropertiesOk() (*string, bool)`
+
+GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomProperties
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetCustomProperties(v string)`
+
+SetCustomProperties sets CustomProperties field to given value.
+
+### HasCustomProperties
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) HasCustomProperties() bool`
+
+HasCustomProperties returns a boolean if a field has been set.
+
+### SetCustomPropertiesNil
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
+### GetPersonalvDiskStorage
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetPersonalvDiskStorage() []HypervisorStorageResourceResponseModel`
+
+GetPersonalvDiskStorage returns the PersonalvDiskStorage field if non-nil, zero value otherwise.
+
+### GetPersonalvDiskStorageOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetPersonalvDiskStorageOk() (*[]HypervisorStorageResourceResponseModel, bool)`
+
+GetPersonalvDiskStorageOk returns a tuple with the PersonalvDiskStorage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPersonalvDiskStorage
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetPersonalvDiskStorage(v []HypervisorStorageResourceResponseModel)`
+
+SetPersonalvDiskStorage sets PersonalvDiskStorage field to given value.
+
+### HasPersonalvDiskStorage
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) HasPersonalvDiskStorage() bool`
+
+HasPersonalvDiskStorage returns a boolean if a field has been set.
+
+### SetPersonalvDiskStorageNil
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetPersonalvDiskStorageNil(b bool)`
+
+ SetPersonalvDiskStorageNil sets the value for PersonalvDiskStorage to be an explicit nil
+
+### UnsetPersonalvDiskStorage
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) UnsetPersonalvDiskStorage()`
+
+UnsetPersonalvDiskStorage ensures that no value is present for PersonalvDiskStorage, not even an explicit nil
+### GetStorageBalanceType
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetStorageBalanceType() StorageBalanceType`
+
+GetStorageBalanceType returns the StorageBalanceType field if non-nil, zero value otherwise.
+
+### GetStorageBalanceTypeOk
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetStorageBalanceTypeOk() (*StorageBalanceType, bool)`
+
+GetStorageBalanceTypeOk returns a tuple with the StorageBalanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageBalanceType
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetStorageBalanceType(v StorageBalanceType)`
+
+SetStorageBalanceType sets StorageBalanceType field to given value.
+
+### HasStorageBalanceType
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) HasStorageBalanceType() bool`
+
+HasStorageBalanceType returns a boolean if a field has been set.
 
 ### GetId
 
@@ -426,86 +771,6 @@ HasContainerScopes returns a boolean if a field has been set.
 `func (o *HypervisorResourcePoolGcpDetailResponseModel) UnsetContainerScopes()`
 
 UnsetContainerScopes ensures that no value is present for ContainerScopes, not even an explicit nil
-### GetProject
-
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetProject() HypervisorResourceRefResponseModel`
-
-GetProject returns the Project field if non-nil, zero value otherwise.
-
-### GetProjectOk
-
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetProjectOk() (*HypervisorResourceRefResponseModel, bool)`
-
-GetProjectOk returns a tuple with the Project field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProject
-
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetProject(v HypervisorResourceRefResponseModel)`
-
-SetProject sets Project field to given value.
-
-
-### GetRegion
-
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetRegion() HypervisorResourceRefResponseModel`
-
-GetRegion returns the Region field if non-nil, zero value otherwise.
-
-### GetRegionOk
-
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetRegionOk() (*HypervisorResourceRefResponseModel, bool)`
-
-GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRegion
-
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetRegion(v HypervisorResourceRefResponseModel)`
-
-SetRegion sets Region field to given value.
-
-
-### GetVirtualPrivateCloud
-
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetVirtualPrivateCloud() HypervisorResourceRefResponseModel`
-
-GetVirtualPrivateCloud returns the VirtualPrivateCloud field if non-nil, zero value otherwise.
-
-### GetVirtualPrivateCloudOk
-
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetVirtualPrivateCloudOk() (*HypervisorResourceRefResponseModel, bool)`
-
-GetVirtualPrivateCloudOk returns a tuple with the VirtualPrivateCloud field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVirtualPrivateCloud
-
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetVirtualPrivateCloud(v HypervisorResourceRefResponseModel)`
-
-SetVirtualPrivateCloud sets VirtualPrivateCloud field to given value.
-
-
-### GetNetworks
-
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetNetworks() []HypervisorResourceRefResponseModel`
-
-GetNetworks returns the Networks field if non-nil, zero value otherwise.
-
-### GetNetworksOk
-
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetNetworksOk() (*[]HypervisorResourceRefResponseModel, bool)`
-
-GetNetworksOk returns a tuple with the Networks field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNetworks
-
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetNetworks(v []HypervisorResourceRefResponseModel)`
-
-SetNetworks sets Networks field to given value.
-
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

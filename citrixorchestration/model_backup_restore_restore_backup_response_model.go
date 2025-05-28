@@ -20,8 +20,8 @@ var _ MappedNullable = &BackupRestoreRestoreBackupResponseModel{}
 // BackupRestoreRestoreBackupResponseModel Restore Backup response model
 type BackupRestoreRestoreBackupResponseModel struct {
 	// Restore Execution Id: GUID
-	ExecutionId string `json:"ExecutionId"`
-	Result BackupRestoreActionStartStatus `json:"Result"`
+	ExecutionId string                         `json:"ExecutionId"`
+	Result      BackupRestoreActionStartStatus `json:"Result"`
 }
 
 // NewBackupRestoreRestoreBackupResponseModel instantiates a new BackupRestoreRestoreBackupResponseModel object
@@ -92,7 +92,7 @@ func (o *BackupRestoreRestoreBackupResponseModel) SetResult(v BackupRestoreActio
 }
 
 func (o BackupRestoreRestoreBackupResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -141,5 +141,3 @@ func (v *NullableBackupRestoreRestoreBackupResponseModel) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

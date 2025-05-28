@@ -20,9 +20,9 @@ type SettingProperty string
 
 // List of SettingProperty
 const (
-	SETTINGPROPERTY_SETTING_NAME SettingProperty = "SettingName"
+	SETTINGPROPERTY_SETTING_NAME  SettingProperty = "SettingName"
 	SETTINGPROPERTY_SETTING_VALUE SettingProperty = "SettingValue"
-	SETTINGPROPERTY_USE_DEFAULT SettingProperty = "UseDefault"
+	SETTINGPROPERTY_USE_DEFAULT   SettingProperty = "UseDefault"
 )
 
 // All allowed values of SettingProperty enum
@@ -38,7 +38,7 @@ func (v *SettingProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SettingProperty(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableSettingProperty) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

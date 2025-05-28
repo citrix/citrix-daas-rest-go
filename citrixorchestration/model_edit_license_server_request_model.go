@@ -99,6 +99,7 @@ func (o *EditLicenseServerRequestModel) HasThumbprint() bool {
 func (o *EditLicenseServerRequestModel) SetThumbprint(v string) {
 	o.Thumbprint.Set(&v)
 }
+
 // SetThumbprintNil sets the value for Thumbprint to be an explicit nil
 func (o *EditLicenseServerRequestModel) SetThumbprintNil() {
 	o.Thumbprint.Set(nil)
@@ -110,7 +111,7 @@ func (o *EditLicenseServerRequestModel) UnsetThumbprint() {
 }
 
 func (o EditLicenseServerRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -161,5 +162,3 @@ func (v *NullableEditLicenseServerRequestModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

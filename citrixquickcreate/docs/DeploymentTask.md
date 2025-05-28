@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Operation** | Pointer to [**NullableDeploymentTaskOperationType**](DeploymentTaskOperationType.md) |  | [optional] 
+**Operation** | Pointer to [**NullableDeploymentTaskOperationType**](DeploymentTaskOperationType.md) | Task Type | [optional] 
 **DeploymentId** | Pointer to **NullableString** | Deployment Id this task is working on | [optional] 
 
 ## Methods

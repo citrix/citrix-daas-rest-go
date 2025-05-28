@@ -17,8 +17,8 @@ import (
 
 // UpdateCustomerAccountAsyncRequest - struct for UpdateCustomerAccountAsyncRequest
 type UpdateCustomerAccountAsyncRequest struct {
-	UpdateAccount *UpdateAccount
-	UpdateAccountName *UpdateAccountName
+	UpdateAccount                  *UpdateAccount
+	UpdateAccountName              *UpdateAccountName
 	UpdateAwsEdcAccountCredentials *UpdateAwsEdcAccountCredentials
 }
 
@@ -43,7 +43,6 @@ func UpdateAwsEdcAccountCredentialsAsUpdateCustomerAccountAsyncRequest(v *Update
 	}
 }
 
-
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *UpdateCustomerAccountAsyncRequest) UnmarshalJSON(data []byte) error {
 	var err error
@@ -63,6 +62,18 @@ func (dst *UpdateCustomerAccountAsyncRequest) UnmarshalJSON(data []byte) error {
 		} else {
 			dst.UpdateAccountName = nil
 			return fmt.Errorf("failed to unmarshal UpdateCustomerAccountAsyncRequest as UpdateAccountName: %s", err.Error())
+		}
+	}
+
+	// check if the discriminator value is 'UpdateAwsEdcAccountCredentials'
+	if jsonDict["accountOperationType"] == "UpdateAwsEdcAccountCredentials" {
+		// try to unmarshal JSON data into UpdateAwsEdcAccountCredentials
+		err = json.Unmarshal(data, &dst.UpdateAwsEdcAccountCredentials)
+		if err == nil {
+			return nil // data stored in dst.UpdateAwsEdcAccountCredentials, return on the first match
+		} else {
+			dst.UpdateAwsEdcAccountCredentials = nil
+			return fmt.Errorf("failed to unmarshal UpdateCustomerAccountAsyncRequest as UpdateAwsEdcAccountCredentials: %s", err.Error())
 		}
 	}
 
@@ -90,18 +101,6 @@ func (dst *UpdateCustomerAccountAsyncRequest) UnmarshalJSON(data []byte) error {
 		}
 	}
 
-	// check if the discriminator value is 'UpdateAwsEdcAccountCredentials'
-	if jsonDict["accountOperationType"] == "UpdateAwsEdcAccountCredentials" {
-		// try to unmarshal JSON data into UpdateAwsEdcAccountCredentials
-		err = json.Unmarshal(data, &dst.UpdateAwsEdcAccountCredentials)
-		if err == nil {
-			return nil // data stored in dst.UpdateAwsEdcAccountCredentials, return on the first match
-		} else {
-			dst.UpdateAwsEdcAccountCredentials = nil
-			return fmt.Errorf("failed to unmarshal UpdateCustomerAccountAsyncRequest as UpdateAwsEdcAccountCredentials: %s", err.Error())
-		}
-	}
-
 	return nil
 }
 
@@ -123,7 +122,7 @@ func (src UpdateCustomerAccountAsyncRequest) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *UpdateCustomerAccountAsyncRequest) GetActualInstance() (interface{}) {
+func (obj *UpdateCustomerAccountAsyncRequest) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -137,6 +136,24 @@ func (obj *UpdateCustomerAccountAsyncRequest) GetActualInstance() (interface{}) 
 
 	if obj.UpdateAwsEdcAccountCredentials != nil {
 		return obj.UpdateAwsEdcAccountCredentials
+	}
+
+	// all schemas are nil
+	return nil
+}
+
+// Get the actual instance value
+func (obj UpdateCustomerAccountAsyncRequest) GetActualInstanceValue() interface{} {
+	if obj.UpdateAccount != nil {
+		return *obj.UpdateAccount
+	}
+
+	if obj.UpdateAccountName != nil {
+		return *obj.UpdateAccountName
+	}
+
+	if obj.UpdateAwsEdcAccountCredentials != nil {
+		return *obj.UpdateAwsEdcAccountCredentials
 	}
 
 	// all schemas are nil
@@ -178,5 +195,3 @@ func (v *NullableUpdateCustomerAccountAsyncRequest) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

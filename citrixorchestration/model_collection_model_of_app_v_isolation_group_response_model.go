@@ -101,6 +101,7 @@ func (o *CollectionModelOfAppVIsolationGroupResponseModel) HasContinuationToken(
 func (o *CollectionModelOfAppVIsolationGroupResponseModel) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *CollectionModelOfAppVIsolationGroupResponseModel) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -143,6 +144,7 @@ func (o *CollectionModelOfAppVIsolationGroupResponseModel) HasTotalItems() bool 
 func (o *CollectionModelOfAppVIsolationGroupResponseModel) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *CollectionModelOfAppVIsolationGroupResponseModel) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -154,7 +156,7 @@ func (o *CollectionModelOfAppVIsolationGroupResponseModel) UnsetTotalItems() {
 }
 
 func (o CollectionModelOfAppVIsolationGroupResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableCollectionModelOfAppVIsolationGroupResponseModel) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

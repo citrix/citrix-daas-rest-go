@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_AdminFoldersAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_AdminFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminFoldersAPIsDAASService AdminFoldersCreateAdminFolder", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersCreateAdminFolder(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_citrixorchestration_AdminFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminFoldersAPIsDAASService AdminFoldersDeleteAdminFolder", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var pathOrId string
 
@@ -49,7 +50,7 @@ func Test_citrixorchestration_AdminFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminFoldersAPIsDAASService AdminFoldersGetAdminFolder", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var pathOrId string
 
@@ -63,7 +64,7 @@ func Test_citrixorchestration_AdminFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminFoldersAPIsDAASService AdminFoldersGetAdminFolderApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var pathOrId string
 
@@ -77,7 +78,7 @@ func Test_citrixorchestration_AdminFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminFoldersAPIsDAASService AdminFoldersGetAdminFolderMachineCatalogs", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var pathOrId string
 
@@ -91,7 +92,7 @@ func Test_citrixorchestration_AdminFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminFoldersAPIsDAASService AdminFoldersGetAdminFolders", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersGetAdminFolders(context.Background()).Execute()
 
@@ -103,7 +104,7 @@ func Test_citrixorchestration_AdminFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminFoldersAPIsDAASService AdminFoldersUpdateAdminFolder", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var pathOrId string
 

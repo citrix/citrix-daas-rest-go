@@ -20,12 +20,12 @@ type ConnectionMode string
 
 // List of ConnectionMode
 const (
-	CONNECTIONMODE_UNKNOWN ConnectionMode = "Unknown"
-	CONNECTIONMODE_BROKERED ConnectionMode = "Brokered"
-	CONNECTIONMODE_UNBROKERED ConnectionMode = "Unbrokered"
-	CONNECTIONMODE_LEASED_CONNECTION ConnectionMode = "LeasedConnection"
-	CONNECTIONMODE_VDA_HIGH_AVAILABILITY_MODE ConnectionMode = "VdaHighAvailabilityMode"
-	CONNECTIONMODE_THIRD_PARTY_BROKER ConnectionMode = "ThirdPartyBroker"
+	CONNECTIONMODE_UNKNOWN                           ConnectionMode = "Unknown"
+	CONNECTIONMODE_BROKERED                          ConnectionMode = "Brokered"
+	CONNECTIONMODE_UNBROKERED                        ConnectionMode = "Unbrokered"
+	CONNECTIONMODE_LEASED_CONNECTION                 ConnectionMode = "LeasedConnection"
+	CONNECTIONMODE_VDA_HIGH_AVAILABILITY_MODE        ConnectionMode = "VdaHighAvailabilityMode"
+	CONNECTIONMODE_THIRD_PARTY_BROKER                ConnectionMode = "ThirdPartyBroker"
 	CONNECTIONMODE_THIRD_PARTY_BROKER_WITH_LICENSING ConnectionMode = "ThirdPartyBrokerWithLicensing"
 )
 
@@ -46,7 +46,7 @@ func (v *ConnectionMode) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ConnectionMode(value)
 	return nil
 }
@@ -112,4 +112,3 @@ func (v *NullableConnectionMode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

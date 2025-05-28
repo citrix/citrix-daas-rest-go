@@ -17,10 +17,10 @@ import (
 // checks if the MachineDetailResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &MachineDetailResponseModel{}
 
-// MachineDetailResponseModel Default response field (Only return the fields specified there if supported in  API ): Uid,AgentVersion,AllocationType,DeliveryGroup,DnsName,FunctionalLevel,InMaintenanceMode,MaintenanceModeReason,DrainingUntilShutdown,IPAddress,IsAssigned,MachineType,MachineUnavailableReason,OSType,OSVersion,PersistUserChanges,PowerActionPending,PowerState,ProvisioningType,PublishedName,RegistrationState,ScheduledReboot,Sid,SummaryState,WillShutdownAfterUse,SupportedPowerActions,FaultState,Id,MachineCatalog,Name.               Response model for machine details.              
+// MachineDetailResponseModel Default response field (Only return the fields specified there if supported in  API ): Uid,AgentVersion,AllocationType,DeliveryGroup,DnsName,FunctionalLevel,InMaintenanceMode,MaintenanceModeReason,DrainingUntilShutdown,IPAddress,IsAssigned,MachineType,MachineUnavailableReason,OSType,OSVersion,PersistUserChanges,PowerActionPending,PowerState,ProvisioningType,PublishedName,RegistrationState,ScheduledReboot,Sid,SummaryState,WillShutdownAfterUse,SupportedPowerActions,FaultState,Id,MachineCatalog,Name.               Response model for machine details.
 type MachineDetailResponseModel struct {
 	// Id of machine. Used to be: DesktopUid (and wasn't globally unique) OR UUID, depending on context Needs to be globally unique Might be constructed from site ID + internal Uid?  or use uuid
-	Id string `json:"Id"`
+	Id             string            `json:"Id"`
 	MachineCatalog *RefResponseModel `json:"MachineCatalog,omitempty"`
 	// DNS host name of the machine. Used to be: MachineName
 	Name NullableString `json:"Name,omitempty"`
@@ -28,46 +28,46 @@ type MachineDetailResponseModel struct {
 	// Deprecated
 	Uid NullableInt32 `json:"Uid,omitempty"`
 	// Version of the Citrix Virtual Delivery Agent (VDA) installed on the machine.
-	AgentVersion NullableString `json:"AgentVersion,omitempty"`
+	AgentVersion   NullableString  `json:"AgentVersion,omitempty"`
 	AllocationType *AllocationType `json:"AllocationType,omitempty"`
 	// List of applications in use in the session.
 	ApplicationsInUse []RefResponseModel `json:"ApplicationsInUse,omitempty"`
 	// List of one or more users to whom the machine is assigned. Only used when AllocationType is equal to Static.
 	AssignedUsers []IdentityUserResponseModel `json:"AssignedUsers,omitempty"`
 	// The current user(s) for shared machines and the assigned users for private machines.
-	AssociatedUsers []IdentityUserResponseModel `json:"AssociatedUsers,omitempty"`
-	AzureAdJoinedMode *AzureAdJoinedMode `json:"AzureAdJoinedMode,omitempty"`
+	AssociatedUsers   []IdentityUserResponseModel `json:"AssociatedUsers,omitempty"`
+	AzureAdJoinedMode *AzureAdJoinedMode          `json:"AzureAdJoinedMode,omitempty"`
 	// Delegated admin scopes in which the containers of the machine reside.
 	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes,omitempty"`
 	// The DNS host name of the controller that the machine is registered to.
-	ControllerDnsName NullableString `json:"ControllerDnsName,omitempty"`
-	DeliveryGroup *RefResponseModel `json:"DeliveryGroup,omitempty"`
-	DeliveryType *DeliveryKind `json:"DeliveryType,omitempty"`
+	ControllerDnsName NullableString    `json:"ControllerDnsName,omitempty"`
+	DeliveryGroup     *RefResponseModel `json:"DeliveryGroup,omitempty"`
+	DeliveryType      *DeliveryKind     `json:"DeliveryType,omitempty"`
 	// Description of the machine.
 	Description NullableString `json:"Description,omitempty"`
 	// List of outstanding desktop conditions for the machine.
 	DesktopConditions []DesktopCondition `json:"DesktopConditions,omitempty"`
 	// The DNS host name of the machine.
-	DnsName NullableString `json:"DnsName,omitempty"`
-	FunctionalLevel *FunctionalLevel `json:"FunctionalLevel,omitempty"`
-	Hosting *MachineHostingResponseModel `json:"Hosting,omitempty"`
+	DnsName         NullableString               `json:"DnsName,omitempty"`
+	FunctionalLevel *FunctionalLevel             `json:"FunctionalLevel,omitempty"`
+	Hosting         *MachineHostingResponseModel `json:"Hosting,omitempty"`
 	// Denotes if the machine is in maintenance mode. Machines in maintenance mode will not accept new sessions.
-	InMaintenanceMode *bool `json:"InMaintenanceMode,omitempty"`
+	InMaintenanceMode     *bool                  `json:"InMaintenanceMode,omitempty"`
 	MaintenanceModeReason *MaintenanceModeReason `json:"MaintenanceModeReason,omitempty"`
 	// Denotes if the machine is placed to drain until shutdown
 	DrainingUntilShutdown *bool `json:"DrainingUntilShutdown,omitempty"`
 	// The IP address of the machine.
 	IPAddress NullableString `json:"IPAddress,omitempty"`
 	// Denotes whether a private desktop has been assigned to a user/users, or a client name/address. Users can be assigned explicitly or by assigning on first use of the machine. Only relevant for privately assigned machines.
-	IsAssigned NullableBool `json:"IsAssigned,omitempty"`
-	MachineType *MachineType `json:"MachineType,omitempty"`
+	IsAssigned            NullableBool             `json:"IsAssigned,omitempty"`
+	MachineType           *MachineType             `json:"MachineType,omitempty"`
 	LastConnectionFailure *ConnectionFailureReason `json:"LastConnectionFailure,omitempty"`
 	// Time of the last detected connection attempt that either failed or succeeded.
 	LastConnectionTime NullableString `json:"LastConnectionTime,omitempty"`
 	// Formatted time of the last detected connection attempt that either failed or succeeded. RFC 3339 compatible format.
-	FormattedLastConnectionTime NullableString `json:"FormattedLastConnectionTime,omitempty"`
-	LastConnectionUser *IdentityUserResponseModel `json:"LastConnectionUser,omitempty"`
-	LastDeregistrationReason *DeregistrationReason `json:"LastDeregistrationReason,omitempty"`
+	FormattedLastConnectionTime NullableString             `json:"FormattedLastConnectionTime,omitempty"`
+	LastConnectionUser          *IdentityUserResponseModel `json:"LastConnectionUser,omitempty"`
+	LastDeregistrationReason    *DeregistrationReason      `json:"LastDeregistrationReason,omitempty"`
 	// Time of the last deregistration of the machine from the controller.
 	LastDeregistrationTime NullableString `json:"LastDeregistrationTime,omitempty"`
 	// Formatted time of the last deregistration of the machine from the controller. RFC 3339 compatible format.
@@ -83,23 +83,23 @@ type MachineDetailResponseModel struct {
 	// Gives the last reported individual load indexes that were used in the calculation of the LoadIndex value. Note that the LoadIndex value may have been subsequently adjusted due to session brokering operations. This value is only set when SessionSupport is equal to MultiSession.
 	LoadIndexes []int32 `json:"LoadIndexes,omitempty"`
 	// Gives the last reported individual load index names that were used in the calculation of the LoadIndex value. Note that the LoadIndex value may have been subsequently adjusted due to session brokering operations. This value is only set when SessionSupport is equal to MultiSession.
-	LoadIndexNames []string `json:"LoadIndexNames,omitempty"`
+	LoadIndexNames           []string                  `json:"LoadIndexNames,omitempty"`
 	MachineUnavailableReason *MachineUnavailableReason `json:"MachineUnavailableReason,omitempty"`
 	// A string that can be used to identify the operating system that is running on the machine.
 	OSType NullableString `json:"OSType,omitempty"`
 	// A string that can be used to identify the version of the operating system running on the machine, if known.
-	OSVersion NullableString `json:"OSVersion,omitempty"`
+	OSVersion          NullableString  `json:"OSVersion,omitempty"`
 	PersistUserChanges *PersistChanges `json:"PersistUserChanges,omitempty"`
 	// Indicates if there are any pending power actions for the machine. Only relevant for power-managed machines.
-	PowerActionPending NullableBool `json:"PowerActionPending,omitempty"`
-	PowerState *PowerState `json:"PowerState,omitempty"`
-	ProvisioningType *ProvisioningType `json:"ProvisioningType,omitempty"`
+	PowerActionPending NullableBool      `json:"PowerActionPending,omitempty"`
+	PowerState         *PowerState       `json:"PowerState,omitempty"`
+	ProvisioningType   *ProvisioningType `json:"ProvisioningType,omitempty"`
 	// Indicates the published applications.
 	PublishedApplications []string `json:"PublishedApplications,omitempty"`
 	// The name of the machine that is displayed in Receiver, if the machine has been published.
-	PublishedName NullableString `json:"PublishedName,omitempty"`
+	PublishedName     NullableString     `json:"PublishedName,omitempty"`
 	RegistrationState *RegistrationState `json:"RegistrationState,omitempty"`
-	ScheduledReboot *ScheduledReboot `json:"ScheduledReboot,omitempty"`
+	ScheduledReboot   *ScheduledReboot   `json:"ScheduledReboot,omitempty"`
 	// The IP address of the client connected to the session.
 	SessionClientAddress NullableString `json:"SessionClientAddress,omitempty"`
 	// The host name of the client connected to the session.
@@ -116,7 +116,7 @@ type MachineDetailResponseModel struct {
 	SessionLaunchedViaHostName NullableString `json:"SessionLaunchedViaHostName,omitempty"`
 	// The IP address of the StoreFront server used to launch the session.
 	SessionLaunchedViaIP NullableString `json:"SessionLaunchedViaIP,omitempty"`
-	SessionProtocol *ProtocolType `json:"SessionProtocol,omitempty"`
+	SessionProtocol      *ProtocolType  `json:"SessionProtocol,omitempty"`
 	// Indicates whether SecureICA is active on the session.
 	SessionSecureIcaActive NullableBool `json:"SessionSecureIcaActive,omitempty"`
 	// The Smart Access tags for this session.
@@ -125,19 +125,19 @@ type MachineDetailResponseModel struct {
 	SessionStartTime NullableString `json:"SessionStartTime,omitempty"`
 	// The formatted time indicates when the session was started. RFC 3339 compatible format.
 	FormattedSessionStartTime NullableString `json:"FormattedSessionStartTime,omitempty"`
-	SessionState *SessionState `json:"SessionState,omitempty"`
+	SessionState              *SessionState  `json:"SessionState,omitempty"`
 	// The time of the most recent state change for the session.
 	SessionStateChangeTime NullableString `json:"SessionStateChangeTime,omitempty"`
 	// The formatted time of the most recent state change for the session. RFC 3339 compatible format.
-	FormattedSessionStateChangeTime NullableString `json:"FormattedSessionStateChangeTime,omitempty"`
-	SessionSupport *SessionSupport `json:"SessionSupport,omitempty"`
+	FormattedSessionStateChangeTime NullableString  `json:"FormattedSessionStateChangeTime,omitempty"`
+	SessionSupport                  *SessionSupport `json:"SessionSupport,omitempty"`
 	// The session user name.
 	SessionUserName NullableString `json:"SessionUserName,omitempty"`
 	// The SID of the machine. Used to be: DesktopSid or SID (based on the context)
-	Sid NullableString `json:"Sid,omitempty"`
-	SummaryState *SummaryState `json:"SummaryState,omitempty"`
+	Sid          NullableString `json:"Sid,omitempty"`
+	SummaryState *SummaryState  `json:"SummaryState,omitempty"`
 	// Flag indicating if this machine is tainted and will be shut down after all sessions on the machine have ended. This flag is only ever non-null on power-managed, single-session machines.
-	WillShutdownAfterUse NullableBool `json:"WillShutdownAfterUse,omitempty"`
+	WillShutdownAfterUse     NullableBool              `json:"WillShutdownAfterUse,omitempty"`
 	WindowsConnectionSetting *WindowsConnectionSetting `json:"WindowsConnectionSetting,omitempty"`
 	// Windows Activation Status of the provisioned virtual machine. This is by default set to unknown and is updated when the vda registers with the DDC.
 	WindowsActivationStatus NullableString `json:"WindowsActivationStatus,omitempty"`
@@ -146,19 +146,19 @@ type MachineDetailResponseModel struct {
 	// Provides a detailed information of potential error message seen while activating the windows system.
 	WindowsActivationStatusVirtualMachineError NullableString `json:"WindowsActivationStatusVirtualMachineError,omitempty"`
 	// Windows Activation Type of the Provisioned Virtual Machine. The default value is unknown and the field is populated once the virtual machine registers with DDC. This is supported only on 2303 and successive versions.
-	WindowsActivationTypeProvisionedVirtualMachine NullableString `json:"WindowsActivationTypeProvisionedVirtualMachine,omitempty"`
-	Zone *RefResponseModel `json:"Zone,omitempty"`
+	WindowsActivationTypeProvisionedVirtualMachine NullableString    `json:"WindowsActivationTypeProvisionedVirtualMachine,omitempty"`
+	Zone                                           *RefResponseModel `json:"Zone,omitempty"`
 	// A list of power actions supported by this machine.
-	SupportedPowerActions []SupportedPowerAction `json:"SupportedPowerActions,omitempty"`
-	FaultState *FaultState `json:"FaultState,omitempty"`
-	ContainerMetadata *ContainerMetadataModel `json:"ContainerMetadata,omitempty"`
+	SupportedPowerActions []SupportedPowerAction  `json:"SupportedPowerActions,omitempty"`
+	FaultState            *FaultState             `json:"FaultState,omitempty"`
+	ContainerMetadata     *ContainerMetadataModel `json:"ContainerMetadata,omitempty"`
 	// The tags for this machine.
-	Tags []string `json:"Tags,omitempty"`
-	UpgradeType *VdaUpgradeType `json:"UpgradeType,omitempty"`
+	Tags         []string         `json:"Tags,omitempty"`
+	UpgradeType  *VdaUpgradeType  `json:"UpgradeType,omitempty"`
 	UpgradeState *VdaUpgradeState `json:"UpgradeState,omitempty"`
 	// Flag indicating whether the machine's configuration is out of sync with the catalog's latest configuration
-	MachineConfigurationOutOfSync NullableBool `json:"MachineConfigurationOutOfSync,omitempty"`
-	UpgradeDetail *MachineUpgradeDetail `json:"UpgradeDetail,omitempty"`
+	MachineConfigurationOutOfSync NullableBool          `json:"MachineConfigurationOutOfSync,omitempty"`
+	UpgradeDetail                 *MachineUpgradeDetail `json:"UpgradeDetail,omitempty"`
 	// The metadata of this machine.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// The machine's icon that is displayed in Receiver.
@@ -169,7 +169,7 @@ type MachineDetailResponseModel struct {
 	AssignedIPAddress NullableString `json:"AssignedIPAddress,omitempty"`
 	// Site-wide unique name identifying associated desktop to other components (for example StoreFront). This is typically non-null only for machines backing assigned private desktops.
 	BrowserName NullableString `json:"BrowserName,omitempty"`
-	ColorDepth *ColorDepth `json:"ColorDepth,omitempty"`
+	ColorDepth  *ColorDepth    `json:"ColorDepth,omitempty"`
 	// Indicates if machine is reserved for special use, for example for AppDisk preparation. A reserved machine cannot be a member of a delivery group.
 	IsReserved bool `json:"IsReserved"`
 	// Flag indicating whether SecureICA is required or not when starting a session on the machine.
@@ -180,7 +180,7 @@ type MachineDetailResponseModel struct {
 	SessionsPending int32 `json:"SessionsPending"`
 	// StoreFront servers to use for Receiver when it is hosted on the machine.
 	StoreFrontServersForHostedReceiver []StoreFrontServerResponseModel `json:"StoreFrontServersForHostedReceiver,omitempty"`
-	VMToolsState *VMToolsState `json:"VMToolsState,omitempty"`
+	VMToolsState                       *VMToolsState                   `json:"VMToolsState,omitempty"`
 	// Failure reason of power action.
 	FailureReason NullableString `json:"FailureReason,omitempty"`
 	// Time when the power action failed.
@@ -296,6 +296,7 @@ func (o *MachineDetailResponseModel) HasName() bool {
 func (o *MachineDetailResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *MachineDetailResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -341,6 +342,7 @@ func (o *MachineDetailResponseModel) HasUid() bool {
 func (o *MachineDetailResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *MachineDetailResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -383,6 +385,7 @@ func (o *MachineDetailResponseModel) HasAgentVersion() bool {
 func (o *MachineDetailResponseModel) SetAgentVersion(v string) {
 	o.AgentVersion.Set(&v)
 }
+
 // SetAgentVersionNil sets the value for AgentVersion to be an explicit nil
 func (o *MachineDetailResponseModel) SetAgentVersionNil() {
 	o.AgentVersion.Set(nil)
@@ -621,6 +624,7 @@ func (o *MachineDetailResponseModel) HasControllerDnsName() bool {
 func (o *MachineDetailResponseModel) SetControllerDnsName(v string) {
 	o.ControllerDnsName.Set(&v)
 }
+
 // SetControllerDnsNameNil sets the value for ControllerDnsName to be an explicit nil
 func (o *MachineDetailResponseModel) SetControllerDnsNameNil() {
 	o.ControllerDnsName.Set(nil)
@@ -727,6 +731,7 @@ func (o *MachineDetailResponseModel) HasDescription() bool {
 func (o *MachineDetailResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *MachineDetailResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -802,6 +807,7 @@ func (o *MachineDetailResponseModel) HasDnsName() bool {
 func (o *MachineDetailResponseModel) SetDnsName(v string) {
 	o.DnsName.Set(&v)
 }
+
 // SetDnsNameNil sets the value for DnsName to be an explicit nil
 func (o *MachineDetailResponseModel) SetDnsNameNil() {
 	o.DnsName.Set(nil)
@@ -1004,6 +1010,7 @@ func (o *MachineDetailResponseModel) HasIPAddress() bool {
 func (o *MachineDetailResponseModel) SetIPAddress(v string) {
 	o.IPAddress.Set(&v)
 }
+
 // SetIPAddressNil sets the value for IPAddress to be an explicit nil
 func (o *MachineDetailResponseModel) SetIPAddressNil() {
 	o.IPAddress.Set(nil)
@@ -1046,6 +1053,7 @@ func (o *MachineDetailResponseModel) HasIsAssigned() bool {
 func (o *MachineDetailResponseModel) SetIsAssigned(v bool) {
 	o.IsAssigned.Set(&v)
 }
+
 // SetIsAssignedNil sets the value for IsAssigned to be an explicit nil
 func (o *MachineDetailResponseModel) SetIsAssignedNil() {
 	o.IsAssigned.Set(nil)
@@ -1152,6 +1160,7 @@ func (o *MachineDetailResponseModel) HasLastConnectionTime() bool {
 func (o *MachineDetailResponseModel) SetLastConnectionTime(v string) {
 	o.LastConnectionTime.Set(&v)
 }
+
 // SetLastConnectionTimeNil sets the value for LastConnectionTime to be an explicit nil
 func (o *MachineDetailResponseModel) SetLastConnectionTimeNil() {
 	o.LastConnectionTime.Set(nil)
@@ -1194,6 +1203,7 @@ func (o *MachineDetailResponseModel) HasFormattedLastConnectionTime() bool {
 func (o *MachineDetailResponseModel) SetFormattedLastConnectionTime(v string) {
 	o.FormattedLastConnectionTime.Set(&v)
 }
+
 // SetFormattedLastConnectionTimeNil sets the value for FormattedLastConnectionTime to be an explicit nil
 func (o *MachineDetailResponseModel) SetFormattedLastConnectionTimeNil() {
 	o.FormattedLastConnectionTime.Set(nil)
@@ -1300,6 +1310,7 @@ func (o *MachineDetailResponseModel) HasLastDeregistrationTime() bool {
 func (o *MachineDetailResponseModel) SetLastDeregistrationTime(v string) {
 	o.LastDeregistrationTime.Set(&v)
 }
+
 // SetLastDeregistrationTimeNil sets the value for LastDeregistrationTime to be an explicit nil
 func (o *MachineDetailResponseModel) SetLastDeregistrationTimeNil() {
 	o.LastDeregistrationTime.Set(nil)
@@ -1342,6 +1353,7 @@ func (o *MachineDetailResponseModel) HasFormattedLastDeregistrationTime() bool {
 func (o *MachineDetailResponseModel) SetFormattedLastDeregistrationTime(v string) {
 	o.FormattedLastDeregistrationTime.Set(&v)
 }
+
 // SetFormattedLastDeregistrationTimeNil sets the value for FormattedLastDeregistrationTime to be an explicit nil
 func (o *MachineDetailResponseModel) SetFormattedLastDeregistrationTimeNil() {
 	o.FormattedLastDeregistrationTime.Set(nil)
@@ -1384,6 +1396,7 @@ func (o *MachineDetailResponseModel) HasLastErrorReason() bool {
 func (o *MachineDetailResponseModel) SetLastErrorReason(v string) {
 	o.LastErrorReason.Set(&v)
 }
+
 // SetLastErrorReasonNil sets the value for LastErrorReason to be an explicit nil
 func (o *MachineDetailResponseModel) SetLastErrorReasonNil() {
 	o.LastErrorReason.Set(nil)
@@ -1426,6 +1439,7 @@ func (o *MachineDetailResponseModel) HasLastErrorTime() bool {
 func (o *MachineDetailResponseModel) SetLastErrorTime(v string) {
 	o.LastErrorTime.Set(&v)
 }
+
 // SetLastErrorTimeNil sets the value for LastErrorTime to be an explicit nil
 func (o *MachineDetailResponseModel) SetLastErrorTimeNil() {
 	o.LastErrorTime.Set(nil)
@@ -1468,6 +1482,7 @@ func (o *MachineDetailResponseModel) HasFormattedLastErrorTime() bool {
 func (o *MachineDetailResponseModel) SetFormattedLastErrorTime(v string) {
 	o.FormattedLastErrorTime.Set(&v)
 }
+
 // SetFormattedLastErrorTimeNil sets the value for FormattedLastErrorTime to be an explicit nil
 func (o *MachineDetailResponseModel) SetFormattedLastErrorTimeNil() {
 	o.FormattedLastErrorTime.Set(nil)
@@ -1510,6 +1525,7 @@ func (o *MachineDetailResponseModel) HasLoadIndex() bool {
 func (o *MachineDetailResponseModel) SetLoadIndex(v int32) {
 	o.LoadIndex.Set(&v)
 }
+
 // SetLoadIndexNil sets the value for LoadIndex to be an explicit nil
 func (o *MachineDetailResponseModel) SetLoadIndexNil() {
 	o.LoadIndex.Set(nil)
@@ -1650,6 +1666,7 @@ func (o *MachineDetailResponseModel) HasOSType() bool {
 func (o *MachineDetailResponseModel) SetOSType(v string) {
 	o.OSType.Set(&v)
 }
+
 // SetOSTypeNil sets the value for OSType to be an explicit nil
 func (o *MachineDetailResponseModel) SetOSTypeNil() {
 	o.OSType.Set(nil)
@@ -1692,6 +1709,7 @@ func (o *MachineDetailResponseModel) HasOSVersion() bool {
 func (o *MachineDetailResponseModel) SetOSVersion(v string) {
 	o.OSVersion.Set(&v)
 }
+
 // SetOSVersionNil sets the value for OSVersion to be an explicit nil
 func (o *MachineDetailResponseModel) SetOSVersionNil() {
 	o.OSVersion.Set(nil)
@@ -1766,6 +1784,7 @@ func (o *MachineDetailResponseModel) HasPowerActionPending() bool {
 func (o *MachineDetailResponseModel) SetPowerActionPending(v bool) {
 	o.PowerActionPending.Set(&v)
 }
+
 // SetPowerActionPendingNil sets the value for PowerActionPending to be an explicit nil
 func (o *MachineDetailResponseModel) SetPowerActionPendingNil() {
 	o.PowerActionPending.Set(nil)
@@ -1905,6 +1924,7 @@ func (o *MachineDetailResponseModel) HasPublishedName() bool {
 func (o *MachineDetailResponseModel) SetPublishedName(v string) {
 	o.PublishedName.Set(&v)
 }
+
 // SetPublishedNameNil sets the value for PublishedName to be an explicit nil
 func (o *MachineDetailResponseModel) SetPublishedNameNil() {
 	o.PublishedName.Set(nil)
@@ -2011,6 +2031,7 @@ func (o *MachineDetailResponseModel) HasSessionClientAddress() bool {
 func (o *MachineDetailResponseModel) SetSessionClientAddress(v string) {
 	o.SessionClientAddress.Set(&v)
 }
+
 // SetSessionClientAddressNil sets the value for SessionClientAddress to be an explicit nil
 func (o *MachineDetailResponseModel) SetSessionClientAddressNil() {
 	o.SessionClientAddress.Set(nil)
@@ -2053,6 +2074,7 @@ func (o *MachineDetailResponseModel) HasSessionClientName() bool {
 func (o *MachineDetailResponseModel) SetSessionClientName(v string) {
 	o.SessionClientName.Set(&v)
 }
+
 // SetSessionClientNameNil sets the value for SessionClientName to be an explicit nil
 func (o *MachineDetailResponseModel) SetSessionClientNameNil() {
 	o.SessionClientName.Set(nil)
@@ -2095,6 +2117,7 @@ func (o *MachineDetailResponseModel) HasSessionClientVersion() bool {
 func (o *MachineDetailResponseModel) SetSessionClientVersion(v string) {
 	o.SessionClientVersion.Set(&v)
 }
+
 // SetSessionClientVersionNil sets the value for SessionClientVersion to be an explicit nil
 func (o *MachineDetailResponseModel) SetSessionClientVersionNil() {
 	o.SessionClientVersion.Set(nil)
@@ -2137,6 +2160,7 @@ func (o *MachineDetailResponseModel) HasSessionConnectedViaHostName() bool {
 func (o *MachineDetailResponseModel) SetSessionConnectedViaHostName(v string) {
 	o.SessionConnectedViaHostName.Set(&v)
 }
+
 // SetSessionConnectedViaHostNameNil sets the value for SessionConnectedViaHostName to be an explicit nil
 func (o *MachineDetailResponseModel) SetSessionConnectedViaHostNameNil() {
 	o.SessionConnectedViaHostName.Set(nil)
@@ -2179,6 +2203,7 @@ func (o *MachineDetailResponseModel) HasSessionConnectedViaIP() bool {
 func (o *MachineDetailResponseModel) SetSessionConnectedViaIP(v string) {
 	o.SessionConnectedViaIP.Set(&v)
 }
+
 // SetSessionConnectedViaIPNil sets the value for SessionConnectedViaIP to be an explicit nil
 func (o *MachineDetailResponseModel) SetSessionConnectedViaIPNil() {
 	o.SessionConnectedViaIP.Set(nil)
@@ -2221,6 +2246,7 @@ func (o *MachineDetailResponseModel) HasSessionCount() bool {
 func (o *MachineDetailResponseModel) SetSessionCount(v int32) {
 	o.SessionCount.Set(&v)
 }
+
 // SetSessionCountNil sets the value for SessionCount to be an explicit nil
 func (o *MachineDetailResponseModel) SetSessionCountNil() {
 	o.SessionCount.Set(nil)
@@ -2263,6 +2289,7 @@ func (o *MachineDetailResponseModel) HasSessionLaunchedViaHostName() bool {
 func (o *MachineDetailResponseModel) SetSessionLaunchedViaHostName(v string) {
 	o.SessionLaunchedViaHostName.Set(&v)
 }
+
 // SetSessionLaunchedViaHostNameNil sets the value for SessionLaunchedViaHostName to be an explicit nil
 func (o *MachineDetailResponseModel) SetSessionLaunchedViaHostNameNil() {
 	o.SessionLaunchedViaHostName.Set(nil)
@@ -2305,6 +2332,7 @@ func (o *MachineDetailResponseModel) HasSessionLaunchedViaIP() bool {
 func (o *MachineDetailResponseModel) SetSessionLaunchedViaIP(v string) {
 	o.SessionLaunchedViaIP.Set(&v)
 }
+
 // SetSessionLaunchedViaIPNil sets the value for SessionLaunchedViaIP to be an explicit nil
 func (o *MachineDetailResponseModel) SetSessionLaunchedViaIPNil() {
 	o.SessionLaunchedViaIP.Set(nil)
@@ -2379,6 +2407,7 @@ func (o *MachineDetailResponseModel) HasSessionSecureIcaActive() bool {
 func (o *MachineDetailResponseModel) SetSessionSecureIcaActive(v bool) {
 	o.SessionSecureIcaActive.Set(&v)
 }
+
 // SetSessionSecureIcaActiveNil sets the value for SessionSecureIcaActive to be an explicit nil
 func (o *MachineDetailResponseModel) SetSessionSecureIcaActiveNil() {
 	o.SessionSecureIcaActive.Set(nil)
@@ -2454,6 +2483,7 @@ func (o *MachineDetailResponseModel) HasSessionStartTime() bool {
 func (o *MachineDetailResponseModel) SetSessionStartTime(v string) {
 	o.SessionStartTime.Set(&v)
 }
+
 // SetSessionStartTimeNil sets the value for SessionStartTime to be an explicit nil
 func (o *MachineDetailResponseModel) SetSessionStartTimeNil() {
 	o.SessionStartTime.Set(nil)
@@ -2496,6 +2526,7 @@ func (o *MachineDetailResponseModel) HasFormattedSessionStartTime() bool {
 func (o *MachineDetailResponseModel) SetFormattedSessionStartTime(v string) {
 	o.FormattedSessionStartTime.Set(&v)
 }
+
 // SetFormattedSessionStartTimeNil sets the value for FormattedSessionStartTime to be an explicit nil
 func (o *MachineDetailResponseModel) SetFormattedSessionStartTimeNil() {
 	o.FormattedSessionStartTime.Set(nil)
@@ -2570,6 +2601,7 @@ func (o *MachineDetailResponseModel) HasSessionStateChangeTime() bool {
 func (o *MachineDetailResponseModel) SetSessionStateChangeTime(v string) {
 	o.SessionStateChangeTime.Set(&v)
 }
+
 // SetSessionStateChangeTimeNil sets the value for SessionStateChangeTime to be an explicit nil
 func (o *MachineDetailResponseModel) SetSessionStateChangeTimeNil() {
 	o.SessionStateChangeTime.Set(nil)
@@ -2612,6 +2644,7 @@ func (o *MachineDetailResponseModel) HasFormattedSessionStateChangeTime() bool {
 func (o *MachineDetailResponseModel) SetFormattedSessionStateChangeTime(v string) {
 	o.FormattedSessionStateChangeTime.Set(&v)
 }
+
 // SetFormattedSessionStateChangeTimeNil sets the value for FormattedSessionStateChangeTime to be an explicit nil
 func (o *MachineDetailResponseModel) SetFormattedSessionStateChangeTimeNil() {
 	o.FormattedSessionStateChangeTime.Set(nil)
@@ -2686,6 +2719,7 @@ func (o *MachineDetailResponseModel) HasSessionUserName() bool {
 func (o *MachineDetailResponseModel) SetSessionUserName(v string) {
 	o.SessionUserName.Set(&v)
 }
+
 // SetSessionUserNameNil sets the value for SessionUserName to be an explicit nil
 func (o *MachineDetailResponseModel) SetSessionUserNameNil() {
 	o.SessionUserName.Set(nil)
@@ -2728,6 +2762,7 @@ func (o *MachineDetailResponseModel) HasSid() bool {
 func (o *MachineDetailResponseModel) SetSid(v string) {
 	o.Sid.Set(&v)
 }
+
 // SetSidNil sets the value for Sid to be an explicit nil
 func (o *MachineDetailResponseModel) SetSidNil() {
 	o.Sid.Set(nil)
@@ -2802,6 +2837,7 @@ func (o *MachineDetailResponseModel) HasWillShutdownAfterUse() bool {
 func (o *MachineDetailResponseModel) SetWillShutdownAfterUse(v bool) {
 	o.WillShutdownAfterUse.Set(&v)
 }
+
 // SetWillShutdownAfterUseNil sets the value for WillShutdownAfterUse to be an explicit nil
 func (o *MachineDetailResponseModel) SetWillShutdownAfterUseNil() {
 	o.WillShutdownAfterUse.Set(nil)
@@ -2876,6 +2912,7 @@ func (o *MachineDetailResponseModel) HasWindowsActivationStatus() bool {
 func (o *MachineDetailResponseModel) SetWindowsActivationStatus(v string) {
 	o.WindowsActivationStatus.Set(&v)
 }
+
 // SetWindowsActivationStatusNil sets the value for WindowsActivationStatus to be an explicit nil
 func (o *MachineDetailResponseModel) SetWindowsActivationStatusNil() {
 	o.WindowsActivationStatus.Set(nil)
@@ -2918,6 +2955,7 @@ func (o *MachineDetailResponseModel) HasWindowsActivationStatusErrorCode() bool 
 func (o *MachineDetailResponseModel) SetWindowsActivationStatusErrorCode(v string) {
 	o.WindowsActivationStatusErrorCode.Set(&v)
 }
+
 // SetWindowsActivationStatusErrorCodeNil sets the value for WindowsActivationStatusErrorCode to be an explicit nil
 func (o *MachineDetailResponseModel) SetWindowsActivationStatusErrorCodeNil() {
 	o.WindowsActivationStatusErrorCode.Set(nil)
@@ -2960,6 +2998,7 @@ func (o *MachineDetailResponseModel) HasWindowsActivationStatusVirtualMachineErr
 func (o *MachineDetailResponseModel) SetWindowsActivationStatusVirtualMachineError(v string) {
 	o.WindowsActivationStatusVirtualMachineError.Set(&v)
 }
+
 // SetWindowsActivationStatusVirtualMachineErrorNil sets the value for WindowsActivationStatusVirtualMachineError to be an explicit nil
 func (o *MachineDetailResponseModel) SetWindowsActivationStatusVirtualMachineErrorNil() {
 	o.WindowsActivationStatusVirtualMachineError.Set(nil)
@@ -3002,6 +3041,7 @@ func (o *MachineDetailResponseModel) HasWindowsActivationTypeProvisionedVirtualM
 func (o *MachineDetailResponseModel) SetWindowsActivationTypeProvisionedVirtualMachine(v string) {
 	o.WindowsActivationTypeProvisionedVirtualMachine.Set(&v)
 }
+
 // SetWindowsActivationTypeProvisionedVirtualMachineNil sets the value for WindowsActivationTypeProvisionedVirtualMachine to be an explicit nil
 func (o *MachineDetailResponseModel) SetWindowsActivationTypeProvisionedVirtualMachineNil() {
 	o.WindowsActivationTypeProvisionedVirtualMachine.Set(nil)
@@ -3270,6 +3310,7 @@ func (o *MachineDetailResponseModel) HasMachineConfigurationOutOfSync() bool {
 func (o *MachineDetailResponseModel) SetMachineConfigurationOutOfSync(v bool) {
 	o.MachineConfigurationOutOfSync.Set(&v)
 }
+
 // SetMachineConfigurationOutOfSyncNil sets the value for MachineConfigurationOutOfSync to be an explicit nil
 func (o *MachineDetailResponseModel) SetMachineConfigurationOutOfSyncNil() {
 	o.MachineConfigurationOutOfSync.Set(nil)
@@ -3377,6 +3418,7 @@ func (o *MachineDetailResponseModel) HasIconId() bool {
 func (o *MachineDetailResponseModel) SetIconId(v string) {
 	o.IconId.Set(&v)
 }
+
 // SetIconIdNil sets the value for IconId to be an explicit nil
 func (o *MachineDetailResponseModel) SetIconIdNil() {
 	o.IconId.Set(nil)
@@ -3419,6 +3461,7 @@ func (o *MachineDetailResponseModel) HasAssignedClientName() bool {
 func (o *MachineDetailResponseModel) SetAssignedClientName(v string) {
 	o.AssignedClientName.Set(&v)
 }
+
 // SetAssignedClientNameNil sets the value for AssignedClientName to be an explicit nil
 func (o *MachineDetailResponseModel) SetAssignedClientNameNil() {
 	o.AssignedClientName.Set(nil)
@@ -3461,6 +3504,7 @@ func (o *MachineDetailResponseModel) HasAssignedIPAddress() bool {
 func (o *MachineDetailResponseModel) SetAssignedIPAddress(v string) {
 	o.AssignedIPAddress.Set(&v)
 }
+
 // SetAssignedIPAddressNil sets the value for AssignedIPAddress to be an explicit nil
 func (o *MachineDetailResponseModel) SetAssignedIPAddressNil() {
 	o.AssignedIPAddress.Set(nil)
@@ -3503,6 +3547,7 @@ func (o *MachineDetailResponseModel) HasBrowserName() bool {
 func (o *MachineDetailResponseModel) SetBrowserName(v string) {
 	o.BrowserName.Set(&v)
 }
+
 // SetBrowserNameNil sets the value for BrowserName to be an explicit nil
 func (o *MachineDetailResponseModel) SetBrowserNameNil() {
 	o.BrowserName.Set(nil)
@@ -3601,6 +3646,7 @@ func (o *MachineDetailResponseModel) HasSecureIcaRequired() bool {
 func (o *MachineDetailResponseModel) SetSecureIcaRequired(v bool) {
 	o.SecureIcaRequired.Set(&v)
 }
+
 // SetSecureIcaRequiredNil sets the value for SecureIcaRequired to be an explicit nil
 func (o *MachineDetailResponseModel) SetSecureIcaRequiredNil() {
 	o.SecureIcaRequired.Set(nil)
@@ -3756,6 +3802,7 @@ func (o *MachineDetailResponseModel) HasFailureReason() bool {
 func (o *MachineDetailResponseModel) SetFailureReason(v string) {
 	o.FailureReason.Set(&v)
 }
+
 // SetFailureReasonNil sets the value for FailureReason to be an explicit nil
 func (o *MachineDetailResponseModel) SetFailureReasonNil() {
 	o.FailureReason.Set(nil)
@@ -3798,6 +3845,7 @@ func (o *MachineDetailResponseModel) HasFailedActionCompletionTime() bool {
 func (o *MachineDetailResponseModel) SetFailedActionCompletionTime(v string) {
 	o.FailedActionCompletionTime.Set(&v)
 }
+
 // SetFailedActionCompletionTimeNil sets the value for FailedActionCompletionTime to be an explicit nil
 func (o *MachineDetailResponseModel) SetFailedActionCompletionTimeNil() {
 	o.FailedActionCompletionTime.Set(nil)
@@ -3809,7 +3857,7 @@ func (o *MachineDetailResponseModel) UnsetFailedActionCompletionTime() {
 }
 
 func (o MachineDetailResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -4142,5 +4190,3 @@ func (v *NullableMachineDetailResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

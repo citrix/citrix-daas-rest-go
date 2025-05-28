@@ -20,7 +20,7 @@ var _ MappedNullable = &AdministratorRightResponseModel{}
 // AdministratorRightResponseModel Response object for an administrator right, which is a combination of a role and a scope.
 type AdministratorRightResponseModel struct {
 	Scope ScopeResponseModel `json:"Scope"`
-	Role RoleResponseModel `json:"Role"`
+	Role  RoleResponseModel  `json:"Role"`
 }
 
 // NewAdministratorRightResponseModel instantiates a new AdministratorRightResponseModel object
@@ -91,7 +91,7 @@ func (o *AdministratorRightResponseModel) SetRole(v RoleResponseModel) {
 }
 
 func (o AdministratorRightResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableAdministratorRightResponseModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -74,6 +74,7 @@ func (o *PowerShellExecutedCommandModel) HasCommand() bool {
 func (o *PowerShellExecutedCommandModel) SetCommand(v string) {
 	o.Command.Set(&v)
 }
+
 // SetCommandNil sets the value for Command to be an explicit nil
 func (o *PowerShellExecutedCommandModel) SetCommandNil() {
 	o.Command.Set(nil)
@@ -118,7 +119,7 @@ func (o *PowerShellExecutedCommandModel) SetErrors(v []PowerShellCommandErrorMod
 }
 
 func (o PowerShellExecutedCommandModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -171,5 +172,3 @@ func (v *NullablePowerShellExecutedCommandModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

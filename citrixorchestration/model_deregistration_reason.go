@@ -20,40 +20,40 @@ type DeregistrationReason string
 
 // List of DeregistrationReason
 const (
-	DEREGISTRATIONREASON_UNKNOWN DeregistrationReason = "Unknown"
-	DEREGISTRATIONREASON_AGENT_SHUTDOWN DeregistrationReason = "AgentShutdown"
-	DEREGISTRATIONREASON_AGENT_SUSPENDED DeregistrationReason = "AgentSuspended"
-	DEREGISTRATIONREASON_AGENT_REQUESTED DeregistrationReason = "AgentRequested"
-	DEREGISTRATIONREASON_INCOMPATIBLE_VERSION DeregistrationReason = "IncompatibleVersion"
-	DEREGISTRATIONREASON_AGENT_ADDRESS_RESOLUTION_FAILED DeregistrationReason = "AgentAddressResolutionFailed"
-	DEREGISTRATIONREASON_AGENT_NOT_CONTACTABLE DeregistrationReason = "AgentNotContactable"
-	DEREGISTRATIONREASON_AGENT_WRONG_ACTIVE_DIRECTORY_OU DeregistrationReason = "AgentWrongActiveDirectoryOU"
-	DEREGISTRATIONREASON_EMPTY_REGISTRATION_REQUEST DeregistrationReason = "EmptyRegistrationRequest"
-	DEREGISTRATIONREASON_MISSING_REGISTRATION_CAPABILITIES DeregistrationReason = "MissingRegistrationCapabilities"
-	DEREGISTRATIONREASON_MISSING_AGENT_VERSION DeregistrationReason = "MissingAgentVersion"
-	DEREGISTRATIONREASON_INCONSISTENT_REGISTRATION_CAPABILITIES DeregistrationReason = "InconsistentRegistrationCapabilities"
-	DEREGISTRATIONREASON_NOT_LICENSED_FOR_FEATURE DeregistrationReason = "NotLicensedForFeature"
-	DEREGISTRATIONREASON_OS_NOT_COMPATIBLE_WITH_DDC DeregistrationReason = "OSNotCompatibleWithDdc"
-	DEREGISTRATIONREASON_VM_NOT_COMPATIBLE_WITH_DDC DeregistrationReason = "VMNotCompatibleWithDdc"
-	DEREGISTRATIONREASON_UNSUPPORTED_CREDENTIAL_SECURITY_VERSION DeregistrationReason = "UnsupportedCredentialSecurityVersion"
-	DEREGISTRATIONREASON_INVALID_REGISTRATION_REQUEST DeregistrationReason = "InvalidRegistrationRequest"
-	DEREGISTRATIONREASON_SINGLE_MULTI_SESSION_MISMATCH DeregistrationReason = "SingleMultiSessionMismatch"
-	DEREGISTRATIONREASON_FUNCTIONAL_LEVEL_TOO_LOW_FOR_CATALOG DeregistrationReason = "FunctionalLevelTooLowForCatalog"
+	DEREGISTRATIONREASON_UNKNOWN                                    DeregistrationReason = "Unknown"
+	DEREGISTRATIONREASON_AGENT_SHUTDOWN                             DeregistrationReason = "AgentShutdown"
+	DEREGISTRATIONREASON_AGENT_SUSPENDED                            DeregistrationReason = "AgentSuspended"
+	DEREGISTRATIONREASON_AGENT_REQUESTED                            DeregistrationReason = "AgentRequested"
+	DEREGISTRATIONREASON_INCOMPATIBLE_VERSION                       DeregistrationReason = "IncompatibleVersion"
+	DEREGISTRATIONREASON_AGENT_ADDRESS_RESOLUTION_FAILED            DeregistrationReason = "AgentAddressResolutionFailed"
+	DEREGISTRATIONREASON_AGENT_NOT_CONTACTABLE                      DeregistrationReason = "AgentNotContactable"
+	DEREGISTRATIONREASON_AGENT_WRONG_ACTIVE_DIRECTORY_OU            DeregistrationReason = "AgentWrongActiveDirectoryOU"
+	DEREGISTRATIONREASON_EMPTY_REGISTRATION_REQUEST                 DeregistrationReason = "EmptyRegistrationRequest"
+	DEREGISTRATIONREASON_MISSING_REGISTRATION_CAPABILITIES          DeregistrationReason = "MissingRegistrationCapabilities"
+	DEREGISTRATIONREASON_MISSING_AGENT_VERSION                      DeregistrationReason = "MissingAgentVersion"
+	DEREGISTRATIONREASON_INCONSISTENT_REGISTRATION_CAPABILITIES     DeregistrationReason = "InconsistentRegistrationCapabilities"
+	DEREGISTRATIONREASON_NOT_LICENSED_FOR_FEATURE                   DeregistrationReason = "NotLicensedForFeature"
+	DEREGISTRATIONREASON_OS_NOT_COMPATIBLE_WITH_DDC                 DeregistrationReason = "OSNotCompatibleWithDdc"
+	DEREGISTRATIONREASON_VM_NOT_COMPATIBLE_WITH_DDC                 DeregistrationReason = "VMNotCompatibleWithDdc"
+	DEREGISTRATIONREASON_UNSUPPORTED_CREDENTIAL_SECURITY_VERSION    DeregistrationReason = "UnsupportedCredentialSecurityVersion"
+	DEREGISTRATIONREASON_INVALID_REGISTRATION_REQUEST               DeregistrationReason = "InvalidRegistrationRequest"
+	DEREGISTRATIONREASON_SINGLE_MULTI_SESSION_MISMATCH              DeregistrationReason = "SingleMultiSessionMismatch"
+	DEREGISTRATIONREASON_FUNCTIONAL_LEVEL_TOO_LOW_FOR_CATALOG       DeregistrationReason = "FunctionalLevelTooLowForCatalog"
 	DEREGISTRATIONREASON_FUNCTIONAL_LEVEL_TOO_LOW_FOR_DESKTOP_GROUP DeregistrationReason = "FunctionalLevelTooLowForDesktopGroup"
-	DEREGISTRATIONREASON_POWER_OFF DeregistrationReason = "PowerOff"
-	DEREGISTRATIONREASON_DESKTOP_RESTART DeregistrationReason = "DesktopRestart"
-	DEREGISTRATIONREASON_DESKTOP_REMOVED DeregistrationReason = "DesktopRemoved"
-	DEREGISTRATIONREASON_AGENT_REJECTED_SETTINGS_UPDATE DeregistrationReason = "AgentRejectedSettingsUpdate"
-	DEREGISTRATIONREASON_SEND_SETTINGS_FAILURE DeregistrationReason = "SendSettingsFailure"
-	DEREGISTRATIONREASON_SESSION_AUDIT_FAILURE DeregistrationReason = "SessionAuditFailure"
-	DEREGISTRATIONREASON_SESSION_PREPARE_FAILURE DeregistrationReason = "SessionPrepareFailure"
-	DEREGISTRATIONREASON_CONTACT_LOST DeregistrationReason = "ContactLost"
-	DEREGISTRATIONREASON_SETTINGS_CREATION_FAILURE DeregistrationReason = "SettingsCreationFailure"
-	DEREGISTRATIONREASON_UNKNOWN_ERROR DeregistrationReason = "UnknownError"
-	DEREGISTRATIONREASON_BROKER_REGISTRATION_LIMIT_REACHED DeregistrationReason = "BrokerRegistrationLimitReached"
-	DEREGISTRATIONREASON_REGISTRATION_STATE_MISMATCH DeregistrationReason = "RegistrationStateMismatch"
-	DEREGISTRATIONREASON_UNEXPECTED_AGENT_SHUTDOWN DeregistrationReason = "UnexpectedAgentShutdown"
-	DEREGISTRATIONREASON_MACHINE_IN_REGISTRATION_SIN_BIN DeregistrationReason = "MachineInRegistrationSinBin"
+	DEREGISTRATIONREASON_POWER_OFF                                  DeregistrationReason = "PowerOff"
+	DEREGISTRATIONREASON_DESKTOP_RESTART                            DeregistrationReason = "DesktopRestart"
+	DEREGISTRATIONREASON_DESKTOP_REMOVED                            DeregistrationReason = "DesktopRemoved"
+	DEREGISTRATIONREASON_AGENT_REJECTED_SETTINGS_UPDATE             DeregistrationReason = "AgentRejectedSettingsUpdate"
+	DEREGISTRATIONREASON_SEND_SETTINGS_FAILURE                      DeregistrationReason = "SendSettingsFailure"
+	DEREGISTRATIONREASON_SESSION_AUDIT_FAILURE                      DeregistrationReason = "SessionAuditFailure"
+	DEREGISTRATIONREASON_SESSION_PREPARE_FAILURE                    DeregistrationReason = "SessionPrepareFailure"
+	DEREGISTRATIONREASON_CONTACT_LOST                               DeregistrationReason = "ContactLost"
+	DEREGISTRATIONREASON_SETTINGS_CREATION_FAILURE                  DeregistrationReason = "SettingsCreationFailure"
+	DEREGISTRATIONREASON_UNKNOWN_ERROR                              DeregistrationReason = "UnknownError"
+	DEREGISTRATIONREASON_BROKER_REGISTRATION_LIMIT_REACHED          DeregistrationReason = "BrokerRegistrationLimitReached"
+	DEREGISTRATIONREASON_REGISTRATION_STATE_MISMATCH                DeregistrationReason = "RegistrationStateMismatch"
+	DEREGISTRATIONREASON_UNEXPECTED_AGENT_SHUTDOWN                  DeregistrationReason = "UnexpectedAgentShutdown"
+	DEREGISTRATIONREASON_MACHINE_IN_REGISTRATION_SIN_BIN            DeregistrationReason = "MachineInRegistrationSinBin"
 )
 
 // All allowed values of DeregistrationReason enum
@@ -100,7 +100,7 @@ func (v *DeregistrationReason) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DeregistrationReason(value)
 	return nil
 }
@@ -166,4 +166,3 @@ func (v *NullableDeregistrationReason) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

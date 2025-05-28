@@ -24,7 +24,7 @@ type PvsCollectionResponseModel struct {
 	// Name of the PVS collection.
 	Name string `json:"Name"`
 	// Active directory domain of machines in the collection. internally: when querying a collection, get a single device from the collection and get its AD domain.
-	Domain NullableString `json:"Domain,omitempty"`
+	Domain  NullableString   `json:"Domain,omitempty"`
 	PvsSite RefResponseModel `json:"PvsSite"`
 }
 
@@ -128,6 +128,7 @@ func (o *PvsCollectionResponseModel) HasDomain() bool {
 func (o *PvsCollectionResponseModel) SetDomain(v string) {
 	o.Domain.Set(&v)
 }
+
 // SetDomainNil sets the value for Domain to be an explicit nil
 func (o *PvsCollectionResponseModel) SetDomainNil() {
 	o.Domain.Set(nil)
@@ -163,7 +164,7 @@ func (o *PvsCollectionResponseModel) SetPvsSite(v RefResponseModel) {
 }
 
 func (o PvsCollectionResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -216,5 +217,3 @@ func (v *NullablePvsCollectionResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

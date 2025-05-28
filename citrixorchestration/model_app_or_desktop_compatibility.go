@@ -15,13 +15,13 @@ import (
 	"fmt"
 )
 
-// AppOrDesktopCompatibility Compatibility set for Apps or Desktops.             
+// AppOrDesktopCompatibility Compatibility set for Apps or Desktops.
 type AppOrDesktopCompatibility string
 
 // List of AppOrDesktopCompatibility
 const (
-	APPORDESKTOPCOMPATIBILITY_UNKNOWN AppOrDesktopCompatibility = "Unknown"
-	APPORDESKTOPCOMPATIBILITY_COMPATIBLE AppOrDesktopCompatibility = "Compatible"
+	APPORDESKTOPCOMPATIBILITY_UNKNOWN                    AppOrDesktopCompatibility = "Unknown"
+	APPORDESKTOPCOMPATIBILITY_COMPATIBLE                 AppOrDesktopCompatibility = "Compatible"
 	APPORDESKTOPCOMPATIBILITY_INCOMPATIBLE_DELIVERY_TYPE AppOrDesktopCompatibility = "IncompatibleDeliveryType"
 )
 
@@ -38,7 +38,7 @@ func (v *AppOrDesktopCompatibility) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AppOrDesktopCompatibility(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableAppOrDesktopCompatibility) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

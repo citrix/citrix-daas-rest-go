@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_ConfigLogAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_ConfigLogAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ConfigLogAPIsDAASService ConfigLogDeleteLogs", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogDeleteLogs(context.Background()).Execute()
 
@@ -35,7 +36,7 @@ func Test_citrixorchestration_ConfigLogAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ConfigLogAPIsDAASService ConfigLogDoConfigLogSearch", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogDoConfigLogSearch(context.Background()).Execute()
 
@@ -47,7 +48,7 @@ func Test_citrixorchestration_ConfigLogAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ConfigLogAPIsDAASService ConfigLogExportReportData", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogExportReportData(context.Background()).Execute()
 
@@ -59,7 +60,7 @@ func Test_citrixorchestration_ConfigLogAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ConfigLogAPIsDAASService ConfigLogFetchExistingOperationLabels", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogFetchExistingOperationLabels(context.Background()).Execute()
 
@@ -71,7 +72,7 @@ func Test_citrixorchestration_ConfigLogAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ConfigLogAPIsDAASService ConfigLogGetFirstLogDate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetFirstLogDate(context.Background()).Execute()
 
@@ -83,7 +84,7 @@ func Test_citrixorchestration_ConfigLogAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ConfigLogAPIsDAASService ConfigLogGetLogSite", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetLogSite(context.Background()).Execute()
 
@@ -95,7 +96,7 @@ func Test_citrixorchestration_ConfigLogAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ConfigLogAPIsDAASService ConfigLogGetLowLevelOperations", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -109,7 +110,7 @@ func Test_citrixorchestration_ConfigLogAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ConfigLogAPIsDAASService ConfigLogGetOperation", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -123,7 +124,7 @@ func Test_citrixorchestration_ConfigLogAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ConfigLogAPIsDAASService ConfigLogGetOperations", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetOperations(context.Background()).Execute()
 
@@ -135,7 +136,7 @@ func Test_citrixorchestration_ConfigLogAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ConfigLogAPIsDAASService ConfigLogPatchOperation", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -148,7 +149,7 @@ func Test_citrixorchestration_ConfigLogAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ConfigLogAPIsDAASService ConfigLogSetLogSite", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogSetLogSite(context.Background()).Execute()
 

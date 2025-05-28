@@ -20,25 +20,25 @@ type ServiceStatus string
 
 // List of ServiceStatus
 const (
-	SERVICESTATUS_STOPPED ServiceStatus = "Stopped"
-	SERVICESTATUS_DBUN_CONFIGURED ServiceStatus = "DBUnConfigured"
-	SERVICESTATUS_DB_REJECTED_CONNECTION ServiceStatus = "DBRejectedConnection"
-	SERVICESTATUS_INVALID_DB_CONFIGURED ServiceStatus = "InvalidDBConfigured"
-	SERVICESTATUS_DB_NOT_FOUND ServiceStatus = "DBNotFound"
-	SERVICESTATUS_DB_MISSING_OPTIONAL_FEATURE ServiceStatus = "DBMissingOptionalFeature"
-	SERVICESTATUS_DB_MISSING_MANDATORY_FEATURE ServiceStatus = "DBMissingMandatoryFeature"
+	SERVICESTATUS_STOPPED                       ServiceStatus = "Stopped"
+	SERVICESTATUS_DBUN_CONFIGURED               ServiceStatus = "DBUnConfigured"
+	SERVICESTATUS_DB_REJECTED_CONNECTION        ServiceStatus = "DBRejectedConnection"
+	SERVICESTATUS_INVALID_DB_CONFIGURED         ServiceStatus = "InvalidDBConfigured"
+	SERVICESTATUS_DB_NOT_FOUND                  ServiceStatus = "DBNotFound"
+	SERVICESTATUS_DB_MISSING_OPTIONAL_FEATURE   ServiceStatus = "DBMissingOptionalFeature"
+	SERVICESTATUS_DB_MISSING_MANDATORY_FEATURE  ServiceStatus = "DBMissingMandatoryFeature"
 	SERVICESTATUS_DB_NEWER_VERSION_THAN_SERVICE ServiceStatus = "DBNewerVersionThanService"
 	SERVICESTATUS_DB_OLDER_VERSION_THAN_SERVICE ServiceStatus = "DBOlderVersionThanService"
 	SERVICESTATUS_DB_VERSION_CHANGE_IN_PROGRESS ServiceStatus = "DBVersionChangeInProgress"
-	SERVICESTATUS_OK ServiceStatus = "OK"
-	SERVICESTATUS_PENDING_FAILURE ServiceStatus = "PendingFailure"
-	SERVICESTATUS_FAILED ServiceStatus = "Failed"
-	SERVICESTATUS_UNKNOWN ServiceStatus = "Unknown"
-	SERVICESTATUS_SERVICE_NOT_IN_SITE_DB ServiceStatus = "ServiceNotInSiteDB"
-	SERVICESTATUS_INVALID_DB_CONNECTION_STRING ServiceStatus = "InvalidDBConnectionString"
-	SERVICESTATUS_PENDING_SERVICE_DISCOVERY ServiceStatus = "PendingServiceDiscovery"
-	SERVICESTATUS_PENDING_SERVICE_REGISTRATION ServiceStatus = "PendingServiceRegistration"
-	SERVICESTATUS_PENDING_CONFIGURATION ServiceStatus = "PendingConfiguration"
+	SERVICESTATUS_OK                            ServiceStatus = "OK"
+	SERVICESTATUS_PENDING_FAILURE               ServiceStatus = "PendingFailure"
+	SERVICESTATUS_FAILED                        ServiceStatus = "Failed"
+	SERVICESTATUS_UNKNOWN                       ServiceStatus = "Unknown"
+	SERVICESTATUS_SERVICE_NOT_IN_SITE_DB        ServiceStatus = "ServiceNotInSiteDB"
+	SERVICESTATUS_INVALID_DB_CONNECTION_STRING  ServiceStatus = "InvalidDBConnectionString"
+	SERVICESTATUS_PENDING_SERVICE_DISCOVERY     ServiceStatus = "PendingServiceDiscovery"
+	SERVICESTATUS_PENDING_SERVICE_REGISTRATION  ServiceStatus = "PendingServiceRegistration"
+	SERVICESTATUS_PENDING_CONFIGURATION         ServiceStatus = "PendingConfiguration"
 )
 
 // All allowed values of ServiceStatus enum
@@ -70,7 +70,7 @@ func (v *ServiceStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ServiceStatus(value)
 	return nil
 }
@@ -136,4 +136,3 @@ func (v *NullableServiceStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

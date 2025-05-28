@@ -92,7 +92,7 @@ func (o *UpgradePackageVersionResponseModel) SetUpgradePackageVersion(v string) 
 }
 
 func (o UpgradePackageVersionResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -141,5 +141,3 @@ func (v *NullableUpgradePackageVersionResponseModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

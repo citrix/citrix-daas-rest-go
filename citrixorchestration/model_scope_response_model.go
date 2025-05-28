@@ -121,6 +121,7 @@ func (o *ScopeResponseModel) HasUid() bool {
 func (o *ScopeResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *ScopeResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -187,6 +188,7 @@ func (o *ScopeResponseModel) HasDescription() bool {
 func (o *ScopeResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *ScopeResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -301,6 +303,7 @@ func (o *ScopeResponseModel) HasTenantId() bool {
 func (o *ScopeResponseModel) SetTenantId(v string) {
 	o.TenantId.Set(&v)
 }
+
 // SetTenantIdNil sets the value for TenantId to be an explicit nil
 func (o *ScopeResponseModel) SetTenantIdNil() {
 	o.TenantId.Set(nil)
@@ -343,6 +346,7 @@ func (o *ScopeResponseModel) HasTenantName() bool {
 func (o *ScopeResponseModel) SetTenantName(v string) {
 	o.TenantName.Set(&v)
 }
+
 // SetTenantNameNil sets the value for TenantName to be an explicit nil
 func (o *ScopeResponseModel) SetTenantNameNil() {
 	o.TenantName.Set(nil)
@@ -354,7 +358,7 @@ func (o *ScopeResponseModel) UnsetTenantName() {
 }
 
 func (o ScopeResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -418,5 +422,3 @@ func (v *NullableScopeResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

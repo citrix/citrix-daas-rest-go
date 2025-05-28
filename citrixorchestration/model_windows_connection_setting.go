@@ -20,11 +20,11 @@ type WindowsConnectionSetting string
 
 // List of WindowsConnectionSetting
 const (
-	WINDOWSCONNECTIONSETTING_UNKNOWN WindowsConnectionSetting = "Unknown"
-	WINDOWSCONNECTIONSETTING_LOGON_ENABLED WindowsConnectionSetting = "LogonEnabled"
-	WINDOWSCONNECTIONSETTING_DRAINING WindowsConnectionSetting = "Draining"
+	WINDOWSCONNECTIONSETTING_UNKNOWN                WindowsConnectionSetting = "Unknown"
+	WINDOWSCONNECTIONSETTING_LOGON_ENABLED          WindowsConnectionSetting = "LogonEnabled"
+	WINDOWSCONNECTIONSETTING_DRAINING               WindowsConnectionSetting = "Draining"
 	WINDOWSCONNECTIONSETTING_DRAINING_UNTIL_RESTART WindowsConnectionSetting = "DrainingUntilRestart"
-	WINDOWSCONNECTIONSETTING_LOGON_DISABLED WindowsConnectionSetting = "LogonDisabled"
+	WINDOWSCONNECTIONSETTING_LOGON_DISABLED         WindowsConnectionSetting = "LogonDisabled"
 )
 
 // All allowed values of WindowsConnectionSetting enum
@@ -42,7 +42,7 @@ func (v *WindowsConnectionSetting) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = WindowsConnectionSetting(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableWindowsConnectionSetting) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

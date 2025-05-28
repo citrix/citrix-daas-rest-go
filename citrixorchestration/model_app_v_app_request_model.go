@@ -241,6 +241,7 @@ func (o *AppVAppRequestModel) HasPublishingServer() bool {
 func (o *AppVAppRequestModel) SetPublishingServer(v string) {
 	o.PublishingServer.Set(&v)
 }
+
 // SetPublishingServerNil sets the value for PublishingServer to be an explicit nil
 func (o *AppVAppRequestModel) SetPublishingServerNil() {
 	o.PublishingServer.Set(nil)
@@ -307,6 +308,7 @@ func (o *AppVAppRequestModel) HasServerMachineConfigurationUid() bool {
 func (o *AppVAppRequestModel) SetServerMachineConfigurationUid(v string) {
 	o.ServerMachineConfigurationUid.Set(&v)
 }
+
 // SetServerMachineConfigurationUidNil sets the value for ServerMachineConfigurationUid to be an explicit nil
 func (o *AppVAppRequestModel) SetServerMachineConfigurationUidNil() {
 	o.ServerMachineConfigurationUid.Set(nil)
@@ -350,7 +352,7 @@ func (o *AppVAppRequestModel) SetTargetInPackage(v bool) {
 }
 
 func (o AppVAppRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -413,5 +415,3 @@ func (v *NullableAppVAppRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

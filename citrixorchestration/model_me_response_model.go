@@ -112,6 +112,7 @@ func (o *MeResponseModel) HasDisplayName() bool {
 func (o *MeResponseModel) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *MeResponseModel) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -202,6 +203,7 @@ func (o *MeResponseModel) HasVerifiedEmail() bool {
 func (o *MeResponseModel) SetVerifiedEmail(v string) {
 	o.VerifiedEmail.Set(&v)
 }
+
 // SetVerifiedEmailNil sets the value for VerifiedEmail to be an explicit nil
 func (o *MeResponseModel) SetVerifiedEmailNil() {
 	o.VerifiedEmail.Set(nil)
@@ -269,7 +271,7 @@ func (o *MeResponseModel) SetCustomers(v []MyCustomerResponseModel) {
 }
 
 func (o MeResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -329,5 +331,3 @@ func (v *NullableMeResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,10 +20,10 @@ type AdministratorProviderType string
 
 // List of AdministratorProviderType
 const (
-	ADMINISTRATORPROVIDERTYPE_AD AdministratorProviderType = "Ad"
-	ADMINISTRATORPROVIDERTYPE_AZURE_AD AdministratorProviderType = "AzureAd"
+	ADMINISTRATORPROVIDERTYPE_AD         AdministratorProviderType = "Ad"
+	ADMINISTRATORPROVIDERTYPE_AZURE_AD   AdministratorProviderType = "AzureAd"
 	ADMINISTRATORPROVIDERTYPE_CITRIX_STS AdministratorProviderType = "CitrixSts"
-	ADMINISTRATORPROVIDERTYPE_GOOGLE AdministratorProviderType = "Google"
+	ADMINISTRATORPROVIDERTYPE_GOOGLE     AdministratorProviderType = "Google"
 )
 
 // All allowed values of AdministratorProviderType enum
@@ -112,4 +112,3 @@ func (v *NullableAdministratorProviderType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

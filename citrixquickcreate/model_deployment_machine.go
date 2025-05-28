@@ -19,11 +19,13 @@ var _ MappedNullable = &DeploymentMachine{}
 
 // DeploymentMachine Deployment
 type DeploymentMachine struct {
+	// The type of provider associated with the account
 	AccountType AccountType `json:"accountType"`
 	// Deployment Id
 	DeploymentId NullableString `json:"deploymentId,omitempty"`
 	// MachineId on the Broker
 	BrokerMachineId NullableString `json:"brokerMachineId,omitempty"`
+	// Task Type
 	TaskType NullableTaskType `json:"taskType,omitempty"`
 	// Task Id
 	TaskId NullableString `json:"taskId,omitempty"`
@@ -35,7 +37,9 @@ type DeploymentMachine struct {
 	MachineId NullableString `json:"machineId,omitempty"`
 	// Name of the machine
 	MachineName NullableString `json:"machineName,omitempty"`
+	// Registration state of the machine
 	RegistrationState NullableRegistrationState `json:"registrationState,omitempty"`
+	// State of active session on machine
 	SessionState NullableSessionState `json:"sessionState,omitempty"`
 	// Count of active session on machine
 	SessionCount NullableInt32 `json:"sessionCount,omitempty"`
@@ -48,6 +52,8 @@ type DeploymentMachine struct {
 	// Id for the delivery group of the machine, could be null if machine not in delivery group
 	BrokerDeliveryGroupId NullableString `json:"brokerDeliveryGroupId,omitempty"`
 }
+
+type _DeploymentMachine DeploymentMachine
 
 // NewDeploymentMachine instantiates a new DeploymentMachine object
 // This constructor will assign default values to properties that have it defined,
@@ -123,6 +129,7 @@ func (o *DeploymentMachine) HasDeploymentId() bool {
 func (o *DeploymentMachine) SetDeploymentId(v string) {
 	o.DeploymentId.Set(&v)
 }
+
 // SetDeploymentIdNil sets the value for DeploymentId to be an explicit nil
 func (o *DeploymentMachine) SetDeploymentIdNil() {
 	o.DeploymentId.Set(nil)
@@ -165,6 +172,7 @@ func (o *DeploymentMachine) HasBrokerMachineId() bool {
 func (o *DeploymentMachine) SetBrokerMachineId(v string) {
 	o.BrokerMachineId.Set(&v)
 }
+
 // SetBrokerMachineIdNil sets the value for BrokerMachineId to be an explicit nil
 func (o *DeploymentMachine) SetBrokerMachineIdNil() {
 	o.BrokerMachineId.Set(nil)
@@ -207,6 +215,7 @@ func (o *DeploymentMachine) HasTaskType() bool {
 func (o *DeploymentMachine) SetTaskType(v TaskType) {
 	o.TaskType.Set(&v)
 }
+
 // SetTaskTypeNil sets the value for TaskType to be an explicit nil
 func (o *DeploymentMachine) SetTaskTypeNil() {
 	o.TaskType.Set(nil)
@@ -249,6 +258,7 @@ func (o *DeploymentMachine) HasTaskId() bool {
 func (o *DeploymentMachine) SetTaskId(v string) {
 	o.TaskId.Set(&v)
 }
+
 // SetTaskIdNil sets the value for TaskId to be an explicit nil
 func (o *DeploymentMachine) SetTaskIdNil() {
 	o.TaskId.Set(nil)
@@ -291,6 +301,7 @@ func (o *DeploymentMachine) HasConnectionId() bool {
 func (o *DeploymentMachine) SetConnectionId(v string) {
 	o.ConnectionId.Set(&v)
 }
+
 // SetConnectionIdNil sets the value for ConnectionId to be an explicit nil
 func (o *DeploymentMachine) SetConnectionIdNil() {
 	o.ConnectionId.Set(nil)
@@ -333,6 +344,7 @@ func (o *DeploymentMachine) HasImageId() bool {
 func (o *DeploymentMachine) SetImageId(v string) {
 	o.ImageId.Set(&v)
 }
+
 // SetImageIdNil sets the value for ImageId to be an explicit nil
 func (o *DeploymentMachine) SetImageIdNil() {
 	o.ImageId.Set(nil)
@@ -375,6 +387,7 @@ func (o *DeploymentMachine) HasMachineId() bool {
 func (o *DeploymentMachine) SetMachineId(v string) {
 	o.MachineId.Set(&v)
 }
+
 // SetMachineIdNil sets the value for MachineId to be an explicit nil
 func (o *DeploymentMachine) SetMachineIdNil() {
 	o.MachineId.Set(nil)
@@ -417,6 +430,7 @@ func (o *DeploymentMachine) HasMachineName() bool {
 func (o *DeploymentMachine) SetMachineName(v string) {
 	o.MachineName.Set(&v)
 }
+
 // SetMachineNameNil sets the value for MachineName to be an explicit nil
 func (o *DeploymentMachine) SetMachineNameNil() {
 	o.MachineName.Set(nil)
@@ -459,6 +473,7 @@ func (o *DeploymentMachine) HasRegistrationState() bool {
 func (o *DeploymentMachine) SetRegistrationState(v RegistrationState) {
 	o.RegistrationState.Set(&v)
 }
+
 // SetRegistrationStateNil sets the value for RegistrationState to be an explicit nil
 func (o *DeploymentMachine) SetRegistrationStateNil() {
 	o.RegistrationState.Set(nil)
@@ -501,6 +516,7 @@ func (o *DeploymentMachine) HasSessionState() bool {
 func (o *DeploymentMachine) SetSessionState(v SessionState) {
 	o.SessionState.Set(&v)
 }
+
 // SetSessionStateNil sets the value for SessionState to be an explicit nil
 func (o *DeploymentMachine) SetSessionStateNil() {
 	o.SessionState.Set(nil)
@@ -543,6 +559,7 @@ func (o *DeploymentMachine) HasSessionCount() bool {
 func (o *DeploymentMachine) SetSessionCount(v int32) {
 	o.SessionCount.Set(&v)
 }
+
 // SetSessionCountNil sets the value for SessionCount to be an explicit nil
 func (o *DeploymentMachine) SetSessionCountNil() {
 	o.SessionCount.Set(nil)
@@ -585,6 +602,7 @@ func (o *DeploymentMachine) HasMaintenanceMode() bool {
 func (o *DeploymentMachine) SetMaintenanceMode(v bool) {
 	o.MaintenanceMode.Set(&v)
 }
+
 // SetMaintenanceModeNil sets the value for MaintenanceMode to be an explicit nil
 func (o *DeploymentMachine) SetMaintenanceModeNil() {
 	o.MaintenanceMode.Set(nil)
@@ -616,7 +634,7 @@ func (o *DeploymentMachine) GetAssociatedUsersOk() ([]string, bool) {
 
 // HasAssociatedUsers returns a boolean if a field has been set.
 func (o *DeploymentMachine) HasAssociatedUsers() bool {
-	if o != nil && IsNil(o.AssociatedUsers) {
+	if o != nil && !IsNil(o.AssociatedUsers) {
 		return true
 	}
 
@@ -660,6 +678,7 @@ func (o *DeploymentMachine) HasBrokerMachineCatalogId() bool {
 func (o *DeploymentMachine) SetBrokerMachineCatalogId(v string) {
 	o.BrokerMachineCatalogId.Set(&v)
 }
+
 // SetBrokerMachineCatalogIdNil sets the value for BrokerMachineCatalogId to be an explicit nil
 func (o *DeploymentMachine) SetBrokerMachineCatalogIdNil() {
 	o.BrokerMachineCatalogId.Set(nil)
@@ -702,6 +721,7 @@ func (o *DeploymentMachine) HasBrokerDeliveryGroupId() bool {
 func (o *DeploymentMachine) SetBrokerDeliveryGroupId(v string) {
 	o.BrokerDeliveryGroupId.Set(&v)
 }
+
 // SetBrokerDeliveryGroupIdNil sets the value for BrokerDeliveryGroupId to be an explicit nil
 func (o *DeploymentMachine) SetBrokerDeliveryGroupIdNil() {
 	o.BrokerDeliveryGroupId.Set(nil)
@@ -713,7 +733,7 @@ func (o *DeploymentMachine) UnsetBrokerDeliveryGroupId() {
 }
 
 func (o DeploymentMachine) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -806,5 +826,3 @@ func (v *NullableDeploymentMachine) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

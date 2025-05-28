@@ -74,6 +74,7 @@ func (o *ActiveTenantUserLicenses) HasTenantId() bool {
 func (o *ActiveTenantUserLicenses) SetTenantId(v string) {
 	o.TenantId.Set(&v)
 }
+
 // SetTenantIdNil sets the value for TenantId to be an explicit nil
 func (o *ActiveTenantUserLicenses) SetTenantIdNil() {
 	o.TenantId.Set(nil)
@@ -105,7 +106,7 @@ func (o *ActiveTenantUserLicenses) GetLicensedUsersOk() ([]string, bool) {
 
 // HasLicensedUsers returns a boolean if a field has been set.
 func (o *ActiveTenantUserLicenses) HasLicensedUsers() bool {
-	if o != nil && IsNil(o.LicensedUsers) {
+	if o != nil && !IsNil(o.LicensedUsers) {
 		return true
 	}
 
@@ -118,7 +119,7 @@ func (o *ActiveTenantUserLicenses) SetLicensedUsers(v []string) {
 }
 
 func (o ActiveTenantUserLicenses) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -171,5 +172,3 @@ func (v *NullableActiveTenantUserLicenses) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

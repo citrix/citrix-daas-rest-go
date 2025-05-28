@@ -15,17 +15,17 @@ import (
 	"fmt"
 )
 
-// BackupRestoreScheduleWeeks Backup Restore Schedule Weeks             
+// BackupRestoreScheduleWeeks Backup Restore Schedule Weeks
 type BackupRestoreScheduleWeeks string
 
 // List of BackupRestoreScheduleWeeks
 const (
 	BACKUPRESTORESCHEDULEWEEKS_NOT_DEFINED BackupRestoreScheduleWeeks = "NotDefined"
-	BACKUPRESTORESCHEDULEWEEKS_FIRST BackupRestoreScheduleWeeks = "First"
-	BACKUPRESTORESCHEDULEWEEKS_SECOND BackupRestoreScheduleWeeks = "Second"
-	BACKUPRESTORESCHEDULEWEEKS_THIRD BackupRestoreScheduleWeeks = "Third"
-	BACKUPRESTORESCHEDULEWEEKS_FOURTH BackupRestoreScheduleWeeks = "Fourth"
-	BACKUPRESTORESCHEDULEWEEKS_LAST BackupRestoreScheduleWeeks = "Last"
+	BACKUPRESTORESCHEDULEWEEKS_FIRST       BackupRestoreScheduleWeeks = "First"
+	BACKUPRESTORESCHEDULEWEEKS_SECOND      BackupRestoreScheduleWeeks = "Second"
+	BACKUPRESTORESCHEDULEWEEKS_THIRD       BackupRestoreScheduleWeeks = "Third"
+	BACKUPRESTORESCHEDULEWEEKS_FOURTH      BackupRestoreScheduleWeeks = "Fourth"
+	BACKUPRESTORESCHEDULEWEEKS_LAST        BackupRestoreScheduleWeeks = "Last"
 )
 
 // All allowed values of BackupRestoreScheduleWeeks enum
@@ -44,7 +44,7 @@ func (v *BackupRestoreScheduleWeeks) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = BackupRestoreScheduleWeeks(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableBackupRestoreScheduleWeeks) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

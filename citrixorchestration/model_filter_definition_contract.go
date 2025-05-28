@@ -78,6 +78,7 @@ func (o *FilterDefinitionContract) HasFilterType() bool {
 func (o *FilterDefinitionContract) SetFilterType(v string) {
 	o.FilterType.Set(&v)
 }
+
 // SetFilterTypeNil sets the value for FilterType to be an explicit nil
 func (o *FilterDefinitionContract) SetFilterTypeNil() {
 	o.FilterType.Set(nil)
@@ -120,6 +121,7 @@ func (o *FilterDefinitionContract) HasFilterName() bool {
 func (o *FilterDefinitionContract) SetFilterName(v string) {
 	o.FilterName.Set(&v)
 }
+
 // SetFilterNameNil sets the value for FilterName to be an explicit nil
 func (o *FilterDefinitionContract) SetFilterNameNil() {
 	o.FilterName.Set(nil)
@@ -162,6 +164,7 @@ func (o *FilterDefinitionContract) HasExplanation() bool {
 func (o *FilterDefinitionContract) SetExplanation(v string) {
 	o.Explanation.Set(&v)
 }
+
 // SetExplanationNil sets the value for Explanation to be an explicit nil
 func (o *FilterDefinitionContract) SetExplanationNil() {
 	o.Explanation.Set(nil)
@@ -205,7 +208,7 @@ func (o *FilterDefinitionContract) SetIsUserFilter(v bool) {
 }
 
 func (o FilterDefinitionContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -264,5 +267,3 @@ func (v *NullableFilterDefinitionContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

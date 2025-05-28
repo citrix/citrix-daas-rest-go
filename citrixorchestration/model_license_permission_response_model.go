@@ -20,7 +20,7 @@ var _ MappedNullable = &LicensePermissionResponseModel{}
 // LicensePermissionResponseModel The permission to the license server
 type LicensePermissionResponseModel struct {
 	// The administrator  for the license server
-	LicensingAdministrator NullableString `json:"LicensingAdministrator,omitempty"`
+	LicensingAdministrator   NullableString            `json:"LicensingAdministrator,omitempty"`
 	LicensingPermissionLevel *LicensingPermissionLevel `json:"LicensingPermissionLevel,omitempty"`
 }
 
@@ -73,6 +73,7 @@ func (o *LicensePermissionResponseModel) HasLicensingAdministrator() bool {
 func (o *LicensePermissionResponseModel) SetLicensingAdministrator(v string) {
 	o.LicensingAdministrator.Set(&v)
 }
+
 // SetLicensingAdministratorNil sets the value for LicensingAdministrator to be an explicit nil
 func (o *LicensePermissionResponseModel) SetLicensingAdministratorNil() {
 	o.LicensingAdministrator.Set(nil)
@@ -116,7 +117,7 @@ func (o *LicensePermissionResponseModel) SetLicensingPermissionLevel(v Licensing
 }
 
 func (o LicensePermissionResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -169,5 +170,3 @@ func (v *NullableLicensePermissionResponseModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

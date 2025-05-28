@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DirectoryId** | Pointer to **NullableString** | Directory Id | [optional] 
-**RegistrationStatus** | Pointer to [**AwsEdcDirectoryRegistrationStatus**](AwsEdcDirectoryRegistrationStatus.md) |  | [optional] 
+**RegistrationStatus** | Pointer to [**AwsEdcDirectoryRegistrationStatus**](AwsEdcDirectoryRegistrationStatus.md) | Registration status of the directory | [optional] 
 **DirectoryName** | Pointer to **NullableString** | Directory Name | [optional] 
 **VpcId** | Pointer to **NullableString** | Directory Vpc | [optional] 
 **Subnet1Id** | Pointer to **NullableString** | First Subnet Id | [optional] 
 **Subnet2Id** | Pointer to **NullableString** | Second Subnet Id | [optional] 
-**Tenancy** | Pointer to [**NullableAwsEdcDirectoryTenancy**](AwsEdcDirectoryTenancy.md) |  | [optional] 
+**Tenancy** | Pointer to [**NullableAwsEdcDirectoryTenancy**](AwsEdcDirectoryTenancy.md) | Tenancy of directory  Enum values SHARED, DEDICATED | [optional] 
 **EnableWorkDocs** | Pointer to **NullableBool** | Enable Work Docs | [optional] 
 **UserEnabledAsLocalAdministrator** | Pointer to **NullableBool** | Enable Local Administrator | [optional] 
 **EnableInternetAccess** | Pointer to **NullableBool** | Enable Internet Access | [optional] 

@@ -19,17 +19,19 @@ var _ MappedNullable = &CreateAdministratorInputModel{}
 
 // CreateAdministratorInputModel struct for CreateAdministratorInputModel
 type CreateAdministratorInputModel struct {
-	AccessType AdministratorAccessType `json:"accessType"`
-	DisplayName NullableString `json:"displayName,omitempty"`
-	Email NullableString `json:"email,omitempty"`
-	ExternalProviderId *string `json:"externalProviderId,omitempty"`
-	ExternalUserId *string `json:"externalUserId,omitempty"`
-	FirstName NullableString `json:"firstName,omitempty"`
-	LastName NullableString `json:"lastName,omitempty"`
-	Policies []AdministratorAccessPolicyModel `json:"policies,omitempty"`
-	ProviderType AdministratorProviderType `json:"providerType"`
-	Type string `json:"type"`
+	AccessType         AdministratorAccessType          `json:"accessType"`
+	DisplayName        NullableString                   `json:"displayName,omitempty" validate:"regexp=^[^<>\\\\:\\/\\\\\\\\]*$"`
+	Email              NullableString                   `json:"email,omitempty"`
+	ExternalProviderId *string                          `json:"externalProviderId,omitempty"`
+	ExternalUserId     *string                          `json:"externalUserId,omitempty"`
+	FirstName          NullableString                   `json:"firstName,omitempty" validate:"regexp=^[^<>\\\\:\\/\\\\\\\\]*$"`
+	LastName           NullableString                   `json:"lastName,omitempty" validate:"regexp=^[^<>\\\\:\\/\\\\\\\\]*$"`
+	Policies           []AdministratorAccessPolicyModel `json:"policies,omitempty"`
+	ProviderType       AdministratorProviderType        `json:"providerType"`
+	Type               string                           `json:"type"`
 }
+
+type _CreateAdministratorInputModel CreateAdministratorInputModel
 
 // NewCreateAdministratorInputModel instantiates a new CreateAdministratorInputModel object
 // This constructor will assign default values to properties that have it defined,
@@ -107,6 +109,7 @@ func (o *CreateAdministratorInputModel) HasDisplayName() bool {
 func (o *CreateAdministratorInputModel) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *CreateAdministratorInputModel) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -149,6 +152,7 @@ func (o *CreateAdministratorInputModel) HasEmail() bool {
 func (o *CreateAdministratorInputModel) SetEmail(v string) {
 	o.Email.Set(&v)
 }
+
 // SetEmailNil sets the value for Email to be an explicit nil
 func (o *CreateAdministratorInputModel) SetEmailNil() {
 	o.Email.Set(nil)
@@ -255,6 +259,7 @@ func (o *CreateAdministratorInputModel) HasFirstName() bool {
 func (o *CreateAdministratorInputModel) SetFirstName(v string) {
 	o.FirstName.Set(&v)
 }
+
 // SetFirstNameNil sets the value for FirstName to be an explicit nil
 func (o *CreateAdministratorInputModel) SetFirstNameNil() {
 	o.FirstName.Set(nil)
@@ -297,6 +302,7 @@ func (o *CreateAdministratorInputModel) HasLastName() bool {
 func (o *CreateAdministratorInputModel) SetLastName(v string) {
 	o.LastName.Set(&v)
 }
+
 // SetLastNameNil sets the value for LastName to be an explicit nil
 func (o *CreateAdministratorInputModel) SetLastNameNil() {
 	o.LastName.Set(nil)
@@ -328,7 +334,7 @@ func (o *CreateAdministratorInputModel) GetPoliciesOk() ([]AdministratorAccessPo
 
 // HasPolicies returns a boolean if a field has been set.
 func (o *CreateAdministratorInputModel) HasPolicies() bool {
-	if o != nil && IsNil(o.Policies) {
+	if o != nil && !IsNil(o.Policies) {
 		return true
 	}
 
@@ -389,7 +395,7 @@ func (o *CreateAdministratorInputModel) SetType(v string) {
 }
 
 func (o CreateAdministratorInputModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -460,5 +466,3 @@ func (v *NullableCreateAdministratorInputModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

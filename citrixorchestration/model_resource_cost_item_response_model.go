@@ -76,6 +76,7 @@ func (o *ResourceCostItemResponseModel) HasResource() bool {
 func (o *ResourceCostItemResponseModel) SetResource(v string) {
 	o.Resource.Set(&v)
 }
+
 // SetResourceNil sets the value for Resource to be an explicit nil
 func (o *ResourceCostItemResponseModel) SetResourceNil() {
 	o.Resource.Set(nil)
@@ -150,6 +151,7 @@ func (o *ResourceCostItemResponseModel) HasCurrency() bool {
 func (o *ResourceCostItemResponseModel) SetCurrency(v string) {
 	o.Currency.Set(&v)
 }
+
 // SetCurrencyNil sets the value for Currency to be an explicit nil
 func (o *ResourceCostItemResponseModel) SetCurrencyNil() {
 	o.Currency.Set(nil)
@@ -161,7 +163,7 @@ func (o *ResourceCostItemResponseModel) UnsetCurrency() {
 }
 
 func (o ResourceCostItemResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -217,5 +219,3 @@ func (v *NullableResourceCostItemResponseModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

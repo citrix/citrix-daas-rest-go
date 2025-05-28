@@ -19,15 +19,14 @@ import (
 	"strings"
 )
 
-
 // TasksQCSService TasksQCS service
 type TasksQCSService service
 
 type TasksQCSGetTaskAsyncRequest struct {
-	ctx context.Context
-	ApiService *TasksQCSService
-	customerId string
-	taskId string
+	ctx                 context.Context
+	ApiService          *TasksQCSService
+	customerId          string
+	taskId              string
 	citrixTransactionId *string
 }
 
@@ -44,28 +43,29 @@ func (r TasksQCSGetTaskAsyncRequest) Execute() (*GetTaskAsync200Response, *http.
 /*
 GetTaskAsync Get the status of a task
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param taskId ID of the task
- @return TasksQCSGetTaskAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param taskId ID of the task
+	@return TasksQCSGetTaskAsyncRequest
 */
 func (a *TasksQCSService) GetTaskAsync(ctx context.Context, customerId string, taskId string) TasksQCSGetTaskAsyncRequest {
 	return TasksQCSGetTaskAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		taskId: taskId,
+		taskId:     taskId,
 	}
 }
 
 // Execute executes the request
-//  @return GetTaskAsync200Response
+//
+//	@return GetTaskAsync200Response
 func (a *TasksQCSService) GetTaskAsyncExecute(r TasksQCSGetTaskAsyncRequest) (*GetTaskAsync200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetTaskAsync200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetTaskAsync200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksQCSService.GetTaskAsync")
@@ -99,7 +99,7 @@ func (a *TasksQCSService) GetTaskAsyncExecute(r TasksQCSGetTaskAsyncRequest) (*G
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -130,6 +130,13 @@ func (a *TasksQCSService) GetTaskAsyncExecute(r TasksQCSGetTaskAsyncRequest) (*G
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {

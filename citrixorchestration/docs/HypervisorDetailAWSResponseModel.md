@@ -31,6 +31,9 @@ Name | Type | Description | Notes
 **SupportsPvsVms** | **bool** | Indicates whether the hypervisor supports PVS VMs. | 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata for hypervisor connections. | [optional] 
 **ConnectionType** | [**HypervisorConnectionType**](HypervisorConnectionType.md) |  | 
+**ApiKey** | **string** | The API key used to authenticate with the AWS APIs. | 
+**Region** | **string** | The AWS region which the hypervisor represents. | 
+**MaximumConcurrentProvisioningOperations** | Pointer to **NullableInt32** | AWS maximum concurrent provisioning operations. | [optional] 
 **Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
 **Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
 **XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
@@ -46,15 +49,12 @@ Name | Type | Description | Notes
 **CustomProperties** | Pointer to **NullableString** | CustomProperties of hypervisor connection | [optional] 
 **Uid** | Pointer to **NullableInt32** | The broker id. | [optional] 
 **IsVirtual** | Pointer to **bool** | If this connection is virtual. | [optional] 
-**ApiKey** | **string** | The API key used to authenticate with the AWS APIs. | 
-**Region** | **string** | The AWS region which the hypervisor represents. | 
-**MaximumConcurrentProvisioningOperations** | Pointer to **NullableInt32** | AWS maximum concurrent provisioning operations. | [optional] 
 
 ## Methods
 
 ### NewHypervisorDetailAWSResponseModel
 
-`func NewHypervisorDetailAWSResponseModel(applicationId string, subscriptionId string, activeDirectoryId string, environment AzureEnvironment, managementEndpoint string, authenticationAuthority string, storageSuffix string, serviceAccountId string, sccmWakeUpProxy bool, wakeOnLanPackets WakeOnLanTransmission, userName string, tenancyOcid string, ociRegion string, ociEnvironment string, fingerprint string, capabilities []string, configurationObjectCapabilities []HypervisorConfigurationObjectCapability, pluginRevision string, maxAbsoluteActiveActions int32, maxAbsoluteNewActionsPerMinute int32, maxPowerActionsPercentageOfMachines int32, connectionOptions string, supportsLocalStorageCaching bool, supportsPvsVms bool, connectionType HypervisorConnectionType, addresses []string, inMaintenanceMode bool, pluginId string, scopes []ScopeResponseModel, usesCloudInfrastructure bool, zone RefResponseModel, apiKey string, region string, ) *HypervisorDetailAWSResponseModel`
+`func NewHypervisorDetailAWSResponseModel(applicationId string, subscriptionId string, activeDirectoryId string, environment AzureEnvironment, managementEndpoint string, authenticationAuthority string, storageSuffix string, serviceAccountId string, sccmWakeUpProxy bool, wakeOnLanPackets WakeOnLanTransmission, userName string, tenancyOcid string, ociRegion string, ociEnvironment string, fingerprint string, capabilities []string, configurationObjectCapabilities []HypervisorConfigurationObjectCapability, pluginRevision string, maxAbsoluteActiveActions int32, maxAbsoluteNewActionsPerMinute int32, maxPowerActionsPercentageOfMachines int32, connectionOptions string, supportsLocalStorageCaching bool, supportsPvsVms bool, connectionType HypervisorConnectionType, apiKey string, region string, addresses []string, inMaintenanceMode bool, pluginId string, scopes []ScopeResponseModel, usesCloudInfrastructure bool, zone RefResponseModel, ) *HypervisorDetailAWSResponseModel`
 
 NewHypervisorDetailAWSResponseModel instantiates a new HypervisorDetailAWSResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -639,6 +639,81 @@ and a boolean to check if the value has been set.
 SetConnectionType sets ConnectionType field to given value.
 
 
+### GetApiKey
+
+`func (o *HypervisorDetailAWSResponseModel) GetApiKey() string`
+
+GetApiKey returns the ApiKey field if non-nil, zero value otherwise.
+
+### GetApiKeyOk
+
+`func (o *HypervisorDetailAWSResponseModel) GetApiKeyOk() (*string, bool)`
+
+GetApiKeyOk returns a tuple with the ApiKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApiKey
+
+`func (o *HypervisorDetailAWSResponseModel) SetApiKey(v string)`
+
+SetApiKey sets ApiKey field to given value.
+
+
+### GetRegion
+
+`func (o *HypervisorDetailAWSResponseModel) GetRegion() string`
+
+GetRegion returns the Region field if non-nil, zero value otherwise.
+
+### GetRegionOk
+
+`func (o *HypervisorDetailAWSResponseModel) GetRegionOk() (*string, bool)`
+
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegion
+
+`func (o *HypervisorDetailAWSResponseModel) SetRegion(v string)`
+
+SetRegion sets Region field to given value.
+
+
+### GetMaximumConcurrentProvisioningOperations
+
+`func (o *HypervisorDetailAWSResponseModel) GetMaximumConcurrentProvisioningOperations() int32`
+
+GetMaximumConcurrentProvisioningOperations returns the MaximumConcurrentProvisioningOperations field if non-nil, zero value otherwise.
+
+### GetMaximumConcurrentProvisioningOperationsOk
+
+`func (o *HypervisorDetailAWSResponseModel) GetMaximumConcurrentProvisioningOperationsOk() (*int32, bool)`
+
+GetMaximumConcurrentProvisioningOperationsOk returns a tuple with the MaximumConcurrentProvisioningOperations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaximumConcurrentProvisioningOperations
+
+`func (o *HypervisorDetailAWSResponseModel) SetMaximumConcurrentProvisioningOperations(v int32)`
+
+SetMaximumConcurrentProvisioningOperations sets MaximumConcurrentProvisioningOperations field to given value.
+
+### HasMaximumConcurrentProvisioningOperations
+
+`func (o *HypervisorDetailAWSResponseModel) HasMaximumConcurrentProvisioningOperations() bool`
+
+HasMaximumConcurrentProvisioningOperations returns a boolean if a field has been set.
+
+### SetMaximumConcurrentProvisioningOperationsNil
+
+`func (o *HypervisorDetailAWSResponseModel) SetMaximumConcurrentProvisioningOperationsNil(b bool)`
+
+ SetMaximumConcurrentProvisioningOperationsNil sets the value for MaximumConcurrentProvisioningOperations to be an explicit nil
+
+### UnsetMaximumConcurrentProvisioningOperations
+`func (o *HypervisorDetailAWSResponseModel) UnsetMaximumConcurrentProvisioningOperations()`
+
+UnsetMaximumConcurrentProvisioningOperations ensures that no value is present for MaximumConcurrentProvisioningOperations, not even an explicit nil
 ### GetId
 
 `func (o *HypervisorDetailAWSResponseModel) GetId() string`
@@ -1044,81 +1119,6 @@ SetIsVirtual sets IsVirtual field to given value.
 
 HasIsVirtual returns a boolean if a field has been set.
 
-### GetApiKey
-
-`func (o *HypervisorDetailAWSResponseModel) GetApiKey() string`
-
-GetApiKey returns the ApiKey field if non-nil, zero value otherwise.
-
-### GetApiKeyOk
-
-`func (o *HypervisorDetailAWSResponseModel) GetApiKeyOk() (*string, bool)`
-
-GetApiKeyOk returns a tuple with the ApiKey field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApiKey
-
-`func (o *HypervisorDetailAWSResponseModel) SetApiKey(v string)`
-
-SetApiKey sets ApiKey field to given value.
-
-
-### GetRegion
-
-`func (o *HypervisorDetailAWSResponseModel) GetRegion() string`
-
-GetRegion returns the Region field if non-nil, zero value otherwise.
-
-### GetRegionOk
-
-`func (o *HypervisorDetailAWSResponseModel) GetRegionOk() (*string, bool)`
-
-GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRegion
-
-`func (o *HypervisorDetailAWSResponseModel) SetRegion(v string)`
-
-SetRegion sets Region field to given value.
-
-
-### GetMaximumConcurrentProvisioningOperations
-
-`func (o *HypervisorDetailAWSResponseModel) GetMaximumConcurrentProvisioningOperations() int32`
-
-GetMaximumConcurrentProvisioningOperations returns the MaximumConcurrentProvisioningOperations field if non-nil, zero value otherwise.
-
-### GetMaximumConcurrentProvisioningOperationsOk
-
-`func (o *HypervisorDetailAWSResponseModel) GetMaximumConcurrentProvisioningOperationsOk() (*int32, bool)`
-
-GetMaximumConcurrentProvisioningOperationsOk returns a tuple with the MaximumConcurrentProvisioningOperations field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMaximumConcurrentProvisioningOperations
-
-`func (o *HypervisorDetailAWSResponseModel) SetMaximumConcurrentProvisioningOperations(v int32)`
-
-SetMaximumConcurrentProvisioningOperations sets MaximumConcurrentProvisioningOperations field to given value.
-
-### HasMaximumConcurrentProvisioningOperations
-
-`func (o *HypervisorDetailAWSResponseModel) HasMaximumConcurrentProvisioningOperations() bool`
-
-HasMaximumConcurrentProvisioningOperations returns a boolean if a field has been set.
-
-### SetMaximumConcurrentProvisioningOperationsNil
-
-`func (o *HypervisorDetailAWSResponseModel) SetMaximumConcurrentProvisioningOperationsNil(b bool)`
-
- SetMaximumConcurrentProvisioningOperationsNil sets the value for MaximumConcurrentProvisioningOperations to be an explicit nil
-
-### UnsetMaximumConcurrentProvisioningOperations
-`func (o *HypervisorDetailAWSResponseModel) UnsetMaximumConcurrentProvisioningOperations()`
-
-UnsetMaximumConcurrentProvisioningOperations ensures that no value is present for MaximumConcurrentProvisioningOperations, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

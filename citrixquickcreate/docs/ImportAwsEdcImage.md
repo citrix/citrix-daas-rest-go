@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Ec2ImageId** | **string** | Source Image Id | 
-**IngestionProcess** | Pointer to [**AwsEdcWorkspaceImageIngestionProcess**](AwsEdcWorkspaceImageIngestionProcess.md) |  | [optional] 
+**IngestionProcess** | Pointer to [**AwsEdcWorkspaceImageIngestionProcess**](AwsEdcWorkspaceImageIngestionProcess.md) | Ingestion Process used during image import | [optional] 
 **ApplicationList** | Pointer to [**[]AwsEdcAmiImportApplications**](AwsEdcAmiImportApplications.md) | The list of installed applications | [optional] 
 
 ## Methods

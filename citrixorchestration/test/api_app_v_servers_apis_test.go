@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_AppVServersAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_AppVServersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVServersAPIsDAASService AppVServersGetAppVServerPackage", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var server string
 		var id string
@@ -39,7 +40,7 @@ func Test_citrixorchestration_AppVServersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVServersAPIsDAASService AppVServersGetAppVServerPackageApplication", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var server string
 		var id string
@@ -55,7 +56,7 @@ func Test_citrixorchestration_AppVServersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVServersAPIsDAASService AppVServersGetAppVServerPackageApplicationIcon", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var server string
 		var id string
@@ -71,7 +72,7 @@ func Test_citrixorchestration_AppVServersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVServersAPIsDAASService AppVServersGetAppVServerPackageApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var server string
 		var id string
@@ -86,7 +87,7 @@ func Test_citrixorchestration_AppVServersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVServersAPIsDAASService AppVServersGetAppVServerPackageIcon", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var server string
 		var id string
@@ -101,7 +102,7 @@ func Test_citrixorchestration_AppVServersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVServersAPIsDAASService AppVServersGetAppVServerPackages", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var server string
 
@@ -115,7 +116,7 @@ func Test_citrixorchestration_AppVServersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVServersAPIsDAASService AppVServersGetAppVServers", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AppVServersAPIsDAAS.AppVServersGetAppVServers(context.Background()).Execute()
 

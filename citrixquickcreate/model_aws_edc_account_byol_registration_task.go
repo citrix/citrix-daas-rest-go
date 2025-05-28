@@ -20,23 +20,27 @@ var _ MappedNullable = &AwsEdcAccountByolRegistrationTask{}
 // AwsEdcAccountByolRegistrationTask Task status for a Aws BYOL Registration task
 type AwsEdcAccountByolRegistrationTask struct {
 	AccountTask
-	// 
+	//
 	DedicatedTenancyManagementCidrRange NullableString `json:"dedicatedTenancyManagementCidrRange,omitempty"`
-	// 
+	//
 	DedicatedTenancySupportEnabled NullableBool `json:"dedicatedTenancySupportEnabled,omitempty"`
+	//
 	ModificationState NullableAwsEdcDedicatedTenancyState `json:"modificationState,omitempty"`
-	// 
+	//
 	ErrorCode NullableString `json:"errorCode,omitempty"`
-	// 
+	//
 	ErrorMessage NullableString `json:"errorMessage,omitempty"`
 }
+
+type _AwsEdcAccountByolRegistrationTask AwsEdcAccountByolRegistrationTask
 
 // NewAwsEdcAccountByolRegistrationTask instantiates a new AwsEdcAccountByolRegistrationTask object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAwsEdcAccountByolRegistrationTask(taskType TaskType) *AwsEdcAccountByolRegistrationTask {
+func NewAwsEdcAccountByolRegistrationTask(operation NullableAccountTaskOperationType, taskType TaskType) *AwsEdcAccountByolRegistrationTask {
 	this := AwsEdcAccountByolRegistrationTask{}
+	this.Operation = operation
 	this.TaskType = taskType
 	return &this
 }
@@ -81,6 +85,7 @@ func (o *AwsEdcAccountByolRegistrationTask) HasDedicatedTenancyManagementCidrRan
 func (o *AwsEdcAccountByolRegistrationTask) SetDedicatedTenancyManagementCidrRange(v string) {
 	o.DedicatedTenancyManagementCidrRange.Set(&v)
 }
+
 // SetDedicatedTenancyManagementCidrRangeNil sets the value for DedicatedTenancyManagementCidrRange to be an explicit nil
 func (o *AwsEdcAccountByolRegistrationTask) SetDedicatedTenancyManagementCidrRangeNil() {
 	o.DedicatedTenancyManagementCidrRange.Set(nil)
@@ -123,6 +128,7 @@ func (o *AwsEdcAccountByolRegistrationTask) HasDedicatedTenancySupportEnabled() 
 func (o *AwsEdcAccountByolRegistrationTask) SetDedicatedTenancySupportEnabled(v bool) {
 	o.DedicatedTenancySupportEnabled.Set(&v)
 }
+
 // SetDedicatedTenancySupportEnabledNil sets the value for DedicatedTenancySupportEnabled to be an explicit nil
 func (o *AwsEdcAccountByolRegistrationTask) SetDedicatedTenancySupportEnabledNil() {
 	o.DedicatedTenancySupportEnabled.Set(nil)
@@ -165,6 +171,7 @@ func (o *AwsEdcAccountByolRegistrationTask) HasModificationState() bool {
 func (o *AwsEdcAccountByolRegistrationTask) SetModificationState(v AwsEdcDedicatedTenancyState) {
 	o.ModificationState.Set(&v)
 }
+
 // SetModificationStateNil sets the value for ModificationState to be an explicit nil
 func (o *AwsEdcAccountByolRegistrationTask) SetModificationStateNil() {
 	o.ModificationState.Set(nil)
@@ -207,6 +214,7 @@ func (o *AwsEdcAccountByolRegistrationTask) HasErrorCode() bool {
 func (o *AwsEdcAccountByolRegistrationTask) SetErrorCode(v string) {
 	o.ErrorCode.Set(&v)
 }
+
 // SetErrorCodeNil sets the value for ErrorCode to be an explicit nil
 func (o *AwsEdcAccountByolRegistrationTask) SetErrorCodeNil() {
 	o.ErrorCode.Set(nil)
@@ -249,6 +257,7 @@ func (o *AwsEdcAccountByolRegistrationTask) HasErrorMessage() bool {
 func (o *AwsEdcAccountByolRegistrationTask) SetErrorMessage(v string) {
 	o.ErrorMessage.Set(&v)
 }
+
 // SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
 func (o *AwsEdcAccountByolRegistrationTask) SetErrorMessageNil() {
 	o.ErrorMessage.Set(nil)
@@ -260,7 +269,7 @@ func (o *AwsEdcAccountByolRegistrationTask) UnsetErrorMessage() {
 }
 
 func (o AwsEdcAccountByolRegistrationTask) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -330,5 +339,3 @@ func (v *NullableAwsEdcAccountByolRegistrationTask) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

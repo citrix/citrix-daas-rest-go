@@ -23,7 +23,7 @@ type CreateUpgradeScheduleRequestModel struct {
 	// UTC time to start the Vda upgrade. Must be a future time. If set to null, the upgrade should be started at once.
 	StartDateTimeUtc NullableTime `json:"StartDateTimeUtc,omitempty"`
 	// Timeout duration in hours. Valid range is 1 to 24.
-	DurationInHours int32 `json:"DurationInHours"`
+	DurationInHours                      int32                                         `json:"DurationInHours"`
 	VDAComponentsAndFeaturesRequestModel *VDAComponentsSelectionValidationRequestModel `json:"VDAComponentsAndFeaturesRequestModel,omitempty"`
 	// Custom location to download the VDA Workstation package from. Currently, only network shares (specified using a UNC path) are supported.
 	VdaWorkstationPackageUri NullableString `json:"VdaWorkstationPackageUri,omitempty"`
@@ -33,7 +33,7 @@ type CreateUpgradeScheduleRequestModel struct {
 	ConcurrencyLevel NullableInt32 `json:"ConcurrencyLevel,omitempty"`
 	// Limits the number of failures that can take place during a scheduled upgrade.
 	FailureThreshold NullableInt32 `json:"FailureThreshold,omitempty"`
-	LogoffOption *LogoffOption `json:"LogoffOption,omitempty"`
+	LogoffOption     *LogoffOption `json:"LogoffOption,omitempty"`
 	// Specify VDA needs to be rebooted before upgrade.
 	Reboot NullableBool `json:"Reboot,omitempty"`
 }
@@ -88,6 +88,7 @@ func (o *CreateUpgradeScheduleRequestModel) HasStartDateTimeUtc() bool {
 func (o *CreateUpgradeScheduleRequestModel) SetStartDateTimeUtc(v time.Time) {
 	o.StartDateTimeUtc.Set(&v)
 }
+
 // SetStartDateTimeUtcNil sets the value for StartDateTimeUtc to be an explicit nil
 func (o *CreateUpgradeScheduleRequestModel) SetStartDateTimeUtcNil() {
 	o.StartDateTimeUtc.Set(nil)
@@ -186,6 +187,7 @@ func (o *CreateUpgradeScheduleRequestModel) HasVdaWorkstationPackageUri() bool {
 func (o *CreateUpgradeScheduleRequestModel) SetVdaWorkstationPackageUri(v string) {
 	o.VdaWorkstationPackageUri.Set(&v)
 }
+
 // SetVdaWorkstationPackageUriNil sets the value for VdaWorkstationPackageUri to be an explicit nil
 func (o *CreateUpgradeScheduleRequestModel) SetVdaWorkstationPackageUriNil() {
 	o.VdaWorkstationPackageUri.Set(nil)
@@ -228,6 +230,7 @@ func (o *CreateUpgradeScheduleRequestModel) HasVdaServerPackageUri() bool {
 func (o *CreateUpgradeScheduleRequestModel) SetVdaServerPackageUri(v string) {
 	o.VdaServerPackageUri.Set(&v)
 }
+
 // SetVdaServerPackageUriNil sets the value for VdaServerPackageUri to be an explicit nil
 func (o *CreateUpgradeScheduleRequestModel) SetVdaServerPackageUriNil() {
 	o.VdaServerPackageUri.Set(nil)
@@ -270,6 +273,7 @@ func (o *CreateUpgradeScheduleRequestModel) HasConcurrencyLevel() bool {
 func (o *CreateUpgradeScheduleRequestModel) SetConcurrencyLevel(v int32) {
 	o.ConcurrencyLevel.Set(&v)
 }
+
 // SetConcurrencyLevelNil sets the value for ConcurrencyLevel to be an explicit nil
 func (o *CreateUpgradeScheduleRequestModel) SetConcurrencyLevelNil() {
 	o.ConcurrencyLevel.Set(nil)
@@ -312,6 +316,7 @@ func (o *CreateUpgradeScheduleRequestModel) HasFailureThreshold() bool {
 func (o *CreateUpgradeScheduleRequestModel) SetFailureThreshold(v int32) {
 	o.FailureThreshold.Set(&v)
 }
+
 // SetFailureThresholdNil sets the value for FailureThreshold to be an explicit nil
 func (o *CreateUpgradeScheduleRequestModel) SetFailureThresholdNil() {
 	o.FailureThreshold.Set(nil)
@@ -386,6 +391,7 @@ func (o *CreateUpgradeScheduleRequestModel) HasReboot() bool {
 func (o *CreateUpgradeScheduleRequestModel) SetReboot(v bool) {
 	o.Reboot.Set(&v)
 }
+
 // SetRebootNil sets the value for Reboot to be an explicit nil
 func (o *CreateUpgradeScheduleRequestModel) SetRebootNil() {
 	o.Reboot.Set(nil)
@@ -397,7 +403,7 @@ func (o *CreateUpgradeScheduleRequestModel) UnsetReboot() {
 }
 
 func (o CreateUpgradeScheduleRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -469,5 +475,3 @@ func (v *NullableCreateUpgradeScheduleRequestModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

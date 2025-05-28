@@ -19,23 +19,22 @@ import (
 	"strings"
 )
 
-
 // ImageVersionsAPIsDAASService ImageVersionsAPIsDAAS service
 type ImageVersionsAPIsDAASService service
 
 type ApiImageVersionsDeleteImageVersionRequest struct {
-	ctx context.Context
-	ApiService *ImageVersionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ImageVersionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	purgeDBOnly *bool
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	purgeDBOnly         *bool
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -99,24 +98,24 @@ func (r ApiImageVersionsDeleteImageVersionRequest) Execute() (*http.Response, er
 /*
 ImageVersionsDeleteImageVersion Delete an image version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the image version to delete.
- @return ApiImageVersionsDeleteImageVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the image version to delete.
+	@return ApiImageVersionsDeleteImageVersionRequest
 */
 func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersion(ctx context.Context, id string) ApiImageVersionsDeleteImageVersionRequest {
 	return ApiImageVersionsDeleteImageVersionRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersionExecute(r ApiImageVersionsDeleteImageVersionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageVersionsAPIsDAASService.ImageVersionsDeleteImageVersion")
@@ -220,8 +219,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -231,8 +230,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -242,8 +241,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -253,8 +252,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -264,8 +263,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -275,8 +274,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -286,8 +285,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -297,8 +296,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -307,16 +306,16 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersionExecute(r 
 }
 
 type ApiImageVersionsGetImageVersionRequest struct {
-	ctx context.Context
-	ApiService *ImageVersionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ImageVersionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -368,26 +367,27 @@ func (r ApiImageVersionsGetImageVersionRequest) Execute() (*ImageVersionResponse
 /*
 ImageVersionsGetImageVersion Get details about a single image version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the image version.
- @return ApiImageVersionsGetImageVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the image version.
+	@return ApiImageVersionsGetImageVersionRequest
 */
 func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersion(ctx context.Context, id string) ApiImageVersionsGetImageVersionRequest {
 	return ApiImageVersionsGetImageVersionRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ImageVersionResponseModel
+//
+//	@return ImageVersionResponseModel
 func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionExecute(r ApiImageVersionsGetImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImageVersionResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImageVersionResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageVersionsAPIsDAASService.ImageVersionsGetImageVersion")
@@ -485,8 +485,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -496,8 +496,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -507,8 +507,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -518,8 +518,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -529,8 +529,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -540,8 +540,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -551,8 +551,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -562,8 +562,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -581,16 +581,16 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionExecute(r Api
 }
 
 type ApiImageVersionsGetImageVersionProvisioningSchemesRequest struct {
-	ctx context.Context
-	ApiService *ImageVersionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ImageVersionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -642,26 +642,27 @@ func (r ApiImageVersionsGetImageVersionProvisioningSchemesRequest) Execute() (*I
 /*
 ImageVersionsGetImageVersionProvisioningSchemes Get provisioning schemes associated with an image version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of image version.
- @return ApiImageVersionsGetImageVersionProvisioningSchemesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of image version.
+	@return ApiImageVersionsGetImageVersionProvisioningSchemesRequest
 */
 func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningSchemes(ctx context.Context, id string) ApiImageVersionsGetImageVersionProvisioningSchemesRequest {
 	return ApiImageVersionsGetImageVersionProvisioningSchemesRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ImageVersionProvisioningSchemeRefResponseModelCollection
+//
+//	@return ImageVersionProvisioningSchemeRefResponseModelCollection
 func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningSchemesExecute(r ApiImageVersionsGetImageVersionProvisioningSchemesRequest) (*ImageVersionProvisioningSchemeRefResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImageVersionProvisioningSchemeRefResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImageVersionProvisioningSchemeRefResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageVersionsAPIsDAASService.ImageVersionsGetImageVersionProvisioningSchemes")
@@ -759,8 +760,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -770,8 +771,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -781,8 +782,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -792,8 +793,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -803,8 +804,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -814,8 +815,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -825,8 +826,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -836,8 +837,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -855,18 +856,18 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningS
 }
 
 type ApiImageVersionsSetImageVersionRequest struct {
-	ctx context.Context
-	ApiService *ImageVersionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
+	ctx                            context.Context
+	ApiService                     *ImageVersionsAPIsDAASService
+	citrixCustomerId               *string
+	citrixInstanceId               *string
+	id                             string
 	createImageVersionRequestModel *CreateImageVersionRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                      *string
+	authorization                  *string
+	citrixTransactionId            *string
+	accept                         *string
+	citrixLocale                   *string
+	async                          *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -930,24 +931,24 @@ func (r ApiImageVersionsSetImageVersionRequest) Execute() (*http.Response, error
 /*
 ImageVersionsSetImageVersion Set properties associated with an image version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the image version to update.
- @return ApiImageVersionsSetImageVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the image version to update.
+	@return ApiImageVersionsSetImageVersionRequest
 */
 func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersion(ctx context.Context, id string) ApiImageVersionsSetImageVersionRequest {
 	return ApiImageVersionsSetImageVersionRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersionExecute(r ApiImageVersionsSetImageVersionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageVersionsAPIsDAASService.ImageVersionsSetImageVersion")
@@ -1053,8 +1054,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1064,8 +1065,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1075,8 +1076,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1086,8 +1087,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1097,8 +1098,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1108,8 +1109,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1119,8 +1120,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1130,8 +1131,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1141,8 +1142,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersionExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1151,17 +1152,17 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersionExecute(r Api
 }
 
 type ApiImageVersionsUpdateImageVersionRequest struct {
-	ctx context.Context
-	ApiService *ImageVersionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
+	ctx                            context.Context
+	ApiService                     *ImageVersionsAPIsDAASService
+	citrixCustomerId               *string
+	citrixInstanceId               *string
+	id                             string
 	updateImageVersionRequestModel *UpdateImageVersionRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                      *string
+	authorization                  *string
+	citrixTransactionId            *string
+	accept                         *string
+	citrixLocale                   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1219,26 +1220,27 @@ func (r ApiImageVersionsUpdateImageVersionRequest) Execute() (*ImageVersionRespo
 /*
 ImageVersionsUpdateImageVersion Update an image version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the image version to update.
- @return ApiImageVersionsUpdateImageVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the image version to update.
+	@return ApiImageVersionsUpdateImageVersionRequest
 */
 func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersion(ctx context.Context, id string) ApiImageVersionsUpdateImageVersionRequest {
 	return ApiImageVersionsUpdateImageVersionRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ImageVersionResponseModel
+//
+//	@return ImageVersionResponseModel
 func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionExecute(r ApiImageVersionsUpdateImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImageVersionResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImageVersionResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageVersionsAPIsDAASService.ImageVersionsUpdateImageVersion")
@@ -1341,8 +1343,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1352,8 +1354,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1363,8 +1365,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1374,8 +1376,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1385,8 +1387,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1396,8 +1398,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1407,8 +1409,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1418,8 +1420,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1429,8 +1431,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1448,18 +1450,18 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionExecute(r 
 }
 
 type ApiImageVersionsUpdateImageVersionResourcePoolsRequest struct {
-	ctx context.Context
-	ApiService *ImageVersionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
+	ctx                                         context.Context
+	ApiService                                  *ImageVersionsAPIsDAASService
+	citrixCustomerId                            *string
+	citrixInstanceId                            *string
+	id                                          string
 	updateImageVersionResourcePoolsRequestModel *UpdateImageVersionResourcePoolsRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                   *string
+	authorization                               *string
+	citrixTransactionId                         *string
+	accept                                      *string
+	citrixLocale                                *string
+	async                                       *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1521,24 +1523,24 @@ func (r ApiImageVersionsUpdateImageVersionResourcePoolsRequest) Execute() (*http
 /*
 ImageVersionsUpdateImageVersionResourcePools Method for ImageVersionsUpdateImageVersionResourcePools
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiImageVersionsUpdateImageVersionResourcePoolsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiImageVersionsUpdateImageVersionResourcePoolsRequest
 */
 func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionResourcePools(ctx context.Context, id string) ApiImageVersionsUpdateImageVersionResourcePoolsRequest {
 	return ApiImageVersionsUpdateImageVersionResourcePoolsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionResourcePoolsExecute(r ApiImageVersionsUpdateImageVersionResourcePoolsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageVersionsAPIsDAASService.ImageVersionsUpdateImageVersionResourcePools")
@@ -1644,8 +1646,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionResourcePo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1655,8 +1657,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionResourcePo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1666,8 +1668,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionResourcePo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1677,8 +1679,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionResourcePo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1688,8 +1690,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionResourcePo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1699,8 +1701,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionResourcePo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1710,8 +1712,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionResourcePo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1721,8 +1723,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionResourcePo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1732,8 +1734,8 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionResourcePo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

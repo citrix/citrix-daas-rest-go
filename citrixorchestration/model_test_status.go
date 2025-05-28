@@ -20,12 +20,12 @@ type TestStatus string
 
 // List of TestStatus
 const (
-	TESTSTATUS_FAILED TestStatus = "Failed"
-	TESTSTATUS_WARNINGS TestStatus = "Warnings"
-	TESTSTATUS_NOT_RUN TestStatus = "NotRun"
+	TESTSTATUS_FAILED     TestStatus = "Failed"
+	TESTSTATUS_WARNINGS   TestStatus = "Warnings"
+	TESTSTATUS_NOT_RUN    TestStatus = "NotRun"
 	TESTSTATUS_SUCCESSFUL TestStatus = "Successful"
-	TESTSTATUS_PENDING TestStatus = "Pending"
-	TESTSTATUS_UNKNOWN TestStatus = "Unknown"
+	TESTSTATUS_PENDING    TestStatus = "Pending"
+	TESTSTATUS_UNKNOWN    TestStatus = "Unknown"
 )
 
 // All allowed values of TestStatus enum
@@ -44,7 +44,7 @@ func (v *TestStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = TestStatus(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableTestStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -19,21 +19,20 @@ import (
 	"strings"
 )
 
-
 // TagsAPIsDAASService TagsAPIsDAAS service
 type TagsAPIsDAASService service
 
 type ApiTagsCheckTagExistsRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TagsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -87,24 +86,24 @@ TagsCheckTagExists Check for the existence of a tag by name.
 
 Check for the existence of a tag by name.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name Name of the tag.
- @return ApiTagsCheckTagExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name Name of the tag.
+	@return ApiTagsCheckTagExistsRequest
 */
 func (a *TagsAPIsDAASService) TagsCheckTagExists(ctx context.Context, name string) ApiTagsCheckTagExistsRequest {
 	return ApiTagsCheckTagExistsRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *TagsAPIsDAASService) TagsCheckTagExistsExecute(r ApiTagsCheckTagExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodHead
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodHead
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIsDAASService.TagsCheckTagExists")
@@ -202,8 +201,8 @@ func (a *TagsAPIsDAASService) TagsCheckTagExistsExecute(r ApiTagsCheckTagExistsR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -213,8 +212,8 @@ func (a *TagsAPIsDAASService) TagsCheckTagExistsExecute(r ApiTagsCheckTagExistsR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -224,8 +223,8 @@ func (a *TagsAPIsDAASService) TagsCheckTagExistsExecute(r ApiTagsCheckTagExistsR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -235,8 +234,8 @@ func (a *TagsAPIsDAASService) TagsCheckTagExistsExecute(r ApiTagsCheckTagExistsR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -246,8 +245,8 @@ func (a *TagsAPIsDAASService) TagsCheckTagExistsExecute(r ApiTagsCheckTagExistsR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -257,8 +256,8 @@ func (a *TagsAPIsDAASService) TagsCheckTagExistsExecute(r ApiTagsCheckTagExistsR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -268,8 +267,8 @@ func (a *TagsAPIsDAASService) TagsCheckTagExistsExecute(r ApiTagsCheckTagExistsR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -279,8 +278,8 @@ func (a *TagsAPIsDAASService) TagsCheckTagExistsExecute(r ApiTagsCheckTagExistsR
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -289,17 +288,17 @@ func (a *TagsAPIsDAASService) TagsCheckTagExistsExecute(r ApiTagsCheckTagExistsR
 }
 
 type ApiTagsCreateTagRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	tagRequestModel *TagRequestModel
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TagsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	tagRequestModel     *TagRequestModel
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -363,24 +362,25 @@ func (r ApiTagsCreateTagRequest) Execute() (*TagResponseModel, *http.Response, e
 /*
 TagsCreateTag Create a tag.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiTagsCreateTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTagsCreateTagRequest
 */
 func (a *TagsAPIsDAASService) TagsCreateTag(ctx context.Context) ApiTagsCreateTagRequest {
 	return ApiTagsCreateTagRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return TagResponseModel
+//
+//	@return TagResponseModel
 func (a *TagsAPIsDAASService) TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*TagResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TagResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TagResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIsDAASService.TagsCreateTag")
@@ -485,8 +485,8 @@ func (a *TagsAPIsDAASService) TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -496,8 +496,8 @@ func (a *TagsAPIsDAASService) TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -507,8 +507,8 @@ func (a *TagsAPIsDAASService) TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -518,8 +518,8 @@ func (a *TagsAPIsDAASService) TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -529,8 +529,8 @@ func (a *TagsAPIsDAASService) TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -540,8 +540,8 @@ func (a *TagsAPIsDAASService) TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -551,8 +551,8 @@ func (a *TagsAPIsDAASService) TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -562,8 +562,8 @@ func (a *TagsAPIsDAASService) TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -573,8 +573,8 @@ func (a *TagsAPIsDAASService) TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -592,18 +592,18 @@ func (a *TagsAPIsDAASService) TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*
 }
 
 type ApiTagsDeleteTagRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TagsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	force *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	force               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -667,24 +667,24 @@ func (r ApiTagsDeleteTagRequest) Execute() (*http.Response, error) {
 /*
 TagsDeleteTag Delete a tag.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the tag.
- @return ApiTagsDeleteTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the tag.
+	@return ApiTagsDeleteTagRequest
 */
 func (a *TagsAPIsDAASService) TagsDeleteTag(ctx context.Context, nameOrId string) ApiTagsDeleteTagRequest {
 	return ApiTagsDeleteTagRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *TagsAPIsDAASService) TagsDeleteTagExecute(r ApiTagsDeleteTagRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIsDAASService.TagsDeleteTag")
@@ -788,8 +788,8 @@ func (a *TagsAPIsDAASService) TagsDeleteTagExecute(r ApiTagsDeleteTagRequest) (*
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -799,8 +799,8 @@ func (a *TagsAPIsDAASService) TagsDeleteTagExecute(r ApiTagsDeleteTagRequest) (*
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -810,8 +810,8 @@ func (a *TagsAPIsDAASService) TagsDeleteTagExecute(r ApiTagsDeleteTagRequest) (*
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -821,8 +821,8 @@ func (a *TagsAPIsDAASService) TagsDeleteTagExecute(r ApiTagsDeleteTagRequest) (*
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -832,8 +832,8 @@ func (a *TagsAPIsDAASService) TagsDeleteTagExecute(r ApiTagsDeleteTagRequest) (*
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -843,8 +843,8 @@ func (a *TagsAPIsDAASService) TagsDeleteTagExecute(r ApiTagsDeleteTagRequest) (*
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -854,8 +854,8 @@ func (a *TagsAPIsDAASService) TagsDeleteTagExecute(r ApiTagsDeleteTagRequest) (*
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -865,8 +865,8 @@ func (a *TagsAPIsDAASService) TagsDeleteTagExecute(r ApiTagsDeleteTagRequest) (*
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -875,16 +875,16 @@ func (a *TagsAPIsDAASService) TagsDeleteTagExecute(r ApiTagsDeleteTagRequest) (*
 }
 
 type ApiTagsGetTagRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TagsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -936,26 +936,27 @@ func (r ApiTagsGetTagRequest) Execute() (*TagDetailResponseModel, *http.Response
 /*
 TagsGetTag Get a single tag from the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the tag.
- @return ApiTagsGetTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the tag.
+	@return ApiTagsGetTagRequest
 */
 func (a *TagsAPIsDAASService) TagsGetTag(ctx context.Context, nameOrId string) ApiTagsGetTagRequest {
 	return ApiTagsGetTagRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return TagDetailResponseModel
+//
+//	@return TagDetailResponseModel
 func (a *TagsAPIsDAASService) TagsGetTagExecute(r ApiTagsGetTagRequest) (*TagDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TagDetailResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TagDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIsDAASService.TagsGetTag")
@@ -1053,8 +1054,8 @@ func (a *TagsAPIsDAASService) TagsGetTagExecute(r ApiTagsGetTagRequest) (*TagDet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1064,8 +1065,8 @@ func (a *TagsAPIsDAASService) TagsGetTagExecute(r ApiTagsGetTagRequest) (*TagDet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1075,8 +1076,8 @@ func (a *TagsAPIsDAASService) TagsGetTagExecute(r ApiTagsGetTagRequest) (*TagDet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1086,8 +1087,8 @@ func (a *TagsAPIsDAASService) TagsGetTagExecute(r ApiTagsGetTagRequest) (*TagDet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1097,8 +1098,8 @@ func (a *TagsAPIsDAASService) TagsGetTagExecute(r ApiTagsGetTagRequest) (*TagDet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1108,8 +1109,8 @@ func (a *TagsAPIsDAASService) TagsGetTagExecute(r ApiTagsGetTagRequest) (*TagDet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1119,8 +1120,8 @@ func (a *TagsAPIsDAASService) TagsGetTagExecute(r ApiTagsGetTagRequest) (*TagDet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1130,8 +1131,8 @@ func (a *TagsAPIsDAASService) TagsGetTagExecute(r ApiTagsGetTagRequest) (*TagDet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1149,18 +1150,18 @@ func (a *TagsAPIsDAASService) TagsGetTagExecute(r ApiTagsGetTagRequest) (*TagDet
 }
 
 type ApiTagsGetTagApplicationGroupsRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TagsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1224,26 +1225,27 @@ func (r ApiTagsGetTagApplicationGroupsRequest) Execute() (*ApplicationGroupRespo
 /*
 TagsGetTagApplicationGroups Get the application groups associated with a tag.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the tag.
- @return ApiTagsGetTagApplicationGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the tag.
+	@return ApiTagsGetTagApplicationGroupsRequest
 */
 func (a *TagsAPIsDAASService) TagsGetTagApplicationGroups(ctx context.Context, nameOrId string) ApiTagsGetTagApplicationGroupsRequest {
 	return ApiTagsGetTagApplicationGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationGroupResponseModelCollection
+//
+//	@return ApplicationGroupResponseModelCollection
 func (a *TagsAPIsDAASService) TagsGetTagApplicationGroupsExecute(r ApiTagsGetTagApplicationGroupsRequest) (*ApplicationGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIsDAASService.TagsGetTagApplicationGroups")
@@ -1347,8 +1349,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationGroupsExecute(r ApiTagsGetTag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1358,8 +1360,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationGroupsExecute(r ApiTagsGetTag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1369,8 +1371,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationGroupsExecute(r ApiTagsGetTag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1380,8 +1382,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationGroupsExecute(r ApiTagsGetTag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1391,8 +1393,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationGroupsExecute(r ApiTagsGetTag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1402,8 +1404,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationGroupsExecute(r ApiTagsGetTag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1413,8 +1415,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationGroupsExecute(r ApiTagsGetTag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1424,8 +1426,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationGroupsExecute(r ApiTagsGetTag
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1443,18 +1445,18 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationGroupsExecute(r ApiTagsGetTag
 }
 
 type ApiTagsGetTagApplicationsRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TagsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1518,26 +1520,27 @@ func (r ApiTagsGetTagApplicationsRequest) Execute() (*ApplicationResponseModelCo
 /*
 TagsGetTagApplications Get the applications associated with a tag.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the tag.
- @return ApiTagsGetTagApplicationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the tag.
+	@return ApiTagsGetTagApplicationsRequest
 */
 func (a *TagsAPIsDAASService) TagsGetTagApplications(ctx context.Context, nameOrId string) ApiTagsGetTagApplicationsRequest {
 	return ApiTagsGetTagApplicationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationResponseModelCollection
+//
+//	@return ApplicationResponseModelCollection
 func (a *TagsAPIsDAASService) TagsGetTagApplicationsExecute(r ApiTagsGetTagApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIsDAASService.TagsGetTagApplications")
@@ -1641,8 +1644,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationsExecute(r ApiTagsGetTagAppli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1652,8 +1655,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationsExecute(r ApiTagsGetTagAppli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1663,8 +1666,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationsExecute(r ApiTagsGetTagAppli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1674,8 +1677,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationsExecute(r ApiTagsGetTagAppli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1685,8 +1688,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationsExecute(r ApiTagsGetTagAppli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1696,8 +1699,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationsExecute(r ApiTagsGetTagAppli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1707,8 +1710,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationsExecute(r ApiTagsGetTagAppli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1718,8 +1721,8 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationsExecute(r ApiTagsGetTagAppli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1737,18 +1740,18 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationsExecute(r ApiTagsGetTagAppli
 }
 
 type ApiTagsGetTagDeliveryGroupsRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TagsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1812,26 +1815,27 @@ func (r ApiTagsGetTagDeliveryGroupsRequest) Execute() (*DeliveryGroupResponseMod
 /*
 TagsGetTagDeliveryGroups Get the delivery groups associated with a tag.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the tag.
- @return ApiTagsGetTagDeliveryGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the tag.
+	@return ApiTagsGetTagDeliveryGroupsRequest
 */
 func (a *TagsAPIsDAASService) TagsGetTagDeliveryGroups(ctx context.Context, nameOrId string) ApiTagsGetTagDeliveryGroupsRequest {
 	return ApiTagsGetTagDeliveryGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return DeliveryGroupResponseModelCollection
+//
+//	@return DeliveryGroupResponseModelCollection
 func (a *TagsAPIsDAASService) TagsGetTagDeliveryGroupsExecute(r ApiTagsGetTagDeliveryGroupsRequest) (*DeliveryGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeliveryGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeliveryGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIsDAASService.TagsGetTagDeliveryGroups")
@@ -1935,8 +1939,8 @@ func (a *TagsAPIsDAASService) TagsGetTagDeliveryGroupsExecute(r ApiTagsGetTagDel
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1946,8 +1950,8 @@ func (a *TagsAPIsDAASService) TagsGetTagDeliveryGroupsExecute(r ApiTagsGetTagDel
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1957,8 +1961,8 @@ func (a *TagsAPIsDAASService) TagsGetTagDeliveryGroupsExecute(r ApiTagsGetTagDel
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1968,8 +1972,8 @@ func (a *TagsAPIsDAASService) TagsGetTagDeliveryGroupsExecute(r ApiTagsGetTagDel
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1979,8 +1983,8 @@ func (a *TagsAPIsDAASService) TagsGetTagDeliveryGroupsExecute(r ApiTagsGetTagDel
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1990,8 +1994,8 @@ func (a *TagsAPIsDAASService) TagsGetTagDeliveryGroupsExecute(r ApiTagsGetTagDel
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2001,8 +2005,8 @@ func (a *TagsAPIsDAASService) TagsGetTagDeliveryGroupsExecute(r ApiTagsGetTagDel
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2012,8 +2016,8 @@ func (a *TagsAPIsDAASService) TagsGetTagDeliveryGroupsExecute(r ApiTagsGetTagDel
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2031,18 +2035,18 @@ func (a *TagsAPIsDAASService) TagsGetTagDeliveryGroupsExecute(r ApiTagsGetTagDel
 }
 
 type ApiTagsGetTagMachineCatalogsRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TagsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2106,26 +2110,27 @@ func (r ApiTagsGetTagMachineCatalogsRequest) Execute() (*MachineCatalogResponseM
 /*
 TagsGetTagMachineCatalogs Get the machine catalogs associated with a tag.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the tag.
- @return ApiTagsGetTagMachineCatalogsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the tag.
+	@return ApiTagsGetTagMachineCatalogsRequest
 */
 func (a *TagsAPIsDAASService) TagsGetTagMachineCatalogs(ctx context.Context, nameOrId string) ApiTagsGetTagMachineCatalogsRequest {
 	return ApiTagsGetTagMachineCatalogsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return MachineCatalogResponseModelCollection
+//
+//	@return MachineCatalogResponseModelCollection
 func (a *TagsAPIsDAASService) TagsGetTagMachineCatalogsExecute(r ApiTagsGetTagMachineCatalogsRequest) (*MachineCatalogResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineCatalogResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineCatalogResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIsDAASService.TagsGetTagMachineCatalogs")
@@ -2229,8 +2234,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachineCatalogsExecute(r ApiTagsGetTagMa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2240,8 +2245,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachineCatalogsExecute(r ApiTagsGetTagMa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2251,8 +2256,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachineCatalogsExecute(r ApiTagsGetTagMa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2262,8 +2267,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachineCatalogsExecute(r ApiTagsGetTagMa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2273,8 +2278,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachineCatalogsExecute(r ApiTagsGetTagMa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2284,8 +2289,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachineCatalogsExecute(r ApiTagsGetTagMa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2295,8 +2300,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachineCatalogsExecute(r ApiTagsGetTagMa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2306,8 +2311,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachineCatalogsExecute(r ApiTagsGetTagMa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2325,19 +2330,19 @@ func (a *TagsAPIsDAASService) TagsGetTagMachineCatalogsExecute(r ApiTagsGetTagMa
 }
 
 type ApiTagsGetTagMachinesRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TagsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2394,7 +2399,7 @@ func (r ApiTagsGetTagMachinesRequest) ContinuationToken(continuationToken string
 	return r
 }
 
-// Optional filter, removing unspecified properties that otherwise would have been sent by the server             
+// Optional filter, removing unspecified properties that otherwise would have been sent by the server
 func (r ApiTagsGetTagMachinesRequest) Fields(fields string) ApiTagsGetTagMachinesRequest {
 	r.fields = &fields
 	return r
@@ -2407,26 +2412,27 @@ func (r ApiTagsGetTagMachinesRequest) Execute() (*MachineResponseModelCollection
 /*
 TagsGetTagMachines Get the machines associated with a tag.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the tag.
- @return ApiTagsGetTagMachinesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the tag.
+	@return ApiTagsGetTagMachinesRequest
 */
 func (a *TagsAPIsDAASService) TagsGetTagMachines(ctx context.Context, nameOrId string) ApiTagsGetTagMachinesRequest {
 	return ApiTagsGetTagMachinesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return MachineResponseModelCollection
+//
+//	@return MachineResponseModelCollection
 func (a *TagsAPIsDAASService) TagsGetTagMachinesExecute(r ApiTagsGetTagMachinesRequest) (*MachineResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIsDAASService.TagsGetTagMachines")
@@ -2533,8 +2539,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachinesExecute(r ApiTagsGetTagMachinesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2544,8 +2550,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachinesExecute(r ApiTagsGetTagMachinesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2555,8 +2561,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachinesExecute(r ApiTagsGetTagMachinesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2566,8 +2572,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachinesExecute(r ApiTagsGetTagMachinesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2577,8 +2583,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachinesExecute(r ApiTagsGetTagMachinesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2588,8 +2594,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachinesExecute(r ApiTagsGetTagMachinesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2599,8 +2605,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachinesExecute(r ApiTagsGetTagMachinesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2610,8 +2616,8 @@ func (a *TagsAPIsDAASService) TagsGetTagMachinesExecute(r ApiTagsGetTagMachinesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2629,18 +2635,18 @@ func (a *TagsAPIsDAASService) TagsGetTagMachinesExecute(r ApiTagsGetTagMachinesR
 }
 
 type ApiTagsGetTagsRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TagsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2710,24 +2716,25 @@ func (r ApiTagsGetTagsRequest) Execute() (*TagResponseModelCollection, *http.Res
 /*
 TagsGetTags Get the list of all tags in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiTagsGetTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTagsGetTagsRequest
 */
 func (a *TagsAPIsDAASService) TagsGetTags(ctx context.Context) ApiTagsGetTagsRequest {
 	return ApiTagsGetTagsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return TagResponseModelCollection
+//
+//	@return TagResponseModelCollection
 func (a *TagsAPIsDAASService) TagsGetTagsExecute(r ApiTagsGetTagsRequest) (*TagResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TagResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TagResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIsDAASService.TagsGetTags")
@@ -2833,8 +2840,8 @@ func (a *TagsAPIsDAASService) TagsGetTagsExecute(r ApiTagsGetTagsRequest) (*TagR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2844,8 +2851,8 @@ func (a *TagsAPIsDAASService) TagsGetTagsExecute(r ApiTagsGetTagsRequest) (*TagR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2855,8 +2862,8 @@ func (a *TagsAPIsDAASService) TagsGetTagsExecute(r ApiTagsGetTagsRequest) (*TagR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2866,8 +2873,8 @@ func (a *TagsAPIsDAASService) TagsGetTagsExecute(r ApiTagsGetTagsRequest) (*TagR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2877,8 +2884,8 @@ func (a *TagsAPIsDAASService) TagsGetTagsExecute(r ApiTagsGetTagsRequest) (*TagR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2888,8 +2895,8 @@ func (a *TagsAPIsDAASService) TagsGetTagsExecute(r ApiTagsGetTagsRequest) (*TagR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2899,8 +2906,8 @@ func (a *TagsAPIsDAASService) TagsGetTagsExecute(r ApiTagsGetTagsRequest) (*TagR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2918,18 +2925,18 @@ func (a *TagsAPIsDAASService) TagsGetTagsExecute(r ApiTagsGetTagsRequest) (*TagR
 }
 
 type ApiTagsPatchTagRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	tagRequestModel *TagRequestModel
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TagsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	tagRequestModel     *TagRequestModel
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2993,26 +3000,27 @@ func (r ApiTagsPatchTagRequest) Execute() (*TagResponseModel, *http.Response, er
 /*
 TagsPatchTag Update a tag.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the tag.
- @return ApiTagsPatchTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the tag.
+	@return ApiTagsPatchTagRequest
 */
 func (a *TagsAPIsDAASService) TagsPatchTag(ctx context.Context, nameOrId string) ApiTagsPatchTagRequest {
 	return ApiTagsPatchTagRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return TagResponseModel
+//
+//	@return TagResponseModel
 func (a *TagsAPIsDAASService) TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*TagResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TagResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TagResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIsDAASService.TagsPatchTag")
@@ -3118,8 +3126,8 @@ func (a *TagsAPIsDAASService) TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*Ta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3129,8 +3137,8 @@ func (a *TagsAPIsDAASService) TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*Ta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3140,8 +3148,8 @@ func (a *TagsAPIsDAASService) TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*Ta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3151,8 +3159,8 @@ func (a *TagsAPIsDAASService) TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*Ta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3162,8 +3170,8 @@ func (a *TagsAPIsDAASService) TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*Ta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -3173,8 +3181,8 @@ func (a *TagsAPIsDAASService) TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*Ta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3184,8 +3192,8 @@ func (a *TagsAPIsDAASService) TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*Ta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3195,8 +3203,8 @@ func (a *TagsAPIsDAASService) TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*Ta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3206,8 +3214,8 @@ func (a *TagsAPIsDAASService) TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*Ta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3225,18 +3233,18 @@ func (a *TagsAPIsDAASService) TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*Ta
 }
 
 type ApiTagsSetTagApplicationsRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	refsRequestModel *RefsRequestModel
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TagsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	refsRequestModel    *RefsRequestModel
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3302,24 +3310,24 @@ TagsSetTagApplications Associate a tag with applications.
 
 Associate a tag with applications.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the tag.
- @return ApiTagsSetTagApplicationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the tag.
+	@return ApiTagsSetTagApplicationsRequest
 */
 func (a *TagsAPIsDAASService) TagsSetTagApplications(ctx context.Context, nameOrId string) ApiTagsSetTagApplicationsRequest {
 	return ApiTagsSetTagApplicationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *TagsAPIsDAASService) TagsSetTagApplicationsExecute(r ApiTagsSetTagApplicationsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIsDAASService.TagsSetTagApplications")
@@ -3425,8 +3433,8 @@ func (a *TagsAPIsDAASService) TagsSetTagApplicationsExecute(r ApiTagsSetTagAppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3436,8 +3444,8 @@ func (a *TagsAPIsDAASService) TagsSetTagApplicationsExecute(r ApiTagsSetTagAppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3447,8 +3455,8 @@ func (a *TagsAPIsDAASService) TagsSetTagApplicationsExecute(r ApiTagsSetTagAppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3458,8 +3466,8 @@ func (a *TagsAPIsDAASService) TagsSetTagApplicationsExecute(r ApiTagsSetTagAppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3469,8 +3477,8 @@ func (a *TagsAPIsDAASService) TagsSetTagApplicationsExecute(r ApiTagsSetTagAppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -3480,8 +3488,8 @@ func (a *TagsAPIsDAASService) TagsSetTagApplicationsExecute(r ApiTagsSetTagAppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3491,8 +3499,8 @@ func (a *TagsAPIsDAASService) TagsSetTagApplicationsExecute(r ApiTagsSetTagAppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3502,8 +3510,8 @@ func (a *TagsAPIsDAASService) TagsSetTagApplicationsExecute(r ApiTagsSetTagAppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3513,8 +3521,8 @@ func (a *TagsAPIsDAASService) TagsSetTagApplicationsExecute(r ApiTagsSetTagAppli
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3523,18 +3531,18 @@ func (a *TagsAPIsDAASService) TagsSetTagApplicationsExecute(r ApiTagsSetTagAppli
 }
 
 type ApiTagsSetTagDeliveryGroupsRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	refsRequestModel *RefsRequestModel
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TagsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	refsRequestModel    *RefsRequestModel
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3598,24 +3606,24 @@ func (r ApiTagsSetTagDeliveryGroupsRequest) Execute() (*http.Response, error) {
 /*
 TagsSetTagDeliveryGroups Associate a tag with delivery groups.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the tag.
- @return ApiTagsSetTagDeliveryGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the tag.
+	@return ApiTagsSetTagDeliveryGroupsRequest
 */
 func (a *TagsAPIsDAASService) TagsSetTagDeliveryGroups(ctx context.Context, nameOrId string) ApiTagsSetTagDeliveryGroupsRequest {
 	return ApiTagsSetTagDeliveryGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *TagsAPIsDAASService) TagsSetTagDeliveryGroupsExecute(r ApiTagsSetTagDeliveryGroupsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIsDAASService.TagsSetTagDeliveryGroups")
@@ -3721,8 +3729,8 @@ func (a *TagsAPIsDAASService) TagsSetTagDeliveryGroupsExecute(r ApiTagsSetTagDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3732,8 +3740,8 @@ func (a *TagsAPIsDAASService) TagsSetTagDeliveryGroupsExecute(r ApiTagsSetTagDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3743,8 +3751,8 @@ func (a *TagsAPIsDAASService) TagsSetTagDeliveryGroupsExecute(r ApiTagsSetTagDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3754,8 +3762,8 @@ func (a *TagsAPIsDAASService) TagsSetTagDeliveryGroupsExecute(r ApiTagsSetTagDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3765,8 +3773,8 @@ func (a *TagsAPIsDAASService) TagsSetTagDeliveryGroupsExecute(r ApiTagsSetTagDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -3776,8 +3784,8 @@ func (a *TagsAPIsDAASService) TagsSetTagDeliveryGroupsExecute(r ApiTagsSetTagDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3787,8 +3795,8 @@ func (a *TagsAPIsDAASService) TagsSetTagDeliveryGroupsExecute(r ApiTagsSetTagDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3798,8 +3806,8 @@ func (a *TagsAPIsDAASService) TagsSetTagDeliveryGroupsExecute(r ApiTagsSetTagDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3809,8 +3817,8 @@ func (a *TagsAPIsDAASService) TagsSetTagDeliveryGroupsExecute(r ApiTagsSetTagDel
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

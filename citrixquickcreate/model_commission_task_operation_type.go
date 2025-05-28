@@ -20,9 +20,9 @@ type CommissionTaskOperationType string
 
 // List of CommissionTaskOperationType
 const (
-	COMMISSIONTASKOPERATIONTYPE_DECOMMISSION CommissionTaskOperationType = "DECOMMISSION"
-	COMMISSIONTASKOPERATIONTYPE_DELETE CommissionTaskOperationType = "DELETE"
-	COMMISSIONTASKOPERATIONTYPE_RECOMMISSION CommissionTaskOperationType = "RECOMMISSION"
+	COMMISSIONTASKOPERATIONTYPE_DECOMMISSION    CommissionTaskOperationType = "DECOMMISSION"
+	COMMISSIONTASKOPERATIONTYPE_DELETE          CommissionTaskOperationType = "DELETE"
+	COMMISSIONTASKOPERATIONTYPE_RECOMMISSION    CommissionTaskOperationType = "RECOMMISSION"
 	COMMISSIONTASKOPERATIONTYPE_POWER_RESOURCES CommissionTaskOperationType = "POWER_RESOURCES"
 )
 
@@ -112,4 +112,3 @@ func (v *NullableCommissionTaskOperationType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

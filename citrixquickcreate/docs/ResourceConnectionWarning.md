@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WarningType** | Pointer to [**ResourceConnectionWarningType**](ResourceConnectionWarningType.md) |  | [optional] 
+**WarningType** | Pointer to [**ResourceConnectionWarningType**](ResourceConnectionWarningType.md) | Type of resource connection warning | [optional] 
 **Id** | Pointer to **NullableString** | Id of the warning | [optional] 
 **Warning** | Pointer to **NullableString** | The warning message | [optional] 
 **TaskId** | Pointer to **NullableString** | ID of the task the warning was created by | [optional] 

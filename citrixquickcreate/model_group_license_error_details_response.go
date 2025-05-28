@@ -60,7 +60,7 @@ func (o *GroupLicenseErrorDetailsResponse) GetLicenseStatusOk() ([]ResponseDetai
 
 // HasLicenseStatus returns a boolean if a field has been set.
 func (o *GroupLicenseErrorDetailsResponse) HasLicenseStatus() bool {
-	if o != nil && IsNil(o.LicenseStatus) {
+	if o != nil && !IsNil(o.LicenseStatus) {
 		return true
 	}
 
@@ -73,7 +73,7 @@ func (o *GroupLicenseErrorDetailsResponse) SetLicenseStatus(v []ResponseDetailsG
 }
 
 func (o GroupLicenseErrorDetailsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableGroupLicenseErrorDetailsResponse) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

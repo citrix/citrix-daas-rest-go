@@ -20,15 +20,15 @@ type MachineCatalogWarningType string
 
 // List of MachineCatalogWarningType
 const (
-	MACHINECATALOGWARNINGTYPE_UNKNOWN MachineCatalogWarningType = "Unknown"
-	MACHINECATALOGWARNINGTYPE_RDS_CATALOG_LICENSE_CHECK MachineCatalogWarningType = "RdsCatalogLicenseCheck"
+	MACHINECATALOGWARNINGTYPE_UNKNOWN                                       MachineCatalogWarningType = "Unknown"
+	MACHINECATALOGWARNINGTYPE_RDS_CATALOG_LICENSE_CHECK                     MachineCatalogWarningType = "RdsCatalogLicenseCheck"
 	MACHINECATALOGWARNINGTYPE_IMAGE_PREPARATION_OFFICE_REARM_COUNT_EXCEEDED MachineCatalogWarningType = "ImagePreparationOfficeRearmCountExceeded"
-	MACHINECATALOGWARNINGTYPE_IMAGE_PREPARATION_OFFICE_REARM_FAILED MachineCatalogWarningType = "ImagePreparationOfficeRearmFailed"
-	MACHINECATALOGWARNINGTYPE_IMAGE_PREPARATION_OS_REARM_COUNT_EXCEEDED MachineCatalogWarningType = "ImagePreparationOSRearmCountExceeded"
-	MACHINECATALOGWARNINGTYPE_IMAGE_PREPARATION_OS_REARM_FAILED MachineCatalogWarningType = "ImagePreparationOSRearmFailed"
-	MACHINECATALOGWARNINGTYPE_CATALOG_ACTION MachineCatalogWarningType = "CatalogAction"
-	MACHINECATALOGWARNINGTYPE_GET_CUSTOM_PROPERTIES_FAILED MachineCatalogWarningType = "GetCustomPropertiesFailed"
-	MACHINECATALOGWARNINGTYPE_GET_VM_METADATA_FAILED MachineCatalogWarningType = "GetVMMetadataFailed"
+	MACHINECATALOGWARNINGTYPE_IMAGE_PREPARATION_OFFICE_REARM_FAILED         MachineCatalogWarningType = "ImagePreparationOfficeRearmFailed"
+	MACHINECATALOGWARNINGTYPE_IMAGE_PREPARATION_OS_REARM_COUNT_EXCEEDED     MachineCatalogWarningType = "ImagePreparationOSRearmCountExceeded"
+	MACHINECATALOGWARNINGTYPE_IMAGE_PREPARATION_OS_REARM_FAILED             MachineCatalogWarningType = "ImagePreparationOSRearmFailed"
+	MACHINECATALOGWARNINGTYPE_CATALOG_ACTION                                MachineCatalogWarningType = "CatalogAction"
+	MACHINECATALOGWARNINGTYPE_GET_CUSTOM_PROPERTIES_FAILED                  MachineCatalogWarningType = "GetCustomPropertiesFailed"
+	MACHINECATALOGWARNINGTYPE_GET_VM_METADATA_FAILED                        MachineCatalogWarningType = "GetVMMetadataFailed"
 )
 
 // All allowed values of MachineCatalogWarningType enum
@@ -50,7 +50,7 @@ func (v *MachineCatalogWarningType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MachineCatalogWarningType(value)
 	return nil
 }
@@ -116,4 +116,3 @@ func (v *NullableMachineCatalogWarningType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

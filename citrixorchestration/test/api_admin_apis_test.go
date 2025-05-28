@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminCheckRoleNameExists", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var name string
 
@@ -37,7 +38,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminCheckScopeNameExists", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var name string
 
@@ -50,7 +51,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminCreateAdminAdministrator", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.AdminAPIsDAAS.AdminCreateAdminAdministrator(context.Background()).Execute()
 
@@ -61,7 +62,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminCreateAdminRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.AdminAPIsDAAS.AdminCreateAdminRole(context.Background()).Execute()
 
@@ -72,7 +73,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminCreateAdminScope", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.AdminAPIsDAAS.AdminCreateAdminScope(context.Background()).Execute()
 
@@ -83,7 +84,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminDeleteAdminAdministrator", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -96,7 +97,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminDeleteAdminRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -109,7 +110,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminDeleteAdminScope", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -122,7 +123,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetAdminAdministrator", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -136,7 +137,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetAdminAdministrators", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdminAdministrators(context.Background()).Execute()
 
@@ -148,7 +149,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetAdminEffectiveRights", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdminEffectiveRights(context.Background()).Execute()
 
@@ -160,7 +161,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetAdminRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -174,7 +175,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetAdminRoles", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdminRoles(context.Background()).Execute()
 
@@ -186,7 +187,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetAdminScope", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -200,7 +201,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetAdminScopedObjects", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -214,7 +215,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetAdminScopes", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdminScopes(context.Background()).Execute()
 
@@ -226,7 +227,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetAdministratorNamePreview", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var name string
 
@@ -240,7 +241,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetAdministratorReport", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -254,7 +255,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetDeleteAdministratorConsequence", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -268,7 +269,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetPredefinedPermissionGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetPredefinedPermissionGroups(context.Background()).Execute()
 
@@ -280,7 +281,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetPredefinedPermissions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetPredefinedPermissions(context.Background()).Execute()
 
@@ -292,7 +293,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminGetPredefinedPermissionsForGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -306,7 +307,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminPreviewAdministratorReport", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminPreviewAdministratorReport(context.Background()).Execute()
 
@@ -318,7 +319,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminUpdateAdminAdministrator", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -331,7 +332,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminUpdateAdminRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -344,7 +345,7 @@ func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AdminAPIsDAASService AdminUpdateAdminScope", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 

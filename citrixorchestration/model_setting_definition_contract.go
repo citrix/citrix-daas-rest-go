@@ -62,8 +62,8 @@ type SettingDefinitionContract struct {
 	// Custom text for the allowed explanation for some boolean settings.
 	AllowedText NullableString `json:"AllowedText,omitempty"`
 	// Custom text for the denied explanation for some boolean settings.
-	DeniedText NullableString `json:"DeniedText,omitempty"`
-	EnumType *EnumerationTypeContract `json:"EnumType,omitempty"`
+	DeniedText NullableString           `json:"DeniedText,omitempty"`
+	EnumType   *EnumerationTypeContract `json:"EnumType,omitempty"`
 	// VDA versions honoring this setting.
 	VdaVersions []VdaVersionContract `json:"VdaVersions,omitempty"`
 	// Scope, e.g. ConfigSlot
@@ -121,6 +121,7 @@ func (o *SettingDefinitionContract) HasEditorName() bool {
 func (o *SettingDefinitionContract) SetEditorName(v string) {
 	o.EditorName.Set(&v)
 }
+
 // SetEditorNameNil sets the value for EditorName to be an explicit nil
 func (o *SettingDefinitionContract) SetEditorNameNil() {
 	o.EditorName.Set(nil)
@@ -163,6 +164,7 @@ func (o *SettingDefinitionContract) HasSettingName() bool {
 func (o *SettingDefinitionContract) SetSettingName(v string) {
 	o.SettingName.Set(&v)
 }
+
 // SetSettingNameNil sets the value for SettingName to be an explicit nil
 func (o *SettingDefinitionContract) SetSettingNameNil() {
 	o.SettingName.Set(nil)
@@ -205,6 +207,7 @@ func (o *SettingDefinitionContract) HasSettingType() bool {
 func (o *SettingDefinitionContract) SetSettingType(v string) {
 	o.SettingType.Set(&v)
 }
+
 // SetSettingTypeNil sets the value for SettingType to be an explicit nil
 func (o *SettingDefinitionContract) SetSettingTypeNil() {
 	o.SettingType.Set(nil)
@@ -247,6 +250,7 @@ func (o *SettingDefinitionContract) HasDisplayName() bool {
 func (o *SettingDefinitionContract) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *SettingDefinitionContract) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -289,6 +293,7 @@ func (o *SettingDefinitionContract) HasCategory() bool {
 func (o *SettingDefinitionContract) SetCategory(v string) {
 	o.Category.Set(&v)
 }
+
 // SetCategoryNil sets the value for Category to be an explicit nil
 func (o *SettingDefinitionContract) SetCategoryNil() {
 	o.Category.Set(nil)
@@ -331,6 +336,7 @@ func (o *SettingDefinitionContract) HasExplanation() bool {
 func (o *SettingDefinitionContract) SetExplanation(v string) {
 	o.Explanation.Set(&v)
 }
+
 // SetExplanationNil sets the value for Explanation to be an explicit nil
 func (o *SettingDefinitionContract) SetExplanationNil() {
 	o.Explanation.Set(nil)
@@ -405,6 +411,7 @@ func (o *SettingDefinitionContract) HasValueType() bool {
 func (o *SettingDefinitionContract) SetValueType(v string) {
 	o.ValueType.Set(&v)
 }
+
 // SetValueTypeNil sets the value for ValueType to be an explicit nil
 func (o *SettingDefinitionContract) SetValueTypeNil() {
 	o.ValueType.Set(nil)
@@ -543,6 +550,7 @@ func (o *SettingDefinitionContract) HasDefaultValue() bool {
 func (o *SettingDefinitionContract) SetDefaultValue(v string) {
 	o.DefaultValue.Set(&v)
 }
+
 // SetDefaultValueNil sets the value for DefaultValue to be an explicit nil
 func (o *SettingDefinitionContract) SetDefaultValueNil() {
 	o.DefaultValue.Set(nil)
@@ -585,6 +593,7 @@ func (o *SettingDefinitionContract) HasDisabledValue() bool {
 func (o *SettingDefinitionContract) SetDisabledValue(v string) {
 	o.DisabledValue.Set(&v)
 }
+
 // SetDisabledValueNil sets the value for DisabledValue to be an explicit nil
 func (o *SettingDefinitionContract) SetDisabledValueNil() {
 	o.DisabledValue.Set(nil)
@@ -627,6 +636,7 @@ func (o *SettingDefinitionContract) HasInitialValue() bool {
 func (o *SettingDefinitionContract) SetInitialValue(v string) {
 	o.InitialValue.Set(&v)
 }
+
 // SetInitialValueNil sets the value for InitialValue to be an explicit nil
 func (o *SettingDefinitionContract) SetInitialValueNil() {
 	o.InitialValue.Set(nil)
@@ -669,6 +679,7 @@ func (o *SettingDefinitionContract) HasValueMinimum() bool {
 func (o *SettingDefinitionContract) SetValueMinimum(v string) {
 	o.ValueMinimum.Set(&v)
 }
+
 // SetValueMinimumNil sets the value for ValueMinimum to be an explicit nil
 func (o *SettingDefinitionContract) SetValueMinimumNil() {
 	o.ValueMinimum.Set(nil)
@@ -711,6 +722,7 @@ func (o *SettingDefinitionContract) HasValueMaximum() bool {
 func (o *SettingDefinitionContract) SetValueMaximum(v string) {
 	o.ValueMaximum.Set(&v)
 }
+
 // SetValueMaximumNil sets the value for ValueMaximum to be an explicit nil
 func (o *SettingDefinitionContract) SetValueMaximumNil() {
 	o.ValueMaximum.Set(nil)
@@ -753,6 +765,7 @@ func (o *SettingDefinitionContract) HasValueValidator() bool {
 func (o *SettingDefinitionContract) SetValueValidator(v string) {
 	o.ValueValidator.Set(&v)
 }
+
 // SetValueValidatorNil sets the value for ValueValidator to be an explicit nil
 func (o *SettingDefinitionContract) SetValueValidatorNil() {
 	o.ValueValidator.Set(nil)
@@ -795,6 +808,7 @@ func (o *SettingDefinitionContract) HasValidatorError() bool {
 func (o *SettingDefinitionContract) SetValidatorError(v string) {
 	o.ValidatorError.Set(&v)
 }
+
 // SetValidatorErrorNil sets the value for ValidatorError to be an explicit nil
 func (o *SettingDefinitionContract) SetValidatorErrorNil() {
 	o.ValidatorError.Set(nil)
@@ -870,6 +884,7 @@ func (o *SettingDefinitionContract) HasValueUnit() bool {
 func (o *SettingDefinitionContract) SetValueUnit(v string) {
 	o.ValueUnit.Set(&v)
 }
+
 // SetValueUnitNil sets the value for ValueUnit to be an explicit nil
 func (o *SettingDefinitionContract) SetValueUnitNil() {
 	o.ValueUnit.Set(nil)
@@ -912,6 +927,7 @@ func (o *SettingDefinitionContract) HasAllowedText() bool {
 func (o *SettingDefinitionContract) SetAllowedText(v string) {
 	o.AllowedText.Set(&v)
 }
+
 // SetAllowedTextNil sets the value for AllowedText to be an explicit nil
 func (o *SettingDefinitionContract) SetAllowedTextNil() {
 	o.AllowedText.Set(nil)
@@ -954,6 +970,7 @@ func (o *SettingDefinitionContract) HasDeniedText() bool {
 func (o *SettingDefinitionContract) SetDeniedText(v string) {
 	o.DeniedText.Set(&v)
 }
+
 // SetDeniedTextNil sets the value for DeniedText to be an explicit nil
 func (o *SettingDefinitionContract) SetDeniedTextNil() {
 	o.DeniedText.Set(nil)
@@ -1061,6 +1078,7 @@ func (o *SettingDefinitionContract) HasGpoScope() bool {
 func (o *SettingDefinitionContract) SetGpoScope(v string) {
 	o.GpoScope.Set(&v)
 }
+
 // SetGpoScopeNil sets the value for GpoScope to be an explicit nil
 func (o *SettingDefinitionContract) SetGpoScopeNil() {
 	o.GpoScope.Set(nil)
@@ -1103,6 +1121,7 @@ func (o *SettingDefinitionContract) HasProductGroup() bool {
 func (o *SettingDefinitionContract) SetProductGroup(v string) {
 	o.ProductGroup.Set(&v)
 }
+
 // SetProductGroupNil sets the value for ProductGroup to be an explicit nil
 func (o *SettingDefinitionContract) SetProductGroupNil() {
 	o.ProductGroup.Set(nil)
@@ -1114,7 +1133,7 @@ func (o *SettingDefinitionContract) UnsetProductGroup() {
 }
 
 func (o SettingDefinitionContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1239,5 +1258,3 @@ func (v *NullableSettingDefinitionContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

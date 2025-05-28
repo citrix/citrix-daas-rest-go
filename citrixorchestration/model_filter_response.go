@@ -114,6 +114,7 @@ func (o *FilterResponse) HasFilterType() bool {
 func (o *FilterResponse) SetFilterType(v string) {
 	o.FilterType.Set(&v)
 }
+
 // SetFilterTypeNil sets the value for FilterType to be an explicit nil
 func (o *FilterResponse) SetFilterTypeNil() {
 	o.FilterType.Set(nil)
@@ -252,6 +253,7 @@ func (o *FilterResponse) HasFilterData() bool {
 func (o *FilterResponse) SetFilterData(v string) {
 	o.FilterData.Set(&v)
 }
+
 // SetFilterDataNil sets the value for FilterData to be an explicit nil
 func (o *FilterResponse) SetFilterDataNil() {
 	o.FilterData.Set(nil)
@@ -263,7 +265,7 @@ func (o *FilterResponse) UnsetFilterData() {
 }
 
 func (o FilterResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -328,5 +330,3 @@ func (v *NullableFilterResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

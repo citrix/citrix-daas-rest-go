@@ -18,18 +18,17 @@ import (
 	"net/url"
 )
 
-
 // HealthCheckAPIsDAASService HealthCheckAPIsDAAS service
 type HealthCheckAPIsDAASService service
 
 type ApiHealthCheckHealthCheckRequest struct {
-	ctx context.Context
-	ApiService *HealthCheckAPIsDAASService
-	citrixCustomerId *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *HealthCheckAPIsDAASService
+	citrixCustomerId    *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -69,24 +68,25 @@ func (r ApiHealthCheckHealthCheckRequest) Execute() (bool, *http.Response, error
 /*
 HealthCheckHealthCheck The health check endpoint.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiHealthCheckHealthCheckRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHealthCheckHealthCheckRequest
 */
 func (a *HealthCheckAPIsDAASService) HealthCheckHealthCheck(ctx context.Context) ApiHealthCheckHealthCheckRequest {
 	return ApiHealthCheckHealthCheckRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return bool
+//
+//	@return bool
 func (a *HealthCheckAPIsDAASService) HealthCheckHealthCheckExecute(r ApiHealthCheckHealthCheckRequest) (bool, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  bool
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HealthCheckAPIsDAASService.HealthCheckHealthCheck")
@@ -176,8 +176,8 @@ func (a *HealthCheckAPIsDAASService) HealthCheckHealthCheckExecute(r ApiHealthCh
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -187,8 +187,8 @@ func (a *HealthCheckAPIsDAASService) HealthCheckHealthCheckExecute(r ApiHealthCh
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -198,8 +198,8 @@ func (a *HealthCheckAPIsDAASService) HealthCheckHealthCheckExecute(r ApiHealthCh
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -209,8 +209,8 @@ func (a *HealthCheckAPIsDAASService) HealthCheckHealthCheckExecute(r ApiHealthCh
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -220,8 +220,8 @@ func (a *HealthCheckAPIsDAASService) HealthCheckHealthCheckExecute(r ApiHealthCh
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -231,8 +231,8 @@ func (a *HealthCheckAPIsDAASService) HealthCheckHealthCheckExecute(r ApiHealthCh
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -242,8 +242,8 @@ func (a *HealthCheckAPIsDAASService) HealthCheckHealthCheckExecute(r ApiHealthCh
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -98,6 +98,7 @@ func (o *AppVAppResponseModel) HasId() bool {
 func (o *AppVAppResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *AppVAppResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -236,6 +237,7 @@ func (o *AppVAppResponseModel) HasPublishingServer() bool {
 func (o *AppVAppResponseModel) SetPublishingServer(v string) {
 	o.PublishingServer.Set(&v)
 }
+
 // SetPublishingServerNil sets the value for PublishingServer to be an explicit nil
 func (o *AppVAppResponseModel) SetPublishingServerNil() {
 	o.PublishingServer.Set(nil)
@@ -278,6 +280,7 @@ func (o *AppVAppResponseModel) HasManagementServer() bool {
 func (o *AppVAppResponseModel) SetManagementServer(v string) {
 	o.ManagementServer.Set(&v)
 }
+
 // SetManagementServerNil sets the value for ManagementServer to be an explicit nil
 func (o *AppVAppResponseModel) SetManagementServerNil() {
 	o.ManagementServer.Set(nil)
@@ -344,6 +347,7 @@ func (o *AppVAppResponseModel) HasServerMachineConfigurationUid() bool {
 func (o *AppVAppResponseModel) SetServerMachineConfigurationUid(v string) {
 	o.ServerMachineConfigurationUid.Set(&v)
 }
+
 // SetServerMachineConfigurationUidNil sets the value for ServerMachineConfigurationUid to be an explicit nil
 func (o *AppVAppResponseModel) SetServerMachineConfigurationUidNil() {
 	o.ServerMachineConfigurationUid.Set(nil)
@@ -410,6 +414,7 @@ func (o *AppVAppResponseModel) HasSourceTypeName() bool {
 func (o *AppVAppResponseModel) SetSourceTypeName(v string) {
 	o.SourceTypeName.Set(&v)
 }
+
 // SetSourceTypeNameNil sets the value for SourceTypeName to be an explicit nil
 func (o *AppVAppResponseModel) SetSourceTypeNameNil() {
 	o.SourceTypeName.Set(nil)
@@ -421,7 +426,7 @@ func (o *AppVAppResponseModel) UnsetSourceTypeName() {
 }
 
 func (o AppVAppResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -489,5 +494,3 @@ func (v *NullableAppVAppResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

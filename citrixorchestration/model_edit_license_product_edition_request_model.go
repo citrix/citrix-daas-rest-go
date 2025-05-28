@@ -20,10 +20,10 @@ var _ MappedNullable = &EditLicenseProductEditionRequestModel{}
 // EditLicenseProductEditionRequestModel Request model to edit license product edition
 type EditLicenseProductEditionRequestModel struct {
 	// Use License Activation Service and should be used exclusively
-	UseLicenseActivationService NullableBool `json:"UseLicenseActivationService,omitempty"`
-	LicenseProduct *LicenseProduct `json:"LicenseProduct,omitempty"`
-	ProductEdition *ProductEdition `json:"ProductEdition,omitempty"`
-	LicenseModel *LicenseModel `json:"LicenseModel,omitempty"`
+	UseLicenseActivationService NullableBool    `json:"UseLicenseActivationService,omitempty"`
+	LicenseProduct              *LicenseProduct `json:"LicenseProduct,omitempty"`
+	ProductEdition              *ProductEdition `json:"ProductEdition,omitempty"`
+	LicenseModel                *LicenseModel   `json:"LicenseModel,omitempty"`
 }
 
 // NewEditLicenseProductEditionRequestModel instantiates a new EditLicenseProductEditionRequestModel object
@@ -75,6 +75,7 @@ func (o *EditLicenseProductEditionRequestModel) HasUseLicenseActivationService()
 func (o *EditLicenseProductEditionRequestModel) SetUseLicenseActivationService(v bool) {
 	o.UseLicenseActivationService.Set(&v)
 }
+
 // SetUseLicenseActivationServiceNil sets the value for UseLicenseActivationService to be an explicit nil
 func (o *EditLicenseProductEditionRequestModel) SetUseLicenseActivationServiceNil() {
 	o.UseLicenseActivationService.Set(nil)
@@ -182,7 +183,7 @@ func (o *EditLicenseProductEditionRequestModel) SetLicenseModel(v LicenseModel) 
 }
 
 func (o EditLicenseProductEditionRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -241,5 +242,3 @@ func (v *NullableEditLicenseProductEditionRequestModel) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

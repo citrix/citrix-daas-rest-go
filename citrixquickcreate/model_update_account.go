@@ -19,8 +19,11 @@ var _ MappedNullable = &UpdateAccount{}
 
 // UpdateAccount Updates account
 type UpdateAccount struct {
+	// The type of provider associated with the account
 	AccountOperationType UpdateAccountOperationType `json:"accountOperationType"`
 }
+
+type _UpdateAccount UpdateAccount
 
 // NewUpdateAccount instantiates a new UpdateAccount object
 // This constructor will assign default values to properties that have it defined,
@@ -65,7 +68,7 @@ func (o *UpdateAccount) SetAccountOperationType(v UpdateAccountOperationType) {
 }
 
 func (o UpdateAccount) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -113,5 +116,3 @@ func (v *NullableUpdateAccount) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -109,6 +109,7 @@ func (o *PrinterAssignmentContract) HasSpecificDefaultPrinter() bool {
 func (o *PrinterAssignmentContract) SetSpecificDefaultPrinter(v string) {
 	o.SpecificDefaultPrinter.Set(&v)
 }
+
 // SetSpecificDefaultPrinterNil sets the value for SpecificDefaultPrinter to be an explicit nil
 func (o *PrinterAssignmentContract) SetSpecificDefaultPrinterNil() {
 	o.SpecificDefaultPrinter.Set(nil)
@@ -186,7 +187,7 @@ func (o *PrinterAssignmentContract) SetFilters(v []string) {
 }
 
 func (o PrinterAssignmentContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -245,5 +246,3 @@ func (v *NullablePrinterAssignmentContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

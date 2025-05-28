@@ -20,10 +20,10 @@ type AdminFolderObjects string
 
 // List of AdminFolderObjects
 const (
-	ADMINFOLDEROBJECTS_UNKNOWN AdminFolderObjects = "Unknown"
-	ADMINFOLDEROBJECTS_APPLICATIONS AdminFolderObjects = "Applications"
-	ADMINFOLDEROBJECTS_MACHINE_CATALOGS AdminFolderObjects = "MachineCatalogs"
-	ADMINFOLDEROBJECTS_DELIVERY_GROUPS AdminFolderObjects = "DeliveryGroups"
+	ADMINFOLDEROBJECTS_UNKNOWN            AdminFolderObjects = "Unknown"
+	ADMINFOLDEROBJECTS_APPLICATIONS       AdminFolderObjects = "Applications"
+	ADMINFOLDEROBJECTS_MACHINE_CATALOGS   AdminFolderObjects = "MachineCatalogs"
+	ADMINFOLDEROBJECTS_DELIVERY_GROUPS    AdminFolderObjects = "DeliveryGroups"
 	ADMINFOLDEROBJECTS_APPLICATION_GROUPS AdminFolderObjects = "ApplicationGroups"
 )
 
@@ -42,7 +42,7 @@ func (v *AdminFolderObjects) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AdminFolderObjects(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableAdminFolderObjects) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

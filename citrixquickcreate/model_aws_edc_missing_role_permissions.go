@@ -25,7 +25,8 @@ type AwsEdcMissingRolePermissions struct {
 	Action []string `json:"action,omitempty"`
 	// Target resources for the permissions
 	Resource NullableString `json:"resource,omitempty"`
-	Condition NullableAwsEdcMissingRolePermissionsCondition `json:"condition,omitempty"`
+	// Condition statements
+	Condition NullableConditionalExpression `json:"condition,omitempty"`
 }
 
 // NewAwsEdcMissingRolePermissions instantiates a new AwsEdcMissingRolePermissions object
@@ -77,6 +78,7 @@ func (o *AwsEdcMissingRolePermissions) HasEffect() bool {
 func (o *AwsEdcMissingRolePermissions) SetEffect(v string) {
 	o.Effect.Set(&v)
 }
+
 // SetEffectNil sets the value for Effect to be an explicit nil
 func (o *AwsEdcMissingRolePermissions) SetEffectNil() {
 	o.Effect.Set(nil)
@@ -108,7 +110,7 @@ func (o *AwsEdcMissingRolePermissions) GetActionOk() ([]string, bool) {
 
 // HasAction returns a boolean if a field has been set.
 func (o *AwsEdcMissingRolePermissions) HasAction() bool {
-	if o != nil && IsNil(o.Action) {
+	if o != nil && !IsNil(o.Action) {
 		return true
 	}
 
@@ -152,6 +154,7 @@ func (o *AwsEdcMissingRolePermissions) HasResource() bool {
 func (o *AwsEdcMissingRolePermissions) SetResource(v string) {
 	o.Resource.Set(&v)
 }
+
 // SetResourceNil sets the value for Resource to be an explicit nil
 func (o *AwsEdcMissingRolePermissions) SetResourceNil() {
 	o.Resource.Set(nil)
@@ -163,9 +166,9 @@ func (o *AwsEdcMissingRolePermissions) UnsetResource() {
 }
 
 // GetCondition returns the Condition field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AwsEdcMissingRolePermissions) GetCondition() AwsEdcMissingRolePermissionsCondition {
+func (o *AwsEdcMissingRolePermissions) GetCondition() ConditionalExpression {
 	if o == nil || IsNil(o.Condition.Get()) {
-		var ret AwsEdcMissingRolePermissionsCondition
+		var ret ConditionalExpression
 		return ret
 	}
 	return *o.Condition.Get()
@@ -174,7 +177,7 @@ func (o *AwsEdcMissingRolePermissions) GetCondition() AwsEdcMissingRolePermissio
 // GetConditionOk returns a tuple with the Condition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AwsEdcMissingRolePermissions) GetConditionOk() (*AwsEdcMissingRolePermissionsCondition, bool) {
+func (o *AwsEdcMissingRolePermissions) GetConditionOk() (*ConditionalExpression, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -190,10 +193,11 @@ func (o *AwsEdcMissingRolePermissions) HasCondition() bool {
 	return false
 }
 
-// SetCondition gets a reference to the given NullableAwsEdcMissingRolePermissionsCondition and assigns it to the Condition field.
-func (o *AwsEdcMissingRolePermissions) SetCondition(v AwsEdcMissingRolePermissionsCondition) {
+// SetCondition gets a reference to the given NullableConditionalExpression and assigns it to the Condition field.
+func (o *AwsEdcMissingRolePermissions) SetCondition(v ConditionalExpression) {
 	o.Condition.Set(&v)
 }
+
 // SetConditionNil sets the value for Condition to be an explicit nil
 func (o *AwsEdcMissingRolePermissions) SetConditionNil() {
 	o.Condition.Set(nil)
@@ -205,7 +209,7 @@ func (o *AwsEdcMissingRolePermissions) UnsetCondition() {
 }
 
 func (o AwsEdcMissingRolePermissions) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -264,5 +268,3 @@ func (v *NullableAwsEdcMissingRolePermissions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

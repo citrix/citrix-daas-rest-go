@@ -107,6 +107,7 @@ func (o *StudioSettingsResponseModel) HasDefaultDomain() bool {
 func (o *StudioSettingsResponseModel) SetDefaultDomain(v string) {
 	o.DefaultDomain.Set(&v)
 }
+
 // SetDefaultDomainNil sets the value for DefaultDomain to be an explicit nil
 func (o *StudioSettingsResponseModel) SetDefaultDomainNil() {
 	o.DefaultDomain.Set(nil)
@@ -118,7 +119,7 @@ func (o *StudioSettingsResponseModel) UnsetDefaultDomain() {
 }
 
 func (o StudioSettingsResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -171,5 +172,3 @@ func (v *NullableStudioSettingsResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

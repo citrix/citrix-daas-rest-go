@@ -21,9 +21,9 @@ type IdentityUserType string
 // List of IdentityUserType
 const (
 	IDENTITYUSERTYPE_UNKNOWN IdentityUserType = "Unknown"
-	IDENTITYUSERTYPE_USER IdentityUserType = "User"
-	IDENTITYUSERTYPE_GROUP IdentityUserType = "Group"
-	IDENTITYUSERTYPE_ALL IdentityUserType = "All"
+	IDENTITYUSERTYPE_USER    IdentityUserType = "User"
+	IDENTITYUSERTYPE_GROUP   IdentityUserType = "Group"
+	IDENTITYUSERTYPE_ALL     IdentityUserType = "All"
 )
 
 // All allowed values of IdentityUserType enum
@@ -40,7 +40,7 @@ func (v *IdentityUserType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = IdentityUserType(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableIdentityUserType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

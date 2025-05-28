@@ -20,12 +20,12 @@ type LicenseProduct string
 
 // List of LicenseProduct
 const (
-	LICENSEPRODUCT_UNKNOWN LicenseProduct = "Unknown"
-	LICENSEPRODUCT_XEN_DESKTOP_XDS LicenseProduct = "XenDesktopXds"
-	LICENSEPRODUCT_XEN_DESKTOP_XDT LicenseProduct = "XenDesktopXdt"
+	LICENSEPRODUCT_UNKNOWN            LicenseProduct = "Unknown"
+	LICENSEPRODUCT_XEN_DESKTOP_XDS    LicenseProduct = "XenDesktopXds"
+	LICENSEPRODUCT_XEN_DESKTOP_XDT    LicenseProduct = "XenDesktopXdt"
 	LICENSEPRODUCT_XEN_DESKTOP_XDT_TP LicenseProduct = "XenDesktopXdtTP"
-	LICENSEPRODUCT_XEN_APP LicenseProduct = "XenApp"
-	LICENSEPRODUCT_CVAP LicenseProduct = "CVAP"
+	LICENSEPRODUCT_XEN_APP            LicenseProduct = "XenApp"
+	LICENSEPRODUCT_CVAP               LicenseProduct = "CVAP"
 )
 
 // All allowed values of LicenseProduct enum
@@ -44,7 +44,7 @@ func (v *LicenseProduct) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = LicenseProduct(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableLicenseProduct) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

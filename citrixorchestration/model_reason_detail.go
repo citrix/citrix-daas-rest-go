@@ -76,6 +76,7 @@ func (o *ReasonDetail) HasFilter() bool {
 func (o *ReasonDetail) SetFilter(v string) {
 	o.Filter.Set(&v)
 }
+
 // SetFilterNil sets the value for Filter to be an explicit nil
 func (o *ReasonDetail) SetFilterNil() {
 	o.Filter.Set(nil)
@@ -118,6 +119,7 @@ func (o *ReasonDetail) HasValue() bool {
 func (o *ReasonDetail) SetValue(v string) {
 	o.Value.Set(&v)
 }
+
 // SetValueNil sets the value for Value to be an explicit nil
 func (o *ReasonDetail) SetValueNil() {
 	o.Value.Set(nil)
@@ -161,7 +163,7 @@ func (o *ReasonDetail) SetMatch(v bool) {
 }
 
 func (o ReasonDetail) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -217,5 +219,3 @@ func (v *NullableReasonDetail) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

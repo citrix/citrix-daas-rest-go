@@ -20,10 +20,10 @@ type ImportMachineStatus string
 
 // List of ImportMachineStatus
 const (
-	IMPORTMACHINESTATUS_UNKNOWN ImportMachineStatus = "Unknown"
-	IMPORTMACHINESTATUS_IMPORT_FAILED ImportMachineStatus = "ImportFailed"
+	IMPORTMACHINESTATUS_UNKNOWN               ImportMachineStatus = "Unknown"
+	IMPORTMACHINESTATUS_IMPORT_FAILED         ImportMachineStatus = "ImportFailed"
 	IMPORTMACHINESTATUS_ADD_TO_CATALOG_FAILED ImportMachineStatus = "AddToCatalogFailed"
-	IMPORTMACHINESTATUS_SUCCESS ImportMachineStatus = "Success"
+	IMPORTMACHINESTATUS_SUCCESS               ImportMachineStatus = "Success"
 )
 
 // All allowed values of ImportMachineStatus enum
@@ -40,7 +40,7 @@ func (v *ImportMachineStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ImportMachineStatus(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableImportMachineStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

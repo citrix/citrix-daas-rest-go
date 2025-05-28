@@ -26,12 +26,15 @@ type AwsEdcAccountResourceRegion struct {
 	Regions []AwsWorkspaceRegion `json:"regions,omitempty"`
 }
 
+type _AwsEdcAccountResourceRegion AwsEdcAccountResourceRegion
+
 // NewAwsEdcAccountResourceRegion instantiates a new AwsEdcAccountResourceRegion object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAwsEdcAccountResourceRegion(accountType AccountType) *AwsEdcAccountResourceRegion {
+func NewAwsEdcAccountResourceRegion(resourceType AwsAccountResourceType, accountType AccountType) *AwsEdcAccountResourceRegion {
 	this := AwsEdcAccountResourceRegion{}
+	this.ResourceType = resourceType
 	this.AccountType = accountType
 	return &this
 }
@@ -65,7 +68,7 @@ func (o *AwsEdcAccountResourceRegion) GetRegionNamesOk() ([]string, bool) {
 
 // HasRegionNames returns a boolean if a field has been set.
 func (o *AwsEdcAccountResourceRegion) HasRegionNames() bool {
-	if o != nil && IsNil(o.RegionNames) {
+	if o != nil && !IsNil(o.RegionNames) {
 		return true
 	}
 
@@ -98,7 +101,7 @@ func (o *AwsEdcAccountResourceRegion) GetRegionsOk() ([]AwsWorkspaceRegion, bool
 
 // HasRegions returns a boolean if a field has been set.
 func (o *AwsEdcAccountResourceRegion) HasRegions() bool {
-	if o != nil && IsNil(o.Regions) {
+	if o != nil && !IsNil(o.Regions) {
 		return true
 	}
 
@@ -111,7 +114,7 @@ func (o *AwsEdcAccountResourceRegion) SetRegions(v []AwsWorkspaceRegion) {
 }
 
 func (o AwsEdcAccountResourceRegion) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -172,5 +175,3 @@ func (v *NullableAwsEdcAccountResourceRegion) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

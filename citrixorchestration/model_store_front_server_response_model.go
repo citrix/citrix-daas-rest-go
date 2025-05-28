@@ -134,6 +134,7 @@ func (o *StoreFrontServerResponseModel) HasDescription() bool {
 func (o *StoreFrontServerResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *StoreFrontServerResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -225,7 +226,7 @@ func (o *StoreFrontServerResponseModel) SetDesktopGroupRefCount(v int32) {
 }
 
 func (o StoreFrontServerResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -282,5 +283,3 @@ func (v *NullableStoreFrontServerResponseModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

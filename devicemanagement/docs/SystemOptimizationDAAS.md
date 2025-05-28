@@ -1,6 +1,6 @@
 # \SystemOptimizationDAAS
 
-All URIs are relative to *https://api.wem.cloud.com*
+All URIs are relative to *https://.wem.cloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,27 +22,27 @@ Query System Optimization Configurations
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "ca8d8637-e47e-4f6c-9a34-d8399028eeb4")
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "ca8d8637-e47e-4f6c-9a34-d8399028eeb4")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SystemOptimizationDAAS.SystemUtilitySettingQuery(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SystemOptimizationDAAS.SystemUtilitySettingQuery``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SystemUtilitySettingQuery`: SystemUtilitySettingQuery200Response
-    fmt.Fprintf(os.Stdout, "Response from `SystemOptimizationDAAS.SystemUtilitySettingQuery`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SystemOptimizationDAAS.SystemUtilitySettingQuery(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SystemOptimizationDAAS.SystemUtilitySettingQuery``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SystemUtilitySettingQuery`: SystemUtilitySettingQuery200Response
+	fmt.Fprintf(os.Stdout, "Response from `SystemOptimizationDAAS.SystemUtilitySettingQuery`: %v\n", resp)
 }
 ```
 
@@ -92,28 +92,28 @@ Query System Optimization Configurations by Identity
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    id := int64(789) // int64 | The ID of the resource you want to query.
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "1456d989-9136-43e3-a8f6-43dc92dd7beb")
+	id := int64(789) // int64 | The ID of the resource you want to query.
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "1456d989-9136-43e3-a8f6-43dc92dd7beb")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SystemOptimizationDAAS.SystemUtilitySettingQueryById(context.Background(), id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SystemOptimizationDAAS.SystemUtilitySettingQueryById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SystemUtilitySettingQueryById`: SystemOptimizationModel
-    fmt.Fprintf(os.Stdout, "Response from `SystemOptimizationDAAS.SystemUtilitySettingQueryById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SystemOptimizationDAAS.SystemUtilitySettingQueryById(context.Background(), id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SystemOptimizationDAAS.SystemUtilitySettingQueryById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SystemUtilitySettingQueryById`: SystemOptimizationModel
+	fmt.Fprintf(os.Stdout, "Response from `SystemOptimizationDAAS.SystemUtilitySettingQueryById`: %v\n", resp)
 }
 ```
 
@@ -168,26 +168,26 @@ Update a System Optimization Configuration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "d9fb0fe4-195a-4975-83c3-3fd6253aadd4")
-    body := SystemOptimizationModel(987) // SystemOptimizationModel |  (optional)
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "d9fb0fe4-195a-4975-83c3-3fd6253aadd4")
+	body := *openapiclient.NewSystemOptimizationModel() // SystemOptimizationModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SystemOptimizationDAAS.SystemUtilitySettingUpdate(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SystemOptimizationDAAS.SystemUtilitySettingUpdate``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SystemOptimizationDAAS.SystemUtilitySettingUpdate(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SystemOptimizationDAAS.SystemUtilitySettingUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
  **authorization** | **string** | Citrix Cloud authorization token. | 
  **citrixCustomerId** | **string** | Citrix Cloud customer ID. | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. | [default to &quot;d9fb0fe4-195a-4975-83c3-3fd6253aadd4&quot;]
- **body** | **SystemOptimizationModel** |  | 
+ **body** | [**SystemOptimizationModel**](SystemOptimizationModel.md) |  | 
 
 ### Return type
 

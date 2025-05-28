@@ -74,6 +74,7 @@ func (o *EditApplicationFolderRequestModel) HasName() bool {
 func (o *EditApplicationFolderRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *EditApplicationFolderRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -116,6 +117,7 @@ func (o *EditApplicationFolderRequestModel) HasParent() bool {
 func (o *EditApplicationFolderRequestModel) SetParent(v string) {
 	o.Parent.Set(&v)
 }
+
 // SetParentNil sets the value for Parent to be an explicit nil
 func (o *EditApplicationFolderRequestModel) SetParentNil() {
 	o.Parent.Set(nil)
@@ -127,7 +129,7 @@ func (o *EditApplicationFolderRequestModel) UnsetParent() {
 }
 
 func (o EditApplicationFolderRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableEditApplicationFolderRequestModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

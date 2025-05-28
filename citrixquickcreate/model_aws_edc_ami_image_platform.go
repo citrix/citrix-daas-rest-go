@@ -21,7 +21,7 @@ type AwsEdcAmiImagePlatform string
 // List of AwsEdcAmiImagePlatform
 const (
 	AWSEDCAMIIMAGEPLATFORM_WINDOWS AwsEdcAmiImagePlatform = "WINDOWS"
-	AWSEDCAMIIMAGEPLATFORM_LINUX AwsEdcAmiImagePlatform = "LINUX"
+	AWSEDCAMIIMAGEPLATFORM_LINUX   AwsEdcAmiImagePlatform = "LINUX"
 )
 
 // All allowed values of AwsEdcAmiImagePlatform enum
@@ -108,4 +108,3 @@ func (v *NullableAwsEdcAmiImagePlatform) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

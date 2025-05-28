@@ -19,19 +19,18 @@ import (
 	"strings"
 )
 
-
 // MeAPIsDAASService MeAPIsDAAS service
 type MeAPIsDAASService service
 
 type ApiMeDeleteMyPreferenceRequest struct {
-	ctx context.Context
-	ApiService *MeAPIsDAASService
-	citrixCustomerId *string
-	name string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MeAPIsDAASService
+	citrixCustomerId    *string
+	name                string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -73,24 +72,24 @@ MeDeleteMyPreference Delete one of admin preferences by name.
 
 Delete one of my preferences by name.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name Preference name.
- @return ApiMeDeleteMyPreferenceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name Preference name.
+	@return ApiMeDeleteMyPreferenceRequest
 */
 func (a *MeAPIsDAASService) MeDeleteMyPreference(ctx context.Context, name string) ApiMeDeleteMyPreferenceRequest {
 	return ApiMeDeleteMyPreferenceRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *MeAPIsDAASService) MeDeleteMyPreferenceExecute(r ApiMeDeleteMyPreferenceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MeAPIsDAASService.MeDeleteMyPreference")
@@ -181,8 +180,8 @@ func (a *MeAPIsDAASService) MeDeleteMyPreferenceExecute(r ApiMeDeleteMyPreferenc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -192,8 +191,8 @@ func (a *MeAPIsDAASService) MeDeleteMyPreferenceExecute(r ApiMeDeleteMyPreferenc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -203,8 +202,8 @@ func (a *MeAPIsDAASService) MeDeleteMyPreferenceExecute(r ApiMeDeleteMyPreferenc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -214,8 +213,8 @@ func (a *MeAPIsDAASService) MeDeleteMyPreferenceExecute(r ApiMeDeleteMyPreferenc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -225,8 +224,8 @@ func (a *MeAPIsDAASService) MeDeleteMyPreferenceExecute(r ApiMeDeleteMyPreferenc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -236,8 +235,8 @@ func (a *MeAPIsDAASService) MeDeleteMyPreferenceExecute(r ApiMeDeleteMyPreferenc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -247,8 +246,8 @@ func (a *MeAPIsDAASService) MeDeleteMyPreferenceExecute(r ApiMeDeleteMyPreferenc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -258,8 +257,8 @@ func (a *MeAPIsDAASService) MeDeleteMyPreferenceExecute(r ApiMeDeleteMyPreferenc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -268,13 +267,13 @@ func (a *MeAPIsDAASService) MeDeleteMyPreferenceExecute(r ApiMeDeleteMyPreferenc
 }
 
 type ApiMeGetMeRequest struct {
-	ctx context.Context
-	ApiService *MeAPIsDAASService
-	citrixCustomerId *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MeAPIsDAASService
+	citrixCustomerId    *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -317,24 +316,25 @@ MeGetMe Get my details.
 Gets details about the currently logged-in admin, including the
 list of customers and sites that the admin has access to.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMeGetMeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiMeGetMeRequest
 */
 func (a *MeAPIsDAASService) MeGetMe(ctx context.Context) ApiMeGetMeRequest {
 	return ApiMeGetMeRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return MeResponseModel
+//
+//	@return MeResponseModel
 func (a *MeAPIsDAASService) MeGetMeExecute(r ApiMeGetMeRequest) (*MeResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MeResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MeResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MeAPIsDAASService.MeGetMe")
@@ -424,8 +424,8 @@ func (a *MeAPIsDAASService) MeGetMeExecute(r ApiMeGetMeRequest) (*MeResponseMode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -435,8 +435,8 @@ func (a *MeAPIsDAASService) MeGetMeExecute(r ApiMeGetMeRequest) (*MeResponseMode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -446,8 +446,8 @@ func (a *MeAPIsDAASService) MeGetMeExecute(r ApiMeGetMeRequest) (*MeResponseMode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -457,8 +457,8 @@ func (a *MeAPIsDAASService) MeGetMeExecute(r ApiMeGetMeRequest) (*MeResponseMode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -468,8 +468,8 @@ func (a *MeAPIsDAASService) MeGetMeExecute(r ApiMeGetMeRequest) (*MeResponseMode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -479,8 +479,8 @@ func (a *MeAPIsDAASService) MeGetMeExecute(r ApiMeGetMeRequest) (*MeResponseMode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -490,8 +490,8 @@ func (a *MeAPIsDAASService) MeGetMeExecute(r ApiMeGetMeRequest) (*MeResponseMode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -509,14 +509,14 @@ func (a *MeAPIsDAASService) MeGetMeExecute(r ApiMeGetMeRequest) (*MeResponseMode
 }
 
 type ApiMeGetMyPreferenceRequest struct {
-	ctx context.Context
-	ApiService *MeAPIsDAASService
-	citrixCustomerId *string
-	name string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MeAPIsDAASService
+	citrixCustomerId    *string
+	name                string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -561,26 +561,27 @@ Preferences are free-form name/value pairs that are typically used to
 keep track of how the user has configured the UI, so that the configuration
 is retained across sessions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name Preference name.
- @return ApiMeGetMyPreferenceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name Preference name.
+	@return ApiMeGetMyPreferenceRequest
 */
 func (a *MeAPIsDAASService) MeGetMyPreference(ctx context.Context, name string) ApiMeGetMyPreferenceRequest {
 	return ApiMeGetMyPreferenceRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
 // Execute executes the request
-//  @return NameValueStringPairModel
+//
+//	@return NameValueStringPairModel
 func (a *MeAPIsDAASService) MeGetMyPreferenceExecute(r ApiMeGetMyPreferenceRequest) (*NameValueStringPairModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *NameValueStringPairModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *NameValueStringPairModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MeAPIsDAASService.MeGetMyPreference")
@@ -671,8 +672,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferenceExecute(r ApiMeGetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -682,8 +683,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferenceExecute(r ApiMeGetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -693,8 +694,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferenceExecute(r ApiMeGetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -704,8 +705,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferenceExecute(r ApiMeGetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -715,8 +716,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferenceExecute(r ApiMeGetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -726,8 +727,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferenceExecute(r ApiMeGetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -737,8 +738,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferenceExecute(r ApiMeGetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -748,8 +749,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferenceExecute(r ApiMeGetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -767,14 +768,14 @@ func (a *MeAPIsDAASService) MeGetMyPreferenceExecute(r ApiMeGetMyPreferenceReque
 }
 
 type ApiMeGetMyPreferencesRequest struct {
-	ctx context.Context
-	ApiService *MeAPIsDAASService
-	citrixCustomerId *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MeAPIsDAASService
+	citrixCustomerId    *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	namePrefix *string
+	accept              *string
+	citrixLocale        *string
+	namePrefix          *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -825,24 +826,25 @@ Preferences are free-form name/value pairs that are typically used to
 keep track of how the user has configured the UI, so that the configuration
 is retained across sessions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMeGetMyPreferencesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiMeGetMyPreferencesRequest
 */
 func (a *MeAPIsDAASService) MeGetMyPreferences(ctx context.Context) ApiMeGetMyPreferencesRequest {
 	return ApiMeGetMyPreferencesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return NameValueStringPairModelCollection
+//
+//	@return NameValueStringPairModelCollection
 func (a *MeAPIsDAASService) MeGetMyPreferencesExecute(r ApiMeGetMyPreferencesRequest) (*NameValueStringPairModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *NameValueStringPairModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *NameValueStringPairModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MeAPIsDAASService.MeGetMyPreferences")
@@ -935,8 +937,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferencesExecute(r ApiMeGetMyPreferencesReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -946,8 +948,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferencesExecute(r ApiMeGetMyPreferencesReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -957,8 +959,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferencesExecute(r ApiMeGetMyPreferencesReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -968,8 +970,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferencesExecute(r ApiMeGetMyPreferencesReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -979,8 +981,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferencesExecute(r ApiMeGetMyPreferencesReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -990,8 +992,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferencesExecute(r ApiMeGetMyPreferencesReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1001,8 +1003,8 @@ func (a *MeAPIsDAASService) MeGetMyPreferencesExecute(r ApiMeGetMyPreferencesReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1020,14 +1022,14 @@ func (a *MeAPIsDAASService) MeGetMyPreferencesExecute(r ApiMeGetMyPreferencesReq
 }
 
 type ApiMeSetMyPreferenceRequest struct {
-	ctx context.Context
-	ApiService *MeAPIsDAASService
-	citrixCustomerId *string
-	setPreferenceModel *SetPreferenceModel
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MeAPIsDAASService
+	citrixCustomerId    *string
+	setPreferenceModel  *SetPreferenceModel
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1080,22 +1082,22 @@ is retained across sessions.
 Note: if a preference with the given name already exists, it will be
 overridden.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMeSetMyPreferenceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiMeSetMyPreferenceRequest
 */
 func (a *MeAPIsDAASService) MeSetMyPreference(ctx context.Context) ApiMeSetMyPreferenceRequest {
 	return ApiMeSetMyPreferenceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *MeAPIsDAASService) MeSetMyPreferenceExecute(r ApiMeSetMyPreferenceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MeAPIsDAASService.MeSetMyPreference")
@@ -1190,8 +1192,8 @@ func (a *MeAPIsDAASService) MeSetMyPreferenceExecute(r ApiMeSetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1201,8 +1203,8 @@ func (a *MeAPIsDAASService) MeSetMyPreferenceExecute(r ApiMeSetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1212,8 +1214,8 @@ func (a *MeAPIsDAASService) MeSetMyPreferenceExecute(r ApiMeSetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1223,8 +1225,8 @@ func (a *MeAPIsDAASService) MeSetMyPreferenceExecute(r ApiMeSetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1234,8 +1236,8 @@ func (a *MeAPIsDAASService) MeSetMyPreferenceExecute(r ApiMeSetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1245,8 +1247,8 @@ func (a *MeAPIsDAASService) MeSetMyPreferenceExecute(r ApiMeSetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1256,8 +1258,8 @@ func (a *MeAPIsDAASService) MeSetMyPreferenceExecute(r ApiMeSetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1267,8 +1269,8 @@ func (a *MeAPIsDAASService) MeSetMyPreferenceExecute(r ApiMeSetMyPreferenceReque
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

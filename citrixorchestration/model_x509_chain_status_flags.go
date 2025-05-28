@@ -15,36 +15,36 @@ import (
 	"fmt"
 )
 
-// X509ChainStatusFlags 
+// X509ChainStatusFlags
 type X509ChainStatusFlags string
 
 // List of X509ChainStatusFlags
 const (
-	X509CHAINSTATUSFLAGS_NO_ERROR X509ChainStatusFlags = "NoError"
-	X509CHAINSTATUSFLAGS_NOT_TIME_VALID X509ChainStatusFlags = "NotTimeValid"
-	X509CHAINSTATUSFLAGS_NOT_TIME_NESTED X509ChainStatusFlags = "NotTimeNested"
-	X509CHAINSTATUSFLAGS_REVOKED X509ChainStatusFlags = "Revoked"
-	X509CHAINSTATUSFLAGS_NOT_SIGNATURE_VALID X509ChainStatusFlags = "NotSignatureValid"
-	X509CHAINSTATUSFLAGS_NOT_VALID_FOR_USAGE X509ChainStatusFlags = "NotValidForUsage"
-	X509CHAINSTATUSFLAGS_UNTRUSTED_ROOT X509ChainStatusFlags = "UntrustedRoot"
-	X509CHAINSTATUSFLAGS_REVOCATION_STATUS_UNKNOWN X509ChainStatusFlags = "RevocationStatusUnknown"
-	X509CHAINSTATUSFLAGS_CYCLIC X509ChainStatusFlags = "Cyclic"
-	X509CHAINSTATUSFLAGS_INVALID_EXTENSION X509ChainStatusFlags = "InvalidExtension"
-	X509CHAINSTATUSFLAGS_INVALID_POLICY_CONSTRAINTS X509ChainStatusFlags = "InvalidPolicyConstraints"
-	X509CHAINSTATUSFLAGS_INVALID_BASIC_CONSTRAINTS X509ChainStatusFlags = "InvalidBasicConstraints"
-	X509CHAINSTATUSFLAGS_INVALID_NAME_CONSTRAINTS X509ChainStatusFlags = "InvalidNameConstraints"
-	X509CHAINSTATUSFLAGS_HAS_NOT_SUPPORTED_NAME_CONSTRAINT X509ChainStatusFlags = "HasNotSupportedNameConstraint"
-	X509CHAINSTATUSFLAGS_HAS_NOT_DEFINED_NAME_CONSTRAINT X509ChainStatusFlags = "HasNotDefinedNameConstraint"
-	X509CHAINSTATUSFLAGS_HAS_NOT_PERMITTED_NAME_CONSTRAINT X509ChainStatusFlags = "HasNotPermittedNameConstraint"
-	X509CHAINSTATUSFLAGS_HAS_EXCLUDED_NAME_CONSTRAINT X509ChainStatusFlags = "HasExcludedNameConstraint"
-	X509CHAINSTATUSFLAGS_PARTIAL_CHAIN X509ChainStatusFlags = "PartialChain"
-	X509CHAINSTATUSFLAGS_CTL_NOT_TIME_VALID X509ChainStatusFlags = "CtlNotTimeValid"
-	X509CHAINSTATUSFLAGS_CTL_NOT_SIGNATURE_VALID X509ChainStatusFlags = "CtlNotSignatureValid"
-	X509CHAINSTATUSFLAGS_CTL_NOT_VALID_FOR_USAGE X509ChainStatusFlags = "CtlNotValidForUsage"
-	X509CHAINSTATUSFLAGS_HAS_WEAK_SIGNATURE X509ChainStatusFlags = "HasWeakSignature"
-	X509CHAINSTATUSFLAGS_OFFLINE_REVOCATION X509ChainStatusFlags = "OfflineRevocation"
-	X509CHAINSTATUSFLAGS_NO_ISSUANCE_CHAIN_POLICY X509ChainStatusFlags = "NoIssuanceChainPolicy"
-	X509CHAINSTATUSFLAGS_EXPLICIT_DISTRUST X509ChainStatusFlags = "ExplicitDistrust"
+	X509CHAINSTATUSFLAGS_NO_ERROR                             X509ChainStatusFlags = "NoError"
+	X509CHAINSTATUSFLAGS_NOT_TIME_VALID                       X509ChainStatusFlags = "NotTimeValid"
+	X509CHAINSTATUSFLAGS_NOT_TIME_NESTED                      X509ChainStatusFlags = "NotTimeNested"
+	X509CHAINSTATUSFLAGS_REVOKED                              X509ChainStatusFlags = "Revoked"
+	X509CHAINSTATUSFLAGS_NOT_SIGNATURE_VALID                  X509ChainStatusFlags = "NotSignatureValid"
+	X509CHAINSTATUSFLAGS_NOT_VALID_FOR_USAGE                  X509ChainStatusFlags = "NotValidForUsage"
+	X509CHAINSTATUSFLAGS_UNTRUSTED_ROOT                       X509ChainStatusFlags = "UntrustedRoot"
+	X509CHAINSTATUSFLAGS_REVOCATION_STATUS_UNKNOWN            X509ChainStatusFlags = "RevocationStatusUnknown"
+	X509CHAINSTATUSFLAGS_CYCLIC                               X509ChainStatusFlags = "Cyclic"
+	X509CHAINSTATUSFLAGS_INVALID_EXTENSION                    X509ChainStatusFlags = "InvalidExtension"
+	X509CHAINSTATUSFLAGS_INVALID_POLICY_CONSTRAINTS           X509ChainStatusFlags = "InvalidPolicyConstraints"
+	X509CHAINSTATUSFLAGS_INVALID_BASIC_CONSTRAINTS            X509ChainStatusFlags = "InvalidBasicConstraints"
+	X509CHAINSTATUSFLAGS_INVALID_NAME_CONSTRAINTS             X509ChainStatusFlags = "InvalidNameConstraints"
+	X509CHAINSTATUSFLAGS_HAS_NOT_SUPPORTED_NAME_CONSTRAINT    X509ChainStatusFlags = "HasNotSupportedNameConstraint"
+	X509CHAINSTATUSFLAGS_HAS_NOT_DEFINED_NAME_CONSTRAINT      X509ChainStatusFlags = "HasNotDefinedNameConstraint"
+	X509CHAINSTATUSFLAGS_HAS_NOT_PERMITTED_NAME_CONSTRAINT    X509ChainStatusFlags = "HasNotPermittedNameConstraint"
+	X509CHAINSTATUSFLAGS_HAS_EXCLUDED_NAME_CONSTRAINT         X509ChainStatusFlags = "HasExcludedNameConstraint"
+	X509CHAINSTATUSFLAGS_PARTIAL_CHAIN                        X509ChainStatusFlags = "PartialChain"
+	X509CHAINSTATUSFLAGS_CTL_NOT_TIME_VALID                   X509ChainStatusFlags = "CtlNotTimeValid"
+	X509CHAINSTATUSFLAGS_CTL_NOT_SIGNATURE_VALID              X509ChainStatusFlags = "CtlNotSignatureValid"
+	X509CHAINSTATUSFLAGS_CTL_NOT_VALID_FOR_USAGE              X509ChainStatusFlags = "CtlNotValidForUsage"
+	X509CHAINSTATUSFLAGS_HAS_WEAK_SIGNATURE                   X509ChainStatusFlags = "HasWeakSignature"
+	X509CHAINSTATUSFLAGS_OFFLINE_REVOCATION                   X509ChainStatusFlags = "OfflineRevocation"
+	X509CHAINSTATUSFLAGS_NO_ISSUANCE_CHAIN_POLICY             X509ChainStatusFlags = "NoIssuanceChainPolicy"
+	X509CHAINSTATUSFLAGS_EXPLICIT_DISTRUST                    X509ChainStatusFlags = "ExplicitDistrust"
 	X509CHAINSTATUSFLAGS_HAS_NOT_SUPPORTED_CRITICAL_EXTENSION X509ChainStatusFlags = "HasNotSupportedCriticalExtension"
 )
 
@@ -84,7 +84,7 @@ func (v *X509ChainStatusFlags) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = X509ChainStatusFlags(value)
 	return nil
 }
@@ -150,4 +150,3 @@ func (v *NullableX509ChainStatusFlags) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

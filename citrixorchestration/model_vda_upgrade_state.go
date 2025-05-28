@@ -21,10 +21,10 @@ type VdaUpgradeState string
 // List of VdaUpgradeState
 const (
 	VDAUPGRADESTATE_MISSING_UPGRADE_TYPE VdaUpgradeState = "MissingUpgradeType"
-	VDAUPGRADESTATE_UPGRADE_SCHEDULED VdaUpgradeState = "UpgradeScheduled"
-	VDAUPGRADESTATE_UPGRADE_AVAILABLE VdaUpgradeState = "UpgradeAvailable"
-	VDAUPGRADESTATE_UP_TO_DATE VdaUpgradeState = "UpToDate"
-	VDAUPGRADESTATE_UNKNOWN VdaUpgradeState = "Unknown"
+	VDAUPGRADESTATE_UPGRADE_SCHEDULED    VdaUpgradeState = "UpgradeScheduled"
+	VDAUPGRADESTATE_UPGRADE_AVAILABLE    VdaUpgradeState = "UpgradeAvailable"
+	VDAUPGRADESTATE_UP_TO_DATE           VdaUpgradeState = "UpToDate"
+	VDAUPGRADESTATE_UNKNOWN              VdaUpgradeState = "Unknown"
 )
 
 // All allowed values of VdaUpgradeState enum
@@ -42,7 +42,7 @@ func (v *VdaUpgradeState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = VdaUpgradeState(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableVdaUpgradeState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

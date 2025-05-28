@@ -101,6 +101,7 @@ func (o *IdentityDomainResponseModel) HasForest() bool {
 func (o *IdentityDomainResponseModel) SetForest(v string) {
 	o.Forest.Set(&v)
 }
+
 // SetForestNil sets the value for Forest to be an explicit nil
 func (o *IdentityDomainResponseModel) SetForestNil() {
 	o.Forest.Set(nil)
@@ -143,6 +144,7 @@ func (o *IdentityDomainResponseModel) HasParent() bool {
 func (o *IdentityDomainResponseModel) SetParent(v string) {
 	o.Parent.Set(&v)
 }
+
 // SetParentNil sets the value for Parent to be an explicit nil
 func (o *IdentityDomainResponseModel) SetParentNil() {
 	o.Parent.Set(nil)
@@ -185,6 +187,7 @@ func (o *IdentityDomainResponseModel) HasName() bool {
 func (o *IdentityDomainResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *IdentityDomainResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -260,6 +263,7 @@ func (o *IdentityDomainResponseModel) HasSid() bool {
 func (o *IdentityDomainResponseModel) SetSid(v string) {
 	o.Sid.Set(&v)
 }
+
 // SetSidNil sets the value for Sid to be an explicit nil
 func (o *IdentityDomainResponseModel) SetSidNil() {
 	o.Sid.Set(nil)
@@ -302,6 +306,7 @@ func (o *IdentityDomainResponseModel) HasGuid() bool {
 func (o *IdentityDomainResponseModel) SetGuid(v string) {
 	o.Guid.Set(&v)
 }
+
 // SetGuidNil sets the value for Guid to be an explicit nil
 func (o *IdentityDomainResponseModel) SetGuidNil() {
 	o.Guid.Set(nil)
@@ -344,6 +349,7 @@ func (o *IdentityDomainResponseModel) HasNetBiosName() bool {
 func (o *IdentityDomainResponseModel) SetNetBiosName(v string) {
 	o.NetBiosName.Set(&v)
 }
+
 // SetNetBiosNameNil sets the value for NetBiosName to be an explicit nil
 func (o *IdentityDomainResponseModel) SetNetBiosNameNil() {
 	o.NetBiosName.Set(nil)
@@ -386,6 +392,7 @@ func (o *IdentityDomainResponseModel) HasDistinguishedName() bool {
 func (o *IdentityDomainResponseModel) SetDistinguishedName(v string) {
 	o.DistinguishedName.Set(&v)
 }
+
 // SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
 func (o *IdentityDomainResponseModel) SetDistinguishedNameNil() {
 	o.DistinguishedName.Set(nil)
@@ -461,6 +468,7 @@ func (o *IdentityDomainResponseModel) HasDefaultController() bool {
 func (o *IdentityDomainResponseModel) SetDefaultController(v string) {
 	o.DefaultController.Set(&v)
 }
+
 // SetDefaultControllerNil sets the value for DefaultController to be an explicit nil
 func (o *IdentityDomainResponseModel) SetDefaultControllerNil() {
 	o.DefaultController.Set(nil)
@@ -627,7 +635,7 @@ func (o *IdentityDomainResponseModel) SetPropertiesFetched(v int32) {
 }
 
 func (o IdentityDomainResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -717,5 +725,3 @@ func (v *NullableIdentityDomainResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

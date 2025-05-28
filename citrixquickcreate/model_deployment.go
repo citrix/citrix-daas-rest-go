@@ -19,6 +19,7 @@ var _ MappedNullable = &Deployment{}
 
 // Deployment Deployment
 type Deployment struct {
+	// The type of provider associated with the account
 	AccountType AccountType `json:"accountType"`
 	// Deployment Id
 	DeploymentId NullableString `json:"deploymentId,omitempty"`
@@ -32,6 +33,7 @@ type Deployment struct {
 	ConnectionId NullableString `json:"connectionId,omitempty"`
 	// Connection Name
 	ConnectionName NullableString `json:"connectionName,omitempty"`
+	// Deployment State
 	DeploymentState NullableDeploymentState `json:"deploymentState,omitempty"`
 	// The number of users in this deployment
 	UserCount *int32 `json:"userCount,omitempty"`
@@ -47,8 +49,11 @@ type Deployment struct {
 	BrokerDeliveryGroupId NullableString `json:"brokerDeliveryGroupId,omitempty"`
 	// Indicates whether the deployment is managed by Citrix
 	CitrixManaged NullableBool `json:"citrixManaged,omitempty"`
-	ScaleSettings NullableDeploymentScaleSettings `json:"scaleSettings,omitempty"`
+	// Power management scale settings
+	ScaleSettings NullableScaleSettings `json:"scaleSettings,omitempty"`
 }
+
+type _Deployment Deployment
 
 // NewDeployment instantiates a new Deployment object
 // This constructor will assign default values to properties that have it defined,
@@ -124,6 +129,7 @@ func (o *Deployment) HasDeploymentId() bool {
 func (o *Deployment) SetDeploymentId(v string) {
 	o.DeploymentId.Set(&v)
 }
+
 // SetDeploymentIdNil sets the value for DeploymentId to be an explicit nil
 func (o *Deployment) SetDeploymentIdNil() {
 	o.DeploymentId.Set(nil)
@@ -166,6 +172,7 @@ func (o *Deployment) HasDeploymentName() bool {
 func (o *Deployment) SetDeploymentName(v string) {
 	o.DeploymentName.Set(&v)
 }
+
 // SetDeploymentNameNil sets the value for DeploymentName to be an explicit nil
 func (o *Deployment) SetDeploymentNameNil() {
 	o.DeploymentName.Set(nil)
@@ -208,6 +215,7 @@ func (o *Deployment) HasAccountId() bool {
 func (o *Deployment) SetAccountId(v string) {
 	o.AccountId.Set(&v)
 }
+
 // SetAccountIdNil sets the value for AccountId to be an explicit nil
 func (o *Deployment) SetAccountIdNil() {
 	o.AccountId.Set(nil)
@@ -250,6 +258,7 @@ func (o *Deployment) HasAccountName() bool {
 func (o *Deployment) SetAccountName(v string) {
 	o.AccountName.Set(&v)
 }
+
 // SetAccountNameNil sets the value for AccountName to be an explicit nil
 func (o *Deployment) SetAccountNameNil() {
 	o.AccountName.Set(nil)
@@ -292,6 +301,7 @@ func (o *Deployment) HasConnectionId() bool {
 func (o *Deployment) SetConnectionId(v string) {
 	o.ConnectionId.Set(&v)
 }
+
 // SetConnectionIdNil sets the value for ConnectionId to be an explicit nil
 func (o *Deployment) SetConnectionIdNil() {
 	o.ConnectionId.Set(nil)
@@ -334,6 +344,7 @@ func (o *Deployment) HasConnectionName() bool {
 func (o *Deployment) SetConnectionName(v string) {
 	o.ConnectionName.Set(&v)
 }
+
 // SetConnectionNameNil sets the value for ConnectionName to be an explicit nil
 func (o *Deployment) SetConnectionNameNil() {
 	o.ConnectionName.Set(nil)
@@ -376,6 +387,7 @@ func (o *Deployment) HasDeploymentState() bool {
 func (o *Deployment) SetDeploymentState(v DeploymentState) {
 	o.DeploymentState.Set(&v)
 }
+
 // SetDeploymentStateNil sets the value for DeploymentState to be an explicit nil
 func (o *Deployment) SetDeploymentStateNil() {
 	o.DeploymentState.Set(nil)
@@ -450,6 +462,7 @@ func (o *Deployment) HasErrorMessage() bool {
 func (o *Deployment) SetErrorMessage(v string) {
 	o.ErrorMessage.Set(&v)
 }
+
 // SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
 func (o *Deployment) SetErrorMessageNil() {
 	o.ErrorMessage.Set(nil)
@@ -481,7 +494,7 @@ func (o *Deployment) GetWarningsOk() ([]DeploymentWarning, bool) {
 
 // HasWarnings returns a boolean if a field has been set.
 func (o *Deployment) HasWarnings() bool {
-	if o != nil && IsNil(o.Warnings) {
+	if o != nil && !IsNil(o.Warnings) {
 		return true
 	}
 
@@ -514,7 +527,7 @@ func (o *Deployment) GetActiveTasksOk() ([]GetTaskAsync200Response, bool) {
 
 // HasActiveTasks returns a boolean if a field has been set.
 func (o *Deployment) HasActiveTasks() bool {
-	if o != nil && IsNil(o.ActiveTasks) {
+	if o != nil && !IsNil(o.ActiveTasks) {
 		return true
 	}
 
@@ -558,6 +571,7 @@ func (o *Deployment) HasBrokerMachineCatalogId() bool {
 func (o *Deployment) SetBrokerMachineCatalogId(v string) {
 	o.BrokerMachineCatalogId.Set(&v)
 }
+
 // SetBrokerMachineCatalogIdNil sets the value for BrokerMachineCatalogId to be an explicit nil
 func (o *Deployment) SetBrokerMachineCatalogIdNil() {
 	o.BrokerMachineCatalogId.Set(nil)
@@ -600,6 +614,7 @@ func (o *Deployment) HasBrokerDeliveryGroupId() bool {
 func (o *Deployment) SetBrokerDeliveryGroupId(v string) {
 	o.BrokerDeliveryGroupId.Set(&v)
 }
+
 // SetBrokerDeliveryGroupIdNil sets the value for BrokerDeliveryGroupId to be an explicit nil
 func (o *Deployment) SetBrokerDeliveryGroupIdNil() {
 	o.BrokerDeliveryGroupId.Set(nil)
@@ -642,6 +657,7 @@ func (o *Deployment) HasCitrixManaged() bool {
 func (o *Deployment) SetCitrixManaged(v bool) {
 	o.CitrixManaged.Set(&v)
 }
+
 // SetCitrixManagedNil sets the value for CitrixManaged to be an explicit nil
 func (o *Deployment) SetCitrixManagedNil() {
 	o.CitrixManaged.Set(nil)
@@ -653,9 +669,9 @@ func (o *Deployment) UnsetCitrixManaged() {
 }
 
 // GetScaleSettings returns the ScaleSettings field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Deployment) GetScaleSettings() DeploymentScaleSettings {
+func (o *Deployment) GetScaleSettings() ScaleSettings {
 	if o == nil || IsNil(o.ScaleSettings.Get()) {
-		var ret DeploymentScaleSettings
+		var ret ScaleSettings
 		return ret
 	}
 	return *o.ScaleSettings.Get()
@@ -664,7 +680,7 @@ func (o *Deployment) GetScaleSettings() DeploymentScaleSettings {
 // GetScaleSettingsOk returns a tuple with the ScaleSettings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Deployment) GetScaleSettingsOk() (*DeploymentScaleSettings, bool) {
+func (o *Deployment) GetScaleSettingsOk() (*ScaleSettings, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -680,10 +696,11 @@ func (o *Deployment) HasScaleSettings() bool {
 	return false
 }
 
-// SetScaleSettings gets a reference to the given NullableDeploymentScaleSettings and assigns it to the ScaleSettings field.
-func (o *Deployment) SetScaleSettings(v DeploymentScaleSettings) {
+// SetScaleSettings gets a reference to the given NullableScaleSettings and assigns it to the ScaleSettings field.
+func (o *Deployment) SetScaleSettings(v ScaleSettings) {
 	o.ScaleSettings.Set(&v)
 }
+
 // SetScaleSettingsNil sets the value for ScaleSettings to be an explicit nil
 func (o *Deployment) SetScaleSettingsNil() {
 	o.ScaleSettings.Set(nil)
@@ -695,7 +712,7 @@ func (o *Deployment) UnsetScaleSettings() {
 }
 
 func (o Deployment) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -788,5 +805,3 @@ func (v *NullableDeployment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -3,7 +3,7 @@ info:
   title: WEM Public API Guide
   version: v1
 servers:
-- url: https://api.wem.cloud.com/
+- url: "https://{api}.wem.cloud.com/"
 security:
 - basic: []
 paths:
@@ -662,7 +662,7 @@ paths:
         content:
           application/json; charset=utf-8:
             schema:
-              $ref: '#/components/schemas/MachineModelExamplePost'
+              $ref: '#/components/schemas/MachineModel'
         required: false
       responses:
         "201":
@@ -842,7 +842,7 @@ paths:
         content:
           application/json; charset=utf-8:
             schema:
-              $ref: '#/components/schemas/MachineModelExamplePut'
+              $ref: '#/components/schemas/MachineModel'
         required: false
       responses:
         "204":
@@ -1619,7 +1619,7 @@ paths:
         content:
           application/json; charset=utf-8:
             schema:
-              $ref: '#/components/schemas/ObjectPost'
+              $ref: '#/components/schemas/Object'
         required: false
       responses:
         "201":
@@ -2192,7 +2192,7 @@ paths:
         content:
           application/json; charset=utf-8:
             schema:
-              $ref: '#/components/schemas/SiteModelExamplePost'
+              $ref: '#/components/schemas/SiteModel'
         required: false
       responses:
         "201":
@@ -2372,7 +2372,7 @@ paths:
         content:
           application/json; charset=utf-8:
             schema:
-              $ref: '#/components/schemas/SiteModelExamplePut'
+              $ref: '#/components/schemas/SiteModel'
         required: false
       responses:
         "204":
@@ -3083,7 +3083,7 @@ paths:
         content:
           application/json; charset=utf-8:
             schema:
-              $ref: '#/components/schemas/SystemOptimizationModelExamplePut'
+              $ref: '#/components/schemas/SystemOptimizationModel'
         required: false
       responses:
         "204":
@@ -3883,7 +3883,7 @@ paths:
         content:
           application/json; charset=utf-8:
             schema:
-              $ref: '#/components/schemas/UserModelExamplePost'
+              $ref: '#/components/schemas/UserModel'
         required: false
       responses:
         "201":
@@ -4063,7 +4063,7 @@ paths:
         content:
           application/json; charset=utf-8:
             schema:
-              $ref: '#/components/schemas/UserModelExamplePut'
+              $ref: '#/components/schemas/UserModel'
         required: false
       responses:
         "204":
@@ -4224,6 +4224,14 @@ components:
           type: string
       type: object
     RestError:
+      example:
+        detail: detail
+        type: type
+        parameters:
+        - name: name
+          value: value
+        - name: name
+          value: value
       properties:
         type:
           type: string
@@ -4256,9 +4264,11 @@ components:
           type: integer
         sid:
           description: SID of machine-level AD object
+          readOnly: true
           type: string
         name:
           description: Distingushed name of machine-level AD object
+          readOnly: true
           type: string
         type:
           description: Type of machine-level AD object
@@ -4267,6 +4277,7 @@ components:
           - Computer
           - OU
           - Catalog
+          readOnly: true
           type: string
         description:
           description: Description of machine-level AD object
@@ -4274,6 +4285,7 @@ components:
         siteId:
           description: Identity of site to which this machine-level AD object belongs
           format: int64
+          readOnly: true
           type: integer
         enabled:
           description: If this nachine-level AD object is enabled
@@ -4288,16 +4300,8 @@ components:
       - siteId
       - type
       type: object
-    MachineModelExamplePost:
-      $ref: '#/components/schemas/MachineModel'
-    MachineModelExamplePut:
-      $ref: '#/components/schemas/MachineModel'
     Object:
       type: object
-    SchemaObjectPost:
-      type: object
-    ObjectPost:
-      $ref: '#/components/schemas/SchemaObjectPost'
     SiteModel:
       description: Model of Site
       example:
@@ -4317,10 +4321,6 @@ components:
           description: Description of site
           type: string
       type: object
-    SiteModelExamplePost:
-      $ref: '#/components/schemas/SiteModel'
-    SiteModelExamplePut:
-      $ref: '#/components/schemas/SiteModel'
     ProcessCpuPriority:
       example:
         processName: processName
@@ -4545,8 +4545,6 @@ components:
             type: string
           type: array
       type: object
-    SystemOptimizationModelExamplePut:
-      $ref: '#/components/schemas/SystemOptimizationModel'
     UserModel:
       description: Model of user-level AD object
       example:
@@ -4566,15 +4564,18 @@ components:
           type: integer
         sid:
           description: SID of user-level AD object
+          readOnly: true
           type: string
         name:
           description: Distingushed name of user-level AD object
+          readOnly: true
           type: string
         type:
           description: Type of user-level AD object
           enum:
           - User
           - Group
+          readOnly: true
           type: string
         description:
           description: Description of user-level AD object
@@ -4582,6 +4583,7 @@ components:
         siteId:
           description: Identity of site to which this user-level AD object belongs
           format: int64
+          readOnly: true
           type: integer
         enabled:
           description: If this user-level AD objectis enabled
@@ -4596,10 +4598,6 @@ components:
       - siteId
       - type
       type: object
-    UserModelExamplePut:
-      $ref: '#/components/schemas/UserModel'
-    UserModelExamplePost:
-      $ref: '#/components/schemas/UserModel'
     AdObject_Query_200_response:
       example:
         items:
@@ -4623,6 +4621,7 @@ components:
         items:
           items:
             $ref: '#/components/schemas/MachineModel'
+          readOnly: true
           type: array
       required:
       - items
@@ -4640,6 +4639,7 @@ components:
         items:
           items:
             $ref: '#/components/schemas/SiteModel'
+          readOnly: true
           type: array
       required:
       - items
@@ -4751,6 +4751,7 @@ components:
         items:
           items:
             $ref: '#/components/schemas/SystemOptimizationModel'
+          readOnly: true
           type: array
       required:
       - items
@@ -4778,11 +4779,15 @@ components:
         items:
           items:
             $ref: '#/components/schemas/UserModel'
+          readOnly: true
           type: array
       required:
       - items
       type: object
     RestError_parameters_inner:
+      example:
+        name: name
+        value: value
       properties:
         name:
           type: string

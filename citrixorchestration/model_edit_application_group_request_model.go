@@ -94,6 +94,7 @@ func (o *EditApplicationGroupRequestModel) HasAdminFolder() bool {
 func (o *EditApplicationGroupRequestModel) SetAdminFolder(v string) {
 	o.AdminFolder.Set(&v)
 }
+
 // SetAdminFolderNil sets the value for AdminFolder to be an explicit nil
 func (o *EditApplicationGroupRequestModel) SetAdminFolderNil() {
 	o.AdminFolder.Set(nil)
@@ -136,6 +137,7 @@ func (o *EditApplicationGroupRequestModel) HasName() bool {
 func (o *EditApplicationGroupRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *EditApplicationGroupRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -178,6 +180,7 @@ func (o *EditApplicationGroupRequestModel) HasDescription() bool {
 func (o *EditApplicationGroupRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *EditApplicationGroupRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -220,6 +223,7 @@ func (o *EditApplicationGroupRequestModel) HasEnabled() bool {
 func (o *EditApplicationGroupRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *EditApplicationGroupRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -262,6 +266,7 @@ func (o *EditApplicationGroupRequestModel) HasRestrictToTag() bool {
 func (o *EditApplicationGroupRequestModel) SetRestrictToTag(v string) {
 	o.RestrictToTag.Set(&v)
 }
+
 // SetRestrictToTagNil sets the value for RestrictToTag to be an explicit nil
 func (o *EditApplicationGroupRequestModel) SetRestrictToTagNil() {
 	o.RestrictToTag.Set(nil)
@@ -370,6 +375,7 @@ func (o *EditApplicationGroupRequestModel) HasSessionSharingEnabled() bool {
 func (o *EditApplicationGroupRequestModel) SetSessionSharingEnabled(v bool) {
 	o.SessionSharingEnabled.Set(&v)
 }
+
 // SetSessionSharingEnabledNil sets the value for SessionSharingEnabled to be an explicit nil
 func (o *EditApplicationGroupRequestModel) SetSessionSharingEnabledNil() {
 	o.SessionSharingEnabled.Set(nil)
@@ -412,6 +418,7 @@ func (o *EditApplicationGroupRequestModel) HasIncludedUserFilterEnabled() bool {
 func (o *EditApplicationGroupRequestModel) SetIncludedUserFilterEnabled(v bool) {
 	o.IncludedUserFilterEnabled.Set(&v)
 }
+
 // SetIncludedUserFilterEnabledNil sets the value for IncludedUserFilterEnabled to be an explicit nil
 func (o *EditApplicationGroupRequestModel) SetIncludedUserFilterEnabledNil() {
 	o.IncludedUserFilterEnabled.Set(nil)
@@ -522,7 +529,7 @@ func (o *EditApplicationGroupRequestModel) SetMetadata(v []NameValueStringPairMo
 }
 
 func (o EditApplicationGroupRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -605,5 +612,3 @@ func (v *NullableEditApplicationGroupRequestModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

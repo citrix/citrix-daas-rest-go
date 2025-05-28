@@ -74,6 +74,7 @@ func (o *UpdateAutoscalePluginTemplateRequestModel) HasName() bool {
 func (o *UpdateAutoscalePluginTemplateRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *UpdateAutoscalePluginTemplateRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -118,7 +119,7 @@ func (o *UpdateAutoscalePluginTemplateRequestModel) SetDates(v []string) {
 }
 
 func (o UpdateAutoscalePluginTemplateRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -171,5 +172,3 @@ func (v *NullableUpdateAutoscalePluginTemplateRequestModel) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

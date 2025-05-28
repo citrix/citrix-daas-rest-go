@@ -20,11 +20,11 @@ type WindowsActivationType string
 
 // List of WindowsActivationType
 const (
-	WINDOWSACTIVATIONTYPE_UNSUPPORTED_VDA WindowsActivationType = "UnsupportedVDA"
-	WINDOWSACTIVATIONTYPE_KEY_MANAGEMENT_SERVICE WindowsActivationType = "KeyManagementService"
+	WINDOWSACTIVATIONTYPE_UNSUPPORTED_VDA         WindowsActivationType = "UnsupportedVDA"
+	WINDOWSACTIVATIONTYPE_KEY_MANAGEMENT_SERVICE  WindowsActivationType = "KeyManagementService"
 	WINDOWSACTIVATIONTYPE_MULTIPLE_ACTIVATION_KEY WindowsActivationType = "MultipleActivationKey"
-	WINDOWSACTIVATIONTYPE_UNKNOWN WindowsActivationType = "Unknown"
-	WINDOWSACTIVATIONTYPE_NOT_VALID WindowsActivationType = "NotValid"
+	WINDOWSACTIVATIONTYPE_UNKNOWN                 WindowsActivationType = "Unknown"
+	WINDOWSACTIVATIONTYPE_NOT_VALID               WindowsActivationType = "NotValid"
 )
 
 // All allowed values of WindowsActivationType enum
@@ -42,7 +42,7 @@ func (v *WindowsActivationType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = WindowsActivationType(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableWindowsActivationType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

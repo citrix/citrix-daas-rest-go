@@ -15,15 +15,15 @@ import (
 	"fmt"
 )
 
-// SdkGpoPolicySetType 
+// SdkGpoPolicySetType
 type SdkGpoPolicySetType string
 
 // List of SdkGpoPolicySetType
 const (
-	SDKGPOPOLICYSETTYPE_SITE_POLICIES SdkGpoPolicySetType = "SitePolicies"
+	SDKGPOPOLICYSETTYPE_SITE_POLICIES           SdkGpoPolicySetType = "SitePolicies"
 	SDKGPOPOLICYSETTYPE_DELIVERY_GROUP_POLICIES SdkGpoPolicySetType = "DeliveryGroupPolicies"
-	SDKGPOPOLICYSETTYPE_SITE_TEMPLATES SdkGpoPolicySetType = "SiteTemplates"
-	SDKGPOPOLICYSETTYPE_CUSTOM_TEMPLATES SdkGpoPolicySetType = "CustomTemplates"
+	SDKGPOPOLICYSETTYPE_SITE_TEMPLATES          SdkGpoPolicySetType = "SiteTemplates"
+	SDKGPOPOLICYSETTYPE_CUSTOM_TEMPLATES        SdkGpoPolicySetType = "CustomTemplates"
 )
 
 // All allowed values of SdkGpoPolicySetType enum
@@ -40,7 +40,7 @@ func (v *SdkGpoPolicySetType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SdkGpoPolicySetType(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableSdkGpoPolicySetType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

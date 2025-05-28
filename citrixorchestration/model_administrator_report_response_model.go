@@ -76,6 +76,7 @@ func (o *AdministratorReportResponseModel) HasEncodedReport() bool {
 func (o *AdministratorReportResponseModel) SetEncodedReport(v string) {
 	o.EncodedReport.Set(&v)
 }
+
 // SetEncodedReportNil sets the value for EncodedReport to be an explicit nil
 func (o *AdministratorReportResponseModel) SetEncodedReportNil() {
 	o.EncodedReport.Set(nil)
@@ -118,6 +119,7 @@ func (o *AdministratorReportResponseModel) HasEncoding() bool {
 func (o *AdministratorReportResponseModel) SetEncoding(v string) {
 	o.Encoding.Set(&v)
 }
+
 // SetEncodingNil sets the value for Encoding to be an explicit nil
 func (o *AdministratorReportResponseModel) SetEncodingNil() {
 	o.Encoding.Set(nil)
@@ -160,6 +162,7 @@ func (o *AdministratorReportResponseModel) HasMediaType() bool {
 func (o *AdministratorReportResponseModel) SetMediaType(v string) {
 	o.MediaType.Set(&v)
 }
+
 // SetMediaTypeNil sets the value for MediaType to be an explicit nil
 func (o *AdministratorReportResponseModel) SetMediaTypeNil() {
 	o.MediaType.Set(nil)
@@ -171,7 +174,7 @@ func (o *AdministratorReportResponseModel) UnsetMediaType() {
 }
 
 func (o AdministratorReportResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +230,3 @@ func (v *NullableAdministratorReportResponseModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

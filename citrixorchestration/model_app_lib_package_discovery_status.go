@@ -20,14 +20,14 @@ type AppLibPackageDiscoveryStatus string
 
 // List of AppLibPackageDiscoveryStatus
 const (
-	APPLIBPACKAGEDISCOVERYSTATUS_UNKNOWN AppLibPackageDiscoveryStatus = "Unknown"
-	APPLIBPACKAGEDISCOVERYSTATUS_PENDING AppLibPackageDiscoveryStatus = "Pending"
-	APPLIBPACKAGEDISCOVERYSTATUS_FAILED AppLibPackageDiscoveryStatus = "Failed"
-	APPLIBPACKAGEDISCOVERYSTATUS_DISCOVERING AppLibPackageDiscoveryStatus = "Discovering"
+	APPLIBPACKAGEDISCOVERYSTATUS_UNKNOWN                    AppLibPackageDiscoveryStatus = "Unknown"
+	APPLIBPACKAGEDISCOVERYSTATUS_PENDING                    AppLibPackageDiscoveryStatus = "Pending"
+	APPLIBPACKAGEDISCOVERYSTATUS_FAILED                     AppLibPackageDiscoveryStatus = "Failed"
+	APPLIBPACKAGEDISCOVERYSTATUS_DISCOVERING                AppLibPackageDiscoveryStatus = "Discovering"
 	APPLIBPACKAGEDISCOVERYSTATUS_FINISHED_WITH_DATA_WAITING AppLibPackageDiscoveryStatus = "FinishedWithDataWaiting"
-	APPLIBPACKAGEDISCOVERYSTATUS_REPORTING AppLibPackageDiscoveryStatus = "Reporting"
-	APPLIBPACKAGEDISCOVERYSTATUS_IMPORTING AppLibPackageDiscoveryStatus = "Importing"
-	APPLIBPACKAGEDISCOVERYSTATUS_FINISHED AppLibPackageDiscoveryStatus = "Finished"
+	APPLIBPACKAGEDISCOVERYSTATUS_REPORTING                  AppLibPackageDiscoveryStatus = "Reporting"
+	APPLIBPACKAGEDISCOVERYSTATUS_IMPORTING                  AppLibPackageDiscoveryStatus = "Importing"
+	APPLIBPACKAGEDISCOVERYSTATUS_FINISHED                   AppLibPackageDiscoveryStatus = "Finished"
 )
 
 // All allowed values of AppLibPackageDiscoveryStatus enum
@@ -48,7 +48,7 @@ func (v *AppLibPackageDiscoveryStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AppLibPackageDiscoveryStatus(value)
 	return nil
 }
@@ -114,4 +114,3 @@ func (v *NullableAppLibPackageDiscoveryStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

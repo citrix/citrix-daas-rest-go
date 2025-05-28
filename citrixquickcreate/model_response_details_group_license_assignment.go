@@ -64,7 +64,7 @@ func (o *ResponseDetailsGroupLicenseAssignment) GetGroupsOk() ([]string, bool) {
 
 // HasGroups returns a boolean if a field has been set.
 func (o *ResponseDetailsGroupLicenseAssignment) HasGroups() bool {
-	if o != nil && IsNil(o.Groups) {
+	if o != nil && !IsNil(o.Groups) {
 		return true
 	}
 
@@ -140,6 +140,7 @@ func (o *ResponseDetailsGroupLicenseAssignment) HasErrorDescription() bool {
 func (o *ResponseDetailsGroupLicenseAssignment) SetErrorDescription(v string) {
 	o.ErrorDescription.Set(&v)
 }
+
 // SetErrorDescriptionNil sets the value for ErrorDescription to be an explicit nil
 func (o *ResponseDetailsGroupLicenseAssignment) SetErrorDescriptionNil() {
 	o.ErrorDescription.Set(nil)
@@ -151,7 +152,7 @@ func (o *ResponseDetailsGroupLicenseAssignment) UnsetErrorDescription() {
 }
 
 func (o ResponseDetailsGroupLicenseAssignment) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -207,5 +208,3 @@ func (v *NullableResponseDetailsGroupLicenseAssignment) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

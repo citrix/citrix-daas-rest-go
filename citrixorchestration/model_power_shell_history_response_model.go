@@ -22,8 +22,8 @@ type PowerShellHistoryResponseModel struct {
 	// The title of the PowerShell script history
 	Title NullableString `json:"Title,omitempty"`
 	// The execution time of the PowerShell
-	ExecutionTime NullableString `json:"ExecutionTime,omitempty"`
-	Status *PowerShellExecutionStatus `json:"Status,omitempty"`
+	ExecutionTime NullableString             `json:"ExecutionTime,omitempty"`
+	Status        *PowerShellExecutionStatus `json:"Status,omitempty"`
 	// The total commands in the execution
 	TotalCommands *int32 `json:"TotalCommands,omitempty"`
 	// The executed PowerShell commands
@@ -79,6 +79,7 @@ func (o *PowerShellHistoryResponseModel) HasTitle() bool {
 func (o *PowerShellHistoryResponseModel) SetTitle(v string) {
 	o.Title.Set(&v)
 }
+
 // SetTitleNil sets the value for Title to be an explicit nil
 func (o *PowerShellHistoryResponseModel) SetTitleNil() {
 	o.Title.Set(nil)
@@ -121,6 +122,7 @@ func (o *PowerShellHistoryResponseModel) HasExecutionTime() bool {
 func (o *PowerShellHistoryResponseModel) SetExecutionTime(v string) {
 	o.ExecutionTime.Set(&v)
 }
+
 // SetExecutionTimeNil sets the value for ExecutionTime to be an explicit nil
 func (o *PowerShellHistoryResponseModel) SetExecutionTimeNil() {
 	o.ExecutionTime.Set(nil)
@@ -229,7 +231,7 @@ func (o *PowerShellHistoryResponseModel) SetCommands(v []PowerShellExecutedComma
 }
 
 func (o PowerShellHistoryResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -291,5 +293,3 @@ func (v *NullablePowerShellHistoryResponseModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

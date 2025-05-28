@@ -153,6 +153,7 @@ func (o *AppvServerPackageApplicationIconRequestModel) HasIconFormat() bool {
 func (o *AppvServerPackageApplicationIconRequestModel) SetIconFormat(v string) {
 	o.IconFormat.Set(&v)
 }
+
 // SetIconFormatNil sets the value for IconFormat to be an explicit nil
 func (o *AppvServerPackageApplicationIconRequestModel) SetIconFormatNil() {
 	o.IconFormat.Set(nil)
@@ -164,7 +165,7 @@ func (o *AppvServerPackageApplicationIconRequestModel) UnsetIconFormat() {
 }
 
 func (o AppvServerPackageApplicationIconRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -217,5 +218,3 @@ func (v *NullableAppvServerPackageApplicationIconRequestModel) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

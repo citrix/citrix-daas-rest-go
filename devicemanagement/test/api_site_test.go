@@ -11,10 +11,11 @@ package devicemanagement
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func Test_devicemanagement_SiteDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_devicemanagement_SiteDAASService(t *testing.T) {
 
 	t.Run("Test SiteDAASService SiteCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.SiteDAAS.SiteCreate(context.Background()).Execute()
 
@@ -35,7 +36,7 @@ func Test_devicemanagement_SiteDAASService(t *testing.T) {
 
 	t.Run("Test SiteDAASService SiteDelete", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int64
 
@@ -48,7 +49,7 @@ func Test_devicemanagement_SiteDAASService(t *testing.T) {
 
 	t.Run("Test SiteDAASService SiteExport", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.SiteDAAS.SiteExport(context.Background()).Execute()
 
@@ -60,7 +61,7 @@ func Test_devicemanagement_SiteDAASService(t *testing.T) {
 
 	t.Run("Test SiteDAASService SiteImport", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.SiteDAAS.SiteImport(context.Background()).Execute()
 
@@ -71,7 +72,7 @@ func Test_devicemanagement_SiteDAASService(t *testing.T) {
 
 	t.Run("Test SiteDAASService SiteQuery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.SiteDAAS.SiteQuery(context.Background()).Execute()
 
@@ -83,7 +84,7 @@ func Test_devicemanagement_SiteDAASService(t *testing.T) {
 
 	t.Run("Test SiteDAASService SiteQueryById", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int64
 
@@ -97,7 +98,7 @@ func Test_devicemanagement_SiteDAASService(t *testing.T) {
 
 	t.Run("Test SiteDAASService SiteReplicate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.SiteDAAS.SiteReplicate(context.Background()).Execute()
 
@@ -108,7 +109,7 @@ func Test_devicemanagement_SiteDAASService(t *testing.T) {
 
 	t.Run("Test SiteDAASService SiteUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.SiteDAAS.SiteUpdate(context.Background()).Execute()
 

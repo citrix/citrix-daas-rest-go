@@ -20,26 +20,26 @@ Get the status of a task
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    taskId := "taskId_example" // string | ID of the task
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	taskId := "taskId_example" // string | ID of the task
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TasksQCS.GetTaskAsync(context.Background(), customerId, taskId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TasksQCS.GetTaskAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTaskAsync`: GetTaskAsync200Response
-    fmt.Fprintf(os.Stdout, "Response from `TasksQCS.GetTaskAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TasksQCS.GetTaskAsync(context.Background(), customerId, taskId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TasksQCS.GetTaskAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTaskAsync`: GetTaskAsync200Response
+	fmt.Fprintf(os.Stdout, "Response from `TasksQCS.GetTaskAsync`: %v\n", resp)
 }
 ```
 

@@ -71,6 +71,7 @@ func (o *Compute) HasValue() bool {
 func (o *Compute) SetValue(v string) {
 	o.Value.Set(&v)
 }
+
 // SetValueNil sets the value for Value to be an explicit nil
 func (o *Compute) SetValueNil() {
 	o.Value.Set(nil)
@@ -82,7 +83,7 @@ func (o *Compute) UnsetValue() {
 }
 
 func (o Compute) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -132,5 +133,3 @@ func (v *NullableCompute) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

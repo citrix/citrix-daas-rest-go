@@ -112,6 +112,7 @@ func (o *ModelingRequestContract) HasDomainController() bool {
 func (o *ModelingRequestContract) SetDomainController(v string) {
 	o.DomainController.Set(&v)
 }
+
 // SetDomainControllerNil sets the value for DomainController to be an explicit nil
 func (o *ModelingRequestContract) SetDomainControllerNil() {
 	o.DomainController.Set(nil)
@@ -154,6 +155,7 @@ func (o *ModelingRequestContract) HasComputerIdentity() bool {
 func (o *ModelingRequestContract) SetComputerIdentity(v string) {
 	o.ComputerIdentity.Set(&v)
 }
+
 // SetComputerIdentityNil sets the value for ComputerIdentity to be an explicit nil
 func (o *ModelingRequestContract) SetComputerIdentityNil() {
 	o.ComputerIdentity.Set(nil)
@@ -196,6 +198,7 @@ func (o *ModelingRequestContract) HasUserIdentity() bool {
 func (o *ModelingRequestContract) SetUserIdentity(v string) {
 	o.UserIdentity.Set(&v)
 }
+
 // SetUserIdentityNil sets the value for UserIdentity to be an explicit nil
 func (o *ModelingRequestContract) SetUserIdentityNil() {
 	o.UserIdentity.Set(nil)
@@ -238,6 +241,7 @@ func (o *ModelingRequestContract) HasSiteName() bool {
 func (o *ModelingRequestContract) SetSiteName(v string) {
 	o.SiteName.Set(&v)
 }
+
 // SetSiteNameNil sets the value for SiteName to be an explicit nil
 func (o *ModelingRequestContract) SetSiteNameNil() {
 	o.SiteName.Set(nil)
@@ -280,6 +284,7 @@ func (o *ModelingRequestContract) HasComputer() bool {
 func (o *ModelingRequestContract) SetComputer(v string) {
 	o.Computer.Set(&v)
 }
+
 // SetComputerNil sets the value for Computer to be an explicit nil
 func (o *ModelingRequestContract) SetComputerNil() {
 	o.Computer.Set(nil)
@@ -322,6 +327,7 @@ func (o *ModelingRequestContract) HasComputerContainer() bool {
 func (o *ModelingRequestContract) SetComputerContainer(v string) {
 	o.ComputerContainer.Set(&v)
 }
+
 // SetComputerContainerNil sets the value for ComputerContainer to be an explicit nil
 func (o *ModelingRequestContract) SetComputerContainerNil() {
 	o.ComputerContainer.Set(nil)
@@ -364,6 +370,7 @@ func (o *ModelingRequestContract) HasUser() bool {
 func (o *ModelingRequestContract) SetUser(v string) {
 	o.User.Set(&v)
 }
+
 // SetUserNil sets the value for User to be an explicit nil
 func (o *ModelingRequestContract) SetUserNil() {
 	o.User.Set(nil)
@@ -406,6 +413,7 @@ func (o *ModelingRequestContract) HasUserSid() bool {
 func (o *ModelingRequestContract) SetUserSid(v string) {
 	o.UserSid.Set(&v)
 }
+
 // SetUserSidNil sets the value for UserSid to be an explicit nil
 func (o *ModelingRequestContract) SetUserSidNil() {
 	o.UserSid.Set(nil)
@@ -448,6 +456,7 @@ func (o *ModelingRequestContract) HasDistinguishedName() bool {
 func (o *ModelingRequestContract) SetDistinguishedName(v string) {
 	o.DistinguishedName.Set(&v)
 }
+
 // SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
 func (o *ModelingRequestContract) SetDistinguishedNameNil() {
 	o.DistinguishedName.Set(nil)
@@ -523,6 +532,7 @@ func (o *ModelingRequestContract) HasUserContainer() bool {
 func (o *ModelingRequestContract) SetUserContainer(v string) {
 	o.UserContainer.Set(&v)
 }
+
 // SetUserContainerNil sets the value for UserContainer to be an explicit nil
 func (o *ModelingRequestContract) SetUserContainerNil() {
 	o.UserContainer.Set(nil)
@@ -565,6 +575,7 @@ func (o *ModelingRequestContract) HasClientIPAddress() bool {
 func (o *ModelingRequestContract) SetClientIPAddress(v string) {
 	o.ClientIPAddress.Set(&v)
 }
+
 // SetClientIPAddressNil sets the value for ClientIPAddress to be an explicit nil
 func (o *ModelingRequestContract) SetClientIPAddressNil() {
 	o.ClientIPAddress.Set(nil)
@@ -607,6 +618,7 @@ func (o *ModelingRequestContract) HasClientName() bool {
 func (o *ModelingRequestContract) SetClientName(v string) {
 	o.ClientName.Set(&v)
 }
+
 // SetClientNameNil sets the value for ClientName to be an explicit nil
 func (o *ModelingRequestContract) SetClientNameNil() {
 	o.ClientName.Set(nil)
@@ -649,6 +661,7 @@ func (o *ModelingRequestContract) HasClientPlatform() bool {
 func (o *ModelingRequestContract) SetClientPlatform(v string) {
 	o.ClientPlatform.Set(&v)
 }
+
 // SetClientPlatformNil sets the value for ClientPlatform to be an explicit nil
 func (o *ModelingRequestContract) SetClientPlatformNil() {
 	o.ClientPlatform.Set(nil)
@@ -691,6 +704,7 @@ func (o *ModelingRequestContract) HasDeliveryGroup() bool {
 func (o *ModelingRequestContract) SetDeliveryGroup(v string) {
 	o.DeliveryGroup.Set(&v)
 }
+
 // SetDeliveryGroupNil sets the value for DeliveryGroup to be an explicit nil
 func (o *ModelingRequestContract) SetDeliveryGroupNil() {
 	o.DeliveryGroup.Set(nil)
@@ -733,6 +747,7 @@ func (o *ModelingRequestContract) HasDeliveryGroupType() bool {
 func (o *ModelingRequestContract) SetDeliveryGroupType(v string) {
 	o.DeliveryGroupType.Set(&v)
 }
+
 // SetDeliveryGroupTypeNil sets the value for DeliveryGroupType to be an explicit nil
 func (o *ModelingRequestContract) SetDeliveryGroupTypeNil() {
 	o.DeliveryGroupType.Set(nil)
@@ -840,6 +855,7 @@ func (o *ModelingRequestContract) HasAccessGatewayFarm() bool {
 func (o *ModelingRequestContract) SetAccessGatewayFarm(v string) {
 	o.AccessGatewayFarm.Set(&v)
 }
+
 // SetAccessGatewayFarmNil sets the value for AccessGatewayFarm to be an explicit nil
 func (o *ModelingRequestContract) SetAccessGatewayFarmNil() {
 	o.AccessGatewayFarm.Set(nil)
@@ -916,7 +932,7 @@ func (o *ModelingRequestContract) SetIsUsingWanScaler(v bool) {
 }
 
 func (o ModelingRequestContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1026,5 +1042,3 @@ func (v *NullableModelingRequestContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

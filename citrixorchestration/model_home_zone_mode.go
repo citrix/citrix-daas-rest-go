@@ -21,10 +21,10 @@ type HomeZoneMode string
 // List of HomeZoneMode
 const (
 	HOMEZONEMODE_UNKNOWN HomeZoneMode = "Unknown"
-	HOMEZONEMODE_PREFER HomeZoneMode = "Prefer"
-	HOMEZONEMODE_IGNORE HomeZoneMode = "Ignore"
-	HOMEZONEMODE_ONLY HomeZoneMode = "Only"
-	HOMEZONEMODE_USER HomeZoneMode = "User"
+	HOMEZONEMODE_PREFER  HomeZoneMode = "Prefer"
+	HOMEZONEMODE_IGNORE  HomeZoneMode = "Ignore"
+	HOMEZONEMODE_ONLY    HomeZoneMode = "Only"
+	HOMEZONEMODE_USER    HomeZoneMode = "User"
 )
 
 // All allowed values of HomeZoneMode enum
@@ -42,7 +42,7 @@ func (v *HomeZoneMode) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = HomeZoneMode(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableHomeZoneMode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

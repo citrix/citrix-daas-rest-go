@@ -74,6 +74,7 @@ func (o *WonOverBy2) HasSettingName() bool {
 func (o *WonOverBy2) SetSettingName(v string) {
 	o.SettingName.Set(&v)
 }
+
 // SetSettingNameNil sets the value for SettingName to be an explicit nil
 func (o *WonOverBy2) SetSettingNameNil() {
 	o.SettingName.Set(nil)
@@ -116,6 +117,7 @@ func (o *WonOverBy2) HasWinningPolicy() bool {
 func (o *WonOverBy2) SetWinningPolicy(v string) {
 	o.WinningPolicy.Set(&v)
 }
+
 // SetWinningPolicyNil sets the value for WinningPolicy to be an explicit nil
 func (o *WonOverBy2) SetWinningPolicyNil() {
 	o.WinningPolicy.Set(nil)
@@ -127,7 +129,7 @@ func (o *WonOverBy2) UnsetWinningPolicy() {
 }
 
 func (o WonOverBy2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableWonOverBy2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,7 +21,7 @@ type VMInstanceType string
 // List of VMInstanceType
 const (
 	VMINSTANCETYPE_SHARED VMInstanceType = "Shared"
-	VMINSTANCETYPE_SPOT VMInstanceType = "Spot"
+	VMINSTANCETYPE_SPOT   VMInstanceType = "Spot"
 )
 
 // All allowed values of VMInstanceType enum
@@ -36,7 +36,7 @@ func (v *VMInstanceType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = VMInstanceType(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableVMInstanceType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -22,18 +22,18 @@ type UpdateMachineCatalogRequestModel struct {
 	// The folder in which the machine catalog resides. If not specified, the value will not be changed. May be specified as either the folder Id or Path. If specified as a path, and the path does not exist, it will be automatically created.
 	AdminFolder NullableString `json:"AdminFolder,omitempty"`
 	// Name of the machine catalog.  Each machine catalog within a site must have a unique name.  If not specified, will not be changed.
-	Name NullableString `json:"Name,omitempty"`
+	Name NullableString `json:"Name,omitempty" validate:"regexp=(.*)*"`
 	// Description of the machine catalog.  If not specified, will not be changed.
-	Description NullableString `json:"Description,omitempty"`
+	Description NullableString `json:"Description,omitempty" validate:"regexp=^[A-Za-z]+$"`
 	// Specifies the hypervisor connection to use for power management of machines in this machine catalog.  If not specified, will not be changed.
 	HypervisorConnection NullableString `json:"HypervisorConnection,omitempty"`
 	// List of one or more remote PC enrollment scopes.  If not specified, will not be changed. If specified, *all* enrollment scopes must be listed.  Existing enrollment scopes that are not listed will be removed.   Removing an enrollment scope will *not* remove existing remote PCs that were enrolled via that scope.
 	RemotePCEnrollmentScopes []RemotePCEnrollmentScopeRequestModel `json:"RemotePCEnrollmentScopes,omitempty"`
-	MinimumFunctionalLevel *FunctionalLevel `json:"MinimumFunctionalLevel,omitempty"`
+	MinimumFunctionalLevel   *FunctionalLevel                      `json:"MinimumFunctionalLevel,omitempty"`
 	// IP address of the PVS server to be used.  Can only be specified if  is . If not specified, will not be changed.
-	PvsAddress NullableString `json:"PvsAddress,omitempty"`
+	PvsAddress NullableString `json:"PvsAddress,omitempty" validate:"regexp=UNKNOWN"`
 	// The domain of the PVS server to be used.  Can only be specified if  is . If not specified, will not be changed.
-	PvsDomain NullableString `json:"PvsDomain,omitempty"`
+	PvsDomain NullableString `json:"PvsDomain,omitempty" validate:"regexp=UNKNOWN"`
 	// Administrative scopes which the machine catalog should be a part of.  The \"All\" scope, and any tenant scopes, are implicit and cannot be removed.  To remove from all non-implicit scopes, specify an empty array ([]).   Specifying tenant scopes is equivalent to specifying the  property and is subject to the same constraints.
 	Scopes []string `json:"Scopes,omitempty"`
 	// Tenants to associate with the machine catalog.
@@ -52,9 +52,9 @@ type UpdateMachineCatalogRequestModel struct {
 	SecurityGroups []string `json:"SecurityGroups,omitempty"`
 	// Specifies how the attached NICs are mapped to networks. If this parameter is omitted, the current NICs setting is not updated. If an empty array is specified, new VMs will be created with a single NIC, which is mapped to the default network in the hosting unit. If an non-empty array is supplied, the NICs setting is updated, and new machines will be created with the number of NICs specified in the array, with each NIC attached to the specified network.
 	NetworkMapping []NetworkMapRequestModel `json:"NetworkMapping,omitempty"`
-	VdaUpgradeType *VdaUpgradeType `json:"VdaUpgradeType,omitempty"`
+	VdaUpgradeType *VdaUpgradeType          `json:"VdaUpgradeType,omitempty"`
 	// The path in the resource pool to the virtual machine template that will be used. This identifies the VM template to be used and the default values for the tags, virtual machine size, boot diagnostics, host cache property of OS disk, accelerated networking and availability zone. This must be a path to a Virtual machine or Template item in the resource pool to which the Machine Catalog is associated.
-	MachineProfilePath NullableString `json:"MachineProfilePath,omitempty"`
+	MachineProfilePath NullableString "json:\"MachineProfilePath,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// The properties of the provisioning scheme that are specific to the target hosting infrastructure.
 	CustomProperties []NameValueStringPairModel `json:"CustomProperties,omitempty"`
 	// The metadata of machine catalog. Set the value of the NameValueStringPairModel is null or empty will be remove this metadata. Not existing Name and Value NameValueStringPairModel object will be added. The same Name but different value object will be updated.
@@ -122,6 +122,7 @@ func (o *UpdateMachineCatalogRequestModel) HasAdminFolder() bool {
 func (o *UpdateMachineCatalogRequestModel) SetAdminFolder(v string) {
 	o.AdminFolder.Set(&v)
 }
+
 // SetAdminFolderNil sets the value for AdminFolder to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetAdminFolderNil() {
 	o.AdminFolder.Set(nil)
@@ -164,6 +165,7 @@ func (o *UpdateMachineCatalogRequestModel) HasName() bool {
 func (o *UpdateMachineCatalogRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -206,6 +208,7 @@ func (o *UpdateMachineCatalogRequestModel) HasDescription() bool {
 func (o *UpdateMachineCatalogRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -248,6 +251,7 @@ func (o *UpdateMachineCatalogRequestModel) HasHypervisorConnection() bool {
 func (o *UpdateMachineCatalogRequestModel) SetHypervisorConnection(v string) {
 	o.HypervisorConnection.Set(&v)
 }
+
 // SetHypervisorConnectionNil sets the value for HypervisorConnection to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetHypervisorConnectionNil() {
 	o.HypervisorConnection.Set(nil)
@@ -355,6 +359,7 @@ func (o *UpdateMachineCatalogRequestModel) HasPvsAddress() bool {
 func (o *UpdateMachineCatalogRequestModel) SetPvsAddress(v string) {
 	o.PvsAddress.Set(&v)
 }
+
 // SetPvsAddressNil sets the value for PvsAddress to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetPvsAddressNil() {
 	o.PvsAddress.Set(nil)
@@ -397,6 +402,7 @@ func (o *UpdateMachineCatalogRequestModel) HasPvsDomain() bool {
 func (o *UpdateMachineCatalogRequestModel) SetPvsDomain(v string) {
 	o.PvsDomain.Set(&v)
 }
+
 // SetPvsDomainNil sets the value for PvsDomain to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetPvsDomainNil() {
 	o.PvsDomain.Set(nil)
@@ -505,6 +511,7 @@ func (o *UpdateMachineCatalogRequestModel) HasShowRdsLicenseWarning() bool {
 func (o *UpdateMachineCatalogRequestModel) SetShowRdsLicenseWarning(v bool) {
 	o.ShowRdsLicenseWarning.Set(&v)
 }
+
 // SetShowRdsLicenseWarningNil sets the value for ShowRdsLicenseWarning to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetShowRdsLicenseWarningNil() {
 	o.ShowRdsLicenseWarning.Set(nil)
@@ -547,6 +554,7 @@ func (o *UpdateMachineCatalogRequestModel) HasZone() bool {
 func (o *UpdateMachineCatalogRequestModel) SetZone(v string) {
 	o.Zone.Set(&v)
 }
+
 // SetZoneNil sets the value for Zone to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetZoneNil() {
 	o.Zone.Set(nil)
@@ -589,6 +597,7 @@ func (o *UpdateMachineCatalogRequestModel) HasCpuCount() bool {
 func (o *UpdateMachineCatalogRequestModel) SetCpuCount(v int32) {
 	o.CpuCount.Set(&v)
 }
+
 // SetCpuCountNil sets the value for CpuCount to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetCpuCountNil() {
 	o.CpuCount.Set(nil)
@@ -631,6 +640,7 @@ func (o *UpdateMachineCatalogRequestModel) HasMemoryMB() bool {
 func (o *UpdateMachineCatalogRequestModel) SetMemoryMB(v int32) {
 	o.MemoryMB.Set(&v)
 }
+
 // SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetMemoryMBNil() {
 	o.MemoryMB.Set(nil)
@@ -673,6 +683,7 @@ func (o *UpdateMachineCatalogRequestModel) HasServiceOfferingPath() bool {
 func (o *UpdateMachineCatalogRequestModel) SetServiceOfferingPath(v string) {
 	o.ServiceOfferingPath.Set(&v)
 }
+
 // SetServiceOfferingPathNil sets the value for ServiceOfferingPath to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetServiceOfferingPathNil() {
 	o.ServiceOfferingPath.Set(nil)
@@ -813,6 +824,7 @@ func (o *UpdateMachineCatalogRequestModel) HasMachineProfilePath() bool {
 func (o *UpdateMachineCatalogRequestModel) SetMachineProfilePath(v string) {
 	o.MachineProfilePath.Set(&v)
 }
+
 // SetMachineProfilePathNil sets the value for MachineProfilePath to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetMachineProfilePathNil() {
 	o.MachineProfilePath.Set(nil)
@@ -921,6 +933,7 @@ func (o *UpdateMachineCatalogRequestModel) HasWriteBackCacheDiskSizeGB() bool {
 func (o *UpdateMachineCatalogRequestModel) SetWriteBackCacheDiskSizeGB(v int32) {
 	o.WriteBackCacheDiskSizeGB.Set(&v)
 }
+
 // SetWriteBackCacheDiskSizeGBNil sets the value for WriteBackCacheDiskSizeGB to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetWriteBackCacheDiskSizeGBNil() {
 	o.WriteBackCacheDiskSizeGB.Set(nil)
@@ -963,6 +976,7 @@ func (o *UpdateMachineCatalogRequestModel) HasWriteBackCacheMemorySizeMB() bool 
 func (o *UpdateMachineCatalogRequestModel) SetWriteBackCacheMemorySizeMB(v int32) {
 	o.WriteBackCacheMemorySizeMB.Set(&v)
 }
+
 // SetWriteBackCacheMemorySizeMBNil sets the value for WriteBackCacheMemorySizeMB to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetWriteBackCacheMemorySizeMBNil() {
 	o.WriteBackCacheMemorySizeMB.Set(nil)
@@ -1005,6 +1019,7 @@ func (o *UpdateMachineCatalogRequestModel) HasAzureADSecurityGroupName() bool {
 func (o *UpdateMachineCatalogRequestModel) SetAzureADSecurityGroupName(v string) {
 	o.AzureADSecurityGroupName.Set(&v)
 }
+
 // SetAzureADSecurityGroupNameNil sets the value for AzureADSecurityGroupName to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetAzureADSecurityGroupNameNil() {
 	o.AzureADSecurityGroupName.Set(nil)
@@ -1047,6 +1062,7 @@ func (o *UpdateMachineCatalogRequestModel) HasAzureADTenantId() bool {
 func (o *UpdateMachineCatalogRequestModel) SetAzureADTenantId(v string) {
 	o.AzureADTenantId.Set(&v)
 }
+
 // SetAzureADTenantIdNil sets the value for AzureADTenantId to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetAzureADTenantIdNil() {
 	o.AzureADTenantId.Set(nil)
@@ -1122,6 +1138,7 @@ func (o *UpdateMachineCatalogRequestModel) HasHypervisorVMTagging() bool {
 func (o *UpdateMachineCatalogRequestModel) SetHypervisorVMTagging(v bool) {
 	o.HypervisorVMTagging.Set(&v)
 }
+
 // SetHypervisorVMTaggingNil sets the value for HypervisorVMTagging to be an explicit nil
 func (o *UpdateMachineCatalogRequestModel) SetHypervisorVMTaggingNil() {
 	o.HypervisorVMTagging.Set(nil)
@@ -1133,7 +1150,7 @@ func (o *UpdateMachineCatalogRequestModel) UnsetHypervisorVMTagging() {
 }
 
 func (o UpdateMachineCatalogRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1261,5 +1278,3 @@ func (v *NullableUpdateMachineCatalogRequestModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

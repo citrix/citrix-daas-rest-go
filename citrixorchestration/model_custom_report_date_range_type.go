@@ -15,16 +15,16 @@ import (
 	"fmt"
 )
 
-// CustomReportDateRangeType 
+// CustomReportDateRangeType
 type CustomReportDateRangeType string
 
 // List of CustomReportDateRangeType
 const (
-	CUSTOMREPORTDATERANGETYPE_ALL CustomReportDateRangeType = "All"
+	CUSTOMREPORTDATERANGETYPE_ALL          CustomReportDateRangeType = "All"
 	CUSTOMREPORTDATERANGETYPE_LAST24_HOURS CustomReportDateRangeType = "Last24Hours"
-	CUSTOMREPORTDATERANGETYPE_LAST7_DAYS CustomReportDateRangeType = "Last7Days"
-	CUSTOMREPORTDATERANGETYPE_LAST4_WEEKS CustomReportDateRangeType = "Last4Weeks"
-	CUSTOMREPORTDATERANGETYPE_CUSTOM CustomReportDateRangeType = "Custom"
+	CUSTOMREPORTDATERANGETYPE_LAST7_DAYS   CustomReportDateRangeType = "Last7Days"
+	CUSTOMREPORTDATERANGETYPE_LAST4_WEEKS  CustomReportDateRangeType = "Last4Weeks"
+	CUSTOMREPORTDATERANGETYPE_CUSTOM       CustomReportDateRangeType = "Custom"
 )
 
 // All allowed values of CustomReportDateRangeType enum
@@ -42,7 +42,7 @@ func (v *CustomReportDateRangeType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = CustomReportDateRangeType(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableCustomReportDateRangeType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

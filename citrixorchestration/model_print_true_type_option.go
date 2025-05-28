@@ -20,10 +20,10 @@ type PrintTrueTypeOption string
 
 // List of PrintTrueTypeOption
 const (
-	PRINTTRUETYPEOPTION_BITMAP PrintTrueTypeOption = "Bitmap"
-	PRINTTRUETYPEOPTION_DOWNLOAD PrintTrueTypeOption = "Download"
+	PRINTTRUETYPEOPTION_BITMAP     PrintTrueTypeOption = "Bitmap"
+	PRINTTRUETYPEOPTION_DOWNLOAD   PrintTrueTypeOption = "Download"
 	PRINTTRUETYPEOPTION_SUBSTITUTE PrintTrueTypeOption = "Substitute"
-	PRINTTRUETYPEOPTION_OUTLINE PrintTrueTypeOption = "Outline"
+	PRINTTRUETYPEOPTION_OUTLINE    PrintTrueTypeOption = "Outline"
 )
 
 // All allowed values of PrintTrueTypeOption enum
@@ -40,7 +40,7 @@ func (v *PrintTrueTypeOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = PrintTrueTypeOption(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullablePrintTrueTypeOption) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

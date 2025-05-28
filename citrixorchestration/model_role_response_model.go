@@ -135,6 +135,7 @@ func (o *RoleResponseModel) HasDescription() bool {
 func (o *RoleResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *RoleResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -201,6 +202,7 @@ func (o *RoleResponseModel) HasCanLaunchManage() bool {
 func (o *RoleResponseModel) SetCanLaunchManage(v bool) {
 	o.CanLaunchManage.Set(&v)
 }
+
 // SetCanLaunchManageNil sets the value for CanLaunchManage to be an explicit nil
 func (o *RoleResponseModel) SetCanLaunchManageNil() {
 	o.CanLaunchManage.Set(nil)
@@ -243,6 +245,7 @@ func (o *RoleResponseModel) HasCanLaunchMonitor() bool {
 func (o *RoleResponseModel) SetCanLaunchMonitor(v bool) {
 	o.CanLaunchMonitor.Set(&v)
 }
+
 // SetCanLaunchMonitorNil sets the value for CanLaunchMonitor to be an explicit nil
 func (o *RoleResponseModel) SetCanLaunchMonitorNil() {
 	o.CanLaunchMonitor.Set(nil)
@@ -287,7 +290,7 @@ func (o *RoleResponseModel) SetPermissions(v []DelegatedAdminPermissionResponseM
 }
 
 func (o RoleResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -349,5 +352,3 @@ func (v *NullableRoleResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

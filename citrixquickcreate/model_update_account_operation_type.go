@@ -20,7 +20,7 @@ type UpdateAccountOperationType string
 
 // List of UpdateAccountOperationType
 const (
-	UPDATEACCOUNTOPERATIONTYPE_RENAME_ACCOUNT UpdateAccountOperationType = "RenameAccount"
+	UPDATEACCOUNTOPERATIONTYPE_RENAME_ACCOUNT                     UpdateAccountOperationType = "RenameAccount"
 	UPDATEACCOUNTOPERATIONTYPE_UPDATE_AWS_EDC_ACCOUNT_CREDENTIALS UpdateAccountOperationType = "UpdateAwsEdcAccountCredentials"
 )
 
@@ -108,4 +108,3 @@ func (v *NullableUpdateAccountOperationType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

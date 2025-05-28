@@ -20,9 +20,9 @@ type TestScope string
 
 // List of TestScope
 const (
-	TESTSCOPE_SITE TestScope = "Site"
+	TESTSCOPE_SITE       TestScope = "Site"
 	TESTSCOPE_CONTROLLER TestScope = "Controller"
-	TESTSCOPE_UNKNOWN TestScope = "Unknown"
+	TESTSCOPE_UNKNOWN    TestScope = "Unknown"
 )
 
 // All allowed values of TestScope enum
@@ -38,7 +38,7 @@ func (v *TestScope) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = TestScope(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableTestScope) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

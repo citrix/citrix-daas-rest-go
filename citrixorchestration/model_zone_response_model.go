@@ -32,8 +32,8 @@ type ZoneResponseModel struct {
 	// The LastStateChangeTimeInUtc of the zone.
 	LastStateChangeTimeInUtc NullableString `json:"LastStateChangeTimeInUtc,omitempty"`
 	// The metadata of Zone.
-	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
-	ResourceLocation *RefResponseModel `json:"ResourceLocation,omitempty"`
+	Metadata         []NameValueStringPairModel `json:"Metadata,omitempty"`
+	ResourceLocation *RefResponseModel          `json:"ResourceLocation,omitempty"`
 }
 
 // NewZoneResponseModel instantiates a new ZoneResponseModel object
@@ -136,6 +136,7 @@ func (o *ZoneResponseModel) HasDescription() bool {
 func (o *ZoneResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *ZoneResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -234,6 +235,7 @@ func (o *ZoneResponseModel) HasLastStateChangeTimeInUtc() bool {
 func (o *ZoneResponseModel) SetLastStateChangeTimeInUtc(v string) {
 	o.LastStateChangeTimeInUtc.Set(&v)
 }
+
 // SetLastStateChangeTimeInUtcNil sets the value for LastStateChangeTimeInUtc to be an explicit nil
 func (o *ZoneResponseModel) SetLastStateChangeTimeInUtcNil() {
 	o.LastStateChangeTimeInUtc.Set(nil)
@@ -310,7 +312,7 @@ func (o *ZoneResponseModel) SetResourceLocation(v RefResponseModel) {
 }
 
 func (o ZoneResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -375,5 +377,3 @@ func (v *NullableZoneResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

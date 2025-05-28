@@ -19,8 +19,11 @@ var _ MappedNullable = &UpdateResourceConnection{}
 
 // UpdateResourceConnection Updates resource connection
 type UpdateResourceConnection struct {
+	// The type of provider associated with the account
 	AccountType AccountType `json:"accountType"`
 }
+
+type _UpdateResourceConnection UpdateResourceConnection
 
 // NewUpdateResourceConnection instantiates a new UpdateResourceConnection object
 // This constructor will assign default values to properties that have it defined,
@@ -65,7 +68,7 @@ func (o *UpdateResourceConnection) SetAccountType(v AccountType) {
 }
 
 func (o UpdateResourceConnection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -113,5 +116,3 @@ func (v *NullableUpdateResourceConnection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

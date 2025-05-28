@@ -26,7 +26,7 @@ type UserZonePreferenceResponseModel struct {
 	// Sid of the user or user group.
 	Sid NullableString `json:"Sid,omitempty"`
 	// UPN of the user or user group.
-	Upn NullableString `json:"Upn,omitempty"`
+	Upn  NullableString    `json:"Upn,omitempty"`
 	Zone *RefResponseModel `json:"Zone,omitempty"`
 }
 
@@ -79,6 +79,7 @@ func (o *UserZonePreferenceResponseModel) HasFullName() bool {
 func (o *UserZonePreferenceResponseModel) SetFullName(v string) {
 	o.FullName.Set(&v)
 }
+
 // SetFullNameNil sets the value for FullName to be an explicit nil
 func (o *UserZonePreferenceResponseModel) SetFullNameNil() {
 	o.FullName.Set(nil)
@@ -121,6 +122,7 @@ func (o *UserZonePreferenceResponseModel) HasName() bool {
 func (o *UserZonePreferenceResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *UserZonePreferenceResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -163,6 +165,7 @@ func (o *UserZonePreferenceResponseModel) HasSid() bool {
 func (o *UserZonePreferenceResponseModel) SetSid(v string) {
 	o.Sid.Set(&v)
 }
+
 // SetSidNil sets the value for Sid to be an explicit nil
 func (o *UserZonePreferenceResponseModel) SetSidNil() {
 	o.Sid.Set(nil)
@@ -205,6 +208,7 @@ func (o *UserZonePreferenceResponseModel) HasUpn() bool {
 func (o *UserZonePreferenceResponseModel) SetUpn(v string) {
 	o.Upn.Set(&v)
 }
+
 // SetUpnNil sets the value for Upn to be an explicit nil
 func (o *UserZonePreferenceResponseModel) SetUpnNil() {
 	o.Upn.Set(nil)
@@ -248,7 +252,7 @@ func (o *UserZonePreferenceResponseModel) SetZone(v RefResponseModel) {
 }
 
 func (o UserZonePreferenceResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -310,5 +314,3 @@ func (v *NullableUserZonePreferenceResponseModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

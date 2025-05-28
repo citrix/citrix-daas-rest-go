@@ -20,7 +20,7 @@ var _ MappedNullable = &Expression{}
 // Expression struct for Expression
 type Expression struct {
 	AwsResourceTagCitrixManaged NullableString `json:"aws:ResourceTag/CitrixManaged,omitempty"`
-	IamPassedToService NullableString `json:"iam:PassedToService,omitempty"`
+	IamPassedToService          NullableString `json:"iam:PassedToService,omitempty"`
 }
 
 // NewExpression instantiates a new Expression object
@@ -72,6 +72,7 @@ func (o *Expression) HasAwsResourceTagCitrixManaged() bool {
 func (o *Expression) SetAwsResourceTagCitrixManaged(v string) {
 	o.AwsResourceTagCitrixManaged.Set(&v)
 }
+
 // SetAwsResourceTagCitrixManagedNil sets the value for AwsResourceTagCitrixManaged to be an explicit nil
 func (o *Expression) SetAwsResourceTagCitrixManagedNil() {
 	o.AwsResourceTagCitrixManaged.Set(nil)
@@ -114,6 +115,7 @@ func (o *Expression) HasIamPassedToService() bool {
 func (o *Expression) SetIamPassedToService(v string) {
 	o.IamPassedToService.Set(&v)
 }
+
 // SetIamPassedToServiceNil sets the value for IamPassedToService to be an explicit nil
 func (o *Expression) SetIamPassedToServiceNil() {
 	o.IamPassedToService.Set(nil)
@@ -125,7 +127,7 @@ func (o *Expression) UnsetIamPassedToService() {
 }
 
 func (o Expression) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -178,5 +180,3 @@ func (v *NullableExpression) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

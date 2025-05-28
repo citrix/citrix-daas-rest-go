@@ -15,13 +15,13 @@ import (
 	"fmt"
 )
 
-// RequiredSleepCapability The sleep capability of this desktop group.             
+// RequiredSleepCapability The sleep capability of this desktop group.
 type RequiredSleepCapability string
 
 // List of RequiredSleepCapability
 const (
 	REQUIREDSLEEPCAPABILITY_UNKNOWN RequiredSleepCapability = "Unknown"
-	REQUIREDSLEEPCAPABILITY_NONE RequiredSleepCapability = "None"
+	REQUIREDSLEEPCAPABILITY_NONE    RequiredSleepCapability = "None"
 	REQUIREDSLEEPCAPABILITY_SUSPEND RequiredSleepCapability = "Suspend"
 )
 
@@ -38,7 +38,7 @@ func (v *RequiredSleepCapability) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = RequiredSleepCapability(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableRequiredSleepCapability) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

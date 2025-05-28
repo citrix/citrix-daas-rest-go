@@ -19,22 +19,21 @@ import (
 	"strings"
 )
 
-
 // MaintenanceCyclesAPIsDAASService MaintenanceCyclesAPIsDAAS service
 type MaintenanceCyclesAPIsDAASService service
 
 type ApiMaintenanceCyclesCancelMaintenanceCycleRequest struct {
-	ctx context.Context
-	ApiService *MaintenanceCyclesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MaintenanceCyclesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -95,24 +94,24 @@ MaintenanceCyclesCancelMaintenanceCycle Cancel a maintenance cycle for a machine
 A maintenance cycle can only be cancelled when the cycle status is not in 'completed'.
 If the maintenance cycle is in another status, the operation fails with HTTP response status 404.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId
- @return ApiMaintenanceCyclesCancelMaintenanceCycleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId
+	@return ApiMaintenanceCyclesCancelMaintenanceCycleRequest
 */
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCancelMaintenanceCycle(ctx context.Context, nameOrId string) ApiMaintenanceCyclesCancelMaintenanceCycleRequest {
 	return ApiMaintenanceCyclesCancelMaintenanceCycleRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCancelMaintenanceCycleExecute(r ApiMaintenanceCyclesCancelMaintenanceCycleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceCyclesAPIsDAASService.MaintenanceCyclesCancelMaintenanceCycle")
@@ -213,8 +212,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCancelMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -224,8 +223,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCancelMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -235,8 +234,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCancelMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -246,8 +245,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCancelMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -257,8 +256,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCancelMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -268,8 +267,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCancelMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -279,8 +278,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCancelMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -290,8 +289,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCancelMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -301,8 +300,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCancelMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -311,17 +310,17 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCancelMaintenanceCyc
 }
 
 type ApiMaintenanceCyclesCreateMaintenanceCycleRequest struct {
-	ctx context.Context
-	ApiService *MaintenanceCyclesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                context.Context
+	ApiService                         *MaintenanceCyclesAPIsDAASService
+	citrixCustomerId                   *string
+	citrixInstanceId                   *string
 	createMaintenanceCycleRequestModel *CreateMaintenanceCycleRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                          *string
+	authorization                      *string
+	citrixTransactionId                *string
+	accept                             *string
+	citrixLocale                       *string
+	async                              *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -385,22 +384,22 @@ func (r ApiMaintenanceCyclesCreateMaintenanceCycleRequest) Execute() (*http.Resp
 /*
 MaintenanceCyclesCreateMaintenanceCycle Create a maintenance cycle for a machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMaintenanceCyclesCreateMaintenanceCycleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiMaintenanceCyclesCreateMaintenanceCycleRequest
 */
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCreateMaintenanceCycle(ctx context.Context) ApiMaintenanceCyclesCreateMaintenanceCycleRequest {
 	return ApiMaintenanceCyclesCreateMaintenanceCycleRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCreateMaintenanceCycleExecute(r ApiMaintenanceCyclesCreateMaintenanceCycleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceCyclesAPIsDAASService.MaintenanceCyclesCreateMaintenanceCycle")
@@ -505,8 +504,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCreateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -516,8 +515,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCreateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -527,8 +526,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCreateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -538,8 +537,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCreateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -549,8 +548,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCreateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -560,8 +559,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCreateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -571,8 +570,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCreateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -582,8 +581,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCreateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -593,8 +592,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCreateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -603,21 +602,21 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCreateMaintenanceCyc
 }
 
 type ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest struct {
-	ctx context.Context
-	ApiService *MaintenanceCyclesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                context.Context
+	ApiService                         *MaintenanceCyclesAPIsDAASService
+	citrixCustomerId                   *string
+	citrixInstanceId                   *string
 	maintenanceCycleSearchRequestModel *MaintenanceCycleSearchRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	limit *int32
-	skip *int32
-	continuationToken *string
-	fields *string
+	userAgent                          *string
+	authorization                      *string
+	citrixTransactionId                *string
+	accept                             *string
+	citrixLocale                       *string
+	async                              *bool
+	limit                              *int32
+	skip                               *int32
+	continuationToken                  *string
+	fields                             *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -706,24 +705,25 @@ MaintenanceCyclesDoMaintenanceCycleSearch Perform an advanced search for mainten
 
 Perform an advanced search for mainenance cycles.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest
 */
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleSearch(ctx context.Context) ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest {
 	return ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return MaintenanceCycleResponseModelCollection
+//
+//	@return MaintenanceCycleResponseModelCollection
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleSearchExecute(r ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) (*MaintenanceCycleResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MaintenanceCycleResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MaintenanceCycleResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceCyclesAPIsDAASService.MaintenanceCyclesDoMaintenanceCycleSearch")
@@ -840,8 +840,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -851,8 +851,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -862,8 +862,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -873,8 +873,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -884,8 +884,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -895,8 +895,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -906,8 +906,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -917,8 +917,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -928,8 +928,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleSe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -947,21 +947,21 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleSe
 }
 
 type ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest struct {
-	ctx context.Context
-	ApiService *MaintenanceCyclesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                              context.Context
+	ApiService                                       *MaintenanceCyclesAPIsDAASService
+	citrixCustomerId                                 *string
+	citrixInstanceId                                 *string
 	maintenanceCycleVMOperationJobSearchRequestModel *MaintenanceCycleVMOperationJobSearchRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	limit *int32
-	skip *int32
-	continuationToken *string
-	fields *string
+	userAgent                                        *string
+	authorization                                    *string
+	citrixTransactionId                              *string
+	accept                                           *string
+	citrixLocale                                     *string
+	async                                            *bool
+	limit                                            *int32
+	skip                                             *int32
+	continuationToken                                *string
+	fields                                           *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1051,24 +1051,25 @@ MaintenanceCyclesDoMaintenanceCycleVMOperationJobSearch Perform an advanced sear
 Perform an advanced search for mainenance cycle vm operation jobs.  Note that some combinations
 of search parameters may result in slow performance.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest
 */
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleVMOperationJobSearch(ctx context.Context) ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest {
 	return ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return MaintenanceCycleVMOperationJobResponseModelCollection
+//
+//	@return MaintenanceCycleVMOperationJobResponseModelCollection
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchExecute(r ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) (*MaintenanceCycleVMOperationJobResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MaintenanceCycleVMOperationJobResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MaintenanceCycleVMOperationJobResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceCyclesAPIsDAASService.MaintenanceCyclesDoMaintenanceCycleVMOperationJobSearch")
@@ -1185,8 +1186,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleVM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1196,8 +1197,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleVM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1207,8 +1208,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleVM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1218,8 +1219,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleVM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1229,8 +1230,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleVM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1240,8 +1241,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleVM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1251,8 +1252,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleVM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1262,8 +1263,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleVM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1273,8 +1274,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleVM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1292,17 +1293,17 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleVM
 }
 
 type ApiMaintenanceCyclesGetMaintenanceCycleRequest struct {
-	ctx context.Context
-	ApiService *MaintenanceCyclesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MaintenanceCyclesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1360,26 +1361,27 @@ func (r ApiMaintenanceCyclesGetMaintenanceCycleRequest) Execute() (*MaintenanceC
 /*
 MaintenanceCyclesGetMaintenanceCycle Get a maintenance cycle for a machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The Id or name of the maintenance cycle to get. 
- @return ApiMaintenanceCyclesGetMaintenanceCycleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The Id or name of the maintenance cycle to get.
+	@return ApiMaintenanceCyclesGetMaintenanceCycleRequest
 */
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesGetMaintenanceCycle(ctx context.Context, nameOrId string) ApiMaintenanceCyclesGetMaintenanceCycleRequest {
 	return ApiMaintenanceCyclesGetMaintenanceCycleRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return MaintenanceCycleDetailsResponseModel
+//
+//	@return MaintenanceCycleDetailsResponseModel
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesGetMaintenanceCycleExecute(r ApiMaintenanceCyclesGetMaintenanceCycleRequest) (*MaintenanceCycleDetailsResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MaintenanceCycleDetailsResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MaintenanceCycleDetailsResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceCyclesAPIsDAASService.MaintenanceCyclesGetMaintenanceCycle")
@@ -1480,8 +1482,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesGetMaintenanceCycleE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1491,8 +1493,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesGetMaintenanceCycleE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1502,8 +1504,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesGetMaintenanceCycleE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1513,8 +1515,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesGetMaintenanceCycleE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1524,8 +1526,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesGetMaintenanceCycleE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1535,8 +1537,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesGetMaintenanceCycleE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1546,8 +1548,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesGetMaintenanceCycleE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1557,8 +1559,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesGetMaintenanceCycleE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1576,17 +1578,17 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesGetMaintenanceCycleE
 }
 
 type ApiMaintenanceCyclesRemoveMaintenanceCycleRequest struct {
-	ctx context.Context
-	ApiService *MaintenanceCyclesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MaintenanceCyclesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1647,24 +1649,24 @@ MaintenanceCyclesRemoveMaintenanceCycle Remove a maintenance cycle for a machine
 A maintenance cycle can only be removed from machine catalog when the cycle status is not in 'running' or 'cancelling'.
 If the maintenace cycle is in another status, the operation fails with HTTP response status 404.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId
- @return ApiMaintenanceCyclesRemoveMaintenanceCycleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId
+	@return ApiMaintenanceCyclesRemoveMaintenanceCycleRequest
 */
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRemoveMaintenanceCycle(ctx context.Context, nameOrId string) ApiMaintenanceCyclesRemoveMaintenanceCycleRequest {
 	return ApiMaintenanceCyclesRemoveMaintenanceCycleRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRemoveMaintenanceCycleExecute(r ApiMaintenanceCyclesRemoveMaintenanceCycleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceCyclesAPIsDAASService.MaintenanceCyclesRemoveMaintenanceCycle")
@@ -1765,8 +1767,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRemoveMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1776,8 +1778,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRemoveMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1787,8 +1789,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRemoveMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1798,8 +1800,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRemoveMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1809,8 +1811,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRemoveMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1820,8 +1822,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRemoveMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1831,8 +1833,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRemoveMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1842,8 +1844,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRemoveMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1852,18 +1854,18 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRemoveMaintenanceCyc
 }
 
 type ApiMaintenanceCyclesRestartMaintenanceCycleRequest struct {
-	ctx context.Context
-	ApiService *MaintenanceCyclesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                 context.Context
+	ApiService                          *MaintenanceCyclesAPIsDAASService
+	citrixCustomerId                    *string
+	citrixInstanceId                    *string
+	nameOrId                            string
 	restartMaintenanceCycleRequestModel *RestartMaintenanceCycleRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                           *string
+	authorization                       *string
+	citrixTransactionId                 *string
+	accept                              *string
+	citrixLocale                        *string
+	async                               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1929,24 +1931,24 @@ MaintenanceCyclesRestartMaintenanceCycle Restart a maintenance cycle for a machi
 
 A maintenance cycle can only be restarted when the cycle status is in 'cancelled', 'failed' or 'completed'.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The Id or name of the maintenance cycle to restart. 
- @return ApiMaintenanceCyclesRestartMaintenanceCycleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The Id or name of the maintenance cycle to restart.
+	@return ApiMaintenanceCyclesRestartMaintenanceCycleRequest
 */
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCycle(ctx context.Context, nameOrId string) ApiMaintenanceCyclesRestartMaintenanceCycleRequest {
 	return ApiMaintenanceCyclesRestartMaintenanceCycleRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCycleExecute(r ApiMaintenanceCyclesRestartMaintenanceCycleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceCyclesAPIsDAASService.MaintenanceCyclesRestartMaintenanceCycle")
@@ -2052,8 +2054,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2063,8 +2065,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2074,8 +2076,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2085,8 +2087,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2096,8 +2098,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2107,8 +2109,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2118,8 +2120,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2129,8 +2131,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2140,8 +2142,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2151,8 +2153,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCy
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2161,17 +2163,17 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCy
 }
 
 type ApiMaintenanceCyclesUpdateMaintenanceCycleRequest struct {
-	ctx context.Context
-	ApiService *MaintenanceCyclesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                context.Context
+	ApiService                         *MaintenanceCyclesAPIsDAASService
+	citrixCustomerId                   *string
+	citrixInstanceId                   *string
 	updateMaintenanceCycleRequestModel *UpdateMaintenanceCycleRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                          *string
+	authorization                      *string
+	citrixTransactionId                *string
+	accept                             *string
+	citrixLocale                       *string
+	async                              *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2235,22 +2237,22 @@ func (r ApiMaintenanceCyclesUpdateMaintenanceCycleRequest) Execute() (*http.Resp
 /*
 MaintenanceCyclesUpdateMaintenanceCycle Update a maintenance cycle for a machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMaintenanceCyclesUpdateMaintenanceCycleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiMaintenanceCyclesUpdateMaintenanceCycleRequest
 */
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesUpdateMaintenanceCycle(ctx context.Context) ApiMaintenanceCyclesUpdateMaintenanceCycleRequest {
 	return ApiMaintenanceCyclesUpdateMaintenanceCycleRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesUpdateMaintenanceCycleExecute(r ApiMaintenanceCyclesUpdateMaintenanceCycleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceCyclesAPIsDAASService.MaintenanceCyclesUpdateMaintenanceCycle")
@@ -2355,8 +2357,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesUpdateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2366,8 +2368,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesUpdateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2377,8 +2379,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesUpdateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2388,8 +2390,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesUpdateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2399,8 +2401,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesUpdateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2410,8 +2412,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesUpdateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2421,8 +2423,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesUpdateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2432,8 +2434,8 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesUpdateMaintenanceCyc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

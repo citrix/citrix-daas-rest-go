@@ -20,9 +20,9 @@ type PackagedApplicationVisibility string
 
 // List of PackagedApplicationVisibility
 const (
-	PACKAGEDAPPLICATIONVISIBILITY_NONE PackagedApplicationVisibility = "None"
-	PACKAGEDAPPLICATIONVISIBILITY_WORKSPACE PackagedApplicationVisibility = "Workspace"
-	PACKAGEDAPPLICATIONVISIBILITY_DESKTOP PackagedApplicationVisibility = "Desktop"
+	PACKAGEDAPPLICATIONVISIBILITY_NONE                  PackagedApplicationVisibility = "None"
+	PACKAGEDAPPLICATIONVISIBILITY_WORKSPACE             PackagedApplicationVisibility = "Workspace"
+	PACKAGEDAPPLICATIONVISIBILITY_DESKTOP               PackagedApplicationVisibility = "Desktop"
 	PACKAGEDAPPLICATIONVISIBILITY_WORKSPACE_AND_DESKTOP PackagedApplicationVisibility = "WorkspaceAndDesktop"
 )
 
@@ -40,7 +40,7 @@ func (v *PackagedApplicationVisibility) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = PackagedApplicationVisibility(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullablePackagedApplicationVisibility) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

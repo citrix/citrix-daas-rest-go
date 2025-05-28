@@ -20,13 +20,13 @@ type VdaUpgradeMachineScheduleStatus string
 
 // List of VdaUpgradeMachineScheduleStatus
 const (
-	VDAUPGRADEMACHINESCHEDULESTATUS_UNKNOWN VdaUpgradeMachineScheduleStatus = "Unknown"
-	VDAUPGRADEMACHINESCHEDULESTATUS_UPGRADE_SCHEDULED VdaUpgradeMachineScheduleStatus = "UpgradeScheduled"
+	VDAUPGRADEMACHINESCHEDULESTATUS_UNKNOWN                   VdaUpgradeMachineScheduleStatus = "Unknown"
+	VDAUPGRADEMACHINESCHEDULESTATUS_UPGRADE_SCHEDULED         VdaUpgradeMachineScheduleStatus = "UpgradeScheduled"
 	VDAUPGRADEMACHINESCHEDULESTATUS_UPGRADE_IN_UPGRADE_WINDOW VdaUpgradeMachineScheduleStatus = "UpgradeInUpgradeWindow"
-	VDAUPGRADEMACHINESCHEDULESTATUS_UPGRADE_IN_PROGRESS VdaUpgradeMachineScheduleStatus = "UpgradeInProgress"
-	VDAUPGRADEMACHINESCHEDULESTATUS_UPGRADE_CANCELLED VdaUpgradeMachineScheduleStatus = "UpgradeCancelled"
-	VDAUPGRADEMACHINESCHEDULESTATUS_UPGRADE_FAILED VdaUpgradeMachineScheduleStatus = "UpgradeFailed"
-	VDAUPGRADEMACHINESCHEDULESTATUS_UPGRADE_SUCCESS VdaUpgradeMachineScheduleStatus = "UpgradeSuccess"
+	VDAUPGRADEMACHINESCHEDULESTATUS_UPGRADE_IN_PROGRESS       VdaUpgradeMachineScheduleStatus = "UpgradeInProgress"
+	VDAUPGRADEMACHINESCHEDULESTATUS_UPGRADE_CANCELLED         VdaUpgradeMachineScheduleStatus = "UpgradeCancelled"
+	VDAUPGRADEMACHINESCHEDULESTATUS_UPGRADE_FAILED            VdaUpgradeMachineScheduleStatus = "UpgradeFailed"
+	VDAUPGRADEMACHINESCHEDULESTATUS_UPGRADE_SUCCESS           VdaUpgradeMachineScheduleStatus = "UpgradeSuccess"
 	VDAUPGRADEMACHINESCHEDULESTATUS_UPGRADE_VALIDATION_FAILED VdaUpgradeMachineScheduleStatus = "UpgradeValidationFailed"
 )
 
@@ -48,7 +48,7 @@ func (v *VdaUpgradeMachineScheduleStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = VdaUpgradeMachineScheduleStatus(value)
 	return nil
 }
@@ -114,4 +114,3 @@ func (v *NullableVdaUpgradeMachineScheduleStatus) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

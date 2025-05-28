@@ -19,7 +19,7 @@ var _ MappedNullable = &SortingMethod4{}
 
 // SortingMethod4 Filter search result sort criteria.
 type SortingMethod4 struct {
-	Property FilterProperty `json:"Property"`
+	Property      FilterProperty    `json:"Property"`
 	SortDirection ListSortDirection `json:"SortDirection"`
 }
 
@@ -91,7 +91,7 @@ func (o *SortingMethod4) SetSortDirection(v ListSortDirection) {
 }
 
 func (o SortingMethod4) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableSortingMethod4) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

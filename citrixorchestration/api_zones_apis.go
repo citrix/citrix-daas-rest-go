@@ -19,23 +19,22 @@ import (
 	"strings"
 )
 
-
 // ZonesAPIsDAASService ZonesAPIsDAAS service
 type ZonesAPIsDAASService service
 
 type ApiZonesAddItemsIntoZoneRequest struct {
-	ctx context.Context
-	ApiService *ZonesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                    context.Context
+	ApiService             *ZonesAPIsDAASService
+	citrixCustomerId       *string
+	citrixInstanceId       *string
+	nameOrId               string
 	zonedItemsRequestModel *ZonedItemsRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent              *string
+	authorization          *string
+	citrixTransactionId    *string
+	accept                 *string
+	citrixLocale           *string
+	async                  *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -99,24 +98,24 @@ func (r ApiZonesAddItemsIntoZoneRequest) Execute() (*http.Response, error) {
 /*
 ZonesAddItemsIntoZone Add items into a zone.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The zone into which items will be added.
- @return ApiZonesAddItemsIntoZoneRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The zone into which items will be added.
+	@return ApiZonesAddItemsIntoZoneRequest
 */
 func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZone(ctx context.Context, nameOrId string) ApiZonesAddItemsIntoZoneRequest {
 	return ApiZonesAddItemsIntoZoneRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIntoZoneRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZonesAPIsDAASService.ZonesAddItemsIntoZone")
@@ -222,8 +221,8 @@ func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -233,8 +232,8 @@ func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -244,8 +243,8 @@ func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -255,8 +254,8 @@ func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -266,8 +265,8 @@ func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -277,8 +276,8 @@ func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -288,8 +287,8 @@ func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -299,8 +298,8 @@ func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -310,8 +309,8 @@ func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -321,8 +320,8 @@ func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -331,17 +330,17 @@ func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIn
 }
 
 type ApiZonesCreateZoneRequest struct {
-	ctx context.Context
-	ApiService *ZonesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                    context.Context
+	ApiService             *ZonesAPIsDAASService
+	citrixCustomerId       *string
+	citrixInstanceId       *string
 	createZoneRequestModel *CreateZoneRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent              *string
+	authorization          *string
+	citrixTransactionId    *string
+	accept                 *string
+	citrixLocale           *string
+	async                  *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -405,22 +404,22 @@ func (r ApiZonesCreateZoneRequest) Execute() (*http.Response, error) {
 /*
 ZonesCreateZone Create a zone.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiZonesCreateZoneRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiZonesCreateZoneRequest
 */
 func (a *ZonesAPIsDAASService) ZonesCreateZone(ctx context.Context) ApiZonesCreateZoneRequest {
 	return ApiZonesCreateZoneRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *ZonesAPIsDAASService) ZonesCreateZoneExecute(r ApiZonesCreateZoneRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZonesAPIsDAASService.ZonesCreateZone")
@@ -525,8 +524,8 @@ func (a *ZonesAPIsDAASService) ZonesCreateZoneExecute(r ApiZonesCreateZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -536,8 +535,8 @@ func (a *ZonesAPIsDAASService) ZonesCreateZoneExecute(r ApiZonesCreateZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -547,8 +546,8 @@ func (a *ZonesAPIsDAASService) ZonesCreateZoneExecute(r ApiZonesCreateZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -558,8 +557,8 @@ func (a *ZonesAPIsDAASService) ZonesCreateZoneExecute(r ApiZonesCreateZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -569,8 +568,8 @@ func (a *ZonesAPIsDAASService) ZonesCreateZoneExecute(r ApiZonesCreateZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -580,8 +579,8 @@ func (a *ZonesAPIsDAASService) ZonesCreateZoneExecute(r ApiZonesCreateZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -591,8 +590,8 @@ func (a *ZonesAPIsDAASService) ZonesCreateZoneExecute(r ApiZonesCreateZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -602,8 +601,8 @@ func (a *ZonesAPIsDAASService) ZonesCreateZoneExecute(r ApiZonesCreateZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -613,8 +612,8 @@ func (a *ZonesAPIsDAASService) ZonesCreateZoneExecute(r ApiZonesCreateZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -623,17 +622,17 @@ func (a *ZonesAPIsDAASService) ZonesCreateZoneExecute(r ApiZonesCreateZoneReques
 }
 
 type ApiZonesDeleteZoneRequest struct {
-	ctx context.Context
-	ApiService *ZonesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ZonesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -698,24 +697,24 @@ Only if there is no items in the zone, we may delete a zone. Items include:
 - machine catalog
 - user / user group
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or id of the zone to be deleted. 
- @return ApiZonesDeleteZoneRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or id of the zone to be deleted.
+	@return ApiZonesDeleteZoneRequest
 */
 func (a *ZonesAPIsDAASService) ZonesDeleteZone(ctx context.Context, nameOrId string) ApiZonesDeleteZoneRequest {
 	return ApiZonesDeleteZoneRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *ZonesAPIsDAASService) ZonesDeleteZoneExecute(r ApiZonesDeleteZoneRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZonesAPIsDAASService.ZonesDeleteZone")
@@ -816,8 +815,8 @@ func (a *ZonesAPIsDAASService) ZonesDeleteZoneExecute(r ApiZonesDeleteZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -827,8 +826,8 @@ func (a *ZonesAPIsDAASService) ZonesDeleteZoneExecute(r ApiZonesDeleteZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -838,8 +837,8 @@ func (a *ZonesAPIsDAASService) ZonesDeleteZoneExecute(r ApiZonesDeleteZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -849,8 +848,8 @@ func (a *ZonesAPIsDAASService) ZonesDeleteZoneExecute(r ApiZonesDeleteZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -860,8 +859,8 @@ func (a *ZonesAPIsDAASService) ZonesDeleteZoneExecute(r ApiZonesDeleteZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -871,8 +870,8 @@ func (a *ZonesAPIsDAASService) ZonesDeleteZoneExecute(r ApiZonesDeleteZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -882,8 +881,8 @@ func (a *ZonesAPIsDAASService) ZonesDeleteZoneExecute(r ApiZonesDeleteZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -893,8 +892,8 @@ func (a *ZonesAPIsDAASService) ZonesDeleteZoneExecute(r ApiZonesDeleteZoneReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -903,19 +902,19 @@ func (a *ZonesAPIsDAASService) ZonesDeleteZoneExecute(r ApiZonesDeleteZoneReques
 }
 
 type ApiZonesDoZoneSearchRequest struct {
-	ctx context.Context
-	ApiService *ZonesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                         context.Context
+	ApiService                  *ZonesAPIsDAASService
+	citrixCustomerId            *string
+	citrixInstanceId            *string
 	zonedItemSearchRequestModel *ZonedItemSearchRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	async *bool
+	userAgent                   *string
+	authorization               *string
+	citrixTransactionId         *string
+	accept                      *string
+	citrixLocale                *string
+	limit                       *int32
+	continuationToken           *string
+	async                       *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -994,24 +993,25 @@ ZonesDoZoneSearch Perform a basic search for zoned items.
 Perform a basic search for zoned items.
 Note that the search action is used for items in zone, not for zone itself.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiZonesDoZoneSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiZonesDoZoneSearchRequest
 */
 func (a *ZonesAPIsDAASService) ZonesDoZoneSearch(ctx context.Context) ApiZonesDoZoneSearchRequest {
 	return ApiZonesDoZoneSearchRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ZonedItemResponseModelCollection
+//
+//	@return ZonedItemResponseModelCollection
 func (a *ZonesAPIsDAASService) ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRequest) (*ZonedItemResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ZonedItemResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ZonedItemResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZonesAPIsDAASService.ZonesDoZoneSearch")
@@ -1122,8 +1122,8 @@ func (a *ZonesAPIsDAASService) ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1133,8 +1133,8 @@ func (a *ZonesAPIsDAASService) ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1144,8 +1144,8 @@ func (a *ZonesAPIsDAASService) ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1155,8 +1155,8 @@ func (a *ZonesAPIsDAASService) ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1166,8 +1166,8 @@ func (a *ZonesAPIsDAASService) ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1177,8 +1177,8 @@ func (a *ZonesAPIsDAASService) ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1188,8 +1188,8 @@ func (a *ZonesAPIsDAASService) ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1199,8 +1199,8 @@ func (a *ZonesAPIsDAASService) ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1210,8 +1210,8 @@ func (a *ZonesAPIsDAASService) ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1229,18 +1229,18 @@ func (a *ZonesAPIsDAASService) ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRe
 }
 
 type ApiZonesEditZoneRequest struct {
-	ctx context.Context
-	ApiService *ZonesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                  context.Context
+	ApiService           *ZonesAPIsDAASService
+	citrixCustomerId     *string
+	citrixInstanceId     *string
+	nameOrId             string
 	editZoneRequestModel *EditZoneRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent            *string
+	authorization        *string
+	citrixTransactionId  *string
+	accept               *string
+	citrixLocale         *string
+	async                *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1304,24 +1304,24 @@ func (r ApiZonesEditZoneRequest) Execute() (*http.Response, error) {
 /*
 ZonesEditZone Edit a zone.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the zone.
- @return ApiZonesEditZoneRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the zone.
+	@return ApiZonesEditZoneRequest
 */
 func (a *ZonesAPIsDAASService) ZonesEditZone(ctx context.Context, nameOrId string) ApiZonesEditZoneRequest {
 	return ApiZonesEditZoneRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *ZonesAPIsDAASService) ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZonesAPIsDAASService.ZonesEditZone")
@@ -1427,8 +1427,8 @@ func (a *ZonesAPIsDAASService) ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1438,8 +1438,8 @@ func (a *ZonesAPIsDAASService) ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1449,8 +1449,8 @@ func (a *ZonesAPIsDAASService) ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1460,8 +1460,8 @@ func (a *ZonesAPIsDAASService) ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1471,8 +1471,8 @@ func (a *ZonesAPIsDAASService) ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1482,8 +1482,8 @@ func (a *ZonesAPIsDAASService) ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1493,8 +1493,8 @@ func (a *ZonesAPIsDAASService) ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1504,8 +1504,8 @@ func (a *ZonesAPIsDAASService) ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1515,8 +1515,8 @@ func (a *ZonesAPIsDAASService) ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1525,16 +1525,16 @@ func (a *ZonesAPIsDAASService) ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (
 }
 
 type ApiZonesGetZoneRequest struct {
-	ctx context.Context
-	ApiService *ZonesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ZonesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1588,26 +1588,27 @@ ZonesGetZone Get a single zone from the site.
 
 Get a single zone from the site
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the zone.
- @return ApiZonesGetZoneRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the zone.
+	@return ApiZonesGetZoneRequest
 */
 func (a *ZonesAPIsDAASService) ZonesGetZone(ctx context.Context, nameOrId string) ApiZonesGetZoneRequest {
 	return ApiZonesGetZoneRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ZoneDetailResponseModel
+//
+//	@return ZoneDetailResponseModel
 func (a *ZonesAPIsDAASService) ZonesGetZoneExecute(r ApiZonesGetZoneRequest) (*ZoneDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ZoneDetailResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ZoneDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZonesAPIsDAASService.ZonesGetZone")
@@ -1705,8 +1706,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZoneExecute(r ApiZonesGetZoneRequest) (*Z
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1716,8 +1717,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZoneExecute(r ApiZonesGetZoneRequest) (*Z
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1727,8 +1728,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZoneExecute(r ApiZonesGetZoneRequest) (*Z
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1738,8 +1739,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZoneExecute(r ApiZonesGetZoneRequest) (*Z
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1749,8 +1750,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZoneExecute(r ApiZonesGetZoneRequest) (*Z
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1760,8 +1761,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZoneExecute(r ApiZonesGetZoneRequest) (*Z
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1771,8 +1772,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZoneExecute(r ApiZonesGetZoneRequest) (*Z
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1782,8 +1783,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZoneExecute(r ApiZonesGetZoneRequest) (*Z
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1801,17 +1802,17 @@ func (a *ZonesAPIsDAASService) ZonesGetZoneExecute(r ApiZonesGetZoneRequest) (*Z
 }
 
 type ApiZonesGetZonesRequest struct {
-	ctx context.Context
-	ApiService *ZonesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ZonesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1877,24 +1878,25 @@ ZonesGetZones Get the list of all zones in the site.
 
 Get the list of all zones in the site
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiZonesGetZonesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiZonesGetZonesRequest
 */
 func (a *ZonesAPIsDAASService) ZonesGetZones(ctx context.Context) ApiZonesGetZonesRequest {
 	return ApiZonesGetZonesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ZoneResponseModelCollection
+//
+//	@return ZoneResponseModelCollection
 func (a *ZonesAPIsDAASService) ZonesGetZonesExecute(r ApiZonesGetZonesRequest) (*ZoneResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ZoneResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ZoneResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZonesAPIsDAASService.ZonesGetZones")
@@ -1997,8 +1999,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZonesExecute(r ApiZonesGetZonesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2008,8 +2010,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZonesExecute(r ApiZonesGetZonesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2019,8 +2021,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZonesExecute(r ApiZonesGetZonesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2030,8 +2032,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZonesExecute(r ApiZonesGetZonesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2041,8 +2043,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZonesExecute(r ApiZonesGetZonesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2052,8 +2054,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZonesExecute(r ApiZonesGetZonesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2063,8 +2065,8 @@ func (a *ZonesAPIsDAASService) ZonesGetZonesExecute(r ApiZonesGetZonesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2082,18 +2084,18 @@ func (a *ZonesAPIsDAASService) ZonesGetZonesExecute(r ApiZonesGetZonesRequest) (
 }
 
 type ApiZonesMoveItemsIntoZoneRequest struct {
-	ctx context.Context
-	ApiService *ZonesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                    context.Context
+	ApiService             *ZonesAPIsDAASService
+	citrixCustomerId       *string
+	citrixInstanceId       *string
+	nameOrId               string
 	zonedItemsRequestModel *ZonedItemsRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent              *string
+	authorization          *string
+	citrixTransactionId    *string
+	accept                 *string
+	citrixLocale           *string
+	async                  *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2157,24 +2159,24 @@ func (r ApiZonesMoveItemsIntoZoneRequest) Execute() (*http.Response, error) {
 /*
 ZonesMoveItemsIntoZone Move items into a zone.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The zone into which items will be moved.
- @return ApiZonesMoveItemsIntoZoneRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The zone into which items will be moved.
+	@return ApiZonesMoveItemsIntoZoneRequest
 */
 func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZone(ctx context.Context, nameOrId string) ApiZonesMoveItemsIntoZoneRequest {
 	return ApiZonesMoveItemsIntoZoneRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItemsIntoZoneRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZonesAPIsDAASService.ZonesMoveItemsIntoZone")
@@ -2280,8 +2282,8 @@ func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItems
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2291,8 +2293,8 @@ func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItems
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2302,8 +2304,8 @@ func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItems
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2313,8 +2315,8 @@ func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItems
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2324,8 +2326,8 @@ func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItems
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2335,8 +2337,8 @@ func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItems
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2346,8 +2348,8 @@ func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItems
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2357,8 +2359,8 @@ func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItems
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2368,8 +2370,8 @@ func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItems
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2379,8 +2381,8 @@ func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItems
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2389,17 +2391,17 @@ func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItems
 }
 
 type ApiZonesRemoveItemsFromZoneRequest struct {
-	ctx context.Context
-	ApiService *ZonesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                    context.Context
+	ApiService             *ZonesAPIsDAASService
+	citrixCustomerId       *string
+	citrixInstanceId       *string
 	zonedItemsRequestModel *ZonedItemsRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent              *string
+	authorization          *string
+	citrixTransactionId    *string
+	accept                 *string
+	citrixLocale           *string
+	async                  *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2463,22 +2465,22 @@ func (r ApiZonesRemoveItemsFromZoneRequest) Execute() (*http.Response, error) {
 /*
 ZonesRemoveItemsFromZone Remove items from a zone.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiZonesRemoveItemsFromZoneRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiZonesRemoveItemsFromZoneRequest
 */
 func (a *ZonesAPIsDAASService) ZonesRemoveItemsFromZone(ctx context.Context) ApiZonesRemoveItemsFromZoneRequest {
 	return ApiZonesRemoveItemsFromZoneRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *ZonesAPIsDAASService) ZonesRemoveItemsFromZoneExecute(r ApiZonesRemoveItemsFromZoneRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZonesAPIsDAASService.ZonesRemoveItemsFromZone")
@@ -2583,8 +2585,8 @@ func (a *ZonesAPIsDAASService) ZonesRemoveItemsFromZoneExecute(r ApiZonesRemoveI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2594,8 +2596,8 @@ func (a *ZonesAPIsDAASService) ZonesRemoveItemsFromZoneExecute(r ApiZonesRemoveI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2605,8 +2607,8 @@ func (a *ZonesAPIsDAASService) ZonesRemoveItemsFromZoneExecute(r ApiZonesRemoveI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2616,8 +2618,8 @@ func (a *ZonesAPIsDAASService) ZonesRemoveItemsFromZoneExecute(r ApiZonesRemoveI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2627,8 +2629,8 @@ func (a *ZonesAPIsDAASService) ZonesRemoveItemsFromZoneExecute(r ApiZonesRemoveI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2638,8 +2640,8 @@ func (a *ZonesAPIsDAASService) ZonesRemoveItemsFromZoneExecute(r ApiZonesRemoveI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2649,8 +2651,8 @@ func (a *ZonesAPIsDAASService) ZonesRemoveItemsFromZoneExecute(r ApiZonesRemoveI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2660,8 +2662,8 @@ func (a *ZonesAPIsDAASService) ZonesRemoveItemsFromZoneExecute(r ApiZonesRemoveI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2671,8 +2673,8 @@ func (a *ZonesAPIsDAASService) ZonesRemoveItemsFromZoneExecute(r ApiZonesRemoveI
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

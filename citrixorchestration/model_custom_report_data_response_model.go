@@ -19,7 +19,7 @@ var _ MappedNullable = &CustomReportDataResponseModel{}
 
 // CustomReportDataResponseModel struct for CustomReportDataResponseModel
 type CustomReportDataResponseModel struct {
-	CsvData NullableString `json:"CsvData,omitempty"`
+	CsvData         NullableString `json:"CsvData,omitempty"`
 	HtmlSummaryData NullableString `json:"HtmlSummaryData,omitempty"`
 	HtmlDetailsData NullableString `json:"HtmlDetailsData,omitempty"`
 }
@@ -73,6 +73,7 @@ func (o *CustomReportDataResponseModel) HasCsvData() bool {
 func (o *CustomReportDataResponseModel) SetCsvData(v string) {
 	o.CsvData.Set(&v)
 }
+
 // SetCsvDataNil sets the value for CsvData to be an explicit nil
 func (o *CustomReportDataResponseModel) SetCsvDataNil() {
 	o.CsvData.Set(nil)
@@ -115,6 +116,7 @@ func (o *CustomReportDataResponseModel) HasHtmlSummaryData() bool {
 func (o *CustomReportDataResponseModel) SetHtmlSummaryData(v string) {
 	o.HtmlSummaryData.Set(&v)
 }
+
 // SetHtmlSummaryDataNil sets the value for HtmlSummaryData to be an explicit nil
 func (o *CustomReportDataResponseModel) SetHtmlSummaryDataNil() {
 	o.HtmlSummaryData.Set(nil)
@@ -157,6 +159,7 @@ func (o *CustomReportDataResponseModel) HasHtmlDetailsData() bool {
 func (o *CustomReportDataResponseModel) SetHtmlDetailsData(v string) {
 	o.HtmlDetailsData.Set(&v)
 }
+
 // SetHtmlDetailsDataNil sets the value for HtmlDetailsData to be an explicit nil
 func (o *CustomReportDataResponseModel) SetHtmlDetailsDataNil() {
 	o.HtmlDetailsData.Set(nil)
@@ -168,7 +171,7 @@ func (o *CustomReportDataResponseModel) UnsetHtmlDetailsData() {
 }
 
 func (o CustomReportDataResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -224,5 +227,3 @@ func (v *NullableCustomReportDataResponseModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

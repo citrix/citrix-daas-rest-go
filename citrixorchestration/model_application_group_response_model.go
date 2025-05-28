@@ -17,7 +17,7 @@ import (
 // checks if the ApplicationGroupResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApplicationGroupResponseModel{}
 
-// ApplicationGroupResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Description,Enabled,Name,FullName,AdminFolder.               Response object for an application group.              
+// ApplicationGroupResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Description,Enabled,Name,FullName,AdminFolder.               Response object for an application group.
 type ApplicationGroupResponseModel struct {
 	// Id of the application group. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility
 	Id NullableString `json:"Id,omitempty"`
@@ -47,13 +47,13 @@ type ApplicationGroupResponseModel struct {
 	// Number of machines capable of hosting the applications in the application group.
 	NumMachines *int32 `json:"NumMachines,omitempty"`
 	// Total number of machines across all desktop groups on which the application group is published, and which are tagged with the tag given by the RestrictToTag property.
-	NumMachinesWithTag *int32 `json:"NumMachinesWithTag,omitempty"`
-	RestrictToTag *RefResponseModel `json:"RestrictToTag,omitempty"`
+	NumMachinesWithTag *int32            `json:"NumMachinesWithTag,omitempty"`
+	RestrictToTag      *RefResponseModel `json:"RestrictToTag,omitempty"`
 	// Delivery groups associated with the application group.
 	DeliveryGroups []ApplicationGroupDeliveryGroupRefResponseModel `json:"DeliveryGroups,omitempty"`
 	// Delivery group uids associated with the application group.
-	AssociatedDeliveryGroupUids []int32 `json:"AssociatedDeliveryGroupUids,omitempty"`
-	AdminFolder *RefResponseModel `json:"AdminFolder,omitempty"`
+	AssociatedDeliveryGroupUids []int32           `json:"AssociatedDeliveryGroupUids,omitempty"`
+	AdminFolder                 *RefResponseModel `json:"AdminFolder,omitempty"`
 }
 
 // NewApplicationGroupResponseModel instantiates a new ApplicationGroupResponseModel object
@@ -105,6 +105,7 @@ func (o *ApplicationGroupResponseModel) HasId() bool {
 func (o *ApplicationGroupResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *ApplicationGroupResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -150,6 +151,7 @@ func (o *ApplicationGroupResponseModel) HasUid() bool {
 func (o *ApplicationGroupResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *ApplicationGroupResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -225,6 +227,7 @@ func (o *ApplicationGroupResponseModel) HasDescription() bool {
 func (o *ApplicationGroupResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *ApplicationGroupResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -299,6 +302,7 @@ func (o *ApplicationGroupResponseModel) HasName() bool {
 func (o *ApplicationGroupResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ApplicationGroupResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -341,6 +345,7 @@ func (o *ApplicationGroupResponseModel) HasFullName() bool {
 func (o *ApplicationGroupResponseModel) SetFullName(v string) {
 	o.FullName.Set(&v)
 }
+
 // SetFullNameNil sets the value for FullName to be an explicit nil
 func (o *ApplicationGroupResponseModel) SetFullNameNil() {
 	o.FullName.Set(nil)
@@ -710,7 +715,7 @@ func (o *ApplicationGroupResponseModel) SetAdminFolder(v RefResponseModel) {
 }
 
 func (o ApplicationGroupResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -811,5 +816,3 @@ func (v *NullableApplicationGroupResponseModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

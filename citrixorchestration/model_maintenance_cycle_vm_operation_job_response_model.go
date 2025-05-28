@@ -22,18 +22,18 @@ var _ MappedNullable = &MaintenanceCycleVMOperationJobResponseModel{}
 type MaintenanceCycleVMOperationJobResponseModel struct {
 	// The operation information of maintenance cycle vm operation job
 	MaintenanceCycleOperationInformation NullableString `json:"MaintenanceCycleOperationInformation,omitempty"`
-	// The job id of maintenance cycle vm operation job. 
+	// The job id of maintenance cycle vm operation job.
 	JobId NullableString `json:"JobId,omitempty"`
-	// The machine name. 
+	// The machine name.
 	MachineName NullableString `json:"MachineName,omitempty"`
-	// The maintenance cycle id. 
+	// The maintenance cycle id.
 	MaintenanceCycleId *string `json:"MaintenanceCycleId,omitempty"`
 	// The maintenance cycle vm operation job start time in UTC.
 	MaintenanceStartTime NullableTime `json:"MaintenanceStartTime,omitempty"`
 	// The maintenance cycle vm operation job end time in UTC.
-	MaintenanceEndTime NullableTime `json:"MaintenanceEndTime,omitempty"`
-	MaintenanceStatus *MaintenanceCycleStatus `json:"MaintenanceStatus,omitempty"`
-	Operation *MaintenanceCycleOperation `json:"Operation,omitempty"`
+	MaintenanceEndTime NullableTime               `json:"MaintenanceEndTime,omitempty"`
+	MaintenanceStatus  *MaintenanceCycleStatus    `json:"MaintenanceStatus,omitempty"`
+	Operation          *MaintenanceCycleOperation `json:"Operation,omitempty"`
 	// Virtual machine sid.
 	VirtualMachineSid NullableString `json:"VirtualMachineSid,omitempty"`
 }
@@ -87,6 +87,7 @@ func (o *MaintenanceCycleVMOperationJobResponseModel) HasMaintenanceCycleOperati
 func (o *MaintenanceCycleVMOperationJobResponseModel) SetMaintenanceCycleOperationInformation(v string) {
 	o.MaintenanceCycleOperationInformation.Set(&v)
 }
+
 // SetMaintenanceCycleOperationInformationNil sets the value for MaintenanceCycleOperationInformation to be an explicit nil
 func (o *MaintenanceCycleVMOperationJobResponseModel) SetMaintenanceCycleOperationInformationNil() {
 	o.MaintenanceCycleOperationInformation.Set(nil)
@@ -129,6 +130,7 @@ func (o *MaintenanceCycleVMOperationJobResponseModel) HasJobId() bool {
 func (o *MaintenanceCycleVMOperationJobResponseModel) SetJobId(v string) {
 	o.JobId.Set(&v)
 }
+
 // SetJobIdNil sets the value for JobId to be an explicit nil
 func (o *MaintenanceCycleVMOperationJobResponseModel) SetJobIdNil() {
 	o.JobId.Set(nil)
@@ -171,6 +173,7 @@ func (o *MaintenanceCycleVMOperationJobResponseModel) HasMachineName() bool {
 func (o *MaintenanceCycleVMOperationJobResponseModel) SetMachineName(v string) {
 	o.MachineName.Set(&v)
 }
+
 // SetMachineNameNil sets the value for MachineName to be an explicit nil
 func (o *MaintenanceCycleVMOperationJobResponseModel) SetMachineNameNil() {
 	o.MachineName.Set(nil)
@@ -245,6 +248,7 @@ func (o *MaintenanceCycleVMOperationJobResponseModel) HasMaintenanceStartTime() 
 func (o *MaintenanceCycleVMOperationJobResponseModel) SetMaintenanceStartTime(v time.Time) {
 	o.MaintenanceStartTime.Set(&v)
 }
+
 // SetMaintenanceStartTimeNil sets the value for MaintenanceStartTime to be an explicit nil
 func (o *MaintenanceCycleVMOperationJobResponseModel) SetMaintenanceStartTimeNil() {
 	o.MaintenanceStartTime.Set(nil)
@@ -287,6 +291,7 @@ func (o *MaintenanceCycleVMOperationJobResponseModel) HasMaintenanceEndTime() bo
 func (o *MaintenanceCycleVMOperationJobResponseModel) SetMaintenanceEndTime(v time.Time) {
 	o.MaintenanceEndTime.Set(&v)
 }
+
 // SetMaintenanceEndTimeNil sets the value for MaintenanceEndTime to be an explicit nil
 func (o *MaintenanceCycleVMOperationJobResponseModel) SetMaintenanceEndTimeNil() {
 	o.MaintenanceEndTime.Set(nil)
@@ -393,6 +398,7 @@ func (o *MaintenanceCycleVMOperationJobResponseModel) HasVirtualMachineSid() boo
 func (o *MaintenanceCycleVMOperationJobResponseModel) SetVirtualMachineSid(v string) {
 	o.VirtualMachineSid.Set(&v)
 }
+
 // SetVirtualMachineSidNil sets the value for VirtualMachineSid to be an explicit nil
 func (o *MaintenanceCycleVMOperationJobResponseModel) SetVirtualMachineSidNil() {
 	o.VirtualMachineSid.Set(nil)
@@ -404,7 +410,7 @@ func (o *MaintenanceCycleVMOperationJobResponseModel) UnsetVirtualMachineSid() {
 }
 
 func (o MaintenanceCycleVMOperationJobResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -478,5 +484,3 @@ func (v *NullableMaintenanceCycleVMOperationJobResponseModel) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

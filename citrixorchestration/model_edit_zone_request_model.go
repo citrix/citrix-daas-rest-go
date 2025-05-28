@@ -76,6 +76,7 @@ func (o *EditZoneRequestModel) HasName() bool {
 func (o *EditZoneRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *EditZoneRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -118,6 +119,7 @@ func (o *EditZoneRequestModel) HasDescription() bool {
 func (o *EditZoneRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *EditZoneRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -162,7 +164,7 @@ func (o *EditZoneRequestModel) SetMetadata(v []NameValueStringPairModel) {
 }
 
 func (o EditZoneRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -218,5 +220,3 @@ func (v *NullableEditZoneRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

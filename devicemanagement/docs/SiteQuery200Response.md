@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]SiteModel**](SiteModel.md) |  | 
+**Items** | [**[]SiteModel**](SiteModel.md) |  | [readonly] 
 
 ## Methods
 

@@ -22,7 +22,7 @@ type SharingKind string
 const (
 	SHARINGKIND_UNKNOWN SharingKind = "Unknown"
 	SHARINGKIND_PRIVATE SharingKind = "Private"
-	SHARINGKIND_SHARED SharingKind = "Shared"
+	SHARINGKIND_SHARED  SharingKind = "Shared"
 )
 
 // All allowed values of SharingKind enum
@@ -38,7 +38,7 @@ func (v *SharingKind) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SharingKind(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableSharingKind) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

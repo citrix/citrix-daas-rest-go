@@ -15,16 +15,16 @@ import (
 	"fmt"
 )
 
-// VdaUpgradeType VDA upgrade types             
+// VdaUpgradeType VDA upgrade types
 type VdaUpgradeType string
 
 // List of VdaUpgradeType
 const (
-	VDAUPGRADETYPE_NOT_SET VdaUpgradeType = "NotSet"
-	VDAUPGRADETYPE_LTSR VdaUpgradeType = "LTSR"
-	VDAUPGRADETYPE_CR VdaUpgradeType = "CR"
+	VDAUPGRADETYPE_NOT_SET  VdaUpgradeType = "NotSet"
+	VDAUPGRADETYPE_LTSR     VdaUpgradeType = "LTSR"
+	VDAUPGRADETYPE_CR       VdaUpgradeType = "CR"
 	VDAUPGRADETYPE_EAR_LTSR VdaUpgradeType = "EAR_LTSR"
-	VDAUPGRADETYPE_EAR_CR VdaUpgradeType = "EAR_CR"
+	VDAUPGRADETYPE_EAR_CR   VdaUpgradeType = "EAR_CR"
 )
 
 // All allowed values of VdaUpgradeType enum
@@ -42,7 +42,7 @@ func (v *VdaUpgradeType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = VdaUpgradeType(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableVdaUpgradeType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

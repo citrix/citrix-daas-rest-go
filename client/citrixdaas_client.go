@@ -7,6 +7,7 @@ import (
 	"crypto/tls"
 	"encoding/json"
 	"fmt"
+	"io"
 	"math"
 	"net/http"
 	"reflect"
@@ -19,6 +20,7 @@ import (
 	"github.com/citrix/citrix-daas-rest-go/citrixcws"
 	"github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	citrixquickcreate "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	citrixquickdeploy "github.com/citrix/citrix-daas-rest-go/citrixquickdeploy"
 	storefrontapis "github.com/citrix/citrix-daas-rest-go/citrixstorefront/apis"
 	citrixwemservice "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 	globalappconfiguration "github.com/citrix/citrix-daas-rest-go/globalappconfiguration"
@@ -32,6 +34,7 @@ type CitrixDaasClient struct {
 	AuthToken           *AuthTokenModel
 	StorefrontClient    *storefrontapis.APIClient
 	QuickCreateClient   *citrixquickcreate.APIClient
+	QuickDeployClient   *citrixquickdeploy.APIClient
 	WemClient           *citrixwemservice.APIClient
 	// Citrix Cloud Service Clients
 	CCAdminsClient          *ccadmins.APIClient
@@ -73,6 +76,12 @@ func getMiddlewareWithCCAdminsClient(authClient *CitrixDaasClient, middlewareAut
 }
 
 func getMiddlewareWithQuickcreateClient(authClient *CitrixDaasClient, middlewareAuthFunc MiddlewareAuthFunction) citrixquickcreate.MiddlewareFunction {
+	return func(r *http.Request) {
+		middlewareAuthFunc(authClient, r)
+	}
+}
+
+func getMiddlewareWithQuickdeployClient(authClient *CitrixDaasClient, middlewareAuthFunc MiddlewareAuthFunction) citrixquickdeploy.MiddlewareFunction {
 	return func(r *http.Request) {
 		middlewareAuthFunc(authClient, r)
 	}
@@ -138,6 +147,27 @@ func (daasClient *CitrixDaasClient) InitializeQuickCreateClient(ctx context.Cont
 
 	localQuickCreateCfg.Middleware = getMiddlewareWithQuickcreateClient(daasClient, middlewareFunc)
 	daasClient.QuickCreateClient = citrixquickcreate.NewAPIClient(localQuickCreateCfg)
+}
+
+func (daasClient *CitrixDaasClient) InitializeQuickDeployClient(ctx context.Context, catalogServiceHostName string, middlewareFunc MiddlewareAuthFunction) {
+	/* ------ Setup QuickCreate Client ------ */
+	localQuickDeployCfg := citrixquickdeploy.NewConfiguration()
+	localQuickDeployCfg.Scheme = "https"
+
+	localQuickDeployCfg.Servers = citrixquickdeploy.ServerConfigurations{
+		{
+			URL: localQuickDeployCfg.Scheme + "://" + catalogServiceHostName,
+		},
+	}
+
+	// Disable ssl check
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	localQuickDeployCfg.HTTPClient = &http.Client{Transport: tr}
+
+	localQuickDeployCfg.Middleware = getMiddlewareWithQuickdeployClient(daasClient, middlewareFunc)
+	daasClient.QuickDeployClient = citrixquickdeploy.NewAPIClient(localQuickDeployCfg)
 }
 
 func (daasClient *CitrixDaasClient) InitializeCwsClient(ctx context.Context, cwsHostname string, middlewareFunc MiddlewareAuthFunction) {
@@ -281,20 +311,83 @@ func (daasClient *CitrixDaasClient) InitializeCitrixCloudClients(ctx context.Con
 	daasClient.SetupGacClient(hostname, middlewareFunc)
 }
 
+func (daasClient *CitrixDaasClient) activateDaasServiceAndGetMe(ctx context.Context, customerId, token string) (*citrixorchestration.MeResponseModel, *http.Response, error) {
+	hostname := daasClient.ApiClient.GetConfig().Host
+
+	// Create the request for the site activation endpoint
+	activationUrl := fmt.Sprintf("https://%s/resourceprovider/%s/site/activation?customerId=%s", hostname, customerId, customerId)
+	startReq, err := http.NewRequest("POST", activationUrl, nil)
+	if err != nil {
+		return nil, nil, fmt.Errorf("failed to create request to start DaaS service: %v", err)
+	}
+	startReq.Header.Add("Authorization", token)
+
+	// Execute the request to start the service
+	startResp, err := daasClient.ApiClient.GetConfig().HTTPClient.Do(startReq)
+	if err != nil {
+		return nil, nil, fmt.Errorf("failed to start DaaS service: %v", err)
+	}
+	defer startResp.Body.Close()
+
+	if startResp.StatusCode != http.StatusOK && startResp.StatusCode != http.StatusAccepted {
+		body, _ := io.ReadAll(startResp.Body)
+		return nil, nil, fmt.Errorf("failed to start DaaS service. Status: %d, Response: %s", startResp.StatusCode, string(body))
+	}
+
+	// Retry the /me call for up to 20 minutes
+	timeout := time.Now().Add(20 * time.Minute)
+	retryInterval := 30 * time.Second
+
+	var resp *citrixorchestration.MeResponseModel
+	var httpResp *http.Response
+
+	for time.Now().Before(timeout) {
+		time.Sleep(retryInterval)
+
+		// Retry the /me call
+		req := daasClient.ApiClient.MeAPIsDAAS.MeGetMe(ctx)
+		req = req.Authorization(token).CitrixCustomerId(customerId)
+		resp, httpResp, err = req.Execute()
+
+		if err == nil {
+			return resp, httpResp, nil
+		}
+		if httpResp != nil && httpResp.StatusCode < 500 {
+			// return immediately if there is some other error. Otherwise wait for the service to start.
+			return resp, httpResp, err
+		}
+	}
+
+	// If we still have an error after all retries, return it
+	if err != nil {
+		return nil, httpResp, fmt.Errorf("failed to connect to DaaS service after multiple retries: %v", err)
+	}
+
+	return resp, httpResp, nil
+}
+
 func (daasClient *CitrixDaasClient) InitializeCitrixDaasClient(ctx context.Context, customerId, token string, onPremises bool, apiGateway bool, disableSslVerification bool, userAgent *string) (*http.Response, error) {
 	req := daasClient.ApiClient.MeAPIsDAAS.MeGetMe(ctx)
 	req = req.Authorization(token).CitrixCustomerId(customerId)
-	resp, httpResp, err := req.Execute()
-	if err != nil {
+	meResp, httpResp, err := req.Execute()
+
+	// Check for 530 status code (site frozen)
+	if !onPremises && httpResp != nil && httpResp.StatusCode == 530 {
+		meResp, httpResp, err = daasClient.activateDaasServiceAndGetMe(ctx, customerId, token)
+		if err != nil {
+			return httpResp, err
+		}
+	} else if err != nil {
+		// For other errors, just return them
 		return httpResp, err
 	}
 
-	if resp == nil || len(resp.Customers) == 0 || len(resp.Customers[0].Sites) == 0 {
+	if meResp == nil || len(meResp.Customers) == 0 || len(meResp.Customers[0].Sites) == 0 {
 		return httpResp, fmt.Errorf("customer does not exist or does not have a valid site")
 	}
 
-	daasClient.ClientConfig.SiteId = resp.Customers[0].Sites[0].Id
-	daasClient.ClientConfig.IsCspCustomer = resp.GetIsCspCustomer()
+	daasClient.ClientConfig.SiteId = meResp.Customers[0].Sites[0].Id
+	daasClient.ClientConfig.IsCspCustomer = meResp.GetIsCspCustomer()
 	daasClient.ClientConfig.Accept = "application/json"
 	if userAgent == nil {
 		defaultUserAgent := "citrix-daas-rest-go (https://github.com/citrix/citrix-daas-rest-go)"

@@ -78,6 +78,7 @@ func (o *VersionDetail) HasProduct() bool {
 func (o *VersionDetail) SetProduct(v string) {
 	o.Product.Set(&v)
 }
+
 // SetProductNil sets the value for Product to be an explicit nil
 func (o *VersionDetail) SetProductNil() {
 	o.Product.Set(nil)
@@ -120,6 +121,7 @@ func (o *VersionDetail) HasVersion() bool {
 func (o *VersionDetail) SetVersion(v string) {
 	o.Version.Set(&v)
 }
+
 // SetVersionNil sets the value for Version to be an explicit nil
 func (o *VersionDetail) SetVersionNil() {
 	o.Version.Set(nil)
@@ -162,6 +164,7 @@ func (o *VersionDetail) HasEdition() bool {
 func (o *VersionDetail) SetEdition(v string) {
 	o.Edition.Set(&v)
 }
+
 // SetEditionNil sets the value for Edition to be an explicit nil
 func (o *VersionDetail) SetEditionNil() {
 	o.Edition.Set(nil)
@@ -204,6 +207,7 @@ func (o *VersionDetail) HasDisplayName() bool {
 func (o *VersionDetail) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *VersionDetail) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -215,7 +219,7 @@ func (o *VersionDetail) UnsetDisplayName() {
 }
 
 func (o VersionDetail) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,5 +278,3 @@ func (v *NullableVersionDetail) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]SystemOptimizationModel**](SystemOptimizationModel.md) |  | 
+**Items** | [**[]SystemOptimizationModel**](SystemOptimizationModel.md) |  | [readonly] 
 
 ## Methods
 

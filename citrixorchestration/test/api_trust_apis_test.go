@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_TrustAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_TrustAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TrustAPIsDAASService TrustExchangeToken", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.TrustAPIsDAAS.TrustExchangeToken(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_citrixorchestration_TrustAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TrustAPIsDAASService TrustGetBearerTokenWithWindowsAuthentication", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.TrustAPIsDAAS.TrustGetBearerTokenWithWindowsAuthentication(context.Background()).Execute()
 
@@ -48,7 +49,7 @@ func Test_citrixorchestration_TrustAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TrustAPIsDAASService TrustRefreshToken", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.TrustAPIsDAAS.TrustRefreshToken(context.Background()).Execute()
 

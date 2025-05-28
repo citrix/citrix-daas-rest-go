@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_StoreFrontServersAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_StoreFrontServersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test StoreFrontServersAPIsDAASService StoreFrontServersCreateStoreFrontServer", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.StoreFrontServersAPIsDAAS.StoreFrontServersCreateStoreFrontServer(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_citrixorchestration_StoreFrontServersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test StoreFrontServersAPIsDAASService StoreFrontServersDeleteStoreFrontServer", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -49,7 +50,7 @@ func Test_citrixorchestration_StoreFrontServersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test StoreFrontServersAPIsDAASService StoreFrontServersGetStoreFrontDeliveryGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -63,7 +64,7 @@ func Test_citrixorchestration_StoreFrontServersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test StoreFrontServersAPIsDAASService StoreFrontServersGetStoreFrontServer", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -77,7 +78,7 @@ func Test_citrixorchestration_StoreFrontServersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test StoreFrontServersAPIsDAASService StoreFrontServersGetStoreFrontServers", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.StoreFrontServersAPIsDAAS.StoreFrontServersGetStoreFrontServers(context.Background()).Execute()
 
@@ -89,7 +90,7 @@ func Test_citrixorchestration_StoreFrontServersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test StoreFrontServersAPIsDAASService StoreFrontServersUpdateStoreFrontServer", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 

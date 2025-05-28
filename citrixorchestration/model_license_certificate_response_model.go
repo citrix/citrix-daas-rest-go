@@ -92,6 +92,7 @@ func (o *LicenseCertificateResponseModel) HasThumbprint() bool {
 func (o *LicenseCertificateResponseModel) SetThumbprint(v string) {
 	o.Thumbprint.Set(&v)
 }
+
 // SetThumbprintNil sets the value for Thumbprint to be an explicit nil
 func (o *LicenseCertificateResponseModel) SetThumbprintNil() {
 	o.Thumbprint.Set(nil)
@@ -134,6 +135,7 @@ func (o *LicenseCertificateResponseModel) HasIssuer() bool {
 func (o *LicenseCertificateResponseModel) SetIssuer(v string) {
 	o.Issuer.Set(&v)
 }
+
 // SetIssuerNil sets the value for Issuer to be an explicit nil
 func (o *LicenseCertificateResponseModel) SetIssuerNil() {
 	o.Issuer.Set(nil)
@@ -176,6 +178,7 @@ func (o *LicenseCertificateResponseModel) HasSubject() bool {
 func (o *LicenseCertificateResponseModel) SetSubject(v string) {
 	o.Subject.Set(&v)
 }
+
 // SetSubjectNil sets the value for Subject to be an explicit nil
 func (o *LicenseCertificateResponseModel) SetSubjectNil() {
 	o.Subject.Set(nil)
@@ -218,6 +221,7 @@ func (o *LicenseCertificateResponseModel) HasValidFrom() bool {
 func (o *LicenseCertificateResponseModel) SetValidFrom(v string) {
 	o.ValidFrom.Set(&v)
 }
+
 // SetValidFromNil sets the value for ValidFrom to be an explicit nil
 func (o *LicenseCertificateResponseModel) SetValidFromNil() {
 	o.ValidFrom.Set(nil)
@@ -260,6 +264,7 @@ func (o *LicenseCertificateResponseModel) HasValidTo() bool {
 func (o *LicenseCertificateResponseModel) SetValidTo(v string) {
 	o.ValidTo.Set(&v)
 }
+
 // SetValidToNil sets the value for ValidTo to be an explicit nil
 func (o *LicenseCertificateResponseModel) SetValidToNil() {
 	o.ValidTo.Set(nil)
@@ -302,6 +307,7 @@ func (o *LicenseCertificateResponseModel) HasSerialNumber() bool {
 func (o *LicenseCertificateResponseModel) SetSerialNumber(v string) {
 	o.SerialNumber.Set(&v)
 }
+
 // SetSerialNumberNil sets the value for SerialNumber to be an explicit nil
 func (o *LicenseCertificateResponseModel) SetSerialNumberNil() {
 	o.SerialNumber.Set(nil)
@@ -344,6 +350,7 @@ func (o *LicenseCertificateResponseModel) HasFriendlyName() bool {
 func (o *LicenseCertificateResponseModel) SetFriendlyName(v string) {
 	o.FriendlyName.Set(&v)
 }
+
 // SetFriendlyNameNil sets the value for FriendlyName to be an explicit nil
 func (o *LicenseCertificateResponseModel) SetFriendlyNameNil() {
 	o.FriendlyName.Set(nil)
@@ -386,6 +393,7 @@ func (o *LicenseCertificateResponseModel) HasVersion() bool {
 func (o *LicenseCertificateResponseModel) SetVersion(v int32) {
 	o.Version.Set(&v)
 }
+
 // SetVersionNil sets the value for Version to be an explicit nil
 func (o *LicenseCertificateResponseModel) SetVersionNil() {
 	o.Version.Set(nil)
@@ -428,6 +436,7 @@ func (o *LicenseCertificateResponseModel) HasRawData() bool {
 func (o *LicenseCertificateResponseModel) SetRawData(v string) {
 	o.RawData.Set(&v)
 }
+
 // SetRawDataNil sets the value for RawData to be an explicit nil
 func (o *LicenseCertificateResponseModel) SetRawDataNil() {
 	o.RawData.Set(nil)
@@ -505,7 +514,7 @@ func (o *LicenseCertificateResponseModel) SetChainStatusFlags(v []X509ChainStatu
 }
 
 func (o LicenseCertificateResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -585,5 +594,3 @@ func (v *NullableLicenseCertificateResponseModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

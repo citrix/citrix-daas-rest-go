@@ -28,9 +28,9 @@ type AdvancedAccessPolicyRequestModel struct {
 	// Whether to allow users to self-service restart machines.
 	AllowMachineRestart NullableBool `json:"AllowMachineRestart,omitempty"`
 	// Whether to allow connections using RDP. Was: AllowsRdpAccess
-	AllowRdpAccess NullableBool `json:"AllowRdpAccess,omitempty"`
+	AllowRdpAccess    NullableBool       `json:"AllowRdpAccess,omitempty"`
 	AllowedConnection *AllowedConnection `json:"AllowedConnection,omitempty"`
-	AllowedUsers *AllowedUser `json:"AllowedUsers,omitempty"`
+	AllowedUsers      *AllowedUser       `json:"AllowedUsers,omitempty"`
 	// Description.
 	Description NullableString `json:"Description,omitempty"`
 	// Whether the advanced access policy is enabled.  If a policy is disabled it is not considered when evaluating whether a user may access the delivery group.
@@ -62,16 +62,16 @@ type AdvancedAccessPolicyRequestModel struct {
 	// Specifies whether the IncludedSmartAccessTags filter is enabled.  If the filter is disabled, it is ignored when the access policy is evaluated.
 	IncludedSmartAccessFilterEnabled NullableBool `json:"IncludedSmartAccessFilterEnabled,omitempty"`
 	// Specifies the SmartAccess tags which grant access to the delivery group, if any occur in those provided by NetScaler Gateway with the user's connection.
-	IncludedSmartAccessTags []SmartAccessTagRequestModel `json:"IncludedSmartAccessTags,omitempty"`
-	IncludedSmartAccessFilterType *FilterMatchType `json:"IncludedSmartAccessFilterType,omitempty"`
+	IncludedSmartAccessTags       []SmartAccessTagRequestModel `json:"IncludedSmartAccessTags,omitempty"`
+	IncludedSmartAccessFilterType *FilterMatchType             `json:"IncludedSmartAccessFilterType,omitempty"`
 	// Specifies whether the IncludedUsers filter is enabled. If the filter is disabled, it is ignored when the access policy is evaluated.
 	IncludedUserFilterEnabled NullableBool `json:"IncludedUserFilterEnabled,omitempty"`
 	// Specifies the users and groups who are granted access to the delivery group.
-	IncludedUsers []string `json:"IncludedUsers,omitempty"`
+	IncludedUsers                   []string     `json:"IncludedUsers,omitempty"`
 	AppProtectionKeyLoggingRequired NullableBool `json:"AppProtectionKeyLoggingRequired,omitempty"`
 	// Specifies whether screen capture app protection is required.
 	AppProtectionScreenCaptureRequired NullableBool `json:"AppProtectionScreenCaptureRequired,omitempty"`
-	IsContextualAppProtectionPolicy NullableBool `json:"IsContextualAppProtectionPolicy,omitempty"`
+	IsContextualAppProtectionPolicy    NullableBool `json:"IsContextualAppProtectionPolicy,omitempty"`
 	// Specifies whether TLS encryption is enabled for sessions delivered from the rule’s delivery group.
 	HdxSslEnabled NullableBool `json:"HdxSslEnabled,omitempty"`
 }
@@ -141,6 +141,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasId() bool {
 func (o *AdvancedAccessPolicyRequestModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -183,6 +184,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasName() bool {
 func (o *AdvancedAccessPolicyRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -225,6 +227,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasAllowHdxAccess() bool {
 func (o *AdvancedAccessPolicyRequestModel) SetAllowHdxAccess(v bool) {
 	o.AllowHdxAccess.Set(&v)
 }
+
 // SetAllowHdxAccessNil sets the value for AllowHdxAccess to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetAllowHdxAccessNil() {
 	o.AllowHdxAccess.Set(nil)
@@ -267,6 +270,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasAllowMachineRestart() bool {
 func (o *AdvancedAccessPolicyRequestModel) SetAllowMachineRestart(v bool) {
 	o.AllowMachineRestart.Set(&v)
 }
+
 // SetAllowMachineRestartNil sets the value for AllowMachineRestart to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetAllowMachineRestartNil() {
 	o.AllowMachineRestart.Set(nil)
@@ -309,6 +313,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasAllowRdpAccess() bool {
 func (o *AdvancedAccessPolicyRequestModel) SetAllowRdpAccess(v bool) {
 	o.AllowRdpAccess.Set(&v)
 }
+
 // SetAllowRdpAccessNil sets the value for AllowRdpAccess to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetAllowRdpAccessNil() {
 	o.AllowRdpAccess.Set(nil)
@@ -415,6 +420,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasDescription() bool {
 func (o *AdvancedAccessPolicyRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -457,6 +463,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasEnabled() bool {
 func (o *AdvancedAccessPolicyRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -499,6 +506,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasExcludedClientIPFilterEnabled() bo
 func (o *AdvancedAccessPolicyRequestModel) SetExcludedClientIPFilterEnabled(v bool) {
 	o.ExcludedClientIPFilterEnabled.Set(&v)
 }
+
 // SetExcludedClientIPFilterEnabledNil sets the value for ExcludedClientIPFilterEnabled to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetExcludedClientIPFilterEnabledNil() {
 	o.ExcludedClientIPFilterEnabled.Set(nil)
@@ -574,6 +582,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasExcludedClientNameFilterEnabled() 
 func (o *AdvancedAccessPolicyRequestModel) SetExcludedClientNameFilterEnabled(v bool) {
 	o.ExcludedClientNameFilterEnabled.Set(&v)
 }
+
 // SetExcludedClientNameFilterEnabledNil sets the value for ExcludedClientNameFilterEnabled to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetExcludedClientNameFilterEnabledNil() {
 	o.ExcludedClientNameFilterEnabled.Set(nil)
@@ -649,6 +658,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasExcludedSmartAccessFilterEnabled()
 func (o *AdvancedAccessPolicyRequestModel) SetExcludedSmartAccessFilterEnabled(v bool) {
 	o.ExcludedSmartAccessFilterEnabled.Set(&v)
 }
+
 // SetExcludedSmartAccessFilterEnabledNil sets the value for ExcludedSmartAccessFilterEnabled to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetExcludedSmartAccessFilterEnabledNil() {
 	o.ExcludedSmartAccessFilterEnabled.Set(nil)
@@ -724,6 +734,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasExcludedUserFilterEnabled() bool {
 func (o *AdvancedAccessPolicyRequestModel) SetExcludedUserFilterEnabled(v bool) {
 	o.ExcludedUserFilterEnabled.Set(&v)
 }
+
 // SetExcludedUserFilterEnabledNil sets the value for ExcludedUserFilterEnabled to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetExcludedUserFilterEnabledNil() {
 	o.ExcludedUserFilterEnabled.Set(nil)
@@ -799,6 +810,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasIncludedClientIPFilterEnabled() bo
 func (o *AdvancedAccessPolicyRequestModel) SetIncludedClientIPFilterEnabled(v bool) {
 	o.IncludedClientIPFilterEnabled.Set(&v)
 }
+
 // SetIncludedClientIPFilterEnabledNil sets the value for IncludedClientIPFilterEnabled to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetIncludedClientIPFilterEnabledNil() {
 	o.IncludedClientIPFilterEnabled.Set(nil)
@@ -874,6 +886,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasIncludedClientNameFilterEnabled() 
 func (o *AdvancedAccessPolicyRequestModel) SetIncludedClientNameFilterEnabled(v bool) {
 	o.IncludedClientNameFilterEnabled.Set(&v)
 }
+
 // SetIncludedClientNameFilterEnabledNil sets the value for IncludedClientNameFilterEnabled to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetIncludedClientNameFilterEnabledNil() {
 	o.IncludedClientNameFilterEnabled.Set(nil)
@@ -949,6 +962,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasIncludedSmartAccessFilterEnabled()
 func (o *AdvancedAccessPolicyRequestModel) SetIncludedSmartAccessFilterEnabled(v bool) {
 	o.IncludedSmartAccessFilterEnabled.Set(&v)
 }
+
 // SetIncludedSmartAccessFilterEnabledNil sets the value for IncludedSmartAccessFilterEnabled to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetIncludedSmartAccessFilterEnabledNil() {
 	o.IncludedSmartAccessFilterEnabled.Set(nil)
@@ -1056,6 +1070,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasIncludedUserFilterEnabled() bool {
 func (o *AdvancedAccessPolicyRequestModel) SetIncludedUserFilterEnabled(v bool) {
 	o.IncludedUserFilterEnabled.Set(&v)
 }
+
 // SetIncludedUserFilterEnabledNil sets the value for IncludedUserFilterEnabled to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetIncludedUserFilterEnabledNil() {
 	o.IncludedUserFilterEnabled.Set(nil)
@@ -1131,6 +1146,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasAppProtectionKeyLoggingRequired() 
 func (o *AdvancedAccessPolicyRequestModel) SetAppProtectionKeyLoggingRequired(v bool) {
 	o.AppProtectionKeyLoggingRequired.Set(&v)
 }
+
 // SetAppProtectionKeyLoggingRequiredNil sets the value for AppProtectionKeyLoggingRequired to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetAppProtectionKeyLoggingRequiredNil() {
 	o.AppProtectionKeyLoggingRequired.Set(nil)
@@ -1173,6 +1189,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasAppProtectionScreenCaptureRequired
 func (o *AdvancedAccessPolicyRequestModel) SetAppProtectionScreenCaptureRequired(v bool) {
 	o.AppProtectionScreenCaptureRequired.Set(&v)
 }
+
 // SetAppProtectionScreenCaptureRequiredNil sets the value for AppProtectionScreenCaptureRequired to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetAppProtectionScreenCaptureRequiredNil() {
 	o.AppProtectionScreenCaptureRequired.Set(nil)
@@ -1215,6 +1232,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasIsContextualAppProtectionPolicy() 
 func (o *AdvancedAccessPolicyRequestModel) SetIsContextualAppProtectionPolicy(v bool) {
 	o.IsContextualAppProtectionPolicy.Set(&v)
 }
+
 // SetIsContextualAppProtectionPolicyNil sets the value for IsContextualAppProtectionPolicy to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetIsContextualAppProtectionPolicyNil() {
 	o.IsContextualAppProtectionPolicy.Set(nil)
@@ -1257,6 +1275,7 @@ func (o *AdvancedAccessPolicyRequestModel) HasHdxSslEnabled() bool {
 func (o *AdvancedAccessPolicyRequestModel) SetHdxSslEnabled(v bool) {
 	o.HdxSslEnabled.Set(&v)
 }
+
 // SetHdxSslEnabledNil sets the value for HdxSslEnabled to be an explicit nil
 func (o *AdvancedAccessPolicyRequestModel) SetHdxSslEnabledNil() {
 	o.HdxSslEnabled.Set(nil)
@@ -1268,7 +1287,7 @@ func (o *AdvancedAccessPolicyRequestModel) UnsetHdxSslEnabled() {
 }
 
 func (o AdvancedAccessPolicyRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1405,5 +1424,3 @@ func (v *NullableAdvancedAccessPolicyRequestModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

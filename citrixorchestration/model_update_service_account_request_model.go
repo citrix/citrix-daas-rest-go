@@ -22,7 +22,7 @@ type UpdateServiceAccountRequestModel struct {
 	// The identifier for the service account
 	AccountId NullableString `json:"AccountId,omitempty"`
 	// The secret for the service account. E.g. Azure application (client) secret if 'IdentityProviderType' is AzureAD. The secret will be encrypted and stored in database.
-	AccountSecret NullableString `json:"AccountSecret,omitempty"`
+	AccountSecret       NullableString          `json:"AccountSecret,omitempty"`
 	AccountSecretFormat *IdentityPasswordFormat `json:"AccountSecretFormat,omitempty"`
 	// The secret expiration time for the service account
 	SecretExpiryTime NullableString `json:"SecretExpiryTime,omitempty"`
@@ -36,7 +36,7 @@ type UpdateServiceAccountRequestModel struct {
 	Scopes []string `json:"Scopes,omitempty"`
 	// Tenants to associate with the service account.
 	Tenants []string `json:"Tenants,omitempty"`
-	// Gets or sets the custom properties Format is the following: \"CustomProperties\":\"[{\\\"Name\\\":\\\"ProxyHypervisorTrafficThroughConnector\\\",\\\"Value\\\":\\\"true\\\"},{\\\"Name\\\":\\\"ZoneUid\\\",\\\"Value\\\":\\\"4e1d7040-d830-4d97-8f94-342c03846f19\\\"}]\". 
+	// Gets or sets the custom properties Format is the following: \"CustomProperties\":\"[{\\\"Name\\\":\\\"ProxyHypervisorTrafficThroughConnector\\\",\\\"Value\\\":\\\"true\\\"},{\\\"Name\\\":\\\"ZoneUid\\\",\\\"Value\\\":\\\"4e1d7040-d830-4d97-8f94-342c03846f19\\\"}]\".
 	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 }
 
@@ -89,6 +89,7 @@ func (o *UpdateServiceAccountRequestModel) HasAccountId() bool {
 func (o *UpdateServiceAccountRequestModel) SetAccountId(v string) {
 	o.AccountId.Set(&v)
 }
+
 // SetAccountIdNil sets the value for AccountId to be an explicit nil
 func (o *UpdateServiceAccountRequestModel) SetAccountIdNil() {
 	o.AccountId.Set(nil)
@@ -131,6 +132,7 @@ func (o *UpdateServiceAccountRequestModel) HasAccountSecret() bool {
 func (o *UpdateServiceAccountRequestModel) SetAccountSecret(v string) {
 	o.AccountSecret.Set(&v)
 }
+
 // SetAccountSecretNil sets the value for AccountSecret to be an explicit nil
 func (o *UpdateServiceAccountRequestModel) SetAccountSecretNil() {
 	o.AccountSecret.Set(nil)
@@ -205,6 +207,7 @@ func (o *UpdateServiceAccountRequestModel) HasSecretExpiryTime() bool {
 func (o *UpdateServiceAccountRequestModel) SetSecretExpiryTime(v string) {
 	o.SecretExpiryTime.Set(&v)
 }
+
 // SetSecretExpiryTimeNil sets the value for SecretExpiryTime to be an explicit nil
 func (o *UpdateServiceAccountRequestModel) SetSecretExpiryTimeNil() {
 	o.SecretExpiryTime.Set(nil)
@@ -280,6 +283,7 @@ func (o *UpdateServiceAccountRequestModel) HasDisplayName() bool {
 func (o *UpdateServiceAccountRequestModel) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *UpdateServiceAccountRequestModel) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -322,6 +326,7 @@ func (o *UpdateServiceAccountRequestModel) HasDescription() bool {
 func (o *UpdateServiceAccountRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *UpdateServiceAccountRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -430,6 +435,7 @@ func (o *UpdateServiceAccountRequestModel) HasCustomProperties() bool {
 func (o *UpdateServiceAccountRequestModel) SetCustomProperties(v string) {
 	o.CustomProperties.Set(&v)
 }
+
 // SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
 func (o *UpdateServiceAccountRequestModel) SetCustomPropertiesNil() {
 	o.CustomProperties.Set(nil)
@@ -441,7 +447,7 @@ func (o *UpdateServiceAccountRequestModel) UnsetCustomProperties() {
 }
 
 func (o UpdateServiceAccountRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -518,5 +524,3 @@ func (v *NullableUpdateServiceAccountRequestModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

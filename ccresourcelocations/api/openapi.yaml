@@ -27,12 +27,6 @@ paths:
         required: true
         schema:
           type: string
-      - description: Only supports application/json
-        in: header
-        name: Accept
-        required: true
-        schema:
-          type: string
       responses:
         "200":
           content:
@@ -52,6 +46,12 @@ paths:
     post:
       operationId: Locations_Create
       parameters:
+      - description: Only supports application/json
+        in: header
+        name: Accept
+        required: true
+        schema:
+          type: string
       - description: The access token.
         in: header
         name: Authorization
@@ -61,12 +61,6 @@ paths:
       - description: ID of the customer.
         in: header
         name: Citrix-CustomerId
-        required: true
-        schema:
-          type: string
-      - description: Only supports application/json
-        in: header
-        name: Accept
         required: true
         schema:
           type: string
@@ -98,6 +92,12 @@ paths:
     delete:
       operationId: Locations_Delete
       parameters:
+      - description: Only supports application/json
+        in: header
+        name: Accept
+        required: true
+        schema:
+          type: string
       - description: The access token.
         in: header
         name: Authorization
@@ -116,12 +116,6 @@ paths:
         required: true
         schema:
           type: string
-      - description: Only supports application/json
-        in: header
-        name: Accept
-        required: true
-        schema:
-          type: string
       responses:
         "204":
           content: {}
@@ -132,6 +126,12 @@ paths:
     get:
       operationId: Locations_Get
       parameters:
+      - description: Only supports application/json
+        in: header
+        name: Accept
+        required: true
+        schema:
+          type: string
       - description: The access token.
         in: header
         name: Authorization
@@ -147,12 +147,6 @@ paths:
       - description: ID of the customer.
         in: header
         name: Citrix-CustomerId
-        required: true
-        schema:
-          type: string
-      - description: Only supports application/json
-        in: header
-        name: Accept
         required: true
         schema:
           type: string
@@ -175,6 +169,12 @@ paths:
     put:
       operationId: Locations_Update
       parameters:
+      - description: Only supports application/json
+        in: header
+        name: Accept
+        required: true
+        schema:
+          type: string
       - description: The access token.
         in: header
         name: Authorization
@@ -184,12 +184,6 @@ paths:
       - description: ID of the customer.
         in: header
         name: Citrix-CustomerId
-        required: true
-        schema:
-          type: string
-      - description: Only supports application/json
-        in: header
-        name: Accept
         required: true
         schema:
           type: string

@@ -20,7 +20,7 @@ type ListSortDirection string
 
 // List of ListSortDirection
 const (
-	LISTSORTDIRECTION_ASCENDING ListSortDirection = "Ascending"
+	LISTSORTDIRECTION_ASCENDING  ListSortDirection = "Ascending"
 	LISTSORTDIRECTION_DESCENDING ListSortDirection = "Descending"
 )
 
@@ -36,7 +36,7 @@ func (v *ListSortDirection) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ListSortDirection(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableListSortDirection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

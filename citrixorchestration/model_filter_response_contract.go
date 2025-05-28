@@ -90,6 +90,7 @@ func (o *FilterResponseContract) HasFilterType() bool {
 func (o *FilterResponseContract) SetFilterType(v string) {
 	o.FilterType.Set(&v)
 }
+
 // SetFilterTypeNil sets the value for FilterType to be an explicit nil
 func (o *FilterResponseContract) SetFilterTypeNil() {
 	o.FilterType.Set(nil)
@@ -132,6 +133,7 @@ func (o *FilterResponseContract) HasIdentifier() bool {
 func (o *FilterResponseContract) SetIdentifier(v string) {
 	o.Identifier.Set(&v)
 }
+
 // SetIdentifierNil sets the value for Identifier to be an explicit nil
 func (o *FilterResponseContract) SetIdentifierNil() {
 	o.Identifier.Set(nil)
@@ -174,6 +176,7 @@ func (o *FilterResponseContract) HasDisplayName() bool {
 func (o *FilterResponseContract) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *FilterResponseContract) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -248,6 +251,7 @@ func (o *FilterResponseContract) HasExplanation() bool {
 func (o *FilterResponseContract) SetExplanation(v string) {
 	o.Explanation.Set(&v)
 }
+
 // SetExplanationNil sets the value for Explanation to be an explicit nil
 func (o *FilterResponseContract) SetExplanationNil() {
 	o.Explanation.Set(nil)
@@ -290,6 +294,7 @@ func (o *FilterResponseContract) HasSynopsis() bool {
 func (o *FilterResponseContract) SetSynopsis(v string) {
 	o.Synopsis.Set(&v)
 }
+
 // SetSynopsisNil sets the value for Synopsis to be an explicit nil
 func (o *FilterResponseContract) SetSynopsisNil() {
 	o.Synopsis.Set(nil)
@@ -364,6 +369,7 @@ func (o *FilterResponseContract) HasIsAllowed() bool {
 func (o *FilterResponseContract) SetIsAllowed(v bool) {
 	o.IsAllowed.Set(&v)
 }
+
 // SetIsAllowedNil sets the value for IsAllowed to be an explicit nil
 func (o *FilterResponseContract) SetIsAllowedNil() {
 	o.IsAllowed.Set(nil)
@@ -406,6 +412,7 @@ func (o *FilterResponseContract) HasIsEnabled() bool {
 func (o *FilterResponseContract) SetIsEnabled(v bool) {
 	o.IsEnabled.Set(&v)
 }
+
 // SetIsEnabledNil sets the value for IsEnabled to be an explicit nil
 func (o *FilterResponseContract) SetIsEnabledNil() {
 	o.IsEnabled.Set(nil)
@@ -448,6 +455,7 @@ func (o *FilterResponseContract) HasFilterValue() bool {
 func (o *FilterResponseContract) SetFilterValue(v string) {
 	o.FilterValue.Set(&v)
 }
+
 // SetFilterValueNil sets the value for FilterValue to be an explicit nil
 func (o *FilterResponseContract) SetFilterValueNil() {
 	o.FilterValue.Set(nil)
@@ -459,7 +467,7 @@ func (o *FilterResponseContract) UnsetFilterValue() {
 }
 
 func (o FilterResponseContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -536,5 +544,3 @@ func (v *NullableFilterResponseContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

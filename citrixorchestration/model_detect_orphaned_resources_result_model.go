@@ -17,13 +17,13 @@ import (
 // checks if the DetectOrphanedResourcesResultModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DetectOrphanedResourcesResultModel{}
 
-// DetectOrphanedResourcesResultModel The result of running a detect. The result is composed of a resource id, type and provisioning scheme id. 
+// DetectOrphanedResourcesResultModel The result of running a detect. The result is composed of a resource id, type and provisioning scheme id.
 type DetectOrphanedResourcesResultModel struct {
-	// The resource id. 
+	// The resource id.
 	Id NullableString `json:"Id,omitempty"`
-	// The type of resource. 
+	// The type of resource.
 	Type NullableString `json:"Type,omitempty"`
-	// The provisioning scheme Id. 
+	// The provisioning scheme Id.
 	ProvisioningSchemeId NullableString `json:"ProvisioningSchemeId,omitempty"`
 	// The metadata of orphaned resource
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
@@ -78,6 +78,7 @@ func (o *DetectOrphanedResourcesResultModel) HasId() bool {
 func (o *DetectOrphanedResourcesResultModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *DetectOrphanedResourcesResultModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -120,6 +121,7 @@ func (o *DetectOrphanedResourcesResultModel) HasType() bool {
 func (o *DetectOrphanedResourcesResultModel) SetType(v string) {
 	o.Type.Set(&v)
 }
+
 // SetTypeNil sets the value for Type to be an explicit nil
 func (o *DetectOrphanedResourcesResultModel) SetTypeNil() {
 	o.Type.Set(nil)
@@ -162,6 +164,7 @@ func (o *DetectOrphanedResourcesResultModel) HasProvisioningSchemeId() bool {
 func (o *DetectOrphanedResourcesResultModel) SetProvisioningSchemeId(v string) {
 	o.ProvisioningSchemeId.Set(&v)
 }
+
 // SetProvisioningSchemeIdNil sets the value for ProvisioningSchemeId to be an explicit nil
 func (o *DetectOrphanedResourcesResultModel) SetProvisioningSchemeIdNil() {
 	o.ProvisioningSchemeId.Set(nil)
@@ -206,7 +209,7 @@ func (o *DetectOrphanedResourcesResultModel) SetMetadata(v []NameValueStringPair
 }
 
 func (o DetectOrphanedResourcesResultModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -265,5 +268,3 @@ func (v *NullableDetectOrphanedResourcesResultModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

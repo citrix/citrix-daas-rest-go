@@ -76,6 +76,7 @@ func (o *ImageVersionProvisioningSchemeRefResponseModel) HasId() bool {
 func (o *ImageVersionProvisioningSchemeRefResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *ImageVersionProvisioningSchemeRefResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -118,6 +119,7 @@ func (o *ImageVersionProvisioningSchemeRefResponseModel) HasUid() bool {
 func (o *ImageVersionProvisioningSchemeRefResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *ImageVersionProvisioningSchemeRefResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -160,6 +162,7 @@ func (o *ImageVersionProvisioningSchemeRefResponseModel) HasName() bool {
 func (o *ImageVersionProvisioningSchemeRefResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ImageVersionProvisioningSchemeRefResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -171,7 +174,7 @@ func (o *ImageVersionProvisioningSchemeRefResponseModel) UnsetName() {
 }
 
 func (o ImageVersionProvisioningSchemeRefResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +230,3 @@ func (v *NullableImageVersionProvisioningSchemeRefResponseModel) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

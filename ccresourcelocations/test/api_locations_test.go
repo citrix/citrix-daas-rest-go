@@ -11,10 +11,11 @@ package ccresourcelocations
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/ccresourcelocations"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/ccresourcelocations"
 )
 
 func Test_ccresourcelocations_LocationsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_ccresourcelocations_LocationsDAASService(t *testing.T) {
 
 	t.Run("Test LocationsDAASService LocationsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.LocationsDAAS.LocationsCreate(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_ccresourcelocations_LocationsDAASService(t *testing.T) {
 
 	t.Run("Test LocationsDAASService LocationsDelete", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -49,7 +50,7 @@ func Test_ccresourcelocations_LocationsDAASService(t *testing.T) {
 
 	t.Run("Test LocationsDAASService LocationsGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -63,7 +64,7 @@ func Test_ccresourcelocations_LocationsDAASService(t *testing.T) {
 
 	t.Run("Test LocationsDAASService LocationsGetAll", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.LocationsDAAS.LocationsGetAll(context.Background()).Execute()
 
@@ -75,7 +76,7 @@ func Test_ccresourcelocations_LocationsDAASService(t *testing.T) {
 
 	t.Run("Test LocationsDAASService LocationsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 

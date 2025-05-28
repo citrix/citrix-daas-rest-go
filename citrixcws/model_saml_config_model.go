@@ -19,31 +19,31 @@ var _ MappedNullable = &SamlConfigModel{}
 
 // SamlConfigModel struct for SamlConfigModel
 type SamlConfigModel struct {
-	SamlEntityId NullableString `json:"samlEntityId,omitempty"`
-	SamlSpEntityIdSuffix NullableString `json:"samlSpEntityIdSuffix,omitempty"`
-	SamlSignAuthRequest *string `json:"samlSignAuthRequest,omitempty"`
-	SamlSingleSignOnServiceUrl NullableString `json:"samlSingleSignOnServiceUrl,omitempty"`
-	SamlSingleSignOnServiceBinding NullableString `json:"samlSingleSignOnServiceBinding,omitempty"`
-	SamlResponse NullableString `json:"samlResponse,omitempty"`
-	SamlAuthenticationContext NullableString `json:"samlAuthenticationContext,omitempty"`
+	SamlEntityId                        NullableString `json:"samlEntityId,omitempty"`
+	SamlSpEntityIdSuffix                NullableString `json:"samlSpEntityIdSuffix,omitempty"`
+	SamlSignAuthRequest                 *string        `json:"samlSignAuthRequest,omitempty"`
+	SamlSingleSignOnServiceUrl          NullableString `json:"samlSingleSignOnServiceUrl,omitempty"`
+	SamlSingleSignOnServiceBinding      NullableString `json:"samlSingleSignOnServiceBinding,omitempty"`
+	SamlResponse                        NullableString `json:"samlResponse,omitempty"`
+	SamlAuthenticationContext           NullableString `json:"samlAuthenticationContext,omitempty"`
 	SamlAuthenticationContextComparison NullableString `json:"samlAuthenticationContextComparison,omitempty"`
-	SamlLogoutUrl NullableString `json:"samlLogoutUrl,omitempty"`
-	SamlLogoutRequestBinding NullableString `json:"samlLogoutRequestBinding,omitempty"`
-	SamlSignLogoutRequest *string `json:"samlSignLogoutRequest,omitempty"`
-	SamlAttributeNameForSid NullableString `json:"samlAttributeNameForSid,omitempty"`
-	SamlAttributeNameForUpn NullableString `json:"samlAttributeNameForUpn,omitempty"`
-	SamlAttributeNameForEmail NullableString `json:"samlAttributeNameForEmail,omitempty"`
-	SamlAttributeNameForAdOid NullableString `json:"samlAttributeNameForAdOid,omitempty"`
-	SamlAttributeNameForAdForest NullableString `json:"samlAttributeNameForAdForest,omitempty"`
-	SamlAttributeNameForAdDomain NullableString `json:"samlAttributeNameForAdDomain,omitempty"`
+	SamlLogoutUrl                       NullableString `json:"samlLogoutUrl,omitempty"`
+	SamlLogoutRequestBinding            NullableString `json:"samlLogoutRequestBinding,omitempty"`
+	SamlSignLogoutRequest               *string        `json:"samlSignLogoutRequest,omitempty"`
+	SamlAttributeNameForSid             NullableString `json:"samlAttributeNameForSid,omitempty"`
+	SamlAttributeNameForUpn             NullableString `json:"samlAttributeNameForUpn,omitempty"`
+	SamlAttributeNameForEmail           NullableString `json:"samlAttributeNameForEmail,omitempty"`
+	SamlAttributeNameForAdOid           NullableString `json:"samlAttributeNameForAdOid,omitempty"`
+	SamlAttributeNameForAdForest        NullableString `json:"samlAttributeNameForAdForest,omitempty"`
+	SamlAttributeNameForAdDomain        NullableString `json:"samlAttributeNameForAdDomain,omitempty"`
 	SamlAttributeNameForUserDisplayName NullableString `json:"samlAttributeNameForUserDisplayName,omitempty"`
-	SamlAttributeNameForUserGivenName NullableString `json:"samlAttributeNameForUserGivenName,omitempty"`
-	SamlAttributeNameForUserFamilyName NullableString `json:"samlAttributeNameForUserFamilyName,omitempty"`
-	SamlCertPublicKey NullableString `json:"samlCertPublicKey,omitempty"`
-	SamlCertCN NullableString `json:"samlCertCN,omitempty"`
-	SamlCertFileName NullableString `json:"samlCertFileName,omitempty"`
-	SamlCertExpiration NullableString `json:"samlCertExpiration,omitempty"`
-	SamlCertData NullableString `json:"samlCertData,omitempty"`
+	SamlAttributeNameForUserGivenName   NullableString `json:"samlAttributeNameForUserGivenName,omitempty"`
+	SamlAttributeNameForUserFamilyName  NullableString `json:"samlAttributeNameForUserFamilyName,omitempty"`
+	SamlCertPublicKey                   NullableString `json:"samlCertPublicKey,omitempty"`
+	SamlCertCN                          NullableString `json:"samlCertCN,omitempty"`
+	SamlCertFileName                    NullableString `json:"samlCertFileName,omitempty"`
+	SamlCertExpiration                  NullableString `json:"samlCertExpiration,omitempty"`
+	SamlCertData                        NullableString `json:"samlCertData,omitempty"`
 }
 
 // NewSamlConfigModel instantiates a new SamlConfigModel object
@@ -95,6 +95,7 @@ func (o *SamlConfigModel) HasSamlEntityId() bool {
 func (o *SamlConfigModel) SetSamlEntityId(v string) {
 	o.SamlEntityId.Set(&v)
 }
+
 // SetSamlEntityIdNil sets the value for SamlEntityId to be an explicit nil
 func (o *SamlConfigModel) SetSamlEntityIdNil() {
 	o.SamlEntityId.Set(nil)
@@ -137,6 +138,7 @@ func (o *SamlConfigModel) HasSamlSpEntityIdSuffix() bool {
 func (o *SamlConfigModel) SetSamlSpEntityIdSuffix(v string) {
 	o.SamlSpEntityIdSuffix.Set(&v)
 }
+
 // SetSamlSpEntityIdSuffixNil sets the value for SamlSpEntityIdSuffix to be an explicit nil
 func (o *SamlConfigModel) SetSamlSpEntityIdSuffixNil() {
 	o.SamlSpEntityIdSuffix.Set(nil)
@@ -211,6 +213,7 @@ func (o *SamlConfigModel) HasSamlSingleSignOnServiceUrl() bool {
 func (o *SamlConfigModel) SetSamlSingleSignOnServiceUrl(v string) {
 	o.SamlSingleSignOnServiceUrl.Set(&v)
 }
+
 // SetSamlSingleSignOnServiceUrlNil sets the value for SamlSingleSignOnServiceUrl to be an explicit nil
 func (o *SamlConfigModel) SetSamlSingleSignOnServiceUrlNil() {
 	o.SamlSingleSignOnServiceUrl.Set(nil)
@@ -253,6 +256,7 @@ func (o *SamlConfigModel) HasSamlSingleSignOnServiceBinding() bool {
 func (o *SamlConfigModel) SetSamlSingleSignOnServiceBinding(v string) {
 	o.SamlSingleSignOnServiceBinding.Set(&v)
 }
+
 // SetSamlSingleSignOnServiceBindingNil sets the value for SamlSingleSignOnServiceBinding to be an explicit nil
 func (o *SamlConfigModel) SetSamlSingleSignOnServiceBindingNil() {
 	o.SamlSingleSignOnServiceBinding.Set(nil)
@@ -295,6 +299,7 @@ func (o *SamlConfigModel) HasSamlResponse() bool {
 func (o *SamlConfigModel) SetSamlResponse(v string) {
 	o.SamlResponse.Set(&v)
 }
+
 // SetSamlResponseNil sets the value for SamlResponse to be an explicit nil
 func (o *SamlConfigModel) SetSamlResponseNil() {
 	o.SamlResponse.Set(nil)
@@ -337,6 +342,7 @@ func (o *SamlConfigModel) HasSamlAuthenticationContext() bool {
 func (o *SamlConfigModel) SetSamlAuthenticationContext(v string) {
 	o.SamlAuthenticationContext.Set(&v)
 }
+
 // SetSamlAuthenticationContextNil sets the value for SamlAuthenticationContext to be an explicit nil
 func (o *SamlConfigModel) SetSamlAuthenticationContextNil() {
 	o.SamlAuthenticationContext.Set(nil)
@@ -379,6 +385,7 @@ func (o *SamlConfigModel) HasSamlAuthenticationContextComparison() bool {
 func (o *SamlConfigModel) SetSamlAuthenticationContextComparison(v string) {
 	o.SamlAuthenticationContextComparison.Set(&v)
 }
+
 // SetSamlAuthenticationContextComparisonNil sets the value for SamlAuthenticationContextComparison to be an explicit nil
 func (o *SamlConfigModel) SetSamlAuthenticationContextComparisonNil() {
 	o.SamlAuthenticationContextComparison.Set(nil)
@@ -421,6 +428,7 @@ func (o *SamlConfigModel) HasSamlLogoutUrl() bool {
 func (o *SamlConfigModel) SetSamlLogoutUrl(v string) {
 	o.SamlLogoutUrl.Set(&v)
 }
+
 // SetSamlLogoutUrlNil sets the value for SamlLogoutUrl to be an explicit nil
 func (o *SamlConfigModel) SetSamlLogoutUrlNil() {
 	o.SamlLogoutUrl.Set(nil)
@@ -463,6 +471,7 @@ func (o *SamlConfigModel) HasSamlLogoutRequestBinding() bool {
 func (o *SamlConfigModel) SetSamlLogoutRequestBinding(v string) {
 	o.SamlLogoutRequestBinding.Set(&v)
 }
+
 // SetSamlLogoutRequestBindingNil sets the value for SamlLogoutRequestBinding to be an explicit nil
 func (o *SamlConfigModel) SetSamlLogoutRequestBindingNil() {
 	o.SamlLogoutRequestBinding.Set(nil)
@@ -537,6 +546,7 @@ func (o *SamlConfigModel) HasSamlAttributeNameForSid() bool {
 func (o *SamlConfigModel) SetSamlAttributeNameForSid(v string) {
 	o.SamlAttributeNameForSid.Set(&v)
 }
+
 // SetSamlAttributeNameForSidNil sets the value for SamlAttributeNameForSid to be an explicit nil
 func (o *SamlConfigModel) SetSamlAttributeNameForSidNil() {
 	o.SamlAttributeNameForSid.Set(nil)
@@ -579,6 +589,7 @@ func (o *SamlConfigModel) HasSamlAttributeNameForUpn() bool {
 func (o *SamlConfigModel) SetSamlAttributeNameForUpn(v string) {
 	o.SamlAttributeNameForUpn.Set(&v)
 }
+
 // SetSamlAttributeNameForUpnNil sets the value for SamlAttributeNameForUpn to be an explicit nil
 func (o *SamlConfigModel) SetSamlAttributeNameForUpnNil() {
 	o.SamlAttributeNameForUpn.Set(nil)
@@ -621,6 +632,7 @@ func (o *SamlConfigModel) HasSamlAttributeNameForEmail() bool {
 func (o *SamlConfigModel) SetSamlAttributeNameForEmail(v string) {
 	o.SamlAttributeNameForEmail.Set(&v)
 }
+
 // SetSamlAttributeNameForEmailNil sets the value for SamlAttributeNameForEmail to be an explicit nil
 func (o *SamlConfigModel) SetSamlAttributeNameForEmailNil() {
 	o.SamlAttributeNameForEmail.Set(nil)
@@ -663,6 +675,7 @@ func (o *SamlConfigModel) HasSamlAttributeNameForAdOid() bool {
 func (o *SamlConfigModel) SetSamlAttributeNameForAdOid(v string) {
 	o.SamlAttributeNameForAdOid.Set(&v)
 }
+
 // SetSamlAttributeNameForAdOidNil sets the value for SamlAttributeNameForAdOid to be an explicit nil
 func (o *SamlConfigModel) SetSamlAttributeNameForAdOidNil() {
 	o.SamlAttributeNameForAdOid.Set(nil)
@@ -705,6 +718,7 @@ func (o *SamlConfigModel) HasSamlAttributeNameForAdForest() bool {
 func (o *SamlConfigModel) SetSamlAttributeNameForAdForest(v string) {
 	o.SamlAttributeNameForAdForest.Set(&v)
 }
+
 // SetSamlAttributeNameForAdForestNil sets the value for SamlAttributeNameForAdForest to be an explicit nil
 func (o *SamlConfigModel) SetSamlAttributeNameForAdForestNil() {
 	o.SamlAttributeNameForAdForest.Set(nil)
@@ -747,6 +761,7 @@ func (o *SamlConfigModel) HasSamlAttributeNameForAdDomain() bool {
 func (o *SamlConfigModel) SetSamlAttributeNameForAdDomain(v string) {
 	o.SamlAttributeNameForAdDomain.Set(&v)
 }
+
 // SetSamlAttributeNameForAdDomainNil sets the value for SamlAttributeNameForAdDomain to be an explicit nil
 func (o *SamlConfigModel) SetSamlAttributeNameForAdDomainNil() {
 	o.SamlAttributeNameForAdDomain.Set(nil)
@@ -789,6 +804,7 @@ func (o *SamlConfigModel) HasSamlAttributeNameForUserDisplayName() bool {
 func (o *SamlConfigModel) SetSamlAttributeNameForUserDisplayName(v string) {
 	o.SamlAttributeNameForUserDisplayName.Set(&v)
 }
+
 // SetSamlAttributeNameForUserDisplayNameNil sets the value for SamlAttributeNameForUserDisplayName to be an explicit nil
 func (o *SamlConfigModel) SetSamlAttributeNameForUserDisplayNameNil() {
 	o.SamlAttributeNameForUserDisplayName.Set(nil)
@@ -831,6 +847,7 @@ func (o *SamlConfigModel) HasSamlAttributeNameForUserGivenName() bool {
 func (o *SamlConfigModel) SetSamlAttributeNameForUserGivenName(v string) {
 	o.SamlAttributeNameForUserGivenName.Set(&v)
 }
+
 // SetSamlAttributeNameForUserGivenNameNil sets the value for SamlAttributeNameForUserGivenName to be an explicit nil
 func (o *SamlConfigModel) SetSamlAttributeNameForUserGivenNameNil() {
 	o.SamlAttributeNameForUserGivenName.Set(nil)
@@ -873,6 +890,7 @@ func (o *SamlConfigModel) HasSamlAttributeNameForUserFamilyName() bool {
 func (o *SamlConfigModel) SetSamlAttributeNameForUserFamilyName(v string) {
 	o.SamlAttributeNameForUserFamilyName.Set(&v)
 }
+
 // SetSamlAttributeNameForUserFamilyNameNil sets the value for SamlAttributeNameForUserFamilyName to be an explicit nil
 func (o *SamlConfigModel) SetSamlAttributeNameForUserFamilyNameNil() {
 	o.SamlAttributeNameForUserFamilyName.Set(nil)
@@ -915,6 +933,7 @@ func (o *SamlConfigModel) HasSamlCertPublicKey() bool {
 func (o *SamlConfigModel) SetSamlCertPublicKey(v string) {
 	o.SamlCertPublicKey.Set(&v)
 }
+
 // SetSamlCertPublicKeyNil sets the value for SamlCertPublicKey to be an explicit nil
 func (o *SamlConfigModel) SetSamlCertPublicKeyNil() {
 	o.SamlCertPublicKey.Set(nil)
@@ -957,6 +976,7 @@ func (o *SamlConfigModel) HasSamlCertCN() bool {
 func (o *SamlConfigModel) SetSamlCertCN(v string) {
 	o.SamlCertCN.Set(&v)
 }
+
 // SetSamlCertCNNil sets the value for SamlCertCN to be an explicit nil
 func (o *SamlConfigModel) SetSamlCertCNNil() {
 	o.SamlCertCN.Set(nil)
@@ -999,6 +1019,7 @@ func (o *SamlConfigModel) HasSamlCertFileName() bool {
 func (o *SamlConfigModel) SetSamlCertFileName(v string) {
 	o.SamlCertFileName.Set(&v)
 }
+
 // SetSamlCertFileNameNil sets the value for SamlCertFileName to be an explicit nil
 func (o *SamlConfigModel) SetSamlCertFileNameNil() {
 	o.SamlCertFileName.Set(nil)
@@ -1041,6 +1062,7 @@ func (o *SamlConfigModel) HasSamlCertExpiration() bool {
 func (o *SamlConfigModel) SetSamlCertExpiration(v string) {
 	o.SamlCertExpiration.Set(&v)
 }
+
 // SetSamlCertExpirationNil sets the value for SamlCertExpiration to be an explicit nil
 func (o *SamlConfigModel) SetSamlCertExpirationNil() {
 	o.SamlCertExpiration.Set(nil)
@@ -1083,6 +1105,7 @@ func (o *SamlConfigModel) HasSamlCertData() bool {
 func (o *SamlConfigModel) SetSamlCertData(v string) {
 	o.SamlCertData.Set(&v)
 }
+
 // SetSamlCertDataNil sets the value for SamlCertData to be an explicit nil
 func (o *SamlConfigModel) SetSamlCertDataNil() {
 	o.SamlCertData.Set(nil)
@@ -1094,7 +1117,7 @@ func (o *SamlConfigModel) UnsetSamlCertData() {
 }
 
 func (o SamlConfigModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1216,5 +1239,3 @@ func (v *NullableSamlConfigModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

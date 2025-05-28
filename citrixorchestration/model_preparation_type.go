@@ -21,8 +21,8 @@ type PreparationType string
 // List of PreparationType
 const (
 	PREPARATIONTYPE_UNKNOWN PreparationType = "Unknown"
-	PREPARATIONTYPE_NONE PreparationType = "None"
-	PREPARATIONTYPE_MCS PreparationType = "Mcs"
+	PREPARATIONTYPE_NONE    PreparationType = "None"
+	PREPARATIONTYPE_MCS     PreparationType = "Mcs"
 )
 
 // All allowed values of PreparationType enum
@@ -38,7 +38,7 @@ func (v *PreparationType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = PreparationType(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullablePreparationType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

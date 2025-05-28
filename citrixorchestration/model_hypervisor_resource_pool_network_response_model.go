@@ -84,6 +84,7 @@ func (o *HypervisorResourcePoolNetworkResponseModel) HasConnectionName() bool {
 func (o *HypervisorResourcePoolNetworkResponseModel) SetConnectionName(v string) {
 	o.ConnectionName.Set(&v)
 }
+
 // SetConnectionNameNil sets the value for ConnectionName to be an explicit nil
 func (o *HypervisorResourcePoolNetworkResponseModel) SetConnectionNameNil() {
 	o.ConnectionName.Set(nil)
@@ -126,6 +127,7 @@ func (o *HypervisorResourcePoolNetworkResponseModel) HasConnectionId() bool {
 func (o *HypervisorResourcePoolNetworkResponseModel) SetConnectionId(v string) {
 	o.ConnectionId.Set(&v)
 }
+
 // SetConnectionIdNil sets the value for ConnectionId to be an explicit nil
 func (o *HypervisorResourcePoolNetworkResponseModel) SetConnectionIdNil() {
 	o.ConnectionId.Set(nil)
@@ -168,6 +170,7 @@ func (o *HypervisorResourcePoolNetworkResponseModel) HasResourcePoolName() bool 
 func (o *HypervisorResourcePoolNetworkResponseModel) SetResourcePoolName(v string) {
 	o.ResourcePoolName.Set(&v)
 }
+
 // SetResourcePoolNameNil sets the value for ResourcePoolName to be an explicit nil
 func (o *HypervisorResourcePoolNetworkResponseModel) SetResourcePoolNameNil() {
 	o.ResourcePoolName.Set(nil)
@@ -210,6 +213,7 @@ func (o *HypervisorResourcePoolNetworkResponseModel) HasResourcePoolId() bool {
 func (o *HypervisorResourcePoolNetworkResponseModel) SetResourcePoolId(v string) {
 	o.ResourcePoolId.Set(&v)
 }
+
 // SetResourcePoolIdNil sets the value for ResourcePoolId to be an explicit nil
 func (o *HypervisorResourcePoolNetworkResponseModel) SetResourcePoolIdNil() {
 	o.ResourcePoolId.Set(nil)
@@ -252,6 +256,7 @@ func (o *HypervisorResourcePoolNetworkResponseModel) HasNetworkName() bool {
 func (o *HypervisorResourcePoolNetworkResponseModel) SetNetworkName(v string) {
 	o.NetworkName.Set(&v)
 }
+
 // SetNetworkNameNil sets the value for NetworkName to be an explicit nil
 func (o *HypervisorResourcePoolNetworkResponseModel) SetNetworkNameNil() {
 	o.NetworkName.Set(nil)
@@ -294,6 +299,7 @@ func (o *HypervisorResourcePoolNetworkResponseModel) HasNetworkId() bool {
 func (o *HypervisorResourcePoolNetworkResponseModel) SetNetworkId(v string) {
 	o.NetworkId.Set(&v)
 }
+
 // SetNetworkIdNil sets the value for NetworkId to be an explicit nil
 func (o *HypervisorResourcePoolNetworkResponseModel) SetNetworkIdNil() {
 	o.NetworkId.Set(nil)
@@ -336,6 +342,7 @@ func (o *HypervisorResourcePoolNetworkResponseModel) HasNetworkPath() bool {
 func (o *HypervisorResourcePoolNetworkResponseModel) SetNetworkPath(v string) {
 	o.NetworkPath.Set(&v)
 }
+
 // SetNetworkPathNil sets the value for NetworkPath to be an explicit nil
 func (o *HypervisorResourcePoolNetworkResponseModel) SetNetworkPathNil() {
 	o.NetworkPath.Set(nil)
@@ -347,7 +354,7 @@ func (o *HypervisorResourcePoolNetworkResponseModel) UnsetNetworkPath() {
 }
 
 func (o HypervisorResourcePoolNetworkResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -415,5 +422,3 @@ func (v *NullableHypervisorResourcePoolNetworkResponseModel) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

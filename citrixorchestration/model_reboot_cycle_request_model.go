@@ -84,6 +84,7 @@ func (o *RebootCycleRequestModel) HasRebootDurationMinutes() bool {
 func (o *RebootCycleRequestModel) SetRebootDurationMinutes(v int32) {
 	o.RebootDurationMinutes.Set(&v)
 }
+
 // SetRebootDurationMinutesNil sets the value for RebootDurationMinutes to be an explicit nil
 func (o *RebootCycleRequestModel) SetRebootDurationMinutesNil() {
 	o.RebootDurationMinutes.Set(nil)
@@ -126,6 +127,7 @@ func (o *RebootCycleRequestModel) HasIgnoreMaintenanceMode() bool {
 func (o *RebootCycleRequestModel) SetIgnoreMaintenanceMode(v bool) {
 	o.IgnoreMaintenanceMode.Set(&v)
 }
+
 // SetIgnoreMaintenanceModeNil sets the value for IgnoreMaintenanceMode to be an explicit nil
 func (o *RebootCycleRequestModel) SetIgnoreMaintenanceModeNil() {
 	o.IgnoreMaintenanceMode.Set(nil)
@@ -168,6 +170,7 @@ func (o *RebootCycleRequestModel) HasRestrictToTag() bool {
 func (o *RebootCycleRequestModel) SetRestrictToTag(v string) {
 	o.RestrictToTag.Set(&v)
 }
+
 // SetRestrictToTagNil sets the value for RestrictToTag to be an explicit nil
 func (o *RebootCycleRequestModel) SetRestrictToTagNil() {
 	o.RestrictToTag.Set(nil)
@@ -210,6 +213,7 @@ func (o *RebootCycleRequestModel) HasWarningTitle() bool {
 func (o *RebootCycleRequestModel) SetWarningTitle(v string) {
 	o.WarningTitle.Set(&v)
 }
+
 // SetWarningTitleNil sets the value for WarningTitle to be an explicit nil
 func (o *RebootCycleRequestModel) SetWarningTitleNil() {
 	o.WarningTitle.Set(nil)
@@ -252,6 +256,7 @@ func (o *RebootCycleRequestModel) HasWarningMessage() bool {
 func (o *RebootCycleRequestModel) SetWarningMessage(v string) {
 	o.WarningMessage.Set(&v)
 }
+
 // SetWarningMessageNil sets the value for WarningMessage to be an explicit nil
 func (o *RebootCycleRequestModel) SetWarningMessageNil() {
 	o.WarningMessage.Set(nil)
@@ -294,6 +299,7 @@ func (o *RebootCycleRequestModel) HasWarningDurationMinutes() bool {
 func (o *RebootCycleRequestModel) SetWarningDurationMinutes(v int32) {
 	o.WarningDurationMinutes.Set(&v)
 }
+
 // SetWarningDurationMinutesNil sets the value for WarningDurationMinutes to be an explicit nil
 func (o *RebootCycleRequestModel) SetWarningDurationMinutesNil() {
 	o.WarningDurationMinutes.Set(nil)
@@ -336,6 +342,7 @@ func (o *RebootCycleRequestModel) HasWarningRepeatIntervalMinutes() bool {
 func (o *RebootCycleRequestModel) SetWarningRepeatIntervalMinutes(v int32) {
 	o.WarningRepeatIntervalMinutes.Set(&v)
 }
+
 // SetWarningRepeatIntervalMinutesNil sets the value for WarningRepeatIntervalMinutes to be an explicit nil
 func (o *RebootCycleRequestModel) SetWarningRepeatIntervalMinutesNil() {
 	o.WarningRepeatIntervalMinutes.Set(nil)
@@ -347,7 +354,7 @@ func (o *RebootCycleRequestModel) UnsetWarningRepeatIntervalMinutes() {
 }
 
 func (o RebootCycleRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -415,5 +422,3 @@ func (v *NullableRebootCycleRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

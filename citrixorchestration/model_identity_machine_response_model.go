@@ -44,7 +44,7 @@ type IdentityMachineResponseModel struct {
 	// The service principal names (SPN) associated with the Machine object.
 	ServicePrincipalNames []string `json:"ServicePrincipalNames,omitempty"`
 	// The IP addresses associated with the Machine object.
-	IPAddress []string `json:"IPAddress,omitempty"`
+	IPAddress              []string                               `json:"IPAddress,omitempty"`
 	IPAddressResolveMethod *IdentityMachineIPAddressResolveMethod `json:"IPAddressResolveMethod,omitempty"`
 	// Indicates whether the Machine object is enabled. NOTE that this is opposite of the low-level SDK, which has \"IsDisabled\". By changing to \"Enabled\" it avoids a confusing double-negative.  It also matches all other SDK objects by using \"Enabled\" rather than \"IsEnabled\".
 	Enabled *bool `json:"Enabled,omitempty"`
@@ -104,6 +104,7 @@ func (o *IdentityMachineResponseModel) HasDomain() bool {
 func (o *IdentityMachineResponseModel) SetDomain(v string) {
 	o.Domain.Set(&v)
 }
+
 // SetDomainNil sets the value for Domain to be an explicit nil
 func (o *IdentityMachineResponseModel) SetDomainNil() {
 	o.Domain.Set(nil)
@@ -146,6 +147,7 @@ func (o *IdentityMachineResponseModel) HasForest() bool {
 func (o *IdentityMachineResponseModel) SetForest(v string) {
 	o.Forest.Set(&v)
 }
+
 // SetForestNil sets the value for Forest to be an explicit nil
 func (o *IdentityMachineResponseModel) SetForestNil() {
 	o.Forest.Set(nil)
@@ -188,6 +190,7 @@ func (o *IdentityMachineResponseModel) HasGuid() bool {
 func (o *IdentityMachineResponseModel) SetGuid(v string) {
 	o.Guid.Set(&v)
 }
+
 // SetGuidNil sets the value for Guid to be an explicit nil
 func (o *IdentityMachineResponseModel) SetGuidNil() {
 	o.Guid.Set(nil)
@@ -230,6 +233,7 @@ func (o *IdentityMachineResponseModel) HasDistinguishedName() bool {
 func (o *IdentityMachineResponseModel) SetDistinguishedName(v string) {
 	o.DistinguishedName.Set(&v)
 }
+
 // SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
 func (o *IdentityMachineResponseModel) SetDistinguishedNameNil() {
 	o.DistinguishedName.Set(nil)
@@ -272,6 +276,7 @@ func (o *IdentityMachineResponseModel) HasCanonicalName() bool {
 func (o *IdentityMachineResponseModel) SetCanonicalName(v string) {
 	o.CanonicalName.Set(&v)
 }
+
 // SetCanonicalNameNil sets the value for CanonicalName to be an explicit nil
 func (o *IdentityMachineResponseModel) SetCanonicalNameNil() {
 	o.CanonicalName.Set(nil)
@@ -346,6 +351,7 @@ func (o *IdentityMachineResponseModel) HasDirectoryServer() bool {
 func (o *IdentityMachineResponseModel) SetDirectoryServer(v string) {
 	o.DirectoryServer.Set(&v)
 }
+
 // SetDirectoryServerNil sets the value for DirectoryServer to be an explicit nil
 func (o *IdentityMachineResponseModel) SetDirectoryServerNil() {
 	o.DirectoryServer.Set(nil)
@@ -388,6 +394,7 @@ func (o *IdentityMachineResponseModel) HasSamName() bool {
 func (o *IdentityMachineResponseModel) SetSamName(v string) {
 	o.SamName.Set(&v)
 }
+
 // SetSamNameNil sets the value for SamName to be an explicit nil
 func (o *IdentityMachineResponseModel) SetSamNameNil() {
 	o.SamName.Set(nil)
@@ -430,6 +437,7 @@ func (o *IdentityMachineResponseModel) HasSamAccountName() bool {
 func (o *IdentityMachineResponseModel) SetSamAccountName(v string) {
 	o.SamAccountName.Set(&v)
 }
+
 // SetSamAccountNameNil sets the value for SamAccountName to be an explicit nil
 func (o *IdentityMachineResponseModel) SetSamAccountNameNil() {
 	o.SamAccountName.Set(nil)
@@ -472,6 +480,7 @@ func (o *IdentityMachineResponseModel) HasDnsName() bool {
 func (o *IdentityMachineResponseModel) SetDnsName(v string) {
 	o.DnsName.Set(&v)
 }
+
 // SetDnsNameNil sets the value for DnsName to be an explicit nil
 func (o *IdentityMachineResponseModel) SetDnsNameNil() {
 	o.DnsName.Set(nil)
@@ -514,6 +523,7 @@ func (o *IdentityMachineResponseModel) HasSid() bool {
 func (o *IdentityMachineResponseModel) SetSid(v string) {
 	o.Sid.Set(&v)
 }
+
 // SetSidNil sets the value for Sid to be an explicit nil
 func (o *IdentityMachineResponseModel) SetSidNil() {
 	o.Sid.Set(nil)
@@ -711,7 +721,7 @@ func (o *IdentityMachineResponseModel) SetPropertiesFetched(v int32) {
 }
 
 func (o IdentityMachineResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -807,5 +817,3 @@ func (v *NullableIdentityMachineResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

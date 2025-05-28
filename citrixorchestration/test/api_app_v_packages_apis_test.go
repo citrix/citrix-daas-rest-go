@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackage", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -38,7 +39,7 @@ func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackageApplication", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 		var appId string
@@ -53,7 +54,7 @@ func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackageApplicationIcon", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 		var appId string
@@ -68,7 +69,7 @@ func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackageApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -82,7 +83,7 @@ func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackageBrokerApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -96,7 +97,7 @@ func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackageDeliveryGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -110,7 +111,7 @@ func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackageIcon", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -124,7 +125,7 @@ func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackages", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackages(context.Background()).Execute()
 
@@ -136,7 +137,7 @@ func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetPackageApplicationFileTypes", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 		var appId string
@@ -151,7 +152,7 @@ func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesImportAppVPackages", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesImportAppVPackages(context.Background()).Execute()
 
@@ -162,7 +163,7 @@ func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
 
 	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesRemoveAppVPackage", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 

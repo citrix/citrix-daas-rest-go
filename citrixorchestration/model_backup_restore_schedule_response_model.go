@@ -22,11 +22,11 @@ type BackupRestoreScheduleResponseModel struct {
 	// Name
 	Name NullableString `json:"Name,omitempty"`
 	// Id
-	Uid *int32 `json:"Uid,omitempty"`
+	Uid *int32                     `json:"Uid,omitempty"`
 	Day *BackupRestoreScheduleDays `json:"Day,omitempty"`
 	// Days in Week
-	DaysInWeek []BackupRestoreScheduleDays `json:"DaysInWeek,omitempty"`
-	DayInMonth *BackupRestoreScheduleDays `json:"DayInMonth,omitempty"`
+	DaysInWeek  []BackupRestoreScheduleDays `json:"DaysInWeek,omitempty"`
+	DayInMonth  *BackupRestoreScheduleDays  `json:"DayInMonth,omitempty"`
 	WeekInMonth *BackupRestoreScheduleWeeks `json:"WeekInMonth,omitempty"`
 	// Start Date
 	StartDate NullableString `json:"StartDate,omitempty"`
@@ -34,12 +34,12 @@ type BackupRestoreScheduleResponseModel struct {
 	FrequencyFactor *int32 `json:"FrequencyFactor,omitempty"`
 	// Description
 	Description NullableString `json:"Description,omitempty"`
-	// Enabled             
-	Enabled *bool `json:"Enabled,omitempty"`
+	// Enabled
+	Enabled   *bool                           `json:"Enabled,omitempty"`
 	Frequency *BackupRestoreScheduleFrequency `json:"Frequency,omitempty"`
 	// Start Time
 	StartTime NullableString `json:"StartTime,omitempty"`
-	// Time Zone Id             
+	// Time Zone Id
 	TimeZoneId NullableString `json:"TimeZoneId,omitempty"`
 }
 
@@ -92,6 +92,7 @@ func (o *BackupRestoreScheduleResponseModel) HasName() bool {
 func (o *BackupRestoreScheduleResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *BackupRestoreScheduleResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -295,6 +296,7 @@ func (o *BackupRestoreScheduleResponseModel) HasStartDate() bool {
 func (o *BackupRestoreScheduleResponseModel) SetStartDate(v string) {
 	o.StartDate.Set(&v)
 }
+
 // SetStartDateNil sets the value for StartDate to be an explicit nil
 func (o *BackupRestoreScheduleResponseModel) SetStartDateNil() {
 	o.StartDate.Set(nil)
@@ -369,6 +371,7 @@ func (o *BackupRestoreScheduleResponseModel) HasDescription() bool {
 func (o *BackupRestoreScheduleResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *BackupRestoreScheduleResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -475,6 +478,7 @@ func (o *BackupRestoreScheduleResponseModel) HasStartTime() bool {
 func (o *BackupRestoreScheduleResponseModel) SetStartTime(v string) {
 	o.StartTime.Set(&v)
 }
+
 // SetStartTimeNil sets the value for StartTime to be an explicit nil
 func (o *BackupRestoreScheduleResponseModel) SetStartTimeNil() {
 	o.StartTime.Set(nil)
@@ -517,6 +521,7 @@ func (o *BackupRestoreScheduleResponseModel) HasTimeZoneId() bool {
 func (o *BackupRestoreScheduleResponseModel) SetTimeZoneId(v string) {
 	o.TimeZoneId.Set(&v)
 }
+
 // SetTimeZoneIdNil sets the value for TimeZoneId to be an explicit nil
 func (o *BackupRestoreScheduleResponseModel) SetTimeZoneIdNil() {
 	o.TimeZoneId.Set(nil)
@@ -528,7 +533,7 @@ func (o *BackupRestoreScheduleResponseModel) UnsetTimeZoneId() {
 }
 
 func (o BackupRestoreScheduleResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -614,5 +619,3 @@ func (v *NullableBackupRestoreScheduleResponseModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,27 +20,27 @@ var _ MappedNullable = &ImageVersionSpecResponseModel{}
 // ImageVersionSpecResponseModel Response object for image version specification.
 type ImageVersionSpecResponseModel struct {
 	// The Id of the image version specification.
-	Id string `json:"Id"`
+	Id      string                                `json:"Id"`
 	Context *ImageVersionSpecContextResponseModel `json:"Context,omitempty"`
 	// The create time of the image version specification.
 	CreationTime NullableString `json:"CreationTime,omitempty"`
 	// The errors in this image version specification
-	Errors []string `json:"Errors,omitempty"`
+	Errors                  []string                              `json:"Errors,omitempty"`
 	ImageRuntimeEnvironment *ImageRuntimeEnvironmentResponseModel `json:"ImageRuntimeEnvironment,omitempty"`
-	ImageVersionSpecStatus *ImageVersionSpecStatus `json:"ImageVersionSpecStatus,omitempty"`
-	MasterImage *HypervisorResourceRefResponseModel `json:"MasterImage,omitempty"`
-	PreparationType PreparationType `json:"PreparationType"`
+	ImageVersionSpecStatus  *ImageVersionSpecStatus               `json:"ImageVersionSpecStatus,omitempty"`
+	MasterImage             *HypervisorResourceRefResponseModel   `json:"MasterImage,omitempty"`
+	PreparationType         PreparationType                       `json:"PreparationType"`
 	// Number of provisioning scheme created from this image version specification.
-	ProvisioningSchemeCount *int32 `json:"ProvisioningSchemeCount,omitempty"`
-	ResourcePool *HypervisorResourcePoolRefResponseModel `json:"ResourcePool,omitempty"`
+	ProvisioningSchemeCount *int32                                  `json:"ProvisioningSchemeCount,omitempty"`
+	ResourcePool            *HypervisorResourcePoolRefResponseModel `json:"ResourcePool,omitempty"`
 	// The resource pools on which image is associated.
-	ResourcePools []ImageVersionSpecResourcePoolResponseModel `json:"ResourcePools,omitempty"`
-	SourceImageVersionSpec *ImageVersionSpecRefResponseModel `json:"SourceImageVersionSpec,omitempty"`
+	ResourcePools          []ImageVersionSpecResourcePoolResponseModel `json:"ResourcePools,omitempty"`
+	SourceImageVersionSpec *ImageVersionSpecRefResponseModel           `json:"SourceImageVersionSpec,omitempty"`
 	// The disk size
 	DiskSize *int32 `json:"DiskSize,omitempty"`
 	// List of warnings that are currently active on the image version specification, if any.  If there are no warnings this will not be specified.
 	Warnings []ImageVersionSpecWarningResponseModel `json:"Warnings,omitempty"`
-	Zone *RefResponseModel `json:"Zone,omitempty"`
+	Zone     *RefResponseModel                      `json:"Zone,omitempty"`
 }
 
 // NewImageVersionSpecResponseModel instantiates a new ImageVersionSpecResponseModel object
@@ -150,6 +150,7 @@ func (o *ImageVersionSpecResponseModel) HasCreationTime() bool {
 func (o *ImageVersionSpecResponseModel) SetCreationTime(v string) {
 	o.CreationTime.Set(&v)
 }
+
 // SetCreationTimeNil sets the value for CreationTime to be an explicit nil
 func (o *ImageVersionSpecResponseModel) SetCreationTimeNil() {
 	o.CreationTime.Set(nil)
@@ -540,7 +541,7 @@ func (o *ImageVersionSpecResponseModel) SetZone(v RefResponseModel) {
 }
 
 func (o ImageVersionSpecResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -628,5 +629,3 @@ func (v *NullableImageVersionSpecResponseModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

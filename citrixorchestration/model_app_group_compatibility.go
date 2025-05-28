@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// AppGroupCompatibility App Group Compatibility set.             
+// AppGroupCompatibility App Group Compatibility set.
 type AppGroupCompatibility string
 
 // List of AppGroupCompatibility
 const (
-	APPGROUPCOMPATIBILITY_UNKNOWN AppGroupCompatibility = "Unknown"
-	APPGROUPCOMPATIBILITY_COMPATIBLE AppGroupCompatibility = "Compatible"
-	APPGROUPCOMPATIBILITY_INCOMPATIBLE_PRIVATE AppGroupCompatibility = "IncompatiblePrivate"
+	APPGROUPCOMPATIBILITY_UNKNOWN                    AppGroupCompatibility = "Unknown"
+	APPGROUPCOMPATIBILITY_COMPATIBLE                 AppGroupCompatibility = "Compatible"
+	APPGROUPCOMPATIBILITY_INCOMPATIBLE_PRIVATE       AppGroupCompatibility = "IncompatiblePrivate"
 	APPGROUPCOMPATIBILITY_INCOMPATIBLE_DELIVERY_TYPE AppGroupCompatibility = "IncompatibleDeliveryType"
 )
 
@@ -40,7 +40,7 @@ func (v *AppGroupCompatibility) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AppGroupCompatibility(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableAppGroupCompatibility) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

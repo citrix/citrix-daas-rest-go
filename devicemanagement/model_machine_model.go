@@ -37,6 +37,8 @@ type MachineModel struct {
 	Priority *int64 `json:"priority,omitempty"`
 }
 
+type _MachineModel MachineModel
+
 // NewMachineModel instantiates a new MachineModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -283,7 +285,7 @@ func (o *MachineModel) SetPriority(v int64) {
 }
 
 func (o MachineModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -346,5 +348,3 @@ func (v *NullableMachineModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

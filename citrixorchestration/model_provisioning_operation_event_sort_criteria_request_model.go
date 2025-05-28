@@ -19,8 +19,8 @@ var _ MappedNullable = &ProvisioningOperationEventSortCriteriaRequestModel{}
 
 // ProvisioningOperationEventSortCriteriaRequestModel Provisioning operation event sort criteria.
 type ProvisioningOperationEventSortCriteriaRequestModel struct {
-	Property ProvisioningOperationEventSearchProperty `json:"Property"`
-	SortDirection ListSortDirection `json:"SortDirection"`
+	Property      ProvisioningOperationEventSearchProperty `json:"Property"`
+	SortDirection ListSortDirection                        `json:"SortDirection"`
 }
 
 // NewProvisioningOperationEventSortCriteriaRequestModel instantiates a new ProvisioningOperationEventSortCriteriaRequestModel object
@@ -91,7 +91,7 @@ func (o *ProvisioningOperationEventSortCriteriaRequestModel) SetSortDirection(v 
 }
 
 func (o ProvisioningOperationEventSortCriteriaRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableProvisioningOperationEventSortCriteriaRequestModel) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

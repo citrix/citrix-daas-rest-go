@@ -20,15 +20,15 @@ var _ MappedNullable = &HypervisorResourcePoolDetailResponseModel{}
 // HypervisorResourcePoolDetailResponseModel struct for HypervisorResourcePoolDetailResponseModel
 type HypervisorResourcePoolDetailResponseModel struct {
 	VirtualPrivateCloud HypervisorResourceRefResponseModel `json:"VirtualPrivateCloud"`
-	AvailabilityZone HypervisorResourceRefResponseModel `json:"AvailabilityZone"`
+	AvailabilityZone    HypervisorResourceRefResponseModel `json:"AvailabilityZone"`
 	// List of networks that may be used within the resource pool.
-	Networks []HypervisorResourceRefResponseModel `json:"Networks"`
-	Region HypervisorResourceRefResponseModel `json:"Region"`
-	VirtualNetwork HypervisorResourceRefResponseModel `json:"VirtualNetwork"`
+	Networks       []HypervisorResourceRefResponseModel `json:"Networks"`
+	Region         HypervisorResourceRefResponseModel   `json:"Region"`
+	VirtualNetwork HypervisorResourceRefResponseModel   `json:"VirtualNetwork"`
 	// List of subnets in the VirtualNetwork that may be used within the resource pool.
-	Subnets []HypervisorResourceRefResponseModel `json:"Subnets"`
-	Project HypervisorResourceRefResponseModel `json:"Project"`
-	RootPath *HypervisorResourceRefResponseModel `json:"RootPath,omitempty"`
+	Subnets  []HypervisorResourceRefResponseModel `json:"Subnets"`
+	Project  HypervisorResourceRefResponseModel   `json:"Project"`
+	RootPath *HypervisorResourceRefResponseModel  `json:"RootPath,omitempty"`
 	// List of hypervisor-connected storage in the resource pool that is used for OS disks of virtual machines.
 	Storage []HypervisorStorageResourceResponseModel `json:"Storage"`
 	// List of hypervisor-connected storage in the resource pool that is used for temporary data storage for virtual machines.
@@ -39,16 +39,16 @@ type HypervisorResourcePoolDetailResponseModel struct {
 	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 	// List of hypervisor-connected storage in the resource pool that is used for personal v disk data storage for virtual machines.
 	PersonalvDiskStorage []HypervisorStorageResourceResponseModel `json:"PersonalvDiskStorage,omitempty"`
-	StorageBalanceType *StorageBalanceType `json:"StorageBalanceType,omitempty"`
+	StorageBalanceType   *StorageBalanceType                      `json:"StorageBalanceType,omitempty"`
 	// Id of the resource.
 	Id NullableString `json:"Id,omitempty"`
 	// Name of the resource.
 	Name NullableString `json:"Name,omitempty"`
 	// XenApp & XenDesktop path to the resource on the hypervisor.  An example value is: `XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot` or `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}`
-	XDPath NullableString `json:"XDPath,omitempty"`
-	HypervisorConnection RefResponseModel `json:"HypervisorConnection"`
-	ConnectionType HypervisorConnectionType `json:"ConnectionType"`
-	DefaultNetwork HypervisorResourceRefResponseModel `json:"DefaultNetwork"`
+	XDPath               NullableString                     `json:"XDPath,omitempty"`
+	HypervisorConnection RefResponseModel                   `json:"HypervisorConnection"`
+	ConnectionType       HypervisorConnectionType           `json:"ConnectionType"`
+	DefaultNetwork       HypervisorResourceRefResponseModel `json:"DefaultNetwork"`
 	// Indicates whether new virtual machines are tagged with metadata from the hypervisor.
 	VMTaggingEnabled bool `json:"VMTaggingEnabled"`
 	// Hypervisor resourcePool RootPath.
@@ -59,7 +59,7 @@ type HypervisorResourcePoolDetailResponseModel struct {
 	GpuTypes []HypervisorResourceRefResponseModel `json:"GpuTypes,omitempty"`
 	// If the hypervisor resource pool use ExplicitStorage.
 	UsesExplicitStorage *bool `json:"UsesExplicitStorage,omitempty"`
-	// Metadata for hypervisor resource pool. 
+	// Metadata for hypervisor resource pool.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// Delegated admin scopes in which the containers of the resource pool reside.
 	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes,omitempty"`
@@ -366,6 +366,7 @@ func (o *HypervisorResourcePoolDetailResponseModel) HasUseLocalStorageCaching() 
 func (o *HypervisorResourcePoolDetailResponseModel) SetUseLocalStorageCaching(v bool) {
 	o.UseLocalStorageCaching.Set(&v)
 }
+
 // SetUseLocalStorageCachingNil sets the value for UseLocalStorageCaching to be an explicit nil
 func (o *HypervisorResourcePoolDetailResponseModel) SetUseLocalStorageCachingNil() {
 	o.UseLocalStorageCaching.Set(nil)
@@ -408,6 +409,7 @@ func (o *HypervisorResourcePoolDetailResponseModel) HasCustomProperties() bool {
 func (o *HypervisorResourcePoolDetailResponseModel) SetCustomProperties(v string) {
 	o.CustomProperties.Set(&v)
 }
+
 // SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
 func (o *HypervisorResourcePoolDetailResponseModel) SetCustomPropertiesNil() {
 	o.CustomProperties.Set(nil)
@@ -515,6 +517,7 @@ func (o *HypervisorResourcePoolDetailResponseModel) HasId() bool {
 func (o *HypervisorResourcePoolDetailResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *HypervisorResourcePoolDetailResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -557,6 +560,7 @@ func (o *HypervisorResourcePoolDetailResponseModel) HasName() bool {
 func (o *HypervisorResourcePoolDetailResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *HypervisorResourcePoolDetailResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -599,6 +603,7 @@ func (o *HypervisorResourcePoolDetailResponseModel) HasXDPath() bool {
 func (o *HypervisorResourcePoolDetailResponseModel) SetXDPath(v string) {
 	o.XDPath.Set(&v)
 }
+
 // SetXDPathNil sets the value for XDPath to be an explicit nil
 func (o *HypervisorResourcePoolDetailResponseModel) SetXDPathNil() {
 	o.XDPath.Set(nil)
@@ -737,6 +742,7 @@ func (o *HypervisorResourcePoolDetailResponseModel) HasResourcePoolRootPath() bo
 func (o *HypervisorResourcePoolDetailResponseModel) SetResourcePoolRootPath(v string) {
 	o.ResourcePoolRootPath.Set(&v)
 }
+
 // SetResourcePoolRootPathNil sets the value for ResourcePoolRootPath to be an explicit nil
 func (o *HypervisorResourcePoolDetailResponseModel) SetResourcePoolRootPathNil() {
 	o.ResourcePoolRootPath.Set(nil)
@@ -779,6 +785,7 @@ func (o *HypervisorResourcePoolDetailResponseModel) HasResourcePoolRootId() bool
 func (o *HypervisorResourcePoolDetailResponseModel) SetResourcePoolRootId(v string) {
 	o.ResourcePoolRootId.Set(&v)
 }
+
 // SetResourcePoolRootIdNil sets the value for ResourcePoolRootId to be an explicit nil
 func (o *HypervisorResourcePoolDetailResponseModel) SetResourcePoolRootIdNil() {
 	o.ResourcePoolRootId.Set(nil)
@@ -921,7 +928,7 @@ func (o *HypervisorResourcePoolDetailResponseModel) SetContainerScopes(v []Conta
 }
 
 func (o HypervisorResourcePoolDetailResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1023,5 +1030,3 @@ func (v *NullableHypervisorResourcePoolDetailResponseModel) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

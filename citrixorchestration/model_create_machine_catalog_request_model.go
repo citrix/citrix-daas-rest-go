@@ -22,35 +22,35 @@ type CreateMachineCatalogRequestModel struct {
 	// The admin folder in which the machine catalog should be created.
 	AdminFolder NullableString `json:"AdminFolder,omitempty"`
 	// Name of the machine catalog.  Each machine catalog within a site must have a unique name.  Required.
-	Name string `json:"Name"`
+	Name           string          `json:"Name" validate:"regexp=(.*)*"`
 	AllocationType *AllocationType `json:"AllocationType,omitempty"`
 	// Description of the machine catalog.  Optional.  Default is no description.
-	Description NullableString `json:"Description,omitempty"`
+	Description NullableString `json:"Description,omitempty" validate:"regexp=^[A-Za-z]+$"`
 	// Specifies the hypervisor connection to use for power management of machines in this machine catalog.
 	HypervisorConnection NullableString `json:"HypervisorConnection,omitempty"`
 	// Indicates whether or not the catalog is a RemotePC catalog.  Default is `false`.
 	IsRemotePC NullableBool `json:"IsRemotePC,omitempty"`
 	// List of one or more remote PC enrollment scopes.
-	RemotePCEnrollmentScopes []RemotePCEnrollmentScopeRequestModel `json:"RemotePCEnrollmentScopes,omitempty"`
-	MachineType *MachineType `json:"MachineType,omitempty"`
-	MinimumFunctionalLevel *FunctionalLevel `json:"MinimumFunctionalLevel,omitempty"`
-	PersistUserChanges *PersistChanges `json:"PersistUserChanges,omitempty"`
-	ProvisioningType ProvisioningType `json:"ProvisioningType"`
-	ProvisioningScheme *CreateMachineCatalogProvisioningSchemeRequestModel `json:"ProvisioningScheme,omitempty"`
-	ProvisioningSchemeImportData *MCSImportData `json:"ProvisioningSchemeImportData,omitempty"`
+	RemotePCEnrollmentScopes     []RemotePCEnrollmentScopeRequestModel               `json:"RemotePCEnrollmentScopes,omitempty"`
+	MachineType                  *MachineType                                        `json:"MachineType,omitempty"`
+	MinimumFunctionalLevel       *FunctionalLevel                                    `json:"MinimumFunctionalLevel,omitempty"`
+	PersistUserChanges           *PersistChanges                                     `json:"PersistUserChanges,omitempty"`
+	ProvisioningType             ProvisioningType                                    `json:"ProvisioningType"`
+	ProvisioningScheme           *CreateMachineCatalogProvisioningSchemeRequestModel `json:"ProvisioningScheme,omitempty"`
+	ProvisioningSchemeImportData *MCSImportData                                      `json:"ProvisioningSchemeImportData,omitempty"`
 	// List of machines to add to the catalog.  Must not be specified if  equals  or .  Optional otherwise.  Default is not to add any machines.
 	Machines []AddMachineToMachineCatalogRequestModel `json:"Machines,omitempty"`
 	// IP address of the PVS server to be used.  This only applies if the ProvisioningType is PVS.
-	PvsAddress NullableString `json:"PvsAddress,omitempty"`
+	PvsAddress NullableString `json:"PvsAddress,omitempty" validate:"regexp=UNKNOWN"`
 	// The domain of the PVS server to be used. This only applies if the ProvisioningType is PVS.
-	PvsDomain NullableString `json:"PvsDomain,omitempty"`
+	PvsDomain NullableString `json:"PvsDomain,omitempty" validate:"regexp=UNKNOWN"`
 	// Collection IDs of PVS collections containing machines that should be added to the catalog.  This only applies if the ProvisioningType is PVS, and is required in that case.  Each item must be a valid PVS collection ID residing on the PVS server located at the specified .
 	PvsCollectionIds []string `json:"PvsCollectionIds,omitempty"`
 	// Administrative scopes which the newly created machine catalog will be a part of.
 	Scopes []string `json:"Scopes,omitempty"`
 	// Tenant(s) to associate the machine catalog with.
-	Tenants []string `json:"Tenants,omitempty"`
-	SessionSupport SessionSupport `json:"SessionSupport"`
+	Tenants        []string        `json:"Tenants,omitempty"`
+	SessionSupport SessionSupport  `json:"SessionSupport"`
 	VdaUpgradeType *VdaUpgradeType `json:"VdaUpgradeType,omitempty"`
 	// Zone the machine catalog is associated with.  Optional.  If not specified, the machine catalog is associated with the primary zone. See PrimaryZone.
 	Zone NullableString `json:"Zone,omitempty"`
@@ -116,6 +116,7 @@ func (o *CreateMachineCatalogRequestModel) HasAdminFolder() bool {
 func (o *CreateMachineCatalogRequestModel) SetAdminFolder(v string) {
 	o.AdminFolder.Set(&v)
 }
+
 // SetAdminFolderNil sets the value for AdminFolder to be an explicit nil
 func (o *CreateMachineCatalogRequestModel) SetAdminFolderNil() {
 	o.AdminFolder.Set(nil)
@@ -214,6 +215,7 @@ func (o *CreateMachineCatalogRequestModel) HasDescription() bool {
 func (o *CreateMachineCatalogRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *CreateMachineCatalogRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -256,6 +258,7 @@ func (o *CreateMachineCatalogRequestModel) HasHypervisorConnection() bool {
 func (o *CreateMachineCatalogRequestModel) SetHypervisorConnection(v string) {
 	o.HypervisorConnection.Set(&v)
 }
+
 // SetHypervisorConnectionNil sets the value for HypervisorConnection to be an explicit nil
 func (o *CreateMachineCatalogRequestModel) SetHypervisorConnectionNil() {
 	o.HypervisorConnection.Set(nil)
@@ -298,6 +301,7 @@ func (o *CreateMachineCatalogRequestModel) HasIsRemotePC() bool {
 func (o *CreateMachineCatalogRequestModel) SetIsRemotePC(v bool) {
 	o.IsRemotePC.Set(&v)
 }
+
 // SetIsRemotePCNil sets the value for IsRemotePC to be an explicit nil
 func (o *CreateMachineCatalogRequestModel) SetIsRemotePCNil() {
 	o.IsRemotePC.Set(nil)
@@ -590,6 +594,7 @@ func (o *CreateMachineCatalogRequestModel) HasPvsAddress() bool {
 func (o *CreateMachineCatalogRequestModel) SetPvsAddress(v string) {
 	o.PvsAddress.Set(&v)
 }
+
 // SetPvsAddressNil sets the value for PvsAddress to be an explicit nil
 func (o *CreateMachineCatalogRequestModel) SetPvsAddressNil() {
 	o.PvsAddress.Set(nil)
@@ -632,6 +637,7 @@ func (o *CreateMachineCatalogRequestModel) HasPvsDomain() bool {
 func (o *CreateMachineCatalogRequestModel) SetPvsDomain(v string) {
 	o.PvsDomain.Set(&v)
 }
+
 // SetPvsDomainNil sets the value for PvsDomain to be an explicit nil
 func (o *CreateMachineCatalogRequestModel) SetPvsDomainNil() {
 	o.PvsDomain.Set(nil)
@@ -829,6 +835,7 @@ func (o *CreateMachineCatalogRequestModel) HasZone() bool {
 func (o *CreateMachineCatalogRequestModel) SetZone(v string) {
 	o.Zone.Set(&v)
 }
+
 // SetZoneNil sets the value for Zone to be an explicit nil
 func (o *CreateMachineCatalogRequestModel) SetZoneNil() {
 	o.Zone.Set(nil)
@@ -871,6 +878,7 @@ func (o *CreateMachineCatalogRequestModel) HasHypervisorVMTagging() bool {
 func (o *CreateMachineCatalogRequestModel) SetHypervisorVMTagging(v bool) {
 	o.HypervisorVMTagging.Set(&v)
 }
+
 // SetHypervisorVMTaggingNil sets the value for HypervisorVMTagging to be an explicit nil
 func (o *CreateMachineCatalogRequestModel) SetHypervisorVMTaggingNil() {
 	o.HypervisorVMTagging.Set(nil)
@@ -915,7 +923,7 @@ func (o *CreateMachineCatalogRequestModel) SetMetadata(v []NameValueStringPairMo
 }
 
 func (o CreateMachineCatalogRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1028,5 +1036,3 @@ func (v *NullableCreateMachineCatalogRequestModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

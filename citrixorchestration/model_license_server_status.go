@@ -15,22 +15,22 @@ import (
 	"fmt"
 )
 
-// LicenseServerStatus 
+// LicenseServerStatus
 type LicenseServerStatus string
 
 // List of LicenseServerStatus
 const (
-	LICENSESERVERSTATUS_COMPATIBLE LicenseServerStatus = "Compatible"
-	LICENSESERVERSTATUS_INCOMPATIBLE LicenseServerStatus = "Incompatible"
-	LICENSESERVERSTATUS_INACCESSIBLE LicenseServerStatus = "Inaccessible"
-	LICENSESERVERSTATUS_INTERNAL_ERROR LicenseServerStatus = "InternalError"
+	LICENSESERVERSTATUS_COMPATIBLE              LicenseServerStatus = "Compatible"
+	LICENSESERVERSTATUS_INCOMPATIBLE            LicenseServerStatus = "Incompatible"
+	LICENSESERVERSTATUS_INACCESSIBLE            LicenseServerStatus = "Inaccessible"
+	LICENSESERVERSTATUS_INTERNAL_ERROR          LicenseServerStatus = "InternalError"
 	LICENSESERVERSTATUS_LS_VERSION_INCOMPATIBLE LicenseServerStatus = "LSVersionIncompatible"
-	LICENSESERVERSTATUS_CLOUD_NOT_REGISTERED LicenseServerStatus = "CloudNotRegistered"
-	LICENSESERVERSTATUS_LAS_NOT_ONBOARDED LicenseServerStatus = "LasNotOnboarded"
-	LICENSESERVERSTATUS_INTERNET_NOT_CONNECTED LicenseServerStatus = "InternetNotConnected"
-	LICENSESERVERSTATUS_LAS_COMPATIBLE LicenseServerStatus = "LasCompatible"
-	LICENSESERVERSTATUS_NO_INVENTORY LicenseServerStatus = "NoInventory"
-	LICENSESERVERSTATUS_UNKNOWN_STATUS LicenseServerStatus = "UnknownStatus"
+	LICENSESERVERSTATUS_CLOUD_NOT_REGISTERED    LicenseServerStatus = "CloudNotRegistered"
+	LICENSESERVERSTATUS_LAS_NOT_ONBOARDED       LicenseServerStatus = "LasNotOnboarded"
+	LICENSESERVERSTATUS_INTERNET_NOT_CONNECTED  LicenseServerStatus = "InternetNotConnected"
+	LICENSESERVERSTATUS_LAS_COMPATIBLE          LicenseServerStatus = "LasCompatible"
+	LICENSESERVERSTATUS_NO_INVENTORY            LicenseServerStatus = "NoInventory"
+	LICENSESERVERSTATUS_UNKNOWN_STATUS          LicenseServerStatus = "UnknownStatus"
 )
 
 // All allowed values of LicenseServerStatus enum
@@ -54,7 +54,7 @@ func (v *LicenseServerStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = LicenseServerStatus(value)
 	return nil
 }
@@ -120,4 +120,3 @@ func (v *NullableLicenseServerStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

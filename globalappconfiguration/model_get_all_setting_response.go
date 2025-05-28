@@ -19,9 +19,9 @@ var _ MappedNullable = &GetAllSettingResponse{}
 
 // GetAllSettingResponse struct for GetAllSettingResponse
 type GetAllSettingResponse struct {
-	Count *int32 `json:"count,omitempty"`
-	Items []SettingsRecordModel `json:"items,omitempty"`
-	NextToken *string `json:"nextToken,omitempty"`
+	Count     *int32                `json:"count,omitempty"`
+	Items     []SettingsRecordModel `json:"items,omitempty"`
+	NextToken *string               `json:"nextToken,omitempty"`
 }
 
 // NewGetAllSettingResponse instantiates a new GetAllSettingResponse object
@@ -138,7 +138,7 @@ func (o *GetAllSettingResponse) SetNextToken(v string) {
 }
 
 func (o GetAllSettingResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,5 +194,3 @@ func (v *NullableGetAllSettingResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

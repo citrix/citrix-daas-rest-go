@@ -19,6 +19,7 @@ var _ MappedNullable = &ImportImage{}
 
 // ImportImage Import image
 type ImportImage struct {
+	// The type of provider associated with the account
 	AccountType AccountType `json:"accountType"`
 	// Image Name
 	Name string `json:"name"`
@@ -26,8 +27,11 @@ type ImportImage struct {
 	Description NullableString `json:"description,omitempty"`
 	// Image Notes
 	Notes NullableString `json:"notes,omitempty"`
+	// Session Type
 	SessionSupport NullableSessionSupport `json:"sessionSupport,omitempty"`
 }
+
+type _ImportImage ImportImage
 
 // NewImportImage instantiates a new ImportImage object
 // This constructor will assign default values to properties that have it defined,
@@ -128,6 +132,7 @@ func (o *ImportImage) HasDescription() bool {
 func (o *ImportImage) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *ImportImage) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -170,6 +175,7 @@ func (o *ImportImage) HasNotes() bool {
 func (o *ImportImage) SetNotes(v string) {
 	o.Notes.Set(&v)
 }
+
 // SetNotesNil sets the value for Notes to be an explicit nil
 func (o *ImportImage) SetNotesNil() {
 	o.Notes.Set(nil)
@@ -212,6 +218,7 @@ func (o *ImportImage) HasSessionSupport() bool {
 func (o *ImportImage) SetSessionSupport(v SessionSupport) {
 	o.SessionSupport.Set(&v)
 }
+
 // SetSessionSupportNil sets the value for SessionSupport to be an explicit nil
 func (o *ImportImage) SetSessionSupportNil() {
 	o.SessionSupport.Set(nil)
@@ -223,7 +230,7 @@ func (o *ImportImage) UnsetSessionSupport() {
 }
 
 func (o ImportImage) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -281,5 +288,3 @@ func (v *NullableImportImage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

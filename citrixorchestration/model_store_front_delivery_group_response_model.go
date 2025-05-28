@@ -106,6 +106,7 @@ func (o *StoreFrontDeliveryGroupResponseModel) HasDeliveryGroupName() bool {
 func (o *StoreFrontDeliveryGroupResponseModel) SetDeliveryGroupName(v string) {
 	o.DeliveryGroupName.Set(&v)
 }
+
 // SetDeliveryGroupNameNil sets the value for DeliveryGroupName to be an explicit nil
 func (o *StoreFrontDeliveryGroupResponseModel) SetDeliveryGroupNameNil() {
 	o.DeliveryGroupName.Set(nil)
@@ -117,7 +118,7 @@ func (o *StoreFrontDeliveryGroupResponseModel) UnsetDeliveryGroupName() {
 }
 
 func (o StoreFrontDeliveryGroupResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +171,3 @@ func (v *NullableStoreFrontDeliveryGroupResponseModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

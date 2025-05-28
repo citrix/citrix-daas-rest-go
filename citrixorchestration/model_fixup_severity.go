@@ -15,15 +15,15 @@ import (
 	"fmt"
 )
 
-// FixupSeverity 
+// FixupSeverity
 type FixupSeverity string
 
 // List of FixupSeverity
 const (
-	FIXUPSEVERITY_NORMAL FixupSeverity = "Normal"
-	FIXUPSEVERITY_INFO FixupSeverity = "Info"
-	FIXUPSEVERITY_WARNING FixupSeverity = "Warning"
-	FIXUPSEVERITY_ERROR FixupSeverity = "Error"
+	FIXUPSEVERITY_NORMAL    FixupSeverity = "Normal"
+	FIXUPSEVERITY_INFO      FixupSeverity = "Info"
+	FIXUPSEVERITY_WARNING   FixupSeverity = "Warning"
+	FIXUPSEVERITY_ERROR     FixupSeverity = "Error"
 	FIXUPSEVERITY_UNDEFINED FixupSeverity = "Undefined"
 )
 
@@ -42,7 +42,7 @@ func (v *FixupSeverity) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = FixupSeverity(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableFixupSeverity) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

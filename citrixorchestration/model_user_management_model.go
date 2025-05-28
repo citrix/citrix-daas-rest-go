@@ -20,9 +20,9 @@ type UserManagementModel string
 
 // List of UserManagementModel
 const (
-	USERMANAGEMENTMODEL_UNKNOWN UserManagementModel = "Unknown"
+	USERMANAGEMENTMODEL_UNKNOWN       UserManagementModel = "Unknown"
 	USERMANAGEMENTMODEL_CLOUD_LIBRARY UserManagementModel = "CloudLibrary"
-	USERMANAGEMENTMODEL_STUDIO UserManagementModel = "Studio"
+	USERMANAGEMENTMODEL_STUDIO        UserManagementModel = "Studio"
 )
 
 // All allowed values of UserManagementModel enum
@@ -38,7 +38,7 @@ func (v *UserManagementModel) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = UserManagementModel(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableUserManagementModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

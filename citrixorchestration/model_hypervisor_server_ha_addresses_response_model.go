@@ -78,6 +78,7 @@ func (o *HypervisorServerHAAddressesResponseModel) HasId() bool {
 func (o *HypervisorServerHAAddressesResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *HypervisorServerHAAddressesResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -120,6 +121,7 @@ func (o *HypervisorServerHAAddressesResponseModel) HasName() bool {
 func (o *HypervisorServerHAAddressesResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *HypervisorServerHAAddressesResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -162,6 +164,7 @@ func (o *HypervisorServerHAAddressesResponseModel) HasXDPath() bool {
 func (o *HypervisorServerHAAddressesResponseModel) SetXDPath(v string) {
 	o.XDPath.Set(&v)
 }
+
 // SetXDPathNil sets the value for XDPath to be an explicit nil
 func (o *HypervisorServerHAAddressesResponseModel) SetXDPathNil() {
 	o.XDPath.Set(nil)
@@ -206,7 +209,7 @@ func (o *HypervisorServerHAAddressesResponseModel) SetHAAddresses(v []string) {
 }
 
 func (o HypervisorServerHAAddressesResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -265,5 +268,3 @@ func (v *NullableHypervisorServerHAAddressesResponseModel) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

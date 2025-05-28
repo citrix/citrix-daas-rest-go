@@ -19,8 +19,8 @@ var _ MappedNullable = &AdministratorAccessScopeChoices{}
 
 // AdministratorAccessScopeChoices struct for AdministratorAccessScopeChoices
 type AdministratorAccessScopeChoices struct {
-	AllScopesSelected *bool `json:"allScopesSelected,omitempty"`
-	Choices []AdministratorAccessScopeChoicesModel `json:"choices,omitempty"`
+	AllScopesSelected *bool                                  `json:"allScopesSelected,omitempty"`
+	Choices           []AdministratorAccessScopeChoicesModel `json:"choices,omitempty"`
 }
 
 // NewAdministratorAccessScopeChoices instantiates a new AdministratorAccessScopeChoices object
@@ -93,7 +93,7 @@ func (o *AdministratorAccessScopeChoices) GetChoicesOk() ([]AdministratorAccessS
 
 // HasChoices returns a boolean if a field has been set.
 func (o *AdministratorAccessScopeChoices) HasChoices() bool {
-	if o != nil && IsNil(o.Choices) {
+	if o != nil && !IsNil(o.Choices) {
 		return true
 	}
 
@@ -106,7 +106,7 @@ func (o *AdministratorAccessScopeChoices) SetChoices(v []AdministratorAccessScop
 }
 
 func (o AdministratorAccessScopeChoices) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullableAdministratorAccessScopeChoices) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

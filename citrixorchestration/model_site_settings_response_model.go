@@ -19,14 +19,14 @@ var _ MappedNullable = &SiteSettingsResponseModel{}
 
 // SiteSettingsResponseModel The site settings response model.
 type SiteSettingsResponseModel struct {
-	UseVerticalScalingForRdsLaunches NullableBool `json:"UseVerticalScalingForRdsLaunches,omitempty"`
-	DnsResolutionEnabled NullableBool `json:"DnsResolutionEnabled,omitempty"`
+	UseVerticalScalingForRdsLaunches            NullableBool `json:"UseVerticalScalingForRdsLaunches,omitempty"`
+	DnsResolutionEnabled                        NullableBool `json:"DnsResolutionEnabled,omitempty"`
 	TrustRequestsSentToTheXmlServicePortEnabled NullableBool `json:"TrustRequestsSentToTheXmlServicePortEnabled,omitempty"`
 	// The policy set in web UI is enabled or not
 	WebUiPolicySetEnabled NullableBool `json:"WebUiPolicySetEnabled,omitempty"`
 	// The max number of minutes that console can be inactive.
-	ConsoleInactivityTimeoutMinutes NullableInt32 `json:"ConsoleInactivityTimeoutMinutes,omitempty"`
-	SupportedAuthenticators *Authenticator `json:"SupportedAuthenticators,omitempty"`
+	ConsoleInactivityTimeoutMinutes NullableInt32  `json:"ConsoleInactivityTimeoutMinutes,omitempty"`
+	SupportedAuthenticators         *Authenticator `json:"SupportedAuthenticators,omitempty"`
 	// Applicable only for On-Premise. Indicate whether to display security banner on the login page.
 	ShowSecurityBannerOnLoginPage NullableBool `json:"ShowSecurityBannerOnLoginPage,omitempty"`
 	// Applicable only for On-Premise. The custom security banner on the login page, max length is 5000.
@@ -40,8 +40,8 @@ type SiteSettingsResponseModel struct {
 	// The default domain to be used in the login page.
 	DefaultDomain NullableString `json:"DefaultDomain,omitempty"`
 	// XML service configurations of enabling listening for https/http requests. Only applicable for On-Premise deployments.
-	XmlServicesSslConfigurations []NameValueStringPairModel `json:"XmlServicesSslConfigurations,omitempty"`
-	MultiTenantServicesAccess *MultiTenantServicesAccessModel `json:"MultiTenantServicesAccess,omitempty"`
+	XmlServicesSslConfigurations []NameValueStringPairModel      `json:"XmlServicesSslConfigurations,omitempty"`
+	MultiTenantServicesAccess    *MultiTenantServicesAccessModel `json:"MultiTenantServicesAccess,omitempty"`
 }
 
 // NewSiteSettingsResponseModel instantiates a new SiteSettingsResponseModel object
@@ -93,6 +93,7 @@ func (o *SiteSettingsResponseModel) HasUseVerticalScalingForRdsLaunches() bool {
 func (o *SiteSettingsResponseModel) SetUseVerticalScalingForRdsLaunches(v bool) {
 	o.UseVerticalScalingForRdsLaunches.Set(&v)
 }
+
 // SetUseVerticalScalingForRdsLaunchesNil sets the value for UseVerticalScalingForRdsLaunches to be an explicit nil
 func (o *SiteSettingsResponseModel) SetUseVerticalScalingForRdsLaunchesNil() {
 	o.UseVerticalScalingForRdsLaunches.Set(nil)
@@ -135,6 +136,7 @@ func (o *SiteSettingsResponseModel) HasDnsResolutionEnabled() bool {
 func (o *SiteSettingsResponseModel) SetDnsResolutionEnabled(v bool) {
 	o.DnsResolutionEnabled.Set(&v)
 }
+
 // SetDnsResolutionEnabledNil sets the value for DnsResolutionEnabled to be an explicit nil
 func (o *SiteSettingsResponseModel) SetDnsResolutionEnabledNil() {
 	o.DnsResolutionEnabled.Set(nil)
@@ -177,6 +179,7 @@ func (o *SiteSettingsResponseModel) HasTrustRequestsSentToTheXmlServicePortEnabl
 func (o *SiteSettingsResponseModel) SetTrustRequestsSentToTheXmlServicePortEnabled(v bool) {
 	o.TrustRequestsSentToTheXmlServicePortEnabled.Set(&v)
 }
+
 // SetTrustRequestsSentToTheXmlServicePortEnabledNil sets the value for TrustRequestsSentToTheXmlServicePortEnabled to be an explicit nil
 func (o *SiteSettingsResponseModel) SetTrustRequestsSentToTheXmlServicePortEnabledNil() {
 	o.TrustRequestsSentToTheXmlServicePortEnabled.Set(nil)
@@ -219,6 +222,7 @@ func (o *SiteSettingsResponseModel) HasWebUiPolicySetEnabled() bool {
 func (o *SiteSettingsResponseModel) SetWebUiPolicySetEnabled(v bool) {
 	o.WebUiPolicySetEnabled.Set(&v)
 }
+
 // SetWebUiPolicySetEnabledNil sets the value for WebUiPolicySetEnabled to be an explicit nil
 func (o *SiteSettingsResponseModel) SetWebUiPolicySetEnabledNil() {
 	o.WebUiPolicySetEnabled.Set(nil)
@@ -261,6 +265,7 @@ func (o *SiteSettingsResponseModel) HasConsoleInactivityTimeoutMinutes() bool {
 func (o *SiteSettingsResponseModel) SetConsoleInactivityTimeoutMinutes(v int32) {
 	o.ConsoleInactivityTimeoutMinutes.Set(&v)
 }
+
 // SetConsoleInactivityTimeoutMinutesNil sets the value for ConsoleInactivityTimeoutMinutes to be an explicit nil
 func (o *SiteSettingsResponseModel) SetConsoleInactivityTimeoutMinutesNil() {
 	o.ConsoleInactivityTimeoutMinutes.Set(nil)
@@ -335,6 +340,7 @@ func (o *SiteSettingsResponseModel) HasShowSecurityBannerOnLoginPage() bool {
 func (o *SiteSettingsResponseModel) SetShowSecurityBannerOnLoginPage(v bool) {
 	o.ShowSecurityBannerOnLoginPage.Set(&v)
 }
+
 // SetShowSecurityBannerOnLoginPageNil sets the value for ShowSecurityBannerOnLoginPage to be an explicit nil
 func (o *SiteSettingsResponseModel) SetShowSecurityBannerOnLoginPageNil() {
 	o.ShowSecurityBannerOnLoginPage.Set(nil)
@@ -377,6 +383,7 @@ func (o *SiteSettingsResponseModel) HasSecurityBannerOnLoginPage() bool {
 func (o *SiteSettingsResponseModel) SetSecurityBannerOnLoginPage(v string) {
 	o.SecurityBannerOnLoginPage.Set(&v)
 }
+
 // SetSecurityBannerOnLoginPageNil sets the value for SecurityBannerOnLoginPage to be an explicit nil
 func (o *SiteSettingsResponseModel) SetSecurityBannerOnLoginPageNil() {
 	o.SecurityBannerOnLoginPage.Set(nil)
@@ -419,6 +426,7 @@ func (o *SiteSettingsResponseModel) HasShowConnectedControllerOnLoginPage() bool
 func (o *SiteSettingsResponseModel) SetShowConnectedControllerOnLoginPage(v bool) {
 	o.ShowConnectedControllerOnLoginPage.Set(&v)
 }
+
 // SetShowConnectedControllerOnLoginPageNil sets the value for ShowConnectedControllerOnLoginPage to be an explicit nil
 func (o *SiteSettingsResponseModel) SetShowConnectedControllerOnLoginPageNil() {
 	o.ShowConnectedControllerOnLoginPage.Set(nil)
@@ -527,6 +535,7 @@ func (o *SiteSettingsResponseModel) HasDefaultDomain() bool {
 func (o *SiteSettingsResponseModel) SetDefaultDomain(v string) {
 	o.DefaultDomain.Set(&v)
 }
+
 // SetDefaultDomainNil sets the value for DefaultDomain to be an explicit nil
 func (o *SiteSettingsResponseModel) SetDefaultDomainNil() {
 	o.DefaultDomain.Set(nil)
@@ -603,7 +612,7 @@ func (o *SiteSettingsResponseModel) SetMultiTenantServicesAccess(v MultiTenantSe
 }
 
 func (o SiteSettingsResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -692,5 +701,3 @@ func (v *NullableSiteSettingsResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

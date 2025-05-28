@@ -19,6 +19,7 @@ var _ MappedNullable = &AddResourceConnection{}
 
 // AddResourceConnection Adds resource connection
 type AddResourceConnection struct {
+	// The type of provider associated with the account
 	AccountType AccountType `json:"accountType"`
 	// The name of the resource connection to create
 	Name string `json:"name"`
@@ -29,6 +30,8 @@ type AddResourceConnection struct {
 	// The ID of the resource connection to be added
 	ConnectionId NullableString `json:"connectionId,omitempty"`
 }
+
+type _AddResourceConnection AddResourceConnection
 
 // NewAddResourceConnection instantiates a new AddResourceConnection object
 // This constructor will assign default values to properties that have it defined,
@@ -129,6 +132,7 @@ func (o *AddResourceConnection) HasZoneId() bool {
 func (o *AddResourceConnection) SetZoneId(v string) {
 	o.ZoneId.Set(&v)
 }
+
 // SetZoneIdNil sets the value for ZoneId to be an explicit nil
 func (o *AddResourceConnection) SetZoneIdNil() {
 	o.ZoneId.Set(nil)
@@ -171,6 +175,7 @@ func (o *AddResourceConnection) HasResourceLocationId() bool {
 func (o *AddResourceConnection) SetResourceLocationId(v string) {
 	o.ResourceLocationId.Set(&v)
 }
+
 // SetResourceLocationIdNil sets the value for ResourceLocationId to be an explicit nil
 func (o *AddResourceConnection) SetResourceLocationIdNil() {
 	o.ResourceLocationId.Set(nil)
@@ -213,6 +218,7 @@ func (o *AddResourceConnection) HasConnectionId() bool {
 func (o *AddResourceConnection) SetConnectionId(v string) {
 	o.ConnectionId.Set(&v)
 }
+
 // SetConnectionIdNil sets the value for ConnectionId to be an explicit nil
 func (o *AddResourceConnection) SetConnectionIdNil() {
 	o.ConnectionId.Set(nil)
@@ -224,7 +230,7 @@ func (o *AddResourceConnection) UnsetConnectionId() {
 }
 
 func (o AddResourceConnection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -282,5 +288,3 @@ func (v *NullableAddResourceConnection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

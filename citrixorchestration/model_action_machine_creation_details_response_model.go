@@ -23,7 +23,7 @@ type ActionMachineCreationDetailsResponseModel struct {
 	AdAccountAction NullableString `json:"AdAccountAction,omitempty"`
 	// Successful accounts.
 	SuccessfulAccounts []string `json:"SuccessfulAccounts,omitempty"`
-	// Successful machines. 
+	// Successful machines.
 	SuccessfulMachines []string `json:"SuccessfulMachines,omitempty"`
 	// Failed machines and Action errors.
 	FailedMachines []ActionFailedMachineOrAccountResponseModel `json:"FailedMachines,omitempty"`
@@ -82,6 +82,7 @@ func (o *ActionMachineCreationDetailsResponseModel) HasAdAccountAction() bool {
 func (o *ActionMachineCreationDetailsResponseModel) SetAdAccountAction(v string) {
 	o.AdAccountAction.Set(&v)
 }
+
 // SetAdAccountActionNil sets the value for AdAccountAction to be an explicit nil
 func (o *ActionMachineCreationDetailsResponseModel) SetAdAccountActionNil() {
 	o.AdAccountAction.Set(nil)
@@ -257,7 +258,7 @@ func (o *ActionMachineCreationDetailsResponseModel) SetMachineRequested(v int32)
 }
 
 func (o ActionMachineCreationDetailsResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -322,5 +323,3 @@ func (v *NullableActionMachineCreationDetailsResponseModel) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,7 +19,7 @@ var _ MappedNullable = &ErrorWarningModel{}
 
 // ErrorWarningModel Model for error and warning counts.
 type ErrorWarningModel struct {
-	NumberOfErrors *int32 `json:"NumberOfErrors,omitempty"`
+	NumberOfErrors   *int32 `json:"NumberOfErrors,omitempty"`
 	NumberOfWarnings *int32 `json:"NumberOfWarnings,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *ErrorWarningModel) SetNumberOfWarnings(v int32) {
 }
 
 func (o ErrorWarningModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableErrorWarningModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

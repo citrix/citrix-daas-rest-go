@@ -20,11 +20,11 @@ var _ MappedNullable = &CreateImageDefinitionRequestModel{}
 // CreateImageDefinitionRequestModel Request object for creation of image definitions.
 type CreateImageDefinitionRequestModel struct {
 	// The name associated with the image definition.
-	Name string `json:"Name"`
+	Name string `json:"Name" validate:"regexp=(.*)*"`
 	// The description associated with the image definition.
-	Description NullableString `json:"Description,omitempty"`
-	OsType OsType `json:"OsType"`
-	VDASessionSupport SessionSupport `json:"VDASessionSupport"`
+	Description                  NullableString                                           `json:"Description,omitempty" validate:"regexp=^[A-Za-z]+$"`
+	OsType                       OsType                                                   `json:"OsType"`
+	VDASessionSupport            SessionSupport                                           `json:"VDASessionSupport"`
 	AssignedHypervisorConnection *AssignHypervisorConnectionToImageDefinitionRequestModel `json:"AssignedHypervisorConnection,omitempty"`
 }
 
@@ -104,6 +104,7 @@ func (o *CreateImageDefinitionRequestModel) HasDescription() bool {
 func (o *CreateImageDefinitionRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *CreateImageDefinitionRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -195,7 +196,7 @@ func (o *CreateImageDefinitionRequestModel) SetAssignedHypervisorConnection(v As
 }
 
 func (o CreateImageDefinitionRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -251,5 +252,3 @@ func (v *NullableCreateImageDefinitionRequestModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

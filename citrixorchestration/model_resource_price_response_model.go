@@ -20,9 +20,9 @@ var _ MappedNullable = &ResourcePriceResponseModel{}
 // ResourcePriceResponseModel The response object indicating the price of a resource.
 type ResourcePriceResponseModel struct {
 	// Gets or sets the location.
-	Location NullableString `json:"Location,omitempty"`
+	Location       NullableString          `json:"Location,omitempty"`
 	EffectivePrice *UnitPriceResponseModel `json:"EffectivePrice,omitempty"`
-	RetailPrice *UnitPriceResponseModel `json:"RetailPrice,omitempty"`
+	RetailPrice    *UnitPriceResponseModel `json:"RetailPrice,omitempty"`
 	// Gets or sets the savings plans.
 	SavingPlans []SavingPlanResponseModel `json:"SavingPlans,omitempty"`
 	// Gets or sets the reservations.
@@ -80,6 +80,7 @@ func (o *ResourcePriceResponseModel) HasLocation() bool {
 func (o *ResourcePriceResponseModel) SetLocation(v string) {
 	o.Location.Set(&v)
 }
+
 // SetLocationNil sets the value for Location to be an explicit nil
 func (o *ResourcePriceResponseModel) SetLocationNil() {
 	o.Location.Set(nil)
@@ -254,7 +255,7 @@ func (o *ResourcePriceResponseModel) SetAdditionalData(v map[string]string) {
 }
 
 func (o ResourcePriceResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -319,5 +320,3 @@ func (v *NullableResourcePriceResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

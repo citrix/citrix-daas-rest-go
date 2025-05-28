@@ -19,8 +19,8 @@ var _ MappedNullable = &AdministratorsResult{}
 
 // AdministratorsResult struct for AdministratorsResult
 type AdministratorsResult struct {
-	ContinuationToken NullableString `json:"continuationToken,omitempty"`
-	Items []AdministratorResult `json:"items,omitempty"`
+	ContinuationToken NullableString        `json:"continuationToken,omitempty"`
+	Items             []AdministratorResult `json:"items,omitempty"`
 }
 
 // NewAdministratorsResult instantiates a new AdministratorsResult object
@@ -72,6 +72,7 @@ func (o *AdministratorsResult) HasContinuationToken() bool {
 func (o *AdministratorsResult) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *AdministratorsResult) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -103,7 +104,7 @@ func (o *AdministratorsResult) GetItemsOk() ([]AdministratorResult, bool) {
 
 // HasItems returns a boolean if a field has been set.
 func (o *AdministratorsResult) HasItems() bool {
-	if o != nil && IsNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -116,7 +117,7 @@ func (o *AdministratorsResult) SetItems(v []AdministratorResult) {
 }
 
 func (o AdministratorsResult) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -169,5 +170,3 @@ func (v *NullableAdministratorsResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

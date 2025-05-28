@@ -19,21 +19,20 @@ import (
 	"strings"
 )
 
-
 // BackupRestoreAPIsDAASService BackupRestoreAPIsDAAS service
 type BackupRestoreAPIsDAASService service
 
 type ApiBackupRestoreCreateBackupScheduleRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                               context.Context
+	ApiService                        *BackupRestoreAPIsDAASService
+	citrixCustomerId                  *string
+	citrixInstanceId                  *string
 	backupRestoreScheduleRequestModel *BackupRestoreScheduleRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                         *string
+	authorization                     *string
+	citrixTransactionId               *string
+	accept                            *string
+	citrixLocale                      *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -92,24 +91,25 @@ BackupRestoreCreateBackupSchedule Create backup schedule
 
 Set / update existing backup schedule
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBackupRestoreCreateBackupScheduleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBackupRestoreCreateBackupScheduleRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreCreateBackupSchedule(ctx context.Context) ApiBackupRestoreCreateBackupScheduleRequest {
 	return ApiBackupRestoreCreateBackupScheduleRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreScheduleResponseModel
+//
+//	@return BackupRestoreScheduleResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreCreateBackupScheduleExecute(r ApiBackupRestoreCreateBackupScheduleRequest) (*BackupRestoreScheduleResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreScheduleResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreScheduleResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreCreateBackupSchedule")
@@ -211,8 +211,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreCreateBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -222,8 +222,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreCreateBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -233,8 +233,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreCreateBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -244,8 +244,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreCreateBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -255,8 +255,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreCreateBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -266,8 +266,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreCreateBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -277,8 +277,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreCreateBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -288,8 +288,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreCreateBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -299,8 +299,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreCreateBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -318,16 +318,16 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreCreateBackupScheduleExecute(
 }
 
 type ApiBackupRestoreDeleteBackupRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	backupName string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	backupName          string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -381,14 +381,14 @@ BackupRestoreDeleteBackup Delete a backup
 
 Deletes a backup; note that the backup cannot be pinned
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param backupName
- @return ApiBackupRestoreDeleteBackupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param backupName
+	@return ApiBackupRestoreDeleteBackupRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackup(ctx context.Context, backupName string) ApiBackupRestoreDeleteBackupRequest {
 	return ApiBackupRestoreDeleteBackupRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		backupName: backupName,
 	}
 }
@@ -396,9 +396,9 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackup(ctx context.Con
 // Execute executes the request
 func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupExecute(r ApiBackupRestoreDeleteBackupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreDeleteBackup")
@@ -496,8 +496,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -507,8 +507,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -518,8 +518,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -529,8 +529,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -540,8 +540,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -551,8 +551,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -562,8 +562,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -573,8 +573,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -583,16 +583,16 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupExecute(r ApiBac
 }
 
 type ApiBackupRestoreDeleteBackupScheduleRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	uid int32
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	uid                 int32
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -646,24 +646,24 @@ BackupRestoreDeleteBackupSchedule Delete backup schedule
 
 Deletes a backup schedule
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param uid
- @return ApiBackupRestoreDeleteBackupScheduleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param uid
+	@return ApiBackupRestoreDeleteBackupScheduleRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreDeleteBackupScheduleRequest {
 	return ApiBackupRestoreDeleteBackupScheduleRequest{
 		ApiService: a,
-		ctx: ctx,
-		uid: uid,
+		ctx:        ctx,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
 func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupScheduleExecute(r ApiBackupRestoreDeleteBackupScheduleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreDeleteBackupSchedule")
@@ -761,8 +761,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -772,8 +772,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -783,8 +783,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -794,8 +794,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -805,8 +805,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -816,8 +816,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -827,8 +827,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -838,8 +838,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -848,16 +848,16 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupScheduleExecute(
 }
 
 type ApiBackupRestoreDisableSingleBackupScheduleRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	uid int32
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	uid                 int32
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -911,24 +911,24 @@ BackupRestoreDisableSingleBackupSchedule Disable single backup schedule
 
 Disables a single backup schedule
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param uid
- @return ApiBackupRestoreDisableSingleBackupScheduleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param uid
+	@return ApiBackupRestoreDisableSingleBackupScheduleRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreDisableSingleBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreDisableSingleBackupScheduleRequest {
 	return ApiBackupRestoreDisableSingleBackupScheduleRequest{
 		ApiService: a,
-		ctx: ctx,
-		uid: uid,
+		ctx:        ctx,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
 func (a *BackupRestoreAPIsDAASService) BackupRestoreDisableSingleBackupScheduleExecute(r ApiBackupRestoreDisableSingleBackupScheduleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreDisableSingleBackupSchedule")
@@ -1026,8 +1026,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDisableSingleBackupScheduleE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1037,8 +1037,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDisableSingleBackupScheduleE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1048,8 +1048,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDisableSingleBackupScheduleE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1059,8 +1059,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDisableSingleBackupScheduleE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1070,8 +1070,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDisableSingleBackupScheduleE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1081,8 +1081,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDisableSingleBackupScheduleE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1092,8 +1092,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDisableSingleBackupScheduleE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1103,8 +1103,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDisableSingleBackupScheduleE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1114,8 +1114,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDisableSingleBackupScheduleE
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1124,16 +1124,16 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDisableSingleBackupScheduleE
 }
 
 type ApiBackupRestoreDoBackupRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                               context.Context
+	ApiService                        *BackupRestoreAPIsDAASService
+	citrixCustomerId                  *string
+	citrixInstanceId                  *string
 	backupRestoreDoBackupRequestModel *BackupRestoreDoBackupRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                         *string
+	authorization                     *string
+	citrixTransactionId               *string
+	accept                            *string
+	citrixLocale                      *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1193,24 +1193,25 @@ BackupRestoreDoBackup Do backup
 Do backup initiates the backup process; the actual process is asynchronous
 Call the get status Rest API to determine the progress of the backup request
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBackupRestoreDoBackupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBackupRestoreDoBackupRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreDoBackup(ctx context.Context) ApiBackupRestoreDoBackupRequest {
 	return ApiBackupRestoreDoBackupRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BackupDoBackupResponseModel
+//
+//	@return BackupDoBackupResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreDoBackupExecute(r ApiBackupRestoreDoBackupRequest) (*BackupDoBackupResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupDoBackupResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupDoBackupResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreDoBackup")
@@ -1312,8 +1313,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDoBackupExecute(r ApiBackupR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1323,8 +1324,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDoBackupExecute(r ApiBackupR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1334,8 +1335,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDoBackupExecute(r ApiBackupR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1345,8 +1346,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDoBackupExecute(r ApiBackupR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1356,8 +1357,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDoBackupExecute(r ApiBackupR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1367,8 +1368,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDoBackupExecute(r ApiBackupR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1378,8 +1379,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDoBackupExecute(r ApiBackupR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1389,8 +1390,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDoBackupExecute(r ApiBackupR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1400,8 +1401,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDoBackupExecute(r ApiBackupR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1419,17 +1420,17 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDoBackupExecute(r ApiBackupR
 }
 
 type ApiBackupRestoreDownloadSingleBackupRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	backupName string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	backupName          string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1488,26 +1489,27 @@ BackupRestoreDownloadSingleBackup Download single backup
 
 Downloads a backup and any assicated failure zip files
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param backupName Name of the backp to download
- @return ApiBackupRestoreDownloadSingleBackupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param backupName Name of the backp to download
+	@return ApiBackupRestoreDownloadSingleBackupRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreDownloadSingleBackup(ctx context.Context, backupName string) ApiBackupRestoreDownloadSingleBackupRequest {
 	return ApiBackupRestoreDownloadSingleBackupRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		backupName: backupName,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreDownloadResponseModel
+//
+//	@return BackupRestoreDownloadResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreDownloadSingleBackupExecute(r ApiBackupRestoreDownloadSingleBackupRequest) (*BackupRestoreDownloadResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreDownloadResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreDownloadResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreDownloadSingleBackup")
@@ -1608,8 +1610,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDownloadSingleBackupExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1619,8 +1621,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDownloadSingleBackupExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1630,8 +1632,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDownloadSingleBackupExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1641,8 +1643,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDownloadSingleBackupExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1652,8 +1654,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDownloadSingleBackupExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1663,8 +1665,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDownloadSingleBackupExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1674,8 +1676,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDownloadSingleBackupExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1685,8 +1687,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDownloadSingleBackupExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1704,16 +1706,16 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDownloadSingleBackupExecute(
 }
 
 type ApiBackupRestoreEnableSingleBackupScheduleRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	uid int32
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	uid                 int32
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1767,24 +1769,24 @@ BackupRestoreEnableSingleBackupSchedule Enable single backup schedule
 
 Enables a single backup schedule
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param uid
- @return ApiBackupRestoreEnableSingleBackupScheduleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param uid
+	@return ApiBackupRestoreEnableSingleBackupScheduleRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreEnableSingleBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreEnableSingleBackupScheduleRequest {
 	return ApiBackupRestoreEnableSingleBackupScheduleRequest{
 		ApiService: a,
-		ctx: ctx,
-		uid: uid,
+		ctx:        ctx,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
 func (a *BackupRestoreAPIsDAASService) BackupRestoreEnableSingleBackupScheduleExecute(r ApiBackupRestoreEnableSingleBackupScheduleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreEnableSingleBackupSchedule")
@@ -1882,8 +1884,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreEnableSingleBackupScheduleEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1893,8 +1895,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreEnableSingleBackupScheduleEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1904,8 +1906,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreEnableSingleBackupScheduleEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1915,8 +1917,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreEnableSingleBackupScheduleEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1926,8 +1928,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreEnableSingleBackupScheduleEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1937,8 +1939,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreEnableSingleBackupScheduleEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1948,8 +1950,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreEnableSingleBackupScheduleEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1959,8 +1961,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreEnableSingleBackupScheduleEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1970,8 +1972,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreEnableSingleBackupScheduleEx
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1980,16 +1982,16 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreEnableSingleBackupScheduleEx
 }
 
 type ApiBackupRestoreGetAllBackupHistoryRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2047,24 +2049,25 @@ func (r ApiBackupRestoreGetAllBackupHistoryRequest) Execute() (*BackupRestoreHis
 /*
 BackupRestoreGetAllBackupHistory Get all backup history
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBackupRestoreGetAllBackupHistoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBackupRestoreGetAllBackupHistoryRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetAllBackupHistory(ctx context.Context) ApiBackupRestoreGetAllBackupHistoryRequest {
 	return ApiBackupRestoreGetAllBackupHistoryRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreHistoryResponseModelCollection
+//
+//	@return BackupRestoreHistoryResponseModelCollection
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetAllBackupHistoryExecute(r ApiBackupRestoreGetAllBackupHistoryRequest) (*BackupRestoreHistoryResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreHistoryResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreHistoryResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreGetAllBackupHistory")
@@ -2164,8 +2167,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetAllBackupHistoryExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2175,8 +2178,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetAllBackupHistoryExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2186,8 +2189,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetAllBackupHistoryExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2197,8 +2200,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetAllBackupHistoryExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2208,8 +2211,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetAllBackupHistoryExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2219,8 +2222,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetAllBackupHistoryExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2230,8 +2233,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetAllBackupHistoryExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2249,17 +2252,17 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetAllBackupHistoryExecute(r
 }
 
 type ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	uid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	uid                 string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2317,26 +2320,27 @@ func (r ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) Execute() (*B
 /*
 BackupRestoreGetBackupHistoryForSpecificHistory Get backup history for a single specific backup
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param uid
- @return ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param uid
+	@return ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupHistoryForSpecificHistory(ctx context.Context, uid string) ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest {
 	return ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest{
 		ApiService: a,
-		ctx: ctx,
-		uid: uid,
+		ctx:        ctx,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreHistoryInformation
+//
+//	@return BackupRestoreHistoryInformation
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupHistoryForSpecificHistoryExecute(r ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) (*BackupRestoreHistoryInformation, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreHistoryInformation
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreHistoryInformation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreGetBackupHistoryForSpecificHistory")
@@ -2437,8 +2441,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupHistoryForSpecificH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2448,8 +2452,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupHistoryForSpecificH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2459,8 +2463,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupHistoryForSpecificH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2470,8 +2474,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupHistoryForSpecificH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2481,8 +2485,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupHistoryForSpecificH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2492,8 +2496,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupHistoryForSpecificH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2503,8 +2507,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupHistoryForSpecificH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2514,8 +2518,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupHistoryForSpecificH
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2533,15 +2537,15 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupHistoryForSpecificH
 }
 
 type ApiBackupRestoreGetBackupRestoreOptionsRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2595,24 +2599,25 @@ BackupRestoreGetBackupRestoreOptions Get backup / restore options
 
 Get backup / restore options
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBackupRestoreGetBackupRestoreOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBackupRestoreGetBackupRestoreOptionsRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupRestoreOptions(ctx context.Context) ApiBackupRestoreGetBackupRestoreOptionsRequest {
 	return ApiBackupRestoreGetBackupRestoreOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreOptionsResponseModel
+//
+//	@return BackupRestoreOptionsResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupRestoreOptionsExecute(r ApiBackupRestoreGetBackupRestoreOptionsRequest) (*BackupRestoreOptionsResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreOptionsResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreOptionsResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreGetBackupRestoreOptions")
@@ -2709,8 +2714,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2720,8 +2725,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2731,8 +2736,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2742,8 +2747,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2753,8 +2758,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2764,8 +2769,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2775,8 +2780,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2794,16 +2799,16 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupRestoreOptionsExecu
 }
 
 type ApiBackupRestoreGetBackupScheduleRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	uid int32
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	uid                 int32
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2857,26 +2862,27 @@ BackupRestoreGetBackupSchedule Get single backup schedule
 
 Get backup schedules
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param uid
- @return ApiBackupRestoreGetBackupScheduleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param uid
+	@return ApiBackupRestoreGetBackupScheduleRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreGetBackupScheduleRequest {
 	return ApiBackupRestoreGetBackupScheduleRequest{
 		ApiService: a,
-		ctx: ctx,
-		uid: uid,
+		ctx:        ctx,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreScheduleModel
+//
+//	@return BackupRestoreScheduleModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupScheduleExecute(r ApiBackupRestoreGetBackupScheduleRequest) (*BackupRestoreScheduleModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreScheduleModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreScheduleModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreGetBackupSchedule")
@@ -2974,8 +2980,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupScheduleExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2985,8 +2991,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupScheduleExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2996,8 +3002,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupScheduleExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3007,8 +3013,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupScheduleExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3018,8 +3024,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupScheduleExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3029,8 +3035,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupScheduleExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3040,8 +3046,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupScheduleExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3051,8 +3057,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupScheduleExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3070,15 +3076,15 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupScheduleExecute(r A
 }
 
 type ApiBackupRestoreGetBackupSchedulesRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3132,24 +3138,25 @@ BackupRestoreGetBackupSchedules Get backup schedules
 
 Get backup schedules
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBackupRestoreGetBackupSchedulesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBackupRestoreGetBackupSchedulesRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupSchedules(ctx context.Context) ApiBackupRestoreGetBackupSchedulesRequest {
 	return ApiBackupRestoreGetBackupSchedulesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreScheduleModelCollection
+//
+//	@return BackupRestoreScheduleModelCollection
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupSchedulesExecute(r ApiBackupRestoreGetBackupSchedulesRequest) (*BackupRestoreScheduleModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreScheduleModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreScheduleModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreGetBackupSchedules")
@@ -3246,8 +3253,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupSchedulesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3257,8 +3264,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupSchedulesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3268,8 +3275,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupSchedulesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3279,8 +3286,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupSchedulesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3290,8 +3297,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupSchedulesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3301,8 +3308,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupSchedulesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3312,8 +3319,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupSchedulesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3331,17 +3338,17 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupSchedulesExecute(r 
 }
 
 type ApiBackupRestoreGetBackupsRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	allFiles *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	allFiles            *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3404,24 +3411,25 @@ func (r ApiBackupRestoreGetBackupsRequest) Execute() (*BackupResponseModelCollec
 /*
 BackupRestoreGetBackups Get backups
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBackupRestoreGetBackupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBackupRestoreGetBackupsRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackups(ctx context.Context) ApiBackupRestoreGetBackupsRequest {
 	return ApiBackupRestoreGetBackupsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BackupResponseModelCollection
+//
+//	@return BackupResponseModelCollection
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupsExecute(r ApiBackupRestoreGetBackupsRequest) (*BackupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreGetBackups")
@@ -3524,8 +3532,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupsExecute(r ApiBacku
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3535,8 +3543,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupsExecute(r ApiBacku
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3546,8 +3554,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupsExecute(r ApiBacku
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3557,8 +3565,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupsExecute(r ApiBacku
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3568,8 +3576,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupsExecute(r ApiBacku
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3579,8 +3587,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupsExecute(r ApiBacku
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3590,8 +3598,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupsExecute(r ApiBacku
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3609,15 +3617,15 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupsExecute(r ApiBacku
 }
 
 type ApiBackupRestoreGetBlobStorageRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3671,24 +3679,25 @@ BackupRestoreGetBlobStorage Get Blob Storage Information
 
 On-Prem only
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBackupRestoreGetBlobStorageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBackupRestoreGetBlobStorageRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBlobStorage(ctx context.Context) ApiBackupRestoreGetBlobStorageRequest {
 	return ApiBackupRestoreGetBlobStorageRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreStorageResponseModel
+//
+//	@return BackupRestoreStorageResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBlobStorageExecute(r ApiBackupRestoreGetBlobStorageRequest) (*BackupRestoreStorageResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreStorageResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreStorageResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreGetBlobStorage")
@@ -3785,8 +3794,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3796,8 +3805,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3807,8 +3816,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3818,8 +3827,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3829,8 +3838,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3840,8 +3849,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3851,8 +3860,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3870,18 +3879,18 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBlobStorageExecute(r ApiB
 }
 
 type ApiBackupRestoreGetComponentMembersRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	backupName string
+	ctx                                         context.Context
+	ApiService                                  *BackupRestoreAPIsDAASService
+	citrixCustomerId                            *string
+	citrixInstanceId                            *string
+	backupName                                  string
 	backupRestoreGetComponentMemberRequestModel *BackupRestoreGetComponentMemberRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                   *string
+	authorization                               *string
+	citrixTransactionId                         *string
+	accept                                      *string
+	citrixLocale                                *string
+	async                                       *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3945,26 +3954,27 @@ BackupRestoreGetComponentMembers Get backup Members
 
 Gets a component's members in a saved backup
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param backupName Name of the backp to restore
- @return ApiBackupRestoreGetComponentMembersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param backupName Name of the backp to restore
+	@return ApiBackupRestoreGetComponentMembersRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembers(ctx context.Context, backupName string) ApiBackupRestoreGetComponentMembersRequest {
 	return ApiBackupRestoreGetComponentMembersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		backupName: backupName,
 	}
 }
 
 // Execute executes the request
-//  @return BackupMembersResponseModelCollection
+//
+//	@return BackupMembersResponseModelCollection
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembersExecute(r ApiBackupRestoreGetComponentMembersRequest) (*BackupMembersResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupMembersResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupMembersResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreGetComponentMembers")
@@ -4070,8 +4080,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembersExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4081,8 +4091,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembersExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4092,8 +4102,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembersExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4103,8 +4113,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembersExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4114,8 +4124,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembersExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4125,8 +4135,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembersExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -4136,8 +4146,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembersExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4147,8 +4157,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembersExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4158,8 +4168,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembersExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4169,8 +4179,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembersExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4188,15 +4198,15 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembersExecute(r
 }
 
 type ApiBackupRestoreGetCurrentActionStatusRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4250,24 +4260,25 @@ BackupRestoreGetCurrentActionStatus Get backup / restore status
 
 Get backup / restore status
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBackupRestoreGetCurrentActionStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBackupRestoreGetCurrentActionStatusRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetCurrentActionStatus(ctx context.Context) ApiBackupRestoreGetCurrentActionStatusRequest {
 	return ApiBackupRestoreGetCurrentActionStatusRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreStatusResponseModel
+//
+//	@return BackupRestoreStatusResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetCurrentActionStatusExecute(r ApiBackupRestoreGetCurrentActionStatusRequest) (*BackupRestoreStatusResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreStatusResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreStatusResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreGetCurrentActionStatus")
@@ -4364,8 +4375,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4375,8 +4386,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4386,8 +4397,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4397,8 +4408,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4408,8 +4419,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4419,8 +4430,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4430,8 +4441,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4449,17 +4460,17 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetCurrentActionStatusExecut
 }
 
 type ApiBackupRestoreGetHistoryForSpecificBackupRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	backupName string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	backupName          string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4517,26 +4528,27 @@ func (r ApiBackupRestoreGetHistoryForSpecificBackupRequest) Execute() (*BackupRe
 /*
 BackupRestoreGetHistoryForSpecificBackup Get all backup history for specific backup
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param backupName
- @return ApiBackupRestoreGetHistoryForSpecificBackupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param backupName
+	@return ApiBackupRestoreGetHistoryForSpecificBackupRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetHistoryForSpecificBackup(ctx context.Context, backupName string) ApiBackupRestoreGetHistoryForSpecificBackupRequest {
 	return ApiBackupRestoreGetHistoryForSpecificBackupRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		backupName: backupName,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreHistoryResponseModelCollection
+//
+//	@return BackupRestoreHistoryResponseModelCollection
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetHistoryForSpecificBackupExecute(r ApiBackupRestoreGetHistoryForSpecificBackupRequest) (*BackupRestoreHistoryResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreHistoryResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreHistoryResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreGetHistoryForSpecificBackup")
@@ -4637,8 +4649,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetHistoryForSpecificBackupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4648,8 +4660,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetHistoryForSpecificBackupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4659,8 +4671,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetHistoryForSpecificBackupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4670,8 +4682,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetHistoryForSpecificBackupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4681,8 +4693,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetHistoryForSpecificBackupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4692,8 +4704,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetHistoryForSpecificBackupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4703,8 +4715,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetHistoryForSpecificBackupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4714,8 +4726,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetHistoryForSpecificBackupE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4733,15 +4745,15 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetHistoryForSpecificBackupE
 }
 
 type ApiBackupRestoreGetInformationRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4795,24 +4807,25 @@ BackupRestoreGetInformation Get backup / restore information
 
 Get backup / restore information
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBackupRestoreGetInformationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBackupRestoreGetInformationRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetInformation(ctx context.Context) ApiBackupRestoreGetInformationRequest {
 	return ApiBackupRestoreGetInformationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreInformationResponseModel
+//
+//	@return BackupRestoreInformationResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetInformationExecute(r ApiBackupRestoreGetInformationRequest) (*BackupRestoreInformationResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreInformationResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreInformationResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreGetInformation")
@@ -4909,8 +4922,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetInformationExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4920,8 +4933,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetInformationExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4931,8 +4944,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetInformationExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4942,8 +4955,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetInformationExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4953,8 +4966,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetInformationExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4964,8 +4977,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetInformationExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4975,8 +4988,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetInformationExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4994,17 +5007,17 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetInformationExecute(r ApiB
 }
 
 type ApiBackupRestoreGetResultLogRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	backupName string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	backupName          string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5063,26 +5076,27 @@ BackupRestoreGetResultLog Get result log
 
 Gets a the result log from a failed action
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param backupName Name of the backp to restore
- @return ApiBackupRestoreGetResultLogRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param backupName Name of the backp to restore
+	@return ApiBackupRestoreGetResultLogRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetResultLog(ctx context.Context, backupName string) ApiBackupRestoreGetResultLogRequest {
 	return ApiBackupRestoreGetResultLogRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		backupName: backupName,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreResultLogResponseModel
+//
+//	@return BackupRestoreResultLogResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreGetResultLogExecute(r ApiBackupRestoreGetResultLogRequest) (*BackupRestoreResultLogResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreResultLogResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreResultLogResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreGetResultLog")
@@ -5183,8 +5197,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetResultLogExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5194,8 +5208,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetResultLogExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5205,8 +5219,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetResultLogExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5216,8 +5230,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetResultLogExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5227,8 +5241,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetResultLogExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5238,8 +5252,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetResultLogExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5249,8 +5263,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetResultLogExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5260,8 +5274,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetResultLogExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5271,8 +5285,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetResultLogExecute(r ApiBac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5290,17 +5304,17 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetResultLogExecute(r ApiBac
 }
 
 type ApiBackupRestoreModifyBackupScheduleRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	uid int32
+	ctx                               context.Context
+	ApiService                        *BackupRestoreAPIsDAASService
+	citrixCustomerId                  *string
+	citrixInstanceId                  *string
+	uid                               int32
 	backupRestoreScheduleRequestModel *BackupRestoreScheduleRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                         *string
+	authorization                     *string
+	citrixTransactionId               *string
+	accept                            *string
+	citrixLocale                      *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5359,26 +5373,27 @@ BackupRestoreModifyBackupSchedule Modify backup schedules
 
 Set / update existing backup schedule
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param uid
- @return ApiBackupRestoreModifyBackupScheduleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param uid
+	@return ApiBackupRestoreModifyBackupScheduleRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreModifyBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreModifyBackupScheduleRequest {
 	return ApiBackupRestoreModifyBackupScheduleRequest{
 		ApiService: a,
-		ctx: ctx,
-		uid: uid,
+		ctx:        ctx,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreScheduleResponseModel
+//
+//	@return BackupRestoreScheduleResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreModifyBackupScheduleExecute(r ApiBackupRestoreModifyBackupScheduleRequest) (*BackupRestoreScheduleResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreScheduleResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreScheduleResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreModifyBackupSchedule")
@@ -5481,8 +5496,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreModifyBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5492,8 +5507,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreModifyBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5503,8 +5518,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreModifyBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5514,8 +5529,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreModifyBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5525,8 +5540,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreModifyBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -5536,8 +5551,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreModifyBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5547,8 +5562,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreModifyBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5558,8 +5573,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreModifyBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5569,8 +5584,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreModifyBackupScheduleExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5588,17 +5603,17 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreModifyBackupScheduleExecute(
 }
 
 type ApiBackupRestorePinSingleBackupRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	backupName string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	backupName          string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5657,26 +5672,27 @@ BackupRestorePinSingleBackup Pin a backup
 
 Pins a backup so it cannot be manually or automatically deleted
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param backupName
- @return ApiBackupRestorePinSingleBackupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param backupName
+	@return ApiBackupRestorePinSingleBackupRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestorePinSingleBackup(ctx context.Context, backupName string) ApiBackupRestorePinSingleBackupRequest {
 	return ApiBackupRestorePinSingleBackupRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		backupName: backupName,
 	}
 }
 
 // Execute executes the request
-//  @return bool
+//
+//	@return bool
 func (a *BackupRestoreAPIsDAASService) BackupRestorePinSingleBackupExecute(r ApiBackupRestorePinSingleBackupRequest) (bool, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  bool
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestorePinSingleBackup")
@@ -5777,8 +5793,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestorePinSingleBackupExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5788,8 +5804,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestorePinSingleBackupExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5799,8 +5815,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestorePinSingleBackupExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5810,8 +5826,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestorePinSingleBackupExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5821,8 +5837,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestorePinSingleBackupExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5832,8 +5848,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestorePinSingleBackupExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5843,8 +5859,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestorePinSingleBackupExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5854,8 +5870,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestorePinSingleBackupExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5865,8 +5881,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestorePinSingleBackupExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5884,17 +5900,17 @@ func (a *BackupRestoreAPIsDAASService) BackupRestorePinSingleBackupExecute(r Api
 }
 
 type ApiBackupRestoreRestoreBackupToSiteRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	backupName string
+	ctx                                    context.Context
+	ApiService                             *BackupRestoreAPIsDAASService
+	citrixCustomerId                       *string
+	citrixInstanceId                       *string
+	backupName                             string
 	backupRestoreRestoreBackupRequestModel *BackupRestoreRestoreBackupRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                              *string
+	authorization                          *string
+	citrixTransactionId                    *string
+	accept                                 *string
+	citrixLocale                           *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5954,26 +5970,27 @@ BackupRestoreRestoreBackupToSite Restore a backup
 Restore a backup initiates the restore process; the actual process is asynchronous
 Call the get status Rest API to determine the progress of the restore request
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param backupName Name of the backp to restore
- @return ApiBackupRestoreRestoreBackupToSiteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param backupName Name of the backp to restore
+	@return ApiBackupRestoreRestoreBackupToSiteRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSite(ctx context.Context, backupName string) ApiBackupRestoreRestoreBackupToSiteRequest {
 	return ApiBackupRestoreRestoreBackupToSiteRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		backupName: backupName,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreRestoreBackupResponseModel
+//
+//	@return BackupRestoreRestoreBackupResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSiteExecute(r ApiBackupRestoreRestoreBackupToSiteRequest) (*BackupRestoreRestoreBackupResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreRestoreBackupResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreRestoreBackupResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreRestoreBackupToSite")
@@ -6076,8 +6093,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSiteExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6087,8 +6104,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSiteExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6098,8 +6115,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSiteExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6109,8 +6126,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSiteExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6120,8 +6137,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSiteExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -6131,8 +6148,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSiteExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -6142,8 +6159,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSiteExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6153,8 +6170,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSiteExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6164,8 +6181,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSiteExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6175,8 +6192,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSiteExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6194,16 +6211,16 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSiteExecute(r
 }
 
 type ApiBackupRestoreSetBackupRestoreOptionsRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                              context.Context
+	ApiService                       *BackupRestoreAPIsDAASService
+	citrixCustomerId                 *string
+	citrixInstanceId                 *string
 	backupRestoreOptionsRequestModel *BackupRestoreOptionsRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                        *string
+	authorization                    *string
+	citrixTransactionId              *string
+	accept                           *string
+	citrixLocale                     *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6262,24 +6279,25 @@ BackupRestoreSetBackupRestoreOptions Set backup / restore options
 
 Set backup / restore options
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBackupRestoreSetBackupRestoreOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBackupRestoreSetBackupRestoreOptionsRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBackupRestoreOptions(ctx context.Context) ApiBackupRestoreSetBackupRestoreOptionsRequest {
 	return ApiBackupRestoreSetBackupRestoreOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreOptionsResponseModel
+//
+//	@return BackupRestoreOptionsResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBackupRestoreOptionsExecute(r ApiBackupRestoreSetBackupRestoreOptionsRequest) (*BackupRestoreOptionsResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreOptionsResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreOptionsResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreSetBackupRestoreOptions")
@@ -6381,8 +6399,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6392,8 +6410,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6403,8 +6421,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6414,8 +6432,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -6425,8 +6443,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -6436,8 +6454,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6447,8 +6465,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6458,8 +6476,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6469,8 +6487,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBackupRestoreOptionsExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6488,16 +6506,16 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBackupRestoreOptionsExecu
 }
 
 type ApiBackupRestoreSetBlobStorageRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                              context.Context
+	ApiService                       *BackupRestoreAPIsDAASService
+	citrixCustomerId                 *string
+	citrixInstanceId                 *string
 	backupRestoreStorageRequestModel *BackupRestoreStorageRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                        *string
+	authorization                    *string
+	citrixTransactionId              *string
+	accept                           *string
+	citrixLocale                     *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6556,24 +6574,25 @@ BackupRestoreSetBlobStorage Set Blob Storage Information
 
 On-Prem only
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBackupRestoreSetBlobStorageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBackupRestoreSetBlobStorageRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBlobStorage(ctx context.Context) ApiBackupRestoreSetBlobStorageRequest {
 	return ApiBackupRestoreSetBlobStorageRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreValidateStorageResponseModel
+//
+//	@return BackupRestoreValidateStorageResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBlobStorageExecute(r ApiBackupRestoreSetBlobStorageRequest) (*BackupRestoreValidateStorageResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreValidateStorageResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreValidateStorageResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreSetBlobStorage")
@@ -6675,8 +6694,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6686,8 +6705,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6697,8 +6716,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6708,8 +6727,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -6719,8 +6738,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -6730,8 +6749,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6741,8 +6760,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6752,8 +6771,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6763,8 +6782,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBlobStorageExecute(r ApiB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6782,16 +6801,16 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBlobStorageExecute(r ApiB
 }
 
 type ApiBackupRestoreSetCurrentActionStatusRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                             context.Context
+	ApiService                      *BackupRestoreAPIsDAASService
+	citrixCustomerId                *string
+	citrixInstanceId                *string
 	backupRestoreStatusRequestModel *BackupRestoreStatusRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                       *string
+	authorization                   *string
+	citrixTransactionId             *string
+	accept                          *string
+	citrixLocale                    *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6850,24 +6869,25 @@ BackupRestoreSetCurrentActionStatus Set backup / restore status
 
 Get backup / restore status
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBackupRestoreSetCurrentActionStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBackupRestoreSetCurrentActionStatusRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreSetCurrentActionStatus(ctx context.Context) ApiBackupRestoreSetCurrentActionStatusRequest {
 	return ApiBackupRestoreSetCurrentActionStatusRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreStatusResponseModel
+//
+//	@return BackupRestoreStatusResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreSetCurrentActionStatusExecute(r ApiBackupRestoreSetCurrentActionStatusRequest) (*BackupRestoreStatusResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreStatusResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreStatusResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreSetCurrentActionStatus")
@@ -6969,8 +6989,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6980,8 +7000,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6991,8 +7011,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7002,8 +7022,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -7013,8 +7033,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -7024,8 +7044,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7035,8 +7055,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7046,8 +7066,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7057,8 +7077,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetCurrentActionStatusExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7076,16 +7096,16 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetCurrentActionStatusExecut
 }
 
 type ApiBackupRestoreUnpinSingleBackupRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	backupName string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	backupName          string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7139,26 +7159,27 @@ BackupRestoreUnpinSingleBackup Unpin a backup
 
 Unpins a backup so it can be manually or automatically deleted
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param backupName
- @return ApiBackupRestoreUnpinSingleBackupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param backupName
+	@return ApiBackupRestoreUnpinSingleBackupRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreUnpinSingleBackup(ctx context.Context, backupName string) ApiBackupRestoreUnpinSingleBackupRequest {
 	return ApiBackupRestoreUnpinSingleBackupRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		backupName: backupName,
 	}
 }
 
 // Execute executes the request
-//  @return bool
+//
+//	@return bool
 func (a *BackupRestoreAPIsDAASService) BackupRestoreUnpinSingleBackupExecute(r ApiBackupRestoreUnpinSingleBackupRequest) (bool, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  bool
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreUnpinSingleBackup")
@@ -7256,8 +7277,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUnpinSingleBackupExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7267,8 +7288,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUnpinSingleBackupExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7278,8 +7299,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUnpinSingleBackupExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7289,8 +7310,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUnpinSingleBackupExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7300,8 +7321,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUnpinSingleBackupExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -7311,8 +7332,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUnpinSingleBackupExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7322,8 +7343,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUnpinSingleBackupExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7333,8 +7354,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUnpinSingleBackupExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7344,8 +7365,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUnpinSingleBackupExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7363,17 +7384,17 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUnpinSingleBackupExecute(r A
 }
 
 type ApiBackupRestoreUpdateBckRstrHistoryNotesRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	uid int32
+	ctx                                  context.Context
+	ApiService                           *BackupRestoreAPIsDAASService
+	citrixCustomerId                     *string
+	citrixInstanceId                     *string
+	uid                                  int32
 	backupRestoreUpdateNotesRequestModel *BackupRestoreUpdateNotesRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                            *string
+	authorization                        *string
+	citrixTransactionId                  *string
+	accept                               *string
+	citrixLocale                         *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7431,26 +7452,27 @@ func (r ApiBackupRestoreUpdateBckRstrHistoryNotesRequest) Execute() (bool, *http
 /*
 BackupRestoreUpdateBckRstrHistoryNotes Update notes in history entry
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param uid History entry unique identifier
- @return ApiBackupRestoreUpdateBckRstrHistoryNotesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param uid History entry unique identifier
+	@return ApiBackupRestoreUpdateBckRstrHistoryNotesRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotes(ctx context.Context, uid int32) ApiBackupRestoreUpdateBckRstrHistoryNotesRequest {
 	return ApiBackupRestoreUpdateBckRstrHistoryNotesRequest{
 		ApiService: a,
-		ctx: ctx,
-		uid: uid,
+		ctx:        ctx,
+		uid:        uid,
 	}
 }
 
 // Execute executes the request
-//  @return bool
+//
+//	@return bool
 func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotesExecute(r ApiBackupRestoreUpdateBckRstrHistoryNotesRequest) (bool, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  bool
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreUpdateBckRstrHistoryNotes")
@@ -7553,8 +7575,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotesExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7564,8 +7586,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotesExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7575,8 +7597,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotesExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7586,8 +7608,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotesExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7597,8 +7619,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotesExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -7608,8 +7630,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotesExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -7619,8 +7641,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotesExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7630,8 +7652,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotesExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7641,8 +7663,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotesExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7652,8 +7674,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotesExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7671,15 +7693,15 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotesExe
 }
 
 type ApiBackupRestoreValidateStorageRequest struct {
-	ctx context.Context
-	ApiService *BackupRestoreAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BackupRestoreAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7733,24 +7755,25 @@ BackupRestoreValidateStorage Validate Storage
 
 On-Prem only
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBackupRestoreValidateStorageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBackupRestoreValidateStorageRequest
 */
 func (a *BackupRestoreAPIsDAASService) BackupRestoreValidateStorage(ctx context.Context) ApiBackupRestoreValidateStorageRequest {
 	return ApiBackupRestoreValidateStorageRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BackupRestoreValidateStorageResponseModel
+//
+//	@return BackupRestoreValidateStorageResponseModel
 func (a *BackupRestoreAPIsDAASService) BackupRestoreValidateStorageExecute(r ApiBackupRestoreValidateStorageRequest) (*BackupRestoreValidateStorageResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BackupRestoreValidateStorageResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BackupRestoreValidateStorageResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackupRestoreAPIsDAASService.BackupRestoreValidateStorage")
@@ -7847,8 +7870,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreValidateStorageExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7858,8 +7881,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreValidateStorageExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7869,8 +7892,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreValidateStorageExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7880,8 +7903,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreValidateStorageExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7891,8 +7914,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreValidateStorageExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7902,8 +7925,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreValidateStorageExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7913,8 +7936,8 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreValidateStorageExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

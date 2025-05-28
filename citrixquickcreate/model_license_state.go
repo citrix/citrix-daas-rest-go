@@ -20,7 +20,7 @@ type LicenseState string
 
 // List of LicenseState
 const (
-	LICENSESTATE_ACTIVE LicenseState = "Active"
+	LICENSESTATE_ACTIVE   LicenseState = "Active"
 	LICENSESTATE_INACTIVE LicenseState = "Inactive"
 )
 
@@ -108,4 +108,3 @@ func (v *NullableLicenseState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

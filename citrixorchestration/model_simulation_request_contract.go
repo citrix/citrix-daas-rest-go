@@ -98,6 +98,7 @@ func (o *SimulationRequestContract) HasComputerName() bool {
 func (o *SimulationRequestContract) SetComputerName(v string) {
 	o.ComputerName.Set(&v)
 }
+
 // SetComputerNameNil sets the value for ComputerName to be an explicit nil
 func (o *SimulationRequestContract) SetComputerNameNil() {
 	o.ComputerName.Set(nil)
@@ -140,6 +141,7 @@ func (o *SimulationRequestContract) HasUserSid() bool {
 func (o *SimulationRequestContract) SetUserSid(v string) {
 	o.UserSid.Set(&v)
 }
+
 // SetUserSidNil sets the value for UserSid to be an explicit nil
 func (o *SimulationRequestContract) SetUserSidNil() {
 	o.UserSid.Set(nil)
@@ -215,6 +217,7 @@ func (o *SimulationRequestContract) HasClientIpAddress() bool {
 func (o *SimulationRequestContract) SetClientIpAddress(v string) {
 	o.ClientIpAddress.Set(&v)
 }
+
 // SetClientIpAddressNil sets the value for ClientIpAddress to be an explicit nil
 func (o *SimulationRequestContract) SetClientIpAddressNil() {
 	o.ClientIpAddress.Set(nil)
@@ -257,6 +260,7 @@ func (o *SimulationRequestContract) HasClientName() bool {
 func (o *SimulationRequestContract) SetClientName(v string) {
 	o.ClientName.Set(&v)
 }
+
 // SetClientNameNil sets the value for ClientName to be an explicit nil
 func (o *SimulationRequestContract) SetClientNameNil() {
 	o.ClientName.Set(nil)
@@ -299,6 +303,7 @@ func (o *SimulationRequestContract) HasClientPlatform() bool {
 func (o *SimulationRequestContract) SetClientPlatform(v string) {
 	o.ClientPlatform.Set(&v)
 }
+
 // SetClientPlatformNil sets the value for ClientPlatform to be an explicit nil
 func (o *SimulationRequestContract) SetClientPlatformNil() {
 	o.ClientPlatform.Set(nil)
@@ -373,6 +378,7 @@ func (o *SimulationRequestContract) HasDeliveryGroupType() bool {
 func (o *SimulationRequestContract) SetDeliveryGroupType(v string) {
 	o.DeliveryGroupType.Set(&v)
 }
+
 // SetDeliveryGroupTypeNil sets the value for DeliveryGroupType to be an explicit nil
 func (o *SimulationRequestContract) SetDeliveryGroupTypeNil() {
 	o.DeliveryGroupType.Set(nil)
@@ -415,6 +421,7 @@ func (o *SimulationRequestContract) HasComputerOu() bool {
 func (o *SimulationRequestContract) SetComputerOu(v string) {
 	o.ComputerOu.Set(&v)
 }
+
 // SetComputerOuNil sets the value for ComputerOu to be an explicit nil
 func (o *SimulationRequestContract) SetComputerOuNil() {
 	o.ComputerOu.Set(nil)
@@ -522,6 +529,7 @@ func (o *SimulationRequestContract) HasAccessGatewayFarm() bool {
 func (o *SimulationRequestContract) SetAccessGatewayFarm(v string) {
 	o.AccessGatewayFarm.Set(&v)
 }
+
 // SetAccessGatewayFarmNil sets the value for AccessGatewayFarm to be an explicit nil
 func (o *SimulationRequestContract) SetAccessGatewayFarmNil() {
 	o.AccessGatewayFarm.Set(nil)
@@ -598,7 +606,7 @@ func (o *SimulationRequestContract) SetIsUsingWanScaler(v bool) {
 }
 
 func (o SimulationRequestContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -687,5 +695,3 @@ func (v *NullableSimulationRequestContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

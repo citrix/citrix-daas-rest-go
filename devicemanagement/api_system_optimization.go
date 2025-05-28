@@ -19,16 +19,15 @@ import (
 	"strings"
 )
 
-
 // SystemOptimizationDAASService SystemOptimizationDAAS service
 type SystemOptimizationDAASService service
 
 type ApiSystemUtilitySettingQueryRequest struct {
-	ctx context.Context
-	ApiService *SystemOptimizationDAASService
-	accept *string
-	authorization *string
-	citrixCustomerId *string
+	ctx                 context.Context
+	ApiService          *SystemOptimizationDAASService
+	accept              *string
+	authorization       *string
+	citrixCustomerId    *string
 	citrixTransactionId *string
 }
 
@@ -63,24 +62,25 @@ func (r ApiSystemUtilitySettingQueryRequest) Execute() (*SystemUtilitySettingQue
 /*
 SystemUtilitySettingQuery Query System Optimization Configurations
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSystemUtilitySettingQueryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSystemUtilitySettingQueryRequest
 */
 func (a *SystemOptimizationDAASService) SystemUtilitySettingQuery(ctx context.Context) ApiSystemUtilitySettingQueryRequest {
 	return ApiSystemUtilitySettingQueryRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return SystemUtilitySettingQuery200Response
+//
+//	@return SystemUtilitySettingQuery200Response
 func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryExecute(r ApiSystemUtilitySettingQueryRequest) (*SystemUtilitySettingQuery200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SystemUtilitySettingQuery200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SystemUtilitySettingQuery200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemOptimizationDAASService.SystemUtilitySettingQuery")
@@ -120,12 +120,12 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryExecute(r ApiSy
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "", "")
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -143,6 +143,13 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryExecute(r ApiSy
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -155,8 +162,8 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryExecute(r ApiSy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -166,8 +173,8 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryExecute(r ApiSy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -177,8 +184,8 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryExecute(r ApiSy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -188,8 +195,8 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryExecute(r ApiSy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -207,12 +214,12 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryExecute(r ApiSy
 }
 
 type ApiSystemUtilitySettingQueryByIdRequest struct {
-	ctx context.Context
-	ApiService *SystemOptimizationDAASService
-	id int64
-	accept *string
-	authorization *string
-	citrixCustomerId *string
+	ctx                 context.Context
+	ApiService          *SystemOptimizationDAASService
+	id                  int64
+	accept              *string
+	authorization       *string
+	citrixCustomerId    *string
 	citrixTransactionId *string
 }
 
@@ -247,26 +254,27 @@ func (r ApiSystemUtilitySettingQueryByIdRequest) Execute() (*SystemOptimizationM
 /*
 SystemUtilitySettingQueryById Query System Optimization Configurations by Identity
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the resource you want to query.
- @return ApiSystemUtilitySettingQueryByIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the resource you want to query.
+	@return ApiSystemUtilitySettingQueryByIdRequest
 */
 func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryById(ctx context.Context, id int64) ApiSystemUtilitySettingQueryByIdRequest {
 	return ApiSystemUtilitySettingQueryByIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return SystemOptimizationModel
+//
+//	@return SystemOptimizationModel
 func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryByIdExecute(r ApiSystemUtilitySettingQueryByIdRequest) (*SystemOptimizationModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SystemOptimizationModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SystemOptimizationModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemOptimizationDAASService.SystemUtilitySettingQueryById")
@@ -307,12 +315,12 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryByIdExecute(r A
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "", "")
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -330,6 +338,13 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryByIdExecute(r A
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -342,8 +357,8 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryByIdExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -353,8 +368,8 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryByIdExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -364,8 +379,8 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryByIdExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -375,8 +390,8 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryByIdExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -394,13 +409,13 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryByIdExecute(r A
 }
 
 type ApiSystemUtilitySettingUpdateRequest struct {
-	ctx context.Context
-	ApiService *SystemOptimizationDAASService
-	accept *string
-	authorization *string
-	citrixCustomerId *string
+	ctx                 context.Context
+	ApiService          *SystemOptimizationDAASService
+	accept              *string
+	authorization       *string
+	citrixCustomerId    *string
 	citrixTransactionId *string
-	body *SystemOptimizationModel
+	body                *SystemOptimizationModel
 }
 
 // Only \&quot;application/json\&quot; is supported.
@@ -439,22 +454,22 @@ func (r ApiSystemUtilitySettingUpdateRequest) Execute() (*http.Response, error) 
 /*
 SystemUtilitySettingUpdate Update a System Optimization Configuration
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSystemUtilitySettingUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSystemUtilitySettingUpdateRequest
 */
 func (a *SystemOptimizationDAASService) SystemUtilitySettingUpdate(ctx context.Context) ApiSystemUtilitySettingUpdateRequest {
 	return ApiSystemUtilitySettingUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *SystemOptimizationDAASService) SystemUtilitySettingUpdateExecute(r ApiSystemUtilitySettingUpdateRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemOptimizationDAASService.SystemUtilitySettingUpdate")
@@ -494,12 +509,12 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingUpdateExecute(r ApiS
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "", "")
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	// body params
 	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -519,6 +534,13 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingUpdateExecute(r ApiS
 		return localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -531,8 +553,8 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingUpdateExecute(r ApiS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -542,8 +564,8 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingUpdateExecute(r ApiS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -553,8 +575,8 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingUpdateExecute(r ApiS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -564,8 +586,8 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingUpdateExecute(r ApiS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -575,8 +597,8 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingUpdateExecute(r ApiS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

@@ -20,7 +20,7 @@ type LogOperationSearchFilterGroupType string
 
 // List of LogOperationSearchFilterGroupType
 const (
-	LOGOPERATIONSEARCHFILTERGROUPTYPE_OR LogOperationSearchFilterGroupType = "Or"
+	LOGOPERATIONSEARCHFILTERGROUPTYPE_OR  LogOperationSearchFilterGroupType = "Or"
 	LOGOPERATIONSEARCHFILTERGROUPTYPE_AND LogOperationSearchFilterGroupType = "And"
 )
 
@@ -36,7 +36,7 @@ func (v *LogOperationSearchFilterGroupType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = LogOperationSearchFilterGroupType(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableLogOperationSearchFilterGroupType) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -20,9 +20,9 @@ type SessionSupport string
 
 // List of SessionSupport
 const (
-	SESSIONSUPPORT_UNKNOWN SessionSupport = "Unknown"
+	SESSIONSUPPORT_UNKNOWN        SessionSupport = "Unknown"
 	SESSIONSUPPORT_SINGLE_SESSION SessionSupport = "SingleSession"
-	SESSIONSUPPORT_MULTI_SESSION SessionSupport = "MultiSession"
+	SESSIONSUPPORT_MULTI_SESSION  SessionSupport = "MultiSession"
 )
 
 // All allowed values of SessionSupport enum
@@ -38,7 +38,7 @@ func (v *SessionSupport) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SessionSupport(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableSessionSupport) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

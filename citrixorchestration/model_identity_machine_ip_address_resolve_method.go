@@ -20,10 +20,10 @@ type IdentityMachineIPAddressResolveMethod string
 
 // List of IdentityMachineIPAddressResolveMethod
 const (
-	IDENTITYMACHINEIPADDRESSRESOLVEMETHOD_UNKNOWN IdentityMachineIPAddressResolveMethod = "Unknown"
-	IDENTITYMACHINEIPADDRESSRESOLVEMETHOD_NONE IdentityMachineIPAddressResolveMethod = "None"
+	IDENTITYMACHINEIPADDRESSRESOLVEMETHOD_UNKNOWN   IdentityMachineIPAddressResolveMethod = "Unknown"
+	IDENTITYMACHINEIPADDRESSRESOLVEMETHOD_NONE      IdentityMachineIPAddressResolveMethod = "None"
 	IDENTITYMACHINEIPADDRESSRESOLVEMETHOD_HOST_NAME IdentityMachineIPAddressResolveMethod = "HostName"
-	IDENTITYMACHINEIPADDRESSRESOLVEMETHOD_NET_BIOS IdentityMachineIPAddressResolveMethod = "NetBios"
+	IDENTITYMACHINEIPADDRESSRESOLVEMETHOD_NET_BIOS  IdentityMachineIPAddressResolveMethod = "NetBios"
 )
 
 // All allowed values of IdentityMachineIPAddressResolveMethod enum
@@ -40,7 +40,7 @@ func (v *IdentityMachineIPAddressResolveMethod) UnmarshalJSON(src []byte) error 
 	if err != nil {
 		return err
 	}
-	
+
 	*v = IdentityMachineIPAddressResolveMethod(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableIdentityMachineIPAddressResolveMethod) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

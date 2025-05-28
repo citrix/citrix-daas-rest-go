@@ -19,22 +19,21 @@ import (
 	"strings"
 )
 
-
 // StoreFrontServersAPIsDAASService StoreFrontServersAPIsDAAS service
 type StoreFrontServersAPIsDAASService service
 
 type ApiStoreFrontServersCreateStoreFrontServerRequest struct {
-	ctx context.Context
-	ApiService *StoreFrontServersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                          context.Context
+	ApiService                   *StoreFrontServersAPIsDAASService
+	citrixCustomerId             *string
+	citrixInstanceId             *string
 	storeFrontServerRequestModel *StoreFrontServerRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                    *string
+	authorization                *string
+	citrixTransactionId          *string
+	accept                       *string
+	citrixLocale                 *string
+	async                        *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -101,24 +100,25 @@ StoreFrontServersCreateStoreFrontServer Create a StoreFront server.
 Create a StoreFront server for use by hosted receivers within the
 site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiStoreFrontServersCreateStoreFrontServerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiStoreFrontServersCreateStoreFrontServerRequest
 */
 func (a *StoreFrontServersAPIsDAASService) StoreFrontServersCreateStoreFrontServer(ctx context.Context) ApiStoreFrontServersCreateStoreFrontServerRequest {
 	return ApiStoreFrontServersCreateStoreFrontServerRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return StoreFrontServerResponseModel
+//
+//	@return StoreFrontServerResponseModel
 func (a *StoreFrontServersAPIsDAASService) StoreFrontServersCreateStoreFrontServerExecute(r ApiStoreFrontServersCreateStoreFrontServerRequest) (*StoreFrontServerResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *StoreFrontServerResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *StoreFrontServerResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StoreFrontServersAPIsDAASService.StoreFrontServersCreateStoreFrontServer")
@@ -223,8 +223,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersCreateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -234,8 +234,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersCreateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -245,8 +245,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersCreateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -256,8 +256,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersCreateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -267,8 +267,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersCreateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -278,8 +278,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersCreateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -289,8 +289,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersCreateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -300,8 +300,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersCreateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -311,8 +311,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersCreateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -330,17 +330,17 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersCreateStoreFrontServ
 }
 
 type ApiStoreFrontServersDeleteStoreFrontServerRequest struct {
-	ctx context.Context
-	ApiService *StoreFrontServersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *StoreFrontServersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -402,24 +402,24 @@ Delete a StoreFront server from the site, regardless of whether it
 is being used by delivery groups or not.  This removes the
 StoreFront server from hosted receivers.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The name or ID of StoreFront server to be deleted.
- @return ApiStoreFrontServersDeleteStoreFrontServerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The name or ID of StoreFront server to be deleted.
+	@return ApiStoreFrontServersDeleteStoreFrontServerRequest
 */
 func (a *StoreFrontServersAPIsDAASService) StoreFrontServersDeleteStoreFrontServer(ctx context.Context, nameOrId string) ApiStoreFrontServersDeleteStoreFrontServerRequest {
 	return ApiStoreFrontServersDeleteStoreFrontServerRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *StoreFrontServersAPIsDAASService) StoreFrontServersDeleteStoreFrontServerExecute(r ApiStoreFrontServersDeleteStoreFrontServerRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StoreFrontServersAPIsDAASService.StoreFrontServersDeleteStoreFrontServer")
@@ -520,8 +520,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersDeleteStoreFrontServ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -531,8 +531,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersDeleteStoreFrontServ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -542,8 +542,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersDeleteStoreFrontServ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -553,8 +553,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersDeleteStoreFrontServ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -564,8 +564,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersDeleteStoreFrontServ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -575,8 +575,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersDeleteStoreFrontServ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -586,8 +586,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersDeleteStoreFrontServ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -597,8 +597,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersDeleteStoreFrontServ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -607,16 +607,16 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersDeleteStoreFrontServ
 }
 
 type ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest struct {
-	ctx context.Context
-	ApiService *StoreFrontServersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *StoreFrontServersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -670,26 +670,27 @@ StoreFrontServersGetStoreFrontDeliveryGroups GET delivery groups details for a S
 
 GET delivery groups details for a Storefront
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The id of the Storefront
- @return ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The id of the Storefront
+	@return ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest
 */
 func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontDeliveryGroups(ctx context.Context, nameOrId string) ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest {
 	return ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return StoreFrontDeliveryGroupResponseModelCollection
+//
+//	@return StoreFrontDeliveryGroupResponseModelCollection
 func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontDeliveryGroupsExecute(r ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) (*StoreFrontDeliveryGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *StoreFrontDeliveryGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *StoreFrontDeliveryGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StoreFrontServersAPIsDAASService.StoreFrontServersGetStoreFrontDeliveryGroups")
@@ -787,8 +788,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -798,8 +799,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -809,8 +810,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -820,8 +821,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -831,8 +832,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -842,8 +843,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -853,8 +854,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -864,8 +865,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -883,16 +884,16 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontDeliver
 }
 
 type ApiStoreFrontServersGetStoreFrontServerRequest struct {
-	ctx context.Context
-	ApiService *StoreFrontServersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *StoreFrontServersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -947,26 +948,27 @@ StoreFrontServersGetStoreFrontServer Get the details for a single StoreFront ser
 Get a single StoreFront server configured for use by hosted
 receivers within the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The name or ID of the StoreFront server.
- @return ApiStoreFrontServersGetStoreFrontServerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The name or ID of the StoreFront server.
+	@return ApiStoreFrontServersGetStoreFrontServerRequest
 */
 func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServer(ctx context.Context, nameOrId string) ApiStoreFrontServersGetStoreFrontServerRequest {
 	return ApiStoreFrontServersGetStoreFrontServerRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return StoreFrontServerResponseModel
+//
+//	@return StoreFrontServerResponseModel
 func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServerExecute(r ApiStoreFrontServersGetStoreFrontServerRequest) (*StoreFrontServerResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *StoreFrontServerResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *StoreFrontServerResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StoreFrontServersAPIsDAASService.StoreFrontServersGetStoreFrontServer")
@@ -1064,8 +1066,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServerE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1075,8 +1077,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServerE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1086,8 +1088,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServerE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1097,8 +1099,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServerE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1108,8 +1110,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServerE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1119,8 +1121,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServerE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1130,8 +1132,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServerE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1141,8 +1143,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServerE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1160,15 +1162,15 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServerE
 }
 
 type ApiStoreFrontServersGetStoreFrontServersRequest struct {
-	ctx context.Context
-	ApiService *StoreFrontServersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *StoreFrontServersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1223,24 +1225,25 @@ StoreFrontServersGetStoreFrontServers Get all StoreFront servers.
 Get all StoreFront servers configured for use by hosted receivers
 within the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiStoreFrontServersGetStoreFrontServersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiStoreFrontServersGetStoreFrontServersRequest
 */
 func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServers(ctx context.Context) ApiStoreFrontServersGetStoreFrontServersRequest {
 	return ApiStoreFrontServersGetStoreFrontServersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return StoreFrontServerResponseModelCollection
+//
+//	@return StoreFrontServerResponseModelCollection
 func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServersExecute(r ApiStoreFrontServersGetStoreFrontServersRequest) (*StoreFrontServerResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *StoreFrontServerResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *StoreFrontServerResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StoreFrontServersAPIsDAASService.StoreFrontServersGetStoreFrontServers")
@@ -1337,8 +1340,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServers
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1348,8 +1351,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServers
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1359,8 +1362,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServers
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1370,8 +1373,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServers
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1381,8 +1384,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServers
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1392,8 +1395,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServers
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1403,8 +1406,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServers
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1422,18 +1425,18 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServers
 }
 
 type ApiStoreFrontServersUpdateStoreFrontServerRequest struct {
-	ctx context.Context
-	ApiService *StoreFrontServersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                          context.Context
+	ApiService                   *StoreFrontServersAPIsDAASService
+	citrixCustomerId             *string
+	citrixInstanceId             *string
+	nameOrId                     string
 	storeFrontServerRequestModel *StoreFrontServerRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                    *string
+	authorization                *string
+	citrixTransactionId          *string
+	accept                       *string
+	citrixLocale                 *string
+	async                        *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1499,26 +1502,27 @@ StoreFrontServersUpdateStoreFrontServer Update a StoreFront server.
 
 Update a StoreFront server.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the StoreFront server to update.
- @return ApiStoreFrontServersUpdateStoreFrontServerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the StoreFront server to update.
+	@return ApiStoreFrontServersUpdateStoreFrontServerRequest
 */
 func (a *StoreFrontServersAPIsDAASService) StoreFrontServersUpdateStoreFrontServer(ctx context.Context, nameOrId string) ApiStoreFrontServersUpdateStoreFrontServerRequest {
 	return ApiStoreFrontServersUpdateStoreFrontServerRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return StoreFrontServerResponseModel
+//
+//	@return StoreFrontServerResponseModel
 func (a *StoreFrontServersAPIsDAASService) StoreFrontServersUpdateStoreFrontServerExecute(r ApiStoreFrontServersUpdateStoreFrontServerRequest) (*StoreFrontServerResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *StoreFrontServerResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *StoreFrontServerResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StoreFrontServersAPIsDAASService.StoreFrontServersUpdateStoreFrontServer")
@@ -1624,8 +1628,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersUpdateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1635,8 +1639,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersUpdateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1646,8 +1650,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersUpdateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1657,8 +1661,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersUpdateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1668,8 +1672,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersUpdateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1679,8 +1683,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersUpdateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1690,8 +1694,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersUpdateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1701,8 +1705,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersUpdateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1712,8 +1716,8 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersUpdateStoreFrontServ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

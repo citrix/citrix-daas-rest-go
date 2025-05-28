@@ -20,30 +20,30 @@ var _ MappedNullable = &AdministratorResult{}
 
 // AdministratorResult struct for AdministratorResult
 type AdministratorResult struct {
-	CustomerId NullableString `json:"customerId,omitempty"`
-	UcOid NullableString `json:"ucOid,omitempty"`
-	UserId NullableString `json:"userId,omitempty"`
-	Type *AdministratorType `json:"type,omitempty"`
-	AccessType *AdministratorAccessType `json:"accessType,omitempty"`
-	ServiceProfile NullableString `json:"serviceProfile,omitempty"`
-	FirstName NullableString `json:"firstName,omitempty"`
-	LastName NullableString `json:"lastName,omitempty"`
-	DisplayName NullableString `json:"displayName,omitempty"`
-	Email NullableString `json:"email,omitempty"`
-	ProviderType *AdministratorProviderType `json:"providerType,omitempty"`
-	ProviderId NullableString `json:"providerId,omitempty"`
-	ProviderProperties NullableAdministratorResultProviderProperties `json:"providerProperties,omitempty"`
-	ExternalOid NullableString `json:"externalOid,omitempty"`
-	EmailPreferences NullableString `json:"emailPreferences,omitempty"`
-	NotificationsEmailPreferences *AdministratorNotificationsEmailsPreferences `json:"notificationsEmailPreferences,omitempty"`
-	AuthDomain NullableString `json:"authDomain,omitempty"`
-	Pending NullableBool `json:"pending,omitempty"`
-	InvitationExpired NullableBool `json:"invitationExpired,omitempty"`
-	LegacyProviders []string `json:"legacyProviders,omitempty"`
-	CreatedDate NullableTime `json:"createdDate,omitempty"`
-	UpdatedDate NullableTime `json:"updatedDate,omitempty"`
-	ETag NullableString `json:"eTag,omitempty"`
-	AdditionalProperties map[string]interface{}
+	CustomerId                    NullableString                                `json:"customerId,omitempty"`
+	UcOid                         NullableString                                `json:"ucOid,omitempty"`
+	UserId                        NullableString                                `json:"userId,omitempty"`
+	Type                          *AdministratorType                            `json:"type,omitempty"`
+	AccessType                    *AdministratorAccessType                      `json:"accessType,omitempty"`
+	ServiceProfile                NullableString                                `json:"serviceProfile,omitempty"`
+	FirstName                     NullableString                                `json:"firstName,omitempty"`
+	LastName                      NullableString                                `json:"lastName,omitempty"`
+	DisplayName                   NullableString                                `json:"displayName,omitempty"`
+	Email                         NullableString                                `json:"email,omitempty"`
+	ProviderType                  *AdministratorProviderType                    `json:"providerType,omitempty"`
+	ProviderId                    NullableString                                `json:"providerId,omitempty"`
+	ProviderProperties            NullableAdministratorResultProviderProperties `json:"providerProperties,omitempty"`
+	ExternalOid                   NullableString                                `json:"externalOid,omitempty"`
+	EmailPreferences              NullableString                                `json:"emailPreferences,omitempty"`
+	NotificationsEmailPreferences *AdministratorNotificationsEmailsPreferences  `json:"notificationsEmailPreferences,omitempty"`
+	AuthDomain                    NullableString                                `json:"authDomain,omitempty"`
+	Pending                       NullableBool                                  `json:"pending,omitempty"`
+	InvitationExpired             NullableBool                                  `json:"invitationExpired,omitempty"`
+	LegacyProviders               []string                                      `json:"legacyProviders,omitempty"`
+	CreatedDate                   NullableTime                                  `json:"createdDate,omitempty"`
+	UpdatedDate                   NullableTime                                  `json:"updatedDate,omitempty"`
+	ETag                          NullableString                                `json:"eTag,omitempty"`
+	AdditionalProperties          map[string]interface{}
 }
 
 type _AdministratorResult AdministratorResult
@@ -97,6 +97,7 @@ func (o *AdministratorResult) HasCustomerId() bool {
 func (o *AdministratorResult) SetCustomerId(v string) {
 	o.CustomerId.Set(&v)
 }
+
 // SetCustomerIdNil sets the value for CustomerId to be an explicit nil
 func (o *AdministratorResult) SetCustomerIdNil() {
 	o.CustomerId.Set(nil)
@@ -139,6 +140,7 @@ func (o *AdministratorResult) HasUcOid() bool {
 func (o *AdministratorResult) SetUcOid(v string) {
 	o.UcOid.Set(&v)
 }
+
 // SetUcOidNil sets the value for UcOid to be an explicit nil
 func (o *AdministratorResult) SetUcOidNil() {
 	o.UcOid.Set(nil)
@@ -181,6 +183,7 @@ func (o *AdministratorResult) HasUserId() bool {
 func (o *AdministratorResult) SetUserId(v string) {
 	o.UserId.Set(&v)
 }
+
 // SetUserIdNil sets the value for UserId to be an explicit nil
 func (o *AdministratorResult) SetUserIdNil() {
 	o.UserId.Set(nil)
@@ -287,6 +290,7 @@ func (o *AdministratorResult) HasServiceProfile() bool {
 func (o *AdministratorResult) SetServiceProfile(v string) {
 	o.ServiceProfile.Set(&v)
 }
+
 // SetServiceProfileNil sets the value for ServiceProfile to be an explicit nil
 func (o *AdministratorResult) SetServiceProfileNil() {
 	o.ServiceProfile.Set(nil)
@@ -329,6 +333,7 @@ func (o *AdministratorResult) HasFirstName() bool {
 func (o *AdministratorResult) SetFirstName(v string) {
 	o.FirstName.Set(&v)
 }
+
 // SetFirstNameNil sets the value for FirstName to be an explicit nil
 func (o *AdministratorResult) SetFirstNameNil() {
 	o.FirstName.Set(nil)
@@ -371,6 +376,7 @@ func (o *AdministratorResult) HasLastName() bool {
 func (o *AdministratorResult) SetLastName(v string) {
 	o.LastName.Set(&v)
 }
+
 // SetLastNameNil sets the value for LastName to be an explicit nil
 func (o *AdministratorResult) SetLastNameNil() {
 	o.LastName.Set(nil)
@@ -413,6 +419,7 @@ func (o *AdministratorResult) HasDisplayName() bool {
 func (o *AdministratorResult) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *AdministratorResult) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -455,6 +462,7 @@ func (o *AdministratorResult) HasEmail() bool {
 func (o *AdministratorResult) SetEmail(v string) {
 	o.Email.Set(&v)
 }
+
 // SetEmailNil sets the value for Email to be an explicit nil
 func (o *AdministratorResult) SetEmailNil() {
 	o.Email.Set(nil)
@@ -529,6 +537,7 @@ func (o *AdministratorResult) HasProviderId() bool {
 func (o *AdministratorResult) SetProviderId(v string) {
 	o.ProviderId.Set(&v)
 }
+
 // SetProviderIdNil sets the value for ProviderId to be an explicit nil
 func (o *AdministratorResult) SetProviderIdNil() {
 	o.ProviderId.Set(nil)
@@ -571,6 +580,7 @@ func (o *AdministratorResult) HasProviderProperties() bool {
 func (o *AdministratorResult) SetProviderProperties(v AdministratorResultProviderProperties) {
 	o.ProviderProperties.Set(&v)
 }
+
 // SetProviderPropertiesNil sets the value for ProviderProperties to be an explicit nil
 func (o *AdministratorResult) SetProviderPropertiesNil() {
 	o.ProviderProperties.Set(nil)
@@ -613,6 +623,7 @@ func (o *AdministratorResult) HasExternalOid() bool {
 func (o *AdministratorResult) SetExternalOid(v string) {
 	o.ExternalOid.Set(&v)
 }
+
 // SetExternalOidNil sets the value for ExternalOid to be an explicit nil
 func (o *AdministratorResult) SetExternalOidNil() {
 	o.ExternalOid.Set(nil)
@@ -655,6 +666,7 @@ func (o *AdministratorResult) HasEmailPreferences() bool {
 func (o *AdministratorResult) SetEmailPreferences(v string) {
 	o.EmailPreferences.Set(&v)
 }
+
 // SetEmailPreferencesNil sets the value for EmailPreferences to be an explicit nil
 func (o *AdministratorResult) SetEmailPreferencesNil() {
 	o.EmailPreferences.Set(nil)
@@ -729,6 +741,7 @@ func (o *AdministratorResult) HasAuthDomain() bool {
 func (o *AdministratorResult) SetAuthDomain(v string) {
 	o.AuthDomain.Set(&v)
 }
+
 // SetAuthDomainNil sets the value for AuthDomain to be an explicit nil
 func (o *AdministratorResult) SetAuthDomainNil() {
 	o.AuthDomain.Set(nil)
@@ -771,6 +784,7 @@ func (o *AdministratorResult) HasPending() bool {
 func (o *AdministratorResult) SetPending(v bool) {
 	o.Pending.Set(&v)
 }
+
 // SetPendingNil sets the value for Pending to be an explicit nil
 func (o *AdministratorResult) SetPendingNil() {
 	o.Pending.Set(nil)
@@ -813,6 +827,7 @@ func (o *AdministratorResult) HasInvitationExpired() bool {
 func (o *AdministratorResult) SetInvitationExpired(v bool) {
 	o.InvitationExpired.Set(&v)
 }
+
 // SetInvitationExpiredNil sets the value for InvitationExpired to be an explicit nil
 func (o *AdministratorResult) SetInvitationExpiredNil() {
 	o.InvitationExpired.Set(nil)
@@ -844,7 +859,7 @@ func (o *AdministratorResult) GetLegacyProvidersOk() ([]string, bool) {
 
 // HasLegacyProviders returns a boolean if a field has been set.
 func (o *AdministratorResult) HasLegacyProviders() bool {
-	if o != nil && IsNil(o.LegacyProviders) {
+	if o != nil && !IsNil(o.LegacyProviders) {
 		return true
 	}
 
@@ -888,6 +903,7 @@ func (o *AdministratorResult) HasCreatedDate() bool {
 func (o *AdministratorResult) SetCreatedDate(v time.Time) {
 	o.CreatedDate.Set(&v)
 }
+
 // SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
 func (o *AdministratorResult) SetCreatedDateNil() {
 	o.CreatedDate.Set(nil)
@@ -930,6 +946,7 @@ func (o *AdministratorResult) HasUpdatedDate() bool {
 func (o *AdministratorResult) SetUpdatedDate(v time.Time) {
 	o.UpdatedDate.Set(&v)
 }
+
 // SetUpdatedDateNil sets the value for UpdatedDate to be an explicit nil
 func (o *AdministratorResult) SetUpdatedDateNil() {
 	o.UpdatedDate.Set(nil)
@@ -972,6 +989,7 @@ func (o *AdministratorResult) HasETag() bool {
 func (o *AdministratorResult) SetETag(v string) {
 	o.ETag.Set(&v)
 }
+
 // SetETagNil sets the value for ETag to be an explicit nil
 func (o *AdministratorResult) SetETagNil() {
 	o.ETag.Set(nil)
@@ -983,7 +1001,7 @@ func (o *AdministratorResult) UnsetETag() {
 }
 
 func (o AdministratorResult) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1069,45 +1087,6 @@ func (o AdministratorResult) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *AdministratorResult) UnmarshalJSON(bytes []byte) (err error) {
-	varAdministratorResult := _AdministratorResult{}
-
-	if err = json.Unmarshal(bytes, &varAdministratorResult); err == nil {
-		*o = AdministratorResult(varAdministratorResult)
-	}
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
-		delete(additionalProperties, "customerId")
-		delete(additionalProperties, "ucOid")
-		delete(additionalProperties, "userId")
-		delete(additionalProperties, "type")
-		delete(additionalProperties, "accessType")
-		delete(additionalProperties, "serviceProfile")
-		delete(additionalProperties, "firstName")
-		delete(additionalProperties, "lastName")
-		delete(additionalProperties, "displayName")
-		delete(additionalProperties, "email")
-		delete(additionalProperties, "providerType")
-		delete(additionalProperties, "providerId")
-		delete(additionalProperties, "providerProperties")
-		delete(additionalProperties, "externalOid")
-		delete(additionalProperties, "emailPreferences")
-		delete(additionalProperties, "notificationsEmailPreferences")
-		delete(additionalProperties, "authDomain")
-		delete(additionalProperties, "pending")
-		delete(additionalProperties, "invitationExpired")
-		delete(additionalProperties, "legacyProviders")
-		delete(additionalProperties, "createdDate")
-		delete(additionalProperties, "updatedDate")
-		delete(additionalProperties, "eTag")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
 type NullableAdministratorResult struct {
 	value *AdministratorResult
 	isSet bool
@@ -1143,5 +1122,3 @@ func (v *NullableAdministratorResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

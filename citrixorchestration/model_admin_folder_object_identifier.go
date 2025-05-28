@@ -20,10 +20,10 @@ type AdminFolderObjectIdentifier string
 
 // List of AdminFolderObjectIdentifier
 const (
-	ADMINFOLDEROBJECTIDENTIFIER_UNKNOWN AdminFolderObjectIdentifier = "Unknown"
-	ADMINFOLDEROBJECTIDENTIFIER_CONTAINS_APPLICATIONS AdminFolderObjectIdentifier = "ContainsApplications"
-	ADMINFOLDEROBJECTIDENTIFIER_CONTAINS_MACHINE_CATALOGS AdminFolderObjectIdentifier = "ContainsMachineCatalogs"
-	ADMINFOLDEROBJECTIDENTIFIER_CONTAINS_DELIVERY_GROUPS AdminFolderObjectIdentifier = "ContainsDeliveryGroups"
+	ADMINFOLDEROBJECTIDENTIFIER_UNKNOWN                     AdminFolderObjectIdentifier = "Unknown"
+	ADMINFOLDEROBJECTIDENTIFIER_CONTAINS_APPLICATIONS       AdminFolderObjectIdentifier = "ContainsApplications"
+	ADMINFOLDEROBJECTIDENTIFIER_CONTAINS_MACHINE_CATALOGS   AdminFolderObjectIdentifier = "ContainsMachineCatalogs"
+	ADMINFOLDEROBJECTIDENTIFIER_CONTAINS_DELIVERY_GROUPS    AdminFolderObjectIdentifier = "ContainsDeliveryGroups"
 	ADMINFOLDEROBJECTIDENTIFIER_CONTAINS_APPLICATION_GROUPS AdminFolderObjectIdentifier = "ContainsApplicationGroups"
 )
 
@@ -42,7 +42,7 @@ func (v *AdminFolderObjectIdentifier) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AdminFolderObjectIdentifier(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableAdminFolderObjectIdentifier) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

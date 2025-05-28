@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountType** | [**AccountType**](AccountType.md) |  | 
+**AccountType** | [**AccountType**](AccountType.md) | The type of provider associated with the account | 
 **AccountId** | Pointer to **NullableString** | The ID of the account | [optional] 
 **ConnectionId** | **string** | The Id of the connection | 
 **Name** | **string** | The name of the connection | 
-**ConnectionState** | Pointer to [**NullableConnectionState**](ConnectionState.md) |  | [optional] 
+**ConnectionState** | Pointer to [**NullableConnectionState**](ConnectionState.md) | The state of connection | [optional] 
 **ZoneId** | Pointer to **NullableString** | Zone id | [optional] 
 **ResourceLocationId** | Pointer to **NullableString** | Resource Location Id | [optional] 
 **ActiveTasks** | Pointer to [**[]GetTaskAsync200Response**](GetTaskAsync200Response.md) | Tasks currently being performed on the connection | [optional] 

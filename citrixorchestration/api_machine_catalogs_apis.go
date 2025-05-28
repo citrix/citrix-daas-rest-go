@@ -16,30 +16,29 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"reflect"
 	"strings"
 	"time"
-	"reflect"
 )
-
 
 // MachineCatalogsAPIsDAASService MachineCatalogsAPIsDAAS service
 type MachineCatalogsAPIsDAASService service
 
 type ApiMachineCatalogsAddMachineCatalogMachineRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                          context.Context
+	ApiService                                   *MachineCatalogsAPIsDAASService
+	citrixCustomerId                             *string
+	citrixInstanceId                             *string
+	nameOrId                                     string
 	addMachineToMachineCatalogDetailRequestModel *AddMachineToMachineCatalogDetailRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	xAccessToken *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                    *string
+	authorization                                *string
+	citrixTransactionId                          *string
+	xAdminCredential                             *string
+	xAccessToken                                 *string
+	accept                                       *string
+	citrixLocale                                 *string
+	async                                        *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -120,12 +119,10 @@ machine available to run users' desktops and applications. The machine may
 be physical or virtual.  The type of machine (physical or virtual) must
 match the machine catalog configuration.
 
-
 Note that due to
 the long-running nature of the adding operation, it cannot
 complete synchronously, would always initiate an asynchronous job to
 run to completion.
-
 
 The machine must support the expected capabilities of the machine catalog:
 the  and
@@ -135,30 +132,31 @@ installed (server or workstation) and the functional level depends on the
 version of the Citrix VDA software installed.  The API will complete
 successfully if these are not correct but the machine will be unable to register.
 
-
 Note: to add multiple machines in a single call, use the
- API.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog to add machine to.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsAddMachineCatalogMachineRequest
+	API.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog to add machine to.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsAddMachineCatalogMachineRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine(ctx context.Context, nameOrId string) ApiMachineCatalogsAddMachineCatalogMachineRequest {
 	return ApiMachineCatalogsAddMachineCatalogMachineRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return JobResponseModel
+//
+//	@return JobResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachineExecute(r ApiMachineCatalogsAddMachineCatalogMachineRequest) (*JobResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *JobResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *JobResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsAddMachineCatalogMachine")
@@ -270,8 +268,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -281,8 +279,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -292,8 +290,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -303,8 +301,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -314,8 +312,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -325,8 +323,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -336,8 +334,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -347,8 +345,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -358,8 +356,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -369,8 +367,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -388,18 +386,18 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 }
 
 type ApiMachineCatalogsAddMachineCatalogMachineAccountRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                        context.Context
+	ApiService                 *MachineCatalogsAPIsDAASService
+	citrixCustomerId           *string
+	citrixInstanceId           *string
+	nameOrId                   string
 	machineAccountRequestModel *MachineAccountRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
+	userAgent                  *string
+	authorization              *string
+	citrixTransactionId        *string
+	xAdminCredential           *string
+	accept                     *string
+	citrixLocale               *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -465,26 +463,27 @@ MachineCatalogsAddMachineCatalogMachineAccount Add a machine account to the mach
 
 Add a machine account to the machine catalog. This is only relevant for machine catalogs where ProvisioningType is MCS.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog to add the machine account to.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsAddMachineCatalogMachineAccountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog to add the machine account to.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsAddMachineCatalogMachineAccountRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachineAccount(ctx context.Context, nameOrId string) ApiMachineCatalogsAddMachineCatalogMachineAccountRequest {
 	return ApiMachineCatalogsAddMachineCatalogMachineAccountRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ProvisioningSchemeMachineAccountResponseModel
+//
+//	@return ProvisioningSchemeMachineAccountResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachineAccountExecute(r ApiMachineCatalogsAddMachineCatalogMachineAccountRequest) (*ProvisioningSchemeMachineAccountResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProvisioningSchemeMachineAccountResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProvisioningSchemeMachineAccountResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsAddMachineCatalogMachineAccount")
@@ -590,8 +589,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -601,8 +600,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -612,8 +611,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -623,8 +622,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -634,8 +633,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -645,8 +644,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -656,8 +655,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -667,8 +666,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -678,8 +677,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -689,8 +688,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -708,18 +707,18 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 }
 
 type ApiMachineCatalogsAddMachineCatalogTagsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	tagNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	tagNameOrId         string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -777,28 +776,29 @@ func (r ApiMachineCatalogsAddMachineCatalogTagsRequest) Execute() (*TagResponseM
 /*
 MachineCatalogsAddMachineCatalogTags Add a tag to a machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @param tagNameOrId Name or ID of the tag to add.
- @return ApiMachineCatalogsAddMachineCatalogTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@param tagNameOrId Name or ID of the tag to add.
+	@return ApiMachineCatalogsAddMachineCatalogTagsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiMachineCatalogsAddMachineCatalogTagsRequest {
 	return ApiMachineCatalogsAddMachineCatalogTagsRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:  a,
+		ctx:         ctx,
+		nameOrId:    nameOrId,
 		tagNameOrId: tagNameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return TagResponseModelCollection
+//
+//	@return TagResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogTagsExecute(r ApiMachineCatalogsAddMachineCatalogTagsRequest) (*TagResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TagResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TagResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsAddMachineCatalogTags")
@@ -900,8 +900,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -911,8 +911,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -922,8 +922,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -933,8 +933,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -944,8 +944,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -955,8 +955,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -966,8 +966,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -977,8 +977,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -988,8 +988,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1007,16 +1007,16 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogTagsExe
 }
 
 type ApiMachineCatalogsCheckMachineCatalogExistsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1070,24 +1070,24 @@ MachineCatalogsCheckMachineCatalogExists Check for the existence of a machine ca
 
 Check for the existence of a machine catalog by name
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name Name of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsCheckMachineCatalogExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name Name of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsCheckMachineCatalogExistsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckMachineCatalogExists(ctx context.Context, name string) ApiMachineCatalogsCheckMachineCatalogExistsRequest {
 	return ApiMachineCatalogsCheckMachineCatalogExistsRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckMachineCatalogExistsExecute(r ApiMachineCatalogsCheckMachineCatalogExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodHead
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodHead
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsCheckMachineCatalogExists")
@@ -1185,8 +1185,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckMachineCatalogExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1196,8 +1196,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckMachineCatalogExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1207,8 +1207,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckMachineCatalogExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1218,8 +1218,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckMachineCatalogExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1229,8 +1229,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckMachineCatalogExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1240,8 +1240,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckMachineCatalogExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1251,8 +1251,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckMachineCatalogExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1262,8 +1262,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckMachineCatalogExist
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1272,17 +1272,17 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckMachineCatalogExist
 }
 
 type ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1346,26 +1346,26 @@ machine catalog, this returns 303 See Other, and the `Location`
 response header refers to location of the machine catalog which is associated
 by the RemotePC enrollment scope.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @param name Distinguished name of an OU containing machines allowed to enroll as remote PCs.
- @return ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@param name Distinguished name of an OU containing machines allowed to enroll as remote PCs.
+	@return ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckRemotePCEnrollmentScopeExists(ctx context.Context, nameOrId string, name string) ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest {
 	return ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		name: name,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckRemotePCEnrollmentScopeExistsExecute(r ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodHead
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodHead
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsCheckRemotePCEnrollmentScopeExists")
@@ -1464,8 +1464,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckRemotePCEnrollmentS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1475,8 +1475,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckRemotePCEnrollmentS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1486,8 +1486,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckRemotePCEnrollmentS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1497,8 +1497,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckRemotePCEnrollmentS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1508,8 +1508,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckRemotePCEnrollmentS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1519,8 +1519,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckRemotePCEnrollmentS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1530,8 +1530,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckRemotePCEnrollmentS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1541,8 +1541,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckRemotePCEnrollmentS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1551,20 +1551,20 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckRemotePCEnrollmentS
 }
 
 type ApiMachineCatalogsCreateMachineCatalogRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                              context.Context
+	ApiService                       *MachineCatalogsAPIsDAASService
+	citrixCustomerId                 *string
+	citrixInstanceId                 *string
 	createMachineCatalogRequestModel *CreateMachineCatalogRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	xAccessToken *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	sourceNameOrId *string
+	userAgent                        *string
+	authorization                    *string
+	citrixTransactionId              *string
+	xAdminCredential                 *string
+	xAccessToken                     *string
+	accept                           *string
+	citrixLocale                     *string
+	async                            *bool
+	sourceNameOrId                   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1648,7 +1648,7 @@ MachineCatalogsCreateMachineCatalog Create a machine catalog.
 
 Create a machine catalog.
 
-Note that if a machine catalog uses 
+Note that if a machine catalog uses
 of , the machine catalog creation will always invoke asynchronous
 job(s) for the provisioning action.  If this API is invoked asynchronously, the asynchronous job
 will include only the machine catalog creation, and the provisioning task(s) will be associated
@@ -1656,24 +1656,25 @@ with the newly created catalog.  If this API is invoked synchronously, the machi
 creation will complete synchronously but the provisioning task(s) may still be executing, and
 will be associated with the newly created catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMachineCatalogsCreateMachineCatalogRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiMachineCatalogsCreateMachineCatalogRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalog(ctx context.Context) ApiMachineCatalogsCreateMachineCatalogRequest {
 	return ApiMachineCatalogsCreateMachineCatalogRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return MachineCatalogDetailResponseModel
+//
+//	@return MachineCatalogDetailResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogExecute(r ApiMachineCatalogsCreateMachineCatalogRequest) (*MachineCatalogDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineCatalogDetailResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineCatalogDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsCreateMachineCatalog")
@@ -1787,8 +1788,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1798,8 +1799,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1809,8 +1810,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1820,8 +1821,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1831,8 +1832,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1842,8 +1843,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1853,8 +1854,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1864,8 +1865,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1875,8 +1876,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1894,18 +1895,18 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogExec
 }
 
 type ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                               context.Context
+	ApiService                        *MachineCatalogsAPIsDAASService
+	citrixCustomerId                  *string
+	citrixInstanceId                  *string
+	nameOrId                          string
 	createUpgradeScheduleRequestModel *CreateUpgradeScheduleRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                         *string
+	authorization                     *string
+	citrixTransactionId               *string
+	accept                            *string
+	citrixLocale                      *string
+	async                             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1973,24 +1974,24 @@ A new VDA upgrade schedule can only be created for a machine catalog
 when the upgrade status for the catalog is UpgradeSuccessful, UpgradeFailed or UpgradeCancelled.
 If the status is ongoing or waiting to start, the operation fails.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest {
 	return ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgradeScheduleExecute(r ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsCreateMachineCatalogUpgradeSchedule")
@@ -2096,8 +2097,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
@@ -2107,8 +2108,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2118,8 +2119,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2129,8 +2130,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2140,8 +2141,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2151,8 +2152,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2162,8 +2163,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2173,8 +2174,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2184,8 +2185,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2195,8 +2196,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2205,22 +2206,22 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgr
 }
 
 type ApiMachineCatalogsDeleteMachineCatalogRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	xAdminCredential *string
-	xAccessToken *string
-	accept *string
-	citrixLocale *string
-	deleteVm *bool
-	deleteAccount *MachineAccountDeleteOption
-	purgeDBOnly *bool
-	async *bool
+	xAdminCredential    *string
+	xAccessToken        *string
+	accept              *string
+	citrixLocale        *string
+	deleteVm            *bool
+	deleteAccount       *MachineAccountDeleteOption
+	purgeDBOnly         *bool
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2310,24 +2311,24 @@ MachineCatalogsDeleteMachineCatalog Delete a machine catalog.
 
 Delete a machine catalog
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog to update.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsDeleteMachineCatalogRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog to update.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsDeleteMachineCatalogRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDeleteMachineCatalog(ctx context.Context, nameOrId string) ApiMachineCatalogsDeleteMachineCatalogRequest {
 	return ApiMachineCatalogsDeleteMachineCatalogRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDeleteMachineCatalogExecute(r ApiMachineCatalogsDeleteMachineCatalogRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsDeleteMachineCatalog")
@@ -2443,8 +2444,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDeleteMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2454,8 +2455,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDeleteMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2465,8 +2466,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDeleteMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2476,8 +2477,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDeleteMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2487,8 +2488,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDeleteMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2498,8 +2499,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDeleteMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2509,8 +2510,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDeleteMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2520,8 +2521,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDeleteMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2530,20 +2531,20 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDeleteMachineCatalogExec
 }
 
 type ApiMachineCatalogsDoMachineCatalogSearchRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                       context.Context
+	ApiService                *MachineCatalogsAPIsDAASService
+	citrixCustomerId          *string
+	citrixInstanceId          *string
 	catalogSearchRequestModel *CatalogSearchRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	limit *int32
-	continuationToken *string
-	fields *string
+	userAgent                 *string
+	authorization             *string
+	citrixTransactionId       *string
+	accept                    *string
+	citrixLocale              *string
+	async                     *bool
+	limit                     *int32
+	continuationToken         *string
+	fields                    *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2628,24 +2629,25 @@ MachineCatalogsDoMachineCatalogSearch Perform an advanced search for machinecata
 Perform an advanced search for machinecatalogs.  Note that some combinations
 of search parameters may result in slow performance.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMachineCatalogsDoMachineCatalogSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiMachineCatalogsDoMachineCatalogSearchRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDoMachineCatalogSearch(ctx context.Context) ApiMachineCatalogsDoMachineCatalogSearchRequest {
 	return ApiMachineCatalogsDoMachineCatalogSearchRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CatalogSearchResponseModelCollection
+//
+//	@return CatalogSearchResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDoMachineCatalogSearchExecute(r ApiMachineCatalogsDoMachineCatalogSearchRequest) (*CatalogSearchResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CatalogSearchResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CatalogSearchResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsDoMachineCatalogSearch")
@@ -2759,8 +2761,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDoMachineCatalogSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2770,8 +2772,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDoMachineCatalogSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2781,8 +2783,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDoMachineCatalogSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2792,8 +2794,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDoMachineCatalogSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2803,8 +2805,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDoMachineCatalogSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2814,8 +2816,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDoMachineCatalogSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2825,8 +2827,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDoMachineCatalogSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2836,8 +2838,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDoMachineCatalogSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2847,8 +2849,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDoMachineCatalogSearchEx
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2866,17 +2868,17 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDoMachineCatalogSearchEx
 }
 
 type ApiMachineCatalogsExportRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2934,26 +2936,27 @@ func (r ApiMachineCatalogsExportRequest) Execute() (*ExportMachineCatalogRespons
 /*
 MachineCatalogsExport Exports a MCS machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The machine catalog
- @return ApiMachineCatalogsExportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The machine catalog
+	@return ApiMachineCatalogsExportRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExport(ctx context.Context, nameOrId string) ApiMachineCatalogsExportRequest {
 	return ApiMachineCatalogsExportRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ExportMachineCatalogResponseModel
+//
+//	@return ExportMachineCatalogResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportExecute(r ApiMachineCatalogsExportRequest) (*ExportMachineCatalogResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ExportMachineCatalogResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ExportMachineCatalogResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsExport")
@@ -3054,8 +3057,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportExecute(r ApiMachi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3065,8 +3068,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportExecute(r ApiMachi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3076,8 +3079,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportExecute(r ApiMachi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3087,8 +3090,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportExecute(r ApiMachi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3098,8 +3101,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportExecute(r ApiMachi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3109,8 +3112,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportExecute(r ApiMachi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3120,8 +3123,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportExecute(r ApiMachi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3131,8 +3134,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportExecute(r ApiMachi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3142,8 +3145,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportExecute(r ApiMachi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3161,16 +3164,16 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportExecute(r ApiMachi
 }
 
 type ApiMachineCatalogsExportMachineProfileRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3222,26 +3225,27 @@ func (r ApiMachineCatalogsExportMachineProfileRequest) Execute() (*ExportMachine
 /*
 MachineCatalogsExportMachineProfile Exports a MCS machine catalog's machine profile.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The name or id of machine catalog.
- @return ApiMachineCatalogsExportMachineProfileRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The name or id of machine catalog.
+	@return ApiMachineCatalogsExportMachineProfileRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportMachineProfile(ctx context.Context, nameOrId string) ApiMachineCatalogsExportMachineProfileRequest {
 	return ApiMachineCatalogsExportMachineProfileRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ExportMachineProfileResponseModel
+//
+//	@return ExportMachineProfileResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportMachineProfileExecute(r ApiMachineCatalogsExportMachineProfileRequest) (*ExportMachineProfileResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ExportMachineProfileResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ExportMachineProfileResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsExportMachineProfile")
@@ -3339,8 +3343,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportMachineProfileExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3350,8 +3354,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportMachineProfileExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3361,8 +3365,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportMachineProfileExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3372,8 +3376,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportMachineProfileExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3383,8 +3387,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportMachineProfileExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3394,8 +3398,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportMachineProfileExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3405,8 +3409,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportMachineProfileExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3416,8 +3420,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportMachineProfileExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3427,8 +3431,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportMachineProfileExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3446,18 +3450,18 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportMachineProfileExec
 }
 
 type ApiMachineCatalogsGetMachineCatalogRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3523,26 +3527,27 @@ MachineCatalogsGetMachineCatalog Get details about a single machine catalog.
 
 Get details about a single machine catalog by name or ID of machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsGetMachineCatalogRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsGetMachineCatalogRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalog(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogRequest {
 	return ApiMachineCatalogsGetMachineCatalogRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return MachineCatalogDetailResponseModel
+//
+//	@return MachineCatalogDetailResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogExecute(r ApiMachineCatalogsGetMachineCatalogRequest) (*MachineCatalogDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineCatalogDetailResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineCatalogDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalog")
@@ -3646,8 +3651,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3657,8 +3662,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3668,8 +3673,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3679,8 +3684,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3690,8 +3695,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3701,8 +3706,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3712,8 +3717,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3723,8 +3728,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogExecute
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3742,20 +3747,20 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogExecute
 }
 
 type ApiMachineCatalogsGetMachineCatalogCostSummaryRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	start *time.Time
-	end *time.Time
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	start               *time.Time
+	end                 *time.Time
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	summaryType *SummaryType
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	summaryType         *SummaryType
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3831,26 +3836,27 @@ func (r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) Execute() (*Resou
 /*
 MachineCatalogsGetMachineCatalogCostSummary Get the machine catalog's cost summary.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The name or ID of the machine catalog.
- @return ApiMachineCatalogsGetMachineCatalogCostSummaryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The name or ID of the machine catalog.
+	@return ApiMachineCatalogsGetMachineCatalogCostSummaryRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSummary(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
 	return ApiMachineCatalogsGetMachineCatalogCostSummaryRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ResourceCostResponseModelCollection
+//
+//	@return ResourceCostResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSummaryExecute(r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) (*ResourceCostResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ResourceCostResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ResourceCostResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogCostSummary")
@@ -3962,8 +3968,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSum
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3973,8 +3979,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSum
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3984,8 +3990,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSum
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3995,8 +4001,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSum
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4006,8 +4012,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSum
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4017,8 +4023,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSum
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4028,8 +4034,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSum
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4039,8 +4045,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSum
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4058,19 +4064,19 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSum
 }
 
 type ApiMachineCatalogsGetMachineCatalogDailyCostRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	start *time.Time
-	end *time.Time
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	start               *time.Time
+	end                 *time.Time
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4140,26 +4146,27 @@ func (r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) Execute() (*DailyCo
 /*
 MachineCatalogsGetMachineCatalogDailyCost Get the machine catalog's daily cost.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The name or ID of the machine catalog.
- @return ApiMachineCatalogsGetMachineCatalogDailyCostRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The name or ID of the machine catalog.
+	@return ApiMachineCatalogsGetMachineCatalogDailyCostRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCost(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
 	return ApiMachineCatalogsGetMachineCatalogDailyCostRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return DailyCostResponseModelCollection
+//
+//	@return DailyCostResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCostExecute(r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) (*DailyCostResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DailyCostResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DailyCostResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogDailyCost")
@@ -4268,8 +4275,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4279,8 +4286,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4290,8 +4297,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4301,8 +4308,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4312,8 +4319,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4323,8 +4330,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4334,8 +4341,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4345,8 +4352,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4364,19 +4371,19 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCo
 }
 
 type ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4448,26 +4455,27 @@ MachineCatalogsGetMachineCatalogDeliveryGroupAssociations Get delivery group ass
 
 Get delivery group associations by name or Id of a remote pc machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDeliveryGroupAssociations(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest {
 	return ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return DeliveryGroupAssociationResponseModelCollection
+//
+//	@return DeliveryGroupAssociationResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDeliveryGroupAssociationsExecute(r ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) (*DeliveryGroupAssociationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeliveryGroupAssociationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeliveryGroupAssociationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogDeliveryGroupAssociations")
@@ -4574,8 +4582,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4585,8 +4593,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4596,8 +4604,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4607,8 +4615,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4618,8 +4626,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4629,8 +4637,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4640,8 +4648,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4651,8 +4659,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDeliver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4670,16 +4678,16 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDeliver
 }
 
 type ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4731,26 +4739,27 @@ func (r ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) Execute() (*Enrol
 /*
 MachineCatalogsGetMachineCatalogEnrollments Get the list of enrollments in the machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog.
- @return ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog.
+	@return ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogEnrollments(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest {
 	return ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return EnrollmentResponseModelCollection
+//
+//	@return EnrollmentResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogEnrollmentsExecute(r ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) (*EnrollmentResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *EnrollmentResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *EnrollmentResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogEnrollments")
@@ -4848,8 +4857,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogEnrollm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4859,8 +4868,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogEnrollm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4870,8 +4879,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogEnrollm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4881,8 +4890,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogEnrollm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4892,8 +4901,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogEnrollm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4903,8 +4912,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogEnrollm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4914,8 +4923,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogEnrollm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4925,8 +4934,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogEnrollm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4944,17 +4953,17 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogEnrollm
 }
 
 type ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5014,26 +5023,27 @@ MachineCatalogsGetMachineCatalogLastMasterImage Get the last master VM images us
 
 Get the last master VM images used by the machine catalog
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogLastMasterImage(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest {
 	return ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return VMImageResponseModel
+//
+//	@return VMImageResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogLastMasterImageExecute(r ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) (*VMImageResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VMImageResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VMImageResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogLastMasterImage")
@@ -5134,8 +5144,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogLastMas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5145,8 +5155,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogLastMas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5156,8 +5166,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogLastMas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5167,8 +5177,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogLastMas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5178,8 +5188,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogLastMas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5189,8 +5199,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogLastMas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5200,8 +5210,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogLastMas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5211,8 +5221,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogLastMas
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5230,20 +5240,20 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogLastMas
 }
 
 type ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	async *bool
-	accountState *ProvisioningSchemeMachineAccountState
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	async               *bool
+	accountState        *ProvisioningSchemeMachineAccountState
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5323,29 +5333,29 @@ Get all machine accounts associated with a machine catalog.  This returns
 all machine accounts for the machine catalog regardless of whether they are
 in-use, available, locked, etc.
 
-
 This is only relevant for machine catalogs where ProvisioningType is MCS.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog to get machine accounts for.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog to get machine accounts for.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachineAccounts(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest {
 	return ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ProvisioningSchemeMachineAccountResponseModelCollection
+//
+//	@return ProvisioningSchemeMachineAccountResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachineAccountsExecute(r ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) (*ProvisioningSchemeMachineAccountResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProvisioningSchemeMachineAccountResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProvisioningSchemeMachineAccountResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogMachineAccounts")
@@ -5455,8 +5465,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5466,8 +5476,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5477,8 +5487,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5488,8 +5498,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5499,8 +5509,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5510,8 +5520,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5521,8 +5531,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5532,8 +5542,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5551,20 +5561,20 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 }
 
 type ApiMachineCatalogsGetMachineCatalogMachinesRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	async *bool
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	async               *bool
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5640,26 +5650,27 @@ func (r ApiMachineCatalogsGetMachineCatalogMachinesRequest) Execute() (*MachineR
 /*
 MachineCatalogsGetMachineCatalogMachines GET the machines of a catalog
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsGetMachineCatalogMachinesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsGetMachineCatalogMachinesRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachines(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogMachinesRequest {
 	return ApiMachineCatalogsGetMachineCatalogMachinesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return MachineResponseModelCollection
+//
+//	@return MachineResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachinesExecute(r ApiMachineCatalogsGetMachineCatalogMachinesRequest) (*MachineResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogMachines")
@@ -5769,8 +5780,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5780,8 +5791,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5791,8 +5802,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5802,8 +5813,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5813,8 +5824,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5824,8 +5835,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5835,8 +5846,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5846,8 +5857,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5865,16 +5876,16 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 }
 
 type ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5928,26 +5939,27 @@ MachineCatalogsGetMachineCatalogMasterImageHistory Get the history of master VM 
 
 Get the history of master VM images used by the machine catalog
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog.
- @return ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog.
+	@return ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMasterImageHistory(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest {
 	return ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return VMImageResponseModelCollection
+//
+//	@return VMImageResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMasterImageHistoryExecute(r ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) (*VMImageResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VMImageResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VMImageResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogMasterImageHistory")
@@ -6045,8 +6057,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMasterI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6056,8 +6068,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMasterI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6067,8 +6079,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMasterI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6078,8 +6090,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMasterI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6089,8 +6101,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMasterI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6100,8 +6112,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMasterI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6111,8 +6123,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMasterI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6122,8 +6134,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMasterI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6141,18 +6153,18 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMasterI
 }
 
 type ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	machines *[]string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	machines            *[]string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6216,33 +6228,34 @@ func (r ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) Execute
 /*
 MachineCatalogsGetMachineCatalogStartMenuApplications Get the start menu applications from a machine in the machine catalog.
 
-Get the start menu applications from a machine in the machine catalog
+# Get the start menu applications from a machine in the machine catalog
 
 Note that this API may require a machine within a catalog to be
 booted, if no machines are currently available.  Therefore the API
 may take quite some time to complete.  Consider using the `async=true`
 parameter to mitigate this.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogStartMenuApplications(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest {
 	return ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return StartMenuApplicationResponseModelCollection
+//
+//	@return StartMenuApplicationResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogStartMenuApplicationsExecute(r ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) (*StartMenuApplicationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *StartMenuApplicationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *StartMenuApplicationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogStartMenuApplications")
@@ -6354,8 +6367,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogStartMe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6365,8 +6378,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogStartMe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6376,8 +6389,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogStartMe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6387,8 +6400,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogStartMe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6398,8 +6411,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogStartMe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6409,8 +6422,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogStartMe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6420,8 +6433,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogStartMe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6431,8 +6444,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogStartMe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6450,17 +6463,17 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogStartMe
 }
 
 type ApiMachineCatalogsGetMachineCatalogTagsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6525,26 +6538,27 @@ To find only tags directly associated with the machine catalog,
 filter the results to those with
 NumMachineCatalogs equal to `1`.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsGetMachineCatalogTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsGetMachineCatalogTagsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTags(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogTagsRequest {
 	return ApiMachineCatalogsGetMachineCatalogTagsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return TagResponseModelCollection
+//
+//	@return TagResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTagsExecute(r ApiMachineCatalogsGetMachineCatalogTagsRequest) (*TagResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TagResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TagResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogTags")
@@ -6645,8 +6659,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6656,8 +6670,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6667,8 +6681,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6678,8 +6692,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6689,8 +6703,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6700,8 +6714,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6711,8 +6725,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6722,8 +6736,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6741,16 +6755,16 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTagsExe
 }
 
 type ApiMachineCatalogsGetMachineCatalogTestReportRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6805,26 +6819,27 @@ MachineCatalogsGetMachineCatalogTestReport Get the most recent test report of a 
 Get the test report from the last run of
 TestMachineCatalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsGetMachineCatalogTestReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsGetMachineCatalogTestReportRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTestReport(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogTestReportRequest {
 	return ApiMachineCatalogsGetMachineCatalogTestReportRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return TestReportResponseModel
+//
+//	@return TestReportResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTestReportExecute(r ApiMachineCatalogsGetMachineCatalogTestReportRequest) (*TestReportResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TestReportResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TestReportResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogTestReport")
@@ -6922,8 +6937,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6933,8 +6948,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6944,8 +6959,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6955,8 +6970,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6966,8 +6981,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6977,8 +6992,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6988,8 +7003,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6999,8 +7014,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTestRep
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7018,17 +7033,17 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTestRep
 }
 
 type ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	upgradeVersion *string
+	accept              *string
+	citrixLocale        *string
+	upgradeVersion      *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7086,26 +7101,27 @@ func (r ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) Exec
 /*
 MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures Get the components and features of VDAs associated with a machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest {
 	return ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return MachineCatalogVusComponentResponseModel
+//
+//	@return MachineCatalogVusComponentResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesExecute(r ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) (*MachineCatalogVusComponentResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineCatalogVusComponentResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineCatalogVusComponentResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures")
@@ -7206,8 +7222,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAComp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7217,8 +7233,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAComp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7228,8 +7244,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAComp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7239,8 +7255,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAComp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7250,8 +7266,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAComp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7261,8 +7277,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAComp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7272,8 +7288,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAComp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7283,8 +7299,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAComp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7302,16 +7318,16 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAComp
 }
 
 type ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7363,26 +7379,27 @@ func (r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) Execute() 
 /*
 MachineCatalogsGetMachineCatalogVDAUpgradeVersions Get the available VDA upgrade versions associated with a machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgradeVersions(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest {
 	return ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return []string
+//
+//	@return []string
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgradeVersionsExecute(r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) ([]string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []string
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogVDAUpgradeVersions")
@@ -7480,8 +7497,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7491,8 +7508,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7502,8 +7519,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7513,8 +7530,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7524,8 +7541,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7535,8 +7552,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7546,8 +7563,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7557,8 +7574,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7576,20 +7593,20 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgr
 }
 
 type ApiMachineCatalogsGetMachineCatalogsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	adminFolder *string
-	async *bool
-	limit *int32
-	continuationToken *string
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	adminFolder         *string
+	async               *bool
+	limit               *int32
+	continuationToken   *string
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7658,7 +7675,7 @@ func (r ApiMachineCatalogsGetMachineCatalogsRequest) ContinuationToken(continuat
 	return r
 }
 
-// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.             
+// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.
 func (r ApiMachineCatalogsGetMachineCatalogsRequest) Fields(fields string) ApiMachineCatalogsGetMachineCatalogsRequest {
 	r.fields = &fields
 	return r
@@ -7673,24 +7690,25 @@ MachineCatalogsGetMachineCatalogs Get all machine catalogs.
 
 Get all machine catalogs in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMachineCatalogsGetMachineCatalogsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiMachineCatalogsGetMachineCatalogsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogs(ctx context.Context) ApiMachineCatalogsGetMachineCatalogsRequest {
 	return ApiMachineCatalogsGetMachineCatalogsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return MachineCatalogResponseModelCollection
+//
+//	@return MachineCatalogResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsExecute(r ApiMachineCatalogsGetMachineCatalogsRequest) (*MachineCatalogResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineCatalogResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineCatalogResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogs")
@@ -7802,8 +7820,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7813,8 +7831,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7824,8 +7842,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7835,8 +7853,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7846,8 +7864,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7857,8 +7875,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7868,8 +7886,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7887,16 +7905,16 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsExecut
 }
 
 type ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7950,26 +7968,27 @@ MachineCatalogsGetMachineCatalogsAdministrators Get administrators who can admin
 
 Get administrators who can administer a machine catalog
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsAdministrators(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest {
 	return ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorResponseModelCollection
+//
+//	@return AdministratorResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsAdministratorsExecute(r ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogsAdministrators")
@@ -8067,8 +8086,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsAdmini
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8078,8 +8097,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsAdmini
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8089,8 +8108,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsAdmini
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8100,8 +8119,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsAdmini
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8111,8 +8130,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsAdmini
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8122,8 +8141,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsAdmini
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8133,8 +8152,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsAdmini
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8144,8 +8163,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsAdmini
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8163,20 +8182,20 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsAdmini
 }
 
 type ApiMachineCatalogsGetMachineCatalogsV2Request struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	adminFolder *string
-	async *bool
-	limit *int32
-	continuationToken *string
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	adminFolder         *string
+	async               *bool
+	limit               *int32
+	continuationToken   *string
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8245,7 +8264,7 @@ func (r ApiMachineCatalogsGetMachineCatalogsV2Request) ContinuationToken(continu
 	return r
 }
 
-// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.             
+// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.
 func (r ApiMachineCatalogsGetMachineCatalogsV2Request) Fields(fields string) ApiMachineCatalogsGetMachineCatalogsV2Request {
 	r.fields = &fields
 	return r
@@ -8260,24 +8279,25 @@ MachineCatalogsGetMachineCatalogsV2 The V2  version of get all machine catalogs.
 
 Get all machine catalogs in the site with default response fields if no fields parameters specified.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMachineCatalogsGetMachineCatalogsV2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiMachineCatalogsGetMachineCatalogsV2Request
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsV2(ctx context.Context) ApiMachineCatalogsGetMachineCatalogsV2Request {
 	return ApiMachineCatalogsGetMachineCatalogsV2Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return MachineCatalogResponseModelCollection
+//
+//	@return MachineCatalogResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsV2Execute(r ApiMachineCatalogsGetMachineCatalogsV2Request) (*MachineCatalogResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineCatalogResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineCatalogResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogsV2")
@@ -8389,8 +8409,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsV2Exec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8400,8 +8420,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsV2Exec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8411,8 +8431,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsV2Exec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8422,8 +8442,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsV2Exec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8433,8 +8453,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsV2Exec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8444,8 +8464,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsV2Exec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8455,8 +8475,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsV2Exec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8474,18 +8494,18 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsV2Exec
 }
 
 type ApiMachineCatalogsImportProvisionedVirtualMachinesRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                          context.Context
+	ApiService                                   *MachineCatalogsAPIsDAASService
+	citrixCustomerId                             *string
+	citrixInstanceId                             *string
+	nameOrId                                     string
 	importProvisionedVirtualMachinesRequestModel *ImportProvisionedVirtualMachinesRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                    *string
+	authorization                                *string
+	citrixTransactionId                          *string
+	accept                                       *string
+	citrixLocale                                 *string
+	async                                        *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8500,7 +8520,7 @@ func (r ApiMachineCatalogsImportProvisionedVirtualMachinesRequest) CitrixInstanc
 	return r
 }
 
-// The existing provisioned virtual machines data. 
+// The existing provisioned virtual machines data.
 func (r ApiMachineCatalogsImportProvisionedVirtualMachinesRequest) ImportProvisionedVirtualMachinesRequestModel(importProvisionedVirtualMachinesRequestModel ImportProvisionedVirtualMachinesRequestModel) ApiMachineCatalogsImportProvisionedVirtualMachinesRequest {
 	r.importProvisionedVirtualMachinesRequestModel = &importProvisionedVirtualMachinesRequestModel
 	return r
@@ -8536,7 +8556,7 @@ func (r ApiMachineCatalogsImportProvisionedVirtualMachinesRequest) CitrixLocale(
 	return r
 }
 
-// If &#x60;true&#x60;, the machine accounts repair will be performed as a background task. 
+// If &#x60;true&#x60;, the machine accounts repair will be performed as a background task.
 func (r ApiMachineCatalogsImportProvisionedVirtualMachinesRequest) Async(async bool) ApiMachineCatalogsImportProvisionedVirtualMachinesRequest {
 	r.async = &async
 	return r
@@ -8549,26 +8569,27 @@ func (r ApiMachineCatalogsImportProvisionedVirtualMachinesRequest) Execute() (*I
 /*
 MachineCatalogsImportProvisionedVirtualMachines Import existing provisioned virtual machines.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The machineCatalog name or Id. 
- @return ApiMachineCatalogsImportProvisionedVirtualMachinesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The machineCatalog name or Id.
+	@return ApiMachineCatalogsImportProvisionedVirtualMachinesRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtualMachines(ctx context.Context, nameOrId string) ApiMachineCatalogsImportProvisionedVirtualMachinesRequest {
 	return ApiMachineCatalogsImportProvisionedVirtualMachinesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ImportProvisionedVirtualMachineResponseModelCollection
+//
+//	@return ImportProvisionedVirtualMachineResponseModelCollection
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtualMachinesExecute(r ApiMachineCatalogsImportProvisionedVirtualMachinesRequest) (*ImportProvisionedVirtualMachineResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ImportProvisionedVirtualMachineResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ImportProvisionedVirtualMachineResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsImportProvisionedVirtualMachines")
@@ -8674,8 +8695,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtual
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8685,8 +8706,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtual
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8696,8 +8717,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtual
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8707,8 +8728,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtual
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8718,8 +8739,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtual
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8729,8 +8750,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtual
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -8740,8 +8761,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtual
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8751,8 +8772,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtual
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8762,8 +8783,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtual
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8773,8 +8794,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtual
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8792,17 +8813,17 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtual
 }
 
 type ApiMachineCatalogsRebootMachineCatalogMachinesRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                        context.Context
+	ApiService                 *MachineCatalogsAPIsDAASService
+	citrixCustomerId           *string
+	citrixInstanceId           *string
+	nameOrId                   string
 	rebootMachinesRequestModel *RebootMachinesRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                  *string
+	authorization              *string
+	citrixTransactionId        *string
+	accept                     *string
+	citrixLocale               *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8862,31 +8883,30 @@ MachineCatalogsRebootMachineCatalogMachines Reboot all machines in a machine cat
 
 Reboot all machines in a machine catalog.
 
-
 Note that there is no job representation for the reboot operation.
 The call returns immediately even though the machines reboot over time.
 If you want to follow the progress of the reboot operation, check
-the 
+the
 property of the machines in the machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsRebootMachineCatalogMachinesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsRebootMachineCatalogMachinesRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMachines(ctx context.Context, nameOrId string) ApiMachineCatalogsRebootMachineCatalogMachinesRequest {
 	return ApiMachineCatalogsRebootMachineCatalogMachinesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMachinesExecute(r ApiMachineCatalogsRebootMachineCatalogMachinesRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsRebootMachineCatalogMachines")
@@ -8989,8 +9009,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9000,8 +9020,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9011,8 +9031,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9022,8 +9042,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9033,8 +9053,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9044,8 +9064,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -9055,8 +9075,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9066,8 +9086,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9077,8 +9097,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9088,8 +9108,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -9098,17 +9118,17 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMach
 }
 
 type ApiMachineCatalogsRemoveMachineCatalogMachineRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	machine string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	machine             string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9163,33 +9183,32 @@ MachineCatalogsRemoveMachineCatalogMachine Remove a machine from the machine cat
 Remove a machine from the machine catalog.  Removing the machine from the machine
 catalog removes it from the site.
 
-
 A machine cannot be removed from the machine catalog if it is a member of a delivery group.
 
-
 Note: to remove multiple machines in a single call, use the
- API.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog to remove the machine from.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @param machine Machine to remove from the catalog. May be specified by name, ID, or SID. If param is Name, currently it should get rid of '\\\\' and replace it using '|'.             For instance, if a MachineName is \"DomainA\\NameB\", the param will be \"DomainA|NameB\".
- @return ApiMachineCatalogsRemoveMachineCatalogMachineRequest
+	API.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog to remove the machine from.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@param machine Machine to remove from the catalog. May be specified by name, ID, or SID. If param is Name, currently it should get rid of '\\\\' and replace it using '|'.             For instance, if a MachineName is \"DomainA\\NameB\", the param will be \"DomainA|NameB\".
+	@return ApiMachineCatalogsRemoveMachineCatalogMachineRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMachine(ctx context.Context, nameOrId string, machine string) ApiMachineCatalogsRemoveMachineCatalogMachineRequest {
 	return ApiMachineCatalogsRemoveMachineCatalogMachineRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		machine: machine,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		machine:    machine,
 	}
 }
 
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMachineExecute(r ApiMachineCatalogsRemoveMachineCatalogMachineRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsRemoveMachineCatalogMachine")
@@ -9288,8 +9307,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9299,8 +9318,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9310,8 +9329,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9321,8 +9340,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9332,8 +9351,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9343,8 +9362,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9354,8 +9373,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9365,8 +9384,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -9375,19 +9394,19 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 }
 
 type ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	machine string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	machine             string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	deleteAccount *MachineAccountDeleteOption
+	xAdminCredential    *string
+	accept              *string
+	citrixLocale        *string
+	deleteAccount       *MachineAccountDeleteOption
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9453,26 +9472,26 @@ MachineCatalogsRemoveMachineCatalogMachineAccount Remove a machine account from 
 
 Remove a machine account from the machine catalog. This is only relevant for machine catalogs where ProvisioningType is MCS.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog to remove the machine account from.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @param machine Machine account to remove.  May be specified by SamName, UPN, or SID.
- @return ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog to remove the machine account from.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@param machine Machine account to remove.  May be specified by SamName, UPN, or SID.
+	@return ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMachineAccount(ctx context.Context, nameOrId string, machine string) ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest {
 	return ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		machine: machine,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		machine:    machine,
 	}
 }
 
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMachineAccountExecute(r ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsRemoveMachineCatalogMachineAccount")
@@ -9577,8 +9596,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9588,8 +9607,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9599,8 +9618,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9610,8 +9629,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9621,8 +9640,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9632,8 +9651,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9643,8 +9662,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9654,8 +9673,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -9664,18 +9683,18 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 }
 
 type ApiMachineCatalogsRemoveMachineCatalogTagsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	tagNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	tagNameOrId         string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9736,16 +9755,16 @@ MachineCatalogsRemoveMachineCatalogTags Remove a tag from a machine catalog.
 Remove a tag from a machine catalog.  Does not delete the tag,
 only its association to the machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @param tagNameOrId Name or ID of the tag.
- @return ApiMachineCatalogsRemoveMachineCatalogTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@param tagNameOrId Name or ID of the tag.
+	@return ApiMachineCatalogsRemoveMachineCatalogTagsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiMachineCatalogsRemoveMachineCatalogTagsRequest {
 	return ApiMachineCatalogsRemoveMachineCatalogTagsRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ApiService:  a,
+		ctx:         ctx,
+		nameOrId:    nameOrId,
 		tagNameOrId: tagNameOrId,
 	}
 }
@@ -9753,9 +9772,9 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogTags
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogTagsExecute(r ApiMachineCatalogsRemoveMachineCatalogTagsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsRemoveMachineCatalogTags")
@@ -9857,8 +9876,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogTags
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9868,8 +9887,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogTags
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9879,8 +9898,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogTags
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9890,8 +9909,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogTags
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9901,8 +9920,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogTags
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9912,8 +9931,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogTags
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9923,8 +9942,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogTags
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9934,8 +9953,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogTags
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -9944,18 +9963,18 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogTags
 }
 
 type ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	force *bool
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	force               *bool
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10023,24 +10042,24 @@ A VDA upgrade schedule can only be cancelled for a machine catalog
 when the upgrade status is waiting to start. If the current upgrade is
 in another status, the operation fails with HTTP response status 404.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest {
 	return ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogUpgradeScheduleExecute(r ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsRemoveMachineCatalogUpgradeSchedule")
@@ -10144,8 +10163,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
@@ -10155,8 +10174,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10166,8 +10185,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10177,8 +10196,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10188,8 +10207,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10199,8 +10218,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10210,8 +10229,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10221,8 +10240,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10231,19 +10250,19 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogUpgr
 }
 
 type ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	repairOption *MachineAccountRepairOption
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	repairOption        *MachineAccountRepairOption
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	xAdminCredential    *string
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10315,24 +10334,24 @@ MachineCatalogsRepairMachineCatalogMachineAccounts Repair all machine accounts i
 
 Repair all machine accounts in a machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog.
- @return ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog.
+	@return ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRepairMachineCatalogMachineAccounts(ctx context.Context, nameOrId string) ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest {
 	return ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRepairMachineCatalogMachineAccountsExecute(r ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsRepairMachineCatalogMachineAccounts")
@@ -10440,8 +10459,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRepairMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10451,8 +10470,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRepairMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10462,8 +10481,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRepairMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10473,8 +10492,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRepairMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10484,8 +10503,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRepairMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -10495,8 +10514,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRepairMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10506,8 +10525,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRepairMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10517,8 +10536,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRepairMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10528,8 +10547,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRepairMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10538,19 +10557,19 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRepairMachineCatalogMach
 }
 
 type ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                        context.Context
+	ApiService                 *MachineCatalogsAPIsDAASService
+	citrixCustomerId           *string
+	citrixInstanceId           *string
+	nameOrId                   string
 	rebootMachinesRequestModel *RebootMachinesRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                  *string
+	authorization              *string
+	citrixTransactionId        *string
+	xAdminCredential           *string
+	accept                     *string
+	citrixLocale               *string
+	async                      *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10622,9 +10641,7 @@ MachineCatalogsRollbackMachineCatalogProvisioningScheme Rollback the machine cat
 
 Rollback the machine catalog's provisioning scheme.
 
-
 Only valid when the machine catalog's ProvisioningType is MCS.
-
 
 Provides the ability to roll back the hard disk image used to provision
 virtual machines. If the provisioning scheme has CleanOnBoot equal to
@@ -10633,32 +10650,32 @@ hard disks are updated to this new image. Regardless of CleanOnBoot,
 all new virtual machines created after this call succeeds will use this
 new hard disk image.
 
-
 *Note:* The provisioning scheme for a machine catalog cannot be
 changed while any provisioning tasks are already executing for the
 machine catalog.  Cancel existing provisioning tasks or wait for
 their completion before updating the provisioning scheme.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogProvisioningScheme(ctx context.Context, nameOrId string) ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest {
 	return ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return JobResponseModel
+//
+//	@return JobResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogProvisioningSchemeExecute(r ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) (*JobResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *JobResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *JobResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsRollbackMachineCatalogProvisioningScheme")
@@ -10767,8 +10784,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10778,8 +10795,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10789,8 +10806,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10800,8 +10817,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10811,8 +10828,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -10822,8 +10839,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -10833,8 +10850,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10844,8 +10861,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10855,8 +10872,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10866,8 +10883,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogPr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -10885,18 +10902,18 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogPr
 }
 
 type ApiMachineCatalogsSetMachineCatalogTagsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	tagsRequestModel *TagsRequestModel
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	tagsRequestModel    *TagsRequestModel
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10960,24 +10977,24 @@ func (r ApiMachineCatalogsSetMachineCatalogTagsRequest) Execute() (*http.Respons
 /*
 MachineCatalogsSetMachineCatalogTags Set tags associated with a machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsSetMachineCatalogTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsSetMachineCatalogTagsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsSetMachineCatalogTags(ctx context.Context, nameOrId string) ApiMachineCatalogsSetMachineCatalogTagsRequest {
 	return ApiMachineCatalogsSetMachineCatalogTagsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsSetMachineCatalogTagsExecute(r ApiMachineCatalogsSetMachineCatalogTagsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsSetMachineCatalogTags")
@@ -11083,8 +11100,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsSetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11094,8 +11111,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsSetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11105,8 +11122,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsSetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11116,8 +11133,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsSetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -11127,8 +11144,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsSetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -11138,8 +11155,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsSetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11149,8 +11166,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsSetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -11160,8 +11177,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsSetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11171,8 +11188,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsSetMachineCatalogTagsExe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -11181,17 +11198,17 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsSetMachineCatalogTagsExe
 }
 
 type ApiMachineCatalogsTestMachineCatalogRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *MachineCatalogsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11253,26 +11270,27 @@ Run tests on a machine catalog and create a test report.  Obtain the
 most recent report from
 GetMachineCatalogTestReport.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog to test.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsTestMachineCatalogRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog to test.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsTestMachineCatalogRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalog(ctx context.Context, nameOrId string) ApiMachineCatalogsTestMachineCatalogRequest {
 	return ApiMachineCatalogsTestMachineCatalogRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return MachineCatalogTestResponseModel
+//
+//	@return MachineCatalogTestResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExecute(r ApiMachineCatalogsTestMachineCatalogRequest) (*MachineCatalogTestResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineCatalogTestResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineCatalogTestResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsTestMachineCatalog")
@@ -11373,8 +11391,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11384,8 +11402,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11395,8 +11413,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11406,8 +11424,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -11417,8 +11435,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -11428,8 +11446,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11439,8 +11457,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -11450,8 +11468,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11461,8 +11479,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -11480,16 +11498,16 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExecut
 }
 
 type ApiMachineCatalogsTestMachineCatalogExistsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                          context.Context
+	ApiService                   *MachineCatalogsAPIsDAASService
+	citrixCustomerId             *string
+	citrixInstanceId             *string
 	catalogNameCheckRequestModel *CatalogNameCheckRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                    *string
+	authorization                *string
+	citrixTransactionId          *string
+	accept                       *string
+	citrixLocale                 *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11549,22 +11567,22 @@ MachineCatalogsTestMachineCatalogExists Test the existence of a machine catalog 
 
 Check for the existence of a machine catalog by name
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMachineCatalogsTestMachineCatalogExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiMachineCatalogsTestMachineCatalogExistsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExists(ctx context.Context) ApiMachineCatalogsTestMachineCatalogExistsRequest {
 	return ApiMachineCatalogsTestMachineCatalogExistsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExistsExecute(r ApiMachineCatalogsTestMachineCatalogExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsTestMachineCatalogExists")
@@ -11666,8 +11684,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExists
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11677,8 +11695,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExists
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11688,8 +11706,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExists
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -11699,8 +11717,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExists
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -11710,8 +11728,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExists
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -11721,8 +11739,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExists
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -11732,8 +11750,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExists
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -11743,8 +11761,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExists
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -11754,8 +11772,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExists
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -11764,17 +11782,17 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExists
 }
 
 type ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                               context.Context
+	ApiService                        *MachineCatalogsAPIsDAASService
+	citrixCustomerId                  *string
+	citrixInstanceId                  *string
+	nameOrId                          string
 	remotePCEnrollmentScopeCheckModel *RemotePCEnrollmentScopeCheckModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                         *string
+	authorization                     *string
+	citrixTransactionId               *string
+	accept                            *string
+	citrixLocale                      *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11844,24 +11862,24 @@ machine catalog, this returns 303 See Other, and the `Location`
 response header refers to location of the machine catalog which is associated
 by the RemotePC enrollment scope.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentScopeExists(ctx context.Context, nameOrId string) ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest {
 	return ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentScopeExistsExecute(r ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsTestRemotePCEnrollmentScopeExists")
@@ -11964,8 +11982,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentSc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -11975,8 +11993,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentSc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -11986,8 +12004,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentSc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -11997,8 +12015,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentSc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -12008,8 +12026,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentSc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -12019,8 +12037,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentSc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -12030,8 +12048,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentSc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -12041,8 +12059,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentSc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -12052,8 +12070,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentSc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12063,8 +12081,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentSc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -12073,19 +12091,19 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentSc
 }
 
 type ApiMachineCatalogsUpdateMachineCatalogRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                              context.Context
+	ApiService                       *MachineCatalogsAPIsDAASService
+	citrixCustomerId                 *string
+	citrixInstanceId                 *string
+	nameOrId                         string
 	updateMachineCatalogRequestModel *UpdateMachineCatalogRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAccessToken *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                        *string
+	authorization                    *string
+	citrixTransactionId              *string
+	xAccessToken                     *string
+	accept                           *string
+	citrixLocale                     *string
+	async                            *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -12157,26 +12175,27 @@ MachineCatalogsUpdateMachineCatalog Update a machine catalog.
 
 Update a machine catalog
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog to update.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsUpdateMachineCatalogRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog to update.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsUpdateMachineCatalogRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalog(ctx context.Context, nameOrId string) ApiMachineCatalogsUpdateMachineCatalogRequest {
 	return ApiMachineCatalogsUpdateMachineCatalogRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return MachineCatalogDetailResponseModel
+//
+//	@return MachineCatalogDetailResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogExecute(r ApiMachineCatalogsUpdateMachineCatalogRequest) (*MachineCatalogDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineCatalogDetailResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineCatalogDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsUpdateMachineCatalog")
@@ -12285,8 +12304,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12296,8 +12315,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12307,8 +12326,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12318,8 +12337,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -12329,8 +12348,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -12340,8 +12359,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -12351,8 +12370,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -12362,8 +12381,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12373,8 +12392,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -12392,19 +12411,19 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogExec
 }
 
 type ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	machine string
+	ctx                              context.Context
+	ApiService                       *MachineCatalogsAPIsDAASService
+	citrixCustomerId                 *string
+	citrixInstanceId                 *string
+	nameOrId                         string
+	machine                          string
 	updateMachineAccountRequestModel *UpdateMachineAccountRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
+	userAgent                        *string
+	authorization                    *string
+	citrixTransactionId              *string
+	xAdminCredential                 *string
+	accept                           *string
+	citrixLocale                     *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -12472,31 +12491,31 @@ Update a machine account within the machine catalog.  This is typically used to 
 update the machine password so that the site is able to apply the machine account to a
 provisioned VM.
 
-
 This is only relevant for machine catalogs where ProvisioningType is MCS.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog containing the machine account.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @param machine Machine account to update.  May be specified by SamName, UPN, or SID.
- @return ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog containing the machine account.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@param machine Machine account to update.  May be specified by SamName, UPN, or SID.
+	@return ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogMachineAccount(ctx context.Context, nameOrId string, machine string) ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest {
 	return ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		machine: machine,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		machine:    machine,
 	}
 }
 
 // Execute executes the request
-//  @return ProvisioningSchemeMachineAccountResponseModel
+//
+//	@return ProvisioningSchemeMachineAccountResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogMachineAccountExecute(r ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) (*ProvisioningSchemeMachineAccountResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProvisioningSchemeMachineAccountResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProvisioningSchemeMachineAccountResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsUpdateMachineCatalogMachineAccount")
@@ -12603,8 +12622,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12614,8 +12633,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12625,8 +12644,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12636,8 +12655,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -12647,8 +12666,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -12658,8 +12677,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -12669,8 +12688,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -12680,8 +12699,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -12691,8 +12710,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -12710,18 +12729,18 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogMach
 }
 
 type ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                                context.Context
+	ApiService                                         *MachineCatalogsAPIsDAASService
+	citrixCustomerId                                   *string
+	citrixInstanceId                                   *string
+	nameOrId                                           string
 	updateMachineCatalogProvisioningSchemeRequestModel *UpdateMachineCatalogProvisioningSchemeRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                          *string
+	authorization                                      *string
+	citrixTransactionId                                *string
+	accept                                             *string
+	citrixLocale                                       *string
+	async                                              *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -12787,9 +12806,7 @@ MachineCatalogsUpdateMachineCatalogProvisioningScheme Update the machine catalog
 
 Update the machine catalog's provisioning scheme.
 
-
 Only valid when the machine catalog's ProvisioningType is MCS.
-
 
 Provides the ability to update the hard disk image used to provision
 virtual machines. If the provisioning scheme has CleanOnBoot equal to
@@ -12798,43 +12815,41 @@ hard disks are updated to this new image. Regardless of CleanOnBoot,
 all new virtual machines created after this call succeeds will use this
 new hard disk image.
 
-
 A snapshot or VM template is used rather than a VM, so that the
 content of the hard disk for the provisioning scheme can be easily
 determined.
-
 
 The previous hard disk image path is stored into the history (see
 ).  The
 data stored in the history allows for a rollback to be undertaken,
 to revert to the previous hard disk image if required.
 
-
 *Note:* The provisioning scheme for a machine catalog cannot be
 changed while any provisioning tasks are already executing for the
 machine catalog.  Cancel existing provisioning tasks or wait for
 their completion before updating the provisioning scheme.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProvisioningScheme(ctx context.Context, nameOrId string) ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest {
 	return ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return JobResponseModel
+//
+//	@return JobResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProvisioningSchemeExecute(r ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) (*JobResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *JobResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *JobResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsUpdateMachineCatalogProvisioningScheme")
@@ -12940,8 +12955,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -12951,8 +12966,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -12962,8 +12977,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -12973,8 +12988,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -12984,8 +12999,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -12995,8 +13010,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -13006,8 +13021,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -13017,8 +13032,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -13028,8 +13043,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -13039,8 +13054,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProv
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -13058,18 +13073,18 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProv
 }
 
 type ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                               context.Context
+	ApiService                        *MachineCatalogsAPIsDAASService
+	citrixCustomerId                  *string
+	citrixInstanceId                  *string
+	nameOrId                          string
 	updateUpgradeScheduleRequestModel *UpdateUpgradeScheduleRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                         *string
+	authorization                     *string
+	citrixTransactionId               *string
+	accept                            *string
+	citrixLocale                      *string
+	async                             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -13133,24 +13148,24 @@ func (r ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) Execute() 
 /*
 MachineCatalogsUpdateMachineCatalogUpgradeSchedule Reschedule a pending VDA upgrade schedule for a machine catalog.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest {
 	return ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgradeScheduleExecute(r ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsUpdateMachineCatalogUpgradeSchedule")
@@ -13256,8 +13271,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -13267,8 +13282,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -13278,8 +13293,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -13289,8 +13304,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -13300,8 +13315,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -13311,8 +13326,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -13322,8 +13337,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -13333,8 +13348,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -13344,8 +13359,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -13355,8 +13370,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -13365,18 +13380,18 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgr
 }
 
 type ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest struct {
-	ctx context.Context
-	ApiService *MachineCatalogsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                          context.Context
+	ApiService                                   *MachineCatalogsAPIsDAASService
+	citrixCustomerId                             *string
+	citrixInstanceId                             *string
+	nameOrId                                     string
 	vDAComponentsSelectionValidationRequestModel *VDAComponentsSelectionValidationRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                    *string
+	authorization                                *string
+	citrixTransactionId                          *string
+	accept                                       *string
+	citrixLocale                                 *string
+	async                                        *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -13440,26 +13455,27 @@ func (r ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectio
 /*
 MachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelection Validate the VDA component selection at catalog level that can be Included/Excluded and features that need enable during an VDA upgrade using VDA Upgrade Service.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
- @return ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+	@return ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest
 */
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelection(ctx context.Context, nameOrId string) ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest {
 	return ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return VDAComponentsSelectionValidationResponseModel
+//
+//	@return VDAComponentsSelectionValidationResponseModel
 func (a *MachineCatalogsAPIsDAASService) MachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionExecute(r ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) (*VDAComponentsSelectionValidationResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VDAComponentsSelectionValidationResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VDAComponentsSelectionValidationResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelection")
@@ -13565,8 +13581,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsValidateMachineCatalogVD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -13576,8 +13592,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsValidateMachineCatalogVD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -13587,8 +13603,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsValidateMachineCatalogVD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -13598,8 +13614,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsValidateMachineCatalogVD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -13609,8 +13625,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsValidateMachineCatalogVD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -13620,8 +13636,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsValidateMachineCatalogVD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -13631,8 +13647,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsValidateMachineCatalogVD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -13642,8 +13658,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsValidateMachineCatalogVD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -13653,8 +13669,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsValidateMachineCatalogVD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -13664,8 +13680,8 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsValidateMachineCatalogVD
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

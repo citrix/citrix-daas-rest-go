@@ -44,15 +44,15 @@ type ProvisioningSchemeMachineAccountResponseModel struct {
 	// The service principal names (SPN) associated with the Machine object.
 	ServicePrincipalNames []string `json:"ServicePrincipalNames,omitempty"`
 	// The IP addresses associated with the Machine object.
-	IPAddress []string `json:"IPAddress,omitempty"`
+	IPAddress              []string                               `json:"IPAddress,omitempty"`
 	IPAddressResolveMethod *IdentityMachineIPAddressResolveMethod `json:"IPAddressResolveMethod,omitempty"`
 	// Indicates whether the Machine object is enabled. NOTE that this is opposite of the low-level SDK, which has \"IsDisabled\". By changing to \"Enabled\" it avoids a confusing double-negative.  It also matches all other SDK objects by using \"Enabled\" rather than \"IsEnabled\".
 	Enabled *bool `json:"Enabled,omitempty"`
 	// Indicates whether the Machine object is locked. low-level has \"IsLocked\".
 	Locked *bool `json:"Locked,omitempty"`
 	// Properties fetched and populated in the Machine object.  This is a bitfield indicating the fetched properties.
-	PropertiesFetched int32 `json:"PropertiesFetched"`
-	State ProvisioningSchemeMachineAccountState `json:"State"`
+	PropertiesFetched int32                                 `json:"PropertiesFetched"`
+	State             ProvisioningSchemeMachineAccountState `json:"State"`
 }
 
 // NewProvisioningSchemeMachineAccountResponseModel instantiates a new ProvisioningSchemeMachineAccountResponseModel object
@@ -106,6 +106,7 @@ func (o *ProvisioningSchemeMachineAccountResponseModel) HasDomain() bool {
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetDomain(v string) {
 	o.Domain.Set(&v)
 }
+
 // SetDomainNil sets the value for Domain to be an explicit nil
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetDomainNil() {
 	o.Domain.Set(nil)
@@ -148,6 +149,7 @@ func (o *ProvisioningSchemeMachineAccountResponseModel) HasForest() bool {
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetForest(v string) {
 	o.Forest.Set(&v)
 }
+
 // SetForestNil sets the value for Forest to be an explicit nil
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetForestNil() {
 	o.Forest.Set(nil)
@@ -190,6 +192,7 @@ func (o *ProvisioningSchemeMachineAccountResponseModel) HasGuid() bool {
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetGuid(v string) {
 	o.Guid.Set(&v)
 }
+
 // SetGuidNil sets the value for Guid to be an explicit nil
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetGuidNil() {
 	o.Guid.Set(nil)
@@ -232,6 +235,7 @@ func (o *ProvisioningSchemeMachineAccountResponseModel) HasDistinguishedName() b
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetDistinguishedName(v string) {
 	o.DistinguishedName.Set(&v)
 }
+
 // SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetDistinguishedNameNil() {
 	o.DistinguishedName.Set(nil)
@@ -274,6 +278,7 @@ func (o *ProvisioningSchemeMachineAccountResponseModel) HasCanonicalName() bool 
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetCanonicalName(v string) {
 	o.CanonicalName.Set(&v)
 }
+
 // SetCanonicalNameNil sets the value for CanonicalName to be an explicit nil
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetCanonicalNameNil() {
 	o.CanonicalName.Set(nil)
@@ -348,6 +353,7 @@ func (o *ProvisioningSchemeMachineAccountResponseModel) HasDirectoryServer() boo
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetDirectoryServer(v string) {
 	o.DirectoryServer.Set(&v)
 }
+
 // SetDirectoryServerNil sets the value for DirectoryServer to be an explicit nil
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetDirectoryServerNil() {
 	o.DirectoryServer.Set(nil)
@@ -390,6 +396,7 @@ func (o *ProvisioningSchemeMachineAccountResponseModel) HasSamName() bool {
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetSamName(v string) {
 	o.SamName.Set(&v)
 }
+
 // SetSamNameNil sets the value for SamName to be an explicit nil
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetSamNameNil() {
 	o.SamName.Set(nil)
@@ -432,6 +439,7 @@ func (o *ProvisioningSchemeMachineAccountResponseModel) HasSamAccountName() bool
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetSamAccountName(v string) {
 	o.SamAccountName.Set(&v)
 }
+
 // SetSamAccountNameNil sets the value for SamAccountName to be an explicit nil
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetSamAccountNameNil() {
 	o.SamAccountName.Set(nil)
@@ -474,6 +482,7 @@ func (o *ProvisioningSchemeMachineAccountResponseModel) HasDnsName() bool {
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetDnsName(v string) {
 	o.DnsName.Set(&v)
 }
+
 // SetDnsNameNil sets the value for DnsName to be an explicit nil
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetDnsNameNil() {
 	o.DnsName.Set(nil)
@@ -516,6 +525,7 @@ func (o *ProvisioningSchemeMachineAccountResponseModel) HasSid() bool {
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetSid(v string) {
 	o.Sid.Set(&v)
 }
+
 // SetSidNil sets the value for Sid to be an explicit nil
 func (o *ProvisioningSchemeMachineAccountResponseModel) SetSidNil() {
 	o.Sid.Set(nil)
@@ -737,7 +747,7 @@ func (o *ProvisioningSchemeMachineAccountResponseModel) SetState(v ProvisioningS
 }
 
 func (o ProvisioningSchemeMachineAccountResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -834,5 +844,3 @@ func (v *NullableProvisioningSchemeMachineAccountResponseModel) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -15,31 +15,31 @@ import (
 	"fmt"
 )
 
-// ProvisionedVirtualMachineSearchProperty Properties which can be used for provisioned virtual machines.             
+// ProvisionedVirtualMachineSearchProperty Properties which can be used for provisioned virtual machines.
 type ProvisionedVirtualMachineSearchProperty string
 
 // List of ProvisionedVirtualMachineSearchProperty
 const (
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_ACTIVE_OPERATION ProvisionedVirtualMachineSearchProperty = "ActiveOperation"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_VM_SID ProvisionedVirtualMachineSearchProperty = "VMSid"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_CPU_COUNT ProvisionedVirtualMachineSearchProperty = "CpuCount"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_IDENTITY_TYPE ProvisionedVirtualMachineSearchProperty = "IdentityType"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_IDENTITIES ProvisionedVirtualMachineSearchProperty = "Identities"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_IDENTITY_CONTENT ProvisionedVirtualMachineSearchProperty = "IdentityContent"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_IMAGE_OUT_OF_DATE ProvisionedVirtualMachineSearchProperty = "ImageOutOfDate"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_LAST_BOOT_TIME ProvisionedVirtualMachineSearchProperty = "LastBootTime"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_MEMORY_MB ProvisionedVirtualMachineSearchProperty = "MemoryMB"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_PERSISTENCY ProvisionedVirtualMachineSearchProperty = "Persistency"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_PROVISIONING_SCHEME_NAME ProvisionedVirtualMachineSearchProperty = "ProvisioningSchemeName"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_PROVISIONING_SCHEME_VERSION ProvisionedVirtualMachineSearchProperty = "ProvisioningSchemeVersion"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_ACTIVE_OPERATION                     ProvisionedVirtualMachineSearchProperty = "ActiveOperation"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_VM_SID                               ProvisionedVirtualMachineSearchProperty = "VMSid"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_CPU_COUNT                            ProvisionedVirtualMachineSearchProperty = "CpuCount"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_IDENTITY_TYPE                        ProvisionedVirtualMachineSearchProperty = "IdentityType"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_IDENTITIES                           ProvisionedVirtualMachineSearchProperty = "Identities"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_IDENTITY_CONTENT                     ProvisionedVirtualMachineSearchProperty = "IdentityContent"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_IMAGE_OUT_OF_DATE                    ProvisionedVirtualMachineSearchProperty = "ImageOutOfDate"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_LAST_BOOT_TIME                       ProvisionedVirtualMachineSearchProperty = "LastBootTime"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_MEMORY_MB                            ProvisionedVirtualMachineSearchProperty = "MemoryMB"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_PERSISTENCY                          ProvisionedVirtualMachineSearchProperty = "Persistency"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_PROVISIONING_SCHEME_NAME             ProvisionedVirtualMachineSearchProperty = "ProvisioningSchemeName"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_PROVISIONING_SCHEME_VERSION          ProvisionedVirtualMachineSearchProperty = "ProvisioningSchemeVersion"
 	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_PROV_VM_CONFIGURATION_UPDATE_VERSION ProvisionedVirtualMachineSearchProperty = "ProvVMConfigurationUpdateVersion"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_VM_NAME ProvisionedVirtualMachineSearchProperty = "VMName"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_ACTIVATION_TYPE ProvisionedVirtualMachineSearchProperty = "ActivationType"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_USE_WRITE_BACK_CACHE ProvisionedVirtualMachineSearchProperty = "UseWriteBackCache"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_WRITE_BACK_CACHE_DISK_SIZE ProvisionedVirtualMachineSearchProperty = "WriteBackCacheDiskSize"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_WRITE_BACK_CACHE_MEMORY_SIZE ProvisionedVirtualMachineSearchProperty = "WriteBackCacheMemorySize"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_RESOURCE_POOL_ID ProvisionedVirtualMachineSearchProperty = "ResourcePoolId"
-	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_NETWORK_ID ProvisionedVirtualMachineSearchProperty = "NetworkId"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_VM_NAME                              ProvisionedVirtualMachineSearchProperty = "VMName"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_ACTIVATION_TYPE                      ProvisionedVirtualMachineSearchProperty = "ActivationType"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_USE_WRITE_BACK_CACHE                 ProvisionedVirtualMachineSearchProperty = "UseWriteBackCache"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_WRITE_BACK_CACHE_DISK_SIZE           ProvisionedVirtualMachineSearchProperty = "WriteBackCacheDiskSize"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_WRITE_BACK_CACHE_MEMORY_SIZE         ProvisionedVirtualMachineSearchProperty = "WriteBackCacheMemorySize"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_RESOURCE_POOL_ID                     ProvisionedVirtualMachineSearchProperty = "ResourcePoolId"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_NETWORK_ID                           ProvisionedVirtualMachineSearchProperty = "NetworkId"
 )
 
 // All allowed values of ProvisionedVirtualMachineSearchProperty enum
@@ -72,7 +72,7 @@ func (v *ProvisionedVirtualMachineSearchProperty) UnmarshalJSON(src []byte) erro
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ProvisionedVirtualMachineSearchProperty(value)
 	return nil
 }
@@ -138,4 +138,3 @@ func (v *NullableProvisionedVirtualMachineSearchProperty) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

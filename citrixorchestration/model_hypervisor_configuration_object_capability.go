@@ -74,6 +74,7 @@ func (o *HypervisorConfigurationObjectCapability) HasResourceType() bool {
 func (o *HypervisorConfigurationObjectCapability) SetResourceType(v string) {
 	o.ResourceType.Set(&v)
 }
+
 // SetResourceTypeNil sets the value for ResourceType to be an explicit nil
 func (o *HypervisorConfigurationObjectCapability) SetResourceTypeNil() {
 	o.ResourceType.Set(nil)
@@ -118,7 +119,7 @@ func (o *HypervisorConfigurationObjectCapability) SetTypeCapabilities(v []string
 }
 
 func (o HypervisorConfigurationObjectCapability) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -171,5 +172,3 @@ func (v *NullableHypervisorConfigurationObjectCapability) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

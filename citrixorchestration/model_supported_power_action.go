@@ -20,13 +20,13 @@ type SupportedPowerAction string
 
 // List of SupportedPowerAction
 const (
-	SUPPORTEDPOWERACTION_UNKNOWN SupportedPowerAction = "Unknown"
-	SUPPORTEDPOWERACTION_POWER_ON SupportedPowerAction = "PowerOn"
-	SUPPORTEDPOWERACTION_POWER_OFF SupportedPowerAction = "PowerOff"
+	SUPPORTEDPOWERACTION_UNKNOWN        SupportedPowerAction = "Unknown"
+	SUPPORTEDPOWERACTION_POWER_ON       SupportedPowerAction = "PowerOn"
+	SUPPORTEDPOWERACTION_POWER_OFF      SupportedPowerAction = "PowerOff"
 	SUPPORTEDPOWERACTION_SUSPEND_RESUME SupportedPowerAction = "SuspendResume"
-	SUPPORTEDPOWERACTION_RESTART SupportedPowerAction = "Restart"
-	SUPPORTEDPOWERACTION_RESET SupportedPowerAction = "Reset"
-	SUPPORTEDPOWERACTION_SHUTDOWN SupportedPowerAction = "Shutdown"
+	SUPPORTEDPOWERACTION_RESTART        SupportedPowerAction = "Restart"
+	SUPPORTEDPOWERACTION_RESET          SupportedPowerAction = "Reset"
+	SUPPORTEDPOWERACTION_SHUTDOWN       SupportedPowerAction = "Shutdown"
 )
 
 // All allowed values of SupportedPowerAction enum
@@ -46,7 +46,7 @@ func (v *SupportedPowerAction) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SupportedPowerAction(value)
 	return nil
 }
@@ -112,4 +112,3 @@ func (v *NullableSupportedPowerAction) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

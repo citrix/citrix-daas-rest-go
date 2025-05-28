@@ -20,24 +20,24 @@ type ObjectType string
 
 // List of ObjectType
 const (
-	OBJECTTYPE_UNKNOWN ObjectType = "Unknown"
-	OBJECTTYPE_MACHINE_CATALOG ObjectType = "MachineCatalog"
-	OBJECTTYPE_DELIVERY_GROUP ObjectType = "DeliveryGroup"
-	OBJECTTYPE_MACHINE ObjectType = "Machine"
-	OBJECTTYPE_APPLICATION ObjectType = "Application"
-	OBJECTTYPE_APPLICATION_GROUP ObjectType = "ApplicationGroup"
-	OBJECTTYPE_ADMIN_FOLDER ObjectType = "AdminFolder"
-	OBJECTTYPE_TAG ObjectType = "Tag"
-	OBJECTTYPE_ADMIN_ROLE ObjectType = "AdminRole"
-	OBJECTTYPE_ADMIN_SCOPE ObjectType = "AdminScope"
-	OBJECTTYPE_HYPERVISOR ObjectType = "Hypervisor"
+	OBJECTTYPE_UNKNOWN                    ObjectType = "Unknown"
+	OBJECTTYPE_MACHINE_CATALOG            ObjectType = "MachineCatalog"
+	OBJECTTYPE_DELIVERY_GROUP             ObjectType = "DeliveryGroup"
+	OBJECTTYPE_MACHINE                    ObjectType = "Machine"
+	OBJECTTYPE_APPLICATION                ObjectType = "Application"
+	OBJECTTYPE_APPLICATION_GROUP          ObjectType = "ApplicationGroup"
+	OBJECTTYPE_ADMIN_FOLDER               ObjectType = "AdminFolder"
+	OBJECTTYPE_TAG                        ObjectType = "Tag"
+	OBJECTTYPE_ADMIN_ROLE                 ObjectType = "AdminRole"
+	OBJECTTYPE_ADMIN_SCOPE                ObjectType = "AdminScope"
+	OBJECTTYPE_HYPERVISOR                 ObjectType = "Hypervisor"
 	OBJECTTYPE_REMOTE_PC_ENROLLMENT_SCOPE ObjectType = "RemotePCEnrollmentScope"
-	OBJECTTYPE_REBOOT_SCHEDULE ObjectType = "RebootSchedule"
-	OBJECTTYPE_RESOURCE_POOL ObjectType = "ResourcePool"
-	OBJECTTYPE_IMAGE ObjectType = "Image"
-	OBJECTTYPE_ZONE ObjectType = "Zone"
-	OBJECTTYPE_SITE ObjectType = "Site"
-	OBJECTTYPE_LICENSING ObjectType = "Licensing"
+	OBJECTTYPE_REBOOT_SCHEDULE            ObjectType = "RebootSchedule"
+	OBJECTTYPE_RESOURCE_POOL              ObjectType = "ResourcePool"
+	OBJECTTYPE_IMAGE                      ObjectType = "Image"
+	OBJECTTYPE_ZONE                       ObjectType = "Zone"
+	OBJECTTYPE_SITE                       ObjectType = "Site"
+	OBJECTTYPE_LICENSING                  ObjectType = "Licensing"
 )
 
 // All allowed values of ObjectType enum
@@ -68,7 +68,7 @@ func (v *ObjectType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ObjectType(value)
 	return nil
 }
@@ -134,4 +134,3 @@ func (v *NullableObjectType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

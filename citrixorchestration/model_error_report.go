@@ -23,7 +23,7 @@ type ErrorReport struct {
 	CitrixErrorId string `json:"CitrixErrorId"`
 	// Gets or sets  the name of the component that threw the error
 	ComponentName string `json:"ComponentName"`
-	// Gets or sets the version of the component that threw the error             
+	// Gets or sets the version of the component that threw the error
 	ComponentVersion string `json:"ComponentVersion"`
 	// Gets Key/value pairs of error information to be added to the error report
 	ErrorData map[string]string `json:"ErrorData"`
@@ -147,7 +147,7 @@ func (o *ErrorReport) SetErrorData(v map[string]string) {
 }
 
 func (o ErrorReport) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -198,5 +198,3 @@ func (v *NullableErrorReport) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

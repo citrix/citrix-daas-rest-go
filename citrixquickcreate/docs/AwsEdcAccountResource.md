@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResourceType** | [**AwsAccountResourceType**](AwsAccountResourceType.md) |  | 
+**ResourceType** | [**AwsAccountResourceType**](AwsAccountResourceType.md) | AWS Resource type | 
 
 ## Methods
 

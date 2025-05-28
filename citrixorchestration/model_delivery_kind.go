@@ -20,10 +20,10 @@ type DeliveryKind string
 
 // List of DeliveryKind
 const (
-	DELIVERYKIND_UNKNOWN DeliveryKind = "Unknown"
-	DELIVERYKIND_DESKTOPS_ONLY DeliveryKind = "DesktopsOnly"
+	DELIVERYKIND_UNKNOWN           DeliveryKind = "Unknown"
+	DELIVERYKIND_DESKTOPS_ONLY     DeliveryKind = "DesktopsOnly"
 	DELIVERYKIND_DESKTOPS_AND_APPS DeliveryKind = "DesktopsAndApps"
-	DELIVERYKIND_APPS_ONLY DeliveryKind = "AppsOnly"
+	DELIVERYKIND_APPS_ONLY         DeliveryKind = "AppsOnly"
 )
 
 // All allowed values of DeliveryKind enum
@@ -40,7 +40,7 @@ func (v *DeliveryKind) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DeliveryKind(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableDeliveryKind) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

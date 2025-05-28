@@ -15,12 +15,12 @@ import (
 	"fmt"
 )
 
-// FilterMatchType 
+// FilterMatchType
 type FilterMatchType string
 
 // List of FilterMatchType
 const (
-	FILTERMATCHTYPE_UNKNOWN FilterMatchType = "Unknown"
+	FILTERMATCHTYPE_UNKNOWN   FilterMatchType = "Unknown"
 	FILTERMATCHTYPE_MATCH_ANY FilterMatchType = "MatchAny"
 	FILTERMATCHTYPE_MATCH_ALL FilterMatchType = "MatchAll"
 )
@@ -38,7 +38,7 @@ func (v *FilterMatchType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = FilterMatchType(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableFilterMatchType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

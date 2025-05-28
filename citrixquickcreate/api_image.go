@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 // ImageQCSService ImageQCS service
 type ImageQCSService service
 
 type ImageQCSCopyImageAsyncRequest struct {
-	ctx context.Context
-	ApiService *ImageQCSService
-	customerId string
-	accountId string
-	imageId string
-	imageName *string
+	ctx                 context.Context
+	ApiService          *ImageQCSService
+	customerId          string
+	accountId           string
+	imageId             string
+	imageName           *string
 	citrixTransactionId *string
 }
 
@@ -52,30 +51,31 @@ func (r ImageQCSCopyImageAsyncRequest) Execute() (*AwsEdcImage, *http.Response, 
 /*
 CopyImageAsync Makes a copy of a workspace image
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of the account
- @param imageId ID of the image
- @return ImageQCSCopyImageAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of the account
+	@param imageId ID of the image
+	@return ImageQCSCopyImageAsyncRequest
 */
 func (a *ImageQCSService) CopyImageAsync(ctx context.Context, customerId string, accountId string, imageId string) ImageQCSCopyImageAsyncRequest {
 	return ImageQCSCopyImageAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		accountId: accountId,
-		imageId: imageId,
+		accountId:  accountId,
+		imageId:    imageId,
 	}
 }
 
 // Execute executes the request
-//  @return AwsEdcImage
+//
+//	@return AwsEdcImage
 func (a *ImageQCSService) CopyImageAsyncExecute(r ImageQCSCopyImageAsyncRequest) (*AwsEdcImage, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AwsEdcImage
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AwsEdcImage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageQCSService.CopyImageAsync")
@@ -93,7 +93,7 @@ func (a *ImageQCSService) CopyImageAsyncExecute(r ImageQCSCopyImageAsyncRequest)
 	localVarFormParams := url.Values{}
 
 	if r.imageName != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "imageName", r.imageName, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "imageName", r.imageName, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -113,7 +113,7 @@ func (a *ImageQCSService) CopyImageAsyncExecute(r ImageQCSCopyImageAsyncRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -146,6 +146,13 @@ func (a *ImageQCSService) CopyImageAsyncExecute(r ImageQCSCopyImageAsyncRequest)
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -167,11 +174,11 @@ func (a *ImageQCSService) CopyImageAsyncExecute(r ImageQCSCopyImageAsyncRequest)
 }
 
 type ImageQCSGetImageAsyncRequest struct {
-	ctx context.Context
-	ApiService *ImageQCSService
-	customerId string
-	accountId string
-	imageId string
+	ctx                 context.Context
+	ApiService          *ImageQCSService
+	customerId          string
+	accountId           string
+	imageId             string
 	citrixTransactionId *string
 }
 
@@ -188,30 +195,31 @@ func (r ImageQCSGetImageAsyncRequest) Execute() (*AwsEdcImage, *http.Response, e
 /*
 GetImageAsync Gets image from workspace
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of account
- @param imageId Id of image
- @return ImageQCSGetImageAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of account
+	@param imageId Id of image
+	@return ImageQCSGetImageAsyncRequest
 */
 func (a *ImageQCSService) GetImageAsync(ctx context.Context, customerId string, accountId string, imageId string) ImageQCSGetImageAsyncRequest {
 	return ImageQCSGetImageAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		accountId: accountId,
-		imageId: imageId,
+		accountId:  accountId,
+		imageId:    imageId,
 	}
 }
 
 // Execute executes the request
-//  @return AwsEdcImage
+//
+//	@return AwsEdcImage
 func (a *ImageQCSService) GetImageAsyncExecute(r ImageQCSGetImageAsyncRequest) (*AwsEdcImage, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AwsEdcImage
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AwsEdcImage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageQCSService.GetImageAsync")
@@ -246,7 +254,7 @@ func (a *ImageQCSService) GetImageAsyncExecute(r ImageQCSGetImageAsyncRequest) (
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -279,6 +287,13 @@ func (a *ImageQCSService) GetImageAsyncExecute(r ImageQCSGetImageAsyncRequest) (
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -300,10 +315,10 @@ func (a *ImageQCSService) GetImageAsyncExecute(r ImageQCSGetImageAsyncRequest) (
 }
 
 type ImageQCSGetImagesAsyncRequest struct {
-	ctx context.Context
-	ApiService *ImageQCSService
-	customerId string
-	accountId string
+	ctx                 context.Context
+	ApiService          *ImageQCSService
+	customerId          string
+	accountId           string
 	citrixTransactionId *string
 }
 
@@ -320,28 +335,29 @@ func (r ImageQCSGetImagesAsyncRequest) Execute() (*Images, *http.Response, error
 /*
 GetImagesAsync Gets images from workspace
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of account
- @return ImageQCSGetImagesAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of account
+	@return ImageQCSGetImagesAsyncRequest
 */
 func (a *ImageQCSService) GetImagesAsync(ctx context.Context, customerId string, accountId string) ImageQCSGetImagesAsyncRequest {
 	return ImageQCSGetImagesAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		accountId: accountId,
+		accountId:  accountId,
 	}
 }
 
 // Execute executes the request
-//  @return Images
+//
+//	@return Images
 func (a *ImageQCSService) GetImagesAsyncExecute(r ImageQCSGetImagesAsyncRequest) (*Images, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Images
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Images
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageQCSService.GetImagesAsync")
@@ -375,7 +391,7 @@ func (a *ImageQCSService) GetImagesAsyncExecute(r ImageQCSGetImagesAsyncRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -408,6 +424,13 @@ func (a *ImageQCSService) GetImagesAsyncExecute(r ImageQCSGetImagesAsyncRequest)
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -429,12 +452,12 @@ func (a *ImageQCSService) GetImagesAsyncExecute(r ImageQCSGetImagesAsyncRequest)
 }
 
 type ImageQCSImportImageAsyncRequest struct {
-	ctx context.Context
-	ApiService *ImageQCSService
-	customerId string
-	accountId string
+	ctx                 context.Context
+	ApiService          *ImageQCSService
+	customerId          string
+	accountId           string
 	citrixTransactionId *string
-	body *ImportAwsEdcImage
+	body                *ImportAwsEdcImage
 }
 
 // The Transaction Id.
@@ -456,28 +479,29 @@ func (r ImageQCSImportImageAsyncRequest) Execute() (*AwsEdcImage, *http.Response
 /*
 ImportImageAsync Imports image to workspace
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of hypervisor
- @return ImageQCSImportImageAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of hypervisor
+	@return ImageQCSImportImageAsyncRequest
 */
 func (a *ImageQCSService) ImportImageAsync(ctx context.Context, customerId string, accountId string) ImageQCSImportImageAsyncRequest {
 	return ImageQCSImportImageAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		accountId: accountId,
+		accountId:  accountId,
 	}
 }
 
 // Execute executes the request
-//  @return AwsEdcImage
+//
+//	@return AwsEdcImage
 func (a *ImageQCSService) ImportImageAsyncExecute(r ImageQCSImportImageAsyncRequest) (*AwsEdcImage, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AwsEdcImage
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AwsEdcImage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageQCSService.ImportImageAsync")
@@ -511,7 +535,7 @@ func (a *ImageQCSService) ImportImageAsyncExecute(r ImageQCSImportImageAsyncRequ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -546,6 +570,13 @@ func (a *ImageQCSService) ImportImageAsyncExecute(r ImageQCSImportImageAsyncRequ
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -567,12 +598,12 @@ func (a *ImageQCSService) ImportImageAsyncExecute(r ImageQCSImportImageAsyncRequ
 }
 
 type ImageQCSRemoveImageAsyncRequest struct {
-	ctx context.Context
-	ApiService *ImageQCSService
-	customerId string
-	accountId string
-	imageId string
-	forceDelete *bool
+	ctx                 context.Context
+	ApiService          *ImageQCSService
+	customerId          string
+	accountId           string
+	imageId             string
+	forceDelete         *bool
 	citrixTransactionId *string
 }
 
@@ -595,28 +626,28 @@ func (r ImageQCSRemoveImageAsyncRequest) Execute() (*http.Response, error) {
 /*
 RemoveImageAsync Removes image to workspace
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of hypervisor
- @param imageId ID of image
- @return ImageQCSRemoveImageAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of hypervisor
+	@param imageId ID of image
+	@return ImageQCSRemoveImageAsyncRequest
 */
 func (a *ImageQCSService) RemoveImageAsync(ctx context.Context, customerId string, accountId string, imageId string) ImageQCSRemoveImageAsyncRequest {
 	return ImageQCSRemoveImageAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		accountId: accountId,
-		imageId: imageId,
+		accountId:  accountId,
+		imageId:    imageId,
 	}
 }
 
 // Execute executes the request
 func (a *ImageQCSService) RemoveImageAsyncExecute(r ImageQCSRemoveImageAsyncRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageQCSService.RemoveImageAsync")
@@ -634,7 +665,10 @@ func (a *ImageQCSService) RemoveImageAsyncExecute(r ImageQCSRemoveImageAsyncRequ
 	localVarFormParams := url.Values{}
 
 	if r.forceDelete != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.forceDelete = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -654,7 +688,7 @@ func (a *ImageQCSService) RemoveImageAsyncExecute(r ImageQCSRemoveImageAsyncRequ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -685,6 +719,13 @@ func (a *ImageQCSService) RemoveImageAsyncExecute(r ImageQCSRemoveImageAsyncRequ
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {

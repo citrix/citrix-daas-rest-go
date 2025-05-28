@@ -19,12 +19,15 @@ var _ MappedNullable = &AccountResource{}
 
 // AccountResource Base class for a resource associated with an account
 type AccountResource struct {
+	// The type of account the resource is associated with
 	AccountType AccountType `json:"accountType"`
 	// Account Id
 	AccountId NullableString `json:"accountId,omitempty"`
 	// Resource Id
 	ResourceId NullableString `json:"resourceId,omitempty"`
 }
+
+type _AccountResource AccountResource
 
 // NewAccountResource instantiates a new AccountResource object
 // This constructor will assign default values to properties that have it defined,
@@ -100,6 +103,7 @@ func (o *AccountResource) HasAccountId() bool {
 func (o *AccountResource) SetAccountId(v string) {
 	o.AccountId.Set(&v)
 }
+
 // SetAccountIdNil sets the value for AccountId to be an explicit nil
 func (o *AccountResource) SetAccountIdNil() {
 	o.AccountId.Set(nil)
@@ -142,6 +146,7 @@ func (o *AccountResource) HasResourceId() bool {
 func (o *AccountResource) SetResourceId(v string) {
 	o.ResourceId.Set(&v)
 }
+
 // SetResourceIdNil sets the value for ResourceId to be an explicit nil
 func (o *AccountResource) SetResourceIdNil() {
 	o.ResourceId.Set(nil)
@@ -153,7 +158,7 @@ func (o *AccountResource) UnsetResourceId() {
 }
 
 func (o AccountResource) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -207,5 +212,3 @@ func (v *NullableAccountResource) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

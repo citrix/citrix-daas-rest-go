@@ -20,9 +20,9 @@ type ResourceValidationResult string
 
 // List of ResourceValidationResult
 const (
-	RESOURCEVALIDATIONRESULT_PASSED ResourceValidationResult = "Passed"
+	RESOURCEVALIDATIONRESULT_PASSED              ResourceValidationResult = "Passed"
 	RESOURCEVALIDATIONRESULT_PASSED_WITH_WARNING ResourceValidationResult = "PassedWithWarning"
-	RESOURCEVALIDATIONRESULT_FAILED ResourceValidationResult = "Failed"
+	RESOURCEVALIDATIONRESULT_FAILED              ResourceValidationResult = "Failed"
 )
 
 // All allowed values of ResourceValidationResult enum
@@ -38,7 +38,7 @@ func (v *ResourceValidationResult) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ResourceValidationResult(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableResourceValidationResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

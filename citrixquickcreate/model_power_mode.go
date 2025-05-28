@@ -21,7 +21,7 @@ type PowerMode string
 // List of PowerMode
 const (
 	POWERMODE_OFF PowerMode = "Off"
-	POWERMODE_ON PowerMode = "On"
+	POWERMODE_ON  PowerMode = "On"
 )
 
 // All allowed values of PowerMode enum
@@ -108,4 +108,3 @@ func (v *NullablePowerMode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -22,6 +22,7 @@ type AwsEdcAccountResourceSubnet struct {
 	AwsEdcAccountResource
 	// Subnet Id
 	SubnetId NullableString `json:"subnetId,omitempty"`
+	// Subnet Status  Enum values AVAILABLE, PENDING
 	Status NullableAwsEdcSubnetStatus `json:"status,omitempty"`
 	// Subnet Status
 	SubnetArn NullableString `json:"subnetArn,omitempty"`
@@ -43,12 +44,15 @@ type AwsEdcAccountResourceSubnet struct {
 	IsSupportedByAwsManagedCapacity *bool `json:"isSupportedByAwsManagedCapacity,omitempty"`
 }
 
+type _AwsEdcAccountResourceSubnet AwsEdcAccountResourceSubnet
+
 // NewAwsEdcAccountResourceSubnet instantiates a new AwsEdcAccountResourceSubnet object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAwsEdcAccountResourceSubnet(accountType AccountType) *AwsEdcAccountResourceSubnet {
+func NewAwsEdcAccountResourceSubnet(resourceType AwsAccountResourceType, accountType AccountType) *AwsEdcAccountResourceSubnet {
 	this := AwsEdcAccountResourceSubnet{}
+	this.ResourceType = resourceType
 	this.AccountType = accountType
 	return &this
 }
@@ -93,6 +97,7 @@ func (o *AwsEdcAccountResourceSubnet) HasSubnetId() bool {
 func (o *AwsEdcAccountResourceSubnet) SetSubnetId(v string) {
 	o.SubnetId.Set(&v)
 }
+
 // SetSubnetIdNil sets the value for SubnetId to be an explicit nil
 func (o *AwsEdcAccountResourceSubnet) SetSubnetIdNil() {
 	o.SubnetId.Set(nil)
@@ -135,6 +140,7 @@ func (o *AwsEdcAccountResourceSubnet) HasStatus() bool {
 func (o *AwsEdcAccountResourceSubnet) SetStatus(v AwsEdcSubnetStatus) {
 	o.Status.Set(&v)
 }
+
 // SetStatusNil sets the value for Status to be an explicit nil
 func (o *AwsEdcAccountResourceSubnet) SetStatusNil() {
 	o.Status.Set(nil)
@@ -177,6 +183,7 @@ func (o *AwsEdcAccountResourceSubnet) HasSubnetArn() bool {
 func (o *AwsEdcAccountResourceSubnet) SetSubnetArn(v string) {
 	o.SubnetArn.Set(&v)
 }
+
 // SetSubnetArnNil sets the value for SubnetArn to be an explicit nil
 func (o *AwsEdcAccountResourceSubnet) SetSubnetArnNil() {
 	o.SubnetArn.Set(nil)
@@ -219,6 +226,7 @@ func (o *AwsEdcAccountResourceSubnet) HasCidrBlock() bool {
 func (o *AwsEdcAccountResourceSubnet) SetCidrBlock(v string) {
 	o.CidrBlock.Set(&v)
 }
+
 // SetCidrBlockNil sets the value for CidrBlock to be an explicit nil
 func (o *AwsEdcAccountResourceSubnet) SetCidrBlockNil() {
 	o.CidrBlock.Set(nil)
@@ -261,6 +269,7 @@ func (o *AwsEdcAccountResourceSubnet) HasVpcId() bool {
 func (o *AwsEdcAccountResourceSubnet) SetVpcId(v string) {
 	o.VpcId.Set(&v)
 }
+
 // SetVpcIdNil sets the value for VpcId to be an explicit nil
 func (o *AwsEdcAccountResourceSubnet) SetVpcIdNil() {
 	o.VpcId.Set(nil)
@@ -303,6 +312,7 @@ func (o *AwsEdcAccountResourceSubnet) HasAwsRegion() bool {
 func (o *AwsEdcAccountResourceSubnet) SetAwsRegion(v string) {
 	o.AwsRegion.Set(&v)
 }
+
 // SetAwsRegionNil sets the value for AwsRegion to be an explicit nil
 func (o *AwsEdcAccountResourceSubnet) SetAwsRegionNil() {
 	o.AwsRegion.Set(nil)
@@ -345,6 +355,7 @@ func (o *AwsEdcAccountResourceSubnet) HasAvailabilityZoneId() bool {
 func (o *AwsEdcAccountResourceSubnet) SetAvailabilityZoneId(v string) {
 	o.AvailabilityZoneId.Set(&v)
 }
+
 // SetAvailabilityZoneIdNil sets the value for AvailabilityZoneId to be an explicit nil
 func (o *AwsEdcAccountResourceSubnet) SetAvailabilityZoneIdNil() {
 	o.AvailabilityZoneId.Set(nil)
@@ -387,6 +398,7 @@ func (o *AwsEdcAccountResourceSubnet) HasAvailabilityZone() bool {
 func (o *AwsEdcAccountResourceSubnet) SetAvailabilityZone(v string) {
 	o.AvailabilityZone.Set(&v)
 }
+
 // SetAvailabilityZoneNil sets the value for AvailabilityZone to be an explicit nil
 func (o *AwsEdcAccountResourceSubnet) SetAvailabilityZoneNil() {
 	o.AvailabilityZone.Set(nil)
@@ -418,7 +430,7 @@ func (o *AwsEdcAccountResourceSubnet) GetTagsOk() ([]Tag, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *AwsEdcAccountResourceSubnet) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -462,6 +474,7 @@ func (o *AwsEdcAccountResourceSubnet) HasName() bool {
 func (o *AwsEdcAccountResourceSubnet) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AwsEdcAccountResourceSubnet) SetNameNil() {
 	o.Name.Set(nil)
@@ -505,7 +518,7 @@ func (o *AwsEdcAccountResourceSubnet) SetIsSupportedByAwsManagedCapacity(v bool)
 }
 
 func (o AwsEdcAccountResourceSubnet) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -593,5 +606,3 @@ func (v *NullableAwsEdcAccountResourceSubnet) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,8 +21,8 @@ type AllocationType string
 // List of AllocationType
 const (
 	ALLOCATIONTYPE_UNKNOWN AllocationType = "Unknown"
-	ALLOCATIONTYPE_STATIC AllocationType = "Static"
-	ALLOCATIONTYPE_RANDOM AllocationType = "Random"
+	ALLOCATIONTYPE_STATIC  AllocationType = "Static"
+	ALLOCATIONTYPE_RANDOM  AllocationType = "Random"
 )
 
 // All allowed values of AllocationType enum
@@ -110,4 +110,3 @@ func (v *NullableAllocationType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

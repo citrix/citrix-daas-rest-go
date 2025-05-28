@@ -15,16 +15,16 @@ import (
 	"fmt"
 )
 
-// AllowedUser 
+// AllowedUser
 type AllowedUser string
 
 // List of AllowedUser
 const (
-	ALLOWEDUSER_UNKNOWN AllowedUser = "Unknown"
-	ALLOWEDUSER_FILTERED AllowedUser = "Filtered"
-	ALLOWEDUSER_ANY_AUTHENTICATED AllowedUser = "AnyAuthenticated"
-	ALLOWEDUSER_ANY AllowedUser = "Any"
-	ALLOWEDUSER_ANONYMOUS_ONLY AllowedUser = "AnonymousOnly"
+	ALLOWEDUSER_UNKNOWN               AllowedUser = "Unknown"
+	ALLOWEDUSER_FILTERED              AllowedUser = "Filtered"
+	ALLOWEDUSER_ANY_AUTHENTICATED     AllowedUser = "AnyAuthenticated"
+	ALLOWEDUSER_ANY                   AllowedUser = "Any"
+	ALLOWEDUSER_ANONYMOUS_ONLY        AllowedUser = "AnonymousOnly"
 	ALLOWEDUSER_FILTERED_OR_ANONYMOUS AllowedUser = "FilteredOrAnonymous"
 )
 
@@ -44,7 +44,7 @@ func (v *AllowedUser) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AllowedUser(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableAllowedUser) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

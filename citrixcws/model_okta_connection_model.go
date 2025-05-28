@@ -19,10 +19,10 @@ var _ MappedNullable = &OktaConnectionModel{}
 
 // OktaConnectionModel struct for OktaConnectionModel
 type OktaConnectionModel struct {
-	OktaApiToken NullableString `json:"oktaApiToken,omitempty"`
-	OktaClientId NullableString `json:"oktaClientId,omitempty"`
+	OktaApiToken     NullableString `json:"oktaApiToken,omitempty"`
+	OktaClientId     NullableString `json:"oktaClientId,omitempty"`
 	OktaClientSecret NullableString `json:"oktaClientSecret,omitempty"`
-	OktaDomain NullableString `json:"oktaDomain,omitempty"`
+	OktaDomain       NullableString `json:"oktaDomain,omitempty"`
 }
 
 // NewOktaConnectionModel instantiates a new OktaConnectionModel object
@@ -74,6 +74,7 @@ func (o *OktaConnectionModel) HasOktaApiToken() bool {
 func (o *OktaConnectionModel) SetOktaApiToken(v string) {
 	o.OktaApiToken.Set(&v)
 }
+
 // SetOktaApiTokenNil sets the value for OktaApiToken to be an explicit nil
 func (o *OktaConnectionModel) SetOktaApiTokenNil() {
 	o.OktaApiToken.Set(nil)
@@ -116,6 +117,7 @@ func (o *OktaConnectionModel) HasOktaClientId() bool {
 func (o *OktaConnectionModel) SetOktaClientId(v string) {
 	o.OktaClientId.Set(&v)
 }
+
 // SetOktaClientIdNil sets the value for OktaClientId to be an explicit nil
 func (o *OktaConnectionModel) SetOktaClientIdNil() {
 	o.OktaClientId.Set(nil)
@@ -158,6 +160,7 @@ func (o *OktaConnectionModel) HasOktaClientSecret() bool {
 func (o *OktaConnectionModel) SetOktaClientSecret(v string) {
 	o.OktaClientSecret.Set(&v)
 }
+
 // SetOktaClientSecretNil sets the value for OktaClientSecret to be an explicit nil
 func (o *OktaConnectionModel) SetOktaClientSecretNil() {
 	o.OktaClientSecret.Set(nil)
@@ -200,6 +203,7 @@ func (o *OktaConnectionModel) HasOktaDomain() bool {
 func (o *OktaConnectionModel) SetOktaDomain(v string) {
 	o.OktaDomain.Set(&v)
 }
+
 // SetOktaDomainNil sets the value for OktaDomain to be an explicit nil
 func (o *OktaConnectionModel) SetOktaDomainNil() {
 	o.OktaDomain.Set(nil)
@@ -211,7 +215,7 @@ func (o *OktaConnectionModel) UnsetOktaDomain() {
 }
 
 func (o OktaConnectionModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -270,5 +274,3 @@ func (v *NullableOktaConnectionModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

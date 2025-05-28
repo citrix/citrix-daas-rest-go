@@ -61,7 +61,7 @@ func (o *Images) GetItemsOk() ([]AwsEdcImage, bool) {
 
 // HasItems returns a boolean if a field has been set.
 func (o *Images) HasItems() bool {
-	if o != nil && IsNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -74,7 +74,7 @@ func (o *Images) SetItems(v []AwsEdcImage) {
 }
 
 func (o Images) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -124,5 +124,3 @@ func (v *NullableImages) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

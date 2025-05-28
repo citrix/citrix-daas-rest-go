@@ -21,7 +21,7 @@ var _ MappedNullable = &BackupRestoreMemberResponseModel{}
 type BackupRestoreMemberResponseModel struct {
 	// Member Name
 	Name NullableString `json:"Name,omitempty"`
-	// Member Description             
+	// Member Description
 	Description NullableString `json:"Description,omitempty"`
 	// Member details (YAML for single emmber)
 	Details NullableString `json:"Details,omitempty"`
@@ -76,6 +76,7 @@ func (o *BackupRestoreMemberResponseModel) HasName() bool {
 func (o *BackupRestoreMemberResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *BackupRestoreMemberResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -118,6 +119,7 @@ func (o *BackupRestoreMemberResponseModel) HasDescription() bool {
 func (o *BackupRestoreMemberResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *BackupRestoreMemberResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -160,6 +162,7 @@ func (o *BackupRestoreMemberResponseModel) HasDetails() bool {
 func (o *BackupRestoreMemberResponseModel) SetDetails(v string) {
 	o.Details.Set(&v)
 }
+
 // SetDetailsNil sets the value for Details to be an explicit nil
 func (o *BackupRestoreMemberResponseModel) SetDetailsNil() {
 	o.Details.Set(nil)
@@ -171,7 +174,7 @@ func (o *BackupRestoreMemberResponseModel) UnsetDetails() {
 }
 
 func (o BackupRestoreMemberResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +230,3 @@ func (v *NullableBackupRestoreMemberResponseModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -27,10 +27,10 @@ type DeliveryGroupSearchRequestModel struct {
 	BasicSearchString NullableString `json:"BasicSearchString,omitempty"`
 	// List of advanced search filters.
 	SearchFilters []DeliveryGroupSearchFilterRequestModel `json:"SearchFilters,omitempty"`
-	SortCriteria *DeliveryGroupSortCriteriaRequestModel `json:"SortCriteria,omitempty"`
+	SortCriteria  *DeliveryGroupSortCriteriaRequestModel  `json:"SortCriteria,omitempty"`
 	// List of advanced search filter groups.
-	SearchFilterGroups []DeliveryGroupSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
-	SearchFilterGroupsType *DeliveryGroupSearchFilterGroupsType `json:"SearchFilterGroupsType,omitempty"`
+	SearchFilterGroups     []DeliveryGroupSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
+	SearchFilterGroupsType *DeliveryGroupSearchFilterGroupsType         `json:"SearchFilterGroupsType,omitempty"`
 }
 
 // NewDeliveryGroupSearchRequestModel instantiates a new DeliveryGroupSearchRequestModel object
@@ -86,6 +86,7 @@ func (o *DeliveryGroupSearchRequestModel) HasAdminFolder() bool {
 func (o *DeliveryGroupSearchRequestModel) SetAdminFolder(v string) {
 	o.AdminFolder.Set(&v)
 }
+
 // SetAdminFolderNil sets the value for AdminFolder to be an explicit nil
 func (o *DeliveryGroupSearchRequestModel) SetAdminFolderNil() {
 	o.AdminFolder.Set(nil)
@@ -128,6 +129,7 @@ func (o *DeliveryGroupSearchRequestModel) HasIncludeSubFolders() bool {
 func (o *DeliveryGroupSearchRequestModel) SetIncludeSubFolders(v bool) {
 	o.IncludeSubFolders.Set(&v)
 }
+
 // SetIncludeSubFoldersNil sets the value for IncludeSubFolders to be an explicit nil
 func (o *DeliveryGroupSearchRequestModel) SetIncludeSubFoldersNil() {
 	o.IncludeSubFolders.Set(nil)
@@ -170,6 +172,7 @@ func (o *DeliveryGroupSearchRequestModel) HasBasicSearchString() bool {
 func (o *DeliveryGroupSearchRequestModel) SetBasicSearchString(v string) {
 	o.BasicSearchString.Set(&v)
 }
+
 // SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
 func (o *DeliveryGroupSearchRequestModel) SetBasicSearchStringNil() {
 	o.BasicSearchString.Set(nil)
@@ -311,7 +314,7 @@ func (o *DeliveryGroupSearchRequestModel) SetSearchFilterGroupsType(v DeliveryGr
 }
 
 func (o DeliveryGroupSearchRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -379,5 +382,3 @@ func (v *NullableDeliveryGroupSearchRequestModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

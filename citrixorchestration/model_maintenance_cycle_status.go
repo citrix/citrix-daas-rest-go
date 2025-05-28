@@ -20,17 +20,17 @@ type MaintenanceCycleStatus string
 
 // List of MaintenanceCycleStatus
 const (
-	MAINTENANCECYCLESTATUS_UNKNOWN MaintenanceCycleStatus = "Unknown"
-	MAINTENANCECYCLESTATUS_QUEUED MaintenanceCycleStatus = "Queued"
-	MAINTENANCECYCLESTATUS_RUNNING MaintenanceCycleStatus = "Running"
-	MAINTENANCECYCLESTATUS_FAILED MaintenanceCycleStatus = "Failed"
-	MAINTENANCECYCLESTATUS_COMPLETED MaintenanceCycleStatus = "Completed"
-	MAINTENANCECYCLESTATUS_CANCELLING MaintenanceCycleStatus = "Cancelling"
-	MAINTENANCECYCLESTATUS_CANCELLED MaintenanceCycleStatus = "Cancelled"
+	MAINTENANCECYCLESTATUS_UNKNOWN       MaintenanceCycleStatus = "Unknown"
+	MAINTENANCECYCLESTATUS_QUEUED        MaintenanceCycleStatus = "Queued"
+	MAINTENANCECYCLESTATUS_RUNNING       MaintenanceCycleStatus = "Running"
+	MAINTENANCECYCLESTATUS_FAILED        MaintenanceCycleStatus = "Failed"
+	MAINTENANCECYCLESTATUS_COMPLETED     MaintenanceCycleStatus = "Completed"
+	MAINTENANCECYCLESTATUS_CANCELLING    MaintenanceCycleStatus = "Cancelling"
+	MAINTENANCECYCLESTATUS_CANCELLED     MaintenanceCycleStatus = "Cancelled"
 	MAINTENANCECYCLESTATUS_NOT_PROCESSED MaintenanceCycleStatus = "NotProcessed"
-	MAINTENANCECYCLESTATUS_PENDING MaintenanceCycleStatus = "Pending"
-	MAINTENANCECYCLESTATUS_INCOMPLETE MaintenanceCycleStatus = "Incomplete"
-	MAINTENANCECYCLESTATUS_RESTARTING MaintenanceCycleStatus = "Restarting"
+	MAINTENANCECYCLESTATUS_PENDING       MaintenanceCycleStatus = "Pending"
+	MAINTENANCECYCLESTATUS_INCOMPLETE    MaintenanceCycleStatus = "Incomplete"
+	MAINTENANCECYCLESTATUS_RESTARTING    MaintenanceCycleStatus = "Restarting"
 )
 
 // All allowed values of MaintenanceCycleStatus enum
@@ -54,7 +54,7 @@ func (v *MaintenanceCycleStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MaintenanceCycleStatus(value)
 	return nil
 }
@@ -120,4 +120,3 @@ func (v *NullableMaintenanceCycleStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

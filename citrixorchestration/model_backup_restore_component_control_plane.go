@@ -15,15 +15,15 @@ import (
 	"fmt"
 )
 
-// BackupRestoreComponentControlPlane 
+// BackupRestoreComponentControlPlane
 type BackupRestoreComponentControlPlane string
 
 // List of BackupRestoreComponentControlPlane
 const (
 	BACKUPRESTORECOMPONENTCONTROLPLANE_ON_PREM_ONLY BackupRestoreComponentControlPlane = "OnPremOnly"
-	BACKUPRESTORECOMPONENTCONTROLPLANE_CLOUD_ONLY BackupRestoreComponentControlPlane = "CloudOnly"
-	BACKUPRESTORECOMPONENTCONTROLPLANE_BOTH BackupRestoreComponentControlPlane = "Both"
-	BACKUPRESTORECOMPONENTCONTROLPLANE_NEITHER BackupRestoreComponentControlPlane = "Neither"
+	BACKUPRESTORECOMPONENTCONTROLPLANE_CLOUD_ONLY   BackupRestoreComponentControlPlane = "CloudOnly"
+	BACKUPRESTORECOMPONENTCONTROLPLANE_BOTH         BackupRestoreComponentControlPlane = "Both"
+	BACKUPRESTORECOMPONENTCONTROLPLANE_NEITHER      BackupRestoreComponentControlPlane = "Neither"
 )
 
 // All allowed values of BackupRestoreComponentControlPlane enum
@@ -40,7 +40,7 @@ func (v *BackupRestoreComponentControlPlane) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = BackupRestoreComponentControlPlane(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableBackupRestoreComponentControlPlane) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

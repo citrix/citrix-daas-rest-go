@@ -20,8 +20,8 @@ var _ MappedNullable = &MachineGroupRequestModel{}
 // MachineGroupRequestModel Request model for defining group machine criteria.
 type MachineGroupRequestModel struct {
 	// List of advanced search filter groups.
-	SearchFilterGroups []MachineAndSessionSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
-	SearchFilterGroupsType *MachineAndSessionSearchFilterGroupsType `json:"SearchFilterGroupsType,omitempty"`
+	SearchFilterGroups     []MachineAndSessionSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
+	SearchFilterGroupsType *MachineAndSessionSearchFilterGroupsType         `json:"SearchFilterGroupsType,omitempty"`
 	// The  property name of the broker machine for grouping
 	MachinePropertyName NullableString `json:"MachinePropertyName,omitempty"`
 }
@@ -140,6 +140,7 @@ func (o *MachineGroupRequestModel) HasMachinePropertyName() bool {
 func (o *MachineGroupRequestModel) SetMachinePropertyName(v string) {
 	o.MachinePropertyName.Set(&v)
 }
+
 // SetMachinePropertyNameNil sets the value for MachinePropertyName to be an explicit nil
 func (o *MachineGroupRequestModel) SetMachinePropertyNameNil() {
 	o.MachinePropertyName.Set(nil)
@@ -151,7 +152,7 @@ func (o *MachineGroupRequestModel) UnsetMachinePropertyName() {
 }
 
 func (o MachineGroupRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -207,5 +208,3 @@ func (v *NullableMachineGroupRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

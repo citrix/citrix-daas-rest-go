@@ -21,8 +21,8 @@ type AwsEdcVpcTenancy string
 // List of AwsEdcVpcTenancy
 const (
 	AWSEDCVPCTENANCY_DEDICATED AwsEdcVpcTenancy = "DEDICATED"
-	AWSEDCVPCTENANCY_DEFAULT AwsEdcVpcTenancy = "DEFAULT"
-	AWSEDCVPCTENANCY_HOST AwsEdcVpcTenancy = "HOST"
+	AWSEDCVPCTENANCY_DEFAULT   AwsEdcVpcTenancy = "DEFAULT"
+	AWSEDCVPCTENANCY_HOST      AwsEdcVpcTenancy = "HOST"
 )
 
 // All allowed values of AwsEdcVpcTenancy enum
@@ -110,4 +110,3 @@ func (v *NullableAwsEdcVpcTenancy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

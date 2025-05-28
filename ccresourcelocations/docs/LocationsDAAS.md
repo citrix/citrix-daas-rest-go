@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## LocationsCreate
 
-> CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel LocationsCreate(ctx).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Accept(accept).Model(model).Execute()
+> CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel LocationsCreate(ctx).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Model(model).Execute()
 
 Create a resource location for a customer.
 
@@ -31,14 +31,14 @@ import (
 )
 
 func main() {
+	accept := "accept_example" // string | Only supports application/json
 	authorization := "authorization_example" // string | The access token.
 	citrixCustomerId := "citrixCustomerId_example" // string | ID of the customer.
-	accept := "accept_example" // string | Only supports application/json
 	model := *openapiclient.NewCitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel("Name_example") // CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel | The resource location model.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LocationsDAAS.LocationsCreate(context.Background()).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Accept(accept).Model(model).Execute()
+	resp, r, err := apiClient.LocationsDAAS.LocationsCreate(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Model(model).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocationsDAAS.LocationsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -59,9 +59,9 @@ Other parameters are passed through a pointer to a apiLocationsCreateRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accept** | **string** | Only supports application/json | 
  **authorization** | **string** | The access token. | 
  **citrixCustomerId** | **string** | ID of the customer. | 
- **accept** | **string** | Only supports application/json | 
  **model** | [**CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel**](CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel.md) | The resource location model. | 
 
 ### Return type
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## LocationsDelete
 
-> LocationsDelete(ctx, id).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Accept(accept).Execute()
+> LocationsDelete(ctx, id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
 
 Delete a resource location.
 
@@ -101,14 +101,14 @@ import (
 )
 
 func main() {
+	accept := "accept_example" // string | Only supports application/json
 	authorization := "authorization_example" // string | The access token.
 	id := "id_example" // string | The resource location id.
 	citrixCustomerId := "citrixCustomerId_example" // string | ID of the customer.
-	accept := "accept_example" // string | Only supports application/json
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.LocationsDAAS.LocationsDelete(context.Background(), id).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Accept(accept).Execute()
+	r, err := apiClient.LocationsDAAS.LocationsDelete(context.Background(), id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocationsDAAS.LocationsDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -131,10 +131,10 @@ Other parameters are passed through a pointer to a apiLocationsDeleteRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accept** | **string** | Only supports application/json | 
  **authorization** | **string** | The access token. | 
 
  **citrixCustomerId** | **string** | ID of the customer. | 
- **accept** | **string** | Only supports application/json | 
 
 ### Return type
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ## LocationsGet
 
-> CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel LocationsGet(ctx, id).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Accept(accept).Execute()
+> CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel LocationsGet(ctx, id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
 
 Get a resource location from id.
 
@@ -173,14 +173,14 @@ import (
 )
 
 func main() {
+	accept := "accept_example" // string | Only supports application/json
 	authorization := "authorization_example" // string | The access token.
 	id := "id_example" // string | The resource location id
 	citrixCustomerId := "citrixCustomerId_example" // string | ID of the customer.
-	accept := "accept_example" // string | Only supports application/json
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LocationsDAAS.LocationsGet(context.Background(), id).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Accept(accept).Execute()
+	resp, r, err := apiClient.LocationsDAAS.LocationsGet(context.Background(), id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocationsDAAS.LocationsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -205,10 +205,10 @@ Other parameters are passed through a pointer to a apiLocationsGetRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accept** | **string** | Only supports application/json | 
  **authorization** | **string** | The access token. | 
 
  **citrixCustomerId** | **string** | ID of the customer. | 
- **accept** | **string** | Only supports application/json | 
 
 ### Return type
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## LocationsGetAll
 
-> CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel LocationsGetAll(ctx).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Accept(accept).Execute()
+> CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel LocationsGetAll(ctx).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
 
 Get all resource locations for a customer.
 
@@ -249,11 +249,10 @@ import (
 func main() {
 	authorization := "authorization_example" // string | The access token.
 	citrixCustomerId := "citrixCustomerId_example" // string | ID of the customer.
-	accept := "accept_example" // string | Only supports application/json
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LocationsDAAS.LocationsGetAll(context.Background()).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Accept(accept).Execute()
+	resp, r, err := apiClient.LocationsDAAS.LocationsGetAll(context.Background()).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocationsDAAS.LocationsGetAll``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -276,7 +275,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string** | The access token. | 
  **citrixCustomerId** | **string** | ID of the customer. | 
- **accept** | **string** | Only supports application/json | 
 
 ### Return type
 
@@ -298,7 +296,7 @@ Name | Type | Description  | Notes
 
 ## LocationsUpdate
 
-> CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel LocationsUpdate(ctx, id).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Accept(accept).Model(model).Execute()
+> CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel LocationsUpdate(ctx, id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Model(model).Execute()
 
 Update the customer resource location information.
 
@@ -315,15 +313,15 @@ import (
 )
 
 func main() {
+	accept := "accept_example" // string | Only supports application/json
 	authorization := "authorization_example" // string | The access token.
 	citrixCustomerId := "citrixCustomerId_example" // string | ID of the customer.
-	accept := "accept_example" // string | Only supports application/json
 	id := "id_example" // string | The resource location id.
 	model := *openapiclient.NewCitrixCloudServicesRegistryApiModelsLocationsResourceLocationUpdateModel() // CitrixCloudServicesRegistryApiModelsLocationsResourceLocationUpdateModel | The resource location model.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LocationsDAAS.LocationsUpdate(context.Background(), id).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Accept(accept).Model(model).Execute()
+	resp, r, err := apiClient.LocationsDAAS.LocationsUpdate(context.Background(), id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Model(model).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocationsDAAS.LocationsUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -348,9 +346,9 @@ Other parameters are passed through a pointer to a apiLocationsUpdateRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accept** | **string** | Only supports application/json | 
  **authorization** | **string** | The access token. | 
  **citrixCustomerId** | **string** | ID of the customer. | 
- **accept** | **string** | Only supports application/json | 
 
  **model** | [**CitrixCloudServicesRegistryApiModelsLocationsResourceLocationUpdateModel**](CitrixCloudServicesRegistryApiModelsLocationsResourceLocationUpdateModel.md) | The resource location model. | 
 

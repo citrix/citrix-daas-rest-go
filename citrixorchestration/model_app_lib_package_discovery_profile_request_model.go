@@ -35,7 +35,7 @@ type AppLibPackageDiscoveryProfileRequestModel struct {
 	// The user name of the App-V Server Administrator.
 	Username NullableString `json:"Username,omitempty"`
 	// The password of the App-V Server Administrator.
-	Password NullableString `json:"Password,omitempty"`
+	Password       NullableString          `json:"Password,omitempty"`
 	PasswordFormat *IdentityPasswordFormat `json:"PasswordFormat,omitempty"`
 	// A value indicating whether or not to search should Discover App-V Packages.
 	DiscoverAppV NullableBool `json:"DiscoverAppV,omitempty"`
@@ -48,7 +48,7 @@ type AppLibPackageDiscoveryProfileRequestModel struct {
 	// A value indicating whether or not to search should discover ElasticAppLayers Packages.
 	DiscoverElasticAppLayers NullableBool `json:"DiscoverElasticAppLayers,omitempty"`
 	// A value indicating whether or not the discovery should run automatically.
-	AutomateDiscovery NullableBool `json:"AutomateDiscovery,omitempty"`
+	AutomateDiscovery   NullableBool         `json:"AutomateDiscovery,omitempty"`
 	AutoDiscoveryPeriod *AutoDiscoveryPeriod `json:"AutoDiscoveryPeriod,omitempty"`
 	// A value indicating how often to trigger the discovery.
 	AutoDiscoveryCadence *int32 `json:"AutoDiscoveryCadence,omitempty"`
@@ -212,6 +212,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) HasPath() bool {
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetPath(v string) {
 	o.Path.Set(&v)
 }
+
 // SetPathNil sets the value for Path to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetPathNil() {
 	o.Path.Set(nil)
@@ -254,6 +255,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) HasRecurse() bool {
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetRecurse(v bool) {
 	o.Recurse.Set(&v)
 }
+
 // SetRecurseNil sets the value for Recurse to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetRecurseNil() {
 	o.Recurse.Set(nil)
@@ -296,6 +298,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) HasManagementServer() bool {
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetManagementServer(v string) {
 	o.ManagementServer.Set(&v)
 }
+
 // SetManagementServerNil sets the value for ManagementServer to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetManagementServerNil() {
 	o.ManagementServer.Set(nil)
@@ -338,6 +341,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) HasPublishingServer() bool {
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetPublishingServer(v string) {
 	o.PublishingServer.Set(&v)
 }
+
 // SetPublishingServerNil sets the value for PublishingServer to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetPublishingServerNil() {
 	o.PublishingServer.Set(nil)
@@ -380,6 +384,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) HasUsername() bool {
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetUsername(v string) {
 	o.Username.Set(&v)
 }
+
 // SetUsernameNil sets the value for Username to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetUsernameNil() {
 	o.Username.Set(nil)
@@ -422,6 +427,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) HasPassword() bool {
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetPassword(v string) {
 	o.Password.Set(&v)
 }
+
 // SetPasswordNil sets the value for Password to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetPasswordNil() {
 	o.Password.Set(nil)
@@ -496,6 +502,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) HasDiscoverAppV() bool {
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverAppV(v bool) {
 	o.DiscoverAppV.Set(&v)
 }
+
 // SetDiscoverAppVNil sets the value for DiscoverAppV to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverAppVNil() {
 	o.DiscoverAppV.Set(nil)
@@ -538,6 +545,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) HasDiscoverMsix() bool {
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverMsix(v bool) {
 	o.DiscoverMsix.Set(&v)
 }
+
 // SetDiscoverMsixNil sets the value for DiscoverMsix to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverMsixNil() {
 	o.DiscoverMsix.Set(nil)
@@ -580,6 +588,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) HasDiscoverAppAttach() bool 
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverAppAttach(v bool) {
 	o.DiscoverAppAttach.Set(&v)
 }
+
 // SetDiscoverAppAttachNil sets the value for DiscoverAppAttach to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverAppAttachNil() {
 	o.DiscoverAppAttach.Set(nil)
@@ -622,6 +631,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) HasDiscoverFlexApp() bool {
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverFlexApp(v bool) {
 	o.DiscoverFlexApp.Set(&v)
 }
+
 // SetDiscoverFlexAppNil sets the value for DiscoverFlexApp to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverFlexAppNil() {
 	o.DiscoverFlexApp.Set(nil)
@@ -664,6 +674,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) HasDiscoverElasticAppLayers(
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverElasticAppLayers(v bool) {
 	o.DiscoverElasticAppLayers.Set(&v)
 }
+
 // SetDiscoverElasticAppLayersNil sets the value for DiscoverElasticAppLayers to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverElasticAppLayersNil() {
 	o.DiscoverElasticAppLayers.Set(nil)
@@ -706,6 +717,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) HasAutomateDiscovery() bool 
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetAutomateDiscovery(v bool) {
 	o.AutomateDiscovery.Set(&v)
 }
+
 // SetAutomateDiscoveryNil sets the value for AutomateDiscovery to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetAutomateDiscoveryNil() {
 	o.AutomateDiscovery.Set(nil)
@@ -812,6 +824,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) HasCleanupAbsentPackages() b
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetCleanupAbsentPackages(v bool) {
 	o.CleanupAbsentPackages.Set(&v)
 }
+
 // SetCleanupAbsentPackagesNil sets the value for CleanupAbsentPackages to be an explicit nil
 func (o *AppLibPackageDiscoveryProfileRequestModel) SetCleanupAbsentPackagesNil() {
 	o.CleanupAbsentPackages.Set(nil)
@@ -823,7 +836,7 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) UnsetCleanupAbsentPackages()
 }
 
 func (o AppLibPackageDiscoveryProfileRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -921,5 +934,3 @@ func (v *NullableAppLibPackageDiscoveryProfileRequestModel) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

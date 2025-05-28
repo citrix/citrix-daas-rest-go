@@ -19,9 +19,10 @@ var _ MappedNullable = &SettingsRecordModel{}
 
 // SettingsRecordModel struct for SettingsRecordModel
 type SettingsRecordModel struct {
-	ServiceURL *ServiceURL `json:"serviceURL,omitempty"`
-	Settings *Settings `json:"settings,omitempty"`
+	ServiceURL      *ServiceURL      `json:"serviceURL,omitempty"`
+	Settings        *Settings        `json:"settings,omitempty"`
 	SettingsChannel *SettingsChannel `json:"settingsChannel,omitempty"`
+	SettingsProfile *SettingsProfile `json:"settingsProfile,omitempty"`
 }
 
 // NewSettingsRecordModel instantiates a new SettingsRecordModel object
@@ -137,8 +138,40 @@ func (o *SettingsRecordModel) SetSettingsChannel(v SettingsChannel) {
 	o.SettingsChannel = &v
 }
 
+// GetSettingsProfile returns the SettingsProfile field value if set, zero value otherwise.
+func (o *SettingsRecordModel) GetSettingsProfile() SettingsProfile {
+	if o == nil || IsNil(o.SettingsProfile) {
+		var ret SettingsProfile
+		return ret
+	}
+	return *o.SettingsProfile
+}
+
+// GetSettingsProfileOk returns a tuple with the SettingsProfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SettingsRecordModel) GetSettingsProfileOk() (*SettingsProfile, bool) {
+	if o == nil || IsNil(o.SettingsProfile) {
+		return nil, false
+	}
+	return o.SettingsProfile, true
+}
+
+// HasSettingsProfile returns a boolean if a field has been set.
+func (o *SettingsRecordModel) HasSettingsProfile() bool {
+	if o != nil && !IsNil(o.SettingsProfile) {
+		return true
+	}
+
+	return false
+}
+
+// SetSettingsProfile gets a reference to the given SettingsProfile and assigns it to the SettingsProfile field.
+func (o *SettingsRecordModel) SetSettingsProfile(v SettingsProfile) {
+	o.SettingsProfile = &v
+}
+
 func (o SettingsRecordModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -155,6 +188,9 @@ func (o SettingsRecordModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SettingsChannel) {
 		toSerialize["settingsChannel"] = o.SettingsChannel
+	}
+	if !IsNil(o.SettingsProfile) {
+		toSerialize["settingsProfile"] = o.SettingsProfile
 	}
 	return toSerialize, nil
 }
@@ -194,5 +230,3 @@ func (v *NullableSettingsRecordModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

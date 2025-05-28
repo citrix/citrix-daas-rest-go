@@ -20,20 +20,20 @@ type DeploymentWarningType string
 
 // List of DeploymentWarningType
 const (
-	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_MACHINE_FAILED_TO_CREATE DeploymentWarningType = "AwsEdcDeploymentMachineFailedToCreate"
-	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_MACHINE_EXISTS_FOR_USER DeploymentWarningType = "AwsEdcDeploymentMachineExistsForUser"
-	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_MACHINE_FAILED_TO_DELETE DeploymentWarningType = "AwsEdcDeploymentMachineFailedToDelete"
-	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_MACHINE_FAILED_TO_DELETE_GENERIC DeploymentWarningType = "AwsEdcDeploymentMachineFailedToDeleteGeneric"
+	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_MACHINE_FAILED_TO_CREATE                   DeploymentWarningType = "AwsEdcDeploymentMachineFailedToCreate"
+	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_MACHINE_EXISTS_FOR_USER                    DeploymentWarningType = "AwsEdcDeploymentMachineExistsForUser"
+	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_MACHINE_FAILED_TO_DELETE                   DeploymentWarningType = "AwsEdcDeploymentMachineFailedToDelete"
+	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_MACHINE_FAILED_TO_DELETE_GENERIC           DeploymentWarningType = "AwsEdcDeploymentMachineFailedToDeleteGeneric"
 	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_MACHINE_FAILED_TO_DELETE_MACHINE_NOT_FOUND DeploymentWarningType = "AwsEdcDeploymentMachineFailedToDeleteMachineNotFound"
-	DEPLOYMENTWARNINGTYPE_DEPLOYMENT_ADD_MACHINES_FAILED_GENERIC DeploymentWarningType = "DeploymentAddMachinesFailedGeneric"
-	DEPLOYMENTWARNINGTYPE_INSUFFICIENT_WORKSPACE_BUNDLE_QUOTA DeploymentWarningType = "InsufficientWorkspaceBundleQuota"
-	DEPLOYMENTWARNINGTYPE_INSUFFICIENT_WORKSPACE_SERVICE_QUOTA DeploymentWarningType = "InsufficientWorkspaceServiceQuota"
-	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_FAILED_TO_DELETE DeploymentWarningType = "AwsEdcDeploymentFailedToDelete"
-	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_MACHINE_FAILED_TO_UPDATE DeploymentWarningType = "AwsEdcDeploymentMachineFailedToUpdate"
-	DEPLOYMENTWARNINGTYPE_DEPLOYMENT_ADD_MACHINES_PARTIAL_SUCCESS DeploymentWarningType = "DeploymentAddMachinesPartialSuccess"
-	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_FAILED_TO_UPDATE_RUNNING_MODE DeploymentWarningType = "AwsEdcDeploymentFailedToUpdateRunningMode"
-	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_BUNDLE_FAILED_TO_UPDATE_IMAGE DeploymentWarningType = "AwsEdcDeploymentBundleFailedToUpdateImage"
-	DEPLOYMENTWARNINGTYPE_AWS_EDC_SAVE_MACHINE_AS_IMAGE_FAILED DeploymentWarningType = "AwsEdcSaveMachineAsImageFailed"
+	DEPLOYMENTWARNINGTYPE_DEPLOYMENT_ADD_MACHINES_FAILED_GENERIC                        DeploymentWarningType = "DeploymentAddMachinesFailedGeneric"
+	DEPLOYMENTWARNINGTYPE_INSUFFICIENT_WORKSPACE_BUNDLE_QUOTA                           DeploymentWarningType = "InsufficientWorkspaceBundleQuota"
+	DEPLOYMENTWARNINGTYPE_INSUFFICIENT_WORKSPACE_SERVICE_QUOTA                          DeploymentWarningType = "InsufficientWorkspaceServiceQuota"
+	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_FAILED_TO_DELETE                           DeploymentWarningType = "AwsEdcDeploymentFailedToDelete"
+	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_MACHINE_FAILED_TO_UPDATE                   DeploymentWarningType = "AwsEdcDeploymentMachineFailedToUpdate"
+	DEPLOYMENTWARNINGTYPE_DEPLOYMENT_ADD_MACHINES_PARTIAL_SUCCESS                       DeploymentWarningType = "DeploymentAddMachinesPartialSuccess"
+	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_FAILED_TO_UPDATE_RUNNING_MODE              DeploymentWarningType = "AwsEdcDeploymentFailedToUpdateRunningMode"
+	DEPLOYMENTWARNINGTYPE_AWS_EDC_DEPLOYMENT_BUNDLE_FAILED_TO_UPDATE_IMAGE              DeploymentWarningType = "AwsEdcDeploymentBundleFailedToUpdateImage"
+	DEPLOYMENTWARNINGTYPE_AWS_EDC_SAVE_MACHINE_AS_IMAGE_FAILED                          DeploymentWarningType = "AwsEdcSaveMachineAsImageFailed"
 )
 
 // All allowed values of DeploymentWarningType enum
@@ -132,4 +132,3 @@ func (v *NullableDeploymentWarningType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

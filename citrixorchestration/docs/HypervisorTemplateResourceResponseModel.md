@@ -4,6 +4,38 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**SupportsSecurityGroups** | **bool** | Indicates whether this zone supports the use of security groups for isolation. | 
+**Enabled** | **bool** | Indicates whether the GPU type is enabled on the hypervisor. | 
+**FrameBufferSizeMB** | **int32** | Frame Buffer Size in MB | 
+**HasDedicatedResource** | **bool** | Indicates whether the GPU type has resources dedicated to it. | 
+**Description** | Pointer to **NullableString** | Human-readable description of this template, as supplied when the offering was created in the cloud management API or console. | [optional] 
+**EgressRules** | [**[]HypervisorSecurityGroupRuleResponseModel**](HypervisorSecurityGroupRuleResponseModel.md) | Egress rules governing outbound network traffic. | 
+**IngressRules** | [**[]HypervisorSecurityGroupRuleResponseModel**](HypervisorSecurityGroupRuleResponseModel.md) | Ingress rules governing inbound network traffic. | 
+**VirtualPrivateCloudId** | Pointer to **NullableString** | The identifier of the associated VPC. | [optional] 
+**DedicatedTenancy** | Pointer to **NullableString** | Indicates whether this service offering prescribes dedicated tenancy for the instances that use it. | [optional] 
+**MemorySizeMB** | **float32** | The amount of memory that is available to instances using this service offering, measured in megabytes. | 
+**NumberOfCores** | **float32** | The number of virtual cores that are available to instances using this service offering. | 
+**AmazonComputeUnits** | Pointer to **NullableFloat32** | The number of Amazon EC2 compute units that are available to instances using this service offering. This property is only meaningful for EC2-based cloud connections. | [optional] 
+**OptimizedForPooledDesktops** | **bool** | Indicates whether this service offering is intended specifically for usage with pooled desktops. | 
+**NetworkPerformance** | Pointer to **NullableString** | The network performance available to instances using this service offering. | [optional] 
+**NetworkPerformanceIsUnlimited** | **bool** | Indicates whether this service offering has no limit for it&#39;s network rate. | 
+**NetworkPerformanceIsDefault** | **bool** | Indicates whether this service offering has a default limit for it&#39;s network rate. | 
+**IsUsedInSite** | **bool** | Indicates whether the service offering is used by any machine catalogs in the site. | 
+**SupportsAzurePremiumStorage** | Pointer to **NullableBool** | Indicates whether the service offering supports premium storage. This property is only meaningful on Azure. | [optional] 
+**Superseded** | **bool** | Indicates whether storage has been superseded.  Superseded storage may be used for existing virtual machines, but is not used when provisioning new virtual machines. | 
+**Owner** | Pointer to **NullableString** | The account ID for the owner of this template. | [optional] 
+**IsWindowsTemplate** | Pointer to **NullableBool** | Indicates whether this is a Windows OS template, if known. | [optional] 
+**HasPersistentRootVolume** | **bool** | Indicates whether this template has a persistent root volume (eg. is an EBS-backed image on AWS). | 
+**VMId** | **string** | Id of the VM, as defined by the hypervisor. | 
+**MacAddress** | Pointer to **NullableString** | MAC address of the VM. | [optional] 
+**CpuCount** | Pointer to **NullableInt32** | Number of CPUs, if known. | [optional] 
+**MemoryMB** | Pointer to **NullableInt32** | Memory in megabytes, if known. | [optional] 
+**HardDiskSizeGB** | Pointer to **NullableInt32** | Hard disk size in gigabytes, if known. | [optional] 
+**MinMemoryMB** | Pointer to **NullableInt32** | Minimum memory required to run this VM or snapshot, in megabytes, if known. | [optional] 
+**NetworkMappings** | Pointer to [**[]NetworkMapResponseModel**](NetworkMapResponseModel.md) | Network mappings associated with the VM, if known. | [optional] 
+**AttachedDisks** | Pointer to [**[]AttachedDiskResponseModel**](AttachedDiskResponseModel.md) | Disks attached to the VM, if known. | [optional] 
+**InstanceSecurityGroupLimit** | **int32** | Indicates the maximum number of security groups allowed per instance in this VPC | 
+**Endpoint** | Pointer to **NullableString** | The API address with the region. | [optional] 
 **Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
 **Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
 **XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
@@ -22,22 +54,12 @@ Name | Type | Description | Notes
 **ResourcePool** | [**HypervisorResourcePoolRefResponseModel**](HypervisorResourcePoolRefResponseModel.md) |  | 
 **IsSymLink** | **bool** | Indicates whether the object is a valid symbolic link. | 
 **AdditionalData** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Additional data about the object in the form of key-value pairs. | [optional] 
-**CpuCount** | Pointer to **NullableInt32** | Number of CPUs, if known. | [optional] 
-**MemoryMB** | Pointer to **NullableInt32** | Memory in megabytes, if known. | [optional] 
-**HardDiskSizeGB** | Pointer to **NullableInt32** | Hard disk size in gigabytes, if known. | [optional] 
-**MinMemoryMB** | Pointer to **NullableInt32** | Minimum memory required to run this VM or snapshot, in megabytes, if known. | [optional] 
-**NetworkMappings** | Pointer to [**[]NetworkMapResponseModel**](NetworkMapResponseModel.md) | Network mappings associated with the VM, if known. | [optional] 
-**AttachedDisks** | Pointer to [**[]AttachedDiskResponseModel**](AttachedDiskResponseModel.md) | Disks attached to the VM, if known. | [optional] 
-**Owner** | Pointer to **NullableString** | The account ID for the owner of this template. | [optional] 
-**IsWindowsTemplate** | Pointer to **NullableBool** | Indicates whether this is a Windows OS template, if known. | [optional] 
-**Description** | Pointer to **NullableString** | Human-readable description of this template, as supplied when the offering was created in the cloud management API or console. | [optional] 
-**HasPersistentRootVolume** | **bool** | Indicates whether this template has a persistent root volume (eg. is an EBS-backed image on AWS). | 
 
 ## Methods
 
 ### NewHypervisorTemplateResourceResponseModel
 
-`func NewHypervisorTemplateResourceResponseModel(resourceType string, fullName string, isContainer bool, isMachine bool, isSnapshotable bool, allResourcesRelativePath string, resourcePool HypervisorResourcePoolRefResponseModel, isSymLink bool, hasPersistentRootVolume bool, ) *HypervisorTemplateResourceResponseModel`
+`func NewHypervisorTemplateResourceResponseModel(supportsSecurityGroups bool, enabled bool, frameBufferSizeMB int32, hasDedicatedResource bool, egressRules []HypervisorSecurityGroupRuleResponseModel, ingressRules []HypervisorSecurityGroupRuleResponseModel, memorySizeMB float32, numberOfCores float32, optimizedForPooledDesktops bool, networkPerformanceIsUnlimited bool, networkPerformanceIsDefault bool, isUsedInSite bool, superseded bool, hasPersistentRootVolume bool, vMId string, instanceSecurityGroupLimit int32, resourceType string, fullName string, isContainer bool, isMachine bool, isSnapshotable bool, allResourcesRelativePath string, resourcePool HypervisorResourcePoolRefResponseModel, isSymLink bool, ) *HypervisorTemplateResourceResponseModel`
 
 NewHypervisorTemplateResourceResponseModel instantiates a new HypervisorTemplateResourceResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -52,6 +74,886 @@ NewHypervisorTemplateResourceResponseModelWithDefaults instantiates a new Hyperv
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetSupportsSecurityGroups
+
+`func (o *HypervisorTemplateResourceResponseModel) GetSupportsSecurityGroups() bool`
+
+GetSupportsSecurityGroups returns the SupportsSecurityGroups field if non-nil, zero value otherwise.
+
+### GetSupportsSecurityGroupsOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetSupportsSecurityGroupsOk() (*bool, bool)`
+
+GetSupportsSecurityGroupsOk returns a tuple with the SupportsSecurityGroups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportsSecurityGroups
+
+`func (o *HypervisorTemplateResourceResponseModel) SetSupportsSecurityGroups(v bool)`
+
+SetSupportsSecurityGroups sets SupportsSecurityGroups field to given value.
+
+
+### GetEnabled
+
+`func (o *HypervisorTemplateResourceResponseModel) GetEnabled() bool`
+
+GetEnabled returns the Enabled field if non-nil, zero value otherwise.
+
+### GetEnabledOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetEnabledOk() (*bool, bool)`
+
+GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnabled
+
+`func (o *HypervisorTemplateResourceResponseModel) SetEnabled(v bool)`
+
+SetEnabled sets Enabled field to given value.
+
+
+### GetFrameBufferSizeMB
+
+`func (o *HypervisorTemplateResourceResponseModel) GetFrameBufferSizeMB() int32`
+
+GetFrameBufferSizeMB returns the FrameBufferSizeMB field if non-nil, zero value otherwise.
+
+### GetFrameBufferSizeMBOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetFrameBufferSizeMBOk() (*int32, bool)`
+
+GetFrameBufferSizeMBOk returns a tuple with the FrameBufferSizeMB field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFrameBufferSizeMB
+
+`func (o *HypervisorTemplateResourceResponseModel) SetFrameBufferSizeMB(v int32)`
+
+SetFrameBufferSizeMB sets FrameBufferSizeMB field to given value.
+
+
+### GetHasDedicatedResource
+
+`func (o *HypervisorTemplateResourceResponseModel) GetHasDedicatedResource() bool`
+
+GetHasDedicatedResource returns the HasDedicatedResource field if non-nil, zero value otherwise.
+
+### GetHasDedicatedResourceOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetHasDedicatedResourceOk() (*bool, bool)`
+
+GetHasDedicatedResourceOk returns a tuple with the HasDedicatedResource field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasDedicatedResource
+
+`func (o *HypervisorTemplateResourceResponseModel) SetHasDedicatedResource(v bool)`
+
+SetHasDedicatedResource sets HasDedicatedResource field to given value.
+
+
+### GetDescription
+
+`func (o *HypervisorTemplateResourceResponseModel) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *HypervisorTemplateResourceResponseModel) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *HypervisorTemplateResourceResponseModel) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *HypervisorTemplateResourceResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetEgressRules
+
+`func (o *HypervisorTemplateResourceResponseModel) GetEgressRules() []HypervisorSecurityGroupRuleResponseModel`
+
+GetEgressRules returns the EgressRules field if non-nil, zero value otherwise.
+
+### GetEgressRulesOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetEgressRulesOk() (*[]HypervisorSecurityGroupRuleResponseModel, bool)`
+
+GetEgressRulesOk returns a tuple with the EgressRules field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEgressRules
+
+`func (o *HypervisorTemplateResourceResponseModel) SetEgressRules(v []HypervisorSecurityGroupRuleResponseModel)`
+
+SetEgressRules sets EgressRules field to given value.
+
+
+### GetIngressRules
+
+`func (o *HypervisorTemplateResourceResponseModel) GetIngressRules() []HypervisorSecurityGroupRuleResponseModel`
+
+GetIngressRules returns the IngressRules field if non-nil, zero value otherwise.
+
+### GetIngressRulesOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetIngressRulesOk() (*[]HypervisorSecurityGroupRuleResponseModel, bool)`
+
+GetIngressRulesOk returns a tuple with the IngressRules field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIngressRules
+
+`func (o *HypervisorTemplateResourceResponseModel) SetIngressRules(v []HypervisorSecurityGroupRuleResponseModel)`
+
+SetIngressRules sets IngressRules field to given value.
+
+
+### GetVirtualPrivateCloudId
+
+`func (o *HypervisorTemplateResourceResponseModel) GetVirtualPrivateCloudId() string`
+
+GetVirtualPrivateCloudId returns the VirtualPrivateCloudId field if non-nil, zero value otherwise.
+
+### GetVirtualPrivateCloudIdOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetVirtualPrivateCloudIdOk() (*string, bool)`
+
+GetVirtualPrivateCloudIdOk returns a tuple with the VirtualPrivateCloudId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVirtualPrivateCloudId
+
+`func (o *HypervisorTemplateResourceResponseModel) SetVirtualPrivateCloudId(v string)`
+
+SetVirtualPrivateCloudId sets VirtualPrivateCloudId field to given value.
+
+### HasVirtualPrivateCloudId
+
+`func (o *HypervisorTemplateResourceResponseModel) HasVirtualPrivateCloudId() bool`
+
+HasVirtualPrivateCloudId returns a boolean if a field has been set.
+
+### SetVirtualPrivateCloudIdNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetVirtualPrivateCloudIdNil(b bool)`
+
+ SetVirtualPrivateCloudIdNil sets the value for VirtualPrivateCloudId to be an explicit nil
+
+### UnsetVirtualPrivateCloudId
+`func (o *HypervisorTemplateResourceResponseModel) UnsetVirtualPrivateCloudId()`
+
+UnsetVirtualPrivateCloudId ensures that no value is present for VirtualPrivateCloudId, not even an explicit nil
+### GetDedicatedTenancy
+
+`func (o *HypervisorTemplateResourceResponseModel) GetDedicatedTenancy() string`
+
+GetDedicatedTenancy returns the DedicatedTenancy field if non-nil, zero value otherwise.
+
+### GetDedicatedTenancyOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetDedicatedTenancyOk() (*string, bool)`
+
+GetDedicatedTenancyOk returns a tuple with the DedicatedTenancy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDedicatedTenancy
+
+`func (o *HypervisorTemplateResourceResponseModel) SetDedicatedTenancy(v string)`
+
+SetDedicatedTenancy sets DedicatedTenancy field to given value.
+
+### HasDedicatedTenancy
+
+`func (o *HypervisorTemplateResourceResponseModel) HasDedicatedTenancy() bool`
+
+HasDedicatedTenancy returns a boolean if a field has been set.
+
+### SetDedicatedTenancyNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetDedicatedTenancyNil(b bool)`
+
+ SetDedicatedTenancyNil sets the value for DedicatedTenancy to be an explicit nil
+
+### UnsetDedicatedTenancy
+`func (o *HypervisorTemplateResourceResponseModel) UnsetDedicatedTenancy()`
+
+UnsetDedicatedTenancy ensures that no value is present for DedicatedTenancy, not even an explicit nil
+### GetMemorySizeMB
+
+`func (o *HypervisorTemplateResourceResponseModel) GetMemorySizeMB() float32`
+
+GetMemorySizeMB returns the MemorySizeMB field if non-nil, zero value otherwise.
+
+### GetMemorySizeMBOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetMemorySizeMBOk() (*float32, bool)`
+
+GetMemorySizeMBOk returns a tuple with the MemorySizeMB field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemorySizeMB
+
+`func (o *HypervisorTemplateResourceResponseModel) SetMemorySizeMB(v float32)`
+
+SetMemorySizeMB sets MemorySizeMB field to given value.
+
+
+### GetNumberOfCores
+
+`func (o *HypervisorTemplateResourceResponseModel) GetNumberOfCores() float32`
+
+GetNumberOfCores returns the NumberOfCores field if non-nil, zero value otherwise.
+
+### GetNumberOfCoresOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetNumberOfCoresOk() (*float32, bool)`
+
+GetNumberOfCoresOk returns a tuple with the NumberOfCores field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNumberOfCores
+
+`func (o *HypervisorTemplateResourceResponseModel) SetNumberOfCores(v float32)`
+
+SetNumberOfCores sets NumberOfCores field to given value.
+
+
+### GetAmazonComputeUnits
+
+`func (o *HypervisorTemplateResourceResponseModel) GetAmazonComputeUnits() float32`
+
+GetAmazonComputeUnits returns the AmazonComputeUnits field if non-nil, zero value otherwise.
+
+### GetAmazonComputeUnitsOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetAmazonComputeUnitsOk() (*float32, bool)`
+
+GetAmazonComputeUnitsOk returns a tuple with the AmazonComputeUnits field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAmazonComputeUnits
+
+`func (o *HypervisorTemplateResourceResponseModel) SetAmazonComputeUnits(v float32)`
+
+SetAmazonComputeUnits sets AmazonComputeUnits field to given value.
+
+### HasAmazonComputeUnits
+
+`func (o *HypervisorTemplateResourceResponseModel) HasAmazonComputeUnits() bool`
+
+HasAmazonComputeUnits returns a boolean if a field has been set.
+
+### SetAmazonComputeUnitsNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetAmazonComputeUnitsNil(b bool)`
+
+ SetAmazonComputeUnitsNil sets the value for AmazonComputeUnits to be an explicit nil
+
+### UnsetAmazonComputeUnits
+`func (o *HypervisorTemplateResourceResponseModel) UnsetAmazonComputeUnits()`
+
+UnsetAmazonComputeUnits ensures that no value is present for AmazonComputeUnits, not even an explicit nil
+### GetOptimizedForPooledDesktops
+
+`func (o *HypervisorTemplateResourceResponseModel) GetOptimizedForPooledDesktops() bool`
+
+GetOptimizedForPooledDesktops returns the OptimizedForPooledDesktops field if non-nil, zero value otherwise.
+
+### GetOptimizedForPooledDesktopsOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetOptimizedForPooledDesktopsOk() (*bool, bool)`
+
+GetOptimizedForPooledDesktopsOk returns a tuple with the OptimizedForPooledDesktops field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOptimizedForPooledDesktops
+
+`func (o *HypervisorTemplateResourceResponseModel) SetOptimizedForPooledDesktops(v bool)`
+
+SetOptimizedForPooledDesktops sets OptimizedForPooledDesktops field to given value.
+
+
+### GetNetworkPerformance
+
+`func (o *HypervisorTemplateResourceResponseModel) GetNetworkPerformance() string`
+
+GetNetworkPerformance returns the NetworkPerformance field if non-nil, zero value otherwise.
+
+### GetNetworkPerformanceOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetNetworkPerformanceOk() (*string, bool)`
+
+GetNetworkPerformanceOk returns a tuple with the NetworkPerformance field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkPerformance
+
+`func (o *HypervisorTemplateResourceResponseModel) SetNetworkPerformance(v string)`
+
+SetNetworkPerformance sets NetworkPerformance field to given value.
+
+### HasNetworkPerformance
+
+`func (o *HypervisorTemplateResourceResponseModel) HasNetworkPerformance() bool`
+
+HasNetworkPerformance returns a boolean if a field has been set.
+
+### SetNetworkPerformanceNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetNetworkPerformanceNil(b bool)`
+
+ SetNetworkPerformanceNil sets the value for NetworkPerformance to be an explicit nil
+
+### UnsetNetworkPerformance
+`func (o *HypervisorTemplateResourceResponseModel) UnsetNetworkPerformance()`
+
+UnsetNetworkPerformance ensures that no value is present for NetworkPerformance, not even an explicit nil
+### GetNetworkPerformanceIsUnlimited
+
+`func (o *HypervisorTemplateResourceResponseModel) GetNetworkPerformanceIsUnlimited() bool`
+
+GetNetworkPerformanceIsUnlimited returns the NetworkPerformanceIsUnlimited field if non-nil, zero value otherwise.
+
+### GetNetworkPerformanceIsUnlimitedOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetNetworkPerformanceIsUnlimitedOk() (*bool, bool)`
+
+GetNetworkPerformanceIsUnlimitedOk returns a tuple with the NetworkPerformanceIsUnlimited field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkPerformanceIsUnlimited
+
+`func (o *HypervisorTemplateResourceResponseModel) SetNetworkPerformanceIsUnlimited(v bool)`
+
+SetNetworkPerformanceIsUnlimited sets NetworkPerformanceIsUnlimited field to given value.
+
+
+### GetNetworkPerformanceIsDefault
+
+`func (o *HypervisorTemplateResourceResponseModel) GetNetworkPerformanceIsDefault() bool`
+
+GetNetworkPerformanceIsDefault returns the NetworkPerformanceIsDefault field if non-nil, zero value otherwise.
+
+### GetNetworkPerformanceIsDefaultOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetNetworkPerformanceIsDefaultOk() (*bool, bool)`
+
+GetNetworkPerformanceIsDefaultOk returns a tuple with the NetworkPerformanceIsDefault field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkPerformanceIsDefault
+
+`func (o *HypervisorTemplateResourceResponseModel) SetNetworkPerformanceIsDefault(v bool)`
+
+SetNetworkPerformanceIsDefault sets NetworkPerformanceIsDefault field to given value.
+
+
+### GetIsUsedInSite
+
+`func (o *HypervisorTemplateResourceResponseModel) GetIsUsedInSite() bool`
+
+GetIsUsedInSite returns the IsUsedInSite field if non-nil, zero value otherwise.
+
+### GetIsUsedInSiteOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetIsUsedInSiteOk() (*bool, bool)`
+
+GetIsUsedInSiteOk returns a tuple with the IsUsedInSite field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsUsedInSite
+
+`func (o *HypervisorTemplateResourceResponseModel) SetIsUsedInSite(v bool)`
+
+SetIsUsedInSite sets IsUsedInSite field to given value.
+
+
+### GetSupportsAzurePremiumStorage
+
+`func (o *HypervisorTemplateResourceResponseModel) GetSupportsAzurePremiumStorage() bool`
+
+GetSupportsAzurePremiumStorage returns the SupportsAzurePremiumStorage field if non-nil, zero value otherwise.
+
+### GetSupportsAzurePremiumStorageOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetSupportsAzurePremiumStorageOk() (*bool, bool)`
+
+GetSupportsAzurePremiumStorageOk returns a tuple with the SupportsAzurePremiumStorage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportsAzurePremiumStorage
+
+`func (o *HypervisorTemplateResourceResponseModel) SetSupportsAzurePremiumStorage(v bool)`
+
+SetSupportsAzurePremiumStorage sets SupportsAzurePremiumStorage field to given value.
+
+### HasSupportsAzurePremiumStorage
+
+`func (o *HypervisorTemplateResourceResponseModel) HasSupportsAzurePremiumStorage() bool`
+
+HasSupportsAzurePremiumStorage returns a boolean if a field has been set.
+
+### SetSupportsAzurePremiumStorageNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetSupportsAzurePremiumStorageNil(b bool)`
+
+ SetSupportsAzurePremiumStorageNil sets the value for SupportsAzurePremiumStorage to be an explicit nil
+
+### UnsetSupportsAzurePremiumStorage
+`func (o *HypervisorTemplateResourceResponseModel) UnsetSupportsAzurePremiumStorage()`
+
+UnsetSupportsAzurePremiumStorage ensures that no value is present for SupportsAzurePremiumStorage, not even an explicit nil
+### GetSuperseded
+
+`func (o *HypervisorTemplateResourceResponseModel) GetSuperseded() bool`
+
+GetSuperseded returns the Superseded field if non-nil, zero value otherwise.
+
+### GetSupersededOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetSupersededOk() (*bool, bool)`
+
+GetSupersededOk returns a tuple with the Superseded field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSuperseded
+
+`func (o *HypervisorTemplateResourceResponseModel) SetSuperseded(v bool)`
+
+SetSuperseded sets Superseded field to given value.
+
+
+### GetOwner
+
+`func (o *HypervisorTemplateResourceResponseModel) GetOwner() string`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetOwnerOk() (*string, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *HypervisorTemplateResourceResponseModel) SetOwner(v string)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *HypervisorTemplateResourceResponseModel) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *HypervisorTemplateResourceResponseModel) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetIsWindowsTemplate
+
+`func (o *HypervisorTemplateResourceResponseModel) GetIsWindowsTemplate() bool`
+
+GetIsWindowsTemplate returns the IsWindowsTemplate field if non-nil, zero value otherwise.
+
+### GetIsWindowsTemplateOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetIsWindowsTemplateOk() (*bool, bool)`
+
+GetIsWindowsTemplateOk returns a tuple with the IsWindowsTemplate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsWindowsTemplate
+
+`func (o *HypervisorTemplateResourceResponseModel) SetIsWindowsTemplate(v bool)`
+
+SetIsWindowsTemplate sets IsWindowsTemplate field to given value.
+
+### HasIsWindowsTemplate
+
+`func (o *HypervisorTemplateResourceResponseModel) HasIsWindowsTemplate() bool`
+
+HasIsWindowsTemplate returns a boolean if a field has been set.
+
+### SetIsWindowsTemplateNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetIsWindowsTemplateNil(b bool)`
+
+ SetIsWindowsTemplateNil sets the value for IsWindowsTemplate to be an explicit nil
+
+### UnsetIsWindowsTemplate
+`func (o *HypervisorTemplateResourceResponseModel) UnsetIsWindowsTemplate()`
+
+UnsetIsWindowsTemplate ensures that no value is present for IsWindowsTemplate, not even an explicit nil
+### GetHasPersistentRootVolume
+
+`func (o *HypervisorTemplateResourceResponseModel) GetHasPersistentRootVolume() bool`
+
+GetHasPersistentRootVolume returns the HasPersistentRootVolume field if non-nil, zero value otherwise.
+
+### GetHasPersistentRootVolumeOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetHasPersistentRootVolumeOk() (*bool, bool)`
+
+GetHasPersistentRootVolumeOk returns a tuple with the HasPersistentRootVolume field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasPersistentRootVolume
+
+`func (o *HypervisorTemplateResourceResponseModel) SetHasPersistentRootVolume(v bool)`
+
+SetHasPersistentRootVolume sets HasPersistentRootVolume field to given value.
+
+
+### GetVMId
+
+`func (o *HypervisorTemplateResourceResponseModel) GetVMId() string`
+
+GetVMId returns the VMId field if non-nil, zero value otherwise.
+
+### GetVMIdOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetVMIdOk() (*string, bool)`
+
+GetVMIdOk returns a tuple with the VMId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVMId
+
+`func (o *HypervisorTemplateResourceResponseModel) SetVMId(v string)`
+
+SetVMId sets VMId field to given value.
+
+
+### GetMacAddress
+
+`func (o *HypervisorTemplateResourceResponseModel) GetMacAddress() string`
+
+GetMacAddress returns the MacAddress field if non-nil, zero value otherwise.
+
+### GetMacAddressOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetMacAddressOk() (*string, bool)`
+
+GetMacAddressOk returns a tuple with the MacAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMacAddress
+
+`func (o *HypervisorTemplateResourceResponseModel) SetMacAddress(v string)`
+
+SetMacAddress sets MacAddress field to given value.
+
+### HasMacAddress
+
+`func (o *HypervisorTemplateResourceResponseModel) HasMacAddress() bool`
+
+HasMacAddress returns a boolean if a field has been set.
+
+### SetMacAddressNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetMacAddressNil(b bool)`
+
+ SetMacAddressNil sets the value for MacAddress to be an explicit nil
+
+### UnsetMacAddress
+`func (o *HypervisorTemplateResourceResponseModel) UnsetMacAddress()`
+
+UnsetMacAddress ensures that no value is present for MacAddress, not even an explicit nil
+### GetCpuCount
+
+`func (o *HypervisorTemplateResourceResponseModel) GetCpuCount() int32`
+
+GetCpuCount returns the CpuCount field if non-nil, zero value otherwise.
+
+### GetCpuCountOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetCpuCountOk() (*int32, bool)`
+
+GetCpuCountOk returns a tuple with the CpuCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCpuCount
+
+`func (o *HypervisorTemplateResourceResponseModel) SetCpuCount(v int32)`
+
+SetCpuCount sets CpuCount field to given value.
+
+### HasCpuCount
+
+`func (o *HypervisorTemplateResourceResponseModel) HasCpuCount() bool`
+
+HasCpuCount returns a boolean if a field has been set.
+
+### SetCpuCountNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetCpuCountNil(b bool)`
+
+ SetCpuCountNil sets the value for CpuCount to be an explicit nil
+
+### UnsetCpuCount
+`func (o *HypervisorTemplateResourceResponseModel) UnsetCpuCount()`
+
+UnsetCpuCount ensures that no value is present for CpuCount, not even an explicit nil
+### GetMemoryMB
+
+`func (o *HypervisorTemplateResourceResponseModel) GetMemoryMB() int32`
+
+GetMemoryMB returns the MemoryMB field if non-nil, zero value otherwise.
+
+### GetMemoryMBOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetMemoryMBOk() (*int32, bool)`
+
+GetMemoryMBOk returns a tuple with the MemoryMB field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemoryMB
+
+`func (o *HypervisorTemplateResourceResponseModel) SetMemoryMB(v int32)`
+
+SetMemoryMB sets MemoryMB field to given value.
+
+### HasMemoryMB
+
+`func (o *HypervisorTemplateResourceResponseModel) HasMemoryMB() bool`
+
+HasMemoryMB returns a boolean if a field has been set.
+
+### SetMemoryMBNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetMemoryMBNil(b bool)`
+
+ SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
+
+### UnsetMemoryMB
+`func (o *HypervisorTemplateResourceResponseModel) UnsetMemoryMB()`
+
+UnsetMemoryMB ensures that no value is present for MemoryMB, not even an explicit nil
+### GetHardDiskSizeGB
+
+`func (o *HypervisorTemplateResourceResponseModel) GetHardDiskSizeGB() int32`
+
+GetHardDiskSizeGB returns the HardDiskSizeGB field if non-nil, zero value otherwise.
+
+### GetHardDiskSizeGBOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetHardDiskSizeGBOk() (*int32, bool)`
+
+GetHardDiskSizeGBOk returns a tuple with the HardDiskSizeGB field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHardDiskSizeGB
+
+`func (o *HypervisorTemplateResourceResponseModel) SetHardDiskSizeGB(v int32)`
+
+SetHardDiskSizeGB sets HardDiskSizeGB field to given value.
+
+### HasHardDiskSizeGB
+
+`func (o *HypervisorTemplateResourceResponseModel) HasHardDiskSizeGB() bool`
+
+HasHardDiskSizeGB returns a boolean if a field has been set.
+
+### SetHardDiskSizeGBNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetHardDiskSizeGBNil(b bool)`
+
+ SetHardDiskSizeGBNil sets the value for HardDiskSizeGB to be an explicit nil
+
+### UnsetHardDiskSizeGB
+`func (o *HypervisorTemplateResourceResponseModel) UnsetHardDiskSizeGB()`
+
+UnsetHardDiskSizeGB ensures that no value is present for HardDiskSizeGB, not even an explicit nil
+### GetMinMemoryMB
+
+`func (o *HypervisorTemplateResourceResponseModel) GetMinMemoryMB() int32`
+
+GetMinMemoryMB returns the MinMemoryMB field if non-nil, zero value otherwise.
+
+### GetMinMemoryMBOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetMinMemoryMBOk() (*int32, bool)`
+
+GetMinMemoryMBOk returns a tuple with the MinMemoryMB field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMinMemoryMB
+
+`func (o *HypervisorTemplateResourceResponseModel) SetMinMemoryMB(v int32)`
+
+SetMinMemoryMB sets MinMemoryMB field to given value.
+
+### HasMinMemoryMB
+
+`func (o *HypervisorTemplateResourceResponseModel) HasMinMemoryMB() bool`
+
+HasMinMemoryMB returns a boolean if a field has been set.
+
+### SetMinMemoryMBNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetMinMemoryMBNil(b bool)`
+
+ SetMinMemoryMBNil sets the value for MinMemoryMB to be an explicit nil
+
+### UnsetMinMemoryMB
+`func (o *HypervisorTemplateResourceResponseModel) UnsetMinMemoryMB()`
+
+UnsetMinMemoryMB ensures that no value is present for MinMemoryMB, not even an explicit nil
+### GetNetworkMappings
+
+`func (o *HypervisorTemplateResourceResponseModel) GetNetworkMappings() []NetworkMapResponseModel`
+
+GetNetworkMappings returns the NetworkMappings field if non-nil, zero value otherwise.
+
+### GetNetworkMappingsOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetNetworkMappingsOk() (*[]NetworkMapResponseModel, bool)`
+
+GetNetworkMappingsOk returns a tuple with the NetworkMappings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkMappings
+
+`func (o *HypervisorTemplateResourceResponseModel) SetNetworkMappings(v []NetworkMapResponseModel)`
+
+SetNetworkMappings sets NetworkMappings field to given value.
+
+### HasNetworkMappings
+
+`func (o *HypervisorTemplateResourceResponseModel) HasNetworkMappings() bool`
+
+HasNetworkMappings returns a boolean if a field has been set.
+
+### SetNetworkMappingsNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetNetworkMappingsNil(b bool)`
+
+ SetNetworkMappingsNil sets the value for NetworkMappings to be an explicit nil
+
+### UnsetNetworkMappings
+`func (o *HypervisorTemplateResourceResponseModel) UnsetNetworkMappings()`
+
+UnsetNetworkMappings ensures that no value is present for NetworkMappings, not even an explicit nil
+### GetAttachedDisks
+
+`func (o *HypervisorTemplateResourceResponseModel) GetAttachedDisks() []AttachedDiskResponseModel`
+
+GetAttachedDisks returns the AttachedDisks field if non-nil, zero value otherwise.
+
+### GetAttachedDisksOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetAttachedDisksOk() (*[]AttachedDiskResponseModel, bool)`
+
+GetAttachedDisksOk returns a tuple with the AttachedDisks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttachedDisks
+
+`func (o *HypervisorTemplateResourceResponseModel) SetAttachedDisks(v []AttachedDiskResponseModel)`
+
+SetAttachedDisks sets AttachedDisks field to given value.
+
+### HasAttachedDisks
+
+`func (o *HypervisorTemplateResourceResponseModel) HasAttachedDisks() bool`
+
+HasAttachedDisks returns a boolean if a field has been set.
+
+### SetAttachedDisksNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetAttachedDisksNil(b bool)`
+
+ SetAttachedDisksNil sets the value for AttachedDisks to be an explicit nil
+
+### UnsetAttachedDisks
+`func (o *HypervisorTemplateResourceResponseModel) UnsetAttachedDisks()`
+
+UnsetAttachedDisks ensures that no value is present for AttachedDisks, not even an explicit nil
+### GetInstanceSecurityGroupLimit
+
+`func (o *HypervisorTemplateResourceResponseModel) GetInstanceSecurityGroupLimit() int32`
+
+GetInstanceSecurityGroupLimit returns the InstanceSecurityGroupLimit field if non-nil, zero value otherwise.
+
+### GetInstanceSecurityGroupLimitOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetInstanceSecurityGroupLimitOk() (*int32, bool)`
+
+GetInstanceSecurityGroupLimitOk returns a tuple with the InstanceSecurityGroupLimit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstanceSecurityGroupLimit
+
+`func (o *HypervisorTemplateResourceResponseModel) SetInstanceSecurityGroupLimit(v int32)`
+
+SetInstanceSecurityGroupLimit sets InstanceSecurityGroupLimit field to given value.
+
+
+### GetEndpoint
+
+`func (o *HypervisorTemplateResourceResponseModel) GetEndpoint() string`
+
+GetEndpoint returns the Endpoint field if non-nil, zero value otherwise.
+
+### GetEndpointOk
+
+`func (o *HypervisorTemplateResourceResponseModel) GetEndpointOk() (*string, bool)`
+
+GetEndpointOk returns a tuple with the Endpoint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndpoint
+
+`func (o *HypervisorTemplateResourceResponseModel) SetEndpoint(v string)`
+
+SetEndpoint sets Endpoint field to given value.
+
+### HasEndpoint
+
+`func (o *HypervisorTemplateResourceResponseModel) HasEndpoint() bool`
+
+HasEndpoint returns a boolean if a field has been set.
+
+### SetEndpointNil
+
+`func (o *HypervisorTemplateResourceResponseModel) SetEndpointNil(b bool)`
+
+ SetEndpointNil sets the value for Endpoint to be an explicit nil
+
+### UnsetEndpoint
+`func (o *HypervisorTemplateResourceResponseModel) UnsetEndpoint()`
+
+UnsetEndpoint ensures that no value is present for Endpoint, not even an explicit nil
 ### GetId
 
 `func (o *HypervisorTemplateResourceResponseModel) GetId() string`
@@ -552,341 +1454,6 @@ HasAdditionalData returns a boolean if a field has been set.
 `func (o *HypervisorTemplateResourceResponseModel) UnsetAdditionalData()`
 
 UnsetAdditionalData ensures that no value is present for AdditionalData, not even an explicit nil
-### GetCpuCount
-
-`func (o *HypervisorTemplateResourceResponseModel) GetCpuCount() int32`
-
-GetCpuCount returns the CpuCount field if non-nil, zero value otherwise.
-
-### GetCpuCountOk
-
-`func (o *HypervisorTemplateResourceResponseModel) GetCpuCountOk() (*int32, bool)`
-
-GetCpuCountOk returns a tuple with the CpuCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCpuCount
-
-`func (o *HypervisorTemplateResourceResponseModel) SetCpuCount(v int32)`
-
-SetCpuCount sets CpuCount field to given value.
-
-### HasCpuCount
-
-`func (o *HypervisorTemplateResourceResponseModel) HasCpuCount() bool`
-
-HasCpuCount returns a boolean if a field has been set.
-
-### SetCpuCountNil
-
-`func (o *HypervisorTemplateResourceResponseModel) SetCpuCountNil(b bool)`
-
- SetCpuCountNil sets the value for CpuCount to be an explicit nil
-
-### UnsetCpuCount
-`func (o *HypervisorTemplateResourceResponseModel) UnsetCpuCount()`
-
-UnsetCpuCount ensures that no value is present for CpuCount, not even an explicit nil
-### GetMemoryMB
-
-`func (o *HypervisorTemplateResourceResponseModel) GetMemoryMB() int32`
-
-GetMemoryMB returns the MemoryMB field if non-nil, zero value otherwise.
-
-### GetMemoryMBOk
-
-`func (o *HypervisorTemplateResourceResponseModel) GetMemoryMBOk() (*int32, bool)`
-
-GetMemoryMBOk returns a tuple with the MemoryMB field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMemoryMB
-
-`func (o *HypervisorTemplateResourceResponseModel) SetMemoryMB(v int32)`
-
-SetMemoryMB sets MemoryMB field to given value.
-
-### HasMemoryMB
-
-`func (o *HypervisorTemplateResourceResponseModel) HasMemoryMB() bool`
-
-HasMemoryMB returns a boolean if a field has been set.
-
-### SetMemoryMBNil
-
-`func (o *HypervisorTemplateResourceResponseModel) SetMemoryMBNil(b bool)`
-
- SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
-
-### UnsetMemoryMB
-`func (o *HypervisorTemplateResourceResponseModel) UnsetMemoryMB()`
-
-UnsetMemoryMB ensures that no value is present for MemoryMB, not even an explicit nil
-### GetHardDiskSizeGB
-
-`func (o *HypervisorTemplateResourceResponseModel) GetHardDiskSizeGB() int32`
-
-GetHardDiskSizeGB returns the HardDiskSizeGB field if non-nil, zero value otherwise.
-
-### GetHardDiskSizeGBOk
-
-`func (o *HypervisorTemplateResourceResponseModel) GetHardDiskSizeGBOk() (*int32, bool)`
-
-GetHardDiskSizeGBOk returns a tuple with the HardDiskSizeGB field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHardDiskSizeGB
-
-`func (o *HypervisorTemplateResourceResponseModel) SetHardDiskSizeGB(v int32)`
-
-SetHardDiskSizeGB sets HardDiskSizeGB field to given value.
-
-### HasHardDiskSizeGB
-
-`func (o *HypervisorTemplateResourceResponseModel) HasHardDiskSizeGB() bool`
-
-HasHardDiskSizeGB returns a boolean if a field has been set.
-
-### SetHardDiskSizeGBNil
-
-`func (o *HypervisorTemplateResourceResponseModel) SetHardDiskSizeGBNil(b bool)`
-
- SetHardDiskSizeGBNil sets the value for HardDiskSizeGB to be an explicit nil
-
-### UnsetHardDiskSizeGB
-`func (o *HypervisorTemplateResourceResponseModel) UnsetHardDiskSizeGB()`
-
-UnsetHardDiskSizeGB ensures that no value is present for HardDiskSizeGB, not even an explicit nil
-### GetMinMemoryMB
-
-`func (o *HypervisorTemplateResourceResponseModel) GetMinMemoryMB() int32`
-
-GetMinMemoryMB returns the MinMemoryMB field if non-nil, zero value otherwise.
-
-### GetMinMemoryMBOk
-
-`func (o *HypervisorTemplateResourceResponseModel) GetMinMemoryMBOk() (*int32, bool)`
-
-GetMinMemoryMBOk returns a tuple with the MinMemoryMB field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMinMemoryMB
-
-`func (o *HypervisorTemplateResourceResponseModel) SetMinMemoryMB(v int32)`
-
-SetMinMemoryMB sets MinMemoryMB field to given value.
-
-### HasMinMemoryMB
-
-`func (o *HypervisorTemplateResourceResponseModel) HasMinMemoryMB() bool`
-
-HasMinMemoryMB returns a boolean if a field has been set.
-
-### SetMinMemoryMBNil
-
-`func (o *HypervisorTemplateResourceResponseModel) SetMinMemoryMBNil(b bool)`
-
- SetMinMemoryMBNil sets the value for MinMemoryMB to be an explicit nil
-
-### UnsetMinMemoryMB
-`func (o *HypervisorTemplateResourceResponseModel) UnsetMinMemoryMB()`
-
-UnsetMinMemoryMB ensures that no value is present for MinMemoryMB, not even an explicit nil
-### GetNetworkMappings
-
-`func (o *HypervisorTemplateResourceResponseModel) GetNetworkMappings() []NetworkMapResponseModel`
-
-GetNetworkMappings returns the NetworkMappings field if non-nil, zero value otherwise.
-
-### GetNetworkMappingsOk
-
-`func (o *HypervisorTemplateResourceResponseModel) GetNetworkMappingsOk() (*[]NetworkMapResponseModel, bool)`
-
-GetNetworkMappingsOk returns a tuple with the NetworkMappings field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNetworkMappings
-
-`func (o *HypervisorTemplateResourceResponseModel) SetNetworkMappings(v []NetworkMapResponseModel)`
-
-SetNetworkMappings sets NetworkMappings field to given value.
-
-### HasNetworkMappings
-
-`func (o *HypervisorTemplateResourceResponseModel) HasNetworkMappings() bool`
-
-HasNetworkMappings returns a boolean if a field has been set.
-
-### SetNetworkMappingsNil
-
-`func (o *HypervisorTemplateResourceResponseModel) SetNetworkMappingsNil(b bool)`
-
- SetNetworkMappingsNil sets the value for NetworkMappings to be an explicit nil
-
-### UnsetNetworkMappings
-`func (o *HypervisorTemplateResourceResponseModel) UnsetNetworkMappings()`
-
-UnsetNetworkMappings ensures that no value is present for NetworkMappings, not even an explicit nil
-### GetAttachedDisks
-
-`func (o *HypervisorTemplateResourceResponseModel) GetAttachedDisks() []AttachedDiskResponseModel`
-
-GetAttachedDisks returns the AttachedDisks field if non-nil, zero value otherwise.
-
-### GetAttachedDisksOk
-
-`func (o *HypervisorTemplateResourceResponseModel) GetAttachedDisksOk() (*[]AttachedDiskResponseModel, bool)`
-
-GetAttachedDisksOk returns a tuple with the AttachedDisks field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAttachedDisks
-
-`func (o *HypervisorTemplateResourceResponseModel) SetAttachedDisks(v []AttachedDiskResponseModel)`
-
-SetAttachedDisks sets AttachedDisks field to given value.
-
-### HasAttachedDisks
-
-`func (o *HypervisorTemplateResourceResponseModel) HasAttachedDisks() bool`
-
-HasAttachedDisks returns a boolean if a field has been set.
-
-### SetAttachedDisksNil
-
-`func (o *HypervisorTemplateResourceResponseModel) SetAttachedDisksNil(b bool)`
-
- SetAttachedDisksNil sets the value for AttachedDisks to be an explicit nil
-
-### UnsetAttachedDisks
-`func (o *HypervisorTemplateResourceResponseModel) UnsetAttachedDisks()`
-
-UnsetAttachedDisks ensures that no value is present for AttachedDisks, not even an explicit nil
-### GetOwner
-
-`func (o *HypervisorTemplateResourceResponseModel) GetOwner() string`
-
-GetOwner returns the Owner field if non-nil, zero value otherwise.
-
-### GetOwnerOk
-
-`func (o *HypervisorTemplateResourceResponseModel) GetOwnerOk() (*string, bool)`
-
-GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOwner
-
-`func (o *HypervisorTemplateResourceResponseModel) SetOwner(v string)`
-
-SetOwner sets Owner field to given value.
-
-### HasOwner
-
-`func (o *HypervisorTemplateResourceResponseModel) HasOwner() bool`
-
-HasOwner returns a boolean if a field has been set.
-
-### SetOwnerNil
-
-`func (o *HypervisorTemplateResourceResponseModel) SetOwnerNil(b bool)`
-
- SetOwnerNil sets the value for Owner to be an explicit nil
-
-### UnsetOwner
-`func (o *HypervisorTemplateResourceResponseModel) UnsetOwner()`
-
-UnsetOwner ensures that no value is present for Owner, not even an explicit nil
-### GetIsWindowsTemplate
-
-`func (o *HypervisorTemplateResourceResponseModel) GetIsWindowsTemplate() bool`
-
-GetIsWindowsTemplate returns the IsWindowsTemplate field if non-nil, zero value otherwise.
-
-### GetIsWindowsTemplateOk
-
-`func (o *HypervisorTemplateResourceResponseModel) GetIsWindowsTemplateOk() (*bool, bool)`
-
-GetIsWindowsTemplateOk returns a tuple with the IsWindowsTemplate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsWindowsTemplate
-
-`func (o *HypervisorTemplateResourceResponseModel) SetIsWindowsTemplate(v bool)`
-
-SetIsWindowsTemplate sets IsWindowsTemplate field to given value.
-
-### HasIsWindowsTemplate
-
-`func (o *HypervisorTemplateResourceResponseModel) HasIsWindowsTemplate() bool`
-
-HasIsWindowsTemplate returns a boolean if a field has been set.
-
-### SetIsWindowsTemplateNil
-
-`func (o *HypervisorTemplateResourceResponseModel) SetIsWindowsTemplateNil(b bool)`
-
- SetIsWindowsTemplateNil sets the value for IsWindowsTemplate to be an explicit nil
-
-### UnsetIsWindowsTemplate
-`func (o *HypervisorTemplateResourceResponseModel) UnsetIsWindowsTemplate()`
-
-UnsetIsWindowsTemplate ensures that no value is present for IsWindowsTemplate, not even an explicit nil
-### GetDescription
-
-`func (o *HypervisorTemplateResourceResponseModel) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *HypervisorTemplateResourceResponseModel) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *HypervisorTemplateResourceResponseModel) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-### HasDescription
-
-`func (o *HypervisorTemplateResourceResponseModel) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
-
-### SetDescriptionNil
-
-`func (o *HypervisorTemplateResourceResponseModel) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *HypervisorTemplateResourceResponseModel) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetHasPersistentRootVolume
-
-`func (o *HypervisorTemplateResourceResponseModel) GetHasPersistentRootVolume() bool`
-
-GetHasPersistentRootVolume returns the HasPersistentRootVolume field if non-nil, zero value otherwise.
-
-### GetHasPersistentRootVolumeOk
-
-`func (o *HypervisorTemplateResourceResponseModel) GetHasPersistentRootVolumeOk() (*bool, bool)`
-
-GetHasPersistentRootVolumeOk returns a tuple with the HasPersistentRootVolume field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHasPersistentRootVolume
-
-`func (o *HypervisorTemplateResourceResponseModel) SetHasPersistentRootVolume(v bool)`
-
-SetHasPersistentRootVolume sets HasPersistentRootVolume field to given value.
-
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

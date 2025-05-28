@@ -81,6 +81,7 @@ func (o *DeliveryGroupAssociationResponseModel) HasId() bool {
 func (o *DeliveryGroupAssociationResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *DeliveryGroupAssociationResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -123,6 +124,7 @@ func (o *DeliveryGroupAssociationResponseModel) HasUid() bool {
 func (o *DeliveryGroupAssociationResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *DeliveryGroupAssociationResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -165,6 +167,7 @@ func (o *DeliveryGroupAssociationResponseModel) HasName() bool {
 func (o *DeliveryGroupAssociationResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *DeliveryGroupAssociationResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -231,6 +234,7 @@ func (o *DeliveryGroupAssociationResponseModel) HasPriority() bool {
 func (o *DeliveryGroupAssociationResponseModel) SetPriority(v int32) {
 	o.Priority.Set(&v)
 }
+
 // SetPriorityNil sets the value for Priority to be an explicit nil
 func (o *DeliveryGroupAssociationResponseModel) SetPriorityNil() {
 	o.Priority.Set(nil)
@@ -242,7 +246,7 @@ func (o *DeliveryGroupAssociationResponseModel) UnsetPriority() {
 }
 
 func (o DeliveryGroupAssociationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -302,5 +306,3 @@ func (v *NullableDeliveryGroupAssociationResponseModel) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

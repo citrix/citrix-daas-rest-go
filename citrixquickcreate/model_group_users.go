@@ -17,9 +17,9 @@ import (
 // checks if the GroupUsers type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &GroupUsers{}
 
-// GroupUsers 
+// GroupUsers
 type GroupUsers struct {
-	// 
+	//
 	Users []CoreUser `json:"users,omitempty"`
 }
 
@@ -61,7 +61,7 @@ func (o *GroupUsers) GetUsersOk() ([]CoreUser, bool) {
 
 // HasUsers returns a boolean if a field has been set.
 func (o *GroupUsers) HasUsers() bool {
-	if o != nil && IsNil(o.Users) {
+	if o != nil && !IsNil(o.Users) {
 		return true
 	}
 
@@ -74,7 +74,7 @@ func (o *GroupUsers) SetUsers(v []CoreUser) {
 }
 
 func (o GroupUsers) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -124,5 +124,3 @@ func (v *NullableGroupUsers) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -15,25 +15,25 @@ import (
 	"fmt"
 )
 
-// BackupRestoreActions 
+// BackupRestoreActions
 type BackupRestoreActions string
 
 // List of BackupRestoreActions
 const (
-	BACKUPRESTOREACTIONS_BACKUP BackupRestoreActions = "Backup"
-	BACKUPRESTOREACTIONS_RESTORE BackupRestoreActions = "Restore"
-	BACKUPRESTOREACTIONS_PIN_BACKUP BackupRestoreActions = "PinBackup"
-	BACKUPRESTOREACTIONS_UNPIN_BACKUP BackupRestoreActions = "UnpinBackup"
-	BACKUPRESTOREACTIONS_DOWNLOAD_BACKUP BackupRestoreActions = "DownloadBackup"
-	BACKUPRESTOREACTIONS_UPLOAD_BACKUP BackupRestoreActions = "UploadBackup"
-	BACKUPRESTOREACTIONS_DELETE_BACKUP BackupRestoreActions = "DeleteBackup"
-	BACKUPRESTOREACTIONS_DELETE_SCHEDULE BackupRestoreActions = "DeleteSchedule"
-	BACKUPRESTOREACTIONS_CREATE_SCHEDULE BackupRestoreActions = "CreateSchedule"
-	BACKUPRESTOREACTIONS_EDIT_SCHEDULE BackupRestoreActions = "EditSchedule"
-	BACKUPRESTOREACTIONS_ENABLE_SCHEDULE BackupRestoreActions = "EnableSchedule"
-	BACKUPRESTOREACTIONS_DISABLE_SCHEDULE BackupRestoreActions = "DisableSchedule"
+	BACKUPRESTOREACTIONS_BACKUP              BackupRestoreActions = "Backup"
+	BACKUPRESTOREACTIONS_RESTORE             BackupRestoreActions = "Restore"
+	BACKUPRESTOREACTIONS_PIN_BACKUP          BackupRestoreActions = "PinBackup"
+	BACKUPRESTOREACTIONS_UNPIN_BACKUP        BackupRestoreActions = "UnpinBackup"
+	BACKUPRESTOREACTIONS_DOWNLOAD_BACKUP     BackupRestoreActions = "DownloadBackup"
+	BACKUPRESTOREACTIONS_UPLOAD_BACKUP       BackupRestoreActions = "UploadBackup"
+	BACKUPRESTOREACTIONS_DELETE_BACKUP       BackupRestoreActions = "DeleteBackup"
+	BACKUPRESTOREACTIONS_DELETE_SCHEDULE     BackupRestoreActions = "DeleteSchedule"
+	BACKUPRESTOREACTIONS_CREATE_SCHEDULE     BackupRestoreActions = "CreateSchedule"
+	BACKUPRESTOREACTIONS_EDIT_SCHEDULE       BackupRestoreActions = "EditSchedule"
+	BACKUPRESTOREACTIONS_ENABLE_SCHEDULE     BackupRestoreActions = "EnableSchedule"
+	BACKUPRESTOREACTIONS_DISABLE_SCHEDULE    BackupRestoreActions = "DisableSchedule"
 	BACKUPRESTOREACTIONS_GET_MEMBERS_IN_FILE BackupRestoreActions = "GetMembersInFile"
-	BACKUPRESTOREACTIONS_UNDEFINED BackupRestoreActions = "Undefined"
+	BACKUPRESTOREACTIONS_UNDEFINED           BackupRestoreActions = "Undefined"
 )
 
 // All allowed values of BackupRestoreActions enum
@@ -60,7 +60,7 @@ func (v *BackupRestoreActions) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = BackupRestoreActions(value)
 	return nil
 }
@@ -126,4 +126,3 @@ func (v *NullableBackupRestoreActions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

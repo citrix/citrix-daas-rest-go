@@ -17,13 +17,13 @@ import (
 // checks if the ActionMachineOperationDetailsResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ActionMachineOperationDetailsResponseModel{}
 
-// ActionMachineOperationDetailsResponseModel Action machine operation details response model class. 
+// ActionMachineOperationDetailsResponseModel Action machine operation details response model class.
 type ActionMachineOperationDetailsResponseModel struct {
 	// Active directory account action.
 	AdAccountAction NullableString `json:"AdAccountAction,omitempty"`
 	// Successful accounts.
 	SuccessfulAccounts []string `json:"SuccessfulAccounts,omitempty"`
-	// Successful machines. 
+	// Successful machines.
 	SuccessfulMachines []string `json:"SuccessfulMachines,omitempty"`
 	// Failed machines and Action errors.
 	FailedMachines []ActionFailedMachineOrAccountResponseModel `json:"FailedMachines,omitempty"`
@@ -80,6 +80,7 @@ func (o *ActionMachineOperationDetailsResponseModel) HasAdAccountAction() bool {
 func (o *ActionMachineOperationDetailsResponseModel) SetAdAccountAction(v string) {
 	o.AdAccountAction.Set(&v)
 }
+
 // SetAdAccountActionNil sets the value for AdAccountAction to be an explicit nil
 func (o *ActionMachineOperationDetailsResponseModel) SetAdAccountActionNil() {
 	o.AdAccountAction.Set(nil)
@@ -223,7 +224,7 @@ func (o *ActionMachineOperationDetailsResponseModel) SetFailedAccounts(v []Actio
 }
 
 func (o ActionMachineOperationDetailsResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -285,5 +286,3 @@ func (v *NullableActionMachineOperationDetailsResponseModel) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

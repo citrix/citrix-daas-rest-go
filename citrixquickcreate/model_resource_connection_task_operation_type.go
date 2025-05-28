@@ -20,10 +20,10 @@ type ResourceConnectionTaskOperationType string
 
 // List of ResourceConnectionTaskOperationType
 const (
-	RESOURCECONNECTIONTASKOPERATIONTYPE_ADD_CONNECTION ResourceConnectionTaskOperationType = "ADD_CONNECTION"
-	RESOURCECONNECTIONTASKOPERATIONTYPE_ADD_CONNECTORS ResourceConnectionTaskOperationType = "ADD_CONNECTORS"
+	RESOURCECONNECTIONTASKOPERATIONTYPE_ADD_CONNECTION           ResourceConnectionTaskOperationType = "ADD_CONNECTION"
+	RESOURCECONNECTIONTASKOPERATIONTYPE_ADD_CONNECTORS           ResourceConnectionTaskOperationType = "ADD_CONNECTORS"
 	RESOURCECONNECTIONTASKOPERATIONTYPE_ADD_CONNECTOR_APPLIANCES ResourceConnectionTaskOperationType = "ADD_CONNECTOR_APPLIANCES"
-	RESOURCECONNECTIONTASKOPERATIONTYPE_REMOVE_CONNECTION ResourceConnectionTaskOperationType = "REMOVE_CONNECTION"
+	RESOURCECONNECTIONTASKOPERATIONTYPE_REMOVE_CONNECTION        ResourceConnectionTaskOperationType = "REMOVE_CONNECTION"
 )
 
 // All allowed values of ResourceConnectionTaskOperationType enum
@@ -112,4 +112,3 @@ func (v *NullableResourceConnectionTaskOperationType) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

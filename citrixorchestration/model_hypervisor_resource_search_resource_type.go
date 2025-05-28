@@ -20,20 +20,20 @@ type HypervisorResourceSearchResourceType string
 
 // List of HypervisorResourceSearchResourceType
 const (
-	HYPERVISORRESOURCESEARCHRESOURCETYPE_TEMPLATE HypervisorResourceSearchResourceType = "Template"
-	HYPERVISORRESOURCESEARCHRESOURCETYPE_VM HypervisorResourceSearchResourceType = "Vm"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_TEMPLATE                HypervisorResourceSearchResourceType = "Template"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_VM                      HypervisorResourceSearchResourceType = "Vm"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_LAUNCH_TEMPLATE_VERSION HypervisorResourceSearchResourceType = "LaunchTemplateVersion"
-	HYPERVISORRESOURCESEARCHRESOURCETYPE_FOLDER HypervisorResourceSearchResourceType = "Folder"
-	HYPERVISORRESOURCESEARCHRESOURCETYPE_SNAPSHOT HypervisorResourceSearchResourceType = "Snapshot"
-	HYPERVISORRESOURCESEARCHRESOURCETYPE_MANAGED_DISK HypervisorResourceSearchResourceType = "ManagedDisk"
-	HYPERVISORRESOURCESEARCHRESOURCETYPE_GALLERY HypervisorResourceSearchResourceType = "Gallery"
-	HYPERVISORRESOURCESEARCHRESOURCETYPE_IMAGE_DEFINITION HypervisorResourceSearchResourceType = "ImageDefinition"
-	HYPERVISORRESOURCESEARCHRESOURCETYPE_TEMPLATE_SPEC HypervisorResourceSearchResourceType = "TemplateSpec"
-	HYPERVISORRESOURCESEARCHRESOURCETYPE_TAG HypervisorResourceSearchResourceType = "Tag"
-	HYPERVISORRESOURCESEARCHRESOURCETYPE_RESOURCE_GROUP HypervisorResourceSearchResourceType = "ResourceGroup"
-	HYPERVISORRESOURCESEARCHRESOURCETYPE_SECURITY_GROUP HypervisorResourceSearchResourceType = "SecurityGroup"
-	HYPERVISORRESOURCESEARCHRESOURCETYPE_AVAILABILITY_ZONE HypervisorResourceSearchResourceType = "AvailabilityZone"
-	HYPERVISORRESOURCESEARCHRESOURCETYPE_NETWORK HypervisorResourceSearchResourceType = "Network"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_FOLDER                  HypervisorResourceSearchResourceType = "Folder"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_SNAPSHOT                HypervisorResourceSearchResourceType = "Snapshot"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_MANAGED_DISK            HypervisorResourceSearchResourceType = "ManagedDisk"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_GALLERY                 HypervisorResourceSearchResourceType = "Gallery"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_IMAGE_DEFINITION        HypervisorResourceSearchResourceType = "ImageDefinition"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_TEMPLATE_SPEC           HypervisorResourceSearchResourceType = "TemplateSpec"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_TAG                     HypervisorResourceSearchResourceType = "Tag"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_RESOURCE_GROUP          HypervisorResourceSearchResourceType = "ResourceGroup"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_SECURITY_GROUP          HypervisorResourceSearchResourceType = "SecurityGroup"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_AVAILABILITY_ZONE       HypervisorResourceSearchResourceType = "AvailabilityZone"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_NETWORK                 HypervisorResourceSearchResourceType = "Network"
 )
 
 // All allowed values of HypervisorResourceSearchResourceType enum
@@ -60,7 +60,7 @@ func (v *HypervisorResourceSearchResourceType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = HypervisorResourceSearchResourceType(value)
 	return nil
 }
@@ -126,4 +126,3 @@ func (v *NullableHypervisorResourceSearchResourceType) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

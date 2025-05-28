@@ -20,7 +20,7 @@ type SamlRequestBindingType string
 
 // List of SamlRequestBindingType
 const (
-	SAMLREQUESTBINDINGTYPE_HTTP_POST SamlRequestBindingType = "HttpPost"
+	SAMLREQUESTBINDINGTYPE_HTTP_POST     SamlRequestBindingType = "HttpPost"
 	SAMLREQUESTBINDINGTYPE_HTTP_REDIRECT SamlRequestBindingType = "HttpRedirect"
 )
 
@@ -108,4 +108,3 @@ func (v *NullableSamlRequestBindingType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

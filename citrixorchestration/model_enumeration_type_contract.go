@@ -74,6 +74,7 @@ func (o *EnumerationTypeContract) HasTypeName() bool {
 func (o *EnumerationTypeContract) SetTypeName(v string) {
 	o.TypeName.Set(&v)
 }
+
 // SetTypeNameNil sets the value for TypeName to be an explicit nil
 func (o *EnumerationTypeContract) SetTypeNameNil() {
 	o.TypeName.Set(nil)
@@ -118,7 +119,7 @@ func (o *EnumerationTypeContract) SetMembers(v []EnumerationMemberContract) {
 }
 
 func (o EnumerationTypeContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -171,5 +172,3 @@ func (v *NullableEnumerationTypeContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

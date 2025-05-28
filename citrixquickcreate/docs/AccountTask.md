@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Operation** | [**NullableAccountTaskOperationType**](AccountTaskOperationType.md) |  | 
+**Operation** | [**NullableAccountTaskOperationType**](AccountTaskOperationType.md) | Task Type | 
 **AccountId** | Pointer to **NullableString** | Account Id this task is working on | [optional] 
 
 ## Methods

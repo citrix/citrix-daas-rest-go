@@ -20,10 +20,10 @@ var _ MappedNullable = &CreateImageVersionRequestModel{}
 // CreateImageVersionRequestModel Request object for creation of image versions.
 type CreateImageVersionRequestModel struct {
 	// The description associated with the image version.
-	Description NullableString `json:"Description,omitempty"`
+	Description NullableString                `json:"Description,omitempty" validate:"regexp=^[A-Za-z]+$"`
 	ImageScheme CreateImageSchemeRequestModel `json:"ImageScheme"`
 	// The path in the resource pool to the virtual machine snapshot or VM template that will be used. This identifies the hard disk to be used and the default values for the memory and processors. This must be a path to a Snapshot or Template item in the resource pool to which the Image Version Specification is associated.
-	MasterImagePath string `json:"MasterImagePath"`
+	MasterImagePath string "json:\"MasterImagePath\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// Hypervisor resource pool Id or name in which image version specification locates
 	ResourcePool string `json:"ResourcePool"`
 }
@@ -80,6 +80,7 @@ func (o *CreateImageVersionRequestModel) HasDescription() bool {
 func (o *CreateImageVersionRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *CreateImageVersionRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -163,7 +164,7 @@ func (o *CreateImageVersionRequestModel) SetResourcePool(v string) {
 }
 
 func (o CreateImageVersionRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -216,5 +217,3 @@ func (v *NullableCreateImageVersionRequestModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

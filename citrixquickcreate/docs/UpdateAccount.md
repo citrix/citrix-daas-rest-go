@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountOperationType** | [**UpdateAccountOperationType**](UpdateAccountOperationType.md) |  | 
+**AccountOperationType** | [**UpdateAccountOperationType**](UpdateAccountOperationType.md) | The type of provider associated with the account | 
 
 ## Methods
 

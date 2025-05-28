@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountType** | [**AccountType**](AccountType.md) |  | 
+**AccountType** | [**AccountType**](AccountType.md) | The type of account the resource is associated with | 
 **AccountId** | Pointer to **NullableString** | Account Id | [optional] 
 **ResourceId** | Pointer to **NullableString** | Resource Id | [optional] 
 

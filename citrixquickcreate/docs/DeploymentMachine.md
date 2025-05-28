@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountType** | [**AccountType**](AccountType.md) |  | 
+**AccountType** | [**AccountType**](AccountType.md) | The type of provider associated with the account | 
 **DeploymentId** | Pointer to **NullableString** | Deployment Id | [optional] 
 **BrokerMachineId** | Pointer to **NullableString** | MachineId on the Broker | [optional] 
-**TaskType** | Pointer to [**NullableTaskType**](TaskType.md) |  | [optional] 
+**TaskType** | Pointer to [**NullableTaskType**](TaskType.md) | Task Type | [optional] 
 **TaskId** | Pointer to **NullableString** | Task Id | [optional] 
 **ConnectionId** | Pointer to **NullableString** | Hosting Connection Id | [optional] 
 **ImageId** | Pointer to **NullableString** | Image Id | [optional] 
 **MachineId** | Pointer to **NullableString** | Machine Id | [optional] 
 **MachineName** | Pointer to **NullableString** | Name of the machine | [optional] 
-**RegistrationState** | Pointer to [**NullableRegistrationState**](RegistrationState.md) |  | [optional] 
-**SessionState** | Pointer to [**NullableSessionState**](SessionState.md) |  | [optional] 
+**RegistrationState** | Pointer to [**NullableRegistrationState**](RegistrationState.md) | Registration state of the machine | [optional] 
+**SessionState** | Pointer to [**NullableSessionState**](SessionState.md) | State of active session on machine | [optional] 
 **SessionCount** | Pointer to **NullableInt32** | Count of active session on machine | [optional] 
 **MaintenanceMode** | Pointer to **NullableBool** | Indicates if the machine is in Maintenance Mode | [optional] 
 **AssociatedUsers** | Pointer to **[]string** | List of users that are associated with the machine | [optional] 

@@ -20,11 +20,11 @@ type RestApiStatus string
 
 // List of RestApiStatus
 const (
-	RESTAPISTATUS_UNKNOWN RestApiStatus = "Unknown"
+	RESTAPISTATUS_UNKNOWN  RestApiStatus = "Unknown"
 	RESTAPISTATUS_STARTING RestApiStatus = "Starting"
-	RESTAPISTATUS_STARTED RestApiStatus = "Started"
+	RESTAPISTATUS_STARTED  RestApiStatus = "Started"
 	RESTAPISTATUS_STOPPING RestApiStatus = "Stopping"
-	RESTAPISTATUS_STOPPED RestApiStatus = "Stopped"
+	RESTAPISTATUS_STOPPED  RestApiStatus = "Stopped"
 )
 
 // All allowed values of RestApiStatus enum
@@ -42,7 +42,7 @@ func (v *RestApiStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = RestApiStatus(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableRestApiStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

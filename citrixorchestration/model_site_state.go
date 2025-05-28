@@ -20,11 +20,11 @@ type SiteState string
 
 // List of SiteState
 const (
-	SITESTATE_UNKNOWN SiteState = "Unknown"
-	SITESTATE_CONFIGURED SiteState = "Configured"
-	SITESTATE_UNCONFIGURED SiteState = "Unconfigured"
+	SITESTATE_UNKNOWN          SiteState = "Unknown"
+	SITESTATE_CONFIGURED       SiteState = "Configured"
+	SITESTATE_UNCONFIGURED     SiteState = "Unconfigured"
 	SITESTATE_UPGRADE_REQUIRED SiteState = "UpgradeRequired"
-	SITESTATE_ERROR SiteState = "Error"
+	SITESTATE_ERROR            SiteState = "Error"
 )
 
 // All allowed values of SiteState enum
@@ -42,7 +42,7 @@ func (v *SiteState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SiteState(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableSiteState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

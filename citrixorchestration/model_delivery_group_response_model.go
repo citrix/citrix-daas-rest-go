@@ -17,16 +17,16 @@ import (
 // checks if the DeliveryGroupResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DeliveryGroupResponseModel{}
 
-// DeliveryGroupResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Delivering,DeliveryType,Description,DesktopsDisconnected,DesktopsUnregistered,Enabled,InMaintenanceMode,IsRemotePC,MachineLogOnType,MinimumFunctionalLevel,Name,FullName,PublishedName,SessionSupport,SharingKind,DefaultDesktopIconId.               Response object for a delivery group.              
+// DeliveryGroupResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Delivering,DeliveryType,Description,DesktopsDisconnected,DesktopsUnregistered,Enabled,InMaintenanceMode,IsRemotePC,MachineLogOnType,MinimumFunctionalLevel,Name,FullName,PublishedName,SessionSupport,SharingKind,DefaultDesktopIconId.               Response object for a delivery group.
 type DeliveryGroupResponseModel struct {
 	// Globally unique identifier of the delivery group.
 	Id string `json:"Id"`
 	// `DEPRECATED.` DEPRECATED.  Use Id.
 	// Deprecated
-	Uid *int32 `json:"Uid,omitempty"`
+	Uid            *int32               `json:"Uid,omitempty"`
 	UserManagement *UserManagementModel `json:"UserManagement,omitempty"`
-	Delivering DeliveryKind `json:"Delivering"`
-	DeliveryType DeliveryKind `json:"DeliveryType"`
+	Delivering     DeliveryKind         `json:"Delivering"`
+	DeliveryType   DeliveryKind         `json:"DeliveryType"`
 	// A description for this delivery group useful for administrators of the site.
 	Description NullableString `json:"Description,omitempty"`
 	// Number of machines in the delivery group which are available to launch sessions on.
@@ -40,18 +40,18 @@ type DeliveryGroupResponseModel struct {
 	// Whether the delivery group is enabled.  All resources published on a disabled delivery group do not appear to users.
 	Enabled bool `json:"Enabled"`
 	// Whether the delivery group was previously promoted from a lower MinimumFunctionalLevel.
-	HasBeenPromoted bool `json:"HasBeenPromoted"`
+	HasBeenPromoted     bool             `json:"HasBeenPromoted"`
 	HasBeenPromotedFrom *FunctionalLevel `json:"HasBeenPromotedFrom,omitempty"`
 	// Whether the delivery group is in maintenance mode; a delivery group in maintenance mode will not allow users to connect or reconnect to machines in the delivery group.
 	InMaintenanceMode bool `json:"InMaintenanceMode"`
 	// Whether the delivery group is currently in a \"Broken\" state.
 	IsBroken bool `json:"IsBroken"`
 	// Whether the delivery group is comprised of RemotePC VDAs.
-	IsRemotePC bool `json:"IsRemotePC"`
+	IsRemotePC       bool              `json:"IsRemotePC"`
 	MachineLogOnType *MachineLogOnType `json:"MachineLogOnType,omitempty"`
 	// The metadata of delivery group.
-	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
-	MinimumFunctionalLevel FunctionalLevel `json:"MinimumFunctionalLevel"`
+	Metadata               []NameValueStringPairModel `json:"Metadata,omitempty"`
+	MinimumFunctionalLevel FunctionalLevel            `json:"MinimumFunctionalLevel"`
 	// Simple administrative name of delivery group within parent admin folder (if any). This property is not guaranteed unique across all catalogs.
 	Name string `json:"Name"`
 	// Unique administrative name of delivery group.
@@ -61,8 +61,8 @@ type DeliveryGroupResponseModel struct {
 	// The Guid of the policy set that is assigned to this desktop group. If the value is Guid.Empty, there is no policy set assigned to the desktop group.
 	PolicySetGuid *string `json:"PolicySetGuid,omitempty"`
 	// The product code of the delivery group.
-	ProductCode NullableString `json:"ProductCode,omitempty"`
-	LicenseModel *LicenseModel `json:"LicenseModel,omitempty"`
+	ProductCode  NullableString `json:"ProductCode,omitempty"`
+	LicenseModel *LicenseModel  `json:"LicenseModel,omitempty"`
 	// Whether the resources from this delivery group are required to launch within the user's home zone.
 	RequireUserHomeZone bool `json:"RequireUserHomeZone"`
 	// Administrative scopes which the delivery group is part of.
@@ -72,18 +72,18 @@ type DeliveryGroupResponseModel struct {
 	// The tags directly associated with the delivery group.
 	Tags []string `json:"Tags,omitempty"`
 	// Number of sessions currently running on machines in the delivery group.
-	SessionCount int32 `json:"SessionCount"`
+	SessionCount   int32          `json:"SessionCount"`
 	SessionSupport SessionSupport `json:"SessionSupport"`
-	SharingKind SharingKind `json:"SharingKind"`
+	SharingKind    SharingKind    `json:"SharingKind"`
 	// Total number of applications published on the delivery group.
 	TotalApplications int32 `json:"TotalApplications"`
 	// Total number of desktops in the delivery group.
-	TotalDesktops int32 `json:"TotalDesktops"`
-	ApplicationGroupCompatibility AppGroupCompatibility `json:"ApplicationGroupCompatibility"`
-	ApplicationCompatibility *AppOrDesktopCompatibility `json:"ApplicationCompatibility,omitempty"`
-	DesktopCompatibility *AppOrDesktopCompatibility `json:"DesktopCompatibility,omitempty"`
-	RequiredSleepCapability *RequiredSleepCapability `json:"RequiredSleepCapability,omitempty"`
-	AdminFolder *RefResponseModel `json:"AdminFolder,omitempty"`
+	TotalDesktops                 int32                      `json:"TotalDesktops"`
+	ApplicationGroupCompatibility AppGroupCompatibility      `json:"ApplicationGroupCompatibility"`
+	ApplicationCompatibility      *AppOrDesktopCompatibility `json:"ApplicationCompatibility,omitempty"`
+	DesktopCompatibility          *AppOrDesktopCompatibility `json:"DesktopCompatibility,omitempty"`
+	RequiredSleepCapability       *RequiredSleepCapability   `json:"RequiredSleepCapability,omitempty"`
+	AdminFolder                   *RefResponseModel          `json:"AdminFolder,omitempty"`
 	// Indicates whether the machines in the delivery group are power-managed. NOTE: I used to think that MachineType==Virtual meant the same thing as \"power-managed\"; however that's not the case.  A machine is power- managed if it is Virtual OR if it is RemotePC with a hypervisor connection (which will still have MachineType==Physical).
 	IsPowerManaged *bool `json:"IsPowerManaged,omitempty"`
 	// Specifies whether machines in this desktop group can be Autoscaled.
@@ -306,6 +306,7 @@ func (o *DeliveryGroupResponseModel) HasDescription() bool {
 func (o *DeliveryGroupResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *DeliveryGroupResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -709,6 +710,7 @@ func (o *DeliveryGroupResponseModel) HasFullName() bool {
 func (o *DeliveryGroupResponseModel) SetFullName(v string) {
 	o.FullName.Set(&v)
 }
+
 // SetFullNameNil sets the value for FullName to be an explicit nil
 func (o *DeliveryGroupResponseModel) SetFullNameNil() {
 	o.FullName.Set(nil)
@@ -751,6 +753,7 @@ func (o *DeliveryGroupResponseModel) HasPublishedName() bool {
 func (o *DeliveryGroupResponseModel) SetPublishedName(v string) {
 	o.PublishedName.Set(&v)
 }
+
 // SetPublishedNameNil sets the value for PublishedName to be an explicit nil
 func (o *DeliveryGroupResponseModel) SetPublishedNameNil() {
 	o.PublishedName.Set(nil)
@@ -825,6 +828,7 @@ func (o *DeliveryGroupResponseModel) HasProductCode() bool {
 func (o *DeliveryGroupResponseModel) SetProductCode(v string) {
 	o.ProductCode.Set(&v)
 }
+
 // SetProductCodeNil sets the value for ProductCode to be an explicit nil
 func (o *DeliveryGroupResponseModel) SetProductCodeNil() {
 	o.ProductCode.Set(nil)
@@ -1381,6 +1385,7 @@ func (o *DeliveryGroupResponseModel) HasTotalDesktopsOfSuspend() bool {
 func (o *DeliveryGroupResponseModel) SetTotalDesktopsOfSuspend(v int32) {
 	o.TotalDesktopsOfSuspend.Set(&v)
 }
+
 // SetTotalDesktopsOfSuspendNil sets the value for TotalDesktopsOfSuspend to be an explicit nil
 func (o *DeliveryGroupResponseModel) SetTotalDesktopsOfSuspendNil() {
 	o.TotalDesktopsOfSuspend.Set(nil)
@@ -1423,6 +1428,7 @@ func (o *DeliveryGroupResponseModel) HasDefaultDesktopIconId() bool {
 func (o *DeliveryGroupResponseModel) SetDefaultDesktopIconId(v string) {
 	o.DefaultDesktopIconId.Set(&v)
 }
+
 // SetDefaultDesktopIconIdNil sets the value for DefaultDesktopIconId to be an explicit nil
 func (o *DeliveryGroupResponseModel) SetDefaultDesktopIconIdNil() {
 	o.DefaultDesktopIconId.Set(nil)
@@ -1434,7 +1440,7 @@ func (o *DeliveryGroupResponseModel) UnsetDefaultDesktopIconId() {
 }
 
 func (o DeliveryGroupResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1569,5 +1575,3 @@ func (v *NullableDeliveryGroupResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

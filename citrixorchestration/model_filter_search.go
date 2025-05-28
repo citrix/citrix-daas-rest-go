@@ -21,7 +21,7 @@ var _ MappedNullable = &FilterSearch{}
 type FilterSearch struct {
 	// List of advanced search filters.
 	SearchFilters []SearchFilter4 `json:"SearchFilters,omitempty"`
-	SortCriteria *SortingMethod4 `json:"SortCriteria,omitempty"`
+	SortCriteria  *SortingMethod4 `json:"SortCriteria,omitempty"`
 }
 
 // NewFilterSearch instantiates a new FilterSearch object
@@ -107,7 +107,7 @@ func (o *FilterSearch) SetSortCriteria(v SortingMethod4) {
 }
 
 func (o FilterSearch) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableFilterSearch) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,7 +21,7 @@ type DataStore string
 // List of DataStore
 const (
 	DATASTORE_UNKNOWN DataStore = "Unknown"
-	DATASTORE_SITE DataStore = "Site"
+	DATASTORE_SITE    DataStore = "Site"
 	DATASTORE_LOGGING DataStore = "Logging"
 	DATASTORE_MONITOR DataStore = "Monitor"
 )
@@ -40,7 +40,7 @@ func (v *DataStore) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DataStore(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableDataStore) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

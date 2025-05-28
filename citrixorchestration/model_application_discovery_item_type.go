@@ -20,9 +20,9 @@ type ApplicationDiscoveryItemType string
 
 // List of ApplicationDiscoveryItemType
 const (
-	APPLICATIONDISCOVERYITEMTYPE_UNKNOWN ApplicationDiscoveryItemType = "Unknown"
-	APPLICATIONDISCOVERYITEMTYPE_MACHINE_SHARES ApplicationDiscoveryItemType = "MachineShares"
-	APPLICATIONDISCOVERYITEMTYPE_DIRECTORY_OR_FILES ApplicationDiscoveryItemType = "DirectoryOrFiles"
+	APPLICATIONDISCOVERYITEMTYPE_UNKNOWN              ApplicationDiscoveryItemType = "Unknown"
+	APPLICATIONDISCOVERYITEMTYPE_MACHINE_SHARES       ApplicationDiscoveryItemType = "MachineShares"
+	APPLICATIONDISCOVERYITEMTYPE_DIRECTORY_OR_FILES   ApplicationDiscoveryItemType = "DirectoryOrFiles"
 	APPLICATIONDISCOVERYITEMTYPE_APPLICATION_PROPERTY ApplicationDiscoveryItemType = "ApplicationProperty"
 )
 
@@ -40,7 +40,7 @@ func (v *ApplicationDiscoveryItemType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ApplicationDiscoveryItemType(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableApplicationDiscoveryItemType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

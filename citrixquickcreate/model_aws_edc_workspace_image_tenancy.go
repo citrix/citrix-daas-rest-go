@@ -21,7 +21,7 @@ type AwsEdcWorkspaceImageTenancy string
 // List of AwsEdcWorkspaceImageTenancy
 const (
 	AWSEDCWORKSPACEIMAGETENANCY_DEDICATED AwsEdcWorkspaceImageTenancy = "DEDICATED"
-	AWSEDCWORKSPACEIMAGETENANCY_DEFAULT AwsEdcWorkspaceImageTenancy = "DEFAULT"
+	AWSEDCWORKSPACEIMAGETENANCY_DEFAULT   AwsEdcWorkspaceImageTenancy = "DEFAULT"
 )
 
 // All allowed values of AwsEdcWorkspaceImageTenancy enum
@@ -108,4 +108,3 @@ func (v *NullableAwsEdcWorkspaceImageTenancy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

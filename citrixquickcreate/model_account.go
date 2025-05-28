@@ -19,15 +19,17 @@ var _ MappedNullable = &Account{}
 
 // Account Account
 type Account struct {
+	// The type of cloud provider the account is associated with.
 	AccountType AccountType `json:"accountType"`
 	// ID of the account
 	AccountId NullableString `json:"accountId,omitempty"`
 	// Name of the account
 	Name NullableString `json:"name,omitempty"`
-	AccountState *AccountState `json:"accountState,omitempty"`
-	AssociatedDeployments []AssociatedDeployment `json:"associatedDeployments,omitempty"`
+	// State of the account
+	AccountState                  *AccountState                  `json:"accountState,omitempty"`
+	AssociatedDeployments         []AssociatedDeployment         `json:"associatedDeployments,omitempty"`
 	AssociatedResourceConnections []AssociatedResourceConnection `json:"associatedResourceConnections,omitempty"`
-	AssociatedImages []AssociatedImage `json:"associatedImages,omitempty"`
+	AssociatedImages              []AssociatedImage              `json:"associatedImages,omitempty"`
 	// Indicates whether the account is Citrix managed
 	CitrixManaged *bool `json:"citrixManaged,omitempty"`
 	// The error message for account
@@ -35,6 +37,8 @@ type Account struct {
 	// Warnings and errors associated with the account
 	Warnings []AccountWarning `json:"warnings,omitempty"`
 }
+
+type _Account Account
 
 // NewAccount instantiates a new Account object
 // This constructor will assign default values to properties that have it defined,
@@ -110,6 +114,7 @@ func (o *Account) HasAccountId() bool {
 func (o *Account) SetAccountId(v string) {
 	o.AccountId.Set(&v)
 }
+
 // SetAccountIdNil sets the value for AccountId to be an explicit nil
 func (o *Account) SetAccountIdNil() {
 	o.AccountId.Set(nil)
@@ -152,6 +157,7 @@ func (o *Account) HasName() bool {
 func (o *Account) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *Account) SetNameNil() {
 	o.Name.Set(nil)
@@ -215,7 +221,7 @@ func (o *Account) GetAssociatedDeploymentsOk() ([]AssociatedDeployment, bool) {
 
 // HasAssociatedDeployments returns a boolean if a field has been set.
 func (o *Account) HasAssociatedDeployments() bool {
-	if o != nil && IsNil(o.AssociatedDeployments) {
+	if o != nil && !IsNil(o.AssociatedDeployments) {
 		return true
 	}
 
@@ -248,7 +254,7 @@ func (o *Account) GetAssociatedResourceConnectionsOk() ([]AssociatedResourceConn
 
 // HasAssociatedResourceConnections returns a boolean if a field has been set.
 func (o *Account) HasAssociatedResourceConnections() bool {
-	if o != nil && IsNil(o.AssociatedResourceConnections) {
+	if o != nil && !IsNil(o.AssociatedResourceConnections) {
 		return true
 	}
 
@@ -281,7 +287,7 @@ func (o *Account) GetAssociatedImagesOk() ([]AssociatedImage, bool) {
 
 // HasAssociatedImages returns a boolean if a field has been set.
 func (o *Account) HasAssociatedImages() bool {
-	if o != nil && IsNil(o.AssociatedImages) {
+	if o != nil && !IsNil(o.AssociatedImages) {
 		return true
 	}
 
@@ -357,6 +363,7 @@ func (o *Account) HasErrorMessage() bool {
 func (o *Account) SetErrorMessage(v string) {
 	o.ErrorMessage.Set(&v)
 }
+
 // SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
 func (o *Account) SetErrorMessageNil() {
 	o.ErrorMessage.Set(nil)
@@ -388,7 +395,7 @@ func (o *Account) GetWarningsOk() ([]AccountWarning, bool) {
 
 // HasWarnings returns a boolean if a field has been set.
 func (o *Account) HasWarnings() bool {
-	if o != nil && IsNil(o.Warnings) {
+	if o != nil && !IsNil(o.Warnings) {
 		return true
 	}
 
@@ -401,7 +408,7 @@ func (o *Account) SetWarnings(v []AccountWarning) {
 }
 
 func (o Account) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -476,5 +483,3 @@ func (v *NullableAccount) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

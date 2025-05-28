@@ -20,7 +20,7 @@ type ResourceValidationCategory string
 
 // List of ResourceValidationCategory
 const (
-	RESOURCEVALIDATIONCATEGORY_MACHINE_PROFILE ResourceValidationCategory = "MachineProfile"
+	RESOURCEVALIDATIONCATEGORY_MACHINE_PROFILE     ResourceValidationCategory = "MachineProfile"
 	RESOURCEVALIDATIONCATEGORY_HIBERNATION_SUPPORT ResourceValidationCategory = "HibernationSupport"
 )
 
@@ -36,7 +36,7 @@ func (v *ResourceValidationCategory) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ResourceValidationCategory(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableResourceValidationCategory) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

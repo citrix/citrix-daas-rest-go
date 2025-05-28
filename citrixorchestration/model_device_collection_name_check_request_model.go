@@ -74,6 +74,7 @@ func (o *DeviceCollectionNameCheckRequestModel) HasName() bool {
 func (o *DeviceCollectionNameCheckRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *DeviceCollectionNameCheckRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -116,6 +117,7 @@ func (o *DeviceCollectionNameCheckRequestModel) HasPvsSiteId() bool {
 func (o *DeviceCollectionNameCheckRequestModel) SetPvsSiteId(v string) {
 	o.PvsSiteId.Set(&v)
 }
+
 // SetPvsSiteIdNil sets the value for PvsSiteId to be an explicit nil
 func (o *DeviceCollectionNameCheckRequestModel) SetPvsSiteIdNil() {
 	o.PvsSiteId.Set(nil)
@@ -127,7 +129,7 @@ func (o *DeviceCollectionNameCheckRequestModel) UnsetPvsSiteId() {
 }
 
 func (o DeviceCollectionNameCheckRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableDeviceCollectionNameCheckRequestModel) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

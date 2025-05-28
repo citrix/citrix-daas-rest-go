@@ -23,13 +23,13 @@ type ActionMachineRemovalDetailsResponseModel struct {
 	AdAccountAction NullableString `json:"AdAccountAction,omitempty"`
 	// Successful accounts.
 	SuccessfulAccounts []string `json:"SuccessfulAccounts,omitempty"`
-	// Successful machines. 
+	// Successful machines.
 	SuccessfulMachines []string `json:"SuccessfulMachines,omitempty"`
 	// Failed machines and Action errors.
 	FailedMachines []ActionFailedMachineOrAccountResponseModel `json:"FailedMachines,omitempty"`
 	// Failed accounts and action errors.
 	FailedAccounts []ActionFailedMachineOrAccountResponseModel `json:"FailedAccounts,omitempty"`
-	// The virtual machine actions. 
+	// The virtual machine actions.
 	VMAction NullableString `json:"VMAction,omitempty"`
 }
 
@@ -82,6 +82,7 @@ func (o *ActionMachineRemovalDetailsResponseModel) HasAdAccountAction() bool {
 func (o *ActionMachineRemovalDetailsResponseModel) SetAdAccountAction(v string) {
 	o.AdAccountAction.Set(&v)
 }
+
 // SetAdAccountActionNil sets the value for AdAccountAction to be an explicit nil
 func (o *ActionMachineRemovalDetailsResponseModel) SetAdAccountActionNil() {
 	o.AdAccountAction.Set(nil)
@@ -256,6 +257,7 @@ func (o *ActionMachineRemovalDetailsResponseModel) HasVMAction() bool {
 func (o *ActionMachineRemovalDetailsResponseModel) SetVMAction(v string) {
 	o.VMAction.Set(&v)
 }
+
 // SetVMActionNil sets the value for VMAction to be an explicit nil
 func (o *ActionMachineRemovalDetailsResponseModel) SetVMActionNil() {
 	o.VMAction.Set(nil)
@@ -267,7 +269,7 @@ func (o *ActionMachineRemovalDetailsResponseModel) UnsetVMAction() {
 }
 
 func (o ActionMachineRemovalDetailsResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -332,5 +334,3 @@ func (v *NullableActionMachineRemovalDetailsResponseModel) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

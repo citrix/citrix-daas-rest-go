@@ -27,20 +27,20 @@ type ActionMachineRemovalResponseModel struct {
 	ActionTargetUid NullableString `json:"ActionTargetUid,omitempty"`
 	// The action target id, it's related on catalog id.
 	ActionTargetId NullableString `json:"ActionTargetId,omitempty"`
-	ActionType *ActionType `json:"ActionType,omitempty"`
+	ActionType     *ActionType    `json:"ActionType,omitempty"`
 	// The action creation time.
 	CreationTime NullableString `json:"CreationTime,omitempty"`
 	// The action start time.
 	StartTime NullableString `json:"StartTime,omitempty"`
 	// The action finish time.
-	FinishTime NullableString `json:"FinishTime,omitempty"`
-	State *ActionState `json:"State,omitempty"`
+	FinishTime NullableString     `json:"FinishTime,omitempty"`
+	State      *ActionState       `json:"State,omitempty"`
 	ErrorState *ActionErrorStatus `json:"ErrorState,omitempty"`
 	// The progress of the action.
 	Progress *float64 `json:"Progress,omitempty"`
 	// The progress message.
-	ProgressMessage NullableString `json:"ProgressMessage,omitempty"`
-	TerminatingError *ActionError `json:"TerminatingError,omitempty"`
+	ProgressMessage  NullableString `json:"ProgressMessage,omitempty"`
+	TerminatingError *ActionError   `json:"TerminatingError,omitempty"`
 	// The non terminating errors.
 	NonTerminatingErrors []ActionError `json:"NonTerminatingErrors,omitempty"`
 	// The metadata of the action.
@@ -52,12 +52,12 @@ type ActionMachineRemovalResponseModel struct {
 	// If the task is running.
 	IsRunning *bool `json:"IsRunning,omitempty"`
 	// The master image.
-	MasterImage NullableString `json:"MasterImage,omitempty"`
+	MasterImage         NullableString                             `json:"MasterImage,omitempty"`
 	MachineCreationData *ActionMachineCreationDetailsResponseModel `json:"MachineCreationData,omitempty"`
 	// The snapshot.
-	Snapshot NullableString `json:"Snapshot,omitempty"`
+	Snapshot           NullableString                            `json:"Snapshot,omitempty"`
 	MachineRemovalData *ActionMachineRemovalDetailsResponseModel `json:"MachineRemovalData,omitempty"`
-	// The delete virtual machines. 
+	// The delete virtual machines.
 	DeleteVirtualMachines NullableString `json:"DeleteVirtualMachines,omitempty"`
 }
 
@@ -142,6 +142,7 @@ func (o *ActionMachineRemovalResponseModel) HasActionTargetName() bool {
 func (o *ActionMachineRemovalResponseModel) SetActionTargetName(v string) {
 	o.ActionTargetName.Set(&v)
 }
+
 // SetActionTargetNameNil sets the value for ActionTargetName to be an explicit nil
 func (o *ActionMachineRemovalResponseModel) SetActionTargetNameNil() {
 	o.ActionTargetName.Set(nil)
@@ -184,6 +185,7 @@ func (o *ActionMachineRemovalResponseModel) HasActionTargetUid() bool {
 func (o *ActionMachineRemovalResponseModel) SetActionTargetUid(v string) {
 	o.ActionTargetUid.Set(&v)
 }
+
 // SetActionTargetUidNil sets the value for ActionTargetUid to be an explicit nil
 func (o *ActionMachineRemovalResponseModel) SetActionTargetUidNil() {
 	o.ActionTargetUid.Set(nil)
@@ -226,6 +228,7 @@ func (o *ActionMachineRemovalResponseModel) HasActionTargetId() bool {
 func (o *ActionMachineRemovalResponseModel) SetActionTargetId(v string) {
 	o.ActionTargetId.Set(&v)
 }
+
 // SetActionTargetIdNil sets the value for ActionTargetId to be an explicit nil
 func (o *ActionMachineRemovalResponseModel) SetActionTargetIdNil() {
 	o.ActionTargetId.Set(nil)
@@ -300,6 +303,7 @@ func (o *ActionMachineRemovalResponseModel) HasCreationTime() bool {
 func (o *ActionMachineRemovalResponseModel) SetCreationTime(v string) {
 	o.CreationTime.Set(&v)
 }
+
 // SetCreationTimeNil sets the value for CreationTime to be an explicit nil
 func (o *ActionMachineRemovalResponseModel) SetCreationTimeNil() {
 	o.CreationTime.Set(nil)
@@ -342,6 +346,7 @@ func (o *ActionMachineRemovalResponseModel) HasStartTime() bool {
 func (o *ActionMachineRemovalResponseModel) SetStartTime(v string) {
 	o.StartTime.Set(&v)
 }
+
 // SetStartTimeNil sets the value for StartTime to be an explicit nil
 func (o *ActionMachineRemovalResponseModel) SetStartTimeNil() {
 	o.StartTime.Set(nil)
@@ -384,6 +389,7 @@ func (o *ActionMachineRemovalResponseModel) HasFinishTime() bool {
 func (o *ActionMachineRemovalResponseModel) SetFinishTime(v string) {
 	o.FinishTime.Set(&v)
 }
+
 // SetFinishTimeNil sets the value for FinishTime to be an explicit nil
 func (o *ActionMachineRemovalResponseModel) SetFinishTimeNil() {
 	o.FinishTime.Set(nil)
@@ -522,6 +528,7 @@ func (o *ActionMachineRemovalResponseModel) HasProgressMessage() bool {
 func (o *ActionMachineRemovalResponseModel) SetProgressMessage(v string) {
 	o.ProgressMessage.Set(&v)
 }
+
 // SetProgressMessageNil sets the value for ProgressMessage to be an explicit nil
 func (o *ActionMachineRemovalResponseModel) SetProgressMessageNil() {
 	o.ProgressMessage.Set(nil)
@@ -760,6 +767,7 @@ func (o *ActionMachineRemovalResponseModel) HasMasterImage() bool {
 func (o *ActionMachineRemovalResponseModel) SetMasterImage(v string) {
 	o.MasterImage.Set(&v)
 }
+
 // SetMasterImageNil sets the value for MasterImage to be an explicit nil
 func (o *ActionMachineRemovalResponseModel) SetMasterImageNil() {
 	o.MasterImage.Set(nil)
@@ -834,6 +842,7 @@ func (o *ActionMachineRemovalResponseModel) HasSnapshot() bool {
 func (o *ActionMachineRemovalResponseModel) SetSnapshot(v string) {
 	o.Snapshot.Set(&v)
 }
+
 // SetSnapshotNil sets the value for Snapshot to be an explicit nil
 func (o *ActionMachineRemovalResponseModel) SetSnapshotNil() {
 	o.Snapshot.Set(nil)
@@ -908,6 +917,7 @@ func (o *ActionMachineRemovalResponseModel) HasDeleteVirtualMachines() bool {
 func (o *ActionMachineRemovalResponseModel) SetDeleteVirtualMachines(v string) {
 	o.DeleteVirtualMachines.Set(&v)
 }
+
 // SetDeleteVirtualMachinesNil sets the value for DeleteVirtualMachines to be an explicit nil
 func (o *ActionMachineRemovalResponseModel) SetDeleteVirtualMachinesNil() {
 	o.DeleteVirtualMachines.Set(nil)
@@ -919,7 +929,7 @@ func (o *ActionMachineRemovalResponseModel) UnsetDeleteVirtualMachines() {
 }
 
 func (o ActionMachineRemovalResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1035,5 +1045,3 @@ func (v *NullableActionMachineRemovalResponseModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

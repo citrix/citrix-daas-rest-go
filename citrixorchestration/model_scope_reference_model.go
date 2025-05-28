@@ -106,6 +106,7 @@ func (o *ScopeReferenceModel) HasScopeName() bool {
 func (o *ScopeReferenceModel) SetScopeName(v string) {
 	o.ScopeName.Set(&v)
 }
+
 // SetScopeNameNil sets the value for ScopeName to be an explicit nil
 func (o *ScopeReferenceModel) SetScopeNameNil() {
 	o.ScopeName.Set(nil)
@@ -117,7 +118,7 @@ func (o *ScopeReferenceModel) UnsetScopeName() {
 }
 
 func (o ScopeReferenceModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +171,3 @@ func (v *NullableScopeReferenceModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

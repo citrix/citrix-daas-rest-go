@@ -22,7 +22,7 @@ type ZoneErrorWarningModel struct {
 	// Zone id.
 	ZoneId NullableString `json:"ZoneId,omitempty"`
 	// Zone name.
-	ZoneName NullableString `json:"ZoneName,omitempty"`
+	ZoneName NullableString            `json:"ZoneName,omitempty"`
 	Category *MisConfigurationCategory `json:"Category,omitempty"`
 	// The error or warning message.
 	Type NullableString `json:"Type,omitempty"`
@@ -81,6 +81,7 @@ func (o *ZoneErrorWarningModel) HasZoneId() bool {
 func (o *ZoneErrorWarningModel) SetZoneId(v string) {
 	o.ZoneId.Set(&v)
 }
+
 // SetZoneIdNil sets the value for ZoneId to be an explicit nil
 func (o *ZoneErrorWarningModel) SetZoneIdNil() {
 	o.ZoneId.Set(nil)
@@ -123,6 +124,7 @@ func (o *ZoneErrorWarningModel) HasZoneName() bool {
 func (o *ZoneErrorWarningModel) SetZoneName(v string) {
 	o.ZoneName.Set(&v)
 }
+
 // SetZoneNameNil sets the value for ZoneName to be an explicit nil
 func (o *ZoneErrorWarningModel) SetZoneNameNil() {
 	o.ZoneName.Set(nil)
@@ -197,6 +199,7 @@ func (o *ZoneErrorWarningModel) HasType() bool {
 func (o *ZoneErrorWarningModel) SetType(v string) {
 	o.Type.Set(&v)
 }
+
 // SetTypeNil sets the value for Type to be an explicit nil
 func (o *ZoneErrorWarningModel) SetTypeNil() {
 	o.Type.Set(nil)
@@ -239,6 +242,7 @@ func (o *ZoneErrorWarningModel) HasTimeInUtc() bool {
 func (o *ZoneErrorWarningModel) SetTimeInUtc(v string) {
 	o.TimeInUtc.Set(&v)
 }
+
 // SetTimeInUtcNil sets the value for TimeInUtc to be an explicit nil
 func (o *ZoneErrorWarningModel) SetTimeInUtcNil() {
 	o.TimeInUtc.Set(nil)
@@ -282,7 +286,7 @@ func (o *ZoneErrorWarningModel) SetIsHighPriority(v bool) {
 }
 
 func (o ZoneErrorWarningModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -347,5 +351,3 @@ func (v *NullableZoneErrorWarningModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

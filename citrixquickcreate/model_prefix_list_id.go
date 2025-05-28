@@ -20,7 +20,7 @@ var _ MappedNullable = &PrefixListId{}
 // PrefixListId struct for PrefixListId
 type PrefixListId struct {
 	Description NullableString `json:"description,omitempty"`
-	Id NullableString `json:"id,omitempty"`
+	Id          NullableString `json:"id,omitempty"`
 }
 
 // NewPrefixListId instantiates a new PrefixListId object
@@ -72,6 +72,7 @@ func (o *PrefixListId) HasDescription() bool {
 func (o *PrefixListId) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *PrefixListId) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -114,6 +115,7 @@ func (o *PrefixListId) HasId() bool {
 func (o *PrefixListId) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *PrefixListId) SetIdNil() {
 	o.Id.Set(nil)
@@ -125,7 +127,7 @@ func (o *PrefixListId) UnsetId() {
 }
 
 func (o PrefixListId) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -178,5 +180,3 @@ func (v *NullablePrefixListId) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

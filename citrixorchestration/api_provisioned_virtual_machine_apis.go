@@ -19,22 +19,21 @@ import (
 	"strings"
 )
 
-
 // ProvisionedVirtualMachineAPIsDAASService ProvisionedVirtualMachineAPIsDAAS service
 type ProvisionedVirtualMachineAPIsDAASService service
 
 type ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest struct {
-	ctx context.Context
-	ApiService *ProvisionedVirtualMachineAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	vmSid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ProvisionedVirtualMachineAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	vmSid               string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -95,24 +94,24 @@ ProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdate Perfo
 Provides the ability to synchronize the properties of existing virtual machines with any changes
 occurred on the provisioning scheme with Set-ProvScheme and any configuration applied with Set-ProvVM.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param vmSid Virtual Machine Sid.
- @return ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param vmSid Virtual Machine Sid.
+	@return ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest
 */
 func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdate(ctx context.Context, vmSid string) ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest {
 	return ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		vmSid: vmSid,
+		ctx:        ctx,
+		vmSid:      vmSid,
 	}
 }
 
 // Execute executes the request
 func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateExecute(r ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProvisionedVirtualMachineAPIsDAASService.ProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdate")
@@ -213,8 +212,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineAppl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -224,8 +223,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineAppl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -235,8 +234,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineAppl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -246,8 +245,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineAppl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -257,8 +256,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineAppl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -268,8 +267,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineAppl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -279,8 +278,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineAppl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -290,8 +289,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineAppl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -301,8 +300,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineAppl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -311,17 +310,17 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineAppl
 }
 
 type ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest struct {
-	ctx context.Context
-	ApiService *ProvisionedVirtualMachineAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	vmSid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ProvisionedVirtualMachineAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	vmSid               string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -378,26 +377,27 @@ func (r ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) E
 /*
 ProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobs Get the maintenance cycle vm operation jobs for a machine.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param vmSid Virtual machine SID.
- @return ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param vmSid Virtual machine SID.
+	@return ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest
 */
 func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobs(ctx context.Context, vmSid string) ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest {
 	return ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest{
 		ApiService: a,
-		ctx: ctx,
-		vmSid: vmSid,
+		ctx:        ctx,
+		vmSid:      vmSid,
 	}
 }
 
 // Execute executes the request
-//  @return MaintenanceCycleVMOperationJobResponseModelCollection
+//
+//	@return MaintenanceCycleVMOperationJobResponseModelCollection
 func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsExecute(r ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) (*MaintenanceCycleVMOperationJobResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MaintenanceCycleVMOperationJobResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MaintenanceCycleVMOperationJobResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProvisionedVirtualMachineAPIsDAASService.ProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobs")
@@ -498,8 +498,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineGetM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -509,8 +509,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineGetM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -520,8 +520,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineGetM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -531,8 +531,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineGetM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -542,8 +542,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineGetM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -553,8 +553,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineGetM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -564,8 +564,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineGetM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -575,8 +575,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineGetM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -594,17 +594,17 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineGetM
 }
 
 type ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest struct {
-	ctx context.Context
-	ApiService *ProvisionedVirtualMachineAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	vmSid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ProvisionedVirtualMachineAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	vmSid               string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -664,24 +664,24 @@ ProvisionedVirtualMachineResetProvisionedVirtualMachineOSDisk Performs an immedi
 
 Provides the ability to reset the OS disk with Reset-ProvVMDisk -OS.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param vmSid Virtual Machine Sid.
- @return ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param vmSid Virtual Machine Sid.
+	@return ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest
 */
 func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineResetProvisionedVirtualMachineOSDisk(ctx context.Context, vmSid string) ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest {
 	return ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest{
 		ApiService: a,
-		ctx: ctx,
-		vmSid: vmSid,
+		ctx:        ctx,
+		vmSid:      vmSid,
 	}
 }
 
 // Execute executes the request
 func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskExecute(r ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProvisionedVirtualMachineAPIsDAASService.ProvisionedVirtualMachineResetProvisionedVirtualMachineOSDisk")
@@ -782,8 +782,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineRese
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -793,8 +793,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineRese
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -804,8 +804,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineRese
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -815,8 +815,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineRese
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -826,8 +826,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineRese
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -837,8 +837,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineRese
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -848,8 +848,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineRese
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -859,8 +859,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineRese
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -870,8 +870,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineRese
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -880,18 +880,18 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineRese
 }
 
 type ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest struct {
-	ctx context.Context
-	ApiService *ProvisionedVirtualMachineAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	vmSid string
+	ctx                                         context.Context
+	ApiService                                  *ProvisionedVirtualMachineAPIsDAASService
+	citrixCustomerId                            *string
+	citrixInstanceId                            *string
+	vmSid                                       string
 	updateProvisionedVirtualMachineRequestModel *UpdateProvisionedVirtualMachineRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                   *string
+	authorization                               *string
+	citrixTransactionId                         *string
+	accept                                      *string
+	citrixLocale                                *string
+	async                                       *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -958,24 +958,24 @@ ProvisionedVirtualMachineUpdateProvisionedVirtualMachine Changes the configurati
 Any configuration changes made will not apply right away to the machine.
 To apply the updates, set an update time window for the machine with Set-ProvVMUpdateTimeWindow and start the machine within the window.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param vmSid Virtual Machine Sid.
- @return ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param vmSid Virtual Machine Sid.
+	@return ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest
 */
 func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineUpdateProvisionedVirtualMachine(ctx context.Context, vmSid string) ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest {
 	return ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest{
 		ApiService: a,
-		ctx: ctx,
-		vmSid: vmSid,
+		ctx:        ctx,
+		vmSid:      vmSid,
 	}
 }
 
 // Execute executes the request
 func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineUpdateProvisionedVirtualMachineExecute(r ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProvisionedVirtualMachineAPIsDAASService.ProvisionedVirtualMachineUpdateProvisionedVirtualMachine")
@@ -1081,8 +1081,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineUpda
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1092,8 +1092,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineUpda
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1103,8 +1103,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineUpda
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1114,8 +1114,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineUpda
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1125,8 +1125,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineUpda
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1136,8 +1136,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineUpda
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1147,8 +1147,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineUpda
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1158,8 +1158,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineUpda
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1169,8 +1169,8 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineUpda
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

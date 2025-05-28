@@ -19,9 +19,9 @@ var _ MappedNullable = &AdOtpConnectionModel{}
 
 // AdOtpConnectionModel struct for AdOtpConnectionModel
 type AdOtpConnectionModel struct {
-	MultipleDevices *bool `json:"multipleDevices,omitempty"`
-	NotificationsEnabled *bool `json:"notificationsEnabled,omitempty"`
-	NotificationsTime *int32 `json:"notificationsTime,omitempty"`
+	MultipleDevices      *bool  `json:"multipleDevices,omitempty"`
+	NotificationsEnabled *bool  `json:"notificationsEnabled,omitempty"`
+	NotificationsTime    *int32 `json:"notificationsTime,omitempty"`
 }
 
 // NewAdOtpConnectionModel instantiates a new AdOtpConnectionModel object
@@ -138,7 +138,7 @@ func (o *AdOtpConnectionModel) SetNotificationsTime(v int32) {
 }
 
 func (o AdOtpConnectionModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,5 +194,3 @@ func (v *NullableAdOtpConnectionModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

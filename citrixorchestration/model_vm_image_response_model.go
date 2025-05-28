@@ -19,9 +19,9 @@ var _ MappedNullable = &VMImageResponseModel{}
 
 // VMImageResponseModel Details about a virtual machine disk image used for a provisioning scheme.
 type VMImageResponseModel struct {
-	FunctionalLevel *FunctionalLevel `json:"FunctionalLevel,omitempty"`
-	Image *HypervisorResourceRefResponseModel `json:"Image,omitempty"`
-	ImageStatus VMImageStatus `json:"ImageStatus"`
+	FunctionalLevel *FunctionalLevel                    `json:"FunctionalLevel,omitempty"`
+	Image           *HypervisorResourceRefResponseModel `json:"Image,omitempty"`
+	ImageStatus     VMImageStatus                       `json:"ImageStatus"`
 	// The date and time when the snapshot was used in the provisioning scheme.
 	Date string `json:"Date"`
 	// The note of the provisioning scheme image.
@@ -191,6 +191,7 @@ func (o *VMImageResponseModel) HasMasterImageNote() bool {
 func (o *VMImageResponseModel) SetMasterImageNote(v string) {
 	o.MasterImageNote.Set(&v)
 }
+
 // SetMasterImageNoteNil sets the value for MasterImageNote to be an explicit nil
 func (o *VMImageResponseModel) SetMasterImageNoteNil() {
 	o.MasterImageNote.Set(nil)
@@ -202,7 +203,7 @@ func (o *VMImageResponseModel) UnsetMasterImageNote() {
 }
 
 func (o VMImageResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -260,5 +261,3 @@ func (v *NullableVMImageResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

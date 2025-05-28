@@ -17,9 +17,9 @@ import (
 // checks if the AboutModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AboutModel{}
 
-// AboutModel About model of current Orchestration instance.             
+// AboutModel About model of current Orchestration instance.
 type AboutModel struct {
-	// The commit hash when building.             
+	// The commit hash when building.
 	Commit NullableString `json:"Commit,omitempty"`
 	// Indicates if the  current environment is cloud.
 	IsCloud *bool `json:"IsCloud,omitempty"`
@@ -74,6 +74,7 @@ func (o *AboutModel) HasCommit() bool {
 func (o *AboutModel) SetCommit(v string) {
 	o.Commit.Set(&v)
 }
+
 // SetCommitNil sets the value for Commit to be an explicit nil
 func (o *AboutModel) SetCommitNil() {
 	o.Commit.Set(nil)
@@ -117,7 +118,7 @@ func (o *AboutModel) SetIsCloud(v bool) {
 }
 
 func (o AboutModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +171,3 @@ func (v *NullableAboutModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

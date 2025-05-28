@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Compute** | Pointer to [**NullableCompute**](Compute.md) |  | [optional] 
+**Compute** | Pointer to [**NullableCompute**](Compute.md) | Size of operating system volume | [optional] 
 **RootVolumeSize** | Pointer to **NullableInt32** | Size of operating system volume | [optional] 
 **UserVolumeSize** | Pointer to **NullableInt32** | Size of user storage volume | [optional] 
 

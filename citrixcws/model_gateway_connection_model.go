@@ -19,7 +19,7 @@ var _ MappedNullable = &GatewayConnectionModel{}
 
 // GatewayConnectionModel struct for GatewayConnectionModel
 type GatewayConnectionModel struct {
-	ClientId NullableString `json:"clientId,omitempty"`
+	ClientId   NullableString `json:"clientId,omitempty"`
 	IssuerFqdn NullableString `json:"issuerFqdn,omitempty"`
 }
 
@@ -72,6 +72,7 @@ func (o *GatewayConnectionModel) HasClientId() bool {
 func (o *GatewayConnectionModel) SetClientId(v string) {
 	o.ClientId.Set(&v)
 }
+
 // SetClientIdNil sets the value for ClientId to be an explicit nil
 func (o *GatewayConnectionModel) SetClientIdNil() {
 	o.ClientId.Set(nil)
@@ -114,6 +115,7 @@ func (o *GatewayConnectionModel) HasIssuerFqdn() bool {
 func (o *GatewayConnectionModel) SetIssuerFqdn(v string) {
 	o.IssuerFqdn.Set(&v)
 }
+
 // SetIssuerFqdnNil sets the value for IssuerFqdn to be an explicit nil
 func (o *GatewayConnectionModel) SetIssuerFqdnNil() {
 	o.IssuerFqdn.Set(nil)
@@ -125,7 +127,7 @@ func (o *GatewayConnectionModel) UnsetIssuerFqdn() {
 }
 
 func (o GatewayConnectionModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -178,5 +180,3 @@ func (v *NullableGatewayConnectionModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
