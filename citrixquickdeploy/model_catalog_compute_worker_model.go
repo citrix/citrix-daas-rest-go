@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 147.0.26651.57932
+Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
 
 Catalog Service
 
@@ -31,6 +31,8 @@ type CatalogComputeWorkerModel struct {
 	InstanceTypeId *string `json:"instanceTypeId,omitempty"`
 	// Name of the Azure VM Instance to use for the catalog
 	InstanceName *string `json:"instanceName,omitempty"`
+	// List of backup VM configurations
+	BackupVmConfiguration []BackupVmConfiguration `json:"backupVmConfiguration,omitempty"`
 	// Use managed disks for VMs in the catalog
 	UseManagedDisks *bool `json:"useManagedDisks,omitempty"`
 }
@@ -181,6 +183,29 @@ func (o *CatalogComputeWorkerModel) SetInstanceName(v string) {
 	o.InstanceName = &v
 }
 
+// GetBackupVmConfiguration returns the BackupVmConfiguration field value if set, zero value otherwise.
+func (o *CatalogComputeWorkerModel) GetBackupVmConfiguration() []BackupVmConfiguration {
+	if o == nil || IsNil(o.BackupVmConfiguration) {
+		var ret []BackupVmConfiguration
+		return ret
+	}
+	return o.BackupVmConfiguration
+}
+
+// GetBackupVmConfigurationOk returns a tuple with the BackupVmConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CatalogComputeWorkerModel) GetBackupVmConfigurationOk() ([]BackupVmConfiguration, bool) {
+	if o == nil || IsNil(o.BackupVmConfiguration) {
+		return nil, false
+	}
+	return o.BackupVmConfiguration, true
+}
+
+// SetBackupVmConfiguration gets a reference to the given []BackupVmConfiguration and assigns it to the BackupVmConfiguration field.
+func (o *CatalogComputeWorkerModel) SetBackupVmConfiguration(v []BackupVmConfiguration) {
+	o.BackupVmConfiguration = v
+}
+
 // GetUseManagedDisks returns the UseManagedDisks field value if set, zero value otherwise.
 func (o *CatalogComputeWorkerModel) GetUseManagedDisks() bool {
 	if o == nil || IsNil(o.UseManagedDisks) {
@@ -231,6 +256,9 @@ func (o CatalogComputeWorkerModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.InstanceName) {
 		toSerialize["instanceName"] = o.InstanceName
+	}
+	if !IsNil(o.BackupVmConfiguration) {
+		toSerialize["backupVmConfiguration"] = o.BackupVmConfiguration
 	}
 	if !IsNil(o.UseManagedDisks) {
 		toSerialize["useManagedDisks"] = o.UseManagedDisks

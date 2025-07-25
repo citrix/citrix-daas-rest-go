@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 147.0.26651.57932
+Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
 
 Catalog Service
 
@@ -572,6 +572,140 @@ func (a *CatalogCMDService) DeleteCustomerCatalogExecute(r ApiDeleteCustomerCata
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+type ApiGetCatalogCapacityConfigurationRequest struct {
+	ctx                 context.Context
+	ApiService          *CatalogCMDService
+	customerId          string
+	siteId              string
+	catalogId           string
+	citrixTransactionId *string
+}
+
+// The Transaction Id.
+func (r ApiGetCatalogCapacityConfigurationRequest) CitrixTransactionId(citrixTransactionId string) ApiGetCatalogCapacityConfigurationRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+func (r ApiGetCatalogCapacityConfigurationRequest) Execute() (*CatalogCapacitySettingsModel, *http.Response, error) {
+	return r.ApiService.GetCatalogCapacityConfigurationExecute(r)
+}
+
+/*
+GetCatalogCapacityConfiguration Get the performance information configured for this catalog
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param siteId
+	@param catalogId ID of the catalog
+	@return ApiGetCatalogCapacityConfigurationRequest
+*/
+func (a *CatalogCMDService) GetCatalogCapacityConfiguration(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetCatalogCapacityConfigurationRequest {
+	return ApiGetCatalogCapacityConfigurationRequest{
+		ApiService: a,
+		ctx:        ctx,
+		customerId: customerId,
+		siteId:     siteId,
+		catalogId:  catalogId,
+	}
+}
+
+// Execute executes the request
+//
+//	@return CatalogCapacitySettingsModel
+func (a *CatalogCMDService) GetCatalogCapacityConfigurationExecute(r ApiGetCatalogCapacityConfigurationRequest) (*CatalogCapacitySettingsModel, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CatalogCapacitySettingsModel
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatalogCMDService.GetCatalogCapacityConfiguration")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/{customerId}/{siteId}/catalogs/{catalogId}/capacity"
+	localVarPath = strings.Replace(localVarPath, "{"+"customerId"+"}", url.PathEscape(parameterValueToString(r.customerId, "customerId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"siteId"+"}", url.PathEscape(parameterValueToString(r.siteId, "siteId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"catalogId"+"}", url.PathEscape(parameterValueToString(r.catalogId, "catalogId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["CWSAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiGetCustomerCatalogRequest struct {
@@ -1416,6 +1550,137 @@ func (a *CatalogCMDService) UpdateCatalogImageApiExecute(r ApiUpdateCatalogImage
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateCatalogScaleConfigurationRequest struct {
+	ctx                 context.Context
+	ApiService          *CatalogCMDService
+	customerId          string
+	siteId              string
+	catalogId           string
+	citrixTransactionId *string
+	body                *CatalogCapacitySettingsModel
+}
+
+// The Transaction Id.
+func (r ApiUpdateCatalogScaleConfigurationRequest) CitrixTransactionId(citrixTransactionId string) ApiUpdateCatalogScaleConfigurationRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Capacity informaton for this catalog
+func (r ApiUpdateCatalogScaleConfigurationRequest) Body(body CatalogCapacitySettingsModel) ApiUpdateCatalogScaleConfigurationRequest {
+	r.body = &body
+	return r
+}
+
+func (r ApiUpdateCatalogScaleConfigurationRequest) Execute() (*http.Response, error) {
+	return r.ApiService.UpdateCatalogScaleConfigurationExecute(r)
+}
+
+/*
+UpdateCatalogScaleConfiguration Update the performance information configured for this catalog
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param siteId
+	@param catalogId ID of the catalog
+	@return ApiUpdateCatalogScaleConfigurationRequest
+*/
+func (a *CatalogCMDService) UpdateCatalogScaleConfiguration(ctx context.Context, customerId string, siteId string, catalogId string) ApiUpdateCatalogScaleConfigurationRequest {
+	return ApiUpdateCatalogScaleConfigurationRequest{
+		ApiService: a,
+		ctx:        ctx,
+		customerId: customerId,
+		siteId:     siteId,
+		catalogId:  catalogId,
+	}
+}
+
+// Execute executes the request
+func (a *CatalogCMDService) UpdateCatalogScaleConfigurationExecute(r ApiUpdateCatalogScaleConfigurationRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatalogCMDService.UpdateCatalogScaleConfiguration")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/{customerId}/{siteId}/catalogs/{catalogId}/capacity"
+	localVarPath = strings.Replace(localVarPath, "{"+"customerId"+"}", url.PathEscape(parameterValueToString(r.customerId, "customerId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"siteId"+"}", url.PathEscape(parameterValueToString(r.siteId, "siteId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"catalogId"+"}", url.PathEscape(parameterValueToString(r.catalogId, "catalogId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	// body params
+	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["CWSAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }
 
 type ApiUpdateRemotePcCatalogScopesRequest struct {

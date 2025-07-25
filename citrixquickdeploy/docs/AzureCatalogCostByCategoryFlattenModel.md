@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SiteId** | Pointer to **string** | Site ID | [optional] 
+**SubscriptionId** | Pointer to **string** | Azure Subscription ID | [optional] 
 **CatalogId** | Pointer to **string** | Catalog ID | [optional] 
 **CatalogName** | Pointer to **string** | Catalog Name | [optional] 
 **Category** | Pointer to **string** | Azure Cost category | [optional] 
@@ -29,30 +29,30 @@ NewAzureCatalogCostByCategoryFlattenModelWithDefaults instantiates a new AzureCa
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetSiteId
+### GetSubscriptionId
 
-`func (o *AzureCatalogCostByCategoryFlattenModel) GetSiteId() string`
+`func (o *AzureCatalogCostByCategoryFlattenModel) GetSubscriptionId() string`
 
-GetSiteId returns the SiteId field if non-nil, zero value otherwise.
+GetSubscriptionId returns the SubscriptionId field if non-nil, zero value otherwise.
 
-### GetSiteIdOk
+### GetSubscriptionIdOk
 
-`func (o *AzureCatalogCostByCategoryFlattenModel) GetSiteIdOk() (*string, bool)`
+`func (o *AzureCatalogCostByCategoryFlattenModel) GetSubscriptionIdOk() (*string, bool)`
 
-GetSiteIdOk returns a tuple with the SiteId field if it's non-nil, zero value otherwise
+GetSubscriptionIdOk returns a tuple with the SubscriptionId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSiteId
+### SetSubscriptionId
 
-`func (o *AzureCatalogCostByCategoryFlattenModel) SetSiteId(v string)`
+`func (o *AzureCatalogCostByCategoryFlattenModel) SetSubscriptionId(v string)`
 
-SetSiteId sets SiteId field to given value.
+SetSubscriptionId sets SubscriptionId field to given value.
 
-### HasSiteId
+### HasSubscriptionId
 
-`func (o *AzureCatalogCostByCategoryFlattenModel) HasSiteId() bool`
+`func (o *AzureCatalogCostByCategoryFlattenModel) HasSubscriptionId() bool`
 
-HasSiteId returns a boolean if a field has been set.
+HasSubscriptionId returns a boolean if a field has been set.
 
 ### GetCatalogId
 

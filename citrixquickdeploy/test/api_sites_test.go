@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 147.0.26651.57932
+Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
 
 Testing SitesCMDService
 

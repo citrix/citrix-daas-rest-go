@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 147.0.26651.57932
+Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
 
 Catalog Service
 
@@ -19,8 +19,8 @@ var _ MappedNullable = &AzureCatalogCostByCategoryFlattenModel{}
 
 // AzureCatalogCostByCategoryFlattenModel struct for AzureCatalogCostByCategoryFlattenModel
 type AzureCatalogCostByCategoryFlattenModel struct {
-	// Site ID
-	SiteId *string `json:"siteId,omitempty"`
+	// Azure Subscription ID
+	SubscriptionId *string `json:"subscriptionId,omitempty"`
 	// Catalog ID
 	CatalogId *string `json:"catalogId,omitempty"`
 	// Catalog Name
@@ -39,27 +39,27 @@ func NewAzureCatalogCostByCategoryFlattenModelWithDefaults() *AzureCatalogCostBy
 	return &this
 }
 
-// GetSiteId returns the SiteId field value if set, zero value otherwise.
-func (o *AzureCatalogCostByCategoryFlattenModel) GetSiteId() string {
-	if o == nil || IsNil(o.SiteId) {
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+func (o *AzureCatalogCostByCategoryFlattenModel) GetSubscriptionId() string {
+	if o == nil || IsNil(o.SubscriptionId) {
 		var ret string
 		return ret
 	}
-	return *o.SiteId
+	return *o.SubscriptionId
 }
 
-// GetSiteIdOk returns a tuple with the SiteId field value if set, nil otherwise
+// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AzureCatalogCostByCategoryFlattenModel) GetSiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SiteId) {
+func (o *AzureCatalogCostByCategoryFlattenModel) GetSubscriptionIdOk() (*string, bool) {
+	if o == nil || IsNil(o.SubscriptionId) {
 		return nil, false
 	}
-	return o.SiteId, true
+	return o.SubscriptionId, true
 }
 
-// SetSiteId gets a reference to the given string and assigns it to the SiteId field.
-func (o *AzureCatalogCostByCategoryFlattenModel) SetSiteId(v string) {
-	o.SiteId = &v
+// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+func (o *AzureCatalogCostByCategoryFlattenModel) SetSubscriptionId(v string) {
+	o.SubscriptionId = &v
 }
 
 // GetCatalogId returns the CatalogId field value if set, zero value otherwise.
@@ -164,8 +164,8 @@ func (o AzureCatalogCostByCategoryFlattenModel) MarshalJSON() ([]byte, error) {
 
 func (o AzureCatalogCostByCategoryFlattenModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.SiteId) {
-		toSerialize["siteId"] = o.SiteId
+	if !IsNil(o.SubscriptionId) {
+		toSerialize["subscriptionId"] = o.SubscriptionId
 	}
 	if !IsNil(o.CatalogId) {
 		toSerialize["catalogId"] = o.CatalogId

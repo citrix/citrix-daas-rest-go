@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **TransactionId** | Pointer to **string** |  | [optional] 
 **Identity** | Pointer to **string** |  | [optional] 
 **UserId** | Pointer to **string** |  | [optional] 
+**CustomerGeo** | Pointer to **string** |  | [optional] 
 **Geo** | Pointer to **string** |  | [optional] 
 **ResourceProvider** | Pointer to **string** |  | [optional] 
 **Service** | Pointer to **string** |  | [optional] 
@@ -246,6 +247,31 @@ SetUserId sets UserId field to given value.
 `func (o *ObjectChangeEventModel) HasUserId() bool`
 
 HasUserId returns a boolean if a field has been set.
+
+### GetCustomerGeo
+
+`func (o *ObjectChangeEventModel) GetCustomerGeo() string`
+
+GetCustomerGeo returns the CustomerGeo field if non-nil, zero value otherwise.
+
+### GetCustomerGeoOk
+
+`func (o *ObjectChangeEventModel) GetCustomerGeoOk() (*string, bool)`
+
+GetCustomerGeoOk returns a tuple with the CustomerGeo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerGeo
+
+`func (o *ObjectChangeEventModel) SetCustomerGeo(v string)`
+
+SetCustomerGeo sets CustomerGeo field to given value.
+
+### HasCustomerGeo
+
+`func (o *ObjectChangeEventModel) HasCustomerGeo() bool`
+
+HasCustomerGeo returns a boolean if a field has been set.
 
 ### GetGeo
 

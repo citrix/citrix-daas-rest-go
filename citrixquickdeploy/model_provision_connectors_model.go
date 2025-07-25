@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 147.0.26651.57932
+Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
 
 Catalog Service
 
@@ -35,6 +35,8 @@ type ProvisionConnectorsModel struct {
 	VmSize *string `json:"vmSize,omitempty"`
 	// The domain the connectors will be joined to. Used when adding connectors to connectorless RL
 	DomainName *string `json:"domainName,omitempty"`
+	// The number of existing connectors in the Resource Location.  Used to determine which Zone(s) the new connectors will be provisioned in.
+	ExistingConnectorsCount *int32 `json:"existingConnectorsCount,omitempty"`
 }
 
 // NewProvisionConnectorsModelWithDefaults instantiates a new ProvisionConnectorsModel object
@@ -229,6 +231,29 @@ func (o *ProvisionConnectorsModel) SetDomainName(v string) {
 	o.DomainName = &v
 }
 
+// GetExistingConnectorsCount returns the ExistingConnectorsCount field value if set, zero value otherwise.
+func (o *ProvisionConnectorsModel) GetExistingConnectorsCount() int32 {
+	if o == nil || IsNil(o.ExistingConnectorsCount) {
+		var ret int32
+		return ret
+	}
+	return *o.ExistingConnectorsCount
+}
+
+// GetExistingConnectorsCountOk returns a tuple with the ExistingConnectorsCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProvisionConnectorsModel) GetExistingConnectorsCountOk() (*int32, bool) {
+	if o == nil || IsNil(o.ExistingConnectorsCount) {
+		return nil, false
+	}
+	return o.ExistingConnectorsCount, true
+}
+
+// SetExistingConnectorsCount gets a reference to the given int32 and assigns it to the ExistingConnectorsCount field.
+func (o *ProvisionConnectorsModel) SetExistingConnectorsCount(v int32) {
+	o.ExistingConnectorsCount = &v
+}
+
 func (o ProvisionConnectorsModel) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -262,6 +287,9 @@ func (o ProvisionConnectorsModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DomainName) {
 		toSerialize["domainName"] = o.DomainName
+	}
+	if !IsNil(o.ExistingConnectorsCount) {
+		toSerialize["existingConnectorsCount"] = o.ExistingConnectorsCount
 	}
 	return toSerialize, nil
 }

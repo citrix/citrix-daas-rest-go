@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **UseAzureHub** | Pointer to **bool** | Indicates if the connector should be provisioned with Azure HUB enabled | [optional] 
 **VmSize** | Pointer to **string** | The ID of the vm size | [optional] 
 **DomainName** | Pointer to **string** | The domain the connectors will be joined to. Used when adding connectors to connectorless RL | [optional] 
+**ExistingConnectorsCount** | Pointer to **int32** | The number of existing connectors in the Resource Location.  Used to determine which Zone(s) the new connectors will be provisioned in. | [optional] 
 
 ## Methods
 
@@ -231,6 +232,31 @@ SetDomainName sets DomainName field to given value.
 `func (o *ProvisionConnectorsModel) HasDomainName() bool`
 
 HasDomainName returns a boolean if a field has been set.
+
+### GetExistingConnectorsCount
+
+`func (o *ProvisionConnectorsModel) GetExistingConnectorsCount() int32`
+
+GetExistingConnectorsCount returns the ExistingConnectorsCount field if non-nil, zero value otherwise.
+
+### GetExistingConnectorsCountOk
+
+`func (o *ProvisionConnectorsModel) GetExistingConnectorsCountOk() (*int32, bool)`
+
+GetExistingConnectorsCountOk returns a tuple with the ExistingConnectorsCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExistingConnectorsCount
+
+`func (o *ProvisionConnectorsModel) SetExistingConnectorsCount(v int32)`
+
+SetExistingConnectorsCount sets ExistingConnectorsCount field to given value.
+
+### HasExistingConnectorsCount
+
+`func (o *ProvisionConnectorsModel) HasExistingConnectorsCount() bool`
+
+HasExistingConnectorsCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
