@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 147.0.26651.57932
+Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
 
 Catalog Service
 
@@ -28,6 +28,7 @@ type ObjectChangeEventModel struct {
 	TransactionId           *string                 `json:"transactionId,omitempty"`
 	Identity                *string                 `json:"identity,omitempty"`
 	UserId                  *string                 `json:"userId,omitempty"`
+	CustomerGeo             *string                 `json:"customerGeo,omitempty"`
 	Geo                     *string                 `json:"geo,omitempty"`
 	ResourceProvider        *string                 `json:"resourceProvider,omitempty"`
 	Service                 *string                 `json:"service,omitempty"`
@@ -235,6 +236,29 @@ func (o *ObjectChangeEventModel) GetUserIdOk() (*string, bool) {
 // SetUserId gets a reference to the given string and assigns it to the UserId field.
 func (o *ObjectChangeEventModel) SetUserId(v string) {
 	o.UserId = &v
+}
+
+// GetCustomerGeo returns the CustomerGeo field value if set, zero value otherwise.
+func (o *ObjectChangeEventModel) GetCustomerGeo() string {
+	if o == nil || IsNil(o.CustomerGeo) {
+		var ret string
+		return ret
+	}
+	return *o.CustomerGeo
+}
+
+// GetCustomerGeoOk returns a tuple with the CustomerGeo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ObjectChangeEventModel) GetCustomerGeoOk() (*string, bool) {
+	if o == nil || IsNil(o.CustomerGeo) {
+		return nil, false
+	}
+	return o.CustomerGeo, true
+}
+
+// SetCustomerGeo gets a reference to the given string and assigns it to the CustomerGeo field.
+func (o *ObjectChangeEventModel) SetCustomerGeo(v string) {
+	o.CustomerGeo = &v
 }
 
 // GetGeo returns the Geo field value if set, zero value otherwise.
@@ -615,6 +639,9 @@ func (o ObjectChangeEventModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.UserId) {
 		toSerialize["userId"] = o.UserId
+	}
+	if !IsNil(o.CustomerGeo) {
+		toSerialize["customerGeo"] = o.CustomerGeo
 	}
 	if !IsNil(o.Geo) {
 		toSerialize["geo"] = o.Geo

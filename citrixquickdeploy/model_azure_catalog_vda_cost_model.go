@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 147.0.26651.57932
+Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
 
 Catalog Service
 
@@ -31,6 +31,8 @@ type AzureCatalogVdaCostModel struct {
 	VmCost *float64 `json:"vmCost,omitempty"`
 	// Unit of usage of the VDA VM
 	VmUsage *float64 `json:"vmUsage,omitempty"`
+	// Cost of the VDA Network
+	NetworkCost *float64 `json:"networkCost,omitempty"`
 	// A list of users assigned to the VDA, concatenated into a string with comma for csv output
 	AssignedUsers *string `json:"assignedUsers,omitempty"`
 }
@@ -181,6 +183,29 @@ func (o *AzureCatalogVdaCostModel) SetVmUsage(v float64) {
 	o.VmUsage = &v
 }
 
+// GetNetworkCost returns the NetworkCost field value if set, zero value otherwise.
+func (o *AzureCatalogVdaCostModel) GetNetworkCost() float64 {
+	if o == nil || IsNil(o.NetworkCost) {
+		var ret float64
+		return ret
+	}
+	return *o.NetworkCost
+}
+
+// GetNetworkCostOk returns a tuple with the NetworkCost field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AzureCatalogVdaCostModel) GetNetworkCostOk() (*float64, bool) {
+	if o == nil || IsNil(o.NetworkCost) {
+		return nil, false
+	}
+	return o.NetworkCost, true
+}
+
+// SetNetworkCost gets a reference to the given float64 and assigns it to the NetworkCost field.
+func (o *AzureCatalogVdaCostModel) SetNetworkCost(v float64) {
+	o.NetworkCost = &v
+}
+
 // GetAssignedUsers returns the AssignedUsers field value if set, zero value otherwise.
 func (o *AzureCatalogVdaCostModel) GetAssignedUsers() string {
 	if o == nil || IsNil(o.AssignedUsers) {
@@ -231,6 +256,9 @@ func (o AzureCatalogVdaCostModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.VmUsage) {
 		toSerialize["vmUsage"] = o.VmUsage
+	}
+	if !IsNil(o.NetworkCost) {
+		toSerialize["networkCost"] = o.NetworkCost
 	}
 	if !IsNil(o.AssignedUsers) {
 		toSerialize["assignedUsers"] = o.AssignedUsers

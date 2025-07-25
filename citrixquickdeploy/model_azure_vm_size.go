@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 147.0.26651.57932
+Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
 
 Catalog Service
 
@@ -43,6 +43,8 @@ type AzureVMSize struct {
 	HyperVGen1 *bool `json:"hyperVGen1,omitempty"`
 	// Is compatible with HyperVGeneration V2
 	HyperVGen2 *bool `json:"hyperVGen2,omitempty"`
+	// Specifies the number of GPUs in the VM SKU
+	NumberofGPUs *int32 `json:"numberofGPUs,omitempty"`
 	// The Usage Type that this VM size's Quota is associated with
 	UsageType *string `json:"usageType,omitempty"`
 }
@@ -354,6 +356,29 @@ func (o *AzureVMSize) SetHyperVGen2(v bool) {
 	o.HyperVGen2 = &v
 }
 
+// GetNumberofGPUs returns the NumberofGPUs field value if set, zero value otherwise.
+func (o *AzureVMSize) GetNumberofGPUs() int32 {
+	if o == nil || IsNil(o.NumberofGPUs) {
+		var ret int32
+		return ret
+	}
+	return *o.NumberofGPUs
+}
+
+// GetNumberofGPUsOk returns a tuple with the NumberofGPUs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AzureVMSize) GetNumberofGPUsOk() (*int32, bool) {
+	if o == nil || IsNil(o.NumberofGPUs) {
+		return nil, false
+	}
+	return o.NumberofGPUs, true
+}
+
+// SetNumberofGPUs gets a reference to the given int32 and assigns it to the NumberofGPUs field.
+func (o *AzureVMSize) SetNumberofGPUs(v int32) {
+	o.NumberofGPUs = &v
+}
+
 // GetUsageType returns the UsageType field value if set, zero value otherwise.
 func (o *AzureVMSize) GetUsageType() string {
 	if o == nil || IsNil(o.UsageType) {
@@ -425,6 +450,9 @@ func (o AzureVMSize) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.HyperVGen2) {
 		toSerialize["hyperVGen2"] = o.HyperVGen2
+	}
+	if !IsNil(o.NumberofGPUs) {
+		toSerialize["numberofGPUs"] = o.NumberofGPUs
 	}
 	if !IsNil(o.UsageType) {
 		toSerialize["usageType"] = o.UsageType

@@ -82,12 +82,14 @@ Class | Method | HTTP request | Description
 *CatalogCMD* | [**ConfigureAndDeployCitrixManagedCatalogApi**](docs/CatalogCMD.md#configureanddeploycitrixmanagedcatalogapi) | **Post** /{customerId}/{siteId}/catalogs/$manageddeploy | Configure all the Citrix managed catalog deployment steps and initiate the catalog deployment
 *CatalogCMD* | [**CreateRemotePcCatalog**](docs/CatalogCMD.md#createremotepccatalog) | **Post** /{customerId}/{siteId}/catalogs/remotePc | Create a Remote PC catalog.
 *CatalogCMD* | [**DeleteCustomerCatalog**](docs/CatalogCMD.md#deletecustomercatalog) | **Delete** /{customerId}/{siteId}/catalogs/{catalogId} | Delete a catalog along with all the pubhishd apps for the catalog
+*CatalogCMD* | [**GetCatalogCapacityConfiguration**](docs/CatalogCMD.md#getcatalogcapacityconfiguration) | **Get** /{customerId}/{siteId}/catalogs/{catalogId}/capacity | Get the performance information configured for this catalog
 *CatalogCMD* | [**GetCustomerCatalog**](docs/CatalogCMD.md#getcustomercatalog) | **Get** /{customerId}/{siteId}/catalogs/{catalogId} | Returns a specific catalog for a specific customer
 *CatalogCMD* | [**GetCustomerCatalogs**](docs/CatalogCMD.md#getcustomercatalogs) | **Get** /{customerId}/{siteId}/catalogs | Returns all the catalogs that the specified customer has created
 *CatalogCMD* | [**GetCustomerManagedCatalogs**](docs/CatalogCMD.md#getcustomermanagedcatalogs) | **Get** /{customerId}/{siteId}/managedcatalogs | Returns all the catalogs that the specified Citrix managed customer has created
 *CatalogCMD* | [**GetCustomerManagedCatalogsById**](docs/CatalogCMD.md#getcustomermanagedcatalogsbyid) | **Get** /{customerId}/{siteId}/managedcatalogs/{catalogId} | Returns all the catalogs that the specified Citrix managed customer has created
 *CatalogCMD* | [**UpdateCatalogImage**](docs/CatalogCMD.md#updatecatalogimage) | **Post** /{customerId}/{siteId}/catalogs/{catalogId}/updateImage | Update the catalog&#39;s master image.
 *CatalogCMD* | [**UpdateCatalogImageApi**](docs/CatalogCMD.md#updatecatalogimageapi) | **Post** /{customerId}/{siteId}/catalogs/{catalogId}/$updateImage | Update the catalog&#39;s master image.
+*CatalogCMD* | [**UpdateCatalogScaleConfiguration**](docs/CatalogCMD.md#updatecatalogscaleconfiguration) | **Patch** /{customerId}/{siteId}/catalogs/{catalogId}/capacity | Update the performance information configured for this catalog
 *CatalogCMD* | [**UpdateRemotePcCatalogScopes**](docs/CatalogCMD.md#updateremotepccatalogscopes) | **Put** /{customerId}/{siteId}/catalogs/{catalogId}/scopes | Configure all the Citrix managed catalog deployment steps and initiate the catalog deployment
 *CatalogApplicationsCMD* | [**GetCatalogApps**](docs/CatalogApplicationsCMD.md#getcatalogapps) | **Get** /{customerId}/{siteId}/catalogs/{catalogId}/apps | Get the list of apps that have been published for the specified catalog
 *CatalogApplicationsCMD* | [**PublishApplications**](docs/CatalogApplicationsCMD.md#publishapplications) | **Post** /{customerId}/{siteId}/catalogs/{catalogId}/apps | Publish the specified apps to the catalog
@@ -194,6 +196,7 @@ Class | Method | HTTP request | Description
  - [AzureVmOperationInputModel](docs/AzureVmOperationInputModel.md)
  - [AzureVpnConnectionModel](docs/AzureVpnConnectionModel.md)
  - [AzureVpnConnectionState](docs/AzureVpnConnectionState.md)
+ - [BackupVmConfiguration](docs/BackupVmConfiguration.md)
  - [BastionAndRdpAccessOverview](docs/BastionAndRdpAccessOverview.md)
  - [BastionAndRdpAccessOverviewsModel](docs/BastionAndRdpAccessOverviewsModel.md)
  - [BastionCreationModel](docs/BastionCreationModel.md)
@@ -334,6 +337,7 @@ Class | Method | HTTP request | Description
  - [PatchCustomPowerSchemeModel](docs/PatchCustomPowerSchemeModel.md)
  - [PendingUser](docs/PendingUser.md)
  - [PendingUsersModel](docs/PendingUsersModel.md)
+ - [Persona](docs/Persona.md)
  - [PowerActionScheduleResponseModel](docs/PowerActionScheduleResponseModel.md)
  - [PowerActionScheduleResponseModelCollection](docs/PowerActionScheduleResponseModelCollection.md)
  - [PowerManagementAction](docs/PowerManagementAction.md)

@@ -8,12 +8,14 @@ Method | HTTP request | Description
 [**ConfigureAndDeployCitrixManagedCatalogApi**](CatalogCMD.md#ConfigureAndDeployCitrixManagedCatalogApi) | **Post** /{customerId}/{siteId}/catalogs/$manageddeploy | Configure all the Citrix managed catalog deployment steps and initiate the catalog deployment
 [**CreateRemotePcCatalog**](CatalogCMD.md#CreateRemotePcCatalog) | **Post** /{customerId}/{siteId}/catalogs/remotePc | Create a Remote PC catalog.
 [**DeleteCustomerCatalog**](CatalogCMD.md#DeleteCustomerCatalog) | **Delete** /{customerId}/{siteId}/catalogs/{catalogId} | Delete a catalog along with all the pubhishd apps for the catalog
+[**GetCatalogCapacityConfiguration**](CatalogCMD.md#GetCatalogCapacityConfiguration) | **Get** /{customerId}/{siteId}/catalogs/{catalogId}/capacity | Get the performance information configured for this catalog
 [**GetCustomerCatalog**](CatalogCMD.md#GetCustomerCatalog) | **Get** /{customerId}/{siteId}/catalogs/{catalogId} | Returns a specific catalog for a specific customer
 [**GetCustomerCatalogs**](CatalogCMD.md#GetCustomerCatalogs) | **Get** /{customerId}/{siteId}/catalogs | Returns all the catalogs that the specified customer has created
 [**GetCustomerManagedCatalogs**](CatalogCMD.md#GetCustomerManagedCatalogs) | **Get** /{customerId}/{siteId}/managedcatalogs | Returns all the catalogs that the specified Citrix managed customer has created
 [**GetCustomerManagedCatalogsById**](CatalogCMD.md#GetCustomerManagedCatalogsById) | **Get** /{customerId}/{siteId}/managedcatalogs/{catalogId} | Returns all the catalogs that the specified Citrix managed customer has created
 [**UpdateCatalogImage**](CatalogCMD.md#UpdateCatalogImage) | **Post** /{customerId}/{siteId}/catalogs/{catalogId}/updateImage | Update the catalog&#39;s master image.
 [**UpdateCatalogImageApi**](CatalogCMD.md#UpdateCatalogImageApi) | **Post** /{customerId}/{siteId}/catalogs/{catalogId}/$updateImage | Update the catalog&#39;s master image.
+[**UpdateCatalogScaleConfiguration**](CatalogCMD.md#UpdateCatalogScaleConfiguration) | **Patch** /{customerId}/{siteId}/catalogs/{catalogId}/capacity | Update the performance information configured for this catalog
 [**UpdateRemotePcCatalogScopes**](CatalogCMD.md#UpdateRemotePcCatalogScopes) | **Put** /{customerId}/{siteId}/catalogs/{catalogId}/scopes | Configure all the Citrix managed catalog deployment steps and initiate the catalog deployment
 
 
@@ -316,6 +318,82 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCatalogCapacityConfiguration
+
+> CatalogCapacitySettingsModel GetCatalogCapacityConfiguration(ctx, customerId, siteId, catalogId).CitrixTransactionId(citrixTransactionId).Execute()
+
+Get the performance information configured for this catalog
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickdeploy"
+)
+
+func main() {
+    customerId := "customerId_example" // string | ID of the customer
+    siteId := "siteId_example" // string | 
+    catalogId := "catalogId_example" // string | ID of the catalog
+    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CatalogCMD.GetCatalogCapacityConfiguration(context.Background(), customerId, siteId, catalogId).CitrixTransactionId(citrixTransactionId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CatalogCMD.GetCatalogCapacityConfiguration``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetCatalogCapacityConfiguration`: CatalogCapacitySettingsModel
+    fmt.Fprintf(os.Stdout, "Response from `CatalogCMD.GetCatalogCapacityConfiguration`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**customerId** | **string** | ID of the customer | 
+**siteId** | **string** |  | 
+**catalogId** | **string** | ID of the catalog | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCatalogCapacityConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **citrixTransactionId** | **string** | The Transaction Id. | 
+
+### Return type
+
+[**CatalogCapacitySettingsModel**](CatalogCapacitySettingsModel.md)
+
+### Authorization
+
+[CWSAuth](../README.md#CWSAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -776,6 +854,82 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateCatalogScaleConfiguration
+
+> UpdateCatalogScaleConfiguration(ctx, customerId, siteId, catalogId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+
+Update the performance information configured for this catalog
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickdeploy"
+)
+
+func main() {
+    customerId := "customerId_example" // string | ID of the customer
+    siteId := "siteId_example" // string | 
+    catalogId := "catalogId_example" // string | ID of the catalog
+    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+    body := *openapiclient.NewCatalogCapacitySettingsModel() // CatalogCapacitySettingsModel | Capacity informaton for this catalog (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.CatalogCMD.UpdateCatalogScaleConfiguration(context.Background(), customerId, siteId, catalogId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CatalogCMD.UpdateCatalogScaleConfiguration``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**customerId** | **string** | ID of the customer | 
+**siteId** | **string** |  | 
+**catalogId** | **string** | ID of the catalog | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateCatalogScaleConfigurationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **citrixTransactionId** | **string** | The Transaction Id. | 
+ **body** | [**CatalogCapacitySettingsModel**](CatalogCapacitySettingsModel.md) | Capacity informaton for this catalog | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[CWSAuth](../README.md#CWSAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

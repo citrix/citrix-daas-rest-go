@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **MaxUsersPerVM** | Pointer to **int32** | Number of concurrent users per VM | [optional] 
 **InstanceTypeId** | Pointer to **string** | Type of VM to create | [optional] 
 **InstanceName** | Pointer to **string** | Name of the Azure VM Instance to use for the catalog | [optional] 
+**BackupVmConfiguration** | Pointer to [**[]BackupVmConfiguration**](BackupVmConfiguration.md) | List of backup VM configurations | [optional] 
 **UseManagedDisks** | Pointer to **bool** | Use managed disks for VMs in the catalog | [optional] 
 
 ## Methods
@@ -180,6 +181,31 @@ SetInstanceName sets InstanceName field to given value.
 `func (o *CatalogComputeWorkerModel) HasInstanceName() bool`
 
 HasInstanceName returns a boolean if a field has been set.
+
+### GetBackupVmConfiguration
+
+`func (o *CatalogComputeWorkerModel) GetBackupVmConfiguration() []BackupVmConfiguration`
+
+GetBackupVmConfiguration returns the BackupVmConfiguration field if non-nil, zero value otherwise.
+
+### GetBackupVmConfigurationOk
+
+`func (o *CatalogComputeWorkerModel) GetBackupVmConfigurationOk() (*[]BackupVmConfiguration, bool)`
+
+GetBackupVmConfigurationOk returns a tuple with the BackupVmConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupVmConfiguration
+
+`func (o *CatalogComputeWorkerModel) SetBackupVmConfiguration(v []BackupVmConfiguration)`
+
+SetBackupVmConfiguration sets BackupVmConfiguration field to given value.
+
+### HasBackupVmConfiguration
+
+`func (o *CatalogComputeWorkerModel) HasBackupVmConfiguration() bool`
+
+HasBackupVmConfiguration returns a boolean if a field has been set.
 
 ### GetUseManagedDisks
 

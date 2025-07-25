@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **MaxDataDiskCount** | Pointer to **int32** | the Maximum number of data disks allowed by a VM size. | [optional] [readonly] 
 **HyperVGen1** | Pointer to **bool** | Is compatible with HyperVGeneration V1 | [optional] [readonly] 
 **HyperVGen2** | Pointer to **bool** | Is compatible with HyperVGeneration V2 | [optional] [readonly] 
+**NumberofGPUs** | Pointer to **int32** | Specifies the number of GPUs in the VM SKU | [optional] [readonly] 
 **UsageType** | Pointer to **string** | The Usage Type that this VM size&#39;s Quota is associated with | [optional] [readonly] 
 
 ## Methods
@@ -362,6 +363,31 @@ SetHyperVGen2 sets HyperVGen2 field to given value.
 `func (o *AzureVMSize) HasHyperVGen2() bool`
 
 HasHyperVGen2 returns a boolean if a field has been set.
+
+### GetNumberofGPUs
+
+`func (o *AzureVMSize) GetNumberofGPUs() int32`
+
+GetNumberofGPUs returns the NumberofGPUs field if non-nil, zero value otherwise.
+
+### GetNumberofGPUsOk
+
+`func (o *AzureVMSize) GetNumberofGPUsOk() (*int32, bool)`
+
+GetNumberofGPUsOk returns a tuple with the NumberofGPUs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNumberofGPUs
+
+`func (o *AzureVMSize) SetNumberofGPUs(v int32)`
+
+SetNumberofGPUs sets NumberofGPUs field to given value.
+
+### HasNumberofGPUs
+
+`func (o *AzureVMSize) HasNumberofGPUs() bool`
+
+HasNumberofGPUs returns a boolean if a field has been set.
 
 ### GetUsageType
 

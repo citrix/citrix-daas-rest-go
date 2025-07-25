@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **DiskCost** | Pointer to **float64** | Cost of the VDA Disk | [optional] 
 **VmCost** | Pointer to **float64** | Cost of the VDA VM | [optional] 
 **VmUsage** | Pointer to **float64** | Unit of usage of the VDA VM | [optional] 
+**NetworkCost** | Pointer to **float64** | Cost of the VDA Network | [optional] 
 **AssignedUsers** | Pointer to **string** | A list of users assigned to the VDA, concatenated into a string with comma for csv output | [optional] 
 
 ## Methods
@@ -180,6 +181,31 @@ SetVmUsage sets VmUsage field to given value.
 `func (o *AzureCatalogVdaCostModel) HasVmUsage() bool`
 
 HasVmUsage returns a boolean if a field has been set.
+
+### GetNetworkCost
+
+`func (o *AzureCatalogVdaCostModel) GetNetworkCost() float64`
+
+GetNetworkCost returns the NetworkCost field if non-nil, zero value otherwise.
+
+### GetNetworkCostOk
+
+`func (o *AzureCatalogVdaCostModel) GetNetworkCostOk() (*float64, bool)`
+
+GetNetworkCostOk returns a tuple with the NetworkCost field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkCost
+
+`func (o *AzureCatalogVdaCostModel) SetNetworkCost(v float64)`
+
+SetNetworkCost sets NetworkCost field to given value.
+
+### HasNetworkCost
+
+`func (o *AzureCatalogVdaCostModel) HasNetworkCost() bool`
+
+HasNetworkCost returns a boolean if a field has been set.
 
 ### GetAssignedUsers
 

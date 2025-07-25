@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   description: Catalog Service
-  title: Citrix Virtual App & Desktop Catalog Service 147.0.26651.57932
+  title: Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
   version: v1
 servers:
 - url: https://localhost/
@@ -994,6 +994,338 @@ paths:
       summary: Returns a specific catalog for a specific customer
       tags:
       - Catalog
+  /{customerId}/{siteId}/catalogs/{catalogId}/capacity:
+    get:
+      operationId: GetCatalogCapacityConfiguration
+      parameters:
+      - description: ID of the customer
+        in: path
+        name: customerId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: siteId
+        required: true
+        schema:
+          type: string
+      - description: ID of the catalog
+        in: path
+        name: catalogId
+        required: true
+        schema:
+          type: string
+      - description: The Transaction Id.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogCapacitySettingsModel'
+          description: OK
+        "500":
+          content: {}
+          description: Internal Server Error
+          headers:
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              schema:
+                type: object
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              schema:
+                type: object
+            content-type:
+              description: Tells the type of the content in the request body.
+              schema:
+                type: object
+            cache-control:
+              description: Holds directives for caching response.
+              schema:
+                type: object
+        "400":
+          content: {}
+          description: Bad Request
+          headers:
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              schema:
+                type: object
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              schema:
+                type: object
+            content-type:
+              description: Tells the type of the content in the request body.
+              schema:
+                type: object
+            cache-control:
+              description: Holds directives for caching response.
+              schema:
+                type: object
+        "404":
+          content: {}
+          description: Not Found
+          headers:
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              schema:
+                type: object
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              schema:
+                type: object
+            content-type:
+              description: Tells the type of the content in the request body.
+              schema:
+                type: object
+            cache-control:
+              description: Holds directives for caching response.
+              schema:
+                type: object
+        "401":
+          content: {}
+          description: Unauthorized
+          headers:
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              schema:
+                type: object
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              schema:
+                type: object
+            content-type:
+              description: Tells the type of the content in the request body.
+              schema:
+                type: object
+            cache-control:
+              description: Holds directives for caching response.
+              schema:
+                type: object
+        "403":
+          content: {}
+          description: Forbidden
+          headers:
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              schema:
+                type: object
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              schema:
+                type: object
+            content-type:
+              description: Tells the type of the content in the request body.
+              schema:
+                type: object
+            cache-control:
+              description: Holds directives for caching response.
+              schema:
+                type: object
+      summary: Get the performance information configured for this catalog
+      tags:
+      - Catalog
+    patch:
+      operationId: UpdateCatalogScaleConfiguration
+      parameters:
+      - description: ID of the customer
+        in: path
+        name: customerId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: siteId
+        required: true
+        schema:
+          type: string
+      - description: ID of the catalog
+        in: path
+        name: catalogId
+        required: true
+        schema:
+          type: string
+      - description: The Transaction Id.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CatalogCapacitySettingsModel'
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CatalogCapacitySettingsModel'
+          text/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CatalogCapacitySettingsModel'
+          application/*+json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CatalogCapacitySettingsModel'
+        description: Capacity informaton for this catalog
+        required: false
+      responses:
+        "200":
+          content: {}
+          description: OK
+        "500":
+          content: {}
+          description: Internal Server Error
+          headers:
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              schema:
+                type: object
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              schema:
+                type: object
+            content-type:
+              description: Tells the type of the content in the request body.
+              schema:
+                type: object
+            cache-control:
+              description: Holds directives for caching response.
+              schema:
+                type: object
+        "400":
+          content: {}
+          description: Bad Request
+          headers:
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              schema:
+                type: object
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              schema:
+                type: object
+            content-type:
+              description: Tells the type of the content in the request body.
+              schema:
+                type: object
+            cache-control:
+              description: Holds directives for caching response.
+              schema:
+                type: object
+        "404":
+          content: {}
+          description: Not Found
+          headers:
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              schema:
+                type: object
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              schema:
+                type: object
+            content-type:
+              description: Tells the type of the content in the request body.
+              schema:
+                type: object
+            cache-control:
+              description: Holds directives for caching response.
+              schema:
+                type: object
+        "401":
+          content: {}
+          description: Unauthorized
+          headers:
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              schema:
+                type: object
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              schema:
+                type: object
+            content-type:
+              description: Tells the type of the content in the request body.
+              schema:
+                type: object
+            cache-control:
+              description: Holds directives for caching response.
+              schema:
+                type: object
+        "403":
+          content: {}
+          description: Forbidden
+          headers:
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              schema:
+                type: object
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              schema:
+                type: object
+            content-type:
+              description: Tells the type of the content in the request body.
+              schema:
+                type: object
+            cache-control:
+              description: Holds directives for caching response.
+              schema:
+                type: object
+        "204":
+          content: {}
+          description: No Content
+      summary: Update the performance information configured for this catalog
+      tags:
+      - Catalog
+      x-codegen-request-body-name: body
   /{customerId}/{siteId}/catalogs/$manageddeploy:
     post:
       operationId: ConfigureAndDeployCitrixManagedCatalogApi
@@ -8041,8 +8373,8 @@ components:
     AzureCatalogCostByCategoryFlattenModel:
       additionalProperties: false
       properties:
-        siteId:
-          description: Site ID
+        subscriptionId:
+          description: Azure Subscription ID
           type: string
         catalogId:
           description: Catalog ID
@@ -8081,6 +8413,10 @@ components:
           type: number
         vmUsage:
           description: Unit of usage of the VDA VM
+          format: double
+          type: number
+        networkCost:
+          description: Cost of the VDA Network
           format: double
           type: number
         assignedUsers:
@@ -8899,6 +9235,11 @@ components:
           description: Is compatible with HyperVGeneration V2
           readOnly: true
           type: boolean
+        numberofGPUs:
+          description: Specifies the number of GPUs in the VM SKU
+          format: int32
+          readOnly: true
+          type: integer
         usageType:
           description: The Usage Type that this VM size's Quota is associated with
           readOnly: true
@@ -9129,6 +9470,17 @@ components:
       - RouteTableFailed
       - ProvisioningRouteTable
       type: string
+    BackupVmConfiguration:
+      additionalProperties: false
+      properties:
+        serviceOffering:
+          description: "The service offering for the backup VM.\r\nEx: \"Standard_D2as_v4\""
+          type: string
+        type:
+          description: "The service offering type for the backup VM.\r\nOptions are:\
+            \ \"Regular\" or \"Spot\".\r\nDefault to \"Regular\" if unspecified."
+          type: string
+      type: object
     BastionAndRdpAccessOverview:
       additionalProperties: false
       properties:
@@ -9364,6 +9716,12 @@ components:
       type: object
     CatalogCapacitySettingsModel:
       additionalProperties: false
+      example:
+        scaleSettings: "{}"
+        multiSessionDisconnectedSessionTimeout: 6
+        computeWorker: "{}"
+        sessionTimeout: 0
+        isActive: true
       properties:
         computeWorker:
           allOf:
@@ -9420,6 +9778,11 @@ components:
         instanceName:
           description: Name of the Azure VM Instance to use for the catalog
           type: string
+        backupVmConfiguration:
+          description: List of backup VM configurations
+          items:
+            $ref: '#/components/schemas/BackupVmConfiguration'
+          type: array
         useManagedDisks:
           description: Use managed disks for VMs in the catalog
           type: boolean
@@ -13689,6 +14052,8 @@ components:
           type: string
         userId:
           type: string
+        customerGeo:
+          type: string
         geo:
           type: string
         resourceProvider:
@@ -13880,6 +14245,38 @@ components:
             $ref: '#/components/schemas/PendingUser'
           type: array
       type: object
+    Persona:
+      additionalProperties: false
+      properties:
+        id:
+          description: The Id of the persona
+          type: string
+        name:
+          description: Name of the persona
+          type: string
+        azureVmSku:
+          allOf:
+          - $ref: '#/components/schemas/AzureVMSize'
+          description: The VM SKU for the persona
+          type: object
+        sessionSupport:
+          allOf:
+          - $ref: '#/components/schemas/SessionSupport'
+          description: Quantity of sessions supported per-machine.
+          type: object
+        sessionsPerVm:
+          description: Number of sessions per vm. Value is 1 for Single Session Personas
+          format: int32
+          type: integer
+        gpuMemoryInMB:
+          description: The GPU memory in MB
+          format: int32
+          type: integer
+        estimatedCredits:
+          description: The cost per user per month for the persona
+          format: int32
+          type: integer
+      type: object
     PowerActionScheduleResponseModel:
       additionalProperties: false
       description: Power action schedule.
@@ -13992,6 +14389,12 @@ components:
           description: The domain the connectors will be joined to. Used when adding
             connectors to connectorless RL
           type: string
+        existingConnectorsCount:
+          description: "The number of existing connectors in the Resource Location.\r\
+            \nUsed to determine which Zone(s) the new connectors will be provisioned\
+            \ in."
+          format: int32
+          type: integer
       type: object
     PublishedApplication:
       additionalProperties: false

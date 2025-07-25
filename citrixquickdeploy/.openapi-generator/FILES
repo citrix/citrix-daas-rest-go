@@ -88,6 +88,7 @@ docs/AzureVmOperation.md
 docs/AzureVmOperationInputModel.md
 docs/AzureVpnConnectionModel.md
 docs/AzureVpnConnectionState.md
+docs/BackupVmConfiguration.md
 docs/BastionAndRdpAccessOverview.md
 docs/BastionAndRdpAccessOverviewsModel.md
 docs/BastionCreationModel.md
@@ -234,6 +235,7 @@ docs/PairedRegion.md
 docs/PatchCustomPowerSchemeModel.md
 docs/PendingUser.md
 docs/PendingUsersModel.md
+docs/Persona.md
 docs/PowerActionScheduleResponseModel.md
 docs/PowerActionScheduleResponseModelCollection.md
 docs/PowerManagementAction.md
@@ -402,6 +404,7 @@ model_azure_vm_operation_input_model.go
 model_azure_vm_size.go
 model_azure_vpn_connection_model.go
 model_azure_vpn_connection_state.go
+model_backup_vm_configuration.go
 model_bastion_and_rdp_access_overview.go
 model_bastion_and_rdp_access_overviews_model.go
 model_bastion_creation_model.go
@@ -542,6 +545,7 @@ model_paired_region.go
 model_patch_custom_power_scheme_model.go
 model_pending_user.go
 model_pending_users_model.go
+model_persona.go
 model_power_action_schedule_response_model.go
 model_power_action_schedule_response_model_collection.go
 model_power_management_action.go

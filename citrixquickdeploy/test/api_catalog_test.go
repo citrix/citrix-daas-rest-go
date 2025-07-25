@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 147.0.26651.57932
+Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
 
 Testing CatalogCMDService
 
@@ -80,6 +80,22 @@ func Test_citrixquickdeploy_CatalogCMDService(t *testing.T) {
 		httpRes, err := apiClient.CatalogCMD.DeleteCustomerCatalog(context.Background(), customerId, siteId, catalogId).Execute()
 
 		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CatalogCMDService GetCatalogCapacityConfiguration", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var siteId string
+		var catalogId string
+
+		resp, httpRes, err := apiClient.CatalogCMD.GetCatalogCapacityConfiguration(context.Background(), customerId, siteId, catalogId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -174,6 +190,21 @@ func Test_citrixquickdeploy_CatalogCMDService(t *testing.T) {
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CatalogCMDService UpdateCatalogScaleConfiguration", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var siteId string
+		var catalogId string
+
+		httpRes, err := apiClient.CatalogCMD.UpdateCatalogScaleConfiguration(context.Background(), customerId, siteId, catalogId).Execute()
+
+		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
