@@ -196,7 +196,7 @@ func (o *HypervisorServerHAAddressesResponseModel) GetHAAddressesOk() ([]string,
 
 // HasHAAddresses returns a boolean if a field has been set.
 func (o *HypervisorServerHAAddressesResponseModel) HasHAAddresses() bool {
-	if o != nil && IsNil(o.HAAddresses) {
+	if o != nil && !IsNil(o.HAAddresses) {
 		return true
 	}
 

@@ -283,7 +283,7 @@ func (o *UpdateMachineCatalogRequestModel) GetRemotePCEnrollmentScopesOk() ([]Re
 
 // HasRemotePCEnrollmentScopes returns a boolean if a field has been set.
 func (o *UpdateMachineCatalogRequestModel) HasRemotePCEnrollmentScopes() bool {
-	if o != nil && IsNil(o.RemotePCEnrollmentScopes) {
+	if o != nil && !IsNil(o.RemotePCEnrollmentScopes) {
 		return true
 	}
 
@@ -434,7 +434,7 @@ func (o *UpdateMachineCatalogRequestModel) GetScopesOk() ([]string, bool) {
 
 // HasScopes returns a boolean if a field has been set.
 func (o *UpdateMachineCatalogRequestModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -467,7 +467,7 @@ func (o *UpdateMachineCatalogRequestModel) GetTenantsOk() ([]string, bool) {
 
 // HasTenants returns a boolean if a field has been set.
 func (o *UpdateMachineCatalogRequestModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -715,7 +715,7 @@ func (o *UpdateMachineCatalogRequestModel) GetSecurityGroupsOk() ([]string, bool
 
 // HasSecurityGroups returns a boolean if a field has been set.
 func (o *UpdateMachineCatalogRequestModel) HasSecurityGroups() bool {
-	if o != nil && IsNil(o.SecurityGroups) {
+	if o != nil && !IsNil(o.SecurityGroups) {
 		return true
 	}
 
@@ -748,7 +748,7 @@ func (o *UpdateMachineCatalogRequestModel) GetNetworkMappingOk() ([]NetworkMapRe
 
 // HasNetworkMapping returns a boolean if a field has been set.
 func (o *UpdateMachineCatalogRequestModel) HasNetworkMapping() bool {
-	if o != nil && IsNil(o.NetworkMapping) {
+	if o != nil && !IsNil(o.NetworkMapping) {
 		return true
 	}
 
@@ -856,7 +856,7 @@ func (o *UpdateMachineCatalogRequestModel) GetCustomPropertiesOk() ([]NameValueS
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *UpdateMachineCatalogRequestModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
+	if o != nil && !IsNil(o.CustomProperties) {
 		return true
 	}
 
@@ -889,7 +889,7 @@ func (o *UpdateMachineCatalogRequestModel) GetMetadataOk() ([]NameValueStringPai
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *UpdateMachineCatalogRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -1094,7 +1094,7 @@ func (o *UpdateMachineCatalogRequestModel) GetServiceAccountUidOk() ([]string, b
 
 // HasServiceAccountUid returns a boolean if a field has been set.
 func (o *UpdateMachineCatalogRequestModel) HasServiceAccountUid() bool {
-	if o != nil && IsNil(o.ServiceAccountUid) {
+	if o != nil && !IsNil(o.ServiceAccountUid) {
 		return true
 	}
 

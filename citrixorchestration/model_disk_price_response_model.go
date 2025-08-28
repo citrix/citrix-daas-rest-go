@@ -173,7 +173,7 @@ func (o *DiskPriceResponseModel) GetResourcePricesOk() ([]ResourcePriceResponseM
 
 // HasResourcePrices returns a boolean if a field has been set.
 func (o *DiskPriceResponseModel) HasResourcePrices() bool {
-	if o != nil && IsNil(o.ResourcePrices) {
+	if o != nil && !IsNil(o.ResourcePrices) {
 		return true
 	}
 

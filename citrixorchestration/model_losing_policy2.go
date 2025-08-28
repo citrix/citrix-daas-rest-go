@@ -174,7 +174,7 @@ func (o *LosingPolicy2) GetSettingsOk() ([]WonOverBy2, bool) {
 
 // HasSettings returns a boolean if a field has been set.
 func (o *LosingPolicy2) HasSettings() bool {
-	if o != nil && IsNil(o.Settings) {
+	if o != nil && !IsNil(o.Settings) {
 		return true
 	}
 

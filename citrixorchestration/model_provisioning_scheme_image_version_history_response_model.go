@@ -28,6 +28,8 @@ type ProvisioningSchemeImageVersionHistoryResponseModel struct {
 	IsImageAvailable *bool `json:"IsImageAvailable,omitempty"`
 }
 
+type _ProvisioningSchemeImageVersionHistoryResponseModel ProvisioningSchemeImageVersionHistoryResponseModel
+
 // NewProvisioningSchemeImageVersionHistoryResponseModel instantiates a new ProvisioningSchemeImageVersionHistoryResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

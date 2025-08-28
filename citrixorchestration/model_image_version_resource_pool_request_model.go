@@ -106,7 +106,7 @@ func (o *ImageVersionResourcePoolRequestModel) GetCustomPropertiesOk() ([]NameVa
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *ImageVersionResourcePoolRequestModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
+	if o != nil && !IsNil(o.CustomProperties) {
 		return true
 	}
 

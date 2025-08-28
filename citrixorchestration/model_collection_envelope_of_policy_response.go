@@ -65,7 +65,7 @@ func (o *CollectionEnvelopeOfPolicyResponse) GetItemsOk() ([]PolicyResponse, boo
 
 // HasItems returns a boolean if a field has been set.
 func (o *CollectionEnvelopeOfPolicyResponse) HasItems() bool {
-	if o != nil && IsNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 

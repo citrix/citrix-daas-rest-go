@@ -25,6 +25,8 @@ type CreateAutoscalePluginTemplateRequestModel struct {
 	Dates []string `json:"Dates,omitempty"`
 }
 
+type _CreateAutoscalePluginTemplateRequestModel CreateAutoscalePluginTemplateRequestModel
+
 // NewCreateAutoscalePluginTemplateRequestModel instantiates a new CreateAutoscalePluginTemplateRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -88,7 +90,7 @@ func (o *CreateAutoscalePluginTemplateRequestModel) GetDatesOk() ([]string, bool
 
 // HasDates returns a boolean if a field has been set.
 func (o *CreateAutoscalePluginTemplateRequestModel) HasDates() bool {
-	if o != nil && IsNil(o.Dates) {
+	if o != nil && !IsNil(o.Dates) {
 		return true
 	}
 

@@ -34,6 +34,8 @@ type IdentityCreateMachineRequestModel struct {
 	ResourceLocationId NullableString `json:"ResourceLocationId,omitempty"`
 }
 
+type _IdentityCreateMachineRequestModel IdentityCreateMachineRequestModel
+
 // NewIdentityCreateMachineRequestModel instantiates a new IdentityCreateMachineRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

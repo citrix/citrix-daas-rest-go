@@ -37,6 +37,8 @@ type ImageDefinitionsAndImageVersionsResponseModel struct {
 	ImageVersions []ImageVersionResponseModel `json:"ImageVersions,omitempty"`
 }
 
+type _ImageDefinitionsAndImageVersionsResponseModel ImageDefinitionsAndImageVersionsResponseModel
+
 // NewImageDefinitionsAndImageVersionsResponseModel instantiates a new ImageDefinitionsAndImageVersionsResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -322,7 +324,7 @@ func (o *ImageDefinitionsAndImageVersionsResponseModel) GetHypervisorConnections
 
 // HasHypervisorConnections returns a boolean if a field has been set.
 func (o *ImageDefinitionsAndImageVersionsResponseModel) HasHypervisorConnections() bool {
-	if o != nil && IsNil(o.HypervisorConnections) {
+	if o != nil && !IsNil(o.HypervisorConnections) {
 		return true
 	}
 
@@ -355,7 +357,7 @@ func (o *ImageDefinitionsAndImageVersionsResponseModel) GetImageVersionsOk() ([]
 
 // HasImageVersions returns a boolean if a field has been set.
 func (o *ImageDefinitionsAndImageVersionsResponseModel) HasImageVersions() bool {
-	if o != nil && IsNil(o.ImageVersions) {
+	if o != nil && !IsNil(o.ImageVersions) {
 		return true
 	}
 

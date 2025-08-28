@@ -106,7 +106,7 @@ func (o *ADSCPConfigurationModel) GetKeywordsOk() ([]string, bool) {
 
 // HasKeywords returns a boolean if a field has been set.
 func (o *ADSCPConfigurationModel) HasKeywords() bool {
-	if o != nil && IsNil(o.Keywords) {
+	if o != nil && !IsNil(o.Keywords) {
 		return true
 	}
 

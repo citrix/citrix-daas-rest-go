@@ -468,7 +468,7 @@ func (o *LicenseCertificateResponseModel) GetChainStatusInformationsOk() ([]stri
 
 // HasChainStatusInformations returns a boolean if a field has been set.
 func (o *LicenseCertificateResponseModel) HasChainStatusInformations() bool {
-	if o != nil && IsNil(o.ChainStatusInformations) {
+	if o != nil && !IsNil(o.ChainStatusInformations) {
 		return true
 	}
 
@@ -501,7 +501,7 @@ func (o *LicenseCertificateResponseModel) GetChainStatusFlagsOk() ([]X509ChainSt
 
 // HasChainStatusFlags returns a boolean if a field has been set.
 func (o *LicenseCertificateResponseModel) HasChainStatusFlags() bool {
-	if o != nil && IsNil(o.ChainStatusFlags) {
+	if o != nil && !IsNil(o.ChainStatusFlags) {
 		return true
 	}
 

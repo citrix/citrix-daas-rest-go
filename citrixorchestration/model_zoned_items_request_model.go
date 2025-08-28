@@ -60,7 +60,7 @@ func (o *ZonedItemsRequestModel) GetItemsOk() ([]ZonedItemRequestModel, bool) {
 
 // HasItems returns a boolean if a field has been set.
 func (o *ZonedItemsRequestModel) HasItems() bool {
-	if o != nil && IsNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 

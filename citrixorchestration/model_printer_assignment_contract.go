@@ -141,7 +141,7 @@ func (o *PrinterAssignmentContract) GetSessionPrintersOk() ([]PrinterPropertiesC
 
 // HasSessionPrinters returns a boolean if a field has been set.
 func (o *PrinterAssignmentContract) HasSessionPrinters() bool {
-	if o != nil && IsNil(o.SessionPrinters) {
+	if o != nil && !IsNil(o.SessionPrinters) {
 		return true
 	}
 
@@ -174,7 +174,7 @@ func (o *PrinterAssignmentContract) GetFiltersOk() ([]string, bool) {
 
 // HasFilters returns a boolean if a field has been set.
 func (o *PrinterAssignmentContract) HasFilters() bool {
-	if o != nil && IsNil(o.Filters) {
+	if o != nil && !IsNil(o.Filters) {
 		return true
 	}
 

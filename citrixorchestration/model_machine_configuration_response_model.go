@@ -308,7 +308,7 @@ func (o *MachineConfigurationResponseModel) GetDeliveryGroupsOk() ([]RefResponse
 
 // HasDeliveryGroups returns a boolean if a field has been set.
 func (o *MachineConfigurationResponseModel) HasDeliveryGroups() bool {
-	if o != nil && IsNil(o.DeliveryGroups) {
+	if o != nil && !IsNil(o.DeliveryGroups) {
 		return true
 	}
 

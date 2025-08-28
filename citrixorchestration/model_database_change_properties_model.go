@@ -29,6 +29,8 @@ type DatabaseChangePropertiesModel struct {
 	SkipWarning bool `json:"SkipWarning"`
 }
 
+type _DatabaseChangePropertiesModel DatabaseChangePropertiesModel
+
 // NewDatabaseChangePropertiesModel instantiates a new DatabaseChangePropertiesModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

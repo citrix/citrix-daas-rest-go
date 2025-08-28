@@ -151,7 +151,7 @@ func (o *EditAdminFolderRequestModel) GetMetadataOk() ([]NameValueStringPairMode
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *EditAdminFolderRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

@@ -38,6 +38,8 @@ type ZoneDetailResponseModel struct {
 	Controllers []RefResponseModel `json:"Controllers,omitempty"`
 }
 
+type _ZoneDetailResponseModel ZoneDetailResponseModel
+
 // NewZoneDetailResponseModel instantiates a new ZoneDetailResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -269,7 +271,7 @@ func (o *ZoneDetailResponseModel) GetMetadataOk() ([]NameValueStringPairModel, b
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *ZoneDetailResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -334,7 +336,7 @@ func (o *ZoneDetailResponseModel) GetControllersOk() ([]RefResponseModel, bool) 
 
 // HasControllers returns a boolean if a field has been set.
 func (o *ZoneDetailResponseModel) HasControllers() bool {
-	if o != nil && IsNil(o.Controllers) {
+	if o != nil && !IsNil(o.Controllers) {
 		return true
 	}
 

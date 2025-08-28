@@ -29,6 +29,8 @@ type CreateAppVIsolationGroupRequestModel struct {
 	IncludedAppVPackages []AppVIsolationGroupPackageRequestModel `json:"IncludedAppVPackages,omitempty"`
 }
 
+type _CreateAppVIsolationGroupRequestModel CreateAppVIsolationGroupRequestModel
+
 // NewCreateAppVIsolationGroupRequestModel instantiates a new CreateAppVIsolationGroupRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -160,7 +162,7 @@ func (o *CreateAppVIsolationGroupRequestModel) GetIncludedAppVPackagesOk() ([]Ap
 
 // HasIncludedAppVPackages returns a boolean if a field has been set.
 func (o *CreateAppVIsolationGroupRequestModel) HasIncludedAppVPackages() bool {
-	if o != nil && IsNil(o.IncludedAppVPackages) {
+	if o != nil && !IsNil(o.IncludedAppVPackages) {
 		return true
 	}
 

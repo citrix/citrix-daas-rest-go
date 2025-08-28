@@ -27,6 +27,8 @@ type CollectionModelOfAppVPackageResponseModel struct {
 	TotalItems NullableInt32 `json:"TotalItems,omitempty"`
 }
 
+type _CollectionModelOfAppVPackageResponseModel CollectionModelOfAppVPackageResponseModel
+
 // NewCollectionModelOfAppVPackageResponseModel instantiates a new CollectionModelOfAppVPackageResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

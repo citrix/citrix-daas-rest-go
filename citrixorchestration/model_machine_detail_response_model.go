@@ -187,6 +187,8 @@ type MachineDetailResponseModel struct {
 	FailedActionCompletionTime NullableString `json:"FailedActionCompletionTime,omitempty"`
 }
 
+type _MachineDetailResponseModel MachineDetailResponseModel
+
 // NewMachineDetailResponseModel instantiates a new MachineDetailResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -449,7 +451,7 @@ func (o *MachineDetailResponseModel) GetApplicationsInUseOk() ([]RefResponseMode
 
 // HasApplicationsInUse returns a boolean if a field has been set.
 func (o *MachineDetailResponseModel) HasApplicationsInUse() bool {
-	if o != nil && IsNil(o.ApplicationsInUse) {
+	if o != nil && !IsNil(o.ApplicationsInUse) {
 		return true
 	}
 
@@ -482,7 +484,7 @@ func (o *MachineDetailResponseModel) GetAssignedUsersOk() ([]IdentityUserRespons
 
 // HasAssignedUsers returns a boolean if a field has been set.
 func (o *MachineDetailResponseModel) HasAssignedUsers() bool {
-	if o != nil && IsNil(o.AssignedUsers) {
+	if o != nil && !IsNil(o.AssignedUsers) {
 		return true
 	}
 
@@ -515,7 +517,7 @@ func (o *MachineDetailResponseModel) GetAssociatedUsersOk() ([]IdentityUserRespo
 
 // HasAssociatedUsers returns a boolean if a field has been set.
 func (o *MachineDetailResponseModel) HasAssociatedUsers() bool {
-	if o != nil && IsNil(o.AssociatedUsers) {
+	if o != nil && !IsNil(o.AssociatedUsers) {
 		return true
 	}
 
@@ -580,7 +582,7 @@ func (o *MachineDetailResponseModel) GetContainerScopesOk() ([]ContainerScopeRes
 
 // HasContainerScopes returns a boolean if a field has been set.
 func (o *MachineDetailResponseModel) HasContainerScopes() bool {
-	if o != nil && IsNil(o.ContainerScopes) {
+	if o != nil && !IsNil(o.ContainerScopes) {
 		return true
 	}
 
@@ -763,7 +765,7 @@ func (o *MachineDetailResponseModel) GetDesktopConditionsOk() ([]DesktopConditio
 
 // HasDesktopConditions returns a boolean if a field has been set.
 func (o *MachineDetailResponseModel) HasDesktopConditions() bool {
-	if o != nil && IsNil(o.DesktopConditions) {
+	if o != nil && !IsNil(o.DesktopConditions) {
 		return true
 	}
 
@@ -1557,7 +1559,7 @@ func (o *MachineDetailResponseModel) GetLoadIndexesOk() ([]int32, bool) {
 
 // HasLoadIndexes returns a boolean if a field has been set.
 func (o *MachineDetailResponseModel) HasLoadIndexes() bool {
-	if o != nil && IsNil(o.LoadIndexes) {
+	if o != nil && !IsNil(o.LoadIndexes) {
 		return true
 	}
 
@@ -1590,7 +1592,7 @@ func (o *MachineDetailResponseModel) GetLoadIndexNamesOk() ([]string, bool) {
 
 // HasLoadIndexNames returns a boolean if a field has been set.
 func (o *MachineDetailResponseModel) HasLoadIndexNames() bool {
-	if o != nil && IsNil(o.LoadIndexNames) {
+	if o != nil && !IsNil(o.LoadIndexNames) {
 		return true
 	}
 
@@ -1880,7 +1882,7 @@ func (o *MachineDetailResponseModel) GetPublishedApplicationsOk() ([]string, boo
 
 // HasPublishedApplications returns a boolean if a field has been set.
 func (o *MachineDetailResponseModel) HasPublishedApplications() bool {
-	if o != nil && IsNil(o.PublishedApplications) {
+	if o != nil && !IsNil(o.PublishedApplications) {
 		return true
 	}
 
@@ -2439,7 +2441,7 @@ func (o *MachineDetailResponseModel) GetSessionSmartAccessTagsOk() ([]string, bo
 
 // HasSessionSmartAccessTags returns a boolean if a field has been set.
 func (o *MachineDetailResponseModel) HasSessionSmartAccessTags() bool {
-	if o != nil && IsNil(o.SessionSmartAccessTags) {
+	if o != nil && !IsNil(o.SessionSmartAccessTags) {
 		return true
 	}
 
@@ -3105,7 +3107,7 @@ func (o *MachineDetailResponseModel) GetSupportedPowerActionsOk() ([]SupportedPo
 
 // HasSupportedPowerActions returns a boolean if a field has been set.
 func (o *MachineDetailResponseModel) HasSupportedPowerActions() bool {
-	if o != nil && IsNil(o.SupportedPowerActions) {
+	if o != nil && !IsNil(o.SupportedPowerActions) {
 		return true
 	}
 
@@ -3202,7 +3204,7 @@ func (o *MachineDetailResponseModel) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *MachineDetailResponseModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -3374,7 +3376,7 @@ func (o *MachineDetailResponseModel) GetMetadataOk() ([]NameValueStringPairModel
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *MachineDetailResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -3726,7 +3728,7 @@ func (o *MachineDetailResponseModel) GetStoreFrontServersForHostedReceiverOk() (
 
 // HasStoreFrontServersForHostedReceiver returns a boolean if a field has been set.
 func (o *MachineDetailResponseModel) HasStoreFrontServersForHostedReceiver() bool {
-	if o != nil && IsNil(o.StoreFrontServersForHostedReceiver) {
+	if o != nil && !IsNil(o.StoreFrontServersForHostedReceiver) {
 		return true
 	}
 

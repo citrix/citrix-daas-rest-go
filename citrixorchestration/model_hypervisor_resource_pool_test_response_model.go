@@ -28,6 +28,8 @@ type HypervisorResourcePoolTestResponseModel struct {
 	NumFailures int32 `json:"NumFailures"`
 }
 
+type _HypervisorResourcePoolTestResponseModel HypervisorResourcePoolTestResponseModel
+
 // NewHypervisorResourcePoolTestResponseModel instantiates a new HypervisorResourcePoolTestResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

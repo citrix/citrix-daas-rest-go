@@ -319,7 +319,7 @@ func (o *TestComponentResultModel) GetResultDetailsOk() ([]TestComponentResultDe
 
 // HasResultDetails returns a boolean if a field has been set.
 func (o *TestComponentResultModel) HasResultDetails() bool {
-	if o != nil && IsNil(o.ResultDetails) {
+	if o != nil && !IsNil(o.ResultDetails) {
 		return true
 	}
 

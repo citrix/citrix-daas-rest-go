@@ -241,7 +241,7 @@ func (o *EditAdminRoleRequestModel) GetPermissionsOk() ([]string, bool) {
 
 // HasPermissions returns a boolean if a field has been set.
 func (o *EditAdminRoleRequestModel) HasPermissions() bool {
-	if o != nil && IsNil(o.Permissions) {
+	if o != nil && !IsNil(o.Permissions) {
 		return true
 	}
 

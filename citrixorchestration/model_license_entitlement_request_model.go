@@ -25,6 +25,8 @@ type LicenseEntitlementRequestModel struct {
 	Id string `json:"Id"`
 }
 
+type _LicenseEntitlementRequestModel LicenseEntitlementRequestModel
+
 // NewLicenseEntitlementRequestModel instantiates a new LicenseEntitlementRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

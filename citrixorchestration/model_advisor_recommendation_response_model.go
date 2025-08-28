@@ -369,7 +369,7 @@ func (o *AdvisorRecommendationResponseModel) GetMetadataOk() ([]NameValueStringP
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *AdvisorRecommendationResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -445,7 +445,7 @@ func (o *AdvisorRecommendationResponseModel) GetAffectedResourcesOk() (map[strin
 
 // HasAffectedResources returns a boolean if a field has been set.
 func (o *AdvisorRecommendationResponseModel) HasAffectedResources() bool {
-	if o != nil && IsNil(o.AffectedResources) {
+	if o != nil && !IsNil(o.AffectedResources) {
 		return true
 	}
 

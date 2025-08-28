@@ -790,7 +790,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) GetOperationEventsOk() ([
 
 // HasOperationEvents returns a boolean if a field has been set.
 func (o *ProvisionedVirtualMachineSearchResponseModel) HasOperationEvents() bool {
-	if o != nil && IsNil(o.OperationEvents) {
+	if o != nil && !IsNil(o.OperationEvents) {
 		return true
 	}
 
@@ -909,7 +909,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) GetNetworkMapsOk() ([]Pro
 
 // HasNetworkMaps returns a boolean if a field has been set.
 func (o *ProvisionedVirtualMachineSearchResponseModel) HasNetworkMaps() bool {
-	if o != nil && IsNil(o.NetworkMaps) {
+	if o != nil && !IsNil(o.NetworkMaps) {
 		return true
 	}
 
@@ -1135,7 +1135,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) GetSupportedPowerActionsO
 
 // HasSupportedPowerActions returns a boolean if a field has been set.
 func (o *ProvisionedVirtualMachineSearchResponseModel) HasSupportedPowerActions() bool {
-	if o != nil && IsNil(o.SupportedPowerActions) {
+	if o != nil && !IsNil(o.SupportedPowerActions) {
 		return true
 	}
 

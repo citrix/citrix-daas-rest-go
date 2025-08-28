@@ -370,7 +370,7 @@ func (o *ApplicationResponseModel) GetContainerScopesOk() ([]ContainerScopeRespo
 
 // HasContainerScopes returns a boolean if a field has been set.
 func (o *ApplicationResponseModel) HasContainerScopes() bool {
-	if o != nil && IsNil(o.ContainerScopes) {
+	if o != nil && !IsNil(o.ContainerScopes) {
 		return true
 	}
 
@@ -778,7 +778,7 @@ func (o *ApplicationResponseModel) GetMetadataOk() ([]NameValueStringPairModel, 
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *ApplicationResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -875,7 +875,7 @@ func (o *ApplicationResponseModel) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *ApplicationResponseModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -908,7 +908,7 @@ func (o *ApplicationResponseModel) GetTenantsOk() ([]RefResponseModel, bool) {
 
 // HasTenants returns a boolean if a field has been set.
 func (o *ApplicationResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -1037,7 +1037,7 @@ func (o *ApplicationResponseModel) GetAssociatedDeliveryGroupUuidsOk() ([]string
 
 // HasAssociatedDeliveryGroupUuids returns a boolean if a field has been set.
 func (o *ApplicationResponseModel) HasAssociatedDeliveryGroupUuids() bool {
-	if o != nil && IsNil(o.AssociatedDeliveryGroupUuids) {
+	if o != nil && !IsNil(o.AssociatedDeliveryGroupUuids) {
 		return true
 	}
 
@@ -1070,7 +1070,7 @@ func (o *ApplicationResponseModel) GetAssociatedApplicationGroupUuidsOk() ([]str
 
 // HasAssociatedApplicationGroupUuids returns a boolean if a field has been set.
 func (o *ApplicationResponseModel) HasAssociatedApplicationGroupUuids() bool {
-	if o != nil && IsNil(o.AssociatedApplicationGroupUuids) {
+	if o != nil && !IsNil(o.AssociatedApplicationGroupUuids) {
 		return true
 	}
 

@@ -60,7 +60,7 @@ func (o *Attribute) GetTypeIdOk() (map[string]interface{}, bool) {
 
 // HasTypeId returns a boolean if a field has been set.
 func (o *Attribute) HasTypeId() bool {
-	if o != nil && IsNil(o.TypeId) {
+	if o != nil && !IsNil(o.TypeId) {
 		return true
 	}
 

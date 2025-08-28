@@ -31,6 +31,8 @@ type AppVServerResponseModel struct {
 	IsStudioConfigured *bool `json:"IsStudioConfigured,omitempty"`
 }
 
+type _AppVServerResponseModel AppVServerResponseModel
+
 // NewAppVServerResponseModel instantiates a new AppVServerResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

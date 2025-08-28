@@ -228,6 +228,8 @@ type DeliveryGroupDetailResponseModel struct {
 	AutoscaleGroupPlugins []AutoscaleGroupPluginModel `json:"AutoscaleGroupPlugins,omitempty"`
 }
 
+type _DeliveryGroupDetailResponseModel DeliveryGroupDetailResponseModel
+
 // NewDeliveryGroupDetailResponseModel instantiates a new DeliveryGroupDetailResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -761,7 +763,7 @@ func (o *DeliveryGroupDetailResponseModel) GetMetadataOk() ([]NameValueStringPai
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *DeliveryGroupDetailResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -1083,7 +1085,7 @@ func (o *DeliveryGroupDetailResponseModel) GetTenantsOk() ([]RefResponseModel, b
 
 // HasTenants returns a boolean if a field has been set.
 func (o *DeliveryGroupDetailResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -1116,7 +1118,7 @@ func (o *DeliveryGroupDetailResponseModel) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *DeliveryGroupDetailResponseModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -3013,7 +3015,7 @@ func (o *DeliveryGroupDetailResponseModel) GetPowerTimeSchemesOk() ([]PowerTimeS
 
 // HasPowerTimeSchemes returns a boolean if a field has been set.
 func (o *DeliveryGroupDetailResponseModel) HasPowerTimeSchemes() bool {
-	if o != nil && IsNil(o.PowerTimeSchemes) {
+	if o != nil && !IsNil(o.PowerTimeSchemes) {
 		return true
 	}
 
@@ -3047,7 +3049,7 @@ func (o *DeliveryGroupDetailResponseModel) GetProtocolPriorityOk() ([]ProtocolTy
 
 // HasProtocolPriority returns a boolean if a field has been set.
 func (o *DeliveryGroupDetailResponseModel) HasProtocolPriority() bool {
-	if o != nil && IsNil(o.ProtocolPriority) {
+	if o != nil && !IsNil(o.ProtocolPriority) {
 		return true
 	}
 
@@ -3267,7 +3269,7 @@ func (o *DeliveryGroupDetailResponseModel) GetAdvancedAccessPolicyOk() ([]Advanc
 
 // HasAdvancedAccessPolicy returns a boolean if a field has been set.
 func (o *DeliveryGroupDetailResponseModel) HasAdvancedAccessPolicy() bool {
-	if o != nil && IsNil(o.AdvancedAccessPolicy) {
+	if o != nil && !IsNil(o.AdvancedAccessPolicy) {
 		return true
 	}
 
@@ -3300,7 +3302,7 @@ func (o *DeliveryGroupDetailResponseModel) GetStoreFrontServersForHostedReceiver
 
 // HasStoreFrontServersForHostedReceiver returns a boolean if a field has been set.
 func (o *DeliveryGroupDetailResponseModel) HasStoreFrontServersForHostedReceiver() bool {
-	if o != nil && IsNil(o.StoreFrontServersForHostedReceiver) {
+	if o != nil && !IsNil(o.StoreFrontServersForHostedReceiver) {
 		return true
 	}
 
@@ -3553,7 +3555,7 @@ func (o *DeliveryGroupDetailResponseModel) GetVdaVersionsOk() ([]NameValueIntPai
 
 // HasVdaVersions returns a boolean if a field has been set.
 func (o *DeliveryGroupDetailResponseModel) HasVdaVersions() bool {
-	if o != nil && IsNil(o.VdaVersions) {
+	if o != nil && !IsNil(o.VdaVersions) {
 		return true
 	}
 
@@ -3586,7 +3588,7 @@ func (o *DeliveryGroupDetailResponseModel) GetZonePreferencesOk() ([]ZonePrefere
 
 // HasZonePreferences returns a boolean if a field has been set.
 func (o *DeliveryGroupDetailResponseModel) HasZonePreferences() bool {
-	if o != nil && IsNil(o.ZonePreferences) {
+	if o != nil && !IsNil(o.ZonePreferences) {
 		return true
 	}
 
@@ -4124,7 +4126,7 @@ func (o *DeliveryGroupDetailResponseModel) GetAutoscaleGroupPluginsOk() ([]Autos
 
 // HasAutoscaleGroupPlugins returns a boolean if a field has been set.
 func (o *DeliveryGroupDetailResponseModel) HasAutoscaleGroupPlugins() bool {
-	if o != nil && IsNil(o.AutoscaleGroupPlugins) {
+	if o != nil && !IsNil(o.AutoscaleGroupPlugins) {
 		return true
 	}
 

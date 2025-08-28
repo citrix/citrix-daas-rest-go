@@ -126,7 +126,7 @@ func (o *ImagesErrorWarningModel) GetErrorWarningOk() ([]ImageDefinitionErrorWar
 
 // HasErrorWarning returns a boolean if a field has been set.
 func (o *ImagesErrorWarningModel) HasErrorWarning() bool {
-	if o != nil && IsNil(o.ErrorWarning) {
+	if o != nil && !IsNil(o.ErrorWarning) {
 		return true
 	}
 

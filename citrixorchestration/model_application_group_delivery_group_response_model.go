@@ -100,6 +100,8 @@ type ApplicationGroupDeliveryGroupResponseModel struct {
 	NumMachines int32 `json:"NumMachines"`
 }
 
+type _ApplicationGroupDeliveryGroupResponseModel ApplicationGroupDeliveryGroupResponseModel
+
 // NewApplicationGroupDeliveryGroupResponseModel instantiates a new ApplicationGroupDeliveryGroupResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -624,7 +626,7 @@ func (o *ApplicationGroupDeliveryGroupResponseModel) GetMetadataOk() ([]NameValu
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *ApplicationGroupDeliveryGroupResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -946,7 +948,7 @@ func (o *ApplicationGroupDeliveryGroupResponseModel) GetTenantsOk() ([]RefRespon
 
 // HasTenants returns a boolean if a field has been set.
 func (o *ApplicationGroupDeliveryGroupResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -979,7 +981,7 @@ func (o *ApplicationGroupDeliveryGroupResponseModel) GetTagsOk() ([]string, bool
 
 // HasTags returns a boolean if a field has been set.
 func (o *ApplicationGroupDeliveryGroupResponseModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 

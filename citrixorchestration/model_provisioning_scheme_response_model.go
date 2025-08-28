@@ -261,7 +261,7 @@ func (o *ProvisioningSchemeResponseModel) GetControllerAddressesOk() ([]string, 
 
 // HasControllerAddresses returns a boolean if a field has been set.
 func (o *ProvisioningSchemeResponseModel) HasControllerAddresses() bool {
-	if o != nil && IsNil(o.ControllerAddresses) {
+	if o != nil && !IsNil(o.ControllerAddresses) {
 		return true
 	}
 
@@ -390,7 +390,7 @@ func (o *ProvisioningSchemeResponseModel) GetHistoricalDiskImagesOk() ([]VMImage
 
 // HasHistoricalDiskImages returns a boolean if a field has been set.
 func (o *ProvisioningSchemeResponseModel) HasHistoricalDiskImages() bool {
-	if o != nil && IsNil(o.HistoricalDiskImages) {
+	if o != nil && !IsNil(o.HistoricalDiskImages) {
 		return true
 	}
 
@@ -423,7 +423,7 @@ func (o *ProvisioningSchemeResponseModel) GetCustomPropertiesOk() ([]NameValueSt
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *ProvisioningSchemeResponseModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
+	if o != nil && !IsNil(o.CustomProperties) {
 		return true
 	}
 
@@ -531,7 +531,7 @@ func (o *ProvisioningSchemeResponseModel) GetWarningsOk() ([]ProvisioningSchemeW
 
 // HasWarnings returns a boolean if a field has been set.
 func (o *ProvisioningSchemeResponseModel) HasWarnings() bool {
-	if o != nil && IsNil(o.Warnings) {
+	if o != nil && !IsNil(o.Warnings) {
 		return true
 	}
 
@@ -768,7 +768,7 @@ func (o *ProvisioningSchemeResponseModel) GetServiceAccountUidOk() ([]string, bo
 
 // HasServiceAccountUid returns a boolean if a field has been set.
 func (o *ProvisioningSchemeResponseModel) HasServiceAccountUid() bool {
-	if o != nil && IsNil(o.ServiceAccountUid) {
+	if o != nil && !IsNil(o.ServiceAccountUid) {
 		return true
 	}
 
@@ -1218,7 +1218,7 @@ func (o *ProvisioningSchemeResponseModel) GetMetadataOk() ([]NameValueStringPair
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *ProvisioningSchemeResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -1251,7 +1251,7 @@ func (o *ProvisioningSchemeResponseModel) GetNetworkMapsOk() ([]NetworkMapRespon
 
 // HasNetworkMaps returns a boolean if a field has been set.
 func (o *ProvisioningSchemeResponseModel) HasNetworkMaps() bool {
-	if o != nil && IsNil(o.NetworkMaps) {
+	if o != nil && !IsNil(o.NetworkMaps) {
 		return true
 	}
 
@@ -1359,7 +1359,7 @@ func (o *ProvisioningSchemeResponseModel) GetSecurityGroupsOk() ([]string, bool)
 
 // HasSecurityGroups returns a boolean if a field has been set.
 func (o *ProvisioningSchemeResponseModel) HasSecurityGroups() bool {
-	if o != nil && IsNil(o.SecurityGroups) {
+	if o != nil && !IsNil(o.SecurityGroups) {
 		return true
 	}
 
@@ -2024,7 +2024,7 @@ func (o *ProvisioningSchemeResponseModel) GetHistoricalImageVersionsOk() ([]Prov
 
 // HasHistoricalImageVersions returns a boolean if a field has been set.
 func (o *ProvisioningSchemeResponseModel) HasHistoricalImageVersions() bool {
-	if o != nil && IsNil(o.HistoricalImageVersions) {
+	if o != nil && !IsNil(o.HistoricalImageVersions) {
 		return true
 	}
 

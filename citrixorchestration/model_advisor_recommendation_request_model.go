@@ -65,7 +65,7 @@ func (o *AdvisorRecommendationRequestModel) GetRecommendationIdListOk() ([]strin
 
 // HasRecommendationIdList returns a boolean if a field has been set.
 func (o *AdvisorRecommendationRequestModel) HasRecommendationIdList() bool {
-	if o != nil && IsNil(o.RecommendationIdList) {
+	if o != nil && !IsNil(o.RecommendationIdList) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *AdvisorRecommendationRequestModel) GetAspectNameListOk() ([]string, boo
 
 // HasAspectNameList returns a boolean if a field has been set.
 func (o *AdvisorRecommendationRequestModel) HasAspectNameList() bool {
-	if o != nil && IsNil(o.AspectNameList) {
+	if o != nil && !IsNil(o.AspectNameList) {
 		return true
 	}
 

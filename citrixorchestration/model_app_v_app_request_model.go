@@ -41,6 +41,8 @@ type AppVAppRequestModel struct {
 	TargetInPackage *bool `json:"TargetInPackage,omitempty"`
 }
 
+type _AppVAppRequestModel AppVAppRequestModel
+
 // NewAppVAppRequestModel instantiates a new AppVAppRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

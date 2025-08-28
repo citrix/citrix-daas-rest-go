@@ -27,6 +27,8 @@ type FtaResponseModelCollection struct {
 	TotalItems NullableInt32 `json:"TotalItems,omitempty"`
 }
 
+type _FtaResponseModelCollection FtaResponseModelCollection
+
 // NewFtaResponseModelCollection instantiates a new FtaResponseModelCollection object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

@@ -30,6 +30,8 @@ type ImageVersionRefResponseModel struct {
 	ImageVersionSpecs []ImageVersionSpecRefResponseModel `json:"ImageVersionSpecs,omitempty"`
 }
 
+type _ImageVersionRefResponseModel ImageVersionRefResponseModel
+
 // NewImageVersionRefResponseModel instantiates a new ImageVersionRefResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -186,7 +188,7 @@ func (o *ImageVersionRefResponseModel) GetImageVersionSpecsOk() ([]ImageVersionS
 
 // HasImageVersionSpecs returns a boolean if a field has been set.
 func (o *ImageVersionRefResponseModel) HasImageVersionSpecs() bool {
-	if o != nil && IsNil(o.ImageVersionSpecs) {
+	if o != nil && !IsNil(o.ImageVersionSpecs) {
 		return true
 	}
 

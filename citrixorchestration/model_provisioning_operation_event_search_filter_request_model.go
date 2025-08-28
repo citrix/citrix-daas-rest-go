@@ -25,6 +25,8 @@ type ProvisioningOperationEventSearchFilterRequestModel struct {
 	Operator SearchOperator `json:"Operator"`
 }
 
+type _ProvisioningOperationEventSearchFilterRequestModel ProvisioningOperationEventSearchFilterRequestModel
+
 // NewProvisioningOperationEventSearchFilterRequestModel instantiates a new ProvisioningOperationEventSearchFilterRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

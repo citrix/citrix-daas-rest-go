@@ -63,7 +63,7 @@ func (o *UpdateImageVersionResourcePoolsRequestModel) GetResourcePoolsOk() ([]st
 
 // HasResourcePools returns a boolean if a field has been set.
 func (o *UpdateImageVersionResourcePoolsRequestModel) HasResourcePools() bool {
-	if o != nil && IsNil(o.ResourcePools) {
+	if o != nil && !IsNil(o.ResourcePools) {
 		return true
 	}
 
@@ -96,7 +96,7 @@ func (o *UpdateImageVersionResourcePoolsRequestModel) GetImageVersionResourcePoo
 
 // HasImageVersionResourcePools returns a boolean if a field has been set.
 func (o *UpdateImageVersionResourcePoolsRequestModel) HasImageVersionResourcePools() bool {
-	if o != nil && IsNil(o.ImageVersionResourcePools) {
+	if o != nil && !IsNil(o.ImageVersionResourcePools) {
 		return true
 	}
 

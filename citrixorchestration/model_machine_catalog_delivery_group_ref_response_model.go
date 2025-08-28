@@ -33,6 +33,8 @@ type MachineCatalogDeliveryGroupRefResponseModel struct {
 	Total int32 `json:"Total"`
 }
 
+type _MachineCatalogDeliveryGroupRefResponseModel MachineCatalogDeliveryGroupRefResponseModel
+
 // NewMachineCatalogDeliveryGroupRefResponseModel instantiates a new MachineCatalogDeliveryGroupRefResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

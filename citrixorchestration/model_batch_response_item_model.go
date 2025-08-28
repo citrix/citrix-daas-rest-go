@@ -29,6 +29,8 @@ type BatchResponseItemModel struct {
 	Body NullableString `json:"Body,omitempty"`
 }
 
+type _BatchResponseItemModel BatchResponseItemModel
+
 // NewBatchResponseItemModel instantiates a new BatchResponseItemModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -117,7 +119,7 @@ func (o *BatchResponseItemModel) GetHeadersOk() ([]NameValueStringPairModel, boo
 
 // HasHeaders returns a boolean if a field has been set.
 func (o *BatchResponseItemModel) HasHeaders() bool {
-	if o != nil && IsNil(o.Headers) {
+	if o != nil && !IsNil(o.Headers) {
 		return true
 	}
 

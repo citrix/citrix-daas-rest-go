@@ -454,7 +454,7 @@ func (o *TestReportResultModel) GetTestComponentsOk() ([]TestComponentResultMode
 
 // HasTestComponents returns a boolean if a field has been set.
 func (o *TestReportResultModel) HasTestComponents() bool {
-	if o != nil && IsNil(o.TestComponents) {
+	if o != nil && !IsNil(o.TestComponents) {
 		return true
 	}
 

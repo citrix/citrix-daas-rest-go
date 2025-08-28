@@ -155,7 +155,7 @@ func (o *LosingPolicy) GetReasonsOk() (*map[string][]ReasonDetail, bool) {
 
 // HasReasons returns a boolean if a field has been set.
 func (o *LosingPolicy) HasReasons() bool {
-	if o != nil && IsNil(o.Reasons) {
+	if o != nil && !IsNil(o.Reasons) {
 		return true
 	}
 
@@ -220,7 +220,7 @@ func (o *LosingPolicy) GetWinningSettingsOk() ([]WonOverBy, bool) {
 
 // HasWinningSettings returns a boolean if a field has been set.
 func (o *LosingPolicy) HasWinningSettings() bool {
-	if o != nil && IsNil(o.WinningSettings) {
+	if o != nil && !IsNil(o.WinningSettings) {
 		return true
 	}
 

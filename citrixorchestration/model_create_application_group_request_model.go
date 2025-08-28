@@ -45,6 +45,8 @@ type CreateApplicationGroupRequestModel struct {
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 }
 
+type _CreateApplicationGroupRequestModel CreateApplicationGroupRequestModel
+
 // NewCreateApplicationGroupRequestModel instantiates a new CreateApplicationGroupRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -292,7 +294,7 @@ func (o *CreateApplicationGroupRequestModel) GetScopesOk() ([]string, bool) {
 
 // HasScopes returns a boolean if a field has been set.
 func (o *CreateApplicationGroupRequestModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -325,7 +327,7 @@ func (o *CreateApplicationGroupRequestModel) GetTenantsOk() ([]string, bool) {
 
 // HasTenants returns a boolean if a field has been set.
 func (o *CreateApplicationGroupRequestModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -444,7 +446,7 @@ func (o *CreateApplicationGroupRequestModel) GetIncludedUsersOk() ([]string, boo
 
 // HasIncludedUsers returns a boolean if a field has been set.
 func (o *CreateApplicationGroupRequestModel) HasIncludedUsers() bool {
-	if o != nil && IsNil(o.IncludedUsers) {
+	if o != nil && !IsNil(o.IncludedUsers) {
 		return true
 	}
 
@@ -477,7 +479,7 @@ func (o *CreateApplicationGroupRequestModel) GetDeliveryGroupsOk() ([]PriorityRe
 
 // HasDeliveryGroups returns a boolean if a field has been set.
 func (o *CreateApplicationGroupRequestModel) HasDeliveryGroups() bool {
-	if o != nil && IsNil(o.DeliveryGroups) {
+	if o != nil && !IsNil(o.DeliveryGroups) {
 		return true
 	}
 
@@ -510,7 +512,7 @@ func (o *CreateApplicationGroupRequestModel) GetMetadataOk() ([]NameValueStringP
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *CreateApplicationGroupRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

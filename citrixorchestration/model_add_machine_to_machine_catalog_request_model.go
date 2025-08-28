@@ -208,7 +208,7 @@ func (o *AddMachineToMachineCatalogRequestModel) GetAssignedUsersOk() ([]string,
 
 // HasAssignedUsers returns a boolean if a field has been set.
 func (o *AddMachineToMachineCatalogRequestModel) HasAssignedUsers() bool {
-	if o != nil && IsNil(o.AssignedUsers) {
+	if o != nil && !IsNil(o.AssignedUsers) {
 		return true
 	}
 
@@ -370,7 +370,7 @@ func (o *AddMachineToMachineCatalogRequestModel) GetMetadataOk() ([]NameValueStr
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *AddMachineToMachineCatalogRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

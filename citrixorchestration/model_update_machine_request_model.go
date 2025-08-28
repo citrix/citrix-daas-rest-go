@@ -163,7 +163,7 @@ func (o *UpdateMachineRequestModel) GetAssignedUsersOk() ([]string, bool) {
 
 // HasAssignedUsers returns a boolean if a field has been set.
 func (o *UpdateMachineRequestModel) HasAssignedUsers() bool {
-	if o != nil && IsNil(o.AssignedUsers) {
+	if o != nil && !IsNil(o.AssignedUsers) {
 		return true
 	}
 
@@ -411,7 +411,7 @@ func (o *UpdateMachineRequestModel) GetMetadataOk() ([]NameValueStringPairModel,
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *UpdateMachineRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

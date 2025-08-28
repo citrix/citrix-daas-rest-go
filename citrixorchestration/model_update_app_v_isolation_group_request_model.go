@@ -151,7 +151,7 @@ func (o *UpdateAppVIsolationGroupRequestModel) GetIncludedAppVPackagesOk() ([]Ap
 
 // HasIncludedAppVPackages returns a boolean if a field has been set.
 func (o *UpdateAppVIsolationGroupRequestModel) HasIncludedAppVPackages() bool {
-	if o != nil && IsNil(o.IncludedAppVPackages) {
+	if o != nil && !IsNil(o.IncludedAppVPackages) {
 		return true
 	}
 

@@ -374,7 +374,7 @@ func (o *MachineApplicationResponseModel) GetContainerScopesOk() ([]ContainerSco
 
 // HasContainerScopes returns a boolean if a field has been set.
 func (o *MachineApplicationResponseModel) HasContainerScopes() bool {
-	if o != nil && IsNil(o.ContainerScopes) {
+	if o != nil && !IsNil(o.ContainerScopes) {
 		return true
 	}
 
@@ -782,7 +782,7 @@ func (o *MachineApplicationResponseModel) GetMetadataOk() ([]NameValueStringPair
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *MachineApplicationResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -879,7 +879,7 @@ func (o *MachineApplicationResponseModel) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *MachineApplicationResponseModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -912,7 +912,7 @@ func (o *MachineApplicationResponseModel) GetTenantsOk() ([]RefResponseModel, bo
 
 // HasTenants returns a boolean if a field has been set.
 func (o *MachineApplicationResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -1041,7 +1041,7 @@ func (o *MachineApplicationResponseModel) GetAssociatedDeliveryGroupUuidsOk() ([
 
 // HasAssociatedDeliveryGroupUuids returns a boolean if a field has been set.
 func (o *MachineApplicationResponseModel) HasAssociatedDeliveryGroupUuids() bool {
-	if o != nil && IsNil(o.AssociatedDeliveryGroupUuids) {
+	if o != nil && !IsNil(o.AssociatedDeliveryGroupUuids) {
 		return true
 	}
 
@@ -1074,7 +1074,7 @@ func (o *MachineApplicationResponseModel) GetAssociatedApplicationGroupUuidsOk()
 
 // HasAssociatedApplicationGroupUuids returns a boolean if a field has been set.
 func (o *MachineApplicationResponseModel) HasAssociatedApplicationGroupUuids() bool {
-	if o != nil && IsNil(o.AssociatedApplicationGroupUuids) {
+	if o != nil && !IsNil(o.AssociatedApplicationGroupUuids) {
 		return true
 	}
 

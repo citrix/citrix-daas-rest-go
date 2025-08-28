@@ -244,7 +244,7 @@ func (o *EditDeliveryGroupRequestModel) GetAssignMachinesToUsersOk() ([]AssignMa
 
 // HasAssignMachinesToUsers returns a boolean if a field has been set.
 func (o *EditDeliveryGroupRequestModel) HasAssignMachinesToUsers() bool {
-	if o != nil && IsNil(o.AssignMachinesToUsers) {
+	if o != nil && !IsNil(o.AssignMachinesToUsers) {
 		return true
 	}
 
@@ -352,7 +352,7 @@ func (o *EditDeliveryGroupRequestModel) GetDesktopsOk() ([]DesktopRequestModel, 
 
 // HasDesktops returns a boolean if a field has been set.
 func (o *EditDeliveryGroupRequestModel) HasDesktops() bool {
-	if o != nil && IsNil(o.Desktops) {
+	if o != nil && !IsNil(o.Desktops) {
 		return true
 	}
 
@@ -675,7 +675,7 @@ func (o *EditDeliveryGroupRequestModel) GetScopesOk() ([]string, bool) {
 
 // HasScopes returns a boolean if a field has been set.
 func (o *EditDeliveryGroupRequestModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -708,7 +708,7 @@ func (o *EditDeliveryGroupRequestModel) GetTenantsOk() ([]string, bool) {
 
 // HasTenants returns a boolean if a field has been set.
 func (o *EditDeliveryGroupRequestModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -2372,7 +2372,7 @@ func (o *EditDeliveryGroupRequestModel) GetPowerTimeSchemesOk() ([]PowerTimeSche
 
 // HasPowerTimeSchemes returns a boolean if a field has been set.
 func (o *EditDeliveryGroupRequestModel) HasPowerTimeSchemes() bool {
-	if o != nil && IsNil(o.PowerTimeSchemes) {
+	if o != nil && !IsNil(o.PowerTimeSchemes) {
 		return true
 	}
 
@@ -2834,7 +2834,7 @@ func (o *EditDeliveryGroupRequestModel) GetProtocolPriorityOk() ([]ProtocolType,
 
 // HasProtocolPriority returns a boolean if a field has been set.
 func (o *EditDeliveryGroupRequestModel) HasProtocolPriority() bool {
-	if o != nil && IsNil(o.ProtocolPriority) {
+	if o != nil && !IsNil(o.ProtocolPriority) {
 		return true
 	}
 
@@ -2867,7 +2867,7 @@ func (o *EditDeliveryGroupRequestModel) GetRebootSchedulesOk() ([]RebootSchedule
 
 // HasRebootSchedules returns a boolean if a field has been set.
 func (o *EditDeliveryGroupRequestModel) HasRebootSchedules() bool {
-	if o != nil && IsNil(o.RebootSchedules) {
+	if o != nil && !IsNil(o.RebootSchedules) {
 		return true
 	}
 
@@ -3061,7 +3061,7 @@ func (o *EditDeliveryGroupRequestModel) GetAdvancedAccessPolicyOk() ([]AdvancedA
 
 // HasAdvancedAccessPolicy returns a boolean if a field has been set.
 func (o *EditDeliveryGroupRequestModel) HasAdvancedAccessPolicy() bool {
-	if o != nil && IsNil(o.AdvancedAccessPolicy) {
+	if o != nil && !IsNil(o.AdvancedAccessPolicy) {
 		return true
 	}
 
@@ -3094,7 +3094,7 @@ func (o *EditDeliveryGroupRequestModel) GetStoreFrontServersForHostedReceiverOk(
 
 // HasStoreFrontServersForHostedReceiver returns a boolean if a field has been set.
 func (o *EditDeliveryGroupRequestModel) HasStoreFrontServersForHostedReceiver() bool {
-	if o != nil && IsNil(o.StoreFrontServersForHostedReceiver) {
+	if o != nil && !IsNil(o.StoreFrontServersForHostedReceiver) {
 		return true
 	}
 
@@ -3213,7 +3213,7 @@ func (o *EditDeliveryGroupRequestModel) GetZonePreferencesOk() ([]ZonePreference
 
 // HasZonePreferences returns a boolean if a field has been set.
 func (o *EditDeliveryGroupRequestModel) HasZonePreferences() bool {
-	if o != nil && IsNil(o.ZonePreferences) {
+	if o != nil && !IsNil(o.ZonePreferences) {
 		return true
 	}
 
@@ -3246,7 +3246,7 @@ func (o *EditDeliveryGroupRequestModel) GetMetadataOk() ([]NameValueStringPairMo
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *EditDeliveryGroupRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

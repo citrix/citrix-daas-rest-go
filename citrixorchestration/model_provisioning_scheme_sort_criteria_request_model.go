@@ -23,6 +23,8 @@ type ProvisioningSchemeSortCriteriaRequestModel struct {
 	SortDirection ListSortDirection                `json:"SortDirection"`
 }
 
+type _ProvisioningSchemeSortCriteriaRequestModel ProvisioningSchemeSortCriteriaRequestModel
+
 // NewProvisioningSchemeSortCriteriaRequestModel instantiates a new ProvisioningSchemeSortCriteriaRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

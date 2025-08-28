@@ -106,6 +106,8 @@ type HypervisorDetailAzureArcResponseModel struct {
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 }
 
+type _HypervisorDetailAzureArcResponseModel HypervisorDetailAzureArcResponseModel
+
 // NewHypervisorDetailAzureArcResponseModel instantiates a new HypervisorDetailAzureArcResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -508,7 +510,7 @@ func (o *HypervisorDetailAzureArcResponseModel) GetSslThumbprintsOk() ([]string,
 
 // HasSslThumbprints returns a boolean if a field has been set.
 func (o *HypervisorDetailAzureArcResponseModel) HasSslThumbprints() bool {
-	if o != nil && IsNil(o.SslThumbprints) {
+	if o != nil && !IsNil(o.SslThumbprints) {
 		return true
 	}
 
@@ -942,7 +944,7 @@ func (o *HypervisorDetailAzureArcResponseModel) GetTenantsOk() ([]RefResponseMod
 
 // HasTenants returns a boolean if a field has been set.
 func (o *HypervisorDetailAzureArcResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -1389,7 +1391,7 @@ func (o *HypervisorDetailAzureArcResponseModel) GetMetadataOk() ([]NameValueStri
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *HypervisorDetailAzureArcResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

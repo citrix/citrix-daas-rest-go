@@ -25,6 +25,8 @@ type ScopedObjectResponseModel struct {
 	ObjectType        ScopedObjectType `json:"ObjectType"`
 }
 
+type _ScopedObjectResponseModel ScopedObjectResponseModel
+
 // NewScopedObjectResponseModel instantiates a new ScopedObjectResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

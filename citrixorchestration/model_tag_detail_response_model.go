@@ -60,6 +60,8 @@ type TagDetailResponseModel struct {
 	NumUnknownRestrictedObjects int32 `json:"NumUnknownRestrictedObjects"`
 }
 
+type _TagDetailResponseModel TagDetailResponseModel
+
 // NewTagDetailResponseModel instantiates a new TagDetailResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -456,7 +458,7 @@ func (o *TagDetailResponseModel) GetScopeReferencesOk() ([]ScopeReferenceModel, 
 
 // HasScopeReferences returns a boolean if a field has been set.
 func (o *TagDetailResponseModel) HasScopeReferences() bool {
-	if o != nil && IsNil(o.ScopeReferences) {
+	if o != nil && !IsNil(o.ScopeReferences) {
 		return true
 	}
 
@@ -585,7 +587,7 @@ func (o *TagDetailResponseModel) GetRestrictedAutoscaleOk() ([]RefResponseModel,
 
 // HasRestrictedAutoscale returns a boolean if a field has been set.
 func (o *TagDetailResponseModel) HasRestrictedAutoscale() bool {
-	if o != nil && IsNil(o.RestrictedAutoscale) {
+	if o != nil && !IsNil(o.RestrictedAutoscale) {
 		return true
 	}
 

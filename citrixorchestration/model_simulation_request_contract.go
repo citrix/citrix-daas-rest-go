@@ -173,7 +173,7 @@ func (o *SimulationRequestContract) GetGroupSidsOk() ([]string, bool) {
 
 // HasGroupSids returns a boolean if a field has been set.
 func (o *SimulationRequestContract) HasGroupSids() bool {
-	if o != nil && IsNil(o.GroupSids) {
+	if o != nil && !IsNil(o.GroupSids) {
 		return true
 	}
 
@@ -453,7 +453,7 @@ func (o *SimulationRequestContract) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *SimulationRequestContract) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -561,7 +561,7 @@ func (o *SimulationRequestContract) GetAccessGatewayTagsOk() ([]string, bool) {
 
 // HasAccessGatewayTags returns a boolean if a field has been set.
 func (o *SimulationRequestContract) HasAccessGatewayTags() bool {
-	if o != nil && IsNil(o.AccessGatewayTags) {
+	if o != nil && !IsNil(o.AccessGatewayTags) {
 		return true
 	}
 

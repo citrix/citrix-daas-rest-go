@@ -264,7 +264,7 @@ func (o *AppVIsolationGroupResponseModel) GetAppVPackagesOk() ([]AppVPackageResp
 
 // HasAppVPackages returns a boolean if a field has been set.
 func (o *AppVIsolationGroupResponseModel) HasAppVPackages() bool {
-	if o != nil && IsNil(o.AppVPackages) {
+	if o != nil && !IsNil(o.AppVPackages) {
 		return true
 	}
 

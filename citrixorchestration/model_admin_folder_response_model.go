@@ -170,7 +170,7 @@ func (o *AdminFolderResponseModel) GetChildrenOk() ([]RefResponseModel, bool) {
 
 // HasChildren returns a boolean if a field has been set.
 func (o *AdminFolderResponseModel) HasChildren() bool {
-	if o != nil && IsNil(o.Children) {
+	if o != nil && !IsNil(o.Children) {
 		return true
 	}
 
@@ -449,7 +449,7 @@ func (o *AdminFolderResponseModel) GetMetadataOk() ([]NameValueStringPairModel, 
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *AdminFolderResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

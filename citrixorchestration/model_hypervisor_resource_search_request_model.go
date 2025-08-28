@@ -151,7 +151,7 @@ func (o *HypervisorResourceSearchRequestModel) GetResourceTypesOk() ([]Hyperviso
 
 // HasResourceTypes returns a boolean if a field has been set.
 func (o *HypervisorResourceSearchRequestModel) HasResourceTypes() bool {
-	if o != nil && IsNil(o.ResourceTypes) {
+	if o != nil && !IsNil(o.ResourceTypes) {
 		return true
 	}
 
@@ -313,7 +313,7 @@ func (o *HypervisorResourceSearchRequestModel) GetTagsOk() ([]NameValueStringPai
 
 // HasTags returns a boolean if a field has been set.
 func (o *HypervisorResourceSearchRequestModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -346,7 +346,7 @@ func (o *HypervisorResourceSearchRequestModel) GetAdditionalDataOk() ([]NameValu
 
 // HasAdditionalData returns a boolean if a field has been set.
 func (o *HypervisorResourceSearchRequestModel) HasAdditionalData() bool {
-	if o != nil && IsNil(o.AdditionalData) {
+	if o != nil && !IsNil(o.AdditionalData) {
 		return true
 	}
 

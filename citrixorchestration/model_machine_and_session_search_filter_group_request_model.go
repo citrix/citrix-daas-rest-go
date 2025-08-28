@@ -97,7 +97,7 @@ func (o *MachineAndSessionSearchFilterGroupRequestModel) GetSearchFiltersOk() ([
 
 // HasSearchFilters returns a boolean if a field has been set.
 func (o *MachineAndSessionSearchFilterGroupRequestModel) HasSearchFilters() bool {
-	if o != nil && IsNil(o.SearchFilters) {
+	if o != nil && !IsNil(o.SearchFilters) {
 		return true
 	}
 
@@ -162,7 +162,7 @@ func (o *MachineAndSessionSearchFilterGroupRequestModel) GetSearchFilterGroupsOk
 
 // HasSearchFilterGroups returns a boolean if a field has been set.
 func (o *MachineAndSessionSearchFilterGroupRequestModel) HasSearchFilterGroups() bool {
-	if o != nil && IsNil(o.SearchFilterGroups) {
+	if o != nil && !IsNil(o.SearchFilterGroups) {
 		return true
 	}
 

@@ -106,7 +106,7 @@ func (o *PowerShellExecutedCommandModel) GetErrorsOk() ([]PowerShellCommandError
 
 // HasErrors returns a boolean if a field has been set.
 func (o *PowerShellExecutedCommandModel) HasErrors() bool {
-	if o != nil && IsNil(o.Errors) {
+	if o != nil && !IsNil(o.Errors) {
 		return true
 	}
 

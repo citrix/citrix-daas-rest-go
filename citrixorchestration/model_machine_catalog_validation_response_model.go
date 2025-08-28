@@ -25,6 +25,8 @@ type MachineCatalogValidationResponseModel struct {
 	ValidationFailures []MachineCatalogValidationFailureModel `json:"ValidationFailures"`
 }
 
+type _MachineCatalogValidationResponseModel MachineCatalogValidationResponseModel
+
 // NewMachineCatalogValidationResponseModel instantiates a new MachineCatalogValidationResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

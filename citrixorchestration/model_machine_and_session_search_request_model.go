@@ -112,7 +112,7 @@ func (o *MachineAndSessionSearchRequestModel) GetSearchFiltersOk() ([]MachineAnd
 
 // HasSearchFilters returns a boolean if a field has been set.
 func (o *MachineAndSessionSearchRequestModel) HasSearchFilters() bool {
-	if o != nil && IsNil(o.SearchFilters) {
+	if o != nil && !IsNil(o.SearchFilters) {
 		return true
 	}
 
@@ -177,7 +177,7 @@ func (o *MachineAndSessionSearchRequestModel) GetSearchFilterGroupsOk() ([]Machi
 
 // HasSearchFilterGroups returns a boolean if a field has been set.
 func (o *MachineAndSessionSearchRequestModel) HasSearchFilterGroups() bool {
-	if o != nil && IsNil(o.SearchFilterGroups) {
+	if o != nil && !IsNil(o.SearchFilterGroups) {
 		return true
 	}
 
@@ -242,7 +242,7 @@ func (o *MachineAndSessionSearchRequestModel) GetSortCriteriaItemsOk() ([]Machin
 
 // HasSortCriteriaItems returns a boolean if a field has been set.
 func (o *MachineAndSessionSearchRequestModel) HasSortCriteriaItems() bool {
-	if o != nil && IsNil(o.SortCriteriaItems) {
+	if o != nil && !IsNil(o.SortCriteriaItems) {
 		return true
 	}
 

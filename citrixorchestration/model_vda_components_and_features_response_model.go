@@ -65,7 +65,7 @@ func (o *VDAComponentsAndFeaturesResponseModel) GetInstalledComponentsOk() ([]VD
 
 // HasInstalledComponents returns a boolean if a field has been set.
 func (o *VDAComponentsAndFeaturesResponseModel) HasInstalledComponents() bool {
-	if o != nil && IsNil(o.InstalledComponents) {
+	if o != nil && !IsNil(o.InstalledComponents) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *VDAComponentsAndFeaturesResponseModel) GetAvailableComponentsOk() ([]VD
 
 // HasAvailableComponents returns a boolean if a field has been set.
 func (o *VDAComponentsAndFeaturesResponseModel) HasAvailableComponents() bool {
-	if o != nil && IsNil(o.AvailableComponents) {
+	if o != nil && !IsNil(o.AvailableComponents) {
 		return true
 	}
 
@@ -131,7 +131,7 @@ func (o *VDAComponentsAndFeaturesResponseModel) GetAvailableFeaturesOk() ([]VDAF
 
 // HasAvailableFeatures returns a boolean if a field has been set.
 func (o *VDAComponentsAndFeaturesResponseModel) HasAvailableFeatures() bool {
-	if o != nil && IsNil(o.AvailableFeatures) {
+	if o != nil && !IsNil(o.AvailableFeatures) {
 		return true
 	}
 

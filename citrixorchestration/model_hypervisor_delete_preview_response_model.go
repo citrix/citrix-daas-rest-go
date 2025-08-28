@@ -235,7 +235,7 @@ func (o *HypervisorDeletePreviewResponseModel) GetHostsToBeDeletedOk() ([]string
 
 // HasHostsToBeDeleted returns a boolean if a field has been set.
 func (o *HypervisorDeletePreviewResponseModel) HasHostsToBeDeleted() bool {
-	if o != nil && IsNil(o.HostsToBeDeleted) {
+	if o != nil && !IsNil(o.HostsToBeDeleted) {
 		return true
 	}
 
@@ -268,7 +268,7 @@ func (o *HypervisorDeletePreviewResponseModel) GetImpactedCatalogsOk() (*map[str
 
 // HasImpactedCatalogs returns a boolean if a field has been set.
 func (o *HypervisorDeletePreviewResponseModel) HasImpactedCatalogs() bool {
-	if o != nil && IsNil(o.ImpactedCatalogs) {
+	if o != nil && !IsNil(o.ImpactedCatalogs) {
 		return true
 	}
 
@@ -301,7 +301,7 @@ func (o *HypervisorDeletePreviewResponseModel) GetImpactedImageDefinitionsOk() (
 
 // HasImpactedImageDefinitions returns a boolean if a field has been set.
 func (o *HypervisorDeletePreviewResponseModel) HasImpactedImageDefinitions() bool {
-	if o != nil && IsNil(o.ImpactedImageDefinitions) {
+	if o != nil && !IsNil(o.ImpactedImageDefinitions) {
 		return true
 	}
 

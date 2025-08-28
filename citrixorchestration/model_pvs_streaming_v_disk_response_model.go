@@ -41,6 +41,8 @@ type PvsStreamingVDiskResponseModel struct {
 	WriteCacheType NullableInt32 `json:"WriteCacheType,omitempty"`
 }
 
+type _PvsStreamingVDiskResponseModel PvsStreamingVDiskResponseModel
+
 // NewPvsStreamingVDiskResponseModel instantiates a new PvsStreamingVDiskResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

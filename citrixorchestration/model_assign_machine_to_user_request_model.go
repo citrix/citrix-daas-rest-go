@@ -29,6 +29,8 @@ type AssignMachineToUserRequestModel struct {
 	Icon NullableString `json:"Icon,omitempty"`
 }
 
+type _AssignMachineToUserRequestModel AssignMachineToUserRequestModel
+
 // NewAssignMachineToUserRequestModel instantiates a new AssignMachineToUserRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -135,7 +137,7 @@ func (o *AssignMachineToUserRequestModel) GetUsersOk() ([]string, bool) {
 
 // HasUsers returns a boolean if a field has been set.
 func (o *AssignMachineToUserRequestModel) HasUsers() bool {
-	if o != nil && IsNil(o.Users) {
+	if o != nil && !IsNil(o.Users) {
 		return true
 	}
 

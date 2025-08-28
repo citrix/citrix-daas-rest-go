@@ -420,7 +420,7 @@ func (o *DetectOrphanedResourcesResponseModel) GetDetectResultsOk() ([]DetectOrp
 
 // HasDetectResults returns a boolean if a field has been set.
 func (o *DetectOrphanedResourcesResponseModel) HasDetectResults() bool {
-	if o != nil && IsNil(o.DetectResults) {
+	if o != nil && !IsNil(o.DetectResults) {
 		return true
 	}
 

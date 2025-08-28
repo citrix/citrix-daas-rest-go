@@ -164,7 +164,7 @@ func (o *ProvisioningSchemeConfigurationResponseModel) GetCustomPropertiesOk() (
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *ProvisioningSchemeConfigurationResponseModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
+	if o != nil && !IsNil(o.CustomProperties) {
 		return true
 	}
 
@@ -304,7 +304,7 @@ func (o *ProvisioningSchemeConfigurationResponseModel) GetNetworkMappingsOk() ([
 
 // HasNetworkMappings returns a boolean if a field has been set.
 func (o *ProvisioningSchemeConfigurationResponseModel) HasNetworkMappings() bool {
-	if o != nil && IsNil(o.NetworkMappings) {
+	if o != nil && !IsNil(o.NetworkMappings) {
 		return true
 	}
 
@@ -337,7 +337,7 @@ func (o *ProvisioningSchemeConfigurationResponseModel) GetSecurityGroupsOk() ([]
 
 // HasSecurityGroups returns a boolean if a field has been set.
 func (o *ProvisioningSchemeConfigurationResponseModel) HasSecurityGroups() bool {
-	if o != nil && IsNil(o.SecurityGroups) {
+	if o != nil && !IsNil(o.SecurityGroups) {
 		return true
 	}
 

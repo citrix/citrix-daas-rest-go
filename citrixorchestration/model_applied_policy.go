@@ -151,7 +151,7 @@ func (o *AppliedPolicy) GetReasonsOk() (*map[string][]ReasonDetail, bool) {
 
 // HasReasons returns a boolean if a field has been set.
 func (o *AppliedPolicy) HasReasons() bool {
-	if o != nil && IsNil(o.Reasons) {
+	if o != nil && !IsNil(o.Reasons) {
 		return true
 	}
 

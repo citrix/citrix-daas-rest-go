@@ -51,33 +51,33 @@ Add a security group to an assigned security as it's member
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    azureAdTenantId := "azureAdTenantId_example" // string | The Azure tenant id.
-    groupId := "groupId_example" // string | The parent assigned security group object id
-    refGroupId := "refGroupId_example" // string | The nested devices security group object id
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAccessToken := "xAccessToken_example" // string | Access token to use when performing the operation. If specified, must be in a format matching that of the standard 'Authorization' request header; UTF8-encoded, then base64-encoded, then the \"Bearer\" scheme prepended.  Example: Bearer bGljaGVuZy5saW5AY2l0cml4LmNvbQ== (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    serviceAccountUid := "serviceAccountUid_example" // string |  (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	azureAdTenantId := "azureAdTenantId_example" // string | The Azure tenant id.
+	groupId := "groupId_example" // string | The parent assigned security group object id
+	refGroupId := "refGroupId_example" // string | The nested devices security group object id
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAccessToken := "xAccessToken_example" // string | Access token to use when performing the operation. If specified, must be in a format matching that of the standard 'Authorization' request header; UTF8-encoded, then base64-encoded, then the \"Bearer\" scheme prepended.  Example: Bearer bGljaGVuZy5saW5AY2l0cml4LmNvbQ== (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	serviceAccountUid := "serviceAccountUid_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.IdentityAPIsDAAS.IdentityAddAzureAdSecurityGroupMember(context.Background(), azureAdTenantId, groupId, refGroupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).ServiceAccountUid(serviceAccountUid).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityAddAzureAdSecurityGroupMember``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.IdentityAPIsDAAS.IdentityAddAzureAdSecurityGroupMember(context.Background(), azureAdTenantId, groupId, refGroupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).ServiceAccountUid(serviceAccountUid).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityAddAzureAdSecurityGroupMember``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -143,33 +143,33 @@ Create machine identity
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    identityCreateMachineRequestModel := *openapiclient.NewIdentityCreateMachineRequestModel("For example, test.local", "Name of the machine identity", "For example, password") // IdentityCreateMachineRequestModel | Details of the machine identity to create.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the machine identity will be created as a background task. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	identityCreateMachineRequestModel := *openapiclient.NewIdentityCreateMachineRequestModel("For example, test.local", "Name of the machine identity", "For example, password") // IdentityCreateMachineRequestModel | Details of the machine identity to create.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the machine identity will be created as a background task. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityCreateMachine(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).IdentityCreateMachineRequestModel(identityCreateMachineRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityCreateMachine``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityCreateMachine`: IdentityMachineResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityCreateMachine`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityCreateMachine(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).IdentityCreateMachineRequestModel(identityCreateMachineRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityCreateMachine``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityCreateMachine`: IdentityMachineResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityCreateMachine`: %v\n", resp)
 }
 ```
 
@@ -225,32 +225,32 @@ Create a service account async.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    createServiceAccountRequestModel := *openapiclient.NewCreateServiceAccountRequestModel("Valid types: AzureAD, ActiveDirectory", "Domain name if 'IdentityProviderType' is ActiveDirectory. Azure AD tenant id if 'IdentityProviderType' is AzureAD", "Domain user like "cvad\\joe" if 'IdentityProviderType' is ActiveDirectory"", "SecretExpiryTime_example", "AccountSecret_example") // CreateServiceAccountRequestModel | The object of CreateServiceAccountRequestModel used to create a service account. 
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, this will be queried as a background task. The task will have JobType CreateServiceAccount. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	createServiceAccountRequestModel := *openapiclient.NewCreateServiceAccountRequestModel("Valid types: AzureAD, ActiveDirectory", "Domain name if 'IdentityProviderType' is ActiveDirectory. Azure AD tenant id if 'IdentityProviderType' is AzureAD", "Domain user like "cvad\\joe" if 'IdentityProviderType' is ActiveDirectory"", "SecretExpiryTime_example", "AccountSecret_example") // CreateServiceAccountRequestModel | The object of CreateServiceAccountRequestModel used to create a service account. 
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, this will be queried as a background task. The task will have JobType CreateServiceAccount. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityCreateServiceAccount(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateServiceAccountRequestModel(createServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityCreateServiceAccount``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityCreateServiceAccount`: ServiceAccountResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityCreateServiceAccount`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityCreateServiceAccount(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateServiceAccountRequestModel(createServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityCreateServiceAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityCreateServiceAccount`: ServiceAccountResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityCreateServiceAccount`: %v\n", resp)
 }
 ```
 
@@ -307,34 +307,34 @@ Delete a machine identity
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    machine := "machine_example" // string | Machine identity to delete.
-    forest := "forest_example" // string | Forest to delete machine account from.  Required.
-    domain := "domain_example" // string | Domain to delete machine account from.  Required.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
-    async := true // bool | If `true`, the machine identity will be deleted as a background task. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	machine := "machine_example" // string | Machine identity to delete.
+	forest := "forest_example" // string | Forest to delete machine account from.  Required.
+	domain := "domain_example" // string | Domain to delete machine account from.  Required.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
+	async := true // bool | If `true`, the machine identity will be deleted as a background task. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.IdentityAPIsDAAS.IdentityDeleteMachine(context.Background(), machine).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).Forest(forest).Domain(domain).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).DirectoryServerHint(directoryServerHint).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityDeleteMachine``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.IdentityAPIsDAAS.IdentityDeleteMachine(context.Background(), machine).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).Forest(forest).Domain(domain).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).DirectoryServerHint(directoryServerHint).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityDeleteMachine``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -397,29 +397,29 @@ Delete an existing service account.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    serviceAccountUid := "serviceAccountUid_example" // string | The ServiceAccountUid of an existing service account. 
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	serviceAccountUid := "serviceAccountUid_example" // string | The ServiceAccountUid of an existing service account. 
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.IdentityAPIsDAAS.IdentityDeleteServiceAccount(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityDeleteServiceAccount``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.IdentityAPIsDAAS.IdentityDeleteServiceAccount(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityDeleteServiceAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -479,34 +479,34 @@ Get Azure AD security group by group id.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    azureAdTenantId := "azureAdTenantId_example" // string | AzureAD tenantId
-    groupId := "groupId_example" // string | AzureAD security group's objectId
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAccessToken := "xAccessToken_example" // string | Access token to use when performing the operation. If specified, must be in a format matching that of the standard 'Authorization' request header; UTF8-encoded, then base64-encoded, then the \"Bearer\" scheme prepended.  Example: Bearer bGljaGVuZy5saW5AY2l0cml4LmNvbQ== (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    serviceAccountUid := "serviceAccountUid_example" // string | Service account objectId (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	azureAdTenantId := "azureAdTenantId_example" // string | AzureAD tenantId
+	groupId := "groupId_example" // string | AzureAD security group's objectId
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAccessToken := "xAccessToken_example" // string | Access token to use when performing the operation. If specified, must be in a format matching that of the standard 'Authorization' request header; UTF8-encoded, then base64-encoded, then the \"Bearer\" scheme prepended.  Example: Bearer bGljaGVuZy5saW5AY2l0cml4LmNvbQ== (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	serviceAccountUid := "serviceAccountUid_example" // string | Service account objectId (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetAzureADSecurityGroups(context.Background(), azureAdTenantId, groupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).ServiceAccountUid(serviceAccountUid).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetAzureADSecurityGroups``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetAzureADSecurityGroups`: AzureADSecurityGroupResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetAzureADSecurityGroups`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetAzureADSecurityGroups(context.Background(), azureAdTenantId, groupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).ServiceAccountUid(serviceAccountUid).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetAzureADSecurityGroups``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetAzureADSecurityGroups`: AzureADSecurityGroupResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetAzureADSecurityGroups`: %v\n", resp)
 }
 ```
 
@@ -568,36 +568,36 @@ Retrieves all the group type of members of a specific group
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    azureAdTenantId := "azureAdTenantId_example" // string | The Azure tenant id.
-    groupId := "groupId_example" // string | The security group object id.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAccessToken := "xAccessToken_example" // string | Access token to use when performing the operation. If specified, must be in a format matching that of the standard 'Authorization' request header; UTF8-encoded, then base64-encoded, then the \"Bearer\" scheme prepended.  Example: Bearer bGljaGVuZy5saW5AY2l0cml4LmNvbQ== (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    type_ := "type__example" // string | Only type=group is support now. (optional) (default to "group")
-    maxCount := int32(56) // int32 | The max return records number. (optional)
-    serviceAccountUid := "serviceAccountUid_example" // string | The service account uid. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	azureAdTenantId := "azureAdTenantId_example" // string | The Azure tenant id.
+	groupId := "groupId_example" // string | The security group object id.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAccessToken := "xAccessToken_example" // string | Access token to use when performing the operation. If specified, must be in a format matching that of the standard 'Authorization' request header; UTF8-encoded, then base64-encoded, then the \"Bearer\" scheme prepended.  Example: Bearer bGljaGVuZy5saW5AY2l0cml4LmNvbQ== (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	type_ := "type__example" // string | Only type=group is support now. (optional) (default to "group")
+	maxCount := int32(56) // int32 | The max return records number. (optional)
+	serviceAccountUid := "serviceAccountUid_example" // string | The service account uid. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetAzureAdSecurityGroupMember(context.Background(), azureAdTenantId, groupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Type_(type_).MaxCount(maxCount).ServiceAccountUid(serviceAccountUid).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetAzureAdSecurityGroupMember``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetAzureAdSecurityGroupMember`: AzureADSecurityGroupResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetAzureAdSecurityGroupMember`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetAzureAdSecurityGroupMember(context.Background(), azureAdTenantId, groupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Type_(type_).MaxCount(maxCount).ServiceAccountUid(serviceAccountUid).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetAzureAdSecurityGroupMember``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetAzureAdSecurityGroupMember`: AzureADSecurityGroupResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetAzureAdSecurityGroupMember`: %v\n", resp)
 }
 ```
 
@@ -663,36 +663,36 @@ Get a single container (e.g. OU)
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    container := "container_example" // string | Container to get.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    forest := "forest_example" // string | Forest to get container from.  If not specified, all forests are queried, which may take a long time. (optional)
-    domain := "domain_example" // string | Domain to get container from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
-    directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
-    propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	container := "container_example" // string | Container to get.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	forest := "forest_example" // string | Forest to get container from.  If not specified, all forests are queried, which may take a long time. (optional)
+	domain := "domain_example" // string | Domain to get container from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
+	directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
+	propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetContainer(context.Background(), container).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetContainer``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetContainer`: IdentityContainerResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetContainer`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetContainer(context.Background(), container).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetContainer``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetContainer`: IdentityContainerResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetContainer`: %v\n", resp)
 }
 ```
 
@@ -757,44 +757,44 @@ Get containers from identity provider.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    forest := "forest_example" // string | Forest to get containers from.  If not specified, all forests are queried, which may take a long time. (optional)
-    domain := "domain_example" // string | Domain to get containers from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
-    container := []string{"Inner_example"} // []string | Specific container(s) to filter the results to.  If not specified, all matching containers are returned.  If set, `recursive` parameter is ignored and is implied `true`. (optional)
-    startsWith := "startsWith_example" // string | Search for containers that start with a string.  If not specified, all matching containers are returned. (optional)
-    contains := "contains_example" // string | Search for containers that contain a string.  If not specified, all matching containers are returned. (optional)
-    matches := "matches_example" // string | Search for containers that match a string.  If not specified, all matching containers are returned. (optional)
-    parentOU := "parentOU_example" // string | The parent OU to search.  If not specified, will search from the root OU. (optional)
-    recursive := true // bool | Indicates whether the search should be recursive.  Default is `false`. (optional)
-    containerType := []openapiclient.IdentityContainerType{openapiclient.IdentityContainerType("Unknown")} // []IdentityContainerType | Indicates container type(s) that should be retrieved.  If not specified, all container types will be searched. (optional)
-    directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
-    propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
-    limit := int32(56) // int32 | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. (optional)
-    continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	forest := "forest_example" // string | Forest to get containers from.  If not specified, all forests are queried, which may take a long time. (optional)
+	domain := "domain_example" // string | Domain to get containers from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
+	container := []string{"Inner_example"} // []string | Specific container(s) to filter the results to.  If not specified, all matching containers are returned.  If set, `recursive` parameter is ignored and is implied `true`. (optional)
+	startsWith := "startsWith_example" // string | Search for containers that start with a string.  If not specified, all matching containers are returned. (optional)
+	contains := "contains_example" // string | Search for containers that contain a string.  If not specified, all matching containers are returned. (optional)
+	matches := "matches_example" // string | Search for containers that match a string.  If not specified, all matching containers are returned. (optional)
+	parentOU := "parentOU_example" // string | The parent OU to search.  If not specified, will search from the root OU. (optional)
+	recursive := true // bool | Indicates whether the search should be recursive.  Default is `false`. (optional)
+	containerType := []openapiclient.IdentityContainerType{openapiclient.IdentityContainerType("Unknown")} // []IdentityContainerType | Indicates container type(s) that should be retrieved.  If not specified, all container types will be searched. (optional)
+	directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
+	propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
+	limit := int32(56) // int32 | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. (optional)
+	continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetContainers(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).Container(container).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).ContainerType(containerType).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetContainers``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetContainers`: IdentityContainerResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetContainers`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetContainers(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).Container(container).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).ContainerType(containerType).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetContainers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetContainers`: IdentityContainerResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetContainers`: %v\n", resp)
 }
 ```
 
@@ -863,32 +863,32 @@ Get list of directories from all identity providers
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    limit := int32(56) // int32 | The max number of items returned by this query. (optional)
-    continuationToken := "continuationToken_example" // string | The continuationToken returned by the previous query. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	limit := int32(56) // int32 | The max number of items returned by this query. (optional)
+	continuationToken := "continuationToken_example" // string | The continuationToken returned by the previous query. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetDirectories(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetDirectories``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetDirectories`: IdentityDirectoryResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetDirectories`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetDirectories(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetDirectories``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetDirectories`: IdentityDirectoryResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetDirectories`: %v\n", resp)
 }
 ```
 
@@ -945,35 +945,35 @@ Get a single domain from the identity provider
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    domain := "domain_example" // string | Domain to get details from.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    forest := "forest_example" // string | Forest to get domain from.  If not specified, all forests are queried, which may take a long time. (optional)
-    directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
-    propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties. If not specified, all properties other than IdentityDomainProperty.Controllers IdentityDomainProperty.PrimaryController will be retrieved. (optional) (default to 2147483647)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	domain := "domain_example" // string | Domain to get details from.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	forest := "forest_example" // string | Forest to get domain from.  If not specified, all forests are queried, which may take a long time. (optional)
+	directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
+	propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties. If not specified, all properties other than IdentityDomainProperty.Controllers IdentityDomainProperty.PrimaryController will be retrieved. (optional) (default to 2147483647)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetDomain(context.Background(), domain).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetDomain``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetDomain`: IdentityDomainResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetDomain`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetDomain(context.Background(), domain).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetDomain``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetDomain`: IdentityDomainResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetDomain`: %v\n", resp)
 }
 ```
 
@@ -1035,31 +1035,31 @@ Gets the Azure AD custom domain with the specified domain name.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    domain := "domain_example" // string | Domain name.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	domain := "domain_example" // string | Domain name.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetDomainAzureADCustomDomain(context.Background(), domain).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetDomainAzureADCustomDomain``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetDomainAzureADCustomDomain`: AzureADCustomDomainResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetDomainAzureADCustomDomain`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetDomainAzureADCustomDomain(context.Background(), domain).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetDomainAzureADCustomDomain``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetDomainAzureADCustomDomain`: AzureADCustomDomainResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetDomainAzureADCustomDomain`: %v\n", resp)
 }
 ```
 
@@ -1119,40 +1119,40 @@ Get list of domains from the identity provider
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    forest := "forest_example" // string | Forest to get domains from.  If not specified, all forests are queried, which may take a long time. (optional)
-    domain := []string{"Inner_example"} // []string | Specific domain(s) to filter the results to.  If not specified, all matching domains are returned. (optional)
-    directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
-    parentDomain := "parentDomain_example" // string | Parent domain name to search.  Default is the root domain of the forest. (optional)
-    recursive := true // bool | Specifies whether the search is recursive. (optional)
-    propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties. If not specified, all properties other than IdentityDomainProperty.Controllers IdentityDomainProperty.PrimaryController will be retrieved. (optional) (default to 2147483647)
-    limit := int32(56) // int32 | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. (optional)
-    continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
-    async := true // bool |  (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	forest := "forest_example" // string | Forest to get domains from.  If not specified, all forests are queried, which may take a long time. (optional)
+	domain := []string{"Inner_example"} // []string | Specific domain(s) to filter the results to.  If not specified, all matching domains are returned. (optional)
+	directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
+	parentDomain := "parentDomain_example" // string | Parent domain name to search.  Default is the root domain of the forest. (optional)
+	recursive := true // bool | Specifies whether the search is recursive. (optional)
+	propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties. If not specified, all properties other than IdentityDomainProperty.Controllers IdentityDomainProperty.PrimaryController will be retrieved. (optional) (default to 2147483647)
+	limit := int32(56) // int32 | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. (optional)
+	continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
+	async := true // bool |  (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetDomains(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).DirectoryServerHint(directoryServerHint).ParentDomain(parentDomain).Recursive(recursive).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetDomains``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetDomains`: IdentityDomainResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetDomains`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetDomains(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).DirectoryServerHint(directoryServerHint).ParentDomain(parentDomain).Recursive(recursive).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetDomains``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetDomains`: IdentityDomainResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetDomains`: %v\n", resp)
 }
 ```
 
@@ -1217,33 +1217,33 @@ Get information about a single forest
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    forest := "forest_example" // string | forest
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	forest := "forest_example" // string | forest
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetForest(context.Background(), forest).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).PropertiesToRetrieve(propertiesToRetrieve).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetForest``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetForest`: IdentityForestResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetForest`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetForest(context.Background(), forest).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).PropertiesToRetrieve(propertiesToRetrieve).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetForest``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetForest`: IdentityForestResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetForest`: %v\n", resp)
 }
 ```
 
@@ -1305,35 +1305,35 @@ Get the list of forests from the identity provider
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    forest := []string{"Inner_example"} // []string | Specific forest(s) to filter the results to.  If not specified, all forests are returned. (optional)
-    propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
-    limit := int32(56) // int32 | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. (optional)
-    continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	forest := []string{"Inner_example"} // []string | Specific forest(s) to filter the results to.  If not specified, all forests are returned. (optional)
+	propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
+	limit := int32(56) // int32 | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. (optional)
+	continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetForests(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetForests``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetForests`: IdentityForestResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetForests`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetForests(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetForests``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetForests`: IdentityForestResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetForests`: %v\n", resp)
 }
 ```
 
@@ -1393,36 +1393,36 @@ Get a single machine account from identity provider
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    machine := "machine_example" // string | Machine to get.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    forest := "forest_example" // string | Forest to get machine account from.  If not specified, all forests are queried, which may take a long time. (optional)
-    domain := "domain_example" // string | Domain to get machine account from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
-    directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
-    propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties other than IPAddress will be retrieved. (optional) (default to 2147483647)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	machine := "machine_example" // string | Machine to get.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	forest := "forest_example" // string | Forest to get machine account from.  If not specified, all forests are queried, which may take a long time. (optional)
+	domain := "domain_example" // string | Domain to get machine account from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
+	directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
+	propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties other than IPAddress will be retrieved. (optional) (default to 2147483647)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetMachine(context.Background(), machine).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetMachine``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetMachine`: IdentityMachineResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetMachine`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetMachine(context.Background(), machine).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetMachine``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetMachine`: IdentityMachineResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetMachine`: %v\n", resp)
 }
 ```
 
@@ -1487,43 +1487,43 @@ Get machine accounts from identity provider
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    forest := "forest_example" // string | Forest to get machine accounts from.  If not specified, all forests are queried, which may take a long time. (optional)
-    domain := "domain_example" // string | Domain to get machine accounts from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
-    machine := []string{"Inner_example"} // []string | Specific machine(s) to filter the results to.  If not specified, all matching machines are returned.  If set, `recursive` parameter is ignored and is implied `true`. (optional)
-    startsWith := "startsWith_example" // string | Search for machine accounts that start with a string.  This parameter is exclusive with `contains`, and `matches`. (optional)
-    contains := "contains_example" // string | Search for machine accounts that contain a string.  This parameter is exclusive with `startsWith`, and `matches`. (optional)
-    matches := "matches_example" // string | Search for machine accounts that match a string.  This parameter is exclusive with `startsWith`, and `contains`. (optional)
-    parentOU := "parentOU_example" // string | The parent OU to search.  If not specified, will search from the root OU. (optional)
-    recursive := true // bool | Indicates whether the search should be recursive. (optional)
-    directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
-    propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties other than IPAddress will be retrieved. (optional) (default to 2147483647)
-    limit := int32(56) // int32 | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. (optional)
-    continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	forest := "forest_example" // string | Forest to get machine accounts from.  If not specified, all forests are queried, which may take a long time. (optional)
+	domain := "domain_example" // string | Domain to get machine accounts from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
+	machine := []string{"Inner_example"} // []string | Specific machine(s) to filter the results to.  If not specified, all matching machines are returned.  If set, `recursive` parameter is ignored and is implied `true`. (optional)
+	startsWith := "startsWith_example" // string | Search for machine accounts that start with a string.  This parameter is exclusive with `contains`, and `matches`. (optional)
+	contains := "contains_example" // string | Search for machine accounts that contain a string.  This parameter is exclusive with `startsWith`, and `matches`. (optional)
+	matches := "matches_example" // string | Search for machine accounts that match a string.  This parameter is exclusive with `startsWith`, and `contains`. (optional)
+	parentOU := "parentOU_example" // string | The parent OU to search.  If not specified, will search from the root OU. (optional)
+	recursive := true // bool | Indicates whether the search should be recursive. (optional)
+	directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
+	propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties other than IPAddress will be retrieved. (optional) (default to 2147483647)
+	limit := int32(56) // int32 | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. (optional)
+	continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetMachines(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).Machine(machine).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetMachines``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetMachines`: IdentityMachineResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetMachines`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetMachines(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).Machine(machine).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetMachines``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetMachines`: IdentityMachineResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetMachines`: %v\n", resp)
 }
 ```
 
@@ -1591,36 +1591,36 @@ Get network printers from identity provider
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    forest := "forest_example" // string | Forest to get printers from.  If not specified, all forests are queried, which may take a long time. (optional)
-    domain := "domain_example" // string | Domain to get printers from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
-    server := "server_example" // string | Printer server name (optional)
-    uncpath := "uncpath_example" // string | Printer UNC path (optional)
-    async := true // bool | If `true`, the get printers will be executed as a background task. The task will have JobType GetPrintersIdentity. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	forest := "forest_example" // string | Forest to get printers from.  If not specified, all forests are queried, which may take a long time. (optional)
+	domain := "domain_example" // string | Domain to get printers from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
+	server := "server_example" // string | Printer server name (optional)
+	uncpath := "uncpath_example" // string | Printer UNC path (optional)
+	async := true // bool | If `true`, the get printers will be executed as a background task. The task will have JobType GetPrintersIdentity. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetPrinters(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).Server(server).Uncpath(uncpath).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetPrinters``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetPrinters`: IdentityPrinterResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetPrinters`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetPrinters(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).Server(server).Uncpath(uncpath).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetPrinters``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetPrinters`: IdentityPrinterResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetPrinters`: %v\n", resp)
 }
 ```
 
@@ -1679,31 +1679,31 @@ Get a specific service account.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    serviceAccountUid := "serviceAccountUid_example" // string | The ServiceAccountUid of a specific service account. 
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	serviceAccountUid := "serviceAccountUid_example" // string | The ServiceAccountUid of a specific service account. 
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetServiceAccount(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetServiceAccount``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetServiceAccount`: ServiceAccountResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetServiceAccount`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetServiceAccount(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetServiceAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetServiceAccount`: ServiceAccountResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetServiceAccount`: %v\n", resp)
 }
 ```
 
@@ -1763,33 +1763,33 @@ Get the service account capability patch preview.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    serviceAccountUid := "serviceAccountUid_example" // string | ID of the service account to test.
-    updateServiceAccountCapabilityPreviewRequestModel := *openapiclient.NewUpdateServiceAccountCapabilityPreviewRequestModel() // UpdateServiceAccountCapabilityPreviewRequestModel | Update serivce account capability preview request model.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the get preview patch will run as a background task. This is recommended as the gets may take some time to run, and if it exceeds 90 seconds the request may time out. The task will have JobType GetPatchPreviewServiceAccount. When the task is complete it will redirect to GetJobResults. The job's Parameters will contain properties:  * _Id_ - ID of the service account being update. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	serviceAccountUid := "serviceAccountUid_example" // string | ID of the service account to test.
+	updateServiceAccountCapabilityPreviewRequestModel := *openapiclient.NewUpdateServiceAccountCapabilityPreviewRequestModel() // UpdateServiceAccountCapabilityPreviewRequestModel | Update serivce account capability preview request model.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the get preview patch will run as a background task. This is recommended as the gets may take some time to run, and if it exceeds 90 seconds the request may time out. The task will have JobType GetPatchPreviewServiceAccount. When the task is complete it will redirect to GetJobResults. The job's Parameters will contain properties:  * _Id_ - ID of the service account being update. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetServiceAccountCapabilityPatchPreview(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateServiceAccountCapabilityPreviewRequestModel(updateServiceAccountCapabilityPreviewRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetServiceAccountCapabilityPatchPreview``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetServiceAccountCapabilityPatchPreview`: UpdateServiceAccountCapabilityPreviewResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetServiceAccountCapabilityPatchPreview`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetServiceAccountCapabilityPatchPreview(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateServiceAccountCapabilityPreviewRequestModel(updateServiceAccountCapabilityPreviewRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetServiceAccountCapabilityPatchPreview``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetServiceAccountCapabilityPatchPreview`: UpdateServiceAccountCapabilityPreviewResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetServiceAccountCapabilityPatchPreview`: %v\n", resp)
 }
 ```
 
@@ -1851,31 +1851,31 @@ Get the most recent test report for a service account.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    serviceAccountUid := "serviceAccountUid_example" // string | ID of the service account.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	serviceAccountUid := "serviceAccountUid_example" // string | ID of the service account.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetServiceAccountTestReport(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetServiceAccountTestReport``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetServiceAccountTestReport`: TestReportResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetServiceAccountTestReport`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetServiceAccountTestReport(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetServiceAccountTestReport``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetServiceAccountTestReport`: TestReportResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetServiceAccountTestReport`: %v\n", resp)
 }
 ```
 
@@ -1933,31 +1933,31 @@ Get all service accounts.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool |  (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool |  (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetServiceAccounts(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetServiceAccounts``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetServiceAccounts`: ServiceAccountResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetServiceAccounts`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetServiceAccounts(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetServiceAccounts``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetServiceAccounts`: ServiceAccountResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetServiceAccounts`: %v\n", resp)
 }
 ```
 
@@ -2013,35 +2013,35 @@ Get information about a single site
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    site := "site_example" // string | The site to get details for.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    forest := "forest_example" // string | Forest to get the site from.  If not specified, all forests are queried, which may take a long time. (optional)
-    domain := "domain_example" // string | Domain to get the site from.  If not specified, all domains in the forest(s) are queried until the site is found. (optional)
-    propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	site := "site_example" // string | The site to get details for.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	forest := "forest_example" // string | Forest to get the site from.  If not specified, all forests are queried, which may take a long time. (optional)
+	domain := "domain_example" // string | Domain to get the site from.  If not specified, all domains in the forest(s) are queried until the site is found. (optional)
+	propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetSite(context.Background(), site).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).PropertiesToRetrieve(propertiesToRetrieve).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetSite``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetSite`: IdentitySiteResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetSite`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetSite(context.Background(), site).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).PropertiesToRetrieve(propertiesToRetrieve).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetSite``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetSite`: IdentitySiteResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetSite`: %v\n", resp)
 }
 ```
 
@@ -2105,38 +2105,38 @@ Get list of sites from the identity provider
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    forest := "forest_example" // string | Forest to get sites from.  If not specified, all forests are queried, which may take a long time. (optional)
-    domain := "domain_example" // string | Domain to get sites from.  If not specified, all domains in the forest(s) are queried. (optional)
-    hostNameOrIP := "hostNameOrIP_example" // string | Hostname or IP to get sites from. (optional)
-    site := []string{"Inner_example"} // []string | Specific site(s) to filter the results to.  If not specified, all matching sites are returned. (optional)
-    propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
-    limit := int32(56) // int32 | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. (optional)
-    continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	forest := "forest_example" // string | Forest to get sites from.  If not specified, all forests are queried, which may take a long time. (optional)
+	domain := "domain_example" // string | Domain to get sites from.  If not specified, all domains in the forest(s) are queried. (optional)
+	hostNameOrIP := "hostNameOrIP_example" // string | Hostname or IP to get sites from. (optional)
+	site := []string{"Inner_example"} // []string | Specific site(s) to filter the results to.  If not specified, all matching sites are returned. (optional)
+	propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
+	limit := int32(56) // int32 | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. (optional)
+	continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetSites(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).HostNameOrIP(hostNameOrIP).Site(site).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetSites``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetSites`: IdentitySiteResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetSites`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetSites(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).HostNameOrIP(hostNameOrIP).Site(site).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetSites``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetSites`: IdentitySiteResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetSites`: %v\n", resp)
 }
 ```
 
@@ -2199,36 +2199,36 @@ Get a single user or group
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userOrGroup := "userOrGroup_example" // string | Identity of the user or group to get.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    forest := "forest_example" // string | Forest to get users from.  If not specified, all forests are queried, which may take a long time. (optional)
-    domain := "domain_example" // string | Domain to get users from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
-    directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
-    propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userOrGroup := "userOrGroup_example" // string | Identity of the user or group to get.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	forest := "forest_example" // string | Forest to get users from.  If not specified, all forests are queried, which may take a long time. (optional)
+	domain := "domain_example" // string | Domain to get users from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
+	directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
+	propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetUser(context.Background(), userOrGroup).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetUser`: IdentityUserResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetUser`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetUser(context.Background(), userOrGroup).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetUser`: IdentityUserResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetUser`: %v\n", resp)
 }
 ```
 
@@ -2293,49 +2293,49 @@ Get users from identity provider
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    provider := openapiclient.IdentityProviderType("Unknown") // IdentityProviderType | Provider to get users from. (optional)
-    forest := "forest_example" // string | Forest to get users from.  If not specified, all forests are queried, which may take a long time. (optional)
-    domain := "domain_example" // string | Domain to get users from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
-    tenant := "tenant_example" // string | Tenant to get users from. (optional)
-    user := []string{"Inner_example"} // []string | Specific user(s) to filter the results to. If not specified, all matching users are returned.  If set, `recursive` parameter is ignored and is implied `true`. (optional)
-    startsWith := "startsWith_example" // string | Search for users that start with a string.  This parameter is exclusive with `contains`, and `matches`. (optional)
-    contains := "contains_example" // string | Search for users that contain a string.  This parameter is exclusive with `startsWith`, and `matches`. (optional)
-    matches := "matches_example" // string | Search for users that match a string.  This parameter is exclusive with `startsWith`, and `contains`. (optional)
-    parentOU := "parentOU_example" // string | The parent OU to search.  If not specified, will search from the root OU. (optional)
-    recursive := true // bool | Indicates whether the search should be recursive. (optional)
-    userType := openapiclient.IdentityUserType("Unknown") // IdentityUserType | Indicates user type(s) that should be retrieved.  If not specified, all user types will be searched. (optional)
-    directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
-    propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
-    limit := int32(56) // int32 | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. (optional)
-    continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
-    async := true // bool | If `true`, the get users will be executed as a background task. The task will have JobType GetUsersIdentity. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
-    idpInstanceId := "idpInstanceId_example" // string | Instance id of the identity provider. (optional)
-    includeIdentityClaims := true // bool | Inlcude the identity claims in the results. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	provider := openapiclient.IdentityProviderType("Unknown") // IdentityProviderType | Provider to get users from. (optional)
+	forest := "forest_example" // string | Forest to get users from.  If not specified, all forests are queried, which may take a long time. (optional)
+	domain := "domain_example" // string | Domain to get users from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
+	tenant := "tenant_example" // string | Tenant to get users from. (optional)
+	user := []string{"Inner_example"} // []string | Specific user(s) to filter the results to. If not specified, all matching users are returned.  If set, `recursive` parameter is ignored and is implied `true`. (optional)
+	startsWith := "startsWith_example" // string | Search for users that start with a string.  This parameter is exclusive with `contains`, and `matches`. (optional)
+	contains := "contains_example" // string | Search for users that contain a string.  This parameter is exclusive with `startsWith`, and `matches`. (optional)
+	matches := "matches_example" // string | Search for users that match a string.  This parameter is exclusive with `startsWith`, and `contains`. (optional)
+	parentOU := "parentOU_example" // string | The parent OU to search.  If not specified, will search from the root OU. (optional)
+	recursive := true // bool | Indicates whether the search should be recursive. (optional)
+	userType := openapiclient.IdentityUserType("Unknown") // IdentityUserType | Indicates user type(s) that should be retrieved.  If not specified, all user types will be searched. (optional)
+	directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
+	propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
+	limit := int32(56) // int32 | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. (optional)
+	continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
+	async := true // bool | If `true`, the get users will be executed as a background task. The task will have JobType GetUsersIdentity. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
+	idpInstanceId := "idpInstanceId_example" // string | Instance id of the identity provider. (optional)
+	includeIdentityClaims := true // bool | Inlcude the identity claims in the results. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetUsers(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Provider(provider).Forest(forest).Domain(domain).Tenant(tenant).User(user).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).UserType(userType).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Async(async).IdpInstanceId(idpInstanceId).IncludeIdentityClaims(includeIdentityClaims).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetUsers``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityGetUsers`: IdentityUserResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetUsers`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetUsers(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Provider(provider).Forest(forest).Domain(domain).Tenant(tenant).User(user).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).UserType(userType).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Async(async).IdpInstanceId(idpInstanceId).IncludeIdentityClaims(includeIdentityClaims).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetUsers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityGetUsers`: IdentityUserResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetUsers`: %v\n", resp)
 }
 ```
 
@@ -2409,36 +2409,36 @@ Query AzureAD security group by user's input.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    azureAdTenantId := "azureAdTenantId_example" // string | The specific azure tenant id.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAccessToken := "xAccessToken_example" // string | Access token to use when performing the operation. If specified, must be in a format matching that of the standard 'Authorization' request header; UTF8-encoded, then base64-encoded, then the \"Bearer\" scheme prepended.  Example: Bearer bGljaGVuZy5saW5AY2l0cml4LmNvbQ== (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    name := "name_example" // string | Specific the group display name. (optional)
-    assigned := true // bool | When name is empty, assigned only support the value of true. (optional) (default to true)
-    maxCount := int32(56) // int32 | The max return count,default is 300. (optional)
-    serviceAccountUid := "serviceAccountUid_example" // string | The service account uid. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	azureAdTenantId := "azureAdTenantId_example" // string | The specific azure tenant id.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAccessToken := "xAccessToken_example" // string | Access token to use when performing the operation. If specified, must be in a format matching that of the standard 'Authorization' request header; UTF8-encoded, then base64-encoded, then the \"Bearer\" scheme prepended.  Example: Bearer bGljaGVuZy5saW5AY2l0cml4LmNvbQ== (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	name := "name_example" // string | Specific the group display name. (optional)
+	assigned := true // bool | When name is empty, assigned only support the value of true. (optional) (default to true)
+	maxCount := int32(56) // int32 | The max return count,default is 300. (optional)
+	serviceAccountUid := "serviceAccountUid_example" // string | The service account uid. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityQueryAzureAdSecurityGroups(context.Background(), azureAdTenantId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Name(name).Assigned(assigned).MaxCount(maxCount).ServiceAccountUid(serviceAccountUid).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityQueryAzureAdSecurityGroups``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityQueryAzureAdSecurityGroups`: AzureADSecurityGroupResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityQueryAzureAdSecurityGroups`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityQueryAzureAdSecurityGroups(context.Background(), azureAdTenantId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Name(name).Assigned(assigned).MaxCount(maxCount).ServiceAccountUid(serviceAccountUid).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityQueryAzureAdSecurityGroups``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityQueryAzureAdSecurityGroups`: AzureADSecurityGroupResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityQueryAzureAdSecurityGroups`: %v\n", resp)
 }
 ```
 
@@ -2501,33 +2501,33 @@ Set properties of an existing service account.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    serviceAccountUid := "serviceAccountUid_example" // string | The ServiceAccountUid of service account. 
-    updateServiceAccountRequestModel := *openapiclient.NewUpdateServiceAccountRequestModel() // UpdateServiceAccountRequestModel | The object of UpdateServiceAccountRequestModel used to set an existing service account. 
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, this will be queried as a background task.             The task will have JobType SetServiceAccount.             When the task is complete it will redirect to GetJobResults.              (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	serviceAccountUid := "serviceAccountUid_example" // string | The ServiceAccountUid of service account. 
+	updateServiceAccountRequestModel := *openapiclient.NewUpdateServiceAccountRequestModel() // UpdateServiceAccountRequestModel | The object of UpdateServiceAccountRequestModel used to set an existing service account. 
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, this will be queried as a background task.             The task will have JobType SetServiceAccount.             When the task is complete it will redirect to GetJobResults.              (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentitySetServiceAccount(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateServiceAccountRequestModel(updateServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentitySetServiceAccount``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentitySetServiceAccount`: ServiceAccountResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentitySetServiceAccount`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentitySetServiceAccount(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateServiceAccountRequestModel(updateServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentitySetServiceAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentitySetServiceAccount`: ServiceAccountResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentitySetServiceAccount`: %v\n", resp)
 }
 ```
 
@@ -2589,32 +2589,32 @@ Run tests on a service account and create a test report.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    serviceAccountUid := "serviceAccountUid_example" // string | ID of the service account to test.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the tests will run as a background task. This is recommended as the tests may take some time to run, and if it exceeds 90 seconds the request may time out. The task will have JobType TestServiceAccount. When the task is complete it will redirect to GetJobResults. The job's Parameters will contain properties:  * _Id_ - ID of the service account being tested, (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	serviceAccountUid := "serviceAccountUid_example" // string | ID of the service account to test.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the tests will run as a background task. This is recommended as the tests may take some time to run, and if it exceeds 90 seconds the request may time out. The task will have JobType TestServiceAccount. When the task is complete it will redirect to GetJobResults. The job's Parameters will contain properties:  * _Id_ - ID of the service account being tested, (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityTestServiceAccount(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityTestServiceAccount``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityTestServiceAccount`: ServiceAccountTestResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityTestServiceAccount`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityTestServiceAccount(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityTestServiceAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityTestServiceAccount`: ServiceAccountTestResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityTestServiceAccount`: %v\n", resp)
 }
 ```
 
@@ -2675,37 +2675,37 @@ Update a machine identity
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    machine := "machine_example" // string | Machine identity to update.
-    forest := "forest_example" // string | Forest to update machine account within.  Required.
-    domain := "domain_example" // string | Domain to update machine account within.  Required.
-    identityUpdateMachineRequestModel := *openapiclient.NewIdentityUpdateMachineRequestModel() // IdentityUpdateMachineRequestModel | Properties of the machine identity that should be updated.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
-    async := true // bool | If `true`, the machine identity will be updated as a background task. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	machine := "machine_example" // string | Machine identity to update.
+	forest := "forest_example" // string | Forest to update machine account within.  Required.
+	domain := "domain_example" // string | Domain to update machine account within.  Required.
+	identityUpdateMachineRequestModel := *openapiclient.NewIdentityUpdateMachineRequestModel() // IdentityUpdateMachineRequestModel | Properties of the machine identity that should be updated.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
+	async := true // bool | If `true`, the machine identity will be updated as a background task. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityUpdateMachine(context.Background(), machine).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).Forest(forest).Domain(domain).IdentityUpdateMachineRequestModel(identityUpdateMachineRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).DirectoryServerHint(directoryServerHint).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityUpdateMachine``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityUpdateMachine`: IdentityMachineResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityUpdateMachine`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityUpdateMachine(context.Background(), machine).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).Forest(forest).Domain(domain).IdentityUpdateMachineRequestModel(identityUpdateMachineRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).DirectoryServerHint(directoryServerHint).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityUpdateMachine``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityUpdateMachine`: IdentityMachineResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityUpdateMachine`: %v\n", resp)
 }
 ```
 
@@ -2771,37 +2771,37 @@ Update a user identity
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    user := "user_example" // string | User identity to update.
-    forest := "forest_example" // string | Forest to update user account within.  Required.
-    domain := "domain_example" // string | Domain to update user account within.  Required.
-    identityUpdateUserRequestModel := *openapiclient.NewIdentityUpdateUserRequestModel() // IdentityUpdateUserRequestModel | Properties of the user identity that should be updated.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
-    async := true // bool | If `true`, the user identity will be updated as a background task. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	user := "user_example" // string | User identity to update.
+	forest := "forest_example" // string | Forest to update user account within.  Required.
+	domain := "domain_example" // string | Domain to update user account within.  Required.
+	identityUpdateUserRequestModel := *openapiclient.NewIdentityUpdateUserRequestModel() // IdentityUpdateUserRequestModel | Properties of the user identity that should be updated.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	directoryServerHint := "directoryServerHint_example" // string | Hint to inform the system of a directory server which is most likely to successfully perform the operation. (optional)
+	async := true // bool | If `true`, the user identity will be updated as a background task. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityUpdateUser(context.Background(), user).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).Forest(forest).Domain(domain).IdentityUpdateUserRequestModel(identityUpdateUserRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).DirectoryServerHint(directoryServerHint).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityUpdateUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityUpdateUser`: IdentityUserResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityUpdateUser`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityUpdateUser(context.Background(), user).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).Forest(forest).Domain(domain).IdentityUpdateUserRequestModel(identityUpdateUserRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).DirectoryServerHint(directoryServerHint).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityUpdateUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityUpdateUser`: IdentityUserResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityUpdateUser`: %v\n", resp)
 }
 ```
 
@@ -2867,31 +2867,31 @@ Validate a user's credentials
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    identityValidateUserRequestModel := *openapiclient.NewIdentityValidateUserRequestModel("For example, administrator", "For example, password") // IdentityValidateUserRequestModel | Details of the user credentials to validate.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	identityValidateUserRequestModel := *openapiclient.NewIdentityValidateUserRequestModel("For example, administrator", "For example, password") // IdentityValidateUserRequestModel | Details of the user credentials to validate.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityValidateUser(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).IdentityValidateUserRequestModel(identityValidateUserRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityValidateUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IdentityValidateUser`: IdentityUserResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityValidateUser`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IdentityAPIsDAAS.IdentityValidateUser(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).IdentityValidateUserRequestModel(identityValidateUserRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityValidateUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IdentityValidateUser`: IdentityUserResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityValidateUser`: %v\n", resp)
 }
 ```
 

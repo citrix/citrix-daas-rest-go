@@ -52,6 +52,8 @@ type JobResponseModel struct {
 	FormattedEndTime NullableString `json:"FormattedEndTime,omitempty"`
 }
 
+type _JobResponseModel JobResponseModel
+
 // NewJobResponseModel instantiates a new JobResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -254,7 +256,7 @@ func (o *JobResponseModel) GetSubJobsOk() ([]JobResponseModel, bool) {
 
 // HasSubJobs returns a boolean if a field has been set.
 func (o *JobResponseModel) HasSubJobs() bool {
-	if o != nil && IsNil(o.SubJobs) {
+	if o != nil && !IsNil(o.SubJobs) {
 		return true
 	}
 
@@ -429,7 +431,7 @@ func (o *JobResponseModel) GetErrorParametersOk() ([]NameValueStringPairModel, b
 
 // HasErrorParameters returns a boolean if a field has been set.
 func (o *JobResponseModel) HasErrorParameters() bool {
-	if o != nil && IsNil(o.ErrorParameters) {
+	if o != nil && !IsNil(o.ErrorParameters) {
 		return true
 	}
 

@@ -65,7 +65,7 @@ func (o *ComparisonResponseContract) GetTargetsOk() ([]string, bool) {
 
 // HasTargets returns a boolean if a field has been set.
 func (o *ComparisonResponseContract) HasTargets() bool {
-	if o != nil && IsNil(o.Targets) {
+	if o != nil && !IsNil(o.Targets) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *ComparisonResponseContract) GetResultOk() ([]ComparisonRowContract, boo
 
 // HasResult returns a boolean if a field has been set.
 func (o *ComparisonResponseContract) HasResult() bool {
-	if o != nil && IsNil(o.Result) {
+	if o != nil && !IsNil(o.Result) {
 		return true
 	}
 

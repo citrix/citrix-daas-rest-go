@@ -81,7 +81,7 @@ func (o *PowerTimeSchemeRequestModel) GetDaysOfWeekOk() ([]TimeSchemeDays, bool)
 
 // HasDaysOfWeek returns a boolean if a field has been set.
 func (o *PowerTimeSchemeRequestModel) HasDaysOfWeek() bool {
-	if o != nil && IsNil(o.DaysOfWeek) {
+	if o != nil && !IsNil(o.DaysOfWeek) {
 		return true
 	}
 
@@ -202,7 +202,7 @@ func (o *PowerTimeSchemeRequestModel) GetPeakHoursOk() ([]bool, bool) {
 
 // HasPeakHours returns a boolean if a field has been set.
 func (o *PowerTimeSchemeRequestModel) HasPeakHours() bool {
-	if o != nil && IsNil(o.PeakHours) {
+	if o != nil && !IsNil(o.PeakHours) {
 		return true
 	}
 
@@ -236,7 +236,7 @@ func (o *PowerTimeSchemeRequestModel) GetPeakTimeRangesOk() ([]string, bool) {
 
 // HasPeakTimeRanges returns a boolean if a field has been set.
 func (o *PowerTimeSchemeRequestModel) HasPeakTimeRanges() bool {
-	if o != nil && IsNil(o.PeakTimeRanges) {
+	if o != nil && !IsNil(o.PeakTimeRanges) {
 		return true
 	}
 
@@ -271,7 +271,7 @@ func (o *PowerTimeSchemeRequestModel) GetPoolSizeOk() ([]int32, bool) {
 
 // HasPoolSize returns a boolean if a field has been set.
 func (o *PowerTimeSchemeRequestModel) HasPoolSize() bool {
-	if o != nil && IsNil(o.PoolSize) {
+	if o != nil && !IsNil(o.PoolSize) {
 		return true
 	}
 
@@ -305,7 +305,7 @@ func (o *PowerTimeSchemeRequestModel) GetPoolSizeScheduleOk() ([]PoolSizeSchedul
 
 // HasPoolSizeSchedule returns a boolean if a field has been set.
 func (o *PowerTimeSchemeRequestModel) HasPoolSizeSchedule() bool {
-	if o != nil && IsNil(o.PoolSizeSchedule) {
+	if o != nil && !IsNil(o.PoolSizeSchedule) {
 		return true
 	}
 

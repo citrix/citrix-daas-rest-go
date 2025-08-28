@@ -33,6 +33,8 @@ type MachineCatalogVusComponentResponseModel struct {
 	AvailableFeatures []VDAFeatureModel `json:"AvailableFeatures,omitempty"`
 }
 
+type _MachineCatalogVusComponentResponseModel MachineCatalogVusComponentResponseModel
+
 // NewMachineCatalogVusComponentResponseModel instantiates a new MachineCatalogVusComponentResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -153,7 +155,7 @@ func (o *MachineCatalogVusComponentResponseModel) GetInstalledComponentsOk() ([]
 
 // HasInstalledComponents returns a boolean if a field has been set.
 func (o *MachineCatalogVusComponentResponseModel) HasInstalledComponents() bool {
-	if o != nil && IsNil(o.InstalledComponents) {
+	if o != nil && !IsNil(o.InstalledComponents) {
 		return true
 	}
 
@@ -186,7 +188,7 @@ func (o *MachineCatalogVusComponentResponseModel) GetAvailableComponentsOk() ([]
 
 // HasAvailableComponents returns a boolean if a field has been set.
 func (o *MachineCatalogVusComponentResponseModel) HasAvailableComponents() bool {
-	if o != nil && IsNil(o.AvailableComponents) {
+	if o != nil && !IsNil(o.AvailableComponents) {
 		return true
 	}
 
@@ -219,7 +221,7 @@ func (o *MachineCatalogVusComponentResponseModel) GetAvailableFeaturesOk() ([]VD
 
 // HasAvailableFeatures returns a boolean if a field has been set.
 func (o *MachineCatalogVusComponentResponseModel) HasAvailableFeatures() bool {
-	if o != nil && IsNil(o.AvailableFeatures) {
+	if o != nil && !IsNil(o.AvailableFeatures) {
 		return true
 	}
 

@@ -33,6 +33,8 @@ type RemotePCEnrollmentScopeRequestModel struct {
 	AssignedUsers []string `json:"AssignedUsers,omitempty"`
 }
 
+type _RemotePCEnrollmentScopeRequestModel RemotePCEnrollmentScopeRequestModel
+
 // NewRemotePCEnrollmentScopeRequestModel instantiates a new RemotePCEnrollmentScopeRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -190,7 +192,7 @@ func (o *RemotePCEnrollmentScopeRequestModel) GetMachinesExcludedOk() ([]string,
 
 // HasMachinesExcluded returns a boolean if a field has been set.
 func (o *RemotePCEnrollmentScopeRequestModel) HasMachinesExcluded() bool {
-	if o != nil && IsNil(o.MachinesExcluded) {
+	if o != nil && !IsNil(o.MachinesExcluded) {
 		return true
 	}
 
@@ -223,7 +225,7 @@ func (o *RemotePCEnrollmentScopeRequestModel) GetMachinesIncludedOk() ([]string,
 
 // HasMachinesIncluded returns a boolean if a field has been set.
 func (o *RemotePCEnrollmentScopeRequestModel) HasMachinesIncluded() bool {
-	if o != nil && IsNil(o.MachinesIncluded) {
+	if o != nil && !IsNil(o.MachinesIncluded) {
 		return true
 	}
 
@@ -256,7 +258,7 @@ func (o *RemotePCEnrollmentScopeRequestModel) GetAssignedUsersOk() ([]string, bo
 
 // HasAssignedUsers returns a boolean if a field has been set.
 func (o *RemotePCEnrollmentScopeRequestModel) HasAssignedUsers() bool {
-	if o != nil && IsNil(o.AssignedUsers) {
+	if o != nil && !IsNil(o.AssignedUsers) {
 		return true
 	}
 

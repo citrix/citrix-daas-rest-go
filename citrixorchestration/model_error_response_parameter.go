@@ -25,6 +25,8 @@ type ErrorResponseParameter struct {
 	Value string `json:"value"`
 }
 
+type _ErrorResponseParameter ErrorResponseParameter
+
 // NewErrorResponseParameter instantiates a new ErrorResponseParameter object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

@@ -78,6 +78,8 @@ type EditHypervisorOpenShiftConnectionRequestModel struct {
 	ServiceAccountFingerprint *string `json:"ServiceAccountFingerprint,omitempty" validate:"regexp=(.*)*"`
 }
 
+type _EditHypervisorOpenShiftConnectionRequestModel EditHypervisorOpenShiftConnectionRequestModel
+
 // NewEditHypervisorOpenShiftConnectionRequestModel instantiates a new EditHypervisorOpenShiftConnectionRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -204,7 +206,7 @@ func (o *EditHypervisorOpenShiftConnectionRequestModel) GetScopesOk() ([]string,
 
 // HasScopes returns a boolean if a field has been set.
 func (o *EditHypervisorOpenShiftConnectionRequestModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -237,7 +239,7 @@ func (o *EditHypervisorOpenShiftConnectionRequestModel) GetTenantsOk() ([]string
 
 // HasTenants returns a boolean if a field has been set.
 func (o *EditHypervisorOpenShiftConnectionRequestModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -466,7 +468,7 @@ func (o *EditHypervisorOpenShiftConnectionRequestModel) GetMetadataOk() ([]NameV
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *EditHypervisorOpenShiftConnectionRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -1124,7 +1126,7 @@ func (o *EditHypervisorOpenShiftConnectionRequestModel) GetSslThumbprintsOk() ([
 
 // HasSslThumbprints returns a boolean if a field has been set.
 func (o *EditHypervisorOpenShiftConnectionRequestModel) HasSslThumbprints() bool {
-	if o != nil && IsNil(o.SslThumbprints) {
+	if o != nil && !IsNil(o.SslThumbprints) {
 		return true
 	}
 

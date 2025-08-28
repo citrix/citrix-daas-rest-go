@@ -67,7 +67,7 @@ func (o *ApplicationDiscoveryRequestModel) GetApplicationGroupsOk() ([]string, b
 
 // HasApplicationGroups returns a boolean if a field has been set.
 func (o *ApplicationDiscoveryRequestModel) HasApplicationGroups() bool {
-	if o != nil && IsNil(o.ApplicationGroups) {
+	if o != nil && !IsNil(o.ApplicationGroups) {
 		return true
 	}
 
@@ -100,7 +100,7 @@ func (o *ApplicationDiscoveryRequestModel) GetDeliveryGroupsOk() ([]string, bool
 
 // HasDeliveryGroups returns a boolean if a field has been set.
 func (o *ApplicationDiscoveryRequestModel) HasDeliveryGroups() bool {
-	if o != nil && IsNil(o.DeliveryGroups) {
+	if o != nil && !IsNil(o.DeliveryGroups) {
 		return true
 	}
 
@@ -133,7 +133,7 @@ func (o *ApplicationDiscoveryRequestModel) GetMachineCatalogsOk() ([]string, boo
 
 // HasMachineCatalogs returns a boolean if a field has been set.
 func (o *ApplicationDiscoveryRequestModel) HasMachineCatalogs() bool {
-	if o != nil && IsNil(o.MachineCatalogs) {
+	if o != nil && !IsNil(o.MachineCatalogs) {
 		return true
 	}
 

@@ -103,7 +103,7 @@ func (o *SimulationResponseContract) GetFilterEvidenceOk() (*map[string]string, 
 
 // HasFilterEvidence returns a boolean if a field has been set.
 func (o *SimulationResponseContract) HasFilterEvidence() bool {
-	if o != nil && IsNil(o.FilterEvidence) {
+	if o != nil && !IsNil(o.FilterEvidence) {
 		return true
 	}
 
@@ -136,7 +136,7 @@ func (o *SimulationResponseContract) GetAppliedSettingsOk() ([]AppliedSetting, b
 
 // HasAppliedSettings returns a boolean if a field has been set.
 func (o *SimulationResponseContract) HasAppliedSettings() bool {
-	if o != nil && IsNil(o.AppliedSettings) {
+	if o != nil && !IsNil(o.AppliedSettings) {
 		return true
 	}
 
@@ -169,7 +169,7 @@ func (o *SimulationResponseContract) GetAppliedPoliciesOk() ([]AppliedPolicy, bo
 
 // HasAppliedPolicies returns a boolean if a field has been set.
 func (o *SimulationResponseContract) HasAppliedPolicies() bool {
-	if o != nil && IsNil(o.AppliedPolicies) {
+	if o != nil && !IsNil(o.AppliedPolicies) {
 		return true
 	}
 
@@ -202,7 +202,7 @@ func (o *SimulationResponseContract) GetLosingSettingsOk() ([]LosingSetting, boo
 
 // HasLosingSettings returns a boolean if a field has been set.
 func (o *SimulationResponseContract) HasLosingSettings() bool {
-	if o != nil && IsNil(o.LosingSettings) {
+	if o != nil && !IsNil(o.LosingSettings) {
 		return true
 	}
 
@@ -235,7 +235,7 @@ func (o *SimulationResponseContract) GetLosingPoliciesOk() ([]LosingPolicy, bool
 
 // HasLosingPolicies returns a boolean if a field has been set.
 func (o *SimulationResponseContract) HasLosingPolicies() bool {
-	if o != nil && IsNil(o.LosingPolicies) {
+	if o != nil && !IsNil(o.LosingPolicies) {
 		return true
 	}
 

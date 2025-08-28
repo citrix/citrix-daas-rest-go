@@ -57,6 +57,8 @@ type RebootScheduleResponseModel struct {
 	WarningTitle NullableString `json:"WarningTitle,omitempty"`
 }
 
+type _RebootScheduleResponseModel RebootScheduleResponseModel
+
 // NewRebootScheduleResponseModel instantiates a new RebootScheduleResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -233,7 +235,7 @@ func (o *RebootScheduleResponseModel) GetDaysInWeekOk() ([]RebootScheduleDays, b
 
 // HasDaysInWeek returns a boolean if a field has been set.
 func (o *RebootScheduleResponseModel) HasDaysInWeek() bool {
-	if o != nil && IsNil(o.DaysInWeek) {
+	if o != nil && !IsNil(o.DaysInWeek) {
 		return true
 	}
 

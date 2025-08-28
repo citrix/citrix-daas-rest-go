@@ -35,6 +35,8 @@ type ImageVersionResponseModel struct {
 	ProvisioningSchemeCount *int32 `json:"ProvisioningSchemeCount,omitempty"`
 }
 
+type _ImageVersionResponseModel ImageVersionResponseModel
+
 // NewImageVersionResponseModel instantiates a new ImageVersionResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -266,7 +268,7 @@ func (o *ImageVersionResponseModel) GetImageVersionSpecsOk() ([]ImageVersionSpec
 
 // HasImageVersionSpecs returns a boolean if a field has been set.
 func (o *ImageVersionResponseModel) HasImageVersionSpecs() bool {
-	if o != nil && IsNil(o.ImageVersionSpecs) {
+	if o != nil && !IsNil(o.ImageVersionSpecs) {
 		return true
 	}
 

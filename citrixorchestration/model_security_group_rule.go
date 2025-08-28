@@ -31,6 +31,8 @@ type SecurityGroupRule struct {
 	ToPort int32 `json:"ToPort"`
 }
 
+type _SecurityGroupRule SecurityGroupRule
+
 // NewSecurityGroupRule instantiates a new SecurityGroupRule object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

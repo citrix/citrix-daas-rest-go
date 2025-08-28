@@ -91,6 +91,8 @@ type SiteDetailResponseModel struct {
 	LicensingAlerts []LicensingAlertResponseModel `json:"LicensingAlerts,omitempty"`
 }
 
+type _SiteDetailResponseModel SiteDetailResponseModel
+
 // NewSiteDetailResponseModel instantiates a new SiteDetailResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -651,7 +653,7 @@ func (o *SiteDetailResponseModel) GetMetadataOk() ([]NameValueStringPairModel, b
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *SiteDetailResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -1413,7 +1415,7 @@ func (o *SiteDetailResponseModel) GetLicensingAlertsOk() ([]LicensingAlertRespon
 
 // HasLicensingAlerts returns a boolean if a field has been set.
 func (o *SiteDetailResponseModel) HasLicensingAlerts() bool {
-	if o != nil && IsNil(o.LicensingAlerts) {
+	if o != nil && !IsNil(o.LicensingAlerts) {
 		return true
 	}
 

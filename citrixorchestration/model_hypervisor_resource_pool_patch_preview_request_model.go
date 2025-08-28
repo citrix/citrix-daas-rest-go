@@ -63,7 +63,7 @@ func (o *HypervisorResourcePoolPatchPreviewRequestModel) GetNetworksOk() ([]stri
 
 // HasNetworks returns a boolean if a field has been set.
 func (o *HypervisorResourcePoolPatchPreviewRequestModel) HasNetworks() bool {
-	if o != nil && IsNil(o.Networks) {
+	if o != nil && !IsNil(o.Networks) {
 		return true
 	}
 
@@ -96,7 +96,7 @@ func (o *HypervisorResourcePoolPatchPreviewRequestModel) GetNetworkIdsOk() ([]st
 
 // HasNetworkIds returns a boolean if a field has been set.
 func (o *HypervisorResourcePoolPatchPreviewRequestModel) HasNetworkIds() bool {
-	if o != nil && IsNil(o.NetworkIds) {
+	if o != nil && !IsNil(o.NetworkIds) {
 		return true
 	}
 

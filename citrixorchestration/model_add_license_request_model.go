@@ -27,6 +27,8 @@ type AddLicenseRequestModel struct {
 	OverrideFile bool `json:"OverrideFile"`
 }
 
+type _AddLicenseRequestModel AddLicenseRequestModel
+
 // NewAddLicenseRequestModel instantiates a new AddLicenseRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

@@ -153,7 +153,7 @@ func (o *TemplateRequestContract) GetSettingsOk() ([]SettingRequestContract, boo
 
 // HasSettings returns a boolean if a field has been set.
 func (o *TemplateRequestContract) HasSettings() bool {
-	if o != nil && IsNil(o.Settings) {
+	if o != nil && !IsNil(o.Settings) {
 		return true
 	}
 

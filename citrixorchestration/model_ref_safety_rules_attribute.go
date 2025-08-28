@@ -61,7 +61,7 @@ func (o *RefSafetyRulesAttribute) GetTypeIdOk() (map[string]interface{}, bool) {
 
 // HasTypeId returns a boolean if a field has been set.
 func (o *RefSafetyRulesAttribute) HasTypeId() bool {
-	if o != nil && IsNil(o.TypeId) {
+	if o != nil && !IsNil(o.TypeId) {
 		return true
 	}
 

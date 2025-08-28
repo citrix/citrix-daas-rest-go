@@ -25,6 +25,8 @@ type AddAppVServerRequestModel struct {
 	PublishingServer string `json:"PublishingServer"`
 }
 
+type _AddAppVServerRequestModel AddAppVServerRequestModel
+
 // NewAddAppVServerRequestModel instantiates a new AddAppVServerRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

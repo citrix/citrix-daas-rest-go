@@ -459,7 +459,7 @@ func (o *EditSiteSettingsRequestModel) GetAllowedCorsOriginsForIwaOk() ([]string
 
 // HasAllowedCorsOriginsForIwa returns a boolean if a field has been set.
 func (o *EditSiteSettingsRequestModel) HasAllowedCorsOriginsForIwa() bool {
-	if o != nil && IsNil(o.AllowedCorsOriginsForIwa) {
+	if o != nil && !IsNil(o.AllowedCorsOriginsForIwa) {
 		return true
 	}
 
@@ -492,7 +492,7 @@ func (o *EditSiteSettingsRequestModel) GetMultiSitesOk() ([]MultiSiteModel, bool
 
 // HasMultiSites returns a boolean if a field has been set.
 func (o *EditSiteSettingsRequestModel) HasMultiSites() bool {
-	if o != nil && IsNil(o.MultiSites) {
+	if o != nil && !IsNil(o.MultiSites) {
 		return true
 	}
 

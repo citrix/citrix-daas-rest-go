@@ -25,6 +25,8 @@ type AddIconRequestModel struct {
 	IconFormat NullableString `json:"IconFormat,omitempty"`
 }
 
+type _AddIconRequestModel AddIconRequestModel
+
 // NewAddIconRequestModel instantiates a new AddIconRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

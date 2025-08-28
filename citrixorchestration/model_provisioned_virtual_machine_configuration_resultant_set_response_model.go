@@ -237,7 +237,7 @@ func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) GetCus
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
+	if o != nil && !IsNil(o.CustomProperties) {
 		return true
 	}
 

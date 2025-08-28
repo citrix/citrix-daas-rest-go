@@ -606,7 +606,7 @@ func (o *CatalogSearchResponseModel) GetJobsInProgressOk() ([]RefResponseModel, 
 
 // HasJobsInProgress returns a boolean if a field has been set.
 func (o *CatalogSearchResponseModel) HasJobsInProgress() bool {
-	if o != nil && IsNil(o.JobsInProgress) {
+	if o != nil && !IsNil(o.JobsInProgress) {
 		return true
 	}
 
@@ -671,7 +671,7 @@ func (o *CatalogSearchResponseModel) GetMetadataOk() ([]NameValueStringPairModel
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *CatalogSearchResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -1078,7 +1078,7 @@ func (o *CatalogSearchResponseModel) GetRemotePCEnrollmentScopesOk() ([]RemotePC
 
 // HasRemotePCEnrollmentScopes returns a boolean if a field has been set.
 func (o *CatalogSearchResponseModel) HasRemotePCEnrollmentScopes() bool {
-	if o != nil && IsNil(o.RemotePCEnrollmentScopes) {
+	if o != nil && !IsNil(o.RemotePCEnrollmentScopes) {
 		return true
 	}
 
@@ -1111,7 +1111,7 @@ func (o *CatalogSearchResponseModel) GetScopesOk() ([]ScopeResponseModel, bool) 
 
 // HasScopes returns a boolean if a field has been set.
 func (o *CatalogSearchResponseModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -1144,7 +1144,7 @@ func (o *CatalogSearchResponseModel) GetTenantsOk() ([]RefResponseModel, bool) {
 
 // HasTenants returns a boolean if a field has been set.
 func (o *CatalogSearchResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -1380,7 +1380,7 @@ func (o *CatalogSearchResponseModel) GetErrorsOk() ([]string, bool) {
 
 // HasErrors returns a boolean if a field has been set.
 func (o *CatalogSearchResponseModel) HasErrors() bool {
-	if o != nil && IsNil(o.Errors) {
+	if o != nil && !IsNil(o.Errors) {
 		return true
 	}
 
@@ -1413,7 +1413,7 @@ func (o *CatalogSearchResponseModel) GetWarningsOk() ([]MachineCatalogWarningRes
 
 // HasWarnings returns a boolean if a field has been set.
 func (o *CatalogSearchResponseModel) HasWarnings() bool {
-	if o != nil && IsNil(o.Warnings) {
+	if o != nil && !IsNil(o.Warnings) {
 		return true
 	}
 

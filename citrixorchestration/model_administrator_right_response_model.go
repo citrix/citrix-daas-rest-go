@@ -23,6 +23,8 @@ type AdministratorRightResponseModel struct {
 	Role  RoleResponseModel  `json:"Role"`
 }
 
+type _AdministratorRightResponseModel AdministratorRightResponseModel
+
 // NewAdministratorRightResponseModel instantiates a new AdministratorRightResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

@@ -50,6 +50,8 @@ type HypervisorResponseModel struct {
 	IsVirtual *bool `json:"IsVirtual,omitempty"`
 }
 
+type _HypervisorResponseModel HypervisorResponseModel
+
 // NewHypervisorResponseModel instantiates a new HypervisorResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -376,7 +378,7 @@ func (o *HypervisorResponseModel) GetTenantsOk() ([]RefResponseModel, bool) {
 
 // HasTenants returns a boolean if a field has been set.
 func (o *HypervisorResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 

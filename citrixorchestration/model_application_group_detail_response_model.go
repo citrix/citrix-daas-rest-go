@@ -66,6 +66,8 @@ type ApplicationGroupDetailResponseModel struct {
 	TotalMachines int32 `json:"TotalMachines"`
 }
 
+type _ApplicationGroupDetailResponseModel ApplicationGroupDetailResponseModel
+
 // NewApplicationGroupDetailResponseModel instantiates a new ApplicationGroupDetailResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -197,7 +199,7 @@ func (o *ApplicationGroupDetailResponseModel) GetContainerScopesOk() ([]Containe
 
 // HasContainerScopes returns a boolean if a field has been set.
 func (o *ApplicationGroupDetailResponseModel) HasContainerScopes() bool {
-	if o != nil && IsNil(o.ContainerScopes) {
+	if o != nil && !IsNil(o.ContainerScopes) {
 		return true
 	}
 
@@ -391,7 +393,7 @@ func (o *ApplicationGroupDetailResponseModel) GetScopesOk() ([]ScopeResponseMode
 
 // HasScopes returns a boolean if a field has been set.
 func (o *ApplicationGroupDetailResponseModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -424,7 +426,7 @@ func (o *ApplicationGroupDetailResponseModel) GetMetadataOk() ([]NameValueString
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *ApplicationGroupDetailResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -457,7 +459,7 @@ func (o *ApplicationGroupDetailResponseModel) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *ApplicationGroupDetailResponseModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -490,7 +492,7 @@ func (o *ApplicationGroupDetailResponseModel) GetTenantsOk() ([]RefResponseModel
 
 // HasTenants returns a boolean if a field has been set.
 func (o *ApplicationGroupDetailResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -651,7 +653,7 @@ func (o *ApplicationGroupDetailResponseModel) GetDeliveryGroupsOk() ([]Applicati
 
 // HasDeliveryGroups returns a boolean if a field has been set.
 func (o *ApplicationGroupDetailResponseModel) HasDeliveryGroups() bool {
-	if o != nil && IsNil(o.DeliveryGroups) {
+	if o != nil && !IsNil(o.DeliveryGroups) {
 		return true
 	}
 
@@ -684,7 +686,7 @@ func (o *ApplicationGroupDetailResponseModel) GetAssociatedDeliveryGroupUidsOk()
 
 // HasAssociatedDeliveryGroupUids returns a boolean if a field has been set.
 func (o *ApplicationGroupDetailResponseModel) HasAssociatedDeliveryGroupUids() bool {
-	if o != nil && IsNil(o.AssociatedDeliveryGroupUids) {
+	if o != nil && !IsNil(o.AssociatedDeliveryGroupUids) {
 		return true
 	}
 
@@ -797,7 +799,7 @@ func (o *ApplicationGroupDetailResponseModel) GetIncludedUsersOk() ([]IdentityUs
 
 // HasIncludedUsers returns a boolean if a field has been set.
 func (o *ApplicationGroupDetailResponseModel) HasIncludedUsers() bool {
-	if o != nil && IsNil(o.IncludedUsers) {
+	if o != nil && !IsNil(o.IncludedUsers) {
 		return true
 	}
 

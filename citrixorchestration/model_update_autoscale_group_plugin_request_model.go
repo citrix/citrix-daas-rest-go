@@ -288,7 +288,7 @@ func (o *UpdateAutoscaleGroupPluginRequestModel) GetDatesOk() ([]string, bool) {
 
 // HasDates returns a boolean if a field has been set.
 func (o *UpdateAutoscaleGroupPluginRequestModel) HasDates() bool {
-	if o != nil && IsNil(o.Dates) {
+	if o != nil && !IsNil(o.Dates) {
 		return true
 	}
 

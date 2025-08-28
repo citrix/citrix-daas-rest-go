@@ -54,6 +54,8 @@ type LowLevelOperationResponseModel struct {
 	UserIdentity NullableString `json:"UserIdentity,omitempty"`
 }
 
+type _LowLevelOperationResponseModel LowLevelOperationResponseModel
+
 // NewLowLevelOperationResponseModel instantiates a new LowLevelOperationResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -144,7 +146,7 @@ func (o *LowLevelOperationResponseModel) GetDetailsOk() ([]LowLevelOperationDeta
 
 // HasDetails returns a boolean if a field has been set.
 func (o *LowLevelOperationResponseModel) HasDetails() bool {
-	if o != nil && IsNil(o.Details) {
+	if o != nil && !IsNil(o.Details) {
 		return true
 	}
 

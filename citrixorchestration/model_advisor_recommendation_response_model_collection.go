@@ -29,6 +29,8 @@ type AdvisorRecommendationResponseModelCollection struct {
 	JobsInProgress []RefResponseModel `json:"JobsInProgress,omitempty"`
 }
 
+type _AdvisorRecommendationResponseModelCollection AdvisorRecommendationResponseModelCollection
+
 // NewAdvisorRecommendationResponseModelCollection instantiates a new AdvisorRecommendationResponseModelCollection object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -178,7 +180,7 @@ func (o *AdvisorRecommendationResponseModelCollection) GetJobsInProgressOk() ([]
 
 // HasJobsInProgress returns a boolean if a field has been set.
 func (o *AdvisorRecommendationResponseModelCollection) HasJobsInProgress() bool {
-	if o != nil && IsNil(o.JobsInProgress) {
+	if o != nil && !IsNil(o.JobsInProgress) {
 		return true
 	}
 

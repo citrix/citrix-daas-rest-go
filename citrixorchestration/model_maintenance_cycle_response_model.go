@@ -725,7 +725,7 @@ func (o *MaintenanceCycleResponseModel) GetVMNamesOk() ([]string, bool) {
 
 // HasVMNames returns a boolean if a field has been set.
 func (o *MaintenanceCycleResponseModel) HasVMNames() bool {
-	if o != nil && IsNil(o.VMNames) {
+	if o != nil && !IsNil(o.VMNames) {
 		return true
 	}
 

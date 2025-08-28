@@ -94,7 +94,7 @@ func (o *HypervisorResourceValidationResponseModel) GetReportsOk() ([]ResourceVa
 
 // HasReports returns a boolean if a field has been set.
 func (o *HypervisorResourceValidationResponseModel) HasReports() bool {
-	if o != nil && IsNil(o.Reports) {
+	if o != nil && !IsNil(o.Reports) {
 		return true
 	}
 

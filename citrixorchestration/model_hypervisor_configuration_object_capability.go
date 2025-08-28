@@ -106,7 +106,7 @@ func (o *HypervisorConfigurationObjectCapability) GetTypeCapabilitiesOk() ([]str
 
 // HasTypeCapabilities returns a boolean if a field has been set.
 func (o *HypervisorConfigurationObjectCapability) HasTypeCapabilities() bool {
-	if o != nil && IsNil(o.TypeCapabilities) {
+	if o != nil && !IsNil(o.TypeCapabilities) {
 		return true
 	}
 

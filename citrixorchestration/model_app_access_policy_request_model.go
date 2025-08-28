@@ -157,7 +157,7 @@ func (o *AppAccessPolicyRequestModel) GetExcludedUsersOk() ([]string, bool) {
 
 // HasExcludedUsers returns a boolean if a field has been set.
 func (o *AppAccessPolicyRequestModel) HasExcludedUsers() bool {
-	if o != nil && IsNil(o.ExcludedUsers) {
+	if o != nil && !IsNil(o.ExcludedUsers) {
 		return true
 	}
 
@@ -233,7 +233,7 @@ func (o *AppAccessPolicyRequestModel) GetIncludedUsersOk() ([]string, bool) {
 
 // HasIncludedUsers returns a boolean if a field has been set.
 func (o *AppAccessPolicyRequestModel) HasIncludedUsers() bool {
-	if o != nil && IsNil(o.IncludedUsers) {
+	if o != nil && !IsNil(o.IncludedUsers) {
 		return true
 	}
 

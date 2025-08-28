@@ -151,7 +151,7 @@ func (o *SettingRequestContract) GetTypedValueOk() (map[string]interface{}, bool
 
 // HasTypedValue returns a boolean if a field has been set.
 func (o *SettingRequestContract) HasTypedValue() bool {
-	if o != nil && IsNil(o.TypedValue) {
+	if o != nil && !IsNil(o.TypedValue) {
 		return true
 	}
 

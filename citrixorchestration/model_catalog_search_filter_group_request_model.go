@@ -97,7 +97,7 @@ func (o *CatalogSearchFilterGroupRequestModel) GetSearchFiltersOk() ([]CatalogSe
 
 // HasSearchFilters returns a boolean if a field has been set.
 func (o *CatalogSearchFilterGroupRequestModel) HasSearchFilters() bool {
-	if o != nil && IsNil(o.SearchFilters) {
+	if o != nil && !IsNil(o.SearchFilters) {
 		return true
 	}
 
@@ -162,7 +162,7 @@ func (o *CatalogSearchFilterGroupRequestModel) GetSearchFilterGroupsOk() ([]Cata
 
 // HasSearchFilterGroups returns a boolean if a field has been set.
 func (o *CatalogSearchFilterGroupRequestModel) HasSearchFilterGroups() bool {
-	if o != nil && IsNil(o.SearchFilterGroups) {
+	if o != nil && !IsNil(o.SearchFilterGroups) {
 		return true
 	}
 

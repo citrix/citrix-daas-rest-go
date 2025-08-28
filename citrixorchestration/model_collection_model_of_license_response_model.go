@@ -27,6 +27,8 @@ type CollectionModelOfLicenseResponseModel struct {
 	TotalItems NullableInt32 `json:"TotalItems,omitempty"`
 }
 
+type _CollectionModelOfLicenseResponseModel CollectionModelOfLicenseResponseModel
+
 // NewCollectionModelOfLicenseResponseModel instantiates a new CollectionModelOfLicenseResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

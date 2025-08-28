@@ -355,7 +355,7 @@ func (o *FastApplicationSettingsRequestModel) GetIncludedUsersOk() ([]string, bo
 
 // HasIncludedUsers returns a boolean if a field has been set.
 func (o *FastApplicationSettingsRequestModel) HasIncludedUsers() bool {
-	if o != nil && IsNil(o.IncludedUsers) {
+	if o != nil && !IsNil(o.IncludedUsers) {
 		return true
 	}
 

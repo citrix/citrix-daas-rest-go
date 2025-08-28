@@ -34,6 +34,8 @@ type SiteStatusResponseModel struct {
 	DataStoresRequiringUpgrade []string `json:"DataStoresRequiringUpgrade,omitempty"`
 }
 
+type _SiteStatusResponseModel SiteStatusResponseModel
+
 // NewSiteStatusResponseModel instantiates a new SiteStatusResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -129,7 +131,7 @@ func (o *SiteStatusResponseModel) GetUpgradedControllersOk() ([]string, bool) {
 
 // HasUpgradedControllers returns a boolean if a field has been set.
 func (o *SiteStatusResponseModel) HasUpgradedControllers() bool {
-	if o != nil && IsNil(o.UpgradedControllers) {
+	if o != nil && !IsNil(o.UpgradedControllers) {
 		return true
 	}
 
@@ -162,7 +164,7 @@ func (o *SiteStatusResponseModel) GetControllersRequiringBinaryUpgradeOk() ([]st
 
 // HasControllersRequiringBinaryUpgrade returns a boolean if a field has been set.
 func (o *SiteStatusResponseModel) HasControllersRequiringBinaryUpgrade() bool {
-	if o != nil && IsNil(o.ControllersRequiringBinaryUpgrade) {
+	if o != nil && !IsNil(o.ControllersRequiringBinaryUpgrade) {
 		return true
 	}
 
@@ -238,7 +240,7 @@ func (o *SiteStatusResponseModel) GetDatabaseServersRequiringUpgradeOk() ([]stri
 
 // HasDatabaseServersRequiringUpgrade returns a boolean if a field has been set.
 func (o *SiteStatusResponseModel) HasDatabaseServersRequiringUpgrade() bool {
-	if o != nil && IsNil(o.DatabaseServersRequiringUpgrade) {
+	if o != nil && !IsNil(o.DatabaseServersRequiringUpgrade) {
 		return true
 	}
 
@@ -271,7 +273,7 @@ func (o *SiteStatusResponseModel) GetDataStoresRequiringUpgradeOk() ([]string, b
 
 // HasDataStoresRequiringUpgrade returns a boolean if a field has been set.
 func (o *SiteStatusResponseModel) HasDataStoresRequiringUpgrade() bool {
-	if o != nil && IsNil(o.DataStoresRequiringUpgrade) {
+	if o != nil && !IsNil(o.DataStoresRequiringUpgrade) {
 		return true
 	}
 

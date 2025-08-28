@@ -44,6 +44,8 @@ type UpdateMaintenanceCycleRequestModel struct {
 	VMNames []string `json:"VMNames,omitempty"`
 }
 
+type _UpdateMaintenanceCycleRequestModel UpdateMaintenanceCycleRequestModel
+
 // NewUpdateMaintenanceCycleRequestModel instantiates a new UpdateMaintenanceCycleRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -476,7 +478,7 @@ func (o *UpdateMaintenanceCycleRequestModel) GetVMNamesOk() ([]string, bool) {
 
 // HasVMNames returns a boolean if a field has been set.
 func (o *UpdateMaintenanceCycleRequestModel) HasVMNames() bool {
-	if o != nil && IsNil(o.VMNames) {
+	if o != nil && !IsNil(o.VMNames) {
 		return true
 	}
 

@@ -29,6 +29,8 @@ type CreateAdminScopeRequestModel struct {
 	ScopedObjects []ScopedObjectRequestModel `json:"ScopedObjects,omitempty"`
 }
 
+type _CreateAdminScopeRequestModel CreateAdminScopeRequestModel
+
 // NewCreateAdminScopeRequestModel instantiates a new CreateAdminScopeRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -167,7 +169,7 @@ func (o *CreateAdminScopeRequestModel) GetScopedObjectsOk() ([]ScopedObjectReque
 
 // HasScopedObjects returns a boolean if a field has been set.
 func (o *CreateAdminScopeRequestModel) HasScopedObjects() bool {
-	if o != nil && IsNil(o.ScopedObjects) {
+	if o != nil && !IsNil(o.ScopedObjects) {
 		return true
 	}
 

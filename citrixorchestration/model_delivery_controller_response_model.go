@@ -598,7 +598,7 @@ func (o *DeliveryControllerResponseModel) GetServiceStatusesOk() ([]DeliveryCont
 
 // HasServiceStatuses returns a boolean if a field has been set.
 func (o *DeliveryControllerResponseModel) HasServiceStatuses() bool {
-	if o != nil && IsNil(o.ServiceStatuses) {
+	if o != nil && !IsNil(o.ServiceStatuses) {
 		return true
 	}
 

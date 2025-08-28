@@ -25,6 +25,8 @@ type HypervisorResourcePoolStorageRequestModel struct {
 	Superseded NullableBool `json:"Superseded,omitempty"`
 }
 
+type _HypervisorResourcePoolStorageRequestModel HypervisorResourcePoolStorageRequestModel
+
 // NewHypervisorResourcePoolStorageRequestModel instantiates a new HypervisorResourcePoolStorageRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

@@ -32,6 +32,8 @@ type IconResponseModel struct {
 	Uid NullableInt32 `json:"Uid,omitempty"`
 }
 
+type _IconResponseModel IconResponseModel
+
 // NewIconResponseModel instantiates a new IconResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

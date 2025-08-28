@@ -28,6 +28,8 @@ type ZonedItemRequestModel struct {
 	AdditionalPropertiesField []NameValueStringPairModel `json:"AdditionalProperties,omitempty"`
 }
 
+type _ZonedItemRequestModel ZonedItemRequestModel
+
 // NewZonedItemRequestModel instantiates a new ZonedItemRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -141,7 +143,7 @@ func (o *ZonedItemRequestModel) GetAdditionalPropertiesFieldOk() ([]NameValueStr
 
 // HasAdditionalPropertiesField returns a boolean if a field has been set.
 func (o *ZonedItemRequestModel) HasAdditionalPropertiesField() bool {
-	if o != nil && IsNil(o.AdditionalPropertiesField) {
+	if o != nil && !IsNil(o.AdditionalPropertiesField) {
 		return true
 	}
 

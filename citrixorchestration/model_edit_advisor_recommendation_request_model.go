@@ -106,7 +106,7 @@ func (o *EditAdvisorRecommendationRequestModel) GetAddedMetadataOk() ([]NameValu
 
 // HasAddedMetadata returns a boolean if a field has been set.
 func (o *EditAdvisorRecommendationRequestModel) HasAddedMetadata() bool {
-	if o != nil && IsNil(o.AddedMetadata) {
+	if o != nil && !IsNil(o.AddedMetadata) {
 		return true
 	}
 

@@ -25,6 +25,8 @@ type TenantResponseModel struct {
 	Name string `json:"Name"`
 }
 
+type _TenantResponseModel TenantResponseModel
+
 // NewTenantResponseModel instantiates a new TenantResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

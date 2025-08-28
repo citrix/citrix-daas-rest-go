@@ -63,7 +63,7 @@ func (o *HypervisorResourceSettingsRequestModel) GetVmSettingsOk() ([]VmSettingR
 
 // HasVmSettings returns a boolean if a field has been set.
 func (o *HypervisorResourceSettingsRequestModel) HasVmSettings() bool {
-	if o != nil && IsNil(o.VmSettings) {
+	if o != nil && !IsNil(o.VmSettings) {
 		return true
 	}
 
@@ -96,7 +96,7 @@ func (o *HypervisorResourceSettingsRequestModel) GetDiskSettingsOk() ([]DiskSett
 
 // HasDiskSettings returns a boolean if a field has been set.
 func (o *HypervisorResourceSettingsRequestModel) HasDiskSettings() bool {
-	if o != nil && IsNil(o.DiskSettings) {
+	if o != nil && !IsNil(o.DiskSettings) {
 		return true
 	}
 

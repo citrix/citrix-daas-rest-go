@@ -602,7 +602,7 @@ func (o *HypervisorMachineCatalogResponseModel) GetJobsInProgressOk() ([]RefResp
 
 // HasJobsInProgress returns a boolean if a field has been set.
 func (o *HypervisorMachineCatalogResponseModel) HasJobsInProgress() bool {
-	if o != nil && IsNil(o.JobsInProgress) {
+	if o != nil && !IsNil(o.JobsInProgress) {
 		return true
 	}
 
@@ -667,7 +667,7 @@ func (o *HypervisorMachineCatalogResponseModel) GetMetadataOk() ([]NameValueStri
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *HypervisorMachineCatalogResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -1074,7 +1074,7 @@ func (o *HypervisorMachineCatalogResponseModel) GetRemotePCEnrollmentScopesOk() 
 
 // HasRemotePCEnrollmentScopes returns a boolean if a field has been set.
 func (o *HypervisorMachineCatalogResponseModel) HasRemotePCEnrollmentScopes() bool {
-	if o != nil && IsNil(o.RemotePCEnrollmentScopes) {
+	if o != nil && !IsNil(o.RemotePCEnrollmentScopes) {
 		return true
 	}
 
@@ -1107,7 +1107,7 @@ func (o *HypervisorMachineCatalogResponseModel) GetScopesOk() ([]ScopeResponseMo
 
 // HasScopes returns a boolean if a field has been set.
 func (o *HypervisorMachineCatalogResponseModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -1140,7 +1140,7 @@ func (o *HypervisorMachineCatalogResponseModel) GetTenantsOk() ([]RefResponseMod
 
 // HasTenants returns a boolean if a field has been set.
 func (o *HypervisorMachineCatalogResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -1376,7 +1376,7 @@ func (o *HypervisorMachineCatalogResponseModel) GetErrorsOk() ([]string, bool) {
 
 // HasErrors returns a boolean if a field has been set.
 func (o *HypervisorMachineCatalogResponseModel) HasErrors() bool {
-	if o != nil && IsNil(o.Errors) {
+	if o != nil && !IsNil(o.Errors) {
 		return true
 	}
 
@@ -1409,7 +1409,7 @@ func (o *HypervisorMachineCatalogResponseModel) GetWarningsOk() ([]MachineCatalo
 
 // HasWarnings returns a boolean if a field has been set.
 func (o *HypervisorMachineCatalogResponseModel) HasWarnings() bool {
-	if o != nil && IsNil(o.Warnings) {
+	if o != nil && !IsNil(o.Warnings) {
 		return true
 	}
 

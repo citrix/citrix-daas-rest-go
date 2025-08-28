@@ -25,6 +25,8 @@ type CasEventRequestModel struct {
 	Payloads []NameValueStringPairModel `json:"Payloads,omitempty"`
 }
 
+type _CasEventRequestModel CasEventRequestModel
+
 // NewCasEventRequestModel instantiates a new CasEventRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -88,7 +90,7 @@ func (o *CasEventRequestModel) GetPayloadsOk() ([]NameValueStringPairModel, bool
 
 // HasPayloads returns a boolean if a field has been set.
 func (o *CasEventRequestModel) HasPayloads() bool {
-	if o != nil && IsNil(o.Payloads) {
+	if o != nil && !IsNil(o.Payloads) {
 		return true
 	}
 

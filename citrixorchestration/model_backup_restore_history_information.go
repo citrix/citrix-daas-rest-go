@@ -73,6 +73,8 @@ type BackupRestoreHistoryInformation struct {
 	Fixups []BackupRestoreFixupModel `json:"Fixups,omitempty"`
 }
 
+type _BackupRestoreHistoryInformation BackupRestoreHistoryInformation
+
 // NewBackupRestoreHistoryInformation instantiates a new BackupRestoreHistoryInformation object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -903,7 +905,7 @@ func (o *BackupRestoreHistoryInformation) GetBackupDetailsOk() (*map[string]stri
 
 // HasBackupDetails returns a boolean if a field has been set.
 func (o *BackupRestoreHistoryInformation) HasBackupDetails() bool {
-	if o != nil && IsNil(o.BackupDetails) {
+	if o != nil && !IsNil(o.BackupDetails) {
 		return true
 	}
 
@@ -936,7 +938,7 @@ func (o *BackupRestoreHistoryInformation) GetRestoreDetailsOk() ([]BackupRestore
 
 // HasRestoreDetails returns a boolean if a field has been set.
 func (o *BackupRestoreHistoryInformation) HasRestoreDetails() bool {
-	if o != nil && IsNil(o.RestoreDetails) {
+	if o != nil && !IsNil(o.RestoreDetails) {
 		return true
 	}
 
@@ -969,7 +971,7 @@ func (o *BackupRestoreHistoryInformation) GetSimpleResultsOk() ([]string, bool) 
 
 // HasSimpleResults returns a boolean if a field has been set.
 func (o *BackupRestoreHistoryInformation) HasSimpleResults() bool {
-	if o != nil && IsNil(o.SimpleResults) {
+	if o != nil && !IsNil(o.SimpleResults) {
 		return true
 	}
 
@@ -1002,7 +1004,7 @@ func (o *BackupRestoreHistoryInformation) GetFixupsOk() ([]BackupRestoreFixupMod
 
 // HasFixups returns a boolean if a field has been set.
 func (o *BackupRestoreHistoryInformation) HasFixups() bool {
-	if o != nil && IsNil(o.Fixups) {
+	if o != nil && !IsNil(o.Fixups) {
 		return true
 	}
 

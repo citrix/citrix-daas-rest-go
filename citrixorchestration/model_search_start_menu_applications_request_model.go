@@ -65,7 +65,7 @@ func (o *SearchStartMenuApplicationsRequestModel) GetApplicationGroupsOk() ([]st
 
 // HasApplicationGroups returns a boolean if a field has been set.
 func (o *SearchStartMenuApplicationsRequestModel) HasApplicationGroups() bool {
-	if o != nil && IsNil(o.ApplicationGroups) {
+	if o != nil && !IsNil(o.ApplicationGroups) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *SearchStartMenuApplicationsRequestModel) GetDeliveryGroupsOk() ([]strin
 
 // HasDeliveryGroups returns a boolean if a field has been set.
 func (o *SearchStartMenuApplicationsRequestModel) HasDeliveryGroups() bool {
-	if o != nil && IsNil(o.DeliveryGroups) {
+	if o != nil && !IsNil(o.DeliveryGroups) {
 		return true
 	}
 
@@ -131,7 +131,7 @@ func (o *SearchStartMenuApplicationsRequestModel) GetTagRestrictionsOk() ([]stri
 
 // HasTagRestrictions returns a boolean if a field has been set.
 func (o *SearchStartMenuApplicationsRequestModel) HasTagRestrictions() bool {
-	if o != nil && IsNil(o.TagRestrictions) {
+	if o != nil && !IsNil(o.TagRestrictions) {
 		return true
 	}
 

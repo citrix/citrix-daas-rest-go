@@ -36,6 +36,8 @@ type ZonedItemResponseModel struct {
 	ZoneName NullableString `json:"ZoneName,omitempty"`
 }
 
+type _ZonedItemResponseModel ZonedItemResponseModel
+
 // NewZonedItemResponseModel instantiates a new ZonedItemResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -192,7 +194,7 @@ func (o *ZonedItemResponseModel) GetScopesOk() ([]ScopeResponseModel, bool) {
 
 // HasScopes returns a boolean if a field has been set.
 func (o *ZonedItemResponseModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -225,7 +227,7 @@ func (o *ZonedItemResponseModel) GetAdditionalPropertiesFieldOk() ([]NameValueSt
 
 // HasAdditionalPropertiesField returns a boolean if a field has been set.
 func (o *ZonedItemResponseModel) HasAdditionalPropertiesField() bool {
-	if o != nil && IsNil(o.AdditionalPropertiesField) {
+	if o != nil && !IsNil(o.AdditionalPropertiesField) {
 		return true
 	}
 

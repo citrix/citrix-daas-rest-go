@@ -840,7 +840,7 @@ func (o *SettingDefinitionContract) GetRelatedSettingsOk() (*map[string]string, 
 
 // HasRelatedSettings returns a boolean if a field has been set.
 func (o *SettingDefinitionContract) HasRelatedSettings() bool {
-	if o != nil && IsNil(o.RelatedSettings) {
+	if o != nil && !IsNil(o.RelatedSettings) {
 		return true
 	}
 
@@ -1034,7 +1034,7 @@ func (o *SettingDefinitionContract) GetVdaVersionsOk() ([]VdaVersionContract, bo
 
 // HasVdaVersions returns a boolean if a field has been set.
 func (o *SettingDefinitionContract) HasVdaVersions() bool {
-	if o != nil && IsNil(o.VdaVersions) {
+	if o != nil && !IsNil(o.VdaVersions) {
 		return true
 	}
 

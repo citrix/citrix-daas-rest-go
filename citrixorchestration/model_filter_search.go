@@ -62,7 +62,7 @@ func (o *FilterSearch) GetSearchFiltersOk() ([]SearchFilter4, bool) {
 
 // HasSearchFilters returns a boolean if a field has been set.
 func (o *FilterSearch) HasSearchFilters() bool {
-	if o != nil && IsNil(o.SearchFilters) {
+	if o != nil && !IsNil(o.SearchFilters) {
 		return true
 	}
 

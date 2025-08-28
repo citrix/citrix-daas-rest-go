@@ -35,6 +35,8 @@ type IdentityForestResponseModel struct {
 	PropertiesFetched int32 `json:"PropertiesFetched"`
 }
 
+type _IdentityForestResponseModel IdentityForestResponseModel
+
 // NewIdentityForestResponseModel instantiates a new IdentityForestResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -160,7 +162,7 @@ func (o *IdentityForestResponseModel) GetDomainsOk() ([]string, bool) {
 
 // HasDomains returns a boolean if a field has been set.
 func (o *IdentityForestResponseModel) HasDomains() bool {
-	if o != nil && IsNil(o.Domains) {
+	if o != nil && !IsNil(o.Domains) {
 		return true
 	}
 
@@ -193,7 +195,7 @@ func (o *IdentityForestResponseModel) GetSitesOk() ([]string, bool) {
 
 // HasSites returns a boolean if a field has been set.
 func (o *IdentityForestResponseModel) HasSites() bool {
-	if o != nil && IsNil(o.Sites) {
+	if o != nil && !IsNil(o.Sites) {
 		return true
 	}
 
@@ -226,7 +228,7 @@ func (o *IdentityForestResponseModel) GetTrustedForestsOk() ([]string, bool) {
 
 // HasTrustedForests returns a boolean if a field has been set.
 func (o *IdentityForestResponseModel) HasTrustedForests() bool {
-	if o != nil && IsNil(o.TrustedForests) {
+	if o != nil && !IsNil(o.TrustedForests) {
 		return true
 	}
 

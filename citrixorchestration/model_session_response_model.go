@@ -193,7 +193,7 @@ func (o *SessionResponseModel) GetApplicationsInUseOk() ([]RefResponseModel, boo
 
 // HasApplicationsInUse returns a boolean if a field has been set.
 func (o *SessionResponseModel) HasApplicationsInUse() bool {
-	if o != nil && IsNil(o.ApplicationsInUse) {
+	if o != nil && !IsNil(o.ApplicationsInUse) {
 		return true
 	}
 
@@ -440,7 +440,7 @@ func (o *SessionResponseModel) GetContainerScopesOk() ([]ContainerScopeResponseM
 
 // HasContainerScopes returns a boolean if a field has been set.
 func (o *SessionResponseModel) HasContainerScopes() bool {
-	if o != nil && IsNil(o.ContainerScopes) {
+	if o != nil && !IsNil(o.ContainerScopes) {
 		return true
 	}
 

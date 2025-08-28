@@ -61,7 +61,7 @@ func (o *UpdateServiceAccountCapabilityPreviewResponseModel) GetImpactedCatalogs
 
 // HasImpactedCatalogs returns a boolean if a field has been set.
 func (o *UpdateServiceAccountCapabilityPreviewResponseModel) HasImpactedCatalogs() bool {
-	if o != nil && IsNil(o.ImpactedCatalogs) {
+	if o != nil && !IsNil(o.ImpactedCatalogs) {
 		return true
 	}
 

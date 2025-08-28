@@ -106,6 +106,8 @@ type HypervisorDetailAWSResponseModel struct {
 	IsVirtual *bool `json:"IsVirtual,omitempty"`
 }
 
+type _HypervisorDetailAWSResponseModel HypervisorDetailAWSResponseModel
+
 // NewHypervisorDetailAWSResponseModel instantiates a new HypervisorDetailAWSResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -417,7 +419,7 @@ func (o *HypervisorDetailAWSResponseModel) GetSslThumbprintsOk() ([]string, bool
 
 // HasSslThumbprints returns a boolean if a field has been set.
 func (o *HypervisorDetailAWSResponseModel) HasSslThumbprints() bool {
-	if o != nil && IsNil(o.SslThumbprints) {
+	if o != nil && !IsNil(o.SslThumbprints) {
 		return true
 	}
 
@@ -786,7 +788,7 @@ func (o *HypervisorDetailAWSResponseModel) GetMetadataOk() ([]NameValueStringPai
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *HypervisorDetailAWSResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -1191,7 +1193,7 @@ func (o *HypervisorDetailAWSResponseModel) GetTenantsOk() ([]RefResponseModel, b
 
 // HasTenants returns a boolean if a field has been set.
 func (o *HypervisorDetailAWSResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 

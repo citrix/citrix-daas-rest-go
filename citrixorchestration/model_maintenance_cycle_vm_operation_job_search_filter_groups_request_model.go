@@ -97,7 +97,7 @@ func (o *MaintenanceCycleVmOperationJobSearchFilterGroupsRequestModel) GetSearch
 
 // HasSearchFilters returns a boolean if a field has been set.
 func (o *MaintenanceCycleVmOperationJobSearchFilterGroupsRequestModel) HasSearchFilters() bool {
-	if o != nil && IsNil(o.SearchFilters) {
+	if o != nil && !IsNil(o.SearchFilters) {
 		return true
 	}
 
@@ -162,7 +162,7 @@ func (o *MaintenanceCycleVmOperationJobSearchFilterGroupsRequestModel) GetSearch
 
 // HasSearchFilterGroups returns a boolean if a field has been set.
 func (o *MaintenanceCycleVmOperationJobSearchFilterGroupsRequestModel) HasSearchFilterGroups() bool {
-	if o != nil && IsNil(o.SearchFilterGroups) {
+	if o != nil && !IsNil(o.SearchFilterGroups) {
 		return true
 	}
 

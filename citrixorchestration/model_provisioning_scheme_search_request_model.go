@@ -111,7 +111,7 @@ func (o *ProvisioningSchemeSearchRequestModel) GetSearchFiltersOk() ([]Provision
 
 // HasSearchFilters returns a boolean if a field has been set.
 func (o *ProvisioningSchemeSearchRequestModel) HasSearchFilters() bool {
-	if o != nil && IsNil(o.SearchFilters) {
+	if o != nil && !IsNil(o.SearchFilters) {
 		return true
 	}
 
@@ -144,7 +144,7 @@ func (o *ProvisioningSchemeSearchRequestModel) GetSearchFilterGroupsOk() ([]Prov
 
 // HasSearchFilterGroups returns a boolean if a field has been set.
 func (o *ProvisioningSchemeSearchRequestModel) HasSearchFilterGroups() bool {
-	if o != nil && IsNil(o.SearchFilterGroups) {
+	if o != nil && !IsNil(o.SearchFilterGroups) {
 		return true
 	}
 
@@ -209,7 +209,7 @@ func (o *ProvisioningSchemeSearchRequestModel) GetSortCriteriaItemsOk() ([]Provi
 
 // HasSortCriteriaItems returns a boolean if a field has been set.
 func (o *ProvisioningSchemeSearchRequestModel) HasSortCriteriaItems() bool {
-	if o != nil && IsNil(o.SortCriteriaItems) {
+	if o != nil && !IsNil(o.SortCriteriaItems) {
 		return true
 	}
 

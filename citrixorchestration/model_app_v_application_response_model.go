@@ -48,6 +48,8 @@ type AppVApplicationResponseModel struct {
 	BrokerApplicationNames []string `json:"BrokerApplicationNames,omitempty"`
 }
 
+type _AppVApplicationResponseModel AppVApplicationResponseModel
+
 // NewAppVApplicationResponseModel instantiates a new AppVApplicationResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -390,7 +392,7 @@ func (o *AppVApplicationResponseModel) GetUsersOk() ([]IdentityUserResponseModel
 
 // HasUsers returns a boolean if a field has been set.
 func (o *AppVApplicationResponseModel) HasUsers() bool {
-	if o != nil && IsNil(o.Users) {
+	if o != nil && !IsNil(o.Users) {
 		return true
 	}
 
@@ -458,7 +460,7 @@ func (o *AppVApplicationResponseModel) GetBrokerApplicationNamesOk() ([]string, 
 
 // HasBrokerApplicationNames returns a boolean if a field has been set.
 func (o *AppVApplicationResponseModel) HasBrokerApplicationNames() bool {
-	if o != nil && IsNil(o.BrokerApplicationNames) {
+	if o != nil && !IsNil(o.BrokerApplicationNames) {
 		return true
 	}
 
