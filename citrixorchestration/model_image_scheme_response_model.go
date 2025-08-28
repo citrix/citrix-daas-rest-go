@@ -36,6 +36,8 @@ type ImageSchemeResponseModel struct {
 	ServiceOffering NullableString `json:"ServiceOffering,omitempty"`
 }
 
+type _ImageSchemeResponseModel ImageSchemeResponseModel
+
 // NewImageSchemeResponseModel instantiates a new ImageSchemeResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -131,7 +133,7 @@ func (o *ImageSchemeResponseModel) GetCustomPropertiesOk() ([]NameValueStringPai
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *ImageSchemeResponseModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
+	if o != nil && !IsNil(o.CustomProperties) {
 		return true
 	}
 
@@ -271,7 +273,7 @@ func (o *ImageSchemeResponseModel) GetNetworkMapsOk() ([]NetworkMapResponseModel
 
 // HasNetworkMaps returns a boolean if a field has been set.
 func (o *ImageSchemeResponseModel) HasNetworkMaps() bool {
-	if o != nil && IsNil(o.NetworkMaps) {
+	if o != nil && !IsNil(o.NetworkMaps) {
 		return true
 	}
 

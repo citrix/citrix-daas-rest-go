@@ -65,6 +65,8 @@ type HypervisorResourcePoolDetailResponseModel struct {
 	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes,omitempty"`
 }
 
+type _HypervisorResourcePoolDetailResponseModel HypervisorResourcePoolDetailResponseModel
+
 // NewHypervisorResourcePoolDetailResponseModel instantiates a new HypervisorResourcePoolDetailResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -441,7 +443,7 @@ func (o *HypervisorResourcePoolDetailResponseModel) GetPersonalvDiskStorageOk() 
 
 // HasPersonalvDiskStorage returns a boolean if a field has been set.
 func (o *HypervisorResourcePoolDetailResponseModel) HasPersonalvDiskStorage() bool {
-	if o != nil && IsNil(o.PersonalvDiskStorage) {
+	if o != nil && !IsNil(o.PersonalvDiskStorage) {
 		return true
 	}
 
@@ -817,7 +819,7 @@ func (o *HypervisorResourcePoolDetailResponseModel) GetGpuTypesOk() ([]Hyperviso
 
 // HasGpuTypes returns a boolean if a field has been set.
 func (o *HypervisorResourcePoolDetailResponseModel) HasGpuTypes() bool {
-	if o != nil && IsNil(o.GpuTypes) {
+	if o != nil && !IsNil(o.GpuTypes) {
 		return true
 	}
 
@@ -882,7 +884,7 @@ func (o *HypervisorResourcePoolDetailResponseModel) GetMetadataOk() ([]NameValue
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *HypervisorResourcePoolDetailResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -915,7 +917,7 @@ func (o *HypervisorResourcePoolDetailResponseModel) GetContainerScopesOk() ([]Co
 
 // HasContainerScopes returns a boolean if a field has been set.
 func (o *HypervisorResourcePoolDetailResponseModel) HasContainerScopes() bool {
-	if o != nil && IsNil(o.ContainerScopes) {
+	if o != nil && !IsNil(o.ContainerScopes) {
 		return true
 	}
 

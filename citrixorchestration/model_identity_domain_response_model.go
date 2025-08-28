@@ -51,6 +51,8 @@ type IdentityDomainResponseModel struct {
 	PropertiesFetched int32 `json:"PropertiesFetched"`
 }
 
+type _IdentityDomainResponseModel IdentityDomainResponseModel
+
 // NewIdentityDomainResponseModel instantiates a new IdentityDomainResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -219,7 +221,7 @@ func (o *IdentityDomainResponseModel) GetChildrenOk() ([]string, bool) {
 
 // HasChildren returns a boolean if a field has been set.
 func (o *IdentityDomainResponseModel) HasChildren() bool {
-	if o != nil && IsNil(o.Children) {
+	if o != nil && !IsNil(o.Children) {
 		return true
 	}
 
@@ -424,7 +426,7 @@ func (o *IdentityDomainResponseModel) GetControllersOk() ([]string, bool) {
 
 // HasControllers returns a boolean if a field has been set.
 func (o *IdentityDomainResponseModel) HasControllers() bool {
-	if o != nil && IsNil(o.Controllers) {
+	if o != nil && !IsNil(o.Controllers) {
 		return true
 	}
 
@@ -500,7 +502,7 @@ func (o *IdentityDomainResponseModel) GetTrustedDomainsOk() ([]string, bool) {
 
 // HasTrustedDomains returns a boolean if a field has been set.
 func (o *IdentityDomainResponseModel) HasTrustedDomains() bool {
-	if o != nil && IsNil(o.TrustedDomains) {
+	if o != nil && !IsNil(o.TrustedDomains) {
 		return true
 	}
 
@@ -533,7 +535,7 @@ func (o *IdentityDomainResponseModel) GetUpnSuffixesOk() ([]string, bool) {
 
 // HasUpnSuffixes returns a boolean if a field has been set.
 func (o *IdentityDomainResponseModel) HasUpnSuffixes() bool {
-	if o != nil && IsNil(o.UpnSuffixes) {
+	if o != nil && !IsNil(o.UpnSuffixes) {
 		return true
 	}
 
@@ -566,7 +568,7 @@ func (o *IdentityDomainResponseModel) GetServiceConnectionPointConfigurationsOk(
 
 // HasServiceConnectionPointConfigurations returns a boolean if a field has been set.
 func (o *IdentityDomainResponseModel) HasServiceConnectionPointConfigurations() bool {
-	if o != nil && IsNil(o.ServiceConnectionPointConfigurations) {
+	if o != nil && !IsNil(o.ServiceConnectionPointConfigurations) {
 		return true
 	}
 

@@ -28,31 +28,31 @@ Add items into a zone.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | The zone into which items will be added.
-    zonedItemsRequestModel := *openapiclient.NewZonedItemsRequestModel() // ZonedItemsRequestModel | The request.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, items will be added into the zone as a background task. The task will have JobType AddItemsIntoZone. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | The zone into which items will be added.
+	zonedItemsRequestModel := *openapiclient.NewZonedItemsRequestModel() // ZonedItemsRequestModel | The request.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, items will be added into the zone as a background task. The task will have JobType AddItemsIntoZone. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ZonesAPIsDAAS.ZonesAddItemsIntoZone(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ZonedItemsRequestModel(zonedItemsRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesAddItemsIntoZone``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ZonesAPIsDAAS.ZonesAddItemsIntoZone(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ZonedItemsRequestModel(zonedItemsRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesAddItemsIntoZone``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -112,30 +112,30 @@ Create a zone.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    createZoneRequestModel := *openapiclient.NewCreateZoneRequestModel("Name_example") // CreateZoneRequestModel | Details about the zone to create.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the zone will be created as a background task. The task will have JobType CreateZone. When the task is complete it will redirect to GetZone. The job's Parameters will contain properties:  * _Id_ - ID of the zone being created, * _Name_ - Name of the zone being created. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	createZoneRequestModel := *openapiclient.NewCreateZoneRequestModel("Name_example") // CreateZoneRequestModel | Details about the zone to create.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the zone will be created as a background task. The task will have JobType CreateZone. When the task is complete it will redirect to GetZone. The job's Parameters will contain properties:  * _Id_ - ID of the zone being created, * _Name_ - Name of the zone being created. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ZonesAPIsDAAS.ZonesCreateZone(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateZoneRequestModel(createZoneRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesCreateZone``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ZonesAPIsDAAS.ZonesCreateZone(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateZoneRequestModel(createZoneRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesCreateZone``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -192,30 +192,30 @@ Delete a zone.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or id of the zone to be deleted. 
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the zone will be deleted as a background task. The task will have JobType DeleteZone. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or id of the zone to be deleted. 
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the zone will be deleted as a background task. The task will have JobType DeleteZone. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ZonesAPIsDAAS.ZonesDeleteZone(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesDeleteZone``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ZonesAPIsDAAS.ZonesDeleteZone(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesDeleteZone``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -276,34 +276,34 @@ Perform a basic search for zoned items.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    zonedItemSearchRequestModel := *openapiclient.NewZonedItemSearchRequestModel() // ZonedItemSearchRequestModel | Specifies the basic search parameters.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    limit := int32(56) // int32 | The max number of items of the same itemtype returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
-    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
-    async := true // bool | If `true`, the search zoned items will be executed as a background task. The task will have JobType DoZoneSearch. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	zonedItemSearchRequestModel := *openapiclient.NewZonedItemSearchRequestModel() // ZonedItemSearchRequestModel | Specifies the basic search parameters.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	limit := int32(56) // int32 | The max number of items of the same itemtype returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+	continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+	async := true // bool | If `true`, the search zoned items will be executed as a background task. The task will have JobType DoZoneSearch. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ZonesAPIsDAAS.ZonesDoZoneSearch(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ZonedItemSearchRequestModel(zonedItemSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesDoZoneSearch``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ZonesDoZoneSearch`: ZonedItemResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `ZonesAPIsDAAS.ZonesDoZoneSearch`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ZonesAPIsDAAS.ZonesDoZoneSearch(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ZonedItemSearchRequestModel(zonedItemSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesDoZoneSearch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ZonesDoZoneSearch`: ZonedItemResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `ZonesAPIsDAAS.ZonesDoZoneSearch`: %v\n", resp)
 }
 ```
 
@@ -360,31 +360,31 @@ Edit a zone.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the zone.
-    editZoneRequestModel := *openapiclient.NewEditZoneRequestModel() // EditZoneRequestModel | The EditZoneRequestModel.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the zone will be edited as a background task. The task will have JobType EditZone. When the task is complete it will redirect to GetZone. The job's Parameters will contain properties:  * _Id_ - ID of the zone being edited, * _Name_ - Name of the zone being edited. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or ID of the zone.
+	editZoneRequestModel := *openapiclient.NewEditZoneRequestModel() // EditZoneRequestModel | The EditZoneRequestModel.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the zone will be edited as a background task. The task will have JobType EditZone. When the task is complete it will redirect to GetZone. The job's Parameters will contain properties:  * _Id_ - ID of the zone being edited, * _Name_ - Name of the zone being edited. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ZonesAPIsDAAS.ZonesEditZone(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditZoneRequestModel(editZoneRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesEditZone``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ZonesAPIsDAAS.ZonesEditZone(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditZoneRequestModel(editZoneRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesEditZone``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -446,31 +446,31 @@ Get a single zone from the site.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the zone.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or ID of the zone.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ZonesAPIsDAAS.ZonesGetZone(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesGetZone``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ZonesGetZone`: ZoneDetailResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `ZonesAPIsDAAS.ZonesGetZone`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ZonesAPIsDAAS.ZonesGetZone(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesGetZone``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ZonesGetZone`: ZoneDetailResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `ZonesAPIsDAAS.ZonesGetZone`: %v\n", resp)
 }
 ```
 
@@ -530,32 +530,32 @@ Get the list of all zones in the site.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    limit := int32(56) // int32 | The max number of zones returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
-    continuationToken := "continuationToken_example" // string | The continuationToken returned by the previous query. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	limit := int32(56) // int32 | The max number of zones returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+	continuationToken := "continuationToken_example" // string | The continuationToken returned by the previous query. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ZonesAPIsDAAS.ZonesGetZones(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesGetZones``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ZonesGetZones`: ZoneResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `ZonesAPIsDAAS.ZonesGetZones`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ZonesAPIsDAAS.ZonesGetZones(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesGetZones``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ZonesGetZones`: ZoneResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `ZonesAPIsDAAS.ZonesGetZones`: %v\n", resp)
 }
 ```
 
@@ -610,31 +610,31 @@ Move items into a zone.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | The zone into which items will be moved.
-    zonedItemsRequestModel := *openapiclient.NewZonedItemsRequestModel() // ZonedItemsRequestModel | The request.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, items will be moved into the zone as a background task. The task will have JobType MoveItemsIntoZone. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | The zone into which items will be moved.
+	zonedItemsRequestModel := *openapiclient.NewZonedItemsRequestModel() // ZonedItemsRequestModel | The request.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, items will be moved into the zone as a background task. The task will have JobType MoveItemsIntoZone. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ZonesAPIsDAAS.ZonesMoveItemsIntoZone(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ZonedItemsRequestModel(zonedItemsRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesMoveItemsIntoZone``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ZonesAPIsDAAS.ZonesMoveItemsIntoZone(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ZonedItemsRequestModel(zonedItemsRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesMoveItemsIntoZone``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -694,30 +694,30 @@ Remove items from a zone.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    zonedItemsRequestModel := *openapiclient.NewZonedItemsRequestModel() // ZonedItemsRequestModel | The request.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, items will be removed from the zone as a background task. The task will have JobType RemoveItemsFromZone. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	zonedItemsRequestModel := *openapiclient.NewZonedItemsRequestModel() // ZonedItemsRequestModel | The request.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, items will be removed from the zone as a background task. The task will have JobType RemoveItemsFromZone. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ZonesAPIsDAAS.ZonesRemoveItemsFromZone(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ZonedItemsRequestModel(zonedItemsRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesRemoveItemsFromZone``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ZonesAPIsDAAS.ZonesRemoveItemsFromZone(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ZonedItemsRequestModel(zonedItemsRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ZonesAPIsDAAS.ZonesRemoveItemsFromZone``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

@@ -62,7 +62,7 @@ func (o *PolicySearch) GetSearchFiltersOk() ([]SearchFilter2, bool) {
 
 // HasSearchFilters returns a boolean if a field has been set.
 func (o *PolicySearch) HasSearchFilters() bool {
-	if o != nil && IsNil(o.SearchFilters) {
+	if o != nil && !IsNil(o.SearchFilters) {
 		return true
 	}
 

@@ -24,6 +24,8 @@ type BackupRestoreGetComponentMemberRequestModel struct {
 	Filters NullableString `json:"Filters,omitempty"`
 }
 
+type _BackupRestoreGetComponentMemberRequestModel BackupRestoreGetComponentMemberRequestModel
+
 // NewBackupRestoreGetComponentMemberRequestModel instantiates a new BackupRestoreGetComponentMemberRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

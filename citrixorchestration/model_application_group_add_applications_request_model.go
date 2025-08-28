@@ -63,7 +63,7 @@ func (o *ApplicationGroupAddApplicationsRequestModel) GetExistingApplicationsOk(
 
 // HasExistingApplications returns a boolean if a field has been set.
 func (o *ApplicationGroupAddApplicationsRequestModel) HasExistingApplications() bool {
-	if o != nil && IsNil(o.ExistingApplications) {
+	if o != nil && !IsNil(o.ExistingApplications) {
 		return true
 	}
 
@@ -96,7 +96,7 @@ func (o *ApplicationGroupAddApplicationsRequestModel) GetNewApplicationsOk() ([]
 
 // HasNewApplications returns a boolean if a field has been set.
 func (o *ApplicationGroupAddApplicationsRequestModel) HasNewApplications() bool {
-	if o != nil && IsNil(o.NewApplications) {
+	if o != nil && !IsNil(o.NewApplications) {
 		return true
 	}
 

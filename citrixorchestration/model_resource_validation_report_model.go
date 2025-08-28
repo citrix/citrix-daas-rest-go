@@ -127,7 +127,7 @@ func (o *ResourceValidationReportModel) GetViolationsOk() ([]ResourceValidationV
 
 // HasViolations returns a boolean if a field has been set.
 func (o *ResourceValidationReportModel) HasViolations() bool {
-	if o != nil && IsNil(o.Violations) {
+	if o != nil && !IsNil(o.Violations) {
 		return true
 	}
 

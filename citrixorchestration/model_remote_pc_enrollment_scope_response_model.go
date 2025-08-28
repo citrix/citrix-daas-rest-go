@@ -31,6 +31,8 @@ type RemotePCEnrollmentScopeResponseModel struct {
 	MachinesIncluded []string `json:"MachinesIncluded,omitempty"`
 }
 
+type _RemotePCEnrollmentScopeResponseModel RemotePCEnrollmentScopeResponseModel
+
 // NewRemotePCEnrollmentScopeResponseModel instantiates a new RemotePCEnrollmentScopeResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -188,7 +190,7 @@ func (o *RemotePCEnrollmentScopeResponseModel) GetMachinesExcludedOk() ([]string
 
 // HasMachinesExcluded returns a boolean if a field has been set.
 func (o *RemotePCEnrollmentScopeResponseModel) HasMachinesExcluded() bool {
-	if o != nil && IsNil(o.MachinesExcluded) {
+	if o != nil && !IsNil(o.MachinesExcluded) {
 		return true
 	}
 
@@ -221,7 +223,7 @@ func (o *RemotePCEnrollmentScopeResponseModel) GetMachinesIncludedOk() ([]string
 
 // HasMachinesIncluded returns a boolean if a field has been set.
 func (o *RemotePCEnrollmentScopeResponseModel) HasMachinesIncluded() bool {
-	if o != nil && IsNil(o.MachinesIncluded) {
+	if o != nil && !IsNil(o.MachinesIncluded) {
 		return true
 	}
 

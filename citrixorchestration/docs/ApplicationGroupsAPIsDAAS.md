@@ -36,33 +36,33 @@ Add a tag to an application group.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
-    tagNameOrId := "tagNameOrId_example" // string | Name or ID of the tag to add.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the tags will be modified as a background task. The task will have JobType SetTagApplicationGroups. When the task is complete it will redirect to GetApplicationGroupTags. The job's Parameters will contain properties: * _Id_ - ID of the application group being tagged, * _Name_ - Name of the application group being tagged. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	tagNameOrId := "tagNameOrId_example" // string | Name or ID of the tag to add.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the tags will be modified as a background task. The task will have JobType SetTagApplicationGroups. When the task is complete it will redirect to GetApplicationGroupTags. The job's Parameters will contain properties: * _Id_ - ID of the application group being tagged, * _Name_ - Name of the application group being tagged. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsAddApplicationGroupTag(context.Background(), nameOrId, tagNameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsAddApplicationGroupTag``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApplicationGroupsAddApplicationGroupTag`: TagResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsAddApplicationGroupTag`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsAddApplicationGroupTag(context.Background(), nameOrId, tagNameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsAddApplicationGroupTag``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApplicationGroupsAddApplicationGroupTag`: TagResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsAddApplicationGroupTag`: %v\n", resp)
 }
 ```
 
@@ -123,31 +123,31 @@ Add applications to the application group.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
-    applicationGroupAddApplicationsRequestModel := *openapiclient.NewApplicationGroupAddApplicationsRequestModel() // ApplicationGroupAddApplicationsRequestModel | Details of the applications to add.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the applications (and associated objects) will be added as a background task. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	applicationGroupAddApplicationsRequestModel := *openapiclient.NewApplicationGroupAddApplicationsRequestModel() // ApplicationGroupAddApplicationsRequestModel | Details of the applications to add.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the applications (and associated objects) will be added as a background task. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsAddApplications(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ApplicationGroupAddApplicationsRequestModel(applicationGroupAddApplicationsRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsAddApplications``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsAddApplications(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ApplicationGroupAddApplicationsRequestModel(applicationGroupAddApplicationsRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsAddApplications``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -209,29 +209,29 @@ Check for the existence of an application group by name.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    name := "name_example" // string | Name of the application group.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	name := "name_example" // string | Name of the application group.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsCheckApplicationGroupExists(context.Background(), name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsCheckApplicationGroupExists``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsCheckApplicationGroupExists(context.Background(), name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsCheckApplicationGroupExists``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -289,32 +289,32 @@ Create an application group.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    createApplicationGroupRequestModel := *openapiclient.NewCreateApplicationGroupRequestModel("Name of the application group") // CreateApplicationGroupRequestModel | Details of the application group to create.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the application group (and associated objects) will be created as a background task. The task will have JobType CreateApplicationGroup. When the task is complete it will redirect to GetApplicationGroup. The job's Parameters will contain properties: * _Name_ - Name of the application group being created. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	createApplicationGroupRequestModel := *openapiclient.NewCreateApplicationGroupRequestModel("Name of the application group") // CreateApplicationGroupRequestModel | Details of the application group to create.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the application group (and associated objects) will be created as a background task. The task will have JobType CreateApplicationGroup. When the task is complete it will redirect to GetApplicationGroup. The job's Parameters will contain properties: * _Name_ - Name of the application group being created. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsCreateApplicationGroup(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateApplicationGroupRequestModel(createApplicationGroupRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsCreateApplicationGroup``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApplicationGroupsCreateApplicationGroup`: ApplicationGroupDetailResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsCreateApplicationGroup`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsCreateApplicationGroup(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateApplicationGroupRequestModel(createApplicationGroupRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsCreateApplicationGroup``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApplicationGroupsCreateApplicationGroup`: ApplicationGroupDetailResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsCreateApplicationGroup`: %v\n", resp)
 }
 ```
 
@@ -371,30 +371,30 @@ Delete an application group.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the application group to delete. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the application group (and associated objects) will be deleted as a background task. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or ID of the application group to delete. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the application group (and associated objects) will be deleted as a background task. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsDeleteApplicationGroup(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsDeleteApplicationGroup``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsDeleteApplicationGroup(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsDeleteApplicationGroup``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -455,35 +455,35 @@ Perform an advanced search for application groups.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    applicationGroupSearchRequestModel := *openapiclient.NewApplicationGroupSearchRequestModel() // ApplicationGroupSearchRequestModel | Specifies the advanced search parameters.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    limit := int32(56) // int32 | The max number of application groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
-    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
-    fields := "fields_example" // string | Optional filter, removing unspecified properties that otherwise would have been sent by the server. (optional)
-    async := true // bool | If `true`, the application groups (and associated objects) will be added as a background task. The task will have JobType SearchApplicationGroups. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	applicationGroupSearchRequestModel := *openapiclient.NewApplicationGroupSearchRequestModel() // ApplicationGroupSearchRequestModel | Specifies the advanced search parameters.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	limit := int32(56) // int32 | The max number of application groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+	continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+	fields := "fields_example" // string | Optional filter, removing unspecified properties that otherwise would have been sent by the server. (optional)
+	async := true // bool | If `true`, the application groups (and associated objects) will be added as a background task. The task will have JobType SearchApplicationGroups. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsDoApplicationGroupSearch(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ApplicationGroupSearchRequestModel(applicationGroupSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsDoApplicationGroupSearch``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApplicationGroupsDoApplicationGroupSearch`: ApplicationGroupResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsDoApplicationGroupSearch`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsDoApplicationGroupSearch(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ApplicationGroupSearchRequestModel(applicationGroupSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsDoApplicationGroupSearch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApplicationGroupsDoApplicationGroupSearch`: ApplicationGroupResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsDoApplicationGroupSearch`: %v\n", resp)
 }
 ```
 
@@ -541,33 +541,33 @@ Get details of a single application group.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,              specify the name in this format: {application group folder path plus application group name}.              For example, FolderName1|FolderName2|ApplicationGroupName.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    fields := "Id,Uid,ContainerScopes" // string | Optional filter, removing unspecified properties that otherwise would have been sent by the server              (optional)
-    async := true // bool | If `true`, the application group details will be fetched as a background task. The task will have JobType GetApplicationGroup. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,              specify the name in this format: {application group folder path plus application group name}.              For example, FolderName1|FolderName2|ApplicationGroupName.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	fields := "Id,Uid,ContainerScopes" // string | Optional filter, removing unspecified properties that otherwise would have been sent by the server              (optional)
+	async := true // bool | If `true`, the application group details will be fetched as a background task. The task will have JobType GetApplicationGroup. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroup(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroup``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApplicationGroupsGetApplicationGroup`: ApplicationGroupDetailResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroup`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroup(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroup``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApplicationGroupsGetApplicationGroup`: ApplicationGroupDetailResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroup`: %v\n", resp)
 }
 ```
 
@@ -629,35 +629,35 @@ Get applications in an application group.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    limit := int32(56) // int32 | The max number of applications returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
-    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
-    fields := "Id,Uid,ApplicationFolder" // string | Optional filter, removing unspecified properties that otherwise would have been sent by the server. (optional)
-    async := true // bool | If \"true\", the applications under the application group will be fetched as a background task. The task will have JobType GetApplicationGroupApplications (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	limit := int32(56) // int32 | The max number of applications returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+	continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+	fields := "Id,Uid,ApplicationFolder" // string | Optional filter, removing unspecified properties that otherwise would have been sent by the server. (optional)
+	async := true // bool | If \"true\", the applications under the application group will be fetched as a background task. The task will have JobType GetApplicationGroupApplications (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupApplications(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupApplications``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApplicationGroupsGetApplicationGroupApplications`: ApplicationResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupApplications`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupApplications(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupApplications``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApplicationGroupsGetApplicationGroupApplications`: ApplicationResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupApplications`: %v\n", resp)
 }
 ```
 
@@ -721,34 +721,34 @@ Get delivery groups for an application group.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    limit := int32(56) // int32 | The max number of delivery groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
-    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
-    async := true // bool | If `true`, the delivery groups fetch will run as a background task. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	limit := int32(56) // int32 | The max number of delivery groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+	continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+	async := true // bool | If `true`, the delivery groups fetch will run as a background task. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupDeliveryGroups(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupDeliveryGroups``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApplicationGroupsGetApplicationGroupDeliveryGroups`: ApplicationGroupDeliveryGroupResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupDeliveryGroups`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupDeliveryGroups(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupDeliveryGroups``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApplicationGroupsGetApplicationGroupDeliveryGroups`: ApplicationGroupDeliveryGroupResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupDeliveryGroups`: %v\n", resp)
 }
 ```
 
@@ -811,32 +811,32 @@ Get the tags for an application group.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    fields := "Name,Id,Description" // string | field to filter response model. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	fields := "Name,Id,Description" // string | field to filter response model. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupTags(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupTags``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApplicationGroupsGetApplicationGroupTags`: TagResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupTags`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupTags(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupTags``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApplicationGroupsGetApplicationGroupTags`: TagResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupTags`: %v\n", resp)
 }
 ```
 
@@ -897,35 +897,35 @@ Get application groups.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    adminFolder := "adminFolder_example" // string | Optional folder path (URL-encoded) or ID.  If not specified, all applications will be returned from all folders. (optional)
-    limit := int32(56) // int32 | The max number of application groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
-    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
-    fields := "Id,Uid,ContainerScopes" // string | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma','.              (optional)
-    async := true // bool | If `true`, the application groups will be fetched as a background task. The task will have JobType GetApplicationGroups. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	adminFolder := "adminFolder_example" // string | Optional folder path (URL-encoded) or ID.  If not specified, all applications will be returned from all folders. (optional)
+	limit := int32(56) // int32 | The max number of application groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+	continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+	fields := "Id,Uid,ContainerScopes" // string | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma','.              (optional)
+	async := true // bool | If `true`, the application groups will be fetched as a background task. The task will have JobType GetApplicationGroups. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroups(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).AdminFolder(adminFolder).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroups``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApplicationGroupsGetApplicationGroups`: ApplicationGroupResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroups`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroups(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).AdminFolder(adminFolder).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroups``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApplicationGroupsGetApplicationGroups`: ApplicationGroupResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroups`: %v\n", resp)
 }
 ```
 
@@ -985,35 +985,35 @@ The V2  version of get application groups.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    adminFolder := "adminFolder_example" // string | Optional folder path (URL-encoded) or ID.  If not specified, all applications will be returned from all folders. (optional)
-    limit := int32(56) // int32 | The max number of application groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
-    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
-    fields := "Id,Uid,ContainerScopes" // string | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma','.              (optional)
-    async := true // bool | If `true`, the application groups will be fetched as a background task. The task will have JobType GetApplicationGroups. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	adminFolder := "adminFolder_example" // string | Optional folder path (URL-encoded) or ID.  If not specified, all applications will be returned from all folders. (optional)
+	limit := int32(56) // int32 | The max number of application groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+	continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+	fields := "Id,Uid,ContainerScopes" // string | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma','.              (optional)
+	async := true // bool | If `true`, the application groups will be fetched as a background task. The task will have JobType GetApplicationGroups. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupsV2(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).AdminFolder(adminFolder).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupsV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApplicationGroupsGetApplicationGroupsV2`: ApplicationGroupResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupsV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupsV2(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).AdminFolder(adminFolder).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupsV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApplicationGroupsGetApplicationGroupsV2`: ApplicationGroupResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupsV2`: %v\n", resp)
 }
 ```
 
@@ -1073,31 +1073,31 @@ Remove an application from the application group.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
-    appNameOrId := "appNameOrId_example" // string | Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the application will be removed from the application group as a background task. The task will have JobType RemoveApplicationGroupApplications. When the task is complete it will redirect to GetApplicationGroupApplications. The job's Parameters will contain properties: * _ApplicationGroupId_ - ID of the application group. * _ApplicationGroupName_ - Name of the application group. * _ApplicationId_ - ID of the application. * _ApplicationName_ - Name of the application. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	appNameOrId := "appNameOrId_example" // string | Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the application will be removed from the application group as a background task. The task will have JobType RemoveApplicationGroupApplications. When the task is complete it will redirect to GetApplicationGroupApplications. The job's Parameters will contain properties: * _ApplicationGroupId_ - ID of the application group. * _ApplicationGroupName_ - Name of the application group. * _ApplicationId_ - ID of the application. * _ApplicationName_ - Name of the application. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsRemoveApplication(context.Background(), nameOrId, appNameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsRemoveApplication``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsRemoveApplication(context.Background(), nameOrId, appNameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsRemoveApplication``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -1160,31 +1160,31 @@ Remove a tag from an application group.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
-    tagNameOrId := "tagNameOrId_example" // string | Name or ID of the tag to remove.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the tags will be modified as a background task. The task will have JobType SetTagApplicationGroups. When the task is complete it will redirect to GetApplicationGroupTags. The job's Parameters will contain properties: * _Id_ - ID of the application group being tagged, * _Name_ - Name of the application group being tagged. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	tagNameOrId := "tagNameOrId_example" // string | Name or ID of the tag to remove.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the tags will be modified as a background task. The task will have JobType SetTagApplicationGroups. When the task is complete it will redirect to GetApplicationGroupTags. The job's Parameters will contain properties: * _Id_ - ID of the application group being tagged, * _Name_ - Name of the application group being tagged. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsRemoveApplicationGroupTag(context.Background(), nameOrId, tagNameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsRemoveApplicationGroupTag``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsRemoveApplicationGroupTag(context.Background(), nameOrId, tagNameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsRemoveApplicationGroupTag``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -1247,31 +1247,31 @@ Set the tags for an application group.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
-    tagsRequestModel := *openapiclient.NewTagsRequestModel() // TagsRequestModel | Tags to set.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the tags will be modified as a background task. The task will have JobType SetTagApplicationGroups. When the task is complete it will redirect to GetApplicationGroupTags. The job's Parameters will contain properties: * _Id_ - ID of the application group being tagged, * _Name_ - Name of the application group being tagged. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	tagsRequestModel := *openapiclient.NewTagsRequestModel() // TagsRequestModel | Tags to set.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the tags will be modified as a background task. The task will have JobType SetTagApplicationGroups. When the task is complete it will redirect to GetApplicationGroupTags. The job's Parameters will contain properties: * _Id_ - ID of the application group being tagged, * _Name_ - Name of the application group being tagged. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsSetApplicationGroupTags(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).TagsRequestModel(tagsRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsSetApplicationGroupTags``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsSetApplicationGroupTags(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).TagsRequestModel(tagsRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsSetApplicationGroupTags``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -1333,29 +1333,29 @@ Test the existence of an application group by name.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    applicationGroupNameCheckRequestModel := *openapiclient.NewApplicationGroupNameCheckRequestModel() // ApplicationGroupNameCheckRequestModel | Request model of application group name.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	applicationGroupNameCheckRequestModel := *openapiclient.NewApplicationGroupNameCheckRequestModel() // ApplicationGroupNameCheckRequestModel | Request model of application group name.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsTestApplicationGroupExists(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ApplicationGroupNameCheckRequestModel(applicationGroupNameCheckRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsTestApplicationGroupExists``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsTestApplicationGroupExists(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ApplicationGroupNameCheckRequestModel(applicationGroupNameCheckRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsTestApplicationGroupExists``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -1411,31 +1411,31 @@ Update an application group.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the application group to update. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
-    editApplicationGroupRequestModel := *openapiclient.NewEditApplicationGroupRequestModel() // EditApplicationGroupRequestModel | Details of the application group to update.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the application group (and associated objects) will be updated as a background task. The task will have JobType UpdateApplicationGroup. When the task is complete it will redirect to GetApplicationGroup. The job's Parameters will contain properties: * _Id_ - ID of the application group being updated. * _Name_ - Name of the application group being updated. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	nameOrId := "nameOrId_example" // string | Name or ID of the application group to update. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+	editApplicationGroupRequestModel := *openapiclient.NewEditApplicationGroupRequestModel() // EditApplicationGroupRequestModel | Details of the application group to update.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the application group (and associated objects) will be updated as a background task. The task will have JobType UpdateApplicationGroup. When the task is complete it will redirect to GetApplicationGroup. The job's Parameters will contain properties: * _Id_ - ID of the application group being updated. * _Name_ - Name of the application group being updated. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsUpdateApplicationGroup(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditApplicationGroupRequestModel(editApplicationGroupRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsUpdateApplicationGroup``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsUpdateApplicationGroup(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditApplicationGroupRequestModel(editApplicationGroupRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsUpdateApplicationGroup``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

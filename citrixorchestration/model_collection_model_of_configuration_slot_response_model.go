@@ -27,6 +27,8 @@ type CollectionModelOfConfigurationSlotResponseModel struct {
 	TotalItems NullableInt32 `json:"TotalItems,omitempty"`
 }
 
+type _CollectionModelOfConfigurationSlotResponseModel CollectionModelOfConfigurationSlotResponseModel
+
 // NewCollectionModelOfConfigurationSlotResponseModel instantiates a new CollectionModelOfConfigurationSlotResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

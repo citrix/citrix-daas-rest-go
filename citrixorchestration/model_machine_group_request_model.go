@@ -64,7 +64,7 @@ func (o *MachineGroupRequestModel) GetSearchFilterGroupsOk() ([]MachineAndSessio
 
 // HasSearchFilterGroups returns a boolean if a field has been set.
 func (o *MachineGroupRequestModel) HasSearchFilterGroups() bool {
-	if o != nil && IsNil(o.SearchFilterGroups) {
+	if o != nil && !IsNil(o.SearchFilterGroups) {
 		return true
 	}
 

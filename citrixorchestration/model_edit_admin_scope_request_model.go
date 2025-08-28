@@ -151,7 +151,7 @@ func (o *EditAdminScopeRequestModel) GetScopedObjectsOk() ([]ScopedObjectRequest
 
 // HasScopedObjects returns a boolean if a field has been set.
 func (o *EditAdminScopeRequestModel) HasScopedObjects() bool {
-	if o != nil && IsNil(o.ScopedObjects) {
+	if o != nil && !IsNil(o.ScopedObjects) {
 		return true
 	}
 

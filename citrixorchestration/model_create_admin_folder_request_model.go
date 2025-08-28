@@ -29,6 +29,8 @@ type CreateAdminFolderRequestModel struct {
 	ObjectIdentifiers []AdminFolderObjectIdentifier `json:"ObjectIdentifiers"`
 }
 
+type _CreateAdminFolderRequestModel CreateAdminFolderRequestModel
+
 // NewCreateAdminFolderRequestModel instantiates a new CreateAdminFolderRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

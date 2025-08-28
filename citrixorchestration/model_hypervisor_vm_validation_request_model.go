@@ -61,7 +61,7 @@ func (o *HypervisorVmValidationRequestModel) GetVmPathsOk() ([]string, bool) {
 
 // HasVmPaths returns a boolean if a field has been set.
 func (o *HypervisorVmValidationRequestModel) HasVmPaths() bool {
-	if o != nil && IsNil(o.VmPaths) {
+	if o != nil && !IsNil(o.VmPaths) {
 		return true
 	}
 

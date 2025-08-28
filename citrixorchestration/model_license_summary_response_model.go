@@ -104,7 +104,7 @@ func (o *LicenseSummaryResponseModel) GetLicenseInventoriesOk() ([]LicenseInvent
 
 // HasLicenseInventories returns a boolean if a field has been set.
 func (o *LicenseSummaryResponseModel) HasLicenseInventories() bool {
-	if o != nil && IsNil(o.LicenseInventories) {
+	if o != nil && !IsNil(o.LicenseInventories) {
 		return true
 	}
 
@@ -137,7 +137,7 @@ func (o *LicenseSummaryResponseModel) GetLicenseLasInventoriesOk() ([]LicenseInv
 
 // HasLicenseLasInventories returns a boolean if a field has been set.
 func (o *LicenseSummaryResponseModel) HasLicenseLasInventories() bool {
-	if o != nil && IsNil(o.LicenseLasInventories) {
+	if o != nil && !IsNil(o.LicenseLasInventories) {
 		return true
 	}
 

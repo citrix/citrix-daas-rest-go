@@ -592,7 +592,7 @@ func (o *ActionCatalogCreationResponseModel) GetNonTerminatingErrorsOk() ([]Acti
 
 // HasNonTerminatingErrors returns a boolean if a field has been set.
 func (o *ActionCatalogCreationResponseModel) HasNonTerminatingErrors() bool {
-	if o != nil && IsNil(o.NonTerminatingErrors) {
+	if o != nil && !IsNil(o.NonTerminatingErrors) {
 		return true
 	}
 
@@ -625,7 +625,7 @@ func (o *ActionCatalogCreationResponseModel) GetMetadataOk() ([]NameValueStringP
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *ActionCatalogCreationResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -658,7 +658,7 @@ func (o *ActionCatalogCreationResponseModel) GetScopesOk() ([]ScopeResponseModel
 
 // HasScopes returns a boolean if a field has been set.
 func (o *ActionCatalogCreationResponseModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -691,7 +691,7 @@ func (o *ActionCatalogCreationResponseModel) GetTenantsOk() ([]RefResponseModel,
 
 // HasTenants returns a boolean if a field has been set.
 func (o *ActionCatalogCreationResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 

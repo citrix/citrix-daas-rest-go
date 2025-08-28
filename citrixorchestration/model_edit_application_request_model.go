@@ -158,7 +158,7 @@ func (o *EditApplicationRequestModel) GetApplicationGroupsOk() ([]string, bool) 
 
 // HasApplicationGroups returns a boolean if a field has been set.
 func (o *EditApplicationRequestModel) HasApplicationGroups() bool {
-	if o != nil && IsNil(o.ApplicationGroups) {
+	if o != nil && !IsNil(o.ApplicationGroups) {
 		return true
 	}
 
@@ -191,7 +191,7 @@ func (o *EditApplicationRequestModel) GetDeliveryGroupsOk() ([]PriorityRefReques
 
 // HasDeliveryGroups returns a boolean if a field has been set.
 func (o *EditApplicationRequestModel) HasDeliveryGroups() bool {
-	if o != nil && IsNil(o.DeliveryGroups) {
+	if o != nil && !IsNil(o.DeliveryGroups) {
 		return true
 	}
 
@@ -267,7 +267,7 @@ func (o *EditApplicationRequestModel) GetCategoriesOk() ([]string, bool) {
 
 // HasCategories returns a boolean if a field has been set.
 func (o *EditApplicationRequestModel) HasCategories() bool {
-	if o != nil && IsNil(o.Categories) {
+	if o != nil && !IsNil(o.Categories) {
 		return true
 	}
 
@@ -708,7 +708,7 @@ func (o *EditApplicationRequestModel) GetIncludedUsersOk() ([]string, bool) {
 
 // HasIncludedUsers returns a boolean if a field has been set.
 func (o *EditApplicationRequestModel) HasIncludedUsers() bool {
-	if o != nil && IsNil(o.IncludedUsers) {
+	if o != nil && !IsNil(o.IncludedUsers) {
 		return true
 	}
 
@@ -912,7 +912,7 @@ func (o *EditApplicationRequestModel) GetMetadataOk() ([]NameValueStringPairMode
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *EditApplicationRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

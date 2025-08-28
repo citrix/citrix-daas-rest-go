@@ -161,10 +161,16 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 	}
 
 	if r.detailResponseRequired != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "detailResponseRequired", r.detailResponseRequired, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "detailResponseRequired", r.detailResponseRequired, "form", "")
+	} else {
+		var defaultValue bool = true
+		r.detailResponseRequired = &defaultValue
 	}
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -183,22 +189,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.priorityRefRequestModel
@@ -231,6 +237,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -477,7 +490,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -496,22 +512,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -542,6 +558,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -779,22 +802,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExistsEx
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -825,6 +848,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExistsEx
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -1059,22 +1089,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1105,6 +1135,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExi
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -1323,7 +1360,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -1342,22 +1382,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.createAutoscalePluginTemplateRequestModel
@@ -1390,6 +1430,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -1636,10 +1683,16 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 	}
 
 	if r.detailResponseRequired != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "detailResponseRequired", r.detailResponseRequired, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "detailResponseRequired", r.detailResponseRequired, "form", "")
+	} else {
+		var defaultValue bool = true
+		r.detailResponseRequired = &defaultValue
 	}
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -1658,22 +1711,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.createDeliveryGroupRequestModel
@@ -1706,6 +1759,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -1947,7 +2007,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -1966,22 +2029,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.advancedAccessPolicyRequestModel
@@ -2014,6 +2077,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -2263,7 +2333,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -2282,22 +2355,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.createAutoscaleGroupPluginRequestModel
@@ -2330,6 +2403,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -2575,7 +2655,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -2594,22 +2677,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.powerTimeSchemeRequestModel
@@ -2642,6 +2725,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -2903,22 +2993,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.rebootScheduleRequestModel
@@ -2951,6 +3041,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -3194,7 +3291,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTempl
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -3213,22 +3313,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTempl
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -3259,6 +3359,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTempl
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -3474,10 +3581,16 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	if r.force != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "force", r.force, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "force", r.force, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.force = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -3496,22 +3609,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -3542,6 +3655,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -3754,7 +3874,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -3773,22 +3896,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -3819,6 +3942,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -4031,7 +4161,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutosca
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -4050,22 +4183,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutosca
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -4096,6 +4229,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutosca
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -4310,7 +4450,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -4329,22 +4472,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -4375,6 +4518,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -4596,22 +4746,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -4642,6 +4792,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -4860,7 +5017,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -4879,22 +5039,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.deliveryGroupAddApplicationsRequestModel
@@ -4927,6 +5087,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -5177,10 +5344,16 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 	}
 
 	if r.detailResponseRequired != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "detailResponseRequired", r.detailResponseRequired, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "detailResponseRequired", r.detailResponseRequired, "form", "")
+	} else {
+		var defaultValue bool = true
+		r.detailResponseRequired = &defaultValue
 	}
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -5199,22 +5372,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.deliveryGroupAddMachinesRequestModel
@@ -5247,6 +5420,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -5519,16 +5699,19 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	if r.fields != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -5547,22 +5730,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.deliveryGroupSearchRequestModel
@@ -5595,6 +5778,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -5827,7 +6017,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsE
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -5846,22 +6039,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsE
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -5892,6 +6085,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsE
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -6104,7 +6304,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecut
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -6123,22 +6326,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecut
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -6169,6 +6372,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecut
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -6381,7 +6591,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -6400,22 +6613,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -6446,6 +6659,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -6661,7 +6881,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -6680,22 +6903,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -6726,6 +6949,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -6946,7 +7176,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -6965,22 +7198,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -7011,6 +7244,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -7238,10 +7478,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjected
 	}
 
 	if r.fromDate != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "fromDate", r.fromDate, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fromDate", r.fromDate, "form", "")
 	}
 	if r.numberOfDays != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "numberOfDays", r.numberOfDays, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "numberOfDays", r.numberOfDays, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -7260,22 +7500,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjected
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -7306,6 +7546,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjected
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -7526,7 +7773,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r 
 	}
 
 	if r.fields != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -7545,22 +7792,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -7591,6 +7838,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r 
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -7818,10 +8072,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 	}
 
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -7840,22 +8094,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -7886,6 +8140,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -8119,22 +8380,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -8165,6 +8426,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -8398,13 +8666,16 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -8423,22 +8694,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -8469,6 +8740,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -8696,10 +8974,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleG
 	}
 
 	if r.type_ != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "form", "")
 	}
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -8718,22 +8999,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleG
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -8764,6 +9045,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleG
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -9000,10 +9288,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 	}
 
 	if r.executableName != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "executableName", r.executableName, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "executableName", r.executableName, "form", "")
 	}
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -9022,22 +9313,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.deliveryGroupsFtaRequestModel
@@ -9070,6 +9361,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -9308,10 +9606,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesEx
 	}
 
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -9330,22 +9628,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesEx
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -9376,6 +9674,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesEx
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -9612,22 +9917,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -9658,6 +9963,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -9887,10 +10199,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 	}
 
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -9909,22 +10221,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -9955,6 +10267,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -10188,22 +10507,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -10234,6 +10553,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -10461,10 +10787,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 	}
 
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -10483,22 +10809,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -10529,6 +10855,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -10758,10 +11091,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuA
 	}
 
 	if r.tagRestriction != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "tagRestriction", r.tagRestriction, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "tagRestriction", r.tagRestriction, "form", "")
 	}
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -10780,22 +11116,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuA
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -10826,6 +11162,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuA
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -11060,10 +11403,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 	}
 
 	if r.fields != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "form", "")
 	}
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -11082,22 +11428,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -11128,6 +11474,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -11360,22 +11713,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReport
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -11406,6 +11759,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReport
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -11651,19 +12011,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsExecute(r
 	}
 
 	if r.adminFolder != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "adminFolder", r.adminFolder, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "adminFolder", r.adminFolder, "form", "")
 	}
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	if r.fields != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -11682,22 +12045,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsExecute(r
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -11728,6 +12091,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsExecute(r
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -11944,10 +12314,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministr
 	}
 
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -11966,22 +12336,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministr
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -12012,6 +12382,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministr
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -12239,10 +12616,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicati
 	}
 
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -12261,22 +12638,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicati
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -12307,6 +12684,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicati
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -12540,13 +12924,16 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsE
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -12565,22 +12952,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsE
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -12611,6 +12998,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsE
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -12844,22 +13238,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -12890,6 +13284,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -13124,13 +13525,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 	}
 
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	if r.fields != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -13149,22 +13550,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -13195,6 +13596,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -13422,10 +13830,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExec
 	}
 
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -13444,22 +13852,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExec
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -13490,6 +13898,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExec
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -13735,19 +14150,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute
 	}
 
 	if r.adminFolder != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "adminFolder", r.adminFolder, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "adminFolder", r.adminFolder, "form", "")
 	}
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	if r.fields != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -13766,22 +14184,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -13812,6 +14230,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -14028,7 +14453,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -14047,22 +14475,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.editDeliveryGroupRequestModel
@@ -14095,6 +14523,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -14331,7 +14766,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -14350,22 +14788,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.advancedAccessPolicyRequestModel
@@ -14398,6 +14836,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -14645,7 +15090,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -14664,22 +15112,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.powerTimeSchemeRequestModel
@@ -14712,6 +15160,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -14966,22 +15421,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.rebootScheduleRequestModel
@@ -15014,6 +15469,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -15263,10 +15725,16 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 	}
 
 	if r.detailResponseRequired != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "detailResponseRequired", r.detailResponseRequired, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "detailResponseRequired", r.detailResponseRequired, "form", "")
+	} else {
+		var defaultValue bool = true
+		r.detailResponseRequired = &defaultValue
 	}
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -15285,22 +15753,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -15331,6 +15799,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -15546,7 +16021,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExe
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -15565,22 +16043,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -15611,6 +16089,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExe
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -15829,7 +16314,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -15848,22 +16336,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.tagsRequestModel
@@ -15896,6 +16384,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -16125,7 +16620,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -16144,22 +16642,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.rebootCycleRequestModel
@@ -16192,6 +16690,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -16425,7 +16930,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -16444,22 +16952,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -16490,6 +16998,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -16733,22 +17248,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.desktopGroupNameCheckRequestModel
@@ -16781,6 +17296,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -17014,7 +17536,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -17033,22 +17558,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.updateAutoscalePluginTemplateRequestModel
@@ -17081,6 +17606,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -17314,7 +17846,10 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutosca
 	}
 
 	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -17333,22 +17868,22 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutosca
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
 	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
 	}
 	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.updateAutoscaleGroupPluginRequestModel
@@ -17381,6 +17916,13 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutosca
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {

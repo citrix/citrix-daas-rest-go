@@ -61,7 +61,7 @@ func (o *UpdateServiceAccountCapabilityPreviewRequestModel) GetCapabilitiesOk() 
 
 // HasCapabilities returns a boolean if a field has been set.
 func (o *UpdateServiceAccountCapabilityPreviewRequestModel) HasCapabilities() bool {
-	if o != nil && IsNil(o.Capabilities) {
+	if o != nil && !IsNil(o.Capabilities) {
 		return true
 	}
 

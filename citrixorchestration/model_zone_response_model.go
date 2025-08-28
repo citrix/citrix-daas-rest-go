@@ -36,6 +36,8 @@ type ZoneResponseModel struct {
 	ResourceLocation *RefResponseModel          `json:"ResourceLocation,omitempty"`
 }
 
+type _ZoneResponseModel ZoneResponseModel
+
 // NewZoneResponseModel instantiates a new ZoneResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -267,7 +269,7 @@ func (o *ZoneResponseModel) GetMetadataOk() ([]NameValueStringPairModel, bool) {
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *ZoneResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

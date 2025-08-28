@@ -142,7 +142,7 @@ func (o *LogOperationSearchRequestModel) GetSearchFiltersOk() ([]LogOperationSea
 
 // HasSearchFilters returns a boolean if a field has been set.
 func (o *LogOperationSearchRequestModel) HasSearchFilters() bool {
-	if o != nil && IsNil(o.SearchFilters) {
+	if o != nil && !IsNil(o.SearchFilters) {
 		return true
 	}
 
@@ -175,7 +175,7 @@ func (o *LogOperationSearchRequestModel) GetSearchFilterGroupsOk() ([]LogOperati
 
 // HasSearchFilterGroups returns a boolean if a field has been set.
 func (o *LogOperationSearchRequestModel) HasSearchFilterGroups() bool {
-	if o != nil && IsNil(o.SearchFilterGroups) {
+	if o != nil && !IsNil(o.SearchFilterGroups) {
 		return true
 	}
 

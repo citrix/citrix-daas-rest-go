@@ -196,7 +196,7 @@ func (o *TagRequestModel) GetScopesOk() ([]string, bool) {
 
 // HasScopes returns a boolean if a field has been set.
 func (o *TagRequestModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 

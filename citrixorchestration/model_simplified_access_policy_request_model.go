@@ -416,7 +416,7 @@ func (o *SimplifiedAccessPolicyRequestModel) GetIncludedSmartAccessTagsOk() ([]S
 
 // HasIncludedSmartAccessTags returns a boolean if a field has been set.
 func (o *SimplifiedAccessPolicyRequestModel) HasIncludedSmartAccessTags() bool {
-	if o != nil && IsNil(o.IncludedSmartAccessTags) {
+	if o != nil && !IsNil(o.IncludedSmartAccessTags) {
 		return true
 	}
 
@@ -492,7 +492,7 @@ func (o *SimplifiedAccessPolicyRequestModel) GetIncludedUsersOk() ([]string, boo
 
 // HasIncludedUsers returns a boolean if a field has been set.
 func (o *SimplifiedAccessPolicyRequestModel) HasIncludedUsers() bool {
-	if o != nil && IsNil(o.IncludedUsers) {
+	if o != nil && !IsNil(o.IncludedUsers) {
 		return true
 	}
 
@@ -568,7 +568,7 @@ func (o *SimplifiedAccessPolicyRequestModel) GetExcludedUsersOk() ([]string, boo
 
 // HasExcludedUsers returns a boolean if a field has been set.
 func (o *SimplifiedAccessPolicyRequestModel) HasExcludedUsers() bool {
-	if o != nil && IsNil(o.ExcludedUsers) {
+	if o != nil && !IsNil(o.ExcludedUsers) {
 		return true
 	}
 

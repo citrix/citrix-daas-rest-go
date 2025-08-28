@@ -95,7 +95,7 @@ func (o *DailyCostItemResponseModel) GetResourceCostItemsOk() ([]ResourceCostIte
 
 // HasResourceCostItems returns a boolean if a field has been set.
 func (o *DailyCostItemResponseModel) HasResourceCostItems() bool {
-	if o != nil && IsNil(o.ResourceCostItems) {
+	if o != nil && !IsNil(o.ResourceCostItems) {
 		return true
 	}
 

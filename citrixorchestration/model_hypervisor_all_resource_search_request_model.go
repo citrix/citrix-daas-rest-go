@@ -23,6 +23,8 @@ type HypervisorAllResourceSearchRequestModel struct {
 	ResourceSearchRequest HypervisorResourceSearchRequestModel   `json:"ResourceSearchRequest"`
 }
 
+type _HypervisorAllResourceSearchRequestModel HypervisorAllResourceSearchRequestModel
+
 // NewHypervisorAllResourceSearchRequestModel instantiates a new HypervisorAllResourceSearchRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

@@ -692,7 +692,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetNetworkMappingOk
 
 // HasNetworkMapping returns a boolean if a field has been set.
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasNetworkMapping() bool {
-	if o != nil && IsNil(o.NetworkMapping) {
+	if o != nil && !IsNil(o.NetworkMapping) {
 		return true
 	}
 
@@ -725,7 +725,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetMetadataOk() ([]
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -801,7 +801,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetSecurityGroupsOk
 
 // HasSecurityGroups returns a boolean if a field has been set.
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasSecurityGroups() bool {
-	if o != nil && IsNil(o.SecurityGroups) {
+	if o != nil && !IsNil(o.SecurityGroups) {
 		return true
 	}
 
@@ -1177,7 +1177,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetCustomProperties
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
+	if o != nil && !IsNil(o.CustomProperties) {
 		return true
 	}
 
@@ -1457,7 +1457,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetAvailableMachine
 
 // HasAvailableMachineAccounts returns a boolean if a field has been set.
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasAvailableMachineAccounts() bool {
-	if o != nil && IsNil(o.AvailableMachineAccounts) {
+	if o != nil && !IsNil(o.AvailableMachineAccounts) {
 		return true
 	}
 
@@ -1576,7 +1576,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetServiceAccountUi
 
 // HasServiceAccountUid returns a boolean if a field has been set.
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasServiceAccountUid() bool {
-	if o != nil && IsNil(o.ServiceAccountUid) {
+	if o != nil && !IsNil(o.ServiceAccountUid) {
 		return true
 	}
 

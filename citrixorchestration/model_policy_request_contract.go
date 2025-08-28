@@ -247,7 +247,7 @@ func (o *PolicyRequestContract) GetSettingsOk() ([]SettingRequestContract, bool)
 
 // HasSettings returns a boolean if a field has been set.
 func (o *PolicyRequestContract) HasSettings() bool {
-	if o != nil && IsNil(o.Settings) {
+	if o != nil && !IsNil(o.Settings) {
 		return true
 	}
 
@@ -280,7 +280,7 @@ func (o *PolicyRequestContract) GetFiltersOk() ([]FilterRequestContract, bool) {
 
 // HasFilters returns a boolean if a field has been set.
 func (o *PolicyRequestContract) HasFilters() bool {
-	if o != nil && IsNil(o.Filters) {
+	if o != nil && !IsNil(o.Filters) {
 		return true
 	}
 

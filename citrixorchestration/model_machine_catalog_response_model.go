@@ -600,7 +600,7 @@ func (o *MachineCatalogResponseModel) GetJobsInProgressOk() ([]RefResponseModel,
 
 // HasJobsInProgress returns a boolean if a field has been set.
 func (o *MachineCatalogResponseModel) HasJobsInProgress() bool {
-	if o != nil && IsNil(o.JobsInProgress) {
+	if o != nil && !IsNil(o.JobsInProgress) {
 		return true
 	}
 
@@ -665,7 +665,7 @@ func (o *MachineCatalogResponseModel) GetMetadataOk() ([]NameValueStringPairMode
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *MachineCatalogResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -1072,7 +1072,7 @@ func (o *MachineCatalogResponseModel) GetRemotePCEnrollmentScopesOk() ([]RemoteP
 
 // HasRemotePCEnrollmentScopes returns a boolean if a field has been set.
 func (o *MachineCatalogResponseModel) HasRemotePCEnrollmentScopes() bool {
-	if o != nil && IsNil(o.RemotePCEnrollmentScopes) {
+	if o != nil && !IsNil(o.RemotePCEnrollmentScopes) {
 		return true
 	}
 
@@ -1105,7 +1105,7 @@ func (o *MachineCatalogResponseModel) GetScopesOk() ([]ScopeResponseModel, bool)
 
 // HasScopes returns a boolean if a field has been set.
 func (o *MachineCatalogResponseModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -1138,7 +1138,7 @@ func (o *MachineCatalogResponseModel) GetTenantsOk() ([]RefResponseModel, bool) 
 
 // HasTenants returns a boolean if a field has been set.
 func (o *MachineCatalogResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -1374,7 +1374,7 @@ func (o *MachineCatalogResponseModel) GetErrorsOk() ([]string, bool) {
 
 // HasErrors returns a boolean if a field has been set.
 func (o *MachineCatalogResponseModel) HasErrors() bool {
-	if o != nil && IsNil(o.Errors) {
+	if o != nil && !IsNil(o.Errors) {
 		return true
 	}
 
@@ -1407,7 +1407,7 @@ func (o *MachineCatalogResponseModel) GetWarningsOk() ([]MachineCatalogWarningRe
 
 // HasWarnings returns a boolean if a field has been set.
 func (o *MachineCatalogResponseModel) HasWarnings() bool {
-	if o != nil && IsNil(o.Warnings) {
+	if o != nil && !IsNil(o.Warnings) {
 		return true
 	}
 

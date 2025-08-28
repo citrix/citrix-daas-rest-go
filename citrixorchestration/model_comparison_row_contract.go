@@ -180,7 +180,7 @@ func (o *ComparisonRowContract) GetIsInUseOk() ([]bool, bool) {
 
 // HasIsInUse returns a boolean if a field has been set.
 func (o *ComparisonRowContract) HasIsInUse() bool {
-	if o != nil && IsNil(o.IsInUse) {
+	if o != nil && !IsNil(o.IsInUse) {
 		return true
 	}
 
@@ -213,7 +213,7 @@ func (o *ComparisonRowContract) GetValuesOk() ([]string, bool) {
 
 // HasValues returns a boolean if a field has been set.
 func (o *ComparisonRowContract) HasValues() bool {
-	if o != nil && IsNil(o.Values) {
+	if o != nil && !IsNil(o.Values) {
 		return true
 	}
 

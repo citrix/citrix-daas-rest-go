@@ -311,7 +311,7 @@ func (o *DesktopResponseModel) GetExcludedUsersOk() ([]IdentityUserResponseModel
 
 // HasExcludedUsers returns a boolean if a field has been set.
 func (o *DesktopResponseModel) HasExcludedUsers() bool {
-	if o != nil && IsNil(o.ExcludedUsers) {
+	if o != nil && !IsNil(o.ExcludedUsers) {
 		return true
 	}
 
@@ -419,7 +419,7 @@ func (o *DesktopResponseModel) GetIncludedUsersOk() ([]IdentityUserResponseModel
 
 // HasIncludedUsers returns a boolean if a field has been set.
 func (o *DesktopResponseModel) HasIncludedUsers() bool {
-	if o != nil && IsNil(o.IncludedUsers) {
+	if o != nil && !IsNil(o.IncludedUsers) {
 		return true
 	}
 
@@ -752,7 +752,7 @@ func (o *DesktopResponseModel) GetTenantsOk() ([]RefResponseModel, bool) {
 
 // HasTenants returns a boolean if a field has been set.
 func (o *DesktopResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 

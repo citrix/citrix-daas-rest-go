@@ -25,6 +25,8 @@ type AppVIsolationGroupPackageRequestModel struct {
 	Uid int32 `json:"Uid"`
 }
 
+type _AppVIsolationGroupPackageRequestModel AppVIsolationGroupPackageRequestModel
+
 // NewAppVIsolationGroupPackageRequestModel instantiates a new AppVIsolationGroupPackageRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

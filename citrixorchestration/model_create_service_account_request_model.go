@@ -44,6 +44,8 @@ type CreateServiceAccountRequestModel struct {
 	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 }
 
+type _CreateServiceAccountRequestModel CreateServiceAccountRequestModel
+
 // NewCreateServiceAccountRequestModel instantiates a new CreateServiceAccountRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -239,7 +241,7 @@ func (o *CreateServiceAccountRequestModel) GetCapabilitiesOk() ([]string, bool) 
 
 // HasCapabilities returns a boolean if a field has been set.
 func (o *CreateServiceAccountRequestModel) HasCapabilities() bool {
-	if o != nil && IsNil(o.Capabilities) {
+	if o != nil && !IsNil(o.Capabilities) {
 		return true
 	}
 
@@ -272,7 +274,7 @@ func (o *CreateServiceAccountRequestModel) GetScopesOk() ([]string, bool) {
 
 // HasScopes returns a boolean if a field has been set.
 func (o *CreateServiceAccountRequestModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 

@@ -77,6 +77,8 @@ type CreateApplicationRequestModel struct {
 	FileTypes []FtaRequestModel `json:"FileTypes,omitempty"`
 }
 
+type _CreateApplicationRequestModel CreateApplicationRequestModel
+
 // NewCreateApplicationRequestModel instantiates a new CreateApplicationRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -413,7 +415,7 @@ func (o *CreateApplicationRequestModel) GetApplicationGroupsOk() ([]string, bool
 
 // HasApplicationGroups returns a boolean if a field has been set.
 func (o *CreateApplicationRequestModel) HasApplicationGroups() bool {
-	if o != nil && IsNil(o.ApplicationGroups) {
+	if o != nil && !IsNil(o.ApplicationGroups) {
 		return true
 	}
 
@@ -779,7 +781,7 @@ func (o *CreateApplicationRequestModel) GetIncludedUsersOk() ([]string, bool) {
 
 // HasIncludedUsers returns a boolean if a field has been set.
 func (o *CreateApplicationRequestModel) HasIncludedUsers() bool {
-	if o != nil && IsNil(o.IncludedUsers) {
+	if o != nil && !IsNil(o.IncludedUsers) {
 		return true
 	}
 
@@ -1319,7 +1321,7 @@ func (o *CreateApplicationRequestModel) GetMetadataOk() ([]NameValueStringPairMo
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *CreateApplicationRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -1352,7 +1354,7 @@ func (o *CreateApplicationRequestModel) GetFileTypesOk() ([]FtaRequestModel, boo
 
 // HasFileTypes returns a boolean if a field has been set.
 func (o *CreateApplicationRequestModel) HasFileTypes() bool {
-	if o != nil && IsNil(o.FileTypes) {
+	if o != nil && !IsNil(o.FileTypes) {
 		return true
 	}
 

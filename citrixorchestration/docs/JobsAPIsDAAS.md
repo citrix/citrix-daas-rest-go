@@ -27,31 +27,31 @@ Cancel a job.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    id := "id_example" // string | ID of the job to remove.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	id := "id_example" // string | ID of the job to remove.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.JobsAPIsDAAS.JobsCancelJob(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `JobsAPIsDAAS.JobsCancelJob``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `JobsCancelJob`: JobResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `JobsAPIsDAAS.JobsCancelJob`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JobsAPIsDAAS.JobsCancelJob(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPIsDAAS.JobsCancelJob``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `JobsCancelJob`: JobResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `JobsAPIsDAAS.JobsCancelJob`: %v\n", resp)
 }
 ```
 
@@ -111,29 +111,29 @@ Removes the job record.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    id := "id_example" // string | ID of the job to remove.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	id := "id_example" // string | ID of the job to remove.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.JobsAPIsDAAS.JobsDeleteJob(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `JobsAPIsDAAS.JobsDeleteJob``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.JobsAPIsDAAS.JobsDeleteJob(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPIsDAAS.JobsDeleteJob``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -193,31 +193,31 @@ Get the details of a single job.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    id := "id_example" // string | ID of the job.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	id := "id_example" // string | ID of the job.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.JobsAPIsDAAS.JobsGetJob(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `JobsAPIsDAAS.JobsGetJob``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `JobsGetJob`: JobResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `JobsAPIsDAAS.JobsGetJob`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JobsAPIsDAAS.JobsGetJob(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPIsDAAS.JobsGetJob``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `JobsGetJob`: JobResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `JobsAPIsDAAS.JobsGetJob`: %v\n", resp)
 }
 ```
 
@@ -277,31 +277,31 @@ Get the results of a job which has completed execution.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    id := "id_example" // string | ID of the job.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	id := "id_example" // string | ID of the job.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.JobsAPIsDAAS.JobsGetJobResults(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `JobsAPIsDAAS.JobsGetJobResults``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `JobsGetJobResults`: string
-    fmt.Fprintf(os.Stdout, "Response from `JobsAPIsDAAS.JobsGetJobResults`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JobsAPIsDAAS.JobsGetJobResults(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPIsDAAS.JobsGetJobResults``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `JobsGetJobResults`: string
+	fmt.Fprintf(os.Stdout, "Response from `JobsAPIsDAAS.JobsGetJobResults`: %v\n", resp)
 }
 ```
 
@@ -361,30 +361,30 @@ Get the list of jobs that are currently active, or have recently completed, and 
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.JobsAPIsDAAS.JobsGetJobs(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `JobsAPIsDAAS.JobsGetJobs``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `JobsGetJobs`: JobResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `JobsAPIsDAAS.JobsGetJobs`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JobsAPIsDAAS.JobsGetJobs(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPIsDAAS.JobsGetJobs``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `JobsGetJobs`: JobResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `JobsAPIsDAAS.JobsGetJobs`: %v\n", resp)
 }
 ```
 
@@ -439,31 +439,31 @@ Skips any remaining / unstarted subtasks of the job.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    id := "id_example" // string | ID of the job.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	id := "id_example" // string | ID of the job.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.JobsAPIsDAAS.JobsSkipRemainingSubtasks(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `JobsAPIsDAAS.JobsSkipRemainingSubtasks``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `JobsSkipRemainingSubtasks`: JobResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `JobsAPIsDAAS.JobsSkipRemainingSubtasks`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JobsAPIsDAAS.JobsSkipRemainingSubtasks(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPIsDAAS.JobsSkipRemainingSubtasks``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `JobsSkipRemainingSubtasks`: JobResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `JobsAPIsDAAS.JobsSkipRemainingSubtasks`: %v\n", resp)
 }
 ```
 

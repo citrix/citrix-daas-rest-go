@@ -30,30 +30,30 @@ Delete logging event logs.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If 'true', the deleting all operations will be executed as a background task. The task wil have JobTypeDeleteAllOperations. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If 'true', the deleting all operations will be executed as a background task. The task wil have JobTypeDeleteAllOperations. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogDeleteLogs(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogDeleteLogs``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogDeleteLogs(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogDeleteLogs``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -110,35 +110,35 @@ Perform an advanced search for configuration log entries.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    logOperationSearchRequestModel := *openapiclient.NewLogOperationSearchRequestModel() // LogOperationSearchRequestModel | Specifies the advanced search parameters.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xTimeZone := "xTimeZone_example" // string | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    limit := int32(56) // int32 | The max number of configuration log entries returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
-    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
-    async := true // bool | If `true`, the search operations will be executed as a background task. The task will have JobType DoOperationSearch. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	logOperationSearchRequestModel := *openapiclient.NewLogOperationSearchRequestModel() // LogOperationSearchRequestModel | Specifies the advanced search parameters.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xTimeZone := "xTimeZone_example" // string | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	limit := int32(56) // int32 | The max number of configuration log entries returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+	continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+	async := true // bool | If `true`, the search operations will be executed as a background task. The task will have JobType DoOperationSearch. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogDoConfigLogSearch(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).LogOperationSearchRequestModel(logOperationSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogDoConfigLogSearch``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ConfigLogDoConfigLogSearch`: LogOperationResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogDoConfigLogSearch`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogDoConfigLogSearch(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).LogOperationSearchRequestModel(logOperationSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogDoConfigLogSearch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ConfigLogDoConfigLogSearch`: LogOperationResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogDoConfigLogSearch`: %v\n", resp)
 }
 ```
 
@@ -196,32 +196,32 @@ Export logging report data in the format of csv/html/both.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    customReportInfoRequestModel := *openapiclient.NewCustomReportInfoRequestModel(openapiclient.CustomReportFormatType("Html"), openapiclient.CustomReportDateRangeType("All")) // CustomReportInfoRequestModel | CustomReportInfoRequest CustomReportInfoRequestModel
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If 'true', the exporting operation report will be executed as a background task. The task wil have JobTypeExportOperationReport. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	customReportInfoRequestModel := *openapiclient.NewCustomReportInfoRequestModel(openapiclient.CustomReportFormatType("Html"), openapiclient.CustomReportDateRangeType("All")) // CustomReportInfoRequestModel | CustomReportInfoRequest CustomReportInfoRequestModel
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If 'true', the exporting operation report will be executed as a background task. The task wil have JobTypeExportOperationReport. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogExportReportData(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CustomReportInfoRequestModel(customReportInfoRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogExportReportData``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ConfigLogExportReportData`: CustomReportDataResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogExportReportData`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogExportReportData(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CustomReportInfoRequestModel(customReportInfoRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogExportReportData``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ConfigLogExportReportData`: CustomReportDataResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogExportReportData`: %v\n", resp)
 }
 ```
 
@@ -276,32 +276,32 @@ Fetch existing high level log operation labels.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    refresh := true // bool | If 'true', force fetching labels from all high level log operations and refresh the label cache, Otherwise, return labels directly from cache. (optional) (default to false)
-    async := true // bool | If 'true', the fetching existing operation labels will be executed as a background task. The task wil have JobTypeFetchExistingOperationLabels. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	refresh := true // bool | If 'true', force fetching labels from all high level log operations and refresh the label cache, Otherwise, return labels directly from cache. (optional) (default to false)
+	async := true // bool | If 'true', the fetching existing operation labels will be executed as a background task. The task wil have JobTypeFetchExistingOperationLabels. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogFetchExistingOperationLabels(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Refresh(refresh).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogFetchExistingOperationLabels``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ConfigLogFetchExistingOperationLabels`: []string
-    fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogFetchExistingOperationLabels`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogFetchExistingOperationLabels(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Refresh(refresh).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogFetchExistingOperationLabels``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ConfigLogFetchExistingOperationLabels`: []string
+	fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogFetchExistingOperationLabels`: %v\n", resp)
 }
 ```
 
@@ -356,30 +356,30 @@ Get first log date
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetFirstLogDate(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogGetFirstLogDate``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ConfigLogGetFirstLogDate`: string
-    fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogGetFirstLogDate`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetFirstLogDate(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogGetFirstLogDate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ConfigLogGetFirstLogDate`: string
+	fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogGetFirstLogDate`: %v\n", resp)
 }
 ```
 
@@ -432,30 +432,30 @@ Get logging site details.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetLogSite(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogGetLogSite``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ConfigLogGetLogSite`: LogSiteResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogGetLogSite`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetLogSite(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogGetLogSite``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ConfigLogGetLogSite`: LogSiteResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogGetLogSite`: %v\n", resp)
 }
 ```
 
@@ -508,33 +508,33 @@ Get the detailed low level operations of a high level operation.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    id := "id_example" // string | id of specified high level operation
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    limit := int32(56) // int32 | The max number of low level operations returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
-    continuationToken := "continuationToken_example" // string | The continuationToken returned by the previous query. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	id := "id_example" // string | id of specified high level operation
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	limit := int32(56) // int32 | The max number of low level operations returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+	continuationToken := "continuationToken_example" // string | The continuationToken returned by the previous query. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetLowLevelOperations(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogGetLowLevelOperations``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ConfigLogGetLowLevelOperations`: LowLevelOperationResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogGetLowLevelOperations`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetLowLevelOperations(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogGetLowLevelOperations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ConfigLogGetLowLevelOperations`: LowLevelOperationResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogGetLowLevelOperations`: %v\n", resp)
 }
 ```
 
@@ -594,31 +594,31 @@ Get a high level log operation.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    id := "id_example" // string | ID of the operation.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	id := "id_example" // string | ID of the operation.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetOperation(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogGetOperation``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ConfigLogGetOperation`: LogOperationResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogGetOperation`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetOperation(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogGetOperation``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ConfigLogGetOperation`: LogOperationResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogGetOperation`: %v\n", resp)
 }
 ```
 
@@ -678,38 +678,38 @@ Get configuration log operations.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xTimeZone := "xTimeZone_example" // string | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    text := "text_example" // string | Optional; Text pattern to match, which is case-insensitive and may include the wildcard \"*\". If specified, only return records which Text matched pattern. Otherwise, all records will be returned. (optional)
-    days := int32(56) // int32 | Optional; Number of days of history to retrieve. Note: This parameter is exclusive with parameter searchDateOption. If neither is specified, all records will be returned. (optional)
-    searchDateOption := openapiclient.SearchDateOption("LastMinute") // SearchDateOption | Optional; Specific time filters for searching operations. Note: This parameter is exclusive with parameter days. If neither is specified, all records will be returned. (optional)
-    timeDiff := int32(56) // int32 | [DEPRECATED] This parameter is deprecated, please use \"X-TimeZone\" header instead. Optional; The time difference in seconds between client time and UTC time. Note: The value must be a valid UTC offset, e.g. UTC+8, timeDiff=28800; UTC-5, timeDiff=-18000. If not specified, server local time will be referenced. (optional)
-    limit := int32(56) // int32 | Optional; The max number of operations returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
-    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
-    async := true // bool | If 'true', the get operations will be executed as a background task. The task wil have JobTypeGetOperations. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	xTimeZone := "xTimeZone_example" // string | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	text := "text_example" // string | Optional; Text pattern to match, which is case-insensitive and may include the wildcard \"*\". If specified, only return records which Text matched pattern. Otherwise, all records will be returned. (optional)
+	days := int32(56) // int32 | Optional; Number of days of history to retrieve. Note: This parameter is exclusive with parameter searchDateOption. If neither is specified, all records will be returned. (optional)
+	searchDateOption := openapiclient.SearchDateOption("LastMinute") // SearchDateOption | Optional; Specific time filters for searching operations. Note: This parameter is exclusive with parameter days. If neither is specified, all records will be returned. (optional)
+	timeDiff := int32(56) // int32 | [DEPRECATED] This parameter is deprecated, please use \"X-TimeZone\" header instead. Optional; The time difference in seconds between client time and UTC time. Note: The value must be a valid UTC offset, e.g. UTC+8, timeDiff=28800; UTC-5, timeDiff=-18000. If not specified, server local time will be referenced. (optional)
+	limit := int32(56) // int32 | Optional; The max number of operations returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+	continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+	async := true // bool | If 'true', the get operations will be executed as a background task. The task wil have JobTypeGetOperations. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetOperations(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Text(text).Days(days).SearchDateOption(searchDateOption).TimeDiff(timeDiff).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogGetOperations``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ConfigLogGetOperations`: LogOperationResponseModelCollection
-    fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogGetOperations`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetOperations(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Text(text).Days(days).SearchDateOption(searchDateOption).TimeDiff(timeDiff).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogGetOperations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ConfigLogGetOperations`: LogOperationResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogGetOperations`: %v\n", resp)
 }
 ```
 
@@ -770,31 +770,31 @@ Update a high level log operation.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    id := "id_example" // string | ID of the operation.
-    editOperationRequestModel := *openapiclient.NewEditOperationRequestModel() // EditOperationRequestModel | Details of the operation to update.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the operation will be updated as a background task. The task will have JobType UpdateOperation. When the task is complete it will redirect to GetOperation. The job's Parameters will contain properties:  * _Id_ - ID of the operation being updated. (optional) (default to false)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	id := "id_example" // string | ID of the operation.
+	editOperationRequestModel := *openapiclient.NewEditOperationRequestModel() // EditOperationRequestModel | Details of the operation to update.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the operation will be updated as a background task. The task will have JobType UpdateOperation. When the task is complete it will redirect to GetOperation. The job's Parameters will contain properties:  * _Id_ - ID of the operation being updated. (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogPatchOperation(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditOperationRequestModel(editOperationRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogPatchOperation``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogPatchOperation(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditOperationRequestModel(editOperationRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogPatchOperation``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -854,31 +854,31 @@ Update logging site info.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    logSiteRequestModel := *openapiclient.NewLogSiteRequestModel() // LogSiteRequestModel | 
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	logSiteRequestModel := *openapiclient.NewLogSiteRequestModel() // LogSiteRequestModel | 
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogSetLogSite(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).LogSiteRequestModel(logSiteRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogSetLogSite``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ConfigLogSetLogSite`: LogSiteResponseModel
-    fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogSetLogSite`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogSetLogSite(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).LogSiteRequestModel(logSiteRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogSetLogSite``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ConfigLogSetLogSite`: LogSiteResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `ConfigLogAPIsDAAS.ConfigLogSetLogSite`: %v\n", resp)
 }
 ```
 

@@ -29,6 +29,8 @@ type MultiSiteModel struct {
 	Default *bool `json:"Default,omitempty"`
 }
 
+type _MultiSiteModel MultiSiteModel
+
 // NewMultiSiteModel instantiates a new MultiSiteModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -139,7 +141,7 @@ func (o *MultiSiteModel) GetDeliveryControllersOk() ([]string, bool) {
 
 // HasDeliveryControllers returns a boolean if a field has been set.
 func (o *MultiSiteModel) HasDeliveryControllers() bool {
-	if o != nil && IsNil(o.DeliveryControllers) {
+	if o != nil && !IsNil(o.DeliveryControllers) {
 		return true
 	}
 

@@ -106,7 +106,7 @@ func (o *EnumerationType) GetMembersOk() ([]EnumerationMember, bool) {
 
 // HasMembers returns a boolean if a field has been set.
 func (o *EnumerationType) HasMembers() bool {
-	if o != nil && IsNil(o.Members) {
+	if o != nil && !IsNil(o.Members) {
 		return true
 	}
 

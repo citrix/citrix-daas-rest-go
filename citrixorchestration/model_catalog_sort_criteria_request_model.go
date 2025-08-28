@@ -23,6 +23,8 @@ type CatalogSortCriteriaRequestModel struct {
 	SortDirection ListSortDirection     `json:"SortDirection"`
 }
 
+type _CatalogSortCriteriaRequestModel CatalogSortCriteriaRequestModel
+
 // NewCatalogSortCriteriaRequestModel instantiates a new CatalogSortCriteriaRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

@@ -43,6 +43,8 @@ type ImageVersionSpecResponseModel struct {
 	Zone     *RefResponseModel                      `json:"Zone,omitempty"`
 }
 
+type _ImageVersionSpecResponseModel ImageVersionSpecResponseModel
+
 // NewImageVersionSpecResponseModel instantiates a new ImageVersionSpecResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -182,7 +184,7 @@ func (o *ImageVersionSpecResponseModel) GetErrorsOk() ([]string, bool) {
 
 // HasErrors returns a boolean if a field has been set.
 func (o *ImageVersionSpecResponseModel) HasErrors() bool {
-	if o != nil && IsNil(o.Errors) {
+	if o != nil && !IsNil(o.Errors) {
 		return true
 	}
 
@@ -399,7 +401,7 @@ func (o *ImageVersionSpecResponseModel) GetResourcePoolsOk() ([]ImageVersionSpec
 
 // HasResourcePools returns a boolean if a field has been set.
 func (o *ImageVersionSpecResponseModel) HasResourcePools() bool {
-	if o != nil && IsNil(o.ResourcePools) {
+	if o != nil && !IsNil(o.ResourcePools) {
 		return true
 	}
 
@@ -496,7 +498,7 @@ func (o *ImageVersionSpecResponseModel) GetWarningsOk() ([]ImageVersionSpecWarni
 
 // HasWarnings returns a boolean if a field has been set.
 func (o *ImageVersionSpecResponseModel) HasWarnings() bool {
-	if o != nil && IsNil(o.Warnings) {
+	if o != nil && !IsNil(o.Warnings) {
 		return true
 	}
 

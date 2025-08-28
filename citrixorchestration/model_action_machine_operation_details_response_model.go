@@ -112,7 +112,7 @@ func (o *ActionMachineOperationDetailsResponseModel) GetSuccessfulAccountsOk() (
 
 // HasSuccessfulAccounts returns a boolean if a field has been set.
 func (o *ActionMachineOperationDetailsResponseModel) HasSuccessfulAccounts() bool {
-	if o != nil && IsNil(o.SuccessfulAccounts) {
+	if o != nil && !IsNil(o.SuccessfulAccounts) {
 		return true
 	}
 
@@ -145,7 +145,7 @@ func (o *ActionMachineOperationDetailsResponseModel) GetSuccessfulMachinesOk() (
 
 // HasSuccessfulMachines returns a boolean if a field has been set.
 func (o *ActionMachineOperationDetailsResponseModel) HasSuccessfulMachines() bool {
-	if o != nil && IsNil(o.SuccessfulMachines) {
+	if o != nil && !IsNil(o.SuccessfulMachines) {
 		return true
 	}
 
@@ -178,7 +178,7 @@ func (o *ActionMachineOperationDetailsResponseModel) GetFailedMachinesOk() ([]Ac
 
 // HasFailedMachines returns a boolean if a field has been set.
 func (o *ActionMachineOperationDetailsResponseModel) HasFailedMachines() bool {
-	if o != nil && IsNil(o.FailedMachines) {
+	if o != nil && !IsNil(o.FailedMachines) {
 		return true
 	}
 
@@ -211,7 +211,7 @@ func (o *ActionMachineOperationDetailsResponseModel) GetFailedAccountsOk() ([]Ac
 
 // HasFailedAccounts returns a boolean if a field has been set.
 func (o *ActionMachineOperationDetailsResponseModel) HasFailedAccounts() bool {
-	if o != nil && IsNil(o.FailedAccounts) {
+	if o != nil && !IsNil(o.FailedAccounts) {
 		return true
 	}
 

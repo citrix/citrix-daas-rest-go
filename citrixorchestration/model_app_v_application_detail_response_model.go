@@ -54,6 +54,8 @@ type AppVApplicationDetailResponseModel struct {
 	WorkingDirectory string `json:"WorkingDirectory"`
 }
 
+type _AppVApplicationDetailResponseModel AppVApplicationDetailResponseModel
+
 // NewAppVApplicationDetailResponseModel instantiates a new AppVApplicationDetailResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -399,7 +401,7 @@ func (o *AppVApplicationDetailResponseModel) GetUsersOk() ([]IdentityUserRespons
 
 // HasUsers returns a boolean if a field has been set.
 func (o *AppVApplicationDetailResponseModel) HasUsers() bool {
-	if o != nil && IsNil(o.Users) {
+	if o != nil && !IsNil(o.Users) {
 		return true
 	}
 
@@ -467,7 +469,7 @@ func (o *AppVApplicationDetailResponseModel) GetBrokerApplicationNamesOk() ([]st
 
 // HasBrokerApplicationNames returns a boolean if a field has been set.
 func (o *AppVApplicationDetailResponseModel) HasBrokerApplicationNames() bool {
-	if o != nil && IsNil(o.BrokerApplicationNames) {
+	if o != nil && !IsNil(o.BrokerApplicationNames) {
 		return true
 	}
 

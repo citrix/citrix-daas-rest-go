@@ -67,6 +67,8 @@ type BackupRestoreStatusRequestModel struct {
 	RestoreType *BackupRestoreRestoreTypes `json:"RestoreType,omitempty"`
 }
 
+type _BackupRestoreStatusRequestModel BackupRestoreStatusRequestModel
+
 // NewBackupRestoreStatusRequestModel instantiates a new BackupRestoreStatusRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -758,7 +760,7 @@ func (o *BackupRestoreStatusRequestModel) GetBackupDetailsOk() (*map[string]stri
 
 // HasBackupDetails returns a boolean if a field has been set.
 func (o *BackupRestoreStatusRequestModel) HasBackupDetails() bool {
-	if o != nil && IsNil(o.BackupDetails) {
+	if o != nil && !IsNil(o.BackupDetails) {
 		return true
 	}
 
@@ -791,7 +793,7 @@ func (o *BackupRestoreStatusRequestModel) GetRestoreDetailsOk() ([]BackupRestore
 
 // HasRestoreDetails returns a boolean if a field has been set.
 func (o *BackupRestoreStatusRequestModel) HasRestoreDetails() bool {
-	if o != nil && IsNil(o.RestoreDetails) {
+	if o != nil && !IsNil(o.RestoreDetails) {
 		return true
 	}
 
@@ -824,7 +826,7 @@ func (o *BackupRestoreStatusRequestModel) GetSimpleResultsOk() ([]string, bool) 
 
 // HasSimpleResults returns a boolean if a field has been set.
 func (o *BackupRestoreStatusRequestModel) HasSimpleResults() bool {
-	if o != nil && IsNil(o.SimpleResults) {
+	if o != nil && !IsNil(o.SimpleResults) {
 		return true
 	}
 

@@ -256,7 +256,7 @@ func (o *RebootScheduleRequestModel) GetDaysInWeekOk() ([]RebootScheduleDays, bo
 
 // HasDaysInWeek returns a boolean if a field has been set.
 func (o *RebootScheduleRequestModel) HasDaysInWeek() bool {
-	if o != nil && IsNil(o.DaysInWeek) {
+	if o != nil && !IsNil(o.DaysInWeek) {
 		return true
 	}
 

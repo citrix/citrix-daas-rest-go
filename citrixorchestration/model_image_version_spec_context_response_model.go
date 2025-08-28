@@ -66,7 +66,7 @@ func (o *ImageVersionSpecContextResponseModel) GetAdditionalDataOk() ([]NameValu
 
 // HasAdditionalData returns a boolean if a field has been set.
 func (o *ImageVersionSpecContextResponseModel) HasAdditionalData() bool {
-	if o != nil && IsNil(o.AdditionalData) {
+	if o != nil && !IsNil(o.AdditionalData) {
 		return true
 	}
 

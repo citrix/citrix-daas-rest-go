@@ -152,7 +152,7 @@ func (o *ActionError) GetErrorDataOk() ([]NameValueStringPairModel, bool) {
 
 // HasErrorData returns a boolean if a field has been set.
 func (o *ActionError) HasErrorData() bool {
-	if o != nil && IsNil(o.ErrorData) {
+	if o != nil && !IsNil(o.ErrorData) {
 		return true
 	}
 

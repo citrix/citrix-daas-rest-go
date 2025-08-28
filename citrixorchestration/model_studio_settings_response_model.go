@@ -63,7 +63,7 @@ func (o *StudioSettingsResponseModel) GetMultiSitesOk() ([]MultiSiteModel, bool)
 
 // HasMultiSites returns a boolean if a field has been set.
 func (o *StudioSettingsResponseModel) HasMultiSites() bool {
-	if o != nil && IsNil(o.MultiSites) {
+	if o != nil && !IsNil(o.MultiSites) {
 		return true
 	}
 

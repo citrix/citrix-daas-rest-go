@@ -243,7 +243,7 @@ func (o *UpdateProvisionedVirtualMachineRequestModel) GetCustomPropertiesOk() ([
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *UpdateProvisionedVirtualMachineRequestModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
+	if o != nil && !IsNil(o.CustomProperties) {
 		return true
 	}
 

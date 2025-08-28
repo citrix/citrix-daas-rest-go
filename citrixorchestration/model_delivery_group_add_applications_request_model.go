@@ -65,7 +65,7 @@ func (o *DeliveryGroupAddApplicationsRequestModel) GetExistingApplicationsOk() (
 
 // HasExistingApplications returns a boolean if a field has been set.
 func (o *DeliveryGroupAddApplicationsRequestModel) HasExistingApplications() bool {
-	if o != nil && IsNil(o.ExistingApplications) {
+	if o != nil && !IsNil(o.ExistingApplications) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *DeliveryGroupAddApplicationsRequestModel) GetNewApplicationsOk() ([]Cre
 
 // HasNewApplications returns a boolean if a field has been set.
 func (o *DeliveryGroupAddApplicationsRequestModel) HasNewApplications() bool {
-	if o != nil && IsNil(o.NewApplications) {
+	if o != nil && !IsNil(o.NewApplications) {
 		return true
 	}
 
@@ -131,7 +131,7 @@ func (o *DeliveryGroupAddApplicationsRequestModel) GetExistingApplicationGroupsO
 
 // HasExistingApplicationGroups returns a boolean if a field has been set.
 func (o *DeliveryGroupAddApplicationsRequestModel) HasExistingApplicationGroups() bool {
-	if o != nil && IsNil(o.ExistingApplicationGroups) {
+	if o != nil && !IsNil(o.ExistingApplicationGroups) {
 		return true
 	}
 

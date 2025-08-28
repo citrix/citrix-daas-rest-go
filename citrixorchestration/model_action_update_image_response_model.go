@@ -592,7 +592,7 @@ func (o *ActionUpdateImageResponseModel) GetNonTerminatingErrorsOk() ([]ActionEr
 
 // HasNonTerminatingErrors returns a boolean if a field has been set.
 func (o *ActionUpdateImageResponseModel) HasNonTerminatingErrors() bool {
-	if o != nil && IsNil(o.NonTerminatingErrors) {
+	if o != nil && !IsNil(o.NonTerminatingErrors) {
 		return true
 	}
 
@@ -625,7 +625,7 @@ func (o *ActionUpdateImageResponseModel) GetMetadataOk() ([]NameValueStringPairM
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *ActionUpdateImageResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -658,7 +658,7 @@ func (o *ActionUpdateImageResponseModel) GetScopesOk() ([]ScopeResponseModel, bo
 
 // HasScopes returns a boolean if a field has been set.
 func (o *ActionUpdateImageResponseModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -691,7 +691,7 @@ func (o *ActionUpdateImageResponseModel) GetTenantsOk() ([]RefResponseModel, boo
 
 // HasTenants returns a boolean if a field has been set.
 func (o *ActionUpdateImageResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 

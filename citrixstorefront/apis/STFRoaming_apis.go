@@ -400,7 +400,7 @@ func (r ApiGetRoamingExternalBeacon) Execute() (models.GetSTFRoamingExternalBeac
 	var reponse = models.GetSTFRoamingExternalBeaconResponseModel{}
 	ext_string := string(bytes)
 	ext_str_arr := strings.Split(ext_string, ",")
-	for i, _ := range ext_str_arr {
+	for i := range ext_str_arr {
 		ext_str_arr[i] = strings.Replace(ext_str_arr[i], "\r", "", -1)
 		ext_str_arr[i] = strings.Replace(ext_str_arr[i], "\n", "", -1)
 		ext_str_arr[i] = strings.Replace(ext_str_arr[i], "\\", "", -1)

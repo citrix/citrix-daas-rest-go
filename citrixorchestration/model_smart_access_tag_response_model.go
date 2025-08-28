@@ -25,6 +25,8 @@ type SmartAccessTagResponseModel struct {
 	Filter string `json:"Filter"`
 }
 
+type _SmartAccessTagResponseModel SmartAccessTagResponseModel
+
 // NewSmartAccessTagResponseModel instantiates a new SmartAccessTagResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

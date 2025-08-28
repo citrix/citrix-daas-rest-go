@@ -216,7 +216,7 @@ func (o *AddMachineToMachineCatalogDetailRequestModel) GetAssignedUsersOk() ([]s
 
 // HasAssignedUsers returns a boolean if a field has been set.
 func (o *AddMachineToMachineCatalogDetailRequestModel) HasAssignedUsers() bool {
-	if o != nil && IsNil(o.AssignedUsers) {
+	if o != nil && !IsNil(o.AssignedUsers) {
 		return true
 	}
 
@@ -378,7 +378,7 @@ func (o *AddMachineToMachineCatalogDetailRequestModel) GetMetadataOk() ([]NameVa
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *AddMachineToMachineCatalogDetailRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -497,7 +497,7 @@ func (o *AddMachineToMachineCatalogDetailRequestModel) GetPvsCollectionIdsOk() (
 
 // HasPvsCollectionIds returns a boolean if a field has been set.
 func (o *AddMachineToMachineCatalogDetailRequestModel) HasPvsCollectionIds() bool {
-	if o != nil && IsNil(o.PvsCollectionIds) {
+	if o != nil && !IsNil(o.PvsCollectionIds) {
 		return true
 	}
 

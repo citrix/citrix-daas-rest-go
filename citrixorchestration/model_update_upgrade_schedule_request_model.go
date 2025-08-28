@@ -26,6 +26,8 @@ type UpdateUpgradeScheduleRequestModel struct {
 	DurationInHours int32 `json:"DurationInHours"`
 }
 
+type _UpdateUpgradeScheduleRequestModel UpdateUpgradeScheduleRequestModel
+
 // NewUpdateUpgradeScheduleRequestModel instantiates a new UpdateUpgradeScheduleRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

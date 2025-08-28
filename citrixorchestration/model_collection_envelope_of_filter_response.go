@@ -65,7 +65,7 @@ func (o *CollectionEnvelopeOfFilterResponse) GetItemsOk() ([]FilterResponse, boo
 
 // HasItems returns a boolean if a field has been set.
 func (o *CollectionEnvelopeOfFilterResponse) HasItems() bool {
-	if o != nil && IsNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 

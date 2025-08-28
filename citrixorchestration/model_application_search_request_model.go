@@ -249,7 +249,7 @@ func (o *ApplicationSearchRequestModel) GetSearchFiltersOk() ([]AppSearchFilterR
 
 // HasSearchFilters returns a boolean if a field has been set.
 func (o *ApplicationSearchRequestModel) HasSearchFilters() bool {
-	if o != nil && IsNil(o.SearchFilters) {
+	if o != nil && !IsNil(o.SearchFilters) {
 		return true
 	}
 
@@ -314,7 +314,7 @@ func (o *ApplicationSearchRequestModel) GetSearchFilterGroupsOk() ([]AppSearchFi
 
 // HasSearchFilterGroups returns a boolean if a field has been set.
 func (o *ApplicationSearchRequestModel) HasSearchFilterGroups() bool {
-	if o != nil && IsNil(o.SearchFilterGroups) {
+	if o != nil && !IsNil(o.SearchFilterGroups) {
 		return true
 	}
 

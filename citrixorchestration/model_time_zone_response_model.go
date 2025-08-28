@@ -365,7 +365,7 @@ func (o *TimeZoneResponseModel) GetTzdbIdsOk() ([]string, bool) {
 
 // HasTzdbIds returns a boolean if a field has been set.
 func (o *TimeZoneResponseModel) HasTzdbIds() bool {
-	if o != nil && IsNil(o.TzdbIds) {
+	if o != nil && !IsNil(o.TzdbIds) {
 		return true
 	}
 

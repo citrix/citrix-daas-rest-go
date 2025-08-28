@@ -439,7 +439,7 @@ func (o *BackupRestoreBackupResponseModel) GetDetailsOk() (*map[string]string, b
 
 // HasDetails returns a boolean if a field has been set.
 func (o *BackupRestoreBackupResponseModel) HasDetails() bool {
-	if o != nil && IsNil(o.Details) {
+	if o != nil && !IsNil(o.Details) {
 		return true
 	}
 

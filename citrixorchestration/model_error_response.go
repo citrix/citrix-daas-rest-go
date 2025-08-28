@@ -27,6 +27,8 @@ type ErrorResponse struct {
 	Parameters []ErrorResponseParameter `json:"parameters,omitempty"`
 }
 
+type _ErrorResponse ErrorResponse
+
 // NewErrorResponse instantiates a new ErrorResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -115,7 +117,7 @@ func (o *ErrorResponse) GetParametersOk() ([]ErrorResponseParameter, bool) {
 
 // HasParameters returns a boolean if a field has been set.
 func (o *ErrorResponse) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 

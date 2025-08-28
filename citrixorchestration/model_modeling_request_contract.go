@@ -488,7 +488,7 @@ func (o *ModelingRequestContract) GetGroupSidsOk() ([]string, bool) {
 
 // HasGroupSids returns a boolean if a field has been set.
 func (o *ModelingRequestContract) HasGroupSids() bool {
-	if o != nil && IsNil(o.GroupSids) {
+	if o != nil && !IsNil(o.GroupSids) {
 		return true
 	}
 
@@ -779,7 +779,7 @@ func (o *ModelingRequestContract) GetDeliveryGroupTagsOk() ([]string, bool) {
 
 // HasDeliveryGroupTags returns a boolean if a field has been set.
 func (o *ModelingRequestContract) HasDeliveryGroupTags() bool {
-	if o != nil && IsNil(o.DeliveryGroupTags) {
+	if o != nil && !IsNil(o.DeliveryGroupTags) {
 		return true
 	}
 
@@ -887,7 +887,7 @@ func (o *ModelingRequestContract) GetAccessGatewayTagsOk() ([]string, bool) {
 
 // HasAccessGatewayTags returns a boolean if a field has been set.
 func (o *ModelingRequestContract) HasAccessGatewayTags() bool {
-	if o != nil && IsNil(o.AccessGatewayTags) {
+	if o != nil && !IsNil(o.AccessGatewayTags) {
 		return true
 	}
 

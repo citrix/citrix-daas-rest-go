@@ -89,6 +89,8 @@ type IdentityUserResponseModel struct {
 	Directory         *IdentityDirectoryResponseModel `json:"Directory,omitempty"`
 }
 
+type _IdentityUserResponseModel IdentityUserResponseModel
+
 // NewIdentityUserResponseModel instantiates a new IdentityUserResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -744,7 +746,7 @@ func (o *IdentityUserResponseModel) GetGroupSidsOk() ([]string, bool) {
 
 // HasGroupSids returns a boolean if a field has been set.
 func (o *IdentityUserResponseModel) HasGroupSids() bool {
-	if o != nil && IsNil(o.GroupSids) {
+	if o != nil && !IsNil(o.GroupSids) {
 		return true
 	}
 
@@ -777,7 +779,7 @@ func (o *IdentityUserResponseModel) GetDenyOnlySidsOk() ([]string, bool) {
 
 // HasDenyOnlySids returns a boolean if a field has been set.
 func (o *IdentityUserResponseModel) HasDenyOnlySids() bool {
-	if o != nil && IsNil(o.DenyOnlySids) {
+	if o != nil && !IsNil(o.DenyOnlySids) {
 		return true
 	}
 

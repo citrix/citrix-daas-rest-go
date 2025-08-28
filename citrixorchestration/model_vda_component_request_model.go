@@ -24,6 +24,8 @@ type VDAComponentRequestModel struct {
 	Parameters  []VDAComponentParameterRequestModel `json:"Parameters,omitempty"`
 }
 
+type _VDAComponentRequestModel VDAComponentRequestModel
+
 // NewVDAComponentRequestModel instantiates a new VDAComponentRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -87,7 +89,7 @@ func (o *VDAComponentRequestModel) GetParametersOk() ([]VDAComponentParameterReq
 
 // HasParameters returns a boolean if a field has been set.
 func (o *VDAComponentRequestModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 

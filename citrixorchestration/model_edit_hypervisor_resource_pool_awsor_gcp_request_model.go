@@ -43,6 +43,8 @@ type EditHypervisorResourcePoolAWSOrGcpRequestModel struct {
 	Subnets []string `json:"Subnets,omitempty"`
 }
 
+type _EditHypervisorResourcePoolAWSOrGcpRequestModel EditHypervisorResourcePoolAWSOrGcpRequestModel
+
 // NewEditHypervisorResourcePoolAWSOrGcpRequestModel instantiates a new EditHypervisorResourcePoolAWSOrGcpRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -192,7 +194,7 @@ func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) GetMetadataOk() ([]Name
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -225,7 +227,7 @@ func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) GetStorageOk() ([]Hyper
 
 // HasStorage returns a boolean if a field has been set.
 func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) HasStorage() bool {
-	if o != nil && IsNil(o.Storage) {
+	if o != nil && !IsNil(o.Storage) {
 		return true
 	}
 
@@ -258,7 +260,7 @@ func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) GetTemporaryStorageOk()
 
 // HasTemporaryStorage returns a boolean if a field has been set.
 func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) HasTemporaryStorage() bool {
-	if o != nil && IsNil(o.TemporaryStorage) {
+	if o != nil && !IsNil(o.TemporaryStorage) {
 		return true
 	}
 
@@ -291,7 +293,7 @@ func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) GetPersonalvDiskStorage
 
 // HasPersonalvDiskStorage returns a boolean if a field has been set.
 func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) HasPersonalvDiskStorage() bool {
-	if o != nil && IsNil(o.PersonalvDiskStorage) {
+	if o != nil && !IsNil(o.PersonalvDiskStorage) {
 		return true
 	}
 
@@ -410,7 +412,7 @@ func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) GetNetworksOk() ([]stri
 
 // HasNetworks returns a boolean if a field has been set.
 func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) HasNetworks() bool {
-	if o != nil && IsNil(o.Networks) {
+	if o != nil && !IsNil(o.Networks) {
 		return true
 	}
 
@@ -475,7 +477,7 @@ func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) GetSubnetsOk() ([]strin
 
 // HasSubnets returns a boolean if a field has been set.
 func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) HasSubnets() bool {
-	if o != nil && IsNil(o.Subnets) {
+	if o != nil && !IsNil(o.Subnets) {
 		return true
 	}
 

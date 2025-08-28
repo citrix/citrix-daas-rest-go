@@ -65,7 +65,7 @@ func (o *HypervisorResourcePricesResponseModel) GetVmPricesOk() ([]VmPriceRespon
 
 // HasVmPrices returns a boolean if a field has been set.
 func (o *HypervisorResourcePricesResponseModel) HasVmPrices() bool {
-	if o != nil && IsNil(o.VmPrices) {
+	if o != nil && !IsNil(o.VmPrices) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *HypervisorResourcePricesResponseModel) GetDiskPricesOk() ([]DiskPriceRe
 
 // HasDiskPrices returns a boolean if a field has been set.
 func (o *HypervisorResourcePricesResponseModel) HasDiskPrices() bool {
-	if o != nil && IsNil(o.DiskPrices) {
+	if o != nil && !IsNil(o.DiskPrices) {
 		return true
 	}
 

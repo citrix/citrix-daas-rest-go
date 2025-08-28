@@ -94,6 +94,8 @@ type HypervisorAWSConnectionDetailRequestModel struct {
 	OciEnvironment            *OciEnvironment `json:"OciEnvironment,omitempty"`
 }
 
+type _HypervisorAWSConnectionDetailRequestModel HypervisorAWSConnectionDetailRequestModel
+
 // NewHypervisorAWSConnectionDetailRequestModel instantiates a new HypervisorAWSConnectionDetailRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -184,7 +186,7 @@ func (o *HypervisorAWSConnectionDetailRequestModel) GetScopesOk() ([]string, boo
 
 // HasScopes returns a boolean if a field has been set.
 func (o *HypervisorAWSConnectionDetailRequestModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -217,7 +219,7 @@ func (o *HypervisorAWSConnectionDetailRequestModel) GetTenantsOk() ([]string, bo
 
 // HasTenants returns a boolean if a field has been set.
 func (o *HypervisorAWSConnectionDetailRequestModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -465,7 +467,7 @@ func (o *HypervisorAWSConnectionDetailRequestModel) GetMetadataOk() ([]NameValue
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *HypervisorAWSConnectionDetailRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -1317,7 +1319,7 @@ func (o *HypervisorAWSConnectionDetailRequestModel) GetSslThumbprintsOk() ([]str
 
 // HasSslThumbprints returns a boolean if a field has been set.
 func (o *HypervisorAWSConnectionDetailRequestModel) HasSslThumbprints() bool {
-	if o != nil && IsNil(o.SslThumbprints) {
+	if o != nil && !IsNil(o.SslThumbprints) {
 		return true
 	}
 

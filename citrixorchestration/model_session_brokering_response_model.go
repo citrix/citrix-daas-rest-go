@@ -33,6 +33,8 @@ type SessionBrokeringResponseModel struct {
 	UserSid NullableString `json:"UserSid,omitempty"`
 }
 
+type _SessionBrokeringResponseModel SessionBrokeringResponseModel
+
 // NewSessionBrokeringResponseModel instantiates a new SessionBrokeringResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

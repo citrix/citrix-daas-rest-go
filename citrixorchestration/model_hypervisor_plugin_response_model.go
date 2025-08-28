@@ -224,7 +224,7 @@ func (o *HypervisorPluginResponseModel) GetEnvironmentsOk() ([]HypervisorAzureEn
 
 // HasEnvironments returns a boolean if a field has been set.
 func (o *HypervisorPluginResponseModel) HasEnvironments() bool {
-	if o != nil && IsNil(o.Environments) {
+	if o != nil && !IsNil(o.Environments) {
 		return true
 	}
 

@@ -25,6 +25,8 @@ type EditLicenseServerRequestModel struct {
 	Thumbprint NullableString `json:"Thumbprint,omitempty"`
 }
 
+type _EditLicenseServerRequestModel EditLicenseServerRequestModel
+
 // NewEditLicenseServerRequestModel instantiates a new EditLicenseServerRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

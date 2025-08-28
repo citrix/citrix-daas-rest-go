@@ -60,7 +60,7 @@ func (o *OfCDisplayClass10) GetNameToUuidOk() (*map[string]string, bool) {
 
 // HasNameToUuid returns a boolean if a field has been set.
 func (o *OfCDisplayClass10) HasNameToUuid() bool {
-	if o != nil && IsNil(o.NameToUuid) {
+	if o != nil && !IsNil(o.NameToUuid) {
 		return true
 	}
 

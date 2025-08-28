@@ -27,6 +27,8 @@ type DeliveryGroupAddMachinesRequestModel struct {
 	AssignMachinesToUsers []AssignMachineToUserRequestModel `json:"AssignMachinesToUsers,omitempty"`
 }
 
+type _DeliveryGroupAddMachinesRequestModel DeliveryGroupAddMachinesRequestModel
+
 // NewDeliveryGroupAddMachinesRequestModel instantiates a new DeliveryGroupAddMachinesRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -133,7 +135,7 @@ func (o *DeliveryGroupAddMachinesRequestModel) GetAssignMachinesToUsersOk() ([]A
 
 // HasAssignMachinesToUsers returns a boolean if a field has been set.
 func (o *DeliveryGroupAddMachinesRequestModel) HasAssignMachinesToUsers() bool {
-	if o != nil && IsNil(o.AssignMachinesToUsers) {
+	if o != nil && !IsNil(o.AssignMachinesToUsers) {
 		return true
 	}
 

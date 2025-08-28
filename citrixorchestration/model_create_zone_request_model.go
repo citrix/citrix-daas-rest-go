@@ -29,6 +29,8 @@ type CreateZoneRequestModel struct {
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 }
 
+type _CreateZoneRequestModel CreateZoneRequestModel
+
 // NewCreateZoneRequestModel instantiates a new CreateZoneRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -178,7 +180,7 @@ func (o *CreateZoneRequestModel) GetMetadataOk() ([]NameValueStringPairModel, bo
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *CreateZoneRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

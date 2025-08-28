@@ -31,6 +31,8 @@ type IdentitySiteResponseModel struct {
 	PropertiesFetched int32 `json:"PropertiesFetched"`
 }
 
+type _IdentitySiteResponseModel IdentitySiteResponseModel
+
 // NewIdentitySiteResponseModel instantiates a new IdentitySiteResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -156,7 +158,7 @@ func (o *IdentitySiteResponseModel) GetSubnetsOk() ([]IdentitySubnetResponseMode
 
 // HasSubnets returns a boolean if a field has been set.
 func (o *IdentitySiteResponseModel) HasSubnets() bool {
-	if o != nil && IsNil(o.Subnets) {
+	if o != nil && !IsNil(o.Subnets) {
 		return true
 	}
 

@@ -35,6 +35,8 @@ type RoleResponseModel struct {
 	Permissions []DelegatedAdminPermissionResponseModel `json:"Permissions,omitempty"`
 }
 
+type _RoleResponseModel RoleResponseModel
+
 // NewRoleResponseModel instantiates a new RoleResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -277,7 +279,7 @@ func (o *RoleResponseModel) GetPermissionsOk() ([]DelegatedAdminPermissionRespon
 
 // HasPermissions returns a boolean if a field has been set.
 func (o *RoleResponseModel) HasPermissions() bool {
-	if o != nil && IsNil(o.Permissions) {
+	if o != nil && !IsNil(o.Permissions) {
 		return true
 	}
 

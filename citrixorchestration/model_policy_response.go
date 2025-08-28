@@ -289,7 +289,7 @@ func (o *PolicyResponse) GetSettingsOk() ([]SettingResponse, bool) {
 
 // HasSettings returns a boolean if a field has been set.
 func (o *PolicyResponse) HasSettings() bool {
-	if o != nil && IsNil(o.Settings) {
+	if o != nil && !IsNil(o.Settings) {
 		return true
 	}
 
@@ -322,7 +322,7 @@ func (o *PolicyResponse) GetFiltersOk() ([]FilterResponse, bool) {
 
 // HasFilters returns a boolean if a field has been set.
 func (o *PolicyResponse) HasFilters() bool {
-	if o != nil && IsNil(o.Filters) {
+	if o != nil && !IsNil(o.Filters) {
 		return true
 	}
 

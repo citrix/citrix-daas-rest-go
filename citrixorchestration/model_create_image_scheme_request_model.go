@@ -243,7 +243,7 @@ func (o *CreateImageSchemeRequestModel) GetNetworkMappingOk() ([]NetworkMapReque
 
 // HasNetworkMapping returns a boolean if a field has been set.
 func (o *CreateImageSchemeRequestModel) HasNetworkMapping() bool {
-	if o != nil && IsNil(o.NetworkMapping) {
+	if o != nil && !IsNil(o.NetworkMapping) {
 		return true
 	}
 
@@ -276,7 +276,7 @@ func (o *CreateImageSchemeRequestModel) GetCustomPropertiesOk() ([]NameValueStri
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *CreateImageSchemeRequestModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
+	if o != nil && !IsNil(o.CustomProperties) {
 		return true
 	}
 

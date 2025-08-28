@@ -60,6 +60,8 @@ type CreateMachineCatalogRequestModel struct {
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 }
 
+type _CreateMachineCatalogRequestModel CreateMachineCatalogRequestModel
+
 // NewCreateMachineCatalogRequestModel instantiates a new CreateMachineCatalogRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -333,7 +335,7 @@ func (o *CreateMachineCatalogRequestModel) GetRemotePCEnrollmentScopesOk() ([]Re
 
 // HasRemotePCEnrollmentScopes returns a boolean if a field has been set.
 func (o *CreateMachineCatalogRequestModel) HasRemotePCEnrollmentScopes() bool {
-	if o != nil && IsNil(o.RemotePCEnrollmentScopes) {
+	if o != nil && !IsNil(o.RemotePCEnrollmentScopes) {
 		return true
 	}
 
@@ -550,7 +552,7 @@ func (o *CreateMachineCatalogRequestModel) GetMachinesOk() ([]AddMachineToMachin
 
 // HasMachines returns a boolean if a field has been set.
 func (o *CreateMachineCatalogRequestModel) HasMachines() bool {
-	if o != nil && IsNil(o.Machines) {
+	if o != nil && !IsNil(o.Machines) {
 		return true
 	}
 
@@ -669,7 +671,7 @@ func (o *CreateMachineCatalogRequestModel) GetPvsCollectionIdsOk() ([]string, bo
 
 // HasPvsCollectionIds returns a boolean if a field has been set.
 func (o *CreateMachineCatalogRequestModel) HasPvsCollectionIds() bool {
-	if o != nil && IsNil(o.PvsCollectionIds) {
+	if o != nil && !IsNil(o.PvsCollectionIds) {
 		return true
 	}
 
@@ -702,7 +704,7 @@ func (o *CreateMachineCatalogRequestModel) GetScopesOk() ([]string, bool) {
 
 // HasScopes returns a boolean if a field has been set.
 func (o *CreateMachineCatalogRequestModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -735,7 +737,7 @@ func (o *CreateMachineCatalogRequestModel) GetTenantsOk() ([]string, bool) {
 
 // HasTenants returns a boolean if a field has been set.
 func (o *CreateMachineCatalogRequestModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -910,7 +912,7 @@ func (o *CreateMachineCatalogRequestModel) GetMetadataOk() ([]NameValueStringPai
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *CreateMachineCatalogRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

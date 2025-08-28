@@ -55,6 +55,8 @@ type CreateHypervisorResourcePoolAzureRequestModel struct {
 	StorageBalanceType *StorageBalanceType `json:"StorageBalanceType,omitempty"`
 }
 
+type _CreateHypervisorResourcePoolAzureRequestModel CreateHypervisorResourcePoolAzureRequestModel
+
 // NewCreateHypervisorResourcePoolAzureRequestModel instantiates a new CreateHypervisorResourcePoolAzureRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -173,7 +175,7 @@ func (o *CreateHypervisorResourcePoolAzureRequestModel) GetGpuTypesOk() ([]strin
 
 // HasGpuTypes returns a boolean if a field has been set.
 func (o *CreateHypervisorResourcePoolAzureRequestModel) HasGpuTypes() bool {
-	if o != nil && IsNil(o.GpuTypes) {
+	if o != nil && !IsNil(o.GpuTypes) {
 		return true
 	}
 
@@ -230,7 +232,7 @@ func (o *CreateHypervisorResourcePoolAzureRequestModel) GetMetadataOk() ([]NameV
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *CreateHypervisorResourcePoolAzureRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -517,7 +519,7 @@ func (o *CreateHypervisorResourcePoolAzureRequestModel) GetStorageOk() ([]string
 
 // HasStorage returns a boolean if a field has been set.
 func (o *CreateHypervisorResourcePoolAzureRequestModel) HasStorage() bool {
-	if o != nil && IsNil(o.Storage) {
+	if o != nil && !IsNil(o.Storage) {
 		return true
 	}
 
@@ -550,7 +552,7 @@ func (o *CreateHypervisorResourcePoolAzureRequestModel) GetPersonalvDiskStorageO
 
 // HasPersonalvDiskStorage returns a boolean if a field has been set.
 func (o *CreateHypervisorResourcePoolAzureRequestModel) HasPersonalvDiskStorage() bool {
-	if o != nil && IsNil(o.PersonalvDiskStorage) {
+	if o != nil && !IsNil(o.PersonalvDiskStorage) {
 		return true
 	}
 
@@ -583,7 +585,7 @@ func (o *CreateHypervisorResourcePoolAzureRequestModel) GetTemporaryStorageOk() 
 
 // HasTemporaryStorage returns a boolean if a field has been set.
 func (o *CreateHypervisorResourcePoolAzureRequestModel) HasTemporaryStorage() bool {
-	if o != nil && IsNil(o.TemporaryStorage) {
+	if o != nil && !IsNil(o.TemporaryStorage) {
 		return true
 	}
 

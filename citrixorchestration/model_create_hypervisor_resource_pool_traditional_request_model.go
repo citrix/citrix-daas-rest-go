@@ -55,6 +55,8 @@ type CreateHypervisorResourcePoolTraditionalRequestModel struct {
 	StorageBalanceType *StorageBalanceType `json:"StorageBalanceType,omitempty"`
 }
 
+type _CreateHypervisorResourcePoolTraditionalRequestModel CreateHypervisorResourcePoolTraditionalRequestModel
+
 // NewCreateHypervisorResourcePoolTraditionalRequestModel instantiates a new CreateHypervisorResourcePoolTraditionalRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -171,7 +173,7 @@ func (o *CreateHypervisorResourcePoolTraditionalRequestModel) GetGpuTypesOk() ([
 
 // HasGpuTypes returns a boolean if a field has been set.
 func (o *CreateHypervisorResourcePoolTraditionalRequestModel) HasGpuTypes() bool {
-	if o != nil && IsNil(o.GpuTypes) {
+	if o != nil && !IsNil(o.GpuTypes) {
 		return true
 	}
 
@@ -228,7 +230,7 @@ func (o *CreateHypervisorResourcePoolTraditionalRequestModel) GetMetadataOk() ([
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *CreateHypervisorResourcePoolTraditionalRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -531,7 +533,7 @@ func (o *CreateHypervisorResourcePoolTraditionalRequestModel) GetStorageOk() ([]
 
 // HasStorage returns a boolean if a field has been set.
 func (o *CreateHypervisorResourcePoolTraditionalRequestModel) HasStorage() bool {
-	if o != nil && IsNil(o.Storage) {
+	if o != nil && !IsNil(o.Storage) {
 		return true
 	}
 
@@ -564,7 +566,7 @@ func (o *CreateHypervisorResourcePoolTraditionalRequestModel) GetPersonalvDiskSt
 
 // HasPersonalvDiskStorage returns a boolean if a field has been set.
 func (o *CreateHypervisorResourcePoolTraditionalRequestModel) HasPersonalvDiskStorage() bool {
-	if o != nil && IsNil(o.PersonalvDiskStorage) {
+	if o != nil && !IsNil(o.PersonalvDiskStorage) {
 		return true
 	}
 
@@ -597,7 +599,7 @@ func (o *CreateHypervisorResourcePoolTraditionalRequestModel) GetTemporaryStorag
 
 // HasTemporaryStorage returns a boolean if a field has been set.
 func (o *CreateHypervisorResourcePoolTraditionalRequestModel) HasTemporaryStorage() bool {
-	if o != nil && IsNil(o.TemporaryStorage) {
+	if o != nil && !IsNil(o.TemporaryStorage) {
 		return true
 	}
 

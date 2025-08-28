@@ -150,7 +150,7 @@ func (o *EnrollMachineResponseModel) GetListOfDDCsOk() ([]string, bool) {
 
 // HasListOfDDCs returns a boolean if a field has been set.
 func (o *EnrollMachineResponseModel) HasListOfDDCs() bool {
-	if o != nil && IsNil(o.ListOfDDCs) {
+	if o != nil && !IsNil(o.ListOfDDCs) {
 		return true
 	}
 

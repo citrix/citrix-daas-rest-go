@@ -61,7 +61,7 @@ func (o *ProvisioningOperationEventConfirmRequestModel) GetEventRecordIdsOk() ([
 
 // HasEventRecordIds returns a boolean if a field has been set.
 func (o *ProvisioningOperationEventConfirmRequestModel) HasEventRecordIds() bool {
-	if o != nil && IsNil(o.EventRecordIds) {
+	if o != nil && !IsNil(o.EventRecordIds) {
 		return true
 	}
 

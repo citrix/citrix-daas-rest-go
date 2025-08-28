@@ -251,7 +251,7 @@ func (o *VmPriceResponseModel) GetResourcePricesOk() ([]ResourcePriceResponseMod
 
 // HasResourcePrices returns a boolean if a field has been set.
 func (o *VmPriceResponseModel) HasResourcePrices() bool {
-	if o != nil && IsNil(o.ResourcePrices) {
+	if o != nil && !IsNil(o.ResourcePrices) {
 		return true
 	}
 

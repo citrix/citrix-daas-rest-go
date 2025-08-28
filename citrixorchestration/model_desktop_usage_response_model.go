@@ -27,6 +27,8 @@ type DesktopUsageResponseModel struct {
 	Usage int32 `json:"Usage"`
 }
 
+type _DesktopUsageResponseModel DesktopUsageResponseModel
+
 // NewDesktopUsageResponseModel instantiates a new DesktopUsageResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

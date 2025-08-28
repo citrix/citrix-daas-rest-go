@@ -233,7 +233,7 @@ func (o *ImageRuntimeEnvironmentResponseModel) GetPagingFileSettingsOk() ([]Pagi
 
 // HasPagingFileSettings returns a boolean if a field has been set.
 func (o *ImageRuntimeEnvironmentResponseModel) HasPagingFileSettings() bool {
-	if o != nil && IsNil(o.PagingFileSettings) {
+	if o != nil && !IsNil(o.PagingFileSettings) {
 		return true
 	}
 
@@ -266,7 +266,7 @@ func (o *ImageRuntimeEnvironmentResponseModel) GetCapabilitiesOk() (*map[string]
 
 // HasCapabilities returns a boolean if a field has been set.
 func (o *ImageRuntimeEnvironmentResponseModel) HasCapabilities() bool {
-	if o != nil && IsNil(o.Capabilities) {
+	if o != nil && !IsNil(o.Capabilities) {
 		return true
 	}
 
@@ -299,7 +299,7 @@ func (o *ImageRuntimeEnvironmentResponseModel) GetVDAComponentsOk() (*map[string
 
 // HasVDAComponents returns a boolean if a field has been set.
 func (o *ImageRuntimeEnvironmentResponseModel) HasVDAComponents() bool {
-	if o != nil && IsNil(o.VDAComponents) {
+	if o != nil && !IsNil(o.VDAComponents) {
 		return true
 	}
 

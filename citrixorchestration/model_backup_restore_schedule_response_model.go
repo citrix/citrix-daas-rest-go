@@ -188,7 +188,7 @@ func (o *BackupRestoreScheduleResponseModel) GetDaysInWeekOk() ([]BackupRestoreS
 
 // HasDaysInWeek returns a boolean if a field has been set.
 func (o *BackupRestoreScheduleResponseModel) HasDaysInWeek() bool {
-	if o != nil && IsNil(o.DaysInWeek) {
+	if o != nil && !IsNil(o.DaysInWeek) {
 		return true
 	}
 

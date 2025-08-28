@@ -239,7 +239,7 @@ func (o *UpdateServiceAccountRequestModel) GetCapabilitiesOk() ([]string, bool) 
 
 // HasCapabilities returns a boolean if a field has been set.
 func (o *UpdateServiceAccountRequestModel) HasCapabilities() bool {
-	if o != nil && IsNil(o.Capabilities) {
+	if o != nil && !IsNil(o.Capabilities) {
 		return true
 	}
 
@@ -358,7 +358,7 @@ func (o *UpdateServiceAccountRequestModel) GetScopesOk() ([]string, bool) {
 
 // HasScopes returns a boolean if a field has been set.
 func (o *UpdateServiceAccountRequestModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -391,7 +391,7 @@ func (o *UpdateServiceAccountRequestModel) GetTenantsOk() ([]string, bool) {
 
 // HasTenants returns a boolean if a field has been set.
 func (o *UpdateServiceAccountRequestModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 

@@ -33,6 +33,8 @@ type AppAccessPolicyResponseModel struct {
 	SessionReconnection *SessionReconnection        `json:"SessionReconnection,omitempty"`
 }
 
+type _AppAccessPolicyResponseModel AppAccessPolicyResponseModel
+
 // NewAppAccessPolicyResponseModel instantiates a new AppAccessPolicyResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -129,7 +131,7 @@ func (o *AppAccessPolicyResponseModel) GetExcludedUsersOk() ([]IdentityUserRespo
 
 // HasExcludedUsers returns a boolean if a field has been set.
 func (o *AppAccessPolicyResponseModel) HasExcludedUsers() bool {
-	if o != nil && IsNil(o.ExcludedUsers) {
+	if o != nil && !IsNil(o.ExcludedUsers) {
 		return true
 	}
 
@@ -186,7 +188,7 @@ func (o *AppAccessPolicyResponseModel) GetIncludedUsersOk() ([]IdentityUserRespo
 
 // HasIncludedUsers returns a boolean if a field has been set.
 func (o *AppAccessPolicyResponseModel) HasIncludedUsers() bool {
-	if o != nil && IsNil(o.IncludedUsers) {
+	if o != nil && !IsNil(o.IncludedUsers) {
 		return true
 	}
 

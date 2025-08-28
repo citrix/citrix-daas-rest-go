@@ -67,7 +67,7 @@ func (o *VDAComponentsSelectionValidationRequestModel) GetIncludedAdditionalComp
 
 // HasIncludedAdditionalComponents returns a boolean if a field has been set.
 func (o *VDAComponentsSelectionValidationRequestModel) HasIncludedAdditionalComponents() bool {
-	if o != nil && IsNil(o.IncludedAdditionalComponents) {
+	if o != nil && !IsNil(o.IncludedAdditionalComponents) {
 		return true
 	}
 
@@ -100,7 +100,7 @@ func (o *VDAComponentsSelectionValidationRequestModel) GetExcludedComponentsOk()
 
 // HasExcludedComponents returns a boolean if a field has been set.
 func (o *VDAComponentsSelectionValidationRequestModel) HasExcludedComponents() bool {
-	if o != nil && IsNil(o.ExcludedComponents) {
+	if o != nil && !IsNil(o.ExcludedComponents) {
 		return true
 	}
 
@@ -133,7 +133,7 @@ func (o *VDAComponentsSelectionValidationRequestModel) GetFeaturesOk() ([]string
 
 // HasFeatures returns a boolean if a field has been set.
 func (o *VDAComponentsSelectionValidationRequestModel) HasFeatures() bool {
-	if o != nil && IsNil(o.Features) {
+	if o != nil && !IsNil(o.Features) {
 		return true
 	}
 

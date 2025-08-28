@@ -27,6 +27,8 @@ type PvsStreamingStoreResponseModel struct {
 	SiteId NullableString `json:"SiteId,omitempty"`
 }
 
+type _PvsStreamingStoreResponseModel PvsStreamingStoreResponseModel
+
 // NewPvsStreamingStoreResponseModel instantiates a new PvsStreamingStoreResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

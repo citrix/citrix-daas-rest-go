@@ -183,7 +183,7 @@ func (o *ApplicationGroupResponseModel) GetContainerScopesOk() ([]ContainerScope
 
 // HasContainerScopes returns a boolean if a field has been set.
 func (o *ApplicationGroupResponseModel) HasContainerScopes() bool {
-	if o != nil && IsNil(o.ContainerScopes) {
+	if o != nil && !IsNil(o.ContainerScopes) {
 		return true
 	}
 
@@ -377,7 +377,7 @@ func (o *ApplicationGroupResponseModel) GetScopesOk() ([]ScopeResponseModel, boo
 
 // HasScopes returns a boolean if a field has been set.
 func (o *ApplicationGroupResponseModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -410,7 +410,7 @@ func (o *ApplicationGroupResponseModel) GetMetadataOk() ([]NameValueStringPairMo
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *ApplicationGroupResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -443,7 +443,7 @@ func (o *ApplicationGroupResponseModel) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *ApplicationGroupResponseModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -476,7 +476,7 @@ func (o *ApplicationGroupResponseModel) GetTenantsOk() ([]RefResponseModel, bool
 
 // HasTenants returns a boolean if a field has been set.
 func (o *ApplicationGroupResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -637,7 +637,7 @@ func (o *ApplicationGroupResponseModel) GetDeliveryGroupsOk() ([]ApplicationGrou
 
 // HasDeliveryGroups returns a boolean if a field has been set.
 func (o *ApplicationGroupResponseModel) HasDeliveryGroups() bool {
-	if o != nil && IsNil(o.DeliveryGroups) {
+	if o != nil && !IsNil(o.DeliveryGroups) {
 		return true
 	}
 
@@ -670,7 +670,7 @@ func (o *ApplicationGroupResponseModel) GetAssociatedDeliveryGroupUidsOk() ([]in
 
 // HasAssociatedDeliveryGroupUids returns a boolean if a field has been set.
 func (o *ApplicationGroupResponseModel) HasAssociatedDeliveryGroupUids() bool {
-	if o != nil && IsNil(o.AssociatedDeliveryGroupUids) {
+	if o != nil && !IsNil(o.AssociatedDeliveryGroupUids) {
 		return true
 	}
 

@@ -258,7 +258,7 @@ func (o *PolicySetResponse) GetPoliciesOk() ([]PolicyResponse, bool) {
 
 // HasPolicies returns a boolean if a field has been set.
 func (o *PolicySetResponse) HasPolicies() bool {
-	if o != nil && IsNil(o.Policies) {
+	if o != nil && !IsNil(o.Policies) {
 		return true
 	}
 
@@ -291,7 +291,7 @@ func (o *PolicySetResponse) GetScopesOk() ([]string, bool) {
 
 // HasScopes returns a boolean if a field has been set.
 func (o *PolicySetResponse) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 

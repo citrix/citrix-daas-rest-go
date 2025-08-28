@@ -63,7 +63,7 @@ func (o *CopyPoliciesRequest) GetPolicyGuidsOk() ([]string, bool) {
 
 // HasPolicyGuids returns a boolean if a field has been set.
 func (o *CopyPoliciesRequest) HasPolicyGuids() bool {
-	if o != nil && IsNil(o.PolicyGuids) {
+	if o != nil && !IsNil(o.PolicyGuids) {
 		return true
 	}
 
@@ -96,7 +96,7 @@ func (o *CopyPoliciesRequest) GetToPolicySetsOk() ([]string, bool) {
 
 // HasToPolicySets returns a boolean if a field has been set.
 func (o *CopyPoliciesRequest) HasToPolicySets() bool {
-	if o != nil && IsNil(o.ToPolicySets) {
+	if o != nil && !IsNil(o.ToPolicySets) {
 		return true
 	}
 

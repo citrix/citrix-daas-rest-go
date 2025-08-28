@@ -48,6 +48,8 @@ type TagResponseModel struct {
 	ScopeReferences []ScopeReferenceModel `json:"ScopeReferences,omitempty"`
 }
 
+type _TagResponseModel TagResponseModel
+
 // NewTagResponseModel instantiates a new TagResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -439,7 +441,7 @@ func (o *TagResponseModel) GetScopeReferencesOk() ([]ScopeReferenceModel, bool) 
 
 // HasScopeReferences returns a boolean if a field has been set.
 func (o *TagResponseModel) HasScopeReferences() bool {
-	if o != nil && IsNil(o.ScopeReferences) {
+	if o != nil && !IsNil(o.ScopeReferences) {
 		return true
 	}
 

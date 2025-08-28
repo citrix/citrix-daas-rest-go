@@ -28,6 +28,8 @@ type NetworkMapRequestModel struct {
 	NetworkPath string "json:\"NetworkPath\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 }
 
+type _NetworkMapRequestModel NetworkMapRequestModel
+
 // NewNetworkMapRequestModel instantiates a new NetworkMapRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

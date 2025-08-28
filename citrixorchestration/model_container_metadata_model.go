@@ -61,7 +61,7 @@ func (o *ContainerMetadataModel) GetMetadataOk() ([]NameValueStringPairModel, bo
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *ContainerMetadataModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

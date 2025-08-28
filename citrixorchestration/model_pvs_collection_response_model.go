@@ -28,6 +28,8 @@ type PvsCollectionResponseModel struct {
 	PvsSite RefResponseModel `json:"PvsSite"`
 }
 
+type _PvsCollectionResponseModel PvsCollectionResponseModel
+
 // NewPvsCollectionResponseModel instantiates a new PvsCollectionResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

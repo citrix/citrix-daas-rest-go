@@ -458,7 +458,7 @@ func (o *SiteSettingsResponseModel) GetAllowedCorsOriginsForIwaOk() ([]string, b
 
 // HasAllowedCorsOriginsForIwa returns a boolean if a field has been set.
 func (o *SiteSettingsResponseModel) HasAllowedCorsOriginsForIwa() bool {
-	if o != nil && IsNil(o.AllowedCorsOriginsForIwa) {
+	if o != nil && !IsNil(o.AllowedCorsOriginsForIwa) {
 		return true
 	}
 
@@ -491,7 +491,7 @@ func (o *SiteSettingsResponseModel) GetMultiSitesOk() ([]MultiSiteModel, bool) {
 
 // HasMultiSites returns a boolean if a field has been set.
 func (o *SiteSettingsResponseModel) HasMultiSites() bool {
-	if o != nil && IsNil(o.MultiSites) {
+	if o != nil && !IsNil(o.MultiSites) {
 		return true
 	}
 
@@ -567,7 +567,7 @@ func (o *SiteSettingsResponseModel) GetXmlServicesSslConfigurationsOk() ([]NameV
 
 // HasXmlServicesSslConfigurations returns a boolean if a field has been set.
 func (o *SiteSettingsResponseModel) HasXmlServicesSslConfigurations() bool {
-	if o != nil && IsNil(o.XmlServicesSslConfigurations) {
+	if o != nil && !IsNil(o.XmlServicesSslConfigurations) {
 		return true
 	}
 

@@ -65,7 +65,7 @@ func (o *HypervisorResourcePoolPatchPreviewResponseModel) GetNetworksCanBeDelete
 
 // HasNetworksCanBeDeleted returns a boolean if a field has been set.
 func (o *HypervisorResourcePoolPatchPreviewResponseModel) HasNetworksCanBeDeleted() bool {
-	if o != nil && IsNil(o.NetworksCanBeDeleted) {
+	if o != nil && !IsNil(o.NetworksCanBeDeleted) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *HypervisorResourcePoolPatchPreviewResponseModel) GetNetworksToBeDeleted
 
 // HasNetworksToBeDeleted returns a boolean if a field has been set.
 func (o *HypervisorResourcePoolPatchPreviewResponseModel) HasNetworksToBeDeleted() bool {
-	if o != nil && IsNil(o.NetworksToBeDeleted) {
+	if o != nil && !IsNil(o.NetworksToBeDeleted) {
 		return true
 	}
 
@@ -131,7 +131,7 @@ func (o *HypervisorResourcePoolPatchPreviewResponseModel) GetDeleteImpactedCatal
 
 // HasDeleteImpactedCatalogs returns a boolean if a field has been set.
 func (o *HypervisorResourcePoolPatchPreviewResponseModel) HasDeleteImpactedCatalogs() bool {
-	if o != nil && IsNil(o.DeleteImpactedCatalogs) {
+	if o != nil && !IsNil(o.DeleteImpactedCatalogs) {
 		return true
 	}
 

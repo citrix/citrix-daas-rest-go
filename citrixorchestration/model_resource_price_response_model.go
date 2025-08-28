@@ -176,7 +176,7 @@ func (o *ResourcePriceResponseModel) GetSavingPlansOk() ([]SavingPlanResponseMod
 
 // HasSavingPlans returns a boolean if a field has been set.
 func (o *ResourcePriceResponseModel) HasSavingPlans() bool {
-	if o != nil && IsNil(o.SavingPlans) {
+	if o != nil && !IsNil(o.SavingPlans) {
 		return true
 	}
 
@@ -209,7 +209,7 @@ func (o *ResourcePriceResponseModel) GetReservationsOk() ([]ReservationResponseM
 
 // HasReservations returns a boolean if a field has been set.
 func (o *ResourcePriceResponseModel) HasReservations() bool {
-	if o != nil && IsNil(o.Reservations) {
+	if o != nil && !IsNil(o.Reservations) {
 		return true
 	}
 
@@ -242,7 +242,7 @@ func (o *ResourcePriceResponseModel) GetAdditionalDataOk() (*map[string]string, 
 
 // HasAdditionalData returns a boolean if a field has been set.
 func (o *ResourcePriceResponseModel) HasAdditionalData() bool {
-	if o != nil && IsNil(o.AdditionalData) {
+	if o != nil && !IsNil(o.AdditionalData) {
 		return true
 	}
 

@@ -849,7 +849,7 @@ func (o *MachineIdentityPoolResponseModel) GetServiceAccountUidOk() ([]string, b
 
 // HasServiceAccountUid returns a boolean if a field has been set.
 func (o *MachineIdentityPoolResponseModel) HasServiceAccountUid() bool {
-	if o != nil && IsNil(o.ServiceAccountUid) {
+	if o != nil && !IsNil(o.ServiceAccountUid) {
 		return true
 	}
 

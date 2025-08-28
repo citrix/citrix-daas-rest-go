@@ -108,6 +108,8 @@ type MachineCatalogDetailResponseModel struct {
 	UpgradeDetail  *MachineCatalogUpgradeDetail                  `json:"UpgradeDetail,omitempty"`
 }
 
+type _MachineCatalogDetailResponseModel MachineCatalogDetailResponseModel
+
 // NewMachineCatalogDetailResponseModel instantiates a new MachineCatalogDetailResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -611,7 +613,7 @@ func (o *MachineCatalogDetailResponseModel) GetJobsInProgressOk() ([]RefResponse
 
 // HasJobsInProgress returns a boolean if a field has been set.
 func (o *MachineCatalogDetailResponseModel) HasJobsInProgress() bool {
-	if o != nil && IsNil(o.JobsInProgress) {
+	if o != nil && !IsNil(o.JobsInProgress) {
 		return true
 	}
 
@@ -676,7 +678,7 @@ func (o *MachineCatalogDetailResponseModel) GetMetadataOk() ([]NameValueStringPa
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *MachineCatalogDetailResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -1083,7 +1085,7 @@ func (o *MachineCatalogDetailResponseModel) GetRemotePCEnrollmentScopesOk() ([]R
 
 // HasRemotePCEnrollmentScopes returns a boolean if a field has been set.
 func (o *MachineCatalogDetailResponseModel) HasRemotePCEnrollmentScopes() bool {
-	if o != nil && IsNil(o.RemotePCEnrollmentScopes) {
+	if o != nil && !IsNil(o.RemotePCEnrollmentScopes) {
 		return true
 	}
 
@@ -1116,7 +1118,7 @@ func (o *MachineCatalogDetailResponseModel) GetScopesOk() ([]ScopeResponseModel,
 
 // HasScopes returns a boolean if a field has been set.
 func (o *MachineCatalogDetailResponseModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -1149,7 +1151,7 @@ func (o *MachineCatalogDetailResponseModel) GetTenantsOk() ([]RefResponseModel, 
 
 // HasTenants returns a boolean if a field has been set.
 func (o *MachineCatalogDetailResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -1385,7 +1387,7 @@ func (o *MachineCatalogDetailResponseModel) GetErrorsOk() ([]string, bool) {
 
 // HasErrors returns a boolean if a field has been set.
 func (o *MachineCatalogDetailResponseModel) HasErrors() bool {
-	if o != nil && IsNil(o.Errors) {
+	if o != nil && !IsNil(o.Errors) {
 		return true
 	}
 
@@ -1418,7 +1420,7 @@ func (o *MachineCatalogDetailResponseModel) GetWarningsOk() ([]MachineCatalogWar
 
 // HasWarnings returns a boolean if a field has been set.
 func (o *MachineCatalogDetailResponseModel) HasWarnings() bool {
-	if o != nil && IsNil(o.Warnings) {
+	if o != nil && !IsNil(o.Warnings) {
 		return true
 	}
 

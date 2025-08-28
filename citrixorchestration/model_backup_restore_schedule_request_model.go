@@ -41,6 +41,8 @@ type BackupRestoreScheduleRequestModel struct {
 	TimeZoneId string `json:"TimeZoneId"`
 }
 
+type _BackupRestoreScheduleRequestModel BackupRestoreScheduleRequestModel
+
 // NewBackupRestoreScheduleRequestModel instantiates a new BackupRestoreScheduleRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -142,7 +144,7 @@ func (o *BackupRestoreScheduleRequestModel) GetDaysInWeekOk() ([]BackupRestoreSc
 
 // HasDaysInWeek returns a boolean if a field has been set.
 func (o *BackupRestoreScheduleRequestModel) HasDaysInWeek() bool {
-	if o != nil && IsNil(o.DaysInWeek) {
+	if o != nil && !IsNil(o.DaysInWeek) {
 		return true
 	}
 

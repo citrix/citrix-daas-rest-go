@@ -41,6 +41,8 @@ type PowerTimeSchemeResponseModel struct {
 	Id string `json:"Id"`
 }
 
+type _PowerTimeSchemeResponseModel PowerTimeSchemeResponseModel
+
 // NewPowerTimeSchemeResponseModel instantiates a new PowerTimeSchemeResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -157,7 +159,7 @@ func (o *PowerTimeSchemeResponseModel) GetPeakHoursOk() ([]bool, bool) {
 
 // HasPeakHours returns a boolean if a field has been set.
 func (o *PowerTimeSchemeResponseModel) HasPeakHours() bool {
-	if o != nil && IsNil(o.PeakHours) {
+	if o != nil && !IsNil(o.PeakHours) {
 		return true
 	}
 
@@ -191,7 +193,7 @@ func (o *PowerTimeSchemeResponseModel) GetPeakTimeRangesOk() ([]string, bool) {
 
 // HasPeakTimeRanges returns a boolean if a field has been set.
 func (o *PowerTimeSchemeResponseModel) HasPeakTimeRanges() bool {
-	if o != nil && IsNil(o.PeakTimeRanges) {
+	if o != nil && !IsNil(o.PeakTimeRanges) {
 		return true
 	}
 
@@ -226,7 +228,7 @@ func (o *PowerTimeSchemeResponseModel) GetPoolSizeOk() ([]int32, bool) {
 
 // HasPoolSize returns a boolean if a field has been set.
 func (o *PowerTimeSchemeResponseModel) HasPoolSize() bool {
-	if o != nil && IsNil(o.PoolSize) {
+	if o != nil && !IsNil(o.PoolSize) {
 		return true
 	}
 
@@ -260,7 +262,7 @@ func (o *PowerTimeSchemeResponseModel) GetPoolSizeScheduleOk() ([]PoolSizeSchedu
 
 // HasPoolSizeSchedule returns a boolean if a field has been set.
 func (o *PowerTimeSchemeResponseModel) HasPoolSizeSchedule() bool {
-	if o != nil && IsNil(o.PoolSizeSchedule) {
+	if o != nil && !IsNil(o.PoolSizeSchedule) {
 		return true
 	}
 

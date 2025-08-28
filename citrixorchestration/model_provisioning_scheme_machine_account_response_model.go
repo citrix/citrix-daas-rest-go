@@ -55,6 +55,8 @@ type ProvisioningSchemeMachineAccountResponseModel struct {
 	State             ProvisioningSchemeMachineAccountState `json:"State"`
 }
 
+type _ProvisioningSchemeMachineAccountResponseModel ProvisioningSchemeMachineAccountResponseModel
+
 // NewProvisioningSchemeMachineAccountResponseModel instantiates a new ProvisioningSchemeMachineAccountResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -557,7 +559,7 @@ func (o *ProvisioningSchemeMachineAccountResponseModel) GetServicePrincipalNames
 
 // HasServicePrincipalNames returns a boolean if a field has been set.
 func (o *ProvisioningSchemeMachineAccountResponseModel) HasServicePrincipalNames() bool {
-	if o != nil && IsNil(o.ServicePrincipalNames) {
+	if o != nil && !IsNil(o.ServicePrincipalNames) {
 		return true
 	}
 
@@ -590,7 +592,7 @@ func (o *ProvisioningSchemeMachineAccountResponseModel) GetIPAddressOk() ([]stri
 
 // HasIPAddress returns a boolean if a field has been set.
 func (o *ProvisioningSchemeMachineAccountResponseModel) HasIPAddress() bool {
-	if o != nil && IsNil(o.IPAddress) {
+	if o != nil && !IsNil(o.IPAddress) {
 		return true
 	}
 

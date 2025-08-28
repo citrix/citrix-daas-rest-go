@@ -288,7 +288,7 @@ func (o *ServiceAccountResponseModel) GetCapabilitiesOk() ([]ServiceAccountCapab
 
 // HasCapabilities returns a boolean if a field has been set.
 func (o *ServiceAccountResponseModel) HasCapabilities() bool {
-	if o != nil && IsNil(o.Capabilities) {
+	if o != nil && !IsNil(o.Capabilities) {
 		return true
 	}
 
@@ -396,7 +396,7 @@ func (o *ServiceAccountResponseModel) GetScopesOk() ([]ScopeResponseModel, bool)
 
 // HasScopes returns a boolean if a field has been set.
 func (o *ServiceAccountResponseModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 

@@ -196,7 +196,7 @@ func (o *MachineCatalogValidationFailureModel) GetParametersOk() ([]string, bool
 
 // HasParameters returns a boolean if a field has been set.
 func (o *MachineCatalogValidationFailureModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 

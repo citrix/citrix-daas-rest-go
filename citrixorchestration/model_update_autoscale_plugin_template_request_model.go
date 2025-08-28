@@ -106,7 +106,7 @@ func (o *UpdateAutoscalePluginTemplateRequestModel) GetDatesOk() ([]string, bool
 
 // HasDates returns a boolean if a field has been set.
 func (o *UpdateAutoscalePluginTemplateRequestModel) HasDates() bool {
-	if o != nil && IsNil(o.Dates) {
+	if o != nil && !IsNil(o.Dates) {
 		return true
 	}
 

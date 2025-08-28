@@ -34,6 +34,8 @@ type StartMenuApplicationResponseModel struct {
 	Machine          RefResponseModel `json:"Machine"`
 }
 
+type _StartMenuApplicationResponseModel StartMenuApplicationResponseModel
+
 // NewStartMenuApplicationResponseModel instantiates a new StartMenuApplicationResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

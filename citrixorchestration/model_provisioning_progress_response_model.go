@@ -28,6 +28,8 @@ type ProvisioningProgressResponseModel struct {
 	ProgressMessageList [][]string     `json:"ProgressMessageList,omitempty"`
 }
 
+type _ProvisioningProgressResponseModel ProvisioningProgressResponseModel
+
 // NewProvisioningProgressResponseModel instantiates a new ProvisioningProgressResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -159,7 +161,7 @@ func (o *ProvisioningProgressResponseModel) GetProgressMessageListOk() ([][]stri
 
 // HasProgressMessageList returns a boolean if a field has been set.
 func (o *ProvisioningProgressResponseModel) HasProgressMessageList() bool {
-	if o != nil && IsNil(o.ProgressMessageList) {
+	if o != nil && !IsNil(o.ProgressMessageList) {
 		return true
 	}
 

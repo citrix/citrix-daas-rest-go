@@ -26,6 +26,8 @@ type AdministratorResponseModel struct {
 	Enabled bool `json:"Enabled"`
 }
 
+type _AdministratorResponseModel AdministratorResponseModel
+
 // NewAdministratorResponseModel instantiates a new AdministratorResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

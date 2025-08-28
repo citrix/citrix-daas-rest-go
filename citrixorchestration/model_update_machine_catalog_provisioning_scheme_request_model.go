@@ -438,7 +438,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetCustomProperties
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
+	if o != nil && !IsNil(o.CustomProperties) {
 		return true
 	}
 
@@ -626,7 +626,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetAddAvailableMach
 
 // HasAddAvailableMachineAccounts returns a boolean if a field has been set.
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasAddAvailableMachineAccounts() bool {
-	if o != nil && IsNil(o.AddAvailableMachineAccounts) {
+	if o != nil && !IsNil(o.AddAvailableMachineAccounts) {
 		return true
 	}
 
@@ -662,7 +662,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetRemoveAvailableM
 
 // HasRemoveAvailableMachineAccounts returns a boolean if a field has been set.
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasRemoveAvailableMachineAccounts() bool {
-	if o != nil && IsNil(o.RemoveAvailableMachineAccounts) {
+	if o != nil && !IsNil(o.RemoveAvailableMachineAccounts) {
 		return true
 	}
 
@@ -760,7 +760,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetMetadataOk() ([]
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

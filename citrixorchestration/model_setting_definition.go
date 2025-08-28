@@ -925,7 +925,7 @@ func (o *SettingDefinition) GetRelatedSettingsOk() (*map[string]string, bool) {
 
 // HasRelatedSettings returns a boolean if a field has been set.
 func (o *SettingDefinition) HasRelatedSettings() bool {
-	if o != nil && IsNil(o.RelatedSettings) {
+	if o != nil && !IsNil(o.RelatedSettings) {
 		return true
 	}
 
@@ -1162,7 +1162,7 @@ func (o *SettingDefinition) GetVersionDetailsOk() ([]VersionDetail, bool) {
 
 // HasVersionDetails returns a boolean if a field has been set.
 func (o *SettingDefinition) HasVersionDetails() bool {
-	if o != nil && IsNil(o.VersionDetails) {
+	if o != nil && !IsNil(o.VersionDetails) {
 		return true
 	}
 
@@ -1238,7 +1238,7 @@ func (o *SettingDefinition) GetVdaVersionsOk() ([]string, bool) {
 
 // HasVdaVersions returns a boolean if a field has been set.
 func (o *SettingDefinition) HasVdaVersions() bool {
-	if o != nil && IsNil(o.VdaVersions) {
+	if o != nil && !IsNil(o.VdaVersions) {
 		return true
 	}
 

@@ -96,6 +96,8 @@ type DeliveryGroupResponseModel struct {
 	DefaultDesktopIconId NullableString `json:"DefaultDesktopIconId,omitempty"`
 }
 
+type _DeliveryGroupResponseModel DeliveryGroupResponseModel
+
 // NewDeliveryGroupResponseModel instantiates a new DeliveryGroupResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -618,7 +620,7 @@ func (o *DeliveryGroupResponseModel) GetMetadataOk() ([]NameValueStringPairModel
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *DeliveryGroupResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -940,7 +942,7 @@ func (o *DeliveryGroupResponseModel) GetTenantsOk() ([]RefResponseModel, bool) {
 
 // HasTenants returns a boolean if a field has been set.
 func (o *DeliveryGroupResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -973,7 +975,7 @@ func (o *DeliveryGroupResponseModel) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *DeliveryGroupResponseModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 

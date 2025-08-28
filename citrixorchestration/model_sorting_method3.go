@@ -23,6 +23,8 @@ type SortingMethod3 struct {
 	SortDirection ListSortDirection `json:"SortDirection"`
 }
 
+type _SortingMethod3 SortingMethod3
+
 // NewSortingMethod3 instantiates a new SortingMethod3 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

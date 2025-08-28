@@ -27,6 +27,8 @@ type ZoneResponseModelCollection struct {
 	TotalItems NullableInt32 `json:"TotalItems,omitempty"`
 }
 
+type _ZoneResponseModelCollection ZoneResponseModelCollection
+
 // NewZoneResponseModelCollection instantiates a new ZoneResponseModelCollection object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

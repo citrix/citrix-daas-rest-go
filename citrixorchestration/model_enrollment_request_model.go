@@ -36,6 +36,8 @@ type EnrollmentRequestModel struct {
 	HostConnectionId NullableString `json:"HostConnectionId,omitempty"`
 }
 
+type _EnrollmentRequestModel EnrollmentRequestModel
+
 // NewEnrollmentRequestModel instantiates a new EnrollmentRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

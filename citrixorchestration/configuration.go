@@ -73,20 +73,28 @@ type ServerConfiguration struct {
 // ServerConfigurations stores multiple ServerConfiguration items
 type ServerConfigurations []ServerConfiguration
 
-// MiddlewareFunction provides way to implement custom middleware
+// MiddlewareFunction provides way to implement custom middleware in the prepareRequest
 type MiddlewareFunction func(*http.Request)
+
+// MiddlewareFunctionWithError provides way to implement custom middleware with errors in the prepareRequest
+type MiddlewareFunctionWithError func(*http.Request) error
+
+// ResponseMiddlewareFunction provides way to implement custom middleware with errors after the response is received
+type ResponseMiddlewareFunction func(*http.Response, []byte) error
 
 // Configuration stores the configuration of the API client
 type Configuration struct {
-	Host             string            `json:"host,omitempty"`
-	Scheme           string            `json:"scheme,omitempty"`
-	DefaultHeader    map[string]string `json:"defaultHeader,omitempty"`
-	UserAgent        string            `json:"userAgent,omitempty"`
-	Debug            bool              `json:"debug,omitempty"`
-	Servers          ServerConfigurations
-	OperationServers map[string]ServerConfigurations
-	HTTPClient       *http.Client
-	Middleware       MiddlewareFunction
+	Host                string            `json:"host,omitempty"`
+	Scheme              string            `json:"scheme,omitempty"`
+	DefaultHeader       map[string]string `json:"defaultHeader,omitempty"`
+	UserAgent           string            `json:"userAgent,omitempty"`
+	Debug               bool              `json:"debug,omitempty"`
+	Servers             ServerConfigurations
+	OperationServers    map[string]ServerConfigurations
+	HTTPClient          *http.Client
+	Middleware          MiddlewareFunction
+	MiddlewareWithError MiddlewareFunctionWithError
+	ResponseMiddleware  ResponseMiddlewareFunction
 }
 
 // NewConfiguration returns a new Configuration object

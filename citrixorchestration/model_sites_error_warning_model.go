@@ -126,7 +126,7 @@ func (o *SitesErrorWarningModel) GetErrorWarningOk() ([]SiteErrorWarningModel, b
 
 // HasErrorWarning returns a boolean if a field has been set.
 func (o *SitesErrorWarningModel) HasErrorWarning() bool {
-	if o != nil && IsNil(o.ErrorWarning) {
+	if o != nil && !IsNil(o.ErrorWarning) {
 		return true
 	}
 

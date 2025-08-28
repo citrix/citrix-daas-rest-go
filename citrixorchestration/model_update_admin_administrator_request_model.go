@@ -63,7 +63,7 @@ func (o *UpdateAdminAdministratorRequestModel) GetRightsOk() ([]AdminRightReques
 
 // HasRights returns a boolean if a field has been set.
 func (o *UpdateAdminAdministratorRequestModel) HasRights() bool {
-	if o != nil && IsNil(o.Rights) {
+	if o != nil && !IsNil(o.Rights) {
 		return true
 	}
 

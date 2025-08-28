@@ -354,7 +354,7 @@ func (o *SessionConnectionResponseModel) GetSmartAccessTagsOk() ([]SmartAccessTa
 
 // HasSmartAccessTags returns a boolean if a field has been set.
 func (o *SessionConnectionResponseModel) HasSmartAccessTags() bool {
-	if o != nil && IsNil(o.SmartAccessTags) {
+	if o != nil && !IsNil(o.SmartAccessTags) {
 		return true
 	}
 

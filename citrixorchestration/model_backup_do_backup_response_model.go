@@ -24,6 +24,8 @@ type BackupDoBackupResponseModel struct {
 	Result      BackupRestoreActionStartStatus `json:"Result"`
 }
 
+type _BackupDoBackupResponseModel BackupDoBackupResponseModel
+
 // NewBackupDoBackupResponseModel instantiates a new BackupDoBackupResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

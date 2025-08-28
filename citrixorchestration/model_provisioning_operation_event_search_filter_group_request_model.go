@@ -97,7 +97,7 @@ func (o *ProvisioningOperationEventSearchFilterGroupRequestModel) GetSearchFilte
 
 // HasSearchFilters returns a boolean if a field has been set.
 func (o *ProvisioningOperationEventSearchFilterGroupRequestModel) HasSearchFilters() bool {
-	if o != nil && IsNil(o.SearchFilters) {
+	if o != nil && !IsNil(o.SearchFilters) {
 		return true
 	}
 
@@ -162,7 +162,7 @@ func (o *ProvisioningOperationEventSearchFilterGroupRequestModel) GetSearchFilte
 
 // HasSearchFilterGroups returns a boolean if a field has been set.
 func (o *ProvisioningOperationEventSearchFilterGroupRequestModel) HasSearchFilterGroups() bool {
-	if o != nil && IsNil(o.SearchFilterGroups) {
+	if o != nil && !IsNil(o.SearchFilterGroups) {
 		return true
 	}
 

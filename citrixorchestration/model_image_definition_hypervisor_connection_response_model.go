@@ -200,7 +200,7 @@ func (o *ImageDefinitionHypervisorConnectionResponseModel) GetCustomPropertiesOk
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *ImageDefinitionHypervisorConnectionResponseModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
+	if o != nil && !IsNil(o.CustomProperties) {
 		return true
 	}
 
@@ -233,7 +233,7 @@ func (o *ImageDefinitionHypervisorConnectionResponseModel) GetHypervisorDataOk()
 
 // HasHypervisorData returns a boolean if a field has been set.
 func (o *ImageDefinitionHypervisorConnectionResponseModel) HasHypervisorData() bool {
-	if o != nil && IsNil(o.HypervisorData) {
+	if o != nil && !IsNil(o.HypervisorData) {
 		return true
 	}
 

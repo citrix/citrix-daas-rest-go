@@ -139,7 +139,7 @@ func (o *SetRecommendationsRequestModel) GetIdsOk() ([]string, bool) {
 
 // HasIds returns a boolean if a field has been set.
 func (o *SetRecommendationsRequestModel) HasIds() bool {
-	if o != nil && IsNil(o.Ids) {
+	if o != nil && !IsNil(o.Ids) {
 		return true
 	}
 

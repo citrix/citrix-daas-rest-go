@@ -34,6 +34,8 @@ type ImageDefinitionResponseModel struct {
 	HypervisorConnections []ImageDefinitionHypervisorConnectionResponseModel `json:"HypervisorConnections,omitempty"`
 }
 
+type _ImageDefinitionResponseModel ImageDefinitionResponseModel
+
 // NewImageDefinitionResponseModel instantiates a new ImageDefinitionResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -301,7 +303,7 @@ func (o *ImageDefinitionResponseModel) GetHypervisorConnectionsOk() ([]ImageDefi
 
 // HasHypervisorConnections returns a boolean if a field has been set.
 func (o *ImageDefinitionResponseModel) HasHypervisorConnections() bool {
-	if o != nil && IsNil(o.HypervisorConnections) {
+	if o != nil && !IsNil(o.HypervisorConnections) {
 		return true
 	}
 

@@ -94,7 +94,7 @@ func (o *BackupRestoreValidateStorageResponseModel) GetValidateStorageErrorsOk()
 
 // HasValidateStorageErrors returns a boolean if a field has been set.
 func (o *BackupRestoreValidateStorageResponseModel) HasValidateStorageErrors() bool {
-	if o != nil && IsNil(o.ValidateStorageErrors) {
+	if o != nil && !IsNil(o.ValidateStorageErrors) {
 		return true
 	}
 

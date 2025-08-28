@@ -106,7 +106,7 @@ func (o *EnrollMachineMetaDataModel) GetMacAddressesOk() ([]string, bool) {
 
 // HasMacAddresses returns a boolean if a field has been set.
 func (o *EnrollMachineMetaDataModel) HasMacAddresses() bool {
-	if o != nil && IsNil(o.MacAddresses) {
+	if o != nil && !IsNil(o.MacAddresses) {
 		return true
 	}
 

@@ -218,7 +218,7 @@ func (o *PowerShellHistoryResponseModel) GetCommandsOk() ([]PowerShellExecutedCo
 
 // HasCommands returns a boolean if a field has been set.
 func (o *PowerShellHistoryResponseModel) HasCommands() bool {
-	if o != nil && IsNil(o.Commands) {
+	if o != nil && !IsNil(o.Commands) {
 		return true
 	}
 

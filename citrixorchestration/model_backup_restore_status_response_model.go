@@ -69,6 +69,8 @@ type BackupRestoreStatusResponseModel struct {
 	Fixups []BackupRestoreFixupModel `json:"Fixups,omitempty"`
 }
 
+type _BackupRestoreStatusResponseModel BackupRestoreStatusResponseModel
+
 // NewBackupRestoreStatusResponseModel instantiates a new BackupRestoreStatusResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -810,7 +812,7 @@ func (o *BackupRestoreStatusResponseModel) GetBackupDetailsOk() (*map[string]str
 
 // HasBackupDetails returns a boolean if a field has been set.
 func (o *BackupRestoreStatusResponseModel) HasBackupDetails() bool {
-	if o != nil && IsNil(o.BackupDetails) {
+	if o != nil && !IsNil(o.BackupDetails) {
 		return true
 	}
 
@@ -843,7 +845,7 @@ func (o *BackupRestoreStatusResponseModel) GetRestoreDetailsOk() ([]BackupRestor
 
 // HasRestoreDetails returns a boolean if a field has been set.
 func (o *BackupRestoreStatusResponseModel) HasRestoreDetails() bool {
-	if o != nil && IsNil(o.RestoreDetails) {
+	if o != nil && !IsNil(o.RestoreDetails) {
 		return true
 	}
 
@@ -876,7 +878,7 @@ func (o *BackupRestoreStatusResponseModel) GetSimpleResultsOk() ([]string, bool)
 
 // HasSimpleResults returns a boolean if a field has been set.
 func (o *BackupRestoreStatusResponseModel) HasSimpleResults() bool {
-	if o != nil && IsNil(o.SimpleResults) {
+	if o != nil && !IsNil(o.SimpleResults) {
 		return true
 	}
 
@@ -941,7 +943,7 @@ func (o *BackupRestoreStatusResponseModel) GetFixupsOk() ([]BackupRestoreFixupMo
 
 // HasFixups returns a boolean if a field has been set.
 func (o *BackupRestoreStatusResponseModel) HasFixups() bool {
-	if o != nil && IsNil(o.Fixups) {
+	if o != nil && !IsNil(o.Fixups) {
 		return true
 	}
 

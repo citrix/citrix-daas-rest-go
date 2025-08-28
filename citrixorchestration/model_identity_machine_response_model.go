@@ -54,6 +54,8 @@ type IdentityMachineResponseModel struct {
 	PropertiesFetched int32 `json:"PropertiesFetched"`
 }
 
+type _IdentityMachineResponseModel IdentityMachineResponseModel
+
 // NewIdentityMachineResponseModel instantiates a new IdentityMachineResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -555,7 +557,7 @@ func (o *IdentityMachineResponseModel) GetServicePrincipalNamesOk() ([]string, b
 
 // HasServicePrincipalNames returns a boolean if a field has been set.
 func (o *IdentityMachineResponseModel) HasServicePrincipalNames() bool {
-	if o != nil && IsNil(o.ServicePrincipalNames) {
+	if o != nil && !IsNil(o.ServicePrincipalNames) {
 		return true
 	}
 
@@ -588,7 +590,7 @@ func (o *IdentityMachineResponseModel) GetIPAddressOk() ([]string, bool) {
 
 // HasIPAddress returns a boolean if a field has been set.
 func (o *IdentityMachineResponseModel) HasIPAddress() bool {
-	if o != nil && IsNil(o.IPAddress) {
+	if o != nil && !IsNil(o.IPAddress) {
 		return true
 	}
 

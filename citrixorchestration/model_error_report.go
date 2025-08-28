@@ -29,6 +29,8 @@ type ErrorReport struct {
 	ErrorData map[string]string `json:"ErrorData"`
 }
 
+type _ErrorReport ErrorReport
+
 // NewErrorReport instantiates a new ErrorReport object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

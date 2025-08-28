@@ -196,7 +196,7 @@ func (o *VDAComponentModel) GetParametersOk() ([]VDAComponentParameterModel, boo
 
 // HasParameters returns a boolean if a field has been set.
 func (o *VDAComponentModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 

@@ -292,7 +292,7 @@ func (o *DesktopRequestModel) GetExcludedUsersOk() ([]string, bool) {
 
 // HasExcludedUsers returns a boolean if a field has been set.
 func (o *DesktopRequestModel) HasExcludedUsers() bool {
-	if o != nil && IsNil(o.ExcludedUsers) {
+	if o != nil && !IsNil(o.ExcludedUsers) {
 		return true
 	}
 
@@ -411,7 +411,7 @@ func (o *DesktopRequestModel) GetIncludedUsersOk() ([]string, bool) {
 
 // HasIncludedUsers returns a boolean if a field has been set.
 func (o *DesktopRequestModel) HasIncludedUsers() bool {
-	if o != nil && IsNil(o.IncludedUsers) {
+	if o != nil && !IsNil(o.IncludedUsers) {
 		return true
 	}
 

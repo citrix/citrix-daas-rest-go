@@ -63,7 +63,7 @@ func (o *PolicyTemplateResponseContract) GetPoliciesOk() ([]PolicyResponseContra
 
 // HasPolicies returns a boolean if a field has been set.
 func (o *PolicyTemplateResponseContract) HasPolicies() bool {
-	if o != nil && IsNil(o.Policies) {
+	if o != nil && !IsNil(o.Policies) {
 		return true
 	}
 
@@ -96,7 +96,7 @@ func (o *PolicyTemplateResponseContract) GetTemplatesOk() ([]TemplateResponseCon
 
 // HasTemplates returns a boolean if a field has been set.
 func (o *PolicyTemplateResponseContract) HasTemplates() bool {
-	if o != nil && IsNil(o.Templates) {
+	if o != nil && !IsNil(o.Templates) {
 		return true
 	}
 

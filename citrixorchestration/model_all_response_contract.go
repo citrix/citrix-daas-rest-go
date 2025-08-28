@@ -67,7 +67,7 @@ func (o *AllResponseContract) GetPoliciesOk() ([]PolicyResponseContract, bool) {
 
 // HasPolicies returns a boolean if a field has been set.
 func (o *AllResponseContract) HasPolicies() bool {
-	if o != nil && IsNil(o.Policies) {
+	if o != nil && !IsNil(o.Policies) {
 		return true
 	}
 
@@ -100,7 +100,7 @@ func (o *AllResponseContract) GetTemplatesOk() ([]TemplateResponseContract, bool
 
 // HasTemplates returns a boolean if a field has been set.
 func (o *AllResponseContract) HasTemplates() bool {
-	if o != nil && IsNil(o.Templates) {
+	if o != nil && !IsNil(o.Templates) {
 		return true
 	}
 
@@ -133,7 +133,7 @@ func (o *AllResponseContract) GetSettingDefinitionsOk() ([]SettingDefinitionCont
 
 // HasSettingDefinitions returns a boolean if a field has been set.
 func (o *AllResponseContract) HasSettingDefinitions() bool {
-	if o != nil && IsNil(o.SettingDefinitions) {
+	if o != nil && !IsNil(o.SettingDefinitions) {
 		return true
 	}
 
@@ -166,7 +166,7 @@ func (o *AllResponseContract) GetFilterDefinitionsOk() ([]FilterDefinitionContra
 
 // HasFilterDefinitions returns a boolean if a field has been set.
 func (o *AllResponseContract) HasFilterDefinitions() bool {
-	if o != nil && IsNil(o.FilterDefinitions) {
+	if o != nil && !IsNil(o.FilterDefinitions) {
 		return true
 	}
 

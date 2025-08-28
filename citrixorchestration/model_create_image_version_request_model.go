@@ -28,6 +28,8 @@ type CreateImageVersionRequestModel struct {
 	ResourcePool string `json:"ResourcePool"`
 }
 
+type _CreateImageVersionRequestModel CreateImageVersionRequestModel
+
 // NewCreateImageVersionRequestModel instantiates a new CreateImageVersionRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

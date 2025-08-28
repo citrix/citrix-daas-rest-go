@@ -35,6 +35,8 @@ type FastApplicationSettingsResponseModel struct {
 	IncludedUsers []IdentityUserResponseModel `json:"IncludedUsers,omitempty"`
 }
 
+type _FastApplicationSettingsResponseModel FastApplicationSettingsResponseModel
+
 // NewFastApplicationSettingsResponseModel instantiates a new FastApplicationSettingsResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -223,7 +225,7 @@ func (o *FastApplicationSettingsResponseModel) GetIncludedUsersOk() ([]IdentityU
 
 // HasIncludedUsers returns a boolean if a field has been set.
 func (o *FastApplicationSettingsResponseModel) HasIncludedUsers() bool {
-	if o != nil && IsNil(o.IncludedUsers) {
+	if o != nil && !IsNil(o.IncludedUsers) {
 		return true
 	}
 

@@ -25,6 +25,8 @@ type PredefinedPermissionGroupResponseModel struct {
 	Name string `json:"Name"`
 }
 
+type _PredefinedPermissionGroupResponseModel PredefinedPermissionGroupResponseModel
+
 // NewPredefinedPermissionGroupResponseModel instantiates a new PredefinedPermissionGroupResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

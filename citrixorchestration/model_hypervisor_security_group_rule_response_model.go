@@ -31,6 +31,8 @@ type HypervisorSecurityGroupRuleResponseModel struct {
 	ToPort NullableFloat32 `json:"ToPort,omitempty"`
 }
 
+type _HypervisorSecurityGroupRuleResponseModel HypervisorSecurityGroupRuleResponseModel
+
 // NewHypervisorSecurityGroupRuleResponseModel instantiates a new HypervisorSecurityGroupRuleResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -113,7 +115,7 @@ func (o *HypervisorSecurityGroupRuleResponseModel) GetGroupIdsOk() ([]string, bo
 
 // HasGroupIds returns a boolean if a field has been set.
 func (o *HypervisorSecurityGroupRuleResponseModel) HasGroupIds() bool {
-	if o != nil && IsNil(o.GroupIds) {
+	if o != nil && !IsNil(o.GroupIds) {
 		return true
 	}
 
@@ -146,7 +148,7 @@ func (o *HypervisorSecurityGroupRuleResponseModel) GetIPRangesOk() ([]string, bo
 
 // HasIPRanges returns a boolean if a field has been set.
 func (o *HypervisorSecurityGroupRuleResponseModel) HasIPRanges() bool {
-	if o != nil && IsNil(o.IPRanges) {
+	if o != nil && !IsNil(o.IPRanges) {
 		return true
 	}
 

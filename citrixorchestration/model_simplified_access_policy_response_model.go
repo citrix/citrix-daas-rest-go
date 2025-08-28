@@ -45,6 +45,8 @@ type SimplifiedAccessPolicyResponseModel struct {
 	ExcludedUsers []IdentityUserResponseModel `json:"ExcludedUsers,omitempty"`
 }
 
+type _SimplifiedAccessPolicyResponseModel SimplifiedAccessPolicyResponseModel
+
 // NewSimplifiedAccessPolicyResponseModel instantiates a new SimplifiedAccessPolicyResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -278,7 +280,7 @@ func (o *SimplifiedAccessPolicyResponseModel) GetIncludedSmartAccessTagsOk() ([]
 
 // HasIncludedSmartAccessTags returns a boolean if a field has been set.
 func (o *SimplifiedAccessPolicyResponseModel) HasIncludedSmartAccessTags() bool {
-	if o != nil && IsNil(o.IncludedSmartAccessTags) {
+	if o != nil && !IsNil(o.IncludedSmartAccessTags) {
 		return true
 	}
 
@@ -335,7 +337,7 @@ func (o *SimplifiedAccessPolicyResponseModel) GetIncludedUsersOk() ([]IdentityUs
 
 // HasIncludedUsers returns a boolean if a field has been set.
 func (o *SimplifiedAccessPolicyResponseModel) HasIncludedUsers() bool {
-	if o != nil && IsNil(o.IncludedUsers) {
+	if o != nil && !IsNil(o.IncludedUsers) {
 		return true
 	}
 
@@ -392,7 +394,7 @@ func (o *SimplifiedAccessPolicyResponseModel) GetExcludedUsersOk() ([]IdentityUs
 
 // HasExcludedUsers returns a boolean if a field has been set.
 func (o *SimplifiedAccessPolicyResponseModel) HasExcludedUsers() bool {
-	if o != nil && IsNil(o.ExcludedUsers) {
+	if o != nil && !IsNil(o.ExcludedUsers) {
 		return true
 	}
 

@@ -52,6 +52,8 @@ type LogOperationResponseModel struct {
 	Parameters []NameValueStringPairModel `json:"Parameters"`
 }
 
+type _LogOperationResponseModel LogOperationResponseModel
+
 // NewLogOperationResponseModel instantiates a new LogOperationResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -524,7 +526,7 @@ func (o *LogOperationResponseModel) GetLabelsOk() ([]string, bool) {
 
 // HasLabels returns a boolean if a field has been set.
 func (o *LogOperationResponseModel) HasLabels() bool {
-	if o != nil && IsNil(o.Labels) {
+	if o != nil && !IsNil(o.Labels) {
 		return true
 	}
 
@@ -557,7 +559,7 @@ func (o *LogOperationResponseModel) GetMetadataOk() ([]NameValueStringPairModel,
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *LogOperationResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

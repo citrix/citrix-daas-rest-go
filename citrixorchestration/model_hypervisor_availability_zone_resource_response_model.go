@@ -119,6 +119,8 @@ type HypervisorAvailabilityZoneResourceResponseModel struct {
 	AdditionalData []NameValueStringPairModel `json:"AdditionalData,omitempty"`
 }
 
+type _HypervisorAvailabilityZoneResourceResponseModel HypervisorAvailabilityZoneResourceResponseModel
+
 // NewHypervisorAvailabilityZoneResourceResponseModel instantiates a new HypervisorAvailabilityZoneResourceResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -1100,7 +1102,7 @@ func (o *HypervisorAvailabilityZoneResourceResponseModel) GetNetworkMappingsOk()
 
 // HasNetworkMappings returns a boolean if a field has been set.
 func (o *HypervisorAvailabilityZoneResourceResponseModel) HasNetworkMappings() bool {
-	if o != nil && IsNil(o.NetworkMappings) {
+	if o != nil && !IsNil(o.NetworkMappings) {
 		return true
 	}
 
@@ -1133,7 +1135,7 @@ func (o *HypervisorAvailabilityZoneResourceResponseModel) GetAttachedDisksOk() (
 
 // HasAttachedDisks returns a boolean if a field has been set.
 func (o *HypervisorAvailabilityZoneResourceResponseModel) HasAttachedDisks() bool {
-	if o != nil && IsNil(o.AttachedDisks) {
+	if o != nil && !IsNil(o.AttachedDisks) {
 		return true
 	}
 
@@ -1638,7 +1640,7 @@ func (o *HypervisorAvailabilityZoneResourceResponseModel) GetChildrenOk() ([]Hyp
 
 // HasChildren returns a boolean if a field has been set.
 func (o *HypervisorAvailabilityZoneResourceResponseModel) HasChildren() bool {
-	if o != nil && IsNil(o.Children) {
+	if o != nil && !IsNil(o.Children) {
 		return true
 	}
 
@@ -1791,7 +1793,7 @@ func (o *HypervisorAvailabilityZoneResourceResponseModel) GetAdditionalDataOk() 
 
 // HasAdditionalData returns a boolean if a field has been set.
 func (o *HypervisorAvailabilityZoneResourceResponseModel) HasAdditionalData() bool {
-	if o != nil && IsNil(o.AdditionalData) {
+	if o != nil && !IsNil(o.AdditionalData) {
 		return true
 	}
 

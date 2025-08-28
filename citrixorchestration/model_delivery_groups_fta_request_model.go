@@ -61,7 +61,7 @@ func (o *DeliveryGroupsFtaRequestModel) GetDeliveryGroupsOk() ([]string, bool) {
 
 // HasDeliveryGroups returns a boolean if a field has been set.
 func (o *DeliveryGroupsFtaRequestModel) HasDeliveryGroups() bool {
-	if o != nil && IsNil(o.DeliveryGroups) {
+	if o != nil && !IsNil(o.DeliveryGroups) {
 		return true
 	}
 

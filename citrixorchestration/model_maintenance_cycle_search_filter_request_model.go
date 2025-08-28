@@ -25,6 +25,8 @@ type MaintenanceCycleSearchFilterRequestModel struct {
 	Operator SearchOperator `json:"Operator"`
 }
 
+type _MaintenanceCycleSearchFilterRequestModel MaintenanceCycleSearchFilterRequestModel
+
 // NewMaintenanceCycleSearchFilterRequestModel instantiates a new MaintenanceCycleSearchFilterRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

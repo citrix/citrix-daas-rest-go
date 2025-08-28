@@ -27,6 +27,8 @@ type CollectionModelOfHypervisorMachineCatalogResponseModel struct {
 	TotalItems NullableInt32 `json:"TotalItems,omitempty"`
 }
 
+type _CollectionModelOfHypervisorMachineCatalogResponseModel CollectionModelOfHypervisorMachineCatalogResponseModel
+
 // NewCollectionModelOfHypervisorMachineCatalogResponseModel instantiates a new CollectionModelOfHypervisorMachineCatalogResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

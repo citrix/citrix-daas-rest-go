@@ -229,7 +229,7 @@ func (o *TestReportResponseModel) GetTestResultsOk() ([]TestReportResultModel, b
 
 // HasTestResults returns a boolean if a field has been set.
 func (o *TestReportResponseModel) HasTestResults() bool {
-	if o != nil && IsNil(o.TestResults) {
+	if o != nil && !IsNil(o.TestResults) {
 		return true
 	}
 

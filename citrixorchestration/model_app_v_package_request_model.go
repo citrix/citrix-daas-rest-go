@@ -61,7 +61,7 @@ func (o *AppVPackageRequestModel) GetPathsOk() ([]string, bool) {
 
 // HasPaths returns a boolean if a field has been set.
 func (o *AppVPackageRequestModel) HasPaths() bool {
-	if o != nil && IsNil(o.Paths) {
+	if o != nil && !IsNil(o.Paths) {
 		return true
 	}
 

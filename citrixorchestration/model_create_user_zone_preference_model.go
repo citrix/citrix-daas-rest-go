@@ -25,6 +25,8 @@ type CreateUserZonePreferenceModel struct {
 	Name string `json:"Name"`
 }
 
+type _CreateUserZonePreferenceModel CreateUserZonePreferenceModel
+
 // NewCreateUserZonePreferenceModel instantiates a new CreateUserZonePreferenceModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

@@ -167,6 +167,8 @@ type CreateDeliveryGroupRequestModel struct {
 	RequiredSleepCapability *RequiredSleepCapability `json:"RequiredSleepCapability,omitempty"`
 }
 
+type _CreateDeliveryGroupRequestModel CreateDeliveryGroupRequestModel
+
 // NewCreateDeliveryGroupRequestModel instantiates a new CreateDeliveryGroupRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -496,7 +498,7 @@ func (o *CreateDeliveryGroupRequestModel) GetDesktopsOk() ([]DesktopRequestModel
 
 // HasDesktops returns a boolean if a field has been set.
 func (o *CreateDeliveryGroupRequestModel) HasDesktops() bool {
-	if o != nil && IsNil(o.Desktops) {
+	if o != nil && !IsNil(o.Desktops) {
 		return true
 	}
 
@@ -615,7 +617,7 @@ func (o *CreateDeliveryGroupRequestModel) GetMachineCatalogsOk() ([]DeliveryGrou
 
 // HasMachineCatalogs returns a boolean if a field has been set.
 func (o *CreateDeliveryGroupRequestModel) HasMachineCatalogs() bool {
-	if o != nil && IsNil(o.MachineCatalogs) {
+	if o != nil && !IsNil(o.MachineCatalogs) {
 		return true
 	}
 
@@ -854,7 +856,7 @@ func (o *CreateDeliveryGroupRequestModel) GetScopesOk() ([]string, bool) {
 
 // HasScopes returns a boolean if a field has been set.
 func (o *CreateDeliveryGroupRequestModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -887,7 +889,7 @@ func (o *CreateDeliveryGroupRequestModel) GetTenantsOk() ([]string, bool) {
 
 // HasTenants returns a boolean if a field has been set.
 func (o *CreateDeliveryGroupRequestModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -2787,7 +2789,7 @@ func (o *CreateDeliveryGroupRequestModel) GetPowerTimeSchemesOk() ([]PowerTimeSc
 
 // HasPowerTimeSchemes returns a boolean if a field has been set.
 func (o *CreateDeliveryGroupRequestModel) HasPowerTimeSchemes() bool {
-	if o != nil && IsNil(o.PowerTimeSchemes) {
+	if o != nil && !IsNil(o.PowerTimeSchemes) {
 		return true
 	}
 
@@ -3056,7 +3058,7 @@ func (o *CreateDeliveryGroupRequestModel) GetProtocolPriorityOk() ([]ProtocolTyp
 
 // HasProtocolPriority returns a boolean if a field has been set.
 func (o *CreateDeliveryGroupRequestModel) HasProtocolPriority() bool {
-	if o != nil && IsNil(o.ProtocolPriority) {
+	if o != nil && !IsNil(o.ProtocolPriority) {
 		return true
 	}
 
@@ -3089,7 +3091,7 @@ func (o *CreateDeliveryGroupRequestModel) GetRebootSchedulesOk() ([]RebootSchedu
 
 // HasRebootSchedules returns a boolean if a field has been set.
 func (o *CreateDeliveryGroupRequestModel) HasRebootSchedules() bool {
-	if o != nil && IsNil(o.RebootSchedules) {
+	if o != nil && !IsNil(o.RebootSchedules) {
 		return true
 	}
 
@@ -3326,7 +3328,7 @@ func (o *CreateDeliveryGroupRequestModel) GetStoreFrontServersForHostedReceiverO
 
 // HasStoreFrontServersForHostedReceiver returns a boolean if a field has been set.
 func (o *CreateDeliveryGroupRequestModel) HasStoreFrontServersForHostedReceiver() bool {
-	if o != nil && IsNil(o.StoreFrontServersForHostedReceiver) {
+	if o != nil && !IsNil(o.StoreFrontServersForHostedReceiver) {
 		return true
 	}
 
@@ -3445,7 +3447,7 @@ func (o *CreateDeliveryGroupRequestModel) GetZonePreferencesOk() ([]ZonePreferen
 
 // HasZonePreferences returns a boolean if a field has been set.
 func (o *CreateDeliveryGroupRequestModel) HasZonePreferences() bool {
-	if o != nil && IsNil(o.ZonePreferences) {
+	if o != nil && !IsNil(o.ZonePreferences) {
 		return true
 	}
 
@@ -3478,7 +3480,7 @@ func (o *CreateDeliveryGroupRequestModel) GetMetadataOk() ([]NameValueStringPair
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *CreateDeliveryGroupRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 

@@ -24,6 +24,8 @@ type UpgradePackageVersionResponseModel struct {
 	UpgradePackageVersion string `json:"UpgradePackageVersion"`
 }
 
+type _UpgradePackageVersionResponseModel UpgradePackageVersionResponseModel
+
 // NewUpgradePackageVersionResponseModel instantiates a new UpgradePackageVersionResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

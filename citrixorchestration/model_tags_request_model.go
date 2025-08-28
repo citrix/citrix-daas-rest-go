@@ -65,7 +65,7 @@ func (o *TagsRequestModel) GetItemsOk() ([]string, bool) {
 
 // HasItems returns a boolean if a field has been set.
 func (o *TagsRequestModel) HasItems() bool {
-	if o != nil && IsNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -98,7 +98,7 @@ func (o *TagsRequestModel) GetCreateTagsOk() ([]TagRequestModel, bool) {
 
 // HasCreateTags returns a boolean if a field has been set.
 func (o *TagsRequestModel) HasCreateTags() bool {
-	if o != nil && IsNil(o.CreateTags) {
+	if o != nil && !IsNil(o.CreateTags) {
 		return true
 	}
 
@@ -131,7 +131,7 @@ func (o *TagsRequestModel) GetDeleteTagsOk() ([]string, bool) {
 
 // HasDeleteTags returns a boolean if a field has been set.
 func (o *TagsRequestModel) HasDeleteTags() bool {
-	if o != nil && IsNil(o.DeleteTags) {
+	if o != nil && !IsNil(o.DeleteTags) {
 		return true
 	}
 

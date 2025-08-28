@@ -39,6 +39,8 @@ type ImageVersionSpecResourcePoolResponseModel struct {
 	ImageVersionSpecResourcePoolStatus *ImageVersionSpecResourcePoolStatus `json:"ImageVersionSpecResourcePoolStatus,omitempty"`
 }
 
+type _ImageVersionSpecResourcePoolResponseModel ImageVersionSpecResourcePoolResponseModel
+
 // NewImageVersionSpecResourcePoolResponseModel instantiates a new ImageVersionSpecResourcePoolResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -288,7 +290,7 @@ func (o *ImageVersionSpecResourcePoolResponseModel) GetCustomPropertiesOk() ([]N
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *ImageVersionSpecResourcePoolResponseModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
+	if o != nil && !IsNil(o.CustomProperties) {
 		return true
 	}
 
@@ -364,7 +366,7 @@ func (o *ImageVersionSpecResourcePoolResponseModel) GetErrorsOk() ([]string, boo
 
 // HasErrors returns a boolean if a field has been set.
 func (o *ImageVersionSpecResourcePoolResponseModel) HasErrors() bool {
-	if o != nil && IsNil(o.Errors) {
+	if o != nil && !IsNil(o.Errors) {
 		return true
 	}
 

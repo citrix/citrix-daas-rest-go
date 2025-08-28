@@ -187,7 +187,7 @@ func (o *AppliedPolicy2) GetReasonsOk() (*map[string][]string, bool) {
 
 // HasReasons returns a boolean if a field has been set.
 func (o *AppliedPolicy2) HasReasons() bool {
-	if o != nil && IsNil(o.Reasons) {
+	if o != nil && !IsNil(o.Reasons) {
 		return true
 	}
 
@@ -220,7 +220,7 @@ func (o *AppliedPolicy2) GetDetailsOk() (*map[string][]FilterDetail, bool) {
 
 // HasDetails returns a boolean if a field has been set.
 func (o *AppliedPolicy2) HasDetails() bool {
-	if o != nil && IsNil(o.Details) {
+	if o != nil && !IsNil(o.Details) {
 		return true
 	}
 

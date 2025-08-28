@@ -25,6 +25,8 @@ type MachineCatalogWarningResponseModel struct {
 	Message NullableString `json:"Message,omitempty"`
 }
 
+type _MachineCatalogWarningResponseModel MachineCatalogWarningResponseModel
+
 // NewMachineCatalogWarningResponseModel instantiates a new MachineCatalogWarningResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments

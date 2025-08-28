@@ -592,7 +592,7 @@ func (o *ActionResponseModel) GetNonTerminatingErrorsOk() ([]ActionError, bool) 
 
 // HasNonTerminatingErrors returns a boolean if a field has been set.
 func (o *ActionResponseModel) HasNonTerminatingErrors() bool {
-	if o != nil && IsNil(o.NonTerminatingErrors) {
+	if o != nil && !IsNil(o.NonTerminatingErrors) {
 		return true
 	}
 
@@ -625,7 +625,7 @@ func (o *ActionResponseModel) GetMetadataOk() ([]NameValueStringPairModel, bool)
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *ActionResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -658,7 +658,7 @@ func (o *ActionResponseModel) GetScopesOk() ([]ScopeResponseModel, bool) {
 
 // HasScopes returns a boolean if a field has been set.
 func (o *ActionResponseModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
+	if o != nil && !IsNil(o.Scopes) {
 		return true
 	}
 
@@ -691,7 +691,7 @@ func (o *ActionResponseModel) GetTenantsOk() ([]RefResponseModel, bool) {
 
 // HasTenants returns a boolean if a field has been set.
 func (o *ActionResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 

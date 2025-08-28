@@ -85,6 +85,8 @@ type AdvancedAccessPolicyResponseModel struct {
 	IncludedUsers []IdentityUserResponseModel `json:"IncludedUsers,omitempty"`
 }
 
+type _AdvancedAccessPolicyResponseModel AdvancedAccessPolicyResponseModel
+
 // NewAdvancedAccessPolicyResponseModel instantiates a new AdvancedAccessPolicyResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -579,7 +581,7 @@ func (o *AdvancedAccessPolicyResponseModel) GetExcludedClientIPsOk() ([]string, 
 
 // HasExcludedClientIPs returns a boolean if a field has been set.
 func (o *AdvancedAccessPolicyResponseModel) HasExcludedClientIPs() bool {
-	if o != nil && IsNil(o.ExcludedClientIPs) {
+	if o != nil && !IsNil(o.ExcludedClientIPs) {
 		return true
 	}
 
@@ -644,7 +646,7 @@ func (o *AdvancedAccessPolicyResponseModel) GetExcludedClientNamesOk() ([]string
 
 // HasExcludedClientNames returns a boolean if a field has been set.
 func (o *AdvancedAccessPolicyResponseModel) HasExcludedClientNames() bool {
-	if o != nil && IsNil(o.ExcludedClientNames) {
+	if o != nil && !IsNil(o.ExcludedClientNames) {
 		return true
 	}
 
@@ -709,7 +711,7 @@ func (o *AdvancedAccessPolicyResponseModel) GetExcludedSmartAccessTagsOk() ([]Sm
 
 // HasExcludedSmartAccessTags returns a boolean if a field has been set.
 func (o *AdvancedAccessPolicyResponseModel) HasExcludedSmartAccessTags() bool {
-	if o != nil && IsNil(o.ExcludedSmartAccessTags) {
+	if o != nil && !IsNil(o.ExcludedSmartAccessTags) {
 		return true
 	}
 
@@ -774,7 +776,7 @@ func (o *AdvancedAccessPolicyResponseModel) GetExcludedUsersOk() ([]IdentityUser
 
 // HasExcludedUsers returns a boolean if a field has been set.
 func (o *AdvancedAccessPolicyResponseModel) HasExcludedUsers() bool {
-	if o != nil && IsNil(o.ExcludedUsers) {
+	if o != nil && !IsNil(o.ExcludedUsers) {
 		return true
 	}
 
@@ -839,7 +841,7 @@ func (o *AdvancedAccessPolicyResponseModel) GetIncludedClientIPsOk() ([]string, 
 
 // HasIncludedClientIPs returns a boolean if a field has been set.
 func (o *AdvancedAccessPolicyResponseModel) HasIncludedClientIPs() bool {
-	if o != nil && IsNil(o.IncludedClientIPs) {
+	if o != nil && !IsNil(o.IncludedClientIPs) {
 		return true
 	}
 
@@ -904,7 +906,7 @@ func (o *AdvancedAccessPolicyResponseModel) GetIncludedClientNamesOk() ([]string
 
 // HasIncludedClientNames returns a boolean if a field has been set.
 func (o *AdvancedAccessPolicyResponseModel) HasIncludedClientNames() bool {
-	if o != nil && IsNil(o.IncludedClientNames) {
+	if o != nil && !IsNil(o.IncludedClientNames) {
 		return true
 	}
 
@@ -969,7 +971,7 @@ func (o *AdvancedAccessPolicyResponseModel) GetIncludedSmartAccessTagsOk() ([]Sm
 
 // HasIncludedSmartAccessTags returns a boolean if a field has been set.
 func (o *AdvancedAccessPolicyResponseModel) HasIncludedSmartAccessTags() bool {
-	if o != nil && IsNil(o.IncludedSmartAccessTags) {
+	if o != nil && !IsNil(o.IncludedSmartAccessTags) {
 		return true
 	}
 
@@ -1194,7 +1196,7 @@ func (o *AdvancedAccessPolicyResponseModel) GetIncludedUsersOk() ([]IdentityUser
 
 // HasIncludedUsers returns a boolean if a field has been set.
 func (o *AdvancedAccessPolicyResponseModel) HasIncludedUsers() bool {
-	if o != nil && IsNil(o.IncludedUsers) {
+	if o != nil && !IsNil(o.IncludedUsers) {
 		return true
 	}
 

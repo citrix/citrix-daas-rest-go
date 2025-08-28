@@ -98,6 +98,8 @@ type ApplicationDeliveryGroupResponseModel struct {
 	Priority int32 `json:"Priority"`
 }
 
+type _ApplicationDeliveryGroupResponseModel ApplicationDeliveryGroupResponseModel
+
 // NewApplicationDeliveryGroupResponseModel instantiates a new ApplicationDeliveryGroupResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -621,7 +623,7 @@ func (o *ApplicationDeliveryGroupResponseModel) GetMetadataOk() ([]NameValueStri
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *ApplicationDeliveryGroupResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -943,7 +945,7 @@ func (o *ApplicationDeliveryGroupResponseModel) GetTenantsOk() ([]RefResponseMod
 
 // HasTenants returns a boolean if a field has been set.
 func (o *ApplicationDeliveryGroupResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -976,7 +978,7 @@ func (o *ApplicationDeliveryGroupResponseModel) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *ApplicationDeliveryGroupResponseModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 

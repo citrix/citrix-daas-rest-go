@@ -25,6 +25,8 @@ type AssignHypervisorConnectionToImageDefinitionRequestModel struct {
 	CustomProperties []NameValueStringPairModel `json:"CustomProperties,omitempty"`
 }
 
+type _AssignHypervisorConnectionToImageDefinitionRequestModel AssignHypervisorConnectionToImageDefinitionRequestModel
+
 // NewAssignHypervisorConnectionToImageDefinitionRequestModel instantiates a new AssignHypervisorConnectionToImageDefinitionRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -88,7 +90,7 @@ func (o *AssignHypervisorConnectionToImageDefinitionRequestModel) GetCustomPrope
 
 // HasCustomProperties returns a boolean if a field has been set.
 func (o *AssignHypervisorConnectionToImageDefinitionRequestModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
+	if o != nil && !IsNil(o.CustomProperties) {
 		return true
 	}
 

@@ -62,6 +62,8 @@ type HypervisorsAndResourcePoolsResponseModel struct {
 	ResourcePools []HypervisorBaseResponseModel `json:"ResourcePools,omitempty"`
 }
 
+type _HypervisorsAndResourcePoolsResponseModel HypervisorsAndResourcePoolsResponseModel
+
 // NewHypervisorsAndResourcePoolsResponseModel instantiates a new HypervisorsAndResourcePoolsResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -392,7 +394,7 @@ func (o *HypervisorsAndResourcePoolsResponseModel) GetTenantsOk() ([]RefResponse
 
 // HasTenants returns a boolean if a field has been set.
 func (o *HypervisorsAndResourcePoolsResponseModel) HasTenants() bool {
-	if o != nil && IsNil(o.Tenants) {
+	if o != nil && !IsNil(o.Tenants) {
 		return true
 	}
 
@@ -719,7 +721,7 @@ func (o *HypervisorsAndResourcePoolsResponseModel) GetMetadataOk() ([]NameValueS
 
 // HasMetadata returns a boolean if a field has been set.
 func (o *HypervisorsAndResourcePoolsResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
+	if o != nil && !IsNil(o.Metadata) {
 		return true
 	}
 
@@ -752,7 +754,7 @@ func (o *HypervisorsAndResourcePoolsResponseModel) GetResourcePoolsOk() ([]Hyper
 
 // HasResourcePools returns a boolean if a field has been set.
 func (o *HypervisorsAndResourcePoolsResponseModel) HasResourcePools() bool {
-	if o != nil && IsNil(o.ResourcePools) {
+	if o != nil && !IsNil(o.ResourcePools) {
 		return true
 	}
 
