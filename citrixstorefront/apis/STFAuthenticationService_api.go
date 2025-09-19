@@ -289,3 +289,72 @@ func (a *STFAuthentication) STFSetClaimsFactoryNames(ctx context.Context, getAut
 		SetSTFClaimsFactoryNamesRequestModel: setSTFClaimsFactoryNamesRequestModel,
 	}
 }
+
+// Set-STFCitrixAGBasicOptions
+type ApiSetSTFCitrixAGBasicOptionsRequest struct {
+	ctx                                    context.Context
+	ApiService                             *STFAuthentication
+	getSTFAuthenticationService            models.GetSTFAuthenticationServiceRequestModel
+	SetSTFCitrixAGBasicOptionsRequestModel models.SetSTFCitrixAGBasicOptionsRequestModel
+}
+
+func (r ApiSetSTFCitrixAGBasicOptionsRequest) Execute() error {
+	_, err := r.ApiService.SetSTFCitrixAGBasicOptionsExecute(r)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *STFAuthentication) SetSTFCitrixAGBasicOptionsExecute(r ApiSetSTFCitrixAGBasicOptionsRequest) ([]byte, error) {
+	var param = StructToString(r.SetSTFCitrixAGBasicOptionsRequestModel)
+	var authParam = StructToString(r.getSTFAuthenticationService)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFCitrixAGBasicOptions", fmt.Sprintf("-AuthenticationService (Get-STFAuthenticationService %s)", authParam), param)
+}
+
+func (a *STFAuthentication) STFSetCitrixAGBasicOptions(ctx context.Context, getSTFAuthenticationService models.GetSTFAuthenticationServiceRequestModel, setSTFCitrixAGBasicOptionsRequestModel models.SetSTFCitrixAGBasicOptionsRequestModel) ApiSetSTFCitrixAGBasicOptionsRequest {
+	return ApiSetSTFCitrixAGBasicOptionsRequest{
+		ctx:                                    ctx,
+		ApiService:                             a,
+		getSTFAuthenticationService:            getSTFAuthenticationService,
+		SetSTFCitrixAGBasicOptionsRequestModel: setSTFCitrixAGBasicOptionsRequestModel,
+	}
+}
+
+// Get-STFCitrixAGBasicOptions
+type ApiGetSTFCitrixAGBasicOptionsRequest struct {
+	ctx                         context.Context
+	ApiService                  *STFAuthentication
+	getSTFAuthenticationService models.GetSTFAuthenticationServiceRequestModel
+}
+
+func (r ApiGetSTFCitrixAGBasicOptionsRequest) Execute() (models.STFCitrixAGBasicOptionsResponseModel, error) {
+
+	bytes, err := r.ApiService.GetSTFCitrixAGBasicOptionsExecute(r)
+	if err != nil {
+		return models.STFCitrixAGBasicOptionsResponseModel{}, err
+	}
+	if len(bytes) == 0 {
+		return models.STFCitrixAGBasicOptionsResponseModel{}, fmt.Errorf(NOT_EXIST)
+	}
+	var reponse = models.STFCitrixAGBasicOptionsResponseModel{}
+	unmarshalErr := json.Unmarshal(bytes, &reponse)
+	if unmarshalErr != nil {
+		fmt.Println("Error: ", unmarshalErr)
+		return models.STFCitrixAGBasicOptionsResponseModel{}, fmt.Errorf("error unmarshal STFCitrixAGBasicOptionsResponseModel: %v", unmarshalErr.Error())
+	}
+	return reponse, nil
+}
+
+func (a *STFAuthentication) GetSTFCitrixAGBasicOptionsExecute(r ApiGetSTFCitrixAGBasicOptionsRequest) ([]byte, error) {
+	var param = StructToString(r.getSTFAuthenticationService)
+	return ExecuteCommandWithDepth(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), 5, "Get-STFCitrixAGBasicOptions ", fmt.Sprintf("-AuthenticationService (Get-STFAuthenticationService %s)", param))
+}
+
+func (a *STFAuthentication) STFGetCitrixAGBasicOptions(ctx context.Context, getSTFAuthenticationService models.GetSTFAuthenticationServiceRequestModel) ApiGetSTFCitrixAGBasicOptionsRequest {
+	return ApiGetSTFCitrixAGBasicOptionsRequest{
+		ctx:                         ctx,
+		ApiService:                  a,
+		getSTFAuthenticationService: getSTFAuthenticationService,
+	}
+}
