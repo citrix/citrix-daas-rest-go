@@ -19,12 +19,179 @@ import (
 	"strings"
 )
 
+type AppVPackagesAPIsDAAS interface {
+
+	/*
+		AppVPackagesGetAppVPackage Get the details for a single App-V package within the site
+
+		Get the details for a single App-V package within the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the App-V package.
+		@return ApiAppVPackagesGetAppVPackageRequest
+	*/
+	AppVPackagesGetAppVPackage(ctx context.Context, id string) ApiAppVPackagesGetAppVPackageRequest
+
+	// AppVPackagesGetAppVPackageExecute executes the request
+	//  @return AppVPackageResponseModel
+	AppVPackagesGetAppVPackageExecute(r ApiAppVPackagesGetAppVPackageRequest) (*AppVPackageResponseModel, *http.Response, error)
+
+	/*
+		AppVPackagesGetAppVPackageApplication Get details for a single App-V application within an App-V package
+
+		Get details for a single App-V application within an App-V package.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the App-V package.
+		@param appId ID of the App-V application within the package.
+		@return ApiAppVPackagesGetAppVPackageApplicationRequest
+	*/
+	AppVPackagesGetAppVPackageApplication(ctx context.Context, id string, appId string) ApiAppVPackagesGetAppVPackageApplicationRequest
+
+	// AppVPackagesGetAppVPackageApplicationExecute executes the request
+	//  @return AppVApplicationDetailResponseModel
+	AppVPackagesGetAppVPackageApplicationExecute(r ApiAppVPackagesGetAppVPackageApplicationRequest) (*AppVApplicationDetailResponseModel, *http.Response, error)
+
+	/*
+		AppVPackagesGetAppVPackageApplicationIcon Get the icon for a single App-V application within an App-V package within the site.
+
+		Get the icon for a single App-V application within an App-V package.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the App-V package.
+		@param appId ID of the App-V application within the package.
+		@return ApiAppVPackagesGetAppVPackageApplicationIconRequest
+	*/
+	AppVPackagesGetAppVPackageApplicationIcon(ctx context.Context, id string, appId string) ApiAppVPackagesGetAppVPackageApplicationIconRequest
+
+	// AppVPackagesGetAppVPackageApplicationIconExecute executes the request
+	//  @return IconDataResponseModel
+	AppVPackagesGetAppVPackageApplicationIconExecute(r ApiAppVPackagesGetAppVPackageApplicationIconRequest) (*IconDataResponseModel, *http.Response, error)
+
+	/*
+		AppVPackagesGetAppVPackageApplications Get App-V applications within an App-V package
+
+		Get App-V applications within an App-V package.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the App-V package.
+		@return ApiAppVPackagesGetAppVPackageApplicationsRequest
+	*/
+	AppVPackagesGetAppVPackageApplications(ctx context.Context, id string) ApiAppVPackagesGetAppVPackageApplicationsRequest
+
+	// AppVPackagesGetAppVPackageApplicationsExecute executes the request
+	//  @return AppVApplicationResponseModelCollection
+	AppVPackagesGetAppVPackageApplicationsExecute(r ApiAppVPackagesGetAppVPackageApplicationsRequest) (*AppVApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+		AppVPackagesGetAppVPackageBrokerApplications Get Broker applications delivered from the App-V package
+
+		Get Broker applications delivered from the App-V package.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the App-V package.
+		@return ApiAppVPackagesGetAppVPackageBrokerApplicationsRequest
+	*/
+	AppVPackagesGetAppVPackageBrokerApplications(ctx context.Context, id string) ApiAppVPackagesGetAppVPackageBrokerApplicationsRequest
+
+	// AppVPackagesGetAppVPackageBrokerApplicationsExecute executes the request
+	//  @return ApplicationResponseModelCollection
+	AppVPackagesGetAppVPackageBrokerApplicationsExecute(r ApiAppVPackagesGetAppVPackageBrokerApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+		AppVPackagesGetAppVPackageDeliveryGroups Get delivery groups which contain applications in the App-V package
+
+		Get delivery groups which contain applications in the App-V package.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the App-V package.
+		@return ApiAppVPackagesGetAppVPackageDeliveryGroupsRequest
+	*/
+	AppVPackagesGetAppVPackageDeliveryGroups(ctx context.Context, id string) ApiAppVPackagesGetAppVPackageDeliveryGroupsRequest
+
+	// AppVPackagesGetAppVPackageDeliveryGroupsExecute executes the request
+	//  @return DeliveryGroupResponseModelCollection
+	AppVPackagesGetAppVPackageDeliveryGroupsExecute(r ApiAppVPackagesGetAppVPackageDeliveryGroupsRequest) (*DeliveryGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		AppVPackagesGetAppVPackageIcon Get the icon for a single App-V package within the site
+
+		Get the icon for a single App-V package within the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the App-V package.
+		@return ApiAppVPackagesGetAppVPackageIconRequest
+	*/
+	AppVPackagesGetAppVPackageIcon(ctx context.Context, id string) ApiAppVPackagesGetAppVPackageIconRequest
+
+	// AppVPackagesGetAppVPackageIconExecute executes the request
+	//  @return IconDataResponseModel
+	AppVPackagesGetAppVPackageIconExecute(r ApiAppVPackagesGetAppVPackageIconRequest) (*IconDataResponseModel, *http.Response, error)
+
+	/*
+		AppVPackagesGetAppVPackages Get the App-V packages configured in the site
+
+		Get all App-V packages configured in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAppVPackagesGetAppVPackagesRequest
+	*/
+	AppVPackagesGetAppVPackages(ctx context.Context) ApiAppVPackagesGetAppVPackagesRequest
+
+	// AppVPackagesGetAppVPackagesExecute executes the request
+	//  @return AppVPackageResponseModelCollection
+	AppVPackagesGetAppVPackagesExecute(r ApiAppVPackagesGetAppVPackagesRequest) (*AppVPackageResponseModelCollection, *http.Response, error)
+
+	/*
+		AppVPackagesGetPackageApplicationFileTypes Get the fileTypes for an application within a package within the site.
+
+		Get the file types for an application within a package.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the package.
+		@param appId Identifier of the application within the package.
+		@return ApiAppVPackagesGetPackageApplicationFileTypesRequest
+	*/
+	AppVPackagesGetPackageApplicationFileTypes(ctx context.Context, id string, appId string) ApiAppVPackagesGetPackageApplicationFileTypesRequest
+
+	// AppVPackagesGetPackageApplicationFileTypesExecute executes the request
+	//  @return FtaResponseModelCollection
+	AppVPackagesGetPackageApplicationFileTypesExecute(r ApiAppVPackagesGetPackageApplicationFileTypesRequest) (*FtaResponseModelCollection, *http.Response, error)
+
+	/*
+		AppVPackagesImportAppVPackages Import App-V packages to the site
+
+		Import App-V packages to the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAppVPackagesImportAppVPackagesRequest
+	*/
+	AppVPackagesImportAppVPackages(ctx context.Context) ApiAppVPackagesImportAppVPackagesRequest
+
+	// AppVPackagesImportAppVPackagesExecute executes the request
+	AppVPackagesImportAppVPackagesExecute(r ApiAppVPackagesImportAppVPackagesRequest) (*http.Response, error)
+
+	/*
+		AppVPackagesRemoveAppVPackage Remove a single App-V package within the site
+
+		Removea single App-V package within the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the App-V package.
+		@return ApiAppVPackagesRemoveAppVPackageRequest
+	*/
+	AppVPackagesRemoveAppVPackage(ctx context.Context, id string) ApiAppVPackagesRemoveAppVPackageRequest
+
+	// AppVPackagesRemoveAppVPackageExecute executes the request
+	AppVPackagesRemoveAppVPackageExecute(r ApiAppVPackagesRemoveAppVPackageRequest) (*http.Response, error)
+}
+
 // AppVPackagesAPIsDAASService AppVPackagesAPIsDAAS service
 type AppVPackagesAPIsDAASService service
 
 type ApiAppVPackagesGetAppVPackageRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVPackagesAPIsDAASService
+	ApiService          AppVPackagesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -341,7 +508,7 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageExecute(r ApiApp
 
 type ApiAppVPackagesGetAppVPackageApplicationRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVPackagesAPIsDAASService
+	ApiService          AppVPackagesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -629,7 +796,7 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationExecu
 
 type ApiAppVPackagesGetAppVPackageApplicationIconRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVPackagesAPIsDAASService
+	ApiService          AppVPackagesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -927,7 +1094,7 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationIconE
 
 type ApiAppVPackagesGetAppVPackageApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVPackagesAPIsDAASService
+	ApiService          AppVPackagesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -1211,7 +1378,7 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageApplicationsExec
 
 type ApiAppVPackagesGetAppVPackageBrokerApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVPackagesAPIsDAASService
+	ApiService          AppVPackagesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -1561,7 +1728,7 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageBrokerApplicatio
 
 type ApiAppVPackagesGetAppVPackageDeliveryGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVPackagesAPIsDAASService
+	ApiService          AppVPackagesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -1911,7 +2078,7 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageDeliveryGroupsEx
 
 type ApiAppVPackagesGetAppVPackageIconRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVPackagesAPIsDAASService
+	ApiService          AppVPackagesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -2205,7 +2372,7 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackageIconExecute(r Ap
 
 type ApiAppVPackagesGetAppVPackagesRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVPackagesAPIsDAASService
+	ApiService          AppVPackagesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -2497,7 +2664,7 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetAppVPackagesExecute(r ApiAp
 
 type ApiAppVPackagesGetPackageApplicationFileTypesRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVPackagesAPIsDAASService
+	ApiService          AppVPackagesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -2808,7 +2975,7 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesGetPackageApplicationFileTypes
 
 type ApiAppVPackagesImportAppVPackagesRequest struct {
 	ctx                     context.Context
-	ApiService              *AppVPackagesAPIsDAASService
+	ApiService              AppVPackagesAPIsDAAS
 	citrixCustomerId        *string
 	citrixInstanceId        *string
 	appVPackageRequestModel *AppVPackageRequestModel
@@ -3112,7 +3279,7 @@ func (a *AppVPackagesAPIsDAASService) AppVPackagesImportAppVPackagesExecute(r Ap
 
 type ApiAppVPackagesRemoveAppVPackageRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVPackagesAPIsDAASService
+	ApiService          AppVPackagesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string

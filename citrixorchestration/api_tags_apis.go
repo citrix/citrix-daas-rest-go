@@ -19,12 +19,182 @@ import (
 	"strings"
 )
 
+type TagsAPIsDAAS interface {
+
+	/*
+		TagsCheckTagExists Check for the existence of a tag by name.
+
+		Check for the existence of a tag by name.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param name Name of the tag.
+		@return ApiTagsCheckTagExistsRequest
+	*/
+	TagsCheckTagExists(ctx context.Context, name string) ApiTagsCheckTagExistsRequest
+
+	// TagsCheckTagExistsExecute executes the request
+	TagsCheckTagExistsExecute(r ApiTagsCheckTagExistsRequest) (*http.Response, error)
+
+	/*
+		TagsCreateTag Create a tag.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiTagsCreateTagRequest
+	*/
+	TagsCreateTag(ctx context.Context) ApiTagsCreateTagRequest
+
+	// TagsCreateTagExecute executes the request
+	//  @return TagResponseModel
+	TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*TagResponseModel, *http.Response, error)
+
+	/*
+		TagsDeleteTag Delete a tag.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the tag.
+		@return ApiTagsDeleteTagRequest
+	*/
+	TagsDeleteTag(ctx context.Context, nameOrId string) ApiTagsDeleteTagRequest
+
+	// TagsDeleteTagExecute executes the request
+	TagsDeleteTagExecute(r ApiTagsDeleteTagRequest) (*http.Response, error)
+
+	/*
+		TagsGetTag Get a single tag from the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the tag.
+		@return ApiTagsGetTagRequest
+	*/
+	TagsGetTag(ctx context.Context, nameOrId string) ApiTagsGetTagRequest
+
+	// TagsGetTagExecute executes the request
+	//  @return TagDetailResponseModel
+	TagsGetTagExecute(r ApiTagsGetTagRequest) (*TagDetailResponseModel, *http.Response, error)
+
+	/*
+		TagsGetTagApplicationGroups Get the application groups associated with a tag.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the tag.
+		@return ApiTagsGetTagApplicationGroupsRequest
+	*/
+	TagsGetTagApplicationGroups(ctx context.Context, nameOrId string) ApiTagsGetTagApplicationGroupsRequest
+
+	// TagsGetTagApplicationGroupsExecute executes the request
+	//  @return ApplicationGroupResponseModelCollection
+	TagsGetTagApplicationGroupsExecute(r ApiTagsGetTagApplicationGroupsRequest) (*ApplicationGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		TagsGetTagApplications Get the applications associated with a tag.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the tag.
+		@return ApiTagsGetTagApplicationsRequest
+	*/
+	TagsGetTagApplications(ctx context.Context, nameOrId string) ApiTagsGetTagApplicationsRequest
+
+	// TagsGetTagApplicationsExecute executes the request
+	//  @return ApplicationResponseModelCollection
+	TagsGetTagApplicationsExecute(r ApiTagsGetTagApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+		TagsGetTagDeliveryGroups Get the delivery groups associated with a tag.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the tag.
+		@return ApiTagsGetTagDeliveryGroupsRequest
+	*/
+	TagsGetTagDeliveryGroups(ctx context.Context, nameOrId string) ApiTagsGetTagDeliveryGroupsRequest
+
+	// TagsGetTagDeliveryGroupsExecute executes the request
+	//  @return DeliveryGroupResponseModelCollection
+	TagsGetTagDeliveryGroupsExecute(r ApiTagsGetTagDeliveryGroupsRequest) (*DeliveryGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		TagsGetTagMachineCatalogs Get the machine catalogs associated with a tag.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the tag.
+		@return ApiTagsGetTagMachineCatalogsRequest
+	*/
+	TagsGetTagMachineCatalogs(ctx context.Context, nameOrId string) ApiTagsGetTagMachineCatalogsRequest
+
+	// TagsGetTagMachineCatalogsExecute executes the request
+	//  @return MachineCatalogResponseModelCollection
+	TagsGetTagMachineCatalogsExecute(r ApiTagsGetTagMachineCatalogsRequest) (*MachineCatalogResponseModelCollection, *http.Response, error)
+
+	/*
+		TagsGetTagMachines Get the machines associated with a tag.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the tag.
+		@return ApiTagsGetTagMachinesRequest
+	*/
+	TagsGetTagMachines(ctx context.Context, nameOrId string) ApiTagsGetTagMachinesRequest
+
+	// TagsGetTagMachinesExecute executes the request
+	//  @return MachineResponseModelCollection
+	TagsGetTagMachinesExecute(r ApiTagsGetTagMachinesRequest) (*MachineResponseModelCollection, *http.Response, error)
+
+	/*
+		TagsGetTags Get the list of all tags in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiTagsGetTagsRequest
+	*/
+	TagsGetTags(ctx context.Context) ApiTagsGetTagsRequest
+
+	// TagsGetTagsExecute executes the request
+	//  @return TagResponseModelCollection
+	TagsGetTagsExecute(r ApiTagsGetTagsRequest) (*TagResponseModelCollection, *http.Response, error)
+
+	/*
+		TagsPatchTag Update a tag.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the tag.
+		@return ApiTagsPatchTagRequest
+	*/
+	TagsPatchTag(ctx context.Context, nameOrId string) ApiTagsPatchTagRequest
+
+	// TagsPatchTagExecute executes the request
+	//  @return TagResponseModel
+	TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*TagResponseModel, *http.Response, error)
+
+	/*
+		TagsSetTagApplications Associate a tag with applications.
+
+		Associate a tag with applications.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the tag.
+		@return ApiTagsSetTagApplicationsRequest
+	*/
+	TagsSetTagApplications(ctx context.Context, nameOrId string) ApiTagsSetTagApplicationsRequest
+
+	// TagsSetTagApplicationsExecute executes the request
+	TagsSetTagApplicationsExecute(r ApiTagsSetTagApplicationsRequest) (*http.Response, error)
+
+	/*
+		TagsSetTagDeliveryGroups Associate a tag with delivery groups.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the tag.
+		@return ApiTagsSetTagDeliveryGroupsRequest
+	*/
+	TagsSetTagDeliveryGroups(ctx context.Context, nameOrId string) ApiTagsSetTagDeliveryGroupsRequest
+
+	// TagsSetTagDeliveryGroupsExecute executes the request
+	TagsSetTagDeliveryGroupsExecute(r ApiTagsSetTagDeliveryGroupsRequest) (*http.Response, error)
+}
+
 // TagsAPIsDAASService TagsAPIsDAAS service
 type TagsAPIsDAASService service
 
 type ApiTagsCheckTagExistsRequest struct {
 	ctx                 context.Context
-	ApiService          *TagsAPIsDAASService
+	ApiService          TagsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	name                string
@@ -296,7 +466,7 @@ func (a *TagsAPIsDAASService) TagsCheckTagExistsExecute(r ApiTagsCheckTagExistsR
 
 type ApiTagsCreateTagRequest struct {
 	ctx                 context.Context
-	ApiService          *TagsAPIsDAASService
+	ApiService          TagsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	tagRequestModel     *TagRequestModel
@@ -610,7 +780,7 @@ func (a *TagsAPIsDAASService) TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*
 
 type ApiTagsDeleteTagRequest struct {
 	ctx                 context.Context
-	ApiService          *TagsAPIsDAASService
+	ApiService          TagsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -906,7 +1076,7 @@ func (a *TagsAPIsDAASService) TagsDeleteTagExecute(r ApiTagsDeleteTagRequest) (*
 
 type ApiTagsGetTagRequest struct {
 	ctx                 context.Context
-	ApiService          *TagsAPIsDAASService
+	ApiService          TagsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1188,7 +1358,7 @@ func (a *TagsAPIsDAASService) TagsGetTagExecute(r ApiTagsGetTagRequest) (*TagDet
 
 type ApiTagsGetTagApplicationGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *TagsAPIsDAASService
+	ApiService          TagsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1490,7 +1660,7 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationGroupsExecute(r ApiTagsGetTag
 
 type ApiTagsGetTagApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *TagsAPIsDAASService
+	ApiService          TagsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1792,7 +1962,7 @@ func (a *TagsAPIsDAASService) TagsGetTagApplicationsExecute(r ApiTagsGetTagAppli
 
 type ApiTagsGetTagDeliveryGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *TagsAPIsDAASService
+	ApiService          TagsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2094,7 +2264,7 @@ func (a *TagsAPIsDAASService) TagsGetTagDeliveryGroupsExecute(r ApiTagsGetTagDel
 
 type ApiTagsGetTagMachineCatalogsRequest struct {
 	ctx                 context.Context
-	ApiService          *TagsAPIsDAASService
+	ApiService          TagsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2396,7 +2566,7 @@ func (a *TagsAPIsDAASService) TagsGetTagMachineCatalogsExecute(r ApiTagsGetTagMa
 
 type ApiTagsGetTagMachinesRequest struct {
 	ctx                 context.Context
-	ApiService          *TagsAPIsDAASService
+	ApiService          TagsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2708,7 +2878,7 @@ func (a *TagsAPIsDAASService) TagsGetTagMachinesExecute(r ApiTagsGetTagMachinesR
 
 type ApiTagsGetTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *TagsAPIsDAASService
+	ApiService          TagsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -3005,7 +3175,7 @@ func (a *TagsAPIsDAASService) TagsGetTagsExecute(r ApiTagsGetTagsRequest) (*TagR
 
 type ApiTagsPatchTagRequest struct {
 	ctx                 context.Context
-	ApiService          *TagsAPIsDAASService
+	ApiService          TagsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3323,7 +3493,7 @@ func (a *TagsAPIsDAASService) TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*Ta
 
 type ApiTagsSetTagApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *TagsAPIsDAASService
+	ApiService          TagsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3631,7 +3801,7 @@ func (a *TagsAPIsDAASService) TagsSetTagApplicationsExecute(r ApiTagsSetTagAppli
 
 type ApiTagsSetTagDeliveryGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *TagsAPIsDAASService
+	ApiService          TagsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string

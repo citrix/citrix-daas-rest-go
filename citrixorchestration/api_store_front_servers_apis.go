@@ -19,12 +19,107 @@ import (
 	"strings"
 )
 
+type StoreFrontServersAPIsDAAS interface {
+
+	/*
+			StoreFrontServersCreateStoreFrontServer Create a StoreFront server.
+
+			Create a StoreFront server for use by hosted receivers within the
+		site.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiStoreFrontServersCreateStoreFrontServerRequest
+	*/
+	StoreFrontServersCreateStoreFrontServer(ctx context.Context) ApiStoreFrontServersCreateStoreFrontServerRequest
+
+	// StoreFrontServersCreateStoreFrontServerExecute executes the request
+	//  @return StoreFrontServerResponseModel
+	StoreFrontServersCreateStoreFrontServerExecute(r ApiStoreFrontServersCreateStoreFrontServerRequest) (*StoreFrontServerResponseModel, *http.Response, error)
+
+	/*
+			StoreFrontServersDeleteStoreFrontServer Delete a StoreFront server from the site.
+
+			Delete a StoreFront server from the site, regardless of whether it
+		is being used by delivery groups or not.  This removes the
+		StoreFront server from hosted receivers.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId The name or ID of StoreFront server to be deleted.
+			@return ApiStoreFrontServersDeleteStoreFrontServerRequest
+	*/
+	StoreFrontServersDeleteStoreFrontServer(ctx context.Context, nameOrId string) ApiStoreFrontServersDeleteStoreFrontServerRequest
+
+	// StoreFrontServersDeleteStoreFrontServerExecute executes the request
+	StoreFrontServersDeleteStoreFrontServerExecute(r ApiStoreFrontServersDeleteStoreFrontServerRequest) (*http.Response, error)
+
+	/*
+		StoreFrontServersGetStoreFrontDeliveryGroups GET delivery groups details for a Storefront
+
+		GET delivery groups details for a Storefront
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The id of the Storefront
+		@return ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest
+	*/
+	StoreFrontServersGetStoreFrontDeliveryGroups(ctx context.Context, nameOrId string) ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest
+
+	// StoreFrontServersGetStoreFrontDeliveryGroupsExecute executes the request
+	//  @return StoreFrontDeliveryGroupResponseModelCollection
+	StoreFrontServersGetStoreFrontDeliveryGroupsExecute(r ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) (*StoreFrontDeliveryGroupResponseModelCollection, *http.Response, error)
+
+	/*
+			StoreFrontServersGetStoreFrontServer Get the details for a single StoreFront server.
+
+			Get a single StoreFront server configured for use by hosted
+		receivers within the site.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId The name or ID of the StoreFront server.
+			@return ApiStoreFrontServersGetStoreFrontServerRequest
+	*/
+	StoreFrontServersGetStoreFrontServer(ctx context.Context, nameOrId string) ApiStoreFrontServersGetStoreFrontServerRequest
+
+	// StoreFrontServersGetStoreFrontServerExecute executes the request
+	//  @return StoreFrontServerResponseModel
+	StoreFrontServersGetStoreFrontServerExecute(r ApiStoreFrontServersGetStoreFrontServerRequest) (*StoreFrontServerResponseModel, *http.Response, error)
+
+	/*
+			StoreFrontServersGetStoreFrontServers Get all StoreFront servers.
+
+			Get all StoreFront servers configured for use by hosted receivers
+		within the site.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiStoreFrontServersGetStoreFrontServersRequest
+	*/
+	StoreFrontServersGetStoreFrontServers(ctx context.Context) ApiStoreFrontServersGetStoreFrontServersRequest
+
+	// StoreFrontServersGetStoreFrontServersExecute executes the request
+	//  @return StoreFrontServerResponseModelCollection
+	StoreFrontServersGetStoreFrontServersExecute(r ApiStoreFrontServersGetStoreFrontServersRequest) (*StoreFrontServerResponseModelCollection, *http.Response, error)
+
+	/*
+		StoreFrontServersUpdateStoreFrontServer Update a StoreFront server.
+
+		Update a StoreFront server.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the StoreFront server to update.
+		@return ApiStoreFrontServersUpdateStoreFrontServerRequest
+	*/
+	StoreFrontServersUpdateStoreFrontServer(ctx context.Context, nameOrId string) ApiStoreFrontServersUpdateStoreFrontServerRequest
+
+	// StoreFrontServersUpdateStoreFrontServerExecute executes the request
+	//  @return StoreFrontServerResponseModel
+	StoreFrontServersUpdateStoreFrontServerExecute(r ApiStoreFrontServersUpdateStoreFrontServerRequest) (*StoreFrontServerResponseModel, *http.Response, error)
+}
+
 // StoreFrontServersAPIsDAASService StoreFrontServersAPIsDAAS service
 type StoreFrontServersAPIsDAASService service
 
 type ApiStoreFrontServersCreateStoreFrontServerRequest struct {
 	ctx                          context.Context
-	ApiService                   *StoreFrontServersAPIsDAASService
+	ApiService                   StoreFrontServersAPIsDAAS
 	citrixCustomerId             *string
 	citrixInstanceId             *string
 	storeFrontServerRequestModel *StoreFrontServerRequestModel
@@ -341,7 +436,7 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersCreateStoreFrontServ
 
 type ApiStoreFrontServersDeleteStoreFrontServerRequest struct {
 	ctx                 context.Context
-	ApiService          *StoreFrontServersAPIsDAASService
+	ApiService          StoreFrontServersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -628,7 +723,7 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersDeleteStoreFrontServ
 
 type ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *StoreFrontServersAPIsDAASService
+	ApiService          StoreFrontServersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -912,7 +1007,7 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontDeliver
 
 type ApiStoreFrontServersGetStoreFrontServerRequest struct {
 	ctx                 context.Context
-	ApiService          *StoreFrontServersAPIsDAASService
+	ApiService          StoreFrontServersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1197,7 +1292,7 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServerE
 
 type ApiStoreFrontServersGetStoreFrontServersRequest struct {
 	ctx                 context.Context
-	ApiService          *StoreFrontServersAPIsDAASService
+	ApiService          StoreFrontServersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -1467,7 +1562,7 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersGetStoreFrontServers
 
 type ApiStoreFrontServersUpdateStoreFrontServerRequest struct {
 	ctx                          context.Context
-	ApiService                   *StoreFrontServersAPIsDAASService
+	ApiService                   StoreFrontServersAPIsDAAS
 	citrixCustomerId             *string
 	citrixInstanceId             *string
 	nameOrId                     string

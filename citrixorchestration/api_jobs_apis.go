@@ -19,12 +19,166 @@ import (
 	"strings"
 )
 
+type JobsAPIsDAAS interface {
+
+	/*
+			JobsCancelJob Cancel a job.
+
+			For security reasons, jobs are only visible to the caller who
+		initiated them.
+
+		This may only be called if
+		is `true`, OR if the job has completed (with or without an error
+		or warning).
+
+		Note: completed jobs will be automatically removed by the system
+		48 hours after completion.  After this happens, this call will
+		return `404 Not Found` when given the removed job Id.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param id ID of the job to remove.
+			@return ApiJobsCancelJobRequest
+	*/
+	JobsCancelJob(ctx context.Context, id string) ApiJobsCancelJobRequest
+
+	// JobsCancelJobExecute executes the request
+	//  @return JobResponseModel
+	JobsCancelJobExecute(r ApiJobsCancelJobRequest) (*JobResponseModel, *http.Response, error)
+
+	/*
+			JobsDeleteJob Removes the job record.
+
+			For security reasons, jobs are only visible to the caller who
+		initiated them.
+
+
+		This may only be called if the job has completed (with or without an error
+		or warning) or if the job has been cancelled.  It will return an error
+		if the job is still in progress.
+
+
+		Note: completed jobs will be automatically removed by the system
+		48 hours after completion.  After this happens, this call will
+		return `404 Not Found` when given the removed job Id.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param id ID of the job to remove.
+			@return ApiJobsDeleteJobRequest
+	*/
+	JobsDeleteJob(ctx context.Context, id string) ApiJobsDeleteJobRequest
+
+	// JobsDeleteJobExecute executes the request
+	JobsDeleteJobExecute(r ApiJobsDeleteJobRequest) (*http.Response, error)
+
+	/*
+			JobsGetJob Get the details of a single job.
+
+			For security reasons, jobs are only visible to the caller who
+		initiated them.
+
+		Note: completed jobs will be automatically removed by the system
+		48 hours after completion.  After this happens, this call will
+		return `404 Not Found` when given the removed job Id.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param id ID of the job.
+			@return ApiJobsGetJobRequest
+	*/
+	JobsGetJob(ctx context.Context, id string) ApiJobsGetJobRequest
+
+	// JobsGetJobExecute executes the request
+	//  @return JobResponseModel
+	JobsGetJobExecute(r ApiJobsGetJobRequest) (*JobResponseModel, *http.Response, error)
+
+	/*
+			JobsGetJobResults Get the results of a job which has completed execution.
+
+			For security reasons, jobs are only visible to the caller who
+		initiated them.
+
+		Most jobs do not store results, but rather, redirect the caller
+		to the object(s) upon which the job was executing once complete.
+		However, some jobs (such as long-running GET operations) have
+		results which are stored independently and are retrievable from
+		this API.  Consult the documentation of the API which initiated
+		the job to determine if the results are obtained from this API
+		or elsewhere.
+
+
+		If the job has completed but its results are not retrievable
+		here, the call will return a `303 See Other` response, with a
+		response header Location directing the caller to an API where
+		the job results are obtained.
+
+		Note: completed jobs will be automatically removed by the system
+		48 hours after completion.  After this happens, this call will
+		return `404 Not Found` when given the removed job Id.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param id ID of the job.
+			@return ApiJobsGetJobResultsRequest
+	*/
+	JobsGetJobResults(ctx context.Context, id string) ApiJobsGetJobResultsRequest
+
+	// JobsGetJobResultsExecute executes the request
+	//  @return string
+	JobsGetJobResultsExecute(r ApiJobsGetJobResultsRequest) (string, *http.Response, error)
+
+	/*
+			JobsGetJobs Get the list of jobs that are currently active, or have recently completed, and were initiated by the caller.
+
+			For security reasons, jobs are only visible to the caller who
+		initiated them.
+
+		Note: completed jobs will be automatically removed by the system
+		48 hours after completion.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiJobsGetJobsRequest
+	*/
+	JobsGetJobs(ctx context.Context) ApiJobsGetJobsRequest
+
+	// JobsGetJobsExecute executes the request
+	//  @return JobResponseModelCollection
+	JobsGetJobsExecute(r ApiJobsGetJobsRequest) (*JobResponseModelCollection, *http.Response, error)
+
+	/*
+			JobsSkipRemainingSubtasks Skips any remaining / unstarted subtasks of the job.
+
+			For security reasons, jobs are only visible to the caller who
+		initiated them.
+
+		Only supported for jobs where
+		is equal to .  Any job that
+		does not support this action will return a `501 Not Implemented`
+		response code.
+
+
+		If the job has already completed successfully, this call will return
+		a `303 See Other` response, with a `Location` header
+		pointing to the affected resource(s).
+
+		Note: completed jobs will be automatically removed by the system
+		48 hours after completion.  After this happens, this call will
+		return `404 Not Found` when given the removed job Id.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param id ID of the job.
+			@return ApiJobsSkipRemainingSubtasksRequest
+	*/
+	JobsSkipRemainingSubtasks(ctx context.Context, id string) ApiJobsSkipRemainingSubtasksRequest
+
+	// JobsSkipRemainingSubtasksExecute executes the request
+	//  @return JobResponseModel
+	JobsSkipRemainingSubtasksExecute(r ApiJobsSkipRemainingSubtasksRequest) (*JobResponseModel, *http.Response, error)
+}
+
 // JobsAPIsDAASService JobsAPIsDAAS service
 type JobsAPIsDAASService service
 
 type ApiJobsCancelJobRequest struct {
 	ctx                 context.Context
-	ApiService          *JobsAPIsDAASService
+	ApiService          JobsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -328,7 +482,7 @@ func (a *JobsAPIsDAASService) JobsCancelJobExecute(r ApiJobsCancelJobRequest) (*
 
 type ApiJobsDeleteJobRequest struct {
 	ctx                 context.Context
-	ApiService          *JobsAPIsDAASService
+	ApiService          JobsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -609,7 +763,7 @@ func (a *JobsAPIsDAASService) JobsDeleteJobExecute(r ApiJobsDeleteJobRequest) (*
 
 type ApiJobsGetJobRequest struct {
 	ctx                 context.Context
-	ApiService          *JobsAPIsDAASService
+	ApiService          JobsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -898,7 +1052,7 @@ func (a *JobsAPIsDAASService) JobsGetJobExecute(r ApiJobsGetJobRequest) (*JobRes
 
 type ApiJobsGetJobResultsRequest struct {
 	ctx                 context.Context
-	ApiService          *JobsAPIsDAASService
+	ApiService          JobsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -1200,7 +1354,7 @@ func (a *JobsAPIsDAASService) JobsGetJobResultsExecute(r ApiJobsGetJobResultsReq
 
 type ApiJobsGetJobsRequest struct {
 	ctx                 context.Context
-	ApiService          *JobsAPIsDAASService
+	ApiService          JobsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -1473,7 +1627,7 @@ func (a *JobsAPIsDAASService) JobsGetJobsExecute(r ApiJobsGetJobsRequest) (*JobR
 
 type ApiJobsSkipRemainingSubtasksRequest struct {
 	ctx                 context.Context
-	ApiService          *JobsAPIsDAASService
+	ApiService          JobsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string

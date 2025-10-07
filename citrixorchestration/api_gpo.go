@@ -19,12 +19,471 @@ import (
 	"strings"
 )
 
+type GpoDAAS interface {
+
+	/*
+		GpoComparePolicies Compare policies. The policies can be from different policy sets.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoComparePoliciesRequest
+	*/
+	GpoComparePolicies(ctx context.Context) ApiGpoComparePoliciesRequest
+
+	// GpoComparePoliciesExecute executes the request
+	//  @return ComparisonResponseContract
+	GpoComparePoliciesExecute(r ApiGpoComparePoliciesRequest) (*ComparisonResponseContract, *http.Response, error)
+
+	/*
+		GpoCopyGpoPolicies Copy some policies of a policy set to other policy sets.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoCopyGpoPoliciesRequest
+	*/
+	GpoCopyGpoPolicies(ctx context.Context) ApiGpoCopyGpoPoliciesRequest
+
+	// GpoCopyGpoPoliciesExecute executes the request
+	GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesRequest) (*http.Response, error)
+
+	/*
+		GpoCopyGpoPolicySet Create a new GPO policy set by copying an existing policy set. The policies and settings in each policy are copied to the new policy set. Optionally, the filters in the policies may be copied. Regardless of the type of the source policy set, the resulting policy set is always of type DeliveryGroupPolicies.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param policySetGuid GUID of the existing policy set
+		@return ApiGpoCopyGpoPolicySetRequest
+	*/
+	GpoCopyGpoPolicySet(ctx context.Context, policySetGuid string) ApiGpoCopyGpoPolicySetRequest
+
+	// GpoCopyGpoPolicySetExecute executes the request
+	//  @return PolicySetResponse
+	GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequest) (*PolicySetResponse, *http.Response, error)
+
+	/*
+		GpoCreateGpoFilter Create a filter in a policy. Filters cannot be created in a policy in a policy set of type SiteTemplates or CustomTemplates.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoCreateGpoFilterRequest
+	*/
+	GpoCreateGpoFilter(ctx context.Context) ApiGpoCreateGpoFilterRequest
+
+	// GpoCreateGpoFilterExecute executes the request
+	//  @return FilterResponse
+	GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterRequest) (*FilterResponse, *http.Response, error)
+
+	/*
+		GpoCreateGpoPolicy Create a new policy. Policies cannot be created in the policy set of type SiteTemplates.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoCreateGpoPolicyRequest
+	*/
+	GpoCreateGpoPolicy(ctx context.Context) ApiGpoCreateGpoPolicyRequest
+
+	// GpoCreateGpoPolicyExecute executes the request
+	//  @return PolicyResponse
+	GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyRequest) (*PolicyResponse, *http.Response, error)
+
+	/*
+		GpoCreateGpoPolicySet Create a new GPO policy set. Only a policy set of type DeliveryGroupPolicies can be created.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoCreateGpoPolicySetRequest
+	*/
+	GpoCreateGpoPolicySet(ctx context.Context) ApiGpoCreateGpoPolicySetRequest
+
+	// GpoCreateGpoPolicySetExecute executes the request
+	//  @return PolicySetResponse
+	GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySetRequest) (*PolicySetResponse, *http.Response, error)
+
+	/*
+		GpoCreateGpoSetting Create a setting in a policy. Settings cannot be created in the policy set of type SiteTemplates.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoCreateGpoSettingRequest
+	*/
+	GpoCreateGpoSetting(ctx context.Context) ApiGpoCreateGpoSettingRequest
+
+	// GpoCreateGpoSettingExecute executes the request
+	//  @return SettingResponse
+	GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequest) (*SettingResponse, *http.Response, error)
+
+	/*
+		GpoDeleteGpoFilter Delete an existing filter.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param filterGuid The GUID of the filter to be deleted
+		@return ApiGpoDeleteGpoFilterRequest
+	*/
+	GpoDeleteGpoFilter(ctx context.Context, filterGuid string) ApiGpoDeleteGpoFilterRequest
+
+	// GpoDeleteGpoFilterExecute executes the request
+	GpoDeleteGpoFilterExecute(r ApiGpoDeleteGpoFilterRequest) (*http.Response, error)
+
+	/*
+		GpoDeleteGpoPolicy Delete an existing GPO policy. A policy in the policy set of type SiteTemplates cannot be deleted. The Unfiltered policy in the policy set of type SitePolicies cannot be deleted.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param policyGuid GUID of the policy to be deleted
+		@return ApiGpoDeleteGpoPolicyRequest
+	*/
+	GpoDeleteGpoPolicy(ctx context.Context, policyGuid string) ApiGpoDeleteGpoPolicyRequest
+
+	// GpoDeleteGpoPolicyExecute executes the request
+	GpoDeleteGpoPolicyExecute(r ApiGpoDeleteGpoPolicyRequest) (*http.Response, error)
+
+	/*
+		GpoDeleteGpoPolicySet Delete an existing GPO policy set. Only policy sets of type DeliveryGroupPolicies can be deleted. Policies in the policy set are deleted if a policy set is deleted.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param policySetGuid The GUID of the policy set to be deleted
+		@return ApiGpoDeleteGpoPolicySetRequest
+	*/
+	GpoDeleteGpoPolicySet(ctx context.Context, policySetGuid string) ApiGpoDeleteGpoPolicySetRequest
+
+	// GpoDeleteGpoPolicySetExecute executes the request
+	GpoDeleteGpoPolicySetExecute(r ApiGpoDeleteGpoPolicySetRequest) (*http.Response, error)
+
+	/*
+		GpoDeleteGpoSetting Delete a setting. Settings in the policy set of type SiteTemplates cannot be deleted.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param settingGuid GUID of the setting to be deleted
+		@return ApiGpoDeleteGpoSettingRequest
+	*/
+	GpoDeleteGpoSetting(ctx context.Context, settingGuid string) ApiGpoDeleteGpoSettingRequest
+
+	// GpoDeleteGpoSettingExecute executes the request
+	GpoDeleteGpoSettingExecute(r ApiGpoDeleteGpoSettingRequest) (*http.Response, error)
+
+	/*
+		GpoDisableGpoPolicies Disable some policies of a policy set.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoDisableGpoPoliciesRequest
+	*/
+	GpoDisableGpoPolicies(ctx context.Context) ApiGpoDisableGpoPoliciesRequest
+
+	// GpoDisableGpoPoliciesExecute executes the request
+	GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPoliciesRequest) (*http.Response, error)
+
+	/*
+		GpoEnableGpoPolicies Enable some policies of a policy set.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoEnableGpoPoliciesRequest
+	*/
+	GpoEnableGpoPolicies(ctx context.Context) ApiGpoEnableGpoPoliciesRequest
+
+	// GpoEnableGpoPoliciesExecute executes the request
+	GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRequest) (*http.Response, error)
+
+	/*
+		GpoGetFilterDefinitions Get all filter definitions.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoGetFilterDefinitionsRequest
+	*/
+	GpoGetFilterDefinitions(ctx context.Context) ApiGpoGetFilterDefinitionsRequest
+
+	// GpoGetFilterDefinitionsExecute executes the request
+	//  @return CollectionEnvelopeOfFilterDefinition
+	GpoGetFilterDefinitionsExecute(r ApiGpoGetFilterDefinitionsRequest) (*CollectionEnvelopeOfFilterDefinition, *http.Response, error)
+
+	/*
+		GpoGetSettingDefinitions Get setting definitions. If isLean is set to true, only basic session information is returned. EnumType, VdaVersions, VersionDetails, and Explanation are not retrieved. If limit is set to -1 or a number larger than the number of settings available, all entries are retrieved. If limit is set to a positive integer smaller than the number of settings available, the specified number of settings are retrieved.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoGetSettingDefinitionsRequest
+	*/
+	GpoGetSettingDefinitions(ctx context.Context) ApiGpoGetSettingDefinitionsRequest
+
+	// GpoGetSettingDefinitionsExecute executes the request
+	//  @return SettingDefinitionEnvelope
+	GpoGetSettingDefinitionsExecute(r ApiGpoGetSettingDefinitionsRequest) (*SettingDefinitionEnvelope, *http.Response, error)
+
+	/*
+		GpoGetSettingFullDetail Get full detail of a setting definition.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoGetSettingFullDetailRequest
+	*/
+	GpoGetSettingFullDetail(ctx context.Context) ApiGpoGetSettingFullDetailRequest
+
+	// GpoGetSettingFullDetailExecute executes the request
+	//  @return SettingDefinition
+	GpoGetSettingFullDetailExecute(r ApiGpoGetSettingFullDetailRequest) (*SettingDefinition, *http.Response, error)
+
+	/*
+		GpoMoveGpoPolicies Move some policies of a policy set to another policy set.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoMoveGpoPoliciesRequest
+	*/
+	GpoMoveGpoPolicies(ctx context.Context) ApiGpoMoveGpoPoliciesRequest
+
+	// GpoMoveGpoPoliciesExecute executes the request
+	GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesRequest) (*http.Response, error)
+
+	/*
+		GpoRankGpoPolicies Specify new priority order for all existing policies in a policy set. All the policies in the policy set must be specified, even if the priorities of only some of the policies are changed.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoRankGpoPoliciesRequest
+	*/
+	GpoRankGpoPolicies(ctx context.Context) ApiGpoRankGpoPoliciesRequest
+
+	// GpoRankGpoPoliciesExecute executes the request
+	//  @return bool
+	GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesRequest) (bool, *http.Response, error)
+
+	/*
+		GpoReadGpoFilter Read a specific filter.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param filterGuid The GUID of the filter to be read
+		@return ApiGpoReadGpoFilterRequest
+	*/
+	GpoReadGpoFilter(ctx context.Context, filterGuid string) ApiGpoReadGpoFilterRequest
+
+	// GpoReadGpoFilterExecute executes the request
+	//  @return FilterResponse
+	GpoReadGpoFilterExecute(r ApiGpoReadGpoFilterRequest) (*FilterResponse, *http.Response, error)
+
+	/*
+		GpoReadGpoFilters Read filters defined in a policy. A policy in a policy set of type SiteTemplates or CustomTemplates does not have filters.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoReadGpoFiltersRequest
+	*/
+	GpoReadGpoFilters(ctx context.Context) ApiGpoReadGpoFiltersRequest
+
+	// GpoReadGpoFiltersExecute executes the request
+	//  @return CollectionEnvelopeOfFilterResponse
+	GpoReadGpoFiltersExecute(r ApiGpoReadGpoFiltersRequest) (*CollectionEnvelopeOfFilterResponse, *http.Response, error)
+
+	/*
+		GpoReadGpoPolicies Read all policies defined in a policy set. Policy templates don't have filters.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoReadGpoPoliciesRequest
+	*/
+	GpoReadGpoPolicies(ctx context.Context) ApiGpoReadGpoPoliciesRequest
+
+	// GpoReadGpoPoliciesExecute executes the request
+	//  @return CollectionEnvelopeOfPolicyResponse
+	GpoReadGpoPoliciesExecute(r ApiGpoReadGpoPoliciesRequest) (*CollectionEnvelopeOfPolicyResponse, *http.Response, error)
+
+	/*
+		GpoReadGpoPolicy Read a policy. A policy template doesn't have filters.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param policyGuid GUID of the policy to be read
+		@return ApiGpoReadGpoPolicyRequest
+	*/
+	GpoReadGpoPolicy(ctx context.Context, policyGuid string) ApiGpoReadGpoPolicyRequest
+
+	// GpoReadGpoPolicyExecute executes the request
+	//  @return PolicyResponse
+	GpoReadGpoPolicyExecute(r ApiGpoReadGpoPolicyRequest) (*PolicyResponse, *http.Response, error)
+
+	/*
+		GpoReadGpoPolicySet Read a GPO policy set.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param policySetGuid GUID of the policy set to read
+		@return ApiGpoReadGpoPolicySetRequest
+	*/
+	GpoReadGpoPolicySet(ctx context.Context, policySetGuid string) ApiGpoReadGpoPolicySetRequest
+
+	// GpoReadGpoPolicySetExecute executes the request
+	//  @return PolicySetResponse
+	GpoReadGpoPolicySetExecute(r ApiGpoReadGpoPolicySetRequest) (*PolicySetResponse, *http.Response, error)
+
+	/*
+		GpoReadGpoPolicySets Get all GPO policy sets in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoReadGpoPolicySetsRequest
+	*/
+	GpoReadGpoPolicySets(ctx context.Context) ApiGpoReadGpoPolicySetsRequest
+
+	// GpoReadGpoPolicySetsExecute executes the request
+	//  @return CollectionEnvelopeOfPolicySetResponse
+	GpoReadGpoPolicySetsExecute(r ApiGpoReadGpoPolicySetsRequest) (*CollectionEnvelopeOfPolicySetResponse, *http.Response, error)
+
+	/*
+		GpoReadGpoSetting Read a specific setting.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param settingGuid GUID of the setting to be read
+		@return ApiGpoReadGpoSettingRequest
+	*/
+	GpoReadGpoSetting(ctx context.Context, settingGuid string) ApiGpoReadGpoSettingRequest
+
+	// GpoReadGpoSettingExecute executes the request
+	//  @return SettingResponse
+	GpoReadGpoSettingExecute(r ApiGpoReadGpoSettingRequest) (*SettingResponse, *http.Response, error)
+
+	/*
+		GpoReadGpoSettings Read settings defined in a policy.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoReadGpoSettingsRequest
+	*/
+	GpoReadGpoSettings(ctx context.Context) ApiGpoReadGpoSettingsRequest
+
+	// GpoReadGpoSettingsExecute executes the request
+	//  @return CollectionEnvelopeOfSettingResponse
+	GpoReadGpoSettingsExecute(r ApiGpoReadGpoSettingsRequest) (*CollectionEnvelopeOfSettingResponse, *http.Response, error)
+
+	/*
+		GpoRemoveGpoPolicies Remove some policies of a policy set.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoRemoveGpoPoliciesRequest
+	*/
+	GpoRemoveGpoPolicies(ctx context.Context) ApiGpoRemoveGpoPoliciesRequest
+
+	// GpoRemoveGpoPoliciesExecute executes the request
+	GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRequest) (*http.Response, error)
+
+	/*
+		GpoRunSimulation Simulate policy application.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoRunSimulationRequest
+	*/
+	GpoRunSimulation(ctx context.Context) ApiGpoRunSimulationRequest
+
+	// GpoRunSimulationExecute executes the request
+	//  @return []SimulationResponseContract
+	GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) ([]SimulationResponseContract, *http.Response, error)
+
+	/*
+		GpoRunValidation Check the site policies to ensure that they can be successfully converted to the new GPO objects. If an error exists in the value of a setting or filter, the error must be fixed before the policy data can be converted to new GPO setting, filter, and policy objects. The validation is done only on the site policies.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoRunValidationRequest
+	*/
+	GpoRunValidation(ctx context.Context) ApiGpoRunValidationRequest
+
+	// GpoRunValidationExecute executes the request
+	//  @return []GpoTestPolicyData
+	GpoRunValidationExecute(r ApiGpoRunValidationRequest) ([]GpoTestPolicyData, *http.Response, error)
+
+	/*
+		GpoSearchFilters Perform an advanced search for GPO filters.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoSearchFiltersRequest
+	*/
+	GpoSearchFilters(ctx context.Context) ApiGpoSearchFiltersRequest
+
+	// GpoSearchFiltersExecute executes the request
+	//  @return CollectionEnvelopeOfFilterResponse
+	GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (*CollectionEnvelopeOfFilterResponse, *http.Response, error)
+
+	/*
+		GpoSearchPolicies Perform an advanced search for GPO policies.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoSearchPoliciesRequest
+	*/
+	GpoSearchPolicies(ctx context.Context) ApiGpoSearchPoliciesRequest
+
+	// GpoSearchPoliciesExecute executes the request
+	//  @return CollectionEnvelopeOfPolicyResponse
+	GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest) (*CollectionEnvelopeOfPolicyResponse, *http.Response, error)
+
+	/*
+		GpoSearchPolicySets Perform an advanced search for GPO policy sets.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoSearchPolicySetsRequest
+	*/
+	GpoSearchPolicySets(ctx context.Context) ApiGpoSearchPolicySetsRequest
+
+	// GpoSearchPolicySetsExecute executes the request
+	//  @return CollectionEnvelopeOfPolicySetResponse
+	GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequest) (*CollectionEnvelopeOfPolicySetResponse, *http.Response, error)
+
+	/*
+		GpoSearchSettings Perform an advanced search for GPO settings.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGpoSearchSettingsRequest
+	*/
+	GpoSearchSettings(ctx context.Context) ApiGpoSearchSettingsRequest
+
+	// GpoSearchSettingsExecute executes the request
+	//  @return CollectionEnvelopeOfSettingResponse
+	GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest) (*CollectionEnvelopeOfSettingResponse, *http.Response, error)
+
+	/*
+		GpoUpdateGpoFilter Update an existing filter.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param filterGuid The GUID of the filter to be updated
+		@return ApiGpoUpdateGpoFilterRequest
+	*/
+	GpoUpdateGpoFilter(ctx context.Context, filterGuid string) ApiGpoUpdateGpoFilterRequest
+
+	// GpoUpdateGpoFilterExecute executes the request
+	GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterRequest) (*http.Response, error)
+
+	/*
+		GpoUpdateGpoPolicy Update a policy. Only the policy body is updated.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param policyGuid GUID of the policy to be updated
+		@return ApiGpoUpdateGpoPolicyRequest
+	*/
+	GpoUpdateGpoPolicy(ctx context.Context, policyGuid string) ApiGpoUpdateGpoPolicyRequest
+
+	// GpoUpdateGpoPolicyExecute executes the request
+	GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyRequest) (*http.Response, error)
+
+	/*
+		GpoUpdateGpoPolicySet Update an existing GPO policy set.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param policySetGuid The GUID of the policy set to update
+		@return ApiGpoUpdateGpoPolicySetRequest
+	*/
+	GpoUpdateGpoPolicySet(ctx context.Context, policySetGuid string) ApiGpoUpdateGpoPolicySetRequest
+
+	// GpoUpdateGpoPolicySetExecute executes the request
+	GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySetRequest) (*http.Response, error)
+
+	/*
+		GpoUpdateGpoSetting Update a setting. Settings in the policy set of type SiteTemplates cannot be updated.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param settingGuid GUID of the setting to be updated
+		@return ApiGpoUpdateGpoSettingRequest
+	*/
+	GpoUpdateGpoSetting(ctx context.Context, settingGuid string) ApiGpoUpdateGpoSettingRequest
+
+	// GpoUpdateGpoSettingExecute executes the request
+	GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequest) (*http.Response, error)
+
+	/*
+		GpoUpdatePolicySetBlob Force serialization of policy set. The data of a policy set is serialized into a byte stream before it is sent to VDAs. The serialization is done automatically in the background at 5 minute intervals. A change made to the data in a policy set may not be in the serialized data for up to 5 minutes. This call tells the background thread to serialize the data immediately. No serialization is done if there have been no changes to the policy set data since the last time the data was serialized.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param policySetGuid The GUID of the policy set whose data is to be serialized
+		@return ApiGpoUpdatePolicySetBlobRequest
+	*/
+	GpoUpdatePolicySetBlob(ctx context.Context, policySetGuid string) ApiGpoUpdatePolicySetBlobRequest
+
+	// GpoUpdatePolicySetBlobExecute executes the request
+	GpoUpdatePolicySetBlobExecute(r ApiGpoUpdatePolicySetBlobRequest) (*http.Response, error)
+}
+
 // GpoDAASService GpoDAAS service
 type GpoDAASService service
 
 type ApiGpoComparePoliciesRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	withDefaults        *bool
@@ -336,7 +795,7 @@ func (a *GpoDAASService) GpoComparePoliciesExecute(r ApiGpoComparePoliciesReques
 
 type ApiGpoCopyGpoPoliciesRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	withFilters         *bool
@@ -635,7 +1094,7 @@ func (a *GpoDAASService) GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesReques
 
 type ApiGpoCopyGpoPolicySetRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policySetGuid       string
@@ -950,7 +1409,7 @@ func (a *GpoDAASService) GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequ
 
 type ApiGpoCreateGpoFilterRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policyGuid          *string
@@ -1262,7 +1721,7 @@ func (a *GpoDAASService) GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterReques
 
 type ApiGpoCreateGpoPolicyRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policySetGuid       *string
@@ -1574,7 +2033,7 @@ func (a *GpoDAASService) GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyReques
 
 type ApiGpoCreateGpoPolicySetRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policySetRequest    *PolicySetRequest
@@ -1875,7 +2334,7 @@ func (a *GpoDAASService) GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySet
 
 type ApiGpoCreateGpoSettingRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policyGuid          *string
@@ -2187,7 +2646,7 @@ func (a *GpoDAASService) GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequ
 
 type ApiGpoDeleteGpoFilterRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	filterGuid          string
@@ -2457,7 +2916,7 @@ func (a *GpoDAASService) GpoDeleteGpoFilterExecute(r ApiGpoDeleteGpoFilterReques
 
 type ApiGpoDeleteGpoPolicyRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policyGuid          string
@@ -2727,7 +3186,7 @@ func (a *GpoDAASService) GpoDeleteGpoPolicyExecute(r ApiGpoDeleteGpoPolicyReques
 
 type ApiGpoDeleteGpoPolicySetRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policySetGuid       string
@@ -2997,7 +3456,7 @@ func (a *GpoDAASService) GpoDeleteGpoPolicySetExecute(r ApiGpoDeleteGpoPolicySet
 
 type ApiGpoDeleteGpoSettingRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	settingGuid         string
@@ -3267,7 +3726,7 @@ func (a *GpoDAASService) GpoDeleteGpoSettingExecute(r ApiGpoDeleteGpoSettingRequ
 
 type ApiGpoDisableGpoPoliciesRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	requestBody         *[]string
@@ -3556,7 +4015,7 @@ func (a *GpoDAASService) GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPolicies
 
 type ApiGpoEnableGpoPoliciesRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	requestBody         *[]string
@@ -3845,7 +4304,7 @@ func (a *GpoDAASService) GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRe
 
 type ApiGpoGetFilterDefinitionsRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -4112,7 +4571,7 @@ func (a *GpoDAASService) GpoGetFilterDefinitionsExecute(r ApiGpoGetFilterDefinit
 
 type ApiGpoGetSettingDefinitionsRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -4448,7 +4907,7 @@ func (a *GpoDAASService) GpoGetSettingDefinitionsExecute(r ApiGpoGetSettingDefin
 
 type ApiGpoGetSettingFullDetailRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	settingName         *string
@@ -4726,7 +5185,7 @@ func (a *GpoDAASService) GpoGetSettingFullDetailExecute(r ApiGpoGetSettingFullDe
 
 type ApiGpoMoveGpoPoliciesRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	toPolicySet         *string
@@ -5026,7 +5485,7 @@ func (a *GpoDAASService) GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesReques
 
 type ApiGpoRankGpoPoliciesRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policySetGuid       *string
@@ -5338,7 +5797,7 @@ func (a *GpoDAASService) GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesReques
 
 type ApiGpoReadGpoFilterRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	filterGuid          string
@@ -5620,7 +6079,7 @@ func (a *GpoDAASService) GpoReadGpoFilterExecute(r ApiGpoReadGpoFilterRequest) (
 
 type ApiGpoReadGpoFiltersRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policyGuid          *string
@@ -5898,7 +6357,7 @@ func (a *GpoDAASService) GpoReadGpoFiltersExecute(r ApiGpoReadGpoFiltersRequest)
 
 type ApiGpoReadGpoPoliciesRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policySetGuid       *string
@@ -6196,7 +6655,7 @@ func (a *GpoDAASService) GpoReadGpoPoliciesExecute(r ApiGpoReadGpoPoliciesReques
 
 type ApiGpoReadGpoPolicyRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policyGuid          string
@@ -6498,7 +6957,7 @@ func (a *GpoDAASService) GpoReadGpoPolicyExecute(r ApiGpoReadGpoPolicyRequest) (
 
 type ApiGpoReadGpoPolicySetRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policySetGuid       string
@@ -6790,7 +7249,7 @@ func (a *GpoDAASService) GpoReadGpoPolicySetExecute(r ApiGpoReadGpoPolicySetRequ
 
 type ApiGpoReadGpoPolicySetsRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -7057,7 +7516,7 @@ func (a *GpoDAASService) GpoReadGpoPolicySetsExecute(r ApiGpoReadGpoPolicySetsRe
 
 type ApiGpoReadGpoSettingRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	settingGuid         string
@@ -7339,7 +7798,7 @@ func (a *GpoDAASService) GpoReadGpoSettingExecute(r ApiGpoReadGpoSettingRequest)
 
 type ApiGpoReadGpoSettingsRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policyGuid          *string
@@ -7617,7 +8076,7 @@ func (a *GpoDAASService) GpoReadGpoSettingsExecute(r ApiGpoReadGpoSettingsReques
 
 type ApiGpoRemoveGpoPoliciesRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	requestBody         *[]string
@@ -7906,7 +8365,7 @@ func (a *GpoDAASService) GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRe
 
 type ApiGpoRunSimulationRequest struct {
 	ctx                       context.Context
-	ApiService                *GpoDAASService
+	ApiService                GpoDAAS
 	citrixCustomerId          *string
 	citrixInstanceId          *string
 	policySetGuid             *string
@@ -8218,7 +8677,7 @@ func (a *GpoDAASService) GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) (
 
 type ApiGpoRunValidationRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -8498,7 +8957,7 @@ func (a *GpoDAASService) GpoRunValidationExecute(r ApiGpoRunValidationRequest) (
 
 type ApiGpoSearchFiltersRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	filterSearch        *FilterSearch
@@ -8832,7 +9291,7 @@ func (a *GpoDAASService) GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (
 
 type ApiGpoSearchPoliciesRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policySearch        *PolicySearch
@@ -9166,7 +9625,7 @@ func (a *GpoDAASService) GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest)
 
 type ApiGpoSearchPolicySetsRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policySetSearch     *PolicySetSearch
@@ -9500,7 +9959,7 @@ func (a *GpoDAASService) GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequ
 
 type ApiGpoSearchSettingsRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	settingSearch       *SettingSearch
@@ -9834,7 +10293,7 @@ func (a *GpoDAASService) GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest)
 
 type ApiGpoUpdateGpoFilterRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	filterGuid          string
@@ -10127,7 +10586,7 @@ func (a *GpoDAASService) GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterReques
 
 type ApiGpoUpdateGpoPolicyRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policyGuid          string
@@ -10420,7 +10879,7 @@ func (a *GpoDAASService) GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyReques
 
 type ApiGpoUpdateGpoPolicySetRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policySetGuid       string
@@ -10713,7 +11172,7 @@ func (a *GpoDAASService) GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySet
 
 type ApiGpoUpdateGpoSettingRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	settingGuid         string
@@ -11006,7 +11465,7 @@ func (a *GpoDAASService) GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequ
 
 type ApiGpoUpdatePolicySetBlobRequest struct {
 	ctx                 context.Context
-	ApiService          *GpoDAASService
+	ApiService          GpoDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	policySetGuid       string

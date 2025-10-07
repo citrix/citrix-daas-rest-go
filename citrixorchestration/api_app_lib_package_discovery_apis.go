@@ -19,12 +19,126 @@ import (
 	"strings"
 )
 
+type AppLibPackageDiscoveryAPIsDAAS interface {
+
+	/*
+		AppLibPackageDiscoveryCreateAppLibPackageDiscovery Create AppLib Package Discovery session
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest
+	*/
+	AppLibPackageDiscoveryCreateAppLibPackageDiscovery(ctx context.Context) ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest
+
+	// AppLibPackageDiscoveryCreateAppLibPackageDiscoveryExecute executes the request
+	//  @return AppLibPackageDiscoveryResponseModel
+	AppLibPackageDiscoveryCreateAppLibPackageDiscoveryExecute(r ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) (*AppLibPackageDiscoveryResponseModel, *http.Response, error)
+
+	/*
+		AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile Create an AppLib Package Discovery profile.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest
+	*/
+	AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile(ctx context.Context) ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest
+
+	// AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileExecute executes the request
+	//  @return AppLibPackageDiscoveryProfileResponseModel
+	AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileExecute(r ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) (*AppLibPackageDiscoveryProfileResponseModel, *http.Response, error)
+
+	/*
+		AppLibPackageDiscoveryGetAppLibPackageDiscovery Get details of an AppLib Package Discovery session.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id Guid of the applib package discovery session that need to be fetched.
+		@return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest
+	*/
+	AppLibPackageDiscoveryGetAppLibPackageDiscovery(ctx context.Context, id string) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest
+
+	// AppLibPackageDiscoveryGetAppLibPackageDiscoveryExecute executes the request
+	//  @return AppLibPackageDiscoveryResponseModel
+	AppLibPackageDiscoveryGetAppLibPackageDiscoveryExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) (*AppLibPackageDiscoveryResponseModel, *http.Response, error)
+
+	/*
+		AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId Get the latest AppLib Package Discovery session for the specified profile id.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param uid The profile id.
+		@return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest
+	*/
+	AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId(ctx context.Context, uid int32) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest
+
+	// AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdExecute executes the request
+	//  @return AppLibPackageDiscoveryResponseModel
+	AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) (*AppLibPackageDiscoveryResponseModel, *http.Response, error)
+
+	/*
+		AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile Get details of an AppLib Package Discovery profile.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param uid Uid of the appLib package discovery profile that need to be fetched.
+		@return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest
+	*/
+	AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile(ctx context.Context, uid int32) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest
+
+	// AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileExecute executes the request
+	//  @return AppLibPackageDiscoveryProfileResponseModel
+	AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) (*AppLibPackageDiscoveryProfileResponseModel, *http.Response, error)
+
+	/*
+		AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles Get a list of AppLib Package Discovery profiles.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest
+	*/
+	AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles(ctx context.Context) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest
+
+	// AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesExecute executes the request
+	//  @return AppLibPackageDiscoveryProfileResponseModelCollection
+	AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) (*AppLibPackageDiscoveryProfileResponseModelCollection, *http.Response, error)
+
+	/*
+		AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions Get a list of AppLib Package Discovery sessions.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest
+	*/
+	AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions(ctx context.Context) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest
+
+	// AppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsExecute executes the request
+	//  @return AppLibPackageDiscoveryResponseModelCollection
+	AppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) (*AppLibPackageDiscoveryResponseModelCollection, *http.Response, error)
+
+	/*
+		AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile Remove an AppLib Package Discovery profile.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param uid Uid of the appLib package discovery profile that need to be removed.
+		@return ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest
+	*/
+	AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile(ctx context.Context, uid int32) ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest
+
+	// AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileExecute executes the request
+	AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileExecute(r ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) (*http.Response, error)
+
+	/*
+		AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile Update the specified AppLib Package Discovery profile.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param uid Uid of the appLib package discovery profile that need to be fetched.
+		@return ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest
+	*/
+	AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile(ctx context.Context, uid int32) ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest
+
+	// AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileExecute executes the request
+	AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileExecute(r ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) (*http.Response, error)
+}
+
 // AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryAPIsDAAS service
 type AppLibPackageDiscoveryAPIsDAASService service
 
 type ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest struct {
 	ctx                                context.Context
-	ApiService                         *AppLibPackageDiscoveryAPIsDAASService
+	ApiService                         AppLibPackageDiscoveryAPIsDAAS
 	citrixCustomerId                   *string
 	citrixInstanceId                   *string
 	appLibPackageDiscoveryRequestModel *AppLibPackageDiscoveryRequestModel
@@ -338,7 +452,7 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 
 type ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest struct {
 	ctx                                       context.Context
-	ApiService                                *AppLibPackageDiscoveryAPIsDAASService
+	ApiService                                AppLibPackageDiscoveryAPIsDAAS
 	citrixCustomerId                          *string
 	citrixInstanceId                          *string
 	appLibPackageDiscoveryProfileRequestModel *AppLibPackageDiscoveryProfileRequestModel
@@ -652,7 +766,7 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryCreateAppL
 
 type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest struct {
 	ctx                 context.Context
-	ApiService          *AppLibPackageDiscoveryAPIsDAASService
+	ApiService          AppLibPackageDiscoveryAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -947,7 +1061,7 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 
 type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest struct {
 	ctx                 context.Context
-	ApiService          *AppLibPackageDiscoveryAPIsDAASService
+	ApiService          AppLibPackageDiscoveryAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	uid                 int32
@@ -1229,7 +1343,7 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 
 type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest struct {
 	ctx                 context.Context
-	ApiService          *AppLibPackageDiscoveryAPIsDAASService
+	ApiService          AppLibPackageDiscoveryAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	uid                 int32
@@ -1524,7 +1638,7 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 
 type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest struct {
 	ctx                 context.Context
-	ApiService          *AppLibPackageDiscoveryAPIsDAASService
+	ApiService          AppLibPackageDiscoveryAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -1804,7 +1918,7 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 
 type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest struct {
 	ctx                 context.Context
-	ApiService          *AppLibPackageDiscoveryAPIsDAASService
+	ApiService          AppLibPackageDiscoveryAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -2084,7 +2198,7 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryGetAppLibP
 
 type ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest struct {
 	ctx                 context.Context
-	ApiService          *AppLibPackageDiscoveryAPIsDAASService
+	ApiService          AppLibPackageDiscoveryAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	uid                 int32
@@ -2367,7 +2481,7 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryRemoveAppL
 
 type ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest struct {
 	ctx                                           context.Context
-	ApiService                                    *AppLibPackageDiscoveryAPIsDAASService
+	ApiService                                    AppLibPackageDiscoveryAPIsDAAS
 	citrixCustomerId                              *string
 	citrixInstanceId                              *string
 	uid                                           int32

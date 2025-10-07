@@ -106,6 +106,7 @@ func (daasClient *CitrixDaasClient) InitializeWemClient(ctx context.Context, wem
 	if onPremises {
 		tr := &http.Transport{
 			TLSClientConfig: &tls.Config{InsecureSkipVerify: disableSslVerification},
+			Proxy:           http.ProxyFromEnvironment,
 		}
 		client := &http.Client{Transport: tr}
 		wemConfig.HTTPClient = client
@@ -142,6 +143,7 @@ func (daasClient *CitrixDaasClient) InitializeQuickCreateClient(ctx context.Cont
 	// Disable ssl check
 	tr := &http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		Proxy:           http.ProxyFromEnvironment,
 	}
 	localQuickCreateCfg.HTTPClient = &http.Client{Transport: tr}
 
@@ -163,6 +165,7 @@ func (daasClient *CitrixDaasClient) InitializeQuickDeployClient(ctx context.Cont
 	// Disable ssl check
 	tr := &http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		Proxy:           http.ProxyFromEnvironment,
 	}
 	localQuickDeployCfg.HTTPClient = &http.Client{Transport: tr}
 
@@ -194,6 +197,7 @@ func (daasClient *CitrixDaasClient) SetupApiClient(hostname string, middlewareFu
 	if onPremises {
 		tr := &http.Transport{
 			TLSClientConfig: &tls.Config{InsecureSkipVerify: disableSslVerification},
+			Proxy:           http.ProxyFromEnvironment,
 		}
 		client := &http.Client{Transport: tr}
 		localCfg.HTTPClient = client

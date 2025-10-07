@@ -19,12 +19,434 @@ import (
 	"strings"
 )
 
+type ApplicationsAPIsDAAS interface {
+
+	/*
+		ApplicationsAddApplicationTags Add a tag to an application.
+
+		Add a tag to an application.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+		@param tagNameOrId Name or ID of the tag to add.
+		@return ApiApplicationsAddApplicationTagsRequest
+	*/
+	ApplicationsAddApplicationTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiApplicationsAddApplicationTagsRequest
+
+	// ApplicationsAddApplicationTagsExecute executes the request
+	//  @return ApplicationResponseModelCollection
+	ApplicationsAddApplicationTagsExecute(r ApiApplicationsAddApplicationTagsRequest) (*ApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+		ApplicationsAddApplications Add applications to the site.
+
+		Add request applications to the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiApplicationsAddApplicationsRequest
+	*/
+	ApplicationsAddApplications(ctx context.Context) ApiApplicationsAddApplicationsRequest
+
+	// ApplicationsAddApplicationsExecute executes the request
+	ApplicationsAddApplicationsExecute(r ApiApplicationsAddApplicationsRequest) (*http.Response, error)
+
+	/*
+		ApplicationsCheckApplicationExists Check for the existence of an application by name
+
+		Check for the existence of an application by name.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param name Name or ID of the application to check for. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+		@return ApiApplicationsCheckApplicationExistsRequest
+	*/
+	ApplicationsCheckApplicationExists(ctx context.Context, name string) ApiApplicationsCheckApplicationExistsRequest
+
+	// ApplicationsCheckApplicationExistsExecute executes the request
+	ApplicationsCheckApplicationExistsExecute(r ApiApplicationsCheckApplicationExistsRequest) (*http.Response, error)
+
+	/*
+		ApplicationsDeleteApplication Delete an application!
+
+		Delete an application.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application to delete. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+		@return ApiApplicationsDeleteApplicationRequest
+	*/
+	ApplicationsDeleteApplication(ctx context.Context, nameOrId string) ApiApplicationsDeleteApplicationRequest
+
+	// ApplicationsDeleteApplicationExecute executes the request
+	ApplicationsDeleteApplicationExecute(r ApiApplicationsDeleteApplicationRequest) (*http.Response, error)
+
+	/*
+			ApplicationsDisableApplicationFta Disable a file-type association for an application.
+
+			Disable a file-type association for an application.  Note that if the
+		file-type association was not imported, this will cause it to be deleted.
+		To disable multiple file-type associations at once, use
+
+		    BatchControllerTP.DoBatchRequest(BatchRequestModel, bool?)
+
+		.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+			@param extensionName File-type extension name to disable.
+			@return ApiApplicationsDisableApplicationFtaRequest
+	*/
+	ApplicationsDisableApplicationFta(ctx context.Context, nameOrId string, extensionName string) ApiApplicationsDisableApplicationFtaRequest
+
+	// ApplicationsDisableApplicationFtaExecute executes the request
+	ApplicationsDisableApplicationFtaExecute(r ApiApplicationsDisableApplicationFtaRequest) (*http.Response, error)
+
+	/*
+			ApplicationsDoApplicationSearch Perform an advanced search for applications.
+
+			Perform an advanced search for applications.  Note that some combinations
+		of search parameters may result in slow performance.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiApplicationsDoApplicationSearchRequest
+	*/
+	ApplicationsDoApplicationSearch(ctx context.Context) ApiApplicationsDoApplicationSearchRequest
+
+	// ApplicationsDoApplicationSearchExecute executes the request
+	//  @return ApplicationResponseModelCollection
+	ApplicationsDoApplicationSearchExecute(r ApiApplicationsDoApplicationSearchRequest) (*ApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+			ApplicationsDuplicateApplication Duplicate an application.
+
+			Duplicate an application.  This is equivalent to creating
+		a new application with all properties the same as the original,
+		but with a new name.
+		------
+		This API is preferable to using client-side logic to duplicate the
+		application, since it allows forward-compatibility.  As new properties
+		and behaviors of applications are added in the future, this API will
+		duplicate those properly without needing to update clients.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application to duplicate. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+			@return ApiApplicationsDuplicateApplicationRequest
+	*/
+	ApplicationsDuplicateApplication(ctx context.Context, nameOrId string) ApiApplicationsDuplicateApplicationRequest
+
+	// ApplicationsDuplicateApplicationExecute executes the request
+	//  @return ApplicationDetailResponseModel
+	ApplicationsDuplicateApplicationExecute(r ApiApplicationsDuplicateApplicationRequest) (*ApplicationDetailResponseModel, *http.Response, error)
+
+	/*
+			ApplicationsEnableApplicationFta Enable a file-type association for an application.
+
+			Enable a file-type association for an application.  Note that if the file-type
+		association was not imported, this will cause it to be created.
+		To enable multiple file-type associations at once, use
+
+		    BatchControllerTP.DoBatchRequest(BatchRequestModel, bool?)
+
+		.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+			@return ApiApplicationsEnableApplicationFtaRequest
+	*/
+	ApplicationsEnableApplicationFta(ctx context.Context, nameOrId string) ApiApplicationsEnableApplicationFtaRequest
+
+	// ApplicationsEnableApplicationFtaExecute executes the request
+	ApplicationsEnableApplicationFtaExecute(r ApiApplicationsEnableApplicationFtaRequest) (*http.Response, error)
+
+	/*
+		ApplicationsGetApplication Get details of a single application.
+
+		Get the details of a single application.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+		@return ApiApplicationsGetApplicationRequest
+	*/
+	ApplicationsGetApplication(ctx context.Context, nameOrId string) ApiApplicationsGetApplicationRequest
+
+	// ApplicationsGetApplicationExecute executes the request
+	//  @return ApplicationDetailResponseModel
+	ApplicationsGetApplicationExecute(r ApiApplicationsGetApplicationRequest) (*ApplicationDetailResponseModel, *http.Response, error)
+
+	/*
+		ApplicationsGetApplicationAdministrators Get administrators authorized to administer an application.
+
+		Get the administrators authorized to administer an application.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+		@return ApiApplicationsGetApplicationAdministratorsRequest
+	*/
+	ApplicationsGetApplicationAdministrators(ctx context.Context, nameOrId string) ApiApplicationsGetApplicationAdministratorsRequest
+
+	// ApplicationsGetApplicationAdministratorsExecute executes the request
+	//  @return AdministratorResponseModelCollection
+	ApplicationsGetApplicationAdministratorsExecute(r ApiApplicationsGetApplicationAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error)
+
+	/*
+		ApplicationsGetApplicationApplicationGroups Get application groups associated with an application.
+
+		Get the application groups associated with an application.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+		@return ApiApplicationsGetApplicationApplicationGroupsRequest
+	*/
+	ApplicationsGetApplicationApplicationGroups(ctx context.Context, nameOrId string) ApiApplicationsGetApplicationApplicationGroupsRequest
+
+	// ApplicationsGetApplicationApplicationGroupsExecute executes the request
+	//  @return ApplicationGroupResponseModelCollection
+	ApplicationsGetApplicationApplicationGroupsExecute(r ApiApplicationsGetApplicationApplicationGroupsRequest) (*ApplicationGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		ApplicationsGetApplicationDeliveryGroups Get delivery groups associated with an application.
+
+		Get the delivery groups associated with an application.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+		@return ApiApplicationsGetApplicationDeliveryGroupsRequest
+	*/
+	ApplicationsGetApplicationDeliveryGroups(ctx context.Context, nameOrId string) ApiApplicationsGetApplicationDeliveryGroupsRequest
+
+	// ApplicationsGetApplicationDeliveryGroupsExecute executes the request
+	//  @return ApplicationDeliveryGroupResponseModelCollection
+	ApplicationsGetApplicationDeliveryGroupsExecute(r ApiApplicationsGetApplicationDeliveryGroupsRequest) (*ApplicationDeliveryGroupResponseModelCollection, *http.Response, error)
+
+	/*
+			ApplicationsGetApplicationFta Get a single file-type for an application.
+
+			Get the details for a file-type association for an application.
+		----
+		This API is only valid for applications where
+		ApplicationType is
+		HostedOnDesktop,
+		AppV, or
+		AppLibraryAppV, or
+		Msix, or
+		AppAttach, or
+		FlexApp, or
+		ElasticAppLayer
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+			@param extensionName Extension name of the file-type.
+			@return ApiApplicationsGetApplicationFtaRequest
+	*/
+	ApplicationsGetApplicationFta(ctx context.Context, nameOrId string, extensionName string) ApiApplicationsGetApplicationFtaRequest
+
+	// ApplicationsGetApplicationFtaExecute executes the request
+	//  @return FtaResponseModel
+	ApplicationsGetApplicationFtaExecute(r ApiApplicationsGetApplicationFtaRequest) (*FtaResponseModel, *http.Response, error)
+
+	/*
+			ApplicationsGetApplicationFtas Get all file-types for an application.
+
+			Get the file-type associations for an application.  This is a list of all file
+		types which are currently associated with the application, plus all imported
+		file types that are related to the application's command line executable.
+		-------
+		This API is only valid for applications where
+		ApplicationType is
+		HostedOnDesktop,
+		AppV, or
+		AppLibraryAppV, or
+		Msix, or
+		AppAttach, or
+		FlexApp, or
+		ElasticAppLayer
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+			@return ApiApplicationsGetApplicationFtasRequest
+	*/
+	ApplicationsGetApplicationFtas(ctx context.Context, nameOrId string) ApiApplicationsGetApplicationFtasRequest
+
+	// ApplicationsGetApplicationFtasExecute executes the request
+	//  @return FtaResponseModelCollection
+	ApplicationsGetApplicationFtasExecute(r ApiApplicationsGetApplicationFtasRequest) (*FtaResponseModelCollection, *http.Response, error)
+
+	/*
+			ApplicationsGetApplicationRecommendName Get an application's recommend name.
+
+			Get an application's recommend name.
+		This API will check the application name is already in use or not.
+		if application Folder is specified, This API will check the application name in the application folder.
+		If it's in use, a new name will be suggested.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+			@return ApiApplicationsGetApplicationRecommendNameRequest
+	*/
+	ApplicationsGetApplicationRecommendName(ctx context.Context, nameOrId string) ApiApplicationsGetApplicationRecommendNameRequest
+
+	// ApplicationsGetApplicationRecommendNameExecute executes the request
+	//  @return string
+	ApplicationsGetApplicationRecommendNameExecute(r ApiApplicationsGetApplicationRecommendNameRequest) (string, *http.Response, error)
+
+	/*
+		ApplicationsGetApplicationSessions Get sessions in which the application is currently running.
+
+		Get the sessions in which the application is currently running.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+		@return ApiApplicationsGetApplicationSessionsRequest
+	*/
+	ApplicationsGetApplicationSessions(ctx context.Context, nameOrId string) ApiApplicationsGetApplicationSessionsRequest
+
+	// ApplicationsGetApplicationSessionsExecute executes the request
+	//  @return SessionResponseModelCollection
+	ApplicationsGetApplicationSessionsExecute(r ApiApplicationsGetApplicationSessionsRequest) (*SessionResponseModelCollection, *http.Response, error)
+
+	/*
+			ApplicationsGetApplicationTags Get tags associated with an application.
+
+			Get tags associated with an application.  This includes tags which are
+		directly associated with the application, as well as tags associated with
+		delivery groups, machines, or application groups that are associated with the
+		application.  To find only tags directly associated with the application,
+		filter the results to those with
+		NumApplications equal to `1`.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+			@return ApiApplicationsGetApplicationTagsRequest
+	*/
+	ApplicationsGetApplicationTags(ctx context.Context, nameOrId string) ApiApplicationsGetApplicationTagsRequest
+
+	// ApplicationsGetApplicationTagsExecute executes the request
+	//  @return TagResponseModelCollection
+	ApplicationsGetApplicationTagsExecute(r ApiApplicationsGetApplicationTagsRequest) (*TagResponseModelCollection, *http.Response, error)
+
+	/*
+		ApplicationsGetApplications Get all applications.
+
+		Get all applications in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiApplicationsGetApplicationsRequest
+	*/
+	ApplicationsGetApplications(ctx context.Context) ApiApplicationsGetApplicationsRequest
+
+	// ApplicationsGetApplicationsExecute executes the request
+	//  @return ApplicationResponseModelCollection
+	ApplicationsGetApplicationsExecute(r ApiApplicationsGetApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+		ApplicationsGetApplicationsV2 The V2 of get all applications.
+
+		Get all applications in the site with default response fields if no fields parameters specified.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiApplicationsGetApplicationsV2Request
+	*/
+	ApplicationsGetApplicationsV2(ctx context.Context) ApiApplicationsGetApplicationsV2Request
+
+	// ApplicationsGetApplicationsV2Execute executes the request
+	//  @return ApplicationResponseModelCollection
+	ApplicationsGetApplicationsV2Execute(r ApiApplicationsGetApplicationsV2Request) (*ApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+			ApplicationsImportFileTypes Import file types for the application.
+
+			Import file types.  The specified application guides the system to import the
+		file types from a machine within one of the delivery groups to which the
+		application is associated.  Note that all file types present on the chosen
+		machine are imported.  For this reason, importing file types for one
+		application may alter the imported file types for other applications.
+		This API is only valid for applications where
+		ApplicationType is
+		HostedOnDesktop.  App-V applications do not
+		require their file types to be imported.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+			@return ApiApplicationsImportFileTypesRequest
+	*/
+	ApplicationsImportFileTypes(ctx context.Context, nameOrId string) ApiApplicationsImportFileTypesRequest
+
+	// ApplicationsImportFileTypesExecute executes the request
+	ApplicationsImportFileTypesExecute(r ApiApplicationsImportFileTypesRequest) (*http.Response, error)
+
+	/*
+		ApplicationsPatchApplication Modify an application.
+
+		Patch an application.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+		@return ApiApplicationsPatchApplicationRequest
+	*/
+	ApplicationsPatchApplication(ctx context.Context, nameOrId string) ApiApplicationsPatchApplicationRequest
+
+	// ApplicationsPatchApplicationExecute executes the request
+	ApplicationsPatchApplicationExecute(r ApiApplicationsPatchApplicationRequest) (*http.Response, error)
+
+	/*
+		ApplicationsRefreshAppVApplications Refresh the AppV Applications.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiApplicationsRefreshAppVApplicationsRequest
+	*/
+	ApplicationsRefreshAppVApplications(ctx context.Context) ApiApplicationsRefreshAppVApplicationsRequest
+
+	// ApplicationsRefreshAppVApplicationsExecute executes the request
+	//  @return ApplicationResponseModelCollection
+	ApplicationsRefreshAppVApplicationsExecute(r ApiApplicationsRefreshAppVApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+			ApplicationsRemoveApplicationTags Remove a tag from an application.
+
+			Remove a tag from an application.  Does not delete the tag, only its
+		association to the application.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+			@param tagNameOrId Name or ID of the tag to remove.
+			@return ApiApplicationsRemoveApplicationTagsRequest
+	*/
+	ApplicationsRemoveApplicationTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiApplicationsRemoveApplicationTagsRequest
+
+	// ApplicationsRemoveApplicationTagsExecute executes the request
+	ApplicationsRemoveApplicationTagsExecute(r ApiApplicationsRemoveApplicationTagsRequest) (*http.Response, error)
+
+	/*
+		ApplicationsSearchStartMenuApplications Search Start Menu Applications.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiApplicationsSearchStartMenuApplicationsRequest
+	*/
+	ApplicationsSearchStartMenuApplications(ctx context.Context) ApiApplicationsSearchStartMenuApplicationsRequest
+
+	// ApplicationsSearchStartMenuApplicationsExecute executes the request
+	//  @return StartMenuApplicationResponseModelCollection
+	ApplicationsSearchStartMenuApplicationsExecute(r ApiApplicationsSearchStartMenuApplicationsRequest) (*StartMenuApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+		ApplicationsSetApplicationTags Set tags associated with an application.
+
+		Set tags associated with an application.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+		@return ApiApplicationsSetApplicationTagsRequest
+	*/
+	ApplicationsSetApplicationTags(ctx context.Context, nameOrId string) ApiApplicationsSetApplicationTagsRequest
+
+	// ApplicationsSetApplicationTagsExecute executes the request
+	ApplicationsSetApplicationTagsExecute(r ApiApplicationsSetApplicationTagsRequest) (*http.Response, error)
+}
+
 // ApplicationsAPIsDAASService ApplicationsAPIsDAAS service
 type ApplicationsAPIsDAASService service
 
 type ApiApplicationsAddApplicationTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -336,7 +758,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsAddApplicationTagsExecute(r Ap
 
 type ApiApplicationsAddApplicationsRequest struct {
 	ctx                         context.Context
-	ApiService                  *ApplicationsAPIsDAASService
+	ApiService                  ApplicationsAPIsDAAS
 	citrixCustomerId            *string
 	citrixInstanceId            *string
 	addApplicationsRequestModel *AddApplicationsRequestModel
@@ -640,7 +1062,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsAddApplicationsExecute(r ApiAp
 
 type ApiApplicationsCheckApplicationExistsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	name                string
@@ -912,7 +1334,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsCheckApplicationExistsExecute(
 
 type ApiApplicationsDeleteApplicationRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1197,7 +1619,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsDeleteApplicationExecute(r Api
 
 type ApiApplicationsDisableApplicationFtaRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1492,7 +1914,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsDisableApplicationFtaExecute(r
 
 type ApiApplicationsDoApplicationSearchRequest struct {
 	ctx                           context.Context
-	ApiService                    *ApplicationsAPIsDAASService
+	ApiService                    ApplicationsAPIsDAAS
 	citrixCustomerId              *string
 	citrixInstanceId              *string
 	applicationSearchRequestModel *ApplicationSearchRequestModel
@@ -1839,7 +2261,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsDoApplicationSearchExecute(r A
 
 type ApiApplicationsDuplicateApplicationRequest struct {
 	ctx                              context.Context
-	ApiService                       *ApplicationsAPIsDAASService
+	ApiService                       ApplicationsAPIsDAAS
 	citrixCustomerId                 *string
 	citrixInstanceId                 *string
 	nameOrId                         string
@@ -2177,7 +2599,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsDuplicateApplicationExecute(r 
 
 type ApiApplicationsEnableApplicationFtaRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2515,7 +2937,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsEnableApplicationFtaExecute(r 
 
 type ApiApplicationsGetApplicationRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2820,7 +3242,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsGetApplicationExecute(r ApiApp
 
 type ApiApplicationsGetApplicationAdministratorsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3124,7 +3546,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsGetApplicationAdministratorsEx
 
 type ApiApplicationsGetApplicationApplicationGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3441,7 +3863,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsGetApplicationApplicationGroup
 
 type ApiApplicationsGetApplicationDeliveryGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3768,7 +4190,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsGetApplicationDeliveryGroupsEx
 
 type ApiApplicationsGetApplicationFtaRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4066,7 +4488,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsGetApplicationFtaExecute(r Api
 
 type ApiApplicationsGetApplicationFtasRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4388,7 +4810,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsGetApplicationFtasExecute(r Ap
 
 type ApiApplicationsGetApplicationRecommendNameRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4685,7 +5107,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsGetApplicationRecommendNameExe
 
 type ApiApplicationsGetApplicationSessionsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -5002,7 +5424,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsGetApplicationSessionsExecute(
 
 type ApiApplicationsGetApplicationTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -5301,7 +5723,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsGetApplicationTagsExecute(r Ap
 
 type ApiApplicationsGetApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -5623,7 +6045,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsGetApplicationsExecute(r ApiAp
 
 type ApiApplicationsGetApplicationsV2Request struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -5945,7 +6367,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsGetApplicationsV2Execute(r Api
 
 type ApiApplicationsImportFileTypesRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -6249,7 +6671,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsImportFileTypesExecute(r ApiAp
 
 type ApiApplicationsPatchApplicationRequest struct {
 	ctx                         context.Context
-	ApiService                  *ApplicationsAPIsDAASService
+	ApiService                  ApplicationsAPIsDAAS
 	citrixCustomerId            *string
 	citrixInstanceId            *string
 	nameOrId                    string
@@ -6557,7 +6979,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsPatchApplicationExecute(r ApiA
 
 type ApiApplicationsRefreshAppVApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -6837,7 +7259,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsRefreshAppVApplicationsExecute
 
 type ApiApplicationsRemoveApplicationTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -7127,7 +7549,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsRemoveApplicationTagsExecute(r
 
 type ApiApplicationsSearchStartMenuApplicationsRequest struct {
 	ctx                                     context.Context
-	ApiService                              *ApplicationsAPIsDAASService
+	ApiService                              ApplicationsAPIsDAAS
 	citrixCustomerId                        *string
 	citrixInstanceId                        *string
 	searchStartMenuApplicationsRequestModel *SearchStartMenuApplicationsRequestModel
@@ -7441,7 +7863,7 @@ func (a *ApplicationsAPIsDAASService) ApplicationsSearchStartMenuApplicationsExe
 
 type ApiApplicationsSetApplicationTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationsAPIsDAASService
+	ApiService          ApplicationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string

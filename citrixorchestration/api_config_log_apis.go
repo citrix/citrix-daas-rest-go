@@ -19,12 +19,154 @@ import (
 	"strings"
 )
 
+type ConfigLogAPIsDAAS interface {
+
+	/*
+		ConfigLogDeleteLogs Delete logging event logs.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiConfigLogDeleteLogsRequest
+	*/
+	ConfigLogDeleteLogs(ctx context.Context) ApiConfigLogDeleteLogsRequest
+
+	// ConfigLogDeleteLogsExecute executes the request
+	ConfigLogDeleteLogsExecute(r ApiConfigLogDeleteLogsRequest) (*http.Response, error)
+
+	/*
+		ConfigLogDoConfigLogSearch Perform an advanced search for configuration log entries.
+
+		Perform an advanced search for configuration log entries.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiConfigLogDoConfigLogSearchRequest
+	*/
+	ConfigLogDoConfigLogSearch(ctx context.Context) ApiConfigLogDoConfigLogSearchRequest
+
+	// ConfigLogDoConfigLogSearchExecute executes the request
+	//  @return LogOperationResponseModelCollection
+	ConfigLogDoConfigLogSearchExecute(r ApiConfigLogDoConfigLogSearchRequest) (*LogOperationResponseModelCollection, *http.Response, error)
+
+	/*
+		ConfigLogExportReportData Export logging report data in the format of csv/html/both.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiConfigLogExportReportDataRequest
+	*/
+	ConfigLogExportReportData(ctx context.Context) ApiConfigLogExportReportDataRequest
+
+	// ConfigLogExportReportDataExecute executes the request
+	//  @return CustomReportDataResponseModel
+	ConfigLogExportReportDataExecute(r ApiConfigLogExportReportDataRequest) (*CustomReportDataResponseModel, *http.Response, error)
+
+	/*
+		ConfigLogFetchExistingOperationLabels Fetch existing high level log operation labels.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiConfigLogFetchExistingOperationLabelsRequest
+	*/
+	ConfigLogFetchExistingOperationLabels(ctx context.Context) ApiConfigLogFetchExistingOperationLabelsRequest
+
+	// ConfigLogFetchExistingOperationLabelsExecute executes the request
+	//  @return []string
+	ConfigLogFetchExistingOperationLabelsExecute(r ApiConfigLogFetchExistingOperationLabelsRequest) ([]string, *http.Response, error)
+
+	/*
+		ConfigLogGetFirstLogDate Get first log date
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiConfigLogGetFirstLogDateRequest
+	*/
+	ConfigLogGetFirstLogDate(ctx context.Context) ApiConfigLogGetFirstLogDateRequest
+
+	// ConfigLogGetFirstLogDateExecute executes the request
+	//  @return string
+	ConfigLogGetFirstLogDateExecute(r ApiConfigLogGetFirstLogDateRequest) (string, *http.Response, error)
+
+	/*
+		ConfigLogGetLogSite Get logging site details.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiConfigLogGetLogSiteRequest
+	*/
+	ConfigLogGetLogSite(ctx context.Context) ApiConfigLogGetLogSiteRequest
+
+	// ConfigLogGetLogSiteExecute executes the request
+	//  @return LogSiteResponseModel
+	ConfigLogGetLogSiteExecute(r ApiConfigLogGetLogSiteRequest) (*LogSiteResponseModel, *http.Response, error)
+
+	/*
+		ConfigLogGetLowLevelOperations Get the detailed low level operations of a high level operation.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id id of specified high level operation
+		@return ApiConfigLogGetLowLevelOperationsRequest
+	*/
+	ConfigLogGetLowLevelOperations(ctx context.Context, id string) ApiConfigLogGetLowLevelOperationsRequest
+
+	// ConfigLogGetLowLevelOperationsExecute executes the request
+	//  @return LowLevelOperationResponseModelCollection
+	ConfigLogGetLowLevelOperationsExecute(r ApiConfigLogGetLowLevelOperationsRequest) (*LowLevelOperationResponseModelCollection, *http.Response, error)
+
+	/*
+		ConfigLogGetOperation Get a high level log operation.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the operation.
+		@return ApiConfigLogGetOperationRequest
+	*/
+	ConfigLogGetOperation(ctx context.Context, id string) ApiConfigLogGetOperationRequest
+
+	// ConfigLogGetOperationExecute executes the request
+	//  @return LogOperationResponseModel
+	ConfigLogGetOperationExecute(r ApiConfigLogGetOperationRequest) (*LogOperationResponseModel, *http.Response, error)
+
+	/*
+			ConfigLogGetOperations Get configuration log operations.
+
+			This requires the configuration logging database to be configured and enabled.
+		Results are returned in the order of most-recent to least-recent.
+		To specify more complicated search criteria, use DoConfigLogSearch.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiConfigLogGetOperationsRequest
+	*/
+	ConfigLogGetOperations(ctx context.Context) ApiConfigLogGetOperationsRequest
+
+	// ConfigLogGetOperationsExecute executes the request
+	//  @return LogOperationResponseModelCollection
+	ConfigLogGetOperationsExecute(r ApiConfigLogGetOperationsRequest) (*LogOperationResponseModelCollection, *http.Response, error)
+
+	/*
+		ConfigLogPatchOperation Update a high level log operation.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the operation.
+		@return ApiConfigLogPatchOperationRequest
+	*/
+	ConfigLogPatchOperation(ctx context.Context, id string) ApiConfigLogPatchOperationRequest
+
+	// ConfigLogPatchOperationExecute executes the request
+	ConfigLogPatchOperationExecute(r ApiConfigLogPatchOperationRequest) (*http.Response, error)
+
+	/*
+		ConfigLogSetLogSite Update logging site info.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiConfigLogSetLogSiteRequest
+	*/
+	ConfigLogSetLogSite(ctx context.Context) ApiConfigLogSetLogSiteRequest
+
+	// ConfigLogSetLogSiteExecute executes the request
+	//  @return LogSiteResponseModel
+	ConfigLogSetLogSiteExecute(r ApiConfigLogSetLogSiteRequest) (*LogSiteResponseModel, *http.Response, error)
+}
+
 // ConfigLogAPIsDAASService ConfigLogAPIsDAAS service
 type ConfigLogAPIsDAASService service
 
 type ApiConfigLogDeleteLogsRequest struct {
 	ctx                 context.Context
-	ApiService          *ConfigLogAPIsDAASService
+	ApiService          ConfigLogAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -313,7 +455,7 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDeleteLogsExecute(r ApiConfigLogDele
 
 type ApiConfigLogDoConfigLogSearchRequest struct {
 	ctx                            context.Context
-	ApiService                     *ConfigLogAPIsDAASService
+	ApiService                     ConfigLogAPIsDAAS
 	citrixCustomerId               *string
 	citrixInstanceId               *string
 	logOperationSearchRequestModel *LogOperationSearchRequestModel
@@ -659,7 +801,7 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearchExecute(r ApiConfig
 
 type ApiConfigLogExportReportDataRequest struct {
 	ctx                          context.Context
-	ApiService                   *ConfigLogAPIsDAASService
+	ApiService                   ConfigLogAPIsDAAS
 	citrixCustomerId             *string
 	citrixInstanceId             *string
 	customReportInfoRequestModel *CustomReportInfoRequestModel
@@ -973,7 +1115,7 @@ func (a *ConfigLogAPIsDAASService) ConfigLogExportReportDataExecute(r ApiConfigL
 
 type ApiConfigLogFetchExistingOperationLabelsRequest struct {
 	ctx                 context.Context
-	ApiService          *ConfigLogAPIsDAASService
+	ApiService          ConfigLogAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -1277,7 +1419,7 @@ func (a *ConfigLogAPIsDAASService) ConfigLogFetchExistingOperationLabelsExecute(
 
 type ApiConfigLogGetFirstLogDateRequest struct {
 	ctx                 context.Context
-	ApiService          *ConfigLogAPIsDAASService
+	ApiService          ConfigLogAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -1544,7 +1686,7 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetFirstLogDateExecute(r ApiConfigLo
 
 type ApiConfigLogGetLogSiteRequest struct {
 	ctx                 context.Context
-	ApiService          *ConfigLogAPIsDAASService
+	ApiService          ConfigLogAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -1811,7 +1953,7 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLogSiteExecute(r ApiConfigLogGetL
 
 type ApiConfigLogGetLowLevelOperationsRequest struct {
 	ctx                 context.Context
-	ApiService          *ConfigLogAPIsDAASService
+	ApiService          ConfigLogAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -2113,7 +2255,7 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLowLevelOperationsExecute(r ApiCo
 
 type ApiConfigLogGetOperationRequest struct {
 	ctx                 context.Context
-	ApiService          *ConfigLogAPIsDAASService
+	ApiService          ConfigLogAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -2395,7 +2537,7 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationExecute(r ApiConfigLogGe
 
 type ApiConfigLogGetOperationsRequest struct {
 	ctx                 context.Context
-	ApiService          *ConfigLogAPIsDAASService
+	ApiService          ConfigLogAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -2749,7 +2891,7 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationsExecute(r ApiConfigLogG
 
 type ApiConfigLogPatchOperationRequest struct {
 	ctx                       context.Context
-	ApiService                *ConfigLogAPIsDAASService
+	ApiService                ConfigLogAPIsDAAS
 	citrixCustomerId          *string
 	citrixInstanceId          *string
 	id                        string
@@ -3055,7 +3197,7 @@ func (a *ConfigLogAPIsDAASService) ConfigLogPatchOperationExecute(r ApiConfigLog
 
 type ApiConfigLogSetLogSiteRequest struct {
 	ctx                 context.Context
-	ApiService          *ConfigLogAPIsDAASService
+	ApiService          ConfigLogAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	logSiteRequestModel *LogSiteRequestModel

@@ -18,12 +18,27 @@ import (
 	"net/url"
 )
 
+type AboutAPIsDAAS interface {
+
+	/*
+		AboutGetAbout Get About info of this Orchestration instance.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAboutGetAboutRequest
+	*/
+	AboutGetAbout(ctx context.Context) ApiAboutGetAboutRequest
+
+	// AboutGetAboutExecute executes the request
+	//  @return AboutModel
+	AboutGetAboutExecute(r ApiAboutGetAboutRequest) (*AboutModel, *http.Response, error)
+}
+
 // AboutAPIsDAASService AboutAPIsDAAS service
 type AboutAPIsDAASService service
 
 type ApiAboutGetAboutRequest struct {
 	ctx                 context.Context
-	ApiService          *AboutAPIsDAASService
+	ApiService          AboutAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string

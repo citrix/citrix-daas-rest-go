@@ -19,12 +19,202 @@ import (
 	"strings"
 )
 
+type SitesAPIsDAAS interface {
+
+	/*
+		SitesCheckObjectNameExists Check for the existence of an object.
+
+		If the name exists, this returns true; otherwise, it returns false.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSitesCheckObjectNameExistsRequest
+	*/
+	SitesCheckObjectNameExists(ctx context.Context) ApiSitesCheckObjectNameExistsRequest
+
+	// SitesCheckObjectNameExistsExecute executes the request
+	//  @return bool
+	SitesCheckObjectNameExistsExecute(r ApiSitesCheckObjectNameExistsRequest) (bool, *http.Response, error)
+
+	/*
+		SitesGetMultipleRemotePCAssignments Get multi-user auto-assignment for Remote PC Access.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the site.
+		@return ApiSitesGetMultipleRemotePCAssignmentsRequest
+	*/
+	SitesGetMultipleRemotePCAssignments(ctx context.Context, nameOrId string) ApiSitesGetMultipleRemotePCAssignmentsRequest
+
+	// SitesGetMultipleRemotePCAssignmentsExecute executes the request
+	//  @return bool
+	SitesGetMultipleRemotePCAssignmentsExecute(r ApiSitesGetMultipleRemotePCAssignmentsRequest) (bool, *http.Response, error)
+
+	/*
+		SitesGetSessionsTrend Get the sessions trend
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The site name or ID.
+		@return ApiSitesGetSessionsTrendRequest
+	*/
+	SitesGetSessionsTrend(ctx context.Context, nameOrId string) ApiSitesGetSessionsTrendRequest
+
+	// SitesGetSessionsTrendExecute executes the request
+	//  @return SessionsTrendResponseModel
+	SitesGetSessionsTrendExecute(r ApiSitesGetSessionsTrendRequest) (*SessionsTrendResponseModel, *http.Response, error)
+
+	/*
+		SitesGetSite Get the details about a single site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the site.
+		@return ApiSitesGetSiteRequest
+	*/
+	SitesGetSite(ctx context.Context, nameOrId string) ApiSitesGetSiteRequest
+
+	// SitesGetSiteExecute executes the request
+	//  @return SiteDetailResponseModel
+	SitesGetSiteExecute(r ApiSitesGetSiteRequest) (*SiteDetailResponseModel, *http.Response, error)
+
+	/*
+		SitesGetSiteErrorWarning Get number of errors and warnings for the specified objects in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the site.
+		@return ApiSitesGetSiteErrorWarningRequest
+	*/
+	SitesGetSiteErrorWarning(ctx context.Context, nameOrId string) ApiSitesGetSiteErrorWarningRequest
+
+	// SitesGetSiteErrorWarningExecute executes the request
+	//  @return ErrorWarningResponseModel
+	SitesGetSiteErrorWarningExecute(r ApiSitesGetSiteErrorWarningRequest) (*ErrorWarningResponseModel, *http.Response, error)
+
+	/*
+		SitesGetSiteMisconfigurationReport Get the misconfiguration report.
+
+		Get the misconfiguration report />.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId ID of the site.
+		@return ApiSitesGetSiteMisconfigurationReportRequest
+	*/
+	SitesGetSiteMisconfigurationReport(ctx context.Context, nameOrId string) ApiSitesGetSiteMisconfigurationReportRequest
+
+	// SitesGetSiteMisconfigurationReportExecute executes the request
+	//  @return string
+	SitesGetSiteMisconfigurationReportExecute(r ApiSitesGetSiteMisconfigurationReportRequest) (string, *http.Response, error)
+
+	/*
+		SitesGetSiteSettings Get the settings for the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the site.
+		@return ApiSitesGetSiteSettingsRequest
+	*/
+	SitesGetSiteSettings(ctx context.Context, nameOrId string) ApiSitesGetSiteSettingsRequest
+
+	// SitesGetSiteSettingsExecute executes the request
+	//  @return SiteSettingsResponseModel
+	SitesGetSiteSettingsExecute(r ApiSitesGetSiteSettingsRequest) (*SiteSettingsResponseModel, *http.Response, error)
+
+	/*
+		SitesGetSiteStatus Get the status of a site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the site.
+		@return ApiSitesGetSiteStatusRequest
+	*/
+	SitesGetSiteStatus(ctx context.Context, nameOrId string) ApiSitesGetSiteStatusRequest
+
+	// SitesGetSiteStatusExecute executes the request
+	//  @return SiteStatusResponseModel
+	SitesGetSiteStatusExecute(r ApiSitesGetSiteStatusRequest) (*SiteStatusResponseModel, *http.Response, error)
+
+	/*
+		SitesGetSiteTestReport Get the most recent test report.
+
+		Get the test report from the last run of TestSite.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the site.
+		@return ApiSitesGetSiteTestReportRequest
+	*/
+	SitesGetSiteTestReport(ctx context.Context, nameOrId string) ApiSitesGetSiteTestReportRequest
+
+	// SitesGetSiteTestReportExecute executes the request
+	//  @return TestReportResponseModel
+	SitesGetSiteTestReportExecute(r ApiSitesGetSiteTestReportRequest) (*TestReportResponseModel, *http.Response, error)
+
+	/*
+		SitesGetSites Get the list of sites that are available to the customer and visible to the admin.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSitesGetSitesRequest
+	*/
+	SitesGetSites(ctx context.Context) ApiSitesGetSitesRequest
+
+	// SitesGetSitesExecute executes the request
+	//  @return SiteResponseModelCollection
+	SitesGetSitesExecute(r ApiSitesGetSitesRequest) (*SiteResponseModelCollection, *http.Response, error)
+
+	/*
+		SitesGetUpgradePackageVersions Get the latest released VDA upgrade package versions in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the site.
+		@return ApiSitesGetUpgradePackageVersionsRequest
+	*/
+	SitesGetUpgradePackageVersions(ctx context.Context, nameOrId string) ApiSitesGetUpgradePackageVersionsRequest
+
+	// SitesGetUpgradePackageVersionsExecute executes the request
+	//  @return UpgradePackageVersionResponseModelCollection
+	SitesGetUpgradePackageVersionsExecute(r ApiSitesGetUpgradePackageVersionsRequest) (*UpgradePackageVersionResponseModelCollection, *http.Response, error)
+
+	/*
+		SitesPatchMultipleRemotePCAssignments Update multi-user auto-assignment for Remote PC Access.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the site.
+		@return ApiSitesPatchMultipleRemotePCAssignmentsRequest
+	*/
+	SitesPatchMultipleRemotePCAssignments(ctx context.Context, nameOrId string) ApiSitesPatchMultipleRemotePCAssignmentsRequest
+
+	// SitesPatchMultipleRemotePCAssignmentsExecute executes the request
+	SitesPatchMultipleRemotePCAssignmentsExecute(r ApiSitesPatchMultipleRemotePCAssignmentsRequest) (*http.Response, error)
+
+	/*
+		SitesPatchSiteSettings Update the site settings.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the site.
+		@return ApiSitesPatchSiteSettingsRequest
+	*/
+	SitesPatchSiteSettings(ctx context.Context, nameOrId string) ApiSitesPatchSiteSettingsRequest
+
+	// SitesPatchSiteSettingsExecute executes the request
+	SitesPatchSiteSettingsExecute(r ApiSitesPatchSiteSettingsRequest) (*http.Response, error)
+
+	/*
+			SitesTestSite Run tests on a site and create a test report.
+
+			Run tests on a site and create a test report.  Obtain the most recent report
+		from GetSiteTestReport.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the site.
+			@return ApiSitesTestSiteRequest
+	*/
+	SitesTestSite(ctx context.Context, nameOrId string) ApiSitesTestSiteRequest
+
+	// SitesTestSiteExecute executes the request
+	//  @return SiteTestResponseModel
+	SitesTestSiteExecute(r ApiSitesTestSiteRequest) (*SiteTestResponseModel, *http.Response, error)
+}
+
 // SitesAPIsDAASService SitesAPIsDAAS service
 type SitesAPIsDAASService service
 
 type ApiSitesCheckObjectNameExistsRequest struct {
 	ctx                               context.Context
-	ApiService                        *SitesAPIsDAASService
+	ApiService                        SitesAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	checkObjectNameExistsRequestModel *CheckObjectNameExistsRequestModel
@@ -327,7 +517,7 @@ func (a *SitesAPIsDAASService) SitesCheckObjectNameExistsExecute(r ApiSitesCheck
 
 type ApiSitesGetMultipleRemotePCAssignmentsRequest struct {
 	ctx                 context.Context
-	ApiService          *SitesAPIsDAASService
+	ApiService          SitesAPIsDAAS
 	citrixCustomerId    *string
 	nameOrId            string
 	authorization       *string
@@ -588,7 +778,7 @@ func (a *SitesAPIsDAASService) SitesGetMultipleRemotePCAssignmentsExecute(r ApiS
 
 type ApiSitesGetSessionsTrendRequest struct {
 	ctx                 context.Context
-	ApiService          *SitesAPIsDAASService
+	ApiService          SitesAPIsDAAS
 	citrixCustomerId    *string
 	nameOrId            string
 	startDate           *string
@@ -882,7 +1072,7 @@ func (a *SitesAPIsDAASService) SitesGetSessionsTrendExecute(r ApiSitesGetSession
 
 type ApiSitesGetSiteRequest struct {
 	ctx                 context.Context
-	ApiService          *SitesAPIsDAASService
+	ApiService          SitesAPIsDAAS
 	citrixCustomerId    *string
 	nameOrId            string
 	authorization       *string
@@ -1143,7 +1333,7 @@ func (a *SitesAPIsDAASService) SitesGetSiteExecute(r ApiSitesGetSiteRequest) (*S
 
 type ApiSitesGetSiteErrorWarningRequest struct {
 	ctx                 context.Context
-	ApiService          *SitesAPIsDAASService
+	ApiService          SitesAPIsDAAS
 	citrixCustomerId    *string
 	nameOrId            string
 	authorization       *string
@@ -1427,7 +1617,7 @@ func (a *SitesAPIsDAASService) SitesGetSiteErrorWarningExecute(r ApiSitesGetSite
 
 type ApiSitesGetSiteMisconfigurationReportRequest struct {
 	ctx                 context.Context
-	ApiService          *SitesAPIsDAASService
+	ApiService          SitesAPIsDAAS
 	citrixCustomerId    *string
 	nameOrId            string
 	authorization       *string
@@ -1690,7 +1880,7 @@ func (a *SitesAPIsDAASService) SitesGetSiteMisconfigurationReportExecute(r ApiSi
 
 type ApiSitesGetSiteSettingsRequest struct {
 	ctx                 context.Context
-	ApiService          *SitesAPIsDAASService
+	ApiService          SitesAPIsDAAS
 	citrixCustomerId    *string
 	nameOrId            string
 	authorization       *string
@@ -1961,7 +2151,7 @@ func (a *SitesAPIsDAASService) SitesGetSiteSettingsExecute(r ApiSitesGetSiteSett
 
 type ApiSitesGetSiteStatusRequest struct {
 	ctx                 context.Context
-	ApiService          *SitesAPIsDAASService
+	ApiService          SitesAPIsDAAS
 	citrixCustomerId    *string
 	nameOrId            string
 	authorization       *string
@@ -2235,7 +2425,7 @@ func (a *SitesAPIsDAASService) SitesGetSiteStatusExecute(r ApiSitesGetSiteStatus
 
 type ApiSitesGetSiteTestReportRequest struct {
 	ctx                 context.Context
-	ApiService          *SitesAPIsDAASService
+	ApiService          SitesAPIsDAAS
 	citrixCustomerId    *string
 	nameOrId            string
 	authorization       *string
@@ -2498,7 +2688,7 @@ func (a *SitesAPIsDAASService) SitesGetSiteTestReportExecute(r ApiSitesGetSiteTe
 
 type ApiSitesGetSitesRequest struct {
 	ctx                 context.Context
-	ApiService          *SitesAPIsDAASService
+	ApiService          SitesAPIsDAAS
 	citrixCustomerId    *string
 	authorization       *string
 	citrixTransactionId *string
@@ -2744,7 +2934,7 @@ func (a *SitesAPIsDAASService) SitesGetSitesExecute(r ApiSitesGetSitesRequest) (
 
 type ApiSitesGetUpgradePackageVersionsRequest struct {
 	ctx                 context.Context
-	ApiService          *SitesAPIsDAASService
+	ApiService          SitesAPIsDAAS
 	citrixCustomerId    *string
 	nameOrId            string
 	authorization       *string
@@ -3005,7 +3195,7 @@ func (a *SitesAPIsDAASService) SitesGetUpgradePackageVersionsExecute(r ApiSitesG
 
 type ApiSitesPatchMultipleRemotePCAssignmentsRequest struct {
 	ctx                 context.Context
-	ApiService          *SitesAPIsDAASService
+	ApiService          SitesAPIsDAAS
 	citrixCustomerId    *string
 	nameOrId            string
 	allow               *bool
@@ -3265,7 +3455,7 @@ func (a *SitesAPIsDAASService) SitesPatchMultipleRemotePCAssignmentsExecute(r Ap
 
 type ApiSitesPatchSiteSettingsRequest struct {
 	ctx                          context.Context
-	ApiService                   *SitesAPIsDAASService
+	ApiService                   SitesAPIsDAAS
 	citrixCustomerId             *string
 	nameOrId                     string
 	editSiteSettingsRequestModel *EditSiteSettingsRequestModel
@@ -3537,7 +3727,7 @@ func (a *SitesAPIsDAASService) SitesPatchSiteSettingsExecute(r ApiSitesPatchSite
 
 type ApiSitesTestSiteRequest struct {
 	ctx                 context.Context
-	ApiService          *SitesAPIsDAASService
+	ApiService          SitesAPIsDAAS
 	citrixCustomerId    *string
 	nameOrId            string
 	authorization       *string

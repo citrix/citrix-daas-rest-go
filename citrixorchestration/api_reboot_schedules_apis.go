@@ -18,12 +18,29 @@ import (
 	"net/url"
 )
 
+type RebootSchedulesAPIsDAAS interface {
+
+	/*
+		RebootSchedulesGetRebootSchedules Get all reboot schedules in the site.
+
+		Get a list of reboot schedules from all delivery groups.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiRebootSchedulesGetRebootSchedulesRequest
+	*/
+	RebootSchedulesGetRebootSchedules(ctx context.Context) ApiRebootSchedulesGetRebootSchedulesRequest
+
+	// RebootSchedulesGetRebootSchedulesExecute executes the request
+	//  @return RebootScheduleResponseModelCollection
+	RebootSchedulesGetRebootSchedulesExecute(r ApiRebootSchedulesGetRebootSchedulesRequest) (*RebootScheduleResponseModelCollection, *http.Response, error)
+}
+
 // RebootSchedulesAPIsDAASService RebootSchedulesAPIsDAAS service
 type RebootSchedulesAPIsDAASService service
 
 type ApiRebootSchedulesGetRebootSchedulesRequest struct {
 	ctx                 context.Context
-	ApiService          *RebootSchedulesAPIsDAASService
+	ApiService          RebootSchedulesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string

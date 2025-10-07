@@ -19,12 +19,410 @@ import (
 	"strings"
 )
 
+type BackupRestoreAPIsDAAS interface {
+
+	/*
+		BackupRestoreCreateBackupSchedule Create backup schedule
+
+		Set / update existing backup schedule
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiBackupRestoreCreateBackupScheduleRequest
+	*/
+	BackupRestoreCreateBackupSchedule(ctx context.Context) ApiBackupRestoreCreateBackupScheduleRequest
+
+	// BackupRestoreCreateBackupScheduleExecute executes the request
+	//  @return BackupRestoreScheduleResponseModel
+	BackupRestoreCreateBackupScheduleExecute(r ApiBackupRestoreCreateBackupScheduleRequest) (*BackupRestoreScheduleResponseModel, *http.Response, error)
+
+	/*
+		BackupRestoreDeleteBackup Delete a backup
+
+		Deletes a backup; note that the backup cannot be pinned
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param backupName
+		@return ApiBackupRestoreDeleteBackupRequest
+	*/
+	BackupRestoreDeleteBackup(ctx context.Context, backupName string) ApiBackupRestoreDeleteBackupRequest
+
+	// BackupRestoreDeleteBackupExecute executes the request
+	BackupRestoreDeleteBackupExecute(r ApiBackupRestoreDeleteBackupRequest) (*http.Response, error)
+
+	/*
+		BackupRestoreDeleteBackupSchedule Delete backup schedule
+
+		Deletes a backup schedule
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param uid
+		@return ApiBackupRestoreDeleteBackupScheduleRequest
+	*/
+	BackupRestoreDeleteBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreDeleteBackupScheduleRequest
+
+	// BackupRestoreDeleteBackupScheduleExecute executes the request
+	BackupRestoreDeleteBackupScheduleExecute(r ApiBackupRestoreDeleteBackupScheduleRequest) (*http.Response, error)
+
+	/*
+		BackupRestoreDisableSingleBackupSchedule Disable single backup schedule
+
+		Disables a single backup schedule
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param uid
+		@return ApiBackupRestoreDisableSingleBackupScheduleRequest
+	*/
+	BackupRestoreDisableSingleBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreDisableSingleBackupScheduleRequest
+
+	// BackupRestoreDisableSingleBackupScheduleExecute executes the request
+	BackupRestoreDisableSingleBackupScheduleExecute(r ApiBackupRestoreDisableSingleBackupScheduleRequest) (*http.Response, error)
+
+	/*
+			BackupRestoreDoBackup Do backup
+
+			Do backup initiates the backup process; the actual process is asynchronous
+		Call the get status Rest API to determine the progress of the backup request
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiBackupRestoreDoBackupRequest
+	*/
+	BackupRestoreDoBackup(ctx context.Context) ApiBackupRestoreDoBackupRequest
+
+	// BackupRestoreDoBackupExecute executes the request
+	//  @return BackupDoBackupResponseModel
+	BackupRestoreDoBackupExecute(r ApiBackupRestoreDoBackupRequest) (*BackupDoBackupResponseModel, *http.Response, error)
+
+	/*
+		BackupRestoreDownloadSingleBackup Download single backup
+
+		Downloads a backup and any assicated failure zip files
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param backupName Name of the backp to download
+		@return ApiBackupRestoreDownloadSingleBackupRequest
+	*/
+	BackupRestoreDownloadSingleBackup(ctx context.Context, backupName string) ApiBackupRestoreDownloadSingleBackupRequest
+
+	// BackupRestoreDownloadSingleBackupExecute executes the request
+	//  @return BackupRestoreDownloadResponseModel
+	BackupRestoreDownloadSingleBackupExecute(r ApiBackupRestoreDownloadSingleBackupRequest) (*BackupRestoreDownloadResponseModel, *http.Response, error)
+
+	/*
+		BackupRestoreEnableSingleBackupSchedule Enable single backup schedule
+
+		Enables a single backup schedule
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param uid
+		@return ApiBackupRestoreEnableSingleBackupScheduleRequest
+	*/
+	BackupRestoreEnableSingleBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreEnableSingleBackupScheduleRequest
+
+	// BackupRestoreEnableSingleBackupScheduleExecute executes the request
+	BackupRestoreEnableSingleBackupScheduleExecute(r ApiBackupRestoreEnableSingleBackupScheduleRequest) (*http.Response, error)
+
+	/*
+		BackupRestoreGetAllBackupHistory Get all backup history
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiBackupRestoreGetAllBackupHistoryRequest
+	*/
+	BackupRestoreGetAllBackupHistory(ctx context.Context) ApiBackupRestoreGetAllBackupHistoryRequest
+
+	// BackupRestoreGetAllBackupHistoryExecute executes the request
+	//  @return BackupRestoreHistoryResponseModelCollection
+	BackupRestoreGetAllBackupHistoryExecute(r ApiBackupRestoreGetAllBackupHistoryRequest) (*BackupRestoreHistoryResponseModelCollection, *http.Response, error)
+
+	/*
+		BackupRestoreGetBackupHistoryForSpecificHistory Get backup history for a single specific backup
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param uid
+		@return ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest
+	*/
+	BackupRestoreGetBackupHistoryForSpecificHistory(ctx context.Context, uid string) ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest
+
+	// BackupRestoreGetBackupHistoryForSpecificHistoryExecute executes the request
+	//  @return BackupRestoreHistoryInformation
+	BackupRestoreGetBackupHistoryForSpecificHistoryExecute(r ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) (*BackupRestoreHistoryInformation, *http.Response, error)
+
+	/*
+		BackupRestoreGetBackupRestoreOptions Get backup / restore options
+
+		Get backup / restore options
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiBackupRestoreGetBackupRestoreOptionsRequest
+	*/
+	BackupRestoreGetBackupRestoreOptions(ctx context.Context) ApiBackupRestoreGetBackupRestoreOptionsRequest
+
+	// BackupRestoreGetBackupRestoreOptionsExecute executes the request
+	//  @return BackupRestoreOptionsResponseModel
+	BackupRestoreGetBackupRestoreOptionsExecute(r ApiBackupRestoreGetBackupRestoreOptionsRequest) (*BackupRestoreOptionsResponseModel, *http.Response, error)
+
+	/*
+		BackupRestoreGetBackupSchedule Get single backup schedule
+
+		Get backup schedules
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param uid
+		@return ApiBackupRestoreGetBackupScheduleRequest
+	*/
+	BackupRestoreGetBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreGetBackupScheduleRequest
+
+	// BackupRestoreGetBackupScheduleExecute executes the request
+	//  @return BackupRestoreScheduleModel
+	BackupRestoreGetBackupScheduleExecute(r ApiBackupRestoreGetBackupScheduleRequest) (*BackupRestoreScheduleModel, *http.Response, error)
+
+	/*
+		BackupRestoreGetBackupSchedules Get backup schedules
+
+		Get backup schedules
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiBackupRestoreGetBackupSchedulesRequest
+	*/
+	BackupRestoreGetBackupSchedules(ctx context.Context) ApiBackupRestoreGetBackupSchedulesRequest
+
+	// BackupRestoreGetBackupSchedulesExecute executes the request
+	//  @return BackupRestoreScheduleModelCollection
+	BackupRestoreGetBackupSchedulesExecute(r ApiBackupRestoreGetBackupSchedulesRequest) (*BackupRestoreScheduleModelCollection, *http.Response, error)
+
+	/*
+		BackupRestoreGetBackups Get backups
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiBackupRestoreGetBackupsRequest
+	*/
+	BackupRestoreGetBackups(ctx context.Context) ApiBackupRestoreGetBackupsRequest
+
+	// BackupRestoreGetBackupsExecute executes the request
+	//  @return BackupResponseModelCollection
+	BackupRestoreGetBackupsExecute(r ApiBackupRestoreGetBackupsRequest) (*BackupResponseModelCollection, *http.Response, error)
+
+	/*
+		BackupRestoreGetBlobStorage Get Blob Storage Information
+
+		On-Prem only
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiBackupRestoreGetBlobStorageRequest
+	*/
+	BackupRestoreGetBlobStorage(ctx context.Context) ApiBackupRestoreGetBlobStorageRequest
+
+	// BackupRestoreGetBlobStorageExecute executes the request
+	//  @return BackupRestoreStorageResponseModel
+	BackupRestoreGetBlobStorageExecute(r ApiBackupRestoreGetBlobStorageRequest) (*BackupRestoreStorageResponseModel, *http.Response, error)
+
+	/*
+		BackupRestoreGetComponentMembers Get backup Members
+
+		Gets a component's members in a saved backup
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param backupName Name of the backp to restore
+		@return ApiBackupRestoreGetComponentMembersRequest
+	*/
+	BackupRestoreGetComponentMembers(ctx context.Context, backupName string) ApiBackupRestoreGetComponentMembersRequest
+
+	// BackupRestoreGetComponentMembersExecute executes the request
+	//  @return BackupMembersResponseModelCollection
+	BackupRestoreGetComponentMembersExecute(r ApiBackupRestoreGetComponentMembersRequest) (*BackupMembersResponseModelCollection, *http.Response, error)
+
+	/*
+		BackupRestoreGetCurrentActionStatus Get backup / restore status
+
+		Get backup / restore status
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiBackupRestoreGetCurrentActionStatusRequest
+	*/
+	BackupRestoreGetCurrentActionStatus(ctx context.Context) ApiBackupRestoreGetCurrentActionStatusRequest
+
+	// BackupRestoreGetCurrentActionStatusExecute executes the request
+	//  @return BackupRestoreStatusResponseModel
+	BackupRestoreGetCurrentActionStatusExecute(r ApiBackupRestoreGetCurrentActionStatusRequest) (*BackupRestoreStatusResponseModel, *http.Response, error)
+
+	/*
+		BackupRestoreGetHistoryForSpecificBackup Get all backup history for specific backup
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param backupName
+		@return ApiBackupRestoreGetHistoryForSpecificBackupRequest
+	*/
+	BackupRestoreGetHistoryForSpecificBackup(ctx context.Context, backupName string) ApiBackupRestoreGetHistoryForSpecificBackupRequest
+
+	// BackupRestoreGetHistoryForSpecificBackupExecute executes the request
+	//  @return BackupRestoreHistoryResponseModelCollection
+	BackupRestoreGetHistoryForSpecificBackupExecute(r ApiBackupRestoreGetHistoryForSpecificBackupRequest) (*BackupRestoreHistoryResponseModelCollection, *http.Response, error)
+
+	/*
+		BackupRestoreGetInformation Get backup / restore information
+
+		Get backup / restore information
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiBackupRestoreGetInformationRequest
+	*/
+	BackupRestoreGetInformation(ctx context.Context) ApiBackupRestoreGetInformationRequest
+
+	// BackupRestoreGetInformationExecute executes the request
+	//  @return BackupRestoreInformationResponseModel
+	BackupRestoreGetInformationExecute(r ApiBackupRestoreGetInformationRequest) (*BackupRestoreInformationResponseModel, *http.Response, error)
+
+	/*
+		BackupRestoreGetResultLog Get result log
+
+		Gets a the result log from a failed action
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param backupName Name of the backp to restore
+		@return ApiBackupRestoreGetResultLogRequest
+	*/
+	BackupRestoreGetResultLog(ctx context.Context, backupName string) ApiBackupRestoreGetResultLogRequest
+
+	// BackupRestoreGetResultLogExecute executes the request
+	//  @return BackupRestoreResultLogResponseModel
+	BackupRestoreGetResultLogExecute(r ApiBackupRestoreGetResultLogRequest) (*BackupRestoreResultLogResponseModel, *http.Response, error)
+
+	/*
+		BackupRestoreModifyBackupSchedule Modify backup schedules
+
+		Set / update existing backup schedule
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param uid
+		@return ApiBackupRestoreModifyBackupScheduleRequest
+	*/
+	BackupRestoreModifyBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreModifyBackupScheduleRequest
+
+	// BackupRestoreModifyBackupScheduleExecute executes the request
+	//  @return BackupRestoreScheduleResponseModel
+	BackupRestoreModifyBackupScheduleExecute(r ApiBackupRestoreModifyBackupScheduleRequest) (*BackupRestoreScheduleResponseModel, *http.Response, error)
+
+	/*
+		BackupRestorePinSingleBackup Pin a backup
+
+		Pins a backup so it cannot be manually or automatically deleted
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param backupName
+		@return ApiBackupRestorePinSingleBackupRequest
+	*/
+	BackupRestorePinSingleBackup(ctx context.Context, backupName string) ApiBackupRestorePinSingleBackupRequest
+
+	// BackupRestorePinSingleBackupExecute executes the request
+	//  @return bool
+	BackupRestorePinSingleBackupExecute(r ApiBackupRestorePinSingleBackupRequest) (bool, *http.Response, error)
+
+	/*
+			BackupRestoreRestoreBackupToSite Restore a backup
+
+			Restore a backup initiates the restore process; the actual process is asynchronous
+		Call the get status Rest API to determine the progress of the restore request
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param backupName Name of the backp to restore
+			@return ApiBackupRestoreRestoreBackupToSiteRequest
+	*/
+	BackupRestoreRestoreBackupToSite(ctx context.Context, backupName string) ApiBackupRestoreRestoreBackupToSiteRequest
+
+	// BackupRestoreRestoreBackupToSiteExecute executes the request
+	//  @return BackupRestoreRestoreBackupResponseModel
+	BackupRestoreRestoreBackupToSiteExecute(r ApiBackupRestoreRestoreBackupToSiteRequest) (*BackupRestoreRestoreBackupResponseModel, *http.Response, error)
+
+	/*
+		BackupRestoreSetBackupRestoreOptions Set backup / restore options
+
+		Set backup / restore options
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiBackupRestoreSetBackupRestoreOptionsRequest
+	*/
+	BackupRestoreSetBackupRestoreOptions(ctx context.Context) ApiBackupRestoreSetBackupRestoreOptionsRequest
+
+	// BackupRestoreSetBackupRestoreOptionsExecute executes the request
+	//  @return BackupRestoreOptionsResponseModel
+	BackupRestoreSetBackupRestoreOptionsExecute(r ApiBackupRestoreSetBackupRestoreOptionsRequest) (*BackupRestoreOptionsResponseModel, *http.Response, error)
+
+	/*
+		BackupRestoreSetBlobStorage Set Blob Storage Information
+
+		On-Prem only
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiBackupRestoreSetBlobStorageRequest
+	*/
+	BackupRestoreSetBlobStorage(ctx context.Context) ApiBackupRestoreSetBlobStorageRequest
+
+	// BackupRestoreSetBlobStorageExecute executes the request
+	//  @return BackupRestoreValidateStorageResponseModel
+	BackupRestoreSetBlobStorageExecute(r ApiBackupRestoreSetBlobStorageRequest) (*BackupRestoreValidateStorageResponseModel, *http.Response, error)
+
+	/*
+		BackupRestoreSetCurrentActionStatus Set backup / restore status
+
+		Get backup / restore status
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiBackupRestoreSetCurrentActionStatusRequest
+	*/
+	BackupRestoreSetCurrentActionStatus(ctx context.Context) ApiBackupRestoreSetCurrentActionStatusRequest
+
+	// BackupRestoreSetCurrentActionStatusExecute executes the request
+	//  @return BackupRestoreStatusResponseModel
+	BackupRestoreSetCurrentActionStatusExecute(r ApiBackupRestoreSetCurrentActionStatusRequest) (*BackupRestoreStatusResponseModel, *http.Response, error)
+
+	/*
+		BackupRestoreUnpinSingleBackup Unpin a backup
+
+		Unpins a backup so it can be manually or automatically deleted
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param backupName
+		@return ApiBackupRestoreUnpinSingleBackupRequest
+	*/
+	BackupRestoreUnpinSingleBackup(ctx context.Context, backupName string) ApiBackupRestoreUnpinSingleBackupRequest
+
+	// BackupRestoreUnpinSingleBackupExecute executes the request
+	//  @return bool
+	BackupRestoreUnpinSingleBackupExecute(r ApiBackupRestoreUnpinSingleBackupRequest) (bool, *http.Response, error)
+
+	/*
+		BackupRestoreUpdateBckRstrHistoryNotes Update notes in history entry
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param uid History entry unique identifier
+		@return ApiBackupRestoreUpdateBckRstrHistoryNotesRequest
+	*/
+	BackupRestoreUpdateBckRstrHistoryNotes(ctx context.Context, uid int32) ApiBackupRestoreUpdateBckRstrHistoryNotesRequest
+
+	// BackupRestoreUpdateBckRstrHistoryNotesExecute executes the request
+	//  @return bool
+	BackupRestoreUpdateBckRstrHistoryNotesExecute(r ApiBackupRestoreUpdateBckRstrHistoryNotesRequest) (bool, *http.Response, error)
+
+	/*
+		BackupRestoreValidateStorage Validate Storage
+
+		On-Prem only
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiBackupRestoreValidateStorageRequest
+	*/
+	BackupRestoreValidateStorage(ctx context.Context) ApiBackupRestoreValidateStorageRequest
+
+	// BackupRestoreValidateStorageExecute executes the request
+	//  @return BackupRestoreValidateStorageResponseModel
+	BackupRestoreValidateStorageExecute(r ApiBackupRestoreValidateStorageRequest) (*BackupRestoreValidateStorageResponseModel, *http.Response, error)
+}
+
 // BackupRestoreAPIsDAASService BackupRestoreAPIsDAAS service
 type BackupRestoreAPIsDAASService service
 
 type ApiBackupRestoreCreateBackupScheduleRequest struct {
 	ctx                               context.Context
-	ApiService                        *BackupRestoreAPIsDAASService
+	ApiService                        BackupRestoreAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	backupRestoreScheduleRequestModel *BackupRestoreScheduleRequestModel
@@ -326,7 +724,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreCreateBackupScheduleExecute(
 
 type ApiBackupRestoreDeleteBackupRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	backupName          string
@@ -598,7 +996,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupExecute(r ApiBac
 
 type ApiBackupRestoreDeleteBackupScheduleRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	uid                 int32
@@ -870,7 +1268,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDeleteBackupScheduleExecute(
 
 type ApiBackupRestoreDisableSingleBackupScheduleRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	uid                 int32
@@ -1153,7 +1551,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDisableSingleBackupScheduleE
 
 type ApiBackupRestoreDoBackupRequest struct {
 	ctx                               context.Context
-	ApiService                        *BackupRestoreAPIsDAASService
+	ApiService                        BackupRestoreAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	backupRestoreDoBackupRequestModel *BackupRestoreDoBackupRequestModel
@@ -1456,7 +1854,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDoBackupExecute(r ApiBackupR
 
 type ApiBackupRestoreDownloadSingleBackupRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	backupName          string
@@ -1749,7 +2147,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreDownloadSingleBackupExecute(
 
 type ApiBackupRestoreEnableSingleBackupScheduleRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	uid                 int32
@@ -2032,7 +2430,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreEnableSingleBackupScheduleEx
 
 type ApiBackupRestoreGetAllBackupHistoryRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -2312,7 +2710,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetAllBackupHistoryExecute(r
 
 type ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	uid                 string
@@ -2607,7 +3005,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupHistoryForSpecificH
 
 type ApiBackupRestoreGetBackupRestoreOptionsRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -2876,7 +3274,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupRestoreOptionsExecu
 
 type ApiBackupRestoreGetBackupScheduleRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	uid                 int32
@@ -3160,7 +3558,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupScheduleExecute(r A
 
 type ApiBackupRestoreGetBackupSchedulesRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -3429,7 +3827,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupSchedulesExecute(r 
 
 type ApiBackupRestoreGetBackupsRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -3721,7 +4119,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBackupsExecute(r ApiBacku
 
 type ApiBackupRestoreGetBlobStorageRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -3990,7 +4388,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetBlobStorageExecute(r ApiB
 
 type ApiBackupRestoreGetComponentMembersRequest struct {
 	ctx                                         context.Context
-	ApiService                                  *BackupRestoreAPIsDAASService
+	ApiService                                  BackupRestoreAPIsDAAS
 	citrixCustomerId                            *string
 	citrixInstanceId                            *string
 	backupName                                  string
@@ -4319,7 +4717,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetComponentMembersExecute(r
 
 type ApiBackupRestoreGetCurrentActionStatusRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -4588,7 +4986,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetCurrentActionStatusExecut
 
 type ApiBackupRestoreGetHistoryForSpecificBackupRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	backupName          string
@@ -4883,7 +5281,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetHistoryForSpecificBackupE
 
 type ApiBackupRestoreGetInformationRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -5152,7 +5550,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetInformationExecute(r ApiB
 
 type ApiBackupRestoreGetResultLogRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	backupName          string
@@ -5459,7 +5857,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreGetResultLogExecute(r ApiBac
 
 type ApiBackupRestoreModifyBackupScheduleRequest struct {
 	ctx                               context.Context
-	ApiService                        *BackupRestoreAPIsDAASService
+	ApiService                        BackupRestoreAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	uid                               int32
@@ -5765,7 +6163,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreModifyBackupScheduleExecute(
 
 type ApiBackupRestorePinSingleBackupRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	backupName          string
@@ -6072,7 +6470,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestorePinSingleBackupExecute(r Api
 
 type ApiBackupRestoreRestoreBackupToSiteRequest struct {
 	ctx                                    context.Context
-	ApiService                             *BackupRestoreAPIsDAASService
+	ApiService                             BackupRestoreAPIsDAAS
 	citrixCustomerId                       *string
 	citrixInstanceId                       *string
 	backupName                             string
@@ -6390,7 +6788,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreRestoreBackupToSiteExecute(r
 
 type ApiBackupRestoreSetBackupRestoreOptionsRequest struct {
 	ctx                              context.Context
-	ApiService                       *BackupRestoreAPIsDAASService
+	ApiService                       BackupRestoreAPIsDAAS
 	citrixCustomerId                 *string
 	citrixInstanceId                 *string
 	backupRestoreOptionsRequestModel *BackupRestoreOptionsRequestModel
@@ -6692,7 +7090,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBackupRestoreOptionsExecu
 
 type ApiBackupRestoreSetBlobStorageRequest struct {
 	ctx                              context.Context
-	ApiService                       *BackupRestoreAPIsDAASService
+	ApiService                       BackupRestoreAPIsDAAS
 	citrixCustomerId                 *string
 	citrixInstanceId                 *string
 	backupRestoreStorageRequestModel *BackupRestoreStorageRequestModel
@@ -6994,7 +7392,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetBlobStorageExecute(r ApiB
 
 type ApiBackupRestoreSetCurrentActionStatusRequest struct {
 	ctx                             context.Context
-	ApiService                      *BackupRestoreAPIsDAASService
+	ApiService                      BackupRestoreAPIsDAAS
 	citrixCustomerId                *string
 	citrixInstanceId                *string
 	backupRestoreStatusRequestModel *BackupRestoreStatusRequestModel
@@ -7296,7 +7694,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreSetCurrentActionStatusExecut
 
 type ApiBackupRestoreUnpinSingleBackupRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	backupName          string
@@ -7591,7 +7989,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUnpinSingleBackupExecute(r A
 
 type ApiBackupRestoreUpdateBckRstrHistoryNotesRequest struct {
 	ctx                                  context.Context
-	ApiService                           *BackupRestoreAPIsDAASService
+	ApiService                           BackupRestoreAPIsDAAS
 	citrixCustomerId                     *string
 	citrixInstanceId                     *string
 	uid                                  int32
@@ -7907,7 +8305,7 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreUpdateBckRstrHistoryNotesExe
 
 type ApiBackupRestoreValidateStorageRequest struct {
 	ctx                 context.Context
-	ApiService          *BackupRestoreAPIsDAASService
+	ApiService          BackupRestoreAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string

@@ -19,12 +19,224 @@ import (
 	"strings"
 )
 
+type SessionsAPIsDAAS interface {
+
+	/*
+		SessionsDisconnectSession Disconnect a session.
+
+		Disconnect a session.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the session to disconnect.
+		@return ApiSessionsDisconnectSessionRequest
+	*/
+	SessionsDisconnectSession(ctx context.Context, id string) ApiSessionsDisconnectSessionRequest
+
+	// SessionsDisconnectSessionExecute executes the request
+	//  @return SessionResponseModel
+	SessionsDisconnectSessionExecute(r ApiSessionsDisconnectSessionRequest) (*SessionResponseModel, *http.Response, error)
+
+	/*
+			SessionsDoSessionSearch Perform an advanced search for sessions.
+
+			Perform an advanced search for sessions.  Note that some combinations
+		of search parameters may result in slow performance.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiSessionsDoSessionSearchRequest
+	*/
+	SessionsDoSessionSearch(ctx context.Context) ApiSessionsDoSessionSearchRequest
+
+	// SessionsDoSessionSearchExecute executes the request
+	//  @return SessionResponseModelCollection
+	SessionsDoSessionSearchExecute(r ApiSessionsDoSessionSearchRequest) (*SessionResponseModelCollection, *http.Response, error)
+
+	/*
+		SessionsGetSession Get details of a single session.
+
+		Get details of a single session.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the session.
+		@return ApiSessionsGetSessionRequest
+	*/
+	SessionsGetSession(ctx context.Context, id string) ApiSessionsGetSessionRequest
+
+	// SessionsGetSessionExecute executes the request
+	//  @return SessionResponseModel
+	SessionsGetSessionExecute(r ApiSessionsGetSessionRequest) (*SessionResponseModel, *http.Response, error)
+
+	/*
+		SessionsGetSessionApplications Get the list of applications running within a session.
+
+		Get the list of applications running within a session.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the session.
+		@return ApiSessionsGetSessionApplicationsRequest
+	*/
+	SessionsGetSessionApplications(ctx context.Context, id string) ApiSessionsGetSessionApplicationsRequest
+
+	// SessionsGetSessionApplicationsExecute executes the request
+	//  @return ApplicationResponseModelCollection
+	SessionsGetSessionApplicationsExecute(r ApiSessionsGetSessionApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+		SessionsGetSessionMachine Get the details of the machine on which a session is running.
+
+		Get the details of the machine on which a session is running.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the session.
+		@return ApiSessionsGetSessionMachineRequest
+	*/
+	SessionsGetSessionMachine(ctx context.Context, id string) ApiSessionsGetSessionMachineRequest
+
+	// SessionsGetSessionMachineExecute executes the request
+	//  @return MachineDetailResponseModel
+	SessionsGetSessionMachineExecute(r ApiSessionsGetSessionMachineRequest) (*MachineDetailResponseModel, *http.Response, error)
+
+	/*
+		SessionsGetSessionRecordingStatus get session recording status of a session.
+
+		get session recording status of a session.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSessionsGetSessionRecordingStatusRequest
+	*/
+	SessionsGetSessionRecordingStatus(ctx context.Context) ApiSessionsGetSessionRecordingStatusRequest
+
+	// SessionsGetSessionRecordingStatusExecute executes the request
+	//  @return SessionRecordingStatusResponseModel
+	SessionsGetSessionRecordingStatusExecute(r ApiSessionsGetSessionRecordingStatusRequest) (*SessionRecordingStatusResponseModel, *http.Response, error)
+
+	/*
+			SessionsGetSessions Get all sessions in the site.
+
+			Get all the sessions in the site.  Note that the response
+		may not contain the entire list of sessions; if this happens the
+		response will have a ContinuationToken
+		which, if passed, will resume retrieving results from the original
+		query.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiSessionsGetSessionsRequest
+	*/
+	SessionsGetSessions(ctx context.Context) ApiSessionsGetSessionsRequest
+
+	// SessionsGetSessionsExecute executes the request
+	//  @return SessionResponseModelCollection
+	SessionsGetSessionsExecute(r ApiSessionsGetSessionsRequest) (*SessionResponseModelCollection, *http.Response, error)
+
+	/*
+			SessionsGetSessionsV2 The V2 of get all sessions in the site.
+
+			Get all the sessions in the site with default response fields if no fields parameters specified.
+		Note that the response
+		may not contain the entire list of sessions; if this happens the
+		response will have a ContinuationToken
+		which, if passed, will resume retrieving results from the original
+		query.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiSessionsGetSessionsV2Request
+	*/
+	SessionsGetSessionsV2(ctx context.Context) ApiSessionsGetSessionsV2Request
+
+	// SessionsGetSessionsV2Execute executes the request
+	//  @return SessionResponseModelCollection
+	SessionsGetSessionsV2Execute(r ApiSessionsGetSessionsV2Request) (*SessionResponseModelCollection, *http.Response, error)
+
+	/*
+		SessionsHideSession Hide a session
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the session to hide or unhide.
+		@return ApiSessionsHideSessionRequest
+	*/
+	SessionsHideSession(ctx context.Context, id string) ApiSessionsHideSessionRequest
+
+	// SessionsHideSessionExecute executes the request
+	SessionsHideSessionExecute(r ApiSessionsHideSessionRequest) (*http.Response, error)
+
+	/*
+		SessionsLogoffSession Logoff a session.
+
+		Logoff a session.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the session to log off.
+		@return ApiSessionsLogoffSessionRequest
+	*/
+	SessionsLogoffSession(ctx context.Context, id string) ApiSessionsLogoffSessionRequest
+
+	// SessionsLogoffSessionExecute executes the request
+	SessionsLogoffSessionExecute(r ApiSessionsLogoffSessionRequest) (*http.Response, error)
+
+	/*
+		SessionsSendSessionMessage Send a message to a session.
+
+		Send a message to a session.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the session to send a message to.
+		@return ApiSessionsSendSessionMessageRequest
+	*/
+	SessionsSendSessionMessage(ctx context.Context, id string) ApiSessionsSendSessionMessageRequest
+
+	// SessionsSendSessionMessageExecute executes the request
+	//  @return SessionResponseModel
+	SessionsSendSessionMessageExecute(r ApiSessionsSendSessionMessageRequest) (*SessionResponseModel, *http.Response, error)
+
+	/*
+		SessionsStartSessionRecording start recording for a session.
+
+		start recording for a session.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the session.
+		@return ApiSessionsStartSessionRecordingRequest
+	*/
+	SessionsStartSessionRecording(ctx context.Context, id string) ApiSessionsStartSessionRecordingRequest
+
+	// SessionsStartSessionRecordingExecute executes the request
+	//  @return SessionResponseModel
+	SessionsStartSessionRecordingExecute(r ApiSessionsStartSessionRecordingRequest) (*SessionResponseModel, *http.Response, error)
+
+	/*
+		SessionsStopSessionRecording stop recording for a session.
+
+		stop recording for a session.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the session.
+		@return ApiSessionsStopSessionRecordingRequest
+	*/
+	SessionsStopSessionRecording(ctx context.Context, id string) ApiSessionsStopSessionRecordingRequest
+
+	// SessionsStopSessionRecordingExecute executes the request
+	//  @return SessionResponseModel
+	SessionsStopSessionRecordingExecute(r ApiSessionsStopSessionRecordingRequest) (*SessionResponseModel, *http.Response, error)
+
+	/*
+		SessionsUnhideSession Unhide a session
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the session to hide or unhide.
+		@return ApiSessionsUnhideSessionRequest
+	*/
+	SessionsUnhideSession(ctx context.Context, id string) ApiSessionsUnhideSessionRequest
+
+	// SessionsUnhideSessionExecute executes the request
+	SessionsUnhideSessionExecute(r ApiSessionsUnhideSessionRequest) (*http.Response, error)
+}
+
 // SessionsAPIsDAASService SessionsAPIsDAAS service
 type SessionsAPIsDAASService service
 
 type ApiSessionsDisconnectSessionRequest struct {
 	ctx                 context.Context
-	ApiService          *SessionsAPIsDAASService
+	ApiService          SessionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -332,7 +544,7 @@ func (a *SessionsAPIsDAASService) SessionsDisconnectSessionExecute(r ApiSessions
 
 type ApiSessionsDoSessionSearchRequest struct {
 	ctx                                 context.Context
-	ApiService                          *SessionsAPIsDAASService
+	ApiService                          SessionsAPIsDAAS
 	citrixCustomerId                    *string
 	citrixInstanceId                    *string
 	machineAndSessionSearchRequestModel *MachineAndSessionSearchRequestModel
@@ -699,7 +911,7 @@ func (a *SessionsAPIsDAASService) SessionsDoSessionSearchExecute(r ApiSessionsDo
 
 type ApiSessionsGetSessionRequest struct {
 	ctx                 context.Context
-	ApiService          *SessionsAPIsDAASService
+	ApiService          SessionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -993,7 +1205,7 @@ func (a *SessionsAPIsDAASService) SessionsGetSessionExecute(r ApiSessionsGetSess
 
 type ApiSessionsGetSessionApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *SessionsAPIsDAASService
+	ApiService          SessionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -1290,7 +1502,7 @@ func (a *SessionsAPIsDAASService) SessionsGetSessionApplicationsExecute(r ApiSes
 
 type ApiSessionsGetSessionMachineRequest struct {
 	ctx                 context.Context
-	ApiService          *SessionsAPIsDAASService
+	ApiService          SessionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -1574,7 +1786,7 @@ func (a *SessionsAPIsDAASService) SessionsGetSessionMachineExecute(r ApiSessions
 
 type ApiSessionsGetSessionRecordingStatusRequest struct {
 	ctx                 context.Context
-	ApiService          *SessionsAPIsDAASService
+	ApiService          SessionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  *string
@@ -1854,7 +2066,7 @@ func (a *SessionsAPIsDAASService) SessionsGetSessionRecordingStatusExecute(r Api
 
 type ApiSessionsGetSessionsRequest struct {
 	ctx                 context.Context
-	ApiService          *SessionsAPIsDAASService
+	ApiService          SessionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -2170,7 +2382,7 @@ func (a *SessionsAPIsDAASService) SessionsGetSessionsExecute(r ApiSessionsGetSes
 
 type ApiSessionsGetSessionsV2Request struct {
 	ctx                 context.Context
-	ApiService          *SessionsAPIsDAASService
+	ApiService          SessionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -2487,7 +2699,7 @@ func (a *SessionsAPIsDAASService) SessionsGetSessionsV2Execute(r ApiSessionsGetS
 
 type ApiSessionsHideSessionRequest struct {
 	ctx                 context.Context
-	ApiService          *SessionsAPIsDAASService
+	ApiService          SessionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -2781,7 +2993,7 @@ func (a *SessionsAPIsDAASService) SessionsHideSessionExecute(r ApiSessionsHideSe
 
 type ApiSessionsLogoffSessionRequest struct {
 	ctx                 context.Context
-	ApiService          *SessionsAPIsDAASService
+	ApiService          SessionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -3077,7 +3289,7 @@ func (a *SessionsAPIsDAASService) SessionsLogoffSessionExecute(r ApiSessionsLogo
 
 type ApiSessionsSendSessionMessageRequest struct {
 	ctx                     context.Context
-	ApiService              *SessionsAPIsDAASService
+	ApiService              SessionsAPIsDAAS
 	citrixCustomerId        *string
 	citrixInstanceId        *string
 	id                      string
@@ -3408,7 +3620,7 @@ func (a *SessionsAPIsDAASService) SessionsSendSessionMessageExecute(r ApiSession
 
 type ApiSessionsStartSessionRecordingRequest struct {
 	ctx                 context.Context
-	ApiService          *SessionsAPIsDAASService
+	ApiService          SessionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -3729,7 +3941,7 @@ func (a *SessionsAPIsDAASService) SessionsStartSessionRecordingExecute(r ApiSess
 
 type ApiSessionsStopSessionRecordingRequest struct {
 	ctx                 context.Context
-	ApiService          *SessionsAPIsDAASService
+	ApiService          SessionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -4037,7 +4249,7 @@ func (a *SessionsAPIsDAASService) SessionsStopSessionRecordingExecute(r ApiSessi
 
 type ApiSessionsUnhideSessionRequest struct {
 	ctx                 context.Context
-	ApiService          *SessionsAPIsDAASService
+	ApiService          SessionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string

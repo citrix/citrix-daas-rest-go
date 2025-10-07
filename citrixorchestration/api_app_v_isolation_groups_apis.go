@@ -19,12 +19,85 @@ import (
 	"strings"
 )
 
+type AppVIsolationGroupsAPIsDAAS interface {
+
+	/*
+		AppVIsolationGroupsCreateAppVIsolationGroup Create an App-V IsolationGroup in the site
+
+		Create requested App-V IsolationGroup in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest
+	*/
+	AppVIsolationGroupsCreateAppVIsolationGroup(ctx context.Context) ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest
+
+	// AppVIsolationGroupsCreateAppVIsolationGroupExecute executes the request
+	AppVIsolationGroupsCreateAppVIsolationGroupExecute(r ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) (*http.Response, error)
+
+	/*
+		AppVIsolationGroupsDeleteAppVIsolationGroup Delete an App-V IsolationGroup configured in the site.
+
+		Delete the specified App-V IsolationGroup .
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or UID of an isolationGroup.
+		@return ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest
+	*/
+	AppVIsolationGroupsDeleteAppVIsolationGroup(ctx context.Context, nameOrId string) ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest
+
+	// AppVIsolationGroupsDeleteAppVIsolationGroupExecute executes the request
+	AppVIsolationGroupsDeleteAppVIsolationGroupExecute(r ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) (*http.Response, error)
+
+	/*
+		AppVIsolationGroupsGetAppVIsolationGroup Get the specified App-V IsolationGroups configured in the site
+
+		Get the specified App-V IsolationGroups configured in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or UID of an isolationGroup.
+		@return ApiAppVIsolationGroupsGetAppVIsolationGroupRequest
+	*/
+	AppVIsolationGroupsGetAppVIsolationGroup(ctx context.Context, nameOrId string) ApiAppVIsolationGroupsGetAppVIsolationGroupRequest
+
+	// AppVIsolationGroupsGetAppVIsolationGroupExecute executes the request
+	//  @return AppVIsolationGroupResponseModel
+	AppVIsolationGroupsGetAppVIsolationGroupExecute(r ApiAppVIsolationGroupsGetAppVIsolationGroupRequest) (*AppVIsolationGroupResponseModel, *http.Response, error)
+
+	/*
+		AppVIsolationGroupsGetAppVIsolationGroups Get the App-V IsolationGroups configured in the site
+
+		Get all App-V IsolationGroups configured in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest
+	*/
+	AppVIsolationGroupsGetAppVIsolationGroups(ctx context.Context) ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest
+
+	// AppVIsolationGroupsGetAppVIsolationGroupsExecute executes the request
+	//  @return AppVIsolationGroupResponseModelCollection
+	AppVIsolationGroupsGetAppVIsolationGroupsExecute(r ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) (*AppVIsolationGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		AppVIsolationGroupsUpdateAppVIsolationGroup Update the App-V IsolationGroup configured in the site.
+
+		Update the requested App-V IsolationGroup in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or UID of an isolationGroup.
+		@return ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest
+	*/
+	AppVIsolationGroupsUpdateAppVIsolationGroup(ctx context.Context, nameOrId string) ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest
+
+	// AppVIsolationGroupsUpdateAppVIsolationGroupExecute executes the request
+	AppVIsolationGroupsUpdateAppVIsolationGroupExecute(r ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) (*http.Response, error)
+}
+
 // AppVIsolationGroupsAPIsDAASService AppVIsolationGroupsAPIsDAAS service
 type AppVIsolationGroupsAPIsDAASService service
 
 type ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest struct {
 	ctx                                  context.Context
-	ApiService                           *AppVIsolationGroupsAPIsDAASService
+	ApiService                           AppVIsolationGroupsAPIsDAAS
 	citrixCustomerId                     *string
 	citrixInstanceId                     *string
 	createAppVIsolationGroupRequestModel *CreateAppVIsolationGroupRequestModel
@@ -328,7 +401,7 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsCreateAppVIsolat
 
 type ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVIsolationGroupsAPIsDAASService
+	ApiService          AppVIsolationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -613,7 +686,7 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsDeleteAppVIsolat
 
 type ApiAppVIsolationGroupsGetAppVIsolationGroupRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVIsolationGroupsAPIsDAASService
+	ApiService          AppVIsolationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -910,7 +983,7 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 
 type ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVIsolationGroupsAPIsDAASService
+	ApiService          AppVIsolationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -1191,7 +1264,7 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 
 type ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest struct {
 	ctx                                  context.Context
-	ApiService                           *AppVIsolationGroupsAPIsDAASService
+	ApiService                           AppVIsolationGroupsAPIsDAAS
 	citrixCustomerId                     *string
 	citrixInstanceId                     *string
 	nameOrId                             string

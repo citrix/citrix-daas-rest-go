@@ -18,12 +18,51 @@ import (
 	"net/url"
 )
 
+type TrustAPIsDAAS interface {
+
+	/*
+		TrustExchangeToken Exchange the FMA token by using the domain credential. Basic authentication required for current Web Api.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiTrustExchangeTokenRequest
+	*/
+	TrustExchangeToken(ctx context.Context) ApiTrustExchangeTokenRequest
+
+	// TrustExchangeTokenExecute executes the request
+	//  @return AuthTokenResponseModel
+	TrustExchangeTokenExecute(r ApiTrustExchangeTokenRequest) (*AuthTokenResponseModel, *http.Response, error)
+
+	/*
+		TrustGetBearerTokenWithWindowsAuthentication Exchange the FMA token via Windows Authentication. Kerberos or NTLM authentication required for current Web Api.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiTrustGetBearerTokenWithWindowsAuthenticationRequest
+	*/
+	TrustGetBearerTokenWithWindowsAuthentication(ctx context.Context) ApiTrustGetBearerTokenWithWindowsAuthenticationRequest
+
+	// TrustGetBearerTokenWithWindowsAuthenticationExecute executes the request
+	//  @return AuthTokenResponseModel
+	TrustGetBearerTokenWithWindowsAuthenticationExecute(r ApiTrustGetBearerTokenWithWindowsAuthenticationRequest) (*AuthTokenResponseModel, *http.Response, error)
+
+	/*
+		TrustRefreshToken Refresh the auth token.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiTrustRefreshTokenRequest
+	*/
+	TrustRefreshToken(ctx context.Context) ApiTrustRefreshTokenRequest
+
+	// TrustRefreshTokenExecute executes the request
+	//  @return AuthTokenResponseModel
+	TrustRefreshTokenExecute(r ApiTrustRefreshTokenRequest) (*AuthTokenResponseModel, *http.Response, error)
+}
+
 // TrustAPIsDAASService TrustAPIsDAAS service
 type TrustAPIsDAASService service
 
 type ApiTrustExchangeTokenRequest struct {
 	ctx                 context.Context
-	ApiService          *TrustAPIsDAASService
+	ApiService          TrustAPIsDAAS
 	citrixCustomerId    *string
 	authorization       *string
 	citrixTransactionId *string
@@ -280,7 +319,7 @@ func (a *TrustAPIsDAASService) TrustExchangeTokenExecute(r ApiTrustExchangeToken
 
 type ApiTrustGetBearerTokenWithWindowsAuthenticationRequest struct {
 	ctx                 context.Context
-	ApiService          *TrustAPIsDAASService
+	ApiService          TrustAPIsDAAS
 	citrixCustomerId    *string
 	authorization       *string
 	citrixTransactionId *string
@@ -526,7 +565,7 @@ func (a *TrustAPIsDAASService) TrustGetBearerTokenWithWindowsAuthenticationExecu
 
 type ApiTrustRefreshTokenRequest struct {
 	ctx                 context.Context
-	ApiService          *TrustAPIsDAASService
+	ApiService          TrustAPIsDAAS
 	citrixCustomerId    *string
 	authorization       *string
 	citrixTransactionId *string

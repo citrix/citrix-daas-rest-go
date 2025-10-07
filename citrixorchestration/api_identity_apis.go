@@ -20,12 +20,472 @@ import (
 	"strings"
 )
 
+type IdentityAPIsDAAS interface {
+
+	/*
+		IdentityAddAzureAdSecurityGroupMember Add a security group to an assigned security as it's member
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param azureAdTenantId The Azure tenant id.
+		@param groupId The parent assigned security group object id
+		@param refGroupId The nested devices security group object id
+		@return ApiIdentityAddAzureAdSecurityGroupMemberRequest
+	*/
+	IdentityAddAzureAdSecurityGroupMember(ctx context.Context, azureAdTenantId string, groupId string, refGroupId string) ApiIdentityAddAzureAdSecurityGroupMemberRequest
+
+	// IdentityAddAzureAdSecurityGroupMemberExecute executes the request
+	IdentityAddAzureAdSecurityGroupMemberExecute(r ApiIdentityAddAzureAdSecurityGroupMemberRequest) (*http.Response, error)
+
+	/*
+		IdentityCreateMachine Create machine identity
+
+		Create machine identity.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIdentityCreateMachineRequest
+	*/
+	IdentityCreateMachine(ctx context.Context) ApiIdentityCreateMachineRequest
+
+	// IdentityCreateMachineExecute executes the request
+	//  @return IdentityMachineResponseModel
+	IdentityCreateMachineExecute(r ApiIdentityCreateMachineRequest) (*IdentityMachineResponseModel, *http.Response, error)
+
+	/*
+		IdentityCreateServiceAccount Create a service account async.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIdentityCreateServiceAccountRequest
+	*/
+	IdentityCreateServiceAccount(ctx context.Context) ApiIdentityCreateServiceAccountRequest
+
+	// IdentityCreateServiceAccountExecute executes the request
+	//  @return ServiceAccountResponseModel
+	IdentityCreateServiceAccountExecute(r ApiIdentityCreateServiceAccountRequest) (*ServiceAccountResponseModel, *http.Response, error)
+
+	/*
+		IdentityDeleteMachine Delete a machine identity
+
+		Delete a machine identity.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param machine Machine identity to delete.
+		@return ApiIdentityDeleteMachineRequest
+	*/
+	IdentityDeleteMachine(ctx context.Context, machine string) ApiIdentityDeleteMachineRequest
+
+	// IdentityDeleteMachineExecute executes the request
+	IdentityDeleteMachineExecute(r ApiIdentityDeleteMachineRequest) (*http.Response, error)
+
+	/*
+		IdentityDeleteServiceAccount Delete an existing service account.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceAccountUid The ServiceAccountUid of an existing service account.
+		@return ApiIdentityDeleteServiceAccountRequest
+	*/
+	IdentityDeleteServiceAccount(ctx context.Context, serviceAccountUid string) ApiIdentityDeleteServiceAccountRequest
+
+	// IdentityDeleteServiceAccountExecute executes the request
+	IdentityDeleteServiceAccountExecute(r ApiIdentityDeleteServiceAccountRequest) (*http.Response, error)
+
+	/*
+		IdentityGetAzureADSecurityGroups Get Azure AD security group by group id.
+
+		Retrieves AzureAD's security groups by user's input.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param azureAdTenantId AzureAD tenantId
+		@param groupId AzureAD security group's objectId
+		@return ApiIdentityGetAzureADSecurityGroupsRequest
+	*/
+	IdentityGetAzureADSecurityGroups(ctx context.Context, azureAdTenantId string, groupId string) ApiIdentityGetAzureADSecurityGroupsRequest
+
+	// IdentityGetAzureADSecurityGroupsExecute executes the request
+	//  @return AzureADSecurityGroupResponseModel
+	IdentityGetAzureADSecurityGroupsExecute(r ApiIdentityGetAzureADSecurityGroupsRequest) (*AzureADSecurityGroupResponseModel, *http.Response, error)
+
+	/*
+		IdentityGetAzureAdSecurityGroupMember Retrieves all the group type of members of a specific group
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param azureAdTenantId The Azure tenant id.
+		@param groupId The security group object id.
+		@return ApiIdentityGetAzureAdSecurityGroupMemberRequest
+	*/
+	IdentityGetAzureAdSecurityGroupMember(ctx context.Context, azureAdTenantId string, groupId string) ApiIdentityGetAzureAdSecurityGroupMemberRequest
+
+	// IdentityGetAzureAdSecurityGroupMemberExecute executes the request
+	//  @return AzureADSecurityGroupResponseModelCollection
+	IdentityGetAzureAdSecurityGroupMemberExecute(r ApiIdentityGetAzureAdSecurityGroupMemberRequest) (*AzureADSecurityGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		IdentityGetContainer Get a single container (e.g. OU)
+
+		Get a single container (e.g. OU).
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param container Container to get.
+		@return ApiIdentityGetContainerRequest
+	*/
+	IdentityGetContainer(ctx context.Context, container string) ApiIdentityGetContainerRequest
+
+	// IdentityGetContainerExecute executes the request
+	//  @return IdentityContainerResponseModel
+	IdentityGetContainerExecute(r ApiIdentityGetContainerRequest) (*IdentityContainerResponseModel, *http.Response, error)
+
+	/*
+		IdentityGetContainers Get containers from identity provider.
+
+		Get containers from identity provider
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIdentityGetContainersRequest
+	*/
+	IdentityGetContainers(ctx context.Context) ApiIdentityGetContainersRequest
+
+	// IdentityGetContainersExecute executes the request
+	//  @return IdentityContainerResponseModelCollection
+	IdentityGetContainersExecute(r ApiIdentityGetContainersRequest) (*IdentityContainerResponseModelCollection, *http.Response, error)
+
+	/*
+		IdentityGetDirectories Get list of directories from all identity providers
+
+		Get list of directories from all identity providers.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIdentityGetDirectoriesRequest
+	*/
+	IdentityGetDirectories(ctx context.Context) ApiIdentityGetDirectoriesRequest
+
+	// IdentityGetDirectoriesExecute executes the request
+	//  @return IdentityDirectoryResponseModelCollection
+	IdentityGetDirectoriesExecute(r ApiIdentityGetDirectoriesRequest) (*IdentityDirectoryResponseModelCollection, *http.Response, error)
+
+	/*
+		IdentityGetDomain Get a single domain from the identity provider
+
+		Get a single domain from the identity provider.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param domain Domain to get details from.
+		@return ApiIdentityGetDomainRequest
+	*/
+	IdentityGetDomain(ctx context.Context, domain string) ApiIdentityGetDomainRequest
+
+	// IdentityGetDomainExecute executes the request
+	//  @return IdentityDomainResponseModel
+	IdentityGetDomainExecute(r ApiIdentityGetDomainRequest) (*IdentityDomainResponseModel, *http.Response, error)
+
+	/*
+		IdentityGetDomainAzureADCustomDomain Gets the Azure AD custom domain with the specified domain name.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param domain Domain name.
+		@return ApiIdentityGetDomainAzureADCustomDomainRequest
+	*/
+	IdentityGetDomainAzureADCustomDomain(ctx context.Context, domain string) ApiIdentityGetDomainAzureADCustomDomainRequest
+
+	// IdentityGetDomainAzureADCustomDomainExecute executes the request
+	//  @return AzureADCustomDomainResponseModel
+	IdentityGetDomainAzureADCustomDomainExecute(r ApiIdentityGetDomainAzureADCustomDomainRequest) (*AzureADCustomDomainResponseModel, *http.Response, error)
+
+	/*
+		IdentityGetDomains Get list of domains from the identity provider
+
+		Get list of domains from the identity provider.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIdentityGetDomainsRequest
+	*/
+	IdentityGetDomains(ctx context.Context) ApiIdentityGetDomainsRequest
+
+	// IdentityGetDomainsExecute executes the request
+	//  @return IdentityDomainResponseModelCollection
+	IdentityGetDomainsExecute(r ApiIdentityGetDomainsRequest) (*IdentityDomainResponseModelCollection, *http.Response, error)
+
+	/*
+		IdentityGetForest Get information about a single forest
+
+		Get information about a single forest.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param forest forest
+		@return ApiIdentityGetForestRequest
+	*/
+	IdentityGetForest(ctx context.Context, forest string) ApiIdentityGetForestRequest
+
+	// IdentityGetForestExecute executes the request
+	//  @return IdentityForestResponseModel
+	IdentityGetForestExecute(r ApiIdentityGetForestRequest) (*IdentityForestResponseModel, *http.Response, error)
+
+	/*
+		IdentityGetForests Get the list of forests from the identity provider
+
+		Get the list of forests from the identity provider.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIdentityGetForestsRequest
+	*/
+	IdentityGetForests(ctx context.Context) ApiIdentityGetForestsRequest
+
+	// IdentityGetForestsExecute executes the request
+	//  @return IdentityForestResponseModelCollection
+	IdentityGetForestsExecute(r ApiIdentityGetForestsRequest) (*IdentityForestResponseModelCollection, *http.Response, error)
+
+	/*
+		IdentityGetMachine Get a single machine account from identity provider
+
+		Get a single machine account from identity provider.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param machine Machine to get.
+		@return ApiIdentityGetMachineRequest
+	*/
+	IdentityGetMachine(ctx context.Context, machine string) ApiIdentityGetMachineRequest
+
+	// IdentityGetMachineExecute executes the request
+	//  @return IdentityMachineResponseModel
+	IdentityGetMachineExecute(r ApiIdentityGetMachineRequest) (*IdentityMachineResponseModel, *http.Response, error)
+
+	/*
+		IdentityGetMachines Get machine accounts from identity provider
+
+		Get machine accounts from identity provider.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIdentityGetMachinesRequest
+	*/
+	IdentityGetMachines(ctx context.Context) ApiIdentityGetMachinesRequest
+
+	// IdentityGetMachinesExecute executes the request
+	//  @return IdentityMachineResponseModelCollection
+	IdentityGetMachinesExecute(r ApiIdentityGetMachinesRequest) (*IdentityMachineResponseModelCollection, *http.Response, error)
+
+	/*
+		IdentityGetPrinters Get network printers from identity provider
+
+		Get network printers from identity provider.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIdentityGetPrintersRequest
+	*/
+	IdentityGetPrinters(ctx context.Context) ApiIdentityGetPrintersRequest
+
+	// IdentityGetPrintersExecute executes the request
+	//  @return IdentityPrinterResponseModelCollection
+	IdentityGetPrintersExecute(r ApiIdentityGetPrintersRequest) (*IdentityPrinterResponseModelCollection, *http.Response, error)
+
+	/*
+		IdentityGetServiceAccount Get a specific service account.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceAccountUid The ServiceAccountUid of a specific service account.
+		@return ApiIdentityGetServiceAccountRequest
+	*/
+	IdentityGetServiceAccount(ctx context.Context, serviceAccountUid string) ApiIdentityGetServiceAccountRequest
+
+	// IdentityGetServiceAccountExecute executes the request
+	//  @return ServiceAccountResponseModel
+	IdentityGetServiceAccountExecute(r ApiIdentityGetServiceAccountRequest) (*ServiceAccountResponseModel, *http.Response, error)
+
+	/*
+			IdentityGetServiceAccountCapabilityPatchPreview Get the service account capability patch preview.
+
+			Get the service account capability patch preview before updating the service account.
+		SetServiceAccount.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param serviceAccountUid ID of the service account to test.
+			@return ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest
+	*/
+	IdentityGetServiceAccountCapabilityPatchPreview(ctx context.Context, serviceAccountUid string) ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest
+
+	// IdentityGetServiceAccountCapabilityPatchPreviewExecute executes the request
+	//  @return UpdateServiceAccountCapabilityPreviewResponseModel
+	IdentityGetServiceAccountCapabilityPatchPreviewExecute(r ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) (*UpdateServiceAccountCapabilityPreviewResponseModel, *http.Response, error)
+
+	/*
+			IdentityGetServiceAccountTestReport Get the most recent test report for a service account.
+
+			Get the test report from the last run of
+		TestServiceAccount.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param serviceAccountUid ID of the service account.
+			@return ApiIdentityGetServiceAccountTestReportRequest
+	*/
+	IdentityGetServiceAccountTestReport(ctx context.Context, serviceAccountUid string) ApiIdentityGetServiceAccountTestReportRequest
+
+	// IdentityGetServiceAccountTestReportExecute executes the request
+	//  @return TestReportResponseModel
+	IdentityGetServiceAccountTestReportExecute(r ApiIdentityGetServiceAccountTestReportRequest) (*TestReportResponseModel, *http.Response, error)
+
+	/*
+		IdentityGetServiceAccounts Get all service accounts.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIdentityGetServiceAccountsRequest
+	*/
+	IdentityGetServiceAccounts(ctx context.Context) ApiIdentityGetServiceAccountsRequest
+
+	// IdentityGetServiceAccountsExecute executes the request
+	//  @return ServiceAccountResponseModelCollection
+	IdentityGetServiceAccountsExecute(r ApiIdentityGetServiceAccountsRequest) (*ServiceAccountResponseModelCollection, *http.Response, error)
+
+	/*
+		IdentityGetSite Get information about a single site
+
+		Get information about a single site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param site The site to get details for.
+		@return ApiIdentityGetSiteRequest
+	*/
+	IdentityGetSite(ctx context.Context, site string) ApiIdentityGetSiteRequest
+
+	// IdentityGetSiteExecute executes the request
+	//  @return IdentitySiteResponseModel
+	IdentityGetSiteExecute(r ApiIdentityGetSiteRequest) (*IdentitySiteResponseModel, *http.Response, error)
+
+	/*
+		IdentityGetSites Get list of sites from the identity provider
+
+		Get list of sites from the identity provider.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIdentityGetSitesRequest
+	*/
+	IdentityGetSites(ctx context.Context) ApiIdentityGetSitesRequest
+
+	// IdentityGetSitesExecute executes the request
+	//  @return IdentitySiteResponseModelCollection
+	IdentityGetSitesExecute(r ApiIdentityGetSitesRequest) (*IdentitySiteResponseModelCollection, *http.Response, error)
+
+	/*
+		IdentityGetUser Get a single user or group
+
+		Get a single user or group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param userOrGroup Identity of the user or group to get.
+		@return ApiIdentityGetUserRequest
+	*/
+	IdentityGetUser(ctx context.Context, userOrGroup string) ApiIdentityGetUserRequest
+
+	// IdentityGetUserExecute executes the request
+	//  @return IdentityUserResponseModel
+	IdentityGetUserExecute(r ApiIdentityGetUserRequest) (*IdentityUserResponseModel, *http.Response, error)
+
+	/*
+		IdentityGetUsers Get users from identity provider
+
+		Get users from identity provider.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIdentityGetUsersRequest
+	*/
+	IdentityGetUsers(ctx context.Context) ApiIdentityGetUsersRequest
+
+	// IdentityGetUsersExecute executes the request
+	//  @return IdentityUserResponseModelCollection
+	IdentityGetUsersExecute(r ApiIdentityGetUsersRequest) (*IdentityUserResponseModelCollection, *http.Response, error)
+
+	/*
+		IdentityQueryAzureAdSecurityGroups Query AzureAD security group by user's input.
+
+		When user's input all are empty, then all those assigned security group in a specific tenant it will be retrieved.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param azureAdTenantId The specific azure tenant id.
+		@return ApiIdentityQueryAzureAdSecurityGroupsRequest
+	*/
+	IdentityQueryAzureAdSecurityGroups(ctx context.Context, azureAdTenantId string) ApiIdentityQueryAzureAdSecurityGroupsRequest
+
+	// IdentityQueryAzureAdSecurityGroupsExecute executes the request
+	//  @return AzureADSecurityGroupResponseModelCollection
+	IdentityQueryAzureAdSecurityGroupsExecute(r ApiIdentityQueryAzureAdSecurityGroupsRequest) (*AzureADSecurityGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		IdentitySetServiceAccount Set properties of an existing service account.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param serviceAccountUid The ServiceAccountUid of service account.
+		@return ApiIdentitySetServiceAccountRequest
+	*/
+	IdentitySetServiceAccount(ctx context.Context, serviceAccountUid string) ApiIdentitySetServiceAccountRequest
+
+	// IdentitySetServiceAccountExecute executes the request
+	//  @return ServiceAccountResponseModel
+	IdentitySetServiceAccountExecute(r ApiIdentitySetServiceAccountRequest) (*ServiceAccountResponseModel, *http.Response, error)
+
+	/*
+			IdentityTestServiceAccount Run tests on a service account and create a test report.
+
+			Run tests on a service account and create a test report.  Obtain the most
+		recent report from
+		GetServiceAccountTestReport.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param serviceAccountUid ID of the service account to test.
+			@return ApiIdentityTestServiceAccountRequest
+	*/
+	IdentityTestServiceAccount(ctx context.Context, serviceAccountUid string) ApiIdentityTestServiceAccountRequest
+
+	// IdentityTestServiceAccountExecute executes the request
+	//  @return ServiceAccountTestResponseModel
+	IdentityTestServiceAccountExecute(r ApiIdentityTestServiceAccountRequest) (*ServiceAccountTestResponseModel, *http.Response, error)
+
+	/*
+		IdentityUpdateMachine Update a machine identity
+
+		Update a machine identity.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param machine Machine identity to update.
+		@return ApiIdentityUpdateMachineRequest
+	*/
+	IdentityUpdateMachine(ctx context.Context, machine string) ApiIdentityUpdateMachineRequest
+
+	// IdentityUpdateMachineExecute executes the request
+	//  @return IdentityMachineResponseModel
+	IdentityUpdateMachineExecute(r ApiIdentityUpdateMachineRequest) (*IdentityMachineResponseModel, *http.Response, error)
+
+	/*
+		IdentityUpdateUser Update a user identity
+
+		Update a user identity.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param user User identity to update.
+		@return ApiIdentityUpdateUserRequest
+	*/
+	IdentityUpdateUser(ctx context.Context, user string) ApiIdentityUpdateUserRequest
+
+	// IdentityUpdateUserExecute executes the request
+	//  @return IdentityUserResponseModel
+	IdentityUpdateUserExecute(r ApiIdentityUpdateUserRequest) (*IdentityUserResponseModel, *http.Response, error)
+
+	/*
+		IdentityValidateUser Validate a user's credentials
+
+		Validate a user's credentials, and if valid, get information about the user account.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIdentityValidateUserRequest
+	*/
+	IdentityValidateUser(ctx context.Context) ApiIdentityValidateUserRequest
+
+	// IdentityValidateUserExecute executes the request
+	//  @return IdentityUserResponseModel
+	IdentityValidateUserExecute(r ApiIdentityValidateUserRequest) (*IdentityUserResponseModel, *http.Response, error)
+}
+
 // IdentityAPIsDAASService IdentityAPIsDAAS service
 type IdentityAPIsDAASService service
 
 type ApiIdentityAddAzureAdSecurityGroupMemberRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityAPIsDAASService
+	ApiService          IdentityAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	azureAdTenantId     string
@@ -322,7 +782,7 @@ func (a *IdentityAPIsDAASService) IdentityAddAzureAdSecurityGroupMemberExecute(r
 
 type ApiIdentityCreateMachineRequest struct {
 	ctx                               context.Context
-	ApiService                        *IdentityAPIsDAASService
+	ApiService                        IdentityAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	identityCreateMachineRequestModel *IdentityCreateMachineRequestModel
@@ -648,7 +1108,7 @@ func (a *IdentityAPIsDAASService) IdentityCreateMachineExecute(r ApiIdentityCrea
 
 type ApiIdentityCreateServiceAccountRequest struct {
 	ctx                              context.Context
-	ApiService                       *IdentityAPIsDAASService
+	ApiService                       IdentityAPIsDAAS
 	citrixCustomerId                 *string
 	citrixInstanceId                 *string
 	createServiceAccountRequestModel *CreateServiceAccountRequestModel
@@ -962,7 +1422,7 @@ func (a *IdentityAPIsDAASService) IdentityCreateServiceAccountExecute(r ApiIdent
 
 type ApiIdentityDeleteMachineRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityAPIsDAASService
+	ApiService          IdentityAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	machine             string
@@ -1289,7 +1749,7 @@ func (a *IdentityAPIsDAASService) IdentityDeleteMachineExecute(r ApiIdentityDele
 
 type ApiIdentityDeleteServiceAccountRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityAPIsDAASService
+	ApiService          IdentityAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	serviceAccountUid   string
@@ -1559,7 +2019,7 @@ func (a *IdentityAPIsDAASService) IdentityDeleteServiceAccountExecute(r ApiIdent
 
 type ApiIdentityGetAzureADSecurityGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityAPIsDAASService
+	ApiService          IdentityAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	azureAdTenantId     string
@@ -1867,7 +2327,7 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureADSecurityGroupsExecute(r ApiI
 
 type ApiIdentityGetAzureAdSecurityGroupMemberRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityAPIsDAASService
+	ApiService          IdentityAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	azureAdTenantId     string
@@ -2196,7 +2656,7 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureAdSecurityGroupMemberExecute(r
 
 type ApiIdentityGetContainerRequest struct {
 	ctx                  context.Context
-	ApiService           *IdentityAPIsDAASService
+	ApiService           IdentityAPIsDAAS
 	citrixCustomerId     *string
 	citrixInstanceId     *string
 	container            string
@@ -2533,7 +2993,7 @@ func (a *IdentityAPIsDAASService) IdentityGetContainerExecute(r ApiIdentityGetCo
 
 type ApiIdentityGetContainersRequest struct {
 	ctx                  context.Context
-	ApiService           *IdentityAPIsDAASService
+	ApiService           IdentityAPIsDAAS
 	citrixCustomerId     *string
 	citrixInstanceId     *string
 	userAgent            *string
@@ -2961,7 +3421,7 @@ func (a *IdentityAPIsDAASService) IdentityGetContainersExecute(r ApiIdentityGetC
 
 type ApiIdentityGetDirectoriesRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityAPIsDAASService
+	ApiService          IdentityAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -3250,7 +3710,7 @@ func (a *IdentityAPIsDAASService) IdentityGetDirectoriesExecute(r ApiIdentityGet
 
 type ApiIdentityGetDomainRequest struct {
 	ctx                  context.Context
-	ApiService           *IdentityAPIsDAASService
+	ApiService           IdentityAPIsDAAS
 	citrixCustomerId     *string
 	citrixInstanceId     *string
 	domain               string
@@ -3577,7 +4037,7 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainExecute(r ApiIdentityGetDomai
 
 type ApiIdentityGetDomainAzureADCustomDomainRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityAPIsDAASService
+	ApiService          IdentityAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	domain              string
@@ -3859,7 +4319,7 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainAzureADCustomDomainExecute(r 
 
 type ApiIdentityGetDomainsRequest struct {
 	ctx                  context.Context
-	ApiService           *IdentityAPIsDAASService
+	ApiService           IdentityAPIsDAAS
 	citrixCustomerId     *string
 	citrixInstanceId     *string
 	userAgent            *string
@@ -4241,7 +4701,7 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainsExecute(r ApiIdentityGetDoma
 
 type ApiIdentityGetForestRequest struct {
 	ctx                  context.Context
-	ApiService           *IdentityAPIsDAASService
+	ApiService           IdentityAPIsDAAS
 	citrixCustomerId     *string
 	citrixInstanceId     *string
 	forest               string
@@ -4548,7 +5008,7 @@ func (a *IdentityAPIsDAASService) IdentityGetForestExecute(r ApiIdentityGetFores
 
 type ApiIdentityGetForestsRequest struct {
 	ctx                  context.Context
-	ApiService           *IdentityAPIsDAASService
+	ApiService           IdentityAPIsDAAS
 	citrixCustomerId     *string
 	citrixInstanceId     *string
 	userAgent            *string
@@ -4878,7 +5338,7 @@ func (a *IdentityAPIsDAASService) IdentityGetForestsExecute(r ApiIdentityGetFore
 
 type ApiIdentityGetMachineRequest struct {
 	ctx                  context.Context
-	ApiService           *IdentityAPIsDAASService
+	ApiService           IdentityAPIsDAAS
 	citrixCustomerId     *string
 	citrixInstanceId     *string
 	machine              string
@@ -5215,7 +5675,7 @@ func (a *IdentityAPIsDAASService) IdentityGetMachineExecute(r ApiIdentityGetMach
 
 type ApiIdentityGetMachinesRequest struct {
 	ctx                  context.Context
-	ApiService           *IdentityAPIsDAASService
+	ApiService           IdentityAPIsDAAS
 	citrixCustomerId     *string
 	citrixInstanceId     *string
 	userAgent            *string
@@ -5625,7 +6085,7 @@ func (a *IdentityAPIsDAASService) IdentityGetMachinesExecute(r ApiIdentityGetMac
 
 type ApiIdentityGetPrintersRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityAPIsDAASService
+	ApiService          IdentityAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -5957,7 +6417,7 @@ func (a *IdentityAPIsDAASService) IdentityGetPrintersExecute(r ApiIdentityGetPri
 
 type ApiIdentityGetServiceAccountRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityAPIsDAASService
+	ApiService          IdentityAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	serviceAccountUid   string
@@ -6239,7 +6699,7 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountExecute(r ApiIdentity
 
 type ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest struct {
 	ctx                                               context.Context
-	ApiService                                        *IdentityAPIsDAASService
+	ApiService                                        IdentityAPIsDAAS
 	citrixCustomerId                                  *string
 	citrixInstanceId                                  *string
 	serviceAccountUid                                 string
@@ -6571,7 +7031,7 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPrevie
 
 type ApiIdentityGetServiceAccountTestReportRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityAPIsDAASService
+	ApiService          IdentityAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	serviceAccountUid   string
@@ -6856,7 +7316,7 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountTestReportExecute(r A
 
 type ApiIdentityGetServiceAccountsRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityAPIsDAASService
+	ApiService          IdentityAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -7135,7 +7595,7 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountsExecute(r ApiIdentit
 
 type ApiIdentityGetSiteRequest struct {
 	ctx                  context.Context
-	ApiService           *IdentityAPIsDAASService
+	ApiService           IdentityAPIsDAAS
 	citrixCustomerId     *string
 	citrixInstanceId     *string
 	site                 string
@@ -7462,7 +7922,7 @@ func (a *IdentityAPIsDAASService) IdentityGetSiteExecute(r ApiIdentityGetSiteReq
 
 type ApiIdentityGetSitesRequest struct {
 	ctx                  context.Context
-	ApiService           *IdentityAPIsDAASService
+	ApiService           IdentityAPIsDAAS
 	citrixCustomerId     *string
 	citrixInstanceId     *string
 	userAgent            *string
@@ -7822,7 +8282,7 @@ func (a *IdentityAPIsDAASService) IdentityGetSitesExecute(r ApiIdentityGetSitesR
 
 type ApiIdentityGetUserRequest struct {
 	ctx                  context.Context
-	ApiService           *IdentityAPIsDAASService
+	ApiService           IdentityAPIsDAAS
 	citrixCustomerId     *string
 	citrixInstanceId     *string
 	userOrGroup          string
@@ -8159,7 +8619,7 @@ func (a *IdentityAPIsDAASService) IdentityGetUserExecute(r ApiIdentityGetUserReq
 
 type ApiIdentityGetUsersRequest struct {
 	ctx                   context.Context
-	ApiService            *IdentityAPIsDAASService
+	ApiService            IdentityAPIsDAAS
 	citrixCustomerId      *string
 	citrixInstanceId      *string
 	userAgent             *string
@@ -8632,7 +9092,7 @@ func (a *IdentityAPIsDAASService) IdentityGetUsersExecute(r ApiIdentityGetUsersR
 
 type ApiIdentityQueryAzureAdSecurityGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityAPIsDAASService
+	ApiService          IdentityAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	azureAdTenantId     string
@@ -8969,7 +9429,7 @@ func (a *IdentityAPIsDAASService) IdentityQueryAzureAdSecurityGroupsExecute(r Ap
 
 type ApiIdentitySetServiceAccountRequest struct {
 	ctx                              context.Context
-	ApiService                       *IdentityAPIsDAASService
+	ApiService                       IdentityAPIsDAAS
 	citrixCustomerId                 *string
 	citrixInstanceId                 *string
 	serviceAccountUid                string
@@ -9287,7 +9747,7 @@ func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentity
 
 type ApiIdentityTestServiceAccountRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityAPIsDAASService
+	ApiService          IdentityAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	serviceAccountUid   string
@@ -9597,7 +10057,7 @@ func (a *IdentityAPIsDAASService) IdentityTestServiceAccountExecute(r ApiIdentit
 
 type ApiIdentityUpdateMachineRequest struct {
 	ctx                               context.Context
-	ApiService                        *IdentityAPIsDAASService
+	ApiService                        IdentityAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	machine                           string
@@ -9959,7 +10419,7 @@ func (a *IdentityAPIsDAASService) IdentityUpdateMachineExecute(r ApiIdentityUpda
 
 type ApiIdentityUpdateUserRequest struct {
 	ctx                            context.Context
-	ApiService                     *IdentityAPIsDAASService
+	ApiService                     IdentityAPIsDAAS
 	citrixCustomerId               *string
 	citrixInstanceId               *string
 	user                           string
@@ -10321,7 +10781,7 @@ func (a *IdentityAPIsDAASService) IdentityUpdateUserExecute(r ApiIdentityUpdateU
 
 type ApiIdentityValidateUserRequest struct {
 	ctx                              context.Context
-	ApiService                       *IdentityAPIsDAASService
+	ApiService                       IdentityAPIsDAAS
 	citrixCustomerId                 *string
 	citrixInstanceId                 *string
 	identityValidateUserRequestModel *IdentityValidateUserRequestModel

@@ -19,12 +19,123 @@ import (
 	"strings"
 )
 
+type MaintenanceCyclesAPIsDAAS interface {
+
+	/*
+			MaintenanceCyclesCancelMaintenanceCycle Cancel a maintenance cycle for a machine catalog.
+
+			A maintenance cycle can only be cancelled when the cycle status is not in 'completed'.
+		If the maintenance cycle is in another status, the operation fails with HTTP response status 404.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId
+			@return ApiMaintenanceCyclesCancelMaintenanceCycleRequest
+	*/
+	MaintenanceCyclesCancelMaintenanceCycle(ctx context.Context, nameOrId string) ApiMaintenanceCyclesCancelMaintenanceCycleRequest
+
+	// MaintenanceCyclesCancelMaintenanceCycleExecute executes the request
+	MaintenanceCyclesCancelMaintenanceCycleExecute(r ApiMaintenanceCyclesCancelMaintenanceCycleRequest) (*http.Response, error)
+
+	/*
+		MaintenanceCyclesCreateMaintenanceCycle Create a maintenance cycle for a machine catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiMaintenanceCyclesCreateMaintenanceCycleRequest
+	*/
+	MaintenanceCyclesCreateMaintenanceCycle(ctx context.Context) ApiMaintenanceCyclesCreateMaintenanceCycleRequest
+
+	// MaintenanceCyclesCreateMaintenanceCycleExecute executes the request
+	MaintenanceCyclesCreateMaintenanceCycleExecute(r ApiMaintenanceCyclesCreateMaintenanceCycleRequest) (*http.Response, error)
+
+	/*
+		MaintenanceCyclesDoMaintenanceCycleSearch Perform an advanced search for maintenance cycles.
+
+		Perform an advanced search for mainenance cycles.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest
+	*/
+	MaintenanceCyclesDoMaintenanceCycleSearch(ctx context.Context) ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest
+
+	// MaintenanceCyclesDoMaintenanceCycleSearchExecute executes the request
+	//  @return MaintenanceCycleResponseModelCollection
+	MaintenanceCyclesDoMaintenanceCycleSearchExecute(r ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) (*MaintenanceCycleResponseModelCollection, *http.Response, error)
+
+	/*
+			MaintenanceCyclesDoMaintenanceCycleVMOperationJobSearch Perform an advanced search for maintenance cycle vm operation jobs.
+
+			Perform an advanced search for mainenance cycle vm operation jobs.  Note that some combinations
+		of search parameters may result in slow performance.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest
+	*/
+	MaintenanceCyclesDoMaintenanceCycleVMOperationJobSearch(ctx context.Context) ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest
+
+	// MaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchExecute executes the request
+	//  @return MaintenanceCycleVMOperationJobResponseModelCollection
+	MaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchExecute(r ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) (*MaintenanceCycleVMOperationJobResponseModelCollection, *http.Response, error)
+
+	/*
+		MaintenanceCyclesGetMaintenanceCycle Get a maintenance cycle for a machine catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The Id or name of the maintenance cycle to get.
+		@return ApiMaintenanceCyclesGetMaintenanceCycleRequest
+	*/
+	MaintenanceCyclesGetMaintenanceCycle(ctx context.Context, nameOrId string) ApiMaintenanceCyclesGetMaintenanceCycleRequest
+
+	// MaintenanceCyclesGetMaintenanceCycleExecute executes the request
+	//  @return MaintenanceCycleDetailsResponseModel
+	MaintenanceCyclesGetMaintenanceCycleExecute(r ApiMaintenanceCyclesGetMaintenanceCycleRequest) (*MaintenanceCycleDetailsResponseModel, *http.Response, error)
+
+	/*
+			MaintenanceCyclesRemoveMaintenanceCycle Remove a maintenance cycle for a machine catalog.
+
+			A maintenance cycle can only be removed from machine catalog when the cycle status is not in 'running' or 'cancelling'.
+		If the maintenace cycle is in another status, the operation fails with HTTP response status 404.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId
+			@return ApiMaintenanceCyclesRemoveMaintenanceCycleRequest
+	*/
+	MaintenanceCyclesRemoveMaintenanceCycle(ctx context.Context, nameOrId string) ApiMaintenanceCyclesRemoveMaintenanceCycleRequest
+
+	// MaintenanceCyclesRemoveMaintenanceCycleExecute executes the request
+	MaintenanceCyclesRemoveMaintenanceCycleExecute(r ApiMaintenanceCyclesRemoveMaintenanceCycleRequest) (*http.Response, error)
+
+	/*
+		MaintenanceCyclesRestartMaintenanceCycle Restart a maintenance cycle for a machine catalog.
+
+		A maintenance cycle can only be restarted when the cycle status is in 'cancelled', 'failed' or 'completed'.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The Id or name of the maintenance cycle to restart.
+		@return ApiMaintenanceCyclesRestartMaintenanceCycleRequest
+	*/
+	MaintenanceCyclesRestartMaintenanceCycle(ctx context.Context, nameOrId string) ApiMaintenanceCyclesRestartMaintenanceCycleRequest
+
+	// MaintenanceCyclesRestartMaintenanceCycleExecute executes the request
+	MaintenanceCyclesRestartMaintenanceCycleExecute(r ApiMaintenanceCyclesRestartMaintenanceCycleRequest) (*http.Response, error)
+
+	/*
+		MaintenanceCyclesUpdateMaintenanceCycle Update a maintenance cycle for a machine catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiMaintenanceCyclesUpdateMaintenanceCycleRequest
+	*/
+	MaintenanceCyclesUpdateMaintenanceCycle(ctx context.Context) ApiMaintenanceCyclesUpdateMaintenanceCycleRequest
+
+	// MaintenanceCyclesUpdateMaintenanceCycleExecute executes the request
+	MaintenanceCyclesUpdateMaintenanceCycleExecute(r ApiMaintenanceCyclesUpdateMaintenanceCycleRequest) (*http.Response, error)
+}
+
 // MaintenanceCyclesAPIsDAASService MaintenanceCyclesAPIsDAAS service
 type MaintenanceCyclesAPIsDAASService service
 
 type ApiMaintenanceCyclesCancelMaintenanceCycleRequest struct {
 	ctx                 context.Context
-	ApiService          *MaintenanceCyclesAPIsDAASService
+	ApiService          MaintenanceCyclesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -321,7 +432,7 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCancelMaintenanceCyc
 
 type ApiMaintenanceCyclesCreateMaintenanceCycleRequest struct {
 	ctx                                context.Context
-	ApiService                         *MaintenanceCyclesAPIsDAASService
+	ApiService                         MaintenanceCyclesAPIsDAAS
 	citrixCustomerId                   *string
 	citrixInstanceId                   *string
 	createMaintenanceCycleRequestModel *CreateMaintenanceCycleRequestModel
@@ -623,7 +734,7 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesCreateMaintenanceCyc
 
 type ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest struct {
 	ctx                                context.Context
-	ApiService                         *MaintenanceCyclesAPIsDAASService
+	ApiService                         MaintenanceCyclesAPIsDAAS
 	citrixCustomerId                   *string
 	citrixInstanceId                   *string
 	maintenanceCycleSearchRequestModel *MaintenanceCycleSearchRequestModel
@@ -978,7 +1089,7 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleSe
 
 type ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest struct {
 	ctx                                              context.Context
-	ApiService                                       *MaintenanceCyclesAPIsDAASService
+	ApiService                                       MaintenanceCyclesAPIsDAAS
 	citrixCustomerId                                 *string
 	citrixInstanceId                                 *string
 	maintenanceCycleVMOperationJobSearchRequestModel *MaintenanceCycleVMOperationJobSearchRequestModel
@@ -1334,7 +1445,7 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesDoMaintenanceCycleVM
 
 type ApiMaintenanceCyclesGetMaintenanceCycleRequest struct {
 	ctx                 context.Context
-	ApiService          *MaintenanceCyclesAPIsDAASService
+	ApiService          MaintenanceCyclesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1629,7 +1740,7 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesGetMaintenanceCycleE
 
 type ApiMaintenanceCyclesRemoveMaintenanceCycleRequest struct {
 	ctx                 context.Context
-	ApiService          *MaintenanceCyclesAPIsDAASService
+	ApiService          MaintenanceCyclesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1915,7 +2026,7 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRemoveMaintenanceCyc
 
 type ApiMaintenanceCyclesRestartMaintenanceCycleRequest struct {
 	ctx                                 context.Context
-	ApiService                          *MaintenanceCyclesAPIsDAASService
+	ApiService                          MaintenanceCyclesAPIsDAAS
 	citrixCustomerId                    *string
 	citrixInstanceId                    *string
 	nameOrId                            string
@@ -2234,7 +2345,7 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesRestartMaintenanceCy
 
 type ApiMaintenanceCyclesUpdateMaintenanceCycleRequest struct {
 	ctx                                context.Context
-	ApiService                         *MaintenanceCyclesAPIsDAASService
+	ApiService                         MaintenanceCyclesAPIsDAAS
 	citrixCustomerId                   *string
 	citrixInstanceId                   *string
 	updateMaintenanceCycleRequestModel *UpdateMaintenanceCycleRequestModel

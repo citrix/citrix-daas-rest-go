@@ -19,12 +19,65 @@ import (
 	"strings"
 )
 
+type PvsStreamingAPIsDAAS interface {
+
+	/*
+		PvsStreamingGetPvsStreamingSites Get the list of PVS sites.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiPvsStreamingGetPvsStreamingSitesRequest
+	*/
+	PvsStreamingGetPvsStreamingSites(ctx context.Context) ApiPvsStreamingGetPvsStreamingSitesRequest
+
+	// PvsStreamingGetPvsStreamingSitesExecute executes the request
+	//  @return PvsStreamingSiteResponseModelCollection
+	PvsStreamingGetPvsStreamingSitesExecute(r ApiPvsStreamingGetPvsStreamingSitesRequest) (*PvsStreamingSiteResponseModelCollection, *http.Response, error)
+
+	/*
+		PvsStreamingGetPvsStreamingStores Get the list of PVS stores.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param farmId PVS farm id.
+		@return ApiPvsStreamingGetPvsStreamingStoresRequest
+	*/
+	PvsStreamingGetPvsStreamingStores(ctx context.Context, farmId string) ApiPvsStreamingGetPvsStreamingStoresRequest
+
+	// PvsStreamingGetPvsStreamingStoresExecute executes the request
+	//  @return PvsStreamingStoreResponseModelCollection
+	PvsStreamingGetPvsStreamingStoresExecute(r ApiPvsStreamingGetPvsStreamingStoresRequest) (*PvsStreamingStoreResponseModelCollection, *http.Response, error)
+
+	/*
+		PvsStreamingGetPvsStreamingVDisks Get the list of PVS vDisks.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiPvsStreamingGetPvsStreamingVDisksRequest
+	*/
+	PvsStreamingGetPvsStreamingVDisks(ctx context.Context) ApiPvsStreamingGetPvsStreamingVDisksRequest
+
+	// PvsStreamingGetPvsStreamingVDisksExecute executes the request
+	//  @return PvsStreamingVDiskResponseModelCollection
+	PvsStreamingGetPvsStreamingVDisksExecute(r ApiPvsStreamingGetPvsStreamingVDisksRequest) (*PvsStreamingVDiskResponseModelCollection, *http.Response, error)
+
+	/*
+		PvsStreamingTestDeviceCollectionExists Test the existence of a device collection by name.
+
+		Check for the existence of a device collection by name
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiPvsStreamingTestDeviceCollectionExistsRequest
+	*/
+	PvsStreamingTestDeviceCollectionExists(ctx context.Context) ApiPvsStreamingTestDeviceCollectionExistsRequest
+
+	// PvsStreamingTestDeviceCollectionExistsExecute executes the request
+	PvsStreamingTestDeviceCollectionExistsExecute(r ApiPvsStreamingTestDeviceCollectionExistsRequest) (*http.Response, error)
+}
+
 // PvsStreamingAPIsDAASService PvsStreamingAPIsDAAS service
 type PvsStreamingAPIsDAASService service
 
 type ApiPvsStreamingGetPvsStreamingSitesRequest struct {
 	ctx                 context.Context
-	ApiService          *PvsStreamingAPIsDAASService
+	ApiService          PvsStreamingAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -314,7 +367,7 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingSitesExecute(r 
 
 type ApiPvsStreamingGetPvsStreamingStoresRequest struct {
 	ctx                 context.Context
-	ApiService          *PvsStreamingAPIsDAASService
+	ApiService          PvsStreamingAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	farmId              string
@@ -619,7 +672,7 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingStoresExecute(r
 
 type ApiPvsStreamingGetPvsStreamingVDisksRequest struct {
 	ctx                 context.Context
-	ApiService          *PvsStreamingAPIsDAASService
+	ApiService          PvsStreamingAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -939,7 +992,7 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingVDisksExecute(r
 
 type ApiPvsStreamingTestDeviceCollectionExistsRequest struct {
 	ctx                                   context.Context
-	ApiService                            *PvsStreamingAPIsDAASService
+	ApiService                            PvsStreamingAPIsDAAS
 	citrixCustomerId                      *string
 	citrixInstanceId                      *string
 	deviceCollectionNameCheckRequestModel *DeviceCollectionNameCheckRequestModel

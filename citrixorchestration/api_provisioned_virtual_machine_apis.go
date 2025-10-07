@@ -19,12 +19,72 @@ import (
 	"strings"
 )
 
+type ProvisionedVirtualMachineAPIsDAAS interface {
+
+	/*
+			ProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdate Performs an immediate update of the configuration for a specific provisioned virtual machine.
+
+			Provides the ability to synchronize the properties of existing virtual machines with any changes
+		occurred on the provisioning scheme with Set-ProvScheme and any configuration applied with Set-ProvVM.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param vmSid Virtual Machine Sid.
+			@return ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest
+	*/
+	ProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdate(ctx context.Context, vmSid string) ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest
+
+	// ProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateExecute executes the request
+	ProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateExecute(r ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) (*http.Response, error)
+
+	/*
+		ProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobs Get the maintenance cycle vm operation jobs for a machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param vmSid Virtual machine SID.
+		@return ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest
+	*/
+	ProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobs(ctx context.Context, vmSid string) ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest
+
+	// ProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsExecute executes the request
+	//  @return MaintenanceCycleVMOperationJobResponseModelCollection
+	ProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsExecute(r ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) (*MaintenanceCycleVMOperationJobResponseModelCollection, *http.Response, error)
+
+	/*
+		ProvisionedVirtualMachineResetProvisionedVirtualMachineOSDisk Performs an immediate reset of the OS disk for a specific provisioned virtual machine.
+
+		Provides the ability to reset the OS disk with Reset-ProvVMDisk -OS.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param vmSid Virtual Machine Sid.
+		@return ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest
+	*/
+	ProvisionedVirtualMachineResetProvisionedVirtualMachineOSDisk(ctx context.Context, vmSid string) ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest
+
+	// ProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskExecute executes the request
+	ProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskExecute(r ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) (*http.Response, error)
+
+	/*
+			ProvisionedVirtualMachineUpdateProvisionedVirtualMachine Changes the configuration for a specific provisioned virtual machine.
+
+			Any configuration changes made will not apply right away to the machine.
+		To apply the updates, set an update time window for the machine with Set-ProvVMUpdateTimeWindow and start the machine within the window.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param vmSid Virtual Machine Sid.
+			@return ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest
+	*/
+	ProvisionedVirtualMachineUpdateProvisionedVirtualMachine(ctx context.Context, vmSid string) ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest
+
+	// ProvisionedVirtualMachineUpdateProvisionedVirtualMachineExecute executes the request
+	ProvisionedVirtualMachineUpdateProvisionedVirtualMachineExecute(r ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) (*http.Response, error)
+}
+
 // ProvisionedVirtualMachineAPIsDAASService ProvisionedVirtualMachineAPIsDAAS service
 type ProvisionedVirtualMachineAPIsDAASService service
 
 type ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest struct {
 	ctx                 context.Context
-	ApiService          *ProvisionedVirtualMachineAPIsDAASService
+	ApiService          ProvisionedVirtualMachineAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	vmSid               string
@@ -321,7 +381,7 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineAppl
 
 type ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest struct {
 	ctx                 context.Context
-	ApiService          *ProvisionedVirtualMachineAPIsDAASService
+	ApiService          ProvisionedVirtualMachineAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	vmSid               string
@@ -615,7 +675,7 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineGetM
 
 type ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest struct {
 	ctx                 context.Context
-	ApiService          *ProvisionedVirtualMachineAPIsDAASService
+	ApiService          ProvisionedVirtualMachineAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	vmSid               string
@@ -911,7 +971,7 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineRese
 
 type ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest struct {
 	ctx                                         context.Context
-	ApiService                                  *ProvisionedVirtualMachineAPIsDAASService
+	ApiService                                  ProvisionedVirtualMachineAPIsDAAS
 	citrixCustomerId                            *string
 	citrixInstanceId                            *string
 	vmSid                                       string

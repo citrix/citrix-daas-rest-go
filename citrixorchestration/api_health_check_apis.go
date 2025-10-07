@@ -18,12 +18,27 @@ import (
 	"net/url"
 )
 
+type HealthCheckAPIsDAAS interface {
+
+	/*
+		HealthCheckHealthCheck The health check endpoint.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiHealthCheckHealthCheckRequest
+	*/
+	HealthCheckHealthCheck(ctx context.Context) ApiHealthCheckHealthCheckRequest
+
+	// HealthCheckHealthCheckExecute executes the request
+	//  @return bool
+	HealthCheckHealthCheckExecute(r ApiHealthCheckHealthCheckRequest) (bool, *http.Response, error)
+}
+
 // HealthCheckAPIsDAASService HealthCheckAPIsDAAS service
 type HealthCheckAPIsDAASService service
 
 type ApiHealthCheckHealthCheckRequest struct {
 	ctx                 context.Context
-	ApiService          *HealthCheckAPIsDAASService
+	ApiService          HealthCheckAPIsDAAS
 	citrixCustomerId    *string
 	authorization       *string
 	citrixTransactionId *string
