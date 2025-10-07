@@ -19,12 +19,131 @@ import (
 	"strings"
 )
 
+type AppVServersAPIsDAAS interface {
+
+	/*
+			AppVServersGetAppVServerPackage Get the details for a single App-V package on a server.
+
+			Get the details for a single App-V package on a server (as opposed
+		to within the site).
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param server ManagementServer address of the App-V server.
+			@param id ID of the App-V package.
+			@return ApiAppVServersGetAppVServerPackageRequest
+	*/
+	AppVServersGetAppVServerPackage(ctx context.Context, server string, id string) ApiAppVServersGetAppVServerPackageRequest
+
+	// AppVServersGetAppVServerPackageExecute executes the request
+	//  @return AppVPackageResponseModel
+	AppVServersGetAppVServerPackageExecute(r ApiAppVServersGetAppVServerPackageRequest) (*AppVPackageResponseModel, *http.Response, error)
+
+	/*
+			AppVServersGetAppVServerPackageApplication Get details for a single App-V application on a server.
+
+			Get details for a single App-V application on a server (as
+		opposed to within the site).
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param server Management Server address of the App-V server.
+			@param id ID of the App-V package.
+			@param appId ID of the App-V application within the package.
+			@return ApiAppVServersGetAppVServerPackageApplicationRequest
+	*/
+	AppVServersGetAppVServerPackageApplication(ctx context.Context, server string, id string, appId string) ApiAppVServersGetAppVServerPackageApplicationRequest
+
+	// AppVServersGetAppVServerPackageApplicationExecute executes the request
+	//  @return AppVApplicationDetailResponseModel
+	AppVServersGetAppVServerPackageApplicationExecute(r ApiAppVServersGetAppVServerPackageApplicationRequest) (*AppVApplicationDetailResponseModel, *http.Response, error)
+
+	/*
+			AppVServersGetAppVServerPackageApplicationIcon Get the icon for a App-V application
+
+			Get the icon for a single App-V package on a server (as
+		opposed to within the site).
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param server Management Server address of the App-V server.
+			@param id ID of the App-V package.
+			@param appId ID of the App-V application within the package.
+			@return ApiAppVServersGetAppVServerPackageApplicationIconRequest
+	*/
+	AppVServersGetAppVServerPackageApplicationIcon(ctx context.Context, server string, id string, appId string) ApiAppVServersGetAppVServerPackageApplicationIconRequest
+
+	// AppVServersGetAppVServerPackageApplicationIconExecute executes the request
+	//  @return IconDataResponseModel
+	AppVServersGetAppVServerPackageApplicationIconExecute(r ApiAppVServersGetAppVServerPackageApplicationIconRequest) (*IconDataResponseModel, *http.Response, error)
+
+	/*
+			AppVServersGetAppVServerPackageApplications Get App-V applications within an App-V package on a server.
+
+			Get App-V applications within an App-V package on a server (as
+		opposed to within the site).
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param server Management Server address of the App-V server.
+			@param id ID of the App-V package.
+			@return ApiAppVServersGetAppVServerPackageApplicationsRequest
+	*/
+	AppVServersGetAppVServerPackageApplications(ctx context.Context, server string, id string) ApiAppVServersGetAppVServerPackageApplicationsRequest
+
+	// AppVServersGetAppVServerPackageApplicationsExecute executes the request
+	//  @return AppVApplicationResponseModelCollection
+	AppVServersGetAppVServerPackageApplicationsExecute(r ApiAppVServersGetAppVServerPackageApplicationsRequest) (*AppVApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+			AppVServersGetAppVServerPackageIcon Get the icon for a single App-V package on a server.
+
+			Get the icon for a single App-V package on a server (as opposed to
+		within the site).
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param server Management Server address of the App-V server.
+			@param id ID of the App-V package.
+			@return ApiAppVServersGetAppVServerPackageIconRequest
+	*/
+	AppVServersGetAppVServerPackageIcon(ctx context.Context, server string, id string) ApiAppVServersGetAppVServerPackageIconRequest
+
+	// AppVServersGetAppVServerPackageIconExecute executes the request
+	//  @return IconDataResponseModel
+	AppVServersGetAppVServerPackageIconExecute(r ApiAppVServersGetAppVServerPackageIconRequest) (*IconDataResponseModel, *http.Response, error)
+
+	/*
+		AppVServersGetAppVServerPackages Get the packages from a single App-V server
+
+		Get the packages from a single App-V server.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param server Management Server address of the App-V server.
+		@return ApiAppVServersGetAppVServerPackagesRequest
+	*/
+	AppVServersGetAppVServerPackages(ctx context.Context, server string) ApiAppVServersGetAppVServerPackagesRequest
+
+	// AppVServersGetAppVServerPackagesExecute executes the request
+	//  @return AppVPackageResponseModelCollection
+	AppVServersGetAppVServerPackagesExecute(r ApiAppVServersGetAppVServerPackagesRequest) (*AppVPackageResponseModelCollection, *http.Response, error)
+
+	/*
+		AppVServersGetAppVServers Get all App-V servers configured in the site
+
+		Get all App-V servers configured in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAppVServersGetAppVServersRequest
+	*/
+	AppVServersGetAppVServers(ctx context.Context) ApiAppVServersGetAppVServersRequest
+
+	// AppVServersGetAppVServersExecute executes the request
+	//  @return AppVServerResponseModelCollection
+	AppVServersGetAppVServersExecute(r ApiAppVServersGetAppVServersRequest) (*AppVServerResponseModelCollection, *http.Response, error)
+}
+
 // AppVServersAPIsDAASService AppVServersAPIsDAAS service
 type AppVServersAPIsDAASService service
 
 type ApiAppVServersGetAppVServerPackageRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVServersAPIsDAASService
+	ApiService          AppVServersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	server              string
@@ -313,7 +432,7 @@ func (a *AppVServersAPIsDAASService) AppVServersGetAppVServerPackageExecute(r Ap
 
 type ApiAppVServersGetAppVServerPackageApplicationRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVServersAPIsDAASService
+	ApiService          AppVServersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	server              string
@@ -606,7 +725,7 @@ func (a *AppVServersAPIsDAASService) AppVServersGetAppVServerPackageApplicationE
 
 type ApiAppVServersGetAppVServerPackageApplicationIconRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVServersAPIsDAASService
+	ApiService          AppVServersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	server              string
@@ -909,7 +1028,7 @@ func (a *AppVServersAPIsDAASService) AppVServersGetAppVServerPackageApplicationI
 
 type ApiAppVServersGetAppVServerPackageApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVServersAPIsDAASService
+	ApiService          AppVServersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	server              string
@@ -1198,7 +1317,7 @@ func (a *AppVServersAPIsDAASService) AppVServersGetAppVServerPackageApplications
 
 type ApiAppVServersGetAppVServerPackageIconRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVServersAPIsDAASService
+	ApiService          AppVServersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	server              string
@@ -1497,7 +1616,7 @@ func (a *AppVServersAPIsDAASService) AppVServersGetAppVServerPackageIconExecute(
 
 type ApiAppVServersGetAppVServerPackagesRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVServersAPIsDAASService
+	ApiService          AppVServersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	server              string
@@ -1781,7 +1900,7 @@ func (a *AppVServersAPIsDAASService) AppVServersGetAppVServerPackagesExecute(r A
 
 type ApiAppVServersGetAppVServersRequest struct {
 	ctx                 context.Context
-	ApiService          *AppVServersAPIsDAASService
+	ApiService          AppVServersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string

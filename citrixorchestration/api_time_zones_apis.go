@@ -18,12 +18,42 @@ import (
 	"net/url"
 )
 
+type TimeZonesAPIsDAAS interface {
+
+	/*
+			TimeZonesGetTimeZones Get a list of time zones supported by the site.
+
+			Get a (non-exhaustive) list of time zones supported by the site,
+		with time zone names represented in the caller's locale.
+
+
+		Note that all IANA (https://www.iana.org/time-zones) time zones are
+		supported as inputs to time zone APIs.  However sometimes callers
+		need a suitable list of time zones to display as options within a
+		UI. This API provides that capability. The options returned
+		represent a reasonable palette of options for a caller to choose
+		from when selecting a time zone.
+
+
+		The localized time zone names come from the Unicode CLDR
+		(http://cldr.unicode.org/) project.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiTimeZonesGetTimeZonesRequest
+	*/
+	TimeZonesGetTimeZones(ctx context.Context) ApiTimeZonesGetTimeZonesRequest
+
+	// TimeZonesGetTimeZonesExecute executes the request
+	//  @return TimeZoneResponseModelCollection
+	TimeZonesGetTimeZonesExecute(r ApiTimeZonesGetTimeZonesRequest) (*TimeZoneResponseModelCollection, *http.Response, error)
+}
+
 // TimeZonesAPIsDAASService TimeZonesAPIsDAAS service
 type TimeZonesAPIsDAASService service
 
 type ApiTimeZonesGetTimeZonesRequest struct {
 	ctx                 context.Context
-	ApiService          *TimeZonesAPIsDAASService
+	ApiService          TimeZonesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string

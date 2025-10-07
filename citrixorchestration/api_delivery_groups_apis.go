@@ -20,12 +20,846 @@ import (
 	"time"
 )
 
+type DeliveryGroupsAPIsDAAS interface {
+
+	/*
+			DeliveryGroupsAddDeliveryGroupMachineCatalog Associate a machine catalog with a RemotePC delivery group.
+
+			Associate a machine catalog with a RemotePC delivery group.  Only supported
+		when both the delivery group and the machine catalog have
+		IsRemotePC equal to `true`.
+
+		For non-RemotePC delivery groups, the relationship between machine catalog and
+		delivery group is implicit.  A machine catalog is considered "associated" with
+		a delivery group if there is at least one machine from that catalog associated
+		with the delivery group. Adding a machine from a machine catalog to a delivery
+		group will cause the machine catalog to be associated with the delivery group.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+			@return ApiDeliveryGroupsAddDeliveryGroupMachineCatalogRequest
+	*/
+	DeliveryGroupsAddDeliveryGroupMachineCatalog(ctx context.Context, nameOrId string) ApiDeliveryGroupsAddDeliveryGroupMachineCatalogRequest
+
+	// DeliveryGroupsAddDeliveryGroupMachineCatalogExecute executes the request
+	//  @return DeliveryGroupDetailResponseModel
+	DeliveryGroupsAddDeliveryGroupMachineCatalogExecute(r ApiDeliveryGroupsAddDeliveryGroupMachineCatalogRequest) (*DeliveryGroupDetailResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsAddDeliveryGroupTags Add a tag to a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param tagNameOrId Name or ID of the tag to add.
+		@return ApiDeliveryGroupsAddDeliveryGroupTagsRequest
+	*/
+	DeliveryGroupsAddDeliveryGroupTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiDeliveryGroupsAddDeliveryGroupTagsRequest
+
+	// DeliveryGroupsAddDeliveryGroupTagsExecute executes the request
+	//  @return TagResponseModelCollection
+	DeliveryGroupsAddDeliveryGroupTagsExecute(r ApiDeliveryGroupsAddDeliveryGroupTagsRequest) (*TagResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsCheckDeliveryGroupExists Check for the existence of a delivery group by name.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param name Name of the delivery group.
+		@return ApiDeliveryGroupsCheckDeliveryGroupExistsRequest
+	*/
+	DeliveryGroupsCheckDeliveryGroupExists(ctx context.Context, name string) ApiDeliveryGroupsCheckDeliveryGroupExistsRequest
+
+	// DeliveryGroupsCheckDeliveryGroupExistsExecute executes the request
+	DeliveryGroupsCheckDeliveryGroupExistsExecute(r ApiDeliveryGroupsCheckDeliveryGroupExistsRequest) (*http.Response, error)
+
+	/*
+			DeliveryGroupsCheckRebootScheduleNameExists Check for the existence of a reboot schedule by name.
+
+			Check for the existence of a reboot schedule by name.  Note that
+		reboot schedule names must be unique within the site, so the
+		`nameOrId` parameter does not affect whether the reboot schedule
+		name is found.
+
+		If the name is found to be available, this returns 404 Not Found.
+		If a reboot schedule by that name exists and is associated with the
+		specified delivery group, this returns 204 No Content.  If a reboot
+		schedule by that name exists and is associated with a different
+		delivery group, this returns 303 See Other, and the `Location`
+		response header refers to location of the reboot schedule with that
+		name.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+			@param name Name of the reboot schedule.
+			@return ApiDeliveryGroupsCheckRebootScheduleNameExistsRequest
+	*/
+	DeliveryGroupsCheckRebootScheduleNameExists(ctx context.Context, nameOrId string, name string) ApiDeliveryGroupsCheckRebootScheduleNameExistsRequest
+
+	// DeliveryGroupsCheckRebootScheduleNameExistsExecute executes the request
+	DeliveryGroupsCheckRebootScheduleNameExistsExecute(r ApiDeliveryGroupsCheckRebootScheduleNameExistsRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsCreateAutoscalePluginTemplate Create a new autoscale plugin configuration template for the specified plugin type.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param type_ The type of the plugin.                 The supported types are: \"Holiday\", \"Intelligent\"
+		@return ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest
+	*/
+	DeliveryGroupsCreateAutoscalePluginTemplate(ctx context.Context, type_ string) ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest
+
+	// DeliveryGroupsCreateAutoscalePluginTemplateExecute executes the request
+	DeliveryGroupsCreateAutoscalePluginTemplateExecute(r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsCreateDeliveryGroup Create a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiDeliveryGroupsCreateDeliveryGroupRequest
+	*/
+	DeliveryGroupsCreateDeliveryGroup(ctx context.Context) ApiDeliveryGroupsCreateDeliveryGroupRequest
+
+	// DeliveryGroupsCreateDeliveryGroupExecute executes the request
+	//  @return DeliveryGroupDetailResponseModel
+	DeliveryGroupsCreateDeliveryGroupExecute(r ApiDeliveryGroupsCreateDeliveryGroupRequest) (*DeliveryGroupDetailResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicy Create an advanced access policy associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyRequest
+	*/
+	DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicy(ctx context.Context, nameOrId string) ApiDeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyRequest
+
+	// DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyExecute executes the request
+	//  @return AdvancedAccessPolicyResponseModel
+	DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyExecute(r ApiDeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyRequest) (*AdvancedAccessPolicyResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin Create an autoscale group plugin for the speicified delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,                 specify the name in this format: {admin folder path plus delivery group name}.                 For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest
+	*/
+	DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin(ctx context.Context, nameOrId string) ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest
+
+	// DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginExecute executes the request
+	DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginExecute(r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsCreateDeliveryGroupPowerTimeScheme Create a power time scheme for a delivery group.
+
+		Create a power time scheme for a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsCreateDeliveryGroupPowerTimeSchemeRequest
+	*/
+	DeliveryGroupsCreateDeliveryGroupPowerTimeScheme(ctx context.Context, nameOrId string) ApiDeliveryGroupsCreateDeliveryGroupPowerTimeSchemeRequest
+
+	// DeliveryGroupsCreateDeliveryGroupPowerTimeSchemeExecute executes the request
+	//  @return PowerTimeSchemeResponseModel
+	DeliveryGroupsCreateDeliveryGroupPowerTimeSchemeExecute(r ApiDeliveryGroupsCreateDeliveryGroupPowerTimeSchemeRequest) (*PowerTimeSchemeResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsCreateDeliveryGroupRebootSchedule Create a reboot schedule for a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsCreateDeliveryGroupRebootScheduleRequest
+	*/
+	DeliveryGroupsCreateDeliveryGroupRebootSchedule(ctx context.Context, nameOrId string) ApiDeliveryGroupsCreateDeliveryGroupRebootScheduleRequest
+
+	// DeliveryGroupsCreateDeliveryGroupRebootScheduleExecute executes the request
+	//  @return RebootScheduleResponseModel
+	DeliveryGroupsCreateDeliveryGroupRebootScheduleExecute(r ApiDeliveryGroupsCreateDeliveryGroupRebootScheduleRequest) (*RebootScheduleResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsDeleteAutoscalePluginTemplate Delete the autoscale plugin configuration template for the specified plugin type and name.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param type_ The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"
+		@param name The name of the template.
+		@return ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest
+	*/
+	DeliveryGroupsDeleteAutoscalePluginTemplate(ctx context.Context, type_ string, name string) ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest
+
+	// DeliveryGroupsDeleteAutoscalePluginTemplateExecute executes the request
+	DeliveryGroupsDeleteAutoscalePluginTemplateExecute(r ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsDeleteDeliveryGroup Delete a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Delivery group name or ID. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsDeleteDeliveryGroupRequest
+	*/
+	DeliveryGroupsDeleteDeliveryGroup(ctx context.Context, nameOrId string) ApiDeliveryGroupsDeleteDeliveryGroupRequest
+
+	// DeliveryGroupsDeleteDeliveryGroupExecute executes the request
+	DeliveryGroupsDeleteDeliveryGroupExecute(r ApiDeliveryGroupsDeleteDeliveryGroupRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy Delete an advanced access policy associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param policyId ID of the advanced access policy.
+		@return ApiDeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyRequest
+	*/
+	DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy(ctx context.Context, nameOrId string, policyId string) ApiDeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyRequest
+
+	// DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyExecute executes the request
+	DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyExecute(r ApiDeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin Delete the autoscale group plugin by uid.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param uid
+		@return ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest
+	*/
+	DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin(ctx context.Context, nameOrId string, uid int32) ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest
+
+	// DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginExecute executes the request
+	DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginExecute(r ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme Delete a power time scheme from a delivery group.
+
+		Delete a power time scheme from a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group.If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param schemeNameOrId Name or ID of the power time scheme.
+		@return ApiDeliveryGroupsDeleteDeliveryGroupPowerTimeSchemeRequest
+	*/
+	DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme(ctx context.Context, nameOrId string, schemeNameOrId string) ApiDeliveryGroupsDeleteDeliveryGroupPowerTimeSchemeRequest
+
+	// DeliveryGroupsDeleteDeliveryGroupPowerTimeSchemeExecute executes the request
+	DeliveryGroupsDeleteDeliveryGroupPowerTimeSchemeExecute(r ApiDeliveryGroupsDeleteDeliveryGroupPowerTimeSchemeRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsDeleteDeliveryGroupRebootSchedule Delete a reboot schedule from a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param scheduleNameOrId Name or ID of the reboot schedule.
+		@return ApiDeliveryGroupsDeleteDeliveryGroupRebootScheduleRequest
+	*/
+	DeliveryGroupsDeleteDeliveryGroupRebootSchedule(ctx context.Context, nameOrId string, scheduleNameOrId string) ApiDeliveryGroupsDeleteDeliveryGroupRebootScheduleRequest
+
+	// DeliveryGroupsDeleteDeliveryGroupRebootScheduleExecute executes the request
+	DeliveryGroupsDeleteDeliveryGroupRebootScheduleExecute(r ApiDeliveryGroupsDeleteDeliveryGroupRebootScheduleRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsDoAddApplications Add applications and/or application groups to a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsDoAddApplicationsRequest
+	*/
+	DeliveryGroupsDoAddApplications(ctx context.Context, nameOrId string) ApiDeliveryGroupsDoAddApplicationsRequest
+
+	// DeliveryGroupsDoAddApplicationsExecute executes the request
+	DeliveryGroupsDoAddApplicationsExecute(r ApiDeliveryGroupsDoAddApplicationsRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsDoAddMachines Add machines to a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group to add machines to.             If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsDoAddMachinesRequest
+	*/
+	DeliveryGroupsDoAddMachines(ctx context.Context, nameOrId string) ApiDeliveryGroupsDoAddMachinesRequest
+
+	// DeliveryGroupsDoAddMachinesExecute executes the request
+	//  @return DeliveryGroupDetailResponseModel
+	DeliveryGroupsDoAddMachinesExecute(r ApiDeliveryGroupsDoAddMachinesRequest) (*DeliveryGroupDetailResponseModel, *http.Response, error)
+
+	/*
+			DeliveryGroupsDoDeliveryGroupSearch Perform an advanced search for deliveryGroups.
+
+			Perform an advanced search for deliveryGroups.  Note that some combinations
+		of search parameters may result in slow performance.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiDeliveryGroupsDoDeliveryGroupSearchRequest
+	*/
+	DeliveryGroupsDoDeliveryGroupSearch(ctx context.Context) ApiDeliveryGroupsDoDeliveryGroupSearchRequest
+
+	// DeliveryGroupsDoDeliveryGroupSearchExecute executes the request
+	//  @return DeliveryGroupResponseModelCollection
+	DeliveryGroupsDoDeliveryGroupSearchExecute(r ApiDeliveryGroupsDoDeliveryGroupSearchRequest) (*DeliveryGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsDoRemoveApplicationGroups Remove an application group from a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param appGroupNameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+		@return ApiDeliveryGroupsDoRemoveApplicationGroupsRequest
+	*/
+	DeliveryGroupsDoRemoveApplicationGroups(ctx context.Context, nameOrId string, appGroupNameOrId string) ApiDeliveryGroupsDoRemoveApplicationGroupsRequest
+
+	// DeliveryGroupsDoRemoveApplicationGroupsExecute executes the request
+	DeliveryGroupsDoRemoveApplicationGroupsExecute(r ApiDeliveryGroupsDoRemoveApplicationGroupsRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsDoRemoveApplications Remove an application from a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param appNameOrId Name or ID of the application.
+		@return ApiDeliveryGroupsDoRemoveApplicationsRequest
+	*/
+	DeliveryGroupsDoRemoveApplications(ctx context.Context, nameOrId string, appNameOrId string) ApiDeliveryGroupsDoRemoveApplicationsRequest
+
+	// DeliveryGroupsDoRemoveApplicationsExecute executes the request
+	DeliveryGroupsDoRemoveApplicationsExecute(r ApiDeliveryGroupsDoRemoveApplicationsRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsDoRemoveMachines Remove a machine from a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param machineNameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'.             For instance, if a MachineName is \"DomainA\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiDeliveryGroupsDoRemoveMachinesRequest
+	*/
+	DeliveryGroupsDoRemoveMachines(ctx context.Context, nameOrId string, machineNameOrId string) ApiDeliveryGroupsDoRemoveMachinesRequest
+
+	// DeliveryGroupsDoRemoveMachinesExecute executes the request
+	DeliveryGroupsDoRemoveMachinesExecute(r ApiDeliveryGroupsDoRemoveMachinesRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsGetAutoscalePluginTemplate Return the autoscale plugin configuration template for the specified plugin type and name.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param type_ The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"
+		@param name The name of the template.
+		@return ApiDeliveryGroupsGetAutoscalePluginTemplateRequest
+	*/
+	DeliveryGroupsGetAutoscalePluginTemplate(ctx context.Context, type_ string, name string) ApiDeliveryGroupsGetAutoscalePluginTemplateRequest
+
+	// DeliveryGroupsGetAutoscalePluginTemplateExecute executes the request
+	//  @return AutoscalePluginTemplateResponseModel
+	DeliveryGroupsGetAutoscalePluginTemplateExecute(r ApiDeliveryGroupsGetAutoscalePluginTemplateRequest) (*AutoscalePluginTemplateResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetAutoscalePluginTemplates Return all autoscale plugin configuration templates for the specified plugin type.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param type_ The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"
+		@return ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest
+	*/
+	DeliveryGroupsGetAutoscalePluginTemplates(ctx context.Context, type_ string) ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest
+
+	// DeliveryGroupsGetAutoscalePluginTemplatesExecute executes the request
+	//  @return AutoscalePluginTemplateResponseModelCollection
+	DeliveryGroupsGetAutoscalePluginTemplatesExecute(r ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest) (*AutoscalePluginTemplateResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines Gets the projected number of machines that Autoscale will keep powered on over the specified period
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesRequest
+	*/
+	DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesRequest
+
+	// DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesExecute executes the request
+	//  @return ProjectedAutoscaleMachinesResponseModel
+	DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesExecute(r ApiDeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesRequest) (*ProjectedAutoscaleMachinesResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroup Get details of a single delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeliveryGroupRequest
+	*/
+	DeliveryGroupsGetDeliveryGroup(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupRequest
+
+	// DeliveryGroupsGetDeliveryGroupExecute executes the request
+	//  @return DeliveryGroupDetailResponseModel
+	DeliveryGroupsGetDeliveryGroupExecute(r ApiDeliveryGroupsGetDeliveryGroupRequest) (*DeliveryGroupDetailResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies Get the advanced access policies associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesRequest
+
+	// DeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesExecute executes the request
+	//  @return AdvancedAccessPolicyResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesExecute(r ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesRequest) (*AdvancedAccessPolicyResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy Get the details of a single advanced access policy associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param policyId ID of the advanced access policy.
+		@return ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy(ctx context.Context, nameOrId string, policyId string) ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyRequest
+
+	// DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyExecute executes the request
+	//  @return AdvancedAccessPolicyResponseModel
+	DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyExecute(r ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyRequest) (*AdvancedAccessPolicyResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupApplications Get the applications associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeliveryGroupApplicationsRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupApplications(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupApplicationsRequest
+
+	// DeliveryGroupsGetDeliveryGroupApplicationsExecute executes the request
+	//  @return ApplicationResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupApplicationsExecute(r ApiDeliveryGroupsGetDeliveryGroupApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins Get the autoscale group plugins for the specified delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest
+
+	// DeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsExecute executes the request
+	//  @return AutoscaleGroupPluginModelCollection
+	DeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsExecute(r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) (*AutoscaleGroupPluginModelCollection, *http.Response, error)
+
+	/*
+			DeliveryGroupsGetDeliveryGroupFtas Returns the file type associations the system imports from worker machines in the specified delivery group.
+
+			Get the imported file-type for a delivery group. The imported file type associations are grouped according to the desktop group to which they belong,
+		because the system expects all machines in the same desktop group to have the same file type associations.
+		That may not be true, however, across desktop groups.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiDeliveryGroupsGetDeliveryGroupFtasRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupFtas(ctx context.Context) ApiDeliveryGroupsGetDeliveryGroupFtasRequest
+
+	// DeliveryGroupsGetDeliveryGroupFtasExecute executes the request
+	//  @return FtaResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupFtasExecute(r ApiDeliveryGroupsGetDeliveryGroupFtasRequest) (*FtaResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupMachines Get the machines associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeliveryGroupMachinesRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupMachines(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupMachinesRequest
+
+	// DeliveryGroupsGetDeliveryGroupMachinesExecute executes the request
+	//  @return MachineResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupMachinesExecute(r ApiDeliveryGroupsGetDeliveryGroupMachinesRequest) (*MachineResponseModelCollection, *http.Response, error)
+
+	/*
+			DeliveryGroupsGetDeliveryGroupPowerTimeScheme Get the details about a single power time scheme associated with a delivery group.
+
+			Get the details about a single power time scheme associated with a delivery
+		group.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+			@param schemeNameOrId Name or ID of the power time scheme.
+			@return ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemeRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupPowerTimeScheme(ctx context.Context, nameOrId string, schemeNameOrId string) ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemeRequest
+
+	// DeliveryGroupsGetDeliveryGroupPowerTimeSchemeExecute executes the request
+	//  @return PowerTimeSchemeResponseModel
+	DeliveryGroupsGetDeliveryGroupPowerTimeSchemeExecute(r ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemeRequest) (*PowerTimeSchemeResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupPowerTimeSchemes Get the power time schemes associated with a delivery group.
+
+		Get the power time schemes associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemesRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupPowerTimeSchemes(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemesRequest
+
+	// DeliveryGroupsGetDeliveryGroupPowerTimeSchemesExecute executes the request
+	//  @return PowerTimeSchemeResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupPowerTimeSchemesExecute(r ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemesRequest) (*PowerTimeSchemeResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupRebootSchedule Get the details about a single reboot schedule associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param scheduleNameOrId Name or ID of the reboot schedule.
+		@return ApiDeliveryGroupsGetDeliveryGroupRebootScheduleRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupRebootSchedule(ctx context.Context, nameOrId string, scheduleNameOrId string) ApiDeliveryGroupsGetDeliveryGroupRebootScheduleRequest
+
+	// DeliveryGroupsGetDeliveryGroupRebootScheduleExecute executes the request
+	//  @return RebootScheduleResponseModel
+	DeliveryGroupsGetDeliveryGroupRebootScheduleExecute(r ApiDeliveryGroupsGetDeliveryGroupRebootScheduleRequest) (*RebootScheduleResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupRebootSchedules Get the reboot schedules associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeliveryGroupRebootSchedulesRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupRebootSchedules(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupRebootSchedulesRequest
+
+	// DeliveryGroupsGetDeliveryGroupRebootSchedulesExecute executes the request
+	//  @return RebootScheduleResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupRebootSchedulesExecute(r ApiDeliveryGroupsGetDeliveryGroupRebootSchedulesRequest) (*RebootScheduleResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupStartMenuApplications Get the start menu applications from a machine in the delivery group.
+
+		Get the start menu applications from a machine in the delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeliveryGroupStartMenuApplicationsRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupStartMenuApplications(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupStartMenuApplicationsRequest
+
+	// DeliveryGroupsGetDeliveryGroupStartMenuApplicationsExecute executes the request
+	//  @return StartMenuApplicationResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupStartMenuApplicationsExecute(r ApiDeliveryGroupsGetDeliveryGroupStartMenuApplicationsRequest) (*StartMenuApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+			DeliveryGroupsGetDeliveryGroupTags Get tags associated with a delivery group.
+
+			Get tags associated with a delivery group.  This includes tags which are
+		directly associated with the delivery group, as well as tags associated with
+		application groups, machines, or applications that are associated with the
+		delivery group.  To find only tags directly associated with the delivery
+		group, filter the results to those with
+		NumDeliveryGroups equal to `1`.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+			@return ApiDeliveryGroupsGetDeliveryGroupTagsRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupTags(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupTagsRequest
+
+	// DeliveryGroupsGetDeliveryGroupTagsExecute executes the request
+	//  @return TagResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupTagsExecute(r ApiDeliveryGroupsGetDeliveryGroupTagsRequest) (*TagResponseModelCollection, *http.Response, error)
+
+	/*
+			DeliveryGroupsGetDeliveryGroupTestReport Get the most recent test report of a delivery group.
+
+			Get the test report from the last run of
+		TestDeliveryGroup.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+			@return ApiDeliveryGroupsGetDeliveryGroupTestReportRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupTestReport(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupTestReportRequest
+
+	// DeliveryGroupsGetDeliveryGroupTestReportExecute executes the request
+	//  @return TestReportResponseModel
+	DeliveryGroupsGetDeliveryGroupTestReportExecute(r ApiDeliveryGroupsGetDeliveryGroupTestReportRequest) (*TestReportResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroups Get all delivery groups.
+
+		Get delivery groups in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiDeliveryGroupsGetDeliveryGroupsRequest
+	*/
+	DeliveryGroupsGetDeliveryGroups(ctx context.Context) ApiDeliveryGroupsGetDeliveryGroupsRequest
+
+	// DeliveryGroupsGetDeliveryGroupsExecute executes the request
+	//  @return DeliveryGroupResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupsExecute(r ApiDeliveryGroupsGetDeliveryGroupsRequest) (*DeliveryGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupsAdministrators Get administrators who can administer a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeliveryGroupsAdministratorsRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupsAdministrators(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupsAdministratorsRequest
+
+	// DeliveryGroupsGetDeliveryGroupsAdministratorsExecute executes the request
+	//  @return AdministratorResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupsAdministratorsExecute(r ApiDeliveryGroupsGetDeliveryGroupsAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupsApplicationGroups Get the application groups associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeliveryGroupsApplicationGroupsRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupsApplicationGroups(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupsApplicationGroupsRequest
+
+	// DeliveryGroupsGetDeliveryGroupsApplicationGroupsExecute executes the request
+	//  @return ApplicationGroupResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupsApplicationGroupsExecute(r ApiDeliveryGroupsGetDeliveryGroupsApplicationGroupsRequest) (*ApplicationGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupsDesktops Get the published desktops associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeliveryGroupsDesktopsRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupsDesktops(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupsDesktopsRequest
+
+	// DeliveryGroupsGetDeliveryGroupsDesktopsExecute executes the request
+	//  @return DesktopResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupsDesktopsExecute(r ApiDeliveryGroupsGetDeliveryGroupsDesktopsRequest) (*DesktopResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupsMachineCatalogDetails Get the details of machine catalog associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param id Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {delivery group folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupsMachineCatalogDetails(ctx context.Context, nameOrId string, id string) ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsRequest
+
+	// DeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsExecute executes the request
+	//  @return MachineCatalogDetailResponseModel
+	DeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsExecute(r ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsRequest) (*MachineCatalogDetailResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupsMachineCatalogs Get machine catalogs associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogsRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupsMachineCatalogs(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogsRequest
+
+	// DeliveryGroupsGetDeliveryGroupsMachineCatalogsExecute executes the request
+	//  @return MachineCatalogResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupsMachineCatalogsExecute(r ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogsRequest) (*MachineCatalogResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupsUsage Get usage data about a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsGetDeliveryGroupsUsageRequest
+	*/
+	DeliveryGroupsGetDeliveryGroupsUsage(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupsUsageRequest
+
+	// DeliveryGroupsGetDeliveryGroupsUsageExecute executes the request
+	//  @return DesktopUsageResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupsUsageExecute(r ApiDeliveryGroupsGetDeliveryGroupsUsageRequest) (*DesktopUsageResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetDeliveryGroupsV2 The V2 version of get all delivery groups.
+
+		Get delivery groups in the site with default response fields if no fields parameters specified.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiDeliveryGroupsGetDeliveryGroupsV2Request
+	*/
+	DeliveryGroupsGetDeliveryGroupsV2(ctx context.Context) ApiDeliveryGroupsGetDeliveryGroupsV2Request
+
+	// DeliveryGroupsGetDeliveryGroupsV2Execute executes the request
+	//  @return DeliveryGroupResponseModelCollection
+	DeliveryGroupsGetDeliveryGroupsV2Execute(r ApiDeliveryGroupsGetDeliveryGroupsV2Request) (*DeliveryGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsPatchDeliveryGroup Modify a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group to update. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsPatchDeliveryGroupRequest
+	*/
+	DeliveryGroupsPatchDeliveryGroup(ctx context.Context, nameOrId string) ApiDeliveryGroupsPatchDeliveryGroupRequest
+
+	// DeliveryGroupsPatchDeliveryGroupExecute executes the request
+	DeliveryGroupsPatchDeliveryGroupExecute(r ApiDeliveryGroupsPatchDeliveryGroupRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy Update an advanced access policy associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param policyId ID of the advanced access policy.
+		@return ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest
+	*/
+	DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy(ctx context.Context, nameOrId string, policyId string) ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest
+
+	// DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyExecute executes the request
+	//  @return AdvancedAccessPolicyResponseModel
+	DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyExecute(r ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest) (*AdvancedAccessPolicyResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsPatchDeliveryGroupPowerTimeScheme Update a power time scheme for a delivery group.
+
+		Update a power time scheme for a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param schemeNameOrId Name or ID of the power time scheme to update.
+		@return ApiDeliveryGroupsPatchDeliveryGroupPowerTimeSchemeRequest
+	*/
+	DeliveryGroupsPatchDeliveryGroupPowerTimeScheme(ctx context.Context, nameOrId string, schemeNameOrId string) ApiDeliveryGroupsPatchDeliveryGroupPowerTimeSchemeRequest
+
+	// DeliveryGroupsPatchDeliveryGroupPowerTimeSchemeExecute executes the request
+	//  @return PowerTimeSchemeResponseModel
+	DeliveryGroupsPatchDeliveryGroupPowerTimeSchemeExecute(r ApiDeliveryGroupsPatchDeliveryGroupPowerTimeSchemeRequest) (*PowerTimeSchemeResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsPatchDeliveryGroupRebootSchedule Update a reboot schedule for a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param scheduleNameOrId Name or ID of the reboot schedule to update.
+		@return ApiDeliveryGroupsPatchDeliveryGroupRebootScheduleRequest
+	*/
+	DeliveryGroupsPatchDeliveryGroupRebootSchedule(ctx context.Context, nameOrId string, scheduleNameOrId string) ApiDeliveryGroupsPatchDeliveryGroupRebootScheduleRequest
+
+	// DeliveryGroupsPatchDeliveryGroupRebootScheduleExecute executes the request
+	//  @return RebootScheduleResponseModel
+	DeliveryGroupsPatchDeliveryGroupRebootScheduleExecute(r ApiDeliveryGroupsPatchDeliveryGroupRebootScheduleRequest) (*RebootScheduleResponseModel, *http.Response, error)
+
+	/*
+			DeliveryGroupsRemoveDeliveryGroupMachineCatalog Disassociate a machine catalog from a RemotePC delivery group.
+
+			Disassociate a machine catalog from a RemotePC delivery group.  Only supported
+		when IsRemotePC is equal to `true`.
+
+		For non-RemotePC delivery groups, the relationship between machine catalog and
+		delivery group is implicit.  A machine catalog is considered "associated" with
+		a delivery group if there is at least one machine from that machine catalog
+		associated with the delivery group. Removing all machines within a machine
+		catalog from a delivery group will cause the machine catalog to be
+		disassociated from the delivery group.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+			@param catalogNameOrId Name or ID of the machine catalog to associate. If the ctalog is present in a catalog folder,             specify the name in this format: {delivery group folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@return ApiDeliveryGroupsRemoveDeliveryGroupMachineCatalogRequest
+	*/
+	DeliveryGroupsRemoveDeliveryGroupMachineCatalog(ctx context.Context, nameOrId string, catalogNameOrId string) ApiDeliveryGroupsRemoveDeliveryGroupMachineCatalogRequest
+
+	// DeliveryGroupsRemoveDeliveryGroupMachineCatalogExecute executes the request
+	DeliveryGroupsRemoveDeliveryGroupMachineCatalogExecute(r ApiDeliveryGroupsRemoveDeliveryGroupMachineCatalogRequest) (*http.Response, error)
+
+	/*
+			DeliveryGroupsRemoveDeliveryGroupTags Remove a tag from a delivery group.
+
+			Remove a tag from a delivery group.  Does not delete the tag,
+		only its association to the delivery group.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+			@param tagNameOrId Name or ID of the tag.
+			@return ApiDeliveryGroupsRemoveDeliveryGroupTagsRequest
+	*/
+	DeliveryGroupsRemoveDeliveryGroupTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiDeliveryGroupsRemoveDeliveryGroupTagsRequest
+
+	// DeliveryGroupsRemoveDeliveryGroupTagsExecute executes the request
+	DeliveryGroupsRemoveDeliveryGroupTagsExecute(r ApiDeliveryGroupsRemoveDeliveryGroupTagsRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsSetDeliveryGroupTags Set tags associated with a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsSetDeliveryGroupTagsRequest
+	*/
+	DeliveryGroupsSetDeliveryGroupTags(ctx context.Context, nameOrId string) ApiDeliveryGroupsSetDeliveryGroupTagsRequest
+
+	// DeliveryGroupsSetDeliveryGroupTagsExecute executes the request
+	DeliveryGroupsSetDeliveryGroupTagsExecute(r ApiDeliveryGroupsSetDeliveryGroupTagsRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsStartDeliveryGroupRebootCycle Start a reboot cycle for machines in a delivery group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsStartDeliveryGroupRebootCycleRequest
+	*/
+	DeliveryGroupsStartDeliveryGroupRebootCycle(ctx context.Context, nameOrId string) ApiDeliveryGroupsStartDeliveryGroupRebootCycleRequest
+
+	// DeliveryGroupsStartDeliveryGroupRebootCycleExecute executes the request
+	DeliveryGroupsStartDeliveryGroupRebootCycleExecute(r ApiDeliveryGroupsStartDeliveryGroupRebootCycleRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsTestDeliveryGroup Run tests on a delivery group and create a test report.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group to test. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@return ApiDeliveryGroupsTestDeliveryGroupRequest
+	*/
+	DeliveryGroupsTestDeliveryGroup(ctx context.Context, nameOrId string) ApiDeliveryGroupsTestDeliveryGroupRequest
+
+	// DeliveryGroupsTestDeliveryGroupExecute executes the request
+	//  @return DeliveryGroupTestResponseModel
+	DeliveryGroupsTestDeliveryGroupExecute(r ApiDeliveryGroupsTestDeliveryGroupRequest) (*DeliveryGroupTestResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsTestDeliveryGroupExists Test the existence of a delivery group by name.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiDeliveryGroupsTestDeliveryGroupExistsRequest
+	*/
+	DeliveryGroupsTestDeliveryGroupExists(ctx context.Context) ApiDeliveryGroupsTestDeliveryGroupExistsRequest
+
+	// DeliveryGroupsTestDeliveryGroupExistsExecute executes the request
+	DeliveryGroupsTestDeliveryGroupExistsExecute(r ApiDeliveryGroupsTestDeliveryGroupExistsRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsUpdateAutoscalePluginTemplate Update the autoscale plugin configuration template for the specified plugin type.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param type_ The type of the plugin.                 The supported types are: \"Holiday\", \"Intelligent\"
+		@param name The name of the template.
+		@return ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest
+	*/
+	DeliveryGroupsUpdateAutoscalePluginTemplate(ctx context.Context, type_ string, name string) ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest
+
+	// DeliveryGroupsUpdateAutoscalePluginTemplateExecute executes the request
+	DeliveryGroupsUpdateAutoscalePluginTemplateExecute(r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin Update the autoscale group plugin by uid.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+		@param uid The group plugin uid
+		@return ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest
+	*/
+	DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin(ctx context.Context, nameOrId string, uid int32) ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest
+
+	// DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginExecute executes the request
+	DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginExecute(r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) (*http.Response, error)
+}
+
 // DeliveryGroupsAPIsDAASService DeliveryGroupsAPIsDAAS service
 type DeliveryGroupsAPIsDAASService service
 
 type ApiDeliveryGroupsAddDeliveryGroupMachineCatalogRequest struct {
 	ctx                     context.Context
-	ApiService              *DeliveryGroupsAPIsDAASService
+	ApiService              DeliveryGroupsAPIsDAAS
 	citrixCustomerId        *string
 	citrixInstanceId        *string
 	nameOrId                string
@@ -377,7 +1211,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupMachineCat
 
 type ApiDeliveryGroupsAddDeliveryGroupTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -687,7 +1521,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsAddDeliveryGroupTagsExecut
 
 type ApiDeliveryGroupsCheckDeliveryGroupExistsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	name                string
@@ -957,7 +1791,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckDeliveryGroupExistsEx
 
 type ApiDeliveryGroupsCheckRebootScheduleNameExistsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1244,7 +2078,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExi
 
 type ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest struct {
 	ctx                                       context.Context
-	ApiService                                *DeliveryGroupsAPIsDAASService
+	ApiService                                DeliveryGroupsAPIsDAAS
 	citrixCustomerId                          *string
 	citrixInstanceId                          *string
 	type_                                     string
@@ -1561,7 +2395,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTempl
 
 type ApiDeliveryGroupsCreateDeliveryGroupRequest struct {
 	ctx                             context.Context
-	ApiService                      *DeliveryGroupsAPIsDAASService
+	ApiService                      DeliveryGroupsAPIsDAAS
 	citrixCustomerId                *string
 	citrixInstanceId                *string
 	createDeliveryGroupRequestModel *CreateDeliveryGroupRequestModel
@@ -1888,7 +2722,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupExecute
 
 type ApiDeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicyRequest struct {
 	ctx                              context.Context
-	ApiService                       *DeliveryGroupsAPIsDAASService
+	ApiService                       DeliveryGroupsAPIsDAAS
 	citrixCustomerId                 *string
 	citrixInstanceId                 *string
 	nameOrId                         string
@@ -2217,7 +3051,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 
 type ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest struct {
 	ctx                                    context.Context
-	ApiService                             *DeliveryGroupsAPIsDAASService
+	ApiService                             DeliveryGroupsAPIsDAAS
 	citrixCustomerId                       *string
 	citrixInstanceId                       *string
 	nameOrId                               string
@@ -2534,7 +3368,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutosca
 
 type ApiDeliveryGroupsCreateDeliveryGroupPowerTimeSchemeRequest struct {
 	ctx                         context.Context
-	ApiService                  *DeliveryGroupsAPIsDAASService
+	ApiService                  DeliveryGroupsAPIsDAAS
 	citrixCustomerId            *string
 	citrixInstanceId            *string
 	nameOrId                    string
@@ -2865,7 +3699,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupPowerTi
 
 type ApiDeliveryGroupsCreateDeliveryGroupRebootScheduleRequest struct {
 	ctx                        context.Context
-	ApiService                 *DeliveryGroupsAPIsDAASService
+	ApiService                 DeliveryGroupsAPIsDAAS
 	citrixCustomerId           *string
 	citrixInstanceId           *string
 	nameOrId                   string
@@ -3181,7 +4015,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 
 type ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	type_               string
@@ -3468,7 +4302,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTempl
 
 type ApiDeliveryGroupsDeleteDeliveryGroupRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3764,7 +4598,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupExecute
 
 type ApiDeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicyRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4051,7 +4885,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 
 type ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4338,7 +5172,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutosca
 
 type ApiDeliveryGroupsDeleteDeliveryGroupPowerTimeSchemeRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4627,7 +5461,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupPowerTi
 
 type ApiDeliveryGroupsDeleteDeliveryGroupRebootScheduleRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4901,7 +5735,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 
 type ApiDeliveryGroupsDoAddApplicationsRequest struct {
 	ctx                                      context.Context
-	ApiService                               *DeliveryGroupsAPIsDAASService
+	ApiService                               DeliveryGroupsAPIsDAAS
 	citrixCustomerId                         *string
 	citrixInstanceId                         *string
 	nameOrId                                 string
@@ -5218,7 +6052,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddApplicationsExecute(r
 
 type ApiDeliveryGroupsDoAddMachinesRequest struct {
 	ctx                                  context.Context
-	ApiService                           *DeliveryGroupsAPIsDAASService
+	ApiService                           DeliveryGroupsAPIsDAAS
 	citrixCustomerId                     *string
 	citrixInstanceId                     *string
 	nameOrId                             string
@@ -5560,7 +6394,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoAddMachinesExecute(r Api
 
 type ApiDeliveryGroupsDoDeliveryGroupSearchRequest struct {
 	ctx                             context.Context
-	ApiService                      *DeliveryGroupsAPIsDAASService
+	ApiService                      DeliveryGroupsAPIsDAAS
 	citrixCustomerId                *string
 	citrixInstanceId                *string
 	deliveryGroupSearchRequestModel *DeliveryGroupSearchRequestModel
@@ -5907,7 +6741,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoDeliveryGroupSearchExecu
 
 type ApiDeliveryGroupsDoRemoveApplicationGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -6194,7 +7028,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationGroupsE
 
 type ApiDeliveryGroupsDoRemoveApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -6481,7 +7315,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveApplicationsExecut
 
 type ApiDeliveryGroupsDoRemoveMachinesRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -6768,7 +7602,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 
 type ApiDeliveryGroupsGetAutoscalePluginTemplateRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	type_               string
@@ -7067,7 +7901,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 
 type ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	type_               string
@@ -7362,7 +8196,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate
 
 type ApiDeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -7664,7 +8498,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeiliveryGroupProjected
 
 type ApiDeliveryGroupsGetDeliveryGroupRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -7956,7 +8790,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupExecute(r 
 
 type ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPoliciesRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -8258,7 +9092,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 
 type ApiDeliveryGroupsGetDeliveryGroupAdvancedAccessPolicyRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -8544,7 +9378,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAdvancedAc
 
 type ApiDeliveryGroupsGetDeliveryGroupApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -8858,7 +9692,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 
 type ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -9163,7 +9997,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleG
 
 type ApiDeliveryGroupsGetDeliveryGroupFtasRequest struct {
 	ctx                           context.Context
-	ApiService                    *DeliveryGroupsAPIsDAASService
+	ApiService                    DeliveryGroupsAPIsDAAS
 	citrixCustomerId              *string
 	citrixInstanceId              *string
 	deliveryGroupsFtaRequestModel *DeliveryGroupsFtaRequestModel
@@ -9490,7 +10324,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupFtasExecut
 
 type ApiDeliveryGroupsGetDeliveryGroupMachinesRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -9792,7 +10626,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupMachinesEx
 
 type ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemeRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -10081,7 +10915,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 
 type ApiDeliveryGroupsGetDeliveryGroupPowerTimeSchemesRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -10385,7 +11219,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupPowerTimeS
 
 type ApiDeliveryGroupsGetDeliveryGroupRebootScheduleRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -10671,7 +11505,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 
 type ApiDeliveryGroupsGetDeliveryGroupRebootSchedulesRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -10973,7 +11807,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupRebootSche
 
 type ApiDeliveryGroupsGetDeliveryGroupStartMenuApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -11280,7 +12114,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupStartMenuA
 
 type ApiDeliveryGroupsGetDeliveryGroupTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -11592,7 +12426,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 
 type ApiDeliveryGroupsGetDeliveryGroupTestReportRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -11877,7 +12711,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTestReport
 
 type ApiDeliveryGroupsGetDeliveryGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -12198,7 +13032,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsExecute(r
 
 type ApiDeliveryGroupsGetDeliveryGroupsAdministratorsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -12500,7 +13334,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsAdministr
 
 type ApiDeliveryGroupsGetDeliveryGroupsApplicationGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -12802,7 +13636,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsApplicati
 
 type ApiDeliveryGroupsGetDeliveryGroupsDesktopsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -13116,7 +13950,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsDesktopsE
 
 type ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogDetailsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -13402,7 +14236,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 
 type ApiDeliveryGroupsGetDeliveryGroupsMachineCatalogsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -13714,7 +14548,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsMachineCa
 
 type ApiDeliveryGroupsGetDeliveryGroupsUsageRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -14016,7 +14850,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsUsageExec
 
 type ApiDeliveryGroupsGetDeliveryGroupsV2Request struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -14337,7 +15171,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute
 
 type ApiDeliveryGroupsPatchDeliveryGroupRequest struct {
 	ctx                           context.Context
-	ApiService                    *DeliveryGroupsAPIsDAASService
+	ApiService                    DeliveryGroupsAPIsDAAS
 	citrixCustomerId              *string
 	citrixInstanceId              *string
 	nameOrId                      string
@@ -14643,7 +15477,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupExecute(
 
 type ApiDeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicyRequest struct {
 	ctx                              context.Context
-	ApiService                       *DeliveryGroupsAPIsDAASService
+	ApiService                       DeliveryGroupsAPIsDAAS
 	citrixCustomerId                 *string
 	citrixInstanceId                 *string
 	nameOrId                         string
@@ -14965,7 +15799,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupAdvanced
 
 type ApiDeliveryGroupsPatchDeliveryGroupPowerTimeSchemeRequest struct {
 	ctx                         context.Context
-	ApiService                  *DeliveryGroupsAPIsDAASService
+	ApiService                  DeliveryGroupsAPIsDAAS
 	citrixCustomerId            *string
 	citrixInstanceId            *string
 	nameOrId                    string
@@ -15289,7 +16123,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupPowerTim
 
 type ApiDeliveryGroupsPatchDeliveryGroupRebootScheduleRequest struct {
 	ctx                        context.Context
-	ApiService                 *DeliveryGroupsAPIsDAASService
+	ApiService                 DeliveryGroupsAPIsDAAS
 	citrixCustomerId           *string
 	citrixInstanceId           *string
 	nameOrId                   string
@@ -15598,7 +16432,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 
 type ApiDeliveryGroupsRemoveDeliveryGroupMachineCatalogRequest struct {
 	ctx                    context.Context
-	ApiService             *DeliveryGroupsAPIsDAASService
+	ApiService             DeliveryGroupsAPIsDAAS
 	citrixCustomerId       *string
 	citrixInstanceId       *string
 	nameOrId               string
@@ -15908,7 +16742,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupMachine
 
 type ApiDeliveryGroupsRemoveDeliveryGroupTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -16198,7 +17032,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsRemoveDeliveryGroupTagsExe
 
 type ApiDeliveryGroupsSetDeliveryGroupTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -16504,7 +17338,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsSetDeliveryGroupTagsExecut
 
 type ApiDeliveryGroupsStartDeliveryGroupRebootCycleRequest struct {
 	ctx                     context.Context
-	ApiService              *DeliveryGroupsAPIsDAASService
+	ApiService              DeliveryGroupsAPIsDAAS
 	citrixCustomerId        *string
 	citrixInstanceId        *string
 	nameOrId                string
@@ -16821,7 +17655,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsStartDeliveryGroupRebootCy
 
 type ApiDeliveryGroupsTestDeliveryGroupRequest struct {
 	ctx                 context.Context
-	ApiService          *DeliveryGroupsAPIsDAASService
+	ApiService          DeliveryGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -17127,7 +17961,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExecute(r
 
 type ApiDeliveryGroupsTestDeliveryGroupExistsRequest struct {
 	ctx                               context.Context
-	ApiService                        *DeliveryGroupsAPIsDAASService
+	ApiService                        DeliveryGroupsAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	desktopGroupNameCheckRequestModel *DesktopGroupNameCheckRequestModel
@@ -17416,7 +18250,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 
 type ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest struct {
 	ctx                                       context.Context
-	ApiService                                *DeliveryGroupsAPIsDAASService
+	ApiService                                DeliveryGroupsAPIsDAAS
 	citrixCustomerId                          *string
 	citrixInstanceId                          *string
 	type_                                     string
@@ -17726,7 +18560,7 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTempl
 
 type ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest struct {
 	ctx                                    context.Context
-	ApiService                             *DeliveryGroupsAPIsDAASService
+	ApiService                             DeliveryGroupsAPIsDAAS
 	citrixCustomerId                       *string
 	citrixInstanceId                       *string
 	nameOrId                               string

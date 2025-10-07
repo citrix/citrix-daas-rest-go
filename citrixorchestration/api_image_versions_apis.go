@@ -19,12 +19,90 @@ import (
 	"strings"
 )
 
+type ImageVersionsAPIsDAAS interface {
+
+	/*
+		ImageVersionsDeleteImageVersion Delete an image version.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the image version to delete.
+		@return ApiImageVersionsDeleteImageVersionRequest
+	*/
+	ImageVersionsDeleteImageVersion(ctx context.Context, id string) ApiImageVersionsDeleteImageVersionRequest
+
+	// ImageVersionsDeleteImageVersionExecute executes the request
+	ImageVersionsDeleteImageVersionExecute(r ApiImageVersionsDeleteImageVersionRequest) (*http.Response, error)
+
+	/*
+		ImageVersionsGetImageVersion Get details about a single image version.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the image version.
+		@return ApiImageVersionsGetImageVersionRequest
+	*/
+	ImageVersionsGetImageVersion(ctx context.Context, id string) ApiImageVersionsGetImageVersionRequest
+
+	// ImageVersionsGetImageVersionExecute executes the request
+	//  @return ImageVersionResponseModel
+	ImageVersionsGetImageVersionExecute(r ApiImageVersionsGetImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error)
+
+	/*
+		ImageVersionsGetImageVersionProvisioningSchemes Get provisioning schemes associated with an image version.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of image version.
+		@return ApiImageVersionsGetImageVersionProvisioningSchemesRequest
+	*/
+	ImageVersionsGetImageVersionProvisioningSchemes(ctx context.Context, id string) ApiImageVersionsGetImageVersionProvisioningSchemesRequest
+
+	// ImageVersionsGetImageVersionProvisioningSchemesExecute executes the request
+	//  @return ImageVersionProvisioningSchemeRefResponseModelCollection
+	ImageVersionsGetImageVersionProvisioningSchemesExecute(r ApiImageVersionsGetImageVersionProvisioningSchemesRequest) (*ImageVersionProvisioningSchemeRefResponseModelCollection, *http.Response, error)
+
+	/*
+		ImageVersionsSetImageVersion Set properties associated with an image version.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the image version to update.
+		@return ApiImageVersionsSetImageVersionRequest
+	*/
+	ImageVersionsSetImageVersion(ctx context.Context, id string) ApiImageVersionsSetImageVersionRequest
+
+	// ImageVersionsSetImageVersionExecute executes the request
+	ImageVersionsSetImageVersionExecute(r ApiImageVersionsSetImageVersionRequest) (*http.Response, error)
+
+	/*
+		ImageVersionsUpdateImageVersion Update an image version.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the image version to update.
+		@return ApiImageVersionsUpdateImageVersionRequest
+	*/
+	ImageVersionsUpdateImageVersion(ctx context.Context, id string) ApiImageVersionsUpdateImageVersionRequest
+
+	// ImageVersionsUpdateImageVersionExecute executes the request
+	//  @return ImageVersionResponseModel
+	ImageVersionsUpdateImageVersionExecute(r ApiImageVersionsUpdateImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error)
+
+	/*
+		ImageVersionsUpdateImageVersionResourcePools Method for ImageVersionsUpdateImageVersionResourcePools
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id
+		@return ApiImageVersionsUpdateImageVersionResourcePoolsRequest
+	*/
+	ImageVersionsUpdateImageVersionResourcePools(ctx context.Context, id string) ApiImageVersionsUpdateImageVersionResourcePoolsRequest
+
+	// ImageVersionsUpdateImageVersionResourcePoolsExecute executes the request
+	ImageVersionsUpdateImageVersionResourcePoolsExecute(r ApiImageVersionsUpdateImageVersionResourcePoolsRequest) (*http.Response, error)
+}
+
 // ImageVersionsAPIsDAASService ImageVersionsAPIsDAAS service
 type ImageVersionsAPIsDAASService service
 
 type ApiImageVersionsDeleteImageVersionRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageVersionsAPIsDAASService
+	ApiService          ImageVersionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -320,7 +398,7 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersionExecute(r 
 
 type ApiImageVersionsGetImageVersionRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageVersionsAPIsDAASService
+	ApiService          ImageVersionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -602,7 +680,7 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionExecute(r Api
 
 type ApiImageVersionsGetImageVersionProvisioningSchemesRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageVersionsAPIsDAASService
+	ApiService          ImageVersionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -884,7 +962,7 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningS
 
 type ApiImageVersionsSetImageVersionRequest struct {
 	ctx                            context.Context
-	ApiService                     *ImageVersionsAPIsDAASService
+	ApiService                     ImageVersionsAPIsDAAS
 	citrixCustomerId               *string
 	citrixInstanceId               *string
 	id                             string
@@ -1190,7 +1268,7 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersionExecute(r Api
 
 type ApiImageVersionsUpdateImageVersionRequest struct {
 	ctx                            context.Context
-	ApiService                     *ImageVersionsAPIsDAASService
+	ApiService                     ImageVersionsAPIsDAAS
 	citrixCustomerId               *string
 	citrixInstanceId               *string
 	id                             string
@@ -1495,7 +1573,7 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionExecute(r 
 
 type ApiImageVersionsUpdateImageVersionResourcePoolsRequest struct {
 	ctx                                         context.Context
-	ApiService                                  *ImageVersionsAPIsDAASService
+	ApiService                                  ImageVersionsAPIsDAAS
 	citrixCustomerId                            *string
 	citrixInstanceId                            *string
 	id                                          string

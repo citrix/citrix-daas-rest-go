@@ -48,83 +48,83 @@ type APIClient struct {
 
 	// API Services
 
-	AboutAPIsDAAS *AboutAPIsDAASService
+	AboutAPIsDAAS AboutAPIsDAAS
 
-	ActionsAPIsDAAS *ActionsAPIsDAASService
+	ActionsAPIsDAAS ActionsAPIsDAAS
 
-	AdminAPIsDAAS *AdminAPIsDAASService
+	AdminAPIsDAAS AdminAPIsDAAS
 
-	AdminFoldersAPIsDAAS *AdminFoldersAPIsDAASService
+	AdminFoldersAPIsDAAS AdminFoldersAPIsDAAS
 
-	AppLibPackageDiscoveryAPIsDAAS *AppLibPackageDiscoveryAPIsDAASService
+	AppLibPackageDiscoveryAPIsDAAS AppLibPackageDiscoveryAPIsDAAS
 
-	AppVIsolationGroupsAPIsDAAS *AppVIsolationGroupsAPIsDAASService
+	AppVIsolationGroupsAPIsDAAS AppVIsolationGroupsAPIsDAAS
 
-	AppVPackagesAPIsDAAS *AppVPackagesAPIsDAASService
+	AppVPackagesAPIsDAAS AppVPackagesAPIsDAAS
 
-	AppVServersAPIsDAAS *AppVServersAPIsDAASService
+	AppVServersAPIsDAAS AppVServersAPIsDAAS
 
-	ApplicationFoldersAPIsDAAS *ApplicationFoldersAPIsDAASService
+	ApplicationFoldersAPIsDAAS ApplicationFoldersAPIsDAAS
 
-	ApplicationGroupsAPIsDAAS *ApplicationGroupsAPIsDAASService
+	ApplicationGroupsAPIsDAAS ApplicationGroupsAPIsDAAS
 
-	ApplicationsAPIsDAAS *ApplicationsAPIsDAASService
+	ApplicationsAPIsDAAS ApplicationsAPIsDAAS
 
-	BackupRestoreAPIsDAAS *BackupRestoreAPIsDAASService
+	BackupRestoreAPIsDAAS BackupRestoreAPIsDAAS
 
-	BatchAPIsDAAS *BatchAPIsDAASService
+	BatchAPIsDAAS BatchAPIsDAAS
 
-	ConfigLogAPIsDAAS *ConfigLogAPIsDAASService
+	ConfigLogAPIsDAAS ConfigLogAPIsDAAS
 
-	DeliveryGroupsAPIsDAAS *DeliveryGroupsAPIsDAASService
+	DeliveryGroupsAPIsDAAS DeliveryGroupsAPIsDAAS
 
-	GpoDAAS *GpoDAASService
+	GpoDAAS GpoDAAS
 
-	HealthCheckAPIsDAAS *HealthCheckAPIsDAASService
+	HealthCheckAPIsDAAS HealthCheckAPIsDAAS
 
-	HypervisorsAPIsDAAS *HypervisorsAPIsDAASService
+	HypervisorsAPIsDAAS HypervisorsAPIsDAAS
 
-	IconsAPIsDAAS *IconsAPIsDAASService
+	IconsAPIsDAAS IconsAPIsDAAS
 
-	IdentityAPIsDAAS *IdentityAPIsDAASService
+	IdentityAPIsDAAS IdentityAPIsDAAS
 
-	ImageDefinitionsAPIsDAAS *ImageDefinitionsAPIsDAASService
+	ImageDefinitionsAPIsDAAS ImageDefinitionsAPIsDAAS
 
-	ImageVersionsAPIsDAAS *ImageVersionsAPIsDAASService
+	ImageVersionsAPIsDAAS ImageVersionsAPIsDAAS
 
-	JobsAPIsDAAS *JobsAPIsDAASService
+	JobsAPIsDAAS JobsAPIsDAAS
 
-	MachineCatalogsAPIsDAAS *MachineCatalogsAPIsDAASService
+	MachineCatalogsAPIsDAAS MachineCatalogsAPIsDAAS
 
-	MachinesAPIsDAAS *MachinesAPIsDAASService
+	MachinesAPIsDAAS MachinesAPIsDAAS
 
-	MaintenanceCyclesAPIsDAAS *MaintenanceCyclesAPIsDAASService
+	MaintenanceCyclesAPIsDAAS MaintenanceCyclesAPIsDAAS
 
-	MeAPIsDAAS *MeAPIsDAASService
+	MeAPIsDAAS MeAPIsDAAS
 
-	ProvisionedVirtualMachineAPIsDAAS *ProvisionedVirtualMachineAPIsDAASService
+	ProvisionedVirtualMachineAPIsDAAS ProvisionedVirtualMachineAPIsDAAS
 
-	ProvisioningSchemesAPIsDAAS *ProvisioningSchemesAPIsDAASService
+	ProvisioningSchemesAPIsDAAS ProvisioningSchemesAPIsDAAS
 
-	PvsStreamingAPIsDAAS *PvsStreamingAPIsDAASService
+	PvsStreamingAPIsDAAS PvsStreamingAPIsDAAS
 
-	RebootSchedulesAPIsDAAS *RebootSchedulesAPIsDAASService
+	RebootSchedulesAPIsDAAS RebootSchedulesAPIsDAAS
 
-	RecommendationsAPIsDAAS *RecommendationsAPIsDAASService
+	RecommendationsAPIsDAAS RecommendationsAPIsDAAS
 
-	SessionsAPIsDAAS *SessionsAPIsDAASService
+	SessionsAPIsDAAS SessionsAPIsDAAS
 
-	SitesAPIsDAAS *SitesAPIsDAASService
+	SitesAPIsDAAS SitesAPIsDAAS
 
-	StoreFrontServersAPIsDAAS *StoreFrontServersAPIsDAASService
+	StoreFrontServersAPIsDAAS StoreFrontServersAPIsDAAS
 
-	TagsAPIsDAAS *TagsAPIsDAASService
+	TagsAPIsDAAS TagsAPIsDAAS
 
-	TimeZonesAPIsDAAS *TimeZonesAPIsDAASService
+	TimeZonesAPIsDAAS TimeZonesAPIsDAAS
 
-	TrustAPIsDAAS *TrustAPIsDAASService
+	TrustAPIsDAAS TrustAPIsDAAS
 
-	ZonesAPIsDAAS *ZonesAPIsDAASService
+	ZonesAPIsDAAS ZonesAPIsDAAS
 }
 
 type service struct {

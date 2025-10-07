@@ -19,12 +19,55 @@ import (
 	"strings"
 )
 
+type ProvisioningSchemesAPIsDAAS interface {
+
+	/*
+		ProvisioningSchemesGetMaintenanceCycles Method for ProvisioningSchemesGetMaintenanceCycles
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId
+		@return ApiProvisioningSchemesGetMaintenanceCyclesRequest
+	*/
+	ProvisioningSchemesGetMaintenanceCycles(ctx context.Context, nameOrId string) ApiProvisioningSchemesGetMaintenanceCyclesRequest
+
+	// ProvisioningSchemesGetMaintenanceCyclesExecute executes the request
+	//  @return MaintenanceCycleResponseModelCollection
+	ProvisioningSchemesGetMaintenanceCyclesExecute(r ApiProvisioningSchemesGetMaintenanceCyclesRequest) (*MaintenanceCycleResponseModelCollection, *http.Response, error)
+
+	/*
+		ProvisioningSchemesGetProvisioiningSchemeConfigurations Get provisioning scheme configurations.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Provisioning scheme name or id.
+		@return ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest
+	*/
+	ProvisioningSchemesGetProvisioiningSchemeConfigurations(ctx context.Context, nameOrId string) ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest
+
+	// ProvisioningSchemesGetProvisioiningSchemeConfigurationsExecute executes the request
+	//  @return ProvisioningSchemeConfigurationResponseModelCollection
+	ProvisioningSchemesGetProvisioiningSchemeConfigurationsExecute(r ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) (*ProvisioningSchemeConfigurationResponseModelCollection, *http.Response, error)
+
+	/*
+		ProvisioningSchemesGetVMConfigurationResultantSet Provides the ability get the resultant configuration properties for virtual machine created using Machine Creation Services. This merges properties at the provisioning scheme level with those set on a machine with Set-ProvVM specifically.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Provisioning scheme name or id.
+		@param vmSid Virtual machine SID.
+		@return ApiProvisioningSchemesGetVMConfigurationResultantSetRequest
+	*/
+	ProvisioningSchemesGetVMConfigurationResultantSet(ctx context.Context, nameOrId string, vmSid string) ApiProvisioningSchemesGetVMConfigurationResultantSetRequest
+
+	// ProvisioningSchemesGetVMConfigurationResultantSetExecute executes the request
+	//  @return ProvisionedVirtualMachineConfigurationResultantSetResponseModel
+	ProvisioningSchemesGetVMConfigurationResultantSetExecute(r ApiProvisioningSchemesGetVMConfigurationResultantSetRequest) (*ProvisionedVirtualMachineConfigurationResultantSetResponseModel, *http.Response, error)
+}
+
 // ProvisioningSchemesAPIsDAASService ProvisioningSchemesAPIsDAAS service
 type ProvisioningSchemesAPIsDAASService service
 
 type ApiProvisioningSchemesGetMaintenanceCyclesRequest struct {
 	ctx                 context.Context
-	ApiService          *ProvisioningSchemesAPIsDAASService
+	ApiService          ProvisioningSchemesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -318,7 +361,7 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetMaintenanceCy
 
 type ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest struct {
 	ctx                 context.Context
-	ApiService          *ProvisioningSchemesAPIsDAASService
+	ApiService          ProvisioningSchemesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -626,7 +669,7 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetProvisioining
 
 type ApiProvisioningSchemesGetVMConfigurationResultantSetRequest struct {
 	ctx                 context.Context
-	ApiService          *ProvisioningSchemesAPIsDAASService
+	ApiService          ProvisioningSchemesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string

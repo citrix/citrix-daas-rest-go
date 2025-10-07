@@ -20,12 +20,118 @@ import (
 	"strings"
 )
 
+type AdminFoldersAPIsDAAS interface {
+
+	/*
+		AdminFoldersCreateAdminFolder Create an admin folder
+
+		Create an admin folder.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAdminFoldersCreateAdminFolderRequest
+	*/
+	AdminFoldersCreateAdminFolder(ctx context.Context) ApiAdminFoldersCreateAdminFolderRequest
+
+	// AdminFoldersCreateAdminFolderExecute executes the request
+	//  @return AdminFolderResponseModel
+	AdminFoldersCreateAdminFolderExecute(r ApiAdminFoldersCreateAdminFolderRequest) (*AdminFolderResponseModel, *http.Response, error)
+
+	/*
+			AdminFoldersDeleteAdminFolder Delete an admin folder.
+
+			Delete an admin folder. An admin folder is not allowed to be deleted
+		when it contains any objects.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param pathOrId Name or ID of the admin folder to delete.
+			@return ApiAdminFoldersDeleteAdminFolderRequest
+	*/
+	AdminFoldersDeleteAdminFolder(ctx context.Context, pathOrId string) ApiAdminFoldersDeleteAdminFolderRequest
+
+	// AdminFoldersDeleteAdminFolderExecute executes the request
+	AdminFoldersDeleteAdminFolderExecute(r ApiAdminFoldersDeleteAdminFolderRequest) (*http.Response, error)
+
+	/*
+		AdminFoldersGetAdminFolder Get details about a single admin folder.
+
+		Gets the details of a single admin folder.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param pathOrId Path (URL-encoded) or ID of the admin folder.
+		@return ApiAdminFoldersGetAdminFolderRequest
+	*/
+	AdminFoldersGetAdminFolder(ctx context.Context, pathOrId string) ApiAdminFoldersGetAdminFolderRequest
+
+	// AdminFoldersGetAdminFolderExecute executes the request
+	//  @return AdminFolderResponseModel
+	AdminFoldersGetAdminFolderExecute(r ApiAdminFoldersGetAdminFolderRequest) (*AdminFolderResponseModel, *http.Response, error)
+
+	/*
+		AdminFoldersGetAdminFolderApplications Get the applications in an admin folder.
+
+		Get a list of all applications in an admin folder.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param pathOrId Path (URL-encoded) or ID of the admin folder.
+		@return ApiAdminFoldersGetAdminFolderApplicationsRequest
+	*/
+	AdminFoldersGetAdminFolderApplications(ctx context.Context, pathOrId string) ApiAdminFoldersGetAdminFolderApplicationsRequest
+
+	// AdminFoldersGetAdminFolderApplicationsExecute executes the request
+	//  @return ApplicationResponseModelCollection
+	AdminFoldersGetAdminFolderApplicationsExecute(r ApiAdminFoldersGetAdminFolderApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+		AdminFoldersGetAdminFolderMachineCatalogs Get the machineCatalogs in an admin folder.
+
+		Get a list of all machineCatalogs in an admin folder.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param pathOrId Path (URL-encoded) or ID of the admin folder.
+		@return ApiAdminFoldersGetAdminFolderMachineCatalogsRequest
+	*/
+	AdminFoldersGetAdminFolderMachineCatalogs(ctx context.Context, pathOrId string) ApiAdminFoldersGetAdminFolderMachineCatalogsRequest
+
+	// AdminFoldersGetAdminFolderMachineCatalogsExecute executes the request
+	//  @return MachineCatalogResponseModelCollection
+	AdminFoldersGetAdminFolderMachineCatalogsExecute(r ApiAdminFoldersGetAdminFolderMachineCatalogsRequest) (*MachineCatalogResponseModelCollection, *http.Response, error)
+
+	/*
+		AdminFoldersGetAdminFolders Get admin folders.
+
+		Gets all admin folders within the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAdminFoldersGetAdminFoldersRequest
+	*/
+	AdminFoldersGetAdminFolders(ctx context.Context) ApiAdminFoldersGetAdminFoldersRequest
+
+	// AdminFoldersGetAdminFoldersExecute executes the request
+	//  @return AdminFolderResponseModelCollection
+	AdminFoldersGetAdminFoldersExecute(r ApiAdminFoldersGetAdminFoldersRequest) (*AdminFolderResponseModelCollection, *http.Response, error)
+
+	/*
+		AdminFoldersUpdateAdminFolder Update an admin folder.
+
+		Update an admin folder's properties.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param pathOrId Path or ID of the admin folder path to update.
+		@return ApiAdminFoldersUpdateAdminFolderRequest
+	*/
+	AdminFoldersUpdateAdminFolder(ctx context.Context, pathOrId string) ApiAdminFoldersUpdateAdminFolderRequest
+
+	// AdminFoldersUpdateAdminFolderExecute executes the request
+	//  @return AdminFolderResponseModel
+	AdminFoldersUpdateAdminFolderExecute(r ApiAdminFoldersUpdateAdminFolderRequest) (*AdminFolderResponseModel, *http.Response, error)
+}
+
 // AdminFoldersAPIsDAASService AdminFoldersAPIsDAAS service
 type AdminFoldersAPIsDAASService service
 
 type ApiAdminFoldersCreateAdminFolderRequest struct {
 	ctx                           context.Context
-	ApiService                    *AdminFoldersAPIsDAASService
+	ApiService                    AdminFoldersAPIsDAAS
 	citrixCustomerId              *string
 	citrixInstanceId              *string
 	createAdminFolderRequestModel *CreateAdminFolderRequestModel
@@ -341,7 +447,7 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersCreateAdminFolderExecute(r Api
 
 type ApiAdminFoldersDeleteAdminFolderRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminFoldersAPIsDAASService
+	ApiService          AdminFoldersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	pathOrId            string
@@ -645,7 +751,7 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersDeleteAdminFolderExecute(r Api
 
 type ApiAdminFoldersGetAdminFolderRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminFoldersAPIsDAASService
+	ApiService          AdminFoldersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	pathOrId            string
@@ -929,7 +1035,7 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderExecute(r ApiAdm
 
 type ApiAdminFoldersGetAdminFolderApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminFoldersAPIsDAASService
+	ApiService          AdminFoldersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	pathOrId            string
@@ -1256,7 +1362,7 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderApplicationsExec
 
 type ApiAdminFoldersGetAdminFolderMachineCatalogsRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminFoldersAPIsDAASService
+	ApiService          AdminFoldersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	pathOrId            string
@@ -1586,7 +1692,7 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderMachineCatalogsE
 
 type ApiAdminFoldersGetAdminFoldersRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminFoldersAPIsDAASService
+	ApiService          AdminFoldersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -1888,7 +1994,7 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFoldersExecute(r ApiAd
 
 type ApiAdminFoldersUpdateAdminFolderRequest struct {
 	ctx                         context.Context
-	ApiService                  *AdminFoldersAPIsDAASService
+	ApiService                  AdminFoldersAPIsDAAS
 	citrixCustomerId            *string
 	citrixInstanceId            *string
 	pathOrId                    string

@@ -19,12 +19,117 @@ import (
 	"strings"
 )
 
+type ApplicationFoldersAPIsDAAS interface {
+
+	/*
+		ApplicationFoldersCheckApplicationFolderPathExists Check for the existence of an application folder by path.
+
+		Check for the existence of an application folder by path.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param path Path of the application folder.
+		@return ApiApplicationFoldersCheckApplicationFolderPathExistsRequest
+	*/
+	ApplicationFoldersCheckApplicationFolderPathExists(ctx context.Context, path string) ApiApplicationFoldersCheckApplicationFolderPathExistsRequest
+
+	// ApplicationFoldersCheckApplicationFolderPathExistsExecute executes the request
+	ApplicationFoldersCheckApplicationFolderPathExistsExecute(r ApiApplicationFoldersCheckApplicationFolderPathExistsRequest) (*http.Response, error)
+
+	/*
+		ApplicationFoldersCreateApplicationFolder Create an application folder
+
+		Create an application folder.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiApplicationFoldersCreateApplicationFolderRequest
+	*/
+	ApplicationFoldersCreateApplicationFolder(ctx context.Context) ApiApplicationFoldersCreateApplicationFolderRequest
+
+	// ApplicationFoldersCreateApplicationFolderExecute executes the request
+	//  @return ApplicationFolderResponseModel
+	ApplicationFoldersCreateApplicationFolderExecute(r ApiApplicationFoldersCreateApplicationFolderRequest) (*ApplicationFolderResponseModel, *http.Response, error)
+
+	/*
+			ApplicationFoldersDeleteApplicationFolder Delete an application folder.
+
+			Delete an application folder.  Any applications within the application folder
+		will also be deleted.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param pathOrId Name or ID of the application folder to delete.
+			@return ApiApplicationFoldersDeleteApplicationFolderRequest
+	*/
+	ApplicationFoldersDeleteApplicationFolder(ctx context.Context, pathOrId string) ApiApplicationFoldersDeleteApplicationFolderRequest
+
+	// ApplicationFoldersDeleteApplicationFolderExecute executes the request
+	ApplicationFoldersDeleteApplicationFolderExecute(r ApiApplicationFoldersDeleteApplicationFolderRequest) (*http.Response, error)
+
+	/*
+		ApplicationFoldersGetApplicationFolder Get details about a single application folder.
+
+		Gets the details of a single application folder.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param pathOrId Path (URL-encoded) or ID of the application folder.
+		@return ApiApplicationFoldersGetApplicationFolderRequest
+	*/
+	ApplicationFoldersGetApplicationFolder(ctx context.Context, pathOrId string) ApiApplicationFoldersGetApplicationFolderRequest
+
+	// ApplicationFoldersGetApplicationFolderExecute executes the request
+	//  @return ApplicationFolderResponseModel
+	ApplicationFoldersGetApplicationFolderExecute(r ApiApplicationFoldersGetApplicationFolderRequest) (*ApplicationFolderResponseModel, *http.Response, error)
+
+	/*
+		ApplicationFoldersGetApplicationFolderApplications Get the applications in an application folder.
+
+		Get a list of all applications in an application folder.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param pathOrId Path (URL-encoded) or ID of the application folder.
+		@return ApiApplicationFoldersGetApplicationFolderApplicationsRequest
+	*/
+	ApplicationFoldersGetApplicationFolderApplications(ctx context.Context, pathOrId string) ApiApplicationFoldersGetApplicationFolderApplicationsRequest
+
+	// ApplicationFoldersGetApplicationFolderApplicationsExecute executes the request
+	//  @return ApplicationResponseModelCollection
+	ApplicationFoldersGetApplicationFolderApplicationsExecute(r ApiApplicationFoldersGetApplicationFolderApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+		ApplicationFoldersGetApplicationFolders Get application folders.
+
+		Gets all application folders within the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiApplicationFoldersGetApplicationFoldersRequest
+	*/
+	ApplicationFoldersGetApplicationFolders(ctx context.Context) ApiApplicationFoldersGetApplicationFoldersRequest
+
+	// ApplicationFoldersGetApplicationFoldersExecute executes the request
+	//  @return ApplicationFolderResponseModelCollection
+	ApplicationFoldersGetApplicationFoldersExecute(r ApiApplicationFoldersGetApplicationFoldersRequest) (*ApplicationFolderResponseModelCollection, *http.Response, error)
+
+	/*
+		ApplicationFoldersUpdateApplicationFolder Update an application folder.
+
+		Update an application folder's properties.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param pathOrId Path or ID of the application path to update.
+		@return ApiApplicationFoldersUpdateApplicationFolderRequest
+	*/
+	ApplicationFoldersUpdateApplicationFolder(ctx context.Context, pathOrId string) ApiApplicationFoldersUpdateApplicationFolderRequest
+
+	// ApplicationFoldersUpdateApplicationFolderExecute executes the request
+	//  @return ApplicationFolderResponseModel
+	ApplicationFoldersUpdateApplicationFolderExecute(r ApiApplicationFoldersUpdateApplicationFolderRequest) (*ApplicationFolderResponseModel, *http.Response, error)
+}
+
 // ApplicationFoldersAPIsDAASService ApplicationFoldersAPIsDAAS service
 type ApplicationFoldersAPIsDAASService service
 
 type ApiApplicationFoldersCheckApplicationFolderPathExistsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationFoldersAPIsDAASService
+	ApiService          ApplicationFoldersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	path                string
@@ -296,7 +401,7 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCheckApplicationFo
 
 type ApiApplicationFoldersCreateApplicationFolderRequest struct {
 	ctx                                 context.Context
-	ApiService                          *ApplicationFoldersAPIsDAASService
+	ApiService                          ApplicationFoldersAPIsDAAS
 	citrixCustomerId                    *string
 	citrixInstanceId                    *string
 	createApplicationFolderRequestModel *CreateApplicationFolderRequestModel
@@ -612,7 +717,7 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCreateApplicationF
 
 type ApiApplicationFoldersDeleteApplicationFolderRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationFoldersAPIsDAASService
+	ApiService          ApplicationFoldersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	pathOrId            string
@@ -898,7 +1003,7 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersDeleteApplicationF
 
 type ApiApplicationFoldersGetApplicationFolderRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationFoldersAPIsDAASService
+	ApiService          ApplicationFoldersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	pathOrId            string
@@ -1182,7 +1287,7 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 
 type ApiApplicationFoldersGetApplicationFolderApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationFoldersAPIsDAASService
+	ApiService          ApplicationFoldersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	pathOrId            string
@@ -1509,7 +1614,7 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 
 type ApiApplicationFoldersGetApplicationFoldersRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationFoldersAPIsDAASService
+	ApiService          ApplicationFoldersAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -1791,7 +1896,7 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 
 type ApiApplicationFoldersUpdateApplicationFolderRequest struct {
 	ctx                               context.Context
-	ApiService                        *ApplicationFoldersAPIsDAASService
+	ApiService                        ApplicationFoldersAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	pathOrId                          string

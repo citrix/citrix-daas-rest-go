@@ -19,12 +19,90 @@ import (
 	"strings"
 )
 
+type ActionsAPIsDAAS interface {
+
+	/*
+		ActionsCancelAction Cancel the specified machine catalog and specified action.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param catalogNameOrId The machine catalog name or id.
+		@param actionId The action Id, the guid string value.
+		@return ApiActionsCancelActionRequest
+	*/
+	ActionsCancelAction(ctx context.Context, catalogNameOrId string, actionId string) ApiActionsCancelActionRequest
+
+	// ActionsCancelActionExecute executes the request
+	ActionsCancelActionExecute(r ApiActionsCancelActionRequest) (*http.Response, error)
+
+	/*
+		ActionsDeleteAction Delete specified catalog actions.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param catalogNameOrId The machine catalog name or id.
+		@return ApiActionsDeleteActionRequest
+	*/
+	ActionsDeleteAction(ctx context.Context, catalogNameOrId string) ApiActionsDeleteActionRequest
+
+	// ActionsDeleteActionExecute executes the request
+	ActionsDeleteActionExecute(r ApiActionsDeleteActionRequest) (*http.Response, error)
+
+	/*
+		ActionsDeleteActions Delete all completed machine catalog actions.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiActionsDeleteActionsRequest
+	*/
+	ActionsDeleteActions(ctx context.Context) ApiActionsDeleteActionsRequest
+
+	// ActionsDeleteActionsExecute executes the request
+	ActionsDeleteActionsExecute(r ApiActionsDeleteActionsRequest) (*http.Response, error)
+
+	/*
+		ActionsGetAction Get machine catalog actions by specified catalog name or id and action Id.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param catalogNameOrId The machine catalog name or id.
+		@return ApiActionsGetActionRequest
+	*/
+	ActionsGetAction(ctx context.Context, catalogNameOrId string) ApiActionsGetActionRequest
+
+	// ActionsGetActionExecute executes the request
+	//  @return ActionResponseModelCollection
+	ActionsGetActionExecute(r ApiActionsGetActionRequest) (*ActionResponseModelCollection, *http.Response, error)
+
+	/*
+		ActionsGetActionById Get specified machine catalog specified action.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param catalogNameOrId The machine catalog name or id.
+		@param actionId The action Id, the guid string value.
+		@return ApiActionsGetActionByIdRequest
+	*/
+	ActionsGetActionById(ctx context.Context, catalogNameOrId string, actionId string) ApiActionsGetActionByIdRequest
+
+	// ActionsGetActionByIdExecute executes the request
+	//  @return ActionResponseModel
+	ActionsGetActionByIdExecute(r ApiActionsGetActionByIdRequest) (*ActionResponseModel, *http.Response, error)
+
+	/*
+		ActionsGetActions Get all machine catalog actions.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiActionsGetActionsRequest
+	*/
+	ActionsGetActions(ctx context.Context) ApiActionsGetActionsRequest
+
+	// ActionsGetActionsExecute executes the request
+	//  @return ActionResponseModelCollection
+	ActionsGetActionsExecute(r ApiActionsGetActionsRequest) (*ActionResponseModelCollection, *http.Response, error)
+}
+
 // ActionsAPIsDAASService ActionsAPIsDAAS service
 type ActionsAPIsDAASService service
 
 type ApiActionsCancelActionRequest struct {
 	ctx                 context.Context
-	ApiService          *ActionsAPIsDAASService
+	ApiService          ActionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	catalogNameOrId     string
@@ -322,7 +400,7 @@ func (a *ActionsAPIsDAASService) ActionsCancelActionExecute(r ApiActionsCancelAc
 
 type ApiActionsDeleteActionRequest struct {
 	ctx                 context.Context
-	ApiService          *ActionsAPIsDAASService
+	ApiService          ActionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	catalogNameOrId     string
@@ -605,7 +683,7 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionExecute(r ApiActionsDeleteAc
 
 type ApiActionsDeleteActionsRequest struct {
 	ctx                 context.Context
-	ApiService          *ActionsAPIsDAASService
+	ApiService          ActionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -884,7 +962,7 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionsExecute(r ApiActionsDeleteA
 
 type ApiActionsGetActionRequest struct {
 	ctx                 context.Context
-	ApiService          *ActionsAPIsDAASService
+	ApiService          ActionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	catalogNameOrId     string
@@ -1189,7 +1267,7 @@ func (a *ActionsAPIsDAASService) ActionsGetActionExecute(r ApiActionsGetActionRe
 
 type ApiActionsGetActionByIdRequest struct {
 	ctx                 context.Context
-	ApiService          *ActionsAPIsDAASService
+	ApiService          ActionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	catalogNameOrId     string
@@ -1488,7 +1566,7 @@ func (a *ActionsAPIsDAASService) ActionsGetActionByIdExecute(r ApiActionsGetActi
 
 type ApiActionsGetActionsRequest struct {
 	ctx                 context.Context
-	ApiService          *ActionsAPIsDAASService
+	ApiService          ActionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string

@@ -19,12 +19,136 @@ import (
 	"strings"
 )
 
+type ZonesAPIsDAAS interface {
+
+	/*
+		ZonesAddItemsIntoZone Add items into a zone.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The zone into which items will be added.
+		@return ApiZonesAddItemsIntoZoneRequest
+	*/
+	ZonesAddItemsIntoZone(ctx context.Context, nameOrId string) ApiZonesAddItemsIntoZoneRequest
+
+	// ZonesAddItemsIntoZoneExecute executes the request
+	ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIntoZoneRequest) (*http.Response, error)
+
+	/*
+		ZonesCreateZone Create a zone.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiZonesCreateZoneRequest
+	*/
+	ZonesCreateZone(ctx context.Context) ApiZonesCreateZoneRequest
+
+	// ZonesCreateZoneExecute executes the request
+	ZonesCreateZoneExecute(r ApiZonesCreateZoneRequest) (*http.Response, error)
+
+	/*
+			ZonesDeleteZone Delete a zone.
+
+			Only if there is no items in the zone, we may delete a zone. Items include:
+		- application
+		- controller
+		- host connection
+		- machine catalog
+		- user / user group
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or id of the zone to be deleted.
+			@return ApiZonesDeleteZoneRequest
+	*/
+	ZonesDeleteZone(ctx context.Context, nameOrId string) ApiZonesDeleteZoneRequest
+
+	// ZonesDeleteZoneExecute executes the request
+	ZonesDeleteZoneExecute(r ApiZonesDeleteZoneRequest) (*http.Response, error)
+
+	/*
+			ZonesDoZoneSearch Perform a basic search for zoned items.
+
+			Perform a basic search for zoned items.
+		Note that the search action is used for items in zone, not for zone itself.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiZonesDoZoneSearchRequest
+	*/
+	ZonesDoZoneSearch(ctx context.Context) ApiZonesDoZoneSearchRequest
+
+	// ZonesDoZoneSearchExecute executes the request
+	//  @return ZonedItemResponseModelCollection
+	ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRequest) (*ZonedItemResponseModelCollection, *http.Response, error)
+
+	/*
+		ZonesEditZone Edit a zone.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the zone.
+		@return ApiZonesEditZoneRequest
+	*/
+	ZonesEditZone(ctx context.Context, nameOrId string) ApiZonesEditZoneRequest
+
+	// ZonesEditZoneExecute executes the request
+	ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (*http.Response, error)
+
+	/*
+		ZonesGetZone Get a single zone from the site.
+
+		Get a single zone from the site
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the zone.
+		@return ApiZonesGetZoneRequest
+	*/
+	ZonesGetZone(ctx context.Context, nameOrId string) ApiZonesGetZoneRequest
+
+	// ZonesGetZoneExecute executes the request
+	//  @return ZoneDetailResponseModel
+	ZonesGetZoneExecute(r ApiZonesGetZoneRequest) (*ZoneDetailResponseModel, *http.Response, error)
+
+	/*
+		ZonesGetZones Get the list of all zones in the site.
+
+		Get the list of all zones in the site
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiZonesGetZonesRequest
+	*/
+	ZonesGetZones(ctx context.Context) ApiZonesGetZonesRequest
+
+	// ZonesGetZonesExecute executes the request
+	//  @return ZoneResponseModelCollection
+	ZonesGetZonesExecute(r ApiZonesGetZonesRequest) (*ZoneResponseModelCollection, *http.Response, error)
+
+	/*
+		ZonesMoveItemsIntoZone Move items into a zone.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The zone into which items will be moved.
+		@return ApiZonesMoveItemsIntoZoneRequest
+	*/
+	ZonesMoveItemsIntoZone(ctx context.Context, nameOrId string) ApiZonesMoveItemsIntoZoneRequest
+
+	// ZonesMoveItemsIntoZoneExecute executes the request
+	ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItemsIntoZoneRequest) (*http.Response, error)
+
+	/*
+		ZonesRemoveItemsFromZone Remove items from a zone.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiZonesRemoveItemsFromZoneRequest
+	*/
+	ZonesRemoveItemsFromZone(ctx context.Context) ApiZonesRemoveItemsFromZoneRequest
+
+	// ZonesRemoveItemsFromZoneExecute executes the request
+	ZonesRemoveItemsFromZoneExecute(r ApiZonesRemoveItemsFromZoneRequest) (*http.Response, error)
+}
+
 // ZonesAPIsDAASService ZonesAPIsDAAS service
 type ZonesAPIsDAASService service
 
 type ApiZonesAddItemsIntoZoneRequest struct {
 	ctx                    context.Context
-	ApiService             *ZonesAPIsDAASService
+	ApiService             ZonesAPIsDAAS
 	citrixCustomerId       *string
 	citrixInstanceId       *string
 	nameOrId               string
@@ -341,7 +465,7 @@ func (a *ZonesAPIsDAASService) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIn
 
 type ApiZonesCreateZoneRequest struct {
 	ctx                    context.Context
-	ApiService             *ZonesAPIsDAASService
+	ApiService             ZonesAPIsDAAS
 	citrixCustomerId       *string
 	citrixInstanceId       *string
 	createZoneRequestModel *CreateZoneRequestModel
@@ -643,7 +767,7 @@ func (a *ZonesAPIsDAASService) ZonesCreateZoneExecute(r ApiZonesCreateZoneReques
 
 type ApiZonesDeleteZoneRequest struct {
 	ctx                 context.Context
-	ApiService          *ZonesAPIsDAASService
+	ApiService          ZonesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -933,7 +1057,7 @@ func (a *ZonesAPIsDAASService) ZonesDeleteZoneExecute(r ApiZonesDeleteZoneReques
 
 type ApiZonesDoZoneSearchRequest struct {
 	ctx                         context.Context
-	ApiService                  *ZonesAPIsDAASService
+	ApiService                  ZonesAPIsDAAS
 	citrixCustomerId            *string
 	citrixInstanceId            *string
 	zonedItemSearchRequestModel *ZonedItemSearchRequestModel
@@ -1270,7 +1394,7 @@ func (a *ZonesAPIsDAASService) ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRe
 
 type ApiZonesEditZoneRequest struct {
 	ctx                  context.Context
-	ApiService           *ZonesAPIsDAASService
+	ApiService           ZonesAPIsDAAS
 	citrixCustomerId     *string
 	citrixInstanceId     *string
 	nameOrId             string
@@ -1576,7 +1700,7 @@ func (a *ZonesAPIsDAASService) ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (
 
 type ApiZonesGetZoneRequest struct {
 	ctx                 context.Context
-	ApiService          *ZonesAPIsDAASService
+	ApiService          ZonesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1860,7 +1984,7 @@ func (a *ZonesAPIsDAASService) ZonesGetZoneExecute(r ApiZonesGetZoneRequest) (*Z
 
 type ApiZonesGetZonesRequest struct {
 	ctx                 context.Context
-	ApiService          *ZonesAPIsDAASService
+	ApiService          ZonesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -2149,7 +2273,7 @@ func (a *ZonesAPIsDAASService) ZonesGetZonesExecute(r ApiZonesGetZonesRequest) (
 
 type ApiZonesMoveItemsIntoZoneRequest struct {
 	ctx                    context.Context
-	ApiService             *ZonesAPIsDAASService
+	ApiService             ZonesAPIsDAAS
 	citrixCustomerId       *string
 	citrixInstanceId       *string
 	nameOrId               string
@@ -2466,7 +2590,7 @@ func (a *ZonesAPIsDAASService) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItems
 
 type ApiZonesRemoveItemsFromZoneRequest struct {
 	ctx                    context.Context
-	ApiService             *ZonesAPIsDAASService
+	ApiService             ZonesAPIsDAAS
 	citrixCustomerId       *string
 	citrixInstanceId       *string
 	zonedItemsRequestModel *ZonedItemsRequestModel

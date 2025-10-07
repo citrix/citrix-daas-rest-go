@@ -19,12 +19,287 @@ import (
 	"strings"
 )
 
+type ApplicationGroupsAPIsDAAS interface {
+
+	/*
+		ApplicationGroupsAddApplicationGroupTag Add a tag to an application group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+		@param tagNameOrId Name or ID of the tag to add.
+		@return ApiApplicationGroupsAddApplicationGroupTagRequest
+	*/
+	ApplicationGroupsAddApplicationGroupTag(ctx context.Context, nameOrId string, tagNameOrId string) ApiApplicationGroupsAddApplicationGroupTagRequest
+
+	// ApplicationGroupsAddApplicationGroupTagExecute executes the request
+	//  @return TagResponseModelCollection
+	ApplicationGroupsAddApplicationGroupTagExecute(r ApiApplicationGroupsAddApplicationGroupTagRequest) (*TagResponseModelCollection, *http.Response, error)
+
+	/*
+		ApplicationGroupsAddApplications Add applications to the application group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+		@return ApiApplicationGroupsAddApplicationsRequest
+	*/
+	ApplicationGroupsAddApplications(ctx context.Context, nameOrId string) ApiApplicationGroupsAddApplicationsRequest
+
+	// ApplicationGroupsAddApplicationsExecute executes the request
+	ApplicationGroupsAddApplicationsExecute(r ApiApplicationGroupsAddApplicationsRequest) (*http.Response, error)
+
+	/*
+			ApplicationGroupsCheckApplicationGroupExists Check for the existence of an application group by name.
+
+			If the name is found to be available, this returns 404 Not Found. If the name
+		is not available (i.e. an application group with the name was found), this
+		returns 204 No Content.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param name Name of the application group.
+			@return ApiApplicationGroupsCheckApplicationGroupExistsRequest
+	*/
+	ApplicationGroupsCheckApplicationGroupExists(ctx context.Context, name string) ApiApplicationGroupsCheckApplicationGroupExistsRequest
+
+	// ApplicationGroupsCheckApplicationGroupExistsExecute executes the request
+	ApplicationGroupsCheckApplicationGroupExistsExecute(r ApiApplicationGroupsCheckApplicationGroupExistsRequest) (*http.Response, error)
+
+	/*
+		ApplicationGroupsCreateApplicationGroup Create an application group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiApplicationGroupsCreateApplicationGroupRequest
+	*/
+	ApplicationGroupsCreateApplicationGroup(ctx context.Context) ApiApplicationGroupsCreateApplicationGroupRequest
+
+	// ApplicationGroupsCreateApplicationGroupExecute executes the request
+	//  @return ApplicationGroupDetailResponseModel
+	ApplicationGroupsCreateApplicationGroupExecute(r ApiApplicationGroupsCreateApplicationGroupRequest) (*ApplicationGroupDetailResponseModel, *http.Response, error)
+
+	/*
+			ApplicationGroupsDeleteApplicationGroup Delete an application group.
+
+			Delete an application group.  Any applications that exist only within the
+		application group will also be deleted.  The impact can be determined
+		beforehand by use of the `exclusive` option with
+		GetApplicationGroupApplications.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application group to delete. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+			@return ApiApplicationGroupsDeleteApplicationGroupRequest
+	*/
+	ApplicationGroupsDeleteApplicationGroup(ctx context.Context, nameOrId string) ApiApplicationGroupsDeleteApplicationGroupRequest
+
+	// ApplicationGroupsDeleteApplicationGroupExecute executes the request
+	ApplicationGroupsDeleteApplicationGroupExecute(r ApiApplicationGroupsDeleteApplicationGroupRequest) (*http.Response, error)
+
+	/*
+			ApplicationGroupsDoApplicationGroupSearch Perform an advanced search for application groups.
+
+			Perform an advanced search for application groups.  Note that some combinations
+		of search parameters may result in slow performance.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiApplicationGroupsDoApplicationGroupSearchRequest
+	*/
+	ApplicationGroupsDoApplicationGroupSearch(ctx context.Context) ApiApplicationGroupsDoApplicationGroupSearchRequest
+
+	// ApplicationGroupsDoApplicationGroupSearchExecute executes the request
+	//  @return ApplicationGroupResponseModelCollection
+	ApplicationGroupsDoApplicationGroupSearchExecute(r ApiApplicationGroupsDoApplicationGroupSearchRequest) (*ApplicationGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		ApplicationGroupsGetApplicationGroup Get details of a single application group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,              specify the name in this format: {application group folder path plus application group name}.              For example, FolderName1|FolderName2|ApplicationGroupName.
+		@return ApiApplicationGroupsGetApplicationGroupRequest
+	*/
+	ApplicationGroupsGetApplicationGroup(ctx context.Context, nameOrId string) ApiApplicationGroupsGetApplicationGroupRequest
+
+	// ApplicationGroupsGetApplicationGroupExecute executes the request
+	//  @return ApplicationGroupDetailResponseModel
+	ApplicationGroupsGetApplicationGroupExecute(r ApiApplicationGroupsGetApplicationGroupRequest) (*ApplicationGroupDetailResponseModel, *http.Response, error)
+
+	/*
+		ApplicationGroupsGetApplicationGroupApplications Get applications in an application group.
+
+		Get all applications in an application group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+		@return ApiApplicationGroupsGetApplicationGroupApplicationsRequest
+	*/
+	ApplicationGroupsGetApplicationGroupApplications(ctx context.Context, nameOrId string) ApiApplicationGroupsGetApplicationGroupApplicationsRequest
+
+	// ApplicationGroupsGetApplicationGroupApplicationsExecute executes the request
+	//  @return ApplicationResponseModelCollection
+	ApplicationGroupsGetApplicationGroupApplicationsExecute(r ApiApplicationGroupsGetApplicationGroupApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+			ApplicationGroupsGetApplicationGroupDeliveryGroups Get delivery groups for an application group.
+
+			Get all delivery groups which an application group is associated with.
+
+		The  of each
+		association specifies the priority of the mapping between the application
+		group and delivery group. Lower numbers imply higher priority with zero being
+		highest.
+
+
+		If one association has a higher priority than the other, machines from that
+		group will be selected for launching sessions until all machines are at
+		maximum load, in maintenance mode, unregistered, or unavailable for any other
+		reason. Only when all machines from the higher-priority delivery group are
+		unavailable will new connections be routed to the next lowest priority
+		delivery group.
+
+		If multiple associations with equal priorities are encountered, session
+		launches will be load balanced across all machines in both delivery groups.
+		The least-loaded machine across the delivery groups will be chosen.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+			@return ApiApplicationGroupsGetApplicationGroupDeliveryGroupsRequest
+	*/
+	ApplicationGroupsGetApplicationGroupDeliveryGroups(ctx context.Context, nameOrId string) ApiApplicationGroupsGetApplicationGroupDeliveryGroupsRequest
+
+	// ApplicationGroupsGetApplicationGroupDeliveryGroupsExecute executes the request
+	//  @return ApplicationGroupDeliveryGroupResponseModelCollection
+	ApplicationGroupsGetApplicationGroupDeliveryGroupsExecute(r ApiApplicationGroupsGetApplicationGroupDeliveryGroupsRequest) (*ApplicationGroupDeliveryGroupResponseModelCollection, *http.Response, error)
+
+	/*
+			ApplicationGroupsGetApplicationGroupTags Get the tags for an application group.
+
+			Get the tags associated with an application group.  This includes tags which
+		are directly associated with the application group, as well as tags associated
+		with delivery groups, machines, or applications that are associated with the
+		application group. To find tags that are directly associated with the application
+		group only, filter the results to those with
+		NumApplicationGroups equal to `1`.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+			@return ApiApplicationGroupsGetApplicationGroupTagsRequest
+	*/
+	ApplicationGroupsGetApplicationGroupTags(ctx context.Context, nameOrId string) ApiApplicationGroupsGetApplicationGroupTagsRequest
+
+	// ApplicationGroupsGetApplicationGroupTagsExecute executes the request
+	//  @return TagResponseModelCollection
+	ApplicationGroupsGetApplicationGroupTagsExecute(r ApiApplicationGroupsGetApplicationGroupTagsRequest) (*TagResponseModelCollection, *http.Response, error)
+
+	/*
+		ApplicationGroupsGetApplicationGroups Get application groups.
+
+		Get all application groups in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiApplicationGroupsGetApplicationGroupsRequest
+	*/
+	ApplicationGroupsGetApplicationGroups(ctx context.Context) ApiApplicationGroupsGetApplicationGroupsRequest
+
+	// ApplicationGroupsGetApplicationGroupsExecute executes the request
+	//  @return ApplicationGroupResponseModelCollection
+	ApplicationGroupsGetApplicationGroupsExecute(r ApiApplicationGroupsGetApplicationGroupsRequest) (*ApplicationGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		ApplicationGroupsGetApplicationGroupsV2 The V2  version of get application groups.
+
+		Get all application groups in the site with default response fields if no fields parameters specified.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiApplicationGroupsGetApplicationGroupsV2Request
+	*/
+	ApplicationGroupsGetApplicationGroupsV2(ctx context.Context) ApiApplicationGroupsGetApplicationGroupsV2Request
+
+	// ApplicationGroupsGetApplicationGroupsV2Execute executes the request
+	//  @return ApplicationGroupResponseModelCollection
+	ApplicationGroupsGetApplicationGroupsV2Execute(r ApiApplicationGroupsGetApplicationGroupsV2Request) (*ApplicationGroupResponseModelCollection, *http.Response, error)
+
+	/*
+			ApplicationGroupsRemoveApplication Remove an application from the application group.
+
+			Remove an application from the application group.  If the application is not
+		associated with any other application group or delivery group, the application
+		will be deleted; otherwise, the application itself will remain in the site.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+			@param appNameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
+			@return ApiApplicationGroupsRemoveApplicationRequest
+	*/
+	ApplicationGroupsRemoveApplication(ctx context.Context, nameOrId string, appNameOrId string) ApiApplicationGroupsRemoveApplicationRequest
+
+	// ApplicationGroupsRemoveApplicationExecute executes the request
+	ApplicationGroupsRemoveApplicationExecute(r ApiApplicationGroupsRemoveApplicationRequest) (*http.Response, error)
+
+	/*
+			ApplicationGroupsRemoveApplicationGroupTag Remove a tag from an application group.
+
+			Remove a tag from an application group.  Does not delete the tag, only its
+		association to the application group.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+			@param tagNameOrId Name or ID of the tag to remove.
+			@return ApiApplicationGroupsRemoveApplicationGroupTagRequest
+	*/
+	ApplicationGroupsRemoveApplicationGroupTag(ctx context.Context, nameOrId string, tagNameOrId string) ApiApplicationGroupsRemoveApplicationGroupTagRequest
+
+	// ApplicationGroupsRemoveApplicationGroupTagExecute executes the request
+	ApplicationGroupsRemoveApplicationGroupTagExecute(r ApiApplicationGroupsRemoveApplicationGroupTagRequest) (*http.Response, error)
+
+	/*
+			ApplicationGroupsSetApplicationGroupTags Set the tags for an application group.
+
+			Set the tags associated with an application group.
+		Any tag that is not specified will be removed from the application group if it
+		was previously associated.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the application group. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+			@return ApiApplicationGroupsSetApplicationGroupTagsRequest
+	*/
+	ApplicationGroupsSetApplicationGroupTags(ctx context.Context, nameOrId string) ApiApplicationGroupsSetApplicationGroupTagsRequest
+
+	// ApplicationGroupsSetApplicationGroupTagsExecute executes the request
+	ApplicationGroupsSetApplicationGroupTagsExecute(r ApiApplicationGroupsSetApplicationGroupTagsRequest) (*http.Response, error)
+
+	/*
+			ApplicationGroupsTestApplicationGroupExists Test the existence of an application group by name.
+
+			If the name is found to be available, this returns 404 Not Found. If the name
+		is not available (i.e. an application group with the name was found), this
+		returns 204 No Content.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiApplicationGroupsTestApplicationGroupExistsRequest
+	*/
+	ApplicationGroupsTestApplicationGroupExists(ctx context.Context) ApiApplicationGroupsTestApplicationGroupExistsRequest
+
+	// ApplicationGroupsTestApplicationGroupExistsExecute executes the request
+	ApplicationGroupsTestApplicationGroupExistsExecute(r ApiApplicationGroupsTestApplicationGroupExistsRequest) (*http.Response, error)
+
+	/*
+		ApplicationGroupsUpdateApplicationGroup Update an application group.
+
+		Update an application group's properties.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the application group to update. If the application group is present in an application group folder,             specify the name in this format: {application group folder path plus application group name}.             For example, FolderName1|FolderName2|ApplicationGroupName.
+		@return ApiApplicationGroupsUpdateApplicationGroupRequest
+	*/
+	ApplicationGroupsUpdateApplicationGroup(ctx context.Context, nameOrId string) ApiApplicationGroupsUpdateApplicationGroupRequest
+
+	// ApplicationGroupsUpdateApplicationGroupExecute executes the request
+	ApplicationGroupsUpdateApplicationGroupExecute(r ApiApplicationGroupsUpdateApplicationGroupRequest) (*http.Response, error)
+}
+
 // ApplicationGroupsAPIsDAASService ApplicationGroupsAPIsDAAS service
 type ApplicationGroupsAPIsDAASService service
 
 type ApiApplicationGroupsAddApplicationGroupTagRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationGroupsAPIsDAASService
+	ApiService          ApplicationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -334,7 +609,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationGroupT
 
 type ApiApplicationGroupsAddApplicationsRequest struct {
 	ctx                                         context.Context
-	ApiService                                  *ApplicationGroupsAPIsDAASService
+	ApiService                                  ApplicationGroupsAPIsDAAS
 	citrixCustomerId                            *string
 	citrixInstanceId                            *string
 	nameOrId                                    string
@@ -651,7 +926,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsAddApplicationsExecu
 
 type ApiApplicationGroupsCheckApplicationGroupExistsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationGroupsAPIsDAASService
+	ApiService          ApplicationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	name                string
@@ -925,7 +1200,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCheckApplicationGrou
 
 type ApiApplicationGroupsCreateApplicationGroupRequest struct {
 	ctx                                context.Context
-	ApiService                         *ApplicationGroupsAPIsDAASService
+	ApiService                         ApplicationGroupsAPIsDAAS
 	citrixCustomerId                   *string
 	citrixInstanceId                   *string
 	createApplicationGroupRequestModel *CreateApplicationGroupRequestModel
@@ -1239,7 +1514,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsCreateApplicationGro
 
 type ApiApplicationGroupsDeleteApplicationGroupRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationGroupsAPIsDAASService
+	ApiService          ApplicationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1527,7 +1802,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDeleteApplicationGro
 
 type ApiApplicationGroupsDoApplicationGroupSearchRequest struct {
 	ctx                                context.Context
-	ApiService                         *ApplicationGroupsAPIsDAASService
+	ApiService                         ApplicationGroupsAPIsDAAS
 	citrixCustomerId                   *string
 	citrixInstanceId                   *string
 	applicationGroupSearchRequestModel *ApplicationGroupSearchRequestModel
@@ -1874,7 +2149,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsDoApplicationGroupSe
 
 type ApiApplicationGroupsGetApplicationGroupRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationGroupsAPIsDAASService
+	ApiService          ApplicationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2179,7 +2454,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupE
 
 type ApiApplicationGroupsGetApplicationGroupApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationGroupsAPIsDAASService
+	ApiService          ApplicationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2506,7 +2781,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupA
 
 type ApiApplicationGroupsGetApplicationGroupDeliveryGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationGroupsAPIsDAASService
+	ApiService          ApplicationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2839,7 +3114,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupD
 
 type ApiApplicationGroupsGetApplicationGroupTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationGroupsAPIsDAASService
+	ApiService          ApplicationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3138,7 +3413,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupT
 
 type ApiApplicationGroupsGetApplicationGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationGroupsAPIsDAASService
+	ApiService          ApplicationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -3460,7 +3735,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 
 type ApiApplicationGroupsGetApplicationGroupsV2Request struct {
 	ctx                 context.Context
-	ApiService          *ApplicationGroupsAPIsDAASService
+	ApiService          ApplicationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -3782,7 +4057,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 
 type ApiApplicationGroupsRemoveApplicationRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationGroupsAPIsDAASService
+	ApiService          ApplicationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4073,7 +4348,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationExe
 
 type ApiApplicationGroupsRemoveApplicationGroupTagRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationGroupsAPIsDAASService
+	ApiService          ApplicationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4363,7 +4638,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsRemoveApplicationGro
 
 type ApiApplicationGroupsSetApplicationGroupTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *ApplicationGroupsAPIsDAASService
+	ApiService          ApplicationGroupsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4673,7 +4948,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsSetApplicationGroupT
 
 type ApiApplicationGroupsTestApplicationGroupExistsRequest struct {
 	ctx                                   context.Context
-	ApiService                            *ApplicationGroupsAPIsDAASService
+	ApiService                            ApplicationGroupsAPIsDAAS
 	citrixCustomerId                      *string
 	citrixInstanceId                      *string
 	applicationGroupNameCheckRequestModel *ApplicationGroupNameCheckRequestModel
@@ -4966,7 +5241,7 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsTestApplicationGroup
 
 type ApiApplicationGroupsUpdateApplicationGroupRequest struct {
 	ctx                              context.Context
-	ApiService                       *ApplicationGroupsAPIsDAASService
+	ApiService                       ApplicationGroupsAPIsDAAS
 	citrixCustomerId                 *string
 	citrixInstanceId                 *string
 	nameOrId                         string

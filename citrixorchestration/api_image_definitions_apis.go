@@ -19,12 +19,216 @@ import (
 	"strings"
 )
 
+type ImageDefinitionsAPIsDAAS interface {
+
+	/*
+			ImageDefinitionsCheckImageDefinitionExist Check for the existence of an image definition by name.
+
+			If the name is found to be available, this returns 404 Not Found. If the name
+		is not available (i.e. an image definition with the name was found), this returns
+		204 No Content.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param name Name of the image definition.
+			@return ApiImageDefinitionsCheckImageDefinitionExistRequest
+	*/
+	ImageDefinitionsCheckImageDefinitionExist(ctx context.Context, name string) ApiImageDefinitionsCheckImageDefinitionExistRequest
+
+	// ImageDefinitionsCheckImageDefinitionExistExecute executes the request
+	ImageDefinitionsCheckImageDefinitionExistExecute(r ApiImageDefinitionsCheckImageDefinitionExistRequest) (*http.Response, error)
+
+	/*
+		ImageDefinitionsCreateImageDefinition Create an image definition.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiImageDefinitionsCreateImageDefinitionRequest
+	*/
+	ImageDefinitionsCreateImageDefinition(ctx context.Context) ApiImageDefinitionsCreateImageDefinitionRequest
+
+	// ImageDefinitionsCreateImageDefinitionExecute executes the request
+	//  @return ImageDefinitionResponseModel
+	ImageDefinitionsCreateImageDefinitionExecute(r ApiImageDefinitionsCreateImageDefinitionRequest) (*ImageDefinitionResponseModel, *http.Response, error)
+
+	/*
+		ImageDefinitionsCreateImageVersion Create an image version.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the image definition.
+		@return ApiImageDefinitionsCreateImageVersionRequest
+	*/
+	ImageDefinitionsCreateImageVersion(ctx context.Context, nameOrId string) ApiImageDefinitionsCreateImageVersionRequest
+
+	// ImageDefinitionsCreateImageVersionExecute executes the request
+	//  @return ImageVersionResponseModel
+	ImageDefinitionsCreateImageVersionExecute(r ApiImageDefinitionsCreateImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error)
+
+	/*
+		ImageDefinitionsDeleteImageDefinition Delete an image definition.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the image definition to delete.
+		@return ApiImageDefinitionsDeleteImageDefinitionRequest
+	*/
+	ImageDefinitionsDeleteImageDefinition(ctx context.Context, nameOrId string) ApiImageDefinitionsDeleteImageDefinitionRequest
+
+	// ImageDefinitionsDeleteImageDefinitionExecute executes the request
+	ImageDefinitionsDeleteImageDefinitionExecute(r ApiImageDefinitionsDeleteImageDefinitionRequest) (*http.Response, error)
+
+	/*
+		ImageDefinitionsDeleteImageDefinitionImageVersion Delete an image version.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the image definition.
+		@param versionNumberOrId Number or ID of the image version to delete.
+		@return ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest
+	*/
+	ImageDefinitionsDeleteImageDefinitionImageVersion(ctx context.Context, nameOrId string, versionNumberOrId string) ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest
+
+	// ImageDefinitionsDeleteImageDefinitionImageVersionExecute executes the request
+	ImageDefinitionsDeleteImageDefinitionImageVersionExecute(r ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest) (*http.Response, error)
+
+	/*
+		ImageDefinitionsDoImageDefinitionAndImageVersionSearch Perform an advanced search for image definitions and image versions.
+
+		Perform an advanced search for image definitions and image versions.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiImageDefinitionsDoImageDefinitionAndImageVersionSearchRequest
+	*/
+	ImageDefinitionsDoImageDefinitionAndImageVersionSearch(ctx context.Context) ApiImageDefinitionsDoImageDefinitionAndImageVersionSearchRequest
+
+	// ImageDefinitionsDoImageDefinitionAndImageVersionSearchExecute executes the request
+	//  @return ImageDefinitionsAndImageVersionsResponseModelCollection
+	ImageDefinitionsDoImageDefinitionAndImageVersionSearchExecute(r ApiImageDefinitionsDoImageDefinitionAndImageVersionSearchRequest) (*ImageDefinitionsAndImageVersionsResponseModelCollection, *http.Response, error)
+
+	/*
+		ImageDefinitionsGetImageDefinition Get details about a single image definition.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the image definition.
+		@return ApiImageDefinitionsGetImageDefinitionRequest
+	*/
+	ImageDefinitionsGetImageDefinition(ctx context.Context, nameOrId string) ApiImageDefinitionsGetImageDefinitionRequest
+
+	// ImageDefinitionsGetImageDefinitionExecute executes the request
+	//  @return ImageDefinitionResponseModel
+	ImageDefinitionsGetImageDefinitionExecute(r ApiImageDefinitionsGetImageDefinitionRequest) (*ImageDefinitionResponseModel, *http.Response, error)
+
+	/*
+		ImageDefinitionsGetImageDefinitionImageVersion Get details about a single image version.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the image definition.
+		@param versionNumberOrId Number or ID of the image version.
+		@return ApiImageDefinitionsGetImageDefinitionImageVersionRequest
+	*/
+	ImageDefinitionsGetImageDefinitionImageVersion(ctx context.Context, nameOrId string, versionNumberOrId string) ApiImageDefinitionsGetImageDefinitionImageVersionRequest
+
+	// ImageDefinitionsGetImageDefinitionImageVersionExecute executes the request
+	//  @return ImageVersionResponseModel
+	ImageDefinitionsGetImageDefinitionImageVersionExecute(r ApiImageDefinitionsGetImageDefinitionImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error)
+
+	/*
+		ImageDefinitionsGetImageDefinitionImageVersions Get all image versions associated with an image definition.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or Id of the image definition.
+		@return ApiImageDefinitionsGetImageDefinitionImageVersionsRequest
+	*/
+	ImageDefinitionsGetImageDefinitionImageVersions(ctx context.Context, nameOrId string) ApiImageDefinitionsGetImageDefinitionImageVersionsRequest
+
+	// ImageDefinitionsGetImageDefinitionImageVersionsExecute executes the request
+	//  @return ImageVersionResponseModelCollection
+	ImageDefinitionsGetImageDefinitionImageVersionsExecute(r ApiImageDefinitionsGetImageDefinitionImageVersionsRequest) (*ImageVersionResponseModelCollection, *http.Response, error)
+
+	/*
+		ImageDefinitionsGetImageDefinitions Get all image definitions.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiImageDefinitionsGetImageDefinitionsRequest
+	*/
+	ImageDefinitionsGetImageDefinitions(ctx context.Context) ApiImageDefinitionsGetImageDefinitionsRequest
+
+	// ImageDefinitionsGetImageDefinitionsExecute executes the request
+	//  @return ImageDefinitionResponseModelCollection
+	ImageDefinitionsGetImageDefinitionsExecute(r ApiImageDefinitionsGetImageDefinitionsRequest) (*ImageDefinitionResponseModelCollection, *http.Response, error)
+
+	/*
+		ImageDefinitionsGetImageVersionProvisioningSchemes Get provisioning schemes associated with an image version.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of image definition.
+		@param versionNumberOrId Number or ID of image version.
+		@return ApiImageDefinitionsGetImageVersionProvisioningSchemesRequest
+	*/
+	ImageDefinitionsGetImageVersionProvisioningSchemes(ctx context.Context, nameOrId string, versionNumberOrId string) ApiImageDefinitionsGetImageVersionProvisioningSchemesRequest
+
+	// ImageDefinitionsGetImageVersionProvisioningSchemesExecute executes the request
+	//  @return ImageVersionProvisioningSchemeRefResponseModelCollection
+	ImageDefinitionsGetImageVersionProvisioningSchemesExecute(r ApiImageDefinitionsGetImageVersionProvisioningSchemesRequest) (*ImageVersionProvisioningSchemeRefResponseModelCollection, *http.Response, error)
+
+	/*
+		ImageDefinitionsSetImageDefinitionImageVersion Set properties associated with an image version.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the image definition.
+		@param versionNumberOrId Number or ID of the image version to update.
+		@return ApiImageDefinitionsSetImageDefinitionImageVersionRequest
+	*/
+	ImageDefinitionsSetImageDefinitionImageVersion(ctx context.Context, nameOrId string, versionNumberOrId string) ApiImageDefinitionsSetImageDefinitionImageVersionRequest
+
+	// ImageDefinitionsSetImageDefinitionImageVersionExecute executes the request
+	ImageDefinitionsSetImageDefinitionImageVersionExecute(r ApiImageDefinitionsSetImageDefinitionImageVersionRequest) (*http.Response, error)
+
+	/*
+		ImageDefinitionsUpdateImageDefinition Update an image definition.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the image definition to update.
+		@return ApiImageDefinitionsUpdateImageDefinitionRequest
+	*/
+	ImageDefinitionsUpdateImageDefinition(ctx context.Context, nameOrId string) ApiImageDefinitionsUpdateImageDefinitionRequest
+
+	// ImageDefinitionsUpdateImageDefinitionExecute executes the request
+	//  @return ImageDefinitionResponseModel
+	ImageDefinitionsUpdateImageDefinitionExecute(r ApiImageDefinitionsUpdateImageDefinitionRequest) (*ImageDefinitionResponseModel, *http.Response, error)
+
+	/*
+		ImageDefinitionsUpdateImageDefinitionImageVersion Update an image version.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the image definition.
+		@param versionNumberOrId Number or ID of the image version to update.
+		@return ApiImageDefinitionsUpdateImageDefinitionImageVersionRequest
+	*/
+	ImageDefinitionsUpdateImageDefinitionImageVersion(ctx context.Context, nameOrId string, versionNumberOrId string) ApiImageDefinitionsUpdateImageDefinitionImageVersionRequest
+
+	// ImageDefinitionsUpdateImageDefinitionImageVersionExecute executes the request
+	//  @return ImageVersionResponseModel
+	ImageDefinitionsUpdateImageDefinitionImageVersionExecute(r ApiImageDefinitionsUpdateImageDefinitionImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error)
+
+	/*
+		ImageDefinitionsUpdateImageVersionResourcePools Update resource pools associated with an image version.
+
+		Update resource pools associated with an image version.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of image definition.
+		@param versionNumberOrId Number or ID of image version.
+		@return ApiImageDefinitionsUpdateImageVersionResourcePoolsRequest
+	*/
+	ImageDefinitionsUpdateImageVersionResourcePools(ctx context.Context, nameOrId string, versionNumberOrId string) ApiImageDefinitionsUpdateImageVersionResourcePoolsRequest
+
+	// ImageDefinitionsUpdateImageVersionResourcePoolsExecute executes the request
+	ImageDefinitionsUpdateImageVersionResourcePoolsExecute(r ApiImageDefinitionsUpdateImageVersionResourcePoolsRequest) (*http.Response, error)
+}
+
 // ImageDefinitionsAPIsDAASService ImageDefinitionsAPIsDAAS service
 type ImageDefinitionsAPIsDAASService service
 
 type ApiImageDefinitionsCheckImageDefinitionExistRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageDefinitionsAPIsDAASService
+	ApiService          ImageDefinitionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	name                string
@@ -298,7 +502,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCheckImageDefinitionEx
 
 type ApiImageDefinitionsCreateImageDefinitionRequest struct {
 	ctx                               context.Context
-	ApiService                        *ImageDefinitionsAPIsDAASService
+	ApiService                        ImageDefinitionsAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	createImageDefinitionRequestModel *CreateImageDefinitionRequestModel
@@ -612,7 +816,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageDefinitionE
 
 type ApiImageDefinitionsCreateImageVersionRequest struct {
 	ctx                            context.Context
-	ApiService                     *ImageDefinitionsAPIsDAASService
+	ApiService                     ImageDefinitionsAPIsDAAS
 	citrixCustomerId               *string
 	citrixInstanceId               *string
 	nameOrId                       string
@@ -941,7 +1145,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsCreateImageVersionExec
 
 type ApiImageDefinitionsDeleteImageDefinitionRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageDefinitionsAPIsDAASService
+	ApiService          ImageDefinitionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1221,7 +1425,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionE
 
 type ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageDefinitionsAPIsDAASService
+	ApiService          ImageDefinitionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1521,7 +1725,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDeleteImageDefinitionI
 
 type ApiImageDefinitionsDoImageDefinitionAndImageVersionSearchRequest struct {
 	ctx                                              context.Context
-	ApiService                                       *ImageDefinitionsAPIsDAASService
+	ApiService                                       ImageDefinitionsAPIsDAAS
 	citrixCustomerId                                 *string
 	citrixInstanceId                                 *string
 	imageDefinitionAndImageVersionSearchRequestModel *ImageDefinitionAndImageVersionSearchRequestModel
@@ -1837,7 +2041,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsDoImageDefinitionAndIm
 
 type ApiImageDefinitionsGetImageDefinitionRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageDefinitionsAPIsDAASService
+	ApiService          ImageDefinitionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2119,7 +2323,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionExec
 
 type ApiImageDefinitionsGetImageDefinitionImageVersionRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageDefinitionsAPIsDAASService
+	ApiService          ImageDefinitionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2405,7 +2609,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 
 type ApiImageDefinitionsGetImageDefinitionImageVersionsRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageDefinitionsAPIsDAASService
+	ApiService          ImageDefinitionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2707,7 +2911,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionImag
 
 type ApiImageDefinitionsGetImageDefinitionsRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageDefinitionsAPIsDAASService
+	ApiService          ImageDefinitionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -2994,7 +3198,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageDefinitionsExe
 
 type ApiImageDefinitionsGetImageVersionProvisioningSchemesRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageDefinitionsAPIsDAASService
+	ApiService          ImageDefinitionsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3280,7 +3484,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsGetImageVersionProvisi
 
 type ApiImageDefinitionsSetImageDefinitionImageVersionRequest struct {
 	ctx                            context.Context
-	ApiService                     *ImageDefinitionsAPIsDAASService
+	ApiService                     ImageDefinitionsAPIsDAAS
 	citrixCustomerId               *string
 	citrixInstanceId               *string
 	nameOrId                       string
@@ -3590,7 +3794,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsSetImageDefinitionImag
 
 type ApiImageDefinitionsUpdateImageDefinitionRequest struct {
 	ctx                               context.Context
-	ApiService                        *ImageDefinitionsAPIsDAASService
+	ApiService                        ImageDefinitionsAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	nameOrId                          string
@@ -3895,7 +4099,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionE
 
 type ApiImageDefinitionsUpdateImageDefinitionImageVersionRequest struct {
 	ctx                            context.Context
-	ApiService                     *ImageDefinitionsAPIsDAASService
+	ApiService                     ImageDefinitionsAPIsDAAS
 	citrixCustomerId               *string
 	citrixInstanceId               *string
 	nameOrId                       string
@@ -4204,7 +4408,7 @@ func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageDefinitionI
 
 type ApiImageDefinitionsUpdateImageVersionResourcePoolsRequest struct {
 	ctx                                         context.Context
-	ApiService                                  *ImageDefinitionsAPIsDAASService
+	ApiService                                  ImageDefinitionsAPIsDAAS
 	citrixCustomerId                            *string
 	citrixInstanceId                            *string
 	nameOrId                                    string

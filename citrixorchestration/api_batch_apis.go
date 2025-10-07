@@ -18,12 +18,32 @@ import (
 	"net/url"
 )
 
+type BatchAPIsDAAS interface {
+
+	/*
+			BatchDoBatchRequest Perform a batch request.
+
+			Perform a batch request.  This allows the client to submit more than one request
+		at a time.  The requests may be performed in parallel and may not have any
+		dependencies between them.  The result will be returned once all requests have
+		completed.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiBatchDoBatchRequestRequest
+	*/
+	BatchDoBatchRequest(ctx context.Context) ApiBatchDoBatchRequestRequest
+
+	// BatchDoBatchRequestExecute executes the request
+	//  @return BatchResponseModel
+	BatchDoBatchRequestExecute(r ApiBatchDoBatchRequestRequest) (*BatchResponseModel, *http.Response, error)
+}
+
 // BatchAPIsDAASService BatchAPIsDAAS service
 type BatchAPIsDAASService service
 
 type ApiBatchDoBatchRequestRequest struct {
 	ctx                 context.Context
-	ApiService          *BatchAPIsDAASService
+	ApiService          BatchAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	batchRequestModel   *BatchRequestModel

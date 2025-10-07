@@ -20,12 +20,701 @@ import (
 	"strings"
 )
 
+type HypervisorsAPIsDAAS interface {
+
+	/*
+		HypervisorsCheckHypervisorExists Check for the existence of a hypervisor by name.
+
+		Check for the existence of a hypervisor by name.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param name Name of the hypervisor.
+		@return ApiHypervisorsCheckHypervisorExistsRequest
+	*/
+	HypervisorsCheckHypervisorExists(ctx context.Context, name string) ApiHypervisorsCheckHypervisorExistsRequest
+
+	// HypervisorsCheckHypervisorExistsExecute executes the request
+	HypervisorsCheckHypervisorExistsExecute(r ApiHypervisorsCheckHypervisorExistsRequest) (*http.Response, error)
+
+	/*
+			HypervisorsCheckHypervisorResourcePoolExists Check for the existence of a resource pool by name.
+
+			Check for the existence of a resource pool by name.  Note that
+		resource pool names must be unique within the site, so the
+		`nameOrId` parameter does not affect whether the resource pool name
+		is found.
+		If the name is found to be available, this returns 404 Not Found.
+		If a resource pool by that name exists and is associated with the
+		specified hypervisor, this returns 204 No Content.  If a resource
+		pool by that name exists and is associated with a different
+		hypervisor, this returns 303 See Other, and the `Location` response
+		header refers to location of the resource pool with that name.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the hypervisor.
+			@param name Name of the resource pool.
+			@return ApiHypervisorsCheckHypervisorResourcePoolExistsRequest
+	*/
+	HypervisorsCheckHypervisorResourcePoolExists(ctx context.Context, nameOrId string, name string) ApiHypervisorsCheckHypervisorResourcePoolExistsRequest
+
+	// HypervisorsCheckHypervisorResourcePoolExistsExecute executes the request
+	HypervisorsCheckHypervisorResourcePoolExistsExecute(r ApiHypervisorsCheckHypervisorResourcePoolExistsRequest) (*http.Response, error)
+
+	/*
+		HypervisorsCreateHypervisor Create a hypervisor, and optionally a resource pool on the hypervisor.
+
+		Create a hypervisor, and optionally a resource pool on the hypervisor.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiHypervisorsCreateHypervisorRequest
+	*/
+	HypervisorsCreateHypervisor(ctx context.Context) ApiHypervisorsCreateHypervisorRequest
+
+	// HypervisorsCreateHypervisorExecute executes the request
+	//  @return HypervisorDetailResponseModel
+	HypervisorsCreateHypervisorExecute(r ApiHypervisorsCreateHypervisorRequest) (*HypervisorDetailResponseModel, *http.Response, error)
+
+	/*
+		HypervisorsCreateResourcePool Create a new resource pool on an existing hypervisor.
+
+		Create a new resource pool on an existing hypervisor.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@return ApiHypervisorsCreateResourcePoolRequest
+	*/
+	HypervisorsCreateResourcePool(ctx context.Context, nameOrId string) ApiHypervisorsCreateResourcePoolRequest
+
+	// HypervisorsCreateResourcePoolExecute executes the request
+	//  @return HypervisorResourcePoolDetailResponseModel
+	HypervisorsCreateResourcePoolExecute(r ApiHypervisorsCreateResourcePoolRequest) (*HypervisorResourcePoolDetailResponseModel, *http.Response, error)
+
+	/*
+		HypervisorsDeleteHypervisor Delete a hypervisor and related resource pools.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The hypervisor connection name or id.
+		@return ApiHypervisorsDeleteHypervisorRequest
+	*/
+	HypervisorsDeleteHypervisor(ctx context.Context, nameOrId string) ApiHypervisorsDeleteHypervisorRequest
+
+	// HypervisorsDeleteHypervisorExecute executes the request
+	HypervisorsDeleteHypervisorExecute(r ApiHypervisorsDeleteHypervisorRequest) (*http.Response, error)
+
+	/*
+		HypervisorsDeleteHypervisorResourcePool Delete a hypervisor resource pool.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The name or id of hypervisor.
+		@param poolId The hypervisor resource pool id.
+		@return ApiHypervisorsDeleteHypervisorResourcePoolRequest
+	*/
+	HypervisorsDeleteHypervisorResourcePool(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsDeleteHypervisorResourcePoolRequest
+
+	// HypervisorsDeleteHypervisorResourcePoolExecute executes the request
+	HypervisorsDeleteHypervisorResourcePoolExecute(r ApiHypervisorsDeleteHypervisorResourcePoolRequest) (*http.Response, error)
+
+	/*
+		HypervisorsDoHypervisorAllResourcesSearch Search the resources within a hypervisor.
+
+		Currently, support AWS, Azure, VCenter and Nutanix.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@return ApiHypervisorsDoHypervisorAllResourcesSearchRequest
+	*/
+	HypervisorsDoHypervisorAllResourcesSearch(ctx context.Context, nameOrId string) ApiHypervisorsDoHypervisorAllResourcesSearchRequest
+
+	// HypervisorsDoHypervisorAllResourcesSearchExecute executes the request
+	//  @return HypervisorResourceResponseModelCollection
+	HypervisorsDoHypervisorAllResourcesSearchExecute(r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) (*HypervisorResourceResponseModelCollection, *http.Response, error)
+
+	/*
+		HypervisorsDoHypervisorAllResourcesSearchWithoutConnection Search all resources within a hypervisor, _without_ creating a persistent connection to the hypervisor.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest
+	*/
+	HypervisorsDoHypervisorAllResourcesSearchWithoutConnection(ctx context.Context) ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest
+
+	// HypervisorsDoHypervisorAllResourcesSearchWithoutConnectionExecute executes the request
+	//  @return HypervisorResourceResponseModelCollection
+	HypervisorsDoHypervisorAllResourcesSearchWithoutConnectionExecute(r ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) (*HypervisorResourceResponseModelCollection, *http.Response, error)
+
+	/*
+		HypervisorsDoHypervisorResourceSearch Search the resources within a hypervisor resource pool.
+
+		Currently, support AWS, Azure, VCenter and Nutanix.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@param poolId Name or ID of the resource pool.
+		@return ApiHypervisorsDoHypervisorResourceSearchRequest
+	*/
+	HypervisorsDoHypervisorResourceSearch(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsDoHypervisorResourceSearchRequest
+
+	// HypervisorsDoHypervisorResourceSearchExecute executes the request
+	//  @return HypervisorResourceResponseModelCollection
+	HypervisorsDoHypervisorResourceSearchExecute(r ApiHypervisorsDoHypervisorResourceSearchRequest) (*HypervisorResourceResponseModelCollection, *http.Response, error)
+
+	/*
+			HypervisorsGetHypervisor Get the details for a single hypervisor.
+
+			Get the details for a single hypervisor.
+		URI with ?noCache=true can ignore the cache and fetch the data directly.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the hypervisor.
+			@return ApiHypervisorsGetHypervisorRequest
+	*/
+	HypervisorsGetHypervisor(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorRequest
+
+	// HypervisorsGetHypervisorExecute executes the request
+	//  @return HypervisorDetailResponseModel
+	HypervisorsGetHypervisorExecute(r ApiHypervisorsGetHypervisorRequest) (*HypervisorDetailResponseModel, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorAdministrators Get administrators who can administer a hypervisor.
+
+		Get administrators who can administer a hypervisor.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@return ApiHypervisorsGetHypervisorAdministratorsRequest
+	*/
+	HypervisorsGetHypervisorAdministrators(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorAdministratorsRequest
+
+	// HypervisorsGetHypervisorAdministratorsExecute executes the request
+	//  @return AdministratorResponseModelCollection
+	HypervisorsGetHypervisorAdministratorsExecute(r ApiHypervisorsGetHypervisorAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error)
+
+	/*
+			HypervisorsGetHypervisorAllResourcePools Get the list of hypervisor resource pools from all hypervisors.
+
+			Get the list of hypervisor resource pools from all hypervisors.
+		URI with ?noCache=true can ignore the cache and fetch the data directly.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiHypervisorsGetHypervisorAllResourcePoolsRequest
+	*/
+	HypervisorsGetHypervisorAllResourcePools(ctx context.Context) ApiHypervisorsGetHypervisorAllResourcePoolsRequest
+
+	// HypervisorsGetHypervisorAllResourcePoolsExecute executes the request
+	//  @return HypervisorResourcePoolResponseModelCollection
+	HypervisorsGetHypervisorAllResourcePoolsExecute(r ApiHypervisorsGetHypervisorAllResourcePoolsRequest) (*HypervisorResourcePoolResponseModelCollection, *http.Response, error)
+
+	/*
+			HypervisorsGetHypervisorAllResources Get all resources within a hypervisor.
+
+			Get the resources within a hypervisor.  Note: in previous versions
+		of the API, this was referred to as a "Connection".
+		A caller can recursively enumerate by:
+		* Call with no `path`, and `children` equal to `1`.
+		* For each of the result's
+		  Children where
+		  IsContainer is
+		  `true`, call with `path` equal to that item's
+		  RelativePath and
+		  `children` equal to `1`.
+		* Repeat recursively.
+		URI with ?noCache=true can ignore the cache and fetch the data directly.
+		URI with ?force=true can get the VMs which provisioned by MCS.
+		URI with ?recurse=true can recurse fetch all resources under this folder.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the hypervisor.
+			@return ApiHypervisorsGetHypervisorAllResourcesRequest
+	*/
+	HypervisorsGetHypervisorAllResources(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorAllResourcesRequest
+
+	// HypervisorsGetHypervisorAllResourcesExecute executes the request
+	//  @return HypervisorResourceResponseModel
+	HypervisorsGetHypervisorAllResourcesExecute(r ApiHypervisorsGetHypervisorAllResourcesRequest) (*HypervisorResourceResponseModel, *http.Response, error)
+
+	/*
+			HypervisorsGetHypervisorAllResourcesWithoutConnection Get all resources within a hypervisor, _without_ creating a persistent connection to the hypervisor.
+
+			Get the resources within a hypervisor, _without_ creating a
+		persistent connection to the hypervisor.  Note: in previous versions
+		of the API, a "Hypervisor" was referred to as a "Connection".
+		This method is useful while determining the details required to
+		create both a hypervisor and a resource pool, but without finalizing
+		the creation of either.  The caller is free to browse resources that
+		are available before deciding whether and how to proceed.
+		A caller can recursively enumerate by:
+		* Call with no `path`, and `children` equal to `1`.
+		* For each of the result's
+		  Children where
+		  IsContainer is
+		  `true`, call with `path` equal to that item's
+		  RelativePath and
+		  `children` equal to `1`.
+		 * Repeat recursively.
+		URI with ?force=true can get the VMs which provisioned by MCS.
+		URI with ?recurse=true can recurse fetch all resources under this folder.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest
+	*/
+	HypervisorsGetHypervisorAllResourcesWithoutConnection(ctx context.Context) ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest
+
+	// HypervisorsGetHypervisorAllResourcesWithoutConnectionExecute executes the request
+	//  @return HypervisorResourceResponseModel
+	HypervisorsGetHypervisorAllResourcesWithoutConnectionExecute(r ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) (*HypervisorResourceResponseModel, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorDeletePreview Get the hypervisor delete preview.
+
+		Get the machine catalogs and related info that are using a hypervisor.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@return ApiHypervisorsGetHypervisorDeletePreviewRequest
+	*/
+	HypervisorsGetHypervisorDeletePreview(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorDeletePreviewRequest
+
+	// HypervisorsGetHypervisorDeletePreviewExecute executes the request
+	//  @return HypervisorDeletePreviewResponseModel
+	HypervisorsGetHypervisorDeletePreviewExecute(r ApiHypervisorsGetHypervisorDeletePreviewRequest) (*HypervisorDeletePreviewResponseModel, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorJobs Get the currently active jobs that are using a hypervisor.
+
+		Get the currently active provisioning jobs that are using a hypervisor.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@return ApiHypervisorsGetHypervisorJobsRequest
+	*/
+	HypervisorsGetHypervisorJobs(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorJobsRequest
+
+	// HypervisorsGetHypervisorJobsExecute executes the request
+	//  @return JobResponseModelCollection
+	HypervisorsGetHypervisorJobsExecute(r ApiHypervisorsGetHypervisorJobsRequest) (*JobResponseModelCollection, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorMachineCatalogs Get the machine catalogs that are using a hypervisor.
+
+		Get the machine catalogs that are using a hypervisor.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@return ApiHypervisorsGetHypervisorMachineCatalogsRequest
+	*/
+	HypervisorsGetHypervisorMachineCatalogs(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorMachineCatalogsRequest
+
+	// HypervisorsGetHypervisorMachineCatalogsExecute executes the request
+	//  @return HypervisorMachineCatalogResponseModelCollection
+	HypervisorsGetHypervisorMachineCatalogsExecute(r ApiHypervisorsGetHypervisorMachineCatalogsRequest) (*HypervisorMachineCatalogResponseModelCollection, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorOrphanedResources Run detect on a hypervisor and retrieve orphaned resources.
+
+		Run detect on a hypervisor and get a orphaned resources result.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor to detect.
+		@return ApiHypervisorsGetHypervisorOrphanedResourcesRequest
+	*/
+	HypervisorsGetHypervisorOrphanedResources(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorOrphanedResourcesRequest
+
+	// HypervisorsGetHypervisorOrphanedResourcesExecute executes the request
+	//  @return DetectOrphanedResourcesResponseModel
+	HypervisorsGetHypervisorOrphanedResourcesExecute(r ApiHypervisorsGetHypervisorOrphanedResourcesRequest) (*DetectOrphanedResourcesResponseModel, *http.Response, error)
+
+	/*
+			HypervisorsGetHypervisorResourcePool Get details about a hypervisor resource pool.
+
+			Get details about a hypervisor resource pool.  Note: in previous versions of
+		the API, resource pools were referred to as "HostingUnits".
+		URI with ?noCache=true can ignore the cache and fetch the data directly.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the hypervisor.
+			@param poolId Name or ID of the resource pool.
+			@return ApiHypervisorsGetHypervisorResourcePoolRequest
+	*/
+	HypervisorsGetHypervisorResourcePool(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolRequest
+
+	// HypervisorsGetHypervisorResourcePoolExecute executes the request
+	//  @return HypervisorResourcePoolDetailResponseModel
+	HypervisorsGetHypervisorResourcePoolExecute(r ApiHypervisorsGetHypervisorResourcePoolRequest) (*HypervisorResourcePoolDetailResponseModel, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorResourcePoolAdministrators Get administrators who can administer a resource pool.
+
+		Get administrators who can administer a resource pool.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@param poolId Name or ID of the resource pool.
+		@return ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest
+	*/
+	HypervisorsGetHypervisorResourcePoolAdministrators(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest
+
+	// HypervisorsGetHypervisorResourcePoolAdministratorsExecute executes the request
+	//  @return AdministratorResponseModelCollection
+	HypervisorsGetHypervisorResourcePoolAdministratorsExecute(r ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorResourcePoolAllAvailableNetworks Get all available networks among hypervisors and resource pools.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest
+	*/
+	HypervisorsGetHypervisorResourcePoolAllAvailableNetworks(ctx context.Context) ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest
+
+	// HypervisorsGetHypervisorResourcePoolAllAvailableNetworksExecute executes the request
+	//  @return HypervisorResourcePoolNetworkResponseModelCollection
+	HypervisorsGetHypervisorResourcePoolAllAvailableNetworksExecute(r ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) (*HypervisorResourcePoolNetworkResponseModelCollection, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorResourcePoolDeletePreview Get the hypervisor resource pool delete preview.
+
+		Get the machine catalogs and related resources that are using by a resource pool.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@param poolId Name or ID of the resource pool.
+		@return ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest
+	*/
+	HypervisorsGetHypervisorResourcePoolDeletePreview(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest
+
+	// HypervisorsGetHypervisorResourcePoolDeletePreviewExecute executes the request
+	//  @return HypervisorDeletePreviewResponseModel
+	HypervisorsGetHypervisorResourcePoolDeletePreviewExecute(r ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) (*HypervisorDeletePreviewResponseModel, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorResourcePoolJobs Get the currently active jobs that are using a resource pool.
+
+		Get the currently active provisioning jobs that are using a resource pool.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@param poolId Name or ID of the resource pool.
+		@return ApiHypervisorsGetHypervisorResourcePoolJobsRequest
+	*/
+	HypervisorsGetHypervisorResourcePoolJobs(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolJobsRequest
+
+	// HypervisorsGetHypervisorResourcePoolJobsExecute executes the request
+	//  @return JobResponseModelCollection
+	HypervisorsGetHypervisorResourcePoolJobsExecute(r ApiHypervisorsGetHypervisorResourcePoolJobsRequest) (*JobResponseModelCollection, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorResourcePoolMachineCatalogs Get the machine catalogs that are using a resource pool.
+
+		Get the machine catalogs that are using a resource pool.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@param poolId Name or ID of the resource pool.
+		@return ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest
+	*/
+	HypervisorsGetHypervisorResourcePoolMachineCatalogs(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest
+
+	// HypervisorsGetHypervisorResourcePoolMachineCatalogsExecute executes the request
+	//  @return HypervisorMachineCatalogResponseModelCollection
+	HypervisorsGetHypervisorResourcePoolMachineCatalogsExecute(r ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) (*HypervisorMachineCatalogResponseModelCollection, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorResourcePoolPatchPreview Get the hypervisor resource pool patch preview.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@param poolId Name or ID of the resource pool.
+		@return ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest
+	*/
+	HypervisorsGetHypervisorResourcePoolPatchPreview(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest
+
+	// HypervisorsGetHypervisorResourcePoolPatchPreviewExecute executes the request
+	//  @return HypervisorResourcePoolPatchPreviewResponseModel
+	HypervisorsGetHypervisorResourcePoolPatchPreviewExecute(r ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) (*HypervisorResourcePoolPatchPreviewResponseModel, *http.Response, error)
+
+	/*
+			HypervisorsGetHypervisorResourcePoolResources Get the resources within a hypervisor resource pool.
+
+			Get the resources within a hypervisor resource pool.  Note: in previous
+		versions of the API, resource pools were referred to as "HostingUnits".
+		A caller can recursively enumerate by:
+		* Call with no `path`, and `children` equal to `1`.
+		* For each of the result's
+		  Children where
+		  IsContainer is `true`, call
+		  with `path` equal to that item's
+		  RelativePath and `children`
+		  equal to `1`.
+		* Repeat recursively.
+		URI with ?noCache=true can ignore the cache and fetch the data directly.
+		URI with ?force=true can get the VMs which provisioned by MCS.
+		URI with ?recurse=true can recurse fetch all resources under this folder.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the hypervisor.
+			@param poolId Name or ID of the resource pool.
+			@return ApiHypervisorsGetHypervisorResourcePoolResourcesRequest
+	*/
+	HypervisorsGetHypervisorResourcePoolResources(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolResourcesRequest
+
+	// HypervisorsGetHypervisorResourcePoolResourcesExecute executes the request
+	//  @return HypervisorResourceResponseModel
+	HypervisorsGetHypervisorResourcePoolResourcesExecute(r ApiHypervisorsGetHypervisorResourcePoolResourcesRequest) (*HypervisorResourceResponseModel, *http.Response, error)
+
+	/*
+			HypervisorsGetHypervisorResourcePoolTestReport Get the most recent test report for a resource pool.
+
+			Get the test report from the last run of
+		TestHypervisorResourcePool.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the hypervisor.
+			@param poolId Name or ID of the resource pool.
+			@return ApiHypervisorsGetHypervisorResourcePoolTestReportRequest
+	*/
+	HypervisorsGetHypervisorResourcePoolTestReport(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolTestReportRequest
+
+	// HypervisorsGetHypervisorResourcePoolTestReportExecute executes the request
+	//  @return TestReportResponseModel
+	HypervisorsGetHypervisorResourcePoolTestReportExecute(r ApiHypervisorsGetHypervisorResourcePoolTestReportRequest) (*TestReportResponseModel, *http.Response, error)
+
+	/*
+			HypervisorsGetHypervisorResourcePools Get the list of hypervisor resource pools.
+
+			Get the list of hypervisor resource pools.  Note: in previous versions of the API,
+		resource pools were referred to as "HostingUnits".
+		URI with ?noCache=true can ignore the cache and fetch the data directly.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the hypervisor.
+			@return ApiHypervisorsGetHypervisorResourcePoolsRequest
+	*/
+	HypervisorsGetHypervisorResourcePools(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorResourcePoolsRequest
+
+	// HypervisorsGetHypervisorResourcePoolsExecute executes the request
+	//  @return HypervisorResourcePoolResponseModelCollection
+	HypervisorsGetHypervisorResourcePoolsExecute(r ApiHypervisorsGetHypervisorResourcePoolsRequest) (*HypervisorResourcePoolResponseModelCollection, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorResourcePrices Get the hypervisor resource prices from settings.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The hypervisor connection name or id.
+		@return ApiHypervisorsGetHypervisorResourcePricesRequest
+	*/
+	HypervisorsGetHypervisorResourcePrices(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorResourcePricesRequest
+
+	// HypervisorsGetHypervisorResourcePricesExecute executes the request
+	//  @return HypervisorResourcePricesResponseModel
+	HypervisorsGetHypervisorResourcePricesExecute(r ApiHypervisorsGetHypervisorResourcePricesRequest) (*HypervisorResourcePricesResponseModel, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorServerHAAddresses Get hypervisor server HA addresses. Currently, it only valid for Citrix hypervisors.
+
+		URI with ?noCache=true can ignore the cache and fetch the data directly.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The hypervisor connection name or id.
+		@return ApiHypervisorsGetHypervisorServerHAAddressesRequest
+	*/
+	HypervisorsGetHypervisorServerHAAddresses(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorServerHAAddressesRequest
+
+	// HypervisorsGetHypervisorServerHAAddressesExecute executes the request
+	//  @return HypervisorServerHAAddressesResponseModel
+	HypervisorsGetHypervisorServerHAAddressesExecute(r ApiHypervisorsGetHypervisorServerHAAddressesRequest) (*HypervisorServerHAAddressesResponseModel, *http.Response, error)
+
+	/*
+			HypervisorsGetHypervisorTestReport Get the most recent test report for a hypervisor.
+
+			Get the test report from the last run of
+		TestHypervisor.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the hypervisor.
+			@return ApiHypervisorsGetHypervisorTestReportRequest
+	*/
+	HypervisorsGetHypervisorTestReport(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorTestReportRequest
+
+	// HypervisorsGetHypervisorTestReportExecute executes the request
+	//  @return TestReportResponseModel
+	HypervisorsGetHypervisorTestReportExecute(r ApiHypervisorsGetHypervisorTestReportRequest) (*TestReportResponseModel, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorWithoutConnection Get a hypervisor details without creating persistent connection.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiHypervisorsGetHypervisorWithoutConnectionRequest
+	*/
+	HypervisorsGetHypervisorWithoutConnection(ctx context.Context) ApiHypervisorsGetHypervisorWithoutConnectionRequest
+
+	// HypervisorsGetHypervisorWithoutConnectionExecute executes the request
+	//  @return HypervisorDetailResponseModel
+	HypervisorsGetHypervisorWithoutConnectionExecute(r ApiHypervisorsGetHypervisorWithoutConnectionRequest) (*HypervisorDetailResponseModel, *http.Response, error)
+
+	/*
+			HypervisorsGetHypervisors Get the hypervisors.
+
+			Get all hypervisors configured in the site.
+		URI with ?noCache=true can ignore the cache and fetch the data directly.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiHypervisorsGetHypervisorsRequest
+	*/
+	HypervisorsGetHypervisors(ctx context.Context) ApiHypervisorsGetHypervisorsRequest
+
+	// HypervisorsGetHypervisorsExecute executes the request
+	//  @return HypervisorResponseModelCollection
+	HypervisorsGetHypervisorsExecute(r ApiHypervisorsGetHypervisorsRequest) (*HypervisorResponseModelCollection, *http.Response, error)
+
+	/*
+		HypervisorsGetHypervisorsAndResourcePools Get hypervisors and resource pools. This API is used for the hosting main view.
+
+		URI with ?noCache=true can ignore the cache and fetch the data directly.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiHypervisorsGetHypervisorsAndResourcePoolsRequest
+	*/
+	HypervisorsGetHypervisorsAndResourcePools(ctx context.Context) ApiHypervisorsGetHypervisorsAndResourcePoolsRequest
+
+	// HypervisorsGetHypervisorsAndResourcePoolsExecute executes the request
+	//  @return HypervisorsAndResourcePoolsResponseModelCollection
+	HypervisorsGetHypervisorsAndResourcePoolsExecute(r ApiHypervisorsGetHypervisorsAndResourcePoolsRequest) (*HypervisorsAndResourcePoolsResponseModelCollection, *http.Response, error)
+
+	/*
+		HypervisorsGetSupportHypervisors Get current server support hypervisors.
+
+		URI with ?noCache=true can ignore the cache and fetch the data directly.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiHypervisorsGetSupportHypervisorsRequest
+	*/
+	HypervisorsGetSupportHypervisors(ctx context.Context) ApiHypervisorsGetSupportHypervisorsRequest
+
+	// HypervisorsGetSupportHypervisorsExecute executes the request
+	//  @return HypervisorPluginResponseModelCollection
+	HypervisorsGetSupportHypervisorsExecute(r ApiHypervisorsGetSupportHypervisorsRequest) (*HypervisorPluginResponseModelCollection, *http.Response, error)
+
+	/*
+		HypervisorsPatchHypervisor Update a hypervisor.
+
+		Update a hypervisor.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@return ApiHypervisorsPatchHypervisorRequest
+	*/
+	HypervisorsPatchHypervisor(ctx context.Context, nameOrId string) ApiHypervisorsPatchHypervisorRequest
+
+	// HypervisorsPatchHypervisorExecute executes the request
+	HypervisorsPatchHypervisorExecute(r ApiHypervisorsPatchHypervisorRequest) (*http.Response, error)
+
+	/*
+		HypervisorsPatchHypervisorResourcePool Update a hypervisor resource pool.
+
+		Update a hypervisor resource pool.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the hypervisor.
+		@param poolId Name or ID of the resource pool.
+		@return ApiHypervisorsPatchHypervisorResourcePoolRequest
+	*/
+	HypervisorsPatchHypervisorResourcePool(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsPatchHypervisorResourcePoolRequest
+
+	// HypervisorsPatchHypervisorResourcePoolExecute executes the request
+	HypervisorsPatchHypervisorResourcePoolExecute(r ApiHypervisorsPatchHypervisorResourcePoolRequest) (*http.Response, error)
+
+	/*
+		HypervisorsPutBrokerHypervisorConnection Set the properties on a broker hypervisor connection.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Hypervisor connection name or id.
+		@return ApiHypervisorsPutBrokerHypervisorConnectionRequest
+	*/
+	HypervisorsPutBrokerHypervisorConnection(ctx context.Context, nameOrId string) ApiHypervisorsPutBrokerHypervisorConnectionRequest
+
+	// HypervisorsPutBrokerHypervisorConnectionExecute executes the request
+	HypervisorsPutBrokerHypervisorConnectionExecute(r ApiHypervisorsPutBrokerHypervisorConnectionRequest) (*http.Response, error)
+
+	/*
+		HypervisorsResetBrokerHypervisorConnection Requests the broker hypervisor connection to be reset. The connection is dropped, details including credentials refreshed and the connection reestablished. The reset request is asynchronous and may take a moment to occur.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Hypervisor connection name or id.
+		@return ApiHypervisorsResetBrokerHypervisorConnectionRequest
+	*/
+	HypervisorsResetBrokerHypervisorConnection(ctx context.Context, nameOrId string) ApiHypervisorsResetBrokerHypervisorConnectionRequest
+
+	// HypervisorsResetBrokerHypervisorConnectionExecute executes the request
+	HypervisorsResetBrokerHypervisorConnectionExecute(r ApiHypervisorsResetBrokerHypervisorConnectionRequest) (*http.Response, error)
+
+	/*
+			HypervisorsTestHypervisor Run tests on a hypervisor and create a test report.
+
+			Run tests on a hypervisor and create a test report.  Obtain the most
+		recent report from
+		GetHypervisorTestReport.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the hypervisor to test.
+			@return ApiHypervisorsTestHypervisorRequest
+	*/
+	HypervisorsTestHypervisor(ctx context.Context, nameOrId string) ApiHypervisorsTestHypervisorRequest
+
+	// HypervisorsTestHypervisorExecute executes the request
+	//  @return HypervisorTestResponseModel
+	HypervisorsTestHypervisorExecute(r ApiHypervisorsTestHypervisorRequest) (*HypervisorTestResponseModel, *http.Response, error)
+
+	/*
+			HypervisorsTestHypervisorResourcePool Run tests on a resource pool and create a test report.
+
+			Run tests on a resource pool and create a test report.  Obtain the most
+		recent report from
+		GetHypervisorResourcePoolTestReport.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the hypervisor containing the resource pool.
+			@param poolId Name or ID of the resource pool to test.
+			@return ApiHypervisorsTestHypervisorResourcePoolRequest
+	*/
+	HypervisorsTestHypervisorResourcePool(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsTestHypervisorResourcePoolRequest
+
+	// HypervisorsTestHypervisorResourcePoolExecute executes the request
+	//  @return HypervisorResourcePoolTestResponseModel
+	HypervisorsTestHypervisorResourcePoolExecute(r ApiHypervisorsTestHypervisorResourcePoolRequest) (*HypervisorResourcePoolTestResponseModel, *http.Response, error)
+
+	/*
+		HypervisorsValidateHypervisorResourcePoolResource Validate a resource for certain usages, currently default and only usage is for Machine Profile.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or Id of the hypervisor.
+		@param poolId Name or Id of the resource pool.
+		@return ApiHypervisorsValidateHypervisorResourcePoolResourceRequest
+	*/
+	HypervisorsValidateHypervisorResourcePoolResource(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsValidateHypervisorResourcePoolResourceRequest
+
+	// HypervisorsValidateHypervisorResourcePoolResourceExecute executes the request
+	//  @return HypervisorResourceValidationResponseModel
+	HypervisorsValidateHypervisorResourcePoolResourceExecute(r ApiHypervisorsValidateHypervisorResourcePoolResourceRequest) (*HypervisorResourceValidationResponseModel, *http.Response, error)
+
+	/*
+		HypervisorsValidateVmPath Validate a list of hypervisor Vm Path.
+
+		Validate a list of hypervisor Vm Path.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiHypervisorsValidateVmPathRequest
+	*/
+	HypervisorsValidateVmPath(ctx context.Context) ApiHypervisorsValidateVmPathRequest
+
+	// HypervisorsValidateVmPathExecute executes the request
+	//  @return HypervisorVmValidationResponseModelCollection
+	HypervisorsValidateVmPathExecute(r ApiHypervisorsValidateVmPathRequest) (*HypervisorVmValidationResponseModelCollection, *http.Response, error)
+}
+
 // HypervisorsAPIsDAASService HypervisorsAPIsDAAS service
 type HypervisorsAPIsDAASService service
 
 type ApiHypervisorsCheckHypervisorExistsRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	name                string
@@ -297,7 +986,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorExistsExecute(r A
 
 type ApiHypervisorsCheckHypervisorResourcePoolExistsRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -582,7 +1271,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCheckHypervisorResourcePoolExist
 
 type ApiHypervisorsCreateHypervisorRequest struct {
 	ctx                          context.Context
-	ApiService                   *HypervisorsAPIsDAASService
+	ApiService                   HypervisorsAPIsDAAS
 	citrixCustomerId             *string
 	citrixInstanceId             *string
 	createHypervisorRequestModel *CreateHypervisorRequestModel
@@ -898,7 +1587,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateHypervisorExecute(r ApiHyp
 
 type ApiHypervisorsCreateResourcePoolRequest struct {
 	ctx                                      context.Context
-	ApiService                               *HypervisorsAPIsDAASService
+	ApiService                               HypervisorsAPIsDAAS
 	citrixCustomerId                         *string
 	citrixInstanceId                         *string
 	nameOrId                                 string
@@ -1229,7 +1918,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsCreateResourcePoolExecute(r ApiH
 
 type ApiHypervisorsDeleteHypervisorRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1512,7 +2201,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorExecute(r ApiHyp
 
 type ApiHypervisorsDeleteHypervisorResourcePoolRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1799,7 +2488,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorResourcePoolExec
 
 type ApiHypervisorsDoHypervisorAllResourcesSearchRequest struct {
 	ctx                                  context.Context
-	ApiService                           *HypervisorsAPIsDAASService
+	ApiService                           HypervisorsAPIsDAAS
 	citrixCustomerId                     *string
 	citrixInstanceId                     *string
 	nameOrId                             string
@@ -2163,7 +2852,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchEx
 
 type ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest struct {
 	ctx                                     context.Context
-	ApiService                              *HypervisorsAPIsDAASService
+	ApiService                              HypervisorsAPIsDAAS
 	citrixCustomerId                        *string
 	citrixInstanceId                        *string
 	hypervisorAllResourceSearchRequestModel *HypervisorAllResourceSearchRequestModel
@@ -2510,7 +3199,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchWi
 
 type ApiHypervisorsDoHypervisorResourceSearchRequest struct {
 	ctx                                  context.Context
-	ApiService                           *HypervisorsAPIsDAASService
+	ApiService                           HypervisorsAPIsDAAS
 	citrixCustomerId                     *string
 	citrixInstanceId                     *string
 	nameOrId                             string
@@ -2878,7 +3567,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorResourceSearchExecut
 
 type ApiHypervisorsGetHypervisorRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3189,7 +3878,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorExecute(r ApiHyperv
 
 type ApiHypervisorsGetHypervisorAdministratorsRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3506,7 +4195,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAdministratorsExecu
 
 type ApiHypervisorsGetHypervisorAllResourcePoolsRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -3802,7 +4491,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcePoolsExe
 
 type ApiHypervisorsGetHypervisorAllResourcesRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4210,7 +4899,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesExecute
 
 type ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest struct {
 	ctx                                    context.Context
-	ApiService                             *HypervisorsAPIsDAASService
+	ApiService                             HypervisorsAPIsDAAS
 	citrixCustomerId                       *string
 	citrixInstanceId                       *string
 	hypervisorConnectionDetailRequestModel *HypervisorConnectionDetailRequestModel
@@ -4622,7 +5311,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorAllResourcesWithout
 
 type ApiHypervisorsGetHypervisorDeletePreviewRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4919,7 +5608,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorDeletePreviewExecut
 
 type ApiHypervisorsGetHypervisorJobsRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -5203,7 +5892,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorJobsExecute(r ApiHy
 
 type ApiHypervisorsGetHypervisorMachineCatalogsRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -5520,7 +6209,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorMachineCatalogsExec
 
 type ApiHypervisorsGetHypervisorOrphanedResourcesRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -5817,7 +6506,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorOrphanedResourcesEx
 
 type ApiHypervisorsGetHypervisorResourcePoolRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -6133,7 +6822,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolExecute
 
 type ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -6454,7 +7143,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAdminis
 
 type ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -6734,7 +7423,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolAllAvai
 
 type ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -7035,7 +7724,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolDeleteP
 
 type ApiHypervisorsGetHypervisorResourcePoolJobsRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -7323,7 +8012,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolJobsExe
 
 type ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -7644,7 +8333,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolMachine
 
 type ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest struct {
 	ctx                                            context.Context
-	ApiService                                     *HypervisorsAPIsDAASService
+	ApiService                                     HypervisorsAPIsDAAS
 	citrixCustomerId                               *string
 	citrixInstanceId                               *string
 	nameOrId                                       string
@@ -7977,7 +8666,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolPatchPr
 
 type ApiHypervisorsGetHypervisorResourcePoolResourcesRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -8389,7 +9078,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolResourc
 
 type ApiHypervisorsGetHypervisorResourcePoolTestReportRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -8678,7 +9367,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolTestRep
 
 type ApiHypervisorsGetHypervisorResourcePoolsRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -8990,7 +9679,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePoolsExecut
 
 type ApiHypervisorsGetHypervisorResourcePricesRequest struct {
 	ctx                                    context.Context
-	ApiService                             *HypervisorsAPIsDAASService
+	ApiService                             HypervisorsAPIsDAAS
 	citrixCustomerId                       *string
 	citrixInstanceId                       *string
 	nameOrId                               string
@@ -9319,7 +10008,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorResourcePricesExecu
 
 type ApiHypervisorsGetHypervisorServerHAAddressesRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -9629,7 +10318,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorServerHAAddressesEx
 
 type ApiHypervisorsGetHypervisorTestReportRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -9914,7 +10603,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorTestReportExecute(r
 
 type ApiHypervisorsGetHypervisorWithoutConnectionRequest struct {
 	ctx                                    context.Context
-	ApiService                             *HypervisorsAPIsDAASService
+	ApiService                             HypervisorsAPIsDAAS
 	citrixCustomerId                       *string
 	citrixInstanceId                       *string
 	hypervisorConnectionDetailRequestModel *HypervisorConnectionDetailRequestModel
@@ -10228,7 +10917,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorWithoutConnectionEx
 
 type ApiHypervisorsGetHypervisorsRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -10524,7 +11213,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsExecute(r ApiHyper
 
 type ApiHypervisorsGetHypervisorsAndResourcePoolsRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -10819,7 +11508,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetHypervisorsAndResourcePoolsEx
 
 type ApiHypervisorsGetSupportHypervisorsRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -11137,7 +11826,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsGetSupportHypervisorsExecute(r A
 
 type ApiHypervisorsPatchHypervisorRequest struct {
 	ctx                                  context.Context
-	ApiService                           *HypervisorsAPIsDAASService
+	ApiService                           HypervisorsAPIsDAAS
 	citrixCustomerId                     *string
 	citrixInstanceId                     *string
 	nameOrId                             string
@@ -11445,7 +12134,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorExecute(r ApiHype
 
 type ApiHypervisorsPatchHypervisorResourcePoolRequest struct {
 	ctx                                    context.Context
-	ApiService                             *HypervisorsAPIsDAASService
+	ApiService                             HypervisorsAPIsDAAS
 	citrixCustomerId                       *string
 	citrixInstanceId                       *string
 	nameOrId                               string
@@ -11757,7 +12446,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPatchHypervisorResourcePoolExecu
 
 type ApiHypervisorsPutBrokerHypervisorConnectionRequest struct {
 	ctx                                        context.Context
-	ApiService                                 *HypervisorsAPIsDAASService
+	ApiService                                 HypervisorsAPIsDAAS
 	citrixCustomerId                           *string
 	citrixInstanceId                           *string
 	nameOrId                                   string
@@ -12063,7 +12752,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsPutBrokerHypervisorConnectionExe
 
 type ApiHypervisorsResetBrokerHypervisorConnectionRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -12357,7 +13046,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsResetBrokerHypervisorConnectionE
 
 type ApiHypervisorsTestHypervisorRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -12667,7 +13356,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorExecute(r ApiHyper
 
 type ApiHypervisorsTestHypervisorResourcePoolRequest struct {
 	ctx                 context.Context
-	ApiService          *HypervisorsAPIsDAASService
+	ApiService          HypervisorsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -12981,7 +13670,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsTestHypervisorResourcePoolExecut
 
 type ApiHypervisorsValidateHypervisorResourcePoolResourceRequest struct {
 	ctx                                      context.Context
-	ApiService                               *HypervisorsAPIsDAASService
+	ApiService                               HypervisorsAPIsDAAS
 	citrixCustomerId                         *string
 	citrixInstanceId                         *string
 	nameOrId                                 string
@@ -13314,7 +14003,7 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateHypervisorResourcePoolRe
 
 type ApiHypervisorsValidateVmPathRequest struct {
 	ctx                                context.Context
-	ApiService                         *HypervisorsAPIsDAASService
+	ApiService                         HypervisorsAPIsDAAS
 	citrixCustomerId                   *string
 	citrixInstanceId                   *string
 	hypervisorVmValidationRequestModel *HypervisorVmValidationRequestModel

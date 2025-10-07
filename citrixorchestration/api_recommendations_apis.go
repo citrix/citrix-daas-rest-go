@@ -19,12 +19,50 @@ import (
 	"strings"
 )
 
+type RecommendationsAPIsDAAS interface {
+
+	/*
+		RecommendationsGetRecommendations Get all the recommendations.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiRecommendationsGetRecommendationsRequest
+	*/
+	RecommendationsGetRecommendations(ctx context.Context) ApiRecommendationsGetRecommendationsRequest
+
+	// RecommendationsGetRecommendationsExecute executes the request
+	//  @return RecommendationResponseModelCollection
+	RecommendationsGetRecommendationsExecute(r ApiRecommendationsGetRecommendationsRequest) (*RecommendationResponseModelCollection, *http.Response, error)
+
+	/*
+		RecommendationsSetRecommendation Set the state of the specified recommendation.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The recommendation id
+		@return ApiRecommendationsSetRecommendationRequest
+	*/
+	RecommendationsSetRecommendation(ctx context.Context, id string) ApiRecommendationsSetRecommendationRequest
+
+	// RecommendationsSetRecommendationExecute executes the request
+	RecommendationsSetRecommendationExecute(r ApiRecommendationsSetRecommendationRequest) (*http.Response, error)
+
+	/*
+		RecommendationsSetRecommendations Set the state of a list of recommendations.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiRecommendationsSetRecommendationsRequest
+	*/
+	RecommendationsSetRecommendations(ctx context.Context) ApiRecommendationsSetRecommendationsRequest
+
+	// RecommendationsSetRecommendationsExecute executes the request
+	RecommendationsSetRecommendationsExecute(r ApiRecommendationsSetRecommendationsRequest) (*http.Response, error)
+}
+
 // RecommendationsAPIsDAASService RecommendationsAPIsDAAS service
 type RecommendationsAPIsDAASService service
 
 type ApiRecommendationsGetRecommendationsRequest struct {
 	ctx                 context.Context
-	ApiService          *RecommendationsAPIsDAASService
+	ApiService          RecommendationsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -324,7 +362,7 @@ func (a *RecommendationsAPIsDAASService) RecommendationsGetRecommendationsExecut
 
 type ApiRecommendationsSetRecommendationRequest struct {
 	ctx                           context.Context
-	ApiService                    *RecommendationsAPIsDAASService
+	ApiService                    RecommendationsAPIsDAAS
 	citrixCustomerId              *string
 	citrixInstanceId              *string
 	id                            string
@@ -617,7 +655,7 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationExecute
 
 type ApiRecommendationsSetRecommendationsRequest struct {
 	ctx                            context.Context
-	ApiService                     *RecommendationsAPIsDAASService
+	ApiService                     RecommendationsAPIsDAAS
 	citrixCustomerId               *string
 	citrixInstanceId               *string
 	setRecommendationsRequestModel *SetRecommendationsRequestModel

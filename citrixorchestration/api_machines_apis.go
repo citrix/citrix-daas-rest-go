@@ -19,12 +19,581 @@ import (
 	"strings"
 )
 
+type MachinesAPIsDAAS interface {
+
+	/*
+		MachinesAddMachineTags Add a tag to a machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@param tagNameOrId Name or ID of the tag to add.
+		@return ApiMachinesAddMachineTagsRequest
+	*/
+	MachinesAddMachineTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiMachinesAddMachineTagsRequest
+
+	// MachinesAddMachineTagsExecute executes the request
+	//  @return TagResponseModelCollection
+	MachinesAddMachineTagsExecute(r ApiMachinesAddMachineTagsRequest) (*TagResponseModelCollection, *http.Response, error)
+
+	/*
+		MachinesCheckMachineExists Check for the existence of a machine by name.
+
+		Check for the existence of a machine by name
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param name Name of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'.             For instance, if a MachineName is \"DomainA\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesCheckMachineExistsRequest
+	*/
+	MachinesCheckMachineExists(ctx context.Context, name string) ApiMachinesCheckMachineExistsRequest
+
+	// MachinesCheckMachineExistsExecute executes the request
+	MachinesCheckMachineExistsExecute(r ApiMachinesCheckMachineExistsRequest) (*http.Response, error)
+
+	/*
+		MachinesCreateMachineUpgradeSchedule Setup a new VDA upgrade schedule for a machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesCreateMachineUpgradeScheduleRequest
+	*/
+	MachinesCreateMachineUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachinesCreateMachineUpgradeScheduleRequest
+
+	// MachinesCreateMachineUpgradeScheduleExecute executes the request
+	MachinesCreateMachineUpgradeScheduleExecute(r ApiMachinesCreateMachineUpgradeScheduleRequest) (*http.Response, error)
+
+	/*
+		MachinesDisconnectSessions Disconnect all sessions on a machine.
+
+		Disconnect all sessions on a machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Machine to disconnect sessions from. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesDisconnectSessionsRequest
+	*/
+	MachinesDisconnectSessions(ctx context.Context, nameOrId string) ApiMachinesDisconnectSessionsRequest
+
+	// MachinesDisconnectSessionsExecute executes the request
+	//  @return MachineDetailResponseModel
+	MachinesDisconnectSessionsExecute(r ApiMachinesDisconnectSessionsRequest) (*MachineDetailResponseModel, *http.Response, error)
+
+	/*
+			MachinesDoMachineSearch Perform an advanced search for machines.
+
+			Perform an advanced search for machines.  Note that some combinations
+		of search parameters may result in slow performance and only configured machines will be returned.
+
+		The 'SessionSupport'
+		must be included in search filters.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiMachinesDoMachineSearchRequest
+	*/
+	MachinesDoMachineSearch(ctx context.Context) ApiMachinesDoMachineSearchRequest
+
+	// MachinesDoMachineSearchExecute executes the request
+	//  @return MachineResponseModelCollection
+	MachinesDoMachineSearchExecute(r ApiMachinesDoMachineSearchRequest) (*MachineResponseModelCollection, *http.Response, error)
+
+	/*
+		MachinesGetMachine Get details of a single machine which belongs to this site, or have registered but are not yet configured in this site
+
+		Get details of a single machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesGetMachineRequest
+	*/
+	MachinesGetMachine(ctx context.Context, nameOrId string) ApiMachinesGetMachineRequest
+
+	// MachinesGetMachineExecute executes the request
+	//  @return MachineDetailResponseModel
+	MachinesGetMachineExecute(r ApiMachinesGetMachineRequest) (*MachineDetailResponseModel, *http.Response, error)
+
+	/*
+			MachinesGetMachineApplications Get the list of applications on a machine.
+
+			Get the list of applications published or in use on a machine.
+		At least one of Published
+		or InUse
+		will be `true` for each application returned.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+			@return ApiMachinesGetMachineApplicationsRequest
+	*/
+	MachinesGetMachineApplications(ctx context.Context, nameOrId string) ApiMachinesGetMachineApplicationsRequest
+
+	// MachinesGetMachineApplicationsExecute executes the request
+	//  @return MachineApplicationResponseModelCollection
+	MachinesGetMachineApplicationsExecute(r ApiMachinesGetMachineApplicationsRequest) (*MachineApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+		MachinesGetMachineDeliveryGroup Get the delivery group for a machine.
+
+		Get the details of the delivery group in which a machine resides.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesGetMachineDeliveryGroupRequest
+	*/
+	MachinesGetMachineDeliveryGroup(ctx context.Context, nameOrId string) ApiMachinesGetMachineDeliveryGroupRequest
+
+	// MachinesGetMachineDeliveryGroupExecute executes the request
+	//  @return DeliveryGroupDetailResponseModel
+	MachinesGetMachineDeliveryGroupExecute(r ApiMachinesGetMachineDeliveryGroupRequest) (*DeliveryGroupDetailResponseModel, *http.Response, error)
+
+	/*
+		MachinesGetMachineDesktop Get the desktop associated with the machine, if any.
+
+		Get the details of the desktop associated with the machine, if any.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesGetMachineDesktopRequest
+	*/
+	MachinesGetMachineDesktop(ctx context.Context, nameOrId string) ApiMachinesGetMachineDesktopRequest
+
+	// MachinesGetMachineDesktopExecute executes the request
+	//  @return DesktopResponseModel
+	MachinesGetMachineDesktopExecute(r ApiMachinesGetMachineDesktopRequest) (*DesktopResponseModel, *http.Response, error)
+
+	/*
+		MachinesGetMachineMachineCatalog Get the machine catalog for a machine.
+
+		Get the details of the machine catalog in which a machine resides.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesGetMachineMachineCatalogRequest
+	*/
+	MachinesGetMachineMachineCatalog(ctx context.Context, nameOrId string) ApiMachinesGetMachineMachineCatalogRequest
+
+	// MachinesGetMachineMachineCatalogExecute executes the request
+	//  @return MachineCatalogDetailResponseModel
+	MachinesGetMachineMachineCatalogExecute(r ApiMachinesGetMachineMachineCatalogRequest) (*MachineCatalogDetailResponseModel, *http.Response, error)
+
+	/*
+		MachinesGetMachinePowerActionSchedules Get the power action schedules associated with a machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesGetMachinePowerActionSchedulesRequest
+	*/
+	MachinesGetMachinePowerActionSchedules(ctx context.Context, nameOrId string) ApiMachinesGetMachinePowerActionSchedulesRequest
+
+	// MachinesGetMachinePowerActionSchedulesExecute executes the request
+	//  @return PowerActionScheduleResponseModelCollection
+	MachinesGetMachinePowerActionSchedulesExecute(r ApiMachinesGetMachinePowerActionSchedulesRequest) (*PowerActionScheduleResponseModelCollection, *http.Response, error)
+
+	/*
+		MachinesGetMachineSessions Get the list of sessions running on a machine.
+
+		Get the list of sessions running on a machine
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesGetMachineSessionsRequest
+	*/
+	MachinesGetMachineSessions(ctx context.Context, nameOrId string) ApiMachinesGetMachineSessionsRequest
+
+	// MachinesGetMachineSessionsExecute executes the request
+	//  @return SessionResponseModelCollection
+	MachinesGetMachineSessionsExecute(r ApiMachinesGetMachineSessionsRequest) (*SessionResponseModelCollection, *http.Response, error)
+
+	/*
+			MachinesGetMachineStartMenuShortcutIcon Get a start menu shortcut icon from the machine.
+
+			Get a start menu shortcut icon from the machine.  The machine must be powered-on
+		and registered in order for the call to succeed.
+
+
+		This icon is usually used to help create a published application.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Machine to get the shortcut icon from. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+			@return ApiMachinesGetMachineStartMenuShortcutIconRequest
+	*/
+	MachinesGetMachineStartMenuShortcutIcon(ctx context.Context, nameOrId string) ApiMachinesGetMachineStartMenuShortcutIconRequest
+
+	// MachinesGetMachineStartMenuShortcutIconExecute executes the request
+	//  @return IconResponseModel
+	MachinesGetMachineStartMenuShortcutIconExecute(r ApiMachinesGetMachineStartMenuShortcutIconRequest) (*IconResponseModel, *http.Response, error)
+
+	/*
+			MachinesGetMachineStartMenuShortcuts Get start menu shortcuts from the machine.
+
+			Get start menu shortcuts from the machine.  The machine must be powered-on
+		and registered in order for the call to succeed.
+
+
+		The shortcuts obtained are from the 'All users' start menu; user-specific shortcuts are not found.
+
+
+		Note that this call does not retrieve the shortcut icon; use
+
+		to get the icon.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Machine to get the shortcuts from. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+			@return ApiMachinesGetMachineStartMenuShortcutsRequest
+	*/
+	MachinesGetMachineStartMenuShortcuts(ctx context.Context, nameOrId string) ApiMachinesGetMachineStartMenuShortcutsRequest
+
+	// MachinesGetMachineStartMenuShortcutsExecute executes the request
+	//  @return StartMenuApplicationResponseModelCollection
+	MachinesGetMachineStartMenuShortcutsExecute(r ApiMachinesGetMachineStartMenuShortcutsRequest) (*StartMenuApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+			MachinesGetMachineTags Get tags associated with a machine.
+
+			Get tags associated with a machine.  This includes tags which are
+		directly associated with the machine, as well as tags associated
+		with delivery groups, application groups, or applications that are
+		associated with the machine.  To find only tags directly associated
+		with the machine, filter the results to those with
+		NumMachines equal to `1`.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+			@return ApiMachinesGetMachineTagsRequest
+	*/
+	MachinesGetMachineTags(ctx context.Context, nameOrId string) ApiMachinesGetMachineTagsRequest
+
+	// MachinesGetMachineTagsExecute executes the request
+	//  @return TagResponseModelCollection
+	MachinesGetMachineTagsExecute(r ApiMachinesGetMachineTagsRequest) (*TagResponseModelCollection, *http.Response, error)
+
+	/*
+		MachinesGetMachineUpgradeVersions Get available upgrade versions for a machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesGetMachineUpgradeVersionsRequest
+	*/
+	MachinesGetMachineUpgradeVersions(ctx context.Context, nameOrId string) ApiMachinesGetMachineUpgradeVersionsRequest
+
+	// MachinesGetMachineUpgradeVersionsExecute executes the request
+	//  @return []string
+	MachinesGetMachineUpgradeVersionsExecute(r ApiMachinesGetMachineUpgradeVersionsRequest) ([]string, *http.Response, error)
+
+	/*
+			MachinesGetMachines Get all machines in the site.
+
+			Get all the machines in the site.  Note that the response
+		may not contain the entire list of machines; if this happens the
+		response will have a ContinuationToken
+		which, if passed, will resume retrieving results from the original
+		query.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiMachinesGetMachinesRequest
+	*/
+	MachinesGetMachines(ctx context.Context) ApiMachinesGetMachinesRequest
+
+	// MachinesGetMachinesExecute executes the request
+	//  @return MachineResponseModelCollection
+	MachinesGetMachinesExecute(r ApiMachinesGetMachinesRequest) (*MachineResponseModelCollection, *http.Response, error)
+
+	/*
+		MachinesGetMachinesAdministrators Get administrators who can administer a machine
+
+		Get administrators who can administer a machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId SamName, UPN, or SID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesGetMachinesAdministratorsRequest
+	*/
+	MachinesGetMachinesAdministrators(ctx context.Context, nameOrId string) ApiMachinesGetMachinesAdministratorsRequest
+
+	// MachinesGetMachinesAdministratorsExecute executes the request
+	//  @return AdministratorResponseModelCollection
+	MachinesGetMachinesAdministratorsExecute(r ApiMachinesGetMachinesAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error)
+
+	/*
+			MachinesGetMachinesV2 The V2 version of get all machines in the site.
+
+			Get all the machines in the site with default response fields if no fields parameters specified.  Note that the response
+		may not contain the entire list of machines; if this happens the
+		response will have a ContinuationToken
+		which, if passed, will resume retrieving results from the original
+		query.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiMachinesGetMachinesV2Request
+	*/
+	MachinesGetMachinesV2(ctx context.Context) ApiMachinesGetMachinesV2Request
+
+	// MachinesGetMachinesV2Execute executes the request
+	//  @return MachineResponseModelCollection
+	MachinesGetMachinesV2Execute(r ApiMachinesGetMachinesV2Request) (*MachineResponseModelCollection, *http.Response, error)
+
+	/*
+		MachinesGetTestMachineReport Get Cloud Health Check Report on a VDA machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine to test. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@param reportId ID of the Cloud Health Check Report.
+		@return ApiMachinesGetTestMachineReportRequest
+	*/
+	MachinesGetTestMachineReport(ctx context.Context, nameOrId string, reportId string) ApiMachinesGetTestMachineReportRequest
+
+	// MachinesGetTestMachineReportExecute executes the request
+	//  @return MachineTestResponseModel
+	MachinesGetTestMachineReportExecute(r ApiMachinesGetTestMachineReportRequest) (*MachineTestResponseModel, *http.Response, error)
+
+	/*
+		MachinesGetVDAComponentsAndFeatures Get the components and features of VDAs associated with a machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesGetVDAComponentsAndFeaturesRequest
+	*/
+	MachinesGetVDAComponentsAndFeatures(ctx context.Context, nameOrId string) ApiMachinesGetVDAComponentsAndFeaturesRequest
+
+	// MachinesGetVDAComponentsAndFeaturesExecute executes the request
+	//  @return VDAComponentsAndFeaturesResponseModel
+	MachinesGetVDAComponentsAndFeaturesExecute(r ApiMachinesGetVDAComponentsAndFeaturesRequest) (*VDAComponentsAndFeaturesResponseModel, *http.Response, error)
+
+	/*
+		MachinesGroupMachine Groups and counts machines based advanced search filter.
+
+		Groups and counts machines based on the advanced search filter.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiMachinesGroupMachineRequest
+	*/
+	MachinesGroupMachine(ctx context.Context) ApiMachinesGroupMachineRequest
+
+	// MachinesGroupMachineExecute executes the request
+	//  @return map[string]int32
+	MachinesGroupMachineExecute(r ApiMachinesGroupMachineRequest) (map[string]int32, *http.Response, error)
+
+	/*
+		MachinesImportFileTypes Import file type associations from the machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesImportFileTypesRequest
+	*/
+	MachinesImportFileTypes(ctx context.Context, nameOrId string) ApiMachinesImportFileTypesRequest
+
+	// MachinesImportFileTypesExecute executes the request
+	//  @return FtaResponseModelCollection
+	MachinesImportFileTypesExecute(r ApiMachinesImportFileTypesRequest) (*FtaResponseModelCollection, *http.Response, error)
+
+	/*
+		MachinesLogoffMachineSessions Logoff all sessions on a machine.
+
+		Logoff all sessions on a machine
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Machine to log sessions off from. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesLogoffMachineSessionsRequest
+	*/
+	MachinesLogoffMachineSessions(ctx context.Context, nameOrId string) ApiMachinesLogoffMachineSessionsRequest
+
+	// MachinesLogoffMachineSessionsExecute executes the request
+	//  @return MachineDetailResponseModel
+	MachinesLogoffMachineSessionsExecute(r ApiMachinesLogoffMachineSessionsRequest) (*MachineDetailResponseModel, *http.Response, error)
+
+	/*
+		MachinesRebootMachine Reboot a machine.
+
+		Reboot a machine.  The machine must be capable of power management.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Machine to reboot. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesRebootMachineRequest
+	*/
+	MachinesRebootMachine(ctx context.Context, nameOrId string) ApiMachinesRebootMachineRequest
+
+	// MachinesRebootMachineExecute executes the request
+	//  @return MachineDetailResponseModel
+	MachinesRebootMachineExecute(r ApiMachinesRebootMachineRequest) (*MachineDetailResponseModel, *http.Response, error)
+
+	/*
+		MachinesRemoveMachine Delete a machine from the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Machine to remove.  May be specified by SamName, UPN, or SID. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesRemoveMachineRequest
+	*/
+	MachinesRemoveMachine(ctx context.Context, nameOrId string) ApiMachinesRemoveMachineRequest
+
+	// MachinesRemoveMachineExecute executes the request
+	MachinesRemoveMachineExecute(r ApiMachinesRemoveMachineRequest) (*http.Response, error)
+
+	/*
+		MachinesRemoveMachineTags Remove a tag from a machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@param tagNameOrId Name or ID of the tag.
+		@return ApiMachinesRemoveMachineTagsRequest
+	*/
+	MachinesRemoveMachineTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiMachinesRemoveMachineTagsRequest
+
+	// MachinesRemoveMachineTagsExecute executes the request
+	MachinesRemoveMachineTagsExecute(r ApiMachinesRemoveMachineTagsRequest) (*http.Response, error)
+
+	/*
+		MachinesRemoveMachineUpgradeSchedule Remove a pending VDA upgrade schedule for a machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesRemoveMachineUpgradeScheduleRequest
+	*/
+	MachinesRemoveMachineUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachinesRemoveMachineUpgradeScheduleRequest
+
+	// MachinesRemoveMachineUpgradeScheduleExecute executes the request
+	MachinesRemoveMachineUpgradeScheduleExecute(r ApiMachinesRemoveMachineUpgradeScheduleRequest) (*http.Response, error)
+
+	/*
+		MachinesRemovePowerActionSchedule Remove pending power action schedules for a machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesRemovePowerActionScheduleRequest
+	*/
+	MachinesRemovePowerActionSchedule(ctx context.Context, nameOrId string) ApiMachinesRemovePowerActionScheduleRequest
+
+	// MachinesRemovePowerActionScheduleExecute executes the request
+	MachinesRemovePowerActionScheduleExecute(r ApiMachinesRemovePowerActionScheduleRequest) (*http.Response, error)
+
+	/*
+			MachinesResumeMachine Resume a machine.
+
+			Resume a machine after it has been suspended.  The machine must be capable of
+		power management.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Machine to resume. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+			@return ApiMachinesResumeMachineRequest
+	*/
+	MachinesResumeMachine(ctx context.Context, nameOrId string) ApiMachinesResumeMachineRequest
+
+	// MachinesResumeMachineExecute executes the request
+	//  @return MachineDetailResponseModel
+	MachinesResumeMachineExecute(r ApiMachinesResumeMachineRequest) (*MachineDetailResponseModel, *http.Response, error)
+
+	/*
+		MachinesSetMachineTags Set tags associated with a machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesSetMachineTagsRequest
+	*/
+	MachinesSetMachineTags(ctx context.Context, nameOrId string) ApiMachinesSetMachineTagsRequest
+
+	// MachinesSetMachineTagsExecute executes the request
+	MachinesSetMachineTagsExecute(r ApiMachinesSetMachineTagsRequest) (*http.Response, error)
+
+	/*
+			MachinesShutdownMachine Shut down a machine.
+
+			Shut down (power-off) a machine.  The machine must be capable of power
+		management.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Machine to shut down. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+			@return ApiMachinesShutdownMachineRequest
+	*/
+	MachinesShutdownMachine(ctx context.Context, nameOrId string) ApiMachinesShutdownMachineRequest
+
+	// MachinesShutdownMachineExecute executes the request
+	//  @return MachineDetailResponseModel
+	MachinesShutdownMachineExecute(r ApiMachinesShutdownMachineRequest) (*MachineDetailResponseModel, *http.Response, error)
+
+	/*
+		MachinesStartMachine Start a machine.
+
+		Start (power-on) a machine.  The machine must be capable of power management.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Machine to start. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesStartMachineRequest
+	*/
+	MachinesStartMachine(ctx context.Context, nameOrId string) ApiMachinesStartMachineRequest
+
+	// MachinesStartMachineExecute executes the request
+	//  @return MachineDetailResponseModel
+	MachinesStartMachineExecute(r ApiMachinesStartMachineRequest) (*MachineDetailResponseModel, *http.Response, error)
+
+	/*
+		MachinesSuspendMachine Suspend a machine.
+
+		Suspend a machine.  The machine must be capable of power management.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Machine to suspend. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesSuspendMachineRequest
+	*/
+	MachinesSuspendMachine(ctx context.Context, nameOrId string) ApiMachinesSuspendMachineRequest
+
+	// MachinesSuspendMachineExecute executes the request
+	//  @return MachineDetailResponseModel
+	MachinesSuspendMachineExecute(r ApiMachinesSuspendMachineRequest) (*MachineDetailResponseModel, *http.Response, error)
+
+	/*
+		MachinesTestMachine Run Cloud Health Check on a VDA machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine to test. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesTestMachineRequest
+	*/
+	MachinesTestMachine(ctx context.Context, nameOrId string) ApiMachinesTestMachineRequest
+
+	// MachinesTestMachineExecute executes the request
+	//  @return MachineTestResponseModel
+	MachinesTestMachineExecute(r ApiMachinesTestMachineRequest) (*MachineTestResponseModel, *http.Response, error)
+
+	/*
+			MachinesUpdateMachineCatalogMachine Update a machine.
+
+			Update a machine.  Typically used to change the assignment of a
+		statically-assigned machine.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Machine to update.  May be specified by name, ID, or SID. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+			@return ApiMachinesUpdateMachineCatalogMachineRequest
+	*/
+	MachinesUpdateMachineCatalogMachine(ctx context.Context, nameOrId string) ApiMachinesUpdateMachineCatalogMachineRequest
+
+	// MachinesUpdateMachineCatalogMachineExecute executes the request
+	MachinesUpdateMachineCatalogMachineExecute(r ApiMachinesUpdateMachineCatalogMachineRequest) (*http.Response, error)
+
+	/*
+		MachinesUpdateMachineUpgradeSchedule Reschedule a pending VDA upgrade schedule for a machine.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesUpdateMachineUpgradeScheduleRequest
+	*/
+	MachinesUpdateMachineUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachinesUpdateMachineUpgradeScheduleRequest
+
+	// MachinesUpdateMachineUpgradeScheduleExecute executes the request
+	MachinesUpdateMachineUpgradeScheduleExecute(r ApiMachinesUpdateMachineUpgradeScheduleRequest) (*http.Response, error)
+
+	/*
+		MachinesValidateVDAComponentsAndFeaturesSelection Validate the VDA component selection at machine level that can be Included/Excluded and features that need enable during an VDA upgrade using VDA Upgrade Service.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+		@return ApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest
+	*/
+	MachinesValidateVDAComponentsAndFeaturesSelection(ctx context.Context, nameOrId string) ApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest
+
+	// MachinesValidateVDAComponentsAndFeaturesSelectionExecute executes the request
+	//  @return VDAComponentsSelectionValidationResponseModel
+	MachinesValidateVDAComponentsAndFeaturesSelectionExecute(r ApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) (*VDAComponentsSelectionValidationResponseModel, *http.Response, error)
+}
+
 // MachinesAPIsDAASService MachinesAPIsDAAS service
 type MachinesAPIsDAASService service
 
 type ApiMachinesAddMachineTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -334,7 +903,7 @@ func (a *MachinesAPIsDAASService) MachinesAddMachineTagsExecute(r ApiMachinesAdd
 
 type ApiMachinesCheckMachineExistsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	name                string
@@ -606,7 +1175,7 @@ func (a *MachinesAPIsDAASService) MachinesCheckMachineExistsExecute(r ApiMachine
 
 type ApiMachinesCreateMachineUpgradeScheduleRequest struct {
 	ctx                               context.Context
-	ApiService                        *MachinesAPIsDAASService
+	ApiService                        MachinesAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	nameOrId                          string
@@ -923,7 +1492,7 @@ func (a *MachinesAPIsDAASService) MachinesCreateMachineUpgradeScheduleExecute(r 
 
 type ApiMachinesDisconnectSessionsRequest struct {
 	ctx                    context.Context
-	ApiService             *MachinesAPIsDAASService
+	ApiService             MachinesAPIsDAAS
 	citrixCustomerId       *string
 	citrixInstanceId       *string
 	nameOrId               string
@@ -1244,7 +1813,7 @@ func (a *MachinesAPIsDAASService) MachinesDisconnectSessionsExecute(r ApiMachine
 
 type ApiMachinesDoMachineSearchRequest struct {
 	ctx                                 context.Context
-	ApiService                          *MachinesAPIsDAASService
+	ApiService                          MachinesAPIsDAAS
 	citrixCustomerId                    *string
 	citrixInstanceId                    *string
 	machineAndSessionSearchRequestModel *MachineAndSessionSearchRequestModel
@@ -1614,7 +2183,7 @@ func (a *MachinesAPIsDAASService) MachinesDoMachineSearchExecute(r ApiMachinesDo
 
 type ApiMachinesGetMachineRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1908,7 +2477,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachineExecute(r ApiMachinesGetMach
 
 type ApiMachinesGetMachineApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2195,7 +2764,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachineApplicationsExecute(r ApiMac
 
 type ApiMachinesGetMachineDeliveryGroupRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2479,7 +3048,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachineDeliveryGroupExecute(r ApiMa
 
 type ApiMachinesGetMachineDesktopRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2763,7 +3332,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachineDesktopExecute(r ApiMachines
 
 type ApiMachinesGetMachineMachineCatalogRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3047,7 +3616,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachineMachineCatalogExecute(r ApiM
 
 type ApiMachinesGetMachinePowerActionSchedulesRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3329,7 +3898,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachinePowerActionSchedulesExecute(
 
 type ApiMachinesGetMachineSessionsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3623,7 +4192,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachineSessionsExecute(r ApiMachine
 
 type ApiMachinesGetMachineStartMenuShortcutIconRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3943,7 +4512,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachineStartMenuShortcutIconExecute
 
 type ApiMachinesGetMachineStartMenuShortcutsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4234,7 +4803,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachineStartMenuShortcutsExecute(r 
 
 type ApiMachinesGetMachineTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4533,7 +5102,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachineTagsExecute(r ApiMachinesGet
 
 type ApiMachinesGetMachineUpgradeVersionsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4815,7 +5384,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachineUpgradeVersionsExecute(r Api
 
 type ApiMachinesGetMachinesRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -5164,7 +5733,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachinesExecute(r ApiMachinesGetMac
 
 type ApiMachinesGetMachinesAdministratorsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -5448,7 +6017,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachinesAdministratorsExecute(r Api
 
 type ApiMachinesGetMachinesV2Request struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -5797,7 +6366,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachinesV2Execute(r ApiMachinesGetM
 
 type ApiMachinesGetTestMachineReportRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -6083,7 +6652,7 @@ func (a *MachinesAPIsDAASService) MachinesGetTestMachineReportExecute(r ApiMachi
 
 type ApiMachinesGetVDAComponentsAndFeaturesRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -6375,7 +6944,7 @@ func (a *MachinesAPIsDAASService) MachinesGetVDAComponentsAndFeaturesExecute(r A
 
 type ApiMachinesGroupMachineRequest struct {
 	ctx                      context.Context
-	ApiService               *MachinesAPIsDAASService
+	ApiService               MachinesAPIsDAAS
 	citrixCustomerId         *string
 	citrixInstanceId         *string
 	machineGroupRequestModel *MachineGroupRequestModel
@@ -6701,7 +7270,7 @@ func (a *MachinesAPIsDAASService) MachinesGroupMachineExecute(r ApiMachinesGroup
 
 type ApiMachinesImportFileTypesRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -7007,7 +7576,7 @@ func (a *MachinesAPIsDAASService) MachinesImportFileTypesExecute(r ApiMachinesIm
 
 type ApiMachinesLogoffMachineSessionsRequest struct {
 	ctx                    context.Context
-	ApiService             *MachinesAPIsDAASService
+	ApiService             MachinesAPIsDAAS
 	citrixCustomerId       *string
 	citrixInstanceId       *string
 	nameOrId               string
@@ -7328,7 +7897,7 @@ func (a *MachinesAPIsDAASService) MachinesLogoffMachineSessionsExecute(r ApiMach
 
 type ApiMachinesRebootMachineRequest struct {
 	ctx                    context.Context
-	ApiService             *MachinesAPIsDAASService
+	ApiService             MachinesAPIsDAAS
 	citrixCustomerId       *string
 	citrixInstanceId       *string
 	nameOrId               string
@@ -7662,7 +8231,7 @@ func (a *MachinesAPIsDAASService) MachinesRebootMachineExecute(r ApiMachinesRebo
 
 type ApiMachinesRemoveMachineRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -7994,7 +8563,7 @@ func (a *MachinesAPIsDAASService) MachinesRemoveMachineExecute(r ApiMachinesRemo
 
 type ApiMachinesRemoveMachineTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -8281,7 +8850,7 @@ func (a *MachinesAPIsDAASService) MachinesRemoveMachineTagsExecute(r ApiMachines
 
 type ApiMachinesRemoveMachineUpgradeScheduleRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -8576,7 +9145,7 @@ func (a *MachinesAPIsDAASService) MachinesRemoveMachineUpgradeScheduleExecute(r 
 
 type ApiMachinesRemovePowerActionScheduleRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -8859,7 +9428,7 @@ func (a *MachinesAPIsDAASService) MachinesRemovePowerActionScheduleExecute(r Api
 
 type ApiMachinesResumeMachineRequest struct {
 	ctx                    context.Context
-	ApiService             *MachinesAPIsDAASService
+	ApiService             MachinesAPIsDAAS
 	citrixCustomerId       *string
 	citrixInstanceId       *string
 	nameOrId               string
@@ -9181,7 +9750,7 @@ func (a *MachinesAPIsDAASService) MachinesResumeMachineExecute(r ApiMachinesResu
 
 type ApiMachinesSetMachineTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -9487,7 +10056,7 @@ func (a *MachinesAPIsDAASService) MachinesSetMachineTagsExecute(r ApiMachinesSet
 
 type ApiMachinesShutdownMachineRequest struct {
 	ctx                    context.Context
-	ApiService             *MachinesAPIsDAASService
+	ApiService             MachinesAPIsDAAS
 	citrixCustomerId       *string
 	citrixInstanceId       *string
 	nameOrId               string
@@ -9832,7 +10401,7 @@ func (a *MachinesAPIsDAASService) MachinesShutdownMachineExecute(r ApiMachinesSh
 
 type ApiMachinesStartMachineRequest struct {
 	ctx                    context.Context
-	ApiService             *MachinesAPIsDAASService
+	ApiService             MachinesAPIsDAAS
 	citrixCustomerId       *string
 	citrixInstanceId       *string
 	nameOrId               string
@@ -10153,7 +10722,7 @@ func (a *MachinesAPIsDAASService) MachinesStartMachineExecute(r ApiMachinesStart
 
 type ApiMachinesSuspendMachineRequest struct {
 	ctx                    context.Context
-	ApiService             *MachinesAPIsDAASService
+	ApiService             MachinesAPIsDAAS
 	citrixCustomerId       *string
 	citrixInstanceId       *string
 	nameOrId               string
@@ -10484,7 +11053,7 @@ func (a *MachinesAPIsDAASService) MachinesSuspendMachineExecute(r ApiMachinesSus
 
 type ApiMachinesTestMachineRequest struct {
 	ctx                 context.Context
-	ApiService          *MachinesAPIsDAASService
+	ApiService          MachinesAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -10777,7 +11346,7 @@ func (a *MachinesAPIsDAASService) MachinesTestMachineExecute(r ApiMachinesTestMa
 
 type ApiMachinesUpdateMachineCatalogMachineRequest struct {
 	ctx                       context.Context
-	ApiService                *MachinesAPIsDAASService
+	ApiService                MachinesAPIsDAAS
 	citrixCustomerId          *string
 	citrixInstanceId          *string
 	nameOrId                  string
@@ -11086,7 +11655,7 @@ func (a *MachinesAPIsDAASService) MachinesUpdateMachineCatalogMachineExecute(r A
 
 type ApiMachinesUpdateMachineUpgradeScheduleRequest struct {
 	ctx                               context.Context
-	ApiService                        *MachinesAPIsDAASService
+	ApiService                        MachinesAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	nameOrId                          string
@@ -11392,7 +11961,7 @@ func (a *MachinesAPIsDAASService) MachinesUpdateMachineUpgradeScheduleExecute(r 
 
 type ApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest struct {
 	ctx                                          context.Context
-	ApiService                                   *MachinesAPIsDAASService
+	ApiService                                   MachinesAPIsDAAS
 	citrixCustomerId                             *string
 	citrixInstanceId                             *string
 	nameOrId                                     string

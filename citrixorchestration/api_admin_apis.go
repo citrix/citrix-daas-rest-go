@@ -19,12 +19,418 @@ import (
 	"strings"
 )
 
+type AdminAPIsDAAS interface {
+
+	/*
+			AdminCheckRoleNameExists Check for the existence of role by name.
+
+			If the name is found to be available, this returns 404 Not Found. If the name
+		is not available (i.e. an application group with the name was found), this
+		returns 204 No Content.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param name Name of the role.
+			@return ApiAdminCheckRoleNameExistsRequest
+	*/
+	AdminCheckRoleNameExists(ctx context.Context, name string) ApiAdminCheckRoleNameExistsRequest
+
+	// AdminCheckRoleNameExistsExecute executes the request
+	AdminCheckRoleNameExistsExecute(r ApiAdminCheckRoleNameExistsRequest) (*http.Response, error)
+
+	/*
+			AdminCheckScopeNameExists Check for the existence of scope by name.
+
+			If the name is found to be available, this returns 404 Not Found. If the name
+		is not available (i.e. an application group with the name was found), this
+		returns 204 No Content.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param name Name of the scope.
+			@return ApiAdminCheckScopeNameExistsRequest
+	*/
+	AdminCheckScopeNameExists(ctx context.Context, name string) ApiAdminCheckScopeNameExistsRequest
+
+	// AdminCheckScopeNameExistsExecute executes the request
+	AdminCheckScopeNameExistsExecute(r ApiAdminCheckScopeNameExistsRequest) (*http.Response, error)
+
+	/*
+			AdminCreateAdminAdministrator Create a new administrator.
+
+			Create a new administrator.
+
+		Administrator objects are used to determine what rights, and
+		therefore what permissions a particular user has through the various
+		SDKs and consoles of the site.
+
+		When the Enabled flag of an administrator is set to `false`, any
+		rights of the administrator are ignored by the system when
+		performing permission checks.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiAdminCreateAdminAdministratorRequest
+	*/
+	AdminCreateAdminAdministrator(ctx context.Context) ApiAdminCreateAdminAdministratorRequest
+
+	// AdminCreateAdminAdministratorExecute executes the request
+	AdminCreateAdminAdministratorExecute(r ApiAdminCreateAdminAdministratorRequest) (*http.Response, error)
+
+	/*
+			AdminCreateAdminRole Create a new admin role.
+
+			Create a new custom admin role.  Roles represent a job function,
+		such as 'help desk administrator', and contain a list of permissions
+		that are required to perform that job function.
+
+		Roles and Scopes combine when assigned to admin, defining the Rights
+		that the admin has within the site.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiAdminCreateAdminRoleRequest
+	*/
+	AdminCreateAdminRole(ctx context.Context) ApiAdminCreateAdminRoleRequest
+
+	// AdminCreateAdminRoleExecute executes the request
+	AdminCreateAdminRoleExecute(r ApiAdminCreateAdminRoleRequest) (*http.Response, error)
+
+	/*
+			AdminCreateAdminScope Create a new admin scope.
+
+			A scope represents a collection of objects.  Scopes are used to
+		             group objects in a way that is relevant to the organization; for
+		             example, the set of delivery groups used by the Sales team.
+
+		             To assign a scope to an administrator, combine it with a role and
+		             then assign this pair (also known as a 'right') to an administrator.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiAdminCreateAdminScopeRequest
+	*/
+	AdminCreateAdminScope(ctx context.Context) ApiAdminCreateAdminScopeRequest
+
+	// AdminCreateAdminScopeExecute executes the request
+	AdminCreateAdminScopeExecute(r ApiAdminCreateAdminScopeRequest) (*http.Response, error)
+
+	/*
+		AdminDeleteAdminAdministrator Delete an administrator.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or Id of the admin to delete.
+		@return ApiAdminDeleteAdminAdministratorRequest
+	*/
+	AdminDeleteAdminAdministrator(ctx context.Context, nameOrId string) ApiAdminDeleteAdminAdministratorRequest
+
+	// AdminDeleteAdminAdministratorExecute executes the request
+	AdminDeleteAdminAdministratorExecute(r ApiAdminDeleteAdminAdministratorRequest) (*http.Response, error)
+
+	/*
+			AdminDeleteAdminRole Delete an admin role.
+
+			Delete an admin role.
+
+		You cannot remove built-in roles.
+
+		An error will be produced if the role being removed is currently
+		assigned to an administrator unless you specify the `force` query
+		parameter.  When `force` is specified, any rights that reference the
+		role are also removed.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the admin role to delete.
+			@return ApiAdminDeleteAdminRoleRequest
+	*/
+	AdminDeleteAdminRole(ctx context.Context, nameOrId string) ApiAdminDeleteAdminRoleRequest
+
+	// AdminDeleteAdminRoleExecute executes the request
+	AdminDeleteAdminRoleExecute(r ApiAdminDeleteAdminRoleRequest) (*http.Response, error)
+
+	/*
+			AdminDeleteAdminScope Delete an admin scope.
+
+			You cannot remove the built-in `All` scope.
+
+		An error will be produced if the scope being removed is currently
+		assigned to an administrator unless you specify the `force` query
+		parameter.  When `force` is specified, any rights that reference the
+		scope are also removed.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the admin scope to delete.
+			@return ApiAdminDeleteAdminScopeRequest
+	*/
+	AdminDeleteAdminScope(ctx context.Context, nameOrId string) ApiAdminDeleteAdminScopeRequest
+
+	// AdminDeleteAdminScopeExecute executes the request
+	AdminDeleteAdminScopeExecute(r ApiAdminDeleteAdminScopeRequest) (*http.Response, error)
+
+	/*
+		AdminGetAdminAdministrator Get a single administrator
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or id of the administrator.              May be specified as:                           * The SID of the admin user or group.  Note: in directory types              other than Active Directory, the SID is a              computed property, and is not related to any representation of that              user within Active Directory.  However it can still be useful if the              user already has a generated SID; for example, if copying users from              one object to another.                           * `Domain\\User` format.  This implies the directory type              Active Directory. If the Domain\\User is not              unique across AD Forests, the call will fail with an ambiguous name              error, status code 400.                           * `Forest\\Domain\\User` format.  This implies the directory type              Active Directory. This is the preferred form              of specifying an Active Directory user by name, as the name is              guaranteed to be unambiguous.
+		@return ApiAdminGetAdminAdministratorRequest
+	*/
+	AdminGetAdminAdministrator(ctx context.Context, nameOrId string) ApiAdminGetAdminAdministratorRequest
+
+	// AdminGetAdminAdministratorExecute executes the request
+	//  @return AdministratorResponseModel
+	AdminGetAdminAdministratorExecute(r ApiAdminGetAdminAdministratorRequest) (*AdministratorResponseModel, *http.Response, error)
+
+	/*
+		AdminGetAdminAdministrators Get administrators.
+
+		Get administrators in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAdminGetAdminAdministratorsRequest
+	*/
+	AdminGetAdminAdministrators(ctx context.Context) ApiAdminGetAdminAdministratorsRequest
+
+	// AdminGetAdminAdministratorsExecute executes the request
+	//  @return AdministratorResponseModelCollection
+	AdminGetAdminAdministratorsExecute(r ApiAdminGetAdminAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error)
+
+	/*
+		AdminGetAdminEffectiveRights Get the effective rights of the current user.  This is the union of all rights of the enabled administrators that the current user matches, taking into account group membership.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAdminGetAdminEffectiveRightsRequest
+	*/
+	AdminGetAdminEffectiveRights(ctx context.Context) ApiAdminGetAdminEffectiveRightsRequest
+
+	// AdminGetAdminEffectiveRightsExecute executes the request
+	//  @return AdministratorRightResponseModelCollection
+	AdminGetAdminEffectiveRightsExecute(r ApiAdminGetAdminEffectiveRightsRequest) (*AdministratorRightResponseModelCollection, *http.Response, error)
+
+	/*
+		AdminGetAdminRole Get details about a single admin role.
+
+		Gets the details for a single admin role within the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the admin role.
+		@return ApiAdminGetAdminRoleRequest
+	*/
+	AdminGetAdminRole(ctx context.Context, nameOrId string) ApiAdminGetAdminRoleRequest
+
+	// AdminGetAdminRoleExecute executes the request
+	//  @return RoleResponseModel
+	AdminGetAdminRoleExecute(r ApiAdminGetAdminRoleRequest) (*RoleResponseModel, *http.Response, error)
+
+	/*
+		AdminGetAdminRoles Get admin roles.
+
+		Gets all the admin roles defined in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAdminGetAdminRolesRequest
+	*/
+	AdminGetAdminRoles(ctx context.Context) ApiAdminGetAdminRolesRequest
+
+	// AdminGetAdminRolesExecute executes the request
+	//  @return RoleResponseModelCollection
+	AdminGetAdminRolesExecute(r ApiAdminGetAdminRolesRequest) (*RoleResponseModelCollection, *http.Response, error)
+
+	/*
+		AdminGetAdminScope Get details about a single admin scope.
+
+		Gets the details for a single admin scope within the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the admin scope.
+		@return ApiAdminGetAdminScopeRequest
+	*/
+	AdminGetAdminScope(ctx context.Context, nameOrId string) ApiAdminGetAdminScopeRequest
+
+	// AdminGetAdminScopeExecute executes the request
+	//  @return ScopeResponseModel
+	AdminGetAdminScopeExecute(r ApiAdminGetAdminScopeRequest) (*ScopeResponseModel, *http.Response, error)
+
+	/*
+		AdminGetAdminScopedObjects Get the objects in an admin scope.
+
+		Gets all objects in an admin scope.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the admin scope.
+		@return ApiAdminGetAdminScopedObjectsRequest
+	*/
+	AdminGetAdminScopedObjects(ctx context.Context, nameOrId string) ApiAdminGetAdminScopedObjectsRequest
+
+	// AdminGetAdminScopedObjectsExecute executes the request
+	//  @return ScopedObjectResponseModelCollection
+	AdminGetAdminScopedObjectsExecute(r ApiAdminGetAdminScopedObjectsRequest) (*ScopedObjectResponseModelCollection, *http.Response, error)
+
+	/*
+		AdminGetAdminScopes Get admin scopes.
+
+		Gets all the admin scopes defined in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAdminGetAdminScopesRequest
+	*/
+	AdminGetAdminScopes(ctx context.Context) ApiAdminGetAdminScopesRequest
+
+	// AdminGetAdminScopesExecute executes the request
+	//  @return ScopeResponseModelCollection
+	AdminGetAdminScopesExecute(r ApiAdminGetAdminScopesRequest) (*ScopeResponseModelCollection, *http.Response, error)
+
+	/*
+		AdminGetAdministratorNamePreview Get preview report of the administrator user name.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param name Example: domain\\username or domain\\group
+		@return ApiAdminGetAdministratorNamePreviewRequest
+	*/
+	AdminGetAdministratorNamePreview(ctx context.Context, name string) ApiAdminGetAdministratorNamePreviewRequest
+
+	// AdminGetAdministratorNamePreviewExecute executes the request
+	//  @return AdministratorNamePreviewResponseModel
+	AdminGetAdministratorNamePreviewExecute(r ApiAdminGetAdministratorNamePreviewRequest) (*AdministratorNamePreviewResponseModel, *http.Response, error)
+
+	/*
+		AdminGetAdministratorReport Get report of the administrator.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or Id of the admin to report.
+		@return ApiAdminGetAdministratorReportRequest
+	*/
+	AdminGetAdministratorReport(ctx context.Context, nameOrId string) ApiAdminGetAdministratorReportRequest
+
+	// AdminGetAdministratorReportExecute executes the request
+	//  @return AdministratorReportResponseModel
+	AdminGetAdministratorReportExecute(r ApiAdminGetAdministratorReportRequest) (*AdministratorReportResponseModel, *http.Response, error)
+
+	/*
+		AdminGetDeleteAdministratorConsequence Preview the consequence of deleting an administrator.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or Id of the admin to delete.
+		@return ApiAdminGetDeleteAdministratorConsequenceRequest
+	*/
+	AdminGetDeleteAdministratorConsequence(ctx context.Context, nameOrId string) ApiAdminGetDeleteAdministratorConsequenceRequest
+
+	// AdminGetDeleteAdministratorConsequenceExecute executes the request
+	//  @return AdministratorDeleteConcequenceResponseModel
+	AdminGetDeleteAdministratorConsequenceExecute(r ApiAdminGetDeleteAdministratorConsequenceRequest) (*AdministratorDeleteConcequenceResponseModel, *http.Response, error)
+
+	/*
+			AdminGetPredefinedPermissionGroups Get all permission groups.
+
+			Get all permission groups.
+
+		Permission groups are primarily used to store the localized name for
+		a group of permissions.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiAdminGetPredefinedPermissionGroupsRequest
+	*/
+	AdminGetPredefinedPermissionGroups(ctx context.Context) ApiAdminGetPredefinedPermissionGroupsRequest
+
+	// AdminGetPredefinedPermissionGroupsExecute executes the request
+	//  @return PredefinedPermissionGroupResponseModelCollection
+	AdminGetPredefinedPermissionGroupsExecute(r ApiAdminGetPredefinedPermissionGroupsRequest) (*PredefinedPermissionGroupResponseModelCollection, *http.Response, error)
+
+	/*
+		AdminGetPredefinedPermissions Get all predefined permissions.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAdminGetPredefinedPermissionsRequest
+	*/
+	AdminGetPredefinedPermissions(ctx context.Context) ApiAdminGetPredefinedPermissionsRequest
+
+	// AdminGetPredefinedPermissionsExecute executes the request
+	//  @return PredefinedPermissionResponseModelCollection
+	AdminGetPredefinedPermissionsExecute(r ApiAdminGetPredefinedPermissionsRequest) (*PredefinedPermissionResponseModelCollection, *http.Response, error)
+
+	/*
+			AdminGetPredefinedPermissionsForGroups Get all permissions for a permission group.
+
+			Get all permissions for a permission group.
+
+		Permission groups are primarily used to store the localized name for
+		a group of permissions.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param id ID of the admin permission group to query.
+			@return ApiAdminGetPredefinedPermissionsForGroupsRequest
+	*/
+	AdminGetPredefinedPermissionsForGroups(ctx context.Context, id string) ApiAdminGetPredefinedPermissionsForGroupsRequest
+
+	// AdminGetPredefinedPermissionsForGroupsExecute executes the request
+	//  @return PredefinedPermissionResponseModelCollection
+	AdminGetPredefinedPermissionsForGroupsExecute(r ApiAdminGetPredefinedPermissionsForGroupsRequest) (*PredefinedPermissionResponseModelCollection, *http.Response, error)
+
+	/*
+		AdminPreviewAdministratorReport Get preview report of the administrator.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAdminPreviewAdministratorReportRequest
+	*/
+	AdminPreviewAdministratorReport(ctx context.Context) ApiAdminPreviewAdministratorReportRequest
+
+	// AdminPreviewAdministratorReportExecute executes the request
+	//  @return AdministratorReportResponseModel
+	AdminPreviewAdministratorReportExecute(r ApiAdminPreviewAdministratorReportRequest) (*AdministratorReportResponseModel, *http.Response, error)
+
+	/*
+		AdminUpdateAdminAdministrator Update an administrator.
+
+		Update an administrator.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name of the admin to update.
+		@return ApiAdminUpdateAdminAdministratorRequest
+	*/
+	AdminUpdateAdminAdministrator(ctx context.Context, nameOrId string) ApiAdminUpdateAdminAdministratorRequest
+
+	// AdminUpdateAdminAdministratorExecute executes the request
+	AdminUpdateAdminAdministratorExecute(r ApiAdminUpdateAdminAdministratorRequest) (*http.Response, error)
+
+	/*
+			AdminUpdateAdminRole Update an admin role.
+
+			Update an admin role.  An admin role is a collection of permissions,
+		typically enabling an admin persona.  For example an admin may need
+		to both read and control sessions in order to perform a help desk
+		function.
+		Roles and Scopes combine when assigned to admin, defining the Rights
+		that the admin has within the site.
+
+		You cannot modify built-in roles.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the admin role to update.
+			@return ApiAdminUpdateAdminRoleRequest
+	*/
+	AdminUpdateAdminRole(ctx context.Context, nameOrId string) ApiAdminUpdateAdminRoleRequest
+
+	// AdminUpdateAdminRoleExecute executes the request
+	AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdminRoleRequest) (*http.Response, error)
+
+	/*
+			AdminUpdateAdminScope Update an admin scope.
+
+			Update an admin scope.  You cannot modify the built-in `All` scope.
+
+		Changes to an admin scope apply to all admins to whom the scope is
+		assigned.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the admin scope to update.
+			@return ApiAdminUpdateAdminScopeRequest
+	*/
+	AdminUpdateAdminScope(ctx context.Context, nameOrId string) ApiAdminUpdateAdminScopeRequest
+
+	// AdminUpdateAdminScopeExecute executes the request
+	AdminUpdateAdminScopeExecute(r ApiAdminUpdateAdminScopeRequest) (*http.Response, error)
+}
+
 // AdminAPIsDAASService AdminAPIsDAAS service
 type AdminAPIsDAASService service
 
 type ApiAdminCheckRoleNameExistsRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	name                string
@@ -298,7 +704,7 @@ func (a *AdminAPIsDAASService) AdminCheckRoleNameExistsExecute(r ApiAdminCheckRo
 
 type ApiAdminCheckScopeNameExistsRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	name                string
@@ -572,7 +978,7 @@ func (a *AdminAPIsDAASService) AdminCheckScopeNameExistsExecute(r ApiAdminCheckS
 
 type ApiAdminCreateAdminAdministratorRequest struct {
 	ctx                                  context.Context
-	ApiService                           *AdminAPIsDAASService
+	ApiService                           AdminAPIsDAAS
 	citrixCustomerId                     *string
 	citrixInstanceId                     *string
 	createAdminAdministratorRequestModel *CreateAdminAdministratorRequestModel
@@ -884,7 +1290,7 @@ func (a *AdminAPIsDAASService) AdminCreateAdminAdministratorExecute(r ApiAdminCr
 
 type ApiAdminCreateAdminRoleRequest struct {
 	ctx                         context.Context
-	ApiService                  *AdminAPIsDAASService
+	ApiService                  AdminAPIsDAAS
 	citrixCustomerId            *string
 	citrixInstanceId            *string
 	createAdminRoleRequestModel *CreateAdminRoleRequestModel
@@ -1193,7 +1599,7 @@ func (a *AdminAPIsDAASService) AdminCreateAdminRoleExecute(r ApiAdminCreateAdmin
 
 type ApiAdminCreateAdminScopeRequest struct {
 	ctx                          context.Context
-	ApiService                   *AdminAPIsDAASService
+	ApiService                   AdminAPIsDAAS
 	citrixCustomerId             *string
 	citrixInstanceId             *string
 	createAdminScopeRequestModel *CreateAdminScopeRequestModel
@@ -1503,7 +1909,7 @@ func (a *AdminAPIsDAASService) AdminCreateAdminScopeExecute(r ApiAdminCreateAdmi
 
 type ApiAdminDeleteAdminAdministratorRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1786,7 +2192,7 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminAdministratorExecute(r ApiAdminDe
 
 type ApiAdminDeleteAdminRoleRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2091,7 +2497,7 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminRoleExecute(r ApiAdminDeleteAdmin
 
 type ApiAdminDeleteAdminScopeRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2394,7 +2800,7 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminScopeExecute(r ApiAdminDeleteAdmi
 
 type ApiAdminGetAdminAdministratorRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2676,7 +3082,7 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorExecute(r ApiAdminGetAd
 
 type ApiAdminGetAdminAdministratorsRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -2978,7 +3384,7 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorsExecute(r ApiAdminGetA
 
 type ApiAdminGetAdminEffectiveRightsRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -3275,7 +3681,7 @@ func (a *AdminAPIsDAASService) AdminGetAdminEffectiveRightsExecute(r ApiAdminGet
 
 type ApiAdminGetAdminRoleRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3559,7 +3965,7 @@ func (a *AdminAPIsDAASService) AdminGetAdminRoleExecute(r ApiAdminGetAdminRoleRe
 
 type ApiAdminGetAdminRolesRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -3848,7 +4254,7 @@ func (a *AdminAPIsDAASService) AdminGetAdminRolesExecute(r ApiAdminGetAdminRoles
 
 type ApiAdminGetAdminScopeRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4132,7 +4538,7 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopeExecute(r ApiAdminGetAdminScope
 
 type ApiAdminGetAdminScopedObjectsRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4436,7 +4842,7 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopedObjectsExecute(r ApiAdminGetAd
 
 type ApiAdminGetAdminScopesRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -4725,7 +5131,7 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopesExecute(r ApiAdminGetAdminScop
 
 type ApiAdminGetAdministratorNamePreviewRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	name                string
@@ -5020,7 +5426,7 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorNamePreviewExecute(r ApiAdmi
 
 type ApiAdminGetAdministratorReportRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -5302,7 +5708,7 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorReportExecute(r ApiAdminGetA
 
 type ApiAdminGetDeleteAdministratorConsequenceRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -5584,7 +5990,7 @@ func (a *AdminAPIsDAASService) AdminGetDeleteAdministratorConsequenceExecute(r A
 
 type ApiAdminGetPredefinedPermissionGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -5876,7 +6282,7 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionGroupsExecute(r ApiAd
 
 type ApiAdminGetPredefinedPermissionsRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -6163,7 +6569,7 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsExecute(r ApiAdminGe
 
 type ApiAdminGetPredefinedPermissionsForGroupsRequest struct {
 	ctx                 context.Context
-	ApiService          *AdminAPIsDAASService
+	ApiService          AdminAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -6470,7 +6876,7 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsForGroupsExecute(r A
 
 type ApiAdminPreviewAdministratorReportRequest struct {
 	ctx                                  context.Context
-	ApiService                           *AdminAPIsDAASService
+	ApiService                           AdminAPIsDAAS
 	citrixCustomerId                     *string
 	citrixInstanceId                     *string
 	createAdminAdministratorRequestModel *CreateAdminAdministratorRequestModel
@@ -6771,7 +7177,7 @@ func (a *AdminAPIsDAASService) AdminPreviewAdministratorReportExecute(r ApiAdmin
 
 type ApiAdminUpdateAdminAdministratorRequest struct {
 	ctx                                  context.Context
-	ApiService                           *AdminAPIsDAASService
+	ApiService                           AdminAPIsDAAS
 	citrixCustomerId                     *string
 	citrixInstanceId                     *string
 	nameOrId                             string
@@ -7079,7 +7485,7 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminAdministratorExecute(r ApiAdminUp
 
 type ApiAdminUpdateAdminRoleRequest struct {
 	ctx                       context.Context
-	ApiService                *AdminAPIsDAASService
+	ApiService                AdminAPIsDAAS
 	citrixCustomerId          *string
 	citrixInstanceId          *string
 	nameOrId                  string
@@ -7394,7 +7800,7 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdmin
 
 type ApiAdminUpdateAdminScopeRequest struct {
 	ctx                        context.Context
-	ApiService                 *AdminAPIsDAASService
+	ApiService                 AdminAPIsDAAS
 	citrixCustomerId           *string
 	citrixInstanceId           *string
 	nameOrId                   string

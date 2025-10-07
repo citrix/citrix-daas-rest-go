@@ -19,12 +19,83 @@ import (
 	"strings"
 )
 
+type IconsAPIsDAAS interface {
+
+	/*
+		IconsAddIcon add a customized icon.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIconsAddIconRequest
+	*/
+	IconsAddIcon(ctx context.Context) ApiIconsAddIconRequest
+
+	// IconsAddIconExecute executes the request
+	//  @return IconResponseModel
+	IconsAddIconExecute(r ApiIconsAddIconRequest) (*IconResponseModel, *http.Response, error)
+
+	/*
+			IconsGetAppVServerPackageApplicationIcon Get the icon for a single App-V application within an App-V package on a server.
+
+			Get the icon for a single App-V package on a server (as
+		opposed to within the site).
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiIconsGetAppVServerPackageApplicationIconRequest
+	*/
+	IconsGetAppVServerPackageApplicationIcon(ctx context.Context) ApiIconsGetAppVServerPackageApplicationIconRequest
+
+	// IconsGetAppVServerPackageApplicationIconExecute executes the request
+	//  @return IconDataResponseModel
+	IconsGetAppVServerPackageApplicationIconExecute(r ApiIconsGetAppVServerPackageApplicationIconRequest) (*IconDataResponseModel, *http.Response, error)
+
+	/*
+		IconsGetIcon Get a single icon from the site.
+
+		Get a single icon from the site
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id ID of the icon.
+		@return ApiIconsGetIconRequest
+	*/
+	IconsGetIcon(ctx context.Context, id string) ApiIconsGetIconRequest
+
+	// IconsGetIconExecute executes the request
+	//  @return IconResponseModel
+	IconsGetIconExecute(r ApiIconsGetIconRequest) (*IconResponseModel, *http.Response, error)
+
+	/*
+		IconsGetIcons Get all icons in the site.
+
+		Get all icons in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIconsGetIconsRequest
+	*/
+	IconsGetIcons(ctx context.Context) ApiIconsGetIconsRequest
+
+	// IconsGetIconsExecute executes the request
+	//  @return IconResponseModelCollection
+	IconsGetIconsExecute(r ApiIconsGetIconsRequest) (*IconResponseModelCollection, *http.Response, error)
+
+	/*
+		IconsRemoveIcon Remove a customized icon.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id id of the icon to remove
+		@return ApiIconsRemoveIconRequest
+	*/
+	IconsRemoveIcon(ctx context.Context, id int32) ApiIconsRemoveIconRequest
+
+	// IconsRemoveIconExecute executes the request
+	IconsRemoveIconExecute(r ApiIconsRemoveIconRequest) (*http.Response, error)
+}
+
 // IconsAPIsDAASService IconsAPIsDAAS service
 type IconsAPIsDAASService service
 
 type ApiIconsAddIconRequest struct {
 	ctx                 context.Context
-	ApiService          *IconsAPIsDAASService
+	ApiService          IconsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	addIconRequestModel *AddIconRequestModel
@@ -338,7 +409,7 @@ func (a *IconsAPIsDAASService) IconsAddIconExecute(r ApiIconsAddIconRequest) (*I
 
 type ApiIconsGetAppVServerPackageApplicationIconRequest struct {
 	ctx                                          context.Context
-	ApiService                                   *IconsAPIsDAASService
+	ApiService                                   IconsAPIsDAAS
 	citrixCustomerId                             *string
 	citrixInstanceId                             *string
 	appvServerPackageApplicationIconRequestModel *AppvServerPackageApplicationIconRequestModel
@@ -642,7 +713,7 @@ func (a *IconsAPIsDAASService) IconsGetAppVServerPackageApplicationIconExecute(r
 
 type ApiIconsGetIconRequest struct {
 	ctx                 context.Context
-	ApiService          *IconsAPIsDAASService
+	ApiService          IconsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  string
@@ -936,7 +1007,7 @@ func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*I
 
 type ApiIconsGetIconsRequest struct {
 	ctx                 context.Context
-	ApiService          *IconsAPIsDAASService
+	ApiService          IconsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -1258,7 +1329,7 @@ func (a *IconsAPIsDAASService) IconsGetIconsExecute(r ApiIconsGetIconsRequest) (
 
 type ApiIconsRemoveIconRequest struct {
 	ctx                 context.Context
-	ApiService          *IconsAPIsDAASService
+	ApiService          IconsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	id                  int32

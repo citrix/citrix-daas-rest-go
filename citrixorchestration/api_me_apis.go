@@ -19,12 +19,97 @@ import (
 	"strings"
 )
 
+type MeAPIsDAAS interface {
+
+	/*
+		MeDeleteMyPreference Delete one of admin preferences by name.
+
+		Delete one of my preferences by name.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param name Preference name.
+		@return ApiMeDeleteMyPreferenceRequest
+	*/
+	MeDeleteMyPreference(ctx context.Context, name string) ApiMeDeleteMyPreferenceRequest
+
+	// MeDeleteMyPreferenceExecute executes the request
+	MeDeleteMyPreferenceExecute(r ApiMeDeleteMyPreferenceRequest) (*http.Response, error)
+
+	/*
+			MeGetMe Get my details.
+
+			Gets details about the currently logged-in admin, including the
+		list of customers and sites that the admin has access to.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiMeGetMeRequest
+	*/
+	MeGetMe(ctx context.Context) ApiMeGetMeRequest
+
+	// MeGetMeExecute executes the request
+	//  @return MeResponseModel
+	MeGetMeExecute(r ApiMeGetMeRequest) (*MeResponseModel, *http.Response, error)
+
+	/*
+			MeGetMyPreference Get one of my preferences by name.
+
+			Get one of my preferences by name.
+		Preferences are free-form name/value pairs that are typically used to
+		keep track of how the user has configured the UI, so that the configuration
+		is retained across sessions.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param name Preference name.
+			@return ApiMeGetMyPreferenceRequest
+	*/
+	MeGetMyPreference(ctx context.Context, name string) ApiMeGetMyPreferenceRequest
+
+	// MeGetMyPreferenceExecute executes the request
+	//  @return NameValueStringPairModel
+	MeGetMyPreferenceExecute(r ApiMeGetMyPreferenceRequest) (*NameValueStringPairModel, *http.Response, error)
+
+	/*
+			MeGetMyPreferences Get my preferences.
+
+			Get my preferences.
+		Preferences are free-form name/value pairs that are typically used to
+		keep track of how the user has configured the UI, so that the configuration
+		is retained across sessions.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiMeGetMyPreferencesRequest
+	*/
+	MeGetMyPreferences(ctx context.Context) ApiMeGetMyPreferencesRequest
+
+	// MeGetMyPreferencesExecute executes the request
+	//  @return NameValueStringPairModelCollection
+	MeGetMyPreferencesExecute(r ApiMeGetMyPreferencesRequest) (*NameValueStringPairModelCollection, *http.Response, error)
+
+	/*
+			MeSetMyPreference Set a preference value.
+
+			Set a preference value.
+		Preferences are free-form name/value pairs that are typically used to
+		keep track of how the user has configured the UI, so that the configuration
+		is retained across sessions.
+		Note: if a preference with the given name already exists, it will be
+		overridden.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiMeSetMyPreferenceRequest
+	*/
+	MeSetMyPreference(ctx context.Context) ApiMeSetMyPreferenceRequest
+
+	// MeSetMyPreferenceExecute executes the request
+	MeSetMyPreferenceExecute(r ApiMeSetMyPreferenceRequest) (*http.Response, error)
+}
+
 // MeAPIsDAASService MeAPIsDAAS service
 type MeAPIsDAASService service
 
 type ApiMeDeleteMyPreferenceRequest struct {
 	ctx                 context.Context
-	ApiService          *MeAPIsDAASService
+	ApiService          MeAPIsDAAS
 	citrixCustomerId    *string
 	name                string
 	authorization       *string
@@ -275,7 +360,7 @@ func (a *MeAPIsDAASService) MeDeleteMyPreferenceExecute(r ApiMeDeleteMyPreferenc
 
 type ApiMeGetMeRequest struct {
 	ctx                 context.Context
-	ApiService          *MeAPIsDAASService
+	ApiService          MeAPIsDAAS
 	citrixCustomerId    *string
 	authorization       *string
 	citrixTransactionId *string
@@ -524,7 +609,7 @@ func (a *MeAPIsDAASService) MeGetMeExecute(r ApiMeGetMeRequest) (*MeResponseMode
 
 type ApiMeGetMyPreferenceRequest struct {
 	ctx                 context.Context
-	ApiService          *MeAPIsDAASService
+	ApiService          MeAPIsDAAS
 	citrixCustomerId    *string
 	name                string
 	authorization       *string
@@ -790,7 +875,7 @@ func (a *MeAPIsDAASService) MeGetMyPreferenceExecute(r ApiMeGetMyPreferenceReque
 
 type ApiMeGetMyPreferencesRequest struct {
 	ctx                 context.Context
-	ApiService          *MeAPIsDAASService
+	ApiService          MeAPIsDAAS
 	citrixCustomerId    *string
 	authorization       *string
 	citrixTransactionId *string
@@ -1051,7 +1136,7 @@ func (a *MeAPIsDAASService) MeGetMyPreferencesExecute(r ApiMeGetMyPreferencesReq
 
 type ApiMeSetMyPreferenceRequest struct {
 	ctx                 context.Context
-	ApiService          *MeAPIsDAASService
+	ApiService          MeAPIsDAAS
 	citrixCustomerId    *string
 	setPreferenceModel  *SetPreferenceModel
 	authorization       *string

@@ -21,12 +21,790 @@ import (
 	"time"
 )
 
+type MachineCatalogsAPIsDAAS interface {
+
+	/*
+			MachineCatalogsAddMachineCatalogMachine Add machine to the machine catalog.
+
+			Add a machine to the machine catalog.  This is the first step in making the
+		machine available to run users' desktops and applications. The machine may
+		be physical or virtual.  The type of machine (physical or virtual) must
+		match the machine catalog configuration.
+
+
+		Note that due to
+		the long-running nature of the adding operation, it cannot
+		complete synchronously, would always initiate an asynchronous job to
+		run to completion.
+
+
+		The machine must support the expected capabilities of the machine catalog:
+		the  and
+		. The session
+		support of the machine is determined by the type of Citrix VDA software
+		installed (server or workstation) and the functional level depends on the
+		version of the Citrix VDA software installed.  The API will complete
+		successfully if these are not correct but the machine will be unable to register.
+
+
+		Note: to add multiple machines in a single call, use the
+		 API.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog to add machine to.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@return ApiMachineCatalogsAddMachineCatalogMachineRequest
+	*/
+	MachineCatalogsAddMachineCatalogMachine(ctx context.Context, nameOrId string) ApiMachineCatalogsAddMachineCatalogMachineRequest
+
+	// MachineCatalogsAddMachineCatalogMachineExecute executes the request
+	//  @return JobResponseModel
+	MachineCatalogsAddMachineCatalogMachineExecute(r ApiMachineCatalogsAddMachineCatalogMachineRequest) (*JobResponseModel, *http.Response, error)
+
+	/*
+		MachineCatalogsAddMachineCatalogMachineAccount Add a machine account to the machine catalog.
+
+		Add a machine account to the machine catalog. This is only relevant for machine catalogs where ProvisioningType is MCS.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog to add the machine account to.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsAddMachineCatalogMachineAccountRequest
+	*/
+	MachineCatalogsAddMachineCatalogMachineAccount(ctx context.Context, nameOrId string) ApiMachineCatalogsAddMachineCatalogMachineAccountRequest
+
+	// MachineCatalogsAddMachineCatalogMachineAccountExecute executes the request
+	//  @return ProvisioningSchemeMachineAccountResponseModel
+	MachineCatalogsAddMachineCatalogMachineAccountExecute(r ApiMachineCatalogsAddMachineCatalogMachineAccountRequest) (*ProvisioningSchemeMachineAccountResponseModel, *http.Response, error)
+
+	/*
+		MachineCatalogsAddMachineCatalogTags Add a tag to a machine catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@param tagNameOrId Name or ID of the tag to add.
+		@return ApiMachineCatalogsAddMachineCatalogTagsRequest
+	*/
+	MachineCatalogsAddMachineCatalogTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiMachineCatalogsAddMachineCatalogTagsRequest
+
+	// MachineCatalogsAddMachineCatalogTagsExecute executes the request
+	//  @return TagResponseModelCollection
+	MachineCatalogsAddMachineCatalogTagsExecute(r ApiMachineCatalogsAddMachineCatalogTagsRequest) (*TagResponseModelCollection, *http.Response, error)
+
+	/*
+		MachineCatalogsCheckMachineCatalogExists Check for the existence of a machine catalog by name.
+
+		Check for the existence of a machine catalog by name
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param name Name of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsCheckMachineCatalogExistsRequest
+	*/
+	MachineCatalogsCheckMachineCatalogExists(ctx context.Context, name string) ApiMachineCatalogsCheckMachineCatalogExistsRequest
+
+	// MachineCatalogsCheckMachineCatalogExistsExecute executes the request
+	MachineCatalogsCheckMachineCatalogExistsExecute(r ApiMachineCatalogsCheckMachineCatalogExistsRequest) (*http.Response, error)
+
+	/*
+			MachineCatalogsCheckRemotePCEnrollmentScopeExists Check for the existence of a RemotePC enrollment scope by name.
+
+			Check for the existence of a RemotePC enrollment scope by name. Note that
+		RemotePC enrollment scope names must be unique within the site, so the
+		`nameOrId` parameter does not affect whether the RemotePC enrollment scope
+		name is found.
+		If the name is found to be available, this returns 404 Not Found.
+		If a RemotePC enrollment scope by that name exists and is associated with the
+		specified machine catalog, this returns 204 No Content. If a RemotePC
+		enrollment scope by that name exists and is associated with a different
+		machine catalog, this returns 303 See Other, and the `Location`
+		response header refers to location of the machine catalog which is associated
+		by the RemotePC enrollment scope.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@param name Distinguished name of an OU containing machines allowed to enroll as remote PCs.
+			@return ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest
+	*/
+	MachineCatalogsCheckRemotePCEnrollmentScopeExists(ctx context.Context, nameOrId string, name string) ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest
+
+	// MachineCatalogsCheckRemotePCEnrollmentScopeExistsExecute executes the request
+	MachineCatalogsCheckRemotePCEnrollmentScopeExistsExecute(r ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) (*http.Response, error)
+
+	/*
+			MachineCatalogsCreateMachineCatalog Create a machine catalog.
+
+			Create a machine catalog.
+
+		Note that if a machine catalog uses
+		of , the machine catalog creation will always invoke asynchronous
+		job(s) for the provisioning action.  If this API is invoked asynchronously, the asynchronous job
+		will include only the machine catalog creation, and the provisioning task(s) will be associated
+		with the newly created catalog.  If this API is invoked synchronously, the machine catalog
+		creation will complete synchronously but the provisioning task(s) may still be executing, and
+		will be associated with the newly created catalog.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiMachineCatalogsCreateMachineCatalogRequest
+	*/
+	MachineCatalogsCreateMachineCatalog(ctx context.Context) ApiMachineCatalogsCreateMachineCatalogRequest
+
+	// MachineCatalogsCreateMachineCatalogExecute executes the request
+	//  @return MachineCatalogDetailResponseModel
+	MachineCatalogsCreateMachineCatalogExecute(r ApiMachineCatalogsCreateMachineCatalogRequest) (*MachineCatalogDetailResponseModel, *http.Response, error)
+
+	/*
+			MachineCatalogsCreateMachineCatalogUpgradeSchedule Setup a new VDA upgrade schedule for a machine catalog.
+
+			A new VDA upgrade schedule can only be created for a machine catalog
+		when the upgrade status for the catalog is UpgradeSuccessful, UpgradeFailed or UpgradeCancelled.
+		If the status is ongoing or waiting to start, the operation fails.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@return ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest
+	*/
+	MachineCatalogsCreateMachineCatalogUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest
+
+	// MachineCatalogsCreateMachineCatalogUpgradeScheduleExecute executes the request
+	MachineCatalogsCreateMachineCatalogUpgradeScheduleExecute(r ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) (*http.Response, error)
+
+	/*
+		MachineCatalogsDeleteMachineCatalog Delete a machine catalog.
+
+		Delete a machine catalog
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog to update.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsDeleteMachineCatalogRequest
+	*/
+	MachineCatalogsDeleteMachineCatalog(ctx context.Context, nameOrId string) ApiMachineCatalogsDeleteMachineCatalogRequest
+
+	// MachineCatalogsDeleteMachineCatalogExecute executes the request
+	MachineCatalogsDeleteMachineCatalogExecute(r ApiMachineCatalogsDeleteMachineCatalogRequest) (*http.Response, error)
+
+	/*
+			MachineCatalogsDoMachineCatalogSearch Perform an advanced search for machinecatalogs.
+
+			Perform an advanced search for machinecatalogs.  Note that some combinations
+		of search parameters may result in slow performance.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiMachineCatalogsDoMachineCatalogSearchRequest
+	*/
+	MachineCatalogsDoMachineCatalogSearch(ctx context.Context) ApiMachineCatalogsDoMachineCatalogSearchRequest
+
+	// MachineCatalogsDoMachineCatalogSearchExecute executes the request
+	//  @return CatalogSearchResponseModelCollection
+	MachineCatalogsDoMachineCatalogSearchExecute(r ApiMachineCatalogsDoMachineCatalogSearchRequest) (*CatalogSearchResponseModelCollection, *http.Response, error)
+
+	/*
+		MachineCatalogsExport Exports a MCS machine catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The machine catalog
+		@return ApiMachineCatalogsExportRequest
+	*/
+	MachineCatalogsExport(ctx context.Context, nameOrId string) ApiMachineCatalogsExportRequest
+
+	// MachineCatalogsExportExecute executes the request
+	//  @return ExportMachineCatalogResponseModel
+	MachineCatalogsExportExecute(r ApiMachineCatalogsExportRequest) (*ExportMachineCatalogResponseModel, *http.Response, error)
+
+	/*
+		MachineCatalogsExportMachineProfile Exports a MCS machine catalog's machine profile.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The name or id of machine catalog.
+		@return ApiMachineCatalogsExportMachineProfileRequest
+	*/
+	MachineCatalogsExportMachineProfile(ctx context.Context, nameOrId string) ApiMachineCatalogsExportMachineProfileRequest
+
+	// MachineCatalogsExportMachineProfileExecute executes the request
+	//  @return ExportMachineProfileResponseModel
+	MachineCatalogsExportMachineProfileExecute(r ApiMachineCatalogsExportMachineProfileRequest) (*ExportMachineProfileResponseModel, *http.Response, error)
+
+	/*
+		MachineCatalogsGetMachineCatalog Get details about a single machine catalog.
+
+		Get details about a single machine catalog by name or ID of machine catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsGetMachineCatalogRequest
+	*/
+	MachineCatalogsGetMachineCatalog(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogRequest
+
+	// MachineCatalogsGetMachineCatalogExecute executes the request
+	//  @return MachineCatalogDetailResponseModel
+	MachineCatalogsGetMachineCatalogExecute(r ApiMachineCatalogsGetMachineCatalogRequest) (*MachineCatalogDetailResponseModel, *http.Response, error)
+
+	/*
+		MachineCatalogsGetMachineCatalogCostSummary Get the machine catalog's cost summary.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The name or ID of the machine catalog.
+		@return ApiMachineCatalogsGetMachineCatalogCostSummaryRequest
+	*/
+	MachineCatalogsGetMachineCatalogCostSummary(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest
+
+	// MachineCatalogsGetMachineCatalogCostSummaryExecute executes the request
+	//  @return ResourceCostResponseModelCollection
+	MachineCatalogsGetMachineCatalogCostSummaryExecute(r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) (*ResourceCostResponseModelCollection, *http.Response, error)
+
+	/*
+		MachineCatalogsGetMachineCatalogDailyCost Get the machine catalog's daily cost.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The name or ID of the machine catalog.
+		@return ApiMachineCatalogsGetMachineCatalogDailyCostRequest
+	*/
+	MachineCatalogsGetMachineCatalogDailyCost(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogDailyCostRequest
+
+	// MachineCatalogsGetMachineCatalogDailyCostExecute executes the request
+	//  @return DailyCostResponseModelCollection
+	MachineCatalogsGetMachineCatalogDailyCostExecute(r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) (*DailyCostResponseModelCollection, *http.Response, error)
+
+	/*
+		MachineCatalogsGetMachineCatalogDeliveryGroupAssociations Get delivery group associations of a machine catalog.
+
+		Get delivery group associations by name or Id of a remote pc machine catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest
+	*/
+	MachineCatalogsGetMachineCatalogDeliveryGroupAssociations(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest
+
+	// MachineCatalogsGetMachineCatalogDeliveryGroupAssociationsExecute executes the request
+	//  @return DeliveryGroupAssociationResponseModelCollection
+	MachineCatalogsGetMachineCatalogDeliveryGroupAssociationsExecute(r ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) (*DeliveryGroupAssociationResponseModelCollection, *http.Response, error)
+
+	/*
+		MachineCatalogsGetMachineCatalogEnrollments Get the list of enrollments in the machine catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog.
+		@return ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest
+	*/
+	MachineCatalogsGetMachineCatalogEnrollments(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest
+
+	// MachineCatalogsGetMachineCatalogEnrollmentsExecute executes the request
+	//  @return EnrollmentResponseModelCollection
+	MachineCatalogsGetMachineCatalogEnrollmentsExecute(r ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) (*EnrollmentResponseModelCollection, *http.Response, error)
+
+	/*
+		MachineCatalogsGetMachineCatalogLastMasterImage Get the last master VM images used by the machine catalog.
+
+		Get the last master VM images used by the machine catalog
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest
+	*/
+	MachineCatalogsGetMachineCatalogLastMasterImage(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest
+
+	// MachineCatalogsGetMachineCatalogLastMasterImageExecute executes the request
+	//  @return VMImageResponseModel
+	MachineCatalogsGetMachineCatalogLastMasterImageExecute(r ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) (*VMImageResponseModel, *http.Response, error)
+
+	/*
+			MachineCatalogsGetMachineCatalogMachineAccounts Get all machine accounts associated with a machine catalog.
+
+			Get all machine accounts associated with a machine catalog.  This returns
+		all machine accounts for the machine catalog regardless of whether they are
+		in-use, available, locked, etc.
+
+
+		This is only relevant for machine catalogs where ProvisioningType is MCS.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog to get machine accounts for.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@return ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest
+	*/
+	MachineCatalogsGetMachineCatalogMachineAccounts(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest
+
+	// MachineCatalogsGetMachineCatalogMachineAccountsExecute executes the request
+	//  @return ProvisioningSchemeMachineAccountResponseModelCollection
+	MachineCatalogsGetMachineCatalogMachineAccountsExecute(r ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) (*ProvisioningSchemeMachineAccountResponseModelCollection, *http.Response, error)
+
+	/*
+		MachineCatalogsGetMachineCatalogMachines GET the machines of a catalog
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsGetMachineCatalogMachinesRequest
+	*/
+	MachineCatalogsGetMachineCatalogMachines(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogMachinesRequest
+
+	// MachineCatalogsGetMachineCatalogMachinesExecute executes the request
+	//  @return MachineResponseModelCollection
+	MachineCatalogsGetMachineCatalogMachinesExecute(r ApiMachineCatalogsGetMachineCatalogMachinesRequest) (*MachineResponseModelCollection, *http.Response, error)
+
+	/*
+		MachineCatalogsGetMachineCatalogMasterImageHistory Get the history of master VM images used by the machine catalog.
+
+		Get the history of master VM images used by the machine catalog
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog.
+		@return ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest
+	*/
+	MachineCatalogsGetMachineCatalogMasterImageHistory(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest
+
+	// MachineCatalogsGetMachineCatalogMasterImageHistoryExecute executes the request
+	//  @return VMImageResponseModelCollection
+	MachineCatalogsGetMachineCatalogMasterImageHistoryExecute(r ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) (*VMImageResponseModelCollection, *http.Response, error)
+
+	/*
+			MachineCatalogsGetMachineCatalogStartMenuApplications Get the start menu applications from a machine in the machine catalog.
+
+			Get the start menu applications from a machine in the machine catalog
+
+		Note that this API may require a machine within a catalog to be
+		booted, if no machines are currently available.  Therefore the API
+		may take quite some time to complete.  Consider using the `async=true`
+		parameter to mitigate this.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@return ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest
+	*/
+	MachineCatalogsGetMachineCatalogStartMenuApplications(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest
+
+	// MachineCatalogsGetMachineCatalogStartMenuApplicationsExecute executes the request
+	//  @return StartMenuApplicationResponseModelCollection
+	MachineCatalogsGetMachineCatalogStartMenuApplicationsExecute(r ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) (*StartMenuApplicationResponseModelCollection, *http.Response, error)
+
+	/*
+			MachineCatalogsGetMachineCatalogTags Get tags associated with a machine catalog.
+
+			Get tags associated with a machine catalog.  This includes tags which are
+		directly associated with the machine catalog, as well as tags associated with
+		machines that are associated with the machine catalog.
+		To find only tags directly associated with the machine catalog,
+		filter the results to those with
+		NumMachineCatalogs equal to `1`.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@return ApiMachineCatalogsGetMachineCatalogTagsRequest
+	*/
+	MachineCatalogsGetMachineCatalogTags(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogTagsRequest
+
+	// MachineCatalogsGetMachineCatalogTagsExecute executes the request
+	//  @return TagResponseModelCollection
+	MachineCatalogsGetMachineCatalogTagsExecute(r ApiMachineCatalogsGetMachineCatalogTagsRequest) (*TagResponseModelCollection, *http.Response, error)
+
+	/*
+			MachineCatalogsGetMachineCatalogTestReport Get the most recent test report of a machine catalog.
+
+			Get the test report from the last run of
+		TestMachineCatalog.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@return ApiMachineCatalogsGetMachineCatalogTestReportRequest
+	*/
+	MachineCatalogsGetMachineCatalogTestReport(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogTestReportRequest
+
+	// MachineCatalogsGetMachineCatalogTestReportExecute executes the request
+	//  @return TestReportResponseModel
+	MachineCatalogsGetMachineCatalogTestReportExecute(r ApiMachineCatalogsGetMachineCatalogTestReportRequest) (*TestReportResponseModel, *http.Response, error)
+
+	/*
+		MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures Get the components and features of VDAs associated with a machine catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest
+	*/
+	MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest
+
+	// MachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesExecute executes the request
+	//  @return MachineCatalogVusComponentResponseModel
+	MachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesExecute(r ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) (*MachineCatalogVusComponentResponseModel, *http.Response, error)
+
+	/*
+		MachineCatalogsGetMachineCatalogVDAUpgradeVersions Get the available VDA upgrade versions associated with a machine catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest
+	*/
+	MachineCatalogsGetMachineCatalogVDAUpgradeVersions(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest
+
+	// MachineCatalogsGetMachineCatalogVDAUpgradeVersionsExecute executes the request
+	//  @return []string
+	MachineCatalogsGetMachineCatalogVDAUpgradeVersionsExecute(r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) ([]string, *http.Response, error)
+
+	/*
+		MachineCatalogsGetMachineCatalogs Get all machine catalogs.
+
+		Get all machine catalogs in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiMachineCatalogsGetMachineCatalogsRequest
+	*/
+	MachineCatalogsGetMachineCatalogs(ctx context.Context) ApiMachineCatalogsGetMachineCatalogsRequest
+
+	// MachineCatalogsGetMachineCatalogsExecute executes the request
+	//  @return MachineCatalogResponseModelCollection
+	MachineCatalogsGetMachineCatalogsExecute(r ApiMachineCatalogsGetMachineCatalogsRequest) (*MachineCatalogResponseModelCollection, *http.Response, error)
+
+	/*
+		MachineCatalogsGetMachineCatalogsAdministrators Get administrators who can administer a machine catalog.
+
+		Get administrators who can administer a machine catalog
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest
+	*/
+	MachineCatalogsGetMachineCatalogsAdministrators(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest
+
+	// MachineCatalogsGetMachineCatalogsAdministratorsExecute executes the request
+	//  @return AdministratorResponseModelCollection
+	MachineCatalogsGetMachineCatalogsAdministratorsExecute(r ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error)
+
+	/*
+		MachineCatalogsGetMachineCatalogsV2 The V2  version of get all machine catalogs.
+
+		Get all machine catalogs in the site with default response fields if no fields parameters specified.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiMachineCatalogsGetMachineCatalogsV2Request
+	*/
+	MachineCatalogsGetMachineCatalogsV2(ctx context.Context) ApiMachineCatalogsGetMachineCatalogsV2Request
+
+	// MachineCatalogsGetMachineCatalogsV2Execute executes the request
+	//  @return MachineCatalogResponseModelCollection
+	MachineCatalogsGetMachineCatalogsV2Execute(r ApiMachineCatalogsGetMachineCatalogsV2Request) (*MachineCatalogResponseModelCollection, *http.Response, error)
+
+	/*
+		MachineCatalogsImportProvisionedVirtualMachines Import existing provisioned virtual machines.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId The machineCatalog name or Id.
+		@return ApiMachineCatalogsImportProvisionedVirtualMachinesRequest
+	*/
+	MachineCatalogsImportProvisionedVirtualMachines(ctx context.Context, nameOrId string) ApiMachineCatalogsImportProvisionedVirtualMachinesRequest
+
+	// MachineCatalogsImportProvisionedVirtualMachinesExecute executes the request
+	//  @return ImportProvisionedVirtualMachineResponseModelCollection
+	MachineCatalogsImportProvisionedVirtualMachinesExecute(r ApiMachineCatalogsImportProvisionedVirtualMachinesRequest) (*ImportProvisionedVirtualMachineResponseModelCollection, *http.Response, error)
+
+	/*
+			MachineCatalogsRebootMachineCatalogMachines Reboot all machines in a machine catalog.
+
+			Reboot all machines in a machine catalog.
+
+
+		Note that there is no job representation for the reboot operation.
+		The call returns immediately even though the machines reboot over time.
+		If you want to follow the progress of the reboot operation, check
+		the
+		property of the machines in the machine catalog.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@return ApiMachineCatalogsRebootMachineCatalogMachinesRequest
+	*/
+	MachineCatalogsRebootMachineCatalogMachines(ctx context.Context, nameOrId string) ApiMachineCatalogsRebootMachineCatalogMachinesRequest
+
+	// MachineCatalogsRebootMachineCatalogMachinesExecute executes the request
+	MachineCatalogsRebootMachineCatalogMachinesExecute(r ApiMachineCatalogsRebootMachineCatalogMachinesRequest) (*http.Response, error)
+
+	/*
+			MachineCatalogsRemoveMachineCatalogMachine Remove a machine from the machine catalog.
+
+			Remove a machine from the machine catalog.  Removing the machine from the machine
+		catalog removes it from the site.
+
+
+		A machine cannot be removed from the machine catalog if it is a member of a delivery group.
+
+
+		Note: to remove multiple machines in a single call, use the
+		 API.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog to remove the machine from.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@param machine Machine to remove from the catalog. May be specified by name, ID, or SID. If param is Name, currently it should get rid of '\\\\' and replace it using '|'.             For instance, if a MachineName is \"DomainA\\NameB\", the param will be \"DomainA|NameB\".
+			@return ApiMachineCatalogsRemoveMachineCatalogMachineRequest
+	*/
+	MachineCatalogsRemoveMachineCatalogMachine(ctx context.Context, nameOrId string, machine string) ApiMachineCatalogsRemoveMachineCatalogMachineRequest
+
+	// MachineCatalogsRemoveMachineCatalogMachineExecute executes the request
+	MachineCatalogsRemoveMachineCatalogMachineExecute(r ApiMachineCatalogsRemoveMachineCatalogMachineRequest) (*http.Response, error)
+
+	/*
+		MachineCatalogsRemoveMachineCatalogMachineAccount Remove a machine account from the machine catalog.
+
+		Remove a machine account from the machine catalog. This is only relevant for machine catalogs where ProvisioningType is MCS.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog to remove the machine account from.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@param machine Machine account to remove.  May be specified by SamName, UPN, or SID.
+		@return ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest
+	*/
+	MachineCatalogsRemoveMachineCatalogMachineAccount(ctx context.Context, nameOrId string, machine string) ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest
+
+	// MachineCatalogsRemoveMachineCatalogMachineAccountExecute executes the request
+	MachineCatalogsRemoveMachineCatalogMachineAccountExecute(r ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) (*http.Response, error)
+
+	/*
+			MachineCatalogsRemoveMachineCatalogTags Remove a tag from a machine catalog.
+
+			Remove a tag from a machine catalog.  Does not delete the tag,
+		only its association to the machine catalog.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@param tagNameOrId Name or ID of the tag.
+			@return ApiMachineCatalogsRemoveMachineCatalogTagsRequest
+	*/
+	MachineCatalogsRemoveMachineCatalogTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiMachineCatalogsRemoveMachineCatalogTagsRequest
+
+	// MachineCatalogsRemoveMachineCatalogTagsExecute executes the request
+	MachineCatalogsRemoveMachineCatalogTagsExecute(r ApiMachineCatalogsRemoveMachineCatalogTagsRequest) (*http.Response, error)
+
+	/*
+			MachineCatalogsRemoveMachineCatalogUpgradeSchedule Remove a pending VDA upgrade schedule for a machine catalog.
+
+			A VDA upgrade schedule can only be cancelled for a machine catalog
+		when the upgrade status is waiting to start. If the current upgrade is
+		in another status, the operation fails with HTTP response status 404.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@return ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest
+	*/
+	MachineCatalogsRemoveMachineCatalogUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest
+
+	// MachineCatalogsRemoveMachineCatalogUpgradeScheduleExecute executes the request
+	MachineCatalogsRemoveMachineCatalogUpgradeScheduleExecute(r ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) (*http.Response, error)
+
+	/*
+		MachineCatalogsRepairMachineCatalogMachineAccounts Repair all machine accounts in a machine catalog.
+
+		Repair all machine accounts in a machine catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog.
+		@return ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest
+	*/
+	MachineCatalogsRepairMachineCatalogMachineAccounts(ctx context.Context, nameOrId string) ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest
+
+	// MachineCatalogsRepairMachineCatalogMachineAccountsExecute executes the request
+	MachineCatalogsRepairMachineCatalogMachineAccountsExecute(r ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) (*http.Response, error)
+
+	/*
+			MachineCatalogsRollbackMachineCatalogProvisioningScheme Rollback the machine catalog's provisioning scheme.
+
+			Rollback the machine catalog's provisioning scheme.
+
+
+		Only valid when the machine catalog's ProvisioningType is MCS.
+
+
+		Provides the ability to roll back the hard disk image used to provision
+		virtual machines. If the provisioning scheme has CleanOnBoot equal to
+		`true`, then the next time that virtual machines are started, their
+		hard disks are updated to this new image. Regardless of CleanOnBoot,
+		all new virtual machines created after this call succeeds will use this
+		new hard disk image.
+
+
+		*Note:* The provisioning scheme for a machine catalog cannot be
+		changed while any provisioning tasks are already executing for the
+		machine catalog.  Cancel existing provisioning tasks or wait for
+		their completion before updating the provisioning scheme.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@return ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest
+	*/
+	MachineCatalogsRollbackMachineCatalogProvisioningScheme(ctx context.Context, nameOrId string) ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest
+
+	// MachineCatalogsRollbackMachineCatalogProvisioningSchemeExecute executes the request
+	//  @return JobResponseModel
+	MachineCatalogsRollbackMachineCatalogProvisioningSchemeExecute(r ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) (*JobResponseModel, *http.Response, error)
+
+	/*
+		MachineCatalogsSetMachineCatalogTags Set tags associated with a machine catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsSetMachineCatalogTagsRequest
+	*/
+	MachineCatalogsSetMachineCatalogTags(ctx context.Context, nameOrId string) ApiMachineCatalogsSetMachineCatalogTagsRequest
+
+	// MachineCatalogsSetMachineCatalogTagsExecute executes the request
+	MachineCatalogsSetMachineCatalogTagsExecute(r ApiMachineCatalogsSetMachineCatalogTagsRequest) (*http.Response, error)
+
+	/*
+			MachineCatalogsTestMachineCatalog Run tests on a machine catalog and create a test report.
+
+			Run tests on a machine catalog and create a test report.  Obtain the
+		most recent report from
+		GetMachineCatalogTestReport.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog to test.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@return ApiMachineCatalogsTestMachineCatalogRequest
+	*/
+	MachineCatalogsTestMachineCatalog(ctx context.Context, nameOrId string) ApiMachineCatalogsTestMachineCatalogRequest
+
+	// MachineCatalogsTestMachineCatalogExecute executes the request
+	//  @return MachineCatalogTestResponseModel
+	MachineCatalogsTestMachineCatalogExecute(r ApiMachineCatalogsTestMachineCatalogRequest) (*MachineCatalogTestResponseModel, *http.Response, error)
+
+	/*
+		MachineCatalogsTestMachineCatalogExists Test the existence of a machine catalog by name.
+
+		Check for the existence of a machine catalog by name
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiMachineCatalogsTestMachineCatalogExistsRequest
+	*/
+	MachineCatalogsTestMachineCatalogExists(ctx context.Context) ApiMachineCatalogsTestMachineCatalogExistsRequest
+
+	// MachineCatalogsTestMachineCatalogExistsExecute executes the request
+	MachineCatalogsTestMachineCatalogExistsExecute(r ApiMachineCatalogsTestMachineCatalogExistsRequest) (*http.Response, error)
+
+	/*
+			MachineCatalogsTestRemotePCEnrollmentScopeExists Check for the existence of a RemotePC enrollment scope by name in the request body. Use HttpPost and take name in body as this name may be very long, and cause url too long exception.
+
+			Check for the existence of a RemotePC enrollment scope by name. Note that
+		RemotePC enrollment scope names must be unique within the site, so the
+		`nameOrId` parameter does not affect whether the RemotePC enrollment scope
+		name is found.
+		If the name is found to be available, this returns 404 Not Found.
+		If a RemotePC enrollment scope by that name exists and is associated with the
+		specified machine catalog, this returns 204 No Content. If a RemotePC
+		enrollment scope by that name exists and is associated with a different
+		machine catalog, this returns 303 See Other, and the `Location`
+		response header refers to location of the machine catalog which is associated
+		by the RemotePC enrollment scope.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@return ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest
+	*/
+	MachineCatalogsTestRemotePCEnrollmentScopeExists(ctx context.Context, nameOrId string) ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest
+
+	// MachineCatalogsTestRemotePCEnrollmentScopeExistsExecute executes the request
+	MachineCatalogsTestRemotePCEnrollmentScopeExistsExecute(r ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) (*http.Response, error)
+
+	/*
+		MachineCatalogsUpdateMachineCatalog Update a machine catalog.
+
+		Update a machine catalog
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog to update.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsUpdateMachineCatalogRequest
+	*/
+	MachineCatalogsUpdateMachineCatalog(ctx context.Context, nameOrId string) ApiMachineCatalogsUpdateMachineCatalogRequest
+
+	// MachineCatalogsUpdateMachineCatalogExecute executes the request
+	//  @return MachineCatalogDetailResponseModel
+	MachineCatalogsUpdateMachineCatalogExecute(r ApiMachineCatalogsUpdateMachineCatalogRequest) (*MachineCatalogDetailResponseModel, *http.Response, error)
+
+	/*
+			MachineCatalogsUpdateMachineCatalogMachineAccount Update a machine account within the machine catalog.
+
+			Update a machine account within the machine catalog.  This is typically used to reset or
+		update the machine password so that the site is able to apply the machine account to a
+		provisioned VM.
+
+
+		This is only relevant for machine catalogs where ProvisioningType is MCS.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog containing the machine account.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@param machine Machine account to update.  May be specified by SamName, UPN, or SID.
+			@return ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest
+	*/
+	MachineCatalogsUpdateMachineCatalogMachineAccount(ctx context.Context, nameOrId string, machine string) ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest
+
+	// MachineCatalogsUpdateMachineCatalogMachineAccountExecute executes the request
+	//  @return ProvisioningSchemeMachineAccountResponseModel
+	MachineCatalogsUpdateMachineCatalogMachineAccountExecute(r ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) (*ProvisioningSchemeMachineAccountResponseModel, *http.Response, error)
+
+	/*
+			MachineCatalogsUpdateMachineCatalogProvisioningScheme Update the machine catalog's provisioning scheme.
+
+			Update the machine catalog's provisioning scheme.
+
+
+		Only valid when the machine catalog's ProvisioningType is MCS.
+
+
+		Provides the ability to update the hard disk image used to provision
+		virtual machines. If the provisioning scheme has CleanOnBoot equal to
+		`true`, then the next time that virtual machines are started, their
+		hard disks are updated to this new image. Regardless of CleanOnBoot,
+		all new virtual machines created after this call succeeds will use this
+		new hard disk image.
+
+
+		A snapshot or VM template is used rather than a VM, so that the
+		content of the hard disk for the provisioning scheme can be easily
+		determined.
+
+
+		The previous hard disk image path is stored into the history (see
+		).  The
+		data stored in the history allows for a rollback to be undertaken,
+		to revert to the previous hard disk image if required.
+
+
+		*Note:* The provisioning scheme for a machine catalog cannot be
+		changed while any provisioning tasks are already executing for the
+		machine catalog.  Cancel existing provisioning tasks or wait for
+		their completion before updating the provisioning scheme.
+
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+			@return ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest
+	*/
+	MachineCatalogsUpdateMachineCatalogProvisioningScheme(ctx context.Context, nameOrId string) ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest
+
+	// MachineCatalogsUpdateMachineCatalogProvisioningSchemeExecute executes the request
+	//  @return JobResponseModel
+	MachineCatalogsUpdateMachineCatalogProvisioningSchemeExecute(r ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) (*JobResponseModel, *http.Response, error)
+
+	/*
+		MachineCatalogsUpdateMachineCatalogUpgradeSchedule Reschedule a pending VDA upgrade schedule for a machine catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest
+	*/
+	MachineCatalogsUpdateMachineCatalogUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest
+
+	// MachineCatalogsUpdateMachineCatalogUpgradeScheduleExecute executes the request
+	MachineCatalogsUpdateMachineCatalogUpgradeScheduleExecute(r ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) (*http.Response, error)
+
+	/*
+		MachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelection Validate the VDA component selection at catalog level that can be Included/Excluded and features that need enable during an VDA upgrade using VDA Upgrade Service.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param nameOrId Name or ID of the machine catalog. If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+		@return ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest
+	*/
+	MachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelection(ctx context.Context, nameOrId string) ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest
+
+	// MachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionExecute executes the request
+	//  @return VDAComponentsSelectionValidationResponseModel
+	MachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionExecute(r ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) (*VDAComponentsSelectionValidationResponseModel, *http.Response, error)
+}
+
 // MachineCatalogsAPIsDAASService MachineCatalogsAPIsDAAS service
 type MachineCatalogsAPIsDAASService service
 
 type ApiMachineCatalogsAddMachineCatalogMachineRequest struct {
 	ctx                                          context.Context
-	ApiService                                   *MachineCatalogsAPIsDAASService
+	ApiService                                   MachineCatalogsAPIsDAAS
 	citrixCustomerId                             *string
 	citrixInstanceId                             *string
 	nameOrId                                     string
@@ -397,7 +1175,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 
 type ApiMachineCatalogsAddMachineCatalogMachineAccountRequest struct {
 	ctx                        context.Context
-	ApiService                 *MachineCatalogsAPIsDAASService
+	ApiService                 MachineCatalogsAPIsDAAS
 	citrixCustomerId           *string
 	citrixInstanceId           *string
 	nameOrId                   string
@@ -725,7 +1503,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogMachine
 
 type ApiMachineCatalogsAddMachineCatalogTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1035,7 +1813,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsAddMachineCatalogTagsExe
 
 type ApiMachineCatalogsCheckMachineCatalogExistsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	name                string
@@ -1307,7 +2085,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckMachineCatalogExist
 
 type ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -1593,7 +2371,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCheckRemotePCEnrollmentS
 
 type ApiMachineCatalogsCreateMachineCatalogRequest struct {
 	ctx                              context.Context
-	ApiService                       *MachineCatalogsAPIsDAASService
+	ApiService                       MachineCatalogsAPIsDAAS
 	citrixCustomerId                 *string
 	citrixInstanceId                 *string
 	createMachineCatalogRequestModel *CreateMachineCatalogRequestModel
@@ -1947,7 +2725,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogExec
 
 type ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest struct {
 	ctx                               context.Context
-	ApiService                        *MachineCatalogsAPIsDAASService
+	ApiService                        MachineCatalogsAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	nameOrId                          string
@@ -2268,7 +3046,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsCreateMachineCatalogUpgr
 
 type ApiMachineCatalogsDeleteMachineCatalogRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -2612,7 +3390,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDeleteMachineCatalogExec
 
 type ApiMachineCatalogsDoMachineCatalogSearchRequest struct {
 	ctx                       context.Context
-	ApiService                *MachineCatalogsAPIsDAASService
+	ApiService                MachineCatalogsAPIsDAAS
 	citrixCustomerId          *string
 	citrixInstanceId          *string
 	catalogSearchRequestModel *CatalogSearchRequestModel
@@ -2959,7 +3737,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsDoMachineCatalogSearchEx
 
 type ApiMachineCatalogsExportRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3262,7 +4040,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportExecute(r ApiMachi
 
 type ApiMachineCatalogsExportMachineProfileRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3555,7 +4333,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsExportMachineProfileExec
 
 type ApiMachineCatalogsGetMachineCatalogRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -3862,7 +4640,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogExecute
 
 type ApiMachineCatalogsGetMachineCatalogCostSummaryRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4189,7 +4967,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSum
 
 type ApiMachineCatalogsGetMachineCatalogDailyCostRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4506,7 +5284,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCo
 
 type ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -4823,7 +5601,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDeliver
 
 type ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -5105,7 +5883,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogEnrollm
 
 type ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -5402,7 +6180,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogLastMas
 
 type ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -5733,7 +6511,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 
 type ApiMachineCatalogsGetMachineCatalogMachinesRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -6058,7 +6836,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMachine
 
 type ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -6342,7 +7120,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogMasterI
 
 type ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -6662,7 +7440,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogStartMe
 
 type ApiMachineCatalogsGetMachineCatalogTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -6961,7 +7739,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTagsExe
 
 type ApiMachineCatalogsGetMachineCatalogTestReportRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -7246,7 +8024,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogTestRep
 
 type ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -7538,7 +8316,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAComp
 
 type ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -7820,7 +8598,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgr
 
 type ApiMachineCatalogsGetMachineCatalogsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -8142,7 +8920,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsExecut
 
 type ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -8426,7 +9204,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsAdmini
 
 type ApiMachineCatalogsGetMachineCatalogsV2Request struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	userAgent           *string
@@ -8748,7 +9526,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsV2Exec
 
 type ApiMachineCatalogsImportProvisionedVirtualMachinesRequest struct {
 	ctx                                          context.Context
-	ApiService                                   *MachineCatalogsAPIsDAASService
+	ApiService                                   MachineCatalogsAPIsDAAS
 	citrixCustomerId                             *string
 	citrixInstanceId                             *string
 	nameOrId                                     string
@@ -9077,7 +9855,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsImportProvisionedVirtual
 
 type ApiMachineCatalogsRebootMachineCatalogMachinesRequest struct {
 	ctx                        context.Context
-	ApiService                 *MachineCatalogsAPIsDAASService
+	ApiService                 MachineCatalogsAPIsDAAS
 	citrixCustomerId           *string
 	citrixInstanceId           *string
 	nameOrId                   string
@@ -9389,7 +10167,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRebootMachineCatalogMach
 
 type ApiMachineCatalogsRemoveMachineCatalogMachineRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -9672,7 +10450,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 
 type ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -9971,7 +10749,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogMach
 
 type ApiMachineCatalogsRemoveMachineCatalogTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -10261,7 +11039,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogTags
 
 type ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -10561,7 +11339,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRemoveMachineCatalogUpgr
 
 type ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -10878,7 +11656,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRepairMachineCatalogMach
 
 type ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest struct {
 	ctx                        context.Context
-	ApiService                 *MachineCatalogsAPIsDAASService
+	ApiService                 MachineCatalogsAPIsDAAS
 	citrixCustomerId           *string
 	citrixInstanceId           *string
 	nameOrId                   string
@@ -11233,7 +12011,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsRollbackMachineCatalogPr
 
 type ApiMachineCatalogsSetMachineCatalogTagsRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -11539,7 +12317,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsSetMachineCatalogTagsExe
 
 type ApiMachineCatalogsTestMachineCatalogRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineCatalogsAPIsDAASService
+	ApiService          MachineCatalogsAPIsDAAS
 	citrixCustomerId    *string
 	citrixInstanceId    *string
 	nameOrId            string
@@ -11849,7 +12627,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExecut
 
 type ApiMachineCatalogsTestMachineCatalogExistsRequest struct {
 	ctx                          context.Context
-	ApiService                   *MachineCatalogsAPIsDAASService
+	ApiService                   MachineCatalogsAPIsDAAS
 	citrixCustomerId             *string
 	citrixInstanceId             *string
 	catalogNameCheckRequestModel *CatalogNameCheckRequestModel
@@ -12140,7 +12918,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestMachineCatalogExists
 
 type ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest struct {
 	ctx                               context.Context
-	ApiService                        *MachineCatalogsAPIsDAASService
+	ApiService                        MachineCatalogsAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	nameOrId                          string
@@ -12456,7 +13234,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsTestRemotePCEnrollmentSc
 
 type ApiMachineCatalogsUpdateMachineCatalogRequest struct {
 	ctx                              context.Context
-	ApiService                       *MachineCatalogsAPIsDAASService
+	ApiService                       MachineCatalogsAPIsDAAS
 	citrixCustomerId                 *string
 	citrixInstanceId                 *string
 	nameOrId                         string
@@ -12786,7 +13564,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogExec
 
 type ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest struct {
 	ctx                              context.Context
-	ApiService                       *MachineCatalogsAPIsDAASService
+	ApiService                       MachineCatalogsAPIsDAAS
 	citrixCustomerId                 *string
 	citrixInstanceId                 *string
 	nameOrId                         string
@@ -13111,7 +13889,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogMach
 
 type ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest struct {
 	ctx                                                context.Context
-	ApiService                                         *MachineCatalogsAPIsDAASService
+	ApiService                                         MachineCatalogsAPIsDAAS
 	citrixCustomerId                                   *string
 	citrixInstanceId                                   *string
 	nameOrId                                           string
@@ -13465,7 +14243,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogProv
 
 type ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest struct {
 	ctx                               context.Context
-	ApiService                        *MachineCatalogsAPIsDAASService
+	ApiService                        MachineCatalogsAPIsDAAS
 	citrixCustomerId                  *string
 	citrixInstanceId                  *string
 	nameOrId                          string
@@ -13782,7 +14560,7 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsUpdateMachineCatalogUpgr
 
 type ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest struct {
 	ctx                                          context.Context
-	ApiService                                   *MachineCatalogsAPIsDAASService
+	ApiService                                   MachineCatalogsAPIsDAAS
 	citrixCustomerId                             *string
 	citrixInstanceId                             *string
 	nameOrId                                     string
