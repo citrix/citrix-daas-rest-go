@@ -12,7 +12,7 @@ type STFStoreDetailModel struct {
 	Subscription                       StoreSubscriptionModel         `json:"Subscription,omitempty"`
 	Gateways                           []StoreGatewaysModel           `json:"Gateways,omitempty"`
 	GatewayService                     StoreGatewayServiceModel       `json:"GatewayService,omitempty"`
-	OptimalGatewaysForFarms            []string                       `json:"OptimalGatewaysForFarms,omitempty"`
+	OptimalGatewaysForFarms            any                            `json:"OptimalGatewaysForFarms,omitempty"`
 	DiscoveryService                   StoreDiscoveryServiceModel     `json:"DiscoveryService,omitempty"`
 	PNA                                StorePNAModel                  `json:"PNA,omitempty"`
 	Resources                          StoreResources                 `json:"Resources,omitempty"`
