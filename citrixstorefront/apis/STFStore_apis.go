@@ -776,3 +776,109 @@ func (a *STFStore) STFRoamingAccountSet(ctx context.Context, setSTFRoamingAccoun
 		getSTFStoreServiceRequestModel:   getSTFStoreRequestModel,
 	}
 }
+
+// Register-STFStoreOptimalLaunchGateway
+type ApiRegisterSTFStoreOptimalLaunchGatewayRequest struct {
+	ctx                                              context.Context
+	ApiService                                       *STFStore
+	registerSTFStoreOptimalLaunchGatewayRequestModel models.RegisterSTFStoreOptimalLaunchGatewayRequestModel
+	storeService                                     models.GetSTFStoreRequestModel
+	gatewayName                                      string
+	enabledOnDirectAccess                            bool
+}
+
+func (r ApiRegisterSTFStoreOptimalLaunchGatewayRequest) Execute() ([]byte, error) {
+	bytes, err := r.ApiService.RegisterSTFStoreOptimalLaunchGatewayExecute(r)
+	if err != nil {
+		return bytes, err
+	}
+	return nil, nil
+}
+
+func (a *STFStore) RegisterSTFStoreOptimalLaunchGatewayExecute(r ApiRegisterSTFStoreOptimalLaunchGatewayRequest) ([]byte, error) {
+	var param = StructToString(r.registerSTFStoreOptimalLaunchGatewayRequestModel)
+	var gatewayParam = r.gatewayName
+	var storeServiceParam = StructToString(r.storeService)
+
+	if r.enabledOnDirectAccess {
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Register-STFStoreOptimalLaunchGateway", fmt.Sprintf("-EnabledOnDirectAccess -StoreService (Get-STFStoreService %s)", storeServiceParam), param, fmt.Sprintf("-Gateway (Get-STFRoamingGateway -Name %s)", gatewayParam))
+	}
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Register-STFStoreOptimalLaunchGateway", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", storeServiceParam), param, fmt.Sprintf("-Gateway (Get-STFRoamingGateway -Name %s)", gatewayParam))
+}
+
+func (a *STFStore) STFStoreRegisterSTFStoreOptimalLaunchGateway(ctx context.Context, registerSTFStoreOptimalLaunchGatewayRequestModel models.RegisterSTFStoreOptimalLaunchGatewayRequestModel, storeService models.GetSTFStoreRequestModel, gatewayName string, enabledOnDirectAccess bool) ApiRegisterSTFStoreOptimalLaunchGatewayRequest {
+	return ApiRegisterSTFStoreOptimalLaunchGatewayRequest{
+		ApiService: a,
+		ctx:        ctx,
+		registerSTFStoreOptimalLaunchGatewayRequestModel: registerSTFStoreOptimalLaunchGatewayRequestModel,
+		storeService:          storeService,
+		gatewayName:           gatewayName,
+		enabledOnDirectAccess: enabledOnDirectAccess,
+	}
+}
+
+// Unregister-STFStoreOptimalLaunchGateway
+type ApiUnregisterSTFStoreOptimalLaunchGatewayRequest struct {
+	ctx          context.Context
+	ApiService   *STFStore
+	gatewayname  string
+	storeService models.GetSTFStoreRequestModel
+}
+
+func (r ApiUnregisterSTFStoreOptimalLaunchGatewayRequest) Execute() ([]byte, error) {
+	bytes, err := r.ApiService.UnregisterSTFStoreOptimalLaunchGatewayExecute(r)
+	if err != nil {
+		return bytes, err
+	}
+	return nil, nil
+}
+
+func (a *STFStore) UnregisterSTFStoreOptimalLaunchGatewayExecute(r ApiUnregisterSTFStoreOptimalLaunchGatewayRequest) ([]byte, error) {
+	var setStoreServiceParams = StructToString(r.storeService)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Unregister-STFStoreOptimalLaunchGateway", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreServiceParams), fmt.Sprintf("-GatewayName %s", r.gatewayname))
+}
+
+func (a *STFStore) STFStoreUnregisterSTFStoreOptimalLaunchGateway(ctx context.Context, gatewayname string, storeService models.GetSTFStoreRequestModel) ApiUnregisterSTFStoreOptimalLaunchGatewayRequest {
+	return ApiUnregisterSTFStoreOptimalLaunchGatewayRequest{
+		ApiService:   a,
+		ctx:          ctx,
+		gatewayname:  gatewayname,
+		storeService: storeService,
+	}
+}
+
+// Get-STFStoreRegisteredOptimalLaunchGateway
+type ApiGetSTFStoreRegisteredOptimalLaunchGatewayRequest struct {
+	ctx                     context.Context
+	ApiService              *STFStore
+	getSTFStoreRequestModel models.GetSTFStoreRequestModel
+}
+
+func (r ApiGetSTFStoreRegisteredOptimalLaunchGatewayRequest) Execute() (models.STFStoreRegisteredOptimalLaunchGatewayResponseModel, error) {
+	bytes, err := r.ApiService.GetSTFStoreRegisteredOptimalLaunchGatewayExecute(r)
+	if err != nil {
+		return models.STFStoreRegisteredOptimalLaunchGatewayResponseModel{}, err
+	}
+	if len(bytes) == 0 {
+		return models.STFStoreRegisteredOptimalLaunchGatewayResponseModel{}, nil
+	}
+	var response = models.STFStoreRegisteredOptimalLaunchGatewayRawResponseModel{}
+	unMarshalErr := json.Unmarshal(bytes, &response)
+	if unMarshalErr != nil {
+		return models.STFStoreRegisteredOptimalLaunchGatewayResponseModel{}, fmt.Errorf("error unmarshal Get-STFStoreRegisteredOptimalLaunchGateway: %v", unMarshalErr.Error())
+	}
+	return response.ConvertToResponseModel(), nil
+}
+
+func (a *STFStore) GetSTFStoreRegisteredOptimalLaunchGatewayExecute(r ApiGetSTFStoreRegisteredOptimalLaunchGatewayRequest) ([]byte, error) {
+	var setStoreParams = StructToString(r.getSTFStoreRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFStoreRegisteredOptimalLaunchGateway", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreParams))
+}
+
+func (a *STFStore) STFStoreGetSTFStoreRegisteredOptimalLaunchGateway(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGetSTFStoreRegisteredOptimalLaunchGatewayRequest {
+	return ApiGetSTFStoreRegisteredOptimalLaunchGatewayRequest{
+		ApiService:              a,
+		ctx:                     ctx,
+		getSTFStoreRequestModel: getSTFStoreRequestModel,
+	}
+}
