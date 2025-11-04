@@ -143,9 +143,9 @@ func (a *STFAuthentication) STFWebReceiverGetSTFAuthenticationProtocolsAvailable
 
 // Get STFAuthenticationProtocols
 type ApiGetSTFAuthenticationProtocolsRequest struct {
-	ctx                                             context.Context
-	ApiService                                      *STFAuthentication
-	GetSTFAuthenticationServiceProtocolRequestModel models.GetSTFAuthenticationServiceProtocolRequestModel
+	ctx                                     context.Context
+	ApiService                              *STFAuthentication
+	GetSTFAuthenticationServiceRequestModel models.GetSTFAuthenticationServiceRequestModel
 }
 
 func (r ApiGetSTFAuthenticationProtocolsRequest) Execute() ([]models.STFAuthenticationServiceProtocolResponseModel, error) {
@@ -162,15 +162,15 @@ func (r ApiGetSTFAuthenticationProtocolsRequest) Execute() ([]models.STFAuthenti
 }
 
 func (a *STFAuthentication) GetSTFAuthenticationProtocolsExecute(r ApiGetSTFAuthenticationProtocolsRequest) ([]byte, error) {
-	var param = StructToString(r.GetSTFAuthenticationServiceProtocolRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFAuthenticationServiceProtocol", param)
+	var param = StructToString(r.GetSTFAuthenticationServiceRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFAuthenticationServiceProtocol", fmt.Sprintf("-AuthenticationService (Get-STFAuthenticationService %s)", param))
 }
 
-func (a *STFAuthentication) STFWebReceiverGetSTFAuthenticationProtocols(ctx context.Context, getSTFAuthenticationServiceProtocolRequestModel models.GetSTFAuthenticationServiceProtocolRequestModel) ApiGetSTFAuthenticationProtocolsRequest {
+func (a *STFAuthentication) STFWebReceiverGetSTFAuthenticationProtocols(ctx context.Context, getSTFAuthenticationServiceProtocolRequestModel models.GetSTFAuthenticationServiceRequestModel) ApiGetSTFAuthenticationProtocolsRequest {
 	return ApiGetSTFAuthenticationProtocolsRequest{
-		ApiService: a,
-		ctx:        ctx,
-		GetSTFAuthenticationServiceProtocolRequestModel: getSTFAuthenticationServiceProtocolRequestModel,
+		ApiService:                              a,
+		ctx:                                     ctx,
+		GetSTFAuthenticationServiceRequestModel: getSTFAuthenticationServiceProtocolRequestModel,
 	}
 }
 
@@ -207,6 +207,7 @@ type ApiEnableSTFAuthenticationProtocolsRequest struct {
 	ctx                                             context.Context
 	ApiService                                      *STFAuthentication
 	EnableAuthenticationServiceProtocolRequestModel models.AddUpdateSTFAuthenticationServiceProtocolRequestModel
+	GetSTFAuthenticationService                     models.GetSTFAuthenticationServiceRequestModel
 }
 
 func (r ApiEnableSTFAuthenticationProtocolsRequest) Execute() error {
@@ -219,14 +220,16 @@ func (r ApiEnableSTFAuthenticationProtocolsRequest) Execute() error {
 
 func (a *STFAuthentication) EnableSTFAuthenticationProtocolsExecute(r ApiEnableSTFAuthenticationProtocolsRequest) ([]byte, error) {
 	var param = StructToString(r.EnableAuthenticationServiceProtocolRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Enable-STFAuthenticationServiceProtocol", param)
+	var getSTFAuthParam = StructToString(r.GetSTFAuthenticationService)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Enable-STFAuthenticationServiceProtocol", fmt.Sprintf("-AuthenticationService (Get-STFAuthenticationService %s)", getSTFAuthParam), param)
 }
 
-func (a *STFAuthentication) STFWebReceiverEnableSTFAuthenticationProtocols(ctx context.Context, EnableAuthenticationServiceProtocolRequestModel models.AddUpdateSTFAuthenticationServiceProtocolRequestModel) ApiEnableSTFAuthenticationProtocolsRequest {
+func (a *STFAuthentication) STFWebReceiverEnableSTFAuthenticationProtocols(ctx context.Context, EnableAuthenticationServiceProtocolRequestModel models.AddUpdateSTFAuthenticationServiceProtocolRequestModel, GetSTFAuthenticationService models.GetSTFAuthenticationServiceRequestModel) ApiEnableSTFAuthenticationProtocolsRequest {
 	return ApiEnableSTFAuthenticationProtocolsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		EnableAuthenticationServiceProtocolRequestModel: EnableAuthenticationServiceProtocolRequestModel,
+		GetSTFAuthenticationService:                     GetSTFAuthenticationService,
 	}
 }
 
@@ -235,6 +238,7 @@ type ApiDisableSTFAuthenticationProtocolsRequest struct {
 	ctx                                              context.Context
 	ApiService                                       *STFAuthentication
 	DisableAuthenticationServiceProtocolRequestModel models.AddUpdateSTFAuthenticationServiceProtocolRequestModel
+	GetSTFAuthenticationService                      models.GetSTFAuthenticationServiceRequestModel
 }
 
 func (r ApiDisableSTFAuthenticationProtocolsRequest) Execute() error {
@@ -247,14 +251,16 @@ func (r ApiDisableSTFAuthenticationProtocolsRequest) Execute() error {
 
 func (a *STFAuthentication) DisableSTFAuthenticationProtocolsExecute(r ApiDisableSTFAuthenticationProtocolsRequest) ([]byte, error) {
 	var param = StructToString(r.DisableAuthenticationServiceProtocolRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Disable-STFAuthenticationServiceProtocol", param)
+	var getSTFAuthParam = StructToString(r.GetSTFAuthenticationService)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Disable-STFAuthenticationServiceProtocol", fmt.Sprintf("-AuthenticationService (Get-STFAuthenticationService %s)", getSTFAuthParam), param)
 }
 
-func (a *STFAuthentication) STFWebReceiverDisableSTFAuthenticationProtocols(ctx context.Context, DisableAuthenticationServiceProtocolRequestModel models.AddUpdateSTFAuthenticationServiceProtocolRequestModel) ApiDisableSTFAuthenticationProtocolsRequest {
+func (a *STFAuthentication) STFWebReceiverDisableSTFAuthenticationProtocols(ctx context.Context, DisableAuthenticationServiceProtocolRequestModel models.AddUpdateSTFAuthenticationServiceProtocolRequestModel, GetSTFAuthenticationService models.GetSTFAuthenticationServiceRequestModel) ApiDisableSTFAuthenticationProtocolsRequest {
 	return ApiDisableSTFAuthenticationProtocolsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		DisableAuthenticationServiceProtocolRequestModel: DisableAuthenticationServiceProtocolRequestModel,
+		GetSTFAuthenticationService:                      GetSTFAuthenticationService,
 	}
 }
 
