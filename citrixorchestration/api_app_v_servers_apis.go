@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type AppVServersAPIsDAAS interface {
@@ -153,6 +155,66 @@ type ApiAppVServersGetAppVServerPackageRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiAppVServersGetAppVServerPackageRequest wraps the request struct to provide getter methods for testing
+type MockApiAppVServersGetAppVServerPackageRequest struct {
+	ApiAppVServersGetAppVServerPackageRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppVServersGetAppVServerPackageRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppVServersGetAppVServerPackageRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppVServersGetAppVServerPackageRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetServer returns the server parameter
+func (r MockApiAppVServersGetAppVServerPackageRequest) GetServer() string {
+	return r.server
+}
+
+// GetId returns the id parameter
+func (r MockApiAppVServersGetAppVServerPackageRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppVServersGetAppVServerPackageRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppVServersGetAppVServerPackageRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppVServersGetAppVServerPackageRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppVServersGetAppVServerPackageRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppVServersGetAppVServerPackageRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppVServersGetAppVServerPackageRequest) Execute() (*AppVPackageResponseModel, *http.Response, error) {
+	return r.ApiAppVServersGetAppVServerPackageRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -443,6 +505,71 @@ type ApiAppVServersGetAppVServerPackageApplicationRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiAppVServersGetAppVServerPackageApplicationRequest wraps the request struct to provide getter methods for testing
+type MockApiAppVServersGetAppVServerPackageApplicationRequest struct {
+	ApiAppVServersGetAppVServerPackageApplicationRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppVServersGetAppVServerPackageApplicationRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetServer returns the server parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationRequest) GetServer() string {
+	return r.server
+}
+
+// GetId returns the id parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationRequest) GetId() string {
+	return r.id
+}
+
+// GetAppId returns the appId parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationRequest) GetAppId() string {
+	return r.appId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppVServersGetAppVServerPackageApplicationRequest) Execute() (*AppVApplicationDetailResponseModel, *http.Response, error) {
+	return r.ApiAppVServersGetAppVServerPackageApplicationRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -737,6 +864,76 @@ type ApiAppVServersGetAppVServerPackageApplicationIconRequest struct {
 	accept              *string
 	citrixLocale        *string
 	iconFormat          *string
+}
+
+// MockApiAppVServersGetAppVServerPackageApplicationIconRequest wraps the request struct to provide getter methods for testing
+type MockApiAppVServersGetAppVServerPackageApplicationIconRequest struct {
+	ApiAppVServersGetAppVServerPackageApplicationIconRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppVServersGetAppVServerPackageApplicationIconRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationIconRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationIconRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetServer returns the server parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationIconRequest) GetServer() string {
+	return r.server
+}
+
+// GetId returns the id parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationIconRequest) GetId() string {
+	return r.id
+}
+
+// GetAppId returns the appId parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationIconRequest) GetAppId() string {
+	return r.appId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationIconRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationIconRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationIconRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationIconRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationIconRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetIconFormat returns the iconFormat parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationIconRequest) GetIconFormat() *string {
+	return r.iconFormat
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppVServersGetAppVServerPackageApplicationIconRequest) Execute() (*IconDataResponseModel, *http.Response, error) {
+	return r.ApiAppVServersGetAppVServerPackageApplicationIconRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1040,6 +1237,66 @@ type ApiAppVServersGetAppVServerPackageApplicationsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiAppVServersGetAppVServerPackageApplicationsRequest wraps the request struct to provide getter methods for testing
+type MockApiAppVServersGetAppVServerPackageApplicationsRequest struct {
+	ApiAppVServersGetAppVServerPackageApplicationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppVServersGetAppVServerPackageApplicationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetServer returns the server parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationsRequest) GetServer() string {
+	return r.server
+}
+
+// GetId returns the id parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationsRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppVServersGetAppVServerPackageApplicationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppVServersGetAppVServerPackageApplicationsRequest) Execute() (*AppVApplicationResponseModelCollection, *http.Response, error) {
+	return r.ApiAppVServersGetAppVServerPackageApplicationsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAppVServersGetAppVServerPackageApplicationsRequest) CitrixCustomerId(citrixCustomerId string) ApiAppVServersGetAppVServerPackageApplicationsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1328,6 +1585,71 @@ type ApiAppVServersGetAppVServerPackageIconRequest struct {
 	accept              *string
 	citrixLocale        *string
 	iconFormat          *string
+}
+
+// MockApiAppVServersGetAppVServerPackageIconRequest wraps the request struct to provide getter methods for testing
+type MockApiAppVServersGetAppVServerPackageIconRequest struct {
+	ApiAppVServersGetAppVServerPackageIconRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppVServersGetAppVServerPackageIconRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppVServersGetAppVServerPackageIconRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppVServersGetAppVServerPackageIconRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetServer returns the server parameter
+func (r MockApiAppVServersGetAppVServerPackageIconRequest) GetServer() string {
+	return r.server
+}
+
+// GetId returns the id parameter
+func (r MockApiAppVServersGetAppVServerPackageIconRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppVServersGetAppVServerPackageIconRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppVServersGetAppVServerPackageIconRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppVServersGetAppVServerPackageIconRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppVServersGetAppVServerPackageIconRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppVServersGetAppVServerPackageIconRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetIconFormat returns the iconFormat parameter
+func (r MockApiAppVServersGetAppVServerPackageIconRequest) GetIconFormat() *string {
+	return r.iconFormat
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppVServersGetAppVServerPackageIconRequest) Execute() (*IconDataResponseModel, *http.Response, error) {
+	return r.ApiAppVServersGetAppVServerPackageIconRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1627,6 +1949,61 @@ type ApiAppVServersGetAppVServerPackagesRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiAppVServersGetAppVServerPackagesRequest wraps the request struct to provide getter methods for testing
+type MockApiAppVServersGetAppVServerPackagesRequest struct {
+	ApiAppVServersGetAppVServerPackagesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppVServersGetAppVServerPackagesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppVServersGetAppVServerPackagesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppVServersGetAppVServerPackagesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetServer returns the server parameter
+func (r MockApiAppVServersGetAppVServerPackagesRequest) GetServer() string {
+	return r.server
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppVServersGetAppVServerPackagesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppVServersGetAppVServerPackagesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppVServersGetAppVServerPackagesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppVServersGetAppVServerPackagesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppVServersGetAppVServerPackagesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppVServersGetAppVServerPackagesRequest) Execute() (*AppVPackageResponseModelCollection, *http.Response, error) {
+	return r.ApiAppVServersGetAppVServerPackagesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAppVServersGetAppVServerPackagesRequest) CitrixCustomerId(citrixCustomerId string) ApiAppVServersGetAppVServerPackagesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1911,6 +2288,61 @@ type ApiAppVServersGetAppVServersRequest struct {
 	async               *bool
 }
 
+// MockApiAppVServersGetAppVServersRequest wraps the request struct to provide getter methods for testing
+type MockApiAppVServersGetAppVServersRequest struct {
+	ApiAppVServersGetAppVServersRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppVServersGetAppVServersRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppVServersGetAppVServersRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppVServersGetAppVServersRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppVServersGetAppVServersRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppVServersGetAppVServersRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppVServersGetAppVServersRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppVServersGetAppVServersRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppVServersGetAppVServersRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppVServersGetAppVServersRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppVServersGetAppVServersRequest) Execute() (*AppVServerResponseModelCollection, *http.Response, error) {
+	return r.ApiAppVServersGetAppVServersRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAppVServersGetAppVServersRequest) CitrixCustomerId(citrixCustomerId string) ApiAppVServersGetAppVServersRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2177,4 +2609,120 @@ func (a *AppVServersAPIsDAASService) AppVServersGetAppVServersExecute(r ApiAppVS
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockAppVServersAPIsDAAS extracts the MockAppVServersAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockAppVServersAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockAppVServersAPIsDAAS(client *APIClient) *MockAppVServersAPIsDAAS {
+	return client.AppVServersAPIsDAAS.(*MockAppVServersAPIsDAAS)
+}
+
+// MockAppVServersAPIsDAAS is a mock implementation of the AppVServersAPIsDAAS interface for testing
+var _ AppVServersAPIsDAAS = (*MockAppVServersAPIsDAAS)(nil)
+
+type MockAppVServersAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServerPackage(ctx context.Context, server string, id string) ApiAppVServersGetAppVServerPackageRequest {
+	return ApiAppVServersGetAppVServerPackageRequest{
+		ctx:        ctx,
+		ApiService: m,
+		server:     server,
+		id:         id,
+	}
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServerPackageExecute(r ApiAppVServersGetAppVServerPackageRequest) (*AppVPackageResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppVPackageResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServerPackageApplication(ctx context.Context, server string, id string, appId string) ApiAppVServersGetAppVServerPackageApplicationRequest {
+	return ApiAppVServersGetAppVServerPackageApplicationRequest{
+		ctx:        ctx,
+		ApiService: m,
+		server:     server,
+		id:         id,
+		appId:      appId,
+	}
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServerPackageApplicationExecute(r ApiAppVServersGetAppVServerPackageApplicationRequest) (*AppVApplicationDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppVApplicationDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServerPackageApplicationIcon(ctx context.Context, server string, id string, appId string) ApiAppVServersGetAppVServerPackageApplicationIconRequest {
+	return ApiAppVServersGetAppVServerPackageApplicationIconRequest{
+		ctx:        ctx,
+		ApiService: m,
+		server:     server,
+		id:         id,
+		appId:      appId,
+	}
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServerPackageApplicationIconExecute(r ApiAppVServersGetAppVServerPackageApplicationIconRequest) (*IconDataResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IconDataResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServerPackageApplications(ctx context.Context, server string, id string) ApiAppVServersGetAppVServerPackageApplicationsRequest {
+	return ApiAppVServersGetAppVServerPackageApplicationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		server:     server,
+		id:         id,
+	}
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServerPackageApplicationsExecute(r ApiAppVServersGetAppVServerPackageApplicationsRequest) (*AppVApplicationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppVApplicationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServerPackageIcon(ctx context.Context, server string, id string) ApiAppVServersGetAppVServerPackageIconRequest {
+	return ApiAppVServersGetAppVServerPackageIconRequest{
+		ctx:        ctx,
+		ApiService: m,
+		server:     server,
+		id:         id,
+	}
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServerPackageIconExecute(r ApiAppVServersGetAppVServerPackageIconRequest) (*IconDataResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IconDataResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServerPackages(ctx context.Context, server string) ApiAppVServersGetAppVServerPackagesRequest {
+	return ApiAppVServersGetAppVServerPackagesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		server:     server,
+	}
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServerPackagesExecute(r ApiAppVServersGetAppVServerPackagesRequest) (*AppVPackageResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppVPackageResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServers(ctx context.Context) ApiAppVServersGetAppVServersRequest {
+	return ApiAppVServersGetAppVServersRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAppVServersAPIsDAAS) AppVServersGetAppVServersExecute(r ApiAppVServersGetAppVServersRequest) (*AppVServerResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppVServerResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
 }

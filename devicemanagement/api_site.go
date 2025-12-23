@@ -19,12 +19,108 @@ import (
 	"strings"
 )
 
+type SiteDAAS interface {
+
+	/*
+		SiteCreate Create a Site
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSiteCreateRequest
+	*/
+	SiteCreate(ctx context.Context) ApiSiteCreateRequest
+
+	// SiteCreateExecute executes the request
+	SiteCreateExecute(r ApiSiteCreateRequest) (*http.Response, error)
+
+	/*
+		SiteDelete Delete a Site
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The ID of the resource you want to delete.
+		@return ApiSiteDeleteRequest
+	*/
+	SiteDelete(ctx context.Context, id int64) ApiSiteDeleteRequest
+
+	// SiteDeleteExecute executes the request
+	SiteDeleteExecute(r ApiSiteDeleteRequest) (*http.Response, error)
+
+	/*
+		SiteExport Export a Site
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSiteExportRequest
+	*/
+	SiteExport(ctx context.Context) ApiSiteExportRequest
+
+	// SiteExportExecute executes the request
+	//  @return map[string]interface{}
+	SiteExportExecute(r ApiSiteExportRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+		SiteImport Import a Site
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSiteImportRequest
+	*/
+	SiteImport(ctx context.Context) ApiSiteImportRequest
+
+	// SiteImportExecute executes the request
+	SiteImportExecute(r ApiSiteImportRequest) (*http.Response, error)
+
+	/*
+		SiteQuery Query Sites
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSiteQueryRequest
+	*/
+	SiteQuery(ctx context.Context) ApiSiteQueryRequest
+
+	// SiteQueryExecute executes the request
+	//  @return SiteQuery200Response
+	SiteQueryExecute(r ApiSiteQueryRequest) (*SiteQuery200Response, *http.Response, error)
+
+	/*
+		SiteQueryById Query Sites by Identity
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The ID of the resource you want to query.
+		@return ApiSiteQueryByIdRequest
+	*/
+	SiteQueryById(ctx context.Context, id int64) ApiSiteQueryByIdRequest
+
+	// SiteQueryByIdExecute executes the request
+	//  @return SiteModel
+	SiteQueryByIdExecute(r ApiSiteQueryByIdRequest) (*SiteModel, *http.Response, error)
+
+	/*
+		SiteReplicate Replicate a Site
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSiteReplicateRequest
+	*/
+	SiteReplicate(ctx context.Context) ApiSiteReplicateRequest
+
+	// SiteReplicateExecute executes the request
+	SiteReplicateExecute(r ApiSiteReplicateRequest) (*http.Response, error)
+
+	/*
+		SiteUpdate Update a Site
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSiteUpdateRequest
+	*/
+	SiteUpdate(ctx context.Context) ApiSiteUpdateRequest
+
+	// SiteUpdateExecute executes the request
+	SiteUpdateExecute(r ApiSiteUpdateRequest) (*http.Response, error)
+}
+
 // SiteDAASService SiteDAAS service
 type SiteDAASService service
 
 type ApiSiteCreateRequest struct {
 	ctx                 context.Context
-	ApiService          *SiteDAASService
+	ApiService          SiteDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string
@@ -222,7 +318,7 @@ func (a *SiteDAASService) SiteCreateExecute(r ApiSiteCreateRequest) (*http.Respo
 
 type ApiSiteDeleteRequest struct {
 	ctx                 context.Context
-	ApiService          *SiteDAASService
+	ApiService          SiteDAAS
 	id                  int64
 	accept              *string
 	authorization       *string
@@ -416,7 +512,7 @@ func (a *SiteDAASService) SiteDeleteExecute(r ApiSiteDeleteRequest) (*http.Respo
 
 type ApiSiteExportRequest struct {
 	ctx                 context.Context
-	ApiService          *SiteDAASService
+	ApiService          SiteDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string
@@ -627,7 +723,7 @@ func (a *SiteDAASService) SiteExportExecute(r ApiSiteExportRequest) (map[string]
 
 type ApiSiteImportRequest struct {
 	ctx                 context.Context
-	ApiService          *SiteDAASService
+	ApiService          SiteDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string
@@ -825,7 +921,7 @@ func (a *SiteDAASService) SiteImportExecute(r ApiSiteImportRequest) (*http.Respo
 
 type ApiSiteQueryRequest struct {
 	ctx                 context.Context
-	ApiService          *SiteDAASService
+	ApiService          SiteDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string
@@ -1036,7 +1132,7 @@ func (a *SiteDAASService) SiteQueryExecute(r ApiSiteQueryRequest) (*SiteQuery200
 
 type ApiSiteQueryByIdRequest struct {
 	ctx                 context.Context
-	ApiService          *SiteDAASService
+	ApiService          SiteDAAS
 	id                  int64
 	accept              *string
 	authorization       *string
@@ -1231,7 +1327,7 @@ func (a *SiteDAASService) SiteQueryByIdExecute(r ApiSiteQueryByIdRequest) (*Site
 
 type ApiSiteReplicateRequest struct {
 	ctx                 context.Context
-	ApiService          *SiteDAASService
+	ApiService          SiteDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string
@@ -1439,7 +1535,7 @@ func (a *SiteDAASService) SiteReplicateExecute(r ApiSiteReplicateRequest) (*http
 
 type ApiSiteUpdateRequest struct {
 	ctx                 context.Context
-	ApiService          *SiteDAASService
+	ApiService          SiteDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string

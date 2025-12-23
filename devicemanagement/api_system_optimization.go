@@ -19,12 +19,51 @@ import (
 	"strings"
 )
 
+type SystemOptimizationDAAS interface {
+
+	/*
+		SystemUtilitySettingQuery Query System Optimization Configurations
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSystemUtilitySettingQueryRequest
+	*/
+	SystemUtilitySettingQuery(ctx context.Context) ApiSystemUtilitySettingQueryRequest
+
+	// SystemUtilitySettingQueryExecute executes the request
+	//  @return SystemUtilitySettingQuery200Response
+	SystemUtilitySettingQueryExecute(r ApiSystemUtilitySettingQueryRequest) (*SystemUtilitySettingQuery200Response, *http.Response, error)
+
+	/*
+		SystemUtilitySettingQueryById Query System Optimization Configurations by Identity
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The ID of the resource you want to query.
+		@return ApiSystemUtilitySettingQueryByIdRequest
+	*/
+	SystemUtilitySettingQueryById(ctx context.Context, id int64) ApiSystemUtilitySettingQueryByIdRequest
+
+	// SystemUtilitySettingQueryByIdExecute executes the request
+	//  @return SystemOptimizationModel
+	SystemUtilitySettingQueryByIdExecute(r ApiSystemUtilitySettingQueryByIdRequest) (*SystemOptimizationModel, *http.Response, error)
+
+	/*
+		SystemUtilitySettingUpdate Update a System Optimization Configuration
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSystemUtilitySettingUpdateRequest
+	*/
+	SystemUtilitySettingUpdate(ctx context.Context) ApiSystemUtilitySettingUpdateRequest
+
+	// SystemUtilitySettingUpdateExecute executes the request
+	SystemUtilitySettingUpdateExecute(r ApiSystemUtilitySettingUpdateRequest) (*http.Response, error)
+}
+
 // SystemOptimizationDAASService SystemOptimizationDAAS service
 type SystemOptimizationDAASService service
 
 type ApiSystemUtilitySettingQueryRequest struct {
 	ctx                 context.Context
-	ApiService          *SystemOptimizationDAASService
+	ApiService          SystemOptimizationDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string
@@ -215,7 +254,7 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryExecute(r ApiSy
 
 type ApiSystemUtilitySettingQueryByIdRequest struct {
 	ctx                 context.Context
-	ApiService          *SystemOptimizationDAASService
+	ApiService          SystemOptimizationDAAS
 	id                  int64
 	accept              *string
 	authorization       *string
@@ -410,7 +449,7 @@ func (a *SystemOptimizationDAASService) SystemUtilitySettingQueryByIdExecute(r A
 
 type ApiSystemUtilitySettingUpdateRequest struct {
 	ctx                 context.Context
-	ApiService          *SystemOptimizationDAASService
+	ApiService          SystemOptimizationDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string

@@ -19,12 +19,170 @@ import (
 	"strings"
 )
 
+type SettingsDAAS interface {
+
+	/*
+		CreateSettings Create Settings Record For The Specified Customer Id For A Specific Product.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@return ApiCreateSettingsRequest
+	*/
+	CreateSettings(ctx context.Context, app string) ApiCreateSettingsRequest
+
+	// CreateSettingsExecute executes the request
+	//  @return GetAllSettingResponse
+	CreateSettingsExecute(r ApiCreateSettingsRequest) (*GetAllSettingResponse, *http.Response, error)
+
+	/*
+		DeleteSettings Delete Settings Record For The Specified Customer Id, Product And Service.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@param url Service URL for settings (based 64 url encoded)
+		@return ApiDeleteSettingsRequest
+	*/
+	DeleteSettings(ctx context.Context, app string, url string) ApiDeleteSettingsRequest
+
+	// DeleteSettingsExecute executes the request
+	//  @return string
+	DeleteSettingsExecute(r ApiDeleteSettingsRequest) (string, *http.Response, error)
+
+	/*
+		DeleteSettingsForChannel Delete Settings Record For The Specified Customer Id, Product, Service And Channel.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@param url Service URL for settings (based 64 url encoded)
+		@param channelName Channel Name
+		@return ApiDeleteSettingsForChannelRequest
+	*/
+	DeleteSettingsForChannel(ctx context.Context, app string, url string, channelName string) ApiDeleteSettingsForChannelRequest
+
+	// DeleteSettingsForChannelExecute executes the request
+	//  @return string
+	DeleteSettingsForChannelExecute(r ApiDeleteSettingsForChannelRequest) (string, *http.Response, error)
+
+	/*
+		DeleteSettingsForProfile Delete Settings Record For The Specified Customer Id, Product, Service And Profile.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@param url Service URL for settings (based 64 url encoded)
+		@param profileId Profile ID
+		@return ApiDeleteSettingsForProfileRequest
+	*/
+	DeleteSettingsForProfile(ctx context.Context, app string, url string, profileId string) ApiDeleteSettingsForProfileRequest
+
+	// DeleteSettingsForProfileExecute executes the request
+	//  @return string
+	DeleteSettingsForProfileExecute(r ApiDeleteSettingsForProfileRequest) (string, *http.Response, error)
+
+	/*
+		RetrieveAllChannelSettings Retrieve All Channels Settings Records For The Specified Customer Id and url
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@param url Service URL for settings (based 64 url encoded)
+		@return ApiRetrieveAllChannelSettingsRequest
+	*/
+	RetrieveAllChannelSettings(ctx context.Context, app string, url string) ApiRetrieveAllChannelSettingsRequest
+
+	// RetrieveAllChannelSettingsExecute executes the request
+	//  @return GetAllSettingResponse
+	RetrieveAllChannelSettingsExecute(r ApiRetrieveAllChannelSettingsRequest) (*GetAllSettingResponse, *http.Response, error)
+
+	/*
+		RetrieveAllProfileSettings Retrieve All Profile Settings Records For The Specified Customer Id and url
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@param url Service URL for settings (based 64 url encoded)
+		@return ApiRetrieveAllProfileSettingsRequest
+	*/
+	RetrieveAllProfileSettings(ctx context.Context, app string, url string) ApiRetrieveAllProfileSettingsRequest
+
+	// RetrieveAllProfileSettingsExecute executes the request
+	//  @return GetAllSettingResponse
+	RetrieveAllProfileSettingsExecute(r ApiRetrieveAllProfileSettingsRequest) (*GetAllSettingResponse, *http.Response, error)
+
+	/*
+		RetrieveAllSettings Retrieve Settings Records For The Specified Customer Id.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiRetrieveAllSettingsRequest
+	*/
+	RetrieveAllSettings(ctx context.Context) ApiRetrieveAllSettingsRequest
+
+	// RetrieveAllSettingsExecute executes the request
+	//  @return GetAllSettingResponse
+	RetrieveAllSettingsExecute(r ApiRetrieveAllSettingsRequest) (*GetAllSettingResponse, *http.Response, error)
+
+	/*
+		RetrieveSettingsForChannel Retrieve Settings Record For The Specified Customer Id, Product, Service And Channel.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@param url Service URL for settings (based 64 url encoded)
+		@param channelName Channel Name
+		@return ApiRetrieveSettingsForChannelRequest
+	*/
+	RetrieveSettingsForChannel(ctx context.Context, app string, url string, channelName string) ApiRetrieveSettingsForChannelRequest
+
+	// RetrieveSettingsForChannelExecute executes the request
+	//  @return GetAllSettingResponse
+	RetrieveSettingsForChannelExecute(r ApiRetrieveSettingsForChannelRequest) (*GetAllSettingResponse, *http.Response, error)
+
+	/*
+		RetrieveSettingsForProfile Retrieve Settings Record For The Specified Customer Id, Product, Service And Profile ID.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@param url Service URL for settings (based 64 url encoded)
+		@param profileId Profile ID
+		@return ApiRetrieveSettingsForProfileRequest
+	*/
+	RetrieveSettingsForProfile(ctx context.Context, app string, url string, profileId string) ApiRetrieveSettingsForProfileRequest
+
+	// RetrieveSettingsForProfileExecute executes the request
+	//  @return GetAllSettingResponse
+	RetrieveSettingsForProfileExecute(r ApiRetrieveSettingsForProfileRequest) (*GetAllSettingResponse, *http.Response, error)
+
+	/*
+		RetrieveSettingsForURL Retrieve Settings Record For The Specified Customer Id, Product And Service.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@param url Service URL for settings (based 64 url encoded)
+		@return ApiRetrieveSettingsForURLRequest
+	*/
+	RetrieveSettingsForURL(ctx context.Context, app string, url string) ApiRetrieveSettingsForURLRequest
+
+	// RetrieveSettingsForURLExecute executes the request
+	//  @return GetAllSettingResponse
+	RetrieveSettingsForURLExecute(r ApiRetrieveSettingsForURLRequest) (*GetAllSettingResponse, *http.Response, error)
+
+	/*
+		UpdateSettings Update Settings Record For The Specified Customer Id, Product And Service.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@param url Service URL for settings (based 64 url encoded)
+		@return ApiUpdateSettingsRequest
+	*/
+	UpdateSettings(ctx context.Context, app string, url string) ApiUpdateSettingsRequest
+
+	// UpdateSettingsExecute executes the request
+	//  @return string
+	UpdateSettingsExecute(r ApiUpdateSettingsRequest) (string, *http.Response, error)
+}
+
 // SettingsDAASService SettingsDAAS service
 type SettingsDAASService service
 
 type ApiCreateSettingsRequest struct {
 	ctx                 context.Context
-	ApiService          *SettingsDAASService
+	ApiService          SettingsDAAS
 	citrixCustomerId    *string
 	app                 string
 	citrixTransactionId *string
@@ -274,7 +432,7 @@ func (a *SettingsDAASService) CreateSettingsExecute(r ApiCreateSettingsRequest) 
 
 type ApiDeleteSettingsRequest struct {
 	ctx                 context.Context
-	ApiService          *SettingsDAASService
+	ApiService          SettingsDAAS
 	citrixCustomerId    *string
 	app                 string
 	url                 string
@@ -520,7 +678,7 @@ func (a *SettingsDAASService) DeleteSettingsExecute(r ApiDeleteSettingsRequest) 
 
 type ApiDeleteSettingsForChannelRequest struct {
 	ctx                 context.Context
-	ApiService          *SettingsDAASService
+	ApiService          SettingsDAAS
 	citrixCustomerId    *string
 	app                 string
 	url                 string
@@ -770,7 +928,7 @@ func (a *SettingsDAASService) DeleteSettingsForChannelExecute(r ApiDeleteSetting
 
 type ApiDeleteSettingsForProfileRequest struct {
 	ctx                 context.Context
-	ApiService          *SettingsDAASService
+	ApiService          SettingsDAAS
 	citrixCustomerId    *string
 	app                 string
 	url                 string
@@ -1020,7 +1178,7 @@ func (a *SettingsDAASService) DeleteSettingsForProfileExecute(r ApiDeleteSetting
 
 type ApiRetrieveAllChannelSettingsRequest struct {
 	ctx                 context.Context
-	ApiService          *SettingsDAASService
+	ApiService          SettingsDAAS
 	citrixCustomerId    *string
 	app                 string
 	url                 string
@@ -1266,7 +1424,7 @@ func (a *SettingsDAASService) RetrieveAllChannelSettingsExecute(r ApiRetrieveAll
 
 type ApiRetrieveAllProfileSettingsRequest struct {
 	ctx                 context.Context
-	ApiService          *SettingsDAASService
+	ApiService          SettingsDAAS
 	citrixCustomerId    *string
 	app                 string
 	url                 string
@@ -1512,7 +1670,7 @@ func (a *SettingsDAASService) RetrieveAllProfileSettingsExecute(r ApiRetrieveAll
 
 type ApiRetrieveAllSettingsRequest struct {
 	ctx                 context.Context
-	ApiService          *SettingsDAASService
+	ApiService          SettingsDAAS
 	citrixCustomerId    *string
 	citrixTransactionId *string
 }
@@ -1750,7 +1908,7 @@ func (a *SettingsDAASService) RetrieveAllSettingsExecute(r ApiRetrieveAllSetting
 
 type ApiRetrieveSettingsForChannelRequest struct {
 	ctx                 context.Context
-	ApiService          *SettingsDAASService
+	ApiService          SettingsDAAS
 	citrixCustomerId    *string
 	app                 string
 	url                 string
@@ -2000,7 +2158,7 @@ func (a *SettingsDAASService) RetrieveSettingsForChannelExecute(r ApiRetrieveSet
 
 type ApiRetrieveSettingsForProfileRequest struct {
 	ctx                 context.Context
-	ApiService          *SettingsDAASService
+	ApiService          SettingsDAAS
 	citrixCustomerId    *string
 	app                 string
 	url                 string
@@ -2250,7 +2408,7 @@ func (a *SettingsDAASService) RetrieveSettingsForProfileExecute(r ApiRetrieveSet
 
 type ApiRetrieveSettingsForURLRequest struct {
 	ctx                 context.Context
-	ApiService          *SettingsDAASService
+	ApiService          SettingsDAAS
 	citrixCustomerId    *string
 	app                 string
 	url                 string
@@ -2496,7 +2654,7 @@ func (a *SettingsDAASService) RetrieveSettingsForURLExecute(r ApiRetrieveSetting
 
 type ApiUpdateSettingsRequest struct {
 	ctx                 context.Context
-	ApiService          *SettingsDAASService
+	ApiService          SettingsDAAS
 	citrixCustomerId    *string
 	app                 string
 	url                 string

@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type MachinesAPIsDAAS interface {
@@ -606,6 +608,71 @@ type ApiMachinesAddMachineTagsRequest struct {
 	async               *bool
 }
 
+// MockApiMachinesAddMachineTagsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesAddMachineTagsRequest struct {
+	ApiMachinesAddMachineTagsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesAddMachineTagsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesAddMachineTagsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesAddMachineTagsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesAddMachineTagsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetTagNameOrId returns the tagNameOrId parameter
+func (r MockApiMachinesAddMachineTagsRequest) GetTagNameOrId() string {
+	return r.tagNameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesAddMachineTagsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesAddMachineTagsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesAddMachineTagsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesAddMachineTagsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesAddMachineTagsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesAddMachineTagsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesAddMachineTagsRequest) Execute() (*TagResponseModelCollection, *http.Response, error) {
+	return r.ApiMachinesAddMachineTagsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesAddMachineTagsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesAddMachineTagsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -914,6 +981,61 @@ type ApiMachinesCheckMachineExistsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachinesCheckMachineExistsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesCheckMachineExistsRequest struct {
+	ApiMachinesCheckMachineExistsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesCheckMachineExistsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesCheckMachineExistsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesCheckMachineExistsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetName returns the name parameter
+func (r MockApiMachinesCheckMachineExistsRequest) GetName() string {
+	return r.name
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesCheckMachineExistsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesCheckMachineExistsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesCheckMachineExistsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesCheckMachineExistsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesCheckMachineExistsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesCheckMachineExistsRequest) Execute() (*http.Response, error) {
+	return r.ApiMachinesCheckMachineExistsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesCheckMachineExistsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesCheckMachineExistsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1186,6 +1308,71 @@ type ApiMachinesCreateMachineUpgradeScheduleRequest struct {
 	accept                            *string
 	citrixLocale                      *string
 	async                             *bool
+}
+
+// MockApiMachinesCreateMachineUpgradeScheduleRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesCreateMachineUpgradeScheduleRequest struct {
+	ApiMachinesCreateMachineUpgradeScheduleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesCreateMachineUpgradeScheduleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesCreateMachineUpgradeScheduleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesCreateMachineUpgradeScheduleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesCreateMachineUpgradeScheduleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetCreateUpgradeScheduleRequestModel returns the createUpgradeScheduleRequestModel parameter
+func (r MockApiMachinesCreateMachineUpgradeScheduleRequest) GetCreateUpgradeScheduleRequestModel() *CreateUpgradeScheduleRequestModel {
+	return r.createUpgradeScheduleRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesCreateMachineUpgradeScheduleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesCreateMachineUpgradeScheduleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesCreateMachineUpgradeScheduleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesCreateMachineUpgradeScheduleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesCreateMachineUpgradeScheduleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesCreateMachineUpgradeScheduleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesCreateMachineUpgradeScheduleRequest) Execute() (*http.Response, error) {
+	return r.ApiMachinesCreateMachineUpgradeScheduleRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1503,6 +1690,71 @@ type ApiMachinesDisconnectSessionsRequest struct {
 	citrixLocale           *string
 	detailResponseRequired *bool
 	async                  *bool
+}
+
+// MockApiMachinesDisconnectSessionsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesDisconnectSessionsRequest struct {
+	ApiMachinesDisconnectSessionsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesDisconnectSessionsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesDisconnectSessionsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesDisconnectSessionsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesDisconnectSessionsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesDisconnectSessionsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesDisconnectSessionsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesDisconnectSessionsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesDisconnectSessionsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesDisconnectSessionsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetDetailResponseRequired returns the detailResponseRequired parameter
+func (r MockApiMachinesDisconnectSessionsRequest) GetDetailResponseRequired() *bool {
+	return r.detailResponseRequired
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesDisconnectSessionsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesDisconnectSessionsRequest) Execute() (*MachineDetailResponseModel, *http.Response, error) {
+	return r.ApiMachinesDisconnectSessionsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1828,6 +2080,91 @@ type ApiMachinesDoMachineSearchRequest struct {
 	fields                              *string
 	async                               *bool
 	skip                                *int32
+}
+
+// MockApiMachinesDoMachineSearchRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesDoMachineSearchRequest struct {
+	ApiMachinesDoMachineSearchRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesDoMachineSearchRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetMachineAndSessionSearchRequestModel returns the machineAndSessionSearchRequestModel parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetMachineAndSessionSearchRequestModel() *MachineAndSessionSearchRequestModel {
+	return r.machineAndSessionSearchRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXTimeZone returns the xTimeZone parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetXTimeZone() *string {
+	return r.xTimeZone
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetFields() *string {
+	return r.fields
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetSkip returns the skip parameter
+func (r MockApiMachinesDoMachineSearchRequest) GetSkip() *int32 {
+	return r.skip
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesDoMachineSearchRequest) Execute() (*MachineResponseModelCollection, *http.Response, error) {
+	return r.ApiMachinesDoMachineSearchRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2195,6 +2532,66 @@ type ApiMachinesGetMachineRequest struct {
 	fields              *string
 }
 
+// MockApiMachinesGetMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachineRequest struct {
+	ApiMachinesGetMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetMachineRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMachinesGetMachineRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachineRequest) Execute() (*MachineDetailResponseModel, *http.Response, error) {
+	return r.ApiMachinesGetMachineRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesGetMachineRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesGetMachineRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2488,6 +2885,61 @@ type ApiMachinesGetMachineApplicationsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachinesGetMachineApplicationsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachineApplicationsRequest struct {
+	ApiMachinesGetMachineApplicationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachineApplicationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachineApplicationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachineApplicationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetMachineApplicationsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachineApplicationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachineApplicationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachineApplicationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachineApplicationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachineApplicationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachineApplicationsRequest) Execute() (*MachineApplicationResponseModelCollection, *http.Response, error) {
+	return r.ApiMachinesGetMachineApplicationsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesGetMachineApplicationsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesGetMachineApplicationsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2775,6 +3227,61 @@ type ApiMachinesGetMachineDeliveryGroupRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachinesGetMachineDeliveryGroupRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachineDeliveryGroupRequest struct {
+	ApiMachinesGetMachineDeliveryGroupRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachineDeliveryGroupRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachineDeliveryGroupRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachineDeliveryGroupRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetMachineDeliveryGroupRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachineDeliveryGroupRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachineDeliveryGroupRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachineDeliveryGroupRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachineDeliveryGroupRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachineDeliveryGroupRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachineDeliveryGroupRequest) Execute() (*DeliveryGroupDetailResponseModel, *http.Response, error) {
+	return r.ApiMachinesGetMachineDeliveryGroupRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesGetMachineDeliveryGroupRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesGetMachineDeliveryGroupRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3057,6 +3564,61 @@ type ApiMachinesGetMachineDesktopRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiMachinesGetMachineDesktopRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachineDesktopRequest struct {
+	ApiMachinesGetMachineDesktopRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachineDesktopRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachineDesktopRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachineDesktopRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetMachineDesktopRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachineDesktopRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachineDesktopRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachineDesktopRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachineDesktopRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachineDesktopRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachineDesktopRequest) Execute() (*DesktopResponseModel, *http.Response, error) {
+	return r.ApiMachinesGetMachineDesktopRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3343,6 +3905,61 @@ type ApiMachinesGetMachineMachineCatalogRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachinesGetMachineMachineCatalogRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachineMachineCatalogRequest struct {
+	ApiMachinesGetMachineMachineCatalogRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachineMachineCatalogRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachineMachineCatalogRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachineMachineCatalogRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetMachineMachineCatalogRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachineMachineCatalogRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachineMachineCatalogRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachineMachineCatalogRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachineMachineCatalogRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachineMachineCatalogRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachineMachineCatalogRequest) Execute() (*MachineCatalogDetailResponseModel, *http.Response, error) {
+	return r.ApiMachinesGetMachineMachineCatalogRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesGetMachineMachineCatalogRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesGetMachineMachineCatalogRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3627,6 +4244,61 @@ type ApiMachinesGetMachinePowerActionSchedulesRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachinesGetMachinePowerActionSchedulesRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachinePowerActionSchedulesRequest struct {
+	ApiMachinesGetMachinePowerActionSchedulesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachinePowerActionSchedulesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachinePowerActionSchedulesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachinePowerActionSchedulesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetMachinePowerActionSchedulesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachinePowerActionSchedulesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachinePowerActionSchedulesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachinePowerActionSchedulesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachinePowerActionSchedulesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachinePowerActionSchedulesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachinePowerActionSchedulesRequest) Execute() (*PowerActionScheduleResponseModelCollection, *http.Response, error) {
+	return r.ApiMachinesGetMachinePowerActionSchedulesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesGetMachinePowerActionSchedulesRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesGetMachinePowerActionSchedulesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3908,6 +4580,66 @@ type ApiMachinesGetMachineSessionsRequest struct {
 	accept              *string
 	citrixLocale        *string
 	fields              *string
+}
+
+// MockApiMachinesGetMachineSessionsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachineSessionsRequest struct {
+	ApiMachinesGetMachineSessionsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachineSessionsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachineSessionsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachineSessionsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetMachineSessionsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachineSessionsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachineSessionsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachineSessionsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachineSessionsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachineSessionsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMachinesGetMachineSessionsRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachineSessionsRequest) Execute() (*SessionResponseModelCollection, *http.Response, error) {
+	return r.ApiMachinesGetMachineSessionsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4204,6 +4936,76 @@ type ApiMachinesGetMachineStartMenuShortcutIconRequest struct {
 	shortcutPath        *string
 	iconFormat          *string
 	async               *bool
+}
+
+// MockApiMachinesGetMachineStartMenuShortcutIconRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachineStartMenuShortcutIconRequest struct {
+	ApiMachinesGetMachineStartMenuShortcutIconRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachineStartMenuShortcutIconRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutIconRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutIconRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutIconRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutIconRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutIconRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutIconRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutIconRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutIconRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetShortcutPath returns the shortcutPath parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutIconRequest) GetShortcutPath() *string {
+	return r.shortcutPath
+}
+
+// GetIconFormat returns the iconFormat parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutIconRequest) GetIconFormat() *string {
+	return r.iconFormat
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutIconRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachineStartMenuShortcutIconRequest) Execute() (*IconResponseModel, *http.Response, error) {
+	return r.ApiMachinesGetMachineStartMenuShortcutIconRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4523,6 +5325,61 @@ type ApiMachinesGetMachineStartMenuShortcutsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachinesGetMachineStartMenuShortcutsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachineStartMenuShortcutsRequest struct {
+	ApiMachinesGetMachineStartMenuShortcutsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachineStartMenuShortcutsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachineStartMenuShortcutsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachineStartMenuShortcutsRequest) Execute() (*StartMenuApplicationResponseModelCollection, *http.Response, error) {
+	return r.ApiMachinesGetMachineStartMenuShortcutsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesGetMachineStartMenuShortcutsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesGetMachineStartMenuShortcutsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -4813,6 +5670,66 @@ type ApiMachinesGetMachineTagsRequest struct {
 	accept              *string
 	citrixLocale        *string
 	fields              *string
+}
+
+// MockApiMachinesGetMachineTagsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachineTagsRequest struct {
+	ApiMachinesGetMachineTagsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachineTagsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachineTagsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachineTagsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetMachineTagsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachineTagsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachineTagsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachineTagsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachineTagsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachineTagsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMachinesGetMachineTagsRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachineTagsRequest) Execute() (*TagResponseModelCollection, *http.Response, error) {
+	return r.ApiMachinesGetMachineTagsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5113,6 +6030,61 @@ type ApiMachinesGetMachineUpgradeVersionsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachinesGetMachineUpgradeVersionsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachineUpgradeVersionsRequest struct {
+	ApiMachinesGetMachineUpgradeVersionsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachineUpgradeVersionsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachineUpgradeVersionsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachineUpgradeVersionsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetMachineUpgradeVersionsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachineUpgradeVersionsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachineUpgradeVersionsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachineUpgradeVersionsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachineUpgradeVersionsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachineUpgradeVersionsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachineUpgradeVersionsRequest) Execute() ([]string, *http.Response, error) {
+	return r.ApiMachinesGetMachineUpgradeVersionsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesGetMachineUpgradeVersionsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesGetMachineUpgradeVersionsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -5399,6 +6371,91 @@ type ApiMachinesGetMachinesRequest struct {
 	continuationToken   *string
 	async               *bool
 	fields              *string
+}
+
+// MockApiMachinesGetMachinesRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachinesRequest struct {
+	ApiMachinesGetMachinesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachinesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachinesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachinesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachinesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachinesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachinesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXTimeZone returns the xTimeZone parameter
+func (r MockApiMachinesGetMachinesRequest) GetXTimeZone() *string {
+	return r.xTimeZone
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachinesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachinesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetSessionSupport returns the sessionSupport parameter
+func (r MockApiMachinesGetMachinesRequest) GetSessionSupport() *SessionSupport {
+	return r.sessionSupport
+}
+
+// GetConfigured returns the configured parameter
+func (r MockApiMachinesGetMachinesRequest) GetConfigured() *bool {
+	return r.configured
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiMachinesGetMachinesRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiMachinesGetMachinesRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesGetMachinesRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMachinesGetMachinesRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachinesRequest) Execute() (*MachineResponseModelCollection, *http.Response, error) {
+	return r.ApiMachinesGetMachinesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5744,6 +6801,61 @@ type ApiMachinesGetMachinesAdministratorsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachinesGetMachinesAdministratorsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachinesAdministratorsRequest struct {
+	ApiMachinesGetMachinesAdministratorsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachinesAdministratorsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachinesAdministratorsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachinesAdministratorsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetMachinesAdministratorsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachinesAdministratorsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachinesAdministratorsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachinesAdministratorsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachinesAdministratorsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachinesAdministratorsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachinesAdministratorsRequest) Execute() (*AdministratorResponseModelCollection, *http.Response, error) {
+	return r.ApiMachinesGetMachinesAdministratorsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesGetMachinesAdministratorsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesGetMachinesAdministratorsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -6032,6 +7144,91 @@ type ApiMachinesGetMachinesV2Request struct {
 	continuationToken   *string
 	async               *bool
 	fields              *string
+}
+
+// MockApiMachinesGetMachinesV2Request wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetMachinesV2Request struct {
+	ApiMachinesGetMachinesV2Request
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetMachinesV2Request) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetMachinesV2Request) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetMachinesV2Request) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetMachinesV2Request) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetMachinesV2Request) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetMachinesV2Request) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXTimeZone returns the xTimeZone parameter
+func (r MockApiMachinesGetMachinesV2Request) GetXTimeZone() *string {
+	return r.xTimeZone
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetMachinesV2Request) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetMachinesV2Request) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetSessionSupport returns the sessionSupport parameter
+func (r MockApiMachinesGetMachinesV2Request) GetSessionSupport() *SessionSupport {
+	return r.sessionSupport
+}
+
+// GetConfigured returns the configured parameter
+func (r MockApiMachinesGetMachinesV2Request) GetConfigured() *bool {
+	return r.configured
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiMachinesGetMachinesV2Request) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiMachinesGetMachinesV2Request) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesGetMachinesV2Request) GetAsync() *bool {
+	return r.async
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMachinesGetMachinesV2Request) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetMachinesV2Request) Execute() (*MachineResponseModelCollection, *http.Response, error) {
+	return r.ApiMachinesGetMachinesV2Request.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6378,6 +7575,66 @@ type ApiMachinesGetTestMachineReportRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachinesGetTestMachineReportRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetTestMachineReportRequest struct {
+	ApiMachinesGetTestMachineReportRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetTestMachineReportRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetTestMachineReportRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetTestMachineReportRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetTestMachineReportRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetReportId returns the reportId parameter
+func (r MockApiMachinesGetTestMachineReportRequest) GetReportId() string {
+	return r.reportId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetTestMachineReportRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetTestMachineReportRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetTestMachineReportRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetTestMachineReportRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetTestMachineReportRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetTestMachineReportRequest) Execute() (*MachineTestResponseModel, *http.Response, error) {
+	return r.ApiMachinesGetTestMachineReportRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesGetTestMachineReportRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesGetTestMachineReportRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -6662,6 +7919,66 @@ type ApiMachinesGetVDAComponentsAndFeaturesRequest struct {
 	accept              *string
 	citrixLocale        *string
 	upgradeVersion      *string
+}
+
+// MockApiMachinesGetVDAComponentsAndFeaturesRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGetVDAComponentsAndFeaturesRequest struct {
+	ApiMachinesGetVDAComponentsAndFeaturesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGetVDAComponentsAndFeaturesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGetVDAComponentsAndFeaturesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGetVDAComponentsAndFeaturesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesGetVDAComponentsAndFeaturesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGetVDAComponentsAndFeaturesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGetVDAComponentsAndFeaturesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGetVDAComponentsAndFeaturesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGetVDAComponentsAndFeaturesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGetVDAComponentsAndFeaturesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetUpgradeVersion returns the upgradeVersion parameter
+func (r MockApiMachinesGetVDAComponentsAndFeaturesRequest) GetUpgradeVersion() *string {
+	return r.upgradeVersion
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGetVDAComponentsAndFeaturesRequest) Execute() (*VDAComponentsAndFeaturesResponseModel, *http.Response, error) {
+	return r.ApiMachinesGetVDAComponentsAndFeaturesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6955,6 +8272,71 @@ type ApiMachinesGroupMachineRequest struct {
 	accept                   *string
 	citrixLocale             *string
 	async                    *bool
+}
+
+// MockApiMachinesGroupMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesGroupMachineRequest struct {
+	ApiMachinesGroupMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesGroupMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesGroupMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesGroupMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetMachineGroupRequestModel returns the machineGroupRequestModel parameter
+func (r MockApiMachinesGroupMachineRequest) GetMachineGroupRequestModel() *MachineGroupRequestModel {
+	return r.machineGroupRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesGroupMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesGroupMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesGroupMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXTimeZone returns the xTimeZone parameter
+func (r MockApiMachinesGroupMachineRequest) GetXTimeZone() *string {
+	return r.xTimeZone
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesGroupMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesGroupMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesGroupMachineRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesGroupMachineRequest) Execute() (map[string]int32, *http.Response, error) {
+	return r.ApiMachinesGroupMachineRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7282,6 +8664,66 @@ type ApiMachinesImportFileTypesRequest struct {
 	async               *bool
 }
 
+// MockApiMachinesImportFileTypesRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesImportFileTypesRequest struct {
+	ApiMachinesImportFileTypesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesImportFileTypesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesImportFileTypesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesImportFileTypesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesImportFileTypesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesImportFileTypesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesImportFileTypesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesImportFileTypesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesImportFileTypesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesImportFileTypesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesImportFileTypesRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesImportFileTypesRequest) Execute() (*FtaResponseModelCollection, *http.Response, error) {
+	return r.ApiMachinesImportFileTypesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesImportFileTypesRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesImportFileTypesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -7587,6 +9029,71 @@ type ApiMachinesLogoffMachineSessionsRequest struct {
 	citrixLocale           *string
 	detailResponseRequired *bool
 	async                  *bool
+}
+
+// MockApiMachinesLogoffMachineSessionsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesLogoffMachineSessionsRequest struct {
+	ApiMachinesLogoffMachineSessionsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesLogoffMachineSessionsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesLogoffMachineSessionsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesLogoffMachineSessionsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesLogoffMachineSessionsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesLogoffMachineSessionsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesLogoffMachineSessionsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesLogoffMachineSessionsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesLogoffMachineSessionsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesLogoffMachineSessionsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetDetailResponseRequired returns the detailResponseRequired parameter
+func (r MockApiMachinesLogoffMachineSessionsRequest) GetDetailResponseRequired() *bool {
+	return r.detailResponseRequired
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesLogoffMachineSessionsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesLogoffMachineSessionsRequest) Execute() (*MachineDetailResponseModel, *http.Response, error) {
+	return r.ApiMachinesLogoffMachineSessionsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7909,6 +9416,76 @@ type ApiMachinesRebootMachineRequest struct {
 	force                  *bool
 	detailResponseRequired *bool
 	async                  *bool
+}
+
+// MockApiMachinesRebootMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesRebootMachineRequest struct {
+	ApiMachinesRebootMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesRebootMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesRebootMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesRebootMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesRebootMachineRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesRebootMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesRebootMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesRebootMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesRebootMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesRebootMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForce returns the force parameter
+func (r MockApiMachinesRebootMachineRequest) GetForce() *bool {
+	return r.force
+}
+
+// GetDetailResponseRequired returns the detailResponseRequired parameter
+func (r MockApiMachinesRebootMachineRequest) GetDetailResponseRequired() *bool {
+	return r.detailResponseRequired
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesRebootMachineRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesRebootMachineRequest) Execute() (*MachineDetailResponseModel, *http.Response, error) {
+	return r.ApiMachinesRebootMachineRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8247,6 +9824,86 @@ type ApiMachinesRemoveMachineRequest struct {
 	async               *bool
 }
 
+// MockApiMachinesRemoveMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesRemoveMachineRequest struct {
+	ApiMachinesRemoveMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesRemoveMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesRemoveMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesRemoveMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesRemoveMachineRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesRemoveMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesRemoveMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesRemoveMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiMachinesRemoveMachineRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesRemoveMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesRemoveMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetDeleteVm returns the deleteVm parameter
+func (r MockApiMachinesRemoveMachineRequest) GetDeleteVm() *bool {
+	return r.deleteVm
+}
+
+// GetPurgeDBOnly returns the purgeDBOnly parameter
+func (r MockApiMachinesRemoveMachineRequest) GetPurgeDBOnly() *bool {
+	return r.purgeDBOnly
+}
+
+// GetDeleteAccount returns the deleteAccount parameter
+func (r MockApiMachinesRemoveMachineRequest) GetDeleteAccount() *MachineAccountDeleteOption {
+	return r.deleteAccount
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesRemoveMachineRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesRemoveMachineRequest) Execute() (*http.Response, error) {
+	return r.ApiMachinesRemoveMachineRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesRemoveMachineRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesRemoveMachineRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -8576,6 +10233,71 @@ type ApiMachinesRemoveMachineTagsRequest struct {
 	async               *bool
 }
 
+// MockApiMachinesRemoveMachineTagsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesRemoveMachineTagsRequest struct {
+	ApiMachinesRemoveMachineTagsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesRemoveMachineTagsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesRemoveMachineTagsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesRemoveMachineTagsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesRemoveMachineTagsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetTagNameOrId returns the tagNameOrId parameter
+func (r MockApiMachinesRemoveMachineTagsRequest) GetTagNameOrId() string {
+	return r.tagNameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesRemoveMachineTagsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesRemoveMachineTagsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesRemoveMachineTagsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesRemoveMachineTagsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesRemoveMachineTagsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesRemoveMachineTagsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesRemoveMachineTagsRequest) Execute() (*http.Response, error) {
+	return r.ApiMachinesRemoveMachineTagsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesRemoveMachineTagsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesRemoveMachineTagsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -8861,6 +10583,71 @@ type ApiMachinesRemoveMachineUpgradeScheduleRequest struct {
 	citrixLocale        *string
 	force               *bool
 	async               *bool
+}
+
+// MockApiMachinesRemoveMachineUpgradeScheduleRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesRemoveMachineUpgradeScheduleRequest struct {
+	ApiMachinesRemoveMachineUpgradeScheduleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesRemoveMachineUpgradeScheduleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesRemoveMachineUpgradeScheduleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesRemoveMachineUpgradeScheduleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesRemoveMachineUpgradeScheduleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesRemoveMachineUpgradeScheduleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesRemoveMachineUpgradeScheduleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesRemoveMachineUpgradeScheduleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesRemoveMachineUpgradeScheduleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesRemoveMachineUpgradeScheduleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForce returns the force parameter
+func (r MockApiMachinesRemoveMachineUpgradeScheduleRequest) GetForce() *bool {
+	return r.force
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesRemoveMachineUpgradeScheduleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesRemoveMachineUpgradeScheduleRequest) Execute() (*http.Response, error) {
+	return r.ApiMachinesRemoveMachineUpgradeScheduleRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9157,6 +10944,66 @@ type ApiMachinesRemovePowerActionScheduleRequest struct {
 	async               *bool
 }
 
+// MockApiMachinesRemovePowerActionScheduleRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesRemovePowerActionScheduleRequest struct {
+	ApiMachinesRemovePowerActionScheduleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesRemovePowerActionScheduleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesRemovePowerActionScheduleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesRemovePowerActionScheduleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesRemovePowerActionScheduleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesRemovePowerActionScheduleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesRemovePowerActionScheduleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesRemovePowerActionScheduleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesRemovePowerActionScheduleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesRemovePowerActionScheduleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesRemovePowerActionScheduleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesRemovePowerActionScheduleRequest) Execute() (*http.Response, error) {
+	return r.ApiMachinesRemovePowerActionScheduleRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesRemovePowerActionScheduleRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesRemovePowerActionScheduleRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -9439,6 +11286,71 @@ type ApiMachinesResumeMachineRequest struct {
 	citrixLocale           *string
 	detailResponseRequired *bool
 	async                  *bool
+}
+
+// MockApiMachinesResumeMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesResumeMachineRequest struct {
+	ApiMachinesResumeMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesResumeMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesResumeMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesResumeMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesResumeMachineRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesResumeMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesResumeMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesResumeMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesResumeMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesResumeMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetDetailResponseRequired returns the detailResponseRequired parameter
+func (r MockApiMachinesResumeMachineRequest) GetDetailResponseRequired() *bool {
+	return r.detailResponseRequired
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesResumeMachineRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesResumeMachineRequest) Execute() (*MachineDetailResponseModel, *http.Response, error) {
+	return r.ApiMachinesResumeMachineRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9763,6 +11675,71 @@ type ApiMachinesSetMachineTagsRequest struct {
 	async               *bool
 }
 
+// MockApiMachinesSetMachineTagsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesSetMachineTagsRequest struct {
+	ApiMachinesSetMachineTagsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesSetMachineTagsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesSetMachineTagsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesSetMachineTagsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesSetMachineTagsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetTagsRequestModel returns the tagsRequestModel parameter
+func (r MockApiMachinesSetMachineTagsRequest) GetTagsRequestModel() *TagsRequestModel {
+	return r.tagsRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesSetMachineTagsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesSetMachineTagsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesSetMachineTagsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesSetMachineTagsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesSetMachineTagsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesSetMachineTagsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesSetMachineTagsRequest) Execute() (*http.Response, error) {
+	return r.ApiMachinesSetMachineTagsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesSetMachineTagsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesSetMachineTagsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -10069,6 +12046,81 @@ type ApiMachinesShutdownMachineRequest struct {
 	detailResponseRequired *bool
 	async                  *bool
 	delay                  *int32
+}
+
+// MockApiMachinesShutdownMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesShutdownMachineRequest struct {
+	ApiMachinesShutdownMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesShutdownMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesShutdownMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesShutdownMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesShutdownMachineRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesShutdownMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesShutdownMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesShutdownMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesShutdownMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesShutdownMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForce returns the force parameter
+func (r MockApiMachinesShutdownMachineRequest) GetForce() *bool {
+	return r.force
+}
+
+// GetDetailResponseRequired returns the detailResponseRequired parameter
+func (r MockApiMachinesShutdownMachineRequest) GetDetailResponseRequired() *bool {
+	return r.detailResponseRequired
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesShutdownMachineRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetDelay returns the delay parameter
+func (r MockApiMachinesShutdownMachineRequest) GetDelay() *int32 {
+	return r.delay
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesShutdownMachineRequest) Execute() (*MachineDetailResponseModel, *http.Response, error) {
+	return r.ApiMachinesShutdownMachineRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10414,6 +12466,71 @@ type ApiMachinesStartMachineRequest struct {
 	async                  *bool
 }
 
+// MockApiMachinesStartMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesStartMachineRequest struct {
+	ApiMachinesStartMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesStartMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesStartMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesStartMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesStartMachineRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesStartMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesStartMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesStartMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesStartMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesStartMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetDetailResponseRequired returns the detailResponseRequired parameter
+func (r MockApiMachinesStartMachineRequest) GetDetailResponseRequired() *bool {
+	return r.detailResponseRequired
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesStartMachineRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesStartMachineRequest) Execute() (*MachineDetailResponseModel, *http.Response, error) {
+	return r.ApiMachinesStartMachineRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesStartMachineRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesStartMachineRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -10734,6 +12851,76 @@ type ApiMachinesSuspendMachineRequest struct {
 	detailResponseRequired *bool
 	async                  *bool
 	delay                  *int32
+}
+
+// MockApiMachinesSuspendMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesSuspendMachineRequest struct {
+	ApiMachinesSuspendMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesSuspendMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesSuspendMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesSuspendMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesSuspendMachineRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesSuspendMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesSuspendMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesSuspendMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesSuspendMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesSuspendMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetDetailResponseRequired returns the detailResponseRequired parameter
+func (r MockApiMachinesSuspendMachineRequest) GetDetailResponseRequired() *bool {
+	return r.detailResponseRequired
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesSuspendMachineRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetDelay returns the delay parameter
+func (r MockApiMachinesSuspendMachineRequest) GetDelay() *int32 {
+	return r.delay
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesSuspendMachineRequest) Execute() (*MachineDetailResponseModel, *http.Response, error) {
+	return r.ApiMachinesSuspendMachineRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11064,6 +13251,61 @@ type ApiMachinesTestMachineRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachinesTestMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesTestMachineRequest struct {
+	ApiMachinesTestMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesTestMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesTestMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesTestMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesTestMachineRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesTestMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesTestMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesTestMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesTestMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesTestMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesTestMachineRequest) Execute() (*MachineTestResponseModel, *http.Response, error) {
+	return r.ApiMachinesTestMachineRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesTestMachineRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesTestMachineRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -11357,6 +13599,71 @@ type ApiMachinesUpdateMachineCatalogMachineRequest struct {
 	accept                    *string
 	citrixLocale              *string
 	async                     *bool
+}
+
+// MockApiMachinesUpdateMachineCatalogMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesUpdateMachineCatalogMachineRequest struct {
+	ApiMachinesUpdateMachineCatalogMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesUpdateMachineCatalogMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesUpdateMachineCatalogMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesUpdateMachineCatalogMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesUpdateMachineCatalogMachineRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUpdateMachineRequestModel returns the updateMachineRequestModel parameter
+func (r MockApiMachinesUpdateMachineCatalogMachineRequest) GetUpdateMachineRequestModel() *UpdateMachineRequestModel {
+	return r.updateMachineRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesUpdateMachineCatalogMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesUpdateMachineCatalogMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesUpdateMachineCatalogMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesUpdateMachineCatalogMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesUpdateMachineCatalogMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesUpdateMachineCatalogMachineRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesUpdateMachineCatalogMachineRequest) Execute() (*http.Response, error) {
+	return r.ApiMachinesUpdateMachineCatalogMachineRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11668,6 +13975,71 @@ type ApiMachinesUpdateMachineUpgradeScheduleRequest struct {
 	async                             *bool
 }
 
+// MockApiMachinesUpdateMachineUpgradeScheduleRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesUpdateMachineUpgradeScheduleRequest struct {
+	ApiMachinesUpdateMachineUpgradeScheduleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesUpdateMachineUpgradeScheduleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesUpdateMachineUpgradeScheduleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesUpdateMachineUpgradeScheduleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesUpdateMachineUpgradeScheduleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUpdateUpgradeScheduleRequestModel returns the updateUpgradeScheduleRequestModel parameter
+func (r MockApiMachinesUpdateMachineUpgradeScheduleRequest) GetUpdateUpgradeScheduleRequestModel() *UpdateUpgradeScheduleRequestModel {
+	return r.updateUpgradeScheduleRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesUpdateMachineUpgradeScheduleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesUpdateMachineUpgradeScheduleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesUpdateMachineUpgradeScheduleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesUpdateMachineUpgradeScheduleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesUpdateMachineUpgradeScheduleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesUpdateMachineUpgradeScheduleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesUpdateMachineUpgradeScheduleRequest) Execute() (*http.Response, error) {
+	return r.ApiMachinesUpdateMachineUpgradeScheduleRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachinesUpdateMachineUpgradeScheduleRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesUpdateMachineUpgradeScheduleRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -11972,6 +14344,71 @@ type ApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest struct {
 	accept                                       *string
 	citrixLocale                                 *string
 	async                                        *bool
+}
+
+// MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest wraps the request struct to provide getter methods for testing
+type MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest struct {
+	ApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetVDAComponentsSelectionValidationRequestModel returns the vDAComponentsSelectionValidationRequestModel parameter
+func (r MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) GetVDAComponentsSelectionValidationRequestModel() *VDAComponentsSelectionValidationRequestModel {
+	return r.vDAComponentsSelectionValidationRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) Execute() (*VDAComponentsSelectionValidationResponseModel, *http.Response, error) {
+	return r.ApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -12286,4 +14723,516 @@ func (a *MachinesAPIsDAASService) MachinesValidateVDAComponentsAndFeaturesSelect
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockMachinesAPIsDAAS extracts the MockMachinesAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockMachinesAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockMachinesAPIsDAAS(client *APIClient) *MockMachinesAPIsDAAS {
+	return client.MachinesAPIsDAAS.(*MockMachinesAPIsDAAS)
+}
+
+// MockMachinesAPIsDAAS is a mock implementation of the MachinesAPIsDAAS interface for testing
+var _ MachinesAPIsDAAS = (*MockMachinesAPIsDAAS)(nil)
+
+type MockMachinesAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesAddMachineTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiMachinesAddMachineTagsRequest {
+	return ApiMachinesAddMachineTagsRequest{
+		ctx:         ctx,
+		ApiService:  m,
+		nameOrId:    nameOrId,
+		tagNameOrId: tagNameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesAddMachineTagsExecute(r ApiMachinesAddMachineTagsRequest) (*TagResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TagResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesCheckMachineExists(ctx context.Context, name string) ApiMachinesCheckMachineExistsRequest {
+	return ApiMachinesCheckMachineExistsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		name:       name,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesCheckMachineExistsExecute(r ApiMachinesCheckMachineExistsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesCreateMachineUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachinesCreateMachineUpgradeScheduleRequest {
+	return ApiMachinesCreateMachineUpgradeScheduleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesCreateMachineUpgradeScheduleExecute(r ApiMachinesCreateMachineUpgradeScheduleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesDisconnectSessions(ctx context.Context, nameOrId string) ApiMachinesDisconnectSessionsRequest {
+	return ApiMachinesDisconnectSessionsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesDisconnectSessionsExecute(r ApiMachinesDisconnectSessionsRequest) (*MachineDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesDoMachineSearch(ctx context.Context) ApiMachinesDoMachineSearchRequest {
+	return ApiMachinesDoMachineSearchRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesDoMachineSearchExecute(r ApiMachinesDoMachineSearchRequest) (*MachineResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachine(ctx context.Context, nameOrId string) ApiMachinesGetMachineRequest {
+	return ApiMachinesGetMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineExecute(r ApiMachinesGetMachineRequest) (*MachineDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineApplications(ctx context.Context, nameOrId string) ApiMachinesGetMachineApplicationsRequest {
+	return ApiMachinesGetMachineApplicationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineApplicationsExecute(r ApiMachinesGetMachineApplicationsRequest) (*MachineApplicationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineApplicationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineDeliveryGroup(ctx context.Context, nameOrId string) ApiMachinesGetMachineDeliveryGroupRequest {
+	return ApiMachinesGetMachineDeliveryGroupRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineDeliveryGroupExecute(r ApiMachinesGetMachineDeliveryGroupRequest) (*DeliveryGroupDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*DeliveryGroupDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineDesktop(ctx context.Context, nameOrId string) ApiMachinesGetMachineDesktopRequest {
+	return ApiMachinesGetMachineDesktopRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineDesktopExecute(r ApiMachinesGetMachineDesktopRequest) (*DesktopResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*DesktopResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineMachineCatalog(ctx context.Context, nameOrId string) ApiMachinesGetMachineMachineCatalogRequest {
+	return ApiMachinesGetMachineMachineCatalogRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineMachineCatalogExecute(r ApiMachinesGetMachineMachineCatalogRequest) (*MachineCatalogDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineCatalogDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachinePowerActionSchedules(ctx context.Context, nameOrId string) ApiMachinesGetMachinePowerActionSchedulesRequest {
+	return ApiMachinesGetMachinePowerActionSchedulesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachinePowerActionSchedulesExecute(r ApiMachinesGetMachinePowerActionSchedulesRequest) (*PowerActionScheduleResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*PowerActionScheduleResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineSessions(ctx context.Context, nameOrId string) ApiMachinesGetMachineSessionsRequest {
+	return ApiMachinesGetMachineSessionsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineSessionsExecute(r ApiMachinesGetMachineSessionsRequest) (*SessionResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SessionResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineStartMenuShortcutIcon(ctx context.Context, nameOrId string) ApiMachinesGetMachineStartMenuShortcutIconRequest {
+	return ApiMachinesGetMachineStartMenuShortcutIconRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineStartMenuShortcutIconExecute(r ApiMachinesGetMachineStartMenuShortcutIconRequest) (*IconResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IconResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineStartMenuShortcuts(ctx context.Context, nameOrId string) ApiMachinesGetMachineStartMenuShortcutsRequest {
+	return ApiMachinesGetMachineStartMenuShortcutsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineStartMenuShortcutsExecute(r ApiMachinesGetMachineStartMenuShortcutsRequest) (*StartMenuApplicationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*StartMenuApplicationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineTags(ctx context.Context, nameOrId string) ApiMachinesGetMachineTagsRequest {
+	return ApiMachinesGetMachineTagsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineTagsExecute(r ApiMachinesGetMachineTagsRequest) (*TagResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TagResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineUpgradeVersions(ctx context.Context, nameOrId string) ApiMachinesGetMachineUpgradeVersionsRequest {
+	return ApiMachinesGetMachineUpgradeVersionsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachineUpgradeVersionsExecute(r ApiMachinesGetMachineUpgradeVersionsRequest) ([]string, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).([]string), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachines(ctx context.Context) ApiMachinesGetMachinesRequest {
+	return ApiMachinesGetMachinesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachinesExecute(r ApiMachinesGetMachinesRequest) (*MachineResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachinesAdministrators(ctx context.Context, nameOrId string) ApiMachinesGetMachinesAdministratorsRequest {
+	return ApiMachinesGetMachinesAdministratorsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachinesAdministratorsExecute(r ApiMachinesGetMachinesAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdministratorResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachinesV2(ctx context.Context) ApiMachinesGetMachinesV2Request {
+	return ApiMachinesGetMachinesV2Request{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetMachinesV2Execute(r ApiMachinesGetMachinesV2Request) (*MachineResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetTestMachineReport(ctx context.Context, nameOrId string, reportId string) ApiMachinesGetTestMachineReportRequest {
+	return ApiMachinesGetTestMachineReportRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		reportId:   reportId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetTestMachineReportExecute(r ApiMachinesGetTestMachineReportRequest) (*MachineTestResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineTestResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetVDAComponentsAndFeatures(ctx context.Context, nameOrId string) ApiMachinesGetVDAComponentsAndFeaturesRequest {
+	return ApiMachinesGetVDAComponentsAndFeaturesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGetVDAComponentsAndFeaturesExecute(r ApiMachinesGetVDAComponentsAndFeaturesRequest) (*VDAComponentsAndFeaturesResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*VDAComponentsAndFeaturesResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGroupMachine(ctx context.Context) ApiMachinesGroupMachineRequest {
+	return ApiMachinesGroupMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesGroupMachineExecute(r ApiMachinesGroupMachineRequest) (map[string]int32, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(map[string]int32), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesImportFileTypes(ctx context.Context, nameOrId string) ApiMachinesImportFileTypesRequest {
+	return ApiMachinesImportFileTypesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesImportFileTypesExecute(r ApiMachinesImportFileTypesRequest) (*FtaResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*FtaResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesLogoffMachineSessions(ctx context.Context, nameOrId string) ApiMachinesLogoffMachineSessionsRequest {
+	return ApiMachinesLogoffMachineSessionsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesLogoffMachineSessionsExecute(r ApiMachinesLogoffMachineSessionsRequest) (*MachineDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesRebootMachine(ctx context.Context, nameOrId string) ApiMachinesRebootMachineRequest {
+	return ApiMachinesRebootMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesRebootMachineExecute(r ApiMachinesRebootMachineRequest) (*MachineDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesRemoveMachine(ctx context.Context, nameOrId string) ApiMachinesRemoveMachineRequest {
+	return ApiMachinesRemoveMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesRemoveMachineExecute(r ApiMachinesRemoveMachineRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesRemoveMachineTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiMachinesRemoveMachineTagsRequest {
+	return ApiMachinesRemoveMachineTagsRequest{
+		ctx:         ctx,
+		ApiService:  m,
+		nameOrId:    nameOrId,
+		tagNameOrId: tagNameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesRemoveMachineTagsExecute(r ApiMachinesRemoveMachineTagsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesRemoveMachineUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachinesRemoveMachineUpgradeScheduleRequest {
+	return ApiMachinesRemoveMachineUpgradeScheduleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesRemoveMachineUpgradeScheduleExecute(r ApiMachinesRemoveMachineUpgradeScheduleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesRemovePowerActionSchedule(ctx context.Context, nameOrId string) ApiMachinesRemovePowerActionScheduleRequest {
+	return ApiMachinesRemovePowerActionScheduleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesRemovePowerActionScheduleExecute(r ApiMachinesRemovePowerActionScheduleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesResumeMachine(ctx context.Context, nameOrId string) ApiMachinesResumeMachineRequest {
+	return ApiMachinesResumeMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesResumeMachineExecute(r ApiMachinesResumeMachineRequest) (*MachineDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesSetMachineTags(ctx context.Context, nameOrId string) ApiMachinesSetMachineTagsRequest {
+	return ApiMachinesSetMachineTagsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesSetMachineTagsExecute(r ApiMachinesSetMachineTagsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesShutdownMachine(ctx context.Context, nameOrId string) ApiMachinesShutdownMachineRequest {
+	return ApiMachinesShutdownMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesShutdownMachineExecute(r ApiMachinesShutdownMachineRequest) (*MachineDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesStartMachine(ctx context.Context, nameOrId string) ApiMachinesStartMachineRequest {
+	return ApiMachinesStartMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesStartMachineExecute(r ApiMachinesStartMachineRequest) (*MachineDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesSuspendMachine(ctx context.Context, nameOrId string) ApiMachinesSuspendMachineRequest {
+	return ApiMachinesSuspendMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesSuspendMachineExecute(r ApiMachinesSuspendMachineRequest) (*MachineDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesTestMachine(ctx context.Context, nameOrId string) ApiMachinesTestMachineRequest {
+	return ApiMachinesTestMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesTestMachineExecute(r ApiMachinesTestMachineRequest) (*MachineTestResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineTestResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesUpdateMachineCatalogMachine(ctx context.Context, nameOrId string) ApiMachinesUpdateMachineCatalogMachineRequest {
+	return ApiMachinesUpdateMachineCatalogMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesUpdateMachineCatalogMachineExecute(r ApiMachinesUpdateMachineCatalogMachineRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesUpdateMachineUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachinesUpdateMachineUpgradeScheduleRequest {
+	return ApiMachinesUpdateMachineUpgradeScheduleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesUpdateMachineUpgradeScheduleExecute(r ApiMachinesUpdateMachineUpgradeScheduleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesValidateVDAComponentsAndFeaturesSelection(ctx context.Context, nameOrId string) ApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest {
+	return ApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachinesAPIsDAAS) MachinesValidateVDAComponentsAndFeaturesSelectionExecute(r ApiMachinesValidateVDAComponentsAndFeaturesSelectionRequest) (*VDAComponentsSelectionValidationResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*VDAComponentsSelectionValidationResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }

@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type JobsAPIsDAAS interface {
@@ -187,6 +189,61 @@ type ApiJobsCancelJobRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiJobsCancelJobRequest wraps the request struct to provide getter methods for testing
+type MockApiJobsCancelJobRequest struct {
+	ApiJobsCancelJobRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiJobsCancelJobRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiJobsCancelJobRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiJobsCancelJobRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiJobsCancelJobRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiJobsCancelJobRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiJobsCancelJobRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiJobsCancelJobRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiJobsCancelJobRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiJobsCancelJobRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiJobsCancelJobRequest) Execute() (*JobResponseModel, *http.Response, error) {
+	return r.ApiJobsCancelJobRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -493,6 +550,61 @@ type ApiJobsDeleteJobRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiJobsDeleteJobRequest wraps the request struct to provide getter methods for testing
+type MockApiJobsDeleteJobRequest struct {
+	ApiJobsDeleteJobRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiJobsDeleteJobRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiJobsDeleteJobRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiJobsDeleteJobRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiJobsDeleteJobRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiJobsDeleteJobRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiJobsDeleteJobRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiJobsDeleteJobRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiJobsDeleteJobRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiJobsDeleteJobRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiJobsDeleteJobRequest) Execute() (*http.Response, error) {
+	return r.ApiJobsDeleteJobRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiJobsDeleteJobRequest) CitrixCustomerId(citrixCustomerId string) ApiJobsDeleteJobRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -772,6 +884,61 @@ type ApiJobsGetJobRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiJobsGetJobRequest wraps the request struct to provide getter methods for testing
+type MockApiJobsGetJobRequest struct {
+	ApiJobsGetJobRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiJobsGetJobRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiJobsGetJobRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiJobsGetJobRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiJobsGetJobRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiJobsGetJobRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiJobsGetJobRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiJobsGetJobRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiJobsGetJobRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiJobsGetJobRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiJobsGetJobRequest) Execute() (*JobResponseModel, *http.Response, error) {
+	return r.ApiJobsGetJobRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1061,6 +1228,61 @@ type ApiJobsGetJobResultsRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiJobsGetJobResultsRequest wraps the request struct to provide getter methods for testing
+type MockApiJobsGetJobResultsRequest struct {
+	ApiJobsGetJobResultsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiJobsGetJobResultsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiJobsGetJobResultsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiJobsGetJobResultsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiJobsGetJobResultsRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiJobsGetJobResultsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiJobsGetJobResultsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiJobsGetJobResultsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiJobsGetJobResultsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiJobsGetJobResultsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiJobsGetJobResultsRequest) Execute() (string, *http.Response, error) {
+	return r.ApiJobsGetJobResultsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1364,6 +1586,56 @@ type ApiJobsGetJobsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiJobsGetJobsRequest wraps the request struct to provide getter methods for testing
+type MockApiJobsGetJobsRequest struct {
+	ApiJobsGetJobsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiJobsGetJobsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiJobsGetJobsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiJobsGetJobsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiJobsGetJobsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiJobsGetJobsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiJobsGetJobsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiJobsGetJobsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiJobsGetJobsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiJobsGetJobsRequest) Execute() (*JobResponseModelCollection, *http.Response, error) {
+	return r.ApiJobsGetJobsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiJobsGetJobsRequest) CitrixCustomerId(citrixCustomerId string) ApiJobsGetJobsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1636,6 +1908,61 @@ type ApiJobsSkipRemainingSubtasksRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiJobsSkipRemainingSubtasksRequest wraps the request struct to provide getter methods for testing
+type MockApiJobsSkipRemainingSubtasksRequest struct {
+	ApiJobsSkipRemainingSubtasksRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiJobsSkipRemainingSubtasksRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiJobsSkipRemainingSubtasksRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiJobsSkipRemainingSubtasksRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiJobsSkipRemainingSubtasksRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiJobsSkipRemainingSubtasksRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiJobsSkipRemainingSubtasksRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiJobsSkipRemainingSubtasksRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiJobsSkipRemainingSubtasksRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiJobsSkipRemainingSubtasksRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiJobsSkipRemainingSubtasksRequest) Execute() (*JobResponseModel, *http.Response, error) {
+	return r.ApiJobsSkipRemainingSubtasksRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1932,4 +2259,100 @@ func (a *JobsAPIsDAASService) JobsSkipRemainingSubtasksExecute(r ApiJobsSkipRema
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockJobsAPIsDAAS extracts the MockJobsAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockJobsAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockJobsAPIsDAAS(client *APIClient) *MockJobsAPIsDAAS {
+	return client.JobsAPIsDAAS.(*MockJobsAPIsDAAS)
+}
+
+// MockJobsAPIsDAAS is a mock implementation of the JobsAPIsDAAS interface for testing
+var _ JobsAPIsDAAS = (*MockJobsAPIsDAAS)(nil)
+
+type MockJobsAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockJobsAPIsDAAS) JobsCancelJob(ctx context.Context, id string) ApiJobsCancelJobRequest {
+	return ApiJobsCancelJobRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockJobsAPIsDAAS) JobsCancelJobExecute(r ApiJobsCancelJobRequest) (*JobResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*JobResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockJobsAPIsDAAS) JobsDeleteJob(ctx context.Context, id string) ApiJobsDeleteJobRequest {
+	return ApiJobsDeleteJobRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockJobsAPIsDAAS) JobsDeleteJobExecute(r ApiJobsDeleteJobRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockJobsAPIsDAAS) JobsGetJob(ctx context.Context, id string) ApiJobsGetJobRequest {
+	return ApiJobsGetJobRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockJobsAPIsDAAS) JobsGetJobExecute(r ApiJobsGetJobRequest) (*JobResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*JobResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockJobsAPIsDAAS) JobsGetJobResults(ctx context.Context, id string) ApiJobsGetJobResultsRequest {
+	return ApiJobsGetJobResultsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockJobsAPIsDAAS) JobsGetJobResultsExecute(r ApiJobsGetJobResultsRequest) (string, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(string), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockJobsAPIsDAAS) JobsGetJobs(ctx context.Context) ApiJobsGetJobsRequest {
+	return ApiJobsGetJobsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockJobsAPIsDAAS) JobsGetJobsExecute(r ApiJobsGetJobsRequest) (*JobResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*JobResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockJobsAPIsDAAS) JobsSkipRemainingSubtasks(ctx context.Context, id string) ApiJobsSkipRemainingSubtasksRequest {
+	return ApiJobsSkipRemainingSubtasksRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockJobsAPIsDAAS) JobsSkipRemainingSubtasksExecute(r ApiJobsSkipRemainingSubtasksRequest) (*JobResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*JobResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }

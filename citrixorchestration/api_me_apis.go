@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type MeAPIsDAAS interface {
@@ -116,6 +118,51 @@ type ApiMeDeleteMyPreferenceRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiMeDeleteMyPreferenceRequest wraps the request struct to provide getter methods for testing
+type MockApiMeDeleteMyPreferenceRequest struct {
+	ApiMeDeleteMyPreferenceRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMeDeleteMyPreferenceRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMeDeleteMyPreferenceRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetName returns the name parameter
+func (r MockApiMeDeleteMyPreferenceRequest) GetName() string {
+	return r.name
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMeDeleteMyPreferenceRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMeDeleteMyPreferenceRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMeDeleteMyPreferenceRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMeDeleteMyPreferenceRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMeDeleteMyPreferenceRequest) Execute() (*http.Response, error) {
+	return r.ApiMeDeleteMyPreferenceRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -368,6 +415,46 @@ type ApiMeGetMeRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMeGetMeRequest wraps the request struct to provide getter methods for testing
+type MockApiMeGetMeRequest struct {
+	ApiMeGetMeRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMeGetMeRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMeGetMeRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMeGetMeRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMeGetMeRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMeGetMeRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMeGetMeRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMeGetMeRequest) Execute() (*MeResponseModel, *http.Response, error) {
+	return r.ApiMeGetMeRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMeGetMeRequest) CitrixCustomerId(citrixCustomerId string) ApiMeGetMeRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -616,6 +703,51 @@ type ApiMeGetMyPreferenceRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiMeGetMyPreferenceRequest wraps the request struct to provide getter methods for testing
+type MockApiMeGetMyPreferenceRequest struct {
+	ApiMeGetMyPreferenceRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMeGetMyPreferenceRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMeGetMyPreferenceRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetName returns the name parameter
+func (r MockApiMeGetMyPreferenceRequest) GetName() string {
+	return r.name
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMeGetMyPreferenceRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMeGetMyPreferenceRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMeGetMyPreferenceRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMeGetMyPreferenceRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMeGetMyPreferenceRequest) Execute() (*NameValueStringPairModel, *http.Response, error) {
+	return r.ApiMeGetMyPreferenceRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -884,6 +1016,51 @@ type ApiMeGetMyPreferencesRequest struct {
 	namePrefix          *string
 }
 
+// MockApiMeGetMyPreferencesRequest wraps the request struct to provide getter methods for testing
+type MockApiMeGetMyPreferencesRequest struct {
+	ApiMeGetMyPreferencesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMeGetMyPreferencesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMeGetMyPreferencesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMeGetMyPreferencesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMeGetMyPreferencesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMeGetMyPreferencesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMeGetMyPreferencesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetNamePrefix returns the namePrefix parameter
+func (r MockApiMeGetMyPreferencesRequest) GetNamePrefix() *string {
+	return r.namePrefix
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMeGetMyPreferencesRequest) Execute() (*NameValueStringPairModelCollection, *http.Response, error) {
+	return r.ApiMeGetMyPreferencesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMeGetMyPreferencesRequest) CitrixCustomerId(citrixCustomerId string) ApiMeGetMyPreferencesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1145,6 +1322,51 @@ type ApiMeSetMyPreferenceRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMeSetMyPreferenceRequest wraps the request struct to provide getter methods for testing
+type MockApiMeSetMyPreferenceRequest struct {
+	ApiMeSetMyPreferenceRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMeSetMyPreferenceRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMeSetMyPreferenceRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetSetPreferenceModel returns the setPreferenceModel parameter
+func (r MockApiMeSetMyPreferenceRequest) GetSetPreferenceModel() *SetPreferenceModel {
+	return r.setPreferenceModel
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMeSetMyPreferenceRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMeSetMyPreferenceRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMeSetMyPreferenceRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMeSetMyPreferenceRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMeSetMyPreferenceRequest) Execute() (*http.Response, error) {
+	return r.ApiMeSetMyPreferenceRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMeSetMyPreferenceRequest) CitrixCustomerId(citrixCustomerId string) ApiMeSetMyPreferenceRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1396,4 +1618,85 @@ func (a *MeAPIsDAASService) MeSetMyPreferenceExecute(r ApiMeSetMyPreferenceReque
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockMeAPIsDAAS extracts the MockMeAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockMeAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockMeAPIsDAAS(client *APIClient) *MockMeAPIsDAAS {
+	return client.MeAPIsDAAS.(*MockMeAPIsDAAS)
+}
+
+// MockMeAPIsDAAS is a mock implementation of the MeAPIsDAAS interface for testing
+var _ MeAPIsDAAS = (*MockMeAPIsDAAS)(nil)
+
+type MockMeAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockMeAPIsDAAS) MeDeleteMyPreference(ctx context.Context, name string) ApiMeDeleteMyPreferenceRequest {
+	return ApiMeDeleteMyPreferenceRequest{
+		ctx:        ctx,
+		ApiService: m,
+		name:       name,
+	}
+}
+
+func (m *MockMeAPIsDAAS) MeDeleteMyPreferenceExecute(r ApiMeDeleteMyPreferenceRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMeAPIsDAAS) MeGetMe(ctx context.Context) ApiMeGetMeRequest {
+	return ApiMeGetMeRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMeAPIsDAAS) MeGetMeExecute(r ApiMeGetMeRequest) (*MeResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MeResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMeAPIsDAAS) MeGetMyPreference(ctx context.Context, name string) ApiMeGetMyPreferenceRequest {
+	return ApiMeGetMyPreferenceRequest{
+		ctx:        ctx,
+		ApiService: m,
+		name:       name,
+	}
+}
+
+func (m *MockMeAPIsDAAS) MeGetMyPreferenceExecute(r ApiMeGetMyPreferenceRequest) (*NameValueStringPairModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*NameValueStringPairModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMeAPIsDAAS) MeGetMyPreferences(ctx context.Context) ApiMeGetMyPreferencesRequest {
+	return ApiMeGetMyPreferencesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMeAPIsDAAS) MeGetMyPreferencesExecute(r ApiMeGetMyPreferencesRequest) (*NameValueStringPairModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*NameValueStringPairModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMeAPIsDAAS) MeSetMyPreference(ctx context.Context) ApiMeSetMyPreferenceRequest {
+	return ApiMeSetMyPreferenceRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMeAPIsDAAS) MeSetMyPreferenceExecute(r ApiMeSetMyPreferenceRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }

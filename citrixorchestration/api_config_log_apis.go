@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type ConfigLogAPIsDAAS interface {
@@ -176,6 +178,66 @@ type ApiConfigLogDeleteLogsRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiConfigLogDeleteLogsRequest wraps the request struct to provide getter methods for testing
+type MockApiConfigLogDeleteLogsRequest struct {
+	ApiConfigLogDeleteLogsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiConfigLogDeleteLogsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiConfigLogDeleteLogsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiConfigLogDeleteLogsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiConfigLogDeleteLogsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiConfigLogDeleteLogsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiConfigLogDeleteLogsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiConfigLogDeleteLogsRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiConfigLogDeleteLogsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiConfigLogDeleteLogsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiConfigLogDeleteLogsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiConfigLogDeleteLogsRequest) Execute() (*http.Response, error) {
+	return r.ApiConfigLogDeleteLogsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -468,6 +530,81 @@ type ApiConfigLogDoConfigLogSearchRequest struct {
 	limit                          *int32
 	continuationToken              *string
 	async                          *bool
+}
+
+// MockApiConfigLogDoConfigLogSearchRequest wraps the request struct to provide getter methods for testing
+type MockApiConfigLogDoConfigLogSearchRequest struct {
+	ApiConfigLogDoConfigLogSearchRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiConfigLogDoConfigLogSearchRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiConfigLogDoConfigLogSearchRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiConfigLogDoConfigLogSearchRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetLogOperationSearchRequestModel returns the logOperationSearchRequestModel parameter
+func (r MockApiConfigLogDoConfigLogSearchRequest) GetLogOperationSearchRequestModel() *LogOperationSearchRequestModel {
+	return r.logOperationSearchRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiConfigLogDoConfigLogSearchRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiConfigLogDoConfigLogSearchRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiConfigLogDoConfigLogSearchRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXTimeZone returns the xTimeZone parameter
+func (r MockApiConfigLogDoConfigLogSearchRequest) GetXTimeZone() *string {
+	return r.xTimeZone
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiConfigLogDoConfigLogSearchRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiConfigLogDoConfigLogSearchRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiConfigLogDoConfigLogSearchRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiConfigLogDoConfigLogSearchRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiConfigLogDoConfigLogSearchRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiConfigLogDoConfigLogSearchRequest) Execute() (*LogOperationResponseModelCollection, *http.Response, error) {
+	return r.ApiConfigLogDoConfigLogSearchRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -813,6 +950,66 @@ type ApiConfigLogExportReportDataRequest struct {
 	async                        *bool
 }
 
+// MockApiConfigLogExportReportDataRequest wraps the request struct to provide getter methods for testing
+type MockApiConfigLogExportReportDataRequest struct {
+	ApiConfigLogExportReportDataRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiConfigLogExportReportDataRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiConfigLogExportReportDataRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiConfigLogExportReportDataRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCustomReportInfoRequestModel returns the customReportInfoRequestModel parameter
+func (r MockApiConfigLogExportReportDataRequest) GetCustomReportInfoRequestModel() *CustomReportInfoRequestModel {
+	return r.customReportInfoRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiConfigLogExportReportDataRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiConfigLogExportReportDataRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiConfigLogExportReportDataRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiConfigLogExportReportDataRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiConfigLogExportReportDataRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiConfigLogExportReportDataRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiConfigLogExportReportDataRequest) Execute() (*CustomReportDataResponseModel, *http.Response, error) {
+	return r.ApiConfigLogExportReportDataRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiConfigLogExportReportDataRequest) CitrixCustomerId(citrixCustomerId string) ApiConfigLogExportReportDataRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1127,6 +1324,66 @@ type ApiConfigLogFetchExistingOperationLabelsRequest struct {
 	async               *bool
 }
 
+// MockApiConfigLogFetchExistingOperationLabelsRequest wraps the request struct to provide getter methods for testing
+type MockApiConfigLogFetchExistingOperationLabelsRequest struct {
+	ApiConfigLogFetchExistingOperationLabelsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiConfigLogFetchExistingOperationLabelsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiConfigLogFetchExistingOperationLabelsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiConfigLogFetchExistingOperationLabelsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiConfigLogFetchExistingOperationLabelsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiConfigLogFetchExistingOperationLabelsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiConfigLogFetchExistingOperationLabelsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiConfigLogFetchExistingOperationLabelsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiConfigLogFetchExistingOperationLabelsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetRefresh returns the refresh parameter
+func (r MockApiConfigLogFetchExistingOperationLabelsRequest) GetRefresh() *bool {
+	return r.refresh
+}
+
+// GetAsync returns the async parameter
+func (r MockApiConfigLogFetchExistingOperationLabelsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiConfigLogFetchExistingOperationLabelsRequest) Execute() ([]string, *http.Response, error) {
+	return r.ApiConfigLogFetchExistingOperationLabelsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiConfigLogFetchExistingOperationLabelsRequest) CitrixCustomerId(citrixCustomerId string) ApiConfigLogFetchExistingOperationLabelsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1429,6 +1686,56 @@ type ApiConfigLogGetFirstLogDateRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiConfigLogGetFirstLogDateRequest wraps the request struct to provide getter methods for testing
+type MockApiConfigLogGetFirstLogDateRequest struct {
+	ApiConfigLogGetFirstLogDateRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiConfigLogGetFirstLogDateRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiConfigLogGetFirstLogDateRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiConfigLogGetFirstLogDateRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiConfigLogGetFirstLogDateRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiConfigLogGetFirstLogDateRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiConfigLogGetFirstLogDateRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiConfigLogGetFirstLogDateRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiConfigLogGetFirstLogDateRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiConfigLogGetFirstLogDateRequest) Execute() (string, *http.Response, error) {
+	return r.ApiConfigLogGetFirstLogDateRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiConfigLogGetFirstLogDateRequest) CitrixCustomerId(citrixCustomerId string) ApiConfigLogGetFirstLogDateRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1694,6 +2001,56 @@ type ApiConfigLogGetLogSiteRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiConfigLogGetLogSiteRequest wraps the request struct to provide getter methods for testing
+type MockApiConfigLogGetLogSiteRequest struct {
+	ApiConfigLogGetLogSiteRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiConfigLogGetLogSiteRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiConfigLogGetLogSiteRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiConfigLogGetLogSiteRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiConfigLogGetLogSiteRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiConfigLogGetLogSiteRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiConfigLogGetLogSiteRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiConfigLogGetLogSiteRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiConfigLogGetLogSiteRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiConfigLogGetLogSiteRequest) Execute() (*LogSiteResponseModel, *http.Response, error) {
+	return r.ApiConfigLogGetLogSiteRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1964,6 +2321,71 @@ type ApiConfigLogGetLowLevelOperationsRequest struct {
 	citrixLocale        *string
 	limit               *int32
 	continuationToken   *string
+}
+
+// MockApiConfigLogGetLowLevelOperationsRequest wraps the request struct to provide getter methods for testing
+type MockApiConfigLogGetLowLevelOperationsRequest struct {
+	ApiConfigLogGetLowLevelOperationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiConfigLogGetLowLevelOperationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiConfigLogGetLowLevelOperationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiConfigLogGetLowLevelOperationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiConfigLogGetLowLevelOperationsRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiConfigLogGetLowLevelOperationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiConfigLogGetLowLevelOperationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiConfigLogGetLowLevelOperationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiConfigLogGetLowLevelOperationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiConfigLogGetLowLevelOperationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiConfigLogGetLowLevelOperationsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiConfigLogGetLowLevelOperationsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiConfigLogGetLowLevelOperationsRequest) Execute() (*LowLevelOperationResponseModelCollection, *http.Response, error) {
+	return r.ApiConfigLogGetLowLevelOperationsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2266,6 +2688,61 @@ type ApiConfigLogGetOperationRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiConfigLogGetOperationRequest wraps the request struct to provide getter methods for testing
+type MockApiConfigLogGetOperationRequest struct {
+	ApiConfigLogGetOperationRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiConfigLogGetOperationRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiConfigLogGetOperationRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiConfigLogGetOperationRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiConfigLogGetOperationRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiConfigLogGetOperationRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiConfigLogGetOperationRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiConfigLogGetOperationRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiConfigLogGetOperationRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiConfigLogGetOperationRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiConfigLogGetOperationRequest) Execute() (*LogOperationResponseModel, *http.Response, error) {
+	return r.ApiConfigLogGetOperationRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiConfigLogGetOperationRequest) CitrixCustomerId(citrixCustomerId string) ApiConfigLogGetOperationRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2553,6 +3030,96 @@ type ApiConfigLogGetOperationsRequest struct {
 	limit               *int32
 	continuationToken   *string
 	async               *bool
+}
+
+// MockApiConfigLogGetOperationsRequest wraps the request struct to provide getter methods for testing
+type MockApiConfigLogGetOperationsRequest struct {
+	ApiConfigLogGetOperationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiConfigLogGetOperationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiConfigLogGetOperationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiConfigLogGetOperationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiConfigLogGetOperationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiConfigLogGetOperationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiConfigLogGetOperationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXTimeZone returns the xTimeZone parameter
+func (r MockApiConfigLogGetOperationsRequest) GetXTimeZone() *string {
+	return r.xTimeZone
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiConfigLogGetOperationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiConfigLogGetOperationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetText returns the text parameter
+func (r MockApiConfigLogGetOperationsRequest) GetText() *string {
+	return r.text
+}
+
+// GetDays returns the days parameter
+func (r MockApiConfigLogGetOperationsRequest) GetDays() *int32 {
+	return r.days
+}
+
+// GetSearchDateOption returns the searchDateOption parameter
+func (r MockApiConfigLogGetOperationsRequest) GetSearchDateOption() *SearchDateOption {
+	return r.searchDateOption
+}
+
+// GetTimeDiff returns the timeDiff parameter
+func (r MockApiConfigLogGetOperationsRequest) GetTimeDiff() *int32 {
+	return r.timeDiff
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiConfigLogGetOperationsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiConfigLogGetOperationsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiConfigLogGetOperationsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiConfigLogGetOperationsRequest) Execute() (*LogOperationResponseModelCollection, *http.Response, error) {
+	return r.ApiConfigLogGetOperationsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2904,6 +3471,71 @@ type ApiConfigLogPatchOperationRequest struct {
 	async                     *bool
 }
 
+// MockApiConfigLogPatchOperationRequest wraps the request struct to provide getter methods for testing
+type MockApiConfigLogPatchOperationRequest struct {
+	ApiConfigLogPatchOperationRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiConfigLogPatchOperationRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiConfigLogPatchOperationRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiConfigLogPatchOperationRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiConfigLogPatchOperationRequest) GetId() string {
+	return r.id
+}
+
+// GetEditOperationRequestModel returns the editOperationRequestModel parameter
+func (r MockApiConfigLogPatchOperationRequest) GetEditOperationRequestModel() *EditOperationRequestModel {
+	return r.editOperationRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiConfigLogPatchOperationRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiConfigLogPatchOperationRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiConfigLogPatchOperationRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiConfigLogPatchOperationRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiConfigLogPatchOperationRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiConfigLogPatchOperationRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiConfigLogPatchOperationRequest) Execute() (*http.Response, error) {
+	return r.ApiConfigLogPatchOperationRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiConfigLogPatchOperationRequest) CitrixCustomerId(citrixCustomerId string) ApiConfigLogPatchOperationRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3208,6 +3840,61 @@ type ApiConfigLogSetLogSiteRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiConfigLogSetLogSiteRequest wraps the request struct to provide getter methods for testing
+type MockApiConfigLogSetLogSiteRequest struct {
+	ApiConfigLogSetLogSiteRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiConfigLogSetLogSiteRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiConfigLogSetLogSiteRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiConfigLogSetLogSiteRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetLogSiteRequestModel returns the logSiteRequestModel parameter
+func (r MockApiConfigLogSetLogSiteRequest) GetLogSiteRequestModel() *LogSiteRequestModel {
+	return r.logSiteRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiConfigLogSetLogSiteRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiConfigLogSetLogSiteRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiConfigLogSetLogSiteRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiConfigLogSetLogSiteRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiConfigLogSetLogSiteRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiConfigLogSetLogSiteRequest) Execute() (*LogSiteResponseModel, *http.Response, error) {
+	return r.ApiConfigLogSetLogSiteRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiConfigLogSetLogSiteRequest) CitrixCustomerId(citrixCustomerId string) ApiConfigLogSetLogSiteRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3482,4 +4169,158 @@ func (a *ConfigLogAPIsDAASService) ConfigLogSetLogSiteExecute(r ApiConfigLogSetL
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockConfigLogAPIsDAAS extracts the MockConfigLogAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockConfigLogAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockConfigLogAPIsDAAS(client *APIClient) *MockConfigLogAPIsDAAS {
+	return client.ConfigLogAPIsDAAS.(*MockConfigLogAPIsDAAS)
+}
+
+// MockConfigLogAPIsDAAS is a mock implementation of the ConfigLogAPIsDAAS interface for testing
+var _ ConfigLogAPIsDAAS = (*MockConfigLogAPIsDAAS)(nil)
+
+type MockConfigLogAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogDeleteLogs(ctx context.Context) ApiConfigLogDeleteLogsRequest {
+	return ApiConfigLogDeleteLogsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogDeleteLogsExecute(r ApiConfigLogDeleteLogsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogDoConfigLogSearch(ctx context.Context) ApiConfigLogDoConfigLogSearchRequest {
+	return ApiConfigLogDoConfigLogSearchRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogDoConfigLogSearchExecute(r ApiConfigLogDoConfigLogSearchRequest) (*LogOperationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*LogOperationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogExportReportData(ctx context.Context) ApiConfigLogExportReportDataRequest {
+	return ApiConfigLogExportReportDataRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogExportReportDataExecute(r ApiConfigLogExportReportDataRequest) (*CustomReportDataResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*CustomReportDataResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogFetchExistingOperationLabels(ctx context.Context) ApiConfigLogFetchExistingOperationLabelsRequest {
+	return ApiConfigLogFetchExistingOperationLabelsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogFetchExistingOperationLabelsExecute(r ApiConfigLogFetchExistingOperationLabelsRequest) ([]string, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).([]string), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogGetFirstLogDate(ctx context.Context) ApiConfigLogGetFirstLogDateRequest {
+	return ApiConfigLogGetFirstLogDateRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogGetFirstLogDateExecute(r ApiConfigLogGetFirstLogDateRequest) (string, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(string), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogGetLogSite(ctx context.Context) ApiConfigLogGetLogSiteRequest {
+	return ApiConfigLogGetLogSiteRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogGetLogSiteExecute(r ApiConfigLogGetLogSiteRequest) (*LogSiteResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*LogSiteResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogGetLowLevelOperations(ctx context.Context, id string) ApiConfigLogGetLowLevelOperationsRequest {
+	return ApiConfigLogGetLowLevelOperationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogGetLowLevelOperationsExecute(r ApiConfigLogGetLowLevelOperationsRequest) (*LowLevelOperationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*LowLevelOperationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogGetOperation(ctx context.Context, id string) ApiConfigLogGetOperationRequest {
+	return ApiConfigLogGetOperationRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogGetOperationExecute(r ApiConfigLogGetOperationRequest) (*LogOperationResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*LogOperationResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogGetOperations(ctx context.Context) ApiConfigLogGetOperationsRequest {
+	return ApiConfigLogGetOperationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogGetOperationsExecute(r ApiConfigLogGetOperationsRequest) (*LogOperationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*LogOperationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogPatchOperation(ctx context.Context, id string) ApiConfigLogPatchOperationRequest {
+	return ApiConfigLogPatchOperationRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogPatchOperationExecute(r ApiConfigLogPatchOperationRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogSetLogSite(ctx context.Context) ApiConfigLogSetLogSiteRequest {
+	return ApiConfigLogSetLogSiteRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockConfigLogAPIsDAAS) ConfigLogSetLogSiteExecute(r ApiConfigLogSetLogSiteRequest) (*LogSiteResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*LogSiteResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }

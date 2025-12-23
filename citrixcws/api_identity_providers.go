@@ -20,12 +20,232 @@ import (
 	"strings"
 )
 
+type IdentityProvidersDAAS interface {
+
+	/*
+		CustomerIdentityProvidersAllStatusGet Method for CustomerIdentityProvidersAllStatusGet
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersAllStatusGetRequest
+	*/
+	CustomerIdentityProvidersAllStatusGet(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersAllStatusGetRequest
+
+	// CustomerIdentityProvidersAllStatusGetExecute executes the request
+	//  @return IdentityProvidersStatus
+	CustomerIdentityProvidersAllStatusGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersAllStatusGetRequest) (*IdentityProvidersStatus, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersClientGet Method for CustomerIdentityProvidersClientGet
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersClientGetRequest
+	*/
+	CustomerIdentityProvidersClientGet(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersClientGetRequest
+
+	// CustomerIdentityProvidersClientGetExecute executes the request
+	//  @return CipClientResultModel
+	CustomerIdentityProvidersClientGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersClientGetRequest) (*CipClientResultModel, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersConfigurationSamlIdGet Method for CustomerIdentityProvidersConfigurationSamlIdGet
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersConfigurationSamlIdGetRequest
+	*/
+	CustomerIdentityProvidersConfigurationSamlIdGet(ctx context.Context, id string, customer string) IdentityProvidersDAASCustomerIdentityProvidersConfigurationSamlIdGetRequest
+
+	// CustomerIdentityProvidersConfigurationSamlIdGetExecute executes the request
+	//  @return SamlConfigModel
+	CustomerIdentityProvidersConfigurationSamlIdGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersConfigurationSamlIdGetRequest) (*SamlConfigModel, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersConfigureGooglePost Method for CustomerIdentityProvidersConfigureGooglePost
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersConfigureGooglePostRequest
+	*/
+	CustomerIdentityProvidersConfigureGooglePost(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersConfigureGooglePostRequest
+
+	// CustomerIdentityProvidersConfigureGooglePostExecute executes the request
+	//  @return GoogleResultModel
+	CustomerIdentityProvidersConfigureGooglePostExecute(r IdentityProvidersDAASCustomerIdentityProvidersConfigureGooglePostRequest) (*GoogleResultModel, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersConfigureOktaPost Method for CustomerIdentityProvidersConfigureOktaPost
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersConfigureOktaPostRequest
+	*/
+	CustomerIdentityProvidersConfigureOktaPost(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersConfigureOktaPostRequest
+
+	// CustomerIdentityProvidersConfigureOktaPostExecute executes the request
+	//  @return OktaResultModel
+	CustomerIdentityProvidersConfigureOktaPostExecute(r IdentityProvidersDAASCustomerIdentityProvidersConfigureOktaPostRequest) (*OktaResultModel, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersGet Method for CustomerIdentityProvidersGet
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersGetRequest
+	*/
+	CustomerIdentityProvidersGet(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersGetRequest
+
+	// CustomerIdentityProvidersGetExecute executes the request
+	//  @return []string
+	CustomerIdentityProvidersGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersGetRequest) ([]string, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersIdPost Method for CustomerIdentityProvidersIdPost
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersIdPostRequest
+	*/
+	CustomerIdentityProvidersIdPost(ctx context.Context, id string, customer string) IdentityProvidersDAASCustomerIdentityProvidersIdPostRequest
+
+	// CustomerIdentityProvidersIdPostExecute executes the request
+	//  @return IdpStatusModel
+	CustomerIdentityProvidersIdPostExecute(r IdentityProvidersDAASCustomerIdentityProvidersIdPostRequest) (*IdpStatusModel, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersIdentityProviderIdPut Method for CustomerIdentityProvidersIdentityProviderIdPut
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param identityProvider
+		@param id
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersIdentityProviderIdPutRequest
+	*/
+	CustomerIdentityProvidersIdentityProviderIdPut(ctx context.Context, identityProvider string, id string, customer string) IdentityProvidersDAASCustomerIdentityProvidersIdentityProviderIdPutRequest
+
+	// CustomerIdentityProvidersIdentityProviderIdPutExecute executes the request
+	//  @return IdpUpdateModel
+	CustomerIdentityProvidersIdentityProviderIdPutExecute(r IdentityProvidersDAASCustomerIdentityProvidersIdentityProviderIdPutRequest) (*IdpUpdateModel, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersIdpTypeGet Method for CustomerIdentityProvidersIdpTypeGet
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param idpType
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersIdpTypeGetRequest
+	*/
+	CustomerIdentityProvidersIdpTypeGet(ctx context.Context, idpType string, customer string) IdentityProvidersDAASCustomerIdentityProvidersIdpTypeGetRequest
+
+	// CustomerIdentityProvidersIdpTypeGetExecute executes the request
+	//  @return IdpStatusesModel
+	CustomerIdentityProvidersIdpTypeGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersIdpTypeGetRequest) (*IdpStatusesModel, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersMultiIdentityProvidersPost Method for CustomerIdentityProvidersMultiIdentityProvidersPost
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersMultiIdentityProvidersPostRequest
+	*/
+	CustomerIdentityProvidersMultiIdentityProvidersPost(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersMultiIdentityProvidersPostRequest
+
+	// CustomerIdentityProvidersMultiIdentityProvidersPostExecute executes the request
+	//  @return IdpStatusModel
+	CustomerIdentityProvidersMultiIdentityProvidersPostExecute(r IdentityProvidersDAASCustomerIdentityProvidersMultiIdentityProvidersPostRequest) (*IdpStatusModel, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersPost Method for CustomerIdentityProvidersPost
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersPostRequest
+	*/
+	CustomerIdentityProvidersPost(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersPostRequest
+
+	// CustomerIdentityProvidersPostExecute executes the request
+	//  @return IdpStatusModel
+	CustomerIdentityProvidersPostExecute(r IdentityProvidersDAASCustomerIdentityProvidersPostRequest) (*IdpStatusModel, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersTypeIdDelete Method for CustomerIdentityProvidersTypeIdDelete
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param type_
+		@param id
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersTypeIdDeleteRequest
+	*/
+	CustomerIdentityProvidersTypeIdDelete(ctx context.Context, type_ string, id string, customer string) IdentityProvidersDAASCustomerIdentityProvidersTypeIdDeleteRequest
+
+	// CustomerIdentityProvidersTypeIdDeleteExecute executes the request
+	//  @return IdpStatusModel
+	CustomerIdentityProvidersTypeIdDeleteExecute(r IdentityProvidersDAASCustomerIdentityProvidersTypeIdDeleteRequest) (*IdpStatusModel, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersValidateClientsClientIdGet Method for CustomerIdentityProvidersValidateClientsClientIdGet
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param clientId
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersValidateClientsClientIdGetRequest
+	*/
+	CustomerIdentityProvidersValidateClientsClientIdGet(ctx context.Context, clientId string, customer string) IdentityProvidersDAASCustomerIdentityProvidersValidateClientsClientIdGetRequest
+
+	// CustomerIdentityProvidersValidateClientsClientIdGetExecute executes the request
+	//  @return bool
+	CustomerIdentityProvidersValidateClientsClientIdGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersValidateClientsClientIdGetRequest) (bool, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersValidateFqdnGet Method for CustomerIdentityProvidersValidateFqdnGet
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersValidateFqdnGetRequest
+	*/
+	CustomerIdentityProvidersValidateFqdnGet(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersValidateFqdnGetRequest
+
+	// CustomerIdentityProvidersValidateFqdnGetExecute executes the request
+	//  @return bool
+	CustomerIdentityProvidersValidateFqdnGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersValidateFqdnGetRequest) (bool, *http.Response, error)
+
+	/*
+		CustomerIdentityProvidersValidateSamlPost Method for CustomerIdentityProvidersValidateSamlPost
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityProvidersValidateSamlPostRequest
+	*/
+	CustomerIdentityProvidersValidateSamlPost(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersValidateSamlPostRequest
+
+	// CustomerIdentityProvidersValidateSamlPostExecute executes the request
+	//  @return SamlCertInfoModel
+	CustomerIdentityProvidersValidateSamlPostExecute(r IdentityProvidersDAASCustomerIdentityProvidersValidateSamlPostRequest) (*SamlCertInfoModel, *http.Response, error)
+
+	/*
+		CustomerIdentityprovidersIdentityProviderCreateconnectPost Method for CustomerIdentityprovidersIdentityProviderCreateconnectPost
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param identityProvider
+		@param customer
+		@return IdentityProvidersDAASCustomerIdentityprovidersIdentityProviderCreateconnectPostRequest
+	*/
+	CustomerIdentityprovidersIdentityProviderCreateconnectPost(ctx context.Context, identityProvider string, customer string) IdentityProvidersDAASCustomerIdentityprovidersIdentityProviderCreateconnectPostRequest
+
+	// CustomerIdentityprovidersIdentityProviderCreateconnectPostExecute executes the request
+	//  @return IdpStatusModel
+	CustomerIdentityprovidersIdentityProviderCreateconnectPostExecute(r IdentityProvidersDAASCustomerIdentityprovidersIdentityProviderCreateconnectPostRequest) (*IdpStatusModel, *http.Response, error)
+}
+
 // IdentityProvidersDAASService IdentityProvidersDAAS service
 type IdentityProvidersDAASService service
 
 type IdentityProvidersDAASCustomerIdentityProvidersAllStatusGetRequest struct {
 	ctx        context.Context
-	ApiService *IdentityProvidersDAASService
+	ApiService IdentityProvidersDAAS
 	customer   string
 }
 
@@ -134,7 +354,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersAllStatusGetExec
 
 type IdentityProvidersDAASCustomerIdentityProvidersClientGetRequest struct {
 	ctx        context.Context
-	ApiService *IdentityProvidersDAASService
+	ApiService IdentityProvidersDAAS
 	customer   string
 	fqdn       *string
 }
@@ -252,7 +472,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersClientGetExecute
 
 type IdentityProvidersDAASCustomerIdentityProvidersConfigurationSamlIdGetRequest struct {
 	ctx        context.Context
-	ApiService *IdentityProvidersDAASService
+	ApiService IdentityProvidersDAAS
 	id         string
 	customer   string
 }
@@ -371,7 +591,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigurationSam
 
 type IdentityProvidersDAASCustomerIdentityProvidersConfigureGooglePostRequest struct {
 	ctx                   context.Context
-	ApiService            *IdentityProvidersDAASService
+	ApiService            IdentityProvidersDAAS
 	customer              string
 	googleConnectionModel *GoogleConnectionModel
 }
@@ -488,7 +708,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigureGoogleP
 
 type IdentityProvidersDAASCustomerIdentityProvidersConfigureOktaPostRequest struct {
 	ctx                 context.Context
-	ApiService          *IdentityProvidersDAASService
+	ApiService          IdentityProvidersDAAS
 	customer            string
 	oktaConnectionModel *OktaConnectionModel
 }
@@ -605,7 +825,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigureOktaPos
 
 type IdentityProvidersDAASCustomerIdentityProvidersGetRequest struct {
 	ctx        context.Context
-	ApiService *IdentityProvidersDAASService
+	ApiService IdentityProvidersDAAS
 	customer   string
 }
 
@@ -714,7 +934,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersGetExecute(r Ide
 
 type IdentityProvidersDAASCustomerIdentityProvidersIdPostRequest struct {
 	ctx                     context.Context
-	ApiService              *IdentityProvidersDAASService
+	ApiService              IdentityProvidersDAAS
 	id                      string
 	customer                string
 	idpInstanceConnectModel *IdpInstanceConnectModel
@@ -841,7 +1061,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdPostExecute(r 
 
 type IdentityProvidersDAASCustomerIdentityProvidersIdentityProviderIdPutRequest struct {
 	ctx              context.Context
-	ApiService       *IdentityProvidersDAASService
+	ApiService       IdentityProvidersDAAS
 	identityProvider string
 	id               string
 	customer         string
@@ -982,7 +1202,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdentityProvider
 
 type IdentityProvidersDAASCustomerIdentityProvidersIdpTypeGetRequest struct {
 	ctx               context.Context
-	ApiService        *IdentityProvidersDAASService
+	ApiService        IdentityProvidersDAAS
 	idpType           string
 	customer          string
 	limit             *int32
@@ -1122,7 +1342,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdpTypeGetExecut
 
 type IdentityProvidersDAASCustomerIdentityProvidersMultiIdentityProvidersPostRequest struct {
 	ctx            context.Context
-	ApiService     *IdentityProvidersDAASService
+	ApiService     IdentityProvidersDAAS
 	customer       string
 	idpCreateModel *IdpCreateModel
 }
@@ -1239,7 +1459,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersMultiIdentityPro
 
 type IdentityProvidersDAASCustomerIdentityProvidersPostRequest struct {
 	ctx             context.Context
-	ApiService      *IdentityProvidersDAASService
+	ApiService      IdentityProvidersDAAS
 	customer        string
 	idpConnectModel *IdpConnectModel
 }
@@ -1356,7 +1576,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersPostExecute(r Id
 
 type IdentityProvidersDAASCustomerIdentityProvidersTypeIdDeleteRequest struct {
 	ctx        context.Context
-	ApiService *IdentityProvidersDAASService
+	ApiService IdentityProvidersDAAS
 	type_      string
 	id         string
 	customer   string
@@ -1479,7 +1699,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersTypeIdDeleteExec
 
 type IdentityProvidersDAASCustomerIdentityProvidersValidateClientsClientIdGetRequest struct {
 	ctx        context.Context
-	ApiService *IdentityProvidersDAASService
+	ApiService IdentityProvidersDAAS
 	clientId   string
 	customer   string
 }
@@ -1598,7 +1818,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateClientsC
 
 type IdentityProvidersDAASCustomerIdentityProvidersValidateFqdnGetRequest struct {
 	ctx        context.Context
-	ApiService *IdentityProvidersDAASService
+	ApiService IdentityProvidersDAAS
 	customer   string
 	fqdn       *string
 }
@@ -1716,7 +1936,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateFqdnGetE
 
 type IdentityProvidersDAASCustomerIdentityProvidersValidateSamlPostRequest struct {
 	ctx        context.Context
-	ApiService *IdentityProvidersDAASService
+	ApiService IdentityProvidersDAAS
 	customer   string
 	fileName   *string
 	certFile   *os.File
@@ -1855,7 +2075,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateSamlPost
 
 type IdentityProvidersDAASCustomerIdentityprovidersIdentityProviderCreateconnectPostRequest struct {
 	ctx                           context.Context
-	ApiService                    *IdentityProvidersDAASService
+	ApiService                    IdentityProvidersDAAS
 	identityProvider              string
 	customer                      string
 	idpInstanceCreateConnectModel *IdpInstanceCreateConnectModel

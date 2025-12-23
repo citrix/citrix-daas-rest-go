@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type ImageVersionsAPIsDAAS interface {
@@ -113,6 +115,71 @@ type ApiImageVersionsDeleteImageVersionRequest struct {
 	citrixLocale        *string
 	purgeDBOnly         *bool
 	async               *bool
+}
+
+// MockApiImageVersionsDeleteImageVersionRequest wraps the request struct to provide getter methods for testing
+type MockApiImageVersionsDeleteImageVersionRequest struct {
+	ApiImageVersionsDeleteImageVersionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiImageVersionsDeleteImageVersionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiImageVersionsDeleteImageVersionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiImageVersionsDeleteImageVersionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiImageVersionsDeleteImageVersionRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiImageVersionsDeleteImageVersionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiImageVersionsDeleteImageVersionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiImageVersionsDeleteImageVersionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiImageVersionsDeleteImageVersionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiImageVersionsDeleteImageVersionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetPurgeDBOnly returns the purgeDBOnly parameter
+func (r MockApiImageVersionsDeleteImageVersionRequest) GetPurgeDBOnly() *bool {
+	return r.purgeDBOnly
+}
+
+// GetAsync returns the async parameter
+func (r MockApiImageVersionsDeleteImageVersionRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiImageVersionsDeleteImageVersionRequest) Execute() (*http.Response, error) {
+	return r.ApiImageVersionsDeleteImageVersionRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -409,6 +476,61 @@ type ApiImageVersionsGetImageVersionRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiImageVersionsGetImageVersionRequest wraps the request struct to provide getter methods for testing
+type MockApiImageVersionsGetImageVersionRequest struct {
+	ApiImageVersionsGetImageVersionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiImageVersionsGetImageVersionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiImageVersionsGetImageVersionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiImageVersionsGetImageVersionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiImageVersionsGetImageVersionRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiImageVersionsGetImageVersionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiImageVersionsGetImageVersionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiImageVersionsGetImageVersionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiImageVersionsGetImageVersionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiImageVersionsGetImageVersionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiImageVersionsGetImageVersionRequest) Execute() (*ImageVersionResponseModel, *http.Response, error) {
+	return r.ApiImageVersionsGetImageVersionRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiImageVersionsGetImageVersionRequest) CitrixCustomerId(citrixCustomerId string) ApiImageVersionsGetImageVersionRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -689,6 +811,61 @@ type ApiImageVersionsGetImageVersionProvisioningSchemesRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiImageVersionsGetImageVersionProvisioningSchemesRequest wraps the request struct to provide getter methods for testing
+type MockApiImageVersionsGetImageVersionProvisioningSchemesRequest struct {
+	ApiImageVersionsGetImageVersionProvisioningSchemesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiImageVersionsGetImageVersionProvisioningSchemesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiImageVersionsGetImageVersionProvisioningSchemesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiImageVersionsGetImageVersionProvisioningSchemesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiImageVersionsGetImageVersionProvisioningSchemesRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiImageVersionsGetImageVersionProvisioningSchemesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiImageVersionsGetImageVersionProvisioningSchemesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiImageVersionsGetImageVersionProvisioningSchemesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiImageVersionsGetImageVersionProvisioningSchemesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiImageVersionsGetImageVersionProvisioningSchemesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiImageVersionsGetImageVersionProvisioningSchemesRequest) Execute() (*ImageVersionProvisioningSchemeRefResponseModelCollection, *http.Response, error) {
+	return r.ApiImageVersionsGetImageVersionProvisioningSchemesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -973,6 +1150,71 @@ type ApiImageVersionsSetImageVersionRequest struct {
 	accept                         *string
 	citrixLocale                   *string
 	async                          *bool
+}
+
+// MockApiImageVersionsSetImageVersionRequest wraps the request struct to provide getter methods for testing
+type MockApiImageVersionsSetImageVersionRequest struct {
+	ApiImageVersionsSetImageVersionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiImageVersionsSetImageVersionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiImageVersionsSetImageVersionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiImageVersionsSetImageVersionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiImageVersionsSetImageVersionRequest) GetId() string {
+	return r.id
+}
+
+// GetCreateImageVersionRequestModel returns the createImageVersionRequestModel parameter
+func (r MockApiImageVersionsSetImageVersionRequest) GetCreateImageVersionRequestModel() *CreateImageVersionRequestModel {
+	return r.createImageVersionRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiImageVersionsSetImageVersionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiImageVersionsSetImageVersionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiImageVersionsSetImageVersionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiImageVersionsSetImageVersionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiImageVersionsSetImageVersionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiImageVersionsSetImageVersionRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiImageVersionsSetImageVersionRequest) Execute() (*http.Response, error) {
+	return r.ApiImageVersionsSetImageVersionRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1278,6 +1520,66 @@ type ApiImageVersionsUpdateImageVersionRequest struct {
 	citrixTransactionId            *string
 	accept                         *string
 	citrixLocale                   *string
+}
+
+// MockApiImageVersionsUpdateImageVersionRequest wraps the request struct to provide getter methods for testing
+type MockApiImageVersionsUpdateImageVersionRequest struct {
+	ApiImageVersionsUpdateImageVersionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiImageVersionsUpdateImageVersionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiImageVersionsUpdateImageVersionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiImageVersionsUpdateImageVersionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiImageVersionsUpdateImageVersionRequest) GetId() string {
+	return r.id
+}
+
+// GetUpdateImageVersionRequestModel returns the updateImageVersionRequestModel parameter
+func (r MockApiImageVersionsUpdateImageVersionRequest) GetUpdateImageVersionRequestModel() *UpdateImageVersionRequestModel {
+	return r.updateImageVersionRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiImageVersionsUpdateImageVersionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiImageVersionsUpdateImageVersionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiImageVersionsUpdateImageVersionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiImageVersionsUpdateImageVersionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiImageVersionsUpdateImageVersionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiImageVersionsUpdateImageVersionRequest) Execute() (*ImageVersionResponseModel, *http.Response, error) {
+	return r.ApiImageVersionsUpdateImageVersionRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1586,6 +1888,71 @@ type ApiImageVersionsUpdateImageVersionResourcePoolsRequest struct {
 	async                                       *bool
 }
 
+// MockApiImageVersionsUpdateImageVersionResourcePoolsRequest wraps the request struct to provide getter methods for testing
+type MockApiImageVersionsUpdateImageVersionResourcePoolsRequest struct {
+	ApiImageVersionsUpdateImageVersionResourcePoolsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiImageVersionsUpdateImageVersionResourcePoolsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiImageVersionsUpdateImageVersionResourcePoolsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiImageVersionsUpdateImageVersionResourcePoolsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiImageVersionsUpdateImageVersionResourcePoolsRequest) GetId() string {
+	return r.id
+}
+
+// GetUpdateImageVersionResourcePoolsRequestModel returns the updateImageVersionResourcePoolsRequestModel parameter
+func (r MockApiImageVersionsUpdateImageVersionResourcePoolsRequest) GetUpdateImageVersionResourcePoolsRequestModel() *UpdateImageVersionResourcePoolsRequestModel {
+	return r.updateImageVersionResourcePoolsRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiImageVersionsUpdateImageVersionResourcePoolsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiImageVersionsUpdateImageVersionResourcePoolsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiImageVersionsUpdateImageVersionResourcePoolsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiImageVersionsUpdateImageVersionResourcePoolsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiImageVersionsUpdateImageVersionResourcePoolsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiImageVersionsUpdateImageVersionResourcePoolsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiImageVersionsUpdateImageVersionResourcePoolsRequest) Execute() (*http.Response, error) {
+	return r.ApiImageVersionsUpdateImageVersionResourcePoolsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiImageVersionsUpdateImageVersionResourcePoolsRequest) CitrixCustomerId(citrixCustomerId string) ApiImageVersionsUpdateImageVersionResourcePoolsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1873,4 +2240,101 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionResourcePo
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockImageVersionsAPIsDAAS extracts the MockImageVersionsAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockImageVersionsAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockImageVersionsAPIsDAAS(client *APIClient) *MockImageVersionsAPIsDAAS {
+	return client.ImageVersionsAPIsDAAS.(*MockImageVersionsAPIsDAAS)
+}
+
+// MockImageVersionsAPIsDAAS is a mock implementation of the ImageVersionsAPIsDAAS interface for testing
+var _ ImageVersionsAPIsDAAS = (*MockImageVersionsAPIsDAAS)(nil)
+
+type MockImageVersionsAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockImageVersionsAPIsDAAS) ImageVersionsDeleteImageVersion(ctx context.Context, id string) ApiImageVersionsDeleteImageVersionRequest {
+	return ApiImageVersionsDeleteImageVersionRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockImageVersionsAPIsDAAS) ImageVersionsDeleteImageVersionExecute(r ApiImageVersionsDeleteImageVersionRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockImageVersionsAPIsDAAS) ImageVersionsGetImageVersion(ctx context.Context, id string) ApiImageVersionsGetImageVersionRequest {
+	return ApiImageVersionsGetImageVersionRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockImageVersionsAPIsDAAS) ImageVersionsGetImageVersionExecute(r ApiImageVersionsGetImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ImageVersionResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockImageVersionsAPIsDAAS) ImageVersionsGetImageVersionProvisioningSchemes(ctx context.Context, id string) ApiImageVersionsGetImageVersionProvisioningSchemesRequest {
+	return ApiImageVersionsGetImageVersionProvisioningSchemesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockImageVersionsAPIsDAAS) ImageVersionsGetImageVersionProvisioningSchemesExecute(r ApiImageVersionsGetImageVersionProvisioningSchemesRequest) (*ImageVersionProvisioningSchemeRefResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ImageVersionProvisioningSchemeRefResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockImageVersionsAPIsDAAS) ImageVersionsSetImageVersion(ctx context.Context, id string) ApiImageVersionsSetImageVersionRequest {
+	return ApiImageVersionsSetImageVersionRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockImageVersionsAPIsDAAS) ImageVersionsSetImageVersionExecute(r ApiImageVersionsSetImageVersionRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockImageVersionsAPIsDAAS) ImageVersionsUpdateImageVersion(ctx context.Context, id string) ApiImageVersionsUpdateImageVersionRequest {
+	return ApiImageVersionsUpdateImageVersionRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockImageVersionsAPIsDAAS) ImageVersionsUpdateImageVersionExecute(r ApiImageVersionsUpdateImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ImageVersionResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockImageVersionsAPIsDAAS) ImageVersionsUpdateImageVersionResourcePools(ctx context.Context, id string) ApiImageVersionsUpdateImageVersionResourcePoolsRequest {
+	return ApiImageVersionsUpdateImageVersionResourcePoolsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockImageVersionsAPIsDAAS) ImageVersionsUpdateImageVersionResourcePoolsExecute(r ApiImageVersionsUpdateImageVersionResourcePoolsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }

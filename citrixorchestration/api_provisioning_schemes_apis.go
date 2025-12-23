@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type ProvisioningSchemesAPIsDAAS interface {
@@ -77,6 +79,66 @@ type ApiProvisioningSchemesGetMaintenanceCyclesRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiProvisioningSchemesGetMaintenanceCyclesRequest wraps the request struct to provide getter methods for testing
+type MockApiProvisioningSchemesGetMaintenanceCyclesRequest struct {
+	ApiProvisioningSchemesGetMaintenanceCyclesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiProvisioningSchemesGetMaintenanceCyclesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiProvisioningSchemesGetMaintenanceCyclesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiProvisioningSchemesGetMaintenanceCyclesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiProvisioningSchemesGetMaintenanceCyclesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiProvisioningSchemesGetMaintenanceCyclesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiProvisioningSchemesGetMaintenanceCyclesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiProvisioningSchemesGetMaintenanceCyclesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiProvisioningSchemesGetMaintenanceCyclesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiProvisioningSchemesGetMaintenanceCyclesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiProvisioningSchemesGetMaintenanceCyclesRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiProvisioningSchemesGetMaintenanceCyclesRequest) Execute() (*MaintenanceCycleResponseModelCollection, *http.Response, error) {
+	return r.ApiProvisioningSchemesGetMaintenanceCyclesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -372,6 +434,71 @@ type ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest struct {
 	citrixLocale        *string
 	version             *int32
 	async               *bool
+}
+
+// MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest wraps the request struct to provide getter methods for testing
+type MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest struct {
+	ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetVersion returns the version parameter
+func (r MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) GetVersion() *int32 {
+	return r.version
+}
+
+// GetAsync returns the async parameter
+func (r MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) Execute() (*ProvisioningSchemeConfigurationResponseModelCollection, *http.Response, error) {
+	return r.ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -682,6 +809,71 @@ type ApiProvisioningSchemesGetVMConfigurationResultantSetRequest struct {
 	async               *bool
 }
 
+// MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest wraps the request struct to provide getter methods for testing
+type MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest struct {
+	ApiProvisioningSchemesGetVMConfigurationResultantSetRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetVmSid returns the vmSid parameter
+func (r MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest) GetVmSid() string {
+	return r.vmSid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiProvisioningSchemesGetVMConfigurationResultantSetRequest) Execute() (*ProvisionedVirtualMachineConfigurationResultantSetResponseModel, *http.Response, error) {
+	return r.ApiProvisioningSchemesGetVMConfigurationResultantSetRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiProvisioningSchemesGetVMConfigurationResultantSetRequest) CitrixCustomerId(citrixCustomerId string) ApiProvisioningSchemesGetVMConfigurationResultantSetRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -964,4 +1156,63 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetVMConfigurati
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockProvisioningSchemesAPIsDAAS extracts the MockProvisioningSchemesAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockProvisioningSchemesAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockProvisioningSchemesAPIsDAAS(client *APIClient) *MockProvisioningSchemesAPIsDAAS {
+	return client.ProvisioningSchemesAPIsDAAS.(*MockProvisioningSchemesAPIsDAAS)
+}
+
+// MockProvisioningSchemesAPIsDAAS is a mock implementation of the ProvisioningSchemesAPIsDAAS interface for testing
+var _ ProvisioningSchemesAPIsDAAS = (*MockProvisioningSchemesAPIsDAAS)(nil)
+
+type MockProvisioningSchemesAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockProvisioningSchemesAPIsDAAS) ProvisioningSchemesGetMaintenanceCycles(ctx context.Context, nameOrId string) ApiProvisioningSchemesGetMaintenanceCyclesRequest {
+	return ApiProvisioningSchemesGetMaintenanceCyclesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockProvisioningSchemesAPIsDAAS) ProvisioningSchemesGetMaintenanceCyclesExecute(r ApiProvisioningSchemesGetMaintenanceCyclesRequest) (*MaintenanceCycleResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MaintenanceCycleResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockProvisioningSchemesAPIsDAAS) ProvisioningSchemesGetProvisioiningSchemeConfigurations(ctx context.Context, nameOrId string) ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest {
+	return ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockProvisioningSchemesAPIsDAAS) ProvisioningSchemesGetProvisioiningSchemeConfigurationsExecute(r ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) (*ProvisioningSchemeConfigurationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ProvisioningSchemeConfigurationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockProvisioningSchemesAPIsDAAS) ProvisioningSchemesGetVMConfigurationResultantSet(ctx context.Context, nameOrId string, vmSid string) ApiProvisioningSchemesGetVMConfigurationResultantSetRequest {
+	return ApiProvisioningSchemesGetVMConfigurationResultantSetRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		vmSid:      vmSid,
+	}
+}
+
+func (m *MockProvisioningSchemesAPIsDAAS) ProvisioningSchemesGetVMConfigurationResultantSetExecute(r ApiProvisioningSchemesGetVMConfigurationResultantSetRequest) (*ProvisionedVirtualMachineConfigurationResultantSetResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ProvisionedVirtualMachineConfigurationResultantSetResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }

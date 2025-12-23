@@ -1,9 +1,10 @@
-// Copyright © 2024. Citrix Systems, Inc.
+// Copyright © 2025. Citrix Systems, Inc.
 
 package citrixclient
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -47,8 +48,13 @@ type WemOnPremAuthResponse struct {
 	SessionId string `json:"sessionId"`
 }
 
-// SignIn - Get a new token for user
+// SignIn - Get a new token for user (uses default retry configuration)
 func (c *CitrixDaasClient) SignIn() (string, *http.Response, error) {
+	return c.SignInWithContext(context.Background())
+}
+
+// SignInWithContext - Get a new token for user with context for retry configuration
+func (c *CitrixDaasClient) SignInWithContext(ctx context.Context) (string, *http.Response, error) {
 	if c.AuthConfig.ClientId == "" || c.AuthConfig.ClientSecret == "" {
 		return "", nil, fmt.Errorf("make sure customerid, clientid and clientsecret are not null")
 	}
@@ -101,7 +107,7 @@ func (c *CitrixDaasClient) SignIn() (string, *http.Response, error) {
 			return performCCAuth(c.AuthConfig.AuthUrl, url.Values{"grant_type": {grant_type}, "client_id": {c.AuthConfig.ClientId}, "client_secret": {c.AuthConfig.ClientSecret}})
 		}
 
-		ccAuthResponse, resp, err := RetryOperationWithExponentialBackOff(operation, 10, 3)
+		ccAuthResponse, resp, err := RetryOperationWithExponentialBackOffDefault(ctx, operation)
 
 		if err != nil {
 			return "", resp, err
@@ -119,7 +125,7 @@ func (c *CitrixDaasClient) SignIn() (string, *http.Response, error) {
 			return performCCTrustAuth(client, c.AuthConfig.AuthUrl, []byte(fmt.Sprintf(`{"ClientId":"%s", "ClientSecret":"%s"}`, c.AuthConfig.ClientId, c.AuthConfig.ClientSecret)))
 		}
 
-		ccTrustAuthResponse, resp, err := RetryOperationWithExponentialBackOff(operation, 10, 3)
+		ccTrustAuthResponse, resp, err := RetryOperationWithExponentialBackOffDefault(ctx, operation)
 
 		if err != nil {
 			return "", resp, err

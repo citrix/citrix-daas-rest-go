@@ -19,12 +19,87 @@ import (
 	"strings"
 )
 
+type AdministratorsAPI interface {
+
+	/*
+		CreateAdministrator Create a new CC administrator.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCreateAdministratorRequest
+	*/
+	CreateAdministrator(ctx context.Context) ApiCreateAdministratorRequest
+
+	// CreateAdministratorExecute executes the request
+	//  @return AdministratorResult
+	CreateAdministratorExecute(r ApiCreateAdministratorRequest) (*AdministratorResult, *http.Response, error)
+
+	/*
+		DeleteAdministrator Remove a CC administrator.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id CC administrator ID.
+		@return ApiDeleteAdministratorRequest
+	*/
+	DeleteAdministrator(ctx context.Context, id string) ApiDeleteAdministratorRequest
+
+	// DeleteAdministratorExecute executes the request
+	DeleteAdministratorExecute(r ApiDeleteAdministratorRequest) (*http.Response, error)
+
+	/*
+		DeleteInvitation Remove a CC pending user administrator invitation.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiDeleteInvitationRequest
+	*/
+	DeleteInvitation(ctx context.Context) ApiDeleteInvitationRequest
+
+	// DeleteInvitationExecute executes the request
+	//  @return bool
+	DeleteInvitationExecute(r ApiDeleteInvitationRequest) (bool, *http.Response, error)
+
+	/*
+		FetchAdministrators Fetch all CC administrators.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiFetchAdministratorsRequest
+	*/
+	FetchAdministrators(ctx context.Context) ApiFetchAdministratorsRequest
+
+	// FetchAdministratorsExecute executes the request
+	//  @return AdministratorsResult
+	FetchAdministratorsExecute(r ApiFetchAdministratorsRequest) (*AdministratorsResult, *http.Response, error)
+
+	/*
+		GetAdministratorAccess Fetch the access of an administrator.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id UserId for AzureAd and Citrix User Administrators. UcOid for all others.
+		@return ApiGetAdministratorAccessRequest
+	*/
+	GetAdministratorAccess(ctx context.Context, id string) ApiGetAdministratorAccessRequest
+
+	// GetAdministratorAccessExecute executes the request
+	//  @return AdministratorAccessModel
+	GetAdministratorAccessExecute(r ApiGetAdministratorAccessRequest) (*AdministratorAccessModel, *http.Response, error)
+
+	/*
+		UpdateAdministratorAccess Update roles and permissions of an existing CC administrator.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiUpdateAdministratorAccessRequest
+	*/
+	UpdateAdministratorAccess(ctx context.Context) ApiUpdateAdministratorAccessRequest
+
+	// UpdateAdministratorAccessExecute executes the request
+	UpdateAdministratorAccessExecute(r ApiUpdateAdministratorAccessRequest) (*http.Response, error)
+}
+
 // AdministratorsAPIService AdministratorsAPI service
 type AdministratorsAPIService service
 
 type ApiCreateAdministratorRequest struct {
 	ctx                           context.Context
-	ApiService                    *AdministratorsAPIService
+	ApiService                    AdministratorsAPI
 	authorization                 *string
 	citrixCustomerId              *string
 	createAdministratorInputModel *CreateAdministratorInputModel
@@ -160,7 +235,7 @@ func (a *AdministratorsAPIService) CreateAdministratorExecute(r ApiCreateAdminis
 
 type ApiDeleteAdministratorRequest struct {
 	ctx              context.Context
-	ApiService       *AdministratorsAPIService
+	ApiService       AdministratorsAPI
 	id               string
 	authorization    *string
 	citrixCustomerId *string
@@ -285,7 +360,7 @@ func (a *AdministratorsAPIService) DeleteAdministratorExecute(r ApiDeleteAdminis
 
 type ApiDeleteInvitationRequest struct {
 	ctx              context.Context
-	ApiService       *AdministratorsAPIService
+	ApiService       AdministratorsAPI
 	email            *string
 	authorization    *string
 	citrixCustomerId *string
@@ -429,7 +504,7 @@ func (a *AdministratorsAPIService) DeleteInvitationExecute(r ApiDeleteInvitation
 
 type ApiFetchAdministratorsRequest struct {
 	ctx                 context.Context
-	ApiService          *AdministratorsAPIService
+	ApiService          AdministratorsAPI
 	authorization       *string
 	citrixCustomerId    *string
 	type_               *string
@@ -627,7 +702,7 @@ func (a *AdministratorsAPIService) FetchAdministratorsExecute(r ApiFetchAdminist
 
 type ApiGetAdministratorAccessRequest struct {
 	ctx        context.Context
-	ApiService *AdministratorsAPIService
+	ApiService AdministratorsAPI
 	id         string
 }
 
@@ -736,7 +811,7 @@ func (a *AdministratorsAPIService) GetAdministratorAccessExecute(r ApiGetAdminis
 
 type ApiUpdateAdministratorAccessRequest struct {
 	ctx                      context.Context
-	ApiService               *AdministratorsAPIService
+	ApiService               AdministratorsAPI
 	id                       *string
 	authorization            *string
 	citrixCustomerId         *string

@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type ApplicationFoldersAPIsDAAS interface {
@@ -138,6 +140,61 @@ type ApiApplicationFoldersCheckApplicationFolderPathExistsRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiApplicationFoldersCheckApplicationFolderPathExistsRequest wraps the request struct to provide getter methods for testing
+type MockApiApplicationFoldersCheckApplicationFolderPathExistsRequest struct {
+	ApiApplicationFoldersCheckApplicationFolderPathExistsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiApplicationFoldersCheckApplicationFolderPathExistsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiApplicationFoldersCheckApplicationFolderPathExistsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiApplicationFoldersCheckApplicationFolderPathExistsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPath returns the path parameter
+func (r MockApiApplicationFoldersCheckApplicationFolderPathExistsRequest) GetPath() string {
+	return r.path
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiApplicationFoldersCheckApplicationFolderPathExistsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiApplicationFoldersCheckApplicationFolderPathExistsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiApplicationFoldersCheckApplicationFolderPathExistsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiApplicationFoldersCheckApplicationFolderPathExistsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiApplicationFoldersCheckApplicationFolderPathExistsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiApplicationFoldersCheckApplicationFolderPathExistsRequest) Execute() (*http.Response, error) {
+	return r.ApiApplicationFoldersCheckApplicationFolderPathExistsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -411,6 +468,66 @@ type ApiApplicationFoldersCreateApplicationFolderRequest struct {
 	accept                              *string
 	citrixLocale                        *string
 	async                               *bool
+}
+
+// MockApiApplicationFoldersCreateApplicationFolderRequest wraps the request struct to provide getter methods for testing
+type MockApiApplicationFoldersCreateApplicationFolderRequest struct {
+	ApiApplicationFoldersCreateApplicationFolderRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiApplicationFoldersCreateApplicationFolderRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiApplicationFoldersCreateApplicationFolderRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiApplicationFoldersCreateApplicationFolderRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCreateApplicationFolderRequestModel returns the createApplicationFolderRequestModel parameter
+func (r MockApiApplicationFoldersCreateApplicationFolderRequest) GetCreateApplicationFolderRequestModel() *CreateApplicationFolderRequestModel {
+	return r.createApplicationFolderRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiApplicationFoldersCreateApplicationFolderRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiApplicationFoldersCreateApplicationFolderRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiApplicationFoldersCreateApplicationFolderRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiApplicationFoldersCreateApplicationFolderRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiApplicationFoldersCreateApplicationFolderRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiApplicationFoldersCreateApplicationFolderRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiApplicationFoldersCreateApplicationFolderRequest) Execute() (*ApplicationFolderResponseModel, *http.Response, error) {
+	return r.ApiApplicationFoldersCreateApplicationFolderRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -729,6 +846,66 @@ type ApiApplicationFoldersDeleteApplicationFolderRequest struct {
 	async               *bool
 }
 
+// MockApiApplicationFoldersDeleteApplicationFolderRequest wraps the request struct to provide getter methods for testing
+type MockApiApplicationFoldersDeleteApplicationFolderRequest struct {
+	ApiApplicationFoldersDeleteApplicationFolderRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiApplicationFoldersDeleteApplicationFolderRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiApplicationFoldersDeleteApplicationFolderRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiApplicationFoldersDeleteApplicationFolderRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPathOrId returns the pathOrId parameter
+func (r MockApiApplicationFoldersDeleteApplicationFolderRequest) GetPathOrId() string {
+	return r.pathOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiApplicationFoldersDeleteApplicationFolderRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiApplicationFoldersDeleteApplicationFolderRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiApplicationFoldersDeleteApplicationFolderRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiApplicationFoldersDeleteApplicationFolderRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiApplicationFoldersDeleteApplicationFolderRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiApplicationFoldersDeleteApplicationFolderRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiApplicationFoldersDeleteApplicationFolderRequest) Execute() (*http.Response, error) {
+	return r.ApiApplicationFoldersDeleteApplicationFolderRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiApplicationFoldersDeleteApplicationFolderRequest) CitrixCustomerId(citrixCustomerId string) ApiApplicationFoldersDeleteApplicationFolderRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1012,6 +1189,61 @@ type ApiApplicationFoldersGetApplicationFolderRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiApplicationFoldersGetApplicationFolderRequest wraps the request struct to provide getter methods for testing
+type MockApiApplicationFoldersGetApplicationFolderRequest struct {
+	ApiApplicationFoldersGetApplicationFolderRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiApplicationFoldersGetApplicationFolderRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiApplicationFoldersGetApplicationFolderRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiApplicationFoldersGetApplicationFolderRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPathOrId returns the pathOrId parameter
+func (r MockApiApplicationFoldersGetApplicationFolderRequest) GetPathOrId() string {
+	return r.pathOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiApplicationFoldersGetApplicationFolderRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiApplicationFoldersGetApplicationFolderRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiApplicationFoldersGetApplicationFolderRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiApplicationFoldersGetApplicationFolderRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiApplicationFoldersGetApplicationFolderRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiApplicationFoldersGetApplicationFolderRequest) Execute() (*ApplicationFolderResponseModel, *http.Response, error) {
+	return r.ApiApplicationFoldersGetApplicationFolderRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1300,6 +1532,81 @@ type ApiApplicationFoldersGetApplicationFolderApplicationsRequest struct {
 	continuationToken   *string
 	fields              *string
 	async               *bool
+}
+
+// MockApiApplicationFoldersGetApplicationFolderApplicationsRequest wraps the request struct to provide getter methods for testing
+type MockApiApplicationFoldersGetApplicationFolderApplicationsRequest struct {
+	ApiApplicationFoldersGetApplicationFolderApplicationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPathOrId returns the pathOrId parameter
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) GetPathOrId() string {
+	return r.pathOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetFields returns the fields parameter
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) GetFields() *string {
+	return r.fields
+}
+
+// GetAsync returns the async parameter
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiApplicationFoldersGetApplicationFolderApplicationsRequest) Execute() (*ApplicationResponseModelCollection, *http.Response, error) {
+	return r.ApiApplicationFoldersGetApplicationFolderApplicationsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1625,6 +1932,61 @@ type ApiApplicationFoldersGetApplicationFoldersRequest struct {
 	async               *bool
 }
 
+// MockApiApplicationFoldersGetApplicationFoldersRequest wraps the request struct to provide getter methods for testing
+type MockApiApplicationFoldersGetApplicationFoldersRequest struct {
+	ApiApplicationFoldersGetApplicationFoldersRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiApplicationFoldersGetApplicationFoldersRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiApplicationFoldersGetApplicationFoldersRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiApplicationFoldersGetApplicationFoldersRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiApplicationFoldersGetApplicationFoldersRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiApplicationFoldersGetApplicationFoldersRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiApplicationFoldersGetApplicationFoldersRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiApplicationFoldersGetApplicationFoldersRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiApplicationFoldersGetApplicationFoldersRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiApplicationFoldersGetApplicationFoldersRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiApplicationFoldersGetApplicationFoldersRequest) Execute() (*ApplicationFolderResponseModelCollection, *http.Response, error) {
+	return r.ApiApplicationFoldersGetApplicationFoldersRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiApplicationFoldersGetApplicationFoldersRequest) CitrixCustomerId(citrixCustomerId string) ApiApplicationFoldersGetApplicationFoldersRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1907,6 +2269,71 @@ type ApiApplicationFoldersUpdateApplicationFolderRequest struct {
 	accept                            *string
 	citrixLocale                      *string
 	async                             *bool
+}
+
+// MockApiApplicationFoldersUpdateApplicationFolderRequest wraps the request struct to provide getter methods for testing
+type MockApiApplicationFoldersUpdateApplicationFolderRequest struct {
+	ApiApplicationFoldersUpdateApplicationFolderRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiApplicationFoldersUpdateApplicationFolderRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiApplicationFoldersUpdateApplicationFolderRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiApplicationFoldersUpdateApplicationFolderRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPathOrId returns the pathOrId parameter
+func (r MockApiApplicationFoldersUpdateApplicationFolderRequest) GetPathOrId() string {
+	return r.pathOrId
+}
+
+// GetEditApplicationFolderRequestModel returns the editApplicationFolderRequestModel parameter
+func (r MockApiApplicationFoldersUpdateApplicationFolderRequest) GetEditApplicationFolderRequestModel() *EditApplicationFolderRequestModel {
+	return r.editApplicationFolderRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiApplicationFoldersUpdateApplicationFolderRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiApplicationFoldersUpdateApplicationFolderRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiApplicationFoldersUpdateApplicationFolderRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiApplicationFoldersUpdateApplicationFolderRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiApplicationFoldersUpdateApplicationFolderRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiApplicationFoldersUpdateApplicationFolderRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiApplicationFoldersUpdateApplicationFolderRequest) Execute() (*ApplicationFolderResponseModel, *http.Response, error) {
+	return r.ApiApplicationFoldersUpdateApplicationFolderRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2212,4 +2639,112 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersUpdateApplicationF
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockApplicationFoldersAPIsDAAS extracts the MockApplicationFoldersAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockApplicationFoldersAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockApplicationFoldersAPIsDAAS(client *APIClient) *MockApplicationFoldersAPIsDAAS {
+	return client.ApplicationFoldersAPIsDAAS.(*MockApplicationFoldersAPIsDAAS)
+}
+
+// MockApplicationFoldersAPIsDAAS is a mock implementation of the ApplicationFoldersAPIsDAAS interface for testing
+var _ ApplicationFoldersAPIsDAAS = (*MockApplicationFoldersAPIsDAAS)(nil)
+
+type MockApplicationFoldersAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersCheckApplicationFolderPathExists(ctx context.Context, path string) ApiApplicationFoldersCheckApplicationFolderPathExistsRequest {
+	return ApiApplicationFoldersCheckApplicationFolderPathExistsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		path:       path,
+	}
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersCheckApplicationFolderPathExistsExecute(r ApiApplicationFoldersCheckApplicationFolderPathExistsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersCreateApplicationFolder(ctx context.Context) ApiApplicationFoldersCreateApplicationFolderRequest {
+	return ApiApplicationFoldersCreateApplicationFolderRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersCreateApplicationFolderExecute(r ApiApplicationFoldersCreateApplicationFolderRequest) (*ApplicationFolderResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ApplicationFolderResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersDeleteApplicationFolder(ctx context.Context, pathOrId string) ApiApplicationFoldersDeleteApplicationFolderRequest {
+	return ApiApplicationFoldersDeleteApplicationFolderRequest{
+		ctx:        ctx,
+		ApiService: m,
+		pathOrId:   pathOrId,
+	}
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersDeleteApplicationFolderExecute(r ApiApplicationFoldersDeleteApplicationFolderRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersGetApplicationFolder(ctx context.Context, pathOrId string) ApiApplicationFoldersGetApplicationFolderRequest {
+	return ApiApplicationFoldersGetApplicationFolderRequest{
+		ctx:        ctx,
+		ApiService: m,
+		pathOrId:   pathOrId,
+	}
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersGetApplicationFolderExecute(r ApiApplicationFoldersGetApplicationFolderRequest) (*ApplicationFolderResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ApplicationFolderResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersGetApplicationFolderApplications(ctx context.Context, pathOrId string) ApiApplicationFoldersGetApplicationFolderApplicationsRequest {
+	return ApiApplicationFoldersGetApplicationFolderApplicationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		pathOrId:   pathOrId,
+	}
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersGetApplicationFolderApplicationsExecute(r ApiApplicationFoldersGetApplicationFolderApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ApplicationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersGetApplicationFolders(ctx context.Context) ApiApplicationFoldersGetApplicationFoldersRequest {
+	return ApiApplicationFoldersGetApplicationFoldersRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersGetApplicationFoldersExecute(r ApiApplicationFoldersGetApplicationFoldersRequest) (*ApplicationFolderResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ApplicationFolderResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersUpdateApplicationFolder(ctx context.Context, pathOrId string) ApiApplicationFoldersUpdateApplicationFolderRequest {
+	return ApiApplicationFoldersUpdateApplicationFolderRequest{
+		ctx:        ctx,
+		ApiService: m,
+		pathOrId:   pathOrId,
+	}
+}
+
+func (m *MockApplicationFoldersAPIsDAAS) ApplicationFoldersUpdateApplicationFolderExecute(r ApiApplicationFoldersUpdateApplicationFolderRequest) (*ApplicationFolderResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ApplicationFolderResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }

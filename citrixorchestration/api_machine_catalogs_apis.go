@@ -19,6 +19,8 @@ import (
 	"reflect"
 	"strings"
 	"time"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type MachineCatalogsAPIsDAAS interface {
@@ -819,6 +821,81 @@ type ApiMachineCatalogsAddMachineCatalogMachineRequest struct {
 	async                                        *bool
 }
 
+// MockApiMachineCatalogsAddMachineCatalogMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsAddMachineCatalogMachineRequest struct {
+	ApiMachineCatalogsAddMachineCatalogMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetAddMachineToMachineCatalogDetailRequestModel returns the addMachineToMachineCatalogDetailRequestModel parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) GetAddMachineToMachineCatalogDetailRequestModel() *AddMachineToMachineCatalogDetailRequestModel {
+	return r.addMachineToMachineCatalogDetailRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetXAccessToken returns the xAccessToken parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) GetXAccessToken() *string {
+	return r.xAccessToken
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsAddMachineCatalogMachineRequest) Execute() (*JobResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsAddMachineCatalogMachineRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsAddMachineCatalogMachineRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsAddMachineCatalogMachineRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1188,6 +1265,71 @@ type ApiMachineCatalogsAddMachineCatalogMachineAccountRequest struct {
 	citrixLocale               *string
 }
 
+// MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest struct {
+	ApiMachineCatalogsAddMachineCatalogMachineAccountRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetMachineAccountRequestModel returns the machineAccountRequestModel parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest) GetMachineAccountRequestModel() *MachineAccountRequestModel {
+	return r.machineAccountRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsAddMachineCatalogMachineAccountRequest) Execute() (*ProvisioningSchemeMachineAccountResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsAddMachineCatalogMachineAccountRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsAddMachineCatalogMachineAccountRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsAddMachineCatalogMachineAccountRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1516,6 +1658,71 @@ type ApiMachineCatalogsAddMachineCatalogTagsRequest struct {
 	async               *bool
 }
 
+// MockApiMachineCatalogsAddMachineCatalogTagsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsAddMachineCatalogTagsRequest struct {
+	ApiMachineCatalogsAddMachineCatalogTagsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsAddMachineCatalogTagsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsAddMachineCatalogTagsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsAddMachineCatalogTagsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsAddMachineCatalogTagsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetTagNameOrId returns the tagNameOrId parameter
+func (r MockApiMachineCatalogsAddMachineCatalogTagsRequest) GetTagNameOrId() string {
+	return r.tagNameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsAddMachineCatalogTagsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsAddMachineCatalogTagsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsAddMachineCatalogTagsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsAddMachineCatalogTagsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsAddMachineCatalogTagsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsAddMachineCatalogTagsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsAddMachineCatalogTagsRequest) Execute() (*TagResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsAddMachineCatalogTagsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsAddMachineCatalogTagsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsAddMachineCatalogTagsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1824,6 +2031,61 @@ type ApiMachineCatalogsCheckMachineCatalogExistsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachineCatalogsCheckMachineCatalogExistsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsCheckMachineCatalogExistsRequest struct {
+	ApiMachineCatalogsCheckMachineCatalogExistsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsCheckMachineCatalogExistsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsCheckMachineCatalogExistsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsCheckMachineCatalogExistsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetName returns the name parameter
+func (r MockApiMachineCatalogsCheckMachineCatalogExistsRequest) GetName() string {
+	return r.name
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsCheckMachineCatalogExistsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsCheckMachineCatalogExistsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsCheckMachineCatalogExistsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsCheckMachineCatalogExistsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsCheckMachineCatalogExistsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsCheckMachineCatalogExistsRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsCheckMachineCatalogExistsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsCheckMachineCatalogExistsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsCheckMachineCatalogExistsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2095,6 +2357,66 @@ type ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest struct {
+	ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetName returns the name parameter
+func (r MockApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) GetName() string {
+	return r.name
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2384,6 +2706,81 @@ type ApiMachineCatalogsCreateMachineCatalogRequest struct {
 	citrixLocale                     *string
 	async                            *bool
 	sourceNameOrId                   *string
+}
+
+// MockApiMachineCatalogsCreateMachineCatalogRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsCreateMachineCatalogRequest struct {
+	ApiMachineCatalogsCreateMachineCatalogRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCreateMachineCatalogRequestModel returns the createMachineCatalogRequestModel parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) GetCreateMachineCatalogRequestModel() *CreateMachineCatalogRequestModel {
+	return r.createMachineCatalogRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetXAccessToken returns the xAccessToken parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) GetXAccessToken() *string {
+	return r.xAccessToken
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetSourceNameOrId returns the sourceNameOrId parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) GetSourceNameOrId() *string {
+	return r.sourceNameOrId
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsCreateMachineCatalogRequest) Execute() (*MachineCatalogDetailResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsCreateMachineCatalogRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2738,6 +3135,71 @@ type ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest struct {
 	async                             *bool
 }
 
+// MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest struct {
+	ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetCreateUpgradeScheduleRequestModel returns the createUpgradeScheduleRequestModel parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) GetCreateUpgradeScheduleRequestModel() *CreateUpgradeScheduleRequestModel {
+	return r.createUpgradeScheduleRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3061,6 +3523,91 @@ type ApiMachineCatalogsDeleteMachineCatalogRequest struct {
 	deleteAccount       *MachineAccountDeleteOption
 	purgeDBOnly         *bool
 	async               *bool
+}
+
+// MockApiMachineCatalogsDeleteMachineCatalogRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsDeleteMachineCatalogRequest struct {
+	ApiMachineCatalogsDeleteMachineCatalogRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetXAccessToken returns the xAccessToken parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetXAccessToken() *string {
+	return r.xAccessToken
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetDeleteVm returns the deleteVm parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetDeleteVm() *bool {
+	return r.deleteVm
+}
+
+// GetDeleteAccount returns the deleteAccount parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetDeleteAccount() *MachineAccountDeleteOption {
+	return r.deleteAccount
+}
+
+// GetPurgeDBOnly returns the purgeDBOnly parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetPurgeDBOnly() *bool {
+	return r.purgeDBOnly
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsDeleteMachineCatalogRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsDeleteMachineCatalogRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3403,6 +3950,81 @@ type ApiMachineCatalogsDoMachineCatalogSearchRequest struct {
 	limit                     *int32
 	continuationToken         *string
 	fields                    *string
+}
+
+// MockApiMachineCatalogsDoMachineCatalogSearchRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsDoMachineCatalogSearchRequest struct {
+	ApiMachineCatalogsDoMachineCatalogSearchRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCatalogSearchRequestModel returns the catalogSearchRequestModel parameter
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) GetCatalogSearchRequestModel() *CatalogSearchRequestModel {
+	return r.catalogSearchRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsDoMachineCatalogSearchRequest) Execute() (*CatalogSearchResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsDoMachineCatalogSearchRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3749,6 +4371,66 @@ type ApiMachineCatalogsExportRequest struct {
 	fields              *string
 }
 
+// MockApiMachineCatalogsExportRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsExportRequest struct {
+	ApiMachineCatalogsExportRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsExportRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsExportRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsExportRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsExportRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsExportRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsExportRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsExportRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsExportRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsExportRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMachineCatalogsExportRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsExportRequest) Execute() (*ExportMachineCatalogResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsExportRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsExportRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsExportRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -4051,6 +4733,61 @@ type ApiMachineCatalogsExportMachineProfileRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachineCatalogsExportMachineProfileRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsExportMachineProfileRequest struct {
+	ApiMachineCatalogsExportMachineProfileRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsExportMachineProfileRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsExportMachineProfileRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsExportMachineProfileRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsExportMachineProfileRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsExportMachineProfileRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsExportMachineProfileRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsExportMachineProfileRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsExportMachineProfileRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsExportMachineProfileRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsExportMachineProfileRequest) Execute() (*ExportMachineProfileResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsExportMachineProfileRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsExportMachineProfileRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsExportMachineProfileRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -4344,6 +5081,71 @@ type ApiMachineCatalogsGetMachineCatalogRequest struct {
 	citrixLocale        *string
 	async               *bool
 	fields              *string
+}
+
+// MockApiMachineCatalogsGetMachineCatalogRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogRequest struct {
+	ApiMachineCatalogsGetMachineCatalogRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsGetMachineCatalogRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMachineCatalogsGetMachineCatalogRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogRequest) Execute() (*MachineCatalogDetailResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4653,6 +5455,81 @@ type ApiMachineCatalogsGetMachineCatalogCostSummaryRequest struct {
 	citrixLocale        *string
 	summaryType         *SummaryType
 	async               *bool
+}
+
+// MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest struct {
+	ApiMachineCatalogsGetMachineCatalogCostSummaryRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetStart returns the start parameter
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) GetStart() *time.Time {
+	return r.start
+}
+
+// GetEnd returns the end parameter
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) GetEnd() *time.Time {
+	return r.end
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetSummaryType returns the summaryType parameter
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) GetSummaryType() *SummaryType {
+	return r.summaryType
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogCostSummaryRequest) Execute() (*ResourceCostResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogCostSummaryRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4981,6 +5858,76 @@ type ApiMachineCatalogsGetMachineCatalogDailyCostRequest struct {
 	async               *bool
 }
 
+// MockApiMachineCatalogsGetMachineCatalogDailyCostRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogDailyCostRequest struct {
+	ApiMachineCatalogsGetMachineCatalogDailyCostRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogDailyCostRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDailyCostRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDailyCostRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDailyCostRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetStart returns the start parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDailyCostRequest) GetStart() *time.Time {
+	return r.start
+}
+
+// GetEnd returns the end parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDailyCostRequest) GetEnd() *time.Time {
+	return r.end
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDailyCostRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDailyCostRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDailyCostRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDailyCostRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDailyCostRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDailyCostRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogDailyCostRequest) Execute() (*DailyCostResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogDailyCostRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -5298,6 +6245,76 @@ type ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest struct 
 	async               *bool
 }
 
+// MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest struct {
+	ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) Execute() (*DeliveryGroupAssociationResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -5612,6 +6629,61 @@ type ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachineCatalogsGetMachineCatalogEnrollmentsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogEnrollmentsRequest struct {
+	ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) Execute() (*EnrollmentResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -5893,6 +6965,66 @@ type ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiMachineCatalogsGetMachineCatalogLastMasterImageRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogLastMasterImageRequest struct {
+	ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) Execute() (*VMImageResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6193,6 +7325,81 @@ type ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest struct {
 	continuationToken   *string
 	async               *bool
 	accountState        *ProvisioningSchemeMachineAccountState
+}
+
+// MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest struct {
+	ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetAccountState returns the accountState parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) GetAccountState() *ProvisioningSchemeMachineAccountState {
+	return r.accountState
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) Execute() (*ProvisioningSchemeMachineAccountResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6526,6 +7733,81 @@ type ApiMachineCatalogsGetMachineCatalogMachinesRequest struct {
 	fields              *string
 }
 
+// MockApiMachineCatalogsGetMachineCatalogMachinesRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogMachinesRequest struct {
+	ApiMachineCatalogsGetMachineCatalogMachinesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogMachinesRequest) Execute() (*MachineResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogMachinesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsGetMachineCatalogMachinesRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsGetMachineCatalogMachinesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -6847,6 +8129,61 @@ type ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest struct {
+	ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) Execute() (*VMImageResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -7131,6 +8468,71 @@ type ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest struct {
 	citrixLocale        *string
 	machines            *[]string
 	async               *bool
+}
+
+// MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest struct {
+	ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetMachines returns the machines parameter
+func (r MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) GetMachines() *[]string {
+	return r.machines
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) Execute() (*StartMenuApplicationResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7452,6 +8854,66 @@ type ApiMachineCatalogsGetMachineCatalogTagsRequest struct {
 	fields              *string
 }
 
+// MockApiMachineCatalogsGetMachineCatalogTagsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogTagsRequest struct {
+	ApiMachineCatalogsGetMachineCatalogTagsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogTagsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTagsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTagsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTagsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTagsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTagsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTagsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTagsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTagsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTagsRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogTagsRequest) Execute() (*TagResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogTagsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsGetMachineCatalogTagsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsGetMachineCatalogTagsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -7750,6 +9212,61 @@ type ApiMachineCatalogsGetMachineCatalogTestReportRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachineCatalogsGetMachineCatalogTestReportRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogTestReportRequest struct {
+	ApiMachineCatalogsGetMachineCatalogTestReportRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogTestReportRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTestReportRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTestReportRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTestReportRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTestReportRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTestReportRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTestReportRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTestReportRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogTestReportRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogTestReportRequest) Execute() (*TestReportResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogTestReportRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsGetMachineCatalogTestReportRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsGetMachineCatalogTestReportRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -8034,6 +9551,66 @@ type ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest struct {
 	accept              *string
 	citrixLocale        *string
 	upgradeVersion      *string
+}
+
+// MockApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest struct {
+	ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetUpgradeVersion returns the upgradeVersion parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) GetUpgradeVersion() *string {
+	return r.upgradeVersion
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) Execute() (*MachineCatalogVusComponentResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8327,6 +9904,61 @@ type ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest struct {
+	ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) Execute() ([]string, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -8611,6 +10243,81 @@ type ApiMachineCatalogsGetMachineCatalogsRequest struct {
 	limit               *int32
 	continuationToken   *string
 	fields              *string
+}
+
+// MockApiMachineCatalogsGetMachineCatalogsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogsRequest struct {
+	ApiMachineCatalogsGetMachineCatalogsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAdminFolder returns the adminFolder parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) GetAdminFolder() *string {
+	return r.adminFolder
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogsRequest) Execute() (*MachineCatalogResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8931,6 +10638,61 @@ type ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachineCatalogsGetMachineCatalogsAdministratorsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogsAdministratorsRequest struct {
+	ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) Execute() (*AdministratorResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -9217,6 +10979,81 @@ type ApiMachineCatalogsGetMachineCatalogsV2Request struct {
 	limit               *int32
 	continuationToken   *string
 	fields              *string
+}
+
+// MockApiMachineCatalogsGetMachineCatalogsV2Request wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsGetMachineCatalogsV2Request struct {
+	ApiMachineCatalogsGetMachineCatalogsV2Request
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAdminFolder returns the adminFolder parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) GetAdminFolder() *string {
+	return r.adminFolder
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) GetAsync() *bool {
+	return r.async
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsGetMachineCatalogsV2Request) Execute() (*MachineCatalogResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsGetMachineCatalogsV2Request.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9537,6 +11374,71 @@ type ApiMachineCatalogsImportProvisionedVirtualMachinesRequest struct {
 	accept                                       *string
 	citrixLocale                                 *string
 	async                                        *bool
+}
+
+// MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest struct {
+	ApiMachineCatalogsImportProvisionedVirtualMachinesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetImportProvisionedVirtualMachinesRequestModel returns the importProvisionedVirtualMachinesRequestModel parameter
+func (r MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest) GetImportProvisionedVirtualMachinesRequestModel() *ImportProvisionedVirtualMachinesRequestModel {
+	return r.importProvisionedVirtualMachinesRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsImportProvisionedVirtualMachinesRequest) Execute() (*ImportProvisionedVirtualMachineResponseModelCollection, *http.Response, error) {
+	return r.ApiMachineCatalogsImportProvisionedVirtualMachinesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9867,6 +11769,66 @@ type ApiMachineCatalogsRebootMachineCatalogMachinesRequest struct {
 	citrixLocale               *string
 }
 
+// MockApiMachineCatalogsRebootMachineCatalogMachinesRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsRebootMachineCatalogMachinesRequest struct {
+	ApiMachineCatalogsRebootMachineCatalogMachinesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsRebootMachineCatalogMachinesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsRebootMachineCatalogMachinesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsRebootMachineCatalogMachinesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsRebootMachineCatalogMachinesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetRebootMachinesRequestModel returns the rebootMachinesRequestModel parameter
+func (r MockApiMachineCatalogsRebootMachineCatalogMachinesRequest) GetRebootMachinesRequestModel() *RebootMachinesRequestModel {
+	return r.rebootMachinesRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsRebootMachineCatalogMachinesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsRebootMachineCatalogMachinesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsRebootMachineCatalogMachinesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsRebootMachineCatalogMachinesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsRebootMachineCatalogMachinesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsRebootMachineCatalogMachinesRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsRebootMachineCatalogMachinesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsRebootMachineCatalogMachinesRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsRebootMachineCatalogMachinesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -10179,6 +12141,66 @@ type ApiMachineCatalogsRemoveMachineCatalogMachineRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiMachineCatalogsRemoveMachineCatalogMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsRemoveMachineCatalogMachineRequest struct {
+	ApiMachineCatalogsRemoveMachineCatalogMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetMachine returns the machine parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineRequest) GetMachine() string {
+	return r.machine
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsRemoveMachineCatalogMachineRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsRemoveMachineCatalogMachineRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsRemoveMachineCatalogMachineRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -10462,6 +12484,76 @@ type ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest struct {
 	accept              *string
 	citrixLocale        *string
 	deleteAccount       *MachineAccountDeleteOption
+}
+
+// MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest struct {
+	ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetMachine returns the machine parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) GetMachine() string {
+	return r.machine
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetDeleteAccount returns the deleteAccount parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) GetDeleteAccount() *MachineAccountDeleteOption {
+	return r.deleteAccount
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10762,6 +12854,71 @@ type ApiMachineCatalogsRemoveMachineCatalogTagsRequest struct {
 	async               *bool
 }
 
+// MockApiMachineCatalogsRemoveMachineCatalogTagsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsRemoveMachineCatalogTagsRequest struct {
+	ApiMachineCatalogsRemoveMachineCatalogTagsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsRemoveMachineCatalogTagsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogTagsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogTagsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogTagsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetTagNameOrId returns the tagNameOrId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogTagsRequest) GetTagNameOrId() string {
+	return r.tagNameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogTagsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogTagsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogTagsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogTagsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogTagsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogTagsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsRemoveMachineCatalogTagsRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsRemoveMachineCatalogTagsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsRemoveMachineCatalogTagsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsRemoveMachineCatalogTagsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -11050,6 +13207,71 @@ type ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest struct {
 	citrixLocale        *string
 	force               *bool
 	async               *bool
+}
+
+// MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest struct {
+	ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForce returns the force parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) GetForce() *bool {
+	return r.force
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11351,6 +13573,76 @@ type ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest struct {
+	ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetRepairOption returns the repairOption parameter
+func (r MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) GetRepairOption() *MachineAccountRepairOption {
+	return r.repairOption
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11668,6 +13960,76 @@ type ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest struct {
 	accept                     *string
 	citrixLocale               *string
 	async                      *bool
+}
+
+// MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest struct {
+	ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetRebootMachinesRequestModel returns the rebootMachinesRequestModel parameter
+func (r MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) GetRebootMachinesRequestModel() *RebootMachinesRequestModel {
+	return r.rebootMachinesRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) Execute() (*JobResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -12024,6 +14386,71 @@ type ApiMachineCatalogsSetMachineCatalogTagsRequest struct {
 	async               *bool
 }
 
+// MockApiMachineCatalogsSetMachineCatalogTagsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsSetMachineCatalogTagsRequest struct {
+	ApiMachineCatalogsSetMachineCatalogTagsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsSetMachineCatalogTagsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsSetMachineCatalogTagsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsSetMachineCatalogTagsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsSetMachineCatalogTagsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetTagsRequestModel returns the tagsRequestModel parameter
+func (r MockApiMachineCatalogsSetMachineCatalogTagsRequest) GetTagsRequestModel() *TagsRequestModel {
+	return r.tagsRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsSetMachineCatalogTagsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsSetMachineCatalogTagsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsSetMachineCatalogTagsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsSetMachineCatalogTagsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsSetMachineCatalogTagsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsSetMachineCatalogTagsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsSetMachineCatalogTagsRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsSetMachineCatalogTagsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsSetMachineCatalogTagsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsSetMachineCatalogTagsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -12327,6 +14754,66 @@ type ApiMachineCatalogsTestMachineCatalogRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiMachineCatalogsTestMachineCatalogRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsTestMachineCatalogRequest struct {
+	ApiMachineCatalogsTestMachineCatalogRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsTestMachineCatalogRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsTestMachineCatalogRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsTestMachineCatalogRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsTestMachineCatalogRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsTestMachineCatalogRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsTestMachineCatalogRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsTestMachineCatalogRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsTestMachineCatalogRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsTestMachineCatalogRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsTestMachineCatalogRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsTestMachineCatalogRequest) Execute() (*MachineCatalogTestResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsTestMachineCatalogRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -12638,6 +15125,61 @@ type ApiMachineCatalogsTestMachineCatalogExistsRequest struct {
 	citrixLocale                 *string
 }
 
+// MockApiMachineCatalogsTestMachineCatalogExistsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsTestMachineCatalogExistsRequest struct {
+	ApiMachineCatalogsTestMachineCatalogExistsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsTestMachineCatalogExistsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsTestMachineCatalogExistsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsTestMachineCatalogExistsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCatalogNameCheckRequestModel returns the catalogNameCheckRequestModel parameter
+func (r MockApiMachineCatalogsTestMachineCatalogExistsRequest) GetCatalogNameCheckRequestModel() *CatalogNameCheckRequestModel {
+	return r.catalogNameCheckRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsTestMachineCatalogExistsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsTestMachineCatalogExistsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsTestMachineCatalogExistsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsTestMachineCatalogExistsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsTestMachineCatalogExistsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsTestMachineCatalogExistsRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsTestMachineCatalogExistsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsTestMachineCatalogExistsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsTestMachineCatalogExistsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -12928,6 +15470,66 @@ type ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest struct {
 	citrixTransactionId               *string
 	accept                            *string
 	citrixLocale                      *string
+}
+
+// MockApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest struct {
+	ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetRemotePCEnrollmentScopeCheckModel returns the remotePCEnrollmentScopeCheckModel parameter
+func (r MockApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) GetRemotePCEnrollmentScopeCheckModel() *RemotePCEnrollmentScopeCheckModel {
+	return r.remotePCEnrollmentScopeCheckModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -13246,6 +15848,76 @@ type ApiMachineCatalogsUpdateMachineCatalogRequest struct {
 	accept                           *string
 	citrixLocale                     *string
 	async                            *bool
+}
+
+// MockApiMachineCatalogsUpdateMachineCatalogRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsUpdateMachineCatalogRequest struct {
+	ApiMachineCatalogsUpdateMachineCatalogRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsUpdateMachineCatalogRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUpdateMachineCatalogRequestModel returns the updateMachineCatalogRequestModel parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogRequest) GetUpdateMachineCatalogRequestModel() *UpdateMachineCatalogRequestModel {
+	return r.updateMachineCatalogRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAccessToken returns the xAccessToken parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogRequest) GetXAccessToken() *string {
+	return r.xAccessToken
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsUpdateMachineCatalogRequest) Execute() (*MachineCatalogDetailResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsUpdateMachineCatalogRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -13578,6 +16250,76 @@ type ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest struct {
 	citrixLocale                     *string
 }
 
+// MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest struct {
+	ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetMachine returns the machine parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) GetMachine() string {
+	return r.machine
+}
+
+// GetUpdateMachineAccountRequestModel returns the updateMachineAccountRequestModel parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) GetUpdateMachineAccountRequestModel() *UpdateMachineAccountRequestModel {
+	return r.updateMachineAccountRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) Execute() (*ProvisioningSchemeMachineAccountResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -13900,6 +16642,71 @@ type ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest struct {
 	accept                                             *string
 	citrixLocale                                       *string
 	async                                              *bool
+}
+
+// MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest struct {
+	ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUpdateMachineCatalogProvisioningSchemeRequestModel returns the updateMachineCatalogProvisioningSchemeRequestModel parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) GetUpdateMachineCatalogProvisioningSchemeRequestModel() *UpdateMachineCatalogProvisioningSchemeRequestModel {
+	return r.updateMachineCatalogProvisioningSchemeRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) Execute() (*JobResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -14256,6 +17063,71 @@ type ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest struct {
 	async                             *bool
 }
 
+// MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest struct {
+	ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUpdateUpgradeScheduleRequestModel returns the updateUpgradeScheduleRequestModel parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) GetUpdateUpgradeScheduleRequestModel() *UpdateUpgradeScheduleRequestModel {
+	return r.updateUpgradeScheduleRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) Execute() (*http.Response, error) {
+	return r.ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -14573,6 +17445,71 @@ type ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRe
 	async                                        *bool
 }
 
+// MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest wraps the request struct to provide getter methods for testing
+type MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest struct {
+	ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetVDAComponentsSelectionValidationRequestModel returns the vDAComponentsSelectionValidationRequestModel parameter
+func (r MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) GetVDAComponentsSelectionValidationRequestModel() *VDAComponentsSelectionValidationRequestModel {
+	return r.vDAComponentsSelectionValidationRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) Execute() (*VDAComponentsSelectionValidationResponseModel, *http.Response, error) {
+	return r.ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -14885,4 +17822,609 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsValidateMachineCatalogVD
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockMachineCatalogsAPIsDAAS extracts the MockMachineCatalogsAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockMachineCatalogsAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockMachineCatalogsAPIsDAAS(client *APIClient) *MockMachineCatalogsAPIsDAAS {
+	return client.MachineCatalogsAPIsDAAS.(*MockMachineCatalogsAPIsDAAS)
+}
+
+// MockMachineCatalogsAPIsDAAS is a mock implementation of the MachineCatalogsAPIsDAAS interface for testing
+var _ MachineCatalogsAPIsDAAS = (*MockMachineCatalogsAPIsDAAS)(nil)
+
+type MockMachineCatalogsAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsAddMachineCatalogMachine(ctx context.Context, nameOrId string) ApiMachineCatalogsAddMachineCatalogMachineRequest {
+	return ApiMachineCatalogsAddMachineCatalogMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsAddMachineCatalogMachineExecute(r ApiMachineCatalogsAddMachineCatalogMachineRequest) (*JobResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*JobResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsAddMachineCatalogMachineAccount(ctx context.Context, nameOrId string) ApiMachineCatalogsAddMachineCatalogMachineAccountRequest {
+	return ApiMachineCatalogsAddMachineCatalogMachineAccountRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsAddMachineCatalogMachineAccountExecute(r ApiMachineCatalogsAddMachineCatalogMachineAccountRequest) (*ProvisioningSchemeMachineAccountResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ProvisioningSchemeMachineAccountResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsAddMachineCatalogTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiMachineCatalogsAddMachineCatalogTagsRequest {
+	return ApiMachineCatalogsAddMachineCatalogTagsRequest{
+		ctx:         ctx,
+		ApiService:  m,
+		nameOrId:    nameOrId,
+		tagNameOrId: tagNameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsAddMachineCatalogTagsExecute(r ApiMachineCatalogsAddMachineCatalogTagsRequest) (*TagResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TagResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsCheckMachineCatalogExists(ctx context.Context, name string) ApiMachineCatalogsCheckMachineCatalogExistsRequest {
+	return ApiMachineCatalogsCheckMachineCatalogExistsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		name:       name,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsCheckMachineCatalogExistsExecute(r ApiMachineCatalogsCheckMachineCatalogExistsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsCheckRemotePCEnrollmentScopeExists(ctx context.Context, nameOrId string, name string) ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest {
+	return ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		name:       name,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsCheckRemotePCEnrollmentScopeExistsExecute(r ApiMachineCatalogsCheckRemotePCEnrollmentScopeExistsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsCreateMachineCatalog(ctx context.Context) ApiMachineCatalogsCreateMachineCatalogRequest {
+	return ApiMachineCatalogsCreateMachineCatalogRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsCreateMachineCatalogExecute(r ApiMachineCatalogsCreateMachineCatalogRequest) (*MachineCatalogDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineCatalogDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsCreateMachineCatalogUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest {
+	return ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsCreateMachineCatalogUpgradeScheduleExecute(r ApiMachineCatalogsCreateMachineCatalogUpgradeScheduleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsDeleteMachineCatalog(ctx context.Context, nameOrId string) ApiMachineCatalogsDeleteMachineCatalogRequest {
+	return ApiMachineCatalogsDeleteMachineCatalogRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsDeleteMachineCatalogExecute(r ApiMachineCatalogsDeleteMachineCatalogRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsDoMachineCatalogSearch(ctx context.Context) ApiMachineCatalogsDoMachineCatalogSearchRequest {
+	return ApiMachineCatalogsDoMachineCatalogSearchRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsDoMachineCatalogSearchExecute(r ApiMachineCatalogsDoMachineCatalogSearchRequest) (*CatalogSearchResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*CatalogSearchResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsExport(ctx context.Context, nameOrId string) ApiMachineCatalogsExportRequest {
+	return ApiMachineCatalogsExportRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsExportExecute(r ApiMachineCatalogsExportRequest) (*ExportMachineCatalogResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ExportMachineCatalogResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsExportMachineProfile(ctx context.Context, nameOrId string) ApiMachineCatalogsExportMachineProfileRequest {
+	return ApiMachineCatalogsExportMachineProfileRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsExportMachineProfileExecute(r ApiMachineCatalogsExportMachineProfileRequest) (*ExportMachineProfileResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ExportMachineProfileResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalog(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogRequest {
+	return ApiMachineCatalogsGetMachineCatalogRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogExecute(r ApiMachineCatalogsGetMachineCatalogRequest) (*MachineCatalogDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineCatalogDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogCostSummary(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
+	return ApiMachineCatalogsGetMachineCatalogCostSummaryRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogCostSummaryExecute(r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) (*ResourceCostResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ResourceCostResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogDailyCost(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
+	return ApiMachineCatalogsGetMachineCatalogDailyCostRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogDailyCostExecute(r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) (*DailyCostResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*DailyCostResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogDeliveryGroupAssociations(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest {
+	return ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogDeliveryGroupAssociationsExecute(r ApiMachineCatalogsGetMachineCatalogDeliveryGroupAssociationsRequest) (*DeliveryGroupAssociationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*DeliveryGroupAssociationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogEnrollments(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest {
+	return ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogEnrollmentsExecute(r ApiMachineCatalogsGetMachineCatalogEnrollmentsRequest) (*EnrollmentResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*EnrollmentResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogLastMasterImage(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest {
+	return ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogLastMasterImageExecute(r ApiMachineCatalogsGetMachineCatalogLastMasterImageRequest) (*VMImageResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*VMImageResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogMachineAccounts(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest {
+	return ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogMachineAccountsExecute(r ApiMachineCatalogsGetMachineCatalogMachineAccountsRequest) (*ProvisioningSchemeMachineAccountResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ProvisioningSchemeMachineAccountResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogMachines(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogMachinesRequest {
+	return ApiMachineCatalogsGetMachineCatalogMachinesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogMachinesExecute(r ApiMachineCatalogsGetMachineCatalogMachinesRequest) (*MachineResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogMasterImageHistory(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest {
+	return ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogMasterImageHistoryExecute(r ApiMachineCatalogsGetMachineCatalogMasterImageHistoryRequest) (*VMImageResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*VMImageResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogStartMenuApplications(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest {
+	return ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogStartMenuApplicationsExecute(r ApiMachineCatalogsGetMachineCatalogStartMenuApplicationsRequest) (*StartMenuApplicationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*StartMenuApplicationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogTags(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogTagsRequest {
+	return ApiMachineCatalogsGetMachineCatalogTagsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogTagsExecute(r ApiMachineCatalogsGetMachineCatalogTagsRequest) (*TagResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TagResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogTestReport(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogTestReportRequest {
+	return ApiMachineCatalogsGetMachineCatalogTestReportRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogTestReportExecute(r ApiMachineCatalogsGetMachineCatalogTestReportRequest) (*TestReportResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TestReportResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest {
+	return ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesExecute(r ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) (*MachineCatalogVusComponentResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineCatalogVusComponentResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogVDAUpgradeVersions(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest {
+	return ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogVDAUpgradeVersionsExecute(r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) ([]string, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).([]string), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogs(ctx context.Context) ApiMachineCatalogsGetMachineCatalogsRequest {
+	return ApiMachineCatalogsGetMachineCatalogsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogsExecute(r ApiMachineCatalogsGetMachineCatalogsRequest) (*MachineCatalogResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineCatalogResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogsAdministrators(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest {
+	return ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogsAdministratorsExecute(r ApiMachineCatalogsGetMachineCatalogsAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdministratorResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogsV2(ctx context.Context) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	return ApiMachineCatalogsGetMachineCatalogsV2Request{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsGetMachineCatalogsV2Execute(r ApiMachineCatalogsGetMachineCatalogsV2Request) (*MachineCatalogResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineCatalogResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsImportProvisionedVirtualMachines(ctx context.Context, nameOrId string) ApiMachineCatalogsImportProvisionedVirtualMachinesRequest {
+	return ApiMachineCatalogsImportProvisionedVirtualMachinesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsImportProvisionedVirtualMachinesExecute(r ApiMachineCatalogsImportProvisionedVirtualMachinesRequest) (*ImportProvisionedVirtualMachineResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ImportProvisionedVirtualMachineResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRebootMachineCatalogMachines(ctx context.Context, nameOrId string) ApiMachineCatalogsRebootMachineCatalogMachinesRequest {
+	return ApiMachineCatalogsRebootMachineCatalogMachinesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRebootMachineCatalogMachinesExecute(r ApiMachineCatalogsRebootMachineCatalogMachinesRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRemoveMachineCatalogMachine(ctx context.Context, nameOrId string, machine string) ApiMachineCatalogsRemoveMachineCatalogMachineRequest {
+	return ApiMachineCatalogsRemoveMachineCatalogMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		machine:    machine,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRemoveMachineCatalogMachineExecute(r ApiMachineCatalogsRemoveMachineCatalogMachineRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRemoveMachineCatalogMachineAccount(ctx context.Context, nameOrId string, machine string) ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest {
+	return ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		machine:    machine,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRemoveMachineCatalogMachineAccountExecute(r ApiMachineCatalogsRemoveMachineCatalogMachineAccountRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRemoveMachineCatalogTags(ctx context.Context, nameOrId string, tagNameOrId string) ApiMachineCatalogsRemoveMachineCatalogTagsRequest {
+	return ApiMachineCatalogsRemoveMachineCatalogTagsRequest{
+		ctx:         ctx,
+		ApiService:  m,
+		nameOrId:    nameOrId,
+		tagNameOrId: tagNameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRemoveMachineCatalogTagsExecute(r ApiMachineCatalogsRemoveMachineCatalogTagsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRemoveMachineCatalogUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest {
+	return ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRemoveMachineCatalogUpgradeScheduleExecute(r ApiMachineCatalogsRemoveMachineCatalogUpgradeScheduleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRepairMachineCatalogMachineAccounts(ctx context.Context, nameOrId string) ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest {
+	return ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRepairMachineCatalogMachineAccountsExecute(r ApiMachineCatalogsRepairMachineCatalogMachineAccountsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRollbackMachineCatalogProvisioningScheme(ctx context.Context, nameOrId string) ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest {
+	return ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsRollbackMachineCatalogProvisioningSchemeExecute(r ApiMachineCatalogsRollbackMachineCatalogProvisioningSchemeRequest) (*JobResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*JobResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsSetMachineCatalogTags(ctx context.Context, nameOrId string) ApiMachineCatalogsSetMachineCatalogTagsRequest {
+	return ApiMachineCatalogsSetMachineCatalogTagsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsSetMachineCatalogTagsExecute(r ApiMachineCatalogsSetMachineCatalogTagsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsTestMachineCatalog(ctx context.Context, nameOrId string) ApiMachineCatalogsTestMachineCatalogRequest {
+	return ApiMachineCatalogsTestMachineCatalogRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsTestMachineCatalogExecute(r ApiMachineCatalogsTestMachineCatalogRequest) (*MachineCatalogTestResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineCatalogTestResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsTestMachineCatalogExists(ctx context.Context) ApiMachineCatalogsTestMachineCatalogExistsRequest {
+	return ApiMachineCatalogsTestMachineCatalogExistsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsTestMachineCatalogExistsExecute(r ApiMachineCatalogsTestMachineCatalogExistsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsTestRemotePCEnrollmentScopeExists(ctx context.Context, nameOrId string) ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest {
+	return ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsTestRemotePCEnrollmentScopeExistsExecute(r ApiMachineCatalogsTestRemotePCEnrollmentScopeExistsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsUpdateMachineCatalog(ctx context.Context, nameOrId string) ApiMachineCatalogsUpdateMachineCatalogRequest {
+	return ApiMachineCatalogsUpdateMachineCatalogRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsUpdateMachineCatalogExecute(r ApiMachineCatalogsUpdateMachineCatalogRequest) (*MachineCatalogDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineCatalogDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsUpdateMachineCatalogMachineAccount(ctx context.Context, nameOrId string, machine string) ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest {
+	return ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		machine:    machine,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsUpdateMachineCatalogMachineAccountExecute(r ApiMachineCatalogsUpdateMachineCatalogMachineAccountRequest) (*ProvisioningSchemeMachineAccountResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ProvisioningSchemeMachineAccountResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsUpdateMachineCatalogProvisioningScheme(ctx context.Context, nameOrId string) ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest {
+	return ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsUpdateMachineCatalogProvisioningSchemeExecute(r ApiMachineCatalogsUpdateMachineCatalogProvisioningSchemeRequest) (*JobResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*JobResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsUpdateMachineCatalogUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest {
+	return ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsUpdateMachineCatalogUpgradeScheduleExecute(r ApiMachineCatalogsUpdateMachineCatalogUpgradeScheduleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelection(ctx context.Context, nameOrId string) ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest {
+	return ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMachineCatalogsAPIsDAAS) MachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionExecute(r ApiMachineCatalogsValidateMachineCatalogVDAComponentsAndFeaturesSelectionRequest) (*VDAComponentsSelectionValidationResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*VDAComponentsSelectionValidationResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }

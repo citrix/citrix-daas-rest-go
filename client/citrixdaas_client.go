@@ -1,4 +1,4 @@
-// Copyright © 2024. Citrix Systems, Inc.
+// Copyright © 2025. Citrix Systems, Inc.
 
 package citrixclient
 
@@ -104,10 +104,10 @@ func (daasClient *CitrixDaasClient) InitializeWemClient(ctx context.Context, wem
 	wemConfig := citrixwemservice.NewConfiguration()
 	wemConfig.Scheme = "https"
 	if onPremises {
-		tr := &http.Transport{
-			TLSClientConfig: &tls.Config{InsecureSkipVerify: disableSslVerification},
-			Proxy:           http.ProxyFromEnvironment,
-		}
+		// Clone the default transport to preserve Go's recommended defaults
+		tr := http.DefaultTransport.(*http.Transport).Clone()
+		tr.TLSClientConfig = &tls.Config{InsecureSkipVerify: disableSslVerification}
+		tr.Proxy = http.ProxyFromEnvironment
 		client := &http.Client{Transport: tr}
 		wemConfig.HTTPClient = client
 	}
@@ -141,10 +141,9 @@ func (daasClient *CitrixDaasClient) InitializeQuickCreateClient(ctx context.Cont
 	}
 
 	// Disable ssl check
-	tr := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-		Proxy:           http.ProxyFromEnvironment,
-	}
+	tr := http.DefaultTransport.(*http.Transport).Clone()
+	tr.TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+	tr.Proxy = http.ProxyFromEnvironment
 	localQuickCreateCfg.HTTPClient = &http.Client{Transport: tr}
 
 	localQuickCreateCfg.Middleware = getMiddlewareWithQuickcreateClient(daasClient, middlewareFunc)
@@ -163,10 +162,9 @@ func (daasClient *CitrixDaasClient) InitializeQuickDeployClient(ctx context.Cont
 	}
 
 	// Disable ssl check
-	tr := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-		Proxy:           http.ProxyFromEnvironment,
-	}
+	tr := http.DefaultTransport.(*http.Transport).Clone()
+	tr.TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+	tr.Proxy = http.ProxyFromEnvironment
 	localQuickDeployCfg.HTTPClient = &http.Client{Transport: tr}
 
 	localQuickDeployCfg.Middleware = getMiddlewareWithQuickdeployClient(daasClient, middlewareFunc)
@@ -195,10 +193,10 @@ func (daasClient *CitrixDaasClient) SetupApiClient(hostname string, middlewareFu
 	localCfg.Scheme = "https"
 	// When running against on-premises, set disableSslVerification to true when the DDC does not have a valid TLS/SSL certificate
 	if onPremises {
-		tr := &http.Transport{
-			TLSClientConfig: &tls.Config{InsecureSkipVerify: disableSslVerification},
-			Proxy:           http.ProxyFromEnvironment,
-		}
+		// Clone the default transport to preserve Go's recommended defaults
+		tr := http.DefaultTransport.(*http.Transport).Clone()
+		tr.TLSClientConfig = &tls.Config{InsecureSkipVerify: disableSslVerification}
+		tr.Proxy = http.ProxyFromEnvironment
 		client := &http.Client{Transport: tr}
 		localCfg.HTTPClient = client
 
@@ -428,11 +426,22 @@ func (daasClient *CitrixDaasClient) InitializeCitrixDaasClient(ctx context.Conte
 }
 
 func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWaitTimeInMinutes int32) (*citrixorchestration.JobResponseModel, error) {
-	// default polling to every 10 seconds
-	pollInterval := 10
+	// Use configurable polling intervals from context (can be overridden for testing)
+	pollInterval := DefaultJobPollIntervalSeconds
+	if val := ctx.Value(JobPollIntervalSecondsKey); val != nil {
+		if interval, ok := val.(int); ok {
+			pollInterval = interval
+		}
+	}
+
 	if maxWaitTimeInMinutes >= 30 {
 		// if we're expecting a long job we can poll less frequently
-		pollInterval = 30
+		pollInterval = DefaultJobLongPollIntervalSeconds
+		if val := ctx.Value(JobLongPollIntervalSecondsKey); val != nil {
+			if interval, ok := val.(int); ok {
+				pollInterval = interval
+			}
+		}
 	}
 	startTime := time.Now()
 	getJobIdRequest := c.ApiClient.JobsAPIsDAAS.JobsGetJob(ctx, jobId)
@@ -465,9 +474,15 @@ func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWait
 		jobStatus := jobResponseModel.GetStatus()
 
 		if jobStatus == citrixorchestration.JOBSTATUS_UNKNOWN || jobStatus == citrixorchestration.JOBSTATUS_NOT_STARTED || jobStatus == citrixorchestration.JOBSTATUS_IN_PROGRESS {
-			if pollInterval < 30 && time.Since(startTime) > time.Second*30 {
+			longPollInterval := DefaultJobLongPollIntervalSeconds
+			if val := ctx.Value(JobLongPollIntervalSecondsKey); val != nil {
+				if interval, ok := val.(int); ok {
+					longPollInterval = interval
+				}
+			}
+			if pollInterval < longPollInterval && time.Since(startTime) > time.Second*30 {
 				// increase poll interval after the first 30 seconds of processing
-				pollInterval = 30
+				pollInterval = longPollInterval
 			}
 			time.Sleep(time.Second * time.Duration(pollInterval))
 			continue
@@ -510,6 +525,10 @@ func AddRequestData[T any](request T, c *CitrixDaasClient) T {
 }
 
 func ExecuteWithRetry[ResponseBodyType any](request any, c *CitrixDaasClient) (ResponseBodyType, *http.Response, error) {
+	return ExecuteWithRetryContext[ResponseBodyType](context.Background(), request, c)
+}
+
+func ExecuteWithRetryContext[ResponseBodyType any](ctx context.Context, request any, c *CitrixDaasClient) (ResponseBodyType, *http.Response, error) {
 	request = AddRequestData(request, c)
 	requestValue := reflect.ValueOf(request)
 	requestType := reflect.TypeOf(request)
@@ -533,14 +552,28 @@ func ExecuteWithRetry[ResponseBodyType any](request any, c *CitrixDaasClient) (R
 
 			return responseBody, httpResp, err
 		}
-		return RetryOperationWithExponentialBackOffDefault(operation)
+		return RetryOperationWithExponentialBackOffDefault(ctx, operation)
 	}
 
 	return result, nil, fmt.Errorf("an unexpected error occurred")
 }
 
-func RetryOperationWithExponentialBackOffDefault[T any](operation func() (T, *http.Response, error)) (T, *http.Response, error) {
-	return RetryOperationWithExponentialBackOff(operation, 15, 3)
+func RetryOperationWithExponentialBackOffDefault[T any](ctx context.Context, operation func() (T, *http.Response, error)) (T, *http.Response, error) {
+	baseDelay := DefaultRetryBaseDelay
+	if val := ctx.Value(RetryBaseDelayKey); val != nil {
+		if delay, ok := val.(int); ok {
+			baseDelay = delay
+		}
+	}
+
+	maxRetries := DefaultMaxRetries
+	if val := ctx.Value(MaxRetriesKey); val != nil {
+		if retries, ok := val.(int); ok {
+			maxRetries = retries
+		}
+	}
+
+	return RetryOperationWithExponentialBackOff(operation, baseDelay, maxRetries)
 }
 
 func RetryOperationWithExponentialBackOff[T any](operation func() (T, *http.Response, error), baseDelayInSeconds int, maxRetries int) (T, *http.Response, error) {
@@ -625,7 +658,7 @@ func PerformBatchOperationAndReturnSubJobResponses(ctx context.Context, client *
 
 	if jobStatus != citrixorchestration.JOBSTATUS_COMPLETE {
 		if jobStatus == citrixorchestration.JOBSTATUS_FAILED {
-			return successCount, txnId, subJobs, fmt.Errorf(jobResponseModel.GetErrorString())
+			return successCount, txnId, subJobs, fmt.Errorf("%s", jobResponseModel.GetErrorString())
 		}
 
 		return successCount, txnId, subJobs, fmt.Errorf("an unexpected error occurred")

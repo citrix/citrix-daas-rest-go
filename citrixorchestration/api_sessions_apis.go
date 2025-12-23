@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type SessionsAPIsDAAS interface {
@@ -246,6 +248,66 @@ type ApiSessionsDisconnectSessionRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiSessionsDisconnectSessionRequest wraps the request struct to provide getter methods for testing
+type MockApiSessionsDisconnectSessionRequest struct {
+	ApiSessionsDisconnectSessionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsDisconnectSessionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsDisconnectSessionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsDisconnectSessionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiSessionsDisconnectSessionRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsDisconnectSessionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsDisconnectSessionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsDisconnectSessionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsDisconnectSessionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsDisconnectSessionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSessionsDisconnectSessionRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsDisconnectSessionRequest) Execute() (*SessionResponseModel, *http.Response, error) {
+	return r.ApiSessionsDisconnectSessionRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -559,6 +621,91 @@ type ApiSessionsDoSessionSearchRequest struct {
 	fields                              *string
 	async                               *bool
 	skip                                *int32
+}
+
+// MockApiSessionsDoSessionSearchRequest wraps the request struct to provide getter methods for testing
+type MockApiSessionsDoSessionSearchRequest struct {
+	ApiSessionsDoSessionSearchRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsDoSessionSearchRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetMachineAndSessionSearchRequestModel returns the machineAndSessionSearchRequestModel parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetMachineAndSessionSearchRequestModel() *MachineAndSessionSearchRequestModel {
+	return r.machineAndSessionSearchRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXTimeZone returns the xTimeZone parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetXTimeZone() *string {
+	return r.xTimeZone
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetFields returns the fields parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetFields() *string {
+	return r.fields
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetSkip returns the skip parameter
+func (r MockApiSessionsDoSessionSearchRequest) GetSkip() *int32 {
+	return r.skip
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsDoSessionSearchRequest) Execute() (*SessionResponseModelCollection, *http.Response, error) {
+	return r.ApiSessionsDoSessionSearchRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -923,6 +1070,66 @@ type ApiSessionsGetSessionRequest struct {
 	fields              *string
 }
 
+// MockApiSessionsGetSessionRequest wraps the request struct to provide getter methods for testing
+type MockApiSessionsGetSessionRequest struct {
+	ApiSessionsGetSessionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsGetSessionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsGetSessionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsGetSessionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiSessionsGetSessionRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsGetSessionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsGetSessionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsGetSessionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsGetSessionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsGetSessionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetFields returns the fields parameter
+func (r MockApiSessionsGetSessionRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsGetSessionRequest) Execute() (*SessionResponseModel, *http.Response, error) {
+	return r.ApiSessionsGetSessionRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSessionsGetSessionRequest) CitrixCustomerId(citrixCustomerId string) ApiSessionsGetSessionRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1215,6 +1422,66 @@ type ApiSessionsGetSessionApplicationsRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiSessionsGetSessionApplicationsRequest wraps the request struct to provide getter methods for testing
+type MockApiSessionsGetSessionApplicationsRequest struct {
+	ApiSessionsGetSessionApplicationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsGetSessionApplicationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsGetSessionApplicationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsGetSessionApplicationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiSessionsGetSessionApplicationsRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsGetSessionApplicationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsGetSessionApplicationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsGetSessionApplicationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsGetSessionApplicationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsGetSessionApplicationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSessionsGetSessionApplicationsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsGetSessionApplicationsRequest) Execute() (*ApplicationResponseModelCollection, *http.Response, error) {
+	return r.ApiSessionsGetSessionApplicationsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1513,6 +1780,61 @@ type ApiSessionsGetSessionMachineRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiSessionsGetSessionMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiSessionsGetSessionMachineRequest struct {
+	ApiSessionsGetSessionMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsGetSessionMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsGetSessionMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsGetSessionMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiSessionsGetSessionMachineRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsGetSessionMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsGetSessionMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsGetSessionMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsGetSessionMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsGetSessionMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsGetSessionMachineRequest) Execute() (*MachineDetailResponseModel, *http.Response, error) {
+	return r.ApiSessionsGetSessionMachineRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSessionsGetSessionMachineRequest) CitrixCustomerId(citrixCustomerId string) ApiSessionsGetSessionMachineRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1797,6 +2119,61 @@ type ApiSessionsGetSessionRecordingStatusRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiSessionsGetSessionRecordingStatusRequest wraps the request struct to provide getter methods for testing
+type MockApiSessionsGetSessionRecordingStatusRequest struct {
+	ApiSessionsGetSessionRecordingStatusRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsGetSessionRecordingStatusRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsGetSessionRecordingStatusRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsGetSessionRecordingStatusRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiSessionsGetSessionRecordingStatusRequest) GetId() *string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsGetSessionRecordingStatusRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsGetSessionRecordingStatusRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsGetSessionRecordingStatusRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsGetSessionRecordingStatusRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsGetSessionRecordingStatusRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsGetSessionRecordingStatusRequest) Execute() (*SessionRecordingStatusResponseModel, *http.Response, error) {
+	return r.ApiSessionsGetSessionRecordingStatusRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSessionsGetSessionRecordingStatusRequest) CitrixCustomerId(citrixCustomerId string) ApiSessionsGetSessionRecordingStatusRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2078,6 +2455,76 @@ type ApiSessionsGetSessionsRequest struct {
 	continuationToken   *string
 	async               *bool
 	fields              *string
+}
+
+// MockApiSessionsGetSessionsRequest wraps the request struct to provide getter methods for testing
+type MockApiSessionsGetSessionsRequest struct {
+	ApiSessionsGetSessionsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsGetSessionsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsGetSessionsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsGetSessionsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsGetSessionsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsGetSessionsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsGetSessionsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsGetSessionsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsGetSessionsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiSessionsGetSessionsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiSessionsGetSessionsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSessionsGetSessionsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetFields returns the fields parameter
+func (r MockApiSessionsGetSessionsRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsGetSessionsRequest) Execute() (*SessionResponseModelCollection, *http.Response, error) {
+	return r.ApiSessionsGetSessionsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2396,6 +2843,76 @@ type ApiSessionsGetSessionsV2Request struct {
 	fields              *string
 }
 
+// MockApiSessionsGetSessionsV2Request wraps the request struct to provide getter methods for testing
+type MockApiSessionsGetSessionsV2Request struct {
+	ApiSessionsGetSessionsV2Request
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsGetSessionsV2Request) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsGetSessionsV2Request) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsGetSessionsV2Request) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsGetSessionsV2Request) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsGetSessionsV2Request) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsGetSessionsV2Request) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsGetSessionsV2Request) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsGetSessionsV2Request) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiSessionsGetSessionsV2Request) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiSessionsGetSessionsV2Request) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSessionsGetSessionsV2Request) GetAsync() *bool {
+	return r.async
+}
+
+// GetFields returns the fields parameter
+func (r MockApiSessionsGetSessionsV2Request) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsGetSessionsV2Request) Execute() (*SessionResponseModelCollection, *http.Response, error) {
+	return r.ApiSessionsGetSessionsV2Request.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSessionsGetSessionsV2Request) CitrixCustomerId(citrixCustomerId string) ApiSessionsGetSessionsV2Request {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2711,6 +3228,66 @@ type ApiSessionsHideSessionRequest struct {
 	async               *bool
 }
 
+// MockApiSessionsHideSessionRequest wraps the request struct to provide getter methods for testing
+type MockApiSessionsHideSessionRequest struct {
+	ApiSessionsHideSessionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsHideSessionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsHideSessionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsHideSessionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiSessionsHideSessionRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsHideSessionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsHideSessionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsHideSessionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsHideSessionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsHideSessionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSessionsHideSessionRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsHideSessionRequest) Execute() (*http.Response, error) {
+	return r.ApiSessionsHideSessionRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSessionsHideSessionRequest) CitrixCustomerId(citrixCustomerId string) ApiSessionsHideSessionRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3003,6 +3580,66 @@ type ApiSessionsLogoffSessionRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiSessionsLogoffSessionRequest wraps the request struct to provide getter methods for testing
+type MockApiSessionsLogoffSessionRequest struct {
+	ApiSessionsLogoffSessionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsLogoffSessionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsLogoffSessionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsLogoffSessionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiSessionsLogoffSessionRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsLogoffSessionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsLogoffSessionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsLogoffSessionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsLogoffSessionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsLogoffSessionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSessionsLogoffSessionRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsLogoffSessionRequest) Execute() (*http.Response, error) {
+	return r.ApiSessionsLogoffSessionRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3300,6 +3937,71 @@ type ApiSessionsSendSessionMessageRequest struct {
 	accept                  *string
 	citrixLocale            *string
 	async                   *bool
+}
+
+// MockApiSessionsSendSessionMessageRequest wraps the request struct to provide getter methods for testing
+type MockApiSessionsSendSessionMessageRequest struct {
+	ApiSessionsSendSessionMessageRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsSendSessionMessageRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsSendSessionMessageRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsSendSessionMessageRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiSessionsSendSessionMessageRequest) GetId() string {
+	return r.id
+}
+
+// GetSendMessageRequestModel returns the sendMessageRequestModel parameter
+func (r MockApiSessionsSendSessionMessageRequest) GetSendMessageRequestModel() *SendMessageRequestModel {
+	return r.sendMessageRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsSendSessionMessageRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsSendSessionMessageRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsSendSessionMessageRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsSendSessionMessageRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsSendSessionMessageRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSessionsSendSessionMessageRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsSendSessionMessageRequest) Execute() (*SessionResponseModel, *http.Response, error) {
+	return r.ApiSessionsSendSessionMessageRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3633,6 +4335,71 @@ type ApiSessionsStartSessionRecordingRequest struct {
 	async               *bool
 }
 
+// MockApiSessionsStartSessionRecordingRequest wraps the request struct to provide getter methods for testing
+type MockApiSessionsStartSessionRecordingRequest struct {
+	ApiSessionsStartSessionRecordingRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsStartSessionRecordingRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsStartSessionRecordingRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsStartSessionRecordingRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiSessionsStartSessionRecordingRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsStartSessionRecordingRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsStartSessionRecordingRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsStartSessionRecordingRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsStartSessionRecordingRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsStartSessionRecordingRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetNotifyUser returns the notifyUser parameter
+func (r MockApiSessionsStartSessionRecordingRequest) GetNotifyUser() *bool {
+	return r.notifyUser
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSessionsStartSessionRecordingRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsStartSessionRecordingRequest) Execute() (*SessionResponseModel, *http.Response, error) {
+	return r.ApiSessionsStartSessionRecordingRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSessionsStartSessionRecordingRequest) CitrixCustomerId(citrixCustomerId string) ApiSessionsStartSessionRecordingRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3953,6 +4720,66 @@ type ApiSessionsStopSessionRecordingRequest struct {
 	async               *bool
 }
 
+// MockApiSessionsStopSessionRecordingRequest wraps the request struct to provide getter methods for testing
+type MockApiSessionsStopSessionRecordingRequest struct {
+	ApiSessionsStopSessionRecordingRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsStopSessionRecordingRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsStopSessionRecordingRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsStopSessionRecordingRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiSessionsStopSessionRecordingRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsStopSessionRecordingRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsStopSessionRecordingRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsStopSessionRecordingRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsStopSessionRecordingRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsStopSessionRecordingRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSessionsStopSessionRecordingRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsStopSessionRecordingRequest) Execute() (*SessionResponseModel, *http.Response, error) {
+	return r.ApiSessionsStopSessionRecordingRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSessionsStopSessionRecordingRequest) CitrixCustomerId(citrixCustomerId string) ApiSessionsStopSessionRecordingRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -4261,6 +5088,66 @@ type ApiSessionsUnhideSessionRequest struct {
 	async               *bool
 }
 
+// MockApiSessionsUnhideSessionRequest wraps the request struct to provide getter methods for testing
+type MockApiSessionsUnhideSessionRequest struct {
+	ApiSessionsUnhideSessionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSessionsUnhideSessionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSessionsUnhideSessionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSessionsUnhideSessionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiSessionsUnhideSessionRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSessionsUnhideSessionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSessionsUnhideSessionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSessionsUnhideSessionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSessionsUnhideSessionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSessionsUnhideSessionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSessionsUnhideSessionRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSessionsUnhideSessionRequest) Execute() (*http.Response, error) {
+	return r.ApiSessionsUnhideSessionRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSessionsUnhideSessionRequest) CitrixCustomerId(citrixCustomerId string) ApiSessionsUnhideSessionRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -4539,4 +5426,201 @@ func (a *SessionsAPIsDAASService) SessionsUnhideSessionExecute(r ApiSessionsUnhi
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockSessionsAPIsDAAS extracts the MockSessionsAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockSessionsAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockSessionsAPIsDAAS(client *APIClient) *MockSessionsAPIsDAAS {
+	return client.SessionsAPIsDAAS.(*MockSessionsAPIsDAAS)
+}
+
+// MockSessionsAPIsDAAS is a mock implementation of the SessionsAPIsDAAS interface for testing
+var _ SessionsAPIsDAAS = (*MockSessionsAPIsDAAS)(nil)
+
+type MockSessionsAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsDisconnectSession(ctx context.Context, id string) ApiSessionsDisconnectSessionRequest {
+	return ApiSessionsDisconnectSessionRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsDisconnectSessionExecute(r ApiSessionsDisconnectSessionRequest) (*SessionResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SessionResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsDoSessionSearch(ctx context.Context) ApiSessionsDoSessionSearchRequest {
+	return ApiSessionsDoSessionSearchRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsDoSessionSearchExecute(r ApiSessionsDoSessionSearchRequest) (*SessionResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SessionResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsGetSession(ctx context.Context, id string) ApiSessionsGetSessionRequest {
+	return ApiSessionsGetSessionRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsGetSessionExecute(r ApiSessionsGetSessionRequest) (*SessionResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SessionResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsGetSessionApplications(ctx context.Context, id string) ApiSessionsGetSessionApplicationsRequest {
+	return ApiSessionsGetSessionApplicationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsGetSessionApplicationsExecute(r ApiSessionsGetSessionApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ApplicationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsGetSessionMachine(ctx context.Context, id string) ApiSessionsGetSessionMachineRequest {
+	return ApiSessionsGetSessionMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsGetSessionMachineExecute(r ApiSessionsGetSessionMachineRequest) (*MachineDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsGetSessionRecordingStatus(ctx context.Context) ApiSessionsGetSessionRecordingStatusRequest {
+	return ApiSessionsGetSessionRecordingStatusRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsGetSessionRecordingStatusExecute(r ApiSessionsGetSessionRecordingStatusRequest) (*SessionRecordingStatusResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SessionRecordingStatusResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsGetSessions(ctx context.Context) ApiSessionsGetSessionsRequest {
+	return ApiSessionsGetSessionsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsGetSessionsExecute(r ApiSessionsGetSessionsRequest) (*SessionResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SessionResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsGetSessionsV2(ctx context.Context) ApiSessionsGetSessionsV2Request {
+	return ApiSessionsGetSessionsV2Request{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsGetSessionsV2Execute(r ApiSessionsGetSessionsV2Request) (*SessionResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SessionResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsHideSession(ctx context.Context, id string) ApiSessionsHideSessionRequest {
+	return ApiSessionsHideSessionRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsHideSessionExecute(r ApiSessionsHideSessionRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsLogoffSession(ctx context.Context, id string) ApiSessionsLogoffSessionRequest {
+	return ApiSessionsLogoffSessionRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsLogoffSessionExecute(r ApiSessionsLogoffSessionRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsSendSessionMessage(ctx context.Context, id string) ApiSessionsSendSessionMessageRequest {
+	return ApiSessionsSendSessionMessageRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsSendSessionMessageExecute(r ApiSessionsSendSessionMessageRequest) (*SessionResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SessionResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsStartSessionRecording(ctx context.Context, id string) ApiSessionsStartSessionRecordingRequest {
+	return ApiSessionsStartSessionRecordingRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsStartSessionRecordingExecute(r ApiSessionsStartSessionRecordingRequest) (*SessionResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SessionResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsStopSessionRecording(ctx context.Context, id string) ApiSessionsStopSessionRecordingRequest {
+	return ApiSessionsStopSessionRecordingRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsStopSessionRecordingExecute(r ApiSessionsStopSessionRecordingRequest) (*SessionResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SessionResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsUnhideSession(ctx context.Context, id string) ApiSessionsUnhideSessionRequest {
+	return ApiSessionsUnhideSessionRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockSessionsAPIsDAAS) SessionsUnhideSessionExecute(r ApiSessionsUnhideSessionRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }

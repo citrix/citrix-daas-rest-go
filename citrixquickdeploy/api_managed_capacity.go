@@ -19,12 +19,105 @@ import (
 	"strings"
 )
 
+type ManagedCapacityCMD interface {
+
+	/*
+		DeletePortForNetworkSecurityGroup Perform operation to Delete Port For CMA Vnet
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId
+		@param siteId
+		@param resourceLocationId
+		@param port
+		@return ApiDeletePortForNetworkSecurityGroupRequest
+	*/
+	DeletePortForNetworkSecurityGroup(ctx context.Context, customerId string, siteId string, resourceLocationId string, port string) ApiDeletePortForNetworkSecurityGroupRequest
+
+	// DeletePortForNetworkSecurityGroupExecute executes the request
+	DeletePortForNetworkSecurityGroupExecute(r ApiDeletePortForNetworkSecurityGroupRequest) (*http.Response, error)
+
+	/*
+		GetAllPortsForNetworkSecurityGroup Get details of all ports in CMA VNet
+
+		<b>Authorization</b> (Policy: RouteBasedMultiTenantKeyOnly)
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId
+		@param siteId
+		@return ApiGetAllPortsForNetworkSecurityGroupRequest
+	*/
+	GetAllPortsForNetworkSecurityGroup(ctx context.Context, customerId string, siteId string) ApiGetAllPortsForNetworkSecurityGroupRequest
+
+	// GetAllPortsForNetworkSecurityGroupExecute executes the request
+	//  @return VNetResourceDetails
+	GetAllPortsForNetworkSecurityGroupExecute(r ApiGetAllPortsForNetworkSecurityGroupRequest) (*VNetResourceDetails, *http.Response, error)
+
+	/*
+		GetDeploymentRegions Get the regions that are available for deployment by the customer
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the user
+		@param siteId ID of the customer's site
+		@return ApiGetDeploymentRegionsRequest
+	*/
+	GetDeploymentRegions(ctx context.Context, customerId string, siteId string) ApiGetDeploymentRegionsRequest
+
+	// GetDeploymentRegionsExecute executes the request
+	//  @return DeploymentRegionsModel
+	GetDeploymentRegionsExecute(r ApiGetDeploymentRegionsRequest) (*DeploymentRegionsModel, *http.Response, error)
+
+	/*
+		GetOnPremConnections Get the On-Prem connections configured for the customer
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the user
+		@param siteId ID of the customer's site
+		@return ApiGetOnPremConnectionsRequest
+	*/
+	GetOnPremConnections(ctx context.Context, customerId string, siteId string) ApiGetOnPremConnectionsRequest
+
+	// GetOnPremConnectionsExecute executes the request
+	//  @return OnPremConnectionsModel
+	GetOnPremConnectionsExecute(r ApiGetOnPremConnectionsRequest) (*OnPremConnectionsModel, *http.Response, error)
+
+	/*
+		GetOpenPortsForNetworkSecurityGroup Get list of open ports in CMA Vnet for provided resource location
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId
+		@param siteId
+		@param resourceLocationId
+		@return ApiGetOpenPortsForNetworkSecurityGroupRequest
+	*/
+	GetOpenPortsForNetworkSecurityGroup(ctx context.Context, customerId string, siteId string, resourceLocationId string) ApiGetOpenPortsForNetworkSecurityGroupRequest
+
+	// GetOpenPortsForNetworkSecurityGroupExecute executes the request
+	//  @return VNetResourceLocation
+	GetOpenPortsForNetworkSecurityGroupExecute(r ApiGetOpenPortsForNetworkSecurityGroupRequest) (*VNetResourceLocation, *http.Response, error)
+
+	/*
+		OpenPortForNetworkSecurityGroup Perform operation to Open Port For CMA Vnet
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId
+		@param siteId
+		@param resourceLocationId
+		@param port
+		@return ApiOpenPortForNetworkSecurityGroupRequest
+	*/
+	OpenPortForNetworkSecurityGroup(ctx context.Context, customerId string, siteId string, resourceLocationId string, port string) ApiOpenPortForNetworkSecurityGroupRequest
+
+	// OpenPortForNetworkSecurityGroupExecute executes the request
+	//  @return string
+	OpenPortForNetworkSecurityGroupExecute(r ApiOpenPortForNetworkSecurityGroupRequest) (string, *http.Response, error)
+}
+
 // ManagedCapacityCMDService ManagedCapacityCMD service
 type ManagedCapacityCMDService service
 
 type ApiDeletePortForNetworkSecurityGroupRequest struct {
 	ctx                 context.Context
-	ApiService          *ManagedCapacityCMDService
+	ApiService          ManagedCapacityCMD
 	customerId          string
 	siteId              string
 	resourceLocationId  string
@@ -150,7 +243,7 @@ func (a *ManagedCapacityCMDService) DeletePortForNetworkSecurityGroupExecute(r A
 
 type ApiGetAllPortsForNetworkSecurityGroupRequest struct {
 	ctx                 context.Context
-	ApiService          *ManagedCapacityCMDService
+	ApiService          ManagedCapacityCMD
 	customerId          string
 	siteId              string
 	citrixTransactionId *string
@@ -282,7 +375,7 @@ func (a *ManagedCapacityCMDService) GetAllPortsForNetworkSecurityGroupExecute(r 
 
 type ApiGetDeploymentRegionsRequest struct {
 	ctx                 context.Context
-	ApiService          *ManagedCapacityCMDService
+	ApiService          ManagedCapacityCMD
 	customerId          string
 	siteId              string
 	includeHidden       *bool
@@ -422,7 +515,7 @@ func (a *ManagedCapacityCMDService) GetDeploymentRegionsExecute(r ApiGetDeployme
 
 type ApiGetOnPremConnectionsRequest struct {
 	ctx                 context.Context
-	ApiService          *ManagedCapacityCMDService
+	ApiService          ManagedCapacityCMD
 	customerId          string
 	siteId              string
 	cspCustomerId       *string
@@ -582,7 +675,7 @@ func (a *ManagedCapacityCMDService) GetOnPremConnectionsExecute(r ApiGetOnPremCo
 
 type ApiGetOpenPortsForNetworkSecurityGroupRequest struct {
 	ctx                 context.Context
-	ApiService          *ManagedCapacityCMDService
+	ApiService          ManagedCapacityCMD
 	customerId          string
 	siteId              string
 	resourceLocationId  string
@@ -716,7 +809,7 @@ func (a *ManagedCapacityCMDService) GetOpenPortsForNetworkSecurityGroupExecute(r
 
 type ApiOpenPortForNetworkSecurityGroupRequest struct {
 	ctx                 context.Context
-	ApiService          *ManagedCapacityCMDService
+	ApiService          ManagedCapacityCMD
 	customerId          string
 	siteId              string
 	resourceLocationId  string

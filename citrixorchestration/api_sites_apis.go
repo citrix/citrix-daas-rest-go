@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type SitesAPIsDAAS interface {
@@ -223,6 +225,61 @@ type ApiSitesCheckObjectNameExistsRequest struct {
 	citrixTransactionId               *string
 	accept                            *string
 	citrixLocale                      *string
+}
+
+// MockApiSitesCheckObjectNameExistsRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesCheckObjectNameExistsRequest struct {
+	ApiSitesCheckObjectNameExistsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesCheckObjectNameExistsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesCheckObjectNameExistsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiSitesCheckObjectNameExistsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCheckObjectNameExistsRequestModel returns the checkObjectNameExistsRequestModel parameter
+func (r MockApiSitesCheckObjectNameExistsRequest) GetCheckObjectNameExistsRequestModel() *CheckObjectNameExistsRequestModel {
+	return r.checkObjectNameExistsRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiSitesCheckObjectNameExistsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesCheckObjectNameExistsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesCheckObjectNameExistsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesCheckObjectNameExistsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesCheckObjectNameExistsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesCheckObjectNameExistsRequest) Execute() (bool, *http.Response, error) {
+	return r.ApiSitesCheckObjectNameExistsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -526,6 +583,51 @@ type ApiSitesGetMultipleRemotePCAssignmentsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiSitesGetMultipleRemotePCAssignmentsRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesGetMultipleRemotePCAssignmentsRequest struct {
+	ApiSitesGetMultipleRemotePCAssignmentsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesGetMultipleRemotePCAssignmentsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesGetMultipleRemotePCAssignmentsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiSitesGetMultipleRemotePCAssignmentsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesGetMultipleRemotePCAssignmentsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesGetMultipleRemotePCAssignmentsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesGetMultipleRemotePCAssignmentsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesGetMultipleRemotePCAssignmentsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesGetMultipleRemotePCAssignmentsRequest) Execute() (bool, *http.Response, error) {
+	return r.ApiSitesGetMultipleRemotePCAssignmentsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSitesGetMultipleRemotePCAssignmentsRequest) CitrixCustomerId(citrixCustomerId string) ApiSitesGetMultipleRemotePCAssignmentsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -788,6 +890,66 @@ type ApiSitesGetSessionsTrendRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiSitesGetSessionsTrendRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesGetSessionsTrendRequest struct {
+	ApiSitesGetSessionsTrendRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesGetSessionsTrendRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesGetSessionsTrendRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiSitesGetSessionsTrendRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetStartDate returns the startDate parameter
+func (r MockApiSitesGetSessionsTrendRequest) GetStartDate() *string {
+	return r.startDate
+}
+
+// GetEndDate returns the endDate parameter
+func (r MockApiSitesGetSessionsTrendRequest) GetEndDate() *string {
+	return r.endDate
+}
+
+// GetIntervalLength returns the intervalLength parameter
+func (r MockApiSitesGetSessionsTrendRequest) GetIntervalLength() *int32 {
+	return r.intervalLength
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesGetSessionsTrendRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesGetSessionsTrendRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesGetSessionsTrendRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesGetSessionsTrendRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesGetSessionsTrendRequest) Execute() (*SessionsTrendResponseModel, *http.Response, error) {
+	return r.ApiSitesGetSessionsTrendRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1081,6 +1243,51 @@ type ApiSitesGetSiteRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiSitesGetSiteRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesGetSiteRequest struct {
+	ApiSitesGetSiteRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesGetSiteRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesGetSiteRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiSitesGetSiteRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesGetSiteRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesGetSiteRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesGetSiteRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesGetSiteRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesGetSiteRequest) Execute() (*SiteDetailResponseModel, *http.Response, error) {
+	return r.ApiSitesGetSiteRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSitesGetSiteRequest) CitrixCustomerId(citrixCustomerId string) ApiSitesGetSiteRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1342,6 +1549,61 @@ type ApiSitesGetSiteErrorWarningRequest struct {
 	citrixLocale        *string
 	fields              *string
 	async               *bool
+}
+
+// MockApiSitesGetSiteErrorWarningRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesGetSiteErrorWarningRequest struct {
+	ApiSitesGetSiteErrorWarningRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesGetSiteErrorWarningRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesGetSiteErrorWarningRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiSitesGetSiteErrorWarningRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesGetSiteErrorWarningRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesGetSiteErrorWarningRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesGetSiteErrorWarningRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesGetSiteErrorWarningRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetFields returns the fields parameter
+func (r MockApiSitesGetSiteErrorWarningRequest) GetFields() *string {
+	return r.fields
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSitesGetSiteErrorWarningRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesGetSiteErrorWarningRequest) Execute() (*ErrorWarningResponseModel, *http.Response, error) {
+	return r.ApiSitesGetSiteErrorWarningRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1626,6 +1888,51 @@ type ApiSitesGetSiteMisconfigurationReportRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiSitesGetSiteMisconfigurationReportRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesGetSiteMisconfigurationReportRequest struct {
+	ApiSitesGetSiteMisconfigurationReportRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesGetSiteMisconfigurationReportRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesGetSiteMisconfigurationReportRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiSitesGetSiteMisconfigurationReportRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesGetSiteMisconfigurationReportRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesGetSiteMisconfigurationReportRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesGetSiteMisconfigurationReportRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesGetSiteMisconfigurationReportRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesGetSiteMisconfigurationReportRequest) Execute() (string, *http.Response, error) {
+	return r.ApiSitesGetSiteMisconfigurationReportRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSitesGetSiteMisconfigurationReportRequest) CitrixCustomerId(citrixCustomerId string) ApiSitesGetSiteMisconfigurationReportRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1888,6 +2195,56 @@ type ApiSitesGetSiteSettingsRequest struct {
 	accept              *string
 	citrixLocale        *string
 	fields              *string
+}
+
+// MockApiSitesGetSiteSettingsRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesGetSiteSettingsRequest struct {
+	ApiSitesGetSiteSettingsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesGetSiteSettingsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesGetSiteSettingsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiSitesGetSiteSettingsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesGetSiteSettingsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesGetSiteSettingsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesGetSiteSettingsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesGetSiteSettingsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetFields returns the fields parameter
+func (r MockApiSitesGetSiteSettingsRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesGetSiteSettingsRequest) Execute() (*SiteSettingsResponseModel, *http.Response, error) {
+	return r.ApiSitesGetSiteSettingsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2159,6 +2516,56 @@ type ApiSitesGetSiteStatusRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiSitesGetSiteStatusRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesGetSiteStatusRequest struct {
+	ApiSitesGetSiteStatusRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesGetSiteStatusRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesGetSiteStatusRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiSitesGetSiteStatusRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesGetSiteStatusRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesGetSiteStatusRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesGetSiteStatusRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesGetSiteStatusRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSitesGetSiteStatusRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesGetSiteStatusRequest) Execute() (*SiteStatusResponseModel, *http.Response, error) {
+	return r.ApiSitesGetSiteStatusRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2434,6 +2841,51 @@ type ApiSitesGetSiteTestReportRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiSitesGetSiteTestReportRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesGetSiteTestReportRequest struct {
+	ApiSitesGetSiteTestReportRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesGetSiteTestReportRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesGetSiteTestReportRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiSitesGetSiteTestReportRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesGetSiteTestReportRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesGetSiteTestReportRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesGetSiteTestReportRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesGetSiteTestReportRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesGetSiteTestReportRequest) Execute() (*TestReportResponseModel, *http.Response, error) {
+	return r.ApiSitesGetSiteTestReportRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSitesGetSiteTestReportRequest) CitrixCustomerId(citrixCustomerId string) ApiSitesGetSiteTestReportRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2696,6 +3148,46 @@ type ApiSitesGetSitesRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiSitesGetSitesRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesGetSitesRequest struct {
+	ApiSitesGetSitesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesGetSitesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesGetSitesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesGetSitesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesGetSitesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesGetSitesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesGetSitesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesGetSitesRequest) Execute() (*SiteResponseModelCollection, *http.Response, error) {
+	return r.ApiSitesGetSitesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSitesGetSitesRequest) CitrixCustomerId(citrixCustomerId string) ApiSitesGetSitesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2941,6 +3433,51 @@ type ApiSitesGetUpgradePackageVersionsRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiSitesGetUpgradePackageVersionsRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesGetUpgradePackageVersionsRequest struct {
+	ApiSitesGetUpgradePackageVersionsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesGetUpgradePackageVersionsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesGetUpgradePackageVersionsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiSitesGetUpgradePackageVersionsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesGetUpgradePackageVersionsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesGetUpgradePackageVersionsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesGetUpgradePackageVersionsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesGetUpgradePackageVersionsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesGetUpgradePackageVersionsRequest) Execute() (*UpgradePackageVersionResponseModelCollection, *http.Response, error) {
+	return r.ApiSitesGetUpgradePackageVersionsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3205,6 +3742,56 @@ type ApiSitesPatchMultipleRemotePCAssignmentsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiSitesPatchMultipleRemotePCAssignmentsRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesPatchMultipleRemotePCAssignmentsRequest struct {
+	ApiSitesPatchMultipleRemotePCAssignmentsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesPatchMultipleRemotePCAssignmentsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesPatchMultipleRemotePCAssignmentsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiSitesPatchMultipleRemotePCAssignmentsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetAllow returns the allow parameter
+func (r MockApiSitesPatchMultipleRemotePCAssignmentsRequest) GetAllow() *bool {
+	return r.allow
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesPatchMultipleRemotePCAssignmentsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesPatchMultipleRemotePCAssignmentsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesPatchMultipleRemotePCAssignmentsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesPatchMultipleRemotePCAssignmentsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesPatchMultipleRemotePCAssignmentsRequest) Execute() (*http.Response, error) {
+	return r.ApiSitesPatchMultipleRemotePCAssignmentsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiSitesPatchMultipleRemotePCAssignmentsRequest) CitrixCustomerId(citrixCustomerId string) ApiSitesPatchMultipleRemotePCAssignmentsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3463,6 +4050,56 @@ type ApiSitesPatchSiteSettingsRequest struct {
 	citrixTransactionId          *string
 	accept                       *string
 	citrixLocale                 *string
+}
+
+// MockApiSitesPatchSiteSettingsRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesPatchSiteSettingsRequest struct {
+	ApiSitesPatchSiteSettingsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesPatchSiteSettingsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesPatchSiteSettingsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiSitesPatchSiteSettingsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetEditSiteSettingsRequestModel returns the editSiteSettingsRequestModel parameter
+func (r MockApiSitesPatchSiteSettingsRequest) GetEditSiteSettingsRequestModel() *EditSiteSettingsRequestModel {
+	return r.editSiteSettingsRequestModel
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesPatchSiteSettingsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesPatchSiteSettingsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesPatchSiteSettingsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesPatchSiteSettingsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesPatchSiteSettingsRequest) Execute() (*http.Response, error) {
+	return r.ApiSitesPatchSiteSettingsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3735,6 +4372,56 @@ type ApiSitesTestSiteRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiSitesTestSiteRequest wraps the request struct to provide getter methods for testing
+type MockApiSitesTestSiteRequest struct {
+	ApiSitesTestSiteRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiSitesTestSiteRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiSitesTestSiteRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiSitesTestSiteRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiSitesTestSiteRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiSitesTestSiteRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiSitesTestSiteRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiSitesTestSiteRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiSitesTestSiteRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiSitesTestSiteRequest) Execute() (*SiteTestResponseModel, *http.Response, error) {
+	return r.ApiSitesTestSiteRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4011,4 +4698,203 @@ func (a *SitesAPIsDAASService) SitesTestSiteExecute(r ApiSitesTestSiteRequest) (
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockSitesAPIsDAAS extracts the MockSitesAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockSitesAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockSitesAPIsDAAS(client *APIClient) *MockSitesAPIsDAAS {
+	return client.SitesAPIsDAAS.(*MockSitesAPIsDAAS)
+}
+
+// MockSitesAPIsDAAS is a mock implementation of the SitesAPIsDAAS interface for testing
+var _ SitesAPIsDAAS = (*MockSitesAPIsDAAS)(nil)
+
+type MockSitesAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockSitesAPIsDAAS) SitesCheckObjectNameExists(ctx context.Context) ApiSitesCheckObjectNameExistsRequest {
+	return ApiSitesCheckObjectNameExistsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesCheckObjectNameExistsExecute(r ApiSitesCheckObjectNameExistsRequest) (bool, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(bool), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetMultipleRemotePCAssignments(ctx context.Context, nameOrId string) ApiSitesGetMultipleRemotePCAssignmentsRequest {
+	return ApiSitesGetMultipleRemotePCAssignmentsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetMultipleRemotePCAssignmentsExecute(r ApiSitesGetMultipleRemotePCAssignmentsRequest) (bool, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(bool), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSessionsTrend(ctx context.Context, nameOrId string) ApiSitesGetSessionsTrendRequest {
+	return ApiSitesGetSessionsTrendRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSessionsTrendExecute(r ApiSitesGetSessionsTrendRequest) (*SessionsTrendResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SessionsTrendResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSite(ctx context.Context, nameOrId string) ApiSitesGetSiteRequest {
+	return ApiSitesGetSiteRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSiteExecute(r ApiSitesGetSiteRequest) (*SiteDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SiteDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSiteErrorWarning(ctx context.Context, nameOrId string) ApiSitesGetSiteErrorWarningRequest {
+	return ApiSitesGetSiteErrorWarningRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSiteErrorWarningExecute(r ApiSitesGetSiteErrorWarningRequest) (*ErrorWarningResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ErrorWarningResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSiteMisconfigurationReport(ctx context.Context, nameOrId string) ApiSitesGetSiteMisconfigurationReportRequest {
+	return ApiSitesGetSiteMisconfigurationReportRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSiteMisconfigurationReportExecute(r ApiSitesGetSiteMisconfigurationReportRequest) (string, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(string), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSiteSettings(ctx context.Context, nameOrId string) ApiSitesGetSiteSettingsRequest {
+	return ApiSitesGetSiteSettingsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSiteSettingsExecute(r ApiSitesGetSiteSettingsRequest) (*SiteSettingsResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SiteSettingsResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSiteStatus(ctx context.Context, nameOrId string) ApiSitesGetSiteStatusRequest {
+	return ApiSitesGetSiteStatusRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSiteStatusExecute(r ApiSitesGetSiteStatusRequest) (*SiteStatusResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SiteStatusResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSiteTestReport(ctx context.Context, nameOrId string) ApiSitesGetSiteTestReportRequest {
+	return ApiSitesGetSiteTestReportRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSiteTestReportExecute(r ApiSitesGetSiteTestReportRequest) (*TestReportResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TestReportResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSites(ctx context.Context) ApiSitesGetSitesRequest {
+	return ApiSitesGetSitesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetSitesExecute(r ApiSitesGetSitesRequest) (*SiteResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SiteResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetUpgradePackageVersions(ctx context.Context, nameOrId string) ApiSitesGetUpgradePackageVersionsRequest {
+	return ApiSitesGetUpgradePackageVersionsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesGetUpgradePackageVersionsExecute(r ApiSitesGetUpgradePackageVersionsRequest) (*UpgradePackageVersionResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*UpgradePackageVersionResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockSitesAPIsDAAS) SitesPatchMultipleRemotePCAssignments(ctx context.Context, nameOrId string) ApiSitesPatchMultipleRemotePCAssignmentsRequest {
+	return ApiSitesPatchMultipleRemotePCAssignmentsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesPatchMultipleRemotePCAssignmentsExecute(r ApiSitesPatchMultipleRemotePCAssignmentsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockSitesAPIsDAAS) SitesPatchSiteSettings(ctx context.Context, nameOrId string) ApiSitesPatchSiteSettingsRequest {
+	return ApiSitesPatchSiteSettingsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesPatchSiteSettingsExecute(r ApiSitesPatchSiteSettingsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockSitesAPIsDAAS) SitesTestSite(ctx context.Context, nameOrId string) ApiSitesTestSiteRequest {
+	return ApiSitesTestSiteRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockSitesAPIsDAAS) SitesTestSiteExecute(r ApiSitesTestSiteRequest) (*SiteTestResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SiteTestResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }

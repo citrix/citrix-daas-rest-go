@@ -19,12 +19,87 @@ import (
 	"strings"
 )
 
+type ImageQCS interface {
+
+	/*
+		CopyImageAsync Makes a copy of a workspace image
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of the account
+		@param imageId ID of the image
+		@return ImageQCSCopyImageAsyncRequest
+	*/
+	CopyImageAsync(ctx context.Context, customerId string, accountId string, imageId string) ImageQCSCopyImageAsyncRequest
+
+	// CopyImageAsyncExecute executes the request
+	//  @return AwsEdcImage
+	CopyImageAsyncExecute(r ImageQCSCopyImageAsyncRequest) (*AwsEdcImage, *http.Response, error)
+
+	/*
+		GetImageAsync Gets image from workspace
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of account
+		@param imageId Id of image
+		@return ImageQCSGetImageAsyncRequest
+	*/
+	GetImageAsync(ctx context.Context, customerId string, accountId string, imageId string) ImageQCSGetImageAsyncRequest
+
+	// GetImageAsyncExecute executes the request
+	//  @return AwsEdcImage
+	GetImageAsyncExecute(r ImageQCSGetImageAsyncRequest) (*AwsEdcImage, *http.Response, error)
+
+	/*
+		GetImagesAsync Gets images from workspace
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of account
+		@return ImageQCSGetImagesAsyncRequest
+	*/
+	GetImagesAsync(ctx context.Context, customerId string, accountId string) ImageQCSGetImagesAsyncRequest
+
+	// GetImagesAsyncExecute executes the request
+	//  @return Images
+	GetImagesAsyncExecute(r ImageQCSGetImagesAsyncRequest) (*Images, *http.Response, error)
+
+	/*
+		ImportImageAsync Imports image to workspace
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of hypervisor
+		@return ImageQCSImportImageAsyncRequest
+	*/
+	ImportImageAsync(ctx context.Context, customerId string, accountId string) ImageQCSImportImageAsyncRequest
+
+	// ImportImageAsyncExecute executes the request
+	//  @return AwsEdcImage
+	ImportImageAsyncExecute(r ImageQCSImportImageAsyncRequest) (*AwsEdcImage, *http.Response, error)
+
+	/*
+		RemoveImageAsync Removes image to workspace
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of hypervisor
+		@param imageId ID of image
+		@return ImageQCSRemoveImageAsyncRequest
+	*/
+	RemoveImageAsync(ctx context.Context, customerId string, accountId string, imageId string) ImageQCSRemoveImageAsyncRequest
+
+	// RemoveImageAsyncExecute executes the request
+	RemoveImageAsyncExecute(r ImageQCSRemoveImageAsyncRequest) (*http.Response, error)
+}
+
 // ImageQCSService ImageQCS service
 type ImageQCSService service
 
 type ImageQCSCopyImageAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageQCSService
+	ApiService          ImageQCS
 	customerId          string
 	accountId           string
 	imageId             string
@@ -175,7 +250,7 @@ func (a *ImageQCSService) CopyImageAsyncExecute(r ImageQCSCopyImageAsyncRequest)
 
 type ImageQCSGetImageAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageQCSService
+	ApiService          ImageQCS
 	customerId          string
 	accountId           string
 	imageId             string
@@ -316,7 +391,7 @@ func (a *ImageQCSService) GetImageAsyncExecute(r ImageQCSGetImageAsyncRequest) (
 
 type ImageQCSGetImagesAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageQCSService
+	ApiService          ImageQCS
 	customerId          string
 	accountId           string
 	citrixTransactionId *string
@@ -453,7 +528,7 @@ func (a *ImageQCSService) GetImagesAsyncExecute(r ImageQCSGetImagesAsyncRequest)
 
 type ImageQCSImportImageAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageQCSService
+	ApiService          ImageQCS
 	customerId          string
 	accountId           string
 	citrixTransactionId *string
@@ -599,7 +674,7 @@ func (a *ImageQCSService) ImportImageAsyncExecute(r ImageQCSImportImageAsyncRequ
 
 type ImageQCSRemoveImageAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *ImageQCSService
+	ApiService          ImageQCS
 	customerId          string
 	accountId           string
 	imageId             string

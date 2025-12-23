@@ -19,12 +19,29 @@ import (
 	"strings"
 )
 
+type AzureSubscriptionsCMD interface {
+
+	/*
+		GetSubscriptions Returns the subscriptions that we have a known association with
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customer id
+		@param siteId
+		@return ApiGetSubscriptionsRequest
+	*/
+	GetSubscriptions(ctx context.Context, customerId string, siteId string) ApiGetSubscriptionsRequest
+
+	// GetSubscriptionsExecute executes the request
+	//  @return AzureSubscriptionsModel
+	GetSubscriptionsExecute(r ApiGetSubscriptionsRequest) (*AzureSubscriptionsModel, *http.Response, error)
+}
+
 // AzureSubscriptionsCMDService AzureSubscriptionsCMD service
 type AzureSubscriptionsCMDService service
 
 type ApiGetSubscriptionsRequest struct {
 	ctx                    context.Context
-	ApiService             *AzureSubscriptionsCMDService
+	ApiService             AzureSubscriptionsCMD
 	customerId             string
 	siteId                 string
 	citrixTransactionId    *string

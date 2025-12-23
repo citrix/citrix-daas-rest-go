@@ -19,12 +19,77 @@ import (
 	"strings"
 )
 
+type LocationsDAAS interface {
+
+	/*
+		LocationsCreate Create a resource location for a customer.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiLocationsCreateRequest
+	*/
+	LocationsCreate(ctx context.Context) ApiLocationsCreateRequest
+
+	// LocationsCreateExecute executes the request
+	//  @return CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
+	LocationsCreateExecute(r ApiLocationsCreateRequest) (*CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel, *http.Response, error)
+
+	/*
+		LocationsDelete Delete a resource location.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The resource location id.
+		@return ApiLocationsDeleteRequest
+	*/
+	LocationsDelete(ctx context.Context, id string) ApiLocationsDeleteRequest
+
+	// LocationsDeleteExecute executes the request
+	LocationsDeleteExecute(r ApiLocationsDeleteRequest) (*http.Response, error)
+
+	/*
+		LocationsGet Get a resource location from id.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The resource location id
+		@return ApiLocationsGetRequest
+	*/
+	LocationsGet(ctx context.Context, id string) ApiLocationsGetRequest
+
+	// LocationsGetExecute executes the request
+	//  @return CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
+	LocationsGetExecute(r ApiLocationsGetRequest) (*CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel, *http.Response, error)
+
+	/*
+		LocationsGetAll Get all resource locations for a customer.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiLocationsGetAllRequest
+	*/
+	LocationsGetAll(ctx context.Context) ApiLocationsGetAllRequest
+
+	// LocationsGetAllExecute executes the request
+	//  @return CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel
+	LocationsGetAllExecute(r ApiLocationsGetAllRequest) (*CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel, *http.Response, error)
+
+	/*
+		LocationsUpdate Update the customer resource location information.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The resource location id.
+		@return ApiLocationsUpdateRequest
+	*/
+	LocationsUpdate(ctx context.Context, id string) ApiLocationsUpdateRequest
+
+	// LocationsUpdateExecute executes the request
+	//  @return CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
+	LocationsUpdateExecute(r ApiLocationsUpdateRequest) (*CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel, *http.Response, error)
+}
+
 // LocationsDAASService LocationsDAAS service
 type LocationsDAASService service
 
 type ApiLocationsCreateRequest struct {
 	ctx              context.Context
-	ApiService       *LocationsDAASService
+	ApiService       LocationsDAAS
 	accept           *string
 	authorization    *string
 	citrixCustomerId *string
@@ -188,7 +253,7 @@ func (a *LocationsDAASService) LocationsCreateExecute(r ApiLocationsCreateReques
 
 type ApiLocationsDeleteRequest struct {
 	ctx              context.Context
-	ApiService       *LocationsDAASService
+	ApiService       LocationsDAAS
 	accept           *string
 	authorization    *string
 	id               string
@@ -332,7 +397,7 @@ func (a *LocationsDAASService) LocationsDeleteExecute(r ApiLocationsDeleteReques
 
 type ApiLocationsGetRequest struct {
 	ctx              context.Context
-	ApiService       *LocationsDAASService
+	ApiService       LocationsDAAS
 	accept           *string
 	authorization    *string
 	id               string
@@ -488,7 +553,7 @@ func (a *LocationsDAASService) LocationsGetExecute(r ApiLocationsGetRequest) (*C
 
 type ApiLocationsGetAllRequest struct {
 	ctx              context.Context
-	ApiService       *LocationsDAASService
+	ApiService       LocationsDAAS
 	authorization    *string
 	citrixCustomerId *string
 }
@@ -629,7 +694,7 @@ func (a *LocationsDAASService) LocationsGetAllExecute(r ApiLocationsGetAllReques
 
 type ApiLocationsUpdateRequest struct {
 	ctx              context.Context
-	ApiService       *LocationsDAASService
+	ApiService       LocationsDAAS
 	accept           *string
 	authorization    *string
 	citrixCustomerId *string

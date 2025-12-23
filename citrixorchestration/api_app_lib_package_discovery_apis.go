@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type AppLibPackageDiscoveryAPIsDAAS interface {
@@ -148,6 +150,66 @@ type ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest struct {
 	accept                             *string
 	citrixLocale                       *string
 	async                              *bool
+}
+
+// MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest wraps the request struct to provide getter methods for testing
+type MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest struct {
+	ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetAppLibPackageDiscoveryRequestModel returns the appLibPackageDiscoveryRequestModel parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) GetAppLibPackageDiscoveryRequestModel() *AppLibPackageDiscoveryRequestModel {
+	return r.appLibPackageDiscoveryRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) Execute() (*AppLibPackageDiscoveryResponseModel, *http.Response, error) {
+	return r.ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -464,6 +526,66 @@ type ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest struct 
 	async                                     *bool
 }
 
+// MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest wraps the request struct to provide getter methods for testing
+type MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest struct {
+	ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetAppLibPackageDiscoveryProfileRequestModel returns the appLibPackageDiscoveryProfileRequestModel parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) GetAppLibPackageDiscoveryProfileRequestModel() *AppLibPackageDiscoveryProfileRequestModel {
+	return r.appLibPackageDiscoveryProfileRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) Execute() (*AppLibPackageDiscoveryProfileResponseModel, *http.Response, error) {
+	return r.ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) CitrixCustomerId(citrixCustomerId string) ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -778,6 +900,66 @@ type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest struct {
 	async               *bool
 }
 
+// MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest wraps the request struct to provide getter methods for testing
+type MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest struct {
+	ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) Execute() (*AppLibPackageDiscoveryResponseModel, *http.Response, error) {
+	return r.ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) CitrixCustomerId(citrixCustomerId string) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1072,6 +1254,61 @@ type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdR
 	citrixLocale        *string
 }
 
+// MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest wraps the request struct to provide getter methods for testing
+type MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest struct {
+	ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUid returns the uid parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) GetUid() int32 {
+	return r.uid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) Execute() (*AppLibPackageDiscoveryResponseModel, *http.Response, error) {
+	return r.ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) CitrixCustomerId(citrixCustomerId string) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1353,6 +1590,66 @@ type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest wraps the request struct to provide getter methods for testing
+type MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest struct {
+	ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUid returns the uid parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) GetUid() int32 {
+	return r.uid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) Execute() (*AppLibPackageDiscoveryProfileResponseModel, *http.Response, error) {
+	return r.ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1649,6 +1946,61 @@ type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest struct {
 	async               *bool
 }
 
+// MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest wraps the request struct to provide getter methods for testing
+type MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest struct {
+	ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) Execute() (*AppLibPackageDiscoveryProfileResponseModelCollection, *http.Response, error) {
+	return r.ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) CitrixCustomerId(citrixCustomerId string) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1927,6 +2279,61 @@ type ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest wraps the request struct to provide getter methods for testing
+type MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest struct {
+	ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) Execute() (*AppLibPackageDiscoveryResponseModelCollection, *http.Response, error) {
+	return r.ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2208,6 +2615,66 @@ type ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest struct 
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest wraps the request struct to provide getter methods for testing
+type MockApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest struct {
+	ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUid returns the uid parameter
+func (r MockApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) GetUid() int32 {
+	return r.uid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) Execute() (*http.Response, error) {
+	return r.ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2492,6 +2959,71 @@ type ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest struct 
 	accept                                        *string
 	citrixLocale                                  *string
 	async                                         *bool
+}
+
+// MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest wraps the request struct to provide getter methods for testing
+type MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest struct {
+	ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUid returns the uid parameter
+func (r MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) GetUid() int32 {
+	return r.uid
+}
+
+// GetEditAppLibPackageDiscoveryProfileRequestModel returns the editAppLibPackageDiscoveryProfileRequestModel parameter
+func (r MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) GetEditAppLibPackageDiscoveryProfileRequestModel() *EditAppLibPackageDiscoveryProfileRequestModel {
+	return r.editAppLibPackageDiscoveryProfileRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) Execute() (*http.Response, error) {
+	return r.ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2783,4 +3315,136 @@ func (a *AppLibPackageDiscoveryAPIsDAASService) AppLibPackageDiscoveryUpdateAppL
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockAppLibPackageDiscoveryAPIsDAAS extracts the MockAppLibPackageDiscoveryAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockAppLibPackageDiscoveryAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockAppLibPackageDiscoveryAPIsDAAS(client *APIClient) *MockAppLibPackageDiscoveryAPIsDAAS {
+	return client.AppLibPackageDiscoveryAPIsDAAS.(*MockAppLibPackageDiscoveryAPIsDAAS)
+}
+
+// MockAppLibPackageDiscoveryAPIsDAAS is a mock implementation of the AppLibPackageDiscoveryAPIsDAAS interface for testing
+var _ AppLibPackageDiscoveryAPIsDAAS = (*MockAppLibPackageDiscoveryAPIsDAAS)(nil)
+
+type MockAppLibPackageDiscoveryAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryCreateAppLibPackageDiscovery(ctx context.Context) ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest {
+	return ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryCreateAppLibPackageDiscoveryExecute(r ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryRequest) (*AppLibPackageDiscoveryResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppLibPackageDiscoveryResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile(ctx context.Context) ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest {
+	return ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileExecute(r ApiAppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfileRequest) (*AppLibPackageDiscoveryProfileResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppLibPackageDiscoveryProfileResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryGetAppLibPackageDiscovery(ctx context.Context, id string) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest {
+	return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryGetAppLibPackageDiscoveryExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryRequest) (*AppLibPackageDiscoveryResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppLibPackageDiscoveryResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId(ctx context.Context, uid int32) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest {
+	return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest{
+		ctx:        ctx,
+		ApiService: m,
+		uid:        uid,
+	}
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileIdRequest) (*AppLibPackageDiscoveryResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppLibPackageDiscoveryResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile(ctx context.Context, uid int32) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest {
+	return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest{
+		ctx:        ctx,
+		ApiService: m,
+		uid:        uid,
+	}
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfileRequest) (*AppLibPackageDiscoveryProfileResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppLibPackageDiscoveryProfileResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles(ctx context.Context) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest {
+	return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoveryProfilesRequest) (*AppLibPackageDiscoveryProfileResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppLibPackageDiscoveryProfileResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions(ctx context.Context) ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest {
+	return ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsExecute(r ApiAppLibPackageDiscoveryGetAppLibPackageDiscoverySessionsRequest) (*AppLibPackageDiscoveryResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppLibPackageDiscoveryResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile(ctx context.Context, uid int32) ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest {
+	return ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest{
+		ctx:        ctx,
+		ApiService: m,
+		uid:        uid,
+	}
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileExecute(r ApiAppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfileRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile(ctx context.Context, uid int32) ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest {
+	return ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest{
+		ctx:        ctx,
+		ApiService: m,
+		uid:        uid,
+	}
+}
+
+func (m *MockAppLibPackageDiscoveryAPIsDAAS) AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileExecute(r ApiAppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfileRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }

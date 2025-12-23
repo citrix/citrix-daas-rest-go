@@ -19,12 +19,101 @@ import (
 	"strings"
 )
 
+type ConnectionQCS interface {
+
+	/*
+		AddResourceConnectionAsync Adds resource connection asyncronously
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of account
+		@return ConnectionQCSAddResourceConnectionAsyncRequest
+	*/
+	AddResourceConnectionAsync(ctx context.Context, customerId string, accountId string) ConnectionQCSAddResourceConnectionAsyncRequest
+
+	// AddResourceConnectionAsyncExecute executes the request
+	//  @return ResourceConnectionTask
+	AddResourceConnectionAsyncExecute(r ConnectionQCSAddResourceConnectionAsyncRequest) (*ResourceConnectionTask, *http.Response, error)
+
+	/*
+		GetAllResourceConnectionsAsync Gets all resource connections without specifying account
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@return ConnectionQCSGetAllResourceConnectionsAsyncRequest
+	*/
+	GetAllResourceConnectionsAsync(ctx context.Context, customerId string) ConnectionQCSGetAllResourceConnectionsAsyncRequest
+
+	// GetAllResourceConnectionsAsyncExecute executes the request
+	//  @return ResourceConnections
+	GetAllResourceConnectionsAsyncExecute(r ConnectionQCSGetAllResourceConnectionsAsyncRequest) (*ResourceConnections, *http.Response, error)
+
+	/*
+		GetResourceConnectionAsync Gets resource connection
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of account
+		@param connectionId ID of connection
+		@return ConnectionQCSGetResourceConnectionAsyncRequest
+	*/
+	GetResourceConnectionAsync(ctx context.Context, customerId string, accountId string, connectionId string) ConnectionQCSGetResourceConnectionAsyncRequest
+
+	// GetResourceConnectionAsyncExecute executes the request
+	//  @return AwsEdcDirectoryConnection
+	GetResourceConnectionAsyncExecute(r ConnectionQCSGetResourceConnectionAsyncRequest) (*AwsEdcDirectoryConnection, *http.Response, error)
+
+	/*
+		GetResourceConnectionsAsync Gets resource connections
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of account
+		@return ConnectionQCSGetResourceConnectionsAsyncRequest
+	*/
+	GetResourceConnectionsAsync(ctx context.Context, customerId string, accountId string) ConnectionQCSGetResourceConnectionsAsyncRequest
+
+	// GetResourceConnectionsAsyncExecute executes the request
+	//  @return ResourceConnections
+	GetResourceConnectionsAsyncExecute(r ConnectionQCSGetResourceConnectionsAsyncRequest) (*ResourceConnections, *http.Response, error)
+
+	/*
+		ModifyResourceConnectionAsync Modifies connection
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of account
+		@param connectionId ID of connection
+		@return ConnectionQCSModifyResourceConnectionAsyncRequest
+	*/
+	ModifyResourceConnectionAsync(ctx context.Context, customerId string, accountId string, connectionId string) ConnectionQCSModifyResourceConnectionAsyncRequest
+
+	// ModifyResourceConnectionAsyncExecute executes the request
+	//  @return AwsEdcDirectoryConnection
+	ModifyResourceConnectionAsyncExecute(r ConnectionQCSModifyResourceConnectionAsyncRequest) (*AwsEdcDirectoryConnection, *http.Response, error)
+
+	/*
+		RemoveResourceConnectionAsync Removes connection
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of account
+		@param connectionId ID of connection
+		@return ConnectionQCSRemoveResourceConnectionAsyncRequest
+	*/
+	RemoveResourceConnectionAsync(ctx context.Context, customerId string, accountId string, connectionId string) ConnectionQCSRemoveResourceConnectionAsyncRequest
+
+	// RemoveResourceConnectionAsyncExecute executes the request
+	//  @return ResourceConnectionTask
+	RemoveResourceConnectionAsyncExecute(r ConnectionQCSRemoveResourceConnectionAsyncRequest) (*ResourceConnectionTask, *http.Response, error)
+}
+
 // ConnectionQCSService ConnectionQCS service
 type ConnectionQCSService service
 
 type ConnectionQCSAddResourceConnectionAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *ConnectionQCSService
+	ApiService          ConnectionQCS
 	customerId          string
 	accountId           string
 	citrixTransactionId *string
@@ -170,7 +259,7 @@ func (a *ConnectionQCSService) AddResourceConnectionAsyncExecute(r ConnectionQCS
 
 type ConnectionQCSGetAllResourceConnectionsAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *ConnectionQCSService
+	ApiService          ConnectionQCS
 	customerId          string
 	accountType         *AccountType
 	citrixTransactionId *string
@@ -313,7 +402,7 @@ func (a *ConnectionQCSService) GetAllResourceConnectionsAsyncExecute(r Connectio
 
 type ConnectionQCSGetResourceConnectionAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *ConnectionQCSService
+	ApiService          ConnectionQCS
 	customerId          string
 	accountId           string
 	connectionId        string
@@ -454,7 +543,7 @@ func (a *ConnectionQCSService) GetResourceConnectionAsyncExecute(r ConnectionQCS
 
 type ConnectionQCSGetResourceConnectionsAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *ConnectionQCSService
+	ApiService          ConnectionQCS
 	customerId          string
 	accountId           string
 	citrixManaged       *bool
@@ -601,7 +690,7 @@ func (a *ConnectionQCSService) GetResourceConnectionsAsyncExecute(r ConnectionQC
 
 type ConnectionQCSModifyResourceConnectionAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *ConnectionQCSService
+	ApiService          ConnectionQCS
 	customerId          string
 	accountId           string
 	connectionId        string
@@ -751,7 +840,7 @@ func (a *ConnectionQCSService) ModifyResourceConnectionAsyncExecute(r Connection
 
 type ConnectionQCSRemoveResourceConnectionAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *ConnectionQCSService
+	ApiService          ConnectionQCS
 	customerId          string
 	accountId           string
 	connectionId        string

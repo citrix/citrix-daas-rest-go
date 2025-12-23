@@ -19,12 +19,226 @@ import (
 	"strings"
 )
 
+type DeploymentQCS interface {
+
+	/*
+		AddMachineAsync Adds machine to deployment
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param deploymentId ID of the deployment
+		@return DeploymentQCSAddMachineAsyncRequest
+	*/
+	AddMachineAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSAddMachineAsyncRequest
+
+	// AddMachineAsyncExecute executes the request
+	//  @return DeploymentTask
+	AddMachineAsyncExecute(r DeploymentQCSAddMachineAsyncRequest) (*DeploymentTask, *http.Response, error)
+
+	/*
+		DeleteDeploymentAsync Delete deployment
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param deploymentId ID of the deployment
+		@return DeploymentQCSDeleteDeploymentAsyncRequest
+	*/
+	DeleteDeploymentAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSDeleteDeploymentAsyncRequest
+
+	// DeleteDeploymentAsyncExecute executes the request
+	//  @return DeploymentTask
+	DeleteDeploymentAsyncExecute(r DeploymentQCSDeleteDeploymentAsyncRequest) (*DeploymentTask, *http.Response, error)
+
+	/*
+		GetDeploymentAsync Gets deployment with vdas
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param deploymentId ID of the deployment
+		@return DeploymentQCSGetDeploymentAsyncRequest
+	*/
+	GetDeploymentAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSGetDeploymentAsyncRequest
+
+	// GetDeploymentAsyncExecute executes the request
+	//  @return AwsEdcDeployment
+	GetDeploymentAsyncExecute(r DeploymentQCSGetDeploymentAsyncRequest) (*AwsEdcDeployment, *http.Response, error)
+
+	/*
+		GetDeploymentsAsync Gets deployments
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@return DeploymentQCSGetDeploymentsAsyncRequest
+	*/
+	GetDeploymentsAsync(ctx context.Context, customerId string) DeploymentQCSGetDeploymentsAsyncRequest
+
+	// GetDeploymentsAsyncExecute executes the request
+	//  @return Deployments
+	GetDeploymentsAsyncExecute(r DeploymentQCSGetDeploymentsAsyncRequest) (*Deployments, *http.Response, error)
+
+	/*
+		InitiateDeleteDeploymentAsync Initiate delete deployment
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param deploymentId ID of the deployment
+		@return DeploymentQCSInitiateDeleteDeploymentAsyncRequest
+	*/
+	InitiateDeleteDeploymentAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSInitiateDeleteDeploymentAsyncRequest
+
+	// InitiateDeleteDeploymentAsyncExecute executes the request
+	//  @return DeploymentTask
+	InitiateDeleteDeploymentAsyncExecute(r DeploymentQCSInitiateDeleteDeploymentAsyncRequest) (*DeploymentTask, *http.Response, error)
+
+	/*
+		InitiateDeploymentAsync Initiates deployment
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@return DeploymentQCSInitiateDeploymentAsyncRequest
+	*/
+	InitiateDeploymentAsync(ctx context.Context, customerId string) DeploymentQCSInitiateDeploymentAsyncRequest
+
+	// InitiateDeploymentAsyncExecute executes the request
+	//  @return AwsEdcDeployment
+	InitiateDeploymentAsyncExecute(r DeploymentQCSInitiateDeploymentAsyncRequest) (*AwsEdcDeployment, *http.Response, error)
+
+	/*
+		InitiateRemoveMachineAsync Initiate removal of machine from deployment
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param deploymentId ID of the deployment
+		@param machineId ID of the machine
+		@return DeploymentQCSInitiateRemoveMachineAsyncRequest
+	*/
+	InitiateRemoveMachineAsync(ctx context.Context, customerId string, deploymentId string, machineId string) DeploymentQCSInitiateRemoveMachineAsyncRequest
+
+	// InitiateRemoveMachineAsyncExecute executes the request
+	//  @return DeploymentTask
+	InitiateRemoveMachineAsyncExecute(r DeploymentQCSInitiateRemoveMachineAsyncRequest) (*DeploymentTask, *http.Response, error)
+
+	/*
+		PatchMachinesAsync Turn on or off the deployment mode for deployment machines
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param deploymentId ID of the deployment
+		@return DeploymentQCSPatchMachinesAsyncRequest
+	*/
+	PatchMachinesAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSPatchMachinesAsyncRequest
+
+	// PatchMachinesAsyncExecute executes the request
+	PatchMachinesAsyncExecute(r DeploymentQCSPatchMachinesAsyncRequest) (*http.Response, error)
+
+	/*
+		RemoveMachineAsync Removes machine to deployment
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param deploymentId ID of the deployment
+		@param machineId ID of the machine
+		@return DeploymentQCSRemoveMachineAsyncRequest
+	*/
+	RemoveMachineAsync(ctx context.Context, customerId string, deploymentId string, machineId string) DeploymentQCSRemoveMachineAsyncRequest
+
+	// RemoveMachineAsyncExecute executes the request
+	//  @return DeploymentTask
+	RemoveMachineAsyncExecute(r DeploymentQCSRemoveMachineAsyncRequest) (*DeploymentTask, *http.Response, error)
+
+	/*
+		RemoveMachinesAsync Removes machines from deployment
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param deploymentId ID of the deployment
+		@return DeploymentQCSRemoveMachinesAsyncRequest
+	*/
+	RemoveMachinesAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSRemoveMachinesAsyncRequest
+
+	// RemoveMachinesAsyncExecute executes the request
+	//  @return DeploymentTask
+	RemoveMachinesAsyncExecute(r DeploymentQCSRemoveMachinesAsyncRequest) (*DeploymentTask, *http.Response, error)
+
+	/*
+		RestartMachineAsync Restart a machine
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param deploymentId ID of the deployment
+		@param machineId ID of the machine
+		@return DeploymentQCSRestartMachineAsyncRequest
+	*/
+	RestartMachineAsync(ctx context.Context, customerId string, deploymentId string, machineId string) DeploymentQCSRestartMachineAsyncRequest
+
+	// RestartMachineAsyncExecute executes the request
+	RestartMachineAsyncExecute(r DeploymentQCSRestartMachineAsyncRequest) (*http.Response, error)
+
+	/*
+		SaveAsImageAsync Save image to account
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param deploymentId ID of the deployment
+		@param machineId ID of the image builder machine
+		@return DeploymentQCSSaveAsImageAsyncRequest
+	*/
+	SaveAsImageAsync(ctx context.Context, customerId string, deploymentId string, machineId string) DeploymentQCSSaveAsImageAsyncRequest
+
+	// SaveAsImageAsyncExecute executes the request
+	//  @return DeploymentTask
+	SaveAsImageAsyncExecute(r DeploymentQCSSaveAsImageAsyncRequest) (*DeploymentTask, *http.Response, error)
+
+	/*
+		UpdateDeploymentImageAsync Update image for a deployment
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param deploymentId ID of the deployment
+		@return DeploymentQCSUpdateDeploymentImageAsyncRequest
+	*/
+	UpdateDeploymentImageAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSUpdateDeploymentImageAsyncRequest
+
+	// UpdateDeploymentImageAsyncExecute executes the request
+	//  @return DeploymentTask
+	UpdateDeploymentImageAsyncExecute(r DeploymentQCSUpdateDeploymentImageAsyncRequest) (*DeploymentTask, *http.Response, error)
+
+	/*
+		UpdateDeploymentPropertiesAsync Updates deployment properties
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param deploymentId ID of the deployment
+		@return DeploymentQCSUpdateDeploymentPropertiesAsyncRequest
+	*/
+	UpdateDeploymentPropertiesAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSUpdateDeploymentPropertiesAsyncRequest
+
+	// UpdateDeploymentPropertiesAsyncExecute executes the request
+	//  @return DeploymentTask
+	UpdateDeploymentPropertiesAsyncExecute(r DeploymentQCSUpdateDeploymentPropertiesAsyncRequest) (*DeploymentTask, *http.Response, error)
+
+	/*
+		UpdateMachineAsync Updates machine in deployment
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param deploymentId ID of the deployment
+		@param machineId ID of the machine
+		@return DeploymentQCSUpdateMachineAsyncRequest
+	*/
+	UpdateMachineAsync(ctx context.Context, customerId string, deploymentId string, machineId string) DeploymentQCSUpdateMachineAsyncRequest
+
+	// UpdateMachineAsyncExecute executes the request
+	//  @return DeploymentTask
+	UpdateMachineAsyncExecute(r DeploymentQCSUpdateMachineAsyncRequest) (*DeploymentTask, *http.Response, error)
+}
+
 // DeploymentQCSService DeploymentQCS service
 type DeploymentQCSService service
 
 type DeploymentQCSAddMachineAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *DeploymentQCSService
+	ApiService          DeploymentQCS
 	customerId          string
 	deploymentId        string
 	citrixTransactionId *string
@@ -170,7 +384,7 @@ func (a *DeploymentQCSService) AddMachineAsyncExecute(r DeploymentQCSAddMachineA
 
 type DeploymentQCSDeleteDeploymentAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *DeploymentQCSService
+	ApiService          DeploymentQCS
 	customerId          string
 	deploymentId        string
 	forceDelete         *bool
@@ -320,7 +534,7 @@ func (a *DeploymentQCSService) DeleteDeploymentAsyncExecute(r DeploymentQCSDelet
 
 type DeploymentQCSGetDeploymentAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *DeploymentQCSService
+	ApiService          DeploymentQCS
 	customerId          string
 	deploymentId        string
 	citrixTransactionId *string
@@ -457,7 +671,7 @@ func (a *DeploymentQCSService) GetDeploymentAsyncExecute(r DeploymentQCSGetDeplo
 
 type DeploymentQCSGetDeploymentsAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *DeploymentQCSService
+	ApiService          DeploymentQCS
 	customerId          string
 	includeVdas         *bool
 	accountType         *AccountType
@@ -610,7 +824,7 @@ func (a *DeploymentQCSService) GetDeploymentsAsyncExecute(r DeploymentQCSGetDepl
 
 type DeploymentQCSInitiateDeleteDeploymentAsyncRequest struct {
 	ctx                            context.Context
-	ApiService                     *DeploymentQCSService
+	ApiService                     DeploymentQCS
 	customerId                     string
 	deploymentId                   string
 	forceDelete                    *bool
@@ -769,7 +983,7 @@ func (a *DeploymentQCSService) InitiateDeleteDeploymentAsyncExecute(r Deployment
 
 type DeploymentQCSInitiateDeploymentAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *DeploymentQCSService
+	ApiService          DeploymentQCS
 	customerId          string
 	citrixTransactionId *string
 	body                *InitiateAwsEdcDeployment
@@ -911,7 +1125,7 @@ func (a *DeploymentQCSService) InitiateDeploymentAsyncExecute(r DeploymentQCSIni
 
 type DeploymentQCSInitiateRemoveMachineAsyncRequest struct {
 	ctx                         context.Context
-	ApiService                  *DeploymentQCSService
+	ApiService                  DeploymentQCS
 	customerId                  string
 	deploymentId                string
 	machineId                   string
@@ -1074,7 +1288,7 @@ func (a *DeploymentQCSService) InitiateRemoveMachineAsyncExecute(r DeploymentQCS
 
 type DeploymentQCSPatchMachinesAsyncRequest struct {
 	ctx                      context.Context
-	ApiService               *DeploymentQCSService
+	ApiService               DeploymentQCS
 	customerId               string
 	deploymentId             string
 	citrixTransactionId      *string
@@ -1208,7 +1422,7 @@ func (a *DeploymentQCSService) PatchMachinesAsyncExecute(r DeploymentQCSPatchMac
 
 type DeploymentQCSRemoveMachineAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *DeploymentQCSService
+	ApiService          DeploymentQCS
 	customerId          string
 	deploymentId        string
 	machineId           string
@@ -1362,7 +1576,7 @@ func (a *DeploymentQCSService) RemoveMachineAsyncExecute(r DeploymentQCSRemoveMa
 
 type DeploymentQCSRemoveMachinesAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *DeploymentQCSService
+	ApiService          DeploymentQCS
 	customerId          string
 	deploymentId        string
 	forceDelete         *bool
@@ -1521,7 +1735,7 @@ func (a *DeploymentQCSService) RemoveMachinesAsyncExecute(r DeploymentQCSRemoveM
 
 type DeploymentQCSRestartMachineAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *DeploymentQCSService
+	ApiService          DeploymentQCS
 	customerId          string
 	deploymentId        string
 	machineId           string
@@ -1650,7 +1864,7 @@ func (a *DeploymentQCSService) RestartMachineAsyncExecute(r DeploymentQCSRestart
 
 type DeploymentQCSSaveAsImageAsyncRequest struct {
 	ctx                      context.Context
-	ApiService               *DeploymentQCSService
+	ApiService               DeploymentQCS
 	customerId               string
 	deploymentId             string
 	machineId                string
@@ -1800,7 +2014,7 @@ func (a *DeploymentQCSService) SaveAsImageAsyncExecute(r DeploymentQCSSaveAsImag
 
 type DeploymentQCSUpdateDeploymentImageAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *DeploymentQCSService
+	ApiService          DeploymentQCS
 	customerId          string
 	deploymentId        string
 	citrixTransactionId *string
@@ -1946,7 +2160,7 @@ func (a *DeploymentQCSService) UpdateDeploymentImageAsyncExecute(r DeploymentQCS
 
 type DeploymentQCSUpdateDeploymentPropertiesAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *DeploymentQCSService
+	ApiService          DeploymentQCS
 	customerId          string
 	deploymentId        string
 	citrixTransactionId *string
@@ -2092,7 +2306,7 @@ func (a *DeploymentQCSService) UpdateDeploymentPropertiesAsyncExecute(r Deployme
 
 type DeploymentQCSUpdateMachineAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *DeploymentQCSService
+	ApiService          DeploymentQCS
 	customerId          string
 	deploymentId        string
 	machineId           string

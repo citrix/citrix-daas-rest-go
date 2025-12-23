@@ -48,11 +48,11 @@ type APIClient struct {
 
 	// API Services
 
-	DiscoveryDAAS *DiscoveryDAASService
+	DiscoveryDAAS DiscoveryDAAS
 
-	ProfilesDAAS *ProfilesDAASService
+	ProfilesDAAS ProfilesDAAS
 
-	SettingsDAAS *SettingsDAASService
+	SettingsDAAS SettingsDAAS
 }
 
 type service struct {
