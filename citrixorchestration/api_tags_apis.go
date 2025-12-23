@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type TagsAPIsDAAS interface {
@@ -203,6 +205,61 @@ type ApiTagsCheckTagExistsRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiTagsCheckTagExistsRequest wraps the request struct to provide getter methods for testing
+type MockApiTagsCheckTagExistsRequest struct {
+	ApiTagsCheckTagExistsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTagsCheckTagExistsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTagsCheckTagExistsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTagsCheckTagExistsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetName returns the name parameter
+func (r MockApiTagsCheckTagExistsRequest) GetName() string {
+	return r.name
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTagsCheckTagExistsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTagsCheckTagExistsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTagsCheckTagExistsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTagsCheckTagExistsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTagsCheckTagExistsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTagsCheckTagExistsRequest) Execute() (*http.Response, error) {
+	return r.ApiTagsCheckTagExistsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -476,6 +533,66 @@ type ApiTagsCreateTagRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiTagsCreateTagRequest wraps the request struct to provide getter methods for testing
+type MockApiTagsCreateTagRequest struct {
+	ApiTagsCreateTagRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTagsCreateTagRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTagsCreateTagRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTagsCreateTagRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetTagRequestModel returns the tagRequestModel parameter
+func (r MockApiTagsCreateTagRequest) GetTagRequestModel() *TagRequestModel {
+	return r.tagRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTagsCreateTagRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTagsCreateTagRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTagsCreateTagRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTagsCreateTagRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTagsCreateTagRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiTagsCreateTagRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTagsCreateTagRequest) Execute() (*TagResponseModel, *http.Response, error) {
+	return r.ApiTagsCreateTagRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -793,6 +910,71 @@ type ApiTagsDeleteTagRequest struct {
 	force               *bool
 }
 
+// MockApiTagsDeleteTagRequest wraps the request struct to provide getter methods for testing
+type MockApiTagsDeleteTagRequest struct {
+	ApiTagsDeleteTagRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTagsDeleteTagRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTagsDeleteTagRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTagsDeleteTagRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiTagsDeleteTagRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTagsDeleteTagRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTagsDeleteTagRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTagsDeleteTagRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTagsDeleteTagRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTagsDeleteTagRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiTagsDeleteTagRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetForce returns the force parameter
+func (r MockApiTagsDeleteTagRequest) GetForce() *bool {
+	return r.force
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTagsDeleteTagRequest) Execute() (*http.Response, error) {
+	return r.ApiTagsDeleteTagRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiTagsDeleteTagRequest) CitrixCustomerId(citrixCustomerId string) ApiTagsDeleteTagRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1087,6 +1269,61 @@ type ApiTagsGetTagRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiTagsGetTagRequest wraps the request struct to provide getter methods for testing
+type MockApiTagsGetTagRequest struct {
+	ApiTagsGetTagRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTagsGetTagRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTagsGetTagRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTagsGetTagRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiTagsGetTagRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTagsGetTagRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTagsGetTagRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTagsGetTagRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTagsGetTagRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTagsGetTagRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTagsGetTagRequest) Execute() (*TagDetailResponseModel, *http.Response, error) {
+	return r.ApiTagsGetTagRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiTagsGetTagRequest) CitrixCustomerId(citrixCustomerId string) ApiTagsGetTagRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1369,6 +1606,71 @@ type ApiTagsGetTagApplicationGroupsRequest struct {
 	citrixLocale        *string
 	limit               *int32
 	continuationToken   *string
+}
+
+// MockApiTagsGetTagApplicationGroupsRequest wraps the request struct to provide getter methods for testing
+type MockApiTagsGetTagApplicationGroupsRequest struct {
+	ApiTagsGetTagApplicationGroupsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTagsGetTagApplicationGroupsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTagsGetTagApplicationGroupsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTagsGetTagApplicationGroupsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiTagsGetTagApplicationGroupsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTagsGetTagApplicationGroupsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTagsGetTagApplicationGroupsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTagsGetTagApplicationGroupsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTagsGetTagApplicationGroupsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTagsGetTagApplicationGroupsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiTagsGetTagApplicationGroupsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiTagsGetTagApplicationGroupsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTagsGetTagApplicationGroupsRequest) Execute() (*ApplicationGroupResponseModelCollection, *http.Response, error) {
+	return r.ApiTagsGetTagApplicationGroupsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1673,6 +1975,71 @@ type ApiTagsGetTagApplicationsRequest struct {
 	continuationToken   *string
 }
 
+// MockApiTagsGetTagApplicationsRequest wraps the request struct to provide getter methods for testing
+type MockApiTagsGetTagApplicationsRequest struct {
+	ApiTagsGetTagApplicationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTagsGetTagApplicationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTagsGetTagApplicationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTagsGetTagApplicationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiTagsGetTagApplicationsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTagsGetTagApplicationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTagsGetTagApplicationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTagsGetTagApplicationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTagsGetTagApplicationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTagsGetTagApplicationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiTagsGetTagApplicationsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiTagsGetTagApplicationsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTagsGetTagApplicationsRequest) Execute() (*ApplicationResponseModelCollection, *http.Response, error) {
+	return r.ApiTagsGetTagApplicationsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiTagsGetTagApplicationsRequest) CitrixCustomerId(citrixCustomerId string) ApiTagsGetTagApplicationsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1973,6 +2340,71 @@ type ApiTagsGetTagDeliveryGroupsRequest struct {
 	citrixLocale        *string
 	limit               *int32
 	continuationToken   *string
+}
+
+// MockApiTagsGetTagDeliveryGroupsRequest wraps the request struct to provide getter methods for testing
+type MockApiTagsGetTagDeliveryGroupsRequest struct {
+	ApiTagsGetTagDeliveryGroupsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTagsGetTagDeliveryGroupsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTagsGetTagDeliveryGroupsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTagsGetTagDeliveryGroupsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiTagsGetTagDeliveryGroupsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTagsGetTagDeliveryGroupsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTagsGetTagDeliveryGroupsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTagsGetTagDeliveryGroupsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTagsGetTagDeliveryGroupsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTagsGetTagDeliveryGroupsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiTagsGetTagDeliveryGroupsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiTagsGetTagDeliveryGroupsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTagsGetTagDeliveryGroupsRequest) Execute() (*DeliveryGroupResponseModelCollection, *http.Response, error) {
+	return r.ApiTagsGetTagDeliveryGroupsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2277,6 +2709,71 @@ type ApiTagsGetTagMachineCatalogsRequest struct {
 	continuationToken   *string
 }
 
+// MockApiTagsGetTagMachineCatalogsRequest wraps the request struct to provide getter methods for testing
+type MockApiTagsGetTagMachineCatalogsRequest struct {
+	ApiTagsGetTagMachineCatalogsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTagsGetTagMachineCatalogsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTagsGetTagMachineCatalogsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTagsGetTagMachineCatalogsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiTagsGetTagMachineCatalogsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTagsGetTagMachineCatalogsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTagsGetTagMachineCatalogsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTagsGetTagMachineCatalogsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTagsGetTagMachineCatalogsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTagsGetTagMachineCatalogsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiTagsGetTagMachineCatalogsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiTagsGetTagMachineCatalogsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTagsGetTagMachineCatalogsRequest) Execute() (*MachineCatalogResponseModelCollection, *http.Response, error) {
+	return r.ApiTagsGetTagMachineCatalogsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiTagsGetTagMachineCatalogsRequest) CitrixCustomerId(citrixCustomerId string) ApiTagsGetTagMachineCatalogsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2578,6 +3075,76 @@ type ApiTagsGetTagMachinesRequest struct {
 	limit               *int32
 	continuationToken   *string
 	fields              *string
+}
+
+// MockApiTagsGetTagMachinesRequest wraps the request struct to provide getter methods for testing
+type MockApiTagsGetTagMachinesRequest struct {
+	ApiTagsGetTagMachinesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTagsGetTagMachinesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTagsGetTagMachinesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTagsGetTagMachinesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiTagsGetTagMachinesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTagsGetTagMachinesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTagsGetTagMachinesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTagsGetTagMachinesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTagsGetTagMachinesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTagsGetTagMachinesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiTagsGetTagMachinesRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiTagsGetTagMachinesRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetFields returns the fields parameter
+func (r MockApiTagsGetTagMachinesRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTagsGetTagMachinesRequest) Execute() (*MachineResponseModelCollection, *http.Response, error) {
+	return r.ApiTagsGetTagMachinesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2891,6 +3458,71 @@ type ApiTagsGetTagsRequest struct {
 	fields              *string
 }
 
+// MockApiTagsGetTagsRequest wraps the request struct to provide getter methods for testing
+type MockApiTagsGetTagsRequest struct {
+	ApiTagsGetTagsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTagsGetTagsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTagsGetTagsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTagsGetTagsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTagsGetTagsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTagsGetTagsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTagsGetTagsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTagsGetTagsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTagsGetTagsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiTagsGetTagsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiTagsGetTagsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetFields returns the fields parameter
+func (r MockApiTagsGetTagsRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTagsGetTagsRequest) Execute() (*TagResponseModelCollection, *http.Response, error) {
+	return r.ApiTagsGetTagsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiTagsGetTagsRequest) CitrixCustomerId(citrixCustomerId string) ApiTagsGetTagsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3186,6 +3818,71 @@ type ApiTagsPatchTagRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiTagsPatchTagRequest wraps the request struct to provide getter methods for testing
+type MockApiTagsPatchTagRequest struct {
+	ApiTagsPatchTagRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTagsPatchTagRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTagsPatchTagRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTagsPatchTagRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiTagsPatchTagRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetTagRequestModel returns the tagRequestModel parameter
+func (r MockApiTagsPatchTagRequest) GetTagRequestModel() *TagRequestModel {
+	return r.tagRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTagsPatchTagRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTagsPatchTagRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTagsPatchTagRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTagsPatchTagRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTagsPatchTagRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiTagsPatchTagRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTagsPatchTagRequest) Execute() (*TagResponseModel, *http.Response, error) {
+	return r.ApiTagsPatchTagRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3506,6 +4203,71 @@ type ApiTagsSetTagApplicationsRequest struct {
 	async               *bool
 }
 
+// MockApiTagsSetTagApplicationsRequest wraps the request struct to provide getter methods for testing
+type MockApiTagsSetTagApplicationsRequest struct {
+	ApiTagsSetTagApplicationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTagsSetTagApplicationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTagsSetTagApplicationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTagsSetTagApplicationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiTagsSetTagApplicationsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetRefsRequestModel returns the refsRequestModel parameter
+func (r MockApiTagsSetTagApplicationsRequest) GetRefsRequestModel() *RefsRequestModel {
+	return r.refsRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTagsSetTagApplicationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTagsSetTagApplicationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTagsSetTagApplicationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTagsSetTagApplicationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTagsSetTagApplicationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiTagsSetTagApplicationsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTagsSetTagApplicationsRequest) Execute() (*http.Response, error) {
+	return r.ApiTagsSetTagApplicationsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiTagsSetTagApplicationsRequest) CitrixCustomerId(citrixCustomerId string) ApiTagsSetTagApplicationsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3814,6 +4576,71 @@ type ApiTagsSetTagDeliveryGroupsRequest struct {
 	async               *bool
 }
 
+// MockApiTagsSetTagDeliveryGroupsRequest wraps the request struct to provide getter methods for testing
+type MockApiTagsSetTagDeliveryGroupsRequest struct {
+	ApiTagsSetTagDeliveryGroupsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTagsSetTagDeliveryGroupsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTagsSetTagDeliveryGroupsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTagsSetTagDeliveryGroupsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiTagsSetTagDeliveryGroupsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetRefsRequestModel returns the refsRequestModel parameter
+func (r MockApiTagsSetTagDeliveryGroupsRequest) GetRefsRequestModel() *RefsRequestModel {
+	return r.refsRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTagsSetTagDeliveryGroupsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTagsSetTagDeliveryGroupsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTagsSetTagDeliveryGroupsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTagsSetTagDeliveryGroupsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTagsSetTagDeliveryGroupsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiTagsSetTagDeliveryGroupsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTagsSetTagDeliveryGroupsRequest) Execute() (*http.Response, error) {
+	return r.ApiTagsSetTagDeliveryGroupsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiTagsSetTagDeliveryGroupsRequest) CitrixCustomerId(citrixCustomerId string) ApiTagsSetTagDeliveryGroupsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -4103,4 +4930,190 @@ func (a *TagsAPIsDAASService) TagsSetTagDeliveryGroupsExecute(r ApiTagsSetTagDel
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockTagsAPIsDAAS extracts the MockTagsAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockTagsAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockTagsAPIsDAAS(client *APIClient) *MockTagsAPIsDAAS {
+	return client.TagsAPIsDAAS.(*MockTagsAPIsDAAS)
+}
+
+// MockTagsAPIsDAAS is a mock implementation of the TagsAPIsDAAS interface for testing
+var _ TagsAPIsDAAS = (*MockTagsAPIsDAAS)(nil)
+
+type MockTagsAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockTagsAPIsDAAS) TagsCheckTagExists(ctx context.Context, name string) ApiTagsCheckTagExistsRequest {
+	return ApiTagsCheckTagExistsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		name:       name,
+	}
+}
+
+func (m *MockTagsAPIsDAAS) TagsCheckTagExistsExecute(r ApiTagsCheckTagExistsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockTagsAPIsDAAS) TagsCreateTag(ctx context.Context) ApiTagsCreateTagRequest {
+	return ApiTagsCreateTagRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockTagsAPIsDAAS) TagsCreateTagExecute(r ApiTagsCreateTagRequest) (*TagResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TagResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockTagsAPIsDAAS) TagsDeleteTag(ctx context.Context, nameOrId string) ApiTagsDeleteTagRequest {
+	return ApiTagsDeleteTagRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockTagsAPIsDAAS) TagsDeleteTagExecute(r ApiTagsDeleteTagRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTag(ctx context.Context, nameOrId string) ApiTagsGetTagRequest {
+	return ApiTagsGetTagRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTagExecute(r ApiTagsGetTagRequest) (*TagDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TagDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTagApplicationGroups(ctx context.Context, nameOrId string) ApiTagsGetTagApplicationGroupsRequest {
+	return ApiTagsGetTagApplicationGroupsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTagApplicationGroupsExecute(r ApiTagsGetTagApplicationGroupsRequest) (*ApplicationGroupResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ApplicationGroupResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTagApplications(ctx context.Context, nameOrId string) ApiTagsGetTagApplicationsRequest {
+	return ApiTagsGetTagApplicationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTagApplicationsExecute(r ApiTagsGetTagApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ApplicationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTagDeliveryGroups(ctx context.Context, nameOrId string) ApiTagsGetTagDeliveryGroupsRequest {
+	return ApiTagsGetTagDeliveryGroupsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTagDeliveryGroupsExecute(r ApiTagsGetTagDeliveryGroupsRequest) (*DeliveryGroupResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*DeliveryGroupResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTagMachineCatalogs(ctx context.Context, nameOrId string) ApiTagsGetTagMachineCatalogsRequest {
+	return ApiTagsGetTagMachineCatalogsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTagMachineCatalogsExecute(r ApiTagsGetTagMachineCatalogsRequest) (*MachineCatalogResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineCatalogResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTagMachines(ctx context.Context, nameOrId string) ApiTagsGetTagMachinesRequest {
+	return ApiTagsGetTagMachinesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTagMachinesExecute(r ApiTagsGetTagMachinesRequest) (*MachineResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTags(ctx context.Context) ApiTagsGetTagsRequest {
+	return ApiTagsGetTagsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockTagsAPIsDAAS) TagsGetTagsExecute(r ApiTagsGetTagsRequest) (*TagResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TagResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockTagsAPIsDAAS) TagsPatchTag(ctx context.Context, nameOrId string) ApiTagsPatchTagRequest {
+	return ApiTagsPatchTagRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockTagsAPIsDAAS) TagsPatchTagExecute(r ApiTagsPatchTagRequest) (*TagResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TagResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockTagsAPIsDAAS) TagsSetTagApplications(ctx context.Context, nameOrId string) ApiTagsSetTagApplicationsRequest {
+	return ApiTagsSetTagApplicationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockTagsAPIsDAAS) TagsSetTagApplicationsExecute(r ApiTagsSetTagApplicationsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockTagsAPIsDAAS) TagsSetTagDeliveryGroups(ctx context.Context, nameOrId string) ApiTagsSetTagDeliveryGroupsRequest {
+	return ApiTagsSetTagDeliveryGroupsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockTagsAPIsDAAS) TagsSetTagDeliveryGroupsExecute(r ApiTagsSetTagDeliveryGroupsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }

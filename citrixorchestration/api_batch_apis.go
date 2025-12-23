@@ -16,6 +16,8 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type BatchAPIsDAAS interface {
@@ -53,6 +55,66 @@ type ApiBatchDoBatchRequestRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiBatchDoBatchRequestRequest wraps the request struct to provide getter methods for testing
+type MockApiBatchDoBatchRequestRequest struct {
+	ApiBatchDoBatchRequestRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBatchDoBatchRequestRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBatchDoBatchRequestRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBatchDoBatchRequestRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBatchRequestModel returns the batchRequestModel parameter
+func (r MockApiBatchDoBatchRequestRequest) GetBatchRequestModel() *BatchRequestModel {
+	return r.batchRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBatchDoBatchRequestRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBatchDoBatchRequestRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBatchDoBatchRequestRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBatchDoBatchRequestRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBatchDoBatchRequestRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiBatchDoBatchRequestRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBatchDoBatchRequestRequest) Execute() (*BatchResponseModel, *http.Response, error) {
+	return r.ApiBatchDoBatchRequestRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -358,4 +420,35 @@ func (a *BatchAPIsDAASService) BatchDoBatchRequestExecute(r ApiBatchDoBatchReque
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockBatchAPIsDAAS extracts the MockBatchAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockBatchAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockBatchAPIsDAAS(client *APIClient) *MockBatchAPIsDAAS {
+	return client.BatchAPIsDAAS.(*MockBatchAPIsDAAS)
+}
+
+// MockBatchAPIsDAAS is a mock implementation of the BatchAPIsDAAS interface for testing
+var _ BatchAPIsDAAS = (*MockBatchAPIsDAAS)(nil)
+
+type MockBatchAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockBatchAPIsDAAS) BatchDoBatchRequest(ctx context.Context) ApiBatchDoBatchRequestRequest {
+	return ApiBatchDoBatchRequestRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBatchAPIsDAAS) BatchDoBatchRequestExecute(r ApiBatchDoBatchRequestRequest) (*BatchResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BatchResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }

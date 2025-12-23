@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type AdminAPIsDAAS interface {
@@ -441,6 +443,61 @@ type ApiAdminCheckRoleNameExistsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiAdminCheckRoleNameExistsRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminCheckRoleNameExistsRequest struct {
+	ApiAdminCheckRoleNameExistsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminCheckRoleNameExistsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminCheckRoleNameExistsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminCheckRoleNameExistsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetName returns the name parameter
+func (r MockApiAdminCheckRoleNameExistsRequest) GetName() string {
+	return r.name
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminCheckRoleNameExistsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminCheckRoleNameExistsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminCheckRoleNameExistsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminCheckRoleNameExistsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminCheckRoleNameExistsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminCheckRoleNameExistsRequest) Execute() (*http.Response, error) {
+	return r.ApiAdminCheckRoleNameExistsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminCheckRoleNameExistsRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminCheckRoleNameExistsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -713,6 +770,61 @@ type ApiAdminCheckScopeNameExistsRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiAdminCheckScopeNameExistsRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminCheckScopeNameExistsRequest struct {
+	ApiAdminCheckScopeNameExistsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminCheckScopeNameExistsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminCheckScopeNameExistsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminCheckScopeNameExistsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetName returns the name parameter
+func (r MockApiAdminCheckScopeNameExistsRequest) GetName() string {
+	return r.name
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminCheckScopeNameExistsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminCheckScopeNameExistsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminCheckScopeNameExistsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminCheckScopeNameExistsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminCheckScopeNameExistsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminCheckScopeNameExistsRequest) Execute() (*http.Response, error) {
+	return r.ApiAdminCheckScopeNameExistsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -988,6 +1100,66 @@ type ApiAdminCreateAdminAdministratorRequest struct {
 	accept                               *string
 	citrixLocale                         *string
 	async                                *bool
+}
+
+// MockApiAdminCreateAdminAdministratorRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminCreateAdminAdministratorRequest struct {
+	ApiAdminCreateAdminAdministratorRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminCreateAdminAdministratorRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminCreateAdminAdministratorRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminCreateAdminAdministratorRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCreateAdminAdministratorRequestModel returns the createAdminAdministratorRequestModel parameter
+func (r MockApiAdminCreateAdminAdministratorRequest) GetCreateAdminAdministratorRequestModel() *CreateAdminAdministratorRequestModel {
+	return r.createAdminAdministratorRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminCreateAdminAdministratorRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminCreateAdminAdministratorRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminCreateAdminAdministratorRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminCreateAdminAdministratorRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminCreateAdminAdministratorRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminCreateAdminAdministratorRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminCreateAdminAdministratorRequest) Execute() (*http.Response, error) {
+	return r.ApiAdminCreateAdminAdministratorRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1302,6 +1474,66 @@ type ApiAdminCreateAdminRoleRequest struct {
 	async                       *bool
 }
 
+// MockApiAdminCreateAdminRoleRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminCreateAdminRoleRequest struct {
+	ApiAdminCreateAdminRoleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminCreateAdminRoleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminCreateAdminRoleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminCreateAdminRoleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCreateAdminRoleRequestModel returns the createAdminRoleRequestModel parameter
+func (r MockApiAdminCreateAdminRoleRequest) GetCreateAdminRoleRequestModel() *CreateAdminRoleRequestModel {
+	return r.createAdminRoleRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminCreateAdminRoleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminCreateAdminRoleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminCreateAdminRoleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminCreateAdminRoleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminCreateAdminRoleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminCreateAdminRoleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminCreateAdminRoleRequest) Execute() (*http.Response, error) {
+	return r.ApiAdminCreateAdminRoleRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminCreateAdminRoleRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminCreateAdminRoleRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1609,6 +1841,66 @@ type ApiAdminCreateAdminScopeRequest struct {
 	accept                       *string
 	citrixLocale                 *string
 	async                        *bool
+}
+
+// MockApiAdminCreateAdminScopeRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminCreateAdminScopeRequest struct {
+	ApiAdminCreateAdminScopeRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminCreateAdminScopeRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminCreateAdminScopeRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminCreateAdminScopeRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCreateAdminScopeRequestModel returns the createAdminScopeRequestModel parameter
+func (r MockApiAdminCreateAdminScopeRequest) GetCreateAdminScopeRequestModel() *CreateAdminScopeRequestModel {
+	return r.createAdminScopeRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminCreateAdminScopeRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminCreateAdminScopeRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminCreateAdminScopeRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminCreateAdminScopeRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminCreateAdminScopeRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminCreateAdminScopeRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminCreateAdminScopeRequest) Execute() (*http.Response, error) {
+	return r.ApiAdminCreateAdminScopeRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1921,6 +2213,66 @@ type ApiAdminDeleteAdminAdministratorRequest struct {
 	async               *bool
 }
 
+// MockApiAdminDeleteAdminAdministratorRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminDeleteAdminAdministratorRequest struct {
+	ApiAdminDeleteAdminAdministratorRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminDeleteAdminAdministratorRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminDeleteAdminAdministratorRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminDeleteAdminAdministratorRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAdminDeleteAdminAdministratorRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminDeleteAdminAdministratorRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminDeleteAdminAdministratorRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminDeleteAdminAdministratorRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminDeleteAdminAdministratorRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminDeleteAdminAdministratorRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminDeleteAdminAdministratorRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminDeleteAdminAdministratorRequest) Execute() (*http.Response, error) {
+	return r.ApiAdminDeleteAdminAdministratorRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminDeleteAdminAdministratorRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminDeleteAdminAdministratorRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2203,6 +2555,71 @@ type ApiAdminDeleteAdminRoleRequest struct {
 	citrixLocale        *string
 	force               *bool
 	async               *bool
+}
+
+// MockApiAdminDeleteAdminRoleRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminDeleteAdminRoleRequest struct {
+	ApiAdminDeleteAdminRoleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminDeleteAdminRoleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminDeleteAdminRoleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminDeleteAdminRoleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAdminDeleteAdminRoleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminDeleteAdminRoleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminDeleteAdminRoleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminDeleteAdminRoleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminDeleteAdminRoleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminDeleteAdminRoleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForce returns the force parameter
+func (r MockApiAdminDeleteAdminRoleRequest) GetForce() *bool {
+	return r.force
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminDeleteAdminRoleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminDeleteAdminRoleRequest) Execute() (*http.Response, error) {
+	return r.ApiAdminDeleteAdminRoleRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2510,6 +2927,71 @@ type ApiAdminDeleteAdminScopeRequest struct {
 	async               *bool
 }
 
+// MockApiAdminDeleteAdminScopeRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminDeleteAdminScopeRequest struct {
+	ApiAdminDeleteAdminScopeRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminDeleteAdminScopeRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminDeleteAdminScopeRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminDeleteAdminScopeRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAdminDeleteAdminScopeRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminDeleteAdminScopeRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminDeleteAdminScopeRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminDeleteAdminScopeRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminDeleteAdminScopeRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminDeleteAdminScopeRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForce returns the force parameter
+func (r MockApiAdminDeleteAdminScopeRequest) GetForce() *bool {
+	return r.force
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminDeleteAdminScopeRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminDeleteAdminScopeRequest) Execute() (*http.Response, error) {
+	return r.ApiAdminDeleteAdminScopeRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminDeleteAdminScopeRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminDeleteAdminScopeRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2811,6 +3293,61 @@ type ApiAdminGetAdminAdministratorRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiAdminGetAdminAdministratorRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetAdminAdministratorRequest struct {
+	ApiAdminGetAdminAdministratorRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetAdminAdministratorRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetAdminAdministratorRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetAdminAdministratorRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAdminGetAdminAdministratorRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetAdminAdministratorRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetAdminAdministratorRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetAdminAdministratorRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetAdminAdministratorRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetAdminAdministratorRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetAdminAdministratorRequest) Execute() (*AdministratorResponseModel, *http.Response, error) {
+	return r.ApiAdminGetAdminAdministratorRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminGetAdminAdministratorRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminGetAdminAdministratorRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3093,6 +3630,71 @@ type ApiAdminGetAdminAdministratorsRequest struct {
 	limit               *int32
 	continuationToken   *string
 	async               *bool
+}
+
+// MockApiAdminGetAdminAdministratorsRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetAdminAdministratorsRequest struct {
+	ApiAdminGetAdminAdministratorsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetAdminAdministratorsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetAdminAdministratorsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetAdminAdministratorsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetAdminAdministratorsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetAdminAdministratorsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetAdminAdministratorsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetAdminAdministratorsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetAdminAdministratorsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiAdminGetAdminAdministratorsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiAdminGetAdminAdministratorsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminGetAdminAdministratorsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetAdminAdministratorsRequest) Execute() (*AdministratorResponseModelCollection, *http.Response, error) {
+	return r.ApiAdminGetAdminAdministratorsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3397,6 +3999,71 @@ type ApiAdminGetAdminEffectiveRightsRequest struct {
 	continuationToken   *string
 }
 
+// MockApiAdminGetAdminEffectiveRightsRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetAdminEffectiveRightsRequest struct {
+	ApiAdminGetAdminEffectiveRightsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetAdminEffectiveRightsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetAdminEffectiveRightsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetAdminEffectiveRightsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetAdminEffectiveRightsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetAdminEffectiveRightsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetAdminEffectiveRightsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetIfNoneMatch returns the ifNoneMatch parameter
+func (r MockApiAdminGetAdminEffectiveRightsRequest) GetIfNoneMatch() *string {
+	return r.ifNoneMatch
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetAdminEffectiveRightsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetAdminEffectiveRightsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiAdminGetAdminEffectiveRightsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiAdminGetAdminEffectiveRightsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetAdminEffectiveRightsRequest) Execute() (*AdministratorRightResponseModelCollection, *http.Response, error) {
+	return r.ApiAdminGetAdminEffectiveRightsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminGetAdminEffectiveRightsRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminGetAdminEffectiveRightsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3692,6 +4359,61 @@ type ApiAdminGetAdminRoleRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiAdminGetAdminRoleRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetAdminRoleRequest struct {
+	ApiAdminGetAdminRoleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetAdminRoleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetAdminRoleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetAdminRoleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAdminGetAdminRoleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetAdminRoleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetAdminRoleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetAdminRoleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetAdminRoleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetAdminRoleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetAdminRoleRequest) Execute() (*RoleResponseModel, *http.Response, error) {
+	return r.ApiAdminGetAdminRoleRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminGetAdminRoleRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminGetAdminRoleRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3975,6 +4697,66 @@ type ApiAdminGetAdminRolesRequest struct {
 	citrixLocale        *string
 	limit               *int32
 	continuationToken   *string
+}
+
+// MockApiAdminGetAdminRolesRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetAdminRolesRequest struct {
+	ApiAdminGetAdminRolesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetAdminRolesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetAdminRolesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetAdminRolesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetAdminRolesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetAdminRolesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetAdminRolesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetAdminRolesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetAdminRolesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiAdminGetAdminRolesRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiAdminGetAdminRolesRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetAdminRolesRequest) Execute() (*RoleResponseModelCollection, *http.Response, error) {
+	return r.ApiAdminGetAdminRolesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4265,6 +5047,61 @@ type ApiAdminGetAdminScopeRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiAdminGetAdminScopeRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetAdminScopeRequest struct {
+	ApiAdminGetAdminScopeRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetAdminScopeRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetAdminScopeRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetAdminScopeRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAdminGetAdminScopeRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetAdminScopeRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetAdminScopeRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetAdminScopeRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetAdminScopeRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetAdminScopeRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetAdminScopeRequest) Execute() (*ScopeResponseModel, *http.Response, error) {
+	return r.ApiAdminGetAdminScopeRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminGetAdminScopeRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminGetAdminScopeRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -4549,6 +5386,71 @@ type ApiAdminGetAdminScopedObjectsRequest struct {
 	citrixLocale        *string
 	limit               *int32
 	continuationToken   *string
+}
+
+// MockApiAdminGetAdminScopedObjectsRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetAdminScopedObjectsRequest struct {
+	ApiAdminGetAdminScopedObjectsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetAdminScopedObjectsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetAdminScopedObjectsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetAdminScopedObjectsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAdminGetAdminScopedObjectsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetAdminScopedObjectsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetAdminScopedObjectsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetAdminScopedObjectsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetAdminScopedObjectsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetAdminScopedObjectsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiAdminGetAdminScopedObjectsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiAdminGetAdminScopedObjectsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetAdminScopedObjectsRequest) Execute() (*ScopedObjectResponseModelCollection, *http.Response, error) {
+	return r.ApiAdminGetAdminScopedObjectsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4854,6 +5756,66 @@ type ApiAdminGetAdminScopesRequest struct {
 	continuationToken   *string
 }
 
+// MockApiAdminGetAdminScopesRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetAdminScopesRequest struct {
+	ApiAdminGetAdminScopesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetAdminScopesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetAdminScopesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetAdminScopesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetAdminScopesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetAdminScopesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetAdminScopesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetAdminScopesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetAdminScopesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiAdminGetAdminScopesRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiAdminGetAdminScopesRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetAdminScopesRequest) Execute() (*ScopeResponseModelCollection, *http.Response, error) {
+	return r.ApiAdminGetAdminScopesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminGetAdminScopesRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminGetAdminScopesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -5141,6 +6103,66 @@ type ApiAdminGetAdministratorNamePreviewRequest struct {
 	accept              *string
 	citrixLocale        *string
 	ignoreFormatCheck   *bool
+}
+
+// MockApiAdminGetAdministratorNamePreviewRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetAdministratorNamePreviewRequest struct {
+	ApiAdminGetAdministratorNamePreviewRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetAdministratorNamePreviewRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetAdministratorNamePreviewRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetAdministratorNamePreviewRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetName returns the name parameter
+func (r MockApiAdminGetAdministratorNamePreviewRequest) GetName() string {
+	return r.name
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetAdministratorNamePreviewRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetAdministratorNamePreviewRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetAdministratorNamePreviewRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetAdministratorNamePreviewRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetAdministratorNamePreviewRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetIgnoreFormatCheck returns the ignoreFormatCheck parameter
+func (r MockApiAdminGetAdministratorNamePreviewRequest) GetIgnoreFormatCheck() *bool {
+	return r.ignoreFormatCheck
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetAdministratorNamePreviewRequest) Execute() (*AdministratorNamePreviewResponseModel, *http.Response, error) {
+	return r.ApiAdminGetAdministratorNamePreviewRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5437,6 +6459,61 @@ type ApiAdminGetAdministratorReportRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiAdminGetAdministratorReportRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetAdministratorReportRequest struct {
+	ApiAdminGetAdministratorReportRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetAdministratorReportRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetAdministratorReportRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetAdministratorReportRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAdminGetAdministratorReportRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetAdministratorReportRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetAdministratorReportRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetAdministratorReportRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetAdministratorReportRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetAdministratorReportRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetAdministratorReportRequest) Execute() (*AdministratorReportResponseModel, *http.Response, error) {
+	return r.ApiAdminGetAdministratorReportRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminGetAdministratorReportRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminGetAdministratorReportRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -5717,6 +6794,61 @@ type ApiAdminGetDeleteAdministratorConsequenceRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiAdminGetDeleteAdministratorConsequenceRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetDeleteAdministratorConsequenceRequest struct {
+	ApiAdminGetDeleteAdministratorConsequenceRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetDeleteAdministratorConsequenceRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetDeleteAdministratorConsequenceRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetDeleteAdministratorConsequenceRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAdminGetDeleteAdministratorConsequenceRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetDeleteAdministratorConsequenceRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetDeleteAdministratorConsequenceRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetDeleteAdministratorConsequenceRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetDeleteAdministratorConsequenceRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetDeleteAdministratorConsequenceRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetDeleteAdministratorConsequenceRequest) Execute() (*AdministratorDeleteConcequenceResponseModel, *http.Response, error) {
+	return r.ApiAdminGetDeleteAdministratorConsequenceRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6000,6 +7132,66 @@ type ApiAdminGetPredefinedPermissionGroupsRequest struct {
 	citrixLocale        *string
 	limit               *int32
 	continuationToken   *string
+}
+
+// MockApiAdminGetPredefinedPermissionGroupsRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetPredefinedPermissionGroupsRequest struct {
+	ApiAdminGetPredefinedPermissionGroupsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetPredefinedPermissionGroupsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetPredefinedPermissionGroupsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetPredefinedPermissionGroupsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetPredefinedPermissionGroupsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetPredefinedPermissionGroupsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetPredefinedPermissionGroupsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetPredefinedPermissionGroupsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetPredefinedPermissionGroupsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiAdminGetPredefinedPermissionGroupsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiAdminGetPredefinedPermissionGroupsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetPredefinedPermissionGroupsRequest) Execute() (*PredefinedPermissionGroupResponseModelCollection, *http.Response, error) {
+	return r.ApiAdminGetPredefinedPermissionGroupsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6294,6 +7486,66 @@ type ApiAdminGetPredefinedPermissionsRequest struct {
 	continuationToken   *string
 }
 
+// MockApiAdminGetPredefinedPermissionsRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetPredefinedPermissionsRequest struct {
+	ApiAdminGetPredefinedPermissionsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetPredefinedPermissionsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetPredefinedPermissionsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetPredefinedPermissionsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetPredefinedPermissionsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetPredefinedPermissionsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetPredefinedPermissionsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetPredefinedPermissionsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetPredefinedPermissionsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiAdminGetPredefinedPermissionsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiAdminGetPredefinedPermissionsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetPredefinedPermissionsRequest) Execute() (*PredefinedPermissionResponseModelCollection, *http.Response, error) {
+	return r.ApiAdminGetPredefinedPermissionsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminGetPredefinedPermissionsRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminGetPredefinedPermissionsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -6580,6 +7832,71 @@ type ApiAdminGetPredefinedPermissionsForGroupsRequest struct {
 	citrixLocale        *string
 	limit               *int32
 	continuationToken   *string
+}
+
+// MockApiAdminGetPredefinedPermissionsForGroupsRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminGetPredefinedPermissionsForGroupsRequest struct {
+	ApiAdminGetPredefinedPermissionsForGroupsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminGetPredefinedPermissionsForGroupsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminGetPredefinedPermissionsForGroupsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminGetPredefinedPermissionsForGroupsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiAdminGetPredefinedPermissionsForGroupsRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminGetPredefinedPermissionsForGroupsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminGetPredefinedPermissionsForGroupsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminGetPredefinedPermissionsForGroupsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminGetPredefinedPermissionsForGroupsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminGetPredefinedPermissionsForGroupsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiAdminGetPredefinedPermissionsForGroupsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiAdminGetPredefinedPermissionsForGroupsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminGetPredefinedPermissionsForGroupsRequest) Execute() (*PredefinedPermissionResponseModelCollection, *http.Response, error) {
+	return r.ApiAdminGetPredefinedPermissionsForGroupsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6887,6 +8204,61 @@ type ApiAdminPreviewAdministratorReportRequest struct {
 	citrixLocale                         *string
 }
 
+// MockApiAdminPreviewAdministratorReportRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminPreviewAdministratorReportRequest struct {
+	ApiAdminPreviewAdministratorReportRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminPreviewAdministratorReportRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminPreviewAdministratorReportRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminPreviewAdministratorReportRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCreateAdminAdministratorRequestModel returns the createAdminAdministratorRequestModel parameter
+func (r MockApiAdminPreviewAdministratorReportRequest) GetCreateAdminAdministratorRequestModel() *CreateAdminAdministratorRequestModel {
+	return r.createAdminAdministratorRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminPreviewAdministratorReportRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminPreviewAdministratorReportRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminPreviewAdministratorReportRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminPreviewAdministratorReportRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminPreviewAdministratorReportRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminPreviewAdministratorReportRequest) Execute() (*AdministratorReportResponseModel, *http.Response, error) {
+	return r.ApiAdminPreviewAdministratorReportRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminPreviewAdministratorReportRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminPreviewAdministratorReportRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -7188,6 +8560,71 @@ type ApiAdminUpdateAdminAdministratorRequest struct {
 	accept                               *string
 	citrixLocale                         *string
 	async                                *bool
+}
+
+// MockApiAdminUpdateAdminAdministratorRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminUpdateAdminAdministratorRequest struct {
+	ApiAdminUpdateAdminAdministratorRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminUpdateAdminAdministratorRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminUpdateAdminAdministratorRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminUpdateAdminAdministratorRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAdminUpdateAdminAdministratorRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUpdateAdminAdministratorRequestModel returns the updateAdminAdministratorRequestModel parameter
+func (r MockApiAdminUpdateAdminAdministratorRequest) GetUpdateAdminAdministratorRequestModel() *UpdateAdminAdministratorRequestModel {
+	return r.updateAdminAdministratorRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminUpdateAdminAdministratorRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminUpdateAdminAdministratorRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminUpdateAdminAdministratorRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminUpdateAdminAdministratorRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminUpdateAdminAdministratorRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminUpdateAdminAdministratorRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminUpdateAdminAdministratorRequest) Execute() (*http.Response, error) {
+	return r.ApiAdminUpdateAdminAdministratorRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7496,6 +8933,71 @@ type ApiAdminUpdateAdminRoleRequest struct {
 	accept                    *string
 	citrixLocale              *string
 	async                     *bool
+}
+
+// MockApiAdminUpdateAdminRoleRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminUpdateAdminRoleRequest struct {
+	ApiAdminUpdateAdminRoleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminUpdateAdminRoleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminUpdateAdminRoleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminUpdateAdminRoleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAdminUpdateAdminRoleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetEditAdminRoleRequestModel returns the editAdminRoleRequestModel parameter
+func (r MockApiAdminUpdateAdminRoleRequest) GetEditAdminRoleRequestModel() *EditAdminRoleRequestModel {
+	return r.editAdminRoleRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminUpdateAdminRoleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminUpdateAdminRoleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminUpdateAdminRoleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminUpdateAdminRoleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminUpdateAdminRoleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminUpdateAdminRoleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminUpdateAdminRoleRequest) Execute() (*http.Response, error) {
+	return r.ApiAdminUpdateAdminRoleRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7813,6 +9315,71 @@ type ApiAdminUpdateAdminScopeRequest struct {
 	async                      *bool
 }
 
+// MockApiAdminUpdateAdminScopeRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminUpdateAdminScopeRequest struct {
+	ApiAdminUpdateAdminScopeRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminUpdateAdminScopeRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminUpdateAdminScopeRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminUpdateAdminScopeRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAdminUpdateAdminScopeRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetEditAdminScopeRequestModel returns the editAdminScopeRequestModel parameter
+func (r MockApiAdminUpdateAdminScopeRequest) GetEditAdminScopeRequestModel() *EditAdminScopeRequestModel {
+	return r.editAdminScopeRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminUpdateAdminScopeRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminUpdateAdminScopeRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminUpdateAdminScopeRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminUpdateAdminScopeRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminUpdateAdminScopeRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminUpdateAdminScopeRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminUpdateAdminScopeRequest) Execute() (*http.Response, error) {
+	return r.ApiAdminUpdateAdminScopeRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminUpdateAdminScopeRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminUpdateAdminScopeRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -8107,4 +9674,351 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminScopeExecute(r ApiAdminUpdateAdmi
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockAdminAPIsDAAS extracts the MockAdminAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockAdminAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockAdminAPIsDAAS(client *APIClient) *MockAdminAPIsDAAS {
+	return client.AdminAPIsDAAS.(*MockAdminAPIsDAAS)
+}
+
+// MockAdminAPIsDAAS is a mock implementation of the AdminAPIsDAAS interface for testing
+var _ AdminAPIsDAAS = (*MockAdminAPIsDAAS)(nil)
+
+type MockAdminAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockAdminAPIsDAAS) AdminCheckRoleNameExists(ctx context.Context, name string) ApiAdminCheckRoleNameExistsRequest {
+	return ApiAdminCheckRoleNameExistsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		name:       name,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminCheckRoleNameExistsExecute(r ApiAdminCheckRoleNameExistsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAdminAPIsDAAS) AdminCheckScopeNameExists(ctx context.Context, name string) ApiAdminCheckScopeNameExistsRequest {
+	return ApiAdminCheckScopeNameExistsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		name:       name,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminCheckScopeNameExistsExecute(r ApiAdminCheckScopeNameExistsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAdminAPIsDAAS) AdminCreateAdminAdministrator(ctx context.Context) ApiAdminCreateAdminAdministratorRequest {
+	return ApiAdminCreateAdminAdministratorRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminCreateAdminAdministratorExecute(r ApiAdminCreateAdminAdministratorRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAdminAPIsDAAS) AdminCreateAdminRole(ctx context.Context) ApiAdminCreateAdminRoleRequest {
+	return ApiAdminCreateAdminRoleRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminCreateAdminRoleExecute(r ApiAdminCreateAdminRoleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAdminAPIsDAAS) AdminCreateAdminScope(ctx context.Context) ApiAdminCreateAdminScopeRequest {
+	return ApiAdminCreateAdminScopeRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminCreateAdminScopeExecute(r ApiAdminCreateAdminScopeRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAdminAPIsDAAS) AdminDeleteAdminAdministrator(ctx context.Context, nameOrId string) ApiAdminDeleteAdminAdministratorRequest {
+	return ApiAdminDeleteAdminAdministratorRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminDeleteAdminAdministratorExecute(r ApiAdminDeleteAdminAdministratorRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAdminAPIsDAAS) AdminDeleteAdminRole(ctx context.Context, nameOrId string) ApiAdminDeleteAdminRoleRequest {
+	return ApiAdminDeleteAdminRoleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminDeleteAdminRoleExecute(r ApiAdminDeleteAdminRoleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAdminAPIsDAAS) AdminDeleteAdminScope(ctx context.Context, nameOrId string) ApiAdminDeleteAdminScopeRequest {
+	return ApiAdminDeleteAdminScopeRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminDeleteAdminScopeExecute(r ApiAdminDeleteAdminScopeRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminAdministrator(ctx context.Context, nameOrId string) ApiAdminGetAdminAdministratorRequest {
+	return ApiAdminGetAdminAdministratorRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminAdministratorExecute(r ApiAdminGetAdminAdministratorRequest) (*AdministratorResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdministratorResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminAdministrators(ctx context.Context) ApiAdminGetAdminAdministratorsRequest {
+	return ApiAdminGetAdminAdministratorsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminAdministratorsExecute(r ApiAdminGetAdminAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdministratorResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminEffectiveRights(ctx context.Context) ApiAdminGetAdminEffectiveRightsRequest {
+	return ApiAdminGetAdminEffectiveRightsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminEffectiveRightsExecute(r ApiAdminGetAdminEffectiveRightsRequest) (*AdministratorRightResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdministratorRightResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminRole(ctx context.Context, nameOrId string) ApiAdminGetAdminRoleRequest {
+	return ApiAdminGetAdminRoleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminRoleExecute(r ApiAdminGetAdminRoleRequest) (*RoleResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*RoleResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminRoles(ctx context.Context) ApiAdminGetAdminRolesRequest {
+	return ApiAdminGetAdminRolesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminRolesExecute(r ApiAdminGetAdminRolesRequest) (*RoleResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*RoleResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminScope(ctx context.Context, nameOrId string) ApiAdminGetAdminScopeRequest {
+	return ApiAdminGetAdminScopeRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminScopeExecute(r ApiAdminGetAdminScopeRequest) (*ScopeResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ScopeResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminScopedObjects(ctx context.Context, nameOrId string) ApiAdminGetAdminScopedObjectsRequest {
+	return ApiAdminGetAdminScopedObjectsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminScopedObjectsExecute(r ApiAdminGetAdminScopedObjectsRequest) (*ScopedObjectResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ScopedObjectResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminScopes(ctx context.Context) ApiAdminGetAdminScopesRequest {
+	return ApiAdminGetAdminScopesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdminScopesExecute(r ApiAdminGetAdminScopesRequest) (*ScopeResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ScopeResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdministratorNamePreview(ctx context.Context, name string) ApiAdminGetAdministratorNamePreviewRequest {
+	return ApiAdminGetAdministratorNamePreviewRequest{
+		ctx:        ctx,
+		ApiService: m,
+		name:       name,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdministratorNamePreviewExecute(r ApiAdminGetAdministratorNamePreviewRequest) (*AdministratorNamePreviewResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdministratorNamePreviewResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdministratorReport(ctx context.Context, nameOrId string) ApiAdminGetAdministratorReportRequest {
+	return ApiAdminGetAdministratorReportRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetAdministratorReportExecute(r ApiAdminGetAdministratorReportRequest) (*AdministratorReportResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdministratorReportResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetDeleteAdministratorConsequence(ctx context.Context, nameOrId string) ApiAdminGetDeleteAdministratorConsequenceRequest {
+	return ApiAdminGetDeleteAdministratorConsequenceRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetDeleteAdministratorConsequenceExecute(r ApiAdminGetDeleteAdministratorConsequenceRequest) (*AdministratorDeleteConcequenceResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdministratorDeleteConcequenceResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetPredefinedPermissionGroups(ctx context.Context) ApiAdminGetPredefinedPermissionGroupsRequest {
+	return ApiAdminGetPredefinedPermissionGroupsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetPredefinedPermissionGroupsExecute(r ApiAdminGetPredefinedPermissionGroupsRequest) (*PredefinedPermissionGroupResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*PredefinedPermissionGroupResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetPredefinedPermissions(ctx context.Context) ApiAdminGetPredefinedPermissionsRequest {
+	return ApiAdminGetPredefinedPermissionsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetPredefinedPermissionsExecute(r ApiAdminGetPredefinedPermissionsRequest) (*PredefinedPermissionResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*PredefinedPermissionResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetPredefinedPermissionsForGroups(ctx context.Context, id string) ApiAdminGetPredefinedPermissionsForGroupsRequest {
+	return ApiAdminGetPredefinedPermissionsForGroupsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminGetPredefinedPermissionsForGroupsExecute(r ApiAdminGetPredefinedPermissionsForGroupsRequest) (*PredefinedPermissionResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*PredefinedPermissionResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminPreviewAdministratorReport(ctx context.Context) ApiAdminPreviewAdministratorReportRequest {
+	return ApiAdminPreviewAdministratorReportRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminPreviewAdministratorReportExecute(r ApiAdminPreviewAdministratorReportRequest) (*AdministratorReportResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdministratorReportResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminAPIsDAAS) AdminUpdateAdminAdministrator(ctx context.Context, nameOrId string) ApiAdminUpdateAdminAdministratorRequest {
+	return ApiAdminUpdateAdminAdministratorRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminUpdateAdminAdministratorExecute(r ApiAdminUpdateAdminAdministratorRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAdminAPIsDAAS) AdminUpdateAdminRole(ctx context.Context, nameOrId string) ApiAdminUpdateAdminRoleRequest {
+	return ApiAdminUpdateAdminRoleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdminRoleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAdminAPIsDAAS) AdminUpdateAdminScope(ctx context.Context, nameOrId string) ApiAdminUpdateAdminScopeRequest {
+	return ApiAdminUpdateAdminScopeRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAdminAPIsDAAS) AdminUpdateAdminScopeExecute(r ApiAdminUpdateAdminScopeRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }

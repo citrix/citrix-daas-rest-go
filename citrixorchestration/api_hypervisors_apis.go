@@ -18,6 +18,8 @@ import (
 	"net/url"
 	"reflect"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type HypervisorsAPIsDAAS interface {
@@ -725,6 +727,61 @@ type ApiHypervisorsCheckHypervisorExistsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiHypervisorsCheckHypervisorExistsRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsCheckHypervisorExistsRequest struct {
+	ApiHypervisorsCheckHypervisorExistsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsCheckHypervisorExistsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsCheckHypervisorExistsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsCheckHypervisorExistsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetName returns the name parameter
+func (r MockApiHypervisorsCheckHypervisorExistsRequest) GetName() string {
+	return r.name
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsCheckHypervisorExistsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsCheckHypervisorExistsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsCheckHypervisorExistsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsCheckHypervisorExistsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsCheckHypervisorExistsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsCheckHypervisorExistsRequest) Execute() (*http.Response, error) {
+	return r.ApiHypervisorsCheckHypervisorExistsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsCheckHypervisorExistsRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsCheckHypervisorExistsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -996,6 +1053,66 @@ type ApiHypervisorsCheckHypervisorResourcePoolExistsRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiHypervisorsCheckHypervisorResourcePoolExistsRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsCheckHypervisorResourcePoolExistsRequest struct {
+	ApiHypervisorsCheckHypervisorResourcePoolExistsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsCheckHypervisorResourcePoolExistsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsCheckHypervisorResourcePoolExistsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsCheckHypervisorResourcePoolExistsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsCheckHypervisorResourcePoolExistsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetName returns the name parameter
+func (r MockApiHypervisorsCheckHypervisorResourcePoolExistsRequest) GetName() string {
+	return r.name
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsCheckHypervisorResourcePoolExistsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsCheckHypervisorResourcePoolExistsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsCheckHypervisorResourcePoolExistsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsCheckHypervisorResourcePoolExistsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsCheckHypervisorResourcePoolExistsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsCheckHypervisorResourcePoolExistsRequest) Execute() (*http.Response, error) {
+	return r.ApiHypervisorsCheckHypervisorResourcePoolExistsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1281,6 +1398,66 @@ type ApiHypervisorsCreateHypervisorRequest struct {
 	accept                       *string
 	citrixLocale                 *string
 	async                        *bool
+}
+
+// MockApiHypervisorsCreateHypervisorRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsCreateHypervisorRequest struct {
+	ApiHypervisorsCreateHypervisorRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsCreateHypervisorRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsCreateHypervisorRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsCreateHypervisorRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCreateHypervisorRequestModel returns the createHypervisorRequestModel parameter
+func (r MockApiHypervisorsCreateHypervisorRequest) GetCreateHypervisorRequestModel() *CreateHypervisorRequestModel {
+	return r.createHypervisorRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsCreateHypervisorRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsCreateHypervisorRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsCreateHypervisorRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsCreateHypervisorRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsCreateHypervisorRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsCreateHypervisorRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsCreateHypervisorRequest) Execute() (*HypervisorDetailResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsCreateHypervisorRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1598,6 +1775,71 @@ type ApiHypervisorsCreateResourcePoolRequest struct {
 	accept                                   *string
 	citrixLocale                             *string
 	async                                    *bool
+}
+
+// MockApiHypervisorsCreateResourcePoolRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsCreateResourcePoolRequest struct {
+	ApiHypervisorsCreateResourcePoolRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsCreateResourcePoolRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsCreateResourcePoolRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsCreateResourcePoolRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsCreateResourcePoolRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetCreateHypervisorResourcePoolRequestModel returns the createHypervisorResourcePoolRequestModel parameter
+func (r MockApiHypervisorsCreateResourcePoolRequest) GetCreateHypervisorResourcePoolRequestModel() *CreateHypervisorResourcePoolRequestModel {
+	return r.createHypervisorResourcePoolRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsCreateResourcePoolRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsCreateResourcePoolRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsCreateResourcePoolRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsCreateResourcePoolRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsCreateResourcePoolRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsCreateResourcePoolRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsCreateResourcePoolRequest) Execute() (*HypervisorResourcePoolDetailResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsCreateResourcePoolRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1930,6 +2172,66 @@ type ApiHypervisorsDeleteHypervisorRequest struct {
 	async               *bool
 }
 
+// MockApiHypervisorsDeleteHypervisorRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsDeleteHypervisorRequest struct {
+	ApiHypervisorsDeleteHypervisorRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsDeleteHypervisorRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsDeleteHypervisorRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsDeleteHypervisorRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsDeleteHypervisorRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsDeleteHypervisorRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsDeleteHypervisorRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsDeleteHypervisorRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsDeleteHypervisorRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsDeleteHypervisorRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsDeleteHypervisorRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsDeleteHypervisorRequest) Execute() (*http.Response, error) {
+	return r.ApiHypervisorsDeleteHypervisorRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsDeleteHypervisorRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsDeleteHypervisorRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2212,6 +2514,71 @@ type ApiHypervisorsDeleteHypervisorResourcePoolRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiHypervisorsDeleteHypervisorResourcePoolRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsDeleteHypervisorResourcePoolRequest struct {
+	ApiHypervisorsDeleteHypervisorResourcePoolRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsDeleteHypervisorResourcePoolRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsDeleteHypervisorResourcePoolRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsDeleteHypervisorResourcePoolRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsDeleteHypervisorResourcePoolRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetPoolId returns the poolId parameter
+func (r MockApiHypervisorsDeleteHypervisorResourcePoolRequest) GetPoolId() string {
+	return r.poolId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsDeleteHypervisorResourcePoolRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsDeleteHypervisorResourcePoolRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsDeleteHypervisorResourcePoolRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsDeleteHypervisorResourcePoolRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsDeleteHypervisorResourcePoolRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsDeleteHypervisorResourcePoolRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsDeleteHypervisorResourcePoolRequest) Execute() (*http.Response, error) {
+	return r.ApiHypervisorsDeleteHypervisorResourcePoolRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2502,6 +2869,86 @@ type ApiHypervisorsDoHypervisorAllResourcesSearchRequest struct {
 	continuationToken                    *string
 	detail                               *bool
 	async                                *bool
+}
+
+// MockApiHypervisorsDoHypervisorAllResourcesSearchRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsDoHypervisorAllResourcesSearchRequest struct {
+	ApiHypervisorsDoHypervisorAllResourcesSearchRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetHypervisorResourceSearchRequestModel returns the hypervisorResourceSearchRequestModel parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetHypervisorResourceSearchRequestModel() *HypervisorResourceSearchRequestModel {
+	return r.hypervisorResourceSearchRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetDetail returns the detail parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetDetail() *bool {
+	return r.detail
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchRequest) Execute() (*HypervisorResourceResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsDoHypervisorAllResourcesSearchRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2867,6 +3314,81 @@ type ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest struct
 	async                                   *bool
 }
 
+// MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest struct {
+	ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetHypervisorAllResourceSearchRequestModel returns the hypervisorAllResourceSearchRequestModel parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) GetHypervisorAllResourceSearchRequestModel() *HypervisorAllResourceSearchRequestModel {
+	return r.hypervisorAllResourceSearchRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetDetail returns the detail parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) GetDetail() *bool {
+	return r.detail
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) Execute() (*HypervisorResourceResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3214,6 +3736,91 @@ type ApiHypervisorsDoHypervisorResourceSearchRequest struct {
 	continuationToken                    *string
 	detail                               *bool
 	async                                *bool
+}
+
+// MockApiHypervisorsDoHypervisorResourceSearchRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsDoHypervisorResourceSearchRequest struct {
+	ApiHypervisorsDoHypervisorResourceSearchRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetPoolId returns the poolId parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetPoolId() string {
+	return r.poolId
+}
+
+// GetHypervisorResourceSearchRequestModel returns the hypervisorResourceSearchRequestModel parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetHypervisorResourceSearchRequestModel() *HypervisorResourceSearchRequestModel {
+	return r.hypervisorResourceSearchRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetDetail returns the detail parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetDetail() *bool {
+	return r.detail
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsDoHypervisorResourceSearchRequest) Execute() (*HypervisorResourceResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsDoHypervisorResourceSearchRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3580,6 +4187,71 @@ type ApiHypervisorsGetHypervisorRequest struct {
 	noCache             *bool
 }
 
+// MockApiHypervisorsGetHypervisorRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorRequest struct {
+	ApiHypervisorsGetHypervisorRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetNoCache returns the noCache parameter
+func (r MockApiHypervisorsGetHypervisorRequest) GetNoCache() *bool {
+	return r.noCache
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorRequest) Execute() (*HypervisorDetailResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsGetHypervisorRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsGetHypervisorRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3890,6 +4562,76 @@ type ApiHypervisorsGetHypervisorAdministratorsRequest struct {
 	async               *bool
 	limit               *int32
 	continuationToken   *string
+}
+
+// MockApiHypervisorsGetHypervisorAdministratorsRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorAdministratorsRequest struct {
+	ApiHypervisorsGetHypervisorAdministratorsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorAdministratorsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorAdministratorsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorAdministratorsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorAdministratorsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorAdministratorsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorAdministratorsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorAdministratorsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorAdministratorsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorAdministratorsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorAdministratorsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiHypervisorsGetHypervisorAdministratorsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiHypervisorsGetHypervisorAdministratorsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorAdministratorsRequest) Execute() (*AdministratorResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorAdministratorsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4207,6 +4949,66 @@ type ApiHypervisorsGetHypervisorAllResourcePoolsRequest struct {
 	noCache             *bool
 }
 
+// MockApiHypervisorsGetHypervisorAllResourcePoolsRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorAllResourcePoolsRequest struct {
+	ApiHypervisorsGetHypervisorAllResourcePoolsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorAllResourcePoolsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcePoolsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcePoolsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcePoolsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcePoolsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcePoolsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcePoolsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcePoolsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcePoolsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetNoCache returns the noCache parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcePoolsRequest) GetNoCache() *bool {
+	return r.noCache
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorAllResourcePoolsRequest) Execute() (*HypervisorResourcePoolResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorAllResourcePoolsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsGetHypervisorAllResourcePoolsRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsGetHypervisorAllResourcePoolsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -4509,6 +5311,106 @@ type ApiHypervisorsGetHypervisorAllResourcesRequest struct {
 	noCache             *bool
 	force               *bool
 	recurse             *bool
+}
+
+// MockApiHypervisorsGetHypervisorAllResourcesRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorAllResourcesRequest struct {
+	ApiHypervisorsGetHypervisorAllResourcesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetPath returns the path parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetPath() *string {
+	return r.path
+}
+
+// GetChildren returns the children parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetChildren() *int32 {
+	return r.children
+}
+
+// GetType_ returns the type_ parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetType_() *[]string {
+	return r.type_
+}
+
+// GetShowTagged returns the showTagged parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetShowTagged() *bool {
+	return r.showTagged
+}
+
+// GetDetail returns the detail parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetDetail() *bool {
+	return r.detail
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetNoCache returns the noCache parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetNoCache() *bool {
+	return r.noCache
+}
+
+// GetForce returns the force parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetForce() *bool {
+	return r.force
+}
+
+// GetRecurse returns the recurse parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) GetRecurse() *bool {
+	return r.recurse
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorAllResourcesRequest) Execute() (*HypervisorResourceResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorAllResourcesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4918,6 +5820,101 @@ type ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest struct {
 	recurse                                *bool
 }
 
+// MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest struct {
+	ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetHypervisorConnectionDetailRequestModel returns the hypervisorConnectionDetailRequestModel parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetHypervisorConnectionDetailRequestModel() *HypervisorConnectionDetailRequestModel {
+	return r.hypervisorConnectionDetailRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetPath returns the path parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetPath() *string {
+	return r.path
+}
+
+// GetChildren returns the children parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetChildren() *int32 {
+	return r.children
+}
+
+// GetType_ returns the type_ parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetType_() *[]string {
+	return r.type_
+}
+
+// GetShowTagged returns the showTagged parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetShowTagged() *bool {
+	return r.showTagged
+}
+
+// GetDetail returns the detail parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetDetail() *bool {
+	return r.detail
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetForce returns the force parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetForce() *bool {
+	return r.force
+}
+
+// GetRecurse returns the recurse parameter
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) GetRecurse() *bool {
+	return r.recurse
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) Execute() (*HypervisorResourceResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -5323,6 +6320,66 @@ type ApiHypervisorsGetHypervisorDeletePreviewRequest struct {
 	async               *bool
 }
 
+// MockApiHypervisorsGetHypervisorDeletePreviewRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorDeletePreviewRequest struct {
+	ApiHypervisorsGetHypervisorDeletePreviewRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorDeletePreviewRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorDeletePreviewRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorDeletePreviewRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorDeletePreviewRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorDeletePreviewRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorDeletePreviewRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorDeletePreviewRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorDeletePreviewRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorDeletePreviewRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorDeletePreviewRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorDeletePreviewRequest) Execute() (*HypervisorDeletePreviewResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorDeletePreviewRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsGetHypervisorDeletePreviewRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsGetHypervisorDeletePreviewRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -5619,6 +6676,61 @@ type ApiHypervisorsGetHypervisorJobsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiHypervisorsGetHypervisorJobsRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorJobsRequest struct {
+	ApiHypervisorsGetHypervisorJobsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorJobsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorJobsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorJobsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorJobsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorJobsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorJobsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorJobsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorJobsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorJobsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorJobsRequest) Execute() (*JobResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorJobsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsGetHypervisorJobsRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsGetHypervisorJobsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -5904,6 +7016,76 @@ type ApiHypervisorsGetHypervisorMachineCatalogsRequest struct {
 	async               *bool
 	limit               *int32
 	continuationToken   *string
+}
+
+// MockApiHypervisorsGetHypervisorMachineCatalogsRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorMachineCatalogsRequest struct {
+	ApiHypervisorsGetHypervisorMachineCatalogsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorMachineCatalogsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorMachineCatalogsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorMachineCatalogsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorMachineCatalogsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorMachineCatalogsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorMachineCatalogsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorMachineCatalogsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorMachineCatalogsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorMachineCatalogsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorMachineCatalogsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiHypervisorsGetHypervisorMachineCatalogsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiHypervisorsGetHypervisorMachineCatalogsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorMachineCatalogsRequest) Execute() (*HypervisorMachineCatalogResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorMachineCatalogsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6221,6 +7403,66 @@ type ApiHypervisorsGetHypervisorOrphanedResourcesRequest struct {
 	async               *bool
 }
 
+// MockApiHypervisorsGetHypervisorOrphanedResourcesRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorOrphanedResourcesRequest struct {
+	ApiHypervisorsGetHypervisorOrphanedResourcesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorOrphanedResourcesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorOrphanedResourcesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorOrphanedResourcesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorOrphanedResourcesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorOrphanedResourcesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorOrphanedResourcesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorOrphanedResourcesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorOrphanedResourcesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorOrphanedResourcesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorOrphanedResourcesRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorOrphanedResourcesRequest) Execute() (*DetectOrphanedResourcesResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorOrphanedResourcesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsGetHypervisorOrphanedResourcesRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsGetHypervisorOrphanedResourcesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -6518,6 +7760,76 @@ type ApiHypervisorsGetHypervisorResourcePoolRequest struct {
 	citrixLocale        *string
 	async               *bool
 	noCache             *bool
+}
+
+// MockApiHypervisorsGetHypervisorResourcePoolRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorResourcePoolRequest struct {
+	ApiHypervisorsGetHypervisorResourcePoolRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorResourcePoolRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetPoolId returns the poolId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolRequest) GetPoolId() string {
+	return r.poolId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetNoCache returns the noCache parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolRequest) GetNoCache() *bool {
+	return r.noCache
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorResourcePoolRequest) Execute() (*HypervisorResourcePoolDetailResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorResourcePoolRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6837,6 +8149,81 @@ type ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest struct {
 	continuationToken   *string
 }
 
+// MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest struct {
+	ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetPoolId returns the poolId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) GetPoolId() string {
+	return r.poolId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) Execute() (*AdministratorResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -7154,6 +8541,61 @@ type ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest struct {
 	async               *bool
 }
 
+// MockApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest struct {
+	ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) Execute() (*HypervisorResourcePoolNetworkResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -7434,6 +8876,71 @@ type ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest struct {
+	ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetPoolId returns the poolId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) GetPoolId() string {
+	return r.poolId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) Execute() (*HypervisorDeletePreviewResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7736,6 +9243,66 @@ type ApiHypervisorsGetHypervisorResourcePoolJobsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiHypervisorsGetHypervisorResourcePoolJobsRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorResourcePoolJobsRequest struct {
+	ApiHypervisorsGetHypervisorResourcePoolJobsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorResourcePoolJobsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolJobsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolJobsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolJobsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetPoolId returns the poolId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolJobsRequest) GetPoolId() string {
+	return r.poolId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolJobsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolJobsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolJobsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolJobsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolJobsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorResourcePoolJobsRequest) Execute() (*JobResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorResourcePoolJobsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsGetHypervisorResourcePoolJobsRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsGetHypervisorResourcePoolJobsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -8025,6 +9592,81 @@ type ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest struct {
 	async               *bool
 	limit               *int32
 	continuationToken   *string
+}
+
+// MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest struct {
+	ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetPoolId returns the poolId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) GetPoolId() string {
+	return r.poolId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) Execute() (*HypervisorMachineCatalogResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8345,6 +9987,76 @@ type ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest struct {
 	accept                                         *string
 	citrixLocale                                   *string
 	async                                          *bool
+}
+
+// MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest struct {
+	ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetPoolId returns the poolId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) GetPoolId() string {
+	return r.poolId
+}
+
+// GetHypervisorResourcePoolPatchPreviewRequestModel returns the hypervisorResourcePoolPatchPreviewRequestModel parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) GetHypervisorResourcePoolPatchPreviewRequestModel() *HypervisorResourcePoolPatchPreviewRequestModel {
+	return r.hypervisorResourcePoolPatchPreviewRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) Execute() (*HypervisorResourcePoolPatchPreviewResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8685,6 +10397,111 @@ type ApiHypervisorsGetHypervisorResourcePoolResourcesRequest struct {
 	noCache             *bool
 	force               *bool
 	recurse             *bool
+}
+
+// MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest struct {
+	ApiHypervisorsGetHypervisorResourcePoolResourcesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetPoolId returns the poolId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetPoolId() string {
+	return r.poolId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetPath returns the path parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetPath() *string {
+	return r.path
+}
+
+// GetChildren returns the children parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetChildren() *int32 {
+	return r.children
+}
+
+// GetType_ returns the type_ parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetType_() *[]string {
+	return r.type_
+}
+
+// GetShowTagged returns the showTagged parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetShowTagged() *bool {
+	return r.showTagged
+}
+
+// GetDetail returns the detail parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetDetail() *bool {
+	return r.detail
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetNoCache returns the noCache parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetNoCache() *bool {
+	return r.noCache
+}
+
+// GetForce returns the force parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetForce() *bool {
+	return r.force
+}
+
+// GetRecurse returns the recurse parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) GetRecurse() *bool {
+	return r.recurse
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorResourcePoolResourcesRequest) Execute() (*HypervisorResourceResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorResourcePoolResourcesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9090,6 +10907,66 @@ type ApiHypervisorsGetHypervisorResourcePoolTestReportRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiHypervisorsGetHypervisorResourcePoolTestReportRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorResourcePoolTestReportRequest struct {
+	ApiHypervisorsGetHypervisorResourcePoolTestReportRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorResourcePoolTestReportRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolTestReportRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolTestReportRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolTestReportRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetPoolId returns the poolId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolTestReportRequest) GetPoolId() string {
+	return r.poolId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolTestReportRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolTestReportRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolTestReportRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolTestReportRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolTestReportRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorResourcePoolTestReportRequest) Execute() (*TestReportResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorResourcePoolTestReportRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsGetHypervisorResourcePoolTestReportRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsGetHypervisorResourcePoolTestReportRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -9378,6 +11255,71 @@ type ApiHypervisorsGetHypervisorResourcePoolsRequest struct {
 	citrixLocale        *string
 	async               *bool
 	noCache             *bool
+}
+
+// MockApiHypervisorsGetHypervisorResourcePoolsRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorResourcePoolsRequest struct {
+	ApiHypervisorsGetHypervisorResourcePoolsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorResourcePoolsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetNoCache returns the noCache parameter
+func (r MockApiHypervisorsGetHypervisorResourcePoolsRequest) GetNoCache() *bool {
+	return r.noCache
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorResourcePoolsRequest) Execute() (*HypervisorResourcePoolResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorResourcePoolsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9690,6 +11632,71 @@ type ApiHypervisorsGetHypervisorResourcePricesRequest struct {
 	accept                                 *string
 	citrixLocale                           *string
 	async                                  *bool
+}
+
+// MockApiHypervisorsGetHypervisorResourcePricesRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorResourcePricesRequest struct {
+	ApiHypervisorsGetHypervisorResourcePricesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorResourcePricesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePricesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePricesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePricesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetHypervisorResourceSettingsRequestModel returns the hypervisorResourceSettingsRequestModel parameter
+func (r MockApiHypervisorsGetHypervisorResourcePricesRequest) GetHypervisorResourceSettingsRequestModel() *HypervisorResourceSettingsRequestModel {
+	return r.hypervisorResourceSettingsRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorResourcePricesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorResourcePricesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorResourcePricesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorResourcePricesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorResourcePricesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorResourcePricesRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorResourcePricesRequest) Execute() (*HypervisorResourcePricesResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorResourcePricesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10021,6 +12028,71 @@ type ApiHypervisorsGetHypervisorServerHAAddressesRequest struct {
 	noCache             *bool
 }
 
+// MockApiHypervisorsGetHypervisorServerHAAddressesRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorServerHAAddressesRequest struct {
+	ApiHypervisorsGetHypervisorServerHAAddressesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorServerHAAddressesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorServerHAAddressesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorServerHAAddressesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorServerHAAddressesRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorServerHAAddressesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorServerHAAddressesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorServerHAAddressesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorServerHAAddressesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorServerHAAddressesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorServerHAAddressesRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetNoCache returns the noCache parameter
+func (r MockApiHypervisorsGetHypervisorServerHAAddressesRequest) GetNoCache() *bool {
+	return r.noCache
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorServerHAAddressesRequest) Execute() (*HypervisorServerHAAddressesResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorServerHAAddressesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsGetHypervisorServerHAAddressesRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsGetHypervisorServerHAAddressesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -10329,6 +12401,61 @@ type ApiHypervisorsGetHypervisorTestReportRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiHypervisorsGetHypervisorTestReportRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorTestReportRequest struct {
+	ApiHypervisorsGetHypervisorTestReportRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorTestReportRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorTestReportRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorTestReportRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsGetHypervisorTestReportRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorTestReportRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorTestReportRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorTestReportRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorTestReportRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorTestReportRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorTestReportRequest) Execute() (*TestReportResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorTestReportRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsGetHypervisorTestReportRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsGetHypervisorTestReportRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -10613,6 +12740,66 @@ type ApiHypervisorsGetHypervisorWithoutConnectionRequest struct {
 	accept                                 *string
 	citrixLocale                           *string
 	async                                  *bool
+}
+
+// MockApiHypervisorsGetHypervisorWithoutConnectionRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorWithoutConnectionRequest struct {
+	ApiHypervisorsGetHypervisorWithoutConnectionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorWithoutConnectionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorWithoutConnectionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorWithoutConnectionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetHypervisorConnectionDetailRequestModel returns the hypervisorConnectionDetailRequestModel parameter
+func (r MockApiHypervisorsGetHypervisorWithoutConnectionRequest) GetHypervisorConnectionDetailRequestModel() *HypervisorConnectionDetailRequestModel {
+	return r.hypervisorConnectionDetailRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorWithoutConnectionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorWithoutConnectionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorWithoutConnectionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorWithoutConnectionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorWithoutConnectionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorWithoutConnectionRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorWithoutConnectionRequest) Execute() (*HypervisorDetailResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorWithoutConnectionRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10929,6 +13116,66 @@ type ApiHypervisorsGetHypervisorsRequest struct {
 	noCache             *bool
 }
 
+// MockApiHypervisorsGetHypervisorsRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorsRequest struct {
+	ApiHypervisorsGetHypervisorsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetNoCache returns the noCache parameter
+func (r MockApiHypervisorsGetHypervisorsRequest) GetNoCache() *bool {
+	return r.noCache
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorsRequest) Execute() (*HypervisorResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsGetHypervisorsRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsGetHypervisorsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -11223,6 +13470,66 @@ type ApiHypervisorsGetHypervisorsAndResourcePoolsRequest struct {
 	citrixLocale        *string
 	async               *bool
 	noCache             *bool
+}
+
+// MockApiHypervisorsGetHypervisorsAndResourcePoolsRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetHypervisorsAndResourcePoolsRequest struct {
+	ApiHypervisorsGetHypervisorsAndResourcePoolsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetHypervisorsAndResourcePoolsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetHypervisorsAndResourcePoolsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetHypervisorsAndResourcePoolsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetHypervisorsAndResourcePoolsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetHypervisorsAndResourcePoolsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetHypervisorsAndResourcePoolsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetHypervisorsAndResourcePoolsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetHypervisorsAndResourcePoolsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetHypervisorsAndResourcePoolsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetNoCache returns the noCache parameter
+func (r MockApiHypervisorsGetHypervisorsAndResourcePoolsRequest) GetNoCache() *bool {
+	return r.noCache
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetHypervisorsAndResourcePoolsRequest) Execute() (*HypervisorsAndResourcePoolsResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsGetHypervisorsAndResourcePoolsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11520,6 +13827,76 @@ type ApiHypervisorsGetSupportHypervisorsRequest struct {
 	zoneNameOrId        *string
 	includeUnavailable  *bool
 	noCache             *bool
+}
+
+// MockApiHypervisorsGetSupportHypervisorsRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsGetSupportHypervisorsRequest struct {
+	ApiHypervisorsGetSupportHypervisorsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsGetSupportHypervisorsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsGetSupportHypervisorsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsGetSupportHypervisorsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsGetSupportHypervisorsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsGetSupportHypervisorsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsGetSupportHypervisorsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsGetSupportHypervisorsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsGetSupportHypervisorsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsGetSupportHypervisorsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetZoneNameOrId returns the zoneNameOrId parameter
+func (r MockApiHypervisorsGetSupportHypervisorsRequest) GetZoneNameOrId() *string {
+	return r.zoneNameOrId
+}
+
+// GetIncludeUnavailable returns the includeUnavailable parameter
+func (r MockApiHypervisorsGetSupportHypervisorsRequest) GetIncludeUnavailable() *bool {
+	return r.includeUnavailable
+}
+
+// GetNoCache returns the noCache parameter
+func (r MockApiHypervisorsGetSupportHypervisorsRequest) GetNoCache() *bool {
+	return r.noCache
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsGetSupportHypervisorsRequest) Execute() (*HypervisorPluginResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsGetSupportHypervisorsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11839,6 +14216,71 @@ type ApiHypervisorsPatchHypervisorRequest struct {
 	async                                *bool
 }
 
+// MockApiHypervisorsPatchHypervisorRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsPatchHypervisorRequest struct {
+	ApiHypervisorsPatchHypervisorRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsPatchHypervisorRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsPatchHypervisorRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsPatchHypervisorRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsPatchHypervisorRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetEditHypervisorConnectionRequestModel returns the editHypervisorConnectionRequestModel parameter
+func (r MockApiHypervisorsPatchHypervisorRequest) GetEditHypervisorConnectionRequestModel() *EditHypervisorConnectionRequestModel {
+	return r.editHypervisorConnectionRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsPatchHypervisorRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsPatchHypervisorRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsPatchHypervisorRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsPatchHypervisorRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsPatchHypervisorRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsPatchHypervisorRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsPatchHypervisorRequest) Execute() (*http.Response, error) {
+	return r.ApiHypervisorsPatchHypervisorRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsPatchHypervisorRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsPatchHypervisorRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -12146,6 +14588,76 @@ type ApiHypervisorsPatchHypervisorResourcePoolRequest struct {
 	accept                                 *string
 	citrixLocale                           *string
 	async                                  *bool
+}
+
+// MockApiHypervisorsPatchHypervisorResourcePoolRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsPatchHypervisorResourcePoolRequest struct {
+	ApiHypervisorsPatchHypervisorResourcePoolRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsPatchHypervisorResourcePoolRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsPatchHypervisorResourcePoolRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsPatchHypervisorResourcePoolRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsPatchHypervisorResourcePoolRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetPoolId returns the poolId parameter
+func (r MockApiHypervisorsPatchHypervisorResourcePoolRequest) GetPoolId() string {
+	return r.poolId
+}
+
+// GetEditHypervisorResourcePoolRequestModel returns the editHypervisorResourcePoolRequestModel parameter
+func (r MockApiHypervisorsPatchHypervisorResourcePoolRequest) GetEditHypervisorResourcePoolRequestModel() *EditHypervisorResourcePoolRequestModel {
+	return r.editHypervisorResourcePoolRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsPatchHypervisorResourcePoolRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsPatchHypervisorResourcePoolRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsPatchHypervisorResourcePoolRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsPatchHypervisorResourcePoolRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsPatchHypervisorResourcePoolRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsPatchHypervisorResourcePoolRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsPatchHypervisorResourcePoolRequest) Execute() (*http.Response, error) {
+	return r.ApiHypervisorsPatchHypervisorResourcePoolRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -12459,6 +14971,71 @@ type ApiHypervisorsPutBrokerHypervisorConnectionRequest struct {
 	async                                      *bool
 }
 
+// MockApiHypervisorsPutBrokerHypervisorConnectionRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsPutBrokerHypervisorConnectionRequest struct {
+	ApiHypervisorsPutBrokerHypervisorConnectionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsPutBrokerHypervisorConnectionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsPutBrokerHypervisorConnectionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsPutBrokerHypervisorConnectionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsPutBrokerHypervisorConnectionRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetEditBrokerHypervisorConnectionRequestModel returns the editBrokerHypervisorConnectionRequestModel parameter
+func (r MockApiHypervisorsPutBrokerHypervisorConnectionRequest) GetEditBrokerHypervisorConnectionRequestModel() *EditBrokerHypervisorConnectionRequestModel {
+	return r.editBrokerHypervisorConnectionRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsPutBrokerHypervisorConnectionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsPutBrokerHypervisorConnectionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsPutBrokerHypervisorConnectionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsPutBrokerHypervisorConnectionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsPutBrokerHypervisorConnectionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsPutBrokerHypervisorConnectionRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsPutBrokerHypervisorConnectionRequest) Execute() (*http.Response, error) {
+	return r.ApiHypervisorsPutBrokerHypervisorConnectionRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsPutBrokerHypervisorConnectionRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsPutBrokerHypervisorConnectionRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -12764,6 +15341,66 @@ type ApiHypervisorsResetBrokerHypervisorConnectionRequest struct {
 	async               *bool
 }
 
+// MockApiHypervisorsResetBrokerHypervisorConnectionRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsResetBrokerHypervisorConnectionRequest struct {
+	ApiHypervisorsResetBrokerHypervisorConnectionRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsResetBrokerHypervisorConnectionRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsResetBrokerHypervisorConnectionRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsResetBrokerHypervisorConnectionRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsResetBrokerHypervisorConnectionRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsResetBrokerHypervisorConnectionRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsResetBrokerHypervisorConnectionRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsResetBrokerHypervisorConnectionRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsResetBrokerHypervisorConnectionRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsResetBrokerHypervisorConnectionRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsResetBrokerHypervisorConnectionRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsResetBrokerHypervisorConnectionRequest) Execute() (*http.Response, error) {
+	return r.ApiHypervisorsResetBrokerHypervisorConnectionRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsResetBrokerHypervisorConnectionRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsResetBrokerHypervisorConnectionRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -13056,6 +15693,66 @@ type ApiHypervisorsTestHypervisorRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiHypervisorsTestHypervisorRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsTestHypervisorRequest struct {
+	ApiHypervisorsTestHypervisorRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsTestHypervisorRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsTestHypervisorRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsTestHypervisorRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsTestHypervisorRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsTestHypervisorRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsTestHypervisorRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsTestHypervisorRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsTestHypervisorRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsTestHypervisorRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsTestHypervisorRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsTestHypervisorRequest) Execute() (*HypervisorTestResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsTestHypervisorRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -13367,6 +16064,71 @@ type ApiHypervisorsTestHypervisorResourcePoolRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiHypervisorsTestHypervisorResourcePoolRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsTestHypervisorResourcePoolRequest struct {
+	ApiHypervisorsTestHypervisorResourcePoolRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsTestHypervisorResourcePoolRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsTestHypervisorResourcePoolRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsTestHypervisorResourcePoolRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsTestHypervisorResourcePoolRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetPoolId returns the poolId parameter
+func (r MockApiHypervisorsTestHypervisorResourcePoolRequest) GetPoolId() string {
+	return r.poolId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsTestHypervisorResourcePoolRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsTestHypervisorResourcePoolRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsTestHypervisorResourcePoolRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsTestHypervisorResourcePoolRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsTestHypervisorResourcePoolRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsTestHypervisorResourcePoolRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsTestHypervisorResourcePoolRequest) Execute() (*HypervisorResourcePoolTestResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsTestHypervisorResourcePoolRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -13682,6 +16444,76 @@ type ApiHypervisorsValidateHypervisorResourcePoolResourceRequest struct {
 	accept                                   *string
 	citrixLocale                             *string
 	async                                    *bool
+}
+
+// MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest struct {
+	ApiHypervisorsValidateHypervisorResourcePoolResourceRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetPoolId returns the poolId parameter
+func (r MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest) GetPoolId() string {
+	return r.poolId
+}
+
+// GetHypervisorResourceValidationRequestModel returns the hypervisorResourceValidationRequestModel parameter
+func (r MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest) GetHypervisorResourceValidationRequestModel() *HypervisorResourceValidationRequestModel {
+	return r.hypervisorResourceValidationRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsValidateHypervisorResourcePoolResourceRequest) Execute() (*HypervisorResourceValidationResponseModel, *http.Response, error) {
+	return r.ApiHypervisorsValidateHypervisorResourcePoolResourceRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -14015,6 +16847,66 @@ type ApiHypervisorsValidateVmPathRequest struct {
 	async                              *bool
 }
 
+// MockApiHypervisorsValidateVmPathRequest wraps the request struct to provide getter methods for testing
+type MockApiHypervisorsValidateVmPathRequest struct {
+	ApiHypervisorsValidateVmPathRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHypervisorsValidateVmPathRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHypervisorsValidateVmPathRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiHypervisorsValidateVmPathRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetHypervisorVmValidationRequestModel returns the hypervisorVmValidationRequestModel parameter
+func (r MockApiHypervisorsValidateVmPathRequest) GetHypervisorVmValidationRequestModel() *HypervisorVmValidationRequestModel {
+	return r.hypervisorVmValidationRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiHypervisorsValidateVmPathRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHypervisorsValidateVmPathRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHypervisorsValidateVmPathRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHypervisorsValidateVmPathRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHypervisorsValidateVmPathRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiHypervisorsValidateVmPathRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHypervisorsValidateVmPathRequest) Execute() (*HypervisorVmValidationResponseModelCollection, *http.Response, error) {
+	return r.ApiHypervisorsValidateVmPathRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiHypervisorsValidateVmPathRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsValidateVmPathRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -14315,4 +17207,586 @@ func (a *HypervisorsAPIsDAASService) HypervisorsValidateVmPathExecute(r ApiHyper
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockHypervisorsAPIsDAAS extracts the MockHypervisorsAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockHypervisorsAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockHypervisorsAPIsDAAS(client *APIClient) *MockHypervisorsAPIsDAAS {
+	return client.HypervisorsAPIsDAAS.(*MockHypervisorsAPIsDAAS)
+}
+
+// MockHypervisorsAPIsDAAS is a mock implementation of the HypervisorsAPIsDAAS interface for testing
+var _ HypervisorsAPIsDAAS = (*MockHypervisorsAPIsDAAS)(nil)
+
+type MockHypervisorsAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsCheckHypervisorExists(ctx context.Context, name string) ApiHypervisorsCheckHypervisorExistsRequest {
+	return ApiHypervisorsCheckHypervisorExistsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		name:       name,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsCheckHypervisorExistsExecute(r ApiHypervisorsCheckHypervisorExistsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsCheckHypervisorResourcePoolExists(ctx context.Context, nameOrId string, name string) ApiHypervisorsCheckHypervisorResourcePoolExistsRequest {
+	return ApiHypervisorsCheckHypervisorResourcePoolExistsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		name:       name,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsCheckHypervisorResourcePoolExistsExecute(r ApiHypervisorsCheckHypervisorResourcePoolExistsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsCreateHypervisor(ctx context.Context) ApiHypervisorsCreateHypervisorRequest {
+	return ApiHypervisorsCreateHypervisorRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsCreateHypervisorExecute(r ApiHypervisorsCreateHypervisorRequest) (*HypervisorDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsCreateResourcePool(ctx context.Context, nameOrId string) ApiHypervisorsCreateResourcePoolRequest {
+	return ApiHypervisorsCreateResourcePoolRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsCreateResourcePoolExecute(r ApiHypervisorsCreateResourcePoolRequest) (*HypervisorResourcePoolDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourcePoolDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsDeleteHypervisor(ctx context.Context, nameOrId string) ApiHypervisorsDeleteHypervisorRequest {
+	return ApiHypervisorsDeleteHypervisorRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsDeleteHypervisorExecute(r ApiHypervisorsDeleteHypervisorRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsDeleteHypervisorResourcePool(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsDeleteHypervisorResourcePoolRequest {
+	return ApiHypervisorsDeleteHypervisorResourcePoolRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsDeleteHypervisorResourcePoolExecute(r ApiHypervisorsDeleteHypervisorResourcePoolRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsDoHypervisorAllResourcesSearch(ctx context.Context, nameOrId string) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	return ApiHypervisorsDoHypervisorAllResourcesSearchRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsDoHypervisorAllResourcesSearchExecute(r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) (*HypervisorResourceResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourceResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsDoHypervisorAllResourcesSearchWithoutConnection(ctx context.Context) ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest {
+	return ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsDoHypervisorAllResourcesSearchWithoutConnectionExecute(r ApiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest) (*HypervisorResourceResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourceResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsDoHypervisorResourceSearch(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsDoHypervisorResourceSearchRequest {
+	return ApiHypervisorsDoHypervisorResourceSearchRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsDoHypervisorResourceSearchExecute(r ApiHypervisorsDoHypervisorResourceSearchRequest) (*HypervisorResourceResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourceResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisor(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorRequest {
+	return ApiHypervisorsGetHypervisorRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorExecute(r ApiHypervisorsGetHypervisorRequest) (*HypervisorDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorAdministrators(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorAdministratorsRequest {
+	return ApiHypervisorsGetHypervisorAdministratorsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorAdministratorsExecute(r ApiHypervisorsGetHypervisorAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdministratorResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorAllResourcePools(ctx context.Context) ApiHypervisorsGetHypervisorAllResourcePoolsRequest {
+	return ApiHypervisorsGetHypervisorAllResourcePoolsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorAllResourcePoolsExecute(r ApiHypervisorsGetHypervisorAllResourcePoolsRequest) (*HypervisorResourcePoolResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourcePoolResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorAllResources(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorAllResourcesRequest {
+	return ApiHypervisorsGetHypervisorAllResourcesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorAllResourcesExecute(r ApiHypervisorsGetHypervisorAllResourcesRequest) (*HypervisorResourceResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourceResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorAllResourcesWithoutConnection(ctx context.Context) ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest {
+	return ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorAllResourcesWithoutConnectionExecute(r ApiHypervisorsGetHypervisorAllResourcesWithoutConnectionRequest) (*HypervisorResourceResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourceResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorDeletePreview(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorDeletePreviewRequest {
+	return ApiHypervisorsGetHypervisorDeletePreviewRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorDeletePreviewExecute(r ApiHypervisorsGetHypervisorDeletePreviewRequest) (*HypervisorDeletePreviewResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorDeletePreviewResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorJobs(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorJobsRequest {
+	return ApiHypervisorsGetHypervisorJobsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorJobsExecute(r ApiHypervisorsGetHypervisorJobsRequest) (*JobResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*JobResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorMachineCatalogs(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorMachineCatalogsRequest {
+	return ApiHypervisorsGetHypervisorMachineCatalogsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorMachineCatalogsExecute(r ApiHypervisorsGetHypervisorMachineCatalogsRequest) (*HypervisorMachineCatalogResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorMachineCatalogResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorOrphanedResources(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorOrphanedResourcesRequest {
+	return ApiHypervisorsGetHypervisorOrphanedResourcesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorOrphanedResourcesExecute(r ApiHypervisorsGetHypervisorOrphanedResourcesRequest) (*DetectOrphanedResourcesResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*DetectOrphanedResourcesResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePool(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolRequest {
+	return ApiHypervisorsGetHypervisorResourcePoolRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolExecute(r ApiHypervisorsGetHypervisorResourcePoolRequest) (*HypervisorResourcePoolDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourcePoolDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolAdministrators(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest {
+	return ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolAdministratorsExecute(r ApiHypervisorsGetHypervisorResourcePoolAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdministratorResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolAllAvailableNetworks(ctx context.Context) ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest {
+	return ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolAllAvailableNetworksExecute(r ApiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest) (*HypervisorResourcePoolNetworkResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourcePoolNetworkResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolDeletePreview(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest {
+	return ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolDeletePreviewExecute(r ApiHypervisorsGetHypervisorResourcePoolDeletePreviewRequest) (*HypervisorDeletePreviewResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorDeletePreviewResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolJobs(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolJobsRequest {
+	return ApiHypervisorsGetHypervisorResourcePoolJobsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolJobsExecute(r ApiHypervisorsGetHypervisorResourcePoolJobsRequest) (*JobResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*JobResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolMachineCatalogs(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest {
+	return ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolMachineCatalogsExecute(r ApiHypervisorsGetHypervisorResourcePoolMachineCatalogsRequest) (*HypervisorMachineCatalogResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorMachineCatalogResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolPatchPreview(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest {
+	return ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolPatchPreviewExecute(r ApiHypervisorsGetHypervisorResourcePoolPatchPreviewRequest) (*HypervisorResourcePoolPatchPreviewResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourcePoolPatchPreviewResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolResources(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolResourcesRequest {
+	return ApiHypervisorsGetHypervisorResourcePoolResourcesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolResourcesExecute(r ApiHypervisorsGetHypervisorResourcePoolResourcesRequest) (*HypervisorResourceResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourceResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolTestReport(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsGetHypervisorResourcePoolTestReportRequest {
+	return ApiHypervisorsGetHypervisorResourcePoolTestReportRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolTestReportExecute(r ApiHypervisorsGetHypervisorResourcePoolTestReportRequest) (*TestReportResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TestReportResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePools(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorResourcePoolsRequest {
+	return ApiHypervisorsGetHypervisorResourcePoolsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePoolsExecute(r ApiHypervisorsGetHypervisorResourcePoolsRequest) (*HypervisorResourcePoolResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourcePoolResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePrices(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorResourcePricesRequest {
+	return ApiHypervisorsGetHypervisorResourcePricesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorResourcePricesExecute(r ApiHypervisorsGetHypervisorResourcePricesRequest) (*HypervisorResourcePricesResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourcePricesResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorServerHAAddresses(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorServerHAAddressesRequest {
+	return ApiHypervisorsGetHypervisorServerHAAddressesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorServerHAAddressesExecute(r ApiHypervisorsGetHypervisorServerHAAddressesRequest) (*HypervisorServerHAAddressesResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorServerHAAddressesResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorTestReport(ctx context.Context, nameOrId string) ApiHypervisorsGetHypervisorTestReportRequest {
+	return ApiHypervisorsGetHypervisorTestReportRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorTestReportExecute(r ApiHypervisorsGetHypervisorTestReportRequest) (*TestReportResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TestReportResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorWithoutConnection(ctx context.Context) ApiHypervisorsGetHypervisorWithoutConnectionRequest {
+	return ApiHypervisorsGetHypervisorWithoutConnectionRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorWithoutConnectionExecute(r ApiHypervisorsGetHypervisorWithoutConnectionRequest) (*HypervisorDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisors(ctx context.Context) ApiHypervisorsGetHypervisorsRequest {
+	return ApiHypervisorsGetHypervisorsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorsExecute(r ApiHypervisorsGetHypervisorsRequest) (*HypervisorResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorsAndResourcePools(ctx context.Context) ApiHypervisorsGetHypervisorsAndResourcePoolsRequest {
+	return ApiHypervisorsGetHypervisorsAndResourcePoolsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetHypervisorsAndResourcePoolsExecute(r ApiHypervisorsGetHypervisorsAndResourcePoolsRequest) (*HypervisorsAndResourcePoolsResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorsAndResourcePoolsResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetSupportHypervisors(ctx context.Context) ApiHypervisorsGetSupportHypervisorsRequest {
+	return ApiHypervisorsGetSupportHypervisorsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsGetSupportHypervisorsExecute(r ApiHypervisorsGetSupportHypervisorsRequest) (*HypervisorPluginResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorPluginResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsPatchHypervisor(ctx context.Context, nameOrId string) ApiHypervisorsPatchHypervisorRequest {
+	return ApiHypervisorsPatchHypervisorRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsPatchHypervisorExecute(r ApiHypervisorsPatchHypervisorRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsPatchHypervisorResourcePool(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsPatchHypervisorResourcePoolRequest {
+	return ApiHypervisorsPatchHypervisorResourcePoolRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsPatchHypervisorResourcePoolExecute(r ApiHypervisorsPatchHypervisorResourcePoolRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsPutBrokerHypervisorConnection(ctx context.Context, nameOrId string) ApiHypervisorsPutBrokerHypervisorConnectionRequest {
+	return ApiHypervisorsPutBrokerHypervisorConnectionRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsPutBrokerHypervisorConnectionExecute(r ApiHypervisorsPutBrokerHypervisorConnectionRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsResetBrokerHypervisorConnection(ctx context.Context, nameOrId string) ApiHypervisorsResetBrokerHypervisorConnectionRequest {
+	return ApiHypervisorsResetBrokerHypervisorConnectionRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsResetBrokerHypervisorConnectionExecute(r ApiHypervisorsResetBrokerHypervisorConnectionRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsTestHypervisor(ctx context.Context, nameOrId string) ApiHypervisorsTestHypervisorRequest {
+	return ApiHypervisorsTestHypervisorRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsTestHypervisorExecute(r ApiHypervisorsTestHypervisorRequest) (*HypervisorTestResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorTestResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsTestHypervisorResourcePool(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsTestHypervisorResourcePoolRequest {
+	return ApiHypervisorsTestHypervisorResourcePoolRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsTestHypervisorResourcePoolExecute(r ApiHypervisorsTestHypervisorResourcePoolRequest) (*HypervisorResourcePoolTestResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourcePoolTestResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsValidateHypervisorResourcePoolResource(ctx context.Context, nameOrId string, poolId string) ApiHypervisorsValidateHypervisorResourcePoolResourceRequest {
+	return ApiHypervisorsValidateHypervisorResourcePoolResourceRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+		poolId:     poolId,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsValidateHypervisorResourcePoolResourceExecute(r ApiHypervisorsValidateHypervisorResourcePoolResourceRequest) (*HypervisorResourceValidationResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorResourceValidationResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsValidateVmPath(ctx context.Context) ApiHypervisorsValidateVmPathRequest {
+	return ApiHypervisorsValidateVmPathRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockHypervisorsAPIsDAAS) HypervisorsValidateVmPathExecute(r ApiHypervisorsValidateVmPathRequest) (*HypervisorVmValidationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*HypervisorVmValidationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
 }

@@ -19,12 +19,29 @@ import (
 	"strings"
 )
 
+type IconCMD interface {
+
+	/*
+		ExtractIcon Extract an icon from the specified file data
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site ID of the customer
+		@return ApiExtractIconRequest
+	*/
+	ExtractIcon(ctx context.Context, customerId string, siteId string) ApiExtractIconRequest
+
+	// ExtractIconExecute executes the request
+	//  @return string
+	ExtractIconExecute(r ApiExtractIconRequest) (string, *http.Response, error)
+}
+
 // IconCMDService IconCMD service
 type IconCMDService service
 
 type ApiExtractIconRequest struct {
 	ctx                 context.Context
-	ApiService          *IconCMDService
+	ApiService          IconCMD
 	customerId          string
 	siteId              string
 	citrixTransactionId *string

@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type AppVIsolationGroupsAPIsDAAS interface {
@@ -107,6 +109,66 @@ type ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest struct {
 	accept                               *string
 	citrixLocale                         *string
 	async                                *bool
+}
+
+// MockApiAppVIsolationGroupsCreateAppVIsolationGroupRequest wraps the request struct to provide getter methods for testing
+type MockApiAppVIsolationGroupsCreateAppVIsolationGroupRequest struct {
+	ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCreateAppVIsolationGroupRequestModel returns the createAppVIsolationGroupRequestModel parameter
+func (r MockApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) GetCreateAppVIsolationGroupRequestModel() *CreateAppVIsolationGroupRequestModel {
+	return r.createAppVIsolationGroupRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) Execute() (*http.Response, error) {
+	return r.ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -413,6 +475,66 @@ type ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest struct {
 	async               *bool
 }
 
+// MockApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest wraps the request struct to provide getter methods for testing
+type MockApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest struct {
+	ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) Execute() (*http.Response, error) {
+	return r.ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) CitrixCustomerId(citrixCustomerId string) ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -696,6 +818,66 @@ type ApiAppVIsolationGroupsGetAppVIsolationGroupRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiAppVIsolationGroupsGetAppVIsolationGroupRequest wraps the request struct to provide getter methods for testing
+type MockApiAppVIsolationGroupsGetAppVIsolationGroupRequest struct {
+	ApiAppVIsolationGroupsGetAppVIsolationGroupRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupRequest) Execute() (*AppVIsolationGroupResponseModel, *http.Response, error) {
+	return r.ApiAppVIsolationGroupsGetAppVIsolationGroupRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -994,6 +1176,61 @@ type ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest struct {
 	async               *bool
 }
 
+// MockApiAppVIsolationGroupsGetAppVIsolationGroupsRequest wraps the request struct to provide getter methods for testing
+type MockApiAppVIsolationGroupsGetAppVIsolationGroupsRequest struct {
+	ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) Execute() (*AppVIsolationGroupResponseModelCollection, *http.Response, error) {
+	return r.ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) CitrixCustomerId(citrixCustomerId string) ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1275,6 +1512,71 @@ type ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest struct {
 	accept                               *string
 	citrixLocale                         *string
 	async                                *bool
+}
+
+// MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest wraps the request struct to provide getter methods for testing
+type MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest struct {
+	ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUpdateAppVIsolationGroupRequestModel returns the updateAppVIsolationGroupRequestModel parameter
+func (r MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) GetUpdateAppVIsolationGroupRequestModel() *UpdateAppVIsolationGroupRequestModel {
+	return r.updateAppVIsolationGroupRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) Execute() (*http.Response, error) {
+	return r.ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1568,4 +1870,86 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsUpdateAppVIsolat
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockAppVIsolationGroupsAPIsDAAS extracts the MockAppVIsolationGroupsAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockAppVIsolationGroupsAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockAppVIsolationGroupsAPIsDAAS(client *APIClient) *MockAppVIsolationGroupsAPIsDAAS {
+	return client.AppVIsolationGroupsAPIsDAAS.(*MockAppVIsolationGroupsAPIsDAAS)
+}
+
+// MockAppVIsolationGroupsAPIsDAAS is a mock implementation of the AppVIsolationGroupsAPIsDAAS interface for testing
+var _ AppVIsolationGroupsAPIsDAAS = (*MockAppVIsolationGroupsAPIsDAAS)(nil)
+
+type MockAppVIsolationGroupsAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockAppVIsolationGroupsAPIsDAAS) AppVIsolationGroupsCreateAppVIsolationGroup(ctx context.Context) ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest {
+	return ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAppVIsolationGroupsAPIsDAAS) AppVIsolationGroupsCreateAppVIsolationGroupExecute(r ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAppVIsolationGroupsAPIsDAAS) AppVIsolationGroupsDeleteAppVIsolationGroup(ctx context.Context, nameOrId string) ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest {
+	return ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAppVIsolationGroupsAPIsDAAS) AppVIsolationGroupsDeleteAppVIsolationGroupExecute(r ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAppVIsolationGroupsAPIsDAAS) AppVIsolationGroupsGetAppVIsolationGroup(ctx context.Context, nameOrId string) ApiAppVIsolationGroupsGetAppVIsolationGroupRequest {
+	return ApiAppVIsolationGroupsGetAppVIsolationGroupRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAppVIsolationGroupsAPIsDAAS) AppVIsolationGroupsGetAppVIsolationGroupExecute(r ApiAppVIsolationGroupsGetAppVIsolationGroupRequest) (*AppVIsolationGroupResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppVIsolationGroupResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppVIsolationGroupsAPIsDAAS) AppVIsolationGroupsGetAppVIsolationGroups(ctx context.Context) ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest {
+	return ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAppVIsolationGroupsAPIsDAAS) AppVIsolationGroupsGetAppVIsolationGroupsExecute(r ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) (*AppVIsolationGroupResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AppVIsolationGroupResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAppVIsolationGroupsAPIsDAAS) AppVIsolationGroupsUpdateAppVIsolationGroup(ctx context.Context, nameOrId string) ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest {
+	return ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockAppVIsolationGroupsAPIsDAAS) AppVIsolationGroupsUpdateAppVIsolationGroupExecute(r ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }

@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type IconsAPIsDAAS interface {
@@ -105,6 +107,66 @@ type ApiIconsAddIconRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiIconsAddIconRequest wraps the request struct to provide getter methods for testing
+type MockApiIconsAddIconRequest struct {
+	ApiIconsAddIconRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIconsAddIconRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIconsAddIconRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIconsAddIconRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetAddIconRequestModel returns the addIconRequestModel parameter
+func (r MockApiIconsAddIconRequest) GetAddIconRequestModel() *AddIconRequestModel {
+	return r.addIconRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIconsAddIconRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIconsAddIconRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIconsAddIconRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIconsAddIconRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIconsAddIconRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIconsAddIconRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIconsAddIconRequest) Execute() (*IconResponseModel, *http.Response, error) {
+	return r.ApiIconsAddIconRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -420,6 +482,61 @@ type ApiIconsGetAppVServerPackageApplicationIconRequest struct {
 	citrixLocale                                 *string
 }
 
+// MockApiIconsGetAppVServerPackageApplicationIconRequest wraps the request struct to provide getter methods for testing
+type MockApiIconsGetAppVServerPackageApplicationIconRequest struct {
+	ApiIconsGetAppVServerPackageApplicationIconRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIconsGetAppVServerPackageApplicationIconRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIconsGetAppVServerPackageApplicationIconRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIconsGetAppVServerPackageApplicationIconRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetAppvServerPackageApplicationIconRequestModel returns the appvServerPackageApplicationIconRequestModel parameter
+func (r MockApiIconsGetAppVServerPackageApplicationIconRequest) GetAppvServerPackageApplicationIconRequestModel() *AppvServerPackageApplicationIconRequestModel {
+	return r.appvServerPackageApplicationIconRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIconsGetAppVServerPackageApplicationIconRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIconsGetAppVServerPackageApplicationIconRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIconsGetAppVServerPackageApplicationIconRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIconsGetAppVServerPackageApplicationIconRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIconsGetAppVServerPackageApplicationIconRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIconsGetAppVServerPackageApplicationIconRequest) Execute() (*IconDataResponseModel, *http.Response, error) {
+	return r.ApiIconsGetAppVServerPackageApplicationIconRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIconsGetAppVServerPackageApplicationIconRequest) CitrixCustomerId(citrixCustomerId string) ApiIconsGetAppVServerPackageApplicationIconRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -725,6 +842,66 @@ type ApiIconsGetIconRequest struct {
 	iconFormat          *string
 }
 
+// MockApiIconsGetIconRequest wraps the request struct to provide getter methods for testing
+type MockApiIconsGetIconRequest struct {
+	ApiIconsGetIconRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIconsGetIconRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIconsGetIconRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIconsGetIconRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiIconsGetIconRequest) GetId() string {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIconsGetIconRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIconsGetIconRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIconsGetIconRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIconsGetIconRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIconsGetIconRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetIconFormat returns the iconFormat parameter
+func (r MockApiIconsGetIconRequest) GetIconFormat() *string {
+	return r.iconFormat
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIconsGetIconRequest) Execute() (*IconResponseModel, *http.Response, error) {
+	return r.ApiIconsGetIconRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIconsGetIconRequest) CitrixCustomerId(citrixCustomerId string) ApiIconsGetIconRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1020,6 +1197,81 @@ type ApiIconsGetIconsRequest struct {
 	async               *bool
 	limit               *int32
 	continuationToken   *string
+}
+
+// MockApiIconsGetIconsRequest wraps the request struct to provide getter methods for testing
+type MockApiIconsGetIconsRequest struct {
+	ApiIconsGetIconsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIconsGetIconsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIconsGetIconsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIconsGetIconsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIconsGetIconsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIconsGetIconsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIconsGetIconsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIconsGetIconsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIconsGetIconsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetIconFormat returns the iconFormat parameter
+func (r MockApiIconsGetIconsRequest) GetIconFormat() *string {
+	return r.iconFormat
+}
+
+// GetBuiltIn returns the builtIn parameter
+func (r MockApiIconsGetIconsRequest) GetBuiltIn() *bool {
+	return r.builtIn
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIconsGetIconsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiIconsGetIconsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiIconsGetIconsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIconsGetIconsRequest) Execute() (*IconResponseModelCollection, *http.Response, error) {
+	return r.ApiIconsGetIconsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1341,6 +1593,66 @@ type ApiIconsRemoveIconRequest struct {
 	async               *bool
 }
 
+// MockApiIconsRemoveIconRequest wraps the request struct to provide getter methods for testing
+type MockApiIconsRemoveIconRequest struct {
+	ApiIconsRemoveIconRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIconsRemoveIconRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIconsRemoveIconRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIconsRemoveIconRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiIconsRemoveIconRequest) GetId() int32 {
+	return r.id
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIconsRemoveIconRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIconsRemoveIconRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIconsRemoveIconRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIconsRemoveIconRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIconsRemoveIconRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIconsRemoveIconRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIconsRemoveIconRequest) Execute() (*http.Response, error) {
+	return r.ApiIconsRemoveIconRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIconsRemoveIconRequest) CitrixCustomerId(citrixCustomerId string) ApiIconsRemoveIconRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1608,4 +1920,85 @@ func (a *IconsAPIsDAASService) IconsRemoveIconExecute(r ApiIconsRemoveIconReques
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockIconsAPIsDAAS extracts the MockIconsAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockIconsAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockIconsAPIsDAAS(client *APIClient) *MockIconsAPIsDAAS {
+	return client.IconsAPIsDAAS.(*MockIconsAPIsDAAS)
+}
+
+// MockIconsAPIsDAAS is a mock implementation of the IconsAPIsDAAS interface for testing
+var _ IconsAPIsDAAS = (*MockIconsAPIsDAAS)(nil)
+
+type MockIconsAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockIconsAPIsDAAS) IconsAddIcon(ctx context.Context) ApiIconsAddIconRequest {
+	return ApiIconsAddIconRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIconsAPIsDAAS) IconsAddIconExecute(r ApiIconsAddIconRequest) (*IconResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IconResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIconsAPIsDAAS) IconsGetAppVServerPackageApplicationIcon(ctx context.Context) ApiIconsGetAppVServerPackageApplicationIconRequest {
+	return ApiIconsGetAppVServerPackageApplicationIconRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIconsAPIsDAAS) IconsGetAppVServerPackageApplicationIconExecute(r ApiIconsGetAppVServerPackageApplicationIconRequest) (*IconDataResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IconDataResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIconsAPIsDAAS) IconsGetIcon(ctx context.Context, id string) ApiIconsGetIconRequest {
+	return ApiIconsGetIconRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockIconsAPIsDAAS) IconsGetIconExecute(r ApiIconsGetIconRequest) (*IconResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IconResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIconsAPIsDAAS) IconsGetIcons(ctx context.Context) ApiIconsGetIconsRequest {
+	return ApiIconsGetIconsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIconsAPIsDAAS) IconsGetIconsExecute(r ApiIconsGetIconsRequest) (*IconResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IconResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIconsAPIsDAAS) IconsRemoveIcon(ctx context.Context, id int32) ApiIconsRemoveIconRequest {
+	return ApiIconsRemoveIconRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockIconsAPIsDAAS) IconsRemoveIconExecute(r ApiIconsRemoveIconRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }

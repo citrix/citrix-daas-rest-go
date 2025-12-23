@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type RecommendationsAPIsDAAS interface {
@@ -73,6 +75,71 @@ type ApiRecommendationsGetRecommendationsRequest struct {
 	limit               *int32
 	continuationToken   *string
 	async               *bool
+}
+
+// MockApiRecommendationsGetRecommendationsRequest wraps the request struct to provide getter methods for testing
+type MockApiRecommendationsGetRecommendationsRequest struct {
+	ApiRecommendationsGetRecommendationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiRecommendationsGetRecommendationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiRecommendationsGetRecommendationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiRecommendationsGetRecommendationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiRecommendationsGetRecommendationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiRecommendationsGetRecommendationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiRecommendationsGetRecommendationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiRecommendationsGetRecommendationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiRecommendationsGetRecommendationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiRecommendationsGetRecommendationsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiRecommendationsGetRecommendationsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiRecommendationsGetRecommendationsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiRecommendationsGetRecommendationsRequest) Execute() (*RecommendationResponseModelCollection, *http.Response, error) {
+	return r.ApiRecommendationsGetRecommendationsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -374,6 +441,66 @@ type ApiRecommendationsSetRecommendationRequest struct {
 	citrixLocale                  *string
 }
 
+// MockApiRecommendationsSetRecommendationRequest wraps the request struct to provide getter methods for testing
+type MockApiRecommendationsSetRecommendationRequest struct {
+	ApiRecommendationsSetRecommendationRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiRecommendationsSetRecommendationRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiRecommendationsSetRecommendationRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiRecommendationsSetRecommendationRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetId returns the id parameter
+func (r MockApiRecommendationsSetRecommendationRequest) GetId() string {
+	return r.id
+}
+
+// GetSetRecommendationRequestModel returns the setRecommendationRequestModel parameter
+func (r MockApiRecommendationsSetRecommendationRequest) GetSetRecommendationRequestModel() *SetRecommendationRequestModel {
+	return r.setRecommendationRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiRecommendationsSetRecommendationRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiRecommendationsSetRecommendationRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiRecommendationsSetRecommendationRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiRecommendationsSetRecommendationRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiRecommendationsSetRecommendationRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiRecommendationsSetRecommendationRequest) Execute() (*http.Response, error) {
+	return r.ApiRecommendationsSetRecommendationRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiRecommendationsSetRecommendationRequest) CitrixCustomerId(citrixCustomerId string) ApiRecommendationsSetRecommendationRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -666,6 +793,61 @@ type ApiRecommendationsSetRecommendationsRequest struct {
 	citrixLocale                   *string
 }
 
+// MockApiRecommendationsSetRecommendationsRequest wraps the request struct to provide getter methods for testing
+type MockApiRecommendationsSetRecommendationsRequest struct {
+	ApiRecommendationsSetRecommendationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiRecommendationsSetRecommendationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiRecommendationsSetRecommendationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiRecommendationsSetRecommendationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetSetRecommendationsRequestModel returns the setRecommendationsRequestModel parameter
+func (r MockApiRecommendationsSetRecommendationsRequest) GetSetRecommendationsRequestModel() *SetRecommendationsRequestModel {
+	return r.setRecommendationsRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiRecommendationsSetRecommendationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiRecommendationsSetRecommendationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiRecommendationsSetRecommendationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiRecommendationsSetRecommendationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiRecommendationsSetRecommendationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiRecommendationsSetRecommendationsRequest) Execute() (*http.Response, error) {
+	return r.ApiRecommendationsSetRecommendationsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiRecommendationsSetRecommendationsRequest) CitrixCustomerId(citrixCustomerId string) ApiRecommendationsSetRecommendationsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -929,4 +1111,60 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationsExecut
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockRecommendationsAPIsDAAS extracts the MockRecommendationsAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockRecommendationsAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockRecommendationsAPIsDAAS(client *APIClient) *MockRecommendationsAPIsDAAS {
+	return client.RecommendationsAPIsDAAS.(*MockRecommendationsAPIsDAAS)
+}
+
+// MockRecommendationsAPIsDAAS is a mock implementation of the RecommendationsAPIsDAAS interface for testing
+var _ RecommendationsAPIsDAAS = (*MockRecommendationsAPIsDAAS)(nil)
+
+type MockRecommendationsAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockRecommendationsAPIsDAAS) RecommendationsGetRecommendations(ctx context.Context) ApiRecommendationsGetRecommendationsRequest {
+	return ApiRecommendationsGetRecommendationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockRecommendationsAPIsDAAS) RecommendationsGetRecommendationsExecute(r ApiRecommendationsGetRecommendationsRequest) (*RecommendationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*RecommendationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockRecommendationsAPIsDAAS) RecommendationsSetRecommendation(ctx context.Context, id string) ApiRecommendationsSetRecommendationRequest {
+	return ApiRecommendationsSetRecommendationRequest{
+		ctx:        ctx,
+		ApiService: m,
+		id:         id,
+	}
+}
+
+func (m *MockRecommendationsAPIsDAAS) RecommendationsSetRecommendationExecute(r ApiRecommendationsSetRecommendationRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockRecommendationsAPIsDAAS) RecommendationsSetRecommendations(ctx context.Context) ApiRecommendationsSetRecommendationsRequest {
+	return ApiRecommendationsSetRecommendationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockRecommendationsAPIsDAAS) RecommendationsSetRecommendationsExecute(r ApiRecommendationsSetRecommendationsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }

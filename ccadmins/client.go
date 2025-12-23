@@ -48,7 +48,7 @@ type APIClient struct {
 
 	// API Services
 
-	AdministratorsAPI *AdministratorsAPIService
+	AdministratorsAPI AdministratorsAPI
 }
 
 type service struct {

@@ -20,12 +20,144 @@ import (
 	"strings"
 )
 
+type MasterImageCMD interface {
+
+	/*
+		AddTemplateImage Add a new master image to the XenApp Essential customer's account, which is linked to a VHD image inside the customer's storage account.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customer id
+		@param siteId The site ID of the customer
+		@return ApiAddTemplateImageRequest
+	*/
+	AddTemplateImage(ctx context.Context, customerId string, siteId string) ApiAddTemplateImageRequest
+
+	// AddTemplateImageExecute executes the request
+	//  @return string
+	AddTemplateImageExecute(r ApiAddTemplateImageRequest) (string, *http.Response, error)
+
+	/*
+		CancelCustomerImageUrl Cancel url of customer image
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customer id
+		@param siteId The site ID of the customer
+		@param imageId The master image to view details of
+		@return ApiCancelCustomerImageUrlRequest
+	*/
+	CancelCustomerImageUrl(ctx context.Context, customerId string, siteId string, imageId string) ApiCancelCustomerImageUrlRequest
+
+	// CancelCustomerImageUrlExecute executes the request
+	CancelCustomerImageUrlExecute(r ApiCancelCustomerImageUrlRequest) (*http.Response, error)
+
+	/*
+		CreateCustomerImageUrl Returns url of customer image
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customer id
+		@param siteId The site ID of the customer
+		@param imageId The master image to view details of
+		@return ApiCreateCustomerImageUrlRequest
+	*/
+	CreateCustomerImageUrl(ctx context.Context, customerId string, siteId string, imageId string) ApiCreateCustomerImageUrlRequest
+
+	// CreateCustomerImageUrlExecute executes the request
+	//  @return TemplateImageUrl
+	CreateCustomerImageUrlExecute(r ApiCreateCustomerImageUrlRequest) (*TemplateImageUrl, *http.Response, error)
+
+	/*
+		DeleteTemplateImage Delete the specified master image
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customer id
+		@param siteId The site ID of the customer
+		@param imageId The master image to update
+		@return ApiDeleteTemplateImageRequest
+	*/
+	DeleteTemplateImage(ctx context.Context, customerId string, siteId string, imageId string) ApiDeleteTemplateImageRequest
+
+	// DeleteTemplateImageExecute executes the request
+	DeleteTemplateImageExecute(r ApiDeleteTemplateImageRequest) (*http.Response, error)
+
+	/*
+		GetAzureSasUrlExpiryTime Returns the expiry time of the Azure SAS URL
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customer id
+		@param siteId The site ID of the customer
+		@param imageId The master image to view details of
+		@return ApiGetAzureSasUrlExpiryTimeRequest
+	*/
+	GetAzureSasUrlExpiryTime(ctx context.Context, customerId string, siteId string, imageId string) ApiGetAzureSasUrlExpiryTimeRequest
+
+	// GetAzureSasUrlExpiryTimeExecute executes the request
+	//  @return TemplateImageUrl
+	GetAzureSasUrlExpiryTimeExecute(r ApiGetAzureSasUrlExpiryTimeRequest) (*TemplateImageUrl, *http.Response, error)
+
+	/*
+		GetImages Returns all the master images the customer has linked to their account
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customer id
+		@param siteId The site ID of the customer
+		@return ApiGetImagesRequest
+	*/
+	GetImages(ctx context.Context, customerId string, siteId string) ApiGetImagesRequest
+
+	// GetImagesExecute executes the request
+	//  @return CustomerTemplateImageOverviewsModel
+	GetImagesExecute(r ApiGetImagesRequest) (*CustomerTemplateImageOverviewsModel, *http.Response, error)
+
+	/*
+		GetTemplateImage Returns details of the specified master image
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customer id
+		@param siteId The site ID of the customer
+		@param imageId The master image to view details of
+		@return ApiGetTemplateImageRequest
+	*/
+	GetTemplateImage(ctx context.Context, customerId string, siteId string, imageId string) ApiGetTemplateImageRequest
+
+	// GetTemplateImageExecute executes the request
+	//  @return TemplateImageDetails
+	GetTemplateImageExecute(r ApiGetTemplateImageRequest) (*TemplateImageDetails, *http.Response, error)
+
+	/*
+		ImportTemplateImage Add a new master image to the DaaS customer's account, which is linked to a VHD image inside the customer's storage account (Image import feature for DaaS)
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customer id
+		@param siteId The site ID of the customer
+		@return ApiImportTemplateImageRequest
+	*/
+	ImportTemplateImage(ctx context.Context, customerId string, siteId string) ApiImportTemplateImageRequest
+
+	// ImportTemplateImageExecute executes the request
+	//  @return TemplateImageOverview
+	ImportTemplateImageExecute(r ApiImportTemplateImageRequest) (*TemplateImageOverview, *http.Response, error)
+
+	/*
+		UpdateTemplateImage Updates template image configuration (name, notes, allowed ips)
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customer id
+		@param siteId
+		@param imageId The template image to update
+		@return ApiUpdateTemplateImageRequest
+	*/
+	UpdateTemplateImage(ctx context.Context, customerId string, siteId string, imageId string) ApiUpdateTemplateImageRequest
+
+	// UpdateTemplateImageExecute executes the request
+	UpdateTemplateImageExecute(r ApiUpdateTemplateImageRequest) (*http.Response, error)
+}
+
 // MasterImageCMDService MasterImageCMD service
 type MasterImageCMDService service
 
 type ApiAddTemplateImageRequest struct {
 	ctx                 context.Context
-	ApiService          *MasterImageCMDService
+	ApiService          MasterImageCMD
 	customerId          string
 	siteId              string
 	citrixTransactionId *string
@@ -164,7 +296,7 @@ func (a *MasterImageCMDService) AddTemplateImageExecute(r ApiAddTemplateImageReq
 
 type ApiCancelCustomerImageUrlRequest struct {
 	ctx                 context.Context
-	ApiService          *MasterImageCMDService
+	ApiService          MasterImageCMD
 	customerId          string
 	siteId              string
 	imageId             string
@@ -286,7 +418,7 @@ func (a *MasterImageCMDService) CancelCustomerImageUrlExecute(r ApiCancelCustome
 
 type ApiCreateCustomerImageUrlRequest struct {
 	ctx                 context.Context
-	ApiService          *MasterImageCMDService
+	ApiService          MasterImageCMD
 	customerId          string
 	siteId              string
 	imageId             string
@@ -428,7 +560,7 @@ func (a *MasterImageCMDService) CreateCustomerImageUrlExecute(r ApiCreateCustome
 
 type ApiDeleteTemplateImageRequest struct {
 	ctx                 context.Context
-	ApiService          *MasterImageCMDService
+	ApiService          MasterImageCMD
 	customerId          string
 	siteId              string
 	imageId             string
@@ -550,7 +682,7 @@ func (a *MasterImageCMDService) DeleteTemplateImageExecute(r ApiDeleteTemplateIm
 
 type ApiGetAzureSasUrlExpiryTimeRequest struct {
 	ctx                 context.Context
-	ApiService          *MasterImageCMDService
+	ApiService          MasterImageCMD
 	customerId          string
 	siteId              string
 	imageId             string
@@ -684,7 +816,7 @@ func (a *MasterImageCMDService) GetAzureSasUrlExpiryTimeExecute(r ApiGetAzureSas
 
 type ApiGetImagesRequest struct {
 	ctx                     context.Context
-	ApiService              *MasterImageCMDService
+	ApiService              MasterImageCMD
 	customerId              string
 	siteId                  string
 	cspCustomerId           *string
@@ -872,7 +1004,7 @@ func (a *MasterImageCMDService) GetImagesExecute(r ApiGetImagesRequest) (*Custom
 
 type ApiGetTemplateImageRequest struct {
 	ctx                 context.Context
-	ApiService          *MasterImageCMDService
+	ApiService          MasterImageCMD
 	customerId          string
 	siteId              string
 	imageId             string
@@ -1006,7 +1138,7 @@ func (a *MasterImageCMDService) GetTemplateImageExecute(r ApiGetTemplateImageReq
 
 type ApiImportTemplateImageRequest struct {
 	ctx                 context.Context
-	ApiService          *MasterImageCMDService
+	ApiService          MasterImageCMD
 	customerId          string
 	siteId              string
 	citrixTransactionId *string
@@ -1145,7 +1277,7 @@ func (a *MasterImageCMDService) ImportTemplateImageExecute(r ApiImportTemplateIm
 
 type ApiUpdateTemplateImageRequest struct {
 	ctx                 context.Context
-	ApiService          *MasterImageCMDService
+	ApiService          MasterImageCMD
 	customerId          string
 	siteId              string
 	imageId             string

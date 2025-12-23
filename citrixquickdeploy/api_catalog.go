@@ -19,12 +19,204 @@ import (
 	"strings"
 )
 
+type CatalogCMD interface {
+
+	/*
+		AddRemotePcCatalogMachineAssignments Add machine assignments to a remote pc catalog.  New machines will be added to the catalog with the specified users  Existing machines will be updated with the included assignments
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site ID of the customer
+		@param catalogId Id of the catalog to add machines to.
+		@return ApiAddRemotePcCatalogMachineAssignmentsRequest
+	*/
+	AddRemotePcCatalogMachineAssignments(ctx context.Context, customerId string, siteId string, catalogId string) ApiAddRemotePcCatalogMachineAssignmentsRequest
+
+	// AddRemotePcCatalogMachineAssignmentsExecute executes the request
+	//  @return string
+	AddRemotePcCatalogMachineAssignmentsExecute(r ApiAddRemotePcCatalogMachineAssignmentsRequest) (string, *http.Response, error)
+
+	/*
+		ConfigureAndDeployCitrixManagedCatalogApi Configure all the Citrix managed catalog deployment steps and initiate the catalog deployment
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site ID of the customer
+		@return ApiConfigureAndDeployCitrixManagedCatalogApiRequest
+	*/
+	ConfigureAndDeployCitrixManagedCatalogApi(ctx context.Context, customerId string, siteId string) ApiConfigureAndDeployCitrixManagedCatalogApiRequest
+
+	// ConfigureAndDeployCitrixManagedCatalogApiExecute executes the request
+	//  @return string
+	ConfigureAndDeployCitrixManagedCatalogApiExecute(r ApiConfigureAndDeployCitrixManagedCatalogApiRequest) (string, *http.Response, error)
+
+	/*
+		CreateRemotePcCatalog Create a Remote PC catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site ID of the customer
+		@return ApiCreateRemotePcCatalogRequest
+	*/
+	CreateRemotePcCatalog(ctx context.Context, customerId string, siteId string) ApiCreateRemotePcCatalogRequest
+
+	// CreateRemotePcCatalogExecute executes the request
+	//  @return string
+	CreateRemotePcCatalogExecute(r ApiCreateRemotePcCatalogRequest) (string, *http.Response, error)
+
+	/*
+		DeleteCustomerCatalog Delete a catalog along with all the pubhishd apps for the catalog
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId
+		@param catalogId ID of the catalog to be deleted
+		@return ApiDeleteCustomerCatalogRequest
+	*/
+	DeleteCustomerCatalog(ctx context.Context, customerId string, siteId string, catalogId string) ApiDeleteCustomerCatalogRequest
+
+	// DeleteCustomerCatalogExecute executes the request
+	DeleteCustomerCatalogExecute(r ApiDeleteCustomerCatalogRequest) (*http.Response, error)
+
+	/*
+		GetCatalogCapacityConfiguration Get the performance information configured for this catalog
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId
+		@param catalogId ID of the catalog
+		@return ApiGetCatalogCapacityConfigurationRequest
+	*/
+	GetCatalogCapacityConfiguration(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetCatalogCapacityConfigurationRequest
+
+	// GetCatalogCapacityConfigurationExecute executes the request
+	//  @return CatalogCapacitySettingsModel
+	GetCatalogCapacityConfigurationExecute(r ApiGetCatalogCapacityConfigurationRequest) (*CatalogCapacitySettingsModel, *http.Response, error)
+
+	/*
+		GetCustomerCatalog Returns a specific catalog for a specific customer
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customerId to retrieve catalog for
+		@param siteId
+		@param catalogId ID of the catalog to retrieve
+		@return ApiGetCustomerCatalogRequest
+	*/
+	GetCustomerCatalog(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetCustomerCatalogRequest
+
+	// GetCustomerCatalogExecute executes the request
+	//  @return CatalogOverview
+	GetCustomerCatalogExecute(r ApiGetCustomerCatalogRequest) (*CatalogOverview, *http.Response, error)
+
+	/*
+		GetCustomerCatalogs Returns all the catalogs that the specified customer has created
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customerId to retrieve catalogs for
+		@param siteId The site ID of the customer
+		@return ApiGetCustomerCatalogsRequest
+	*/
+	GetCustomerCatalogs(ctx context.Context, customerId string, siteId string) ApiGetCustomerCatalogsRequest
+
+	// GetCustomerCatalogsExecute executes the request
+	//  @return CustomerCatalogOverviewsModel
+	GetCustomerCatalogsExecute(r ApiGetCustomerCatalogsRequest) (*CustomerCatalogOverviewsModel, *http.Response, error)
+
+	/*
+		GetCustomerManagedCatalogs Returns all the catalogs that the specified Citrix managed customer has created
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customerId to retrieve catalogs for
+		@param siteId The site ID of the customer
+		@return ApiGetCustomerManagedCatalogsRequest
+	*/
+	GetCustomerManagedCatalogs(ctx context.Context, customerId string, siteId string) ApiGetCustomerManagedCatalogsRequest
+
+	// GetCustomerManagedCatalogsExecute executes the request
+	//  @return CustomerManagedCatalogOverviewsModel
+	GetCustomerManagedCatalogsExecute(r ApiGetCustomerManagedCatalogsRequest) (*CustomerManagedCatalogOverviewsModel, *http.Response, error)
+
+	/*
+		GetCustomerManagedCatalogsById Returns all the catalogs that the specified Citrix managed customer has created
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customerId to retrieve catalogs for
+		@param siteId The site ID of the customer
+		@param catalogId The catalog ids for which to get the status
+		@return ApiGetCustomerManagedCatalogsByIdRequest
+	*/
+	GetCustomerManagedCatalogsById(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetCustomerManagedCatalogsByIdRequest
+
+	// GetCustomerManagedCatalogsByIdExecute executes the request
+	//  @return CatalogOverview
+	GetCustomerManagedCatalogsByIdExecute(r ApiGetCustomerManagedCatalogsByIdRequest) (*CatalogOverview, *http.Response, error)
+
+	/*
+		UpdateCatalogImage Update the catalog's master image.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customerId to update image for
+		@param siteId The site ID of the customer
+		@param catalogId ID of the catalog to update
+		@return ApiUpdateCatalogImageRequest
+	*/
+	UpdateCatalogImage(ctx context.Context, customerId string, siteId string, catalogId string) ApiUpdateCatalogImageRequest
+
+	// UpdateCatalogImageExecute executes the request
+	//  @return string
+	UpdateCatalogImageExecute(r ApiUpdateCatalogImageRequest) (string, *http.Response, error)
+
+	/*
+		UpdateCatalogImageApi Update the catalog's master image.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site ID of the customer
+		@param catalogId ID of the catalog to deploy
+		@return ApiUpdateCatalogImageApiRequest
+	*/
+	UpdateCatalogImageApi(ctx context.Context, customerId string, siteId string, catalogId string) ApiUpdateCatalogImageApiRequest
+
+	// UpdateCatalogImageApiExecute executes the request
+	//  @return string
+	UpdateCatalogImageApiExecute(r ApiUpdateCatalogImageApiRequest) (string, *http.Response, error)
+
+	/*
+		UpdateCatalogScaleConfiguration Update the performance information configured for this catalog
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId
+		@param catalogId ID of the catalog
+		@return ApiUpdateCatalogScaleConfigurationRequest
+	*/
+	UpdateCatalogScaleConfiguration(ctx context.Context, customerId string, siteId string, catalogId string) ApiUpdateCatalogScaleConfigurationRequest
+
+	// UpdateCatalogScaleConfigurationExecute executes the request
+	UpdateCatalogScaleConfigurationExecute(r ApiUpdateCatalogScaleConfigurationRequest) (*http.Response, error)
+
+	/*
+		UpdateRemotePcCatalogScopes Configure all the Citrix managed catalog deployment steps and initiate the catalog deployment
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site ID of the customer
+		@param catalogId
+		@return ApiUpdateRemotePcCatalogScopesRequest
+	*/
+	UpdateRemotePcCatalogScopes(ctx context.Context, customerId string, siteId string, catalogId string) ApiUpdateRemotePcCatalogScopesRequest
+
+	// UpdateRemotePcCatalogScopesExecute executes the request
+	//  @return string
+	UpdateRemotePcCatalogScopesExecute(r ApiUpdateRemotePcCatalogScopesRequest) (string, *http.Response, error)
+}
+
 // CatalogCMDService CatalogCMD service
 type CatalogCMDService service
 
 type ApiAddRemotePcCatalogMachineAssignmentsRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -167,7 +359,7 @@ func (a *CatalogCMDService) AddRemotePcCatalogMachineAssignmentsExecute(r ApiAdd
 
 type ApiConfigureAndDeployCitrixManagedCatalogApiRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	citrixTransactionId *string
@@ -306,7 +498,7 @@ func (a *CatalogCMDService) ConfigureAndDeployCitrixManagedCatalogApiExecute(r A
 
 type ApiCreateRemotePcCatalogRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	citrixTransactionId *string
@@ -445,7 +637,7 @@ func (a *CatalogCMDService) CreateRemotePcCatalogExecute(r ApiCreateRemotePcCata
 
 type ApiDeleteCustomerCatalogRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -576,7 +768,7 @@ func (a *CatalogCMDService) DeleteCustomerCatalogExecute(r ApiDeleteCustomerCata
 
 type ApiGetCatalogCapacityConfigurationRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -710,7 +902,7 @@ func (a *CatalogCMDService) GetCatalogCapacityConfigurationExecute(r ApiGetCatal
 
 type ApiGetCustomerCatalogRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -844,7 +1036,7 @@ func (a *CatalogCMDService) GetCustomerCatalogExecute(r ApiGetCustomerCatalogReq
 
 type ApiGetCustomerCatalogsRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogIdsOnly      *bool
@@ -984,7 +1176,7 @@ func (a *CatalogCMDService) GetCustomerCatalogsExecute(r ApiGetCustomerCatalogsR
 
 type ApiGetCustomerManagedCatalogsRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	cspCustomerId       *string
@@ -1134,7 +1326,7 @@ func (a *CatalogCMDService) GetCustomerManagedCatalogsExecute(r ApiGetCustomerMa
 
 type ApiGetCustomerManagedCatalogsByIdRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -1268,7 +1460,7 @@ func (a *CatalogCMDService) GetCustomerManagedCatalogsByIdExecute(r ApiGetCustom
 
 type ApiUpdateCatalogImageRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -1411,7 +1603,7 @@ func (a *CatalogCMDService) UpdateCatalogImageExecute(r ApiUpdateCatalogImageReq
 
 type ApiUpdateCatalogImageApiRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -1554,7 +1746,7 @@ func (a *CatalogCMDService) UpdateCatalogImageApiExecute(r ApiUpdateCatalogImage
 
 type ApiUpdateCatalogScaleConfigurationRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -1685,7 +1877,7 @@ func (a *CatalogCMDService) UpdateCatalogScaleConfigurationExecute(r ApiUpdateCa
 
 type ApiUpdateRemotePcCatalogScopesRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogId           string

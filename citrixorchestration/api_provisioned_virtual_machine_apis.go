@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type ProvisionedVirtualMachineAPIsDAAS interface {
@@ -94,6 +96,66 @@ type ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpda
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest wraps the request struct to provide getter methods for testing
+type MockApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest struct {
+	ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetVmSid returns the vmSid parameter
+func (r MockApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) GetVmSid() string {
+	return r.vmSid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) Execute() (*http.Response, error) {
+	return r.ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -393,6 +455,66 @@ type ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest struc
 	async               *bool
 }
 
+// MockApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest wraps the request struct to provide getter methods for testing
+type MockApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest struct {
+	ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetVmSid returns the vmSid parameter
+func (r MockApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) GetVmSid() string {
+	return r.vmSid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) Execute() (*MaintenanceCycleVMOperationJobResponseModelCollection, *http.Response, error) {
+	return r.ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) CitrixCustomerId(citrixCustomerId string) ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -685,6 +807,66 @@ type ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest str
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest wraps the request struct to provide getter methods for testing
+type MockApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest struct {
+	ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetVmSid returns the vmSid parameter
+func (r MockApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) GetVmSid() string {
+	return r.vmSid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) Execute() (*http.Response, error) {
+	return r.ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -984,6 +1166,71 @@ type ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest struct {
 	async                                       *bool
 }
 
+// MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest struct {
+	ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetVmSid returns the vmSid parameter
+func (r MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) GetVmSid() string {
+	return r.vmSid
+}
+
+// GetUpdateProvisionedVirtualMachineRequestModel returns the updateProvisionedVirtualMachineRequestModel parameter
+func (r MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) GetUpdateProvisionedVirtualMachineRequestModel() *UpdateProvisionedVirtualMachineRequestModel {
+	return r.updateProvisionedVirtualMachineRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) Execute() (*http.Response, error) {
+	return r.ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) CitrixCustomerId(citrixCustomerId string) ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1276,4 +1523,75 @@ func (a *ProvisionedVirtualMachineAPIsDAASService) ProvisionedVirtualMachineUpda
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockProvisionedVirtualMachineAPIsDAAS extracts the MockProvisionedVirtualMachineAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockProvisionedVirtualMachineAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockProvisionedVirtualMachineAPIsDAAS(client *APIClient) *MockProvisionedVirtualMachineAPIsDAAS {
+	return client.ProvisionedVirtualMachineAPIsDAAS.(*MockProvisionedVirtualMachineAPIsDAAS)
+}
+
+// MockProvisionedVirtualMachineAPIsDAAS is a mock implementation of the ProvisionedVirtualMachineAPIsDAAS interface for testing
+var _ ProvisionedVirtualMachineAPIsDAAS = (*MockProvisionedVirtualMachineAPIsDAAS)(nil)
+
+type MockProvisionedVirtualMachineAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockProvisionedVirtualMachineAPIsDAAS) ProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdate(ctx context.Context, vmSid string) ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest {
+	return ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest{
+		ctx:        ctx,
+		ApiService: m,
+		vmSid:      vmSid,
+	}
+}
+
+func (m *MockProvisionedVirtualMachineAPIsDAAS) ProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateExecute(r ApiProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdateRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockProvisionedVirtualMachineAPIsDAAS) ProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobs(ctx context.Context, vmSid string) ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest {
+	return ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		vmSid:      vmSid,
+	}
+}
+
+func (m *MockProvisionedVirtualMachineAPIsDAAS) ProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsExecute(r ApiProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobsRequest) (*MaintenanceCycleVMOperationJobResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MaintenanceCycleVMOperationJobResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockProvisionedVirtualMachineAPIsDAAS) ProvisionedVirtualMachineResetProvisionedVirtualMachineOSDisk(ctx context.Context, vmSid string) ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest {
+	return ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest{
+		ctx:        ctx,
+		ApiService: m,
+		vmSid:      vmSid,
+	}
+}
+
+func (m *MockProvisionedVirtualMachineAPIsDAAS) ProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskExecute(r ApiProvisionedVirtualMachineResetProvisionedVirtualMachineOSDiskRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockProvisionedVirtualMachineAPIsDAAS) ProvisionedVirtualMachineUpdateProvisionedVirtualMachine(ctx context.Context, vmSid string) ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest {
+	return ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		vmSid:      vmSid,
+	}
+}
+
+func (m *MockProvisionedVirtualMachineAPIsDAAS) ProvisionedVirtualMachineUpdateProvisionedVirtualMachineExecute(r ApiProvisionedVirtualMachineUpdateProvisionedVirtualMachineRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }

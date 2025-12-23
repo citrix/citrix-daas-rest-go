@@ -19,12 +19,41 @@ import (
 	"strings"
 )
 
+type AuthDomainsDAAS interface {
+
+	/*
+		CustomerAuthDomainsCheckGet Method for CustomerAuthDomainsCheckGet
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customer
+		@return AuthDomainsDAASCustomerAuthDomainsCheckGetRequest
+	*/
+	CustomerAuthDomainsCheckGet(ctx context.Context, customer string) AuthDomainsDAASCustomerAuthDomainsCheckGetRequest
+
+	// CustomerAuthDomainsCheckGetExecute executes the request
+	//  @return bool
+	CustomerAuthDomainsCheckGetExecute(r AuthDomainsDAASCustomerAuthDomainsCheckGetRequest) (bool, *http.Response, error)
+
+	/*
+		CustomerAuthDomainsPut Method for CustomerAuthDomainsPut
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customer
+		@return AuthDomainsDAASCustomerAuthDomainsPutRequest
+	*/
+	CustomerAuthDomainsPut(ctx context.Context, customer string) AuthDomainsDAASCustomerAuthDomainsPutRequest
+
+	// CustomerAuthDomainsPutExecute executes the request
+	//  @return UpdatedCustomerModel
+	CustomerAuthDomainsPutExecute(r AuthDomainsDAASCustomerAuthDomainsPutRequest) (*UpdatedCustomerModel, *http.Response, error)
+}
+
 // AuthDomainsDAASService AuthDomainsDAAS service
 type AuthDomainsDAASService service
 
 type AuthDomainsDAASCustomerAuthDomainsCheckGetRequest struct {
 	ctx        context.Context
-	ApiService *AuthDomainsDAASService
+	ApiService AuthDomainsDAAS
 	name       *string
 	customer   string
 }
@@ -149,7 +178,7 @@ func (a *AuthDomainsDAASService) CustomerAuthDomainsCheckGetExecute(r AuthDomain
 
 type AuthDomainsDAASCustomerAuthDomainsPutRequest struct {
 	ctx        context.Context
-	ApiService *AuthDomainsDAASService
+	ApiService AuthDomainsDAAS
 	oldName    *string
 	newName    *string
 	customer   string

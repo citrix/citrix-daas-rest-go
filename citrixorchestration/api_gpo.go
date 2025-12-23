@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type GpoDAAS interface {
@@ -495,6 +497,66 @@ type ApiGpoComparePoliciesRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoComparePoliciesRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoComparePoliciesRequest struct {
+	ApiGpoComparePoliciesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoComparePoliciesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoComparePoliciesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoComparePoliciesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetWithDefaults returns the withDefaults parameter
+func (r MockApiGpoComparePoliciesRequest) GetWithDefaults() *bool {
+	return r.withDefaults
+}
+
+// GetRequestBody returns the requestBody parameter
+func (r MockApiGpoComparePoliciesRequest) GetRequestBody() *[]string {
+	return r.requestBody
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoComparePoliciesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoComparePoliciesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoComparePoliciesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoComparePoliciesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoComparePoliciesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoComparePoliciesRequest) Execute() (*ComparisonResponseContract, *http.Response, error) {
+	return r.ApiGpoComparePoliciesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoComparePoliciesRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoComparePoliciesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -807,6 +869,66 @@ type ApiGpoCopyGpoPoliciesRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoCopyGpoPoliciesRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoCopyGpoPoliciesRequest struct {
+	ApiGpoCopyGpoPoliciesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoCopyGpoPoliciesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoCopyGpoPoliciesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoCopyGpoPoliciesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetWithFilters returns the withFilters parameter
+func (r MockApiGpoCopyGpoPoliciesRequest) GetWithFilters() *bool {
+	return r.withFilters
+}
+
+// GetCopyPoliciesRequest returns the copyPoliciesRequest parameter
+func (r MockApiGpoCopyGpoPoliciesRequest) GetCopyPoliciesRequest() *CopyPoliciesRequest {
+	return r.copyPoliciesRequest
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoCopyGpoPoliciesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoCopyGpoPoliciesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoCopyGpoPoliciesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoCopyGpoPoliciesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoCopyGpoPoliciesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoCopyGpoPoliciesRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoCopyGpoPoliciesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoCopyGpoPoliciesRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoCopyGpoPoliciesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1105,6 +1227,71 @@ type ApiGpoCopyGpoPolicySetRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiGpoCopyGpoPolicySetRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoCopyGpoPolicySetRequest struct {
+	ApiGpoCopyGpoPolicySetRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoCopyGpoPolicySetRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoCopyGpoPolicySetRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoCopyGpoPolicySetRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicySetGuid returns the policySetGuid parameter
+func (r MockApiGpoCopyGpoPolicySetRequest) GetPolicySetGuid() string {
+	return r.policySetGuid
+}
+
+// GetName returns the name parameter
+func (r MockApiGpoCopyGpoPolicySetRequest) GetName() *string {
+	return r.name
+}
+
+// GetWithFilters returns the withFilters parameter
+func (r MockApiGpoCopyGpoPolicySetRequest) GetWithFilters() *bool {
+	return r.withFilters
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoCopyGpoPolicySetRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoCopyGpoPolicySetRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoCopyGpoPolicySetRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoCopyGpoPolicySetRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoCopyGpoPolicySetRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoCopyGpoPolicySetRequest) Execute() (*PolicySetResponse, *http.Response, error) {
+	return r.ApiGpoCopyGpoPolicySetRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1421,6 +1608,66 @@ type ApiGpoCreateGpoFilterRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoCreateGpoFilterRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoCreateGpoFilterRequest struct {
+	ApiGpoCreateGpoFilterRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoCreateGpoFilterRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoCreateGpoFilterRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoCreateGpoFilterRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicyGuid returns the policyGuid parameter
+func (r MockApiGpoCreateGpoFilterRequest) GetPolicyGuid() *string {
+	return r.policyGuid
+}
+
+// GetFilterRequest returns the filterRequest parameter
+func (r MockApiGpoCreateGpoFilterRequest) GetFilterRequest() *FilterRequest {
+	return r.filterRequest
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoCreateGpoFilterRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoCreateGpoFilterRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoCreateGpoFilterRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoCreateGpoFilterRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoCreateGpoFilterRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoCreateGpoFilterRequest) Execute() (*FilterResponse, *http.Response, error) {
+	return r.ApiGpoCreateGpoFilterRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoCreateGpoFilterRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoCreateGpoFilterRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1731,6 +1978,66 @@ type ApiGpoCreateGpoPolicyRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiGpoCreateGpoPolicyRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoCreateGpoPolicyRequest struct {
+	ApiGpoCreateGpoPolicyRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoCreateGpoPolicyRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoCreateGpoPolicyRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoCreateGpoPolicyRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicySetGuid returns the policySetGuid parameter
+func (r MockApiGpoCreateGpoPolicyRequest) GetPolicySetGuid() *string {
+	return r.policySetGuid
+}
+
+// GetPolicyRequest returns the policyRequest parameter
+func (r MockApiGpoCreateGpoPolicyRequest) GetPolicyRequest() *PolicyRequest {
+	return r.policyRequest
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoCreateGpoPolicyRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoCreateGpoPolicyRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoCreateGpoPolicyRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoCreateGpoPolicyRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoCreateGpoPolicyRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoCreateGpoPolicyRequest) Execute() (*PolicyResponse, *http.Response, error) {
+	return r.ApiGpoCreateGpoPolicyRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2044,6 +2351,61 @@ type ApiGpoCreateGpoPolicySetRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoCreateGpoPolicySetRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoCreateGpoPolicySetRequest struct {
+	ApiGpoCreateGpoPolicySetRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoCreateGpoPolicySetRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoCreateGpoPolicySetRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoCreateGpoPolicySetRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicySetRequest returns the policySetRequest parameter
+func (r MockApiGpoCreateGpoPolicySetRequest) GetPolicySetRequest() *PolicySetRequest {
+	return r.policySetRequest
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoCreateGpoPolicySetRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoCreateGpoPolicySetRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoCreateGpoPolicySetRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoCreateGpoPolicySetRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoCreateGpoPolicySetRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoCreateGpoPolicySetRequest) Execute() (*PolicySetResponse, *http.Response, error) {
+	return r.ApiGpoCreateGpoPolicySetRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoCreateGpoPolicySetRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoCreateGpoPolicySetRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2344,6 +2706,66 @@ type ApiGpoCreateGpoSettingRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiGpoCreateGpoSettingRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoCreateGpoSettingRequest struct {
+	ApiGpoCreateGpoSettingRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoCreateGpoSettingRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoCreateGpoSettingRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoCreateGpoSettingRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicyGuid returns the policyGuid parameter
+func (r MockApiGpoCreateGpoSettingRequest) GetPolicyGuid() *string {
+	return r.policyGuid
+}
+
+// GetSettingRequest returns the settingRequest parameter
+func (r MockApiGpoCreateGpoSettingRequest) GetSettingRequest() *SettingRequest {
+	return r.settingRequest
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoCreateGpoSettingRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoCreateGpoSettingRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoCreateGpoSettingRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoCreateGpoSettingRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoCreateGpoSettingRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoCreateGpoSettingRequest) Execute() (*SettingResponse, *http.Response, error) {
+	return r.ApiGpoCreateGpoSettingRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2657,6 +3079,61 @@ type ApiGpoDeleteGpoFilterRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoDeleteGpoFilterRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoDeleteGpoFilterRequest struct {
+	ApiGpoDeleteGpoFilterRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoDeleteGpoFilterRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoDeleteGpoFilterRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoDeleteGpoFilterRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetFilterGuid returns the filterGuid parameter
+func (r MockApiGpoDeleteGpoFilterRequest) GetFilterGuid() string {
+	return r.filterGuid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoDeleteGpoFilterRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoDeleteGpoFilterRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoDeleteGpoFilterRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoDeleteGpoFilterRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoDeleteGpoFilterRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoDeleteGpoFilterRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoDeleteGpoFilterRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoDeleteGpoFilterRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoDeleteGpoFilterRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2925,6 +3402,61 @@ type ApiGpoDeleteGpoPolicyRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiGpoDeleteGpoPolicyRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoDeleteGpoPolicyRequest struct {
+	ApiGpoDeleteGpoPolicyRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoDeleteGpoPolicyRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoDeleteGpoPolicyRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoDeleteGpoPolicyRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicyGuid returns the policyGuid parameter
+func (r MockApiGpoDeleteGpoPolicyRequest) GetPolicyGuid() string {
+	return r.policyGuid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoDeleteGpoPolicyRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoDeleteGpoPolicyRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoDeleteGpoPolicyRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoDeleteGpoPolicyRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoDeleteGpoPolicyRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoDeleteGpoPolicyRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoDeleteGpoPolicyRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3197,6 +3729,61 @@ type ApiGpoDeleteGpoPolicySetRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoDeleteGpoPolicySetRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoDeleteGpoPolicySetRequest struct {
+	ApiGpoDeleteGpoPolicySetRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoDeleteGpoPolicySetRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoDeleteGpoPolicySetRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoDeleteGpoPolicySetRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicySetGuid returns the policySetGuid parameter
+func (r MockApiGpoDeleteGpoPolicySetRequest) GetPolicySetGuid() string {
+	return r.policySetGuid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoDeleteGpoPolicySetRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoDeleteGpoPolicySetRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoDeleteGpoPolicySetRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoDeleteGpoPolicySetRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoDeleteGpoPolicySetRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoDeleteGpoPolicySetRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoDeleteGpoPolicySetRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoDeleteGpoPolicySetRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoDeleteGpoPolicySetRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3467,6 +4054,61 @@ type ApiGpoDeleteGpoSettingRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoDeleteGpoSettingRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoDeleteGpoSettingRequest struct {
+	ApiGpoDeleteGpoSettingRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoDeleteGpoSettingRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoDeleteGpoSettingRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoDeleteGpoSettingRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetSettingGuid returns the settingGuid parameter
+func (r MockApiGpoDeleteGpoSettingRequest) GetSettingGuid() string {
+	return r.settingGuid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoDeleteGpoSettingRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoDeleteGpoSettingRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoDeleteGpoSettingRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoDeleteGpoSettingRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoDeleteGpoSettingRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoDeleteGpoSettingRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoDeleteGpoSettingRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoDeleteGpoSettingRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoDeleteGpoSettingRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3735,6 +4377,61 @@ type ApiGpoDisableGpoPoliciesRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiGpoDisableGpoPoliciesRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoDisableGpoPoliciesRequest struct {
+	ApiGpoDisableGpoPoliciesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoDisableGpoPoliciesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoDisableGpoPoliciesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoDisableGpoPoliciesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetRequestBody returns the requestBody parameter
+func (r MockApiGpoDisableGpoPoliciesRequest) GetRequestBody() *[]string {
+	return r.requestBody
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoDisableGpoPoliciesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoDisableGpoPoliciesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoDisableGpoPoliciesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoDisableGpoPoliciesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoDisableGpoPoliciesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoDisableGpoPoliciesRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoDisableGpoPoliciesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4026,6 +4723,61 @@ type ApiGpoEnableGpoPoliciesRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoEnableGpoPoliciesRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoEnableGpoPoliciesRequest struct {
+	ApiGpoEnableGpoPoliciesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoEnableGpoPoliciesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoEnableGpoPoliciesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoEnableGpoPoliciesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetRequestBody returns the requestBody parameter
+func (r MockApiGpoEnableGpoPoliciesRequest) GetRequestBody() *[]string {
+	return r.requestBody
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoEnableGpoPoliciesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoEnableGpoPoliciesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoEnableGpoPoliciesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoEnableGpoPoliciesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoEnableGpoPoliciesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoEnableGpoPoliciesRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoEnableGpoPoliciesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoEnableGpoPoliciesRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoEnableGpoPoliciesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -4314,6 +5066,56 @@ type ApiGpoGetFilterDefinitionsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoGetFilterDefinitionsRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoGetFilterDefinitionsRequest struct {
+	ApiGpoGetFilterDefinitionsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoGetFilterDefinitionsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoGetFilterDefinitionsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoGetFilterDefinitionsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoGetFilterDefinitionsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoGetFilterDefinitionsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoGetFilterDefinitionsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoGetFilterDefinitionsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoGetFilterDefinitionsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoGetFilterDefinitionsRequest) Execute() (*CollectionEnvelopeOfFilterDefinition, *http.Response, error) {
+	return r.ApiGpoGetFilterDefinitionsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoGetFilterDefinitionsRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoGetFilterDefinitionsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -4585,6 +5387,86 @@ type ApiGpoGetSettingDefinitionsRequest struct {
 	namePattern         *string
 	isUserSetting       *bool
 	continuationToken   *string
+}
+
+// MockApiGpoGetSettingDefinitionsRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoGetSettingDefinitionsRequest struct {
+	ApiGpoGetSettingDefinitionsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoGetSettingDefinitionsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoGetSettingDefinitionsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoGetSettingDefinitionsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoGetSettingDefinitionsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoGetSettingDefinitionsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoGetSettingDefinitionsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoGetSettingDefinitionsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoGetSettingDefinitionsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetIsLean returns the isLean parameter
+func (r MockApiGpoGetSettingDefinitionsRequest) GetIsLean() *bool {
+	return r.isLean
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiGpoGetSettingDefinitionsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetIsAscending returns the isAscending parameter
+func (r MockApiGpoGetSettingDefinitionsRequest) GetIsAscending() *bool {
+	return r.isAscending
+}
+
+// GetNamePattern returns the namePattern parameter
+func (r MockApiGpoGetSettingDefinitionsRequest) GetNamePattern() *string {
+	return r.namePattern
+}
+
+// GetIsUserSetting returns the isUserSetting parameter
+func (r MockApiGpoGetSettingDefinitionsRequest) GetIsUserSetting() *bool {
+	return r.isUserSetting
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiGpoGetSettingDefinitionsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoGetSettingDefinitionsRequest) Execute() (*SettingDefinitionEnvelope, *http.Response, error) {
+	return r.ApiGpoGetSettingDefinitionsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4918,6 +5800,61 @@ type ApiGpoGetSettingFullDetailRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoGetSettingFullDetailRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoGetSettingFullDetailRequest struct {
+	ApiGpoGetSettingFullDetailRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoGetSettingFullDetailRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoGetSettingFullDetailRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoGetSettingFullDetailRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetSettingName returns the settingName parameter
+func (r MockApiGpoGetSettingFullDetailRequest) GetSettingName() *string {
+	return r.settingName
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoGetSettingFullDetailRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoGetSettingFullDetailRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoGetSettingFullDetailRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoGetSettingFullDetailRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoGetSettingFullDetailRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoGetSettingFullDetailRequest) Execute() (*SettingDefinition, *http.Response, error) {
+	return r.ApiGpoGetSettingFullDetailRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoGetSettingFullDetailRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoGetSettingFullDetailRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -5195,6 +6132,66 @@ type ApiGpoMoveGpoPoliciesRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiGpoMoveGpoPoliciesRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoMoveGpoPoliciesRequest struct {
+	ApiGpoMoveGpoPoliciesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoMoveGpoPoliciesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoMoveGpoPoliciesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoMoveGpoPoliciesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetToPolicySet returns the toPolicySet parameter
+func (r MockApiGpoMoveGpoPoliciesRequest) GetToPolicySet() *string {
+	return r.toPolicySet
+}
+
+// GetRequestBody returns the requestBody parameter
+func (r MockApiGpoMoveGpoPoliciesRequest) GetRequestBody() *[]string {
+	return r.requestBody
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoMoveGpoPoliciesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoMoveGpoPoliciesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoMoveGpoPoliciesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoMoveGpoPoliciesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoMoveGpoPoliciesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoMoveGpoPoliciesRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoMoveGpoPoliciesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5495,6 +6492,66 @@ type ApiGpoRankGpoPoliciesRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiGpoRankGpoPoliciesRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoRankGpoPoliciesRequest struct {
+	ApiGpoRankGpoPoliciesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoRankGpoPoliciesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoRankGpoPoliciesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoRankGpoPoliciesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicySetGuid returns the policySetGuid parameter
+func (r MockApiGpoRankGpoPoliciesRequest) GetPolicySetGuid() *string {
+	return r.policySetGuid
+}
+
+// GetRequestBody returns the requestBody parameter
+func (r MockApiGpoRankGpoPoliciesRequest) GetRequestBody() *[]string {
+	return r.requestBody
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoRankGpoPoliciesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoRankGpoPoliciesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoRankGpoPoliciesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoRankGpoPoliciesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoRankGpoPoliciesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoRankGpoPoliciesRequest) Execute() (bool, *http.Response, error) {
+	return r.ApiGpoRankGpoPoliciesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5808,6 +6865,61 @@ type ApiGpoReadGpoFilterRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoReadGpoFilterRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoReadGpoFilterRequest struct {
+	ApiGpoReadGpoFilterRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoReadGpoFilterRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoReadGpoFilterRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoReadGpoFilterRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetFilterGuid returns the filterGuid parameter
+func (r MockApiGpoReadGpoFilterRequest) GetFilterGuid() string {
+	return r.filterGuid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoReadGpoFilterRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoReadGpoFilterRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoReadGpoFilterRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoReadGpoFilterRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoReadGpoFilterRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoReadGpoFilterRequest) Execute() (*FilterResponse, *http.Response, error) {
+	return r.ApiGpoReadGpoFilterRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoReadGpoFilterRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoReadGpoFilterRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -6090,6 +7202,61 @@ type ApiGpoReadGpoFiltersRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoReadGpoFiltersRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoReadGpoFiltersRequest struct {
+	ApiGpoReadGpoFiltersRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoReadGpoFiltersRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoReadGpoFiltersRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoReadGpoFiltersRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicyGuid returns the policyGuid parameter
+func (r MockApiGpoReadGpoFiltersRequest) GetPolicyGuid() *string {
+	return r.policyGuid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoReadGpoFiltersRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoReadGpoFiltersRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoReadGpoFiltersRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoReadGpoFiltersRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoReadGpoFiltersRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoReadGpoFiltersRequest) Execute() (*CollectionEnvelopeOfFilterResponse, *http.Response, error) {
+	return r.ApiGpoReadGpoFiltersRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoReadGpoFiltersRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoReadGpoFiltersRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -6368,6 +7535,71 @@ type ApiGpoReadGpoPoliciesRequest struct {
 	citrixLocale        *string
 	withSettings        *bool
 	withFilters         *bool
+}
+
+// MockApiGpoReadGpoPoliciesRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoReadGpoPoliciesRequest struct {
+	ApiGpoReadGpoPoliciesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoReadGpoPoliciesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoReadGpoPoliciesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoReadGpoPoliciesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicySetGuid returns the policySetGuid parameter
+func (r MockApiGpoReadGpoPoliciesRequest) GetPolicySetGuid() *string {
+	return r.policySetGuid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoReadGpoPoliciesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoReadGpoPoliciesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoReadGpoPoliciesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoReadGpoPoliciesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoReadGpoPoliciesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetWithSettings returns the withSettings parameter
+func (r MockApiGpoReadGpoPoliciesRequest) GetWithSettings() *bool {
+	return r.withSettings
+}
+
+// GetWithFilters returns the withFilters parameter
+func (r MockApiGpoReadGpoPoliciesRequest) GetWithFilters() *bool {
+	return r.withFilters
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoReadGpoPoliciesRequest) Execute() (*CollectionEnvelopeOfPolicyResponse, *http.Response, error) {
+	return r.ApiGpoReadGpoPoliciesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6666,6 +7898,71 @@ type ApiGpoReadGpoPolicyRequest struct {
 	citrixLocale        *string
 	withSettings        *bool
 	withFilters         *bool
+}
+
+// MockApiGpoReadGpoPolicyRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoReadGpoPolicyRequest struct {
+	ApiGpoReadGpoPolicyRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoReadGpoPolicyRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoReadGpoPolicyRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoReadGpoPolicyRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicyGuid returns the policyGuid parameter
+func (r MockApiGpoReadGpoPolicyRequest) GetPolicyGuid() string {
+	return r.policyGuid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoReadGpoPolicyRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoReadGpoPolicyRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoReadGpoPolicyRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoReadGpoPolicyRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoReadGpoPolicyRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetWithSettings returns the withSettings parameter
+func (r MockApiGpoReadGpoPolicyRequest) GetWithSettings() *bool {
+	return r.withSettings
+}
+
+// GetWithFilters returns the withFilters parameter
+func (r MockApiGpoReadGpoPolicyRequest) GetWithFilters() *bool {
+	return r.withFilters
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoReadGpoPolicyRequest) Execute() (*PolicyResponse, *http.Response, error) {
+	return r.ApiGpoReadGpoPolicyRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6969,6 +8266,66 @@ type ApiGpoReadGpoPolicySetRequest struct {
 	withPolicies        *bool
 }
 
+// MockApiGpoReadGpoPolicySetRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoReadGpoPolicySetRequest struct {
+	ApiGpoReadGpoPolicySetRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoReadGpoPolicySetRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoReadGpoPolicySetRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoReadGpoPolicySetRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicySetGuid returns the policySetGuid parameter
+func (r MockApiGpoReadGpoPolicySetRequest) GetPolicySetGuid() string {
+	return r.policySetGuid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoReadGpoPolicySetRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoReadGpoPolicySetRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoReadGpoPolicySetRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoReadGpoPolicySetRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoReadGpoPolicySetRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetWithPolicies returns the withPolicies parameter
+func (r MockApiGpoReadGpoPolicySetRequest) GetWithPolicies() *bool {
+	return r.withPolicies
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoReadGpoPolicySetRequest) Execute() (*PolicySetResponse, *http.Response, error) {
+	return r.ApiGpoReadGpoPolicySetRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoReadGpoPolicySetRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoReadGpoPolicySetRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -7259,6 +8616,56 @@ type ApiGpoReadGpoPolicySetsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoReadGpoPolicySetsRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoReadGpoPolicySetsRequest struct {
+	ApiGpoReadGpoPolicySetsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoReadGpoPolicySetsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoReadGpoPolicySetsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoReadGpoPolicySetsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoReadGpoPolicySetsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoReadGpoPolicySetsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoReadGpoPolicySetsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoReadGpoPolicySetsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoReadGpoPolicySetsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoReadGpoPolicySetsRequest) Execute() (*CollectionEnvelopeOfPolicySetResponse, *http.Response, error) {
+	return r.ApiGpoReadGpoPolicySetsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoReadGpoPolicySetsRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoReadGpoPolicySetsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -7525,6 +8932,61 @@ type ApiGpoReadGpoSettingRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiGpoReadGpoSettingRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoReadGpoSettingRequest struct {
+	ApiGpoReadGpoSettingRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoReadGpoSettingRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoReadGpoSettingRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoReadGpoSettingRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetSettingGuid returns the settingGuid parameter
+func (r MockApiGpoReadGpoSettingRequest) GetSettingGuid() string {
+	return r.settingGuid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoReadGpoSettingRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoReadGpoSettingRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoReadGpoSettingRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoReadGpoSettingRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoReadGpoSettingRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoReadGpoSettingRequest) Execute() (*SettingResponse, *http.Response, error) {
+	return r.ApiGpoReadGpoSettingRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7809,6 +9271,61 @@ type ApiGpoReadGpoSettingsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoReadGpoSettingsRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoReadGpoSettingsRequest struct {
+	ApiGpoReadGpoSettingsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoReadGpoSettingsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoReadGpoSettingsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoReadGpoSettingsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicyGuid returns the policyGuid parameter
+func (r MockApiGpoReadGpoSettingsRequest) GetPolicyGuid() *string {
+	return r.policyGuid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoReadGpoSettingsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoReadGpoSettingsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoReadGpoSettingsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoReadGpoSettingsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoReadGpoSettingsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoReadGpoSettingsRequest) Execute() (*CollectionEnvelopeOfSettingResponse, *http.Response, error) {
+	return r.ApiGpoReadGpoSettingsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoReadGpoSettingsRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoReadGpoSettingsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -8085,6 +9602,61 @@ type ApiGpoRemoveGpoPoliciesRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiGpoRemoveGpoPoliciesRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoRemoveGpoPoliciesRequest struct {
+	ApiGpoRemoveGpoPoliciesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoRemoveGpoPoliciesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoRemoveGpoPoliciesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoRemoveGpoPoliciesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetRequestBody returns the requestBody parameter
+func (r MockApiGpoRemoveGpoPoliciesRequest) GetRequestBody() *[]string {
+	return r.requestBody
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoRemoveGpoPoliciesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoRemoveGpoPoliciesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoRemoveGpoPoliciesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoRemoveGpoPoliciesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoRemoveGpoPoliciesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoRemoveGpoPoliciesRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoRemoveGpoPoliciesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8375,6 +9947,66 @@ type ApiGpoRunSimulationRequest struct {
 	citrixTransactionId       *string
 	accept                    *string
 	citrixLocale              *string
+}
+
+// MockApiGpoRunSimulationRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoRunSimulationRequest struct {
+	ApiGpoRunSimulationRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoRunSimulationRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoRunSimulationRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoRunSimulationRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicySetGuid returns the policySetGuid parameter
+func (r MockApiGpoRunSimulationRequest) GetPolicySetGuid() *string {
+	return r.policySetGuid
+}
+
+// GetSimulationRequestContract returns the simulationRequestContract parameter
+func (r MockApiGpoRunSimulationRequest) GetSimulationRequestContract() *SimulationRequestContract {
+	return r.simulationRequestContract
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoRunSimulationRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoRunSimulationRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoRunSimulationRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoRunSimulationRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoRunSimulationRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoRunSimulationRequest) Execute() ([]SimulationResponseContract, *http.Response, error) {
+	return r.ApiGpoRunSimulationRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8688,6 +10320,61 @@ type ApiGpoRunValidationRequest struct {
 	all                 *bool
 }
 
+// MockApiGpoRunValidationRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoRunValidationRequest struct {
+	ApiGpoRunValidationRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoRunValidationRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoRunValidationRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoRunValidationRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoRunValidationRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoRunValidationRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoRunValidationRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoRunValidationRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoRunValidationRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAll returns the all parameter
+func (r MockApiGpoRunValidationRequest) GetAll() *bool {
+	return r.all
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoRunValidationRequest) Execute() ([]GpoTestPolicyData, *http.Response, error) {
+	return r.ApiGpoRunValidationRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoRunValidationRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoRunValidationRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -8969,6 +10656,76 @@ type ApiGpoSearchFiltersRequest struct {
 	limit               *int32
 	continuationToken   *string
 	async               *bool
+}
+
+// MockApiGpoSearchFiltersRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoSearchFiltersRequest struct {
+	ApiGpoSearchFiltersRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoSearchFiltersRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoSearchFiltersRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoSearchFiltersRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetFilterSearch returns the filterSearch parameter
+func (r MockApiGpoSearchFiltersRequest) GetFilterSearch() *FilterSearch {
+	return r.filterSearch
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoSearchFiltersRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoSearchFiltersRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoSearchFiltersRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoSearchFiltersRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoSearchFiltersRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiGpoSearchFiltersRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiGpoSearchFiltersRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiGpoSearchFiltersRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoSearchFiltersRequest) Execute() (*CollectionEnvelopeOfFilterResponse, *http.Response, error) {
+	return r.ApiGpoSearchFiltersRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9305,6 +11062,76 @@ type ApiGpoSearchPoliciesRequest struct {
 	async               *bool
 }
 
+// MockApiGpoSearchPoliciesRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoSearchPoliciesRequest struct {
+	ApiGpoSearchPoliciesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoSearchPoliciesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoSearchPoliciesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoSearchPoliciesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicySearch returns the policySearch parameter
+func (r MockApiGpoSearchPoliciesRequest) GetPolicySearch() *PolicySearch {
+	return r.policySearch
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoSearchPoliciesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoSearchPoliciesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoSearchPoliciesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoSearchPoliciesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoSearchPoliciesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiGpoSearchPoliciesRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiGpoSearchPoliciesRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiGpoSearchPoliciesRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoSearchPoliciesRequest) Execute() (*CollectionEnvelopeOfPolicyResponse, *http.Response, error) {
+	return r.ApiGpoSearchPoliciesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoSearchPoliciesRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoSearchPoliciesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -9637,6 +11464,76 @@ type ApiGpoSearchPolicySetsRequest struct {
 	limit               *int32
 	continuationToken   *string
 	async               *bool
+}
+
+// MockApiGpoSearchPolicySetsRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoSearchPolicySetsRequest struct {
+	ApiGpoSearchPolicySetsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoSearchPolicySetsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoSearchPolicySetsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoSearchPolicySetsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicySetSearch returns the policySetSearch parameter
+func (r MockApiGpoSearchPolicySetsRequest) GetPolicySetSearch() *PolicySetSearch {
+	return r.policySetSearch
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoSearchPolicySetsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoSearchPolicySetsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoSearchPolicySetsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoSearchPolicySetsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoSearchPolicySetsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiGpoSearchPolicySetsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiGpoSearchPolicySetsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiGpoSearchPolicySetsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoSearchPolicySetsRequest) Execute() (*CollectionEnvelopeOfPolicySetResponse, *http.Response, error) {
+	return r.ApiGpoSearchPolicySetsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9973,6 +11870,76 @@ type ApiGpoSearchSettingsRequest struct {
 	async               *bool
 }
 
+// MockApiGpoSearchSettingsRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoSearchSettingsRequest struct {
+	ApiGpoSearchSettingsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoSearchSettingsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoSearchSettingsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoSearchSettingsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetSettingSearch returns the settingSearch parameter
+func (r MockApiGpoSearchSettingsRequest) GetSettingSearch() *SettingSearch {
+	return r.settingSearch
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoSearchSettingsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoSearchSettingsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoSearchSettingsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoSearchSettingsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoSearchSettingsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiGpoSearchSettingsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiGpoSearchSettingsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiGpoSearchSettingsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoSearchSettingsRequest) Execute() (*CollectionEnvelopeOfSettingResponse, *http.Response, error) {
+	return r.ApiGpoSearchSettingsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoSearchSettingsRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoSearchSettingsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -10305,6 +12272,66 @@ type ApiGpoUpdateGpoFilterRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoUpdateGpoFilterRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoUpdateGpoFilterRequest struct {
+	ApiGpoUpdateGpoFilterRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoUpdateGpoFilterRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoUpdateGpoFilterRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoUpdateGpoFilterRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetFilterGuid returns the filterGuid parameter
+func (r MockApiGpoUpdateGpoFilterRequest) GetFilterGuid() string {
+	return r.filterGuid
+}
+
+// GetFilterRequest returns the filterRequest parameter
+func (r MockApiGpoUpdateGpoFilterRequest) GetFilterRequest() *FilterRequest {
+	return r.filterRequest
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoUpdateGpoFilterRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoUpdateGpoFilterRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoUpdateGpoFilterRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoUpdateGpoFilterRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoUpdateGpoFilterRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoUpdateGpoFilterRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoUpdateGpoFilterRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoUpdateGpoFilterRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoUpdateGpoFilterRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -10596,6 +12623,66 @@ type ApiGpoUpdateGpoPolicyRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiGpoUpdateGpoPolicyRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoUpdateGpoPolicyRequest struct {
+	ApiGpoUpdateGpoPolicyRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoUpdateGpoPolicyRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoUpdateGpoPolicyRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoUpdateGpoPolicyRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicyGuid returns the policyGuid parameter
+func (r MockApiGpoUpdateGpoPolicyRequest) GetPolicyGuid() string {
+	return r.policyGuid
+}
+
+// GetPolicyBodyRequest returns the policyBodyRequest parameter
+func (r MockApiGpoUpdateGpoPolicyRequest) GetPolicyBodyRequest() *PolicyBodyRequest {
+	return r.policyBodyRequest
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoUpdateGpoPolicyRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoUpdateGpoPolicyRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoUpdateGpoPolicyRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoUpdateGpoPolicyRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoUpdateGpoPolicyRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoUpdateGpoPolicyRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoUpdateGpoPolicyRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10891,6 +12978,66 @@ type ApiGpoUpdateGpoPolicySetRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoUpdateGpoPolicySetRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoUpdateGpoPolicySetRequest struct {
+	ApiGpoUpdateGpoPolicySetRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoUpdateGpoPolicySetRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoUpdateGpoPolicySetRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoUpdateGpoPolicySetRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicySetGuid returns the policySetGuid parameter
+func (r MockApiGpoUpdateGpoPolicySetRequest) GetPolicySetGuid() string {
+	return r.policySetGuid
+}
+
+// GetPolicySetRequest returns the policySetRequest parameter
+func (r MockApiGpoUpdateGpoPolicySetRequest) GetPolicySetRequest() *PolicySetRequest {
+	return r.policySetRequest
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoUpdateGpoPolicySetRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoUpdateGpoPolicySetRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoUpdateGpoPolicySetRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoUpdateGpoPolicySetRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoUpdateGpoPolicySetRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoUpdateGpoPolicySetRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoUpdateGpoPolicySetRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoUpdateGpoPolicySetRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoUpdateGpoPolicySetRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -11182,6 +13329,66 @@ type ApiGpoUpdateGpoSettingRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiGpoUpdateGpoSettingRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoUpdateGpoSettingRequest struct {
+	ApiGpoUpdateGpoSettingRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoUpdateGpoSettingRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoUpdateGpoSettingRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoUpdateGpoSettingRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetSettingGuid returns the settingGuid parameter
+func (r MockApiGpoUpdateGpoSettingRequest) GetSettingGuid() string {
+	return r.settingGuid
+}
+
+// GetSettingRequest returns the settingRequest parameter
+func (r MockApiGpoUpdateGpoSettingRequest) GetSettingRequest() *SettingRequest {
+	return r.settingRequest
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoUpdateGpoSettingRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoUpdateGpoSettingRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoUpdateGpoSettingRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoUpdateGpoSettingRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoUpdateGpoSettingRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoUpdateGpoSettingRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoUpdateGpoSettingRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -11476,6 +13683,61 @@ type ApiGpoUpdatePolicySetBlobRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiGpoUpdatePolicySetBlobRequest wraps the request struct to provide getter methods for testing
+type MockApiGpoUpdatePolicySetBlobRequest struct {
+	ApiGpoUpdatePolicySetBlobRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiGpoUpdatePolicySetBlobRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiGpoUpdatePolicySetBlobRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiGpoUpdatePolicySetBlobRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicySetGuid returns the policySetGuid parameter
+func (r MockApiGpoUpdatePolicySetBlobRequest) GetPolicySetGuid() string {
+	return r.policySetGuid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiGpoUpdatePolicySetBlobRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiGpoUpdatePolicySetBlobRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiGpoUpdatePolicySetBlobRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiGpoUpdatePolicySetBlobRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiGpoUpdatePolicySetBlobRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiGpoUpdatePolicySetBlobRequest) Execute() (*http.Response, error) {
+	return r.ApiGpoUpdatePolicySetBlobRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiGpoUpdatePolicySetBlobRequest) CitrixCustomerId(citrixCustomerId string) ApiGpoUpdatePolicySetBlobRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -11731,4 +13993,493 @@ func (a *GpoDAASService) GpoUpdatePolicySetBlobExecute(r ApiGpoUpdatePolicySetBl
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockGpoDAAS extracts the MockGpoDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockGpoDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockGpoDAAS(client *APIClient) *MockGpoDAAS {
+	return client.GpoDAAS.(*MockGpoDAAS)
+}
+
+// MockGpoDAAS is a mock implementation of the GpoDAAS interface for testing
+var _ GpoDAAS = (*MockGpoDAAS)(nil)
+
+type MockGpoDAAS struct {
+	mock.Mock
+}
+
+func (m *MockGpoDAAS) GpoComparePolicies(ctx context.Context) ApiGpoComparePoliciesRequest {
+	return ApiGpoComparePoliciesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoComparePoliciesExecute(r ApiGpoComparePoliciesRequest) (*ComparisonResponseContract, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ComparisonResponseContract), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoCopyGpoPolicies(ctx context.Context) ApiGpoCopyGpoPoliciesRequest {
+	return ApiGpoCopyGpoPoliciesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockGpoDAAS) GpoCopyGpoPolicySet(ctx context.Context, policySetGuid string) ApiGpoCopyGpoPolicySetRequest {
+	return ApiGpoCopyGpoPolicySetRequest{
+		ctx:           ctx,
+		ApiService:    m,
+		policySetGuid: policySetGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequest) (*PolicySetResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*PolicySetResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoCreateGpoFilter(ctx context.Context) ApiGpoCreateGpoFilterRequest {
+	return ApiGpoCreateGpoFilterRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterRequest) (*FilterResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*FilterResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoCreateGpoPolicy(ctx context.Context) ApiGpoCreateGpoPolicyRequest {
+	return ApiGpoCreateGpoPolicyRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyRequest) (*PolicyResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*PolicyResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoCreateGpoPolicySet(ctx context.Context) ApiGpoCreateGpoPolicySetRequest {
+	return ApiGpoCreateGpoPolicySetRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySetRequest) (*PolicySetResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*PolicySetResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoCreateGpoSetting(ctx context.Context) ApiGpoCreateGpoSettingRequest {
+	return ApiGpoCreateGpoSettingRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequest) (*SettingResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SettingResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoDeleteGpoFilter(ctx context.Context, filterGuid string) ApiGpoDeleteGpoFilterRequest {
+	return ApiGpoDeleteGpoFilterRequest{
+		ctx:        ctx,
+		ApiService: m,
+		filterGuid: filterGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoDeleteGpoFilterExecute(r ApiGpoDeleteGpoFilterRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockGpoDAAS) GpoDeleteGpoPolicy(ctx context.Context, policyGuid string) ApiGpoDeleteGpoPolicyRequest {
+	return ApiGpoDeleteGpoPolicyRequest{
+		ctx:        ctx,
+		ApiService: m,
+		policyGuid: policyGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoDeleteGpoPolicyExecute(r ApiGpoDeleteGpoPolicyRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockGpoDAAS) GpoDeleteGpoPolicySet(ctx context.Context, policySetGuid string) ApiGpoDeleteGpoPolicySetRequest {
+	return ApiGpoDeleteGpoPolicySetRequest{
+		ctx:           ctx,
+		ApiService:    m,
+		policySetGuid: policySetGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoDeleteGpoPolicySetExecute(r ApiGpoDeleteGpoPolicySetRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockGpoDAAS) GpoDeleteGpoSetting(ctx context.Context, settingGuid string) ApiGpoDeleteGpoSettingRequest {
+	return ApiGpoDeleteGpoSettingRequest{
+		ctx:         ctx,
+		ApiService:  m,
+		settingGuid: settingGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoDeleteGpoSettingExecute(r ApiGpoDeleteGpoSettingRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockGpoDAAS) GpoDisableGpoPolicies(ctx context.Context) ApiGpoDisableGpoPoliciesRequest {
+	return ApiGpoDisableGpoPoliciesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPoliciesRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockGpoDAAS) GpoEnableGpoPolicies(ctx context.Context) ApiGpoEnableGpoPoliciesRequest {
+	return ApiGpoEnableGpoPoliciesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockGpoDAAS) GpoGetFilterDefinitions(ctx context.Context) ApiGpoGetFilterDefinitionsRequest {
+	return ApiGpoGetFilterDefinitionsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoGetFilterDefinitionsExecute(r ApiGpoGetFilterDefinitionsRequest) (*CollectionEnvelopeOfFilterDefinition, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*CollectionEnvelopeOfFilterDefinition), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoGetSettingDefinitions(ctx context.Context) ApiGpoGetSettingDefinitionsRequest {
+	return ApiGpoGetSettingDefinitionsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoGetSettingDefinitionsExecute(r ApiGpoGetSettingDefinitionsRequest) (*SettingDefinitionEnvelope, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SettingDefinitionEnvelope), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoGetSettingFullDetail(ctx context.Context) ApiGpoGetSettingFullDetailRequest {
+	return ApiGpoGetSettingFullDetailRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoGetSettingFullDetailExecute(r ApiGpoGetSettingFullDetailRequest) (*SettingDefinition, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SettingDefinition), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoMoveGpoPolicies(ctx context.Context) ApiGpoMoveGpoPoliciesRequest {
+	return ApiGpoMoveGpoPoliciesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockGpoDAAS) GpoRankGpoPolicies(ctx context.Context) ApiGpoRankGpoPoliciesRequest {
+	return ApiGpoRankGpoPoliciesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesRequest) (bool, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(bool), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoReadGpoFilter(ctx context.Context, filterGuid string) ApiGpoReadGpoFilterRequest {
+	return ApiGpoReadGpoFilterRequest{
+		ctx:        ctx,
+		ApiService: m,
+		filterGuid: filterGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoReadGpoFilterExecute(r ApiGpoReadGpoFilterRequest) (*FilterResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*FilterResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoReadGpoFilters(ctx context.Context) ApiGpoReadGpoFiltersRequest {
+	return ApiGpoReadGpoFiltersRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoReadGpoFiltersExecute(r ApiGpoReadGpoFiltersRequest) (*CollectionEnvelopeOfFilterResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*CollectionEnvelopeOfFilterResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoReadGpoPolicies(ctx context.Context) ApiGpoReadGpoPoliciesRequest {
+	return ApiGpoReadGpoPoliciesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoReadGpoPoliciesExecute(r ApiGpoReadGpoPoliciesRequest) (*CollectionEnvelopeOfPolicyResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*CollectionEnvelopeOfPolicyResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoReadGpoPolicy(ctx context.Context, policyGuid string) ApiGpoReadGpoPolicyRequest {
+	return ApiGpoReadGpoPolicyRequest{
+		ctx:        ctx,
+		ApiService: m,
+		policyGuid: policyGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoReadGpoPolicyExecute(r ApiGpoReadGpoPolicyRequest) (*PolicyResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*PolicyResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoReadGpoPolicySet(ctx context.Context, policySetGuid string) ApiGpoReadGpoPolicySetRequest {
+	return ApiGpoReadGpoPolicySetRequest{
+		ctx:           ctx,
+		ApiService:    m,
+		policySetGuid: policySetGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoReadGpoPolicySetExecute(r ApiGpoReadGpoPolicySetRequest) (*PolicySetResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*PolicySetResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoReadGpoPolicySets(ctx context.Context) ApiGpoReadGpoPolicySetsRequest {
+	return ApiGpoReadGpoPolicySetsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoReadGpoPolicySetsExecute(r ApiGpoReadGpoPolicySetsRequest) (*CollectionEnvelopeOfPolicySetResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*CollectionEnvelopeOfPolicySetResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoReadGpoSetting(ctx context.Context, settingGuid string) ApiGpoReadGpoSettingRequest {
+	return ApiGpoReadGpoSettingRequest{
+		ctx:         ctx,
+		ApiService:  m,
+		settingGuid: settingGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoReadGpoSettingExecute(r ApiGpoReadGpoSettingRequest) (*SettingResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*SettingResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoReadGpoSettings(ctx context.Context) ApiGpoReadGpoSettingsRequest {
+	return ApiGpoReadGpoSettingsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoReadGpoSettingsExecute(r ApiGpoReadGpoSettingsRequest) (*CollectionEnvelopeOfSettingResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*CollectionEnvelopeOfSettingResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoRemoveGpoPolicies(ctx context.Context) ApiGpoRemoveGpoPoliciesRequest {
+	return ApiGpoRemoveGpoPoliciesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockGpoDAAS) GpoRunSimulation(ctx context.Context) ApiGpoRunSimulationRequest {
+	return ApiGpoRunSimulationRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) ([]SimulationResponseContract, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).([]SimulationResponseContract), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoRunValidation(ctx context.Context) ApiGpoRunValidationRequest {
+	return ApiGpoRunValidationRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoRunValidationExecute(r ApiGpoRunValidationRequest) ([]GpoTestPolicyData, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).([]GpoTestPolicyData), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoSearchFilters(ctx context.Context) ApiGpoSearchFiltersRequest {
+	return ApiGpoSearchFiltersRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (*CollectionEnvelopeOfFilterResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*CollectionEnvelopeOfFilterResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoSearchPolicies(ctx context.Context) ApiGpoSearchPoliciesRequest {
+	return ApiGpoSearchPoliciesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest) (*CollectionEnvelopeOfPolicyResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*CollectionEnvelopeOfPolicyResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoSearchPolicySets(ctx context.Context) ApiGpoSearchPolicySetsRequest {
+	return ApiGpoSearchPolicySetsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequest) (*CollectionEnvelopeOfPolicySetResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*CollectionEnvelopeOfPolicySetResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoSearchSettings(ctx context.Context) ApiGpoSearchSettingsRequest {
+	return ApiGpoSearchSettingsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockGpoDAAS) GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest) (*CollectionEnvelopeOfSettingResponse, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*CollectionEnvelopeOfSettingResponse), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockGpoDAAS) GpoUpdateGpoFilter(ctx context.Context, filterGuid string) ApiGpoUpdateGpoFilterRequest {
+	return ApiGpoUpdateGpoFilterRequest{
+		ctx:        ctx,
+		ApiService: m,
+		filterGuid: filterGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockGpoDAAS) GpoUpdateGpoPolicy(ctx context.Context, policyGuid string) ApiGpoUpdateGpoPolicyRequest {
+	return ApiGpoUpdateGpoPolicyRequest{
+		ctx:        ctx,
+		ApiService: m,
+		policyGuid: policyGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockGpoDAAS) GpoUpdateGpoPolicySet(ctx context.Context, policySetGuid string) ApiGpoUpdateGpoPolicySetRequest {
+	return ApiGpoUpdateGpoPolicySetRequest{
+		ctx:           ctx,
+		ApiService:    m,
+		policySetGuid: policySetGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySetRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockGpoDAAS) GpoUpdateGpoSetting(ctx context.Context, settingGuid string) ApiGpoUpdateGpoSettingRequest {
+	return ApiGpoUpdateGpoSettingRequest{
+		ctx:         ctx,
+		ApiService:  m,
+		settingGuid: settingGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockGpoDAAS) GpoUpdatePolicySetBlob(ctx context.Context, policySetGuid string) ApiGpoUpdatePolicySetBlobRequest {
+	return ApiGpoUpdatePolicySetBlobRequest{
+		ctx:           ctx,
+		ApiService:    m,
+		policySetGuid: policySetGuid,
+	}
+}
+
+func (m *MockGpoDAAS) GpoUpdatePolicySetBlobExecute(r ApiGpoUpdatePolicySetBlobRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }

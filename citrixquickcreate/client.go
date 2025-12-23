@@ -48,15 +48,15 @@ type APIClient struct {
 
 	// API Services
 
-	AccountQCS *AccountQCSService
+	AccountQCS AccountQCS
 
-	ConnectionQCS *ConnectionQCSService
+	ConnectionQCS ConnectionQCS
 
-	DeploymentQCS *DeploymentQCSService
+	DeploymentQCS DeploymentQCS
 
-	ImageQCS *ImageQCSService
+	ImageQCS ImageQCS
 
-	TasksQCS *TasksQCSService
+	TasksQCS TasksQCS
 }
 
 type service struct {

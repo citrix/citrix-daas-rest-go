@@ -48,21 +48,21 @@ type APIClient struct {
 
 	// API Services
 
-	AzureSubscriptionsCMD *AzureSubscriptionsCMDService
+	AzureSubscriptionsCMD AzureSubscriptionsCMD
 
-	CatalogCMD *CatalogCMDService
+	CatalogCMD CatalogCMD
 
-	CatalogApplicationsCMD *CatalogApplicationsCMDService
+	CatalogApplicationsCMD CatalogApplicationsCMD
 
-	CatalogDesktopsCMD *CatalogDesktopsCMDService
+	CatalogDesktopsCMD CatalogDesktopsCMD
 
-	IconCMD *IconCMDService
+	IconCMD IconCMD
 
-	ManagedCapacityCMD *ManagedCapacityCMDService
+	ManagedCapacityCMD ManagedCapacityCMD
 
-	MasterImageCMD *MasterImageCMDService
+	MasterImageCMD MasterImageCMD
 
-	SitesCMD *SitesCMDService
+	SitesCMD SitesCMD
 }
 
 type service struct {

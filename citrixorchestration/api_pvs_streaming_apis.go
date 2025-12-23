@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type PvsStreamingAPIsDAAS interface {
@@ -87,6 +89,66 @@ type ApiPvsStreamingGetPvsStreamingSitesRequest struct {
 	citrixLocale        *string
 	farmId              *string
 	async               *bool
+}
+
+// MockApiPvsStreamingGetPvsStreamingSitesRequest wraps the request struct to provide getter methods for testing
+type MockApiPvsStreamingGetPvsStreamingSitesRequest struct {
+	ApiPvsStreamingGetPvsStreamingSitesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiPvsStreamingGetPvsStreamingSitesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiPvsStreamingGetPvsStreamingSitesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiPvsStreamingGetPvsStreamingSitesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiPvsStreamingGetPvsStreamingSitesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiPvsStreamingGetPvsStreamingSitesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiPvsStreamingGetPvsStreamingSitesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiPvsStreamingGetPvsStreamingSitesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiPvsStreamingGetPvsStreamingSitesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetFarmId returns the farmId parameter
+func (r MockApiPvsStreamingGetPvsStreamingSitesRequest) GetFarmId() *string {
+	return r.farmId
+}
+
+// GetAsync returns the async parameter
+func (r MockApiPvsStreamingGetPvsStreamingSitesRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiPvsStreamingGetPvsStreamingSitesRequest) Execute() (*PvsStreamingSiteResponseModelCollection, *http.Response, error) {
+	return r.ApiPvsStreamingGetPvsStreamingSitesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -378,6 +440,71 @@ type ApiPvsStreamingGetPvsStreamingStoresRequest struct {
 	citrixLocale        *string
 	pvsSiteId           *string
 	async               *bool
+}
+
+// MockApiPvsStreamingGetPvsStreamingStoresRequest wraps the request struct to provide getter methods for testing
+type MockApiPvsStreamingGetPvsStreamingStoresRequest struct {
+	ApiPvsStreamingGetPvsStreamingStoresRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiPvsStreamingGetPvsStreamingStoresRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiPvsStreamingGetPvsStreamingStoresRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiPvsStreamingGetPvsStreamingStoresRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetFarmId returns the farmId parameter
+func (r MockApiPvsStreamingGetPvsStreamingStoresRequest) GetFarmId() string {
+	return r.farmId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiPvsStreamingGetPvsStreamingStoresRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiPvsStreamingGetPvsStreamingStoresRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiPvsStreamingGetPvsStreamingStoresRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiPvsStreamingGetPvsStreamingStoresRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiPvsStreamingGetPvsStreamingStoresRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetPvsSiteId returns the pvsSiteId parameter
+func (r MockApiPvsStreamingGetPvsStreamingStoresRequest) GetPvsSiteId() *string {
+	return r.pvsSiteId
+}
+
+// GetAsync returns the async parameter
+func (r MockApiPvsStreamingGetPvsStreamingStoresRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiPvsStreamingGetPvsStreamingStoresRequest) Execute() (*PvsStreamingStoreResponseModelCollection, *http.Response, error) {
+	return r.ApiPvsStreamingGetPvsStreamingStoresRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -685,6 +812,81 @@ type ApiPvsStreamingGetPvsStreamingVDisksRequest struct {
 	storeId             *string
 	diskLocatorId       *string
 	async               *bool
+}
+
+// MockApiPvsStreamingGetPvsStreamingVDisksRequest wraps the request struct to provide getter methods for testing
+type MockApiPvsStreamingGetPvsStreamingVDisksRequest struct {
+	ApiPvsStreamingGetPvsStreamingVDisksRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetFarmId returns the farmId parameter
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) GetFarmId() *string {
+	return r.farmId
+}
+
+// GetPvsSiteId returns the pvsSiteId parameter
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) GetPvsSiteId() *string {
+	return r.pvsSiteId
+}
+
+// GetStoreId returns the storeId parameter
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) GetStoreId() *string {
+	return r.storeId
+}
+
+// GetDiskLocatorId returns the diskLocatorId parameter
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) GetDiskLocatorId() *string {
+	return r.diskLocatorId
+}
+
+// GetAsync returns the async parameter
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiPvsStreamingGetPvsStreamingVDisksRequest) Execute() (*PvsStreamingVDiskResponseModelCollection, *http.Response, error) {
+	return r.ApiPvsStreamingGetPvsStreamingVDisksRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1003,6 +1205,61 @@ type ApiPvsStreamingTestDeviceCollectionExistsRequest struct {
 	citrixLocale                          *string
 }
 
+// MockApiPvsStreamingTestDeviceCollectionExistsRequest wraps the request struct to provide getter methods for testing
+type MockApiPvsStreamingTestDeviceCollectionExistsRequest struct {
+	ApiPvsStreamingTestDeviceCollectionExistsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiPvsStreamingTestDeviceCollectionExistsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiPvsStreamingTestDeviceCollectionExistsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiPvsStreamingTestDeviceCollectionExistsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetDeviceCollectionNameCheckRequestModel returns the deviceCollectionNameCheckRequestModel parameter
+func (r MockApiPvsStreamingTestDeviceCollectionExistsRequest) GetDeviceCollectionNameCheckRequestModel() *DeviceCollectionNameCheckRequestModel {
+	return r.deviceCollectionNameCheckRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiPvsStreamingTestDeviceCollectionExistsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiPvsStreamingTestDeviceCollectionExistsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiPvsStreamingTestDeviceCollectionExistsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiPvsStreamingTestDeviceCollectionExistsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiPvsStreamingTestDeviceCollectionExistsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiPvsStreamingTestDeviceCollectionExistsRequest) Execute() (*http.Response, error) {
+	return r.ApiPvsStreamingTestDeviceCollectionExistsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiPvsStreamingTestDeviceCollectionExistsRequest) CitrixCustomerId(citrixCustomerId string) ApiPvsStreamingTestDeviceCollectionExistsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1279,4 +1536,72 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingTestDeviceCollectionExistsExec
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockPvsStreamingAPIsDAAS extracts the MockPvsStreamingAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockPvsStreamingAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockPvsStreamingAPIsDAAS(client *APIClient) *MockPvsStreamingAPIsDAAS {
+	return client.PvsStreamingAPIsDAAS.(*MockPvsStreamingAPIsDAAS)
+}
+
+// MockPvsStreamingAPIsDAAS is a mock implementation of the PvsStreamingAPIsDAAS interface for testing
+var _ PvsStreamingAPIsDAAS = (*MockPvsStreamingAPIsDAAS)(nil)
+
+type MockPvsStreamingAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockPvsStreamingAPIsDAAS) PvsStreamingGetPvsStreamingSites(ctx context.Context) ApiPvsStreamingGetPvsStreamingSitesRequest {
+	return ApiPvsStreamingGetPvsStreamingSitesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockPvsStreamingAPIsDAAS) PvsStreamingGetPvsStreamingSitesExecute(r ApiPvsStreamingGetPvsStreamingSitesRequest) (*PvsStreamingSiteResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*PvsStreamingSiteResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockPvsStreamingAPIsDAAS) PvsStreamingGetPvsStreamingStores(ctx context.Context, farmId string) ApiPvsStreamingGetPvsStreamingStoresRequest {
+	return ApiPvsStreamingGetPvsStreamingStoresRequest{
+		ctx:        ctx,
+		ApiService: m,
+		farmId:     farmId,
+	}
+}
+
+func (m *MockPvsStreamingAPIsDAAS) PvsStreamingGetPvsStreamingStoresExecute(r ApiPvsStreamingGetPvsStreamingStoresRequest) (*PvsStreamingStoreResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*PvsStreamingStoreResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockPvsStreamingAPIsDAAS) PvsStreamingGetPvsStreamingVDisks(ctx context.Context) ApiPvsStreamingGetPvsStreamingVDisksRequest {
+	return ApiPvsStreamingGetPvsStreamingVDisksRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockPvsStreamingAPIsDAAS) PvsStreamingGetPvsStreamingVDisksExecute(r ApiPvsStreamingGetPvsStreamingVDisksRequest) (*PvsStreamingVDiskResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*PvsStreamingVDiskResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockPvsStreamingAPIsDAAS) PvsStreamingTestDeviceCollectionExists(ctx context.Context) ApiPvsStreamingTestDeviceCollectionExistsRequest {
+	return ApiPvsStreamingTestDeviceCollectionExistsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockPvsStreamingAPIsDAAS) PvsStreamingTestDeviceCollectionExistsExecute(r ApiPvsStreamingTestDeviceCollectionExistsRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }

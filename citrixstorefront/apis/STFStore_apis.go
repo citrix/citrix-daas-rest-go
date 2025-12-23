@@ -1,4 +1,4 @@
-// Copyright © 2024. Citrix Systems, Inc.
+// Copyright © 2025. Citrix Systems, Inc.
 package apis
 
 import (
@@ -880,5 +880,71 @@ func (a *STFStore) STFStoreGetSTFStoreRegisteredOptimalLaunchGateway(ctx context
 		ApiService:              a,
 		ctx:                     ctx,
 		getSTFStoreRequestModel: getSTFStoreRequestModel,
+	}
+}
+
+// Set-STFFASResilienceConfiguration
+
+type ApiSetSTFFASResilienceConfigurationRequest struct {
+	ctx                                   context.Context
+	ApiService                            *STFStore
+	setSTFFASResilienceConfigurationModel models.SetFASResilienceConfigurationRequestModel
+	getSTFStoreServiceRequestModel        models.GetSTFStoreRequestModel
+}
+
+func (r ApiSetSTFFASResilienceConfigurationRequest) Execute() error {
+	_, err := r.ApiService.SetFASResilienceConfigurationExecute(r)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *STFStore) SetFASResilienceConfigurationExecute(r ApiSetSTFFASResilienceConfigurationRequest) ([]byte, error) {
+	var param = StructToString(r.setSTFFASResilienceConfigurationModel)
+	var setStoreFarmSettingsParams = StructToString(r.getSTFStoreServiceRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFFASResilienceConfiguration", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreFarmSettingsParams), param)
+}
+
+func (a *STFStore) STFStoreSetFASResilienceConfiguration(ctx context.Context, setSTFFASResilienceConfigurationModel models.SetFASResilienceConfigurationRequestModel, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiSetSTFFASResilienceConfigurationRequest {
+	return ApiSetSTFFASResilienceConfigurationRequest{
+		ApiService:                            a,
+		ctx:                                   ctx,
+		setSTFFASResilienceConfigurationModel: setSTFFASResilienceConfigurationModel,
+		getSTFStoreServiceRequestModel:        getSTFStoreRequestModel,
+	}
+}
+
+// Get-STFFASResilienceConfiguration
+
+type ApiGetSTFFASResilienceConfigurationRequest struct {
+	ctx                            context.Context
+	ApiService                     *STFStore
+	getSTFStoreServiceRequestModel models.GetSTFStoreRequestModel
+}
+
+func (r ApiGetSTFFASResilienceConfigurationRequest) Execute() (models.GetFASResilienceConfigurationResponseModel, error) {
+	bytes, err := r.ApiService.GetFASResilienceConfigurationExecute(r)
+	if err != nil {
+		return models.GetFASResilienceConfigurationResponseModel{}, err
+	}
+	var reponse = models.GetFASResilienceConfigurationResponseModel{}
+	unMarshalErr := json.Unmarshal(bytes, &reponse)
+	if unMarshalErr != nil {
+		return models.GetFASResilienceConfigurationResponseModel{}, fmt.Errorf("error unmarshal GetFASResilienceConfigurationResponseModel: %v", unMarshalErr.Error())
+	}
+	return reponse, nil
+}
+
+func (a *STFStore) GetFASResilienceConfigurationExecute(r ApiGetSTFFASResilienceConfigurationRequest) ([]byte, error) {
+	var param = StructToString(r.getSTFStoreServiceRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFFASResilienceConfiguration", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", param))
+}
+
+func (a *STFStore) STFStoreGetFASResilienceConfiguration(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGetSTFFASResilienceConfigurationRequest {
+	return ApiGetSTFFASResilienceConfigurationRequest{
+		ApiService:                     a,
+		ctx:                            ctx,
+		getSTFStoreServiceRequestModel: getSTFStoreRequestModel,
 	}
 }

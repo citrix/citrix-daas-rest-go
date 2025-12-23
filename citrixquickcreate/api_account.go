@@ -19,12 +19,137 @@ import (
 	"strings"
 )
 
+type AccountQCS interface {
+
+	/*
+		AddAccountAsync Add a account
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@return AccountQCSAddAccountAsyncRequest
+	*/
+	AddAccountAsync(ctx context.Context, customerId string) AccountQCSAddAccountAsyncRequest
+
+	// AddAccountAsyncExecute executes the request
+	//  @return AwsEdcAccount
+	AddAccountAsyncExecute(r AccountQCSAddAccountAsyncRequest) (*AwsEdcAccount, *http.Response, error)
+
+	/*
+		DeleteCustomerAccountAsync Deletes the account configured for the specified customer
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of the account
+		@return AccountQCSDeleteCustomerAccountAsyncRequest
+	*/
+	DeleteCustomerAccountAsync(ctx context.Context, customerId string, accountId string) AccountQCSDeleteCustomerAccountAsyncRequest
+
+	// DeleteCustomerAccountAsyncExecute executes the request
+	DeleteCustomerAccountAsyncExecute(r AccountQCSDeleteCustomerAccountAsyncRequest) (*http.Response, error)
+
+	/*
+		GetAccountResourcesAsync Get the account resources for the specified customer
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of the account
+		@return AccountQCSGetAccountResourcesAsyncRequest
+	*/
+	GetAccountResourcesAsync(ctx context.Context, customerId string, accountId string) AccountQCSGetAccountResourcesAsyncRequest
+
+	// GetAccountResourcesAsyncExecute executes the request
+	//  @return AccountResources
+	GetAccountResourcesAsyncExecute(r AccountQCSGetAccountResourcesAsyncRequest) (*AccountResources, *http.Response, error)
+
+	/*
+		GetCustomerAccountAsync Get the account configured for the specified customer
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of the account
+		@return AccountQCSGetCustomerAccountAsyncRequest
+	*/
+	GetCustomerAccountAsync(ctx context.Context, customerId string, accountId string) AccountQCSGetCustomerAccountAsyncRequest
+
+	// GetCustomerAccountAsyncExecute executes the request
+	//  @return AwsEdcAccount
+	GetCustomerAccountAsyncExecute(r AccountQCSGetCustomerAccountAsyncRequest) (*AwsEdcAccount, *http.Response, error)
+
+	/*
+		GetCustomerAccountResourcesAsync Get the account resources for the specified customer
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@return AccountQCSGetCustomerAccountResourcesAsyncRequest
+	*/
+	GetCustomerAccountResourcesAsync(ctx context.Context, customerId string) AccountQCSGetCustomerAccountResourcesAsyncRequest
+
+	// GetCustomerAccountResourcesAsyncExecute executes the request
+	//  @return AccountResources
+	GetCustomerAccountResourcesAsyncExecute(r AccountQCSGetCustomerAccountResourcesAsyncRequest) (*AccountResources, *http.Response, error)
+
+	/*
+		GetCustomerAccountTaskAsync Gets account task
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of the account
+		@param taskId ID of task
+		@return AccountQCSGetCustomerAccountTaskAsyncRequest
+	*/
+	GetCustomerAccountTaskAsync(ctx context.Context, customerId string, accountId string, taskId string) AccountQCSGetCustomerAccountTaskAsyncRequest
+
+	// GetCustomerAccountTaskAsyncExecute executes the request
+	//  @return AccountTask
+	GetCustomerAccountTaskAsyncExecute(r AccountQCSGetCustomerAccountTaskAsyncRequest) (*AccountTask, *http.Response, error)
+
+	/*
+		GetCustomerAccountsAsync Get the accounts configured for the specified customer
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@return AccountQCSGetCustomerAccountsAsyncRequest
+	*/
+	GetCustomerAccountsAsync(ctx context.Context, customerId string) AccountQCSGetCustomerAccountsAsyncRequest
+
+	// GetCustomerAccountsAsyncExecute executes the request
+	//  @return Accounts
+	GetCustomerAccountsAsyncExecute(r AccountQCSGetCustomerAccountsAsyncRequest) (*Accounts, *http.Response, error)
+
+	/*
+		InititateAccountTaskAsync Registers account BYOL account
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of the account
+		@return AccountQCSInititateAccountTaskAsyncRequest
+	*/
+	InititateAccountTaskAsync(ctx context.Context, customerId string, accountId string) AccountQCSInititateAccountTaskAsyncRequest
+
+	// InititateAccountTaskAsyncExecute executes the request
+	//  @return AwsEdcRegisterAccount
+	InititateAccountTaskAsyncExecute(r AccountQCSInititateAccountTaskAsyncRequest) (*AwsEdcRegisterAccount, *http.Response, error)
+
+	/*
+		UpdateCustomerAccountAsync Updates the account access keys for the specified customer
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param accountId ID of the account
+		@return AccountQCSUpdateCustomerAccountAsyncRequest
+	*/
+	UpdateCustomerAccountAsync(ctx context.Context, customerId string, accountId string) AccountQCSUpdateCustomerAccountAsyncRequest
+
+	// UpdateCustomerAccountAsyncExecute executes the request
+	UpdateCustomerAccountAsyncExecute(r AccountQCSUpdateCustomerAccountAsyncRequest) (*http.Response, error)
+}
+
 // AccountQCSService AccountQCS service
 type AccountQCSService service
 
 type AccountQCSAddAccountAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *AccountQCSService
+	ApiService          AccountQCS
 	customerId          string
 	citrixTransactionId *string
 	body                *AddAwsEdcAccount
@@ -166,7 +291,7 @@ func (a *AccountQCSService) AddAccountAsyncExecute(r AccountQCSAddAccountAsyncRe
 
 type AccountQCSDeleteCustomerAccountAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *AccountQCSService
+	ApiService          AccountQCS
 	customerId          string
 	accountId           string
 	citrixTransactionId *string
@@ -291,7 +416,7 @@ func (a *AccountQCSService) DeleteCustomerAccountAsyncExecute(r AccountQCSDelete
 
 type AccountQCSGetAccountResourcesAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *AccountQCSService
+	ApiService          AccountQCS
 	customerId          string
 	accountId           string
 	citrixTransactionId *string
@@ -437,7 +562,7 @@ func (a *AccountQCSService) GetAccountResourcesAsyncExecute(r AccountQCSGetAccou
 
 type AccountQCSGetCustomerAccountAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *AccountQCSService
+	ApiService          AccountQCS
 	customerId          string
 	accountId           string
 	citrixTransactionId *string
@@ -574,7 +699,7 @@ func (a *AccountQCSService) GetCustomerAccountAsyncExecute(r AccountQCSGetCustom
 
 type AccountQCSGetCustomerAccountResourcesAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *AccountQCSService
+	ApiService          AccountQCS
 	customerId          string
 	citrixTransactionId *string
 	body                *SearchAwsEdcAccountResourceRequest
@@ -716,7 +841,7 @@ func (a *AccountQCSService) GetCustomerAccountResourcesAsyncExecute(r AccountQCS
 
 type AccountQCSGetCustomerAccountTaskAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *AccountQCSService
+	ApiService          AccountQCS
 	customerId          string
 	accountId           string
 	taskId              string
@@ -857,7 +982,7 @@ func (a *AccountQCSService) GetCustomerAccountTaskAsyncExecute(r AccountQCSGetCu
 
 type AccountQCSGetCustomerAccountsAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *AccountQCSService
+	ApiService          AccountQCS
 	customerId          string
 	accountType         *AccountType
 	fetchDetails        *bool
@@ -1013,7 +1138,7 @@ func (a *AccountQCSService) GetCustomerAccountsAsyncExecute(r AccountQCSGetCusto
 
 type AccountQCSInititateAccountTaskAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *AccountQCSService
+	ApiService          AccountQCS
 	customerId          string
 	accountId           string
 	citrixTransactionId *string
@@ -1159,7 +1284,7 @@ func (a *AccountQCSService) InititateAccountTaskAsyncExecute(r AccountQCSInitita
 
 type AccountQCSUpdateCustomerAccountAsyncRequest struct {
 	ctx                               context.Context
-	ApiService                        *AccountQCSService
+	ApiService                        AccountQCS
 	customerId                        string
 	accountId                         string
 	citrixTransactionId               *string

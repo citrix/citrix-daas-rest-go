@@ -18,6 +18,8 @@ import (
 	"net/url"
 	"reflect"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type IdentityAPIsDAAS interface {
@@ -500,6 +502,81 @@ type ApiIdentityAddAzureAdSecurityGroupMemberRequest struct {
 	serviceAccountUid   *string
 }
 
+// MockApiIdentityAddAzureAdSecurityGroupMemberRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityAddAzureAdSecurityGroupMemberRequest struct {
+	ApiIdentityAddAzureAdSecurityGroupMemberRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetAzureAdTenantId returns the azureAdTenantId parameter
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) GetAzureAdTenantId() string {
+	return r.azureAdTenantId
+}
+
+// GetGroupId returns the groupId parameter
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) GetGroupId() string {
+	return r.groupId
+}
+
+// GetRefGroupId returns the refGroupId parameter
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) GetRefGroupId() string {
+	return r.refGroupId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAccessToken returns the xAccessToken parameter
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) GetXAccessToken() *string {
+	return r.xAccessToken
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetServiceAccountUid returns the serviceAccountUid parameter
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) GetServiceAccountUid() *string {
+	return r.serviceAccountUid
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityAddAzureAdSecurityGroupMemberRequest) Execute() (*http.Response, error) {
+	return r.ApiIdentityAddAzureAdSecurityGroupMemberRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityAddAzureAdSecurityGroupMemberRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityAddAzureAdSecurityGroupMemberRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -793,6 +870,71 @@ type ApiIdentityCreateMachineRequest struct {
 	accept                            *string
 	citrixLocale                      *string
 	async                             *bool
+}
+
+// MockApiIdentityCreateMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityCreateMachineRequest struct {
+	ApiIdentityCreateMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityCreateMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityCreateMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityCreateMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetIdentityCreateMachineRequestModel returns the identityCreateMachineRequestModel parameter
+func (r MockApiIdentityCreateMachineRequest) GetIdentityCreateMachineRequestModel() *IdentityCreateMachineRequestModel {
+	return r.identityCreateMachineRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityCreateMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityCreateMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityCreateMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityCreateMachineRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityCreateMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityCreateMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIdentityCreateMachineRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityCreateMachineRequest) Execute() (*IdentityMachineResponseModel, *http.Response, error) {
+	return r.ApiIdentityCreateMachineRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1120,6 +1262,66 @@ type ApiIdentityCreateServiceAccountRequest struct {
 	async                            *bool
 }
 
+// MockApiIdentityCreateServiceAccountRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityCreateServiceAccountRequest struct {
+	ApiIdentityCreateServiceAccountRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityCreateServiceAccountRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityCreateServiceAccountRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityCreateServiceAccountRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCreateServiceAccountRequestModel returns the createServiceAccountRequestModel parameter
+func (r MockApiIdentityCreateServiceAccountRequest) GetCreateServiceAccountRequestModel() *CreateServiceAccountRequestModel {
+	return r.createServiceAccountRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityCreateServiceAccountRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityCreateServiceAccountRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityCreateServiceAccountRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityCreateServiceAccountRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityCreateServiceAccountRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIdentityCreateServiceAccountRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityCreateServiceAccountRequest) Execute() (*ServiceAccountResponseModel, *http.Response, error) {
+	return r.ApiIdentityCreateServiceAccountRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityCreateServiceAccountRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityCreateServiceAccountRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1436,6 +1638,86 @@ type ApiIdentityDeleteMachineRequest struct {
 	citrixLocale        *string
 	directoryServerHint *string
 	async               *bool
+}
+
+// MockApiIdentityDeleteMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityDeleteMachineRequest struct {
+	ApiIdentityDeleteMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityDeleteMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityDeleteMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityDeleteMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetMachine returns the machine parameter
+func (r MockApiIdentityDeleteMachineRequest) GetMachine() string {
+	return r.machine
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityDeleteMachineRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityDeleteMachineRequest) GetDomain() *string {
+	return r.domain
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityDeleteMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityDeleteMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityDeleteMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityDeleteMachineRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityDeleteMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityDeleteMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetDirectoryServerHint returns the directoryServerHint parameter
+func (r MockApiIdentityDeleteMachineRequest) GetDirectoryServerHint() *string {
+	return r.directoryServerHint
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIdentityDeleteMachineRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityDeleteMachineRequest) Execute() (*http.Response, error) {
+	return r.ApiIdentityDeleteMachineRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1760,6 +2042,61 @@ type ApiIdentityDeleteServiceAccountRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiIdentityDeleteServiceAccountRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityDeleteServiceAccountRequest struct {
+	ApiIdentityDeleteServiceAccountRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityDeleteServiceAccountRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityDeleteServiceAccountRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityDeleteServiceAccountRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetServiceAccountUid returns the serviceAccountUid parameter
+func (r MockApiIdentityDeleteServiceAccountRequest) GetServiceAccountUid() string {
+	return r.serviceAccountUid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityDeleteServiceAccountRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityDeleteServiceAccountRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityDeleteServiceAccountRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityDeleteServiceAccountRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityDeleteServiceAccountRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityDeleteServiceAccountRequest) Execute() (*http.Response, error) {
+	return r.ApiIdentityDeleteServiceAccountRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityDeleteServiceAccountRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityDeleteServiceAccountRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2031,6 +2368,76 @@ type ApiIdentityGetAzureADSecurityGroupsRequest struct {
 	accept              *string
 	citrixLocale        *string
 	serviceAccountUid   *string
+}
+
+// MockApiIdentityGetAzureADSecurityGroupsRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetAzureADSecurityGroupsRequest struct {
+	ApiIdentityGetAzureADSecurityGroupsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetAzureADSecurityGroupsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetAzureADSecurityGroupsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetAzureADSecurityGroupsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetAzureAdTenantId returns the azureAdTenantId parameter
+func (r MockApiIdentityGetAzureADSecurityGroupsRequest) GetAzureAdTenantId() string {
+	return r.azureAdTenantId
+}
+
+// GetGroupId returns the groupId parameter
+func (r MockApiIdentityGetAzureADSecurityGroupsRequest) GetGroupId() string {
+	return r.groupId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetAzureADSecurityGroupsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetAzureADSecurityGroupsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetAzureADSecurityGroupsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAccessToken returns the xAccessToken parameter
+func (r MockApiIdentityGetAzureADSecurityGroupsRequest) GetXAccessToken() *string {
+	return r.xAccessToken
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetAzureADSecurityGroupsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetAzureADSecurityGroupsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetServiceAccountUid returns the serviceAccountUid parameter
+func (r MockApiIdentityGetAzureADSecurityGroupsRequest) GetServiceAccountUid() *string {
+	return r.serviceAccountUid
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetAzureADSecurityGroupsRequest) Execute() (*AzureADSecurityGroupResponseModel, *http.Response, error) {
+	return r.ApiIdentityGetAzureADSecurityGroupsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2341,6 +2748,86 @@ type ApiIdentityGetAzureAdSecurityGroupMemberRequest struct {
 	type_               *string
 	maxCount            *int32
 	serviceAccountUid   *string
+}
+
+// MockApiIdentityGetAzureAdSecurityGroupMemberRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetAzureAdSecurityGroupMemberRequest struct {
+	ApiIdentityGetAzureAdSecurityGroupMemberRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetAzureAdTenantId returns the azureAdTenantId parameter
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetAzureAdTenantId() string {
+	return r.azureAdTenantId
+}
+
+// GetGroupId returns the groupId parameter
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetGroupId() string {
+	return r.groupId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAccessToken returns the xAccessToken parameter
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetXAccessToken() *string {
+	return r.xAccessToken
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetType_ returns the type_ parameter
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetType_() *string {
+	return r.type_
+}
+
+// GetMaxCount returns the maxCount parameter
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetMaxCount() *int32 {
+	return r.maxCount
+}
+
+// GetServiceAccountUid returns the serviceAccountUid parameter
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) GetServiceAccountUid() *string {
+	return r.serviceAccountUid
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetAzureAdSecurityGroupMemberRequest) Execute() (*AzureADSecurityGroupResponseModelCollection, *http.Response, error) {
+	return r.ApiIdentityGetAzureAdSecurityGroupMemberRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2670,6 +3157,86 @@ type ApiIdentityGetContainerRequest struct {
 	domain               *string
 	directoryServerHint  *string
 	propertiesToRetrieve *int32
+}
+
+// MockApiIdentityGetContainerRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetContainerRequest struct {
+	ApiIdentityGetContainerRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetContainerRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetContainerRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetContainerRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetContainer returns the container parameter
+func (r MockApiIdentityGetContainerRequest) GetContainer() string {
+	return r.container
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetContainerRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetContainerRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetContainerRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityGetContainerRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetContainerRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetContainerRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityGetContainerRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityGetContainerRequest) GetDomain() *string {
+	return r.domain
+}
+
+// GetDirectoryServerHint returns the directoryServerHint parameter
+func (r MockApiIdentityGetContainerRequest) GetDirectoryServerHint() *string {
+	return r.directoryServerHint
+}
+
+// GetPropertiesToRetrieve returns the propertiesToRetrieve parameter
+func (r MockApiIdentityGetContainerRequest) GetPropertiesToRetrieve() *int32 {
+	return r.propertiesToRetrieve
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetContainerRequest) Execute() (*IdentityContainerResponseModel, *http.Response, error) {
+	return r.ApiIdentityGetContainerRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3015,6 +3582,126 @@ type ApiIdentityGetContainersRequest struct {
 	propertiesToRetrieve *int32
 	limit                *int32
 	continuationToken    *string
+}
+
+// MockApiIdentityGetContainersRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetContainersRequest struct {
+	ApiIdentityGetContainersRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetContainersRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetContainersRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetContainersRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetContainersRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetContainersRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetContainersRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityGetContainersRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetContainersRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetContainersRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityGetContainersRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityGetContainersRequest) GetDomain() *string {
+	return r.domain
+}
+
+// GetContainer returns the container parameter
+func (r MockApiIdentityGetContainersRequest) GetContainer() *[]string {
+	return r.container
+}
+
+// GetStartsWith returns the startsWith parameter
+func (r MockApiIdentityGetContainersRequest) GetStartsWith() *string {
+	return r.startsWith
+}
+
+// GetContains returns the contains parameter
+func (r MockApiIdentityGetContainersRequest) GetContains() *string {
+	return r.contains
+}
+
+// GetMatches returns the matches parameter
+func (r MockApiIdentityGetContainersRequest) GetMatches() *string {
+	return r.matches
+}
+
+// GetParentOU returns the parentOU parameter
+func (r MockApiIdentityGetContainersRequest) GetParentOU() *string {
+	return r.parentOU
+}
+
+// GetRecursive returns the recursive parameter
+func (r MockApiIdentityGetContainersRequest) GetRecursive() *bool {
+	return r.recursive
+}
+
+// GetContainerType returns the containerType parameter
+func (r MockApiIdentityGetContainersRequest) GetContainerType() *[]IdentityContainerType {
+	return r.containerType
+}
+
+// GetDirectoryServerHint returns the directoryServerHint parameter
+func (r MockApiIdentityGetContainersRequest) GetDirectoryServerHint() *string {
+	return r.directoryServerHint
+}
+
+// GetPropertiesToRetrieve returns the propertiesToRetrieve parameter
+func (r MockApiIdentityGetContainersRequest) GetPropertiesToRetrieve() *int32 {
+	return r.propertiesToRetrieve
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiIdentityGetContainersRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiIdentityGetContainersRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetContainersRequest) Execute() (*IdentityContainerResponseModelCollection, *http.Response, error) {
+	return r.ApiIdentityGetContainersRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3433,6 +4120,66 @@ type ApiIdentityGetDirectoriesRequest struct {
 	continuationToken   *string
 }
 
+// MockApiIdentityGetDirectoriesRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetDirectoriesRequest struct {
+	ApiIdentityGetDirectoriesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetDirectoriesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetDirectoriesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetDirectoriesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetDirectoriesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetDirectoriesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetDirectoriesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetDirectoriesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetDirectoriesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiIdentityGetDirectoriesRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiIdentityGetDirectoriesRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetDirectoriesRequest) Execute() (*IdentityDirectoryResponseModelCollection, *http.Response, error) {
+	return r.ApiIdentityGetDirectoriesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityGetDirectoriesRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityGetDirectoriesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3723,6 +4470,81 @@ type ApiIdentityGetDomainRequest struct {
 	forest               *string
 	directoryServerHint  *string
 	propertiesToRetrieve *int32
+}
+
+// MockApiIdentityGetDomainRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetDomainRequest struct {
+	ApiIdentityGetDomainRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetDomainRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetDomainRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetDomainRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityGetDomainRequest) GetDomain() string {
+	return r.domain
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetDomainRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetDomainRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetDomainRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityGetDomainRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetDomainRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetDomainRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityGetDomainRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDirectoryServerHint returns the directoryServerHint parameter
+func (r MockApiIdentityGetDomainRequest) GetDirectoryServerHint() *string {
+	return r.directoryServerHint
+}
+
+// GetPropertiesToRetrieve returns the propertiesToRetrieve parameter
+func (r MockApiIdentityGetDomainRequest) GetPropertiesToRetrieve() *int32 {
+	return r.propertiesToRetrieve
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetDomainRequest) Execute() (*IdentityDomainResponseModel, *http.Response, error) {
+	return r.ApiIdentityGetDomainRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4048,6 +4870,61 @@ type ApiIdentityGetDomainAzureADCustomDomainRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiIdentityGetDomainAzureADCustomDomainRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetDomainAzureADCustomDomainRequest struct {
+	ApiIdentityGetDomainAzureADCustomDomainRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetDomainAzureADCustomDomainRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetDomainAzureADCustomDomainRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetDomainAzureADCustomDomainRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityGetDomainAzureADCustomDomainRequest) GetDomain() string {
+	return r.domain
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetDomainAzureADCustomDomainRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetDomainAzureADCustomDomainRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetDomainAzureADCustomDomainRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetDomainAzureADCustomDomainRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetDomainAzureADCustomDomainRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetDomainAzureADCustomDomainRequest) Execute() (*AzureADCustomDomainResponseModel, *http.Response, error) {
+	return r.ApiIdentityGetDomainAzureADCustomDomainRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityGetDomainAzureADCustomDomainRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityGetDomainAzureADCustomDomainRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -4337,6 +5214,106 @@ type ApiIdentityGetDomainsRequest struct {
 	limit                *int32
 	continuationToken    *string
 	async                *bool
+}
+
+// MockApiIdentityGetDomainsRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetDomainsRequest struct {
+	ApiIdentityGetDomainsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetDomainsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetDomainsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetDomainsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetDomainsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetDomainsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetDomainsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityGetDomainsRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetDomainsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetDomainsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityGetDomainsRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityGetDomainsRequest) GetDomain() *[]string {
+	return r.domain
+}
+
+// GetDirectoryServerHint returns the directoryServerHint parameter
+func (r MockApiIdentityGetDomainsRequest) GetDirectoryServerHint() *string {
+	return r.directoryServerHint
+}
+
+// GetParentDomain returns the parentDomain parameter
+func (r MockApiIdentityGetDomainsRequest) GetParentDomain() *string {
+	return r.parentDomain
+}
+
+// GetRecursive returns the recursive parameter
+func (r MockApiIdentityGetDomainsRequest) GetRecursive() *bool {
+	return r.recursive
+}
+
+// GetPropertiesToRetrieve returns the propertiesToRetrieve parameter
+func (r MockApiIdentityGetDomainsRequest) GetPropertiesToRetrieve() *int32 {
+	return r.propertiesToRetrieve
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiIdentityGetDomainsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiIdentityGetDomainsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIdentityGetDomainsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetDomainsRequest) Execute() (*IdentityDomainResponseModelCollection, *http.Response, error) {
+	return r.ApiIdentityGetDomainsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4714,6 +5691,71 @@ type ApiIdentityGetForestRequest struct {
 	propertiesToRetrieve *int32
 }
 
+// MockApiIdentityGetForestRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetForestRequest struct {
+	ApiIdentityGetForestRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetForestRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetForestRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetForestRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityGetForestRequest) GetForest() string {
+	return r.forest
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetForestRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetForestRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetForestRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityGetForestRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetForestRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetForestRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetPropertiesToRetrieve returns the propertiesToRetrieve parameter
+func (r MockApiIdentityGetForestRequest) GetPropertiesToRetrieve() *int32 {
+	return r.propertiesToRetrieve
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetForestRequest) Execute() (*IdentityForestResponseModel, *http.Response, error) {
+	return r.ApiIdentityGetForestRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityGetForestRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityGetForestRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -5021,6 +6063,81 @@ type ApiIdentityGetForestsRequest struct {
 	propertiesToRetrieve *int32
 	limit                *int32
 	continuationToken    *string
+}
+
+// MockApiIdentityGetForestsRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetForestsRequest struct {
+	ApiIdentityGetForestsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetForestsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetForestsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetForestsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetForestsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetForestsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetForestsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityGetForestsRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetForestsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetForestsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityGetForestsRequest) GetForest() *[]string {
+	return r.forest
+}
+
+// GetPropertiesToRetrieve returns the propertiesToRetrieve parameter
+func (r MockApiIdentityGetForestsRequest) GetPropertiesToRetrieve() *int32 {
+	return r.propertiesToRetrieve
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiIdentityGetForestsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiIdentityGetForestsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetForestsRequest) Execute() (*IdentityForestResponseModelCollection, *http.Response, error) {
+	return r.ApiIdentityGetForestsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5352,6 +6469,86 @@ type ApiIdentityGetMachineRequest struct {
 	domain               *string
 	directoryServerHint  *string
 	propertiesToRetrieve *int32
+}
+
+// MockApiIdentityGetMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetMachineRequest struct {
+	ApiIdentityGetMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetMachine returns the machine parameter
+func (r MockApiIdentityGetMachineRequest) GetMachine() string {
+	return r.machine
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityGetMachineRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityGetMachineRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityGetMachineRequest) GetDomain() *string {
+	return r.domain
+}
+
+// GetDirectoryServerHint returns the directoryServerHint parameter
+func (r MockApiIdentityGetMachineRequest) GetDirectoryServerHint() *string {
+	return r.directoryServerHint
+}
+
+// GetPropertiesToRetrieve returns the propertiesToRetrieve parameter
+func (r MockApiIdentityGetMachineRequest) GetPropertiesToRetrieve() *int32 {
+	return r.propertiesToRetrieve
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetMachineRequest) Execute() (*IdentityMachineResponseModel, *http.Response, error) {
+	return r.ApiIdentityGetMachineRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5696,6 +6893,121 @@ type ApiIdentityGetMachinesRequest struct {
 	propertiesToRetrieve *int32
 	limit                *int32
 	continuationToken    *string
+}
+
+// MockApiIdentityGetMachinesRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetMachinesRequest struct {
+	ApiIdentityGetMachinesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetMachinesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetMachinesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetMachinesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetMachinesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetMachinesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetMachinesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityGetMachinesRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetMachinesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetMachinesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityGetMachinesRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityGetMachinesRequest) GetDomain() *string {
+	return r.domain
+}
+
+// GetMachine returns the machine parameter
+func (r MockApiIdentityGetMachinesRequest) GetMachine() *[]string {
+	return r.machine
+}
+
+// GetStartsWith returns the startsWith parameter
+func (r MockApiIdentityGetMachinesRequest) GetStartsWith() *string {
+	return r.startsWith
+}
+
+// GetContains returns the contains parameter
+func (r MockApiIdentityGetMachinesRequest) GetContains() *string {
+	return r.contains
+}
+
+// GetMatches returns the matches parameter
+func (r MockApiIdentityGetMachinesRequest) GetMatches() *string {
+	return r.matches
+}
+
+// GetParentOU returns the parentOU parameter
+func (r MockApiIdentityGetMachinesRequest) GetParentOU() *string {
+	return r.parentOU
+}
+
+// GetRecursive returns the recursive parameter
+func (r MockApiIdentityGetMachinesRequest) GetRecursive() *bool {
+	return r.recursive
+}
+
+// GetDirectoryServerHint returns the directoryServerHint parameter
+func (r MockApiIdentityGetMachinesRequest) GetDirectoryServerHint() *string {
+	return r.directoryServerHint
+}
+
+// GetPropertiesToRetrieve returns the propertiesToRetrieve parameter
+func (r MockApiIdentityGetMachinesRequest) GetPropertiesToRetrieve() *int32 {
+	return r.propertiesToRetrieve
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiIdentityGetMachinesRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiIdentityGetMachinesRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetMachinesRequest) Execute() (*IdentityMachineResponseModelCollection, *http.Response, error) {
+	return r.ApiIdentityGetMachinesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6101,6 +7413,86 @@ type ApiIdentityGetPrintersRequest struct {
 	async               *bool
 }
 
+// MockApiIdentityGetPrintersRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetPrintersRequest struct {
+	ApiIdentityGetPrintersRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetPrintersRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetPrintersRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetPrintersRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetPrintersRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetPrintersRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetPrintersRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityGetPrintersRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetPrintersRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetPrintersRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityGetPrintersRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityGetPrintersRequest) GetDomain() *string {
+	return r.domain
+}
+
+// GetServer returns the server parameter
+func (r MockApiIdentityGetPrintersRequest) GetServer() *string {
+	return r.server
+}
+
+// GetUncpath returns the uncpath parameter
+func (r MockApiIdentityGetPrintersRequest) GetUncpath() *string {
+	return r.uncpath
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIdentityGetPrintersRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetPrintersRequest) Execute() (*IdentityPrinterResponseModelCollection, *http.Response, error) {
+	return r.ApiIdentityGetPrintersRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityGetPrintersRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityGetPrintersRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -6428,6 +7820,61 @@ type ApiIdentityGetServiceAccountRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiIdentityGetServiceAccountRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetServiceAccountRequest struct {
+	ApiIdentityGetServiceAccountRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetServiceAccountRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetServiceAccountRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetServiceAccountRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetServiceAccountUid returns the serviceAccountUid parameter
+func (r MockApiIdentityGetServiceAccountRequest) GetServiceAccountUid() string {
+	return r.serviceAccountUid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetServiceAccountRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetServiceAccountRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetServiceAccountRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetServiceAccountRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetServiceAccountRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetServiceAccountRequest) Execute() (*ServiceAccountResponseModel, *http.Response, error) {
+	return r.ApiIdentityGetServiceAccountRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityGetServiceAccountRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityGetServiceAccountRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -6710,6 +8157,71 @@ type ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest struct {
 	accept                                            *string
 	citrixLocale                                      *string
 	async                                             *bool
+}
+
+// MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest struct {
+	ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetServiceAccountUid returns the serviceAccountUid parameter
+func (r MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) GetServiceAccountUid() string {
+	return r.serviceAccountUid
+}
+
+// GetUpdateServiceAccountCapabilityPreviewRequestModel returns the updateServiceAccountCapabilityPreviewRequestModel parameter
+func (r MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) GetUpdateServiceAccountCapabilityPreviewRequestModel() *UpdateServiceAccountCapabilityPreviewRequestModel {
+	return r.updateServiceAccountCapabilityPreviewRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) Execute() (*UpdateServiceAccountCapabilityPreviewResponseModel, *http.Response, error) {
+	return r.ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7042,6 +8554,61 @@ type ApiIdentityGetServiceAccountTestReportRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiIdentityGetServiceAccountTestReportRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetServiceAccountTestReportRequest struct {
+	ApiIdentityGetServiceAccountTestReportRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetServiceAccountTestReportRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetServiceAccountTestReportRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetServiceAccountTestReportRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetServiceAccountUid returns the serviceAccountUid parameter
+func (r MockApiIdentityGetServiceAccountTestReportRequest) GetServiceAccountUid() string {
+	return r.serviceAccountUid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetServiceAccountTestReportRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetServiceAccountTestReportRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetServiceAccountTestReportRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetServiceAccountTestReportRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetServiceAccountTestReportRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetServiceAccountTestReportRequest) Execute() (*TestReportResponseModel, *http.Response, error) {
+	return r.ApiIdentityGetServiceAccountTestReportRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityGetServiceAccountTestReportRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityGetServiceAccountTestReportRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -7327,6 +8894,61 @@ type ApiIdentityGetServiceAccountsRequest struct {
 	async               *bool
 }
 
+// MockApiIdentityGetServiceAccountsRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetServiceAccountsRequest struct {
+	ApiIdentityGetServiceAccountsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetServiceAccountsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetServiceAccountsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetServiceAccountsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetServiceAccountsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetServiceAccountsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetServiceAccountsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetServiceAccountsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetServiceAccountsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIdentityGetServiceAccountsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetServiceAccountsRequest) Execute() (*ServiceAccountResponseModelCollection, *http.Response, error) {
+	return r.ApiIdentityGetServiceAccountsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityGetServiceAccountsRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityGetServiceAccountsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -7608,6 +9230,81 @@ type ApiIdentityGetSiteRequest struct {
 	forest               *string
 	domain               *string
 	propertiesToRetrieve *int32
+}
+
+// MockApiIdentityGetSiteRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetSiteRequest struct {
+	ApiIdentityGetSiteRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetSiteRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetSiteRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetSiteRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetSite returns the site parameter
+func (r MockApiIdentityGetSiteRequest) GetSite() string {
+	return r.site
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetSiteRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetSiteRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetSiteRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityGetSiteRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetSiteRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetSiteRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityGetSiteRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityGetSiteRequest) GetDomain() *string {
+	return r.domain
+}
+
+// GetPropertiesToRetrieve returns the propertiesToRetrieve parameter
+func (r MockApiIdentityGetSiteRequest) GetPropertiesToRetrieve() *int32 {
+	return r.propertiesToRetrieve
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetSiteRequest) Execute() (*IdentitySiteResponseModel, *http.Response, error) {
+	return r.ApiIdentityGetSiteRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7938,6 +9635,96 @@ type ApiIdentityGetSitesRequest struct {
 	propertiesToRetrieve *int32
 	limit                *int32
 	continuationToken    *string
+}
+
+// MockApiIdentityGetSitesRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetSitesRequest struct {
+	ApiIdentityGetSitesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetSitesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetSitesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetSitesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetSitesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetSitesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetSitesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityGetSitesRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetSitesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetSitesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityGetSitesRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityGetSitesRequest) GetDomain() *string {
+	return r.domain
+}
+
+// GetHostNameOrIP returns the hostNameOrIP parameter
+func (r MockApiIdentityGetSitesRequest) GetHostNameOrIP() *string {
+	return r.hostNameOrIP
+}
+
+// GetSite returns the site parameter
+func (r MockApiIdentityGetSitesRequest) GetSite() *[]string {
+	return r.site
+}
+
+// GetPropertiesToRetrieve returns the propertiesToRetrieve parameter
+func (r MockApiIdentityGetSitesRequest) GetPropertiesToRetrieve() *int32 {
+	return r.propertiesToRetrieve
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiIdentityGetSitesRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiIdentityGetSitesRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetSitesRequest) Execute() (*IdentitySiteResponseModelCollection, *http.Response, error) {
+	return r.ApiIdentityGetSitesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8298,6 +10085,86 @@ type ApiIdentityGetUserRequest struct {
 	propertiesToRetrieve *int32
 }
 
+// MockApiIdentityGetUserRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetUserRequest struct {
+	ApiIdentityGetUserRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetUserRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetUserRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetUserRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserOrGroup returns the userOrGroup parameter
+func (r MockApiIdentityGetUserRequest) GetUserOrGroup() string {
+	return r.userOrGroup
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetUserRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetUserRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetUserRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityGetUserRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetUserRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetUserRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityGetUserRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityGetUserRequest) GetDomain() *string {
+	return r.domain
+}
+
+// GetDirectoryServerHint returns the directoryServerHint parameter
+func (r MockApiIdentityGetUserRequest) GetDirectoryServerHint() *string {
+	return r.directoryServerHint
+}
+
+// GetPropertiesToRetrieve returns the propertiesToRetrieve parameter
+func (r MockApiIdentityGetUserRequest) GetPropertiesToRetrieve() *int32 {
+	return r.propertiesToRetrieve
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetUserRequest) Execute() (*IdentityUserResponseModel, *http.Response, error) {
+	return r.ApiIdentityGetUserRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityGetUserRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityGetUserRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -8646,6 +10513,151 @@ type ApiIdentityGetUsersRequest struct {
 	async                 *bool
 	idpInstanceId         *string
 	includeIdentityClaims *bool
+}
+
+// MockApiIdentityGetUsersRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityGetUsersRequest struct {
+	ApiIdentityGetUsersRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityGetUsersRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityGetUsersRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityGetUsersRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityGetUsersRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityGetUsersRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityGetUsersRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityGetUsersRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityGetUsersRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityGetUsersRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetProvider returns the provider parameter
+func (r MockApiIdentityGetUsersRequest) GetProvider() *IdentityProviderType {
+	return r.provider
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityGetUsersRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityGetUsersRequest) GetDomain() *string {
+	return r.domain
+}
+
+// GetTenant returns the tenant parameter
+func (r MockApiIdentityGetUsersRequest) GetTenant() *string {
+	return r.tenant
+}
+
+// GetUser returns the user parameter
+func (r MockApiIdentityGetUsersRequest) GetUser() *[]string {
+	return r.user
+}
+
+// GetStartsWith returns the startsWith parameter
+func (r MockApiIdentityGetUsersRequest) GetStartsWith() *string {
+	return r.startsWith
+}
+
+// GetContains returns the contains parameter
+func (r MockApiIdentityGetUsersRequest) GetContains() *string {
+	return r.contains
+}
+
+// GetMatches returns the matches parameter
+func (r MockApiIdentityGetUsersRequest) GetMatches() *string {
+	return r.matches
+}
+
+// GetParentOU returns the parentOU parameter
+func (r MockApiIdentityGetUsersRequest) GetParentOU() *string {
+	return r.parentOU
+}
+
+// GetRecursive returns the recursive parameter
+func (r MockApiIdentityGetUsersRequest) GetRecursive() *bool {
+	return r.recursive
+}
+
+// GetUserType returns the userType parameter
+func (r MockApiIdentityGetUsersRequest) GetUserType() *IdentityUserType {
+	return r.userType
+}
+
+// GetDirectoryServerHint returns the directoryServerHint parameter
+func (r MockApiIdentityGetUsersRequest) GetDirectoryServerHint() *string {
+	return r.directoryServerHint
+}
+
+// GetPropertiesToRetrieve returns the propertiesToRetrieve parameter
+func (r MockApiIdentityGetUsersRequest) GetPropertiesToRetrieve() *int32 {
+	return r.propertiesToRetrieve
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiIdentityGetUsersRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiIdentityGetUsersRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIdentityGetUsersRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetIdpInstanceId returns the idpInstanceId parameter
+func (r MockApiIdentityGetUsersRequest) GetIdpInstanceId() *string {
+	return r.idpInstanceId
+}
+
+// GetIncludeIdentityClaims returns the includeIdentityClaims parameter
+func (r MockApiIdentityGetUsersRequest) GetIncludeIdentityClaims() *bool {
+	return r.includeIdentityClaims
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityGetUsersRequest) Execute() (*IdentityUserResponseModelCollection, *http.Response, error) {
+	return r.ApiIdentityGetUsersRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9108,6 +11120,86 @@ type ApiIdentityQueryAzureAdSecurityGroupsRequest struct {
 	serviceAccountUid   *string
 }
 
+// MockApiIdentityQueryAzureAdSecurityGroupsRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityQueryAzureAdSecurityGroupsRequest struct {
+	ApiIdentityQueryAzureAdSecurityGroupsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetAzureAdTenantId returns the azureAdTenantId parameter
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetAzureAdTenantId() string {
+	return r.azureAdTenantId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAccessToken returns the xAccessToken parameter
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetXAccessToken() *string {
+	return r.xAccessToken
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetName returns the name parameter
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetName() *string {
+	return r.name
+}
+
+// GetAssigned returns the assigned parameter
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetAssigned() *bool {
+	return r.assigned
+}
+
+// GetMaxCount returns the maxCount parameter
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetMaxCount() *int32 {
+	return r.maxCount
+}
+
+// GetServiceAccountUid returns the serviceAccountUid parameter
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) GetServiceAccountUid() *string {
+	return r.serviceAccountUid
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityQueryAzureAdSecurityGroupsRequest) Execute() (*AzureADSecurityGroupResponseModelCollection, *http.Response, error) {
+	return r.ApiIdentityQueryAzureAdSecurityGroupsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityQueryAzureAdSecurityGroupsRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityQueryAzureAdSecurityGroupsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -9442,6 +11534,71 @@ type ApiIdentitySetServiceAccountRequest struct {
 	async                            *bool
 }
 
+// MockApiIdentitySetServiceAccountRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentitySetServiceAccountRequest struct {
+	ApiIdentitySetServiceAccountRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentitySetServiceAccountRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentitySetServiceAccountRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentitySetServiceAccountRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetServiceAccountUid returns the serviceAccountUid parameter
+func (r MockApiIdentitySetServiceAccountRequest) GetServiceAccountUid() string {
+	return r.serviceAccountUid
+}
+
+// GetUpdateServiceAccountRequestModel returns the updateServiceAccountRequestModel parameter
+func (r MockApiIdentitySetServiceAccountRequest) GetUpdateServiceAccountRequestModel() *UpdateServiceAccountRequestModel {
+	return r.updateServiceAccountRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentitySetServiceAccountRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentitySetServiceAccountRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentitySetServiceAccountRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentitySetServiceAccountRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentitySetServiceAccountRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIdentitySetServiceAccountRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentitySetServiceAccountRequest) Execute() (*ServiceAccountResponseModel, *http.Response, error) {
+	return r.ApiIdentitySetServiceAccountRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentitySetServiceAccountRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentitySetServiceAccountRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -9759,6 +11916,66 @@ type ApiIdentityTestServiceAccountRequest struct {
 	async               *bool
 }
 
+// MockApiIdentityTestServiceAccountRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityTestServiceAccountRequest struct {
+	ApiIdentityTestServiceAccountRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityTestServiceAccountRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityTestServiceAccountRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityTestServiceAccountRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetServiceAccountUid returns the serviceAccountUid parameter
+func (r MockApiIdentityTestServiceAccountRequest) GetServiceAccountUid() string {
+	return r.serviceAccountUid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityTestServiceAccountRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityTestServiceAccountRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityTestServiceAccountRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityTestServiceAccountRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityTestServiceAccountRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIdentityTestServiceAccountRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityTestServiceAccountRequest) Execute() (*ServiceAccountTestResponseModel, *http.Response, error) {
+	return r.ApiIdentityTestServiceAccountRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityTestServiceAccountRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityTestServiceAccountRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -10072,6 +12289,91 @@ type ApiIdentityUpdateMachineRequest struct {
 	citrixLocale                      *string
 	directoryServerHint               *string
 	async                             *bool
+}
+
+// MockApiIdentityUpdateMachineRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityUpdateMachineRequest struct {
+	ApiIdentityUpdateMachineRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityUpdateMachineRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityUpdateMachineRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityUpdateMachineRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetMachine returns the machine parameter
+func (r MockApiIdentityUpdateMachineRequest) GetMachine() string {
+	return r.machine
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityUpdateMachineRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityUpdateMachineRequest) GetDomain() *string {
+	return r.domain
+}
+
+// GetIdentityUpdateMachineRequestModel returns the identityUpdateMachineRequestModel parameter
+func (r MockApiIdentityUpdateMachineRequest) GetIdentityUpdateMachineRequestModel() *IdentityUpdateMachineRequestModel {
+	return r.identityUpdateMachineRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityUpdateMachineRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityUpdateMachineRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityUpdateMachineRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityUpdateMachineRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityUpdateMachineRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityUpdateMachineRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetDirectoryServerHint returns the directoryServerHint parameter
+func (r MockApiIdentityUpdateMachineRequest) GetDirectoryServerHint() *string {
+	return r.directoryServerHint
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIdentityUpdateMachineRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityUpdateMachineRequest) Execute() (*IdentityMachineResponseModel, *http.Response, error) {
+	return r.ApiIdentityUpdateMachineRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10436,6 +12738,91 @@ type ApiIdentityUpdateUserRequest struct {
 	async                          *bool
 }
 
+// MockApiIdentityUpdateUserRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityUpdateUserRequest struct {
+	ApiIdentityUpdateUserRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityUpdateUserRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityUpdateUserRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityUpdateUserRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUser returns the user parameter
+func (r MockApiIdentityUpdateUserRequest) GetUser() string {
+	return r.user
+}
+
+// GetForest returns the forest parameter
+func (r MockApiIdentityUpdateUserRequest) GetForest() *string {
+	return r.forest
+}
+
+// GetDomain returns the domain parameter
+func (r MockApiIdentityUpdateUserRequest) GetDomain() *string {
+	return r.domain
+}
+
+// GetIdentityUpdateUserRequestModel returns the identityUpdateUserRequestModel parameter
+func (r MockApiIdentityUpdateUserRequest) GetIdentityUpdateUserRequestModel() *IdentityUpdateUserRequestModel {
+	return r.identityUpdateUserRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityUpdateUserRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityUpdateUserRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityUpdateUserRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetXAdminCredential returns the xAdminCredential parameter
+func (r MockApiIdentityUpdateUserRequest) GetXAdminCredential() *string {
+	return r.xAdminCredential
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityUpdateUserRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityUpdateUserRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetDirectoryServerHint returns the directoryServerHint parameter
+func (r MockApiIdentityUpdateUserRequest) GetDirectoryServerHint() *string {
+	return r.directoryServerHint
+}
+
+// GetAsync returns the async parameter
+func (r MockApiIdentityUpdateUserRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityUpdateUserRequest) Execute() (*IdentityUserResponseModel, *http.Response, error) {
+	return r.ApiIdentityUpdateUserRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityUpdateUserRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityUpdateUserRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -10792,6 +13179,61 @@ type ApiIdentityValidateUserRequest struct {
 	citrixLocale                     *string
 }
 
+// MockApiIdentityValidateUserRequest wraps the request struct to provide getter methods for testing
+type MockApiIdentityValidateUserRequest struct {
+	ApiIdentityValidateUserRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiIdentityValidateUserRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiIdentityValidateUserRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiIdentityValidateUserRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetIdentityValidateUserRequestModel returns the identityValidateUserRequestModel parameter
+func (r MockApiIdentityValidateUserRequest) GetIdentityValidateUserRequestModel() *IdentityValidateUserRequestModel {
+	return r.identityValidateUserRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiIdentityValidateUserRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiIdentityValidateUserRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiIdentityValidateUserRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiIdentityValidateUserRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiIdentityValidateUserRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiIdentityValidateUserRequest) Execute() (*IdentityUserResponseModel, *http.Response, error) {
+	return r.ApiIdentityValidateUserRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiIdentityValidateUserRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityValidateUserRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -11080,4 +13522,431 @@ func (a *IdentityAPIsDAASService) IdentityValidateUserExecute(r ApiIdentityValid
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockIdentityAPIsDAAS extracts the MockIdentityAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockIdentityAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockIdentityAPIsDAAS(client *APIClient) *MockIdentityAPIsDAAS {
+	return client.IdentityAPIsDAAS.(*MockIdentityAPIsDAAS)
+}
+
+// MockIdentityAPIsDAAS is a mock implementation of the IdentityAPIsDAAS interface for testing
+var _ IdentityAPIsDAAS = (*MockIdentityAPIsDAAS)(nil)
+
+type MockIdentityAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityAddAzureAdSecurityGroupMember(ctx context.Context, azureAdTenantId string, groupId string, refGroupId string) ApiIdentityAddAzureAdSecurityGroupMemberRequest {
+	return ApiIdentityAddAzureAdSecurityGroupMemberRequest{
+		ctx:             ctx,
+		ApiService:      m,
+		azureAdTenantId: azureAdTenantId,
+		groupId:         groupId,
+		refGroupId:      refGroupId,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityAddAzureAdSecurityGroupMemberExecute(r ApiIdentityAddAzureAdSecurityGroupMemberRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityCreateMachine(ctx context.Context) ApiIdentityCreateMachineRequest {
+	return ApiIdentityCreateMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityCreateMachineExecute(r ApiIdentityCreateMachineRequest) (*IdentityMachineResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityMachineResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityCreateServiceAccount(ctx context.Context) ApiIdentityCreateServiceAccountRequest {
+	return ApiIdentityCreateServiceAccountRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityCreateServiceAccountExecute(r ApiIdentityCreateServiceAccountRequest) (*ServiceAccountResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ServiceAccountResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityDeleteMachine(ctx context.Context, machine string) ApiIdentityDeleteMachineRequest {
+	return ApiIdentityDeleteMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		machine:    machine,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityDeleteMachineExecute(r ApiIdentityDeleteMachineRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityDeleteServiceAccount(ctx context.Context, serviceAccountUid string) ApiIdentityDeleteServiceAccountRequest {
+	return ApiIdentityDeleteServiceAccountRequest{
+		ctx:               ctx,
+		ApiService:        m,
+		serviceAccountUid: serviceAccountUid,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityDeleteServiceAccountExecute(r ApiIdentityDeleteServiceAccountRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetAzureADSecurityGroups(ctx context.Context, azureAdTenantId string, groupId string) ApiIdentityGetAzureADSecurityGroupsRequest {
+	return ApiIdentityGetAzureADSecurityGroupsRequest{
+		ctx:             ctx,
+		ApiService:      m,
+		azureAdTenantId: azureAdTenantId,
+		groupId:         groupId,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetAzureADSecurityGroupsExecute(r ApiIdentityGetAzureADSecurityGroupsRequest) (*AzureADSecurityGroupResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AzureADSecurityGroupResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetAzureAdSecurityGroupMember(ctx context.Context, azureAdTenantId string, groupId string) ApiIdentityGetAzureAdSecurityGroupMemberRequest {
+	return ApiIdentityGetAzureAdSecurityGroupMemberRequest{
+		ctx:             ctx,
+		ApiService:      m,
+		azureAdTenantId: azureAdTenantId,
+		groupId:         groupId,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetAzureAdSecurityGroupMemberExecute(r ApiIdentityGetAzureAdSecurityGroupMemberRequest) (*AzureADSecurityGroupResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AzureADSecurityGroupResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetContainer(ctx context.Context, container string) ApiIdentityGetContainerRequest {
+	return ApiIdentityGetContainerRequest{
+		ctx:        ctx,
+		ApiService: m,
+		container:  container,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetContainerExecute(r ApiIdentityGetContainerRequest) (*IdentityContainerResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityContainerResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetContainers(ctx context.Context) ApiIdentityGetContainersRequest {
+	return ApiIdentityGetContainersRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetContainersExecute(r ApiIdentityGetContainersRequest) (*IdentityContainerResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityContainerResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetDirectories(ctx context.Context) ApiIdentityGetDirectoriesRequest {
+	return ApiIdentityGetDirectoriesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetDirectoriesExecute(r ApiIdentityGetDirectoriesRequest) (*IdentityDirectoryResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityDirectoryResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetDomain(ctx context.Context, domain string) ApiIdentityGetDomainRequest {
+	return ApiIdentityGetDomainRequest{
+		ctx:        ctx,
+		ApiService: m,
+		domain:     domain,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetDomainExecute(r ApiIdentityGetDomainRequest) (*IdentityDomainResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityDomainResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetDomainAzureADCustomDomain(ctx context.Context, domain string) ApiIdentityGetDomainAzureADCustomDomainRequest {
+	return ApiIdentityGetDomainAzureADCustomDomainRequest{
+		ctx:        ctx,
+		ApiService: m,
+		domain:     domain,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetDomainAzureADCustomDomainExecute(r ApiIdentityGetDomainAzureADCustomDomainRequest) (*AzureADCustomDomainResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AzureADCustomDomainResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetDomains(ctx context.Context) ApiIdentityGetDomainsRequest {
+	return ApiIdentityGetDomainsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetDomainsExecute(r ApiIdentityGetDomainsRequest) (*IdentityDomainResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityDomainResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetForest(ctx context.Context, forest string) ApiIdentityGetForestRequest {
+	return ApiIdentityGetForestRequest{
+		ctx:        ctx,
+		ApiService: m,
+		forest:     forest,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetForestExecute(r ApiIdentityGetForestRequest) (*IdentityForestResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityForestResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetForests(ctx context.Context) ApiIdentityGetForestsRequest {
+	return ApiIdentityGetForestsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetForestsExecute(r ApiIdentityGetForestsRequest) (*IdentityForestResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityForestResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetMachine(ctx context.Context, machine string) ApiIdentityGetMachineRequest {
+	return ApiIdentityGetMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		machine:    machine,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetMachineExecute(r ApiIdentityGetMachineRequest) (*IdentityMachineResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityMachineResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetMachines(ctx context.Context) ApiIdentityGetMachinesRequest {
+	return ApiIdentityGetMachinesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetMachinesExecute(r ApiIdentityGetMachinesRequest) (*IdentityMachineResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityMachineResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetPrinters(ctx context.Context) ApiIdentityGetPrintersRequest {
+	return ApiIdentityGetPrintersRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetPrintersExecute(r ApiIdentityGetPrintersRequest) (*IdentityPrinterResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityPrinterResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetServiceAccount(ctx context.Context, serviceAccountUid string) ApiIdentityGetServiceAccountRequest {
+	return ApiIdentityGetServiceAccountRequest{
+		ctx:               ctx,
+		ApiService:        m,
+		serviceAccountUid: serviceAccountUid,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetServiceAccountExecute(r ApiIdentityGetServiceAccountRequest) (*ServiceAccountResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ServiceAccountResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetServiceAccountCapabilityPatchPreview(ctx context.Context, serviceAccountUid string) ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest {
+	return ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest{
+		ctx:               ctx,
+		ApiService:        m,
+		serviceAccountUid: serviceAccountUid,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetServiceAccountCapabilityPatchPreviewExecute(r ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) (*UpdateServiceAccountCapabilityPreviewResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*UpdateServiceAccountCapabilityPreviewResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetServiceAccountTestReport(ctx context.Context, serviceAccountUid string) ApiIdentityGetServiceAccountTestReportRequest {
+	return ApiIdentityGetServiceAccountTestReportRequest{
+		ctx:               ctx,
+		ApiService:        m,
+		serviceAccountUid: serviceAccountUid,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetServiceAccountTestReportExecute(r ApiIdentityGetServiceAccountTestReportRequest) (*TestReportResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TestReportResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetServiceAccounts(ctx context.Context) ApiIdentityGetServiceAccountsRequest {
+	return ApiIdentityGetServiceAccountsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetServiceAccountsExecute(r ApiIdentityGetServiceAccountsRequest) (*ServiceAccountResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ServiceAccountResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetSite(ctx context.Context, site string) ApiIdentityGetSiteRequest {
+	return ApiIdentityGetSiteRequest{
+		ctx:        ctx,
+		ApiService: m,
+		site:       site,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetSiteExecute(r ApiIdentityGetSiteRequest) (*IdentitySiteResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentitySiteResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetSites(ctx context.Context) ApiIdentityGetSitesRequest {
+	return ApiIdentityGetSitesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetSitesExecute(r ApiIdentityGetSitesRequest) (*IdentitySiteResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentitySiteResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetUser(ctx context.Context, userOrGroup string) ApiIdentityGetUserRequest {
+	return ApiIdentityGetUserRequest{
+		ctx:         ctx,
+		ApiService:  m,
+		userOrGroup: userOrGroup,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetUserExecute(r ApiIdentityGetUserRequest) (*IdentityUserResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityUserResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetUsers(ctx context.Context) ApiIdentityGetUsersRequest {
+	return ApiIdentityGetUsersRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityGetUsersExecute(r ApiIdentityGetUsersRequest) (*IdentityUserResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityUserResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityQueryAzureAdSecurityGroups(ctx context.Context, azureAdTenantId string) ApiIdentityQueryAzureAdSecurityGroupsRequest {
+	return ApiIdentityQueryAzureAdSecurityGroupsRequest{
+		ctx:             ctx,
+		ApiService:      m,
+		azureAdTenantId: azureAdTenantId,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityQueryAzureAdSecurityGroupsExecute(r ApiIdentityQueryAzureAdSecurityGroupsRequest) (*AzureADSecurityGroupResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AzureADSecurityGroupResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentitySetServiceAccount(ctx context.Context, serviceAccountUid string) ApiIdentitySetServiceAccountRequest {
+	return ApiIdentitySetServiceAccountRequest{
+		ctx:               ctx,
+		ApiService:        m,
+		serviceAccountUid: serviceAccountUid,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentitySetServiceAccountExecute(r ApiIdentitySetServiceAccountRequest) (*ServiceAccountResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ServiceAccountResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityTestServiceAccount(ctx context.Context, serviceAccountUid string) ApiIdentityTestServiceAccountRequest {
+	return ApiIdentityTestServiceAccountRequest{
+		ctx:               ctx,
+		ApiService:        m,
+		serviceAccountUid: serviceAccountUid,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityTestServiceAccountExecute(r ApiIdentityTestServiceAccountRequest) (*ServiceAccountTestResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ServiceAccountTestResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityUpdateMachine(ctx context.Context, machine string) ApiIdentityUpdateMachineRequest {
+	return ApiIdentityUpdateMachineRequest{
+		ctx:        ctx,
+		ApiService: m,
+		machine:    machine,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityUpdateMachineExecute(r ApiIdentityUpdateMachineRequest) (*IdentityMachineResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityMachineResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityUpdateUser(ctx context.Context, user string) ApiIdentityUpdateUserRequest {
+	return ApiIdentityUpdateUserRequest{
+		ctx:        ctx,
+		ApiService: m,
+		user:       user,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityUpdateUserExecute(r ApiIdentityUpdateUserRequest) (*IdentityUserResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityUserResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityValidateUser(ctx context.Context) ApiIdentityValidateUserRequest {
+	return ApiIdentityValidateUserRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockIdentityAPIsDAAS) IdentityValidateUserExecute(r ApiIdentityValidateUserRequest) (*IdentityUserResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*IdentityUserResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }

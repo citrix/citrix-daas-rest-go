@@ -19,12 +19,74 @@ import (
 	"strings"
 )
 
+type MachineADObjectDAAS interface {
+
+	/*
+		AdObjectCreate Create a Machine-level AD Object
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAdObjectCreateRequest
+	*/
+	AdObjectCreate(ctx context.Context) ApiAdObjectCreateRequest
+
+	// AdObjectCreateExecute executes the request
+	AdObjectCreateExecute(r ApiAdObjectCreateRequest) (*http.Response, error)
+
+	/*
+		AdObjectDelete Delete a Machine-level AD Object
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The ID of the resource you want to delete.
+		@return ApiAdObjectDeleteRequest
+	*/
+	AdObjectDelete(ctx context.Context, id string) ApiAdObjectDeleteRequest
+
+	// AdObjectDeleteExecute executes the request
+	AdObjectDeleteExecute(r ApiAdObjectDeleteRequest) (*http.Response, error)
+
+	/*
+		AdObjectQuery Query Machine-level AD Objects
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAdObjectQueryRequest
+	*/
+	AdObjectQuery(ctx context.Context) ApiAdObjectQueryRequest
+
+	// AdObjectQueryExecute executes the request
+	//  @return AdObjectQuery200Response
+	AdObjectQueryExecute(r ApiAdObjectQueryRequest) (*AdObjectQuery200Response, *http.Response, error)
+
+	/*
+		AdObjectQueryById Query Machine-level AD Objects by Identity
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The ID of the resource you want to query.
+		@return ApiAdObjectQueryByIdRequest
+	*/
+	AdObjectQueryById(ctx context.Context, id int64) ApiAdObjectQueryByIdRequest
+
+	// AdObjectQueryByIdExecute executes the request
+	//  @return MachineModel
+	AdObjectQueryByIdExecute(r ApiAdObjectQueryByIdRequest) (*MachineModel, *http.Response, error)
+
+	/*
+		AdObjectUpdate Update a Machine-level AD Object
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiAdObjectUpdateRequest
+	*/
+	AdObjectUpdate(ctx context.Context) ApiAdObjectUpdateRequest
+
+	// AdObjectUpdateExecute executes the request
+	AdObjectUpdateExecute(r ApiAdObjectUpdateRequest) (*http.Response, error)
+}
+
 // MachineADObjectDAASService MachineADObjectDAAS service
 type MachineADObjectDAASService service
 
 type ApiAdObjectCreateRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineADObjectDAASService
+	ApiService          MachineADObjectDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string
@@ -222,7 +284,7 @@ func (a *MachineADObjectDAASService) AdObjectCreateExecute(r ApiAdObjectCreateRe
 
 type ApiAdObjectDeleteRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineADObjectDAASService
+	ApiService          MachineADObjectDAAS
 	id                  string
 	accept              *string
 	authorization       *string
@@ -416,7 +478,7 @@ func (a *MachineADObjectDAASService) AdObjectDeleteExecute(r ApiAdObjectDeleteRe
 
 type ApiAdObjectQueryRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineADObjectDAASService
+	ApiService          MachineADObjectDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string
@@ -637,7 +699,7 @@ func (a *MachineADObjectDAASService) AdObjectQueryExecute(r ApiAdObjectQueryRequ
 
 type ApiAdObjectQueryByIdRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineADObjectDAASService
+	ApiService          MachineADObjectDAAS
 	id                  int64
 	accept              *string
 	authorization       *string
@@ -832,7 +894,7 @@ func (a *MachineADObjectDAASService) AdObjectQueryByIdExecute(r ApiAdObjectQuery
 
 type ApiAdObjectUpdateRequest struct {
 	ctx                 context.Context
-	ApiService          *MachineADObjectDAASService
+	ApiService          MachineADObjectDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string

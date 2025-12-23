@@ -19,12 +19,130 @@ import (
 	"strings"
 )
 
+type ProfilesDAAS interface {
+
+	/*
+		AddGroupsInProfile Add groups in existing Profile Record For given Profile ID.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param profileId Profile ID for which the profile record needs to be updated
+		@return ApiAddGroupsInProfileRequest
+	*/
+	AddGroupsInProfile(ctx context.Context, profileId string) ApiAddGroupsInProfileRequest
+
+	// AddGroupsInProfileExecute executes the request
+	//  @return ProfileResponseModel
+	AddGroupsInProfileExecute(r ApiAddGroupsInProfileRequest) (*ProfileResponseModel, *http.Response, error)
+
+	/*
+		CreateProfile Create Profile Record For The Specified Customer Id.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCreateProfileRequest
+	*/
+	CreateProfile(ctx context.Context) ApiCreateProfileRequest
+
+	// CreateProfileExecute executes the request
+	//  @return ProfileResponseModel
+	CreateProfileExecute(r ApiCreateProfileRequest) (*ProfileResponseModel, *http.Response, error)
+
+	/*
+		DeleteProfile Delete Profile Record For The Specified Customer Id and Profile Id.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id Profile ID.
+		@return ApiDeleteProfileRequest
+	*/
+	DeleteProfile(ctx context.Context, id string) ApiDeleteProfileRequest
+
+	// DeleteProfileExecute executes the request
+	//  @return string
+	DeleteProfileExecute(r ApiDeleteProfileRequest) (string, *http.Response, error)
+
+	/*
+		GetAllProfile Retrieve all profile records for the given customer ID
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetAllProfileRequest
+	*/
+	GetAllProfile(ctx context.Context) ApiGetAllProfileRequest
+
+	// GetAllProfileExecute executes the request
+	//  @return GetAllProfileResponseModel
+	GetAllProfileExecute(r ApiGetAllProfileRequest) (*GetAllProfileResponseModel, *http.Response, error)
+
+	/*
+		GetById Retrieve all profile records for the given customer ID & profile ID
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param profileId profileId
+		@return ApiGetByIdRequest
+	*/
+	GetById(ctx context.Context, profileId string) ApiGetByIdRequest
+
+	// GetByIdExecute executes the request
+	//  @return ProfileResponseModel
+	GetByIdExecute(r ApiGetByIdRequest) (*ProfileResponseModel, *http.Response, error)
+
+	/*
+		GetByUrl Retrieve all profile records for the given customer ID & Service URL
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param url url
+		@return ApiGetByUrlRequest
+	*/
+	GetByUrl(ctx context.Context, url string) ApiGetByUrlRequest
+
+	// GetByUrlExecute executes the request
+	//  @return ProfileResponseModel
+	GetByUrlExecute(r ApiGetByUrlRequest) (*ProfileResponseModel, *http.Response, error)
+
+	/*
+		RemoveGroupsInProfile Remove groups in existing Profile Record For given Profile ID.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param profileId Profile ID for which the profile record needs to be updated
+		@return ApiRemoveGroupsInProfileRequest
+	*/
+	RemoveGroupsInProfile(ctx context.Context, profileId string) ApiRemoveGroupsInProfileRequest
+
+	// RemoveGroupsInProfileExecute executes the request
+	//  @return ProfileResponseModel
+	RemoveGroupsInProfileExecute(r ApiRemoveGroupsInProfileRequest) (*ProfileResponseModel, *http.Response, error)
+
+	/*
+		UpdatePriorityInProfile Update Priority in existing Profile Record For given Profile ID.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param profileId Profile ID for which the profile record needs to be updated
+		@return ApiUpdatePriorityInProfileRequest
+	*/
+	UpdatePriorityInProfile(ctx context.Context, profileId string) ApiUpdatePriorityInProfileRequest
+
+	// UpdatePriorityInProfileExecute executes the request
+	//  @return ProfileResponseModel
+	UpdatePriorityInProfileExecute(r ApiUpdatePriorityInProfileRequest) (*ProfileResponseModel, *http.Response, error)
+
+	/*
+		Updateprofile Update Profile Record For The Specified Customer Id, Profile ID.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param profileId Profile ID for which the profile record needs to be updated
+		@return ApiUpdateprofileRequest
+	*/
+	Updateprofile(ctx context.Context, profileId string) ApiUpdateprofileRequest
+
+	// UpdateprofileExecute executes the request
+	//  @return interface
+	UpdateprofileExecute(r ApiUpdateprofileRequest) (*interface{}, *http.Response, error)
+}
+
 // ProfilesDAASService ProfilesDAAS service
 type ProfilesDAASService service
 
 type ApiAddGroupsInProfileRequest struct {
 	ctx                           context.Context
-	ApiService                    *ProfilesDAASService
+	ApiService                    ProfilesDAAS
 	citrixCustomerId              *string
 	profileId                     string
 	citrixTransactionId           *string
@@ -176,7 +294,7 @@ func (a *ProfilesDAASService) AddGroupsInProfileExecute(r ApiAddGroupsInProfileR
 
 type ApiCreateProfileRequest struct {
 	ctx                 context.Context
-	ApiService          *ProfilesDAASService
+	ApiService          ProfilesDAAS
 	citrixCustomerId    *string
 	citrixTransactionId *string
 	profileRequestModel *ProfileRequestModel
@@ -422,7 +540,7 @@ func (a *ProfilesDAASService) CreateProfileExecute(r ApiCreateProfileRequest) (*
 
 type ApiDeleteProfileRequest struct {
 	ctx                 context.Context
-	ApiService          *ProfilesDAASService
+	ApiService          ProfilesDAAS
 	citrixCustomerId    *string
 	id                  string
 	citrixTransactionId *string
@@ -664,7 +782,7 @@ func (a *ProfilesDAASService) DeleteProfileExecute(r ApiDeleteProfileRequest) (s
 
 type ApiGetAllProfileRequest struct {
 	ctx                 context.Context
-	ApiService          *ProfilesDAASService
+	ApiService          ProfilesDAAS
 	citrixCustomerId    *string
 	citrixTransactionId *string
 }
@@ -902,7 +1020,7 @@ func (a *ProfilesDAASService) GetAllProfileExecute(r ApiGetAllProfileRequest) (*
 
 type ApiGetByIdRequest struct {
 	ctx                 context.Context
-	ApiService          *ProfilesDAASService
+	ApiService          ProfilesDAAS
 	citrixCustomerId    *string
 	profileId           string
 	citrixTransactionId *string
@@ -1144,7 +1262,7 @@ func (a *ProfilesDAASService) GetByIdExecute(r ApiGetByIdRequest) (*ProfileRespo
 
 type ApiGetByUrlRequest struct {
 	ctx                 context.Context
-	ApiService          *ProfilesDAASService
+	ApiService          ProfilesDAAS
 	citrixCustomerId    *string
 	url                 string
 	citrixTransactionId *string
@@ -1386,7 +1504,7 @@ func (a *ProfilesDAASService) GetByUrlExecute(r ApiGetByUrlRequest) (*ProfileRes
 
 type ApiRemoveGroupsInProfileRequest struct {
 	ctx                           context.Context
-	ApiService                    *ProfilesDAASService
+	ApiService                    ProfilesDAAS
 	citrixCustomerId              *string
 	profileId                     string
 	citrixTransactionId           *string
@@ -1538,7 +1656,7 @@ func (a *ProfilesDAASService) RemoveGroupsInProfileExecute(r ApiRemoveGroupsInPr
 
 type ApiUpdatePriorityInProfileRequest struct {
 	ctx                              context.Context
-	ApiService                       *ProfilesDAASService
+	ApiService                       ProfilesDAAS
 	citrixCustomerId                 *string
 	profileId                        string
 	citrixTransactionId              *string
@@ -1690,7 +1808,7 @@ func (a *ProfilesDAASService) UpdatePriorityInProfileExecute(r ApiUpdatePriority
 
 type ApiUpdateprofileRequest struct {
 	ctx                 context.Context
-	ApiService          *ProfilesDAASService
+	ApiService          ProfilesDAAS
 	citrixCustomerId    *string
 	profileId           string
 	citrixTransactionId *string

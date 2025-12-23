@@ -48,9 +48,9 @@ type APIClient struct {
 
 	// API Services
 
-	AuthDomainsDAAS *AuthDomainsDAASService
+	AuthDomainsDAAS AuthDomainsDAAS
 
-	IdentityProvidersDAAS *IdentityProvidersDAASService
+	IdentityProvidersDAAS IdentityProvidersDAAS
 }
 
 type service struct {

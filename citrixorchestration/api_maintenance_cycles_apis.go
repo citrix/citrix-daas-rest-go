@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type MaintenanceCyclesAPIsDAAS interface {
@@ -145,6 +147,66 @@ type ApiMaintenanceCyclesCancelMaintenanceCycleRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiMaintenanceCyclesCancelMaintenanceCycleRequest wraps the request struct to provide getter methods for testing
+type MockApiMaintenanceCyclesCancelMaintenanceCycleRequest struct {
+	ApiMaintenanceCyclesCancelMaintenanceCycleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMaintenanceCyclesCancelMaintenanceCycleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMaintenanceCyclesCancelMaintenanceCycleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMaintenanceCyclesCancelMaintenanceCycleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMaintenanceCyclesCancelMaintenanceCycleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMaintenanceCyclesCancelMaintenanceCycleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMaintenanceCyclesCancelMaintenanceCycleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMaintenanceCyclesCancelMaintenanceCycleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMaintenanceCyclesCancelMaintenanceCycleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMaintenanceCyclesCancelMaintenanceCycleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMaintenanceCyclesCancelMaintenanceCycleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMaintenanceCyclesCancelMaintenanceCycleRequest) Execute() (*http.Response, error) {
+	return r.ApiMaintenanceCyclesCancelMaintenanceCycleRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -442,6 +504,66 @@ type ApiMaintenanceCyclesCreateMaintenanceCycleRequest struct {
 	accept                             *string
 	citrixLocale                       *string
 	async                              *bool
+}
+
+// MockApiMaintenanceCyclesCreateMaintenanceCycleRequest wraps the request struct to provide getter methods for testing
+type MockApiMaintenanceCyclesCreateMaintenanceCycleRequest struct {
+	ApiMaintenanceCyclesCreateMaintenanceCycleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMaintenanceCyclesCreateMaintenanceCycleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMaintenanceCyclesCreateMaintenanceCycleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMaintenanceCyclesCreateMaintenanceCycleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCreateMaintenanceCycleRequestModel returns the createMaintenanceCycleRequestModel parameter
+func (r MockApiMaintenanceCyclesCreateMaintenanceCycleRequest) GetCreateMaintenanceCycleRequestModel() *CreateMaintenanceCycleRequestModel {
+	return r.createMaintenanceCycleRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMaintenanceCyclesCreateMaintenanceCycleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMaintenanceCyclesCreateMaintenanceCycleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMaintenanceCyclesCreateMaintenanceCycleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMaintenanceCyclesCreateMaintenanceCycleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMaintenanceCyclesCreateMaintenanceCycleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMaintenanceCyclesCreateMaintenanceCycleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMaintenanceCyclesCreateMaintenanceCycleRequest) Execute() (*http.Response, error) {
+	return r.ApiMaintenanceCyclesCreateMaintenanceCycleRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -748,6 +870,86 @@ type ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest struct {
 	skip                               *int32
 	continuationToken                  *string
 	fields                             *string
+}
+
+// MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest wraps the request struct to provide getter methods for testing
+type MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest struct {
+	ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetMaintenanceCycleSearchRequestModel returns the maintenanceCycleSearchRequestModel parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetMaintenanceCycleSearchRequestModel() *MaintenanceCycleSearchRequestModel {
+	return r.maintenanceCycleSearchRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetSkip returns the skip parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetSkip() *int32 {
+	return r.skip
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) Execute() (*MaintenanceCycleResponseModelCollection, *http.Response, error) {
+	return r.ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1105,6 +1307,86 @@ type ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest struct {
 	fields                                           *string
 }
 
+// MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest wraps the request struct to provide getter methods for testing
+type MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest struct {
+	ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetMaintenanceCycleVMOperationJobSearchRequestModel returns the maintenanceCycleVMOperationJobSearchRequestModel parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetMaintenanceCycleVMOperationJobSearchRequestModel() *MaintenanceCycleVMOperationJobSearchRequestModel {
+	return r.maintenanceCycleVMOperationJobSearchRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetSkip returns the skip parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetSkip() *int32 {
+	return r.skip
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetFields returns the fields parameter
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) GetFields() *string {
+	return r.fields
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) Execute() (*MaintenanceCycleVMOperationJobResponseModelCollection, *http.Response, error) {
+	return r.ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) CitrixCustomerId(citrixCustomerId string) ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1457,6 +1739,66 @@ type ApiMaintenanceCyclesGetMaintenanceCycleRequest struct {
 	async               *bool
 }
 
+// MockApiMaintenanceCyclesGetMaintenanceCycleRequest wraps the request struct to provide getter methods for testing
+type MockApiMaintenanceCyclesGetMaintenanceCycleRequest struct {
+	ApiMaintenanceCyclesGetMaintenanceCycleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMaintenanceCyclesGetMaintenanceCycleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMaintenanceCyclesGetMaintenanceCycleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMaintenanceCyclesGetMaintenanceCycleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMaintenanceCyclesGetMaintenanceCycleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMaintenanceCyclesGetMaintenanceCycleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMaintenanceCyclesGetMaintenanceCycleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMaintenanceCyclesGetMaintenanceCycleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMaintenanceCyclesGetMaintenanceCycleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMaintenanceCyclesGetMaintenanceCycleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMaintenanceCyclesGetMaintenanceCycleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMaintenanceCyclesGetMaintenanceCycleRequest) Execute() (*MaintenanceCycleDetailsResponseModel, *http.Response, error) {
+	return r.ApiMaintenanceCyclesGetMaintenanceCycleRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMaintenanceCyclesGetMaintenanceCycleRequest) CitrixCustomerId(citrixCustomerId string) ApiMaintenanceCyclesGetMaintenanceCycleRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1752,6 +2094,66 @@ type ApiMaintenanceCyclesRemoveMaintenanceCycleRequest struct {
 	async               *bool
 }
 
+// MockApiMaintenanceCyclesRemoveMaintenanceCycleRequest wraps the request struct to provide getter methods for testing
+type MockApiMaintenanceCyclesRemoveMaintenanceCycleRequest struct {
+	ApiMaintenanceCyclesRemoveMaintenanceCycleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMaintenanceCyclesRemoveMaintenanceCycleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMaintenanceCyclesRemoveMaintenanceCycleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMaintenanceCyclesRemoveMaintenanceCycleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMaintenanceCyclesRemoveMaintenanceCycleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMaintenanceCyclesRemoveMaintenanceCycleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMaintenanceCyclesRemoveMaintenanceCycleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMaintenanceCyclesRemoveMaintenanceCycleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMaintenanceCyclesRemoveMaintenanceCycleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMaintenanceCyclesRemoveMaintenanceCycleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMaintenanceCyclesRemoveMaintenanceCycleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMaintenanceCyclesRemoveMaintenanceCycleRequest) Execute() (*http.Response, error) {
+	return r.ApiMaintenanceCyclesRemoveMaintenanceCycleRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMaintenanceCyclesRemoveMaintenanceCycleRequest) CitrixCustomerId(citrixCustomerId string) ApiMaintenanceCyclesRemoveMaintenanceCycleRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2037,6 +2439,71 @@ type ApiMaintenanceCyclesRestartMaintenanceCycleRequest struct {
 	accept                              *string
 	citrixLocale                        *string
 	async                               *bool
+}
+
+// MockApiMaintenanceCyclesRestartMaintenanceCycleRequest wraps the request struct to provide getter methods for testing
+type MockApiMaintenanceCyclesRestartMaintenanceCycleRequest struct {
+	ApiMaintenanceCyclesRestartMaintenanceCycleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMaintenanceCyclesRestartMaintenanceCycleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMaintenanceCyclesRestartMaintenanceCycleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMaintenanceCyclesRestartMaintenanceCycleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiMaintenanceCyclesRestartMaintenanceCycleRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetRestartMaintenanceCycleRequestModel returns the restartMaintenanceCycleRequestModel parameter
+func (r MockApiMaintenanceCyclesRestartMaintenanceCycleRequest) GetRestartMaintenanceCycleRequestModel() *RestartMaintenanceCycleRequestModel {
+	return r.restartMaintenanceCycleRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMaintenanceCyclesRestartMaintenanceCycleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMaintenanceCyclesRestartMaintenanceCycleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMaintenanceCyclesRestartMaintenanceCycleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMaintenanceCyclesRestartMaintenanceCycleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMaintenanceCyclesRestartMaintenanceCycleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMaintenanceCyclesRestartMaintenanceCycleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMaintenanceCyclesRestartMaintenanceCycleRequest) Execute() (*http.Response, error) {
+	return r.ApiMaintenanceCyclesRestartMaintenanceCycleRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2357,6 +2824,66 @@ type ApiMaintenanceCyclesUpdateMaintenanceCycleRequest struct {
 	async                              *bool
 }
 
+// MockApiMaintenanceCyclesUpdateMaintenanceCycleRequest wraps the request struct to provide getter methods for testing
+type MockApiMaintenanceCyclesUpdateMaintenanceCycleRequest struct {
+	ApiMaintenanceCyclesUpdateMaintenanceCycleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiMaintenanceCyclesUpdateMaintenanceCycleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiMaintenanceCyclesUpdateMaintenanceCycleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiMaintenanceCyclesUpdateMaintenanceCycleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUpdateMaintenanceCycleRequestModel returns the updateMaintenanceCycleRequestModel parameter
+func (r MockApiMaintenanceCyclesUpdateMaintenanceCycleRequest) GetUpdateMaintenanceCycleRequestModel() *UpdateMaintenanceCycleRequestModel {
+	return r.updateMaintenanceCycleRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiMaintenanceCyclesUpdateMaintenanceCycleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiMaintenanceCyclesUpdateMaintenanceCycleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiMaintenanceCyclesUpdateMaintenanceCycleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiMaintenanceCyclesUpdateMaintenanceCycleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiMaintenanceCyclesUpdateMaintenanceCycleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiMaintenanceCyclesUpdateMaintenanceCycleRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiMaintenanceCyclesUpdateMaintenanceCycleRequest) Execute() (*http.Response, error) {
+	return r.ApiMaintenanceCyclesUpdateMaintenanceCycleRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiMaintenanceCyclesUpdateMaintenanceCycleRequest) CitrixCustomerId(citrixCustomerId string) ApiMaintenanceCyclesUpdateMaintenanceCycleRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2632,4 +3159,123 @@ func (a *MaintenanceCyclesAPIsDAASService) MaintenanceCyclesUpdateMaintenanceCyc
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockMaintenanceCyclesAPIsDAAS extracts the MockMaintenanceCyclesAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockMaintenanceCyclesAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockMaintenanceCyclesAPIsDAAS(client *APIClient) *MockMaintenanceCyclesAPIsDAAS {
+	return client.MaintenanceCyclesAPIsDAAS.(*MockMaintenanceCyclesAPIsDAAS)
+}
+
+// MockMaintenanceCyclesAPIsDAAS is a mock implementation of the MaintenanceCyclesAPIsDAAS interface for testing
+var _ MaintenanceCyclesAPIsDAAS = (*MockMaintenanceCyclesAPIsDAAS)(nil)
+
+type MockMaintenanceCyclesAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesCancelMaintenanceCycle(ctx context.Context, nameOrId string) ApiMaintenanceCyclesCancelMaintenanceCycleRequest {
+	return ApiMaintenanceCyclesCancelMaintenanceCycleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesCancelMaintenanceCycleExecute(r ApiMaintenanceCyclesCancelMaintenanceCycleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesCreateMaintenanceCycle(ctx context.Context) ApiMaintenanceCyclesCreateMaintenanceCycleRequest {
+	return ApiMaintenanceCyclesCreateMaintenanceCycleRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesCreateMaintenanceCycleExecute(r ApiMaintenanceCyclesCreateMaintenanceCycleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesDoMaintenanceCycleSearch(ctx context.Context) ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest {
+	return ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesDoMaintenanceCycleSearchExecute(r ApiMaintenanceCyclesDoMaintenanceCycleSearchRequest) (*MaintenanceCycleResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MaintenanceCycleResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesDoMaintenanceCycleVMOperationJobSearch(ctx context.Context) ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest {
+	return ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchExecute(r ApiMaintenanceCyclesDoMaintenanceCycleVMOperationJobSearchRequest) (*MaintenanceCycleVMOperationJobResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MaintenanceCycleVMOperationJobResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesGetMaintenanceCycle(ctx context.Context, nameOrId string) ApiMaintenanceCyclesGetMaintenanceCycleRequest {
+	return ApiMaintenanceCyclesGetMaintenanceCycleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesGetMaintenanceCycleExecute(r ApiMaintenanceCyclesGetMaintenanceCycleRequest) (*MaintenanceCycleDetailsResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MaintenanceCycleDetailsResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesRemoveMaintenanceCycle(ctx context.Context, nameOrId string) ApiMaintenanceCyclesRemoveMaintenanceCycleRequest {
+	return ApiMaintenanceCyclesRemoveMaintenanceCycleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesRemoveMaintenanceCycleExecute(r ApiMaintenanceCyclesRemoveMaintenanceCycleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesRestartMaintenanceCycle(ctx context.Context, nameOrId string) ApiMaintenanceCyclesRestartMaintenanceCycleRequest {
+	return ApiMaintenanceCyclesRestartMaintenanceCycleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesRestartMaintenanceCycleExecute(r ApiMaintenanceCyclesRestartMaintenanceCycleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesUpdateMaintenanceCycle(ctx context.Context) ApiMaintenanceCyclesUpdateMaintenanceCycleRequest {
+	return ApiMaintenanceCyclesUpdateMaintenanceCycleRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockMaintenanceCyclesAPIsDAAS) MaintenanceCyclesUpdateMaintenanceCycleExecute(r ApiMaintenanceCyclesUpdateMaintenanceCycleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }

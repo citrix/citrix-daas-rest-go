@@ -16,6 +16,8 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type TimeZonesAPIsDAAS interface {
@@ -61,6 +63,56 @@ type ApiTimeZonesGetTimeZonesRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiTimeZonesGetTimeZonesRequest wraps the request struct to provide getter methods for testing
+type MockApiTimeZonesGetTimeZonesRequest struct {
+	ApiTimeZonesGetTimeZonesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTimeZonesGetTimeZonesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTimeZonesGetTimeZonesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiTimeZonesGetTimeZonesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiTimeZonesGetTimeZonesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTimeZonesGetTimeZonesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTimeZonesGetTimeZonesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTimeZonesGetTimeZonesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTimeZonesGetTimeZonesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTimeZonesGetTimeZonesRequest) Execute() (*TimeZoneResponseModelCollection, *http.Response, error) {
+	return r.ApiTimeZonesGetTimeZonesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -329,4 +381,35 @@ func (a *TimeZonesAPIsDAASService) TimeZonesGetTimeZonesExecute(r ApiTimeZonesGe
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockTimeZonesAPIsDAAS extracts the MockTimeZonesAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockTimeZonesAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockTimeZonesAPIsDAAS(client *APIClient) *MockTimeZonesAPIsDAAS {
+	return client.TimeZonesAPIsDAAS.(*MockTimeZonesAPIsDAAS)
+}
+
+// MockTimeZonesAPIsDAAS is a mock implementation of the TimeZonesAPIsDAAS interface for testing
+var _ TimeZonesAPIsDAAS = (*MockTimeZonesAPIsDAAS)(nil)
+
+type MockTimeZonesAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockTimeZonesAPIsDAAS) TimeZonesGetTimeZones(ctx context.Context) ApiTimeZonesGetTimeZonesRequest {
+	return ApiTimeZonesGetTimeZonesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockTimeZonesAPIsDAAS) TimeZonesGetTimeZonesExecute(r ApiTimeZonesGetTimeZonesRequest) (*TimeZoneResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*TimeZoneResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
 }

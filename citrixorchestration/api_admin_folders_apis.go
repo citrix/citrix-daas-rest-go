@@ -18,6 +18,8 @@ import (
 	"net/url"
 	"reflect"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type AdminFoldersAPIsDAAS interface {
@@ -141,6 +143,66 @@ type ApiAdminFoldersCreateAdminFolderRequest struct {
 	accept                        *string
 	citrixLocale                  *string
 	async                         *bool
+}
+
+// MockApiAdminFoldersCreateAdminFolderRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminFoldersCreateAdminFolderRequest struct {
+	ApiAdminFoldersCreateAdminFolderRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminFoldersCreateAdminFolderRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminFoldersCreateAdminFolderRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminFoldersCreateAdminFolderRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCreateAdminFolderRequestModel returns the createAdminFolderRequestModel parameter
+func (r MockApiAdminFoldersCreateAdminFolderRequest) GetCreateAdminFolderRequestModel() *CreateAdminFolderRequestModel {
+	return r.createAdminFolderRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminFoldersCreateAdminFolderRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminFoldersCreateAdminFolderRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminFoldersCreateAdminFolderRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminFoldersCreateAdminFolderRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminFoldersCreateAdminFolderRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminFoldersCreateAdminFolderRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminFoldersCreateAdminFolderRequest) Execute() (*AdminFolderResponseModel, *http.Response, error) {
+	return r.ApiAdminFoldersCreateAdminFolderRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -460,6 +522,71 @@ type ApiAdminFoldersDeleteAdminFolderRequest struct {
 	async               *bool
 }
 
+// MockApiAdminFoldersDeleteAdminFolderRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminFoldersDeleteAdminFolderRequest struct {
+	ApiAdminFoldersDeleteAdminFolderRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminFoldersDeleteAdminFolderRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminFoldersDeleteAdminFolderRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminFoldersDeleteAdminFolderRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPathOrId returns the pathOrId parameter
+func (r MockApiAdminFoldersDeleteAdminFolderRequest) GetPathOrId() string {
+	return r.pathOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminFoldersDeleteAdminFolderRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminFoldersDeleteAdminFolderRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminFoldersDeleteAdminFolderRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminFoldersDeleteAdminFolderRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminFoldersDeleteAdminFolderRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetObjectsToRemove returns the objectsToRemove parameter
+func (r MockApiAdminFoldersDeleteAdminFolderRequest) GetObjectsToRemove() *[]AdminFolderObjects {
+	return r.objectsToRemove
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminFoldersDeleteAdminFolderRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminFoldersDeleteAdminFolderRequest) Execute() (*http.Response, error) {
+	return r.ApiAdminFoldersDeleteAdminFolderRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminFoldersDeleteAdminFolderRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminFoldersDeleteAdminFolderRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -762,6 +889,61 @@ type ApiAdminFoldersGetAdminFolderRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiAdminFoldersGetAdminFolderRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminFoldersGetAdminFolderRequest struct {
+	ApiAdminFoldersGetAdminFolderRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminFoldersGetAdminFolderRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminFoldersGetAdminFolderRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminFoldersGetAdminFolderRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPathOrId returns the pathOrId parameter
+func (r MockApiAdminFoldersGetAdminFolderRequest) GetPathOrId() string {
+	return r.pathOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminFoldersGetAdminFolderRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminFoldersGetAdminFolderRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminFoldersGetAdminFolderRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminFoldersGetAdminFolderRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminFoldersGetAdminFolderRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminFoldersGetAdminFolderRequest) Execute() (*AdminFolderResponseModel, *http.Response, error) {
+	return r.ApiAdminFoldersGetAdminFolderRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminFoldersGetAdminFolderRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminFoldersGetAdminFolderRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1048,6 +1230,81 @@ type ApiAdminFoldersGetAdminFolderApplicationsRequest struct {
 	continuationToken   *string
 	fields              *string
 	async               *bool
+}
+
+// MockApiAdminFoldersGetAdminFolderApplicationsRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminFoldersGetAdminFolderApplicationsRequest struct {
+	ApiAdminFoldersGetAdminFolderApplicationsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPathOrId returns the pathOrId parameter
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) GetPathOrId() string {
+	return r.pathOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetFields returns the fields parameter
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) GetFields() *string {
+	return r.fields
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminFoldersGetAdminFolderApplicationsRequest) Execute() (*ApplicationResponseModelCollection, *http.Response, error) {
+	return r.ApiAdminFoldersGetAdminFolderApplicationsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1375,6 +1632,81 @@ type ApiAdminFoldersGetAdminFolderMachineCatalogsRequest struct {
 	continuationToken   *string
 	fields              *string
 	async               *bool
+}
+
+// MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest struct {
+	ApiAdminFoldersGetAdminFolderMachineCatalogsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPathOrId returns the pathOrId parameter
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) GetPathOrId() string {
+	return r.pathOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetFields returns the fields parameter
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) GetFields() *string {
+	return r.fields
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminFoldersGetAdminFolderMachineCatalogsRequest) Execute() (*MachineCatalogResponseModelCollection, *http.Response, error) {
+	return r.ApiAdminFoldersGetAdminFolderMachineCatalogsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1705,6 +2037,71 @@ type ApiAdminFoldersGetAdminFoldersRequest struct {
 	continuationToken   *string
 }
 
+// MockApiAdminFoldersGetAdminFoldersRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminFoldersGetAdminFoldersRequest struct {
+	ApiAdminFoldersGetAdminFoldersRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminFoldersGetAdminFoldersRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminFoldersGetAdminFoldersRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminFoldersGetAdminFoldersRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminFoldersGetAdminFoldersRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminFoldersGetAdminFoldersRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminFoldersGetAdminFoldersRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminFoldersGetAdminFoldersRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminFoldersGetAdminFoldersRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminFoldersGetAdminFoldersRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiAdminFoldersGetAdminFoldersRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiAdminFoldersGetAdminFoldersRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminFoldersGetAdminFoldersRequest) Execute() (*AdminFolderResponseModelCollection, *http.Response, error) {
+	return r.ApiAdminFoldersGetAdminFoldersRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiAdminFoldersGetAdminFoldersRequest) CitrixCustomerId(citrixCustomerId string) ApiAdminFoldersGetAdminFoldersRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2005,6 +2402,71 @@ type ApiAdminFoldersUpdateAdminFolderRequest struct {
 	accept                      *string
 	citrixLocale                *string
 	async                       *bool
+}
+
+// MockApiAdminFoldersUpdateAdminFolderRequest wraps the request struct to provide getter methods for testing
+type MockApiAdminFoldersUpdateAdminFolderRequest struct {
+	ApiAdminFoldersUpdateAdminFolderRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAdminFoldersUpdateAdminFolderRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAdminFoldersUpdateAdminFolderRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAdminFoldersUpdateAdminFolderRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPathOrId returns the pathOrId parameter
+func (r MockApiAdminFoldersUpdateAdminFolderRequest) GetPathOrId() string {
+	return r.pathOrId
+}
+
+// GetEditAdminFolderRequestModel returns the editAdminFolderRequestModel parameter
+func (r MockApiAdminFoldersUpdateAdminFolderRequest) GetEditAdminFolderRequestModel() *EditAdminFolderRequestModel {
+	return r.editAdminFolderRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAdminFoldersUpdateAdminFolderRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAdminFoldersUpdateAdminFolderRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAdminFoldersUpdateAdminFolderRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAdminFoldersUpdateAdminFolderRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAdminFoldersUpdateAdminFolderRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiAdminFoldersUpdateAdminFolderRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAdminFoldersUpdateAdminFolderRequest) Execute() (*AdminFolderResponseModel, *http.Response, error) {
+	return r.ApiAdminFoldersUpdateAdminFolderRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2310,4 +2772,112 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersUpdateAdminFolderExecute(r Api
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockAdminFoldersAPIsDAAS extracts the MockAdminFoldersAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockAdminFoldersAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockAdminFoldersAPIsDAAS(client *APIClient) *MockAdminFoldersAPIsDAAS {
+	return client.AdminFoldersAPIsDAAS.(*MockAdminFoldersAPIsDAAS)
+}
+
+// MockAdminFoldersAPIsDAAS is a mock implementation of the AdminFoldersAPIsDAAS interface for testing
+var _ AdminFoldersAPIsDAAS = (*MockAdminFoldersAPIsDAAS)(nil)
+
+type MockAdminFoldersAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersCreateAdminFolder(ctx context.Context) ApiAdminFoldersCreateAdminFolderRequest {
+	return ApiAdminFoldersCreateAdminFolderRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersCreateAdminFolderExecute(r ApiAdminFoldersCreateAdminFolderRequest) (*AdminFolderResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdminFolderResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersDeleteAdminFolder(ctx context.Context, pathOrId string) ApiAdminFoldersDeleteAdminFolderRequest {
+	return ApiAdminFoldersDeleteAdminFolderRequest{
+		ctx:        ctx,
+		ApiService: m,
+		pathOrId:   pathOrId,
+	}
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersDeleteAdminFolderExecute(r ApiAdminFoldersDeleteAdminFolderRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersGetAdminFolder(ctx context.Context, pathOrId string) ApiAdminFoldersGetAdminFolderRequest {
+	return ApiAdminFoldersGetAdminFolderRequest{
+		ctx:        ctx,
+		ApiService: m,
+		pathOrId:   pathOrId,
+	}
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersGetAdminFolderExecute(r ApiAdminFoldersGetAdminFolderRequest) (*AdminFolderResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdminFolderResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersGetAdminFolderApplications(ctx context.Context, pathOrId string) ApiAdminFoldersGetAdminFolderApplicationsRequest {
+	return ApiAdminFoldersGetAdminFolderApplicationsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		pathOrId:   pathOrId,
+	}
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersGetAdminFolderApplicationsExecute(r ApiAdminFoldersGetAdminFolderApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ApplicationResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersGetAdminFolderMachineCatalogs(ctx context.Context, pathOrId string) ApiAdminFoldersGetAdminFolderMachineCatalogsRequest {
+	return ApiAdminFoldersGetAdminFolderMachineCatalogsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		pathOrId:   pathOrId,
+	}
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersGetAdminFolderMachineCatalogsExecute(r ApiAdminFoldersGetAdminFolderMachineCatalogsRequest) (*MachineCatalogResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*MachineCatalogResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersGetAdminFolders(ctx context.Context) ApiAdminFoldersGetAdminFoldersRequest {
+	return ApiAdminFoldersGetAdminFoldersRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersGetAdminFoldersExecute(r ApiAdminFoldersGetAdminFoldersRequest) (*AdminFolderResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdminFolderResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersUpdateAdminFolder(ctx context.Context, pathOrId string) ApiAdminFoldersUpdateAdminFolderRequest {
+	return ApiAdminFoldersUpdateAdminFolderRequest{
+		ctx:        ctx,
+		ApiService: m,
+		pathOrId:   pathOrId,
+	}
+}
+
+func (m *MockAdminFoldersAPIsDAAS) AdminFoldersUpdateAdminFolderExecute(r ApiAdminFoldersUpdateAdminFolderRequest) (*AdminFolderResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AdminFolderResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }

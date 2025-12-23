@@ -16,6 +16,8 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type AboutAPIsDAAS interface {
@@ -46,6 +48,56 @@ type ApiAboutGetAboutRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiAboutGetAboutRequest wraps the request struct to provide getter methods for testing
+type MockApiAboutGetAboutRequest struct {
+	ApiAboutGetAboutRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiAboutGetAboutRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiAboutGetAboutRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiAboutGetAboutRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiAboutGetAboutRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiAboutGetAboutRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiAboutGetAboutRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiAboutGetAboutRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiAboutGetAboutRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiAboutGetAboutRequest) Execute() (*AboutModel, *http.Response, error) {
+	return r.ApiAboutGetAboutRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -301,4 +353,35 @@ func (a *AboutAPIsDAASService) AboutGetAboutExecute(r ApiAboutGetAboutRequest) (
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockAboutAPIsDAAS extracts the MockAboutAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockAboutAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockAboutAPIsDAAS(client *APIClient) *MockAboutAPIsDAAS {
+	return client.AboutAPIsDAAS.(*MockAboutAPIsDAAS)
+}
+
+// MockAboutAPIsDAAS is a mock implementation of the AboutAPIsDAAS interface for testing
+var _ AboutAPIsDAAS = (*MockAboutAPIsDAAS)(nil)
+
+type MockAboutAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockAboutAPIsDAAS) AboutGetAbout(ctx context.Context) ApiAboutGetAboutRequest {
+	return ApiAboutGetAboutRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockAboutAPIsDAAS) AboutGetAboutExecute(r ApiAboutGetAboutRequest) (*AboutModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AboutModel), args.Get(1).(*http.Response), args.Error(2)
 }

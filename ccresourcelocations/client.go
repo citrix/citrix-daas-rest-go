@@ -48,7 +48,7 @@ type APIClient struct {
 
 	// API Services
 
-	LocationsDAAS *LocationsDAASService
+	LocationsDAAS LocationsDAAS
 }
 
 type service struct {

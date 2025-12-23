@@ -16,6 +16,8 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type TrustAPIsDAAS interface {
@@ -68,6 +70,46 @@ type ApiTrustExchangeTokenRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiTrustExchangeTokenRequest wraps the request struct to provide getter methods for testing
+type MockApiTrustExchangeTokenRequest struct {
+	ApiTrustExchangeTokenRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTrustExchangeTokenRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTrustExchangeTokenRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTrustExchangeTokenRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTrustExchangeTokenRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTrustExchangeTokenRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTrustExchangeTokenRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTrustExchangeTokenRequest) Execute() (*AuthTokenResponseModel, *http.Response, error) {
+	return r.ApiTrustExchangeTokenRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -327,6 +369,46 @@ type ApiTrustGetBearerTokenWithWindowsAuthenticationRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiTrustGetBearerTokenWithWindowsAuthenticationRequest wraps the request struct to provide getter methods for testing
+type MockApiTrustGetBearerTokenWithWindowsAuthenticationRequest struct {
+	ApiTrustGetBearerTokenWithWindowsAuthenticationRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTrustGetBearerTokenWithWindowsAuthenticationRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTrustGetBearerTokenWithWindowsAuthenticationRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTrustGetBearerTokenWithWindowsAuthenticationRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTrustGetBearerTokenWithWindowsAuthenticationRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTrustGetBearerTokenWithWindowsAuthenticationRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTrustGetBearerTokenWithWindowsAuthenticationRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTrustGetBearerTokenWithWindowsAuthenticationRequest) Execute() (*AuthTokenResponseModel, *http.Response, error) {
+	return r.ApiTrustGetBearerTokenWithWindowsAuthenticationRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiTrustGetBearerTokenWithWindowsAuthenticationRequest) CitrixCustomerId(citrixCustomerId string) ApiTrustGetBearerTokenWithWindowsAuthenticationRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -571,6 +653,46 @@ type ApiTrustRefreshTokenRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiTrustRefreshTokenRequest wraps the request struct to provide getter methods for testing
+type MockApiTrustRefreshTokenRequest struct {
+	ApiTrustRefreshTokenRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiTrustRefreshTokenRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiTrustRefreshTokenRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiTrustRefreshTokenRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiTrustRefreshTokenRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiTrustRefreshTokenRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiTrustRefreshTokenRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiTrustRefreshTokenRequest) Execute() (*AuthTokenResponseModel, *http.Response, error) {
+	return r.ApiTrustRefreshTokenRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -818,4 +940,59 @@ func (a *TrustAPIsDAASService) TrustRefreshTokenExecute(r ApiTrustRefreshTokenRe
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockTrustAPIsDAAS extracts the MockTrustAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockTrustAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockTrustAPIsDAAS(client *APIClient) *MockTrustAPIsDAAS {
+	return client.TrustAPIsDAAS.(*MockTrustAPIsDAAS)
+}
+
+// MockTrustAPIsDAAS is a mock implementation of the TrustAPIsDAAS interface for testing
+var _ TrustAPIsDAAS = (*MockTrustAPIsDAAS)(nil)
+
+type MockTrustAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockTrustAPIsDAAS) TrustExchangeToken(ctx context.Context) ApiTrustExchangeTokenRequest {
+	return ApiTrustExchangeTokenRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockTrustAPIsDAAS) TrustExchangeTokenExecute(r ApiTrustExchangeTokenRequest) (*AuthTokenResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AuthTokenResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockTrustAPIsDAAS) TrustGetBearerTokenWithWindowsAuthentication(ctx context.Context) ApiTrustGetBearerTokenWithWindowsAuthenticationRequest {
+	return ApiTrustGetBearerTokenWithWindowsAuthenticationRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockTrustAPIsDAAS) TrustGetBearerTokenWithWindowsAuthenticationExecute(r ApiTrustGetBearerTokenWithWindowsAuthenticationRequest) (*AuthTokenResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AuthTokenResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockTrustAPIsDAAS) TrustRefreshToken(ctx context.Context) ApiTrustRefreshTokenRequest {
+	return ApiTrustRefreshTokenRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockTrustAPIsDAAS) TrustRefreshTokenExecute(r ApiTrustRefreshTokenRequest) (*AuthTokenResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*AuthTokenResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }

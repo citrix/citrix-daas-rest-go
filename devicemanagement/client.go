@@ -48,13 +48,13 @@ type APIClient struct {
 
 	// API Services
 
-	MachineADObjectDAAS *MachineADObjectDAASService
+	MachineADObjectDAAS MachineADObjectDAAS
 
-	SiteDAAS *SiteDAASService
+	SiteDAAS SiteDAAS
 
-	SystemOptimizationDAAS *SystemOptimizationDAASService
+	SystemOptimizationDAAS SystemOptimizationDAAS
 
-	UserADObjectDAAS *UserADObjectDAASService
+	UserADObjectDAAS UserADObjectDAAS
 }
 
 type service struct {

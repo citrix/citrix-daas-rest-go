@@ -19,12 +19,29 @@ import (
 	"strings"
 )
 
+type TasksQCS interface {
+
+	/*
+		GetTaskAsync Get the status of a task
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param taskId ID of the task
+		@return TasksQCSGetTaskAsyncRequest
+	*/
+	GetTaskAsync(ctx context.Context, customerId string, taskId string) TasksQCSGetTaskAsyncRequest
+
+	// GetTaskAsyncExecute executes the request
+	//  @return GetTaskAsync200Response
+	GetTaskAsyncExecute(r TasksQCSGetTaskAsyncRequest) (*GetTaskAsync200Response, *http.Response, error)
+}
+
 // TasksQCSService TasksQCS service
 type TasksQCSService service
 
 type TasksQCSGetTaskAsyncRequest struct {
 	ctx                 context.Context
-	ApiService          *TasksQCSService
+	ApiService          TasksQCS
 	customerId          string
 	taskId              string
 	citrixTransactionId *string

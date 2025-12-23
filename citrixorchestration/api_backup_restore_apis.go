@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type BackupRestoreAPIsDAAS interface {
@@ -433,6 +435,61 @@ type ApiBackupRestoreCreateBackupScheduleRequest struct {
 	citrixLocale                      *string
 }
 
+// MockApiBackupRestoreCreateBackupScheduleRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreCreateBackupScheduleRequest struct {
+	ApiBackupRestoreCreateBackupScheduleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreCreateBackupScheduleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreCreateBackupScheduleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreCreateBackupScheduleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBackupRestoreScheduleRequestModel returns the backupRestoreScheduleRequestModel parameter
+func (r MockApiBackupRestoreCreateBackupScheduleRequest) GetBackupRestoreScheduleRequestModel() *BackupRestoreScheduleRequestModel {
+	return r.backupRestoreScheduleRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreCreateBackupScheduleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreCreateBackupScheduleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreCreateBackupScheduleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreCreateBackupScheduleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreCreateBackupScheduleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreCreateBackupScheduleRequest) Execute() (*BackupRestoreScheduleResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreCreateBackupScheduleRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreCreateBackupScheduleRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreCreateBackupScheduleRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -735,6 +792,61 @@ type ApiBackupRestoreDeleteBackupRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiBackupRestoreDeleteBackupRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreDeleteBackupRequest struct {
+	ApiBackupRestoreDeleteBackupRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreDeleteBackupRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreDeleteBackupRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreDeleteBackupRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBackupName returns the backupName parameter
+func (r MockApiBackupRestoreDeleteBackupRequest) GetBackupName() string {
+	return r.backupName
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreDeleteBackupRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreDeleteBackupRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreDeleteBackupRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreDeleteBackupRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreDeleteBackupRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreDeleteBackupRequest) Execute() (*http.Response, error) {
+	return r.ApiBackupRestoreDeleteBackupRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreDeleteBackupRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreDeleteBackupRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1007,6 +1119,61 @@ type ApiBackupRestoreDeleteBackupScheduleRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiBackupRestoreDeleteBackupScheduleRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreDeleteBackupScheduleRequest struct {
+	ApiBackupRestoreDeleteBackupScheduleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreDeleteBackupScheduleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreDeleteBackupScheduleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreDeleteBackupScheduleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUid returns the uid parameter
+func (r MockApiBackupRestoreDeleteBackupScheduleRequest) GetUid() int32 {
+	return r.uid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreDeleteBackupScheduleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreDeleteBackupScheduleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreDeleteBackupScheduleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreDeleteBackupScheduleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreDeleteBackupScheduleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreDeleteBackupScheduleRequest) Execute() (*http.Response, error) {
+	return r.ApiBackupRestoreDeleteBackupScheduleRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreDeleteBackupScheduleRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreDeleteBackupScheduleRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1277,6 +1444,61 @@ type ApiBackupRestoreDisableSingleBackupScheduleRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiBackupRestoreDisableSingleBackupScheduleRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreDisableSingleBackupScheduleRequest struct {
+	ApiBackupRestoreDisableSingleBackupScheduleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreDisableSingleBackupScheduleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreDisableSingleBackupScheduleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreDisableSingleBackupScheduleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUid returns the uid parameter
+func (r MockApiBackupRestoreDisableSingleBackupScheduleRequest) GetUid() int32 {
+	return r.uid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreDisableSingleBackupScheduleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreDisableSingleBackupScheduleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreDisableSingleBackupScheduleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreDisableSingleBackupScheduleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreDisableSingleBackupScheduleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreDisableSingleBackupScheduleRequest) Execute() (*http.Response, error) {
+	return r.ApiBackupRestoreDisableSingleBackupScheduleRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1560,6 +1782,61 @@ type ApiBackupRestoreDoBackupRequest struct {
 	citrixTransactionId               *string
 	accept                            *string
 	citrixLocale                      *string
+}
+
+// MockApiBackupRestoreDoBackupRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreDoBackupRequest struct {
+	ApiBackupRestoreDoBackupRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreDoBackupRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreDoBackupRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreDoBackupRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBackupRestoreDoBackupRequestModel returns the backupRestoreDoBackupRequestModel parameter
+func (r MockApiBackupRestoreDoBackupRequest) GetBackupRestoreDoBackupRequestModel() *BackupRestoreDoBackupRequestModel {
+	return r.backupRestoreDoBackupRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreDoBackupRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreDoBackupRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreDoBackupRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreDoBackupRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreDoBackupRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreDoBackupRequest) Execute() (*BackupDoBackupResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreDoBackupRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1866,6 +2143,66 @@ type ApiBackupRestoreDownloadSingleBackupRequest struct {
 	continuationToken   *string
 }
 
+// MockApiBackupRestoreDownloadSingleBackupRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreDownloadSingleBackupRequest struct {
+	ApiBackupRestoreDownloadSingleBackupRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreDownloadSingleBackupRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreDownloadSingleBackupRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreDownloadSingleBackupRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBackupName returns the backupName parameter
+func (r MockApiBackupRestoreDownloadSingleBackupRequest) GetBackupName() string {
+	return r.backupName
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreDownloadSingleBackupRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreDownloadSingleBackupRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreDownloadSingleBackupRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreDownloadSingleBackupRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreDownloadSingleBackupRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiBackupRestoreDownloadSingleBackupRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreDownloadSingleBackupRequest) Execute() (*BackupRestoreDownloadResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreDownloadSingleBackupRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreDownloadSingleBackupRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreDownloadSingleBackupRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2158,6 +2495,61 @@ type ApiBackupRestoreEnableSingleBackupScheduleRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiBackupRestoreEnableSingleBackupScheduleRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreEnableSingleBackupScheduleRequest struct {
+	ApiBackupRestoreEnableSingleBackupScheduleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreEnableSingleBackupScheduleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreEnableSingleBackupScheduleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreEnableSingleBackupScheduleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUid returns the uid parameter
+func (r MockApiBackupRestoreEnableSingleBackupScheduleRequest) GetUid() int32 {
+	return r.uid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreEnableSingleBackupScheduleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreEnableSingleBackupScheduleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreEnableSingleBackupScheduleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreEnableSingleBackupScheduleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreEnableSingleBackupScheduleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreEnableSingleBackupScheduleRequest) Execute() (*http.Response, error) {
+	return r.ApiBackupRestoreEnableSingleBackupScheduleRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreEnableSingleBackupScheduleRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreEnableSingleBackupScheduleRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2441,6 +2833,61 @@ type ApiBackupRestoreGetAllBackupHistoryRequest struct {
 	async               *bool
 }
 
+// MockApiBackupRestoreGetAllBackupHistoryRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreGetAllBackupHistoryRequest struct {
+	ApiBackupRestoreGetAllBackupHistoryRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreGetAllBackupHistoryRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreGetAllBackupHistoryRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreGetAllBackupHistoryRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreGetAllBackupHistoryRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreGetAllBackupHistoryRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreGetAllBackupHistoryRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreGetAllBackupHistoryRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreGetAllBackupHistoryRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiBackupRestoreGetAllBackupHistoryRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreGetAllBackupHistoryRequest) Execute() (*BackupRestoreHistoryResponseModelCollection, *http.Response, error) {
+	return r.ApiBackupRestoreGetAllBackupHistoryRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreGetAllBackupHistoryRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreGetAllBackupHistoryRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2720,6 +3167,66 @@ type ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest struct {
+	ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUid returns the uid parameter
+func (r MockApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) GetUid() string {
+	return r.uid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) Execute() (*BackupRestoreHistoryInformation, *http.Response, error) {
+	return r.ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3015,6 +3522,56 @@ type ApiBackupRestoreGetBackupRestoreOptionsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiBackupRestoreGetBackupRestoreOptionsRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreGetBackupRestoreOptionsRequest struct {
+	ApiBackupRestoreGetBackupRestoreOptionsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreGetBackupRestoreOptionsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreGetBackupRestoreOptionsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreGetBackupRestoreOptionsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreGetBackupRestoreOptionsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreGetBackupRestoreOptionsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreGetBackupRestoreOptionsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreGetBackupRestoreOptionsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreGetBackupRestoreOptionsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreGetBackupRestoreOptionsRequest) Execute() (*BackupRestoreOptionsResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreGetBackupRestoreOptionsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreGetBackupRestoreOptionsRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreGetBackupRestoreOptionsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3283,6 +3840,61 @@ type ApiBackupRestoreGetBackupScheduleRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiBackupRestoreGetBackupScheduleRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreGetBackupScheduleRequest struct {
+	ApiBackupRestoreGetBackupScheduleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreGetBackupScheduleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreGetBackupScheduleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreGetBackupScheduleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUid returns the uid parameter
+func (r MockApiBackupRestoreGetBackupScheduleRequest) GetUid() int32 {
+	return r.uid
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreGetBackupScheduleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreGetBackupScheduleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreGetBackupScheduleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreGetBackupScheduleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreGetBackupScheduleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreGetBackupScheduleRequest) Execute() (*BackupRestoreScheduleModel, *http.Response, error) {
+	return r.ApiBackupRestoreGetBackupScheduleRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3568,6 +4180,56 @@ type ApiBackupRestoreGetBackupSchedulesRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiBackupRestoreGetBackupSchedulesRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreGetBackupSchedulesRequest struct {
+	ApiBackupRestoreGetBackupSchedulesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreGetBackupSchedulesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreGetBackupSchedulesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreGetBackupSchedulesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreGetBackupSchedulesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreGetBackupSchedulesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreGetBackupSchedulesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreGetBackupSchedulesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreGetBackupSchedulesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreGetBackupSchedulesRequest) Execute() (*BackupRestoreScheduleModelCollection, *http.Response, error) {
+	return r.ApiBackupRestoreGetBackupSchedulesRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreGetBackupSchedulesRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreGetBackupSchedulesRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -3837,6 +4499,66 @@ type ApiBackupRestoreGetBackupsRequest struct {
 	citrixLocale        *string
 	async               *bool
 	allFiles            *bool
+}
+
+// MockApiBackupRestoreGetBackupsRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreGetBackupsRequest struct {
+	ApiBackupRestoreGetBackupsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreGetBackupsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreGetBackupsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreGetBackupsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreGetBackupsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreGetBackupsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreGetBackupsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreGetBackupsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreGetBackupsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiBackupRestoreGetBackupsRequest) GetAsync() *bool {
+	return r.async
+}
+
+// GetAllFiles returns the allFiles parameter
+func (r MockApiBackupRestoreGetBackupsRequest) GetAllFiles() *bool {
+	return r.allFiles
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreGetBackupsRequest) Execute() (*BackupResponseModelCollection, *http.Response, error) {
+	return r.ApiBackupRestoreGetBackupsRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4129,6 +4851,56 @@ type ApiBackupRestoreGetBlobStorageRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiBackupRestoreGetBlobStorageRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreGetBlobStorageRequest struct {
+	ApiBackupRestoreGetBlobStorageRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreGetBlobStorageRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreGetBlobStorageRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreGetBlobStorageRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreGetBlobStorageRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreGetBlobStorageRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreGetBlobStorageRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreGetBlobStorageRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreGetBlobStorageRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreGetBlobStorageRequest) Execute() (*BackupRestoreStorageResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreGetBlobStorageRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreGetBlobStorageRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreGetBlobStorageRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -4399,6 +5171,71 @@ type ApiBackupRestoreGetComponentMembersRequest struct {
 	accept                                      *string
 	citrixLocale                                *string
 	async                                       *bool
+}
+
+// MockApiBackupRestoreGetComponentMembersRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreGetComponentMembersRequest struct {
+	ApiBackupRestoreGetComponentMembersRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreGetComponentMembersRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreGetComponentMembersRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreGetComponentMembersRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBackupName returns the backupName parameter
+func (r MockApiBackupRestoreGetComponentMembersRequest) GetBackupName() string {
+	return r.backupName
+}
+
+// GetBackupRestoreGetComponentMemberRequestModel returns the backupRestoreGetComponentMemberRequestModel parameter
+func (r MockApiBackupRestoreGetComponentMembersRequest) GetBackupRestoreGetComponentMemberRequestModel() *BackupRestoreGetComponentMemberRequestModel {
+	return r.backupRestoreGetComponentMemberRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreGetComponentMembersRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreGetComponentMembersRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreGetComponentMembersRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreGetComponentMembersRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreGetComponentMembersRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiBackupRestoreGetComponentMembersRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreGetComponentMembersRequest) Execute() (*BackupMembersResponseModelCollection, *http.Response, error) {
+	return r.ApiBackupRestoreGetComponentMembersRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4727,6 +5564,56 @@ type ApiBackupRestoreGetCurrentActionStatusRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiBackupRestoreGetCurrentActionStatusRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreGetCurrentActionStatusRequest struct {
+	ApiBackupRestoreGetCurrentActionStatusRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreGetCurrentActionStatusRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreGetCurrentActionStatusRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreGetCurrentActionStatusRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreGetCurrentActionStatusRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreGetCurrentActionStatusRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreGetCurrentActionStatusRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreGetCurrentActionStatusRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreGetCurrentActionStatusRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreGetCurrentActionStatusRequest) Execute() (*BackupRestoreStatusResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreGetCurrentActionStatusRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreGetCurrentActionStatusRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreGetCurrentActionStatusRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -4996,6 +5883,66 @@ type ApiBackupRestoreGetHistoryForSpecificBackupRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiBackupRestoreGetHistoryForSpecificBackupRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreGetHistoryForSpecificBackupRequest struct {
+	ApiBackupRestoreGetHistoryForSpecificBackupRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreGetHistoryForSpecificBackupRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreGetHistoryForSpecificBackupRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreGetHistoryForSpecificBackupRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBackupName returns the backupName parameter
+func (r MockApiBackupRestoreGetHistoryForSpecificBackupRequest) GetBackupName() string {
+	return r.backupName
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreGetHistoryForSpecificBackupRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreGetHistoryForSpecificBackupRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreGetHistoryForSpecificBackupRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreGetHistoryForSpecificBackupRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreGetHistoryForSpecificBackupRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiBackupRestoreGetHistoryForSpecificBackupRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreGetHistoryForSpecificBackupRequest) Execute() (*BackupRestoreHistoryResponseModelCollection, *http.Response, error) {
+	return r.ApiBackupRestoreGetHistoryForSpecificBackupRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5291,6 +6238,56 @@ type ApiBackupRestoreGetInformationRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiBackupRestoreGetInformationRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreGetInformationRequest struct {
+	ApiBackupRestoreGetInformationRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreGetInformationRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreGetInformationRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreGetInformationRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreGetInformationRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreGetInformationRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreGetInformationRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreGetInformationRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreGetInformationRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreGetInformationRequest) Execute() (*BackupRestoreInformationResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreGetInformationRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreGetInformationRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreGetInformationRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -5560,6 +6557,66 @@ type ApiBackupRestoreGetResultLogRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiBackupRestoreGetResultLogRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreGetResultLogRequest struct {
+	ApiBackupRestoreGetResultLogRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreGetResultLogRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreGetResultLogRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreGetResultLogRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBackupName returns the backupName parameter
+func (r MockApiBackupRestoreGetResultLogRequest) GetBackupName() string {
+	return r.backupName
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreGetResultLogRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreGetResultLogRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreGetResultLogRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreGetResultLogRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreGetResultLogRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiBackupRestoreGetResultLogRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreGetResultLogRequest) Execute() (*BackupRestoreResultLogResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreGetResultLogRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5869,6 +6926,66 @@ type ApiBackupRestoreModifyBackupScheduleRequest struct {
 	citrixLocale                      *string
 }
 
+// MockApiBackupRestoreModifyBackupScheduleRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreModifyBackupScheduleRequest struct {
+	ApiBackupRestoreModifyBackupScheduleRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreModifyBackupScheduleRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreModifyBackupScheduleRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreModifyBackupScheduleRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUid returns the uid parameter
+func (r MockApiBackupRestoreModifyBackupScheduleRequest) GetUid() int32 {
+	return r.uid
+}
+
+// GetBackupRestoreScheduleRequestModel returns the backupRestoreScheduleRequestModel parameter
+func (r MockApiBackupRestoreModifyBackupScheduleRequest) GetBackupRestoreScheduleRequestModel() *BackupRestoreScheduleRequestModel {
+	return r.backupRestoreScheduleRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreModifyBackupScheduleRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreModifyBackupScheduleRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreModifyBackupScheduleRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreModifyBackupScheduleRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreModifyBackupScheduleRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreModifyBackupScheduleRequest) Execute() (*BackupRestoreScheduleResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreModifyBackupScheduleRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreModifyBackupScheduleRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreModifyBackupScheduleRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -6173,6 +7290,66 @@ type ApiBackupRestorePinSingleBackupRequest struct {
 	accept              *string
 	citrixLocale        *string
 	async               *bool
+}
+
+// MockApiBackupRestorePinSingleBackupRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestorePinSingleBackupRequest struct {
+	ApiBackupRestorePinSingleBackupRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestorePinSingleBackupRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestorePinSingleBackupRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestorePinSingleBackupRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBackupName returns the backupName parameter
+func (r MockApiBackupRestorePinSingleBackupRequest) GetBackupName() string {
+	return r.backupName
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestorePinSingleBackupRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestorePinSingleBackupRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestorePinSingleBackupRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestorePinSingleBackupRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestorePinSingleBackupRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiBackupRestorePinSingleBackupRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestorePinSingleBackupRequest) Execute() (bool, *http.Response, error) {
+	return r.ApiBackupRestorePinSingleBackupRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6480,6 +7657,66 @@ type ApiBackupRestoreRestoreBackupToSiteRequest struct {
 	citrixTransactionId                    *string
 	accept                                 *string
 	citrixLocale                           *string
+}
+
+// MockApiBackupRestoreRestoreBackupToSiteRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreRestoreBackupToSiteRequest struct {
+	ApiBackupRestoreRestoreBackupToSiteRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreRestoreBackupToSiteRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreRestoreBackupToSiteRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreRestoreBackupToSiteRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBackupName returns the backupName parameter
+func (r MockApiBackupRestoreRestoreBackupToSiteRequest) GetBackupName() string {
+	return r.backupName
+}
+
+// GetBackupRestoreRestoreBackupRequestModel returns the backupRestoreRestoreBackupRequestModel parameter
+func (r MockApiBackupRestoreRestoreBackupToSiteRequest) GetBackupRestoreRestoreBackupRequestModel() *BackupRestoreRestoreBackupRequestModel {
+	return r.backupRestoreRestoreBackupRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreRestoreBackupToSiteRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreRestoreBackupToSiteRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreRestoreBackupToSiteRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreRestoreBackupToSiteRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreRestoreBackupToSiteRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreRestoreBackupToSiteRequest) Execute() (*BackupRestoreRestoreBackupResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreRestoreBackupToSiteRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6799,6 +8036,61 @@ type ApiBackupRestoreSetBackupRestoreOptionsRequest struct {
 	citrixLocale                     *string
 }
 
+// MockApiBackupRestoreSetBackupRestoreOptionsRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreSetBackupRestoreOptionsRequest struct {
+	ApiBackupRestoreSetBackupRestoreOptionsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreSetBackupRestoreOptionsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreSetBackupRestoreOptionsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreSetBackupRestoreOptionsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBackupRestoreOptionsRequestModel returns the backupRestoreOptionsRequestModel parameter
+func (r MockApiBackupRestoreSetBackupRestoreOptionsRequest) GetBackupRestoreOptionsRequestModel() *BackupRestoreOptionsRequestModel {
+	return r.backupRestoreOptionsRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreSetBackupRestoreOptionsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreSetBackupRestoreOptionsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreSetBackupRestoreOptionsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreSetBackupRestoreOptionsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreSetBackupRestoreOptionsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreSetBackupRestoreOptionsRequest) Execute() (*BackupRestoreOptionsResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreSetBackupRestoreOptionsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreSetBackupRestoreOptionsRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreSetBackupRestoreOptionsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -7099,6 +8391,61 @@ type ApiBackupRestoreSetBlobStorageRequest struct {
 	citrixTransactionId              *string
 	accept                           *string
 	citrixLocale                     *string
+}
+
+// MockApiBackupRestoreSetBlobStorageRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreSetBlobStorageRequest struct {
+	ApiBackupRestoreSetBlobStorageRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreSetBlobStorageRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreSetBlobStorageRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreSetBlobStorageRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBackupRestoreStorageRequestModel returns the backupRestoreStorageRequestModel parameter
+func (r MockApiBackupRestoreSetBlobStorageRequest) GetBackupRestoreStorageRequestModel() *BackupRestoreStorageRequestModel {
+	return r.backupRestoreStorageRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreSetBlobStorageRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreSetBlobStorageRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreSetBlobStorageRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreSetBlobStorageRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreSetBlobStorageRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreSetBlobStorageRequest) Execute() (*BackupRestoreValidateStorageResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreSetBlobStorageRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7403,6 +8750,61 @@ type ApiBackupRestoreSetCurrentActionStatusRequest struct {
 	citrixLocale                    *string
 }
 
+// MockApiBackupRestoreSetCurrentActionStatusRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreSetCurrentActionStatusRequest struct {
+	ApiBackupRestoreSetCurrentActionStatusRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreSetCurrentActionStatusRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreSetCurrentActionStatusRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreSetCurrentActionStatusRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBackupRestoreStatusRequestModel returns the backupRestoreStatusRequestModel parameter
+func (r MockApiBackupRestoreSetCurrentActionStatusRequest) GetBackupRestoreStatusRequestModel() *BackupRestoreStatusRequestModel {
+	return r.backupRestoreStatusRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreSetCurrentActionStatusRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreSetCurrentActionStatusRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreSetCurrentActionStatusRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreSetCurrentActionStatusRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreSetCurrentActionStatusRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreSetCurrentActionStatusRequest) Execute() (*BackupRestoreStatusResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreSetCurrentActionStatusRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreSetCurrentActionStatusRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreSetCurrentActionStatusRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -7705,6 +9107,61 @@ type ApiBackupRestoreUnpinSingleBackupRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiBackupRestoreUnpinSingleBackupRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreUnpinSingleBackupRequest struct {
+	ApiBackupRestoreUnpinSingleBackupRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreUnpinSingleBackupRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreUnpinSingleBackupRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreUnpinSingleBackupRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetBackupName returns the backupName parameter
+func (r MockApiBackupRestoreUnpinSingleBackupRequest) GetBackupName() string {
+	return r.backupName
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreUnpinSingleBackupRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreUnpinSingleBackupRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreUnpinSingleBackupRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreUnpinSingleBackupRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreUnpinSingleBackupRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreUnpinSingleBackupRequest) Execute() (bool, *http.Response, error) {
+	return r.ApiBackupRestoreUnpinSingleBackupRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreUnpinSingleBackupRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreUnpinSingleBackupRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -7999,6 +9456,66 @@ type ApiBackupRestoreUpdateBckRstrHistoryNotesRequest struct {
 	citrixTransactionId                  *string
 	accept                               *string
 	citrixLocale                         *string
+}
+
+// MockApiBackupRestoreUpdateBckRstrHistoryNotesRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreUpdateBckRstrHistoryNotesRequest struct {
+	ApiBackupRestoreUpdateBckRstrHistoryNotesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreUpdateBckRstrHistoryNotesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreUpdateBckRstrHistoryNotesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreUpdateBckRstrHistoryNotesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUid returns the uid parameter
+func (r MockApiBackupRestoreUpdateBckRstrHistoryNotesRequest) GetUid() int32 {
+	return r.uid
+}
+
+// GetBackupRestoreUpdateNotesRequestModel returns the backupRestoreUpdateNotesRequestModel parameter
+func (r MockApiBackupRestoreUpdateBckRstrHistoryNotesRequest) GetBackupRestoreUpdateNotesRequestModel() *BackupRestoreUpdateNotesRequestModel {
+	return r.backupRestoreUpdateNotesRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreUpdateBckRstrHistoryNotesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreUpdateBckRstrHistoryNotesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreUpdateBckRstrHistoryNotesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreUpdateBckRstrHistoryNotesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreUpdateBckRstrHistoryNotesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreUpdateBckRstrHistoryNotesRequest) Execute() (bool, *http.Response, error) {
+	return r.ApiBackupRestoreUpdateBckRstrHistoryNotesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8315,6 +9832,56 @@ type ApiBackupRestoreValidateStorageRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiBackupRestoreValidateStorageRequest wraps the request struct to provide getter methods for testing
+type MockApiBackupRestoreValidateStorageRequest struct {
+	ApiBackupRestoreValidateStorageRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiBackupRestoreValidateStorageRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiBackupRestoreValidateStorageRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiBackupRestoreValidateStorageRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiBackupRestoreValidateStorageRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiBackupRestoreValidateStorageRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiBackupRestoreValidateStorageRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiBackupRestoreValidateStorageRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiBackupRestoreValidateStorageRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiBackupRestoreValidateStorageRequest) Execute() (*BackupRestoreValidateStorageResponseModel, *http.Response, error) {
+	return r.ApiBackupRestoreValidateStorageRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiBackupRestoreValidateStorageRequest) CitrixCustomerId(citrixCustomerId string) ApiBackupRestoreValidateStorageRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -8570,4 +10137,374 @@ func (a *BackupRestoreAPIsDAASService) BackupRestoreValidateStorageExecute(r Api
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockBackupRestoreAPIsDAAS extracts the MockBackupRestoreAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockBackupRestoreAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockBackupRestoreAPIsDAAS(client *APIClient) *MockBackupRestoreAPIsDAAS {
+	return client.BackupRestoreAPIsDAAS.(*MockBackupRestoreAPIsDAAS)
+}
+
+// MockBackupRestoreAPIsDAAS is a mock implementation of the BackupRestoreAPIsDAAS interface for testing
+var _ BackupRestoreAPIsDAAS = (*MockBackupRestoreAPIsDAAS)(nil)
+
+type MockBackupRestoreAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreCreateBackupSchedule(ctx context.Context) ApiBackupRestoreCreateBackupScheduleRequest {
+	return ApiBackupRestoreCreateBackupScheduleRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreCreateBackupScheduleExecute(r ApiBackupRestoreCreateBackupScheduleRequest) (*BackupRestoreScheduleResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreScheduleResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreDeleteBackup(ctx context.Context, backupName string) ApiBackupRestoreDeleteBackupRequest {
+	return ApiBackupRestoreDeleteBackupRequest{
+		ctx:        ctx,
+		ApiService: m,
+		backupName: backupName,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreDeleteBackupExecute(r ApiBackupRestoreDeleteBackupRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreDeleteBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreDeleteBackupScheduleRequest {
+	return ApiBackupRestoreDeleteBackupScheduleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		uid:        uid,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreDeleteBackupScheduleExecute(r ApiBackupRestoreDeleteBackupScheduleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreDisableSingleBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreDisableSingleBackupScheduleRequest {
+	return ApiBackupRestoreDisableSingleBackupScheduleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		uid:        uid,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreDisableSingleBackupScheduleExecute(r ApiBackupRestoreDisableSingleBackupScheduleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreDoBackup(ctx context.Context) ApiBackupRestoreDoBackupRequest {
+	return ApiBackupRestoreDoBackupRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreDoBackupExecute(r ApiBackupRestoreDoBackupRequest) (*BackupDoBackupResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupDoBackupResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreDownloadSingleBackup(ctx context.Context, backupName string) ApiBackupRestoreDownloadSingleBackupRequest {
+	return ApiBackupRestoreDownloadSingleBackupRequest{
+		ctx:        ctx,
+		ApiService: m,
+		backupName: backupName,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreDownloadSingleBackupExecute(r ApiBackupRestoreDownloadSingleBackupRequest) (*BackupRestoreDownloadResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreDownloadResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreEnableSingleBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreEnableSingleBackupScheduleRequest {
+	return ApiBackupRestoreEnableSingleBackupScheduleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		uid:        uid,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreEnableSingleBackupScheduleExecute(r ApiBackupRestoreEnableSingleBackupScheduleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetAllBackupHistory(ctx context.Context) ApiBackupRestoreGetAllBackupHistoryRequest {
+	return ApiBackupRestoreGetAllBackupHistoryRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetAllBackupHistoryExecute(r ApiBackupRestoreGetAllBackupHistoryRequest) (*BackupRestoreHistoryResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreHistoryResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetBackupHistoryForSpecificHistory(ctx context.Context, uid string) ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest {
+	return ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest{
+		ctx:        ctx,
+		ApiService: m,
+		uid:        uid,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetBackupHistoryForSpecificHistoryExecute(r ApiBackupRestoreGetBackupHistoryForSpecificHistoryRequest) (*BackupRestoreHistoryInformation, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreHistoryInformation), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetBackupRestoreOptions(ctx context.Context) ApiBackupRestoreGetBackupRestoreOptionsRequest {
+	return ApiBackupRestoreGetBackupRestoreOptionsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetBackupRestoreOptionsExecute(r ApiBackupRestoreGetBackupRestoreOptionsRequest) (*BackupRestoreOptionsResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreOptionsResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreGetBackupScheduleRequest {
+	return ApiBackupRestoreGetBackupScheduleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		uid:        uid,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetBackupScheduleExecute(r ApiBackupRestoreGetBackupScheduleRequest) (*BackupRestoreScheduleModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreScheduleModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetBackupSchedules(ctx context.Context) ApiBackupRestoreGetBackupSchedulesRequest {
+	return ApiBackupRestoreGetBackupSchedulesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetBackupSchedulesExecute(r ApiBackupRestoreGetBackupSchedulesRequest) (*BackupRestoreScheduleModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreScheduleModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetBackups(ctx context.Context) ApiBackupRestoreGetBackupsRequest {
+	return ApiBackupRestoreGetBackupsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetBackupsExecute(r ApiBackupRestoreGetBackupsRequest) (*BackupResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetBlobStorage(ctx context.Context) ApiBackupRestoreGetBlobStorageRequest {
+	return ApiBackupRestoreGetBlobStorageRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetBlobStorageExecute(r ApiBackupRestoreGetBlobStorageRequest) (*BackupRestoreStorageResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreStorageResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetComponentMembers(ctx context.Context, backupName string) ApiBackupRestoreGetComponentMembersRequest {
+	return ApiBackupRestoreGetComponentMembersRequest{
+		ctx:        ctx,
+		ApiService: m,
+		backupName: backupName,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetComponentMembersExecute(r ApiBackupRestoreGetComponentMembersRequest) (*BackupMembersResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupMembersResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetCurrentActionStatus(ctx context.Context) ApiBackupRestoreGetCurrentActionStatusRequest {
+	return ApiBackupRestoreGetCurrentActionStatusRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetCurrentActionStatusExecute(r ApiBackupRestoreGetCurrentActionStatusRequest) (*BackupRestoreStatusResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreStatusResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetHistoryForSpecificBackup(ctx context.Context, backupName string) ApiBackupRestoreGetHistoryForSpecificBackupRequest {
+	return ApiBackupRestoreGetHistoryForSpecificBackupRequest{
+		ctx:        ctx,
+		ApiService: m,
+		backupName: backupName,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetHistoryForSpecificBackupExecute(r ApiBackupRestoreGetHistoryForSpecificBackupRequest) (*BackupRestoreHistoryResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreHistoryResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetInformation(ctx context.Context) ApiBackupRestoreGetInformationRequest {
+	return ApiBackupRestoreGetInformationRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetInformationExecute(r ApiBackupRestoreGetInformationRequest) (*BackupRestoreInformationResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreInformationResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetResultLog(ctx context.Context, backupName string) ApiBackupRestoreGetResultLogRequest {
+	return ApiBackupRestoreGetResultLogRequest{
+		ctx:        ctx,
+		ApiService: m,
+		backupName: backupName,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreGetResultLogExecute(r ApiBackupRestoreGetResultLogRequest) (*BackupRestoreResultLogResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreResultLogResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreModifyBackupSchedule(ctx context.Context, uid int32) ApiBackupRestoreModifyBackupScheduleRequest {
+	return ApiBackupRestoreModifyBackupScheduleRequest{
+		ctx:        ctx,
+		ApiService: m,
+		uid:        uid,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreModifyBackupScheduleExecute(r ApiBackupRestoreModifyBackupScheduleRequest) (*BackupRestoreScheduleResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreScheduleResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestorePinSingleBackup(ctx context.Context, backupName string) ApiBackupRestorePinSingleBackupRequest {
+	return ApiBackupRestorePinSingleBackupRequest{
+		ctx:        ctx,
+		ApiService: m,
+		backupName: backupName,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestorePinSingleBackupExecute(r ApiBackupRestorePinSingleBackupRequest) (bool, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(bool), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreRestoreBackupToSite(ctx context.Context, backupName string) ApiBackupRestoreRestoreBackupToSiteRequest {
+	return ApiBackupRestoreRestoreBackupToSiteRequest{
+		ctx:        ctx,
+		ApiService: m,
+		backupName: backupName,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreRestoreBackupToSiteExecute(r ApiBackupRestoreRestoreBackupToSiteRequest) (*BackupRestoreRestoreBackupResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreRestoreBackupResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreSetBackupRestoreOptions(ctx context.Context) ApiBackupRestoreSetBackupRestoreOptionsRequest {
+	return ApiBackupRestoreSetBackupRestoreOptionsRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreSetBackupRestoreOptionsExecute(r ApiBackupRestoreSetBackupRestoreOptionsRequest) (*BackupRestoreOptionsResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreOptionsResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreSetBlobStorage(ctx context.Context) ApiBackupRestoreSetBlobStorageRequest {
+	return ApiBackupRestoreSetBlobStorageRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreSetBlobStorageExecute(r ApiBackupRestoreSetBlobStorageRequest) (*BackupRestoreValidateStorageResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreValidateStorageResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreSetCurrentActionStatus(ctx context.Context) ApiBackupRestoreSetCurrentActionStatusRequest {
+	return ApiBackupRestoreSetCurrentActionStatusRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreSetCurrentActionStatusExecute(r ApiBackupRestoreSetCurrentActionStatusRequest) (*BackupRestoreStatusResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreStatusResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreUnpinSingleBackup(ctx context.Context, backupName string) ApiBackupRestoreUnpinSingleBackupRequest {
+	return ApiBackupRestoreUnpinSingleBackupRequest{
+		ctx:        ctx,
+		ApiService: m,
+		backupName: backupName,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreUnpinSingleBackupExecute(r ApiBackupRestoreUnpinSingleBackupRequest) (bool, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(bool), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreUpdateBckRstrHistoryNotes(ctx context.Context, uid int32) ApiBackupRestoreUpdateBckRstrHistoryNotesRequest {
+	return ApiBackupRestoreUpdateBckRstrHistoryNotesRequest{
+		ctx:        ctx,
+		ApiService: m,
+		uid:        uid,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreUpdateBckRstrHistoryNotesExecute(r ApiBackupRestoreUpdateBckRstrHistoryNotesRequest) (bool, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(bool), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreValidateStorage(ctx context.Context) ApiBackupRestoreValidateStorageRequest {
+	return ApiBackupRestoreValidateStorageRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockBackupRestoreAPIsDAAS) BackupRestoreValidateStorageExecute(r ApiBackupRestoreValidateStorageRequest) (*BackupRestoreValidateStorageResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*BackupRestoreValidateStorageResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }

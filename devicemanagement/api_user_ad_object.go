@@ -19,12 +19,74 @@ import (
 	"strings"
 )
 
+type UserADObjectDAAS interface {
+
+	/*
+		ItemCreate Create a User-level AD Object
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiItemCreateRequest
+	*/
+	ItemCreate(ctx context.Context) ApiItemCreateRequest
+
+	// ItemCreateExecute executes the request
+	ItemCreateExecute(r ApiItemCreateRequest) (*http.Response, error)
+
+	/*
+		ItemDelete Delete a User-level AD Object
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The ID of the resource you want to delete.
+		@return ApiItemDeleteRequest
+	*/
+	ItemDelete(ctx context.Context, id string) ApiItemDeleteRequest
+
+	// ItemDeleteExecute executes the request
+	ItemDeleteExecute(r ApiItemDeleteRequest) (*http.Response, error)
+
+	/*
+		ItemQuery Query User-level AD Objects
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiItemQueryRequest
+	*/
+	ItemQuery(ctx context.Context) ApiItemQueryRequest
+
+	// ItemQueryExecute executes the request
+	//  @return ItemQuery200Response
+	ItemQueryExecute(r ApiItemQueryRequest) (*ItemQuery200Response, *http.Response, error)
+
+	/*
+		ItemQueryById Query User-level AD Objects by Identity
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id The ID of the resource you want to query.
+		@return ApiItemQueryByIdRequest
+	*/
+	ItemQueryById(ctx context.Context, id int64) ApiItemQueryByIdRequest
+
+	// ItemQueryByIdExecute executes the request
+	//  @return UserModel
+	ItemQueryByIdExecute(r ApiItemQueryByIdRequest) (*UserModel, *http.Response, error)
+
+	/*
+		ItemUpdate Update a User-level AD Object
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiItemUpdateRequest
+	*/
+	ItemUpdate(ctx context.Context) ApiItemUpdateRequest
+
+	// ItemUpdateExecute executes the request
+	ItemUpdateExecute(r ApiItemUpdateRequest) (*http.Response, error)
+}
+
 // UserADObjectDAASService UserADObjectDAAS service
 type UserADObjectDAASService service
 
 type ApiItemCreateRequest struct {
 	ctx                 context.Context
-	ApiService          *UserADObjectDAASService
+	ApiService          UserADObjectDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string
@@ -222,7 +284,7 @@ func (a *UserADObjectDAASService) ItemCreateExecute(r ApiItemCreateRequest) (*ht
 
 type ApiItemDeleteRequest struct {
 	ctx                 context.Context
-	ApiService          *UserADObjectDAASService
+	ApiService          UserADObjectDAAS
 	id                  string
 	accept              *string
 	authorization       *string
@@ -416,7 +478,7 @@ func (a *UserADObjectDAASService) ItemDeleteExecute(r ApiItemDeleteRequest) (*ht
 
 type ApiItemQueryRequest struct {
 	ctx                 context.Context
-	ApiService          *UserADObjectDAASService
+	ApiService          UserADObjectDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string
@@ -637,7 +699,7 @@ func (a *UserADObjectDAASService) ItemQueryExecute(r ApiItemQueryRequest) (*Item
 
 type ApiItemQueryByIdRequest struct {
 	ctx                 context.Context
-	ApiService          *UserADObjectDAASService
+	ApiService          UserADObjectDAAS
 	id                  int64
 	accept              *string
 	authorization       *string
@@ -832,7 +894,7 @@ func (a *UserADObjectDAASService) ItemQueryByIdExecute(r ApiItemQueryByIdRequest
 
 type ApiItemUpdateRequest struct {
 	ctx                 context.Context
-	ApiService          *UserADObjectDAASService
+	ApiService          UserADObjectDAAS
 	accept              *string
 	authorization       *string
 	citrixCustomerId    *string

@@ -31,6 +31,8 @@ import (
 	"strings"
 	"time"
 	"unicode/utf8"
+
+	"github.com/stretchr/testify/mock"
 )
 
 var (
@@ -778,4 +780,190 @@ func formatErrorMessage(status string, v interface{}) string {
 	}
 
 	return strings.TrimSpace(fmt.Sprintf("%s %s", status, str))
+}
+
+// MockAPIClient is a test helper that wraps the APIClient
+// and provides easy access to mock API interfaces for testing.
+type MockAPIClient struct {
+	APIClient *APIClient
+}
+
+// NewMockAPIClient creates a new mock client with all API mocks automatically set up.
+// Usage example:
+//
+//	client := NewMockAPIClient()
+//	mock := client.APIClient..(*Mock)
+//	mock.On("OperationExecute", mock.Anything).Return(...)
+func NewMockAPIClient() *MockAPIClient {
+	cfg := NewConfiguration()
+	apiClient := NewAPIClient(cfg)
+
+	mockClient := &MockAPIClient{
+		APIClient: apiClient,
+	}
+
+	// Initialize all mock API services
+	apiClient.AboutAPIsDAAS = new(MockAboutAPIsDAAS)
+	apiClient.ActionsAPIsDAAS = new(MockActionsAPIsDAAS)
+	apiClient.AdminAPIsDAAS = new(MockAdminAPIsDAAS)
+	apiClient.AdminFoldersAPIsDAAS = new(MockAdminFoldersAPIsDAAS)
+	apiClient.AppLibPackageDiscoveryAPIsDAAS = new(MockAppLibPackageDiscoveryAPIsDAAS)
+	apiClient.AppVIsolationGroupsAPIsDAAS = new(MockAppVIsolationGroupsAPIsDAAS)
+	apiClient.AppVPackagesAPIsDAAS = new(MockAppVPackagesAPIsDAAS)
+	apiClient.AppVServersAPIsDAAS = new(MockAppVServersAPIsDAAS)
+	apiClient.ApplicationFoldersAPIsDAAS = new(MockApplicationFoldersAPIsDAAS)
+	apiClient.ApplicationGroupsAPIsDAAS = new(MockApplicationGroupsAPIsDAAS)
+	apiClient.ApplicationsAPIsDAAS = new(MockApplicationsAPIsDAAS)
+	apiClient.BackupRestoreAPIsDAAS = new(MockBackupRestoreAPIsDAAS)
+	apiClient.BatchAPIsDAAS = new(MockBatchAPIsDAAS)
+	apiClient.ConfigLogAPIsDAAS = new(MockConfigLogAPIsDAAS)
+	apiClient.DeliveryGroupsAPIsDAAS = new(MockDeliveryGroupsAPIsDAAS)
+	apiClient.GpoDAAS = new(MockGpoDAAS)
+	apiClient.HealthCheckAPIsDAAS = new(MockHealthCheckAPIsDAAS)
+	apiClient.HypervisorsAPIsDAAS = new(MockHypervisorsAPIsDAAS)
+	apiClient.IconsAPIsDAAS = new(MockIconsAPIsDAAS)
+	apiClient.IdentityAPIsDAAS = new(MockIdentityAPIsDAAS)
+	apiClient.ImageDefinitionsAPIsDAAS = new(MockImageDefinitionsAPIsDAAS)
+	apiClient.ImageVersionsAPIsDAAS = new(MockImageVersionsAPIsDAAS)
+	apiClient.JobsAPIsDAAS = new(MockJobsAPIsDAAS)
+	apiClient.MachineCatalogsAPIsDAAS = new(MockMachineCatalogsAPIsDAAS)
+	apiClient.MachinesAPIsDAAS = new(MockMachinesAPIsDAAS)
+	apiClient.MaintenanceCyclesAPIsDAAS = new(MockMaintenanceCyclesAPIsDAAS)
+	apiClient.MeAPIsDAAS = new(MockMeAPIsDAAS)
+	apiClient.ProvisionedVirtualMachineAPIsDAAS = new(MockProvisionedVirtualMachineAPIsDAAS)
+	apiClient.ProvisioningSchemesAPIsDAAS = new(MockProvisioningSchemesAPIsDAAS)
+	apiClient.PvsStreamingAPIsDAAS = new(MockPvsStreamingAPIsDAAS)
+	apiClient.RebootSchedulesAPIsDAAS = new(MockRebootSchedulesAPIsDAAS)
+	apiClient.RecommendationsAPIsDAAS = new(MockRecommendationsAPIsDAAS)
+	apiClient.SessionsAPIsDAAS = new(MockSessionsAPIsDAAS)
+	apiClient.SitesAPIsDAAS = new(MockSitesAPIsDAAS)
+	apiClient.StoreFrontServersAPIsDAAS = new(MockStoreFrontServersAPIsDAAS)
+	apiClient.TagsAPIsDAAS = new(MockTagsAPIsDAAS)
+	apiClient.TimeZonesAPIsDAAS = new(MockTimeZonesAPIsDAAS)
+	apiClient.TrustAPIsDAAS = new(MockTrustAPIsDAAS)
+	apiClient.ZonesAPIsDAAS = new(MockZonesAPIsDAAS)
+
+	return mockClient
+}
+
+// AssertExpectations calls AssertExpectations on all configured mocks.
+// This is a convenience method to validate all mocks at once.
+func (m *MockAPIClient) AssertExpectations(t mock.TestingT) {
+	if mockAPI, ok := m.APIClient.AboutAPIsDAAS.(*MockAboutAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.ActionsAPIsDAAS.(*MockActionsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.AdminAPIsDAAS.(*MockAdminAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.AdminFoldersAPIsDAAS.(*MockAdminFoldersAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.AppLibPackageDiscoveryAPIsDAAS.(*MockAppLibPackageDiscoveryAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.AppVIsolationGroupsAPIsDAAS.(*MockAppVIsolationGroupsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.AppVPackagesAPIsDAAS.(*MockAppVPackagesAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.AppVServersAPIsDAAS.(*MockAppVServersAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.ApplicationFoldersAPIsDAAS.(*MockApplicationFoldersAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.ApplicationGroupsAPIsDAAS.(*MockApplicationGroupsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.ApplicationsAPIsDAAS.(*MockApplicationsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.BackupRestoreAPIsDAAS.(*MockBackupRestoreAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.BatchAPIsDAAS.(*MockBatchAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.ConfigLogAPIsDAAS.(*MockConfigLogAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.DeliveryGroupsAPIsDAAS.(*MockDeliveryGroupsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.GpoDAAS.(*MockGpoDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.HealthCheckAPIsDAAS.(*MockHealthCheckAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.HypervisorsAPIsDAAS.(*MockHypervisorsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.IconsAPIsDAAS.(*MockIconsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.IdentityAPIsDAAS.(*MockIdentityAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.ImageDefinitionsAPIsDAAS.(*MockImageDefinitionsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.ImageVersionsAPIsDAAS.(*MockImageVersionsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.JobsAPIsDAAS.(*MockJobsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.MachineCatalogsAPIsDAAS.(*MockMachineCatalogsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.MachinesAPIsDAAS.(*MockMachinesAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.MaintenanceCyclesAPIsDAAS.(*MockMaintenanceCyclesAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.MeAPIsDAAS.(*MockMeAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.ProvisionedVirtualMachineAPIsDAAS.(*MockProvisionedVirtualMachineAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.ProvisioningSchemesAPIsDAAS.(*MockProvisioningSchemesAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.PvsStreamingAPIsDAAS.(*MockPvsStreamingAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.RebootSchedulesAPIsDAAS.(*MockRebootSchedulesAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.RecommendationsAPIsDAAS.(*MockRecommendationsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.SessionsAPIsDAAS.(*MockSessionsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.SitesAPIsDAAS.(*MockSitesAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.StoreFrontServersAPIsDAAS.(*MockStoreFrontServersAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.TagsAPIsDAAS.(*MockTagsAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.TimeZonesAPIsDAAS.(*MockTimeZonesAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.TrustAPIsDAAS.(*MockTrustAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
+	if mockAPI, ok := m.APIClient.ZonesAPIsDAAS.(*MockZonesAPIsDAAS); ok {
+		mockAPI.AssertExpectations(t)
+	}
 }

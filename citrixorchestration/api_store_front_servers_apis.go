@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type StoreFrontServersAPIsDAAS interface {
@@ -129,6 +131,66 @@ type ApiStoreFrontServersCreateStoreFrontServerRequest struct {
 	accept                       *string
 	citrixLocale                 *string
 	async                        *bool
+}
+
+// MockApiStoreFrontServersCreateStoreFrontServerRequest wraps the request struct to provide getter methods for testing
+type MockApiStoreFrontServersCreateStoreFrontServerRequest struct {
+	ApiStoreFrontServersCreateStoreFrontServerRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiStoreFrontServersCreateStoreFrontServerRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiStoreFrontServersCreateStoreFrontServerRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiStoreFrontServersCreateStoreFrontServerRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetStoreFrontServerRequestModel returns the storeFrontServerRequestModel parameter
+func (r MockApiStoreFrontServersCreateStoreFrontServerRequest) GetStoreFrontServerRequestModel() *StoreFrontServerRequestModel {
+	return r.storeFrontServerRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiStoreFrontServersCreateStoreFrontServerRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiStoreFrontServersCreateStoreFrontServerRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiStoreFrontServersCreateStoreFrontServerRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiStoreFrontServersCreateStoreFrontServerRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiStoreFrontServersCreateStoreFrontServerRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiStoreFrontServersCreateStoreFrontServerRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiStoreFrontServersCreateStoreFrontServerRequest) Execute() (*StoreFrontServerResponseModel, *http.Response, error) {
+	return r.ApiStoreFrontServersCreateStoreFrontServerRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -448,6 +510,66 @@ type ApiStoreFrontServersDeleteStoreFrontServerRequest struct {
 	async               *bool
 }
 
+// MockApiStoreFrontServersDeleteStoreFrontServerRequest wraps the request struct to provide getter methods for testing
+type MockApiStoreFrontServersDeleteStoreFrontServerRequest struct {
+	ApiStoreFrontServersDeleteStoreFrontServerRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiStoreFrontServersDeleteStoreFrontServerRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiStoreFrontServersDeleteStoreFrontServerRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiStoreFrontServersDeleteStoreFrontServerRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiStoreFrontServersDeleteStoreFrontServerRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiStoreFrontServersDeleteStoreFrontServerRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiStoreFrontServersDeleteStoreFrontServerRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiStoreFrontServersDeleteStoreFrontServerRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiStoreFrontServersDeleteStoreFrontServerRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiStoreFrontServersDeleteStoreFrontServerRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiStoreFrontServersDeleteStoreFrontServerRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiStoreFrontServersDeleteStoreFrontServerRequest) Execute() (*http.Response, error) {
+	return r.ApiStoreFrontServersDeleteStoreFrontServerRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiStoreFrontServersDeleteStoreFrontServerRequest) CitrixCustomerId(citrixCustomerId string) ApiStoreFrontServersDeleteStoreFrontServerRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -734,6 +856,61 @@ type ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest wraps the request struct to provide getter methods for testing
+type MockApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest struct {
+	ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) Execute() (*StoreFrontDeliveryGroupResponseModelCollection, *http.Response, error) {
+	return r.ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) CitrixCustomerId(citrixCustomerId string) ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1016,6 +1193,61 @@ type ApiStoreFrontServersGetStoreFrontServerRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiStoreFrontServersGetStoreFrontServerRequest wraps the request struct to provide getter methods for testing
+type MockApiStoreFrontServersGetStoreFrontServerRequest struct {
+	ApiStoreFrontServersGetStoreFrontServerRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiStoreFrontServersGetStoreFrontServerRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiStoreFrontServersGetStoreFrontServerRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiStoreFrontServersGetStoreFrontServerRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiStoreFrontServersGetStoreFrontServerRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiStoreFrontServersGetStoreFrontServerRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiStoreFrontServersGetStoreFrontServerRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiStoreFrontServersGetStoreFrontServerRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiStoreFrontServersGetStoreFrontServerRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiStoreFrontServersGetStoreFrontServerRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiStoreFrontServersGetStoreFrontServerRequest) Execute() (*StoreFrontServerResponseModel, *http.Response, error) {
+	return r.ApiStoreFrontServersGetStoreFrontServerRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1302,6 +1534,56 @@ type ApiStoreFrontServersGetStoreFrontServersRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiStoreFrontServersGetStoreFrontServersRequest wraps the request struct to provide getter methods for testing
+type MockApiStoreFrontServersGetStoreFrontServersRequest struct {
+	ApiStoreFrontServersGetStoreFrontServersRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiStoreFrontServersGetStoreFrontServersRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiStoreFrontServersGetStoreFrontServersRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiStoreFrontServersGetStoreFrontServersRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiStoreFrontServersGetStoreFrontServersRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiStoreFrontServersGetStoreFrontServersRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiStoreFrontServersGetStoreFrontServersRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiStoreFrontServersGetStoreFrontServersRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiStoreFrontServersGetStoreFrontServersRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiStoreFrontServersGetStoreFrontServersRequest) Execute() (*StoreFrontServerResponseModelCollection, *http.Response, error) {
+	return r.ApiStoreFrontServersGetStoreFrontServersRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiStoreFrontServersGetStoreFrontServersRequest) CitrixCustomerId(citrixCustomerId string) ApiStoreFrontServersGetStoreFrontServersRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1573,6 +1855,71 @@ type ApiStoreFrontServersUpdateStoreFrontServerRequest struct {
 	accept                       *string
 	citrixLocale                 *string
 	async                        *bool
+}
+
+// MockApiStoreFrontServersUpdateStoreFrontServerRequest wraps the request struct to provide getter methods for testing
+type MockApiStoreFrontServersUpdateStoreFrontServerRequest struct {
+	ApiStoreFrontServersUpdateStoreFrontServerRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiStoreFrontServersUpdateStoreFrontServerRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiStoreFrontServersUpdateStoreFrontServerRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiStoreFrontServersUpdateStoreFrontServerRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiStoreFrontServersUpdateStoreFrontServerRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetStoreFrontServerRequestModel returns the storeFrontServerRequestModel parameter
+func (r MockApiStoreFrontServersUpdateStoreFrontServerRequest) GetStoreFrontServerRequestModel() *StoreFrontServerRequestModel {
+	return r.storeFrontServerRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiStoreFrontServersUpdateStoreFrontServerRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiStoreFrontServersUpdateStoreFrontServerRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiStoreFrontServersUpdateStoreFrontServerRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiStoreFrontServersUpdateStoreFrontServerRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiStoreFrontServersUpdateStoreFrontServerRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiStoreFrontServersUpdateStoreFrontServerRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiStoreFrontServersUpdateStoreFrontServerRequest) Execute() (*StoreFrontServerResponseModel, *http.Response, error) {
+	return r.ApiStoreFrontServersUpdateStoreFrontServerRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1878,4 +2225,99 @@ func (a *StoreFrontServersAPIsDAASService) StoreFrontServersUpdateStoreFrontServ
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockStoreFrontServersAPIsDAAS extracts the MockStoreFrontServersAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockStoreFrontServersAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockStoreFrontServersAPIsDAAS(client *APIClient) *MockStoreFrontServersAPIsDAAS {
+	return client.StoreFrontServersAPIsDAAS.(*MockStoreFrontServersAPIsDAAS)
+}
+
+// MockStoreFrontServersAPIsDAAS is a mock implementation of the StoreFrontServersAPIsDAAS interface for testing
+var _ StoreFrontServersAPIsDAAS = (*MockStoreFrontServersAPIsDAAS)(nil)
+
+type MockStoreFrontServersAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockStoreFrontServersAPIsDAAS) StoreFrontServersCreateStoreFrontServer(ctx context.Context) ApiStoreFrontServersCreateStoreFrontServerRequest {
+	return ApiStoreFrontServersCreateStoreFrontServerRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockStoreFrontServersAPIsDAAS) StoreFrontServersCreateStoreFrontServerExecute(r ApiStoreFrontServersCreateStoreFrontServerRequest) (*StoreFrontServerResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*StoreFrontServerResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockStoreFrontServersAPIsDAAS) StoreFrontServersDeleteStoreFrontServer(ctx context.Context, nameOrId string) ApiStoreFrontServersDeleteStoreFrontServerRequest {
+	return ApiStoreFrontServersDeleteStoreFrontServerRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockStoreFrontServersAPIsDAAS) StoreFrontServersDeleteStoreFrontServerExecute(r ApiStoreFrontServersDeleteStoreFrontServerRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockStoreFrontServersAPIsDAAS) StoreFrontServersGetStoreFrontDeliveryGroups(ctx context.Context, nameOrId string) ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest {
+	return ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockStoreFrontServersAPIsDAAS) StoreFrontServersGetStoreFrontDeliveryGroupsExecute(r ApiStoreFrontServersGetStoreFrontDeliveryGroupsRequest) (*StoreFrontDeliveryGroupResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*StoreFrontDeliveryGroupResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockStoreFrontServersAPIsDAAS) StoreFrontServersGetStoreFrontServer(ctx context.Context, nameOrId string) ApiStoreFrontServersGetStoreFrontServerRequest {
+	return ApiStoreFrontServersGetStoreFrontServerRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockStoreFrontServersAPIsDAAS) StoreFrontServersGetStoreFrontServerExecute(r ApiStoreFrontServersGetStoreFrontServerRequest) (*StoreFrontServerResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*StoreFrontServerResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockStoreFrontServersAPIsDAAS) StoreFrontServersGetStoreFrontServers(ctx context.Context) ApiStoreFrontServersGetStoreFrontServersRequest {
+	return ApiStoreFrontServersGetStoreFrontServersRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockStoreFrontServersAPIsDAAS) StoreFrontServersGetStoreFrontServersExecute(r ApiStoreFrontServersGetStoreFrontServersRequest) (*StoreFrontServerResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*StoreFrontServerResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockStoreFrontServersAPIsDAAS) StoreFrontServersUpdateStoreFrontServer(ctx context.Context, nameOrId string) ApiStoreFrontServersUpdateStoreFrontServerRequest {
+	return ApiStoreFrontServersUpdateStoreFrontServerRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockStoreFrontServersAPIsDAAS) StoreFrontServersUpdateStoreFrontServerExecute(r ApiStoreFrontServersUpdateStoreFrontServerRequest) (*StoreFrontServerResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*StoreFrontServerResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }

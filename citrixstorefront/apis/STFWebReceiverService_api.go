@@ -1,10 +1,11 @@
-// Copyright © 2024. Citrix Systems, Inc.
+// Copyright © 2025. Citrix Systems, Inc.
 package apis
 
 import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"strings"
 
 	"github.com/citrix/citrix-daas-rest-go/citrixstorefront/models"
 )
@@ -731,6 +732,9 @@ type ApiGetSTFWebReceiverSiteStyleRequest struct {
 func (r ApiGetSTFWebReceiverSiteStyleRequest) Execute() (models.STFWebReceiverSiteStyleResponseModel, error) {
 	bytes, err := r.ApiService.GetSTFWebReceiverSiteStyleExecute(r)
 	if err != nil {
+		if strings.Contains(err.Error(), "Value cannot be null") {
+			return models.STFWebReceiverSiteStyleResponseModel{}, nil
+		}
 		return models.STFWebReceiverSiteStyleResponseModel{}, err
 	}
 	var response = models.STFWebReceiverSiteStyleResponseModel{}
@@ -779,5 +783,186 @@ func (a *STFWebReceiver) STFWebReceiverClearSTFWebReceiverSiteStyle(ctx context.
 		ApiService:                    a,
 		ctx:                           ctx,
 		GetSTFWebReceiverRequestModel: getSTFWebReceiverRequestModel,
+	}
+}
+
+// Set-STFWebReceiverDiscoveryService
+
+type ApiSetSTFWebReceiverDiscoveryServiceRequest struct {
+	ctx                                           context.Context
+	ApiService                                    *STFWebReceiver
+	setSTFWebReceiverDiscoveryServiceRequestModel models.SetWebReceiverDiscoveryRequestModel
+	GetSTFWebReceiverRequestModel                 models.GetSTFWebReceiverRequestModel
+}
+
+func (r ApiSetSTFWebReceiverDiscoveryServiceRequest) Execute() error {
+	_, err := r.ApiService.SetSTFWebReceiverDiscoveryServiceExecute(r)
+	return err
+}
+
+func (a *STFWebReceiver) SetSTFWebReceiverDiscoveryServiceExecute(r ApiSetSTFWebReceiverDiscoveryServiceRequest) ([]byte, error) {
+	var param = StructToString(r.setSTFWebReceiverDiscoveryServiceRequestModel)
+	var getParam = StructToString(r.GetSTFWebReceiverRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverDiscoveryService", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getParam), param, "-Confirm:$false")
+}
+
+func (a *STFWebReceiver) STFWebReceiverSetSTFWebReceiverDiscoveryService(ctx context.Context, setSTFWebReceiverDiscoveryServiceRequestModel models.SetWebReceiverDiscoveryRequestModel, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiSetSTFWebReceiverDiscoveryServiceRequest {
+	return ApiSetSTFWebReceiverDiscoveryServiceRequest{
+		ApiService: a,
+		ctx:        ctx,
+		setSTFWebReceiverDiscoveryServiceRequestModel: setSTFWebReceiverDiscoveryServiceRequestModel,
+		GetSTFWebReceiverRequestModel:                 getSTFWebReceiverRequestModel,
+	}
+}
+
+// Get-STFWebReceiverDiscoveryService
+type ApiGetSTFWebReceiverDiscoveryServiceRequest struct {
+	ctx                           context.Context
+	ApiService                    *STFWebReceiver
+	GetSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel
+}
+
+func (r ApiGetSTFWebReceiverDiscoveryServiceRequest) Execute() (models.STFWebReceiverDiscoveryServiceResponseModel, error) {
+	bytes, err := r.ApiService.GetSTFWebReceiverDiscoveryServiceExecute(r)
+	if err != nil {
+		return models.STFWebReceiverDiscoveryServiceResponseModel{}, err
+	}
+	var result models.STFWebReceiverDiscoveryServiceResponseModel
+	err = json.Unmarshal(bytes, &result)
+	return result, err
+}
+
+func (a *STFWebReceiver) GetSTFWebReceiverDiscoveryServiceExecute(r ApiGetSTFWebReceiverDiscoveryServiceRequest) ([]byte, error) {
+	var param = StructToString(r.GetSTFWebReceiverRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverDiscoveryService", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", param))
+}
+
+func (a *STFWebReceiver) STFWebReceiverGetSTFWebReceiverDiscoveryService(ctx context.Context, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiGetSTFWebReceiverDiscoveryServiceRequest {
+	return ApiGetSTFWebReceiverDiscoveryServiceRequest{
+		ApiService:                    a,
+		ctx:                           ctx,
+		GetSTFWebReceiverRequestModel: getSTFWebReceiverRequestModel,
+	}
+}
+
+// Set-STFWebReceiverAppProtection
+type ApiSetSTFWebReceiverAppProtectionRequest struct {
+	ctx                                     context.Context
+	ApiService                              *STFWebReceiver
+	setWebReceiverAppProtectionRequestModel models.SetWebReceiverAppProtectionRequestModel
+	getSTFWebReceiverRequestModel           models.GetSTFWebReceiverRequestModel
+}
+
+func (r ApiSetSTFWebReceiverAppProtectionRequest) Execute() error {
+	_, err := r.ApiService.SetSTFWebReceiverAppProtectionExecute(r)
+	return err
+}
+
+func (a *STFWebReceiver) SetSTFWebReceiverAppProtectionExecute(r ApiSetSTFWebReceiverAppProtectionRequest) ([]byte, error) {
+	var param = StructToString(r.setWebReceiverAppProtectionRequestModel)
+	var getParam = StructToString(r.getSTFWebReceiverRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverAppProtection", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getParam), param, "-Confirm:$false")
+}
+
+func (a *STFWebReceiver) STFWebReceiverSetSTFWebReceiverAppProtection(ctx context.Context, setWebReceiverAppProtectionRequestModel models.SetWebReceiverAppProtectionRequestModel, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiSetSTFWebReceiverAppProtectionRequest {
+	return ApiSetSTFWebReceiverAppProtectionRequest{
+		ApiService:                              a,
+		ctx:                                     ctx,
+		setWebReceiverAppProtectionRequestModel: setWebReceiverAppProtectionRequestModel,
+		getSTFWebReceiverRequestModel:           getSTFWebReceiverRequestModel,
+	}
+}
+
+// Get-STFWebReceiverAppProtection
+type ApiGetSTFWebReceiverAppProtectionRequest struct {
+	ctx                           context.Context
+	ApiService                    *STFWebReceiver
+	GetSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel
+}
+
+func (r ApiGetSTFWebReceiverAppProtectionRequest) Execute() (models.GetWebReceiverAppProtectionResponseModel, error) {
+	bytes, err := r.ApiService.GetSTFWebReceiverAppProtectionExecute(r)
+	if err != nil {
+		return models.GetWebReceiverAppProtectionResponseModel{}, err
+	}
+	var result models.GetWebReceiverAppProtectionResponseModel
+	err = json.Unmarshal(bytes, &result)
+	return result, err
+}
+
+func (a *STFWebReceiver) GetSTFWebReceiverAppProtectionExecute(r ApiGetSTFWebReceiverAppProtectionRequest) ([]byte, error) {
+	var param = StructToString(r.GetSTFWebReceiverRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverAppProtection", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", param))
+}
+
+func (a *STFWebReceiver) STFWebReceiverGetSTFWebReceiverAppProtection(ctx context.Context, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiGetSTFWebReceiverAppProtectionRequest {
+	return ApiGetSTFWebReceiverAppProtectionRequest{
+		ApiService:                    a,
+		ctx:                           ctx,
+		GetSTFWebReceiverRequestModel: getSTFWebReceiverRequestModel,
+	}
+}
+
+// Set-STFWebReceiverBlockingNotification
+type ApiSetSTFWebReceiverBlockingNotificationRequest struct {
+	ctx                                            context.Context
+	ApiService                                     *STFWebReceiver
+	WebReceiverServiceGetRequestModel              models.GetSTFWebReceiverRequestModel
+	SetWebReceiverBlockingNotificationRequestModel models.SetWebReceiverBlockingNotificationRequestModel
+}
+
+func (r ApiSetSTFWebReceiverBlockingNotificationRequest) Execute() error {
+	_, err := r.ApiService.SetSTFWebReceiverBlockingNotificationExecute(r)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *STFWebReceiver) SetSTFWebReceiverBlockingNotificationExecute(r ApiSetSTFWebReceiverBlockingNotificationRequest) ([]byte, error) {
+	getWebReceiverParams := StructToString(r.WebReceiverServiceGetRequestModel)
+	setWebReceiverBlockingNotificationParams := StructToString(r.SetWebReceiverBlockingNotificationRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverBlockingNotification", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setWebReceiverBlockingNotificationParams)
+}
+
+func (a *STFWebReceiver) STFWebReceiverSetSTFWebReceiverBlockingNotification(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel, setWebReceiverBlockingNotificationRequestModel models.SetWebReceiverBlockingNotificationRequestModel) ApiSetSTFWebReceiverBlockingNotificationRequest {
+	return ApiSetSTFWebReceiverBlockingNotificationRequest{
+		ApiService:                        a,
+		ctx:                               ctx,
+		WebReceiverServiceGetRequestModel: webReceiverServiceGetRequestModel,
+		SetWebReceiverBlockingNotificationRequestModel: setWebReceiverBlockingNotificationRequestModel,
+	}
+}
+
+// Get-STFWebReceiverBlockingNotification
+
+type ApiGetSTFWebReceiverBlockingNotificationRequest struct {
+	ctx                               context.Context
+	ApiService                        *STFWebReceiver
+	WebReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel
+}
+
+func (r ApiGetSTFWebReceiverBlockingNotificationRequest) Execute() (models.STFWebReceiverBlockingNotificationResponse, error) {
+	bytes, err := r.ApiService.GetSTFWebReceiverBlockingNotificationExecute(r)
+	if err != nil {
+		return models.STFWebReceiverBlockingNotificationResponse{}, err
+	}
+	var response = models.STFWebReceiverBlockingNotificationResponse{}
+	unMarshalErr := json.Unmarshal(bytes, &response)
+	if unMarshalErr != nil {
+		return models.STFWebReceiverBlockingNotificationResponse{}, unMarshalErr
+	}
+	return response, nil
+}
+func (a *STFWebReceiver) GetSTFWebReceiverBlockingNotificationExecute(r ApiGetSTFWebReceiverBlockingNotificationRequest) ([]byte, error) {
+	getWebReceiverParams := StructToString(r.WebReceiverServiceGetRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverBlockingNotification", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
+}
+
+func (a *STFWebReceiver) STFWebReceiverGetSTFWebReceiverBlockingNotification(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel) ApiGetSTFWebReceiverBlockingNotificationRequest {
+	return ApiGetSTFWebReceiverBlockingNotificationRequest{
+		ApiService:                        a,
+		ctx:                               ctx,
+		WebReceiverServiceGetRequestModel: webReceiverServiceGetRequestModel,
 	}
 }

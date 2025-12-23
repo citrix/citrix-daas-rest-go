@@ -1,4 +1,4 @@
-// Copyright © 2024. Citrix Systems, Inc.
+// Copyright © 2025. Citrix Systems, Inc.
 
 package citrixclient
 
@@ -31,3 +31,23 @@ type WemOnPremAuthentication struct {
 	AdminUserName string `json:"admin_username"`
 	AdminPassword string `json:"admin_password"`
 }
+
+// Default retry configuration values
+const (
+	DefaultRetryBaseDelay             = 15
+	DefaultMaxRetries                 = 3
+	DefaultJobPollIntervalSeconds     = 10
+	DefaultJobLongPollIntervalSeconds = 30
+)
+
+// contextKey is a custom type for context keys to avoid collisions
+type contextKey string
+
+// Context keys for retry configuration
+// These can be used with context.WithValue() to override retry behavior for testing
+const (
+	RetryBaseDelayKey             contextKey = "citrix.retry.baseDelay"
+	MaxRetriesKey                 contextKey = "citrix.retry.maxRetries"
+	JobPollIntervalSecondsKey     contextKey = "citrix.job.pollInterval"
+	JobLongPollIntervalSecondsKey contextKey = "citrix.job.longPollInterval"
+)

@@ -16,6 +16,8 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type RebootSchedulesAPIsDAAS interface {
@@ -48,6 +50,56 @@ type ApiRebootSchedulesGetRebootSchedulesRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiRebootSchedulesGetRebootSchedulesRequest wraps the request struct to provide getter methods for testing
+type MockApiRebootSchedulesGetRebootSchedulesRequest struct {
+	ApiRebootSchedulesGetRebootSchedulesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiRebootSchedulesGetRebootSchedulesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiRebootSchedulesGetRebootSchedulesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiRebootSchedulesGetRebootSchedulesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiRebootSchedulesGetRebootSchedulesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiRebootSchedulesGetRebootSchedulesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiRebootSchedulesGetRebootSchedulesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiRebootSchedulesGetRebootSchedulesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiRebootSchedulesGetRebootSchedulesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiRebootSchedulesGetRebootSchedulesRequest) Execute() (*RebootScheduleResponseModelCollection, *http.Response, error) {
+	return r.ApiRebootSchedulesGetRebootSchedulesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -305,4 +357,35 @@ func (a *RebootSchedulesAPIsDAASService) RebootSchedulesGetRebootSchedulesExecut
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockRebootSchedulesAPIsDAAS extracts the MockRebootSchedulesAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockRebootSchedulesAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockRebootSchedulesAPIsDAAS(client *APIClient) *MockRebootSchedulesAPIsDAAS {
+	return client.RebootSchedulesAPIsDAAS.(*MockRebootSchedulesAPIsDAAS)
+}
+
+// MockRebootSchedulesAPIsDAAS is a mock implementation of the RebootSchedulesAPIsDAAS interface for testing
+var _ RebootSchedulesAPIsDAAS = (*MockRebootSchedulesAPIsDAAS)(nil)
+
+type MockRebootSchedulesAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockRebootSchedulesAPIsDAAS) RebootSchedulesGetRebootSchedules(ctx context.Context) ApiRebootSchedulesGetRebootSchedulesRequest {
+	return ApiRebootSchedulesGetRebootSchedulesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockRebootSchedulesAPIsDAAS) RebootSchedulesGetRebootSchedulesExecute(r ApiRebootSchedulesGetRebootSchedulesRequest) (*RebootScheduleResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*RebootScheduleResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
 }

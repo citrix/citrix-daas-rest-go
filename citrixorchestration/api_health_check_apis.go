@@ -16,6 +16,8 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type HealthCheckAPIsDAAS interface {
@@ -44,6 +46,46 @@ type ApiHealthCheckHealthCheckRequest struct {
 	citrixTransactionId *string
 	accept              *string
 	citrixLocale        *string
+}
+
+// MockApiHealthCheckHealthCheckRequest wraps the request struct to provide getter methods for testing
+type MockApiHealthCheckHealthCheckRequest struct {
+	ApiHealthCheckHealthCheckRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiHealthCheckHealthCheckRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiHealthCheckHealthCheckRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiHealthCheckHealthCheckRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiHealthCheckHealthCheckRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiHealthCheckHealthCheckRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiHealthCheckHealthCheckRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiHealthCheckHealthCheckRequest) Execute() (bool, *http.Response, error) {
+	return r.ApiHealthCheckHealthCheckRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -280,4 +322,35 @@ func (a *HealthCheckAPIsDAASService) HealthCheckHealthCheckExecute(r ApiHealthCh
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// GetMockHealthCheckAPIsDAAS extracts the MockHealthCheckAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockHealthCheckAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockHealthCheckAPIsDAAS(client *APIClient) *MockHealthCheckAPIsDAAS {
+	return client.HealthCheckAPIsDAAS.(*MockHealthCheckAPIsDAAS)
+}
+
+// MockHealthCheckAPIsDAAS is a mock implementation of the HealthCheckAPIsDAAS interface for testing
+var _ HealthCheckAPIsDAAS = (*MockHealthCheckAPIsDAAS)(nil)
+
+type MockHealthCheckAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockHealthCheckAPIsDAAS) HealthCheckHealthCheck(ctx context.Context) ApiHealthCheckHealthCheckRequest {
+	return ApiHealthCheckHealthCheckRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockHealthCheckAPIsDAAS) HealthCheckHealthCheckExecute(r ApiHealthCheckHealthCheckRequest) (bool, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(bool), args.Get(1).(*http.Response), args.Error(2)
 }

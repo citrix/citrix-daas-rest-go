@@ -19,12 +19,82 @@ import (
 	"strings"
 )
 
+type DiscoveryDAAS interface {
+
+	/*
+		CreateDiscovery Create A new Discovery Record For The Specified Customer Id And A Specific Product.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@return ApiCreateDiscoveryRequest
+	*/
+	CreateDiscovery(ctx context.Context, app string) ApiCreateDiscoveryRequest
+
+	// CreateDiscoveryExecute executes the request
+	//  @return DiscoveryRecordModel
+	CreateDiscoveryExecute(r ApiCreateDiscoveryRequest) (*DiscoveryRecordModel, *http.Response, error)
+
+	/*
+		DeleteDiscovery Delete Discovery Record For The Specified Customer Id, Domain And Product.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@param domain Domain used for user's email address.
+		@return ApiDeleteDiscoveryRequest
+	*/
+	DeleteDiscovery(ctx context.Context, app string, domain string) ApiDeleteDiscoveryRequest
+
+	// DeleteDiscoveryExecute executes the request
+	//  @return string
+	DeleteDiscoveryExecute(r ApiDeleteDiscoveryRequest) (string, *http.Response, error)
+
+	/*
+		RetrieveAllDiscovery Retrieve Discovery Records For The Specified Customer Id
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiRetrieveAllDiscoveryRequest
+	*/
+	RetrieveAllDiscovery(ctx context.Context) ApiRetrieveAllDiscoveryRequest
+
+	// RetrieveAllDiscoveryExecute executes the request
+	//  @return GetAllDiscoveryResponse
+	RetrieveAllDiscoveryExecute(r ApiRetrieveAllDiscoveryRequest) (*GetAllDiscoveryResponse, *http.Response, error)
+
+	/*
+		RetrieveDiscovery Retrieve Discovery Record For The Specified Customer Id, Domain And A Specific Product.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@param domain Domain used for user's email address.
+		@return ApiRetrieveDiscoveryRequest
+	*/
+	RetrieveDiscovery(ctx context.Context, app string, domain string) ApiRetrieveDiscoveryRequest
+
+	// RetrieveDiscoveryExecute executes the request
+	//  @return GetAllDiscoveryResponse
+	RetrieveDiscoveryExecute(r ApiRetrieveDiscoveryRequest) (*GetAllDiscoveryResponse, *http.Response, error)
+
+	/*
+		UpdateDiscovery Update Discovery Record For The Specified Customer Id, Domain And Product.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param app App Name. ['workspace']
+		@param domain Domain used for user's email address.
+		@return ApiUpdateDiscoveryRequest
+	*/
+	UpdateDiscovery(ctx context.Context, app string, domain string) ApiUpdateDiscoveryRequest
+
+	// UpdateDiscoveryExecute executes the request
+	//  @return string
+	UpdateDiscoveryExecute(r ApiUpdateDiscoveryRequest) (string, *http.Response, error)
+}
+
 // DiscoveryDAASService DiscoveryDAAS service
 type DiscoveryDAASService service
 
 type ApiCreateDiscoveryRequest struct {
 	ctx                  context.Context
-	ApiService           *DiscoveryDAASService
+	ApiService           DiscoveryDAAS
 	citrixCustomerId     *string
 	app                  string
 	citrixTransactionId  *string
@@ -274,7 +344,7 @@ func (a *DiscoveryDAASService) CreateDiscoveryExecute(r ApiCreateDiscoveryReques
 
 type ApiDeleteDiscoveryRequest struct {
 	ctx                 context.Context
-	ApiService          *DiscoveryDAASService
+	ApiService          DiscoveryDAAS
 	citrixCustomerId    *string
 	app                 string
 	domain              string
@@ -520,7 +590,7 @@ func (a *DiscoveryDAASService) DeleteDiscoveryExecute(r ApiDeleteDiscoveryReques
 
 type ApiRetrieveAllDiscoveryRequest struct {
 	ctx                 context.Context
-	ApiService          *DiscoveryDAASService
+	ApiService          DiscoveryDAAS
 	citrixCustomerId    *string
 	citrixTransactionId *string
 }
@@ -758,7 +828,7 @@ func (a *DiscoveryDAASService) RetrieveAllDiscoveryExecute(r ApiRetrieveAllDisco
 
 type ApiRetrieveDiscoveryRequest struct {
 	ctx                 context.Context
-	ApiService          *DiscoveryDAASService
+	ApiService          DiscoveryDAAS
 	citrixCustomerId    *string
 	app                 string
 	domain              string
@@ -1004,7 +1074,7 @@ func (a *DiscoveryDAASService) RetrieveDiscoveryExecute(r ApiRetrieveDiscoveryRe
 
 type ApiUpdateDiscoveryRequest struct {
 	ctx                  context.Context
-	ApiService           *DiscoveryDAASService
+	ApiService           DiscoveryDAAS
 	citrixCustomerId     *string
 	app                  string
 	domain               string

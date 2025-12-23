@@ -17,6 +17,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/testify/mock"
 )
 
 type ZonesAPIsDAAS interface {
@@ -159,6 +161,71 @@ type ApiZonesAddItemsIntoZoneRequest struct {
 	accept                 *string
 	citrixLocale           *string
 	async                  *bool
+}
+
+// MockApiZonesAddItemsIntoZoneRequest wraps the request struct to provide getter methods for testing
+type MockApiZonesAddItemsIntoZoneRequest struct {
+	ApiZonesAddItemsIntoZoneRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiZonesAddItemsIntoZoneRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiZonesAddItemsIntoZoneRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiZonesAddItemsIntoZoneRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiZonesAddItemsIntoZoneRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetZonedItemsRequestModel returns the zonedItemsRequestModel parameter
+func (r MockApiZonesAddItemsIntoZoneRequest) GetZonedItemsRequestModel() *ZonedItemsRequestModel {
+	return r.zonedItemsRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiZonesAddItemsIntoZoneRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiZonesAddItemsIntoZoneRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiZonesAddItemsIntoZoneRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiZonesAddItemsIntoZoneRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiZonesAddItemsIntoZoneRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiZonesAddItemsIntoZoneRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiZonesAddItemsIntoZoneRequest) Execute() (*http.Response, error) {
+	return r.ApiZonesAddItemsIntoZoneRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -477,6 +544,66 @@ type ApiZonesCreateZoneRequest struct {
 	async                  *bool
 }
 
+// MockApiZonesCreateZoneRequest wraps the request struct to provide getter methods for testing
+type MockApiZonesCreateZoneRequest struct {
+	ApiZonesCreateZoneRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiZonesCreateZoneRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiZonesCreateZoneRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiZonesCreateZoneRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetCreateZoneRequestModel returns the createZoneRequestModel parameter
+func (r MockApiZonesCreateZoneRequest) GetCreateZoneRequestModel() *CreateZoneRequestModel {
+	return r.createZoneRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiZonesCreateZoneRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiZonesCreateZoneRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiZonesCreateZoneRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiZonesCreateZoneRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiZonesCreateZoneRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiZonesCreateZoneRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiZonesCreateZoneRequest) Execute() (*http.Response, error) {
+	return r.ApiZonesCreateZoneRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiZonesCreateZoneRequest) CitrixCustomerId(citrixCustomerId string) ApiZonesCreateZoneRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -779,6 +906,66 @@ type ApiZonesDeleteZoneRequest struct {
 	async               *bool
 }
 
+// MockApiZonesDeleteZoneRequest wraps the request struct to provide getter methods for testing
+type MockApiZonesDeleteZoneRequest struct {
+	ApiZonesDeleteZoneRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiZonesDeleteZoneRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiZonesDeleteZoneRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiZonesDeleteZoneRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiZonesDeleteZoneRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiZonesDeleteZoneRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiZonesDeleteZoneRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiZonesDeleteZoneRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiZonesDeleteZoneRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiZonesDeleteZoneRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiZonesDeleteZoneRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiZonesDeleteZoneRequest) Execute() (*http.Response, error) {
+	return r.ApiZonesDeleteZoneRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiZonesDeleteZoneRequest) CitrixCustomerId(citrixCustomerId string) ApiZonesDeleteZoneRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1069,6 +1256,76 @@ type ApiZonesDoZoneSearchRequest struct {
 	limit                       *int32
 	continuationToken           *string
 	async                       *bool
+}
+
+// MockApiZonesDoZoneSearchRequest wraps the request struct to provide getter methods for testing
+type MockApiZonesDoZoneSearchRequest struct {
+	ApiZonesDoZoneSearchRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiZonesDoZoneSearchRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiZonesDoZoneSearchRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiZonesDoZoneSearchRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetZonedItemSearchRequestModel returns the zonedItemSearchRequestModel parameter
+func (r MockApiZonesDoZoneSearchRequest) GetZonedItemSearchRequestModel() *ZonedItemSearchRequestModel {
+	return r.zonedItemSearchRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiZonesDoZoneSearchRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiZonesDoZoneSearchRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiZonesDoZoneSearchRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiZonesDoZoneSearchRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiZonesDoZoneSearchRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiZonesDoZoneSearchRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiZonesDoZoneSearchRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// GetAsync returns the async parameter
+func (r MockApiZonesDoZoneSearchRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiZonesDoZoneSearchRequest) Execute() (*ZonedItemResponseModelCollection, *http.Response, error) {
+	return r.ApiZonesDoZoneSearchRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1407,6 +1664,71 @@ type ApiZonesEditZoneRequest struct {
 	async                *bool
 }
 
+// MockApiZonesEditZoneRequest wraps the request struct to provide getter methods for testing
+type MockApiZonesEditZoneRequest struct {
+	ApiZonesEditZoneRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiZonesEditZoneRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiZonesEditZoneRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiZonesEditZoneRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiZonesEditZoneRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetEditZoneRequestModel returns the editZoneRequestModel parameter
+func (r MockApiZonesEditZoneRequest) GetEditZoneRequestModel() *EditZoneRequestModel {
+	return r.editZoneRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiZonesEditZoneRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiZonesEditZoneRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiZonesEditZoneRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiZonesEditZoneRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiZonesEditZoneRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiZonesEditZoneRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiZonesEditZoneRequest) Execute() (*http.Response, error) {
+	return r.ApiZonesEditZoneRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiZonesEditZoneRequest) CitrixCustomerId(citrixCustomerId string) ApiZonesEditZoneRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1711,6 +2033,61 @@ type ApiZonesGetZoneRequest struct {
 	citrixLocale        *string
 }
 
+// MockApiZonesGetZoneRequest wraps the request struct to provide getter methods for testing
+type MockApiZonesGetZoneRequest struct {
+	ApiZonesGetZoneRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiZonesGetZoneRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiZonesGetZoneRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiZonesGetZoneRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiZonesGetZoneRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiZonesGetZoneRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiZonesGetZoneRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiZonesGetZoneRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiZonesGetZoneRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiZonesGetZoneRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiZonesGetZoneRequest) Execute() (*ZoneDetailResponseModel, *http.Response, error) {
+	return r.ApiZonesGetZoneRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiZonesGetZoneRequest) CitrixCustomerId(citrixCustomerId string) ApiZonesGetZoneRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -1994,6 +2371,66 @@ type ApiZonesGetZonesRequest struct {
 	citrixLocale        *string
 	limit               *int32
 	continuationToken   *string
+}
+
+// MockApiZonesGetZonesRequest wraps the request struct to provide getter methods for testing
+type MockApiZonesGetZonesRequest struct {
+	ApiZonesGetZonesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiZonesGetZonesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiZonesGetZonesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiZonesGetZonesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiZonesGetZonesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiZonesGetZonesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiZonesGetZonesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiZonesGetZonesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiZonesGetZonesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetLimit returns the limit parameter
+func (r MockApiZonesGetZonesRequest) GetLimit() *int32 {
+	return r.limit
+}
+
+// GetContinuationToken returns the continuationToken parameter
+func (r MockApiZonesGetZonesRequest) GetContinuationToken() *string {
+	return r.continuationToken
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiZonesGetZonesRequest) Execute() (*ZoneResponseModelCollection, *http.Response, error) {
+	return r.ApiZonesGetZonesRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2284,6 +2721,71 @@ type ApiZonesMoveItemsIntoZoneRequest struct {
 	accept                 *string
 	citrixLocale           *string
 	async                  *bool
+}
+
+// MockApiZonesMoveItemsIntoZoneRequest wraps the request struct to provide getter methods for testing
+type MockApiZonesMoveItemsIntoZoneRequest struct {
+	ApiZonesMoveItemsIntoZoneRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiZonesMoveItemsIntoZoneRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiZonesMoveItemsIntoZoneRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiZonesMoveItemsIntoZoneRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetNameOrId returns the nameOrId parameter
+func (r MockApiZonesMoveItemsIntoZoneRequest) GetNameOrId() string {
+	return r.nameOrId
+}
+
+// GetZonedItemsRequestModel returns the zonedItemsRequestModel parameter
+func (r MockApiZonesMoveItemsIntoZoneRequest) GetZonedItemsRequestModel() *ZonedItemsRequestModel {
+	return r.zonedItemsRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiZonesMoveItemsIntoZoneRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiZonesMoveItemsIntoZoneRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiZonesMoveItemsIntoZoneRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiZonesMoveItemsIntoZoneRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiZonesMoveItemsIntoZoneRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiZonesMoveItemsIntoZoneRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiZonesMoveItemsIntoZoneRequest) Execute() (*http.Response, error) {
+	return r.ApiZonesMoveItemsIntoZoneRequest.Execute()
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2602,6 +3104,66 @@ type ApiZonesRemoveItemsFromZoneRequest struct {
 	async                  *bool
 }
 
+// MockApiZonesRemoveItemsFromZoneRequest wraps the request struct to provide getter methods for testing
+type MockApiZonesRemoveItemsFromZoneRequest struct {
+	ApiZonesRemoveItemsFromZoneRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiZonesRemoveItemsFromZoneRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiZonesRemoveItemsFromZoneRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiZonesRemoveItemsFromZoneRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetZonedItemsRequestModel returns the zonedItemsRequestModel parameter
+func (r MockApiZonesRemoveItemsFromZoneRequest) GetZonedItemsRequestModel() *ZonedItemsRequestModel {
+	return r.zonedItemsRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiZonesRemoveItemsFromZoneRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiZonesRemoveItemsFromZoneRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiZonesRemoveItemsFromZoneRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiZonesRemoveItemsFromZoneRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiZonesRemoveItemsFromZoneRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiZonesRemoveItemsFromZoneRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiZonesRemoveItemsFromZoneRequest) Execute() (*http.Response, error) {
+	return r.ApiZonesRemoveItemsFromZoneRequest.Execute()
+}
+
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
 func (r ApiZonesRemoveItemsFromZoneRequest) CitrixCustomerId(citrixCustomerId string) ApiZonesRemoveItemsFromZoneRequest {
 	r.citrixCustomerId = &citrixCustomerId
@@ -2888,4 +3450,136 @@ func (a *ZonesAPIsDAASService) ZonesRemoveItemsFromZoneExecute(r ApiZonesRemoveI
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+// GetMockZonesAPIsDAAS extracts the MockZonesAPIsDAAS from the APIClient.
+// This is a convenience function to avoid verbose type assertions in tests.
+//
+// Example usage:
+//
+//	mockClient := NewMockAPIClient()
+//	mockAPI := GetMockZonesAPIsDAAS(mockClient.APIClient)
+//	mockAPI.On("OperationExecute", mock.Anything).Return(...)
+func GetMockZonesAPIsDAAS(client *APIClient) *MockZonesAPIsDAAS {
+	return client.ZonesAPIsDAAS.(*MockZonesAPIsDAAS)
+}
+
+// MockZonesAPIsDAAS is a mock implementation of the ZonesAPIsDAAS interface for testing
+var _ ZonesAPIsDAAS = (*MockZonesAPIsDAAS)(nil)
+
+type MockZonesAPIsDAAS struct {
+	mock.Mock
+}
+
+func (m *MockZonesAPIsDAAS) ZonesAddItemsIntoZone(ctx context.Context, nameOrId string) ApiZonesAddItemsIntoZoneRequest {
+	return ApiZonesAddItemsIntoZoneRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockZonesAPIsDAAS) ZonesAddItemsIntoZoneExecute(r ApiZonesAddItemsIntoZoneRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockZonesAPIsDAAS) ZonesCreateZone(ctx context.Context) ApiZonesCreateZoneRequest {
+	return ApiZonesCreateZoneRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockZonesAPIsDAAS) ZonesCreateZoneExecute(r ApiZonesCreateZoneRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockZonesAPIsDAAS) ZonesDeleteZone(ctx context.Context, nameOrId string) ApiZonesDeleteZoneRequest {
+	return ApiZonesDeleteZoneRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockZonesAPIsDAAS) ZonesDeleteZoneExecute(r ApiZonesDeleteZoneRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockZonesAPIsDAAS) ZonesDoZoneSearch(ctx context.Context) ApiZonesDoZoneSearchRequest {
+	return ApiZonesDoZoneSearchRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockZonesAPIsDAAS) ZonesDoZoneSearchExecute(r ApiZonesDoZoneSearchRequest) (*ZonedItemResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ZonedItemResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockZonesAPIsDAAS) ZonesEditZone(ctx context.Context, nameOrId string) ApiZonesEditZoneRequest {
+	return ApiZonesEditZoneRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockZonesAPIsDAAS) ZonesEditZoneExecute(r ApiZonesEditZoneRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockZonesAPIsDAAS) ZonesGetZone(ctx context.Context, nameOrId string) ApiZonesGetZoneRequest {
+	return ApiZonesGetZoneRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockZonesAPIsDAAS) ZonesGetZoneExecute(r ApiZonesGetZoneRequest) (*ZoneDetailResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ZoneDetailResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockZonesAPIsDAAS) ZonesGetZones(ctx context.Context) ApiZonesGetZonesRequest {
+	return ApiZonesGetZonesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockZonesAPIsDAAS) ZonesGetZonesExecute(r ApiZonesGetZonesRequest) (*ZoneResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ZoneResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockZonesAPIsDAAS) ZonesMoveItemsIntoZone(ctx context.Context, nameOrId string) ApiZonesMoveItemsIntoZoneRequest {
+	return ApiZonesMoveItemsIntoZoneRequest{
+		ctx:        ctx,
+		ApiService: m,
+		nameOrId:   nameOrId,
+	}
+}
+
+func (m *MockZonesAPIsDAAS) ZonesMoveItemsIntoZoneExecute(r ApiZonesMoveItemsIntoZoneRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockZonesAPIsDAAS) ZonesRemoveItemsFromZone(ctx context.Context) ApiZonesRemoveItemsFromZoneRequest {
+	return ApiZonesRemoveItemsFromZoneRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockZonesAPIsDAAS) ZonesRemoveItemsFromZoneExecute(r ApiZonesRemoveItemsFromZoneRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
 }
