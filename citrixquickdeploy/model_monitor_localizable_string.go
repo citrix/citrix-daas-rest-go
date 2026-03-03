@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,8 +19,8 @@ var _ MappedNullable = &MonitorLocalizableString{}
 
 // MonitorLocalizableString struct for MonitorLocalizableString
 type MonitorLocalizableString struct {
-	Value          *string `json:"value,omitempty"`
-	LocalizedValue *string `json:"localizedValue,omitempty"`
+	Value          NullableString `json:"value,omitempty"`
+	LocalizedValue NullableString `json:"localizedValue,omitempty"`
 }
 
 // NewMonitorLocalizableStringWithDefaults instantiates a new MonitorLocalizableString object
@@ -31,50 +31,72 @@ func NewMonitorLocalizableStringWithDefaults() *MonitorLocalizableString {
 	return &this
 }
 
-// GetValue returns the Value field value if set, zero value otherwise.
+// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MonitorLocalizableString) GetValue() string {
-	if o == nil || IsNil(o.Value) {
+	if o == nil || IsNil(o.Value.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Value
+	return *o.Value.Get()
 }
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MonitorLocalizableString) GetValueOk() (*string, bool) {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Value, true
+	return o.Value.Get(), o.Value.IsSet()
 }
 
-// SetValue gets a reference to the given string and assigns it to the Value field.
+// SetValue gets a reference to the given NullableString and assigns it to the Value field.
 func (o *MonitorLocalizableString) SetValue(v string) {
-	o.Value = &v
+	o.Value.Set(&v)
 }
 
-// GetLocalizedValue returns the LocalizedValue field value if set, zero value otherwise.
+// SetValueNil sets the value for Value to be an explicit nil
+func (o *MonitorLocalizableString) SetValueNil() {
+	o.Value.Set(nil)
+}
+
+// UnsetValue ensures that no value is present for Value, not even an explicit nil
+func (o *MonitorLocalizableString) UnsetValue() {
+	o.Value.Unset()
+}
+
+// GetLocalizedValue returns the LocalizedValue field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MonitorLocalizableString) GetLocalizedValue() string {
-	if o == nil || IsNil(o.LocalizedValue) {
+	if o == nil || IsNil(o.LocalizedValue.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LocalizedValue
+	return *o.LocalizedValue.Get()
 }
 
 // GetLocalizedValueOk returns a tuple with the LocalizedValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MonitorLocalizableString) GetLocalizedValueOk() (*string, bool) {
-	if o == nil || IsNil(o.LocalizedValue) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LocalizedValue, true
+	return o.LocalizedValue.Get(), o.LocalizedValue.IsSet()
 }
 
-// SetLocalizedValue gets a reference to the given string and assigns it to the LocalizedValue field.
+// SetLocalizedValue gets a reference to the given NullableString and assigns it to the LocalizedValue field.
 func (o *MonitorLocalizableString) SetLocalizedValue(v string) {
-	o.LocalizedValue = &v
+	o.LocalizedValue.Set(&v)
+}
+
+// SetLocalizedValueNil sets the value for LocalizedValue to be an explicit nil
+func (o *MonitorLocalizableString) SetLocalizedValueNil() {
+	o.LocalizedValue.Set(nil)
+}
+
+// UnsetLocalizedValue ensures that no value is present for LocalizedValue, not even an explicit nil
+func (o *MonitorLocalizableString) UnsetLocalizedValue() {
+	o.LocalizedValue.Unset()
 }
 
 func (o MonitorLocalizableString) MarshalJSON() ([]byte, error) {
@@ -87,11 +109,11 @@ func (o MonitorLocalizableString) MarshalJSON() ([]byte, error) {
 
 func (o MonitorLocalizableString) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Value) {
-		toSerialize["value"] = o.Value
+	if o.Value.IsSet() {
+		toSerialize["value"] = o.Value.Get()
 	}
-	if !IsNil(o.LocalizedValue) {
-		toSerialize["localizedValue"] = o.LocalizedValue
+	if o.LocalizedValue.IsSet() {
+		toSerialize["localizedValue"] = o.LocalizedValue.Get()
 	}
 	return toSerialize, nil
 }

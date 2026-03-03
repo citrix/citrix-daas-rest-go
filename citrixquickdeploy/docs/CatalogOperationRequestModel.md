@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OperationType** | Pointer to [**CatalogOperationType**](CatalogOperationType.md) |  | [optional] 
-**Parameters** | Pointer to **map[string]map[string]interface{}** |  | [optional] 
+**Parameters** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasOperationType returns a boolean if a field has been set.
 
 ### GetParameters
 
-`func (o *CatalogOperationRequestModel) GetParameters() map[string]map[string]interface{}`
+`func (o *CatalogOperationRequestModel) GetParameters() map[string]interface{}`
 
 GetParameters returns the Parameters field if non-nil, zero value otherwise.
 
 ### GetParametersOk
 
-`func (o *CatalogOperationRequestModel) GetParametersOk() (*map[string]map[string]interface{}, bool)`
+`func (o *CatalogOperationRequestModel) GetParametersOk() (*map[string]interface{}, bool)`
 
 GetParametersOk returns a tuple with the Parameters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParameters
 
-`func (o *CatalogOperationRequestModel) SetParameters(v map[string]map[string]interface{})`
+`func (o *CatalogOperationRequestModel) SetParameters(v map[string]interface{})`
 
 SetParameters sets Parameters field to given value.
 
@@ -76,6 +76,16 @@ SetParameters sets Parameters field to given value.
 
 HasParameters returns a boolean if a field has been set.
 
+### SetParametersNil
+
+`func (o *CatalogOperationRequestModel) SetParametersNil(b bool)`
+
+ SetParametersNil sets the value for Parameters to be an explicit nil
+
+### UnsetParameters
+`func (o *CatalogOperationRequestModel) UnsetParameters()`
+
+UnsetParameters ensures that no value is present for Parameters, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

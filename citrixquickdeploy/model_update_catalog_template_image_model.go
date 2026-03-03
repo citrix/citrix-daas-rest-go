@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -23,8 +23,12 @@ type UpdateCatalogTemplateImageModel struct {
 	TemplateId string `json:"templateId"`
 	// Whether the image was prepared by Citrix, or provided by the customer
 	CitrixPrepared *bool `json:"citrixPrepared,omitempty"`
-	// Number of minutes to delay updating the VDAs
+	// Number of minutes to delay updating the VDAs.  -1 = Natural reboot (on next shutdown)  0 = Immediate reboot (restart all machines now)  >0 = Distributed reboot (gradual rollout with warnings over specified minutes)
 	VdaUpdateDelay *int32 `json:"vdaUpdateDelay,omitempty"`
+	// The window title used when showing the warning message in user sessions.  Optional. If not specified, defaults to 'Help desk message'.
+	WarningTitle NullableString `json:"warningTitle,omitempty"`
+	// Custom warning message displayed to users before reboot.  The optional pattern '%m%' is replaced by the number of minutes until the reboot.  If not specified, uses the default message.
+	WarningMessage NullableString `json:"warningMessage,omitempty"`
 }
 
 // NewUpdateCatalogTemplateImageModelWithDefaults instantiates a new UpdateCatalogTemplateImageModel object
@@ -105,6 +109,74 @@ func (o *UpdateCatalogTemplateImageModel) SetVdaUpdateDelay(v int32) {
 	o.VdaUpdateDelay = &v
 }
 
+// GetWarningTitle returns the WarningTitle field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateCatalogTemplateImageModel) GetWarningTitle() string {
+	if o == nil || IsNil(o.WarningTitle.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.WarningTitle.Get()
+}
+
+// GetWarningTitleOk returns a tuple with the WarningTitle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateCatalogTemplateImageModel) GetWarningTitleOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.WarningTitle.Get(), o.WarningTitle.IsSet()
+}
+
+// SetWarningTitle gets a reference to the given NullableString and assigns it to the WarningTitle field.
+func (o *UpdateCatalogTemplateImageModel) SetWarningTitle(v string) {
+	o.WarningTitle.Set(&v)
+}
+
+// SetWarningTitleNil sets the value for WarningTitle to be an explicit nil
+func (o *UpdateCatalogTemplateImageModel) SetWarningTitleNil() {
+	o.WarningTitle.Set(nil)
+}
+
+// UnsetWarningTitle ensures that no value is present for WarningTitle, not even an explicit nil
+func (o *UpdateCatalogTemplateImageModel) UnsetWarningTitle() {
+	o.WarningTitle.Unset()
+}
+
+// GetWarningMessage returns the WarningMessage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateCatalogTemplateImageModel) GetWarningMessage() string {
+	if o == nil || IsNil(o.WarningMessage.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.WarningMessage.Get()
+}
+
+// GetWarningMessageOk returns a tuple with the WarningMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateCatalogTemplateImageModel) GetWarningMessageOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.WarningMessage.Get(), o.WarningMessage.IsSet()
+}
+
+// SetWarningMessage gets a reference to the given NullableString and assigns it to the WarningMessage field.
+func (o *UpdateCatalogTemplateImageModel) SetWarningMessage(v string) {
+	o.WarningMessage.Set(&v)
+}
+
+// SetWarningMessageNil sets the value for WarningMessage to be an explicit nil
+func (o *UpdateCatalogTemplateImageModel) SetWarningMessageNil() {
+	o.WarningMessage.Set(nil)
+}
+
+// UnsetWarningMessage ensures that no value is present for WarningMessage, not even an explicit nil
+func (o *UpdateCatalogTemplateImageModel) UnsetWarningMessage() {
+	o.WarningMessage.Unset()
+}
+
 func (o UpdateCatalogTemplateImageModel) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -121,6 +193,12 @@ func (o UpdateCatalogTemplateImageModel) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.VdaUpdateDelay) {
 		toSerialize["vdaUpdateDelay"] = o.VdaUpdateDelay
+	}
+	if o.WarningTitle.IsSet() {
+		toSerialize["warningTitle"] = o.WarningTitle.Get()
+	}
+	if o.WarningMessage.IsSet() {
+		toSerialize["warningMessage"] = o.WarningMessage.Get()
 	}
 	return toSerialize, nil
 }

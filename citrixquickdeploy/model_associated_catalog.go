@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,9 +20,9 @@ var _ MappedNullable = &AssociatedCatalog{}
 // AssociatedCatalog struct for AssociatedCatalog
 type AssociatedCatalog struct {
 	// ID of the associated catalog.
-	CatalogId *string `json:"catalogId,omitempty"`
+	CatalogId NullableString `json:"catalogId,omitempty"`
 	// Name of the associated catalog.
-	CatalogName *string `json:"catalogName,omitempty"`
+	CatalogName NullableString `json:"catalogName,omitempty"`
 }
 
 // NewAssociatedCatalogWithDefaults instantiates a new AssociatedCatalog object
@@ -33,50 +33,72 @@ func NewAssociatedCatalogWithDefaults() *AssociatedCatalog {
 	return &this
 }
 
-// GetCatalogId returns the CatalogId field value if set, zero value otherwise.
+// GetCatalogId returns the CatalogId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AssociatedCatalog) GetCatalogId() string {
-	if o == nil || IsNil(o.CatalogId) {
+	if o == nil || IsNil(o.CatalogId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CatalogId
+	return *o.CatalogId.Get()
 }
 
 // GetCatalogIdOk returns a tuple with the CatalogId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AssociatedCatalog) GetCatalogIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CatalogId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CatalogId, true
+	return o.CatalogId.Get(), o.CatalogId.IsSet()
 }
 
-// SetCatalogId gets a reference to the given string and assigns it to the CatalogId field.
+// SetCatalogId gets a reference to the given NullableString and assigns it to the CatalogId field.
 func (o *AssociatedCatalog) SetCatalogId(v string) {
-	o.CatalogId = &v
+	o.CatalogId.Set(&v)
 }
 
-// GetCatalogName returns the CatalogName field value if set, zero value otherwise.
+// SetCatalogIdNil sets the value for CatalogId to be an explicit nil
+func (o *AssociatedCatalog) SetCatalogIdNil() {
+	o.CatalogId.Set(nil)
+}
+
+// UnsetCatalogId ensures that no value is present for CatalogId, not even an explicit nil
+func (o *AssociatedCatalog) UnsetCatalogId() {
+	o.CatalogId.Unset()
+}
+
+// GetCatalogName returns the CatalogName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AssociatedCatalog) GetCatalogName() string {
-	if o == nil || IsNil(o.CatalogName) {
+	if o == nil || IsNil(o.CatalogName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CatalogName
+	return *o.CatalogName.Get()
 }
 
 // GetCatalogNameOk returns a tuple with the CatalogName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AssociatedCatalog) GetCatalogNameOk() (*string, bool) {
-	if o == nil || IsNil(o.CatalogName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CatalogName, true
+	return o.CatalogName.Get(), o.CatalogName.IsSet()
 }
 
-// SetCatalogName gets a reference to the given string and assigns it to the CatalogName field.
+// SetCatalogName gets a reference to the given NullableString and assigns it to the CatalogName field.
 func (o *AssociatedCatalog) SetCatalogName(v string) {
-	o.CatalogName = &v
+	o.CatalogName.Set(&v)
+}
+
+// SetCatalogNameNil sets the value for CatalogName to be an explicit nil
+func (o *AssociatedCatalog) SetCatalogNameNil() {
+	o.CatalogName.Set(nil)
+}
+
+// UnsetCatalogName ensures that no value is present for CatalogName, not even an explicit nil
+func (o *AssociatedCatalog) UnsetCatalogName() {
+	o.CatalogName.Unset()
 }
 
 func (o AssociatedCatalog) MarshalJSON() ([]byte, error) {
@@ -89,11 +111,11 @@ func (o AssociatedCatalog) MarshalJSON() ([]byte, error) {
 
 func (o AssociatedCatalog) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CatalogId) {
-		toSerialize["catalogId"] = o.CatalogId
+	if o.CatalogId.IsSet() {
+		toSerialize["catalogId"] = o.CatalogId.Get()
 	}
-	if !IsNil(o.CatalogName) {
-		toSerialize["catalogName"] = o.CatalogName
+	if o.CatalogName.IsSet() {
+		toSerialize["catalogName"] = o.CatalogName.Get()
 	}
 	return toSerialize, nil
 }

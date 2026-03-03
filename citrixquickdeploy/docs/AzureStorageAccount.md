@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SubscriptionId** | Pointer to **string** | Azure subscription the storage account is associated with | [optional] 
+**SubscriptionId** | Pointer to **NullableString** | Azure subscription the storage account is associated with | [optional] 
 **ResourceGroup** | **string** | Name of the Resource Group the Storage Account is associated with | 
 **Location** | **string** | The location of the storage account | 
 **Name** | **string** | Name of the storage account | 
 **IsPremiumStorage** | Pointer to **bool** | Indicates if the storage account is using premium storage | [optional] 
-**AccountKey** | Pointer to **string** |  | [optional] 
+**AccountKey** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -55,6 +55,16 @@ SetSubscriptionId sets SubscriptionId field to given value.
 
 HasSubscriptionId returns a boolean if a field has been set.
 
+### SetSubscriptionIdNil
+
+`func (o *AzureStorageAccount) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *AzureStorageAccount) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
 ### GetResourceGroup
 
 `func (o *AzureStorageAccount) GetResourceGroup() string`
@@ -165,6 +175,16 @@ SetAccountKey sets AccountKey field to given value.
 
 HasAccountKey returns a boolean if a field has been set.
 
+### SetAccountKeyNil
+
+`func (o *AzureStorageAccount) SetAccountKeyNil(b bool)`
+
+ SetAccountKeyNil sets the value for AccountKey to be an explicit nil
+
+### UnsetAccountKey
+`func (o *AzureStorageAccount) UnsetAccountKey()`
+
+UnsetAccountKey ensures that no value is present for AccountKey, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

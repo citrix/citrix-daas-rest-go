@@ -50,6 +50,16 @@ SetWebAppModels sets WebAppModels field to given value.
 
 HasWebAppModels returns a boolean if a field has been set.
 
+### SetWebAppModelsNil
+
+`func (o *CatalogSecureBrowserModel) SetWebAppModelsNil(b bool)`
+
+ SetWebAppModelsNil sets the value for WebAppModels to be an explicit nil
+
+### UnsetWebAppModels
+`func (o *CatalogSecureBrowserModel) UnsetWebAppModels()`
+
+UnsetWebAppModels ensures that no value is present for WebAppModels, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

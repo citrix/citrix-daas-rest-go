@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -57,9 +57,9 @@ func (o *CatalogConnectorsOverview) SetItems(v []ConnectorOverview) {
 	o.Items = v
 }
 
-// GetConnectors returns the Connectors field value if set, zero value otherwise.
+// GetConnectors returns the Connectors field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogConnectorsOverview) GetConnectors() []ConnectorOverview {
-	if o == nil || IsNil(o.Connectors) {
+	if o == nil {
 		var ret []ConnectorOverview
 		return ret
 	}
@@ -68,6 +68,7 @@ func (o *CatalogConnectorsOverview) GetConnectors() []ConnectorOverview {
 
 // GetConnectorsOk returns a tuple with the Connectors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogConnectorsOverview) GetConnectorsOk() ([]ConnectorOverview, bool) {
 	if o == nil || IsNil(o.Connectors) {
 		return nil, false
@@ -91,7 +92,7 @@ func (o CatalogConnectorsOverview) MarshalJSON() ([]byte, error) {
 func (o CatalogConnectorsOverview) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["items"] = o.Items
-	if !IsNil(o.Connectors) {
+	if o.Connectors != nil {
 		toSerialize["connectors"] = o.Connectors
 	}
 	return toSerialize, nil

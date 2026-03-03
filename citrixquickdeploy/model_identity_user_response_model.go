@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -22,73 +22,73 @@ type IdentityUserResponseModel struct {
 	// Display name of the user or group.    Usually something like \"John Q. Doe\".
 	DisplayName string `json:"displayName"`
 	// Fully qualified sAMAccountName of the User or Group object (including domain).
-	SamName *string `json:"samName,omitempty"`
+	SamName NullableString `json:"samName,omitempty"`
 	// Unqualified SAM name (Directory property) of the User or Group object.     Does not include the domain. The sAMAccountName is unique within a domain.
-	SamAccountName *string `json:"samAccountName,omitempty"`
+	SamAccountName NullableString `json:"samAccountName,omitempty"`
 	// The common name associated with the User or Group object.
-	CommonName *string `json:"commonName,omitempty"`
+	CommonName NullableString `json:"commonName,omitempty"`
 	// The user principal name of a User object.    The UPN must be unique among all security principal    objects within the directory forest.
-	PrincipalName *string `json:"principalName,omitempty"`
+	PrincipalName NullableString `json:"principalName,omitempty"`
 	// The Object Identifier associated with the User or Group object.
-	Oid *string `json:"oid,omitempty"`
+	Oid NullableString `json:"oid,omitempty"`
 	// The Security Identifier associated with the User or Group object.
-	Sid *string `json:"sid,omitempty"`
+	Sid NullableString `json:"sid,omitempty"`
 	// The User Identity.
-	UserIdentity *string `json:"userIdentity,omitempty"`
+	UserIdentity NullableString `json:"userIdentity,omitempty"`
 	// Security Identifiers of groups of which the object is a member.
 	GroupSids []string `json:"groupSids,omitempty"`
 	// Security Identifiers of resources to which the object is explicitly denied access.
 	DenyOnlySids []string `json:"denyOnlySids,omitempty"`
 	// Indicates whether the password can expire on this User object.
-	PasswordCanExpire *bool `json:"passwordCanExpire,omitempty"`
+	PasswordCanExpire NullableBool `json:"passwordCanExpire,omitempty"`
 	// Indicates the number of days before the password can expire on this User object.
-	DaysUntilPasswordExpiry *int64 `json:"daysUntilPasswordExpiry,omitempty"`
+	DaysUntilPasswordExpiry NullableInt64 `json:"daysUntilPasswordExpiry,omitempty"`
 	// Indicates whether this a built-in object.
-	IsBuiltIn *bool `json:"isBuiltIn,omitempty"`
+	IsBuiltIn NullableBool `json:"isBuiltIn,omitempty"`
 	// Indicates whether this is a User or Group object.
-	IsGroup *bool `json:"isGroup,omitempty"`
+	IsGroup NullableBool `json:"isGroup,omitempty"`
 	// The name of the User or Group object.
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	// The street address associated with the User object.
-	StreetAddress *string `json:"streetAddress,omitempty"`
+	StreetAddress NullableString `json:"streetAddress,omitempty"`
 	// The city associated with the User object.
-	City *string `json:"city,omitempty"`
+	City NullableString `json:"city,omitempty"`
 	// The state associated with the User object.
-	State *string `json:"state,omitempty"`
+	State NullableString `json:"state,omitempty"`
 	// The country associated with the user object.
-	Country *string `json:"country,omitempty"`
+	Country NullableString `json:"country,omitempty"`
 	// The e-mail address associated with the user object.
-	Mail *string `json:"mail,omitempty"`
+	Mail NullableString `json:"mail,omitempty"`
 	// The telephone number associated with the user object.
-	TelephoneNumber *string `json:"telephoneNumber,omitempty"`
+	TelephoneNumber NullableString `json:"telephoneNumber,omitempty"`
 	// The home telephone number associated with the user object.
-	HomePhone *string `json:"homePhone,omitempty"`
+	HomePhone NullableString `json:"homePhone,omitempty"`
 	// The mobile telephone number associated with the user object.
-	Mobile *string `json:"mobile,omitempty"`
+	Mobile NullableString `json:"mobile,omitempty"`
 	// Indicates whether the User object is disabled.    NOTE that this is opposite of the low-level SDK, which has \"IsDisabled\".    By changing to \"Enabled\" it avoids a confusing double-negative.  It also    matches all other SDK objects by using \"Enabled\" rather than \"IsEnabled\".
-	Enabled *bool `json:"enabled,omitempty"`
+	Enabled NullableBool `json:"enabled,omitempty"`
 	// Indicates whether the User object is locked.
-	Locked *bool `json:"locked,omitempty"`
+	Locked NullableBool `json:"locked,omitempty"`
 	// Properties fetched and populated in the User or Group object.  This is a bitfield indicating the fetched properties.
 	PropertiesFetched int32 `json:"propertiesFetched"`
 	// The universal claims of the user object.
-	Claims *IdentityClaimsResponseModel `json:"claims,omitempty"`
+	Claims NullableIdentityClaimsResponseModel `json:"claims,omitempty"`
 	// The directory context of the user object.
-	Directory *IdentityDirectoryResponseModel `json:"directory,omitempty"`
+	Directory NullableIdentityDirectoryResponseModel `json:"directory,omitempty"`
 	// The Domain the object belongs to.    NOTE: When doing a forest level search, the domain    property is populated only if the object contains a SID    and the SID was requested as property to be fetched.
-	Domain *string `json:"domain,omitempty"`
+	Domain NullableString `json:"domain,omitempty"`
 	// The forest the object belongs to.
-	Forest *string `json:"forest,omitempty"`
+	Forest NullableString `json:"forest,omitempty"`
 	// The GUID of the object, the GUID is unique    across the enterprise and anywhere else.
-	Guid *string `json:"guid,omitempty"`
+	Guid NullableString `json:"guid,omitempty"`
 	// The Distinguished name of the object. Distinguished names (DNs)    are unique and they unambiguously identify objects in the directory.
-	DistinguishedName *string `json:"distinguishedName,omitempty"`
+	DistinguishedName NullableString `json:"distinguishedName,omitempty"`
 	// The unique distinguished name of the object in canonical format.
-	CanonicalName *string `json:"canonicalName,omitempty"`
+	CanonicalName NullableString `json:"canonicalName,omitempty"`
 	// Set to True during a bulk identity lookup operation.    For individual identity lookup, usually an exception will be thrown.
-	PossibleLookupFailure *bool `json:"possibleLookupFailure,omitempty"`
+	PossibleLookupFailure NullableBool `json:"possibleLookupFailure,omitempty"`
 	// Domain controller that performed the add/update operation on this object
-	DirectoryServer *string `json:"directoryServer,omitempty"`
+	DirectoryServer NullableString `json:"directoryServer,omitempty"`
 }
 
 // NewIdentityUserResponseModelWithDefaults instantiates a new IdentityUserResponseModel object
@@ -123,170 +123,247 @@ func (o *IdentityUserResponseModel) SetDisplayName(v string) {
 	o.DisplayName = v
 }
 
-// GetSamName returns the SamName field value if set, zero value otherwise.
+// GetSamName returns the SamName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetSamName() string {
-	if o == nil || IsNil(o.SamName) {
+	if o == nil || IsNil(o.SamName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SamName
+	return *o.SamName.Get()
 }
 
 // GetSamNameOk returns a tuple with the SamName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetSamNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SamName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SamName, true
+	return o.SamName.Get(), o.SamName.IsSet()
 }
 
-// SetSamName gets a reference to the given string and assigns it to the SamName field.
+// SetSamName gets a reference to the given NullableString and assigns it to the SamName field.
 func (o *IdentityUserResponseModel) SetSamName(v string) {
-	o.SamName = &v
+	o.SamName.Set(&v)
 }
 
-// GetSamAccountName returns the SamAccountName field value if set, zero value otherwise.
+// SetSamNameNil sets the value for SamName to be an explicit nil
+func (o *IdentityUserResponseModel) SetSamNameNil() {
+	o.SamName.Set(nil)
+}
+
+// UnsetSamName ensures that no value is present for SamName, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetSamName() {
+	o.SamName.Unset()
+}
+
+// GetSamAccountName returns the SamAccountName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetSamAccountName() string {
-	if o == nil || IsNil(o.SamAccountName) {
+	if o == nil || IsNil(o.SamAccountName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SamAccountName
+	return *o.SamAccountName.Get()
 }
 
 // GetSamAccountNameOk returns a tuple with the SamAccountName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetSamAccountNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SamAccountName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SamAccountName, true
+	return o.SamAccountName.Get(), o.SamAccountName.IsSet()
 }
 
-// SetSamAccountName gets a reference to the given string and assigns it to the SamAccountName field.
+// SetSamAccountName gets a reference to the given NullableString and assigns it to the SamAccountName field.
 func (o *IdentityUserResponseModel) SetSamAccountName(v string) {
-	o.SamAccountName = &v
+	o.SamAccountName.Set(&v)
 }
 
-// GetCommonName returns the CommonName field value if set, zero value otherwise.
+// SetSamAccountNameNil sets the value for SamAccountName to be an explicit nil
+func (o *IdentityUserResponseModel) SetSamAccountNameNil() {
+	o.SamAccountName.Set(nil)
+}
+
+// UnsetSamAccountName ensures that no value is present for SamAccountName, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetSamAccountName() {
+	o.SamAccountName.Unset()
+}
+
+// GetCommonName returns the CommonName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetCommonName() string {
-	if o == nil || IsNil(o.CommonName) {
+	if o == nil || IsNil(o.CommonName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CommonName
+	return *o.CommonName.Get()
 }
 
 // GetCommonNameOk returns a tuple with the CommonName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetCommonNameOk() (*string, bool) {
-	if o == nil || IsNil(o.CommonName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CommonName, true
+	return o.CommonName.Get(), o.CommonName.IsSet()
 }
 
-// SetCommonName gets a reference to the given string and assigns it to the CommonName field.
+// SetCommonName gets a reference to the given NullableString and assigns it to the CommonName field.
 func (o *IdentityUserResponseModel) SetCommonName(v string) {
-	o.CommonName = &v
+	o.CommonName.Set(&v)
 }
 
-// GetPrincipalName returns the PrincipalName field value if set, zero value otherwise.
+// SetCommonNameNil sets the value for CommonName to be an explicit nil
+func (o *IdentityUserResponseModel) SetCommonNameNil() {
+	o.CommonName.Set(nil)
+}
+
+// UnsetCommonName ensures that no value is present for CommonName, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetCommonName() {
+	o.CommonName.Unset()
+}
+
+// GetPrincipalName returns the PrincipalName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetPrincipalName() string {
-	if o == nil || IsNil(o.PrincipalName) {
+	if o == nil || IsNil(o.PrincipalName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PrincipalName
+	return *o.PrincipalName.Get()
 }
 
 // GetPrincipalNameOk returns a tuple with the PrincipalName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetPrincipalNameOk() (*string, bool) {
-	if o == nil || IsNil(o.PrincipalName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PrincipalName, true
+	return o.PrincipalName.Get(), o.PrincipalName.IsSet()
 }
 
-// SetPrincipalName gets a reference to the given string and assigns it to the PrincipalName field.
+// SetPrincipalName gets a reference to the given NullableString and assigns it to the PrincipalName field.
 func (o *IdentityUserResponseModel) SetPrincipalName(v string) {
-	o.PrincipalName = &v
+	o.PrincipalName.Set(&v)
 }
 
-// GetOid returns the Oid field value if set, zero value otherwise.
+// SetPrincipalNameNil sets the value for PrincipalName to be an explicit nil
+func (o *IdentityUserResponseModel) SetPrincipalNameNil() {
+	o.PrincipalName.Set(nil)
+}
+
+// UnsetPrincipalName ensures that no value is present for PrincipalName, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetPrincipalName() {
+	o.PrincipalName.Unset()
+}
+
+// GetOid returns the Oid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetOid() string {
-	if o == nil || IsNil(o.Oid) {
+	if o == nil || IsNil(o.Oid.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Oid
+	return *o.Oid.Get()
 }
 
 // GetOidOk returns a tuple with the Oid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetOidOk() (*string, bool) {
-	if o == nil || IsNil(o.Oid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Oid, true
+	return o.Oid.Get(), o.Oid.IsSet()
 }
 
-// SetOid gets a reference to the given string and assigns it to the Oid field.
+// SetOid gets a reference to the given NullableString and assigns it to the Oid field.
 func (o *IdentityUserResponseModel) SetOid(v string) {
-	o.Oid = &v
+	o.Oid.Set(&v)
 }
 
-// GetSid returns the Sid field value if set, zero value otherwise.
+// SetOidNil sets the value for Oid to be an explicit nil
+func (o *IdentityUserResponseModel) SetOidNil() {
+	o.Oid.Set(nil)
+}
+
+// UnsetOid ensures that no value is present for Oid, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetOid() {
+	o.Oid.Unset()
+}
+
+// GetSid returns the Sid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetSid() string {
-	if o == nil || IsNil(o.Sid) {
+	if o == nil || IsNil(o.Sid.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Sid
+	return *o.Sid.Get()
 }
 
 // GetSidOk returns a tuple with the Sid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetSidOk() (*string, bool) {
-	if o == nil || IsNil(o.Sid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Sid, true
+	return o.Sid.Get(), o.Sid.IsSet()
 }
 
-// SetSid gets a reference to the given string and assigns it to the Sid field.
+// SetSid gets a reference to the given NullableString and assigns it to the Sid field.
 func (o *IdentityUserResponseModel) SetSid(v string) {
-	o.Sid = &v
+	o.Sid.Set(&v)
 }
 
-// GetUserIdentity returns the UserIdentity field value if set, zero value otherwise.
+// SetSidNil sets the value for Sid to be an explicit nil
+func (o *IdentityUserResponseModel) SetSidNil() {
+	o.Sid.Set(nil)
+}
+
+// UnsetSid ensures that no value is present for Sid, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetSid() {
+	o.Sid.Unset()
+}
+
+// GetUserIdentity returns the UserIdentity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetUserIdentity() string {
-	if o == nil || IsNil(o.UserIdentity) {
+	if o == nil || IsNil(o.UserIdentity.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.UserIdentity
+	return *o.UserIdentity.Get()
 }
 
 // GetUserIdentityOk returns a tuple with the UserIdentity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetUserIdentityOk() (*string, bool) {
-	if o == nil || IsNil(o.UserIdentity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UserIdentity, true
+	return o.UserIdentity.Get(), o.UserIdentity.IsSet()
 }
 
-// SetUserIdentity gets a reference to the given string and assigns it to the UserIdentity field.
+// SetUserIdentity gets a reference to the given NullableString and assigns it to the UserIdentity field.
 func (o *IdentityUserResponseModel) SetUserIdentity(v string) {
-	o.UserIdentity = &v
+	o.UserIdentity.Set(&v)
 }
 
-// GetGroupSids returns the GroupSids field value if set, zero value otherwise.
+// SetUserIdentityNil sets the value for UserIdentity to be an explicit nil
+func (o *IdentityUserResponseModel) SetUserIdentityNil() {
+	o.UserIdentity.Set(nil)
+}
+
+// UnsetUserIdentity ensures that no value is present for UserIdentity, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetUserIdentity() {
+	o.UserIdentity.Unset()
+}
+
+// GetGroupSids returns the GroupSids field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetGroupSids() []string {
-	if o == nil || IsNil(o.GroupSids) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -295,6 +372,7 @@ func (o *IdentityUserResponseModel) GetGroupSids() []string {
 
 // GetGroupSidsOk returns a tuple with the GroupSids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetGroupSidsOk() ([]string, bool) {
 	if o == nil || IsNil(o.GroupSids) {
 		return nil, false
@@ -307,9 +385,9 @@ func (o *IdentityUserResponseModel) SetGroupSids(v []string) {
 	o.GroupSids = v
 }
 
-// GetDenyOnlySids returns the DenyOnlySids field value if set, zero value otherwise.
+// GetDenyOnlySids returns the DenyOnlySids field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetDenyOnlySids() []string {
-	if o == nil || IsNil(o.DenyOnlySids) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -318,6 +396,7 @@ func (o *IdentityUserResponseModel) GetDenyOnlySids() []string {
 
 // GetDenyOnlySidsOk returns a tuple with the DenyOnlySids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetDenyOnlySidsOk() ([]string, bool) {
 	if o == nil || IsNil(o.DenyOnlySids) {
 		return nil, false
@@ -330,349 +409,514 @@ func (o *IdentityUserResponseModel) SetDenyOnlySids(v []string) {
 	o.DenyOnlySids = v
 }
 
-// GetPasswordCanExpire returns the PasswordCanExpire field value if set, zero value otherwise.
+// GetPasswordCanExpire returns the PasswordCanExpire field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetPasswordCanExpire() bool {
-	if o == nil || IsNil(o.PasswordCanExpire) {
+	if o == nil || IsNil(o.PasswordCanExpire.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.PasswordCanExpire
+	return *o.PasswordCanExpire.Get()
 }
 
 // GetPasswordCanExpireOk returns a tuple with the PasswordCanExpire field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetPasswordCanExpireOk() (*bool, bool) {
-	if o == nil || IsNil(o.PasswordCanExpire) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PasswordCanExpire, true
+	return o.PasswordCanExpire.Get(), o.PasswordCanExpire.IsSet()
 }
 
-// SetPasswordCanExpire gets a reference to the given bool and assigns it to the PasswordCanExpire field.
+// SetPasswordCanExpire gets a reference to the given NullableBool and assigns it to the PasswordCanExpire field.
 func (o *IdentityUserResponseModel) SetPasswordCanExpire(v bool) {
-	o.PasswordCanExpire = &v
+	o.PasswordCanExpire.Set(&v)
 }
 
-// GetDaysUntilPasswordExpiry returns the DaysUntilPasswordExpiry field value if set, zero value otherwise.
+// SetPasswordCanExpireNil sets the value for PasswordCanExpire to be an explicit nil
+func (o *IdentityUserResponseModel) SetPasswordCanExpireNil() {
+	o.PasswordCanExpire.Set(nil)
+}
+
+// UnsetPasswordCanExpire ensures that no value is present for PasswordCanExpire, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetPasswordCanExpire() {
+	o.PasswordCanExpire.Unset()
+}
+
+// GetDaysUntilPasswordExpiry returns the DaysUntilPasswordExpiry field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetDaysUntilPasswordExpiry() int64 {
-	if o == nil || IsNil(o.DaysUntilPasswordExpiry) {
+	if o == nil || IsNil(o.DaysUntilPasswordExpiry.Get()) {
 		var ret int64
 		return ret
 	}
-	return *o.DaysUntilPasswordExpiry
+	return *o.DaysUntilPasswordExpiry.Get()
 }
 
 // GetDaysUntilPasswordExpiryOk returns a tuple with the DaysUntilPasswordExpiry field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetDaysUntilPasswordExpiryOk() (*int64, bool) {
-	if o == nil || IsNil(o.DaysUntilPasswordExpiry) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DaysUntilPasswordExpiry, true
+	return o.DaysUntilPasswordExpiry.Get(), o.DaysUntilPasswordExpiry.IsSet()
 }
 
-// SetDaysUntilPasswordExpiry gets a reference to the given int64 and assigns it to the DaysUntilPasswordExpiry field.
+// SetDaysUntilPasswordExpiry gets a reference to the given NullableInt64 and assigns it to the DaysUntilPasswordExpiry field.
 func (o *IdentityUserResponseModel) SetDaysUntilPasswordExpiry(v int64) {
-	o.DaysUntilPasswordExpiry = &v
+	o.DaysUntilPasswordExpiry.Set(&v)
 }
 
-// GetIsBuiltIn returns the IsBuiltIn field value if set, zero value otherwise.
+// SetDaysUntilPasswordExpiryNil sets the value for DaysUntilPasswordExpiry to be an explicit nil
+func (o *IdentityUserResponseModel) SetDaysUntilPasswordExpiryNil() {
+	o.DaysUntilPasswordExpiry.Set(nil)
+}
+
+// UnsetDaysUntilPasswordExpiry ensures that no value is present for DaysUntilPasswordExpiry, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetDaysUntilPasswordExpiry() {
+	o.DaysUntilPasswordExpiry.Unset()
+}
+
+// GetIsBuiltIn returns the IsBuiltIn field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetIsBuiltIn() bool {
-	if o == nil || IsNil(o.IsBuiltIn) {
+	if o == nil || IsNil(o.IsBuiltIn.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.IsBuiltIn
+	return *o.IsBuiltIn.Get()
 }
 
 // GetIsBuiltInOk returns a tuple with the IsBuiltIn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetIsBuiltInOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsBuiltIn) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsBuiltIn, true
+	return o.IsBuiltIn.Get(), o.IsBuiltIn.IsSet()
 }
 
-// SetIsBuiltIn gets a reference to the given bool and assigns it to the IsBuiltIn field.
+// SetIsBuiltIn gets a reference to the given NullableBool and assigns it to the IsBuiltIn field.
 func (o *IdentityUserResponseModel) SetIsBuiltIn(v bool) {
-	o.IsBuiltIn = &v
+	o.IsBuiltIn.Set(&v)
 }
 
-// GetIsGroup returns the IsGroup field value if set, zero value otherwise.
+// SetIsBuiltInNil sets the value for IsBuiltIn to be an explicit nil
+func (o *IdentityUserResponseModel) SetIsBuiltInNil() {
+	o.IsBuiltIn.Set(nil)
+}
+
+// UnsetIsBuiltIn ensures that no value is present for IsBuiltIn, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetIsBuiltIn() {
+	o.IsBuiltIn.Unset()
+}
+
+// GetIsGroup returns the IsGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetIsGroup() bool {
-	if o == nil || IsNil(o.IsGroup) {
+	if o == nil || IsNil(o.IsGroup.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.IsGroup
+	return *o.IsGroup.Get()
 }
 
 // GetIsGroupOk returns a tuple with the IsGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetIsGroupOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsGroup, true
+	return o.IsGroup.Get(), o.IsGroup.IsSet()
 }
 
-// SetIsGroup gets a reference to the given bool and assigns it to the IsGroup field.
+// SetIsGroup gets a reference to the given NullableBool and assigns it to the IsGroup field.
 func (o *IdentityUserResponseModel) SetIsGroup(v bool) {
-	o.IsGroup = &v
+	o.IsGroup.Set(&v)
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// SetIsGroupNil sets the value for IsGroup to be an explicit nil
+func (o *IdentityUserResponseModel) SetIsGroupNil() {
+	o.IsGroup.Set(nil)
+}
+
+// UnsetIsGroup ensures that no value is present for IsGroup, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetIsGroup() {
+	o.IsGroup.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *IdentityUserResponseModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
 }
 
-// GetStreetAddress returns the StreetAddress field value if set, zero value otherwise.
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *IdentityUserResponseModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetStreetAddress returns the StreetAddress field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetStreetAddress() string {
-	if o == nil || IsNil(o.StreetAddress) {
+	if o == nil || IsNil(o.StreetAddress.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.StreetAddress
+	return *o.StreetAddress.Get()
 }
 
 // GetStreetAddressOk returns a tuple with the StreetAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetStreetAddressOk() (*string, bool) {
-	if o == nil || IsNil(o.StreetAddress) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StreetAddress, true
+	return o.StreetAddress.Get(), o.StreetAddress.IsSet()
 }
 
-// SetStreetAddress gets a reference to the given string and assigns it to the StreetAddress field.
+// SetStreetAddress gets a reference to the given NullableString and assigns it to the StreetAddress field.
 func (o *IdentityUserResponseModel) SetStreetAddress(v string) {
-	o.StreetAddress = &v
+	o.StreetAddress.Set(&v)
 }
 
-// GetCity returns the City field value if set, zero value otherwise.
+// SetStreetAddressNil sets the value for StreetAddress to be an explicit nil
+func (o *IdentityUserResponseModel) SetStreetAddressNil() {
+	o.StreetAddress.Set(nil)
+}
+
+// UnsetStreetAddress ensures that no value is present for StreetAddress, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetStreetAddress() {
+	o.StreetAddress.Unset()
+}
+
+// GetCity returns the City field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetCity() string {
-	if o == nil || IsNil(o.City) {
+	if o == nil || IsNil(o.City.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.City
+	return *o.City.Get()
 }
 
 // GetCityOk returns a tuple with the City field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetCityOk() (*string, bool) {
-	if o == nil || IsNil(o.City) {
+	if o == nil {
 		return nil, false
 	}
-	return o.City, true
+	return o.City.Get(), o.City.IsSet()
 }
 
-// SetCity gets a reference to the given string and assigns it to the City field.
+// SetCity gets a reference to the given NullableString and assigns it to the City field.
 func (o *IdentityUserResponseModel) SetCity(v string) {
-	o.City = &v
+	o.City.Set(&v)
 }
 
-// GetState returns the State field value if set, zero value otherwise.
+// SetCityNil sets the value for City to be an explicit nil
+func (o *IdentityUserResponseModel) SetCityNil() {
+	o.City.Set(nil)
+}
+
+// UnsetCity ensures that no value is present for City, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetCity() {
+	o.City.Unset()
+}
+
+// GetState returns the State field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetState() string {
-	if o == nil || IsNil(o.State) {
+	if o == nil || IsNil(o.State.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.State
+	return *o.State.Get()
 }
 
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetStateOk() (*string, bool) {
-	if o == nil || IsNil(o.State) {
+	if o == nil {
 		return nil, false
 	}
-	return o.State, true
+	return o.State.Get(), o.State.IsSet()
 }
 
-// SetState gets a reference to the given string and assigns it to the State field.
+// SetState gets a reference to the given NullableString and assigns it to the State field.
 func (o *IdentityUserResponseModel) SetState(v string) {
-	o.State = &v
+	o.State.Set(&v)
 }
 
-// GetCountry returns the Country field value if set, zero value otherwise.
+// SetStateNil sets the value for State to be an explicit nil
+func (o *IdentityUserResponseModel) SetStateNil() {
+	o.State.Set(nil)
+}
+
+// UnsetState ensures that no value is present for State, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetState() {
+	o.State.Unset()
+}
+
+// GetCountry returns the Country field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetCountry() string {
-	if o == nil || IsNil(o.Country) {
+	if o == nil || IsNil(o.Country.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Country
+	return *o.Country.Get()
 }
 
 // GetCountryOk returns a tuple with the Country field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetCountryOk() (*string, bool) {
-	if o == nil || IsNil(o.Country) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Country, true
+	return o.Country.Get(), o.Country.IsSet()
 }
 
-// SetCountry gets a reference to the given string and assigns it to the Country field.
+// SetCountry gets a reference to the given NullableString and assigns it to the Country field.
 func (o *IdentityUserResponseModel) SetCountry(v string) {
-	o.Country = &v
+	o.Country.Set(&v)
 }
 
-// GetMail returns the Mail field value if set, zero value otherwise.
+// SetCountryNil sets the value for Country to be an explicit nil
+func (o *IdentityUserResponseModel) SetCountryNil() {
+	o.Country.Set(nil)
+}
+
+// UnsetCountry ensures that no value is present for Country, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetCountry() {
+	o.Country.Unset()
+}
+
+// GetMail returns the Mail field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetMail() string {
-	if o == nil || IsNil(o.Mail) {
+	if o == nil || IsNil(o.Mail.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Mail
+	return *o.Mail.Get()
 }
 
 // GetMailOk returns a tuple with the Mail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetMailOk() (*string, bool) {
-	if o == nil || IsNil(o.Mail) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Mail, true
+	return o.Mail.Get(), o.Mail.IsSet()
 }
 
-// SetMail gets a reference to the given string and assigns it to the Mail field.
+// SetMail gets a reference to the given NullableString and assigns it to the Mail field.
 func (o *IdentityUserResponseModel) SetMail(v string) {
-	o.Mail = &v
+	o.Mail.Set(&v)
 }
 
-// GetTelephoneNumber returns the TelephoneNumber field value if set, zero value otherwise.
+// SetMailNil sets the value for Mail to be an explicit nil
+func (o *IdentityUserResponseModel) SetMailNil() {
+	o.Mail.Set(nil)
+}
+
+// UnsetMail ensures that no value is present for Mail, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetMail() {
+	o.Mail.Unset()
+}
+
+// GetTelephoneNumber returns the TelephoneNumber field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetTelephoneNumber() string {
-	if o == nil || IsNil(o.TelephoneNumber) {
+	if o == nil || IsNil(o.TelephoneNumber.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TelephoneNumber
+	return *o.TelephoneNumber.Get()
 }
 
 // GetTelephoneNumberOk returns a tuple with the TelephoneNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetTelephoneNumberOk() (*string, bool) {
-	if o == nil || IsNil(o.TelephoneNumber) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TelephoneNumber, true
+	return o.TelephoneNumber.Get(), o.TelephoneNumber.IsSet()
 }
 
-// SetTelephoneNumber gets a reference to the given string and assigns it to the TelephoneNumber field.
+// SetTelephoneNumber gets a reference to the given NullableString and assigns it to the TelephoneNumber field.
 func (o *IdentityUserResponseModel) SetTelephoneNumber(v string) {
-	o.TelephoneNumber = &v
+	o.TelephoneNumber.Set(&v)
 }
 
-// GetHomePhone returns the HomePhone field value if set, zero value otherwise.
+// SetTelephoneNumberNil sets the value for TelephoneNumber to be an explicit nil
+func (o *IdentityUserResponseModel) SetTelephoneNumberNil() {
+	o.TelephoneNumber.Set(nil)
+}
+
+// UnsetTelephoneNumber ensures that no value is present for TelephoneNumber, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetTelephoneNumber() {
+	o.TelephoneNumber.Unset()
+}
+
+// GetHomePhone returns the HomePhone field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetHomePhone() string {
-	if o == nil || IsNil(o.HomePhone) {
+	if o == nil || IsNil(o.HomePhone.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HomePhone
+	return *o.HomePhone.Get()
 }
 
 // GetHomePhoneOk returns a tuple with the HomePhone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetHomePhoneOk() (*string, bool) {
-	if o == nil || IsNil(o.HomePhone) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HomePhone, true
+	return o.HomePhone.Get(), o.HomePhone.IsSet()
 }
 
-// SetHomePhone gets a reference to the given string and assigns it to the HomePhone field.
+// SetHomePhone gets a reference to the given NullableString and assigns it to the HomePhone field.
 func (o *IdentityUserResponseModel) SetHomePhone(v string) {
-	o.HomePhone = &v
+	o.HomePhone.Set(&v)
 }
 
-// GetMobile returns the Mobile field value if set, zero value otherwise.
+// SetHomePhoneNil sets the value for HomePhone to be an explicit nil
+func (o *IdentityUserResponseModel) SetHomePhoneNil() {
+	o.HomePhone.Set(nil)
+}
+
+// UnsetHomePhone ensures that no value is present for HomePhone, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetHomePhone() {
+	o.HomePhone.Unset()
+}
+
+// GetMobile returns the Mobile field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetMobile() string {
-	if o == nil || IsNil(o.Mobile) {
+	if o == nil || IsNil(o.Mobile.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Mobile
+	return *o.Mobile.Get()
 }
 
 // GetMobileOk returns a tuple with the Mobile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetMobileOk() (*string, bool) {
-	if o == nil || IsNil(o.Mobile) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Mobile, true
+	return o.Mobile.Get(), o.Mobile.IsSet()
 }
 
-// SetMobile gets a reference to the given string and assigns it to the Mobile field.
+// SetMobile gets a reference to the given NullableString and assigns it to the Mobile field.
 func (o *IdentityUserResponseModel) SetMobile(v string) {
-	o.Mobile = &v
+	o.Mobile.Set(&v)
 }
 
-// GetEnabled returns the Enabled field value if set, zero value otherwise.
+// SetMobileNil sets the value for Mobile to be an explicit nil
+func (o *IdentityUserResponseModel) SetMobileNil() {
+	o.Mobile.Set(nil)
+}
+
+// UnsetMobile ensures that no value is present for Mobile, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetMobile() {
+	o.Mobile.Unset()
+}
+
+// GetEnabled returns the Enabled field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetEnabled() bool {
-	if o == nil || IsNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.Enabled
+	return *o.Enabled.Get()
 }
 
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Enabled) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Enabled, true
+	return o.Enabled.Get(), o.Enabled.IsSet()
 }
 
-// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
+// SetEnabled gets a reference to the given NullableBool and assigns it to the Enabled field.
 func (o *IdentityUserResponseModel) SetEnabled(v bool) {
-	o.Enabled = &v
+	o.Enabled.Set(&v)
 }
 
-// GetLocked returns the Locked field value if set, zero value otherwise.
+// SetEnabledNil sets the value for Enabled to be an explicit nil
+func (o *IdentityUserResponseModel) SetEnabledNil() {
+	o.Enabled.Set(nil)
+}
+
+// UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetEnabled() {
+	o.Enabled.Unset()
+}
+
+// GetLocked returns the Locked field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetLocked() bool {
-	if o == nil || IsNil(o.Locked) {
+	if o == nil || IsNil(o.Locked.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.Locked
+	return *o.Locked.Get()
 }
 
 // GetLockedOk returns a tuple with the Locked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetLockedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Locked) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Locked, true
+	return o.Locked.Get(), o.Locked.IsSet()
 }
 
-// SetLocked gets a reference to the given bool and assigns it to the Locked field.
+// SetLocked gets a reference to the given NullableBool and assigns it to the Locked field.
 func (o *IdentityUserResponseModel) SetLocked(v bool) {
-	o.Locked = &v
+	o.Locked.Set(&v)
+}
+
+// SetLockedNil sets the value for Locked to be an explicit nil
+func (o *IdentityUserResponseModel) SetLockedNil() {
+	o.Locked.Set(nil)
+}
+
+// UnsetLocked ensures that no value is present for Locked, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetLocked() {
+	o.Locked.Unset()
 }
 
 // GetPropertiesFetched returns the PropertiesFetched field value
@@ -699,211 +943,310 @@ func (o *IdentityUserResponseModel) SetPropertiesFetched(v int32) {
 	o.PropertiesFetched = v
 }
 
-// GetClaims returns the Claims field value if set, zero value otherwise.
+// GetClaims returns the Claims field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetClaims() IdentityClaimsResponseModel {
-	if o == nil || IsNil(o.Claims) {
+	if o == nil || IsNil(o.Claims.Get()) {
 		var ret IdentityClaimsResponseModel
 		return ret
 	}
-	return *o.Claims
+	return *o.Claims.Get()
 }
 
 // GetClaimsOk returns a tuple with the Claims field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetClaimsOk() (*IdentityClaimsResponseModel, bool) {
-	if o == nil || IsNil(o.Claims) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Claims, true
+	return o.Claims.Get(), o.Claims.IsSet()
 }
 
-// SetClaims gets a reference to the given IdentityClaimsResponseModel and assigns it to the Claims field.
+// SetClaims gets a reference to the given NullableIdentityClaimsResponseModel and assigns it to the Claims field.
 func (o *IdentityUserResponseModel) SetClaims(v IdentityClaimsResponseModel) {
-	o.Claims = &v
+	o.Claims.Set(&v)
 }
 
-// GetDirectory returns the Directory field value if set, zero value otherwise.
+// SetClaimsNil sets the value for Claims to be an explicit nil
+func (o *IdentityUserResponseModel) SetClaimsNil() {
+	o.Claims.Set(nil)
+}
+
+// UnsetClaims ensures that no value is present for Claims, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetClaims() {
+	o.Claims.Unset()
+}
+
+// GetDirectory returns the Directory field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetDirectory() IdentityDirectoryResponseModel {
-	if o == nil || IsNil(o.Directory) {
+	if o == nil || IsNil(o.Directory.Get()) {
 		var ret IdentityDirectoryResponseModel
 		return ret
 	}
-	return *o.Directory
+	return *o.Directory.Get()
 }
 
 // GetDirectoryOk returns a tuple with the Directory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetDirectoryOk() (*IdentityDirectoryResponseModel, bool) {
-	if o == nil || IsNil(o.Directory) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Directory, true
+	return o.Directory.Get(), o.Directory.IsSet()
 }
 
-// SetDirectory gets a reference to the given IdentityDirectoryResponseModel and assigns it to the Directory field.
+// SetDirectory gets a reference to the given NullableIdentityDirectoryResponseModel and assigns it to the Directory field.
 func (o *IdentityUserResponseModel) SetDirectory(v IdentityDirectoryResponseModel) {
-	o.Directory = &v
+	o.Directory.Set(&v)
 }
 
-// GetDomain returns the Domain field value if set, zero value otherwise.
+// SetDirectoryNil sets the value for Directory to be an explicit nil
+func (o *IdentityUserResponseModel) SetDirectoryNil() {
+	o.Directory.Set(nil)
+}
+
+// UnsetDirectory ensures that no value is present for Directory, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetDirectory() {
+	o.Directory.Unset()
+}
+
+// GetDomain returns the Domain field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetDomain() string {
-	if o == nil || IsNil(o.Domain) {
+	if o == nil || IsNil(o.Domain.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Domain
+	return *o.Domain.Get()
 }
 
 // GetDomainOk returns a tuple with the Domain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetDomainOk() (*string, bool) {
-	if o == nil || IsNil(o.Domain) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Domain, true
+	return o.Domain.Get(), o.Domain.IsSet()
 }
 
-// SetDomain gets a reference to the given string and assigns it to the Domain field.
+// SetDomain gets a reference to the given NullableString and assigns it to the Domain field.
 func (o *IdentityUserResponseModel) SetDomain(v string) {
-	o.Domain = &v
+	o.Domain.Set(&v)
 }
 
-// GetForest returns the Forest field value if set, zero value otherwise.
+// SetDomainNil sets the value for Domain to be an explicit nil
+func (o *IdentityUserResponseModel) SetDomainNil() {
+	o.Domain.Set(nil)
+}
+
+// UnsetDomain ensures that no value is present for Domain, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetDomain() {
+	o.Domain.Unset()
+}
+
+// GetForest returns the Forest field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetForest() string {
-	if o == nil || IsNil(o.Forest) {
+	if o == nil || IsNil(o.Forest.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Forest
+	return *o.Forest.Get()
 }
 
 // GetForestOk returns a tuple with the Forest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetForestOk() (*string, bool) {
-	if o == nil || IsNil(o.Forest) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Forest, true
+	return o.Forest.Get(), o.Forest.IsSet()
 }
 
-// SetForest gets a reference to the given string and assigns it to the Forest field.
+// SetForest gets a reference to the given NullableString and assigns it to the Forest field.
 func (o *IdentityUserResponseModel) SetForest(v string) {
-	o.Forest = &v
+	o.Forest.Set(&v)
 }
 
-// GetGuid returns the Guid field value if set, zero value otherwise.
+// SetForestNil sets the value for Forest to be an explicit nil
+func (o *IdentityUserResponseModel) SetForestNil() {
+	o.Forest.Set(nil)
+}
+
+// UnsetForest ensures that no value is present for Forest, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetForest() {
+	o.Forest.Unset()
+}
+
+// GetGuid returns the Guid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetGuid() string {
-	if o == nil || IsNil(o.Guid) {
+	if o == nil || IsNil(o.Guid.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Guid
+	return *o.Guid.Get()
 }
 
 // GetGuidOk returns a tuple with the Guid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetGuidOk() (*string, bool) {
-	if o == nil || IsNil(o.Guid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Guid, true
+	return o.Guid.Get(), o.Guid.IsSet()
 }
 
-// SetGuid gets a reference to the given string and assigns it to the Guid field.
+// SetGuid gets a reference to the given NullableString and assigns it to the Guid field.
 func (o *IdentityUserResponseModel) SetGuid(v string) {
-	o.Guid = &v
+	o.Guid.Set(&v)
 }
 
-// GetDistinguishedName returns the DistinguishedName field value if set, zero value otherwise.
+// SetGuidNil sets the value for Guid to be an explicit nil
+func (o *IdentityUserResponseModel) SetGuidNil() {
+	o.Guid.Set(nil)
+}
+
+// UnsetGuid ensures that no value is present for Guid, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetGuid() {
+	o.Guid.Unset()
+}
+
+// GetDistinguishedName returns the DistinguishedName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetDistinguishedName() string {
-	if o == nil || IsNil(o.DistinguishedName) {
+	if o == nil || IsNil(o.DistinguishedName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DistinguishedName
+	return *o.DistinguishedName.Get()
 }
 
 // GetDistinguishedNameOk returns a tuple with the DistinguishedName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetDistinguishedNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DistinguishedName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DistinguishedName, true
+	return o.DistinguishedName.Get(), o.DistinguishedName.IsSet()
 }
 
-// SetDistinguishedName gets a reference to the given string and assigns it to the DistinguishedName field.
+// SetDistinguishedName gets a reference to the given NullableString and assigns it to the DistinguishedName field.
 func (o *IdentityUserResponseModel) SetDistinguishedName(v string) {
-	o.DistinguishedName = &v
+	o.DistinguishedName.Set(&v)
 }
 
-// GetCanonicalName returns the CanonicalName field value if set, zero value otherwise.
+// SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
+func (o *IdentityUserResponseModel) SetDistinguishedNameNil() {
+	o.DistinguishedName.Set(nil)
+}
+
+// UnsetDistinguishedName ensures that no value is present for DistinguishedName, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetDistinguishedName() {
+	o.DistinguishedName.Unset()
+}
+
+// GetCanonicalName returns the CanonicalName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetCanonicalName() string {
-	if o == nil || IsNil(o.CanonicalName) {
+	if o == nil || IsNil(o.CanonicalName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CanonicalName
+	return *o.CanonicalName.Get()
 }
 
 // GetCanonicalNameOk returns a tuple with the CanonicalName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetCanonicalNameOk() (*string, bool) {
-	if o == nil || IsNil(o.CanonicalName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CanonicalName, true
+	return o.CanonicalName.Get(), o.CanonicalName.IsSet()
 }
 
-// SetCanonicalName gets a reference to the given string and assigns it to the CanonicalName field.
+// SetCanonicalName gets a reference to the given NullableString and assigns it to the CanonicalName field.
 func (o *IdentityUserResponseModel) SetCanonicalName(v string) {
-	o.CanonicalName = &v
+	o.CanonicalName.Set(&v)
 }
 
-// GetPossibleLookupFailure returns the PossibleLookupFailure field value if set, zero value otherwise.
+// SetCanonicalNameNil sets the value for CanonicalName to be an explicit nil
+func (o *IdentityUserResponseModel) SetCanonicalNameNil() {
+	o.CanonicalName.Set(nil)
+}
+
+// UnsetCanonicalName ensures that no value is present for CanonicalName, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetCanonicalName() {
+	o.CanonicalName.Unset()
+}
+
+// GetPossibleLookupFailure returns the PossibleLookupFailure field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetPossibleLookupFailure() bool {
-	if o == nil || IsNil(o.PossibleLookupFailure) {
+	if o == nil || IsNil(o.PossibleLookupFailure.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.PossibleLookupFailure
+	return *o.PossibleLookupFailure.Get()
 }
 
 // GetPossibleLookupFailureOk returns a tuple with the PossibleLookupFailure field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetPossibleLookupFailureOk() (*bool, bool) {
-	if o == nil || IsNil(o.PossibleLookupFailure) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PossibleLookupFailure, true
+	return o.PossibleLookupFailure.Get(), o.PossibleLookupFailure.IsSet()
 }
 
-// SetPossibleLookupFailure gets a reference to the given bool and assigns it to the PossibleLookupFailure field.
+// SetPossibleLookupFailure gets a reference to the given NullableBool and assigns it to the PossibleLookupFailure field.
 func (o *IdentityUserResponseModel) SetPossibleLookupFailure(v bool) {
-	o.PossibleLookupFailure = &v
+	o.PossibleLookupFailure.Set(&v)
 }
 
-// GetDirectoryServer returns the DirectoryServer field value if set, zero value otherwise.
+// SetPossibleLookupFailureNil sets the value for PossibleLookupFailure to be an explicit nil
+func (o *IdentityUserResponseModel) SetPossibleLookupFailureNil() {
+	o.PossibleLookupFailure.Set(nil)
+}
+
+// UnsetPossibleLookupFailure ensures that no value is present for PossibleLookupFailure, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetPossibleLookupFailure() {
+	o.PossibleLookupFailure.Unset()
+}
+
+// GetDirectoryServer returns the DirectoryServer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityUserResponseModel) GetDirectoryServer() string {
-	if o == nil || IsNil(o.DirectoryServer) {
+	if o == nil || IsNil(o.DirectoryServer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DirectoryServer
+	return *o.DirectoryServer.Get()
 }
 
 // GetDirectoryServerOk returns a tuple with the DirectoryServer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityUserResponseModel) GetDirectoryServerOk() (*string, bool) {
-	if o == nil || IsNil(o.DirectoryServer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DirectoryServer, true
+	return o.DirectoryServer.Get(), o.DirectoryServer.IsSet()
 }
 
-// SetDirectoryServer gets a reference to the given string and assigns it to the DirectoryServer field.
+// SetDirectoryServer gets a reference to the given NullableString and assigns it to the DirectoryServer field.
 func (o *IdentityUserResponseModel) SetDirectoryServer(v string) {
-	o.DirectoryServer = &v
+	o.DirectoryServer.Set(&v)
+}
+
+// SetDirectoryServerNil sets the value for DirectoryServer to be an explicit nil
+func (o *IdentityUserResponseModel) SetDirectoryServerNil() {
+	o.DirectoryServer.Set(nil)
+}
+
+// UnsetDirectoryServer ensures that no value is present for DirectoryServer, not even an explicit nil
+func (o *IdentityUserResponseModel) UnsetDirectoryServer() {
+	o.DirectoryServer.Unset()
 }
 
 func (o IdentityUserResponseModel) MarshalJSON() ([]byte, error) {
@@ -917,105 +1260,105 @@ func (o IdentityUserResponseModel) MarshalJSON() ([]byte, error) {
 func (o IdentityUserResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["displayName"] = o.DisplayName
-	if !IsNil(o.SamName) {
-		toSerialize["samName"] = o.SamName
+	if o.SamName.IsSet() {
+		toSerialize["samName"] = o.SamName.Get()
 	}
-	if !IsNil(o.SamAccountName) {
-		toSerialize["samAccountName"] = o.SamAccountName
+	if o.SamAccountName.IsSet() {
+		toSerialize["samAccountName"] = o.SamAccountName.Get()
 	}
-	if !IsNil(o.CommonName) {
-		toSerialize["commonName"] = o.CommonName
+	if o.CommonName.IsSet() {
+		toSerialize["commonName"] = o.CommonName.Get()
 	}
-	if !IsNil(o.PrincipalName) {
-		toSerialize["principalName"] = o.PrincipalName
+	if o.PrincipalName.IsSet() {
+		toSerialize["principalName"] = o.PrincipalName.Get()
 	}
-	if !IsNil(o.Oid) {
-		toSerialize["oid"] = o.Oid
+	if o.Oid.IsSet() {
+		toSerialize["oid"] = o.Oid.Get()
 	}
-	if !IsNil(o.Sid) {
-		toSerialize["sid"] = o.Sid
+	if o.Sid.IsSet() {
+		toSerialize["sid"] = o.Sid.Get()
 	}
-	if !IsNil(o.UserIdentity) {
-		toSerialize["userIdentity"] = o.UserIdentity
+	if o.UserIdentity.IsSet() {
+		toSerialize["userIdentity"] = o.UserIdentity.Get()
 	}
-	if !IsNil(o.GroupSids) {
+	if o.GroupSids != nil {
 		toSerialize["groupSids"] = o.GroupSids
 	}
-	if !IsNil(o.DenyOnlySids) {
+	if o.DenyOnlySids != nil {
 		toSerialize["denyOnlySids"] = o.DenyOnlySids
 	}
-	if !IsNil(o.PasswordCanExpire) {
-		toSerialize["passwordCanExpire"] = o.PasswordCanExpire
+	if o.PasswordCanExpire.IsSet() {
+		toSerialize["passwordCanExpire"] = o.PasswordCanExpire.Get()
 	}
-	if !IsNil(o.DaysUntilPasswordExpiry) {
-		toSerialize["daysUntilPasswordExpiry"] = o.DaysUntilPasswordExpiry
+	if o.DaysUntilPasswordExpiry.IsSet() {
+		toSerialize["daysUntilPasswordExpiry"] = o.DaysUntilPasswordExpiry.Get()
 	}
-	if !IsNil(o.IsBuiltIn) {
-		toSerialize["isBuiltIn"] = o.IsBuiltIn
+	if o.IsBuiltIn.IsSet() {
+		toSerialize["isBuiltIn"] = o.IsBuiltIn.Get()
 	}
-	if !IsNil(o.IsGroup) {
-		toSerialize["isGroup"] = o.IsGroup
+	if o.IsGroup.IsSet() {
+		toSerialize["isGroup"] = o.IsGroup.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.StreetAddress) {
-		toSerialize["streetAddress"] = o.StreetAddress
+	if o.StreetAddress.IsSet() {
+		toSerialize["streetAddress"] = o.StreetAddress.Get()
 	}
-	if !IsNil(o.City) {
-		toSerialize["city"] = o.City
+	if o.City.IsSet() {
+		toSerialize["city"] = o.City.Get()
 	}
-	if !IsNil(o.State) {
-		toSerialize["state"] = o.State
+	if o.State.IsSet() {
+		toSerialize["state"] = o.State.Get()
 	}
-	if !IsNil(o.Country) {
-		toSerialize["country"] = o.Country
+	if o.Country.IsSet() {
+		toSerialize["country"] = o.Country.Get()
 	}
-	if !IsNil(o.Mail) {
-		toSerialize["mail"] = o.Mail
+	if o.Mail.IsSet() {
+		toSerialize["mail"] = o.Mail.Get()
 	}
-	if !IsNil(o.TelephoneNumber) {
-		toSerialize["telephoneNumber"] = o.TelephoneNumber
+	if o.TelephoneNumber.IsSet() {
+		toSerialize["telephoneNumber"] = o.TelephoneNumber.Get()
 	}
-	if !IsNil(o.HomePhone) {
-		toSerialize["homePhone"] = o.HomePhone
+	if o.HomePhone.IsSet() {
+		toSerialize["homePhone"] = o.HomePhone.Get()
 	}
-	if !IsNil(o.Mobile) {
-		toSerialize["mobile"] = o.Mobile
+	if o.Mobile.IsSet() {
+		toSerialize["mobile"] = o.Mobile.Get()
 	}
-	if !IsNil(o.Enabled) {
-		toSerialize["enabled"] = o.Enabled
+	if o.Enabled.IsSet() {
+		toSerialize["enabled"] = o.Enabled.Get()
 	}
-	if !IsNil(o.Locked) {
-		toSerialize["locked"] = o.Locked
+	if o.Locked.IsSet() {
+		toSerialize["locked"] = o.Locked.Get()
 	}
 	toSerialize["propertiesFetched"] = o.PropertiesFetched
-	if !IsNil(o.Claims) {
-		toSerialize["claims"] = o.Claims
+	if o.Claims.IsSet() {
+		toSerialize["claims"] = o.Claims.Get()
 	}
-	if !IsNil(o.Directory) {
-		toSerialize["directory"] = o.Directory
+	if o.Directory.IsSet() {
+		toSerialize["directory"] = o.Directory.Get()
 	}
-	if !IsNil(o.Domain) {
-		toSerialize["domain"] = o.Domain
+	if o.Domain.IsSet() {
+		toSerialize["domain"] = o.Domain.Get()
 	}
-	if !IsNil(o.Forest) {
-		toSerialize["forest"] = o.Forest
+	if o.Forest.IsSet() {
+		toSerialize["forest"] = o.Forest.Get()
 	}
-	if !IsNil(o.Guid) {
-		toSerialize["guid"] = o.Guid
+	if o.Guid.IsSet() {
+		toSerialize["guid"] = o.Guid.Get()
 	}
-	if !IsNil(o.DistinguishedName) {
-		toSerialize["distinguishedName"] = o.DistinguishedName
+	if o.DistinguishedName.IsSet() {
+		toSerialize["distinguishedName"] = o.DistinguishedName.Get()
 	}
-	if !IsNil(o.CanonicalName) {
-		toSerialize["canonicalName"] = o.CanonicalName
+	if o.CanonicalName.IsSet() {
+		toSerialize["canonicalName"] = o.CanonicalName.Get()
 	}
-	if !IsNil(o.PossibleLookupFailure) {
-		toSerialize["possibleLookupFailure"] = o.PossibleLookupFailure
+	if o.PossibleLookupFailure.IsSet() {
+		toSerialize["possibleLookupFailure"] = o.PossibleLookupFailure.Get()
 	}
-	if !IsNil(o.DirectoryServer) {
-		toSerialize["directoryServer"] = o.DirectoryServer
+	if o.DirectoryServer.IsSet() {
+		toSerialize["directoryServer"] = o.DirectoryServer.Get()
 	}
 	return toSerialize, nil
 }

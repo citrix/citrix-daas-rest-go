@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,9 +19,10 @@ var _ MappedNullable = &AzureVMBase{}
 
 // AzureVMBase struct for AzureVMBase
 type AzureVMBase struct {
-	ResourceGroupName *string              `json:"resourceGroupName,omitempty"`
-	Name              *string              `json:"name,omitempty"`
-	ResourceType      *CatalogResourceType `json:"resourceType,omitempty"`
+	ResourceGroupName    NullableString       `json:"resourceGroupName,omitempty"`
+	Name                 NullableString       `json:"name,omitempty"`
+	ResourceType         *CatalogResourceType `json:"resourceType,omitempty"`
+	NetworkInterfaceName NullableString       `json:"networkInterfaceName,omitempty"`
 }
 
 // NewAzureVMBaseWithDefaults instantiates a new AzureVMBase object
@@ -32,50 +33,72 @@ func NewAzureVMBaseWithDefaults() *AzureVMBase {
 	return &this
 }
 
-// GetResourceGroupName returns the ResourceGroupName field value if set, zero value otherwise.
+// GetResourceGroupName returns the ResourceGroupName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVMBase) GetResourceGroupName() string {
-	if o == nil || IsNil(o.ResourceGroupName) {
+	if o == nil || IsNil(o.ResourceGroupName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResourceGroupName
+	return *o.ResourceGroupName.Get()
 }
 
 // GetResourceGroupNameOk returns a tuple with the ResourceGroupName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVMBase) GetResourceGroupNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceGroupName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceGroupName, true
+	return o.ResourceGroupName.Get(), o.ResourceGroupName.IsSet()
 }
 
-// SetResourceGroupName gets a reference to the given string and assigns it to the ResourceGroupName field.
+// SetResourceGroupName gets a reference to the given NullableString and assigns it to the ResourceGroupName field.
 func (o *AzureVMBase) SetResourceGroupName(v string) {
-	o.ResourceGroupName = &v
+	o.ResourceGroupName.Set(&v)
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// SetResourceGroupNameNil sets the value for ResourceGroupName to be an explicit nil
+func (o *AzureVMBase) SetResourceGroupNameNil() {
+	o.ResourceGroupName.Set(nil)
+}
+
+// UnsetResourceGroupName ensures that no value is present for ResourceGroupName, not even an explicit nil
+func (o *AzureVMBase) UnsetResourceGroupName() {
+	o.ResourceGroupName.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVMBase) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVMBase) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *AzureVMBase) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *AzureVMBase) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *AzureVMBase) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetResourceType returns the ResourceType field value if set, zero value otherwise.
@@ -101,6 +124,40 @@ func (o *AzureVMBase) SetResourceType(v CatalogResourceType) {
 	o.ResourceType = &v
 }
 
+// GetNetworkInterfaceName returns the NetworkInterfaceName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AzureVMBase) GetNetworkInterfaceName() string {
+	if o == nil || IsNil(o.NetworkInterfaceName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.NetworkInterfaceName.Get()
+}
+
+// GetNetworkInterfaceNameOk returns a tuple with the NetworkInterfaceName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AzureVMBase) GetNetworkInterfaceNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NetworkInterfaceName.Get(), o.NetworkInterfaceName.IsSet()
+}
+
+// SetNetworkInterfaceName gets a reference to the given NullableString and assigns it to the NetworkInterfaceName field.
+func (o *AzureVMBase) SetNetworkInterfaceName(v string) {
+	o.NetworkInterfaceName.Set(&v)
+}
+
+// SetNetworkInterfaceNameNil sets the value for NetworkInterfaceName to be an explicit nil
+func (o *AzureVMBase) SetNetworkInterfaceNameNil() {
+	o.NetworkInterfaceName.Set(nil)
+}
+
+// UnsetNetworkInterfaceName ensures that no value is present for NetworkInterfaceName, not even an explicit nil
+func (o *AzureVMBase) UnsetNetworkInterfaceName() {
+	o.NetworkInterfaceName.Unset()
+}
+
 func (o AzureVMBase) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -111,14 +168,17 @@ func (o AzureVMBase) MarshalJSON() ([]byte, error) {
 
 func (o AzureVMBase) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ResourceGroupName) {
-		toSerialize["resourceGroupName"] = o.ResourceGroupName
+	if o.ResourceGroupName.IsSet() {
+		toSerialize["resourceGroupName"] = o.ResourceGroupName.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	if !IsNil(o.ResourceType) {
 		toSerialize["resourceType"] = o.ResourceType
+	}
+	if o.NetworkInterfaceName.IsSet() {
+		toSerialize["networkInterfaceName"] = o.NetworkInterfaceName.Get()
 	}
 	return toSerialize, nil
 }

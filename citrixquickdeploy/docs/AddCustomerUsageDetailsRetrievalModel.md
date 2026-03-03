@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ReportStartUTC** | Pointer to **string** |  | [optional] 
-**ReportEndUTC** | Pointer to **string** |  | [optional] 
+**ReportStartUTC** | Pointer to **NullableString** |  | [optional] 
+**ReportEndUTC** | Pointer to **NullableString** |  | [optional] 
 **ReportType** | Pointer to [**UsageDetailsReportType**](UsageDetailsReportType.md) |  | [optional] 
 **ForceOverrideIfReportExists** | Pointer to **bool** |  | [optional] 
 **SkipSendingEventsToCAS** | Pointer to **bool** |  | [optional] 
@@ -54,6 +54,16 @@ SetReportStartUTC sets ReportStartUTC field to given value.
 
 HasReportStartUTC returns a boolean if a field has been set.
 
+### SetReportStartUTCNil
+
+`func (o *AddCustomerUsageDetailsRetrievalModel) SetReportStartUTCNil(b bool)`
+
+ SetReportStartUTCNil sets the value for ReportStartUTC to be an explicit nil
+
+### UnsetReportStartUTC
+`func (o *AddCustomerUsageDetailsRetrievalModel) UnsetReportStartUTC()`
+
+UnsetReportStartUTC ensures that no value is present for ReportStartUTC, not even an explicit nil
 ### GetReportEndUTC
 
 `func (o *AddCustomerUsageDetailsRetrievalModel) GetReportEndUTC() string`
@@ -79,6 +89,16 @@ SetReportEndUTC sets ReportEndUTC field to given value.
 
 HasReportEndUTC returns a boolean if a field has been set.
 
+### SetReportEndUTCNil
+
+`func (o *AddCustomerUsageDetailsRetrievalModel) SetReportEndUTCNil(b bool)`
+
+ SetReportEndUTCNil sets the value for ReportEndUTC to be an explicit nil
+
+### UnsetReportEndUTC
+`func (o *AddCustomerUsageDetailsRetrievalModel) UnsetReportEndUTC()`
+
+UnsetReportEndUTC ensures that no value is present for ReportEndUTC, not even an explicit nil
 ### GetReportType
 
 `func (o *AddCustomerUsageDetailsRetrievalModel) GetReportType() UsageDetailsReportType`

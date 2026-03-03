@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,33 +20,39 @@ var _ MappedNullable = &AzureVMSize{}
 // AzureVMSize struct for AzureVMSize
 type AzureVMSize struct {
 	// Instance type ID used when provisioning a VM
-	Id          *string `json:"id,omitempty"`
-	DisplayName *string `json:"displayName,omitempty"`
+	Id          NullableString `json:"id,omitempty"`
+	DisplayName NullableString `json:"displayName,omitempty"`
 	// Name of the VM SKU to display to the user
-	Sku       *string `json:"sku,omitempty"`
-	IsBasicVM *bool   `json:"isBasicVM,omitempty"`
+	Sku       NullableString `json:"sku,omitempty"`
+	IsBasicVM *bool          `json:"isBasicVM,omitempty"`
 	// True if a virtual machine size supports premium storage. False otherwise.
 	SupportsPremiumStorage *bool `json:"supportsPremiumStorage,omitempty"`
 	// True if a virtual machine size supports hibernation. False otherwise.
 	SupportsHibernation *bool `json:"supportsHibernation,omitempty"`
 	// the Number of cores supported by a VM size.
-	NumberOfCores *int32 `json:"numberOfCores,omitempty"`
+	NumberOfCores NullableInt32 `json:"numberOfCores,omitempty"`
 	// the OS disk size allowed by a VM size.
-	OsDiskSizeInMB *int32 `json:"osDiskSizeInMB,omitempty"`
+	OsDiskSizeInMB NullableInt32 `json:"osDiskSizeInMB,omitempty"`
 	// the Resource disk size allowed by a VM size.
-	ResourceDiskSizeInMB *int32 `json:"resourceDiskSizeInMB,omitempty"`
+	ResourceDiskSizeInMB NullableInt32 `json:"resourceDiskSizeInMB,omitempty"`
 	// the Memory size supported by a VM size.
-	MemoryInMB *float64 `json:"memoryInMB,omitempty"`
+	MemoryInMB NullableFloat64 `json:"memoryInMB,omitempty"`
 	// the Maximum number of data disks allowed by a VM size.
-	MaxDataDiskCount *int32 `json:"maxDataDiskCount,omitempty"`
+	MaxDataDiskCount NullableInt32 `json:"maxDataDiskCount,omitempty"`
 	// Is compatible with HyperVGeneration V1
 	HyperVGen1 *bool `json:"hyperVGen1,omitempty"`
 	// Is compatible with HyperVGeneration V2
 	HyperVGen2 *bool `json:"hyperVGen2,omitempty"`
 	// Specifies the number of GPUs in the VM SKU
-	NumberofGPUs *int32 `json:"numberofGPUs,omitempty"`
+	NumberofGPUs NullableInt32 `json:"numberofGPUs,omitempty"`
+	// The GPU memory in MB
+	GpuMemoryInMB NullableFloat64 `json:"gpuMemoryInMB,omitempty"`
+	// A set of supported sessions per vm for this sku. Valid only if sku is a cma phoenix sku
+	SupportedSessionsPerVm []int32 `json:"supportedSessionsPerVm,omitempty"`
+	// The estimated credits per month per user for this sku. Valid only if sku is a cma phoenix sku
+	EstimatedCredits NullableFloat64 `json:"estimatedCredits,omitempty"`
 	// The Usage Type that this VM size's Quota is associated with
-	UsageType *string `json:"usageType,omitempty"`
+	UsageType NullableString `json:"usageType,omitempty"`
 }
 
 // NewAzureVMSizeWithDefaults instantiates a new AzureVMSize object
@@ -57,73 +63,106 @@ func NewAzureVMSizeWithDefaults() *AzureVMSize {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVMSize) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVMSize) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *AzureVMSize) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
 }
 
-// GetDisplayName returns the DisplayName field value if set, zero value otherwise.
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *AzureVMSize) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *AzureVMSize) UnsetId() {
+	o.Id.Unset()
+}
+
+// GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVMSize) GetDisplayName() string {
-	if o == nil || IsNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayName
+	return *o.DisplayName.Get()
 }
 
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVMSize) GetDisplayNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DisplayName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DisplayName, true
+	return o.DisplayName.Get(), o.DisplayName.IsSet()
 }
 
-// SetDisplayName gets a reference to the given string and assigns it to the DisplayName field.
+// SetDisplayName gets a reference to the given NullableString and assigns it to the DisplayName field.
 func (o *AzureVMSize) SetDisplayName(v string) {
-	o.DisplayName = &v
+	o.DisplayName.Set(&v)
 }
 
-// GetSku returns the Sku field value if set, zero value otherwise.
+// SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+func (o *AzureVMSize) SetDisplayNameNil() {
+	o.DisplayName.Set(nil)
+}
+
+// UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
+func (o *AzureVMSize) UnsetDisplayName() {
+	o.DisplayName.Unset()
+}
+
+// GetSku returns the Sku field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVMSize) GetSku() string {
-	if o == nil || IsNil(o.Sku) {
+	if o == nil || IsNil(o.Sku.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Sku
+	return *o.Sku.Get()
 }
 
 // GetSkuOk returns a tuple with the Sku field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVMSize) GetSkuOk() (*string, bool) {
-	if o == nil || IsNil(o.Sku) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Sku, true
+	return o.Sku.Get(), o.Sku.IsSet()
 }
 
-// SetSku gets a reference to the given string and assigns it to the Sku field.
+// SetSku gets a reference to the given NullableString and assigns it to the Sku field.
 func (o *AzureVMSize) SetSku(v string) {
-	o.Sku = &v
+	o.Sku.Set(&v)
+}
+
+// SetSkuNil sets the value for Sku to be an explicit nil
+func (o *AzureVMSize) SetSkuNil() {
+	o.Sku.Set(nil)
+}
+
+// UnsetSku ensures that no value is present for Sku, not even an explicit nil
+func (o *AzureVMSize) UnsetSku() {
+	o.Sku.Unset()
 }
 
 // GetIsBasicVM returns the IsBasicVM field value if set, zero value otherwise.
@@ -195,119 +234,174 @@ func (o *AzureVMSize) SetSupportsHibernation(v bool) {
 	o.SupportsHibernation = &v
 }
 
-// GetNumberOfCores returns the NumberOfCores field value if set, zero value otherwise.
+// GetNumberOfCores returns the NumberOfCores field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVMSize) GetNumberOfCores() int32 {
-	if o == nil || IsNil(o.NumberOfCores) {
+	if o == nil || IsNil(o.NumberOfCores.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.NumberOfCores
+	return *o.NumberOfCores.Get()
 }
 
 // GetNumberOfCoresOk returns a tuple with the NumberOfCores field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVMSize) GetNumberOfCoresOk() (*int32, bool) {
-	if o == nil || IsNil(o.NumberOfCores) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NumberOfCores, true
+	return o.NumberOfCores.Get(), o.NumberOfCores.IsSet()
 }
 
-// SetNumberOfCores gets a reference to the given int32 and assigns it to the NumberOfCores field.
+// SetNumberOfCores gets a reference to the given NullableInt32 and assigns it to the NumberOfCores field.
 func (o *AzureVMSize) SetNumberOfCores(v int32) {
-	o.NumberOfCores = &v
+	o.NumberOfCores.Set(&v)
 }
 
-// GetOsDiskSizeInMB returns the OsDiskSizeInMB field value if set, zero value otherwise.
+// SetNumberOfCoresNil sets the value for NumberOfCores to be an explicit nil
+func (o *AzureVMSize) SetNumberOfCoresNil() {
+	o.NumberOfCores.Set(nil)
+}
+
+// UnsetNumberOfCores ensures that no value is present for NumberOfCores, not even an explicit nil
+func (o *AzureVMSize) UnsetNumberOfCores() {
+	o.NumberOfCores.Unset()
+}
+
+// GetOsDiskSizeInMB returns the OsDiskSizeInMB field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVMSize) GetOsDiskSizeInMB() int32 {
-	if o == nil || IsNil(o.OsDiskSizeInMB) {
+	if o == nil || IsNil(o.OsDiskSizeInMB.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.OsDiskSizeInMB
+	return *o.OsDiskSizeInMB.Get()
 }
 
 // GetOsDiskSizeInMBOk returns a tuple with the OsDiskSizeInMB field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVMSize) GetOsDiskSizeInMBOk() (*int32, bool) {
-	if o == nil || IsNil(o.OsDiskSizeInMB) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OsDiskSizeInMB, true
+	return o.OsDiskSizeInMB.Get(), o.OsDiskSizeInMB.IsSet()
 }
 
-// SetOsDiskSizeInMB gets a reference to the given int32 and assigns it to the OsDiskSizeInMB field.
+// SetOsDiskSizeInMB gets a reference to the given NullableInt32 and assigns it to the OsDiskSizeInMB field.
 func (o *AzureVMSize) SetOsDiskSizeInMB(v int32) {
-	o.OsDiskSizeInMB = &v
+	o.OsDiskSizeInMB.Set(&v)
 }
 
-// GetResourceDiskSizeInMB returns the ResourceDiskSizeInMB field value if set, zero value otherwise.
+// SetOsDiskSizeInMBNil sets the value for OsDiskSizeInMB to be an explicit nil
+func (o *AzureVMSize) SetOsDiskSizeInMBNil() {
+	o.OsDiskSizeInMB.Set(nil)
+}
+
+// UnsetOsDiskSizeInMB ensures that no value is present for OsDiskSizeInMB, not even an explicit nil
+func (o *AzureVMSize) UnsetOsDiskSizeInMB() {
+	o.OsDiskSizeInMB.Unset()
+}
+
+// GetResourceDiskSizeInMB returns the ResourceDiskSizeInMB field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVMSize) GetResourceDiskSizeInMB() int32 {
-	if o == nil || IsNil(o.ResourceDiskSizeInMB) {
+	if o == nil || IsNil(o.ResourceDiskSizeInMB.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.ResourceDiskSizeInMB
+	return *o.ResourceDiskSizeInMB.Get()
 }
 
 // GetResourceDiskSizeInMBOk returns a tuple with the ResourceDiskSizeInMB field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVMSize) GetResourceDiskSizeInMBOk() (*int32, bool) {
-	if o == nil || IsNil(o.ResourceDiskSizeInMB) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceDiskSizeInMB, true
+	return o.ResourceDiskSizeInMB.Get(), o.ResourceDiskSizeInMB.IsSet()
 }
 
-// SetResourceDiskSizeInMB gets a reference to the given int32 and assigns it to the ResourceDiskSizeInMB field.
+// SetResourceDiskSizeInMB gets a reference to the given NullableInt32 and assigns it to the ResourceDiskSizeInMB field.
 func (o *AzureVMSize) SetResourceDiskSizeInMB(v int32) {
-	o.ResourceDiskSizeInMB = &v
+	o.ResourceDiskSizeInMB.Set(&v)
 }
 
-// GetMemoryInMB returns the MemoryInMB field value if set, zero value otherwise.
+// SetResourceDiskSizeInMBNil sets the value for ResourceDiskSizeInMB to be an explicit nil
+func (o *AzureVMSize) SetResourceDiskSizeInMBNil() {
+	o.ResourceDiskSizeInMB.Set(nil)
+}
+
+// UnsetResourceDiskSizeInMB ensures that no value is present for ResourceDiskSizeInMB, not even an explicit nil
+func (o *AzureVMSize) UnsetResourceDiskSizeInMB() {
+	o.ResourceDiskSizeInMB.Unset()
+}
+
+// GetMemoryInMB returns the MemoryInMB field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVMSize) GetMemoryInMB() float64 {
-	if o == nil || IsNil(o.MemoryInMB) {
+	if o == nil || IsNil(o.MemoryInMB.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.MemoryInMB
+	return *o.MemoryInMB.Get()
 }
 
 // GetMemoryInMBOk returns a tuple with the MemoryInMB field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVMSize) GetMemoryInMBOk() (*float64, bool) {
-	if o == nil || IsNil(o.MemoryInMB) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MemoryInMB, true
+	return o.MemoryInMB.Get(), o.MemoryInMB.IsSet()
 }
 
-// SetMemoryInMB gets a reference to the given float64 and assigns it to the MemoryInMB field.
+// SetMemoryInMB gets a reference to the given NullableFloat64 and assigns it to the MemoryInMB field.
 func (o *AzureVMSize) SetMemoryInMB(v float64) {
-	o.MemoryInMB = &v
+	o.MemoryInMB.Set(&v)
 }
 
-// GetMaxDataDiskCount returns the MaxDataDiskCount field value if set, zero value otherwise.
+// SetMemoryInMBNil sets the value for MemoryInMB to be an explicit nil
+func (o *AzureVMSize) SetMemoryInMBNil() {
+	o.MemoryInMB.Set(nil)
+}
+
+// UnsetMemoryInMB ensures that no value is present for MemoryInMB, not even an explicit nil
+func (o *AzureVMSize) UnsetMemoryInMB() {
+	o.MemoryInMB.Unset()
+}
+
+// GetMaxDataDiskCount returns the MaxDataDiskCount field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVMSize) GetMaxDataDiskCount() int32 {
-	if o == nil || IsNil(o.MaxDataDiskCount) {
+	if o == nil || IsNil(o.MaxDataDiskCount.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxDataDiskCount
+	return *o.MaxDataDiskCount.Get()
 }
 
 // GetMaxDataDiskCountOk returns a tuple with the MaxDataDiskCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVMSize) GetMaxDataDiskCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxDataDiskCount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxDataDiskCount, true
+	return o.MaxDataDiskCount.Get(), o.MaxDataDiskCount.IsSet()
 }
 
-// SetMaxDataDiskCount gets a reference to the given int32 and assigns it to the MaxDataDiskCount field.
+// SetMaxDataDiskCount gets a reference to the given NullableInt32 and assigns it to the MaxDataDiskCount field.
 func (o *AzureVMSize) SetMaxDataDiskCount(v int32) {
-	o.MaxDataDiskCount = &v
+	o.MaxDataDiskCount.Set(&v)
+}
+
+// SetMaxDataDiskCountNil sets the value for MaxDataDiskCount to be an explicit nil
+func (o *AzureVMSize) SetMaxDataDiskCountNil() {
+	o.MaxDataDiskCount.Set(nil)
+}
+
+// UnsetMaxDataDiskCount ensures that no value is present for MaxDataDiskCount, not even an explicit nil
+func (o *AzureVMSize) UnsetMaxDataDiskCount() {
+	o.MaxDataDiskCount.Unset()
 }
 
 // GetHyperVGen1 returns the HyperVGen1 field value if set, zero value otherwise.
@@ -356,50 +450,164 @@ func (o *AzureVMSize) SetHyperVGen2(v bool) {
 	o.HyperVGen2 = &v
 }
 
-// GetNumberofGPUs returns the NumberofGPUs field value if set, zero value otherwise.
+// GetNumberofGPUs returns the NumberofGPUs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVMSize) GetNumberofGPUs() int32 {
-	if o == nil || IsNil(o.NumberofGPUs) {
+	if o == nil || IsNil(o.NumberofGPUs.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.NumberofGPUs
+	return *o.NumberofGPUs.Get()
 }
 
 // GetNumberofGPUsOk returns a tuple with the NumberofGPUs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVMSize) GetNumberofGPUsOk() (*int32, bool) {
-	if o == nil || IsNil(o.NumberofGPUs) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NumberofGPUs, true
+	return o.NumberofGPUs.Get(), o.NumberofGPUs.IsSet()
 }
 
-// SetNumberofGPUs gets a reference to the given int32 and assigns it to the NumberofGPUs field.
+// SetNumberofGPUs gets a reference to the given NullableInt32 and assigns it to the NumberofGPUs field.
 func (o *AzureVMSize) SetNumberofGPUs(v int32) {
-	o.NumberofGPUs = &v
+	o.NumberofGPUs.Set(&v)
 }
 
-// GetUsageType returns the UsageType field value if set, zero value otherwise.
+// SetNumberofGPUsNil sets the value for NumberofGPUs to be an explicit nil
+func (o *AzureVMSize) SetNumberofGPUsNil() {
+	o.NumberofGPUs.Set(nil)
+}
+
+// UnsetNumberofGPUs ensures that no value is present for NumberofGPUs, not even an explicit nil
+func (o *AzureVMSize) UnsetNumberofGPUs() {
+	o.NumberofGPUs.Unset()
+}
+
+// GetGpuMemoryInMB returns the GpuMemoryInMB field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AzureVMSize) GetGpuMemoryInMB() float64 {
+	if o == nil || IsNil(o.GpuMemoryInMB.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.GpuMemoryInMB.Get()
+}
+
+// GetGpuMemoryInMBOk returns a tuple with the GpuMemoryInMB field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AzureVMSize) GetGpuMemoryInMBOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.GpuMemoryInMB.Get(), o.GpuMemoryInMB.IsSet()
+}
+
+// SetGpuMemoryInMB gets a reference to the given NullableFloat64 and assigns it to the GpuMemoryInMB field.
+func (o *AzureVMSize) SetGpuMemoryInMB(v float64) {
+	o.GpuMemoryInMB.Set(&v)
+}
+
+// SetGpuMemoryInMBNil sets the value for GpuMemoryInMB to be an explicit nil
+func (o *AzureVMSize) SetGpuMemoryInMBNil() {
+	o.GpuMemoryInMB.Set(nil)
+}
+
+// UnsetGpuMemoryInMB ensures that no value is present for GpuMemoryInMB, not even an explicit nil
+func (o *AzureVMSize) UnsetGpuMemoryInMB() {
+	o.GpuMemoryInMB.Unset()
+}
+
+// GetSupportedSessionsPerVm returns the SupportedSessionsPerVm field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AzureVMSize) GetSupportedSessionsPerVm() []int32 {
+	if o == nil {
+		var ret []int32
+		return ret
+	}
+	return o.SupportedSessionsPerVm
+}
+
+// GetSupportedSessionsPerVmOk returns a tuple with the SupportedSessionsPerVm field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AzureVMSize) GetSupportedSessionsPerVmOk() ([]int32, bool) {
+	if o == nil || IsNil(o.SupportedSessionsPerVm) {
+		return nil, false
+	}
+	return o.SupportedSessionsPerVm, true
+}
+
+// SetSupportedSessionsPerVm gets a reference to the given []int32 and assigns it to the SupportedSessionsPerVm field.
+func (o *AzureVMSize) SetSupportedSessionsPerVm(v []int32) {
+	o.SupportedSessionsPerVm = v
+}
+
+// GetEstimatedCredits returns the EstimatedCredits field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AzureVMSize) GetEstimatedCredits() float64 {
+	if o == nil || IsNil(o.EstimatedCredits.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.EstimatedCredits.Get()
+}
+
+// GetEstimatedCreditsOk returns a tuple with the EstimatedCredits field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AzureVMSize) GetEstimatedCreditsOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EstimatedCredits.Get(), o.EstimatedCredits.IsSet()
+}
+
+// SetEstimatedCredits gets a reference to the given NullableFloat64 and assigns it to the EstimatedCredits field.
+func (o *AzureVMSize) SetEstimatedCredits(v float64) {
+	o.EstimatedCredits.Set(&v)
+}
+
+// SetEstimatedCreditsNil sets the value for EstimatedCredits to be an explicit nil
+func (o *AzureVMSize) SetEstimatedCreditsNil() {
+	o.EstimatedCredits.Set(nil)
+}
+
+// UnsetEstimatedCredits ensures that no value is present for EstimatedCredits, not even an explicit nil
+func (o *AzureVMSize) UnsetEstimatedCredits() {
+	o.EstimatedCredits.Unset()
+}
+
+// GetUsageType returns the UsageType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVMSize) GetUsageType() string {
-	if o == nil || IsNil(o.UsageType) {
+	if o == nil || IsNil(o.UsageType.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.UsageType
+	return *o.UsageType.Get()
 }
 
 // GetUsageTypeOk returns a tuple with the UsageType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVMSize) GetUsageTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.UsageType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UsageType, true
+	return o.UsageType.Get(), o.UsageType.IsSet()
 }
 
-// SetUsageType gets a reference to the given string and assigns it to the UsageType field.
+// SetUsageType gets a reference to the given NullableString and assigns it to the UsageType field.
 func (o *AzureVMSize) SetUsageType(v string) {
-	o.UsageType = &v
+	o.UsageType.Set(&v)
+}
+
+// SetUsageTypeNil sets the value for UsageType to be an explicit nil
+func (o *AzureVMSize) SetUsageTypeNil() {
+	o.UsageType.Set(nil)
+}
+
+// UnsetUsageType ensures that no value is present for UsageType, not even an explicit nil
+func (o *AzureVMSize) UnsetUsageType() {
+	o.UsageType.Unset()
 }
 
 func (o AzureVMSize) MarshalJSON() ([]byte, error) {
@@ -412,14 +620,14 @@ func (o AzureVMSize) MarshalJSON() ([]byte, error) {
 
 func (o AzureVMSize) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
-	if !IsNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
+	if o.DisplayName.IsSet() {
+		toSerialize["displayName"] = o.DisplayName.Get()
 	}
-	if !IsNil(o.Sku) {
-		toSerialize["sku"] = o.Sku
+	if o.Sku.IsSet() {
+		toSerialize["sku"] = o.Sku.Get()
 	}
 	if !IsNil(o.IsBasicVM) {
 		toSerialize["isBasicVM"] = o.IsBasicVM
@@ -430,20 +638,20 @@ func (o AzureVMSize) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SupportsHibernation) {
 		toSerialize["supportsHibernation"] = o.SupportsHibernation
 	}
-	if !IsNil(o.NumberOfCores) {
-		toSerialize["numberOfCores"] = o.NumberOfCores
+	if o.NumberOfCores.IsSet() {
+		toSerialize["numberOfCores"] = o.NumberOfCores.Get()
 	}
-	if !IsNil(o.OsDiskSizeInMB) {
-		toSerialize["osDiskSizeInMB"] = o.OsDiskSizeInMB
+	if o.OsDiskSizeInMB.IsSet() {
+		toSerialize["osDiskSizeInMB"] = o.OsDiskSizeInMB.Get()
 	}
-	if !IsNil(o.ResourceDiskSizeInMB) {
-		toSerialize["resourceDiskSizeInMB"] = o.ResourceDiskSizeInMB
+	if o.ResourceDiskSizeInMB.IsSet() {
+		toSerialize["resourceDiskSizeInMB"] = o.ResourceDiskSizeInMB.Get()
 	}
-	if !IsNil(o.MemoryInMB) {
-		toSerialize["memoryInMB"] = o.MemoryInMB
+	if o.MemoryInMB.IsSet() {
+		toSerialize["memoryInMB"] = o.MemoryInMB.Get()
 	}
-	if !IsNil(o.MaxDataDiskCount) {
-		toSerialize["maxDataDiskCount"] = o.MaxDataDiskCount
+	if o.MaxDataDiskCount.IsSet() {
+		toSerialize["maxDataDiskCount"] = o.MaxDataDiskCount.Get()
 	}
 	if !IsNil(o.HyperVGen1) {
 		toSerialize["hyperVGen1"] = o.HyperVGen1
@@ -451,11 +659,20 @@ func (o AzureVMSize) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.HyperVGen2) {
 		toSerialize["hyperVGen2"] = o.HyperVGen2
 	}
-	if !IsNil(o.NumberofGPUs) {
-		toSerialize["numberofGPUs"] = o.NumberofGPUs
+	if o.NumberofGPUs.IsSet() {
+		toSerialize["numberofGPUs"] = o.NumberofGPUs.Get()
 	}
-	if !IsNil(o.UsageType) {
-		toSerialize["usageType"] = o.UsageType
+	if o.GpuMemoryInMB.IsSet() {
+		toSerialize["gpuMemoryInMB"] = o.GpuMemoryInMB.Get()
+	}
+	if o.SupportedSessionsPerVm != nil {
+		toSerialize["supportedSessionsPerVm"] = o.SupportedSessionsPerVm
+	}
+	if o.EstimatedCredits.IsSet() {
+		toSerialize["estimatedCredits"] = o.EstimatedCredits.Get()
+	}
+	if o.UsageType.IsSet() {
+		toSerialize["usageType"] = o.UsageType.Get()
 	}
 	return toSerialize, nil
 }

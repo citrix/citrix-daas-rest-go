@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **Region** | **string** |  | 
 **Name** | **string** |  | 
 **KeyOption** | [**ManagedEncryptionKeyOption**](ManagedEncryptionKeyOption.md) | Enum to describe option to either generate or upload a key | 
-**KeyUpload** | Pointer to **string** |  | [optional] 
+**KeyUpload** | Pointer to **NullableString** |  | [optional] 
+**RotationPolicy** | Pointer to [**NullableManagedEncryptionKeyRotationPolicyModel**](ManagedEncryptionKeyRotationPolicyModel.md) | Optional rotation policy configuration for the managed encryption key | [optional] 
 
 ## Methods
 
@@ -134,6 +135,51 @@ SetKeyUpload sets KeyUpload field to given value.
 
 HasKeyUpload returns a boolean if a field has been set.
 
+### SetKeyUploadNil
+
+`func (o *AddManagedEncryptionKeyModel) SetKeyUploadNil(b bool)`
+
+ SetKeyUploadNil sets the value for KeyUpload to be an explicit nil
+
+### UnsetKeyUpload
+`func (o *AddManagedEncryptionKeyModel) UnsetKeyUpload()`
+
+UnsetKeyUpload ensures that no value is present for KeyUpload, not even an explicit nil
+### GetRotationPolicy
+
+`func (o *AddManagedEncryptionKeyModel) GetRotationPolicy() ManagedEncryptionKeyRotationPolicyModel`
+
+GetRotationPolicy returns the RotationPolicy field if non-nil, zero value otherwise.
+
+### GetRotationPolicyOk
+
+`func (o *AddManagedEncryptionKeyModel) GetRotationPolicyOk() (*ManagedEncryptionKeyRotationPolicyModel, bool)`
+
+GetRotationPolicyOk returns a tuple with the RotationPolicy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRotationPolicy
+
+`func (o *AddManagedEncryptionKeyModel) SetRotationPolicy(v ManagedEncryptionKeyRotationPolicyModel)`
+
+SetRotationPolicy sets RotationPolicy field to given value.
+
+### HasRotationPolicy
+
+`func (o *AddManagedEncryptionKeyModel) HasRotationPolicy() bool`
+
+HasRotationPolicy returns a boolean if a field has been set.
+
+### SetRotationPolicyNil
+
+`func (o *AddManagedEncryptionKeyModel) SetRotationPolicyNil(b bool)`
+
+ SetRotationPolicyNil sets the value for RotationPolicy to be an explicit nil
+
+### UnsetRotationPolicy
+`func (o *AddManagedEncryptionKeyModel) UnsetRotationPolicy()`
+
+UnsetRotationPolicy ensures that no value is present for RotationPolicy, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

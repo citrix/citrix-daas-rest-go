@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]SiteModel**](SiteModel.md) | The list of virtual sites for the customer | 
+**Items** | [**[]SiteModel**](SiteModel.md) | The list of virtual sites for the customer | [readonly] 
 **Sites** | Pointer to [**[]SiteModel**](SiteModel.md) | Alias of Items property for backward compatibility | [optional] 
 
 ## Methods
@@ -71,6 +71,16 @@ SetSites sets Sites field to given value.
 
 HasSites returns a boolean if a field has been set.
 
+### SetSitesNil
+
+`func (o *SitesOverview) SetSitesNil(b bool)`
+
+ SetSitesNil sets the value for Sites to be an explicit nil
+
+### UnsetSites
+`func (o *SitesOverview) UnsetSites()`
+
+UnsetSites ensures that no value is present for Sites, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

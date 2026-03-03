@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -28,19 +28,19 @@ type AddTemplateImageModel struct {
 	// Name of the storage account
 	StorageAccount string `json:"storageAccount"`
 	// Url of the VHD image within the storage account
-	VhdUrl *string `json:"vhdUrl,omitempty"`
+	VhdUrl NullableString `json:"vhdUrl,omitempty"`
 	// URI of the VHD guest disk file that will be imported
-	VhdEncryptionUri *string `json:"vhdEncryptionUri,omitempty"`
+	VhdEncryptionUri NullableString `json:"vhdEncryptionUri,omitempty"`
 	// Type of operating system that will be imported
-	OsPlatform *SupportedOperatingSystemType `json:"osPlatform,omitempty"`
+	OsPlatform NullableSupportedOperatingSystemType `json:"osPlatform,omitempty"`
 	// Customer notes about template image
-	Notes *string `json:"notes,omitempty"`
+	Notes NullableString `json:"notes,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
-	CspCustomerId *string `json:"cspCustomerId,omitempty"`
+	CspCustomerId NullableString `json:"cspCustomerId,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
-	CspSiteId *string `json:"cspSiteId,omitempty"`
+	CspSiteId NullableString `json:"cspSiteId,omitempty"`
 	// The HyperVGeneration that should be set to either V1 or V2
-	HyperVGen *string `json:"hyperVGen,omitempty"`
+	HyperVGen NullableString `json:"hyperVGen,omitempty"`
 	// The HyperVGeneration V2 supports vTPM TrustedLaunch
 	VtpmEnabled *bool `json:"vtpmEnabled,omitempty"`
 	// The Secure boot support enabled
@@ -48,7 +48,7 @@ type AddTemplateImageModel struct {
 	// The customer managed encryption key enabled
 	CmekEnabled *bool `json:"cmekEnabled,omitempty"`
 	// The customer managed encryption ID
-	CmekID *string `json:"cmekID,omitempty"`
+	CmekID NullableString `json:"cmekID,omitempty"`
 	// Indicates if the template image should be validated upon creation
 	Validate *bool `json:"validate,omitempty"`
 }
@@ -157,165 +157,242 @@ func (o *AddTemplateImageModel) SetStorageAccount(v string) {
 	o.StorageAccount = v
 }
 
-// GetVhdUrl returns the VhdUrl field value if set, zero value otherwise.
+// GetVhdUrl returns the VhdUrl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddTemplateImageModel) GetVhdUrl() string {
-	if o == nil || IsNil(o.VhdUrl) {
+	if o == nil || IsNil(o.VhdUrl.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VhdUrl
+	return *o.VhdUrl.Get()
 }
 
 // GetVhdUrlOk returns a tuple with the VhdUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddTemplateImageModel) GetVhdUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.VhdUrl) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VhdUrl, true
+	return o.VhdUrl.Get(), o.VhdUrl.IsSet()
 }
 
-// SetVhdUrl gets a reference to the given string and assigns it to the VhdUrl field.
+// SetVhdUrl gets a reference to the given NullableString and assigns it to the VhdUrl field.
 func (o *AddTemplateImageModel) SetVhdUrl(v string) {
-	o.VhdUrl = &v
+	o.VhdUrl.Set(&v)
 }
 
-// GetVhdEncryptionUri returns the VhdEncryptionUri field value if set, zero value otherwise.
+// SetVhdUrlNil sets the value for VhdUrl to be an explicit nil
+func (o *AddTemplateImageModel) SetVhdUrlNil() {
+	o.VhdUrl.Set(nil)
+}
+
+// UnsetVhdUrl ensures that no value is present for VhdUrl, not even an explicit nil
+func (o *AddTemplateImageModel) UnsetVhdUrl() {
+	o.VhdUrl.Unset()
+}
+
+// GetVhdEncryptionUri returns the VhdEncryptionUri field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddTemplateImageModel) GetVhdEncryptionUri() string {
-	if o == nil || IsNil(o.VhdEncryptionUri) {
+	if o == nil || IsNil(o.VhdEncryptionUri.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VhdEncryptionUri
+	return *o.VhdEncryptionUri.Get()
 }
 
 // GetVhdEncryptionUriOk returns a tuple with the VhdEncryptionUri field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddTemplateImageModel) GetVhdEncryptionUriOk() (*string, bool) {
-	if o == nil || IsNil(o.VhdEncryptionUri) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VhdEncryptionUri, true
+	return o.VhdEncryptionUri.Get(), o.VhdEncryptionUri.IsSet()
 }
 
-// SetVhdEncryptionUri gets a reference to the given string and assigns it to the VhdEncryptionUri field.
+// SetVhdEncryptionUri gets a reference to the given NullableString and assigns it to the VhdEncryptionUri field.
 func (o *AddTemplateImageModel) SetVhdEncryptionUri(v string) {
-	o.VhdEncryptionUri = &v
+	o.VhdEncryptionUri.Set(&v)
 }
 
-// GetOsPlatform returns the OsPlatform field value if set, zero value otherwise.
+// SetVhdEncryptionUriNil sets the value for VhdEncryptionUri to be an explicit nil
+func (o *AddTemplateImageModel) SetVhdEncryptionUriNil() {
+	o.VhdEncryptionUri.Set(nil)
+}
+
+// UnsetVhdEncryptionUri ensures that no value is present for VhdEncryptionUri, not even an explicit nil
+func (o *AddTemplateImageModel) UnsetVhdEncryptionUri() {
+	o.VhdEncryptionUri.Unset()
+}
+
+// GetOsPlatform returns the OsPlatform field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddTemplateImageModel) GetOsPlatform() SupportedOperatingSystemType {
-	if o == nil || IsNil(o.OsPlatform) {
+	if o == nil || IsNil(o.OsPlatform.Get()) {
 		var ret SupportedOperatingSystemType
 		return ret
 	}
-	return *o.OsPlatform
+	return *o.OsPlatform.Get()
 }
 
 // GetOsPlatformOk returns a tuple with the OsPlatform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddTemplateImageModel) GetOsPlatformOk() (*SupportedOperatingSystemType, bool) {
-	if o == nil || IsNil(o.OsPlatform) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OsPlatform, true
+	return o.OsPlatform.Get(), o.OsPlatform.IsSet()
 }
 
-// SetOsPlatform gets a reference to the given SupportedOperatingSystemType and assigns it to the OsPlatform field.
+// SetOsPlatform gets a reference to the given NullableSupportedOperatingSystemType and assigns it to the OsPlatform field.
 func (o *AddTemplateImageModel) SetOsPlatform(v SupportedOperatingSystemType) {
-	o.OsPlatform = &v
+	o.OsPlatform.Set(&v)
 }
 
-// GetNotes returns the Notes field value if set, zero value otherwise.
+// SetOsPlatformNil sets the value for OsPlatform to be an explicit nil
+func (o *AddTemplateImageModel) SetOsPlatformNil() {
+	o.OsPlatform.Set(nil)
+}
+
+// UnsetOsPlatform ensures that no value is present for OsPlatform, not even an explicit nil
+func (o *AddTemplateImageModel) UnsetOsPlatform() {
+	o.OsPlatform.Unset()
+}
+
+// GetNotes returns the Notes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddTemplateImageModel) GetNotes() string {
-	if o == nil || IsNil(o.Notes) {
+	if o == nil || IsNil(o.Notes.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Notes
+	return *o.Notes.Get()
 }
 
 // GetNotesOk returns a tuple with the Notes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddTemplateImageModel) GetNotesOk() (*string, bool) {
-	if o == nil || IsNil(o.Notes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Notes, true
+	return o.Notes.Get(), o.Notes.IsSet()
 }
 
-// SetNotes gets a reference to the given string and assigns it to the Notes field.
+// SetNotes gets a reference to the given NullableString and assigns it to the Notes field.
 func (o *AddTemplateImageModel) SetNotes(v string) {
-	o.Notes = &v
+	o.Notes.Set(&v)
 }
 
-// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise.
+// SetNotesNil sets the value for Notes to be an explicit nil
+func (o *AddTemplateImageModel) SetNotesNil() {
+	o.Notes.Set(nil)
+}
+
+// UnsetNotes ensures that no value is present for Notes, not even an explicit nil
+func (o *AddTemplateImageModel) UnsetNotes() {
+	o.Notes.Unset()
+}
+
+// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddTemplateImageModel) GetCspCustomerId() string {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil || IsNil(o.CspCustomerId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomerId
+	return *o.CspCustomerId.Get()
 }
 
 // GetCspCustomerIdOk returns a tuple with the CspCustomerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddTemplateImageModel) GetCspCustomerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomerId, true
+	return o.CspCustomerId.Get(), o.CspCustomerId.IsSet()
 }
 
-// SetCspCustomerId gets a reference to the given string and assigns it to the CspCustomerId field.
+// SetCspCustomerId gets a reference to the given NullableString and assigns it to the CspCustomerId field.
 func (o *AddTemplateImageModel) SetCspCustomerId(v string) {
-	o.CspCustomerId = &v
+	o.CspCustomerId.Set(&v)
 }
 
-// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise.
+// SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+func (o *AddTemplateImageModel) SetCspCustomerIdNil() {
+	o.CspCustomerId.Set(nil)
+}
+
+// UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
+func (o *AddTemplateImageModel) UnsetCspCustomerId() {
+	o.CspCustomerId.Unset()
+}
+
+// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddTemplateImageModel) GetCspSiteId() string {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil || IsNil(o.CspSiteId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspSiteId
+	return *o.CspSiteId.Get()
 }
 
 // GetCspSiteIdOk returns a tuple with the CspSiteId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddTemplateImageModel) GetCspSiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspSiteId, true
+	return o.CspSiteId.Get(), o.CspSiteId.IsSet()
 }
 
-// SetCspSiteId gets a reference to the given string and assigns it to the CspSiteId field.
+// SetCspSiteId gets a reference to the given NullableString and assigns it to the CspSiteId field.
 func (o *AddTemplateImageModel) SetCspSiteId(v string) {
-	o.CspSiteId = &v
+	o.CspSiteId.Set(&v)
 }
 
-// GetHyperVGen returns the HyperVGen field value if set, zero value otherwise.
+// SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+func (o *AddTemplateImageModel) SetCspSiteIdNil() {
+	o.CspSiteId.Set(nil)
+}
+
+// UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
+func (o *AddTemplateImageModel) UnsetCspSiteId() {
+	o.CspSiteId.Unset()
+}
+
+// GetHyperVGen returns the HyperVGen field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddTemplateImageModel) GetHyperVGen() string {
-	if o == nil || IsNil(o.HyperVGen) {
+	if o == nil || IsNil(o.HyperVGen.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HyperVGen
+	return *o.HyperVGen.Get()
 }
 
 // GetHyperVGenOk returns a tuple with the HyperVGen field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddTemplateImageModel) GetHyperVGenOk() (*string, bool) {
-	if o == nil || IsNil(o.HyperVGen) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HyperVGen, true
+	return o.HyperVGen.Get(), o.HyperVGen.IsSet()
 }
 
-// SetHyperVGen gets a reference to the given string and assigns it to the HyperVGen field.
+// SetHyperVGen gets a reference to the given NullableString and assigns it to the HyperVGen field.
 func (o *AddTemplateImageModel) SetHyperVGen(v string) {
-	o.HyperVGen = &v
+	o.HyperVGen.Set(&v)
+}
+
+// SetHyperVGenNil sets the value for HyperVGen to be an explicit nil
+func (o *AddTemplateImageModel) SetHyperVGenNil() {
+	o.HyperVGen.Set(nil)
+}
+
+// UnsetHyperVGen ensures that no value is present for HyperVGen, not even an explicit nil
+func (o *AddTemplateImageModel) UnsetHyperVGen() {
+	o.HyperVGen.Unset()
 }
 
 // GetVtpmEnabled returns the VtpmEnabled field value if set, zero value otherwise.
@@ -387,27 +464,38 @@ func (o *AddTemplateImageModel) SetCmekEnabled(v bool) {
 	o.CmekEnabled = &v
 }
 
-// GetCmekID returns the CmekID field value if set, zero value otherwise.
+// GetCmekID returns the CmekID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddTemplateImageModel) GetCmekID() string {
-	if o == nil || IsNil(o.CmekID) {
+	if o == nil || IsNil(o.CmekID.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CmekID
+	return *o.CmekID.Get()
 }
 
 // GetCmekIDOk returns a tuple with the CmekID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddTemplateImageModel) GetCmekIDOk() (*string, bool) {
-	if o == nil || IsNil(o.CmekID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CmekID, true
+	return o.CmekID.Get(), o.CmekID.IsSet()
 }
 
-// SetCmekID gets a reference to the given string and assigns it to the CmekID field.
+// SetCmekID gets a reference to the given NullableString and assigns it to the CmekID field.
 func (o *AddTemplateImageModel) SetCmekID(v string) {
-	o.CmekID = &v
+	o.CmekID.Set(&v)
+}
+
+// SetCmekIDNil sets the value for CmekID to be an explicit nil
+func (o *AddTemplateImageModel) SetCmekIDNil() {
+	o.CmekID.Set(nil)
+}
+
+// UnsetCmekID ensures that no value is present for CmekID, not even an explicit nil
+func (o *AddTemplateImageModel) UnsetCmekID() {
+	o.CmekID.Unset()
 }
 
 // GetValidate returns the Validate field value if set, zero value otherwise.
@@ -447,26 +535,26 @@ func (o AddTemplateImageModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["subscriptionId"] = o.SubscriptionId
 	toSerialize["resourceGroup"] = o.ResourceGroup
 	toSerialize["storageAccount"] = o.StorageAccount
-	if !IsNil(o.VhdUrl) {
-		toSerialize["vhdUrl"] = o.VhdUrl
+	if o.VhdUrl.IsSet() {
+		toSerialize["vhdUrl"] = o.VhdUrl.Get()
 	}
-	if !IsNil(o.VhdEncryptionUri) {
-		toSerialize["vhdEncryptionUri"] = o.VhdEncryptionUri
+	if o.VhdEncryptionUri.IsSet() {
+		toSerialize["vhdEncryptionUri"] = o.VhdEncryptionUri.Get()
 	}
-	if !IsNil(o.OsPlatform) {
-		toSerialize["osPlatform"] = o.OsPlatform
+	if o.OsPlatform.IsSet() {
+		toSerialize["osPlatform"] = o.OsPlatform.Get()
 	}
-	if !IsNil(o.Notes) {
-		toSerialize["notes"] = o.Notes
+	if o.Notes.IsSet() {
+		toSerialize["notes"] = o.Notes.Get()
 	}
-	if !IsNil(o.CspCustomerId) {
-		toSerialize["cspCustomerId"] = o.CspCustomerId
+	if o.CspCustomerId.IsSet() {
+		toSerialize["cspCustomerId"] = o.CspCustomerId.Get()
 	}
-	if !IsNil(o.CspSiteId) {
-		toSerialize["cspSiteId"] = o.CspSiteId
+	if o.CspSiteId.IsSet() {
+		toSerialize["cspSiteId"] = o.CspSiteId.Get()
 	}
-	if !IsNil(o.HyperVGen) {
-		toSerialize["hyperVGen"] = o.HyperVGen
+	if o.HyperVGen.IsSet() {
+		toSerialize["hyperVGen"] = o.HyperVGen.Get()
 	}
 	if !IsNil(o.VtpmEnabled) {
 		toSerialize["vtpmEnabled"] = o.VtpmEnabled
@@ -477,8 +565,8 @@ func (o AddTemplateImageModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CmekEnabled) {
 		toSerialize["cmekEnabled"] = o.CmekEnabled
 	}
-	if !IsNil(o.CmekID) {
-		toSerialize["cmekID"] = o.CmekID
+	if o.CmekID.IsSet() {
+		toSerialize["cmekID"] = o.CmekID.Get()
 	}
 	if !IsNil(o.Validate) {
 		toSerialize["validate"] = o.Validate

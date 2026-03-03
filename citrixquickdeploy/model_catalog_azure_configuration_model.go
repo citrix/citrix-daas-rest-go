@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -28,7 +28,7 @@ type CatalogAzureConfigurationModel struct {
 	// Address range of the machines in the catalog
 	AzureSubnet string `json:"azureSubnet" validate:"regexp=^[\\\\p{L}0-9-_.]*$"`
 	// Region of the Azure VNet
-	AzureVNetRegion *string `json:"azureVNetRegion,omitempty"`
+	AzureVNetRegion NullableString `json:"azureVNetRegion,omitempty"`
 }
 
 // NewCatalogAzureConfigurationModelWithDefaults instantiates a new CatalogAzureConfigurationModel object
@@ -135,27 +135,38 @@ func (o *CatalogAzureConfigurationModel) SetAzureSubnet(v string) {
 	o.AzureSubnet = v
 }
 
-// GetAzureVNetRegion returns the AzureVNetRegion field value if set, zero value otherwise.
+// GetAzureVNetRegion returns the AzureVNetRegion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogAzureConfigurationModel) GetAzureVNetRegion() string {
-	if o == nil || IsNil(o.AzureVNetRegion) {
+	if o == nil || IsNil(o.AzureVNetRegion.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzureVNetRegion
+	return *o.AzureVNetRegion.Get()
 }
 
 // GetAzureVNetRegionOk returns a tuple with the AzureVNetRegion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogAzureConfigurationModel) GetAzureVNetRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.AzureVNetRegion) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureVNetRegion, true
+	return o.AzureVNetRegion.Get(), o.AzureVNetRegion.IsSet()
 }
 
-// SetAzureVNetRegion gets a reference to the given string and assigns it to the AzureVNetRegion field.
+// SetAzureVNetRegion gets a reference to the given NullableString and assigns it to the AzureVNetRegion field.
 func (o *CatalogAzureConfigurationModel) SetAzureVNetRegion(v string) {
-	o.AzureVNetRegion = &v
+	o.AzureVNetRegion.Set(&v)
+}
+
+// SetAzureVNetRegionNil sets the value for AzureVNetRegion to be an explicit nil
+func (o *CatalogAzureConfigurationModel) SetAzureVNetRegionNil() {
+	o.AzureVNetRegion.Set(nil)
+}
+
+// UnsetAzureVNetRegion ensures that no value is present for AzureVNetRegion, not even an explicit nil
+func (o *CatalogAzureConfigurationModel) UnsetAzureVNetRegion() {
+	o.AzureVNetRegion.Unset()
 }
 
 func (o CatalogAzureConfigurationModel) MarshalJSON() ([]byte, error) {
@@ -172,8 +183,8 @@ func (o CatalogAzureConfigurationModel) ToMap() (map[string]interface{}, error) 
 	toSerialize["azureResourceGroup"] = o.AzureResourceGroup
 	toSerialize["azureVNet"] = o.AzureVNet
 	toSerialize["azureSubnet"] = o.AzureSubnet
-	if !IsNil(o.AzureVNetRegion) {
-		toSerialize["azureVNetRegion"] = o.AzureVNetRegion
+	if o.AzureVNetRegion.IsSet() {
+		toSerialize["azureVNetRegion"] = o.AzureVNetRegion.Get()
 	}
 	return toSerialize, nil
 }

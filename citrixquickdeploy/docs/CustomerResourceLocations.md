@@ -51,6 +51,16 @@ SetItems sets Items field to given value.
 
 HasItems returns a boolean if a field has been set.
 
+### SetItemsNil
+
+`func (o *CustomerResourceLocations) SetItemsNil(b bool)`
+
+ SetItemsNil sets the value for Items to be an explicit nil
+
+### UnsetItems
+`func (o *CustomerResourceLocations) UnsetItems()`
+
+UnsetItems ensures that no value is present for Items, not even an explicit nil
 ### GetStaleData
 
 `func (o *CustomerResourceLocations) GetStaleData() bool`

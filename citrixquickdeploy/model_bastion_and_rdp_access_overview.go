@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,31 +21,31 @@ var _ MappedNullable = &BastionAndRdpAccessOverview{}
 // BastionAndRdpAccessOverview struct for BastionAndRdpAccessOverview
 type BastionAndRdpAccessOverview struct {
 	// Id of the bastion
-	Id *string `json:"id,omitempty"`
+	Id NullableString `json:"id,omitempty"`
 	// Name of the bastion
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	// The current state of the bastion
-	State *string `json:"state,omitempty"`
+	State NullableString `json:"state,omitempty"`
 	// Error message if bastion is in failed state
-	Error *string `json:"error,omitempty"`
+	Error NullableString `json:"error,omitempty"`
 	// The name of the Vnet in which the bastion is created
-	VnetName *string `json:"vnetName,omitempty"`
+	VnetName NullableString `json:"vnetName,omitempty"`
 	// The address space of the Vnet in which the bastion is created
-	VnetAddressSpace *string `json:"vnetAddressSpace,omitempty"`
+	VnetAddressSpace NullableString `json:"vnetAddressSpace,omitempty"`
 	// The Ip Address prefix, if any, to which the bastion rdp access is restricted
-	RestrictedIpAddressPrefix *string `json:"restrictedIpAddressPrefix,omitempty"`
+	RestrictedIpAddressPrefix NullableString `json:"restrictedIpAddressPrefix,omitempty"`
 	// The transaction ID associated with the bastion
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionId NullableString `json:"transactionId,omitempty"`
 	// A boolean to check if the rdp file has been requested
 	HasRdpFileBeenRequested *bool `json:"hasRdpFileBeenRequested,omitempty"`
 	// Specifies if it is a bastion or a rdp access
-	Type *string `json:"type,omitempty"`
+	Type NullableString `json:"type,omitempty"`
 	// Indicates that partner-tenant relationship exists if not null
-	CspCustomer *string `json:"cspCustomer,omitempty"`
+	CspCustomer NullableString `json:"cspCustomer,omitempty"`
 	// DateTime when the import image job started
-	StartedAt *time.Time `json:"startedAt,omitempty"`
+	StartedAt NullableTime `json:"startedAt,omitempty"`
 	// Estimated total time in minute for the job to finish
-	EstimatedTimeInMinute *int32 `json:"estimatedTimeInMinute,omitempty"`
+	EstimatedTimeInMinute NullableInt32 `json:"estimatedTimeInMinute,omitempty"`
 }
 
 // NewBastionAndRdpAccessOverviewWithDefaults instantiates a new BastionAndRdpAccessOverview object
@@ -56,188 +56,276 @@ func NewBastionAndRdpAccessOverviewWithDefaults() *BastionAndRdpAccessOverview {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionAndRdpAccessOverview) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionAndRdpAccessOverview) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *BastionAndRdpAccessOverview) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *BastionAndRdpAccessOverview) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *BastionAndRdpAccessOverview) UnsetId() {
+	o.Id.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionAndRdpAccessOverview) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionAndRdpAccessOverview) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *BastionAndRdpAccessOverview) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
 }
 
-// GetState returns the State field value if set, zero value otherwise.
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *BastionAndRdpAccessOverview) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *BastionAndRdpAccessOverview) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetState returns the State field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionAndRdpAccessOverview) GetState() string {
-	if o == nil || IsNil(o.State) {
+	if o == nil || IsNil(o.State.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.State
+	return *o.State.Get()
 }
 
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionAndRdpAccessOverview) GetStateOk() (*string, bool) {
-	if o == nil || IsNil(o.State) {
+	if o == nil {
 		return nil, false
 	}
-	return o.State, true
+	return o.State.Get(), o.State.IsSet()
 }
 
-// SetState gets a reference to the given string and assigns it to the State field.
+// SetState gets a reference to the given NullableString and assigns it to the State field.
 func (o *BastionAndRdpAccessOverview) SetState(v string) {
-	o.State = &v
+	o.State.Set(&v)
 }
 
-// GetError returns the Error field value if set, zero value otherwise.
+// SetStateNil sets the value for State to be an explicit nil
+func (o *BastionAndRdpAccessOverview) SetStateNil() {
+	o.State.Set(nil)
+}
+
+// UnsetState ensures that no value is present for State, not even an explicit nil
+func (o *BastionAndRdpAccessOverview) UnsetState() {
+	o.State.Unset()
+}
+
+// GetError returns the Error field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionAndRdpAccessOverview) GetError() string {
-	if o == nil || IsNil(o.Error) {
+	if o == nil || IsNil(o.Error.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Error
+	return *o.Error.Get()
 }
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionAndRdpAccessOverview) GetErrorOk() (*string, bool) {
-	if o == nil || IsNil(o.Error) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Error, true
+	return o.Error.Get(), o.Error.IsSet()
 }
 
-// SetError gets a reference to the given string and assigns it to the Error field.
+// SetError gets a reference to the given NullableString and assigns it to the Error field.
 func (o *BastionAndRdpAccessOverview) SetError(v string) {
-	o.Error = &v
+	o.Error.Set(&v)
 }
 
-// GetVnetName returns the VnetName field value if set, zero value otherwise.
+// SetErrorNil sets the value for Error to be an explicit nil
+func (o *BastionAndRdpAccessOverview) SetErrorNil() {
+	o.Error.Set(nil)
+}
+
+// UnsetError ensures that no value is present for Error, not even an explicit nil
+func (o *BastionAndRdpAccessOverview) UnsetError() {
+	o.Error.Unset()
+}
+
+// GetVnetName returns the VnetName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionAndRdpAccessOverview) GetVnetName() string {
-	if o == nil || IsNil(o.VnetName) {
+	if o == nil || IsNil(o.VnetName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VnetName
+	return *o.VnetName.Get()
 }
 
 // GetVnetNameOk returns a tuple with the VnetName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionAndRdpAccessOverview) GetVnetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.VnetName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VnetName, true
+	return o.VnetName.Get(), o.VnetName.IsSet()
 }
 
-// SetVnetName gets a reference to the given string and assigns it to the VnetName field.
+// SetVnetName gets a reference to the given NullableString and assigns it to the VnetName field.
 func (o *BastionAndRdpAccessOverview) SetVnetName(v string) {
-	o.VnetName = &v
+	o.VnetName.Set(&v)
 }
 
-// GetVnetAddressSpace returns the VnetAddressSpace field value if set, zero value otherwise.
+// SetVnetNameNil sets the value for VnetName to be an explicit nil
+func (o *BastionAndRdpAccessOverview) SetVnetNameNil() {
+	o.VnetName.Set(nil)
+}
+
+// UnsetVnetName ensures that no value is present for VnetName, not even an explicit nil
+func (o *BastionAndRdpAccessOverview) UnsetVnetName() {
+	o.VnetName.Unset()
+}
+
+// GetVnetAddressSpace returns the VnetAddressSpace field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionAndRdpAccessOverview) GetVnetAddressSpace() string {
-	if o == nil || IsNil(o.VnetAddressSpace) {
+	if o == nil || IsNil(o.VnetAddressSpace.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VnetAddressSpace
+	return *o.VnetAddressSpace.Get()
 }
 
 // GetVnetAddressSpaceOk returns a tuple with the VnetAddressSpace field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionAndRdpAccessOverview) GetVnetAddressSpaceOk() (*string, bool) {
-	if o == nil || IsNil(o.VnetAddressSpace) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VnetAddressSpace, true
+	return o.VnetAddressSpace.Get(), o.VnetAddressSpace.IsSet()
 }
 
-// SetVnetAddressSpace gets a reference to the given string and assigns it to the VnetAddressSpace field.
+// SetVnetAddressSpace gets a reference to the given NullableString and assigns it to the VnetAddressSpace field.
 func (o *BastionAndRdpAccessOverview) SetVnetAddressSpace(v string) {
-	o.VnetAddressSpace = &v
+	o.VnetAddressSpace.Set(&v)
 }
 
-// GetRestrictedIpAddressPrefix returns the RestrictedIpAddressPrefix field value if set, zero value otherwise.
+// SetVnetAddressSpaceNil sets the value for VnetAddressSpace to be an explicit nil
+func (o *BastionAndRdpAccessOverview) SetVnetAddressSpaceNil() {
+	o.VnetAddressSpace.Set(nil)
+}
+
+// UnsetVnetAddressSpace ensures that no value is present for VnetAddressSpace, not even an explicit nil
+func (o *BastionAndRdpAccessOverview) UnsetVnetAddressSpace() {
+	o.VnetAddressSpace.Unset()
+}
+
+// GetRestrictedIpAddressPrefix returns the RestrictedIpAddressPrefix field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionAndRdpAccessOverview) GetRestrictedIpAddressPrefix() string {
-	if o == nil || IsNil(o.RestrictedIpAddressPrefix) {
+	if o == nil || IsNil(o.RestrictedIpAddressPrefix.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.RestrictedIpAddressPrefix
+	return *o.RestrictedIpAddressPrefix.Get()
 }
 
 // GetRestrictedIpAddressPrefixOk returns a tuple with the RestrictedIpAddressPrefix field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionAndRdpAccessOverview) GetRestrictedIpAddressPrefixOk() (*string, bool) {
-	if o == nil || IsNil(o.RestrictedIpAddressPrefix) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RestrictedIpAddressPrefix, true
+	return o.RestrictedIpAddressPrefix.Get(), o.RestrictedIpAddressPrefix.IsSet()
 }
 
-// SetRestrictedIpAddressPrefix gets a reference to the given string and assigns it to the RestrictedIpAddressPrefix field.
+// SetRestrictedIpAddressPrefix gets a reference to the given NullableString and assigns it to the RestrictedIpAddressPrefix field.
 func (o *BastionAndRdpAccessOverview) SetRestrictedIpAddressPrefix(v string) {
-	o.RestrictedIpAddressPrefix = &v
+	o.RestrictedIpAddressPrefix.Set(&v)
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// SetRestrictedIpAddressPrefixNil sets the value for RestrictedIpAddressPrefix to be an explicit nil
+func (o *BastionAndRdpAccessOverview) SetRestrictedIpAddressPrefixNil() {
+	o.RestrictedIpAddressPrefix.Set(nil)
+}
+
+// UnsetRestrictedIpAddressPrefix ensures that no value is present for RestrictedIpAddressPrefix, not even an explicit nil
+func (o *BastionAndRdpAccessOverview) UnsetRestrictedIpAddressPrefix() {
+	o.RestrictedIpAddressPrefix.Unset()
+}
+
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionAndRdpAccessOverview) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionAndRdpAccessOverview) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *BastionAndRdpAccessOverview) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
+}
+
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *BastionAndRdpAccessOverview) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *BastionAndRdpAccessOverview) UnsetTransactionId() {
+	o.TransactionId.Unset()
 }
 
 // GetHasRdpFileBeenRequested returns the HasRdpFileBeenRequested field value if set, zero value otherwise.
@@ -263,96 +351,140 @@ func (o *BastionAndRdpAccessOverview) SetHasRdpFileBeenRequested(v bool) {
 	o.HasRdpFileBeenRequested = &v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionAndRdpAccessOverview) GetType() string {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionAndRdpAccessOverview) GetTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
-// SetType gets a reference to the given string and assigns it to the Type field.
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
 func (o *BastionAndRdpAccessOverview) SetType(v string) {
-	o.Type = &v
+	o.Type.Set(&v)
 }
 
-// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise.
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *BastionAndRdpAccessOverview) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *BastionAndRdpAccessOverview) UnsetType() {
+	o.Type.Unset()
+}
+
+// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionAndRdpAccessOverview) GetCspCustomer() string {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil || IsNil(o.CspCustomer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomer
+	return *o.CspCustomer.Get()
 }
 
 // GetCspCustomerOk returns a tuple with the CspCustomer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionAndRdpAccessOverview) GetCspCustomerOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomer, true
+	return o.CspCustomer.Get(), o.CspCustomer.IsSet()
 }
 
-// SetCspCustomer gets a reference to the given string and assigns it to the CspCustomer field.
+// SetCspCustomer gets a reference to the given NullableString and assigns it to the CspCustomer field.
 func (o *BastionAndRdpAccessOverview) SetCspCustomer(v string) {
-	o.CspCustomer = &v
+	o.CspCustomer.Set(&v)
 }
 
-// GetStartedAt returns the StartedAt field value if set, zero value otherwise.
+// SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+func (o *BastionAndRdpAccessOverview) SetCspCustomerNil() {
+	o.CspCustomer.Set(nil)
+}
+
+// UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
+func (o *BastionAndRdpAccessOverview) UnsetCspCustomer() {
+	o.CspCustomer.Unset()
+}
+
+// GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionAndRdpAccessOverview) GetStartedAt() time.Time {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil || IsNil(o.StartedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartedAt
+	return *o.StartedAt.Get()
 }
 
 // GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionAndRdpAccessOverview) GetStartedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StartedAt, true
+	return o.StartedAt.Get(), o.StartedAt.IsSet()
 }
 
-// SetStartedAt gets a reference to the given time.Time and assigns it to the StartedAt field.
+// SetStartedAt gets a reference to the given NullableTime and assigns it to the StartedAt field.
 func (o *BastionAndRdpAccessOverview) SetStartedAt(v time.Time) {
-	o.StartedAt = &v
+	o.StartedAt.Set(&v)
 }
 
-// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise.
+// SetStartedAtNil sets the value for StartedAt to be an explicit nil
+func (o *BastionAndRdpAccessOverview) SetStartedAtNil() {
+	o.StartedAt.Set(nil)
+}
+
+// UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
+func (o *BastionAndRdpAccessOverview) UnsetStartedAt() {
+	o.StartedAt.Unset()
+}
+
+// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionAndRdpAccessOverview) GetEstimatedTimeInMinute() int32 {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil || IsNil(o.EstimatedTimeInMinute.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.EstimatedTimeInMinute
+	return *o.EstimatedTimeInMinute.Get()
 }
 
 // GetEstimatedTimeInMinuteOk returns a tuple with the EstimatedTimeInMinute field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionAndRdpAccessOverview) GetEstimatedTimeInMinuteOk() (*int32, bool) {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EstimatedTimeInMinute, true
+	return o.EstimatedTimeInMinute.Get(), o.EstimatedTimeInMinute.IsSet()
 }
 
-// SetEstimatedTimeInMinute gets a reference to the given int32 and assigns it to the EstimatedTimeInMinute field.
+// SetEstimatedTimeInMinute gets a reference to the given NullableInt32 and assigns it to the EstimatedTimeInMinute field.
 func (o *BastionAndRdpAccessOverview) SetEstimatedTimeInMinute(v int32) {
-	o.EstimatedTimeInMinute = &v
+	o.EstimatedTimeInMinute.Set(&v)
+}
+
+// SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+func (o *BastionAndRdpAccessOverview) SetEstimatedTimeInMinuteNil() {
+	o.EstimatedTimeInMinute.Set(nil)
+}
+
+// UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
+func (o *BastionAndRdpAccessOverview) UnsetEstimatedTimeInMinute() {
+	o.EstimatedTimeInMinute.Unset()
 }
 
 func (o BastionAndRdpAccessOverview) MarshalJSON() ([]byte, error) {
@@ -365,44 +497,44 @@ func (o BastionAndRdpAccessOverview) MarshalJSON() ([]byte, error) {
 
 func (o BastionAndRdpAccessOverview) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.State) {
-		toSerialize["state"] = o.State
+	if o.State.IsSet() {
+		toSerialize["state"] = o.State.Get()
 	}
-	if !IsNil(o.Error) {
-		toSerialize["error"] = o.Error
+	if o.Error.IsSet() {
+		toSerialize["error"] = o.Error.Get()
 	}
-	if !IsNil(o.VnetName) {
-		toSerialize["vnetName"] = o.VnetName
+	if o.VnetName.IsSet() {
+		toSerialize["vnetName"] = o.VnetName.Get()
 	}
-	if !IsNil(o.VnetAddressSpace) {
-		toSerialize["vnetAddressSpace"] = o.VnetAddressSpace
+	if o.VnetAddressSpace.IsSet() {
+		toSerialize["vnetAddressSpace"] = o.VnetAddressSpace.Get()
 	}
-	if !IsNil(o.RestrictedIpAddressPrefix) {
-		toSerialize["restrictedIpAddressPrefix"] = o.RestrictedIpAddressPrefix
+	if o.RestrictedIpAddressPrefix.IsSet() {
+		toSerialize["restrictedIpAddressPrefix"] = o.RestrictedIpAddressPrefix.Get()
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
 	if !IsNil(o.HasRdpFileBeenRequested) {
 		toSerialize["hasRdpFileBeenRequested"] = o.HasRdpFileBeenRequested
 	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
-	if !IsNil(o.CspCustomer) {
-		toSerialize["cspCustomer"] = o.CspCustomer
+	if o.CspCustomer.IsSet() {
+		toSerialize["cspCustomer"] = o.CspCustomer.Get()
 	}
-	if !IsNil(o.StartedAt) {
-		toSerialize["startedAt"] = o.StartedAt
+	if o.StartedAt.IsSet() {
+		toSerialize["startedAt"] = o.StartedAt.Get()
 	}
-	if !IsNil(o.EstimatedTimeInMinute) {
-		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute
+	if o.EstimatedTimeInMinute.IsSet() {
+		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute.Get()
 	}
 	return toSerialize, nil
 }

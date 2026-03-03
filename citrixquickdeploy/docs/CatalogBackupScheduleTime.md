@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TimeZoneId** | Pointer to **string** | Timezone the backup should take place in | [optional] 
+**TimeZoneId** | Pointer to **NullableString** | Timezone the backup should take place in | [optional] 
 **Hour** | Pointer to **int32** | Hour of the day to initiate backup (backup will occur sometime within the hour) | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetTimeZoneId sets TimeZoneId field to given value.
 
 HasTimeZoneId returns a boolean if a field has been set.
 
+### SetTimeZoneIdNil
+
+`func (o *CatalogBackupScheduleTime) SetTimeZoneIdNil(b bool)`
+
+ SetTimeZoneIdNil sets the value for TimeZoneId to be an explicit nil
+
+### UnsetTimeZoneId
+`func (o *CatalogBackupScheduleTime) UnsetTimeZoneId()`
+
+UnsetTimeZoneId ensures that no value is present for TimeZoneId, not even an explicit nil
 ### GetHour
 
 `func (o *CatalogBackupScheduleTime) GetHour() int32`

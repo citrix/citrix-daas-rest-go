@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,17 +21,17 @@ var _ MappedNullable = &UpdateSubscriptionModel{}
 // UpdateSubscriptionModel struct for UpdateSubscriptionModel
 type UpdateSubscriptionModel struct {
 	// The name of the user that consented to using managed subscription
-	ConsentedBy *string `json:"consentedBy,omitempty"`
+	ConsentedBy NullableString `json:"consentedBy,omitempty"`
 	// ID of the Azure AD App to use with this subscription
-	ClientId *string `json:"clientId,omitempty"`
+	ClientId NullableString `json:"clientId,omitempty"`
 	// Client Secret of the Azure App
-	ClientSecret *string `json:"clientSecret,omitempty"`
+	ClientSecret NullableString `json:"clientSecret,omitempty"`
 	// The expiration date of the user provided secret, if one was used
-	SecretExpirationDate *time.Time `json:"secretExpirationDate,omitempty"`
+	SecretExpirationDate NullableTime `json:"secretExpirationDate,omitempty"`
 	// ID of the Auzre tenant the subscription and app belong to
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantId NullableString `json:"tenantId,omitempty"`
 	// The identifier string containing the CSP customer ID and site ID.
-	CspCustomer *string `json:"cspCustomer,omitempty"`
+	CspCustomer NullableString `json:"cspCustomer,omitempty"`
 }
 
 // NewUpdateSubscriptionModelWithDefaults instantiates a new UpdateSubscriptionModel object
@@ -42,142 +42,208 @@ func NewUpdateSubscriptionModelWithDefaults() *UpdateSubscriptionModel {
 	return &this
 }
 
-// GetConsentedBy returns the ConsentedBy field value if set, zero value otherwise.
+// GetConsentedBy returns the ConsentedBy field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateSubscriptionModel) GetConsentedBy() string {
-	if o == nil || IsNil(o.ConsentedBy) {
+	if o == nil || IsNil(o.ConsentedBy.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ConsentedBy
+	return *o.ConsentedBy.Get()
 }
 
 // GetConsentedByOk returns a tuple with the ConsentedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateSubscriptionModel) GetConsentedByOk() (*string, bool) {
-	if o == nil || IsNil(o.ConsentedBy) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConsentedBy, true
+	return o.ConsentedBy.Get(), o.ConsentedBy.IsSet()
 }
 
-// SetConsentedBy gets a reference to the given string and assigns it to the ConsentedBy field.
+// SetConsentedBy gets a reference to the given NullableString and assigns it to the ConsentedBy field.
 func (o *UpdateSubscriptionModel) SetConsentedBy(v string) {
-	o.ConsentedBy = &v
+	o.ConsentedBy.Set(&v)
 }
 
-// GetClientId returns the ClientId field value if set, zero value otherwise.
+// SetConsentedByNil sets the value for ConsentedBy to be an explicit nil
+func (o *UpdateSubscriptionModel) SetConsentedByNil() {
+	o.ConsentedBy.Set(nil)
+}
+
+// UnsetConsentedBy ensures that no value is present for ConsentedBy, not even an explicit nil
+func (o *UpdateSubscriptionModel) UnsetConsentedBy() {
+	o.ConsentedBy.Unset()
+}
+
+// GetClientId returns the ClientId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateSubscriptionModel) GetClientId() string {
-	if o == nil || IsNil(o.ClientId) {
+	if o == nil || IsNil(o.ClientId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ClientId
+	return *o.ClientId.Get()
 }
 
 // GetClientIdOk returns a tuple with the ClientId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateSubscriptionModel) GetClientIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ClientId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ClientId, true
+	return o.ClientId.Get(), o.ClientId.IsSet()
 }
 
-// SetClientId gets a reference to the given string and assigns it to the ClientId field.
+// SetClientId gets a reference to the given NullableString and assigns it to the ClientId field.
 func (o *UpdateSubscriptionModel) SetClientId(v string) {
-	o.ClientId = &v
+	o.ClientId.Set(&v)
 }
 
-// GetClientSecret returns the ClientSecret field value if set, zero value otherwise.
+// SetClientIdNil sets the value for ClientId to be an explicit nil
+func (o *UpdateSubscriptionModel) SetClientIdNil() {
+	o.ClientId.Set(nil)
+}
+
+// UnsetClientId ensures that no value is present for ClientId, not even an explicit nil
+func (o *UpdateSubscriptionModel) UnsetClientId() {
+	o.ClientId.Unset()
+}
+
+// GetClientSecret returns the ClientSecret field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateSubscriptionModel) GetClientSecret() string {
-	if o == nil || IsNil(o.ClientSecret) {
+	if o == nil || IsNil(o.ClientSecret.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ClientSecret
+	return *o.ClientSecret.Get()
 }
 
 // GetClientSecretOk returns a tuple with the ClientSecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateSubscriptionModel) GetClientSecretOk() (*string, bool) {
-	if o == nil || IsNil(o.ClientSecret) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ClientSecret, true
+	return o.ClientSecret.Get(), o.ClientSecret.IsSet()
 }
 
-// SetClientSecret gets a reference to the given string and assigns it to the ClientSecret field.
+// SetClientSecret gets a reference to the given NullableString and assigns it to the ClientSecret field.
 func (o *UpdateSubscriptionModel) SetClientSecret(v string) {
-	o.ClientSecret = &v
+	o.ClientSecret.Set(&v)
 }
 
-// GetSecretExpirationDate returns the SecretExpirationDate field value if set, zero value otherwise.
+// SetClientSecretNil sets the value for ClientSecret to be an explicit nil
+func (o *UpdateSubscriptionModel) SetClientSecretNil() {
+	o.ClientSecret.Set(nil)
+}
+
+// UnsetClientSecret ensures that no value is present for ClientSecret, not even an explicit nil
+func (o *UpdateSubscriptionModel) UnsetClientSecret() {
+	o.ClientSecret.Unset()
+}
+
+// GetSecretExpirationDate returns the SecretExpirationDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateSubscriptionModel) GetSecretExpirationDate() time.Time {
-	if o == nil || IsNil(o.SecretExpirationDate) {
+	if o == nil || IsNil(o.SecretExpirationDate.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.SecretExpirationDate
+	return *o.SecretExpirationDate.Get()
 }
 
 // GetSecretExpirationDateOk returns a tuple with the SecretExpirationDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateSubscriptionModel) GetSecretExpirationDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.SecretExpirationDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SecretExpirationDate, true
+	return o.SecretExpirationDate.Get(), o.SecretExpirationDate.IsSet()
 }
 
-// SetSecretExpirationDate gets a reference to the given time.Time and assigns it to the SecretExpirationDate field.
+// SetSecretExpirationDate gets a reference to the given NullableTime and assigns it to the SecretExpirationDate field.
 func (o *UpdateSubscriptionModel) SetSecretExpirationDate(v time.Time) {
-	o.SecretExpirationDate = &v
+	o.SecretExpirationDate.Set(&v)
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// SetSecretExpirationDateNil sets the value for SecretExpirationDate to be an explicit nil
+func (o *UpdateSubscriptionModel) SetSecretExpirationDateNil() {
+	o.SecretExpirationDate.Set(nil)
+}
+
+// UnsetSecretExpirationDate ensures that no value is present for SecretExpirationDate, not even an explicit nil
+func (o *UpdateSubscriptionModel) UnsetSecretExpirationDate() {
+	o.SecretExpirationDate.Unset()
+}
+
+// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateSubscriptionModel) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil || IsNil(o.TenantId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+	return *o.TenantId.Get()
 }
 
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateSubscriptionModel) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return o.TenantId.Get(), o.TenantId.IsSet()
 }
 
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
 func (o *UpdateSubscriptionModel) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId.Set(&v)
 }
 
-// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise.
+// SetTenantIdNil sets the value for TenantId to be an explicit nil
+func (o *UpdateSubscriptionModel) SetTenantIdNil() {
+	o.TenantId.Set(nil)
+}
+
+// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+func (o *UpdateSubscriptionModel) UnsetTenantId() {
+	o.TenantId.Unset()
+}
+
+// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateSubscriptionModel) GetCspCustomer() string {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil || IsNil(o.CspCustomer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomer
+	return *o.CspCustomer.Get()
 }
 
 // GetCspCustomerOk returns a tuple with the CspCustomer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateSubscriptionModel) GetCspCustomerOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomer, true
+	return o.CspCustomer.Get(), o.CspCustomer.IsSet()
 }
 
-// SetCspCustomer gets a reference to the given string and assigns it to the CspCustomer field.
+// SetCspCustomer gets a reference to the given NullableString and assigns it to the CspCustomer field.
 func (o *UpdateSubscriptionModel) SetCspCustomer(v string) {
-	o.CspCustomer = &v
+	o.CspCustomer.Set(&v)
+}
+
+// SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+func (o *UpdateSubscriptionModel) SetCspCustomerNil() {
+	o.CspCustomer.Set(nil)
+}
+
+// UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
+func (o *UpdateSubscriptionModel) UnsetCspCustomer() {
+	o.CspCustomer.Unset()
 }
 
 func (o UpdateSubscriptionModel) MarshalJSON() ([]byte, error) {
@@ -190,23 +256,23 @@ func (o UpdateSubscriptionModel) MarshalJSON() ([]byte, error) {
 
 func (o UpdateSubscriptionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ConsentedBy) {
-		toSerialize["consentedBy"] = o.ConsentedBy
+	if o.ConsentedBy.IsSet() {
+		toSerialize["consentedBy"] = o.ConsentedBy.Get()
 	}
-	if !IsNil(o.ClientId) {
-		toSerialize["clientId"] = o.ClientId
+	if o.ClientId.IsSet() {
+		toSerialize["clientId"] = o.ClientId.Get()
 	}
-	if !IsNil(o.ClientSecret) {
-		toSerialize["clientSecret"] = o.ClientSecret
+	if o.ClientSecret.IsSet() {
+		toSerialize["clientSecret"] = o.ClientSecret.Get()
 	}
-	if !IsNil(o.SecretExpirationDate) {
-		toSerialize["secretExpirationDate"] = o.SecretExpirationDate
+	if o.SecretExpirationDate.IsSet() {
+		toSerialize["secretExpirationDate"] = o.SecretExpirationDate.Get()
 	}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
+	if o.TenantId.IsSet() {
+		toSerialize["tenantId"] = o.TenantId.Get()
 	}
-	if !IsNil(o.CspCustomer) {
-		toSerialize["cspCustomer"] = o.CspCustomer
+	if o.CspCustomer.IsSet() {
+		toSerialize["cspCustomer"] = o.CspCustomer.Get()
 	}
 	return toSerialize, nil
 }

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -24,13 +24,13 @@ type CatalogResourceLocationConfiguration struct {
 	// The desired name of the resource location that will be created for the catalog
 	Name string `json:"name" validate:"regexp=[^\\/\\\\\\\\#?%|[\\\\]{}<>$^&+]+"`
 	// Name of the resource location where to provision the connector vdas
-	AzureResourceGroup *string `json:"azureResourceGroup,omitempty" validate:"regexp=^[\\\\p{L}0-9-_.\\\\(\\\\)]*$"`
+	AzureResourceGroup NullableString `json:"azureResourceGroup,omitempty" validate:"regexp=^[\\\\p{L}0-9-_.\\\\(\\\\)]*$"`
 	// Organization Unit associated with computer accounts added for the Resource Location
-	OrganizationalUnit *string `json:"organizationalUnit,omitempty"`
+	OrganizationalUnit NullableString `json:"organizationalUnit,omitempty"`
 	// Connectivity method for access to desktops and apps
 	ConnectivityMethod *ConnectivityType `json:"connectivityMethod,omitempty"`
 	// The ID of the vm size for the connector
-	VmSize *string `json:"vmSize,omitempty"`
+	VmSize NullableString `json:"vmSize,omitempty"`
 }
 
 // NewCatalogResourceLocationConfigurationWithDefaults instantiates a new CatalogResourceLocationConfiguration object
@@ -88,50 +88,72 @@ func (o *CatalogResourceLocationConfiguration) SetName(v string) {
 	o.Name = v
 }
 
-// GetAzureResourceGroup returns the AzureResourceGroup field value if set, zero value otherwise.
+// GetAzureResourceGroup returns the AzureResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogResourceLocationConfiguration) GetAzureResourceGroup() string {
-	if o == nil || IsNil(o.AzureResourceGroup) {
+	if o == nil || IsNil(o.AzureResourceGroup.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzureResourceGroup
+	return *o.AzureResourceGroup.Get()
 }
 
 // GetAzureResourceGroupOk returns a tuple with the AzureResourceGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogResourceLocationConfiguration) GetAzureResourceGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.AzureResourceGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureResourceGroup, true
+	return o.AzureResourceGroup.Get(), o.AzureResourceGroup.IsSet()
 }
 
-// SetAzureResourceGroup gets a reference to the given string and assigns it to the AzureResourceGroup field.
+// SetAzureResourceGroup gets a reference to the given NullableString and assigns it to the AzureResourceGroup field.
 func (o *CatalogResourceLocationConfiguration) SetAzureResourceGroup(v string) {
-	o.AzureResourceGroup = &v
+	o.AzureResourceGroup.Set(&v)
 }
 
-// GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise.
+// SetAzureResourceGroupNil sets the value for AzureResourceGroup to be an explicit nil
+func (o *CatalogResourceLocationConfiguration) SetAzureResourceGroupNil() {
+	o.AzureResourceGroup.Set(nil)
+}
+
+// UnsetAzureResourceGroup ensures that no value is present for AzureResourceGroup, not even an explicit nil
+func (o *CatalogResourceLocationConfiguration) UnsetAzureResourceGroup() {
+	o.AzureResourceGroup.Unset()
+}
+
+// GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogResourceLocationConfiguration) GetOrganizationalUnit() string {
-	if o == nil || IsNil(o.OrganizationalUnit) {
+	if o == nil || IsNil(o.OrganizationalUnit.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OrganizationalUnit
+	return *o.OrganizationalUnit.Get()
 }
 
 // GetOrganizationalUnitOk returns a tuple with the OrganizationalUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogResourceLocationConfiguration) GetOrganizationalUnitOk() (*string, bool) {
-	if o == nil || IsNil(o.OrganizationalUnit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrganizationalUnit, true
+	return o.OrganizationalUnit.Get(), o.OrganizationalUnit.IsSet()
 }
 
-// SetOrganizationalUnit gets a reference to the given string and assigns it to the OrganizationalUnit field.
+// SetOrganizationalUnit gets a reference to the given NullableString and assigns it to the OrganizationalUnit field.
 func (o *CatalogResourceLocationConfiguration) SetOrganizationalUnit(v string) {
-	o.OrganizationalUnit = &v
+	o.OrganizationalUnit.Set(&v)
+}
+
+// SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
+func (o *CatalogResourceLocationConfiguration) SetOrganizationalUnitNil() {
+	o.OrganizationalUnit.Set(nil)
+}
+
+// UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
+func (o *CatalogResourceLocationConfiguration) UnsetOrganizationalUnit() {
+	o.OrganizationalUnit.Unset()
 }
 
 // GetConnectivityMethod returns the ConnectivityMethod field value if set, zero value otherwise.
@@ -157,27 +179,38 @@ func (o *CatalogResourceLocationConfiguration) SetConnectivityMethod(v Connectiv
 	o.ConnectivityMethod = &v
 }
 
-// GetVmSize returns the VmSize field value if set, zero value otherwise.
+// GetVmSize returns the VmSize field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogResourceLocationConfiguration) GetVmSize() string {
-	if o == nil || IsNil(o.VmSize) {
+	if o == nil || IsNil(o.VmSize.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VmSize
+	return *o.VmSize.Get()
 }
 
 // GetVmSizeOk returns a tuple with the VmSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogResourceLocationConfiguration) GetVmSizeOk() (*string, bool) {
-	if o == nil || IsNil(o.VmSize) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VmSize, true
+	return o.VmSize.Get(), o.VmSize.IsSet()
 }
 
-// SetVmSize gets a reference to the given string and assigns it to the VmSize field.
+// SetVmSize gets a reference to the given NullableString and assigns it to the VmSize field.
 func (o *CatalogResourceLocationConfiguration) SetVmSize(v string) {
-	o.VmSize = &v
+	o.VmSize.Set(&v)
+}
+
+// SetVmSizeNil sets the value for VmSize to be an explicit nil
+func (o *CatalogResourceLocationConfiguration) SetVmSizeNil() {
+	o.VmSize.Set(nil)
+}
+
+// UnsetVmSize ensures that no value is present for VmSize, not even an explicit nil
+func (o *CatalogResourceLocationConfiguration) UnsetVmSize() {
+	o.VmSize.Unset()
 }
 
 func (o CatalogResourceLocationConfiguration) MarshalJSON() ([]byte, error) {
@@ -194,17 +227,17 @@ func (o CatalogResourceLocationConfiguration) ToMap() (map[string]interface{}, e
 		toSerialize["isAssignedExistingResourceLocation"] = o.IsAssignedExistingResourceLocation
 	}
 	toSerialize["name"] = o.Name
-	if !IsNil(o.AzureResourceGroup) {
-		toSerialize["azureResourceGroup"] = o.AzureResourceGroup
+	if o.AzureResourceGroup.IsSet() {
+		toSerialize["azureResourceGroup"] = o.AzureResourceGroup.Get()
 	}
-	if !IsNil(o.OrganizationalUnit) {
-		toSerialize["organizationalUnit"] = o.OrganizationalUnit
+	if o.OrganizationalUnit.IsSet() {
+		toSerialize["organizationalUnit"] = o.OrganizationalUnit.Get()
 	}
 	if !IsNil(o.ConnectivityMethod) {
 		toSerialize["connectivityMethod"] = o.ConnectivityMethod
 	}
-	if !IsNil(o.VmSize) {
-		toSerialize["vmSize"] = o.VmSize
+	if o.VmSize.IsSet() {
+		toSerialize["vmSize"] = o.VmSize.Get()
 	}
 	return toSerialize, nil
 }

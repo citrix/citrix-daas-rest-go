@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,17 +20,17 @@ var _ MappedNullable = &ConnectionLog{}
 
 // ConnectionLog struct for ConnectionLog
 type ConnectionLog struct {
-	BrokeringTime           *time.Time                            `json:"brokeringTime,omitempty"`
-	BrokeringUserName       *string                               `json:"brokeringUserName,omitempty"`
-	BrokeringUserUPN        *string                               `json:"brokeringUserUPN,omitempty"`
-	ConnectionFailureReason *ConnectionLogConnectionFailureReason `json:"connectionFailureReason,omitempty"`
-	Disconnected            *bool                                 `json:"disconnected,omitempty"`
-	EndTime                 *time.Time                            `json:"endTime,omitempty"`
-	EstablishmentTime       *time.Time                            `json:"establishmentTime,omitempty"`
-	MachineDNSName          *string                               `json:"machineDNSName,omitempty"`
-	MachineName             *string                               `json:"machineName,omitempty"`
-	MachineUid              *int32                                `json:"machineUid,omitempty"`
-	Uid                     *int64                                `json:"uid,omitempty"`
+	BrokeringTime           NullableTime                                 `json:"brokeringTime,omitempty"`
+	BrokeringUserName       NullableString                               `json:"brokeringUserName,omitempty"`
+	BrokeringUserUPN        NullableString                               `json:"brokeringUserUPN,omitempty"`
+	ConnectionFailureReason NullableConnectionLogConnectionFailureReason `json:"connectionFailureReason,omitempty"`
+	Disconnected            NullableBool                                 `json:"disconnected,omitempty"`
+	EndTime                 NullableTime                                 `json:"endTime,omitempty"`
+	EstablishmentTime       NullableTime                                 `json:"establishmentTime,omitempty"`
+	MachineDNSName          NullableString                               `json:"machineDNSName,omitempty"`
+	MachineName             NullableString                               `json:"machineName,omitempty"`
+	MachineUid              NullableInt32                                `json:"machineUid,omitempty"`
+	Uid                     NullableInt64                                `json:"uid,omitempty"`
 }
 
 // NewConnectionLogWithDefaults instantiates a new ConnectionLog object
@@ -41,257 +41,378 @@ func NewConnectionLogWithDefaults() *ConnectionLog {
 	return &this
 }
 
-// GetBrokeringTime returns the BrokeringTime field value if set, zero value otherwise.
+// GetBrokeringTime returns the BrokeringTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectionLog) GetBrokeringTime() time.Time {
-	if o == nil || IsNil(o.BrokeringTime) {
+	if o == nil || IsNil(o.BrokeringTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.BrokeringTime
+	return *o.BrokeringTime.Get()
 }
 
 // GetBrokeringTimeOk returns a tuple with the BrokeringTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionLog) GetBrokeringTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.BrokeringTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BrokeringTime, true
+	return o.BrokeringTime.Get(), o.BrokeringTime.IsSet()
 }
 
-// SetBrokeringTime gets a reference to the given time.Time and assigns it to the BrokeringTime field.
+// SetBrokeringTime gets a reference to the given NullableTime and assigns it to the BrokeringTime field.
 func (o *ConnectionLog) SetBrokeringTime(v time.Time) {
-	o.BrokeringTime = &v
+	o.BrokeringTime.Set(&v)
 }
 
-// GetBrokeringUserName returns the BrokeringUserName field value if set, zero value otherwise.
+// SetBrokeringTimeNil sets the value for BrokeringTime to be an explicit nil
+func (o *ConnectionLog) SetBrokeringTimeNil() {
+	o.BrokeringTime.Set(nil)
+}
+
+// UnsetBrokeringTime ensures that no value is present for BrokeringTime, not even an explicit nil
+func (o *ConnectionLog) UnsetBrokeringTime() {
+	o.BrokeringTime.Unset()
+}
+
+// GetBrokeringUserName returns the BrokeringUserName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectionLog) GetBrokeringUserName() string {
-	if o == nil || IsNil(o.BrokeringUserName) {
+	if o == nil || IsNil(o.BrokeringUserName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BrokeringUserName
+	return *o.BrokeringUserName.Get()
 }
 
 // GetBrokeringUserNameOk returns a tuple with the BrokeringUserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionLog) GetBrokeringUserNameOk() (*string, bool) {
-	if o == nil || IsNil(o.BrokeringUserName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BrokeringUserName, true
+	return o.BrokeringUserName.Get(), o.BrokeringUserName.IsSet()
 }
 
-// SetBrokeringUserName gets a reference to the given string and assigns it to the BrokeringUserName field.
+// SetBrokeringUserName gets a reference to the given NullableString and assigns it to the BrokeringUserName field.
 func (o *ConnectionLog) SetBrokeringUserName(v string) {
-	o.BrokeringUserName = &v
+	o.BrokeringUserName.Set(&v)
 }
 
-// GetBrokeringUserUPN returns the BrokeringUserUPN field value if set, zero value otherwise.
+// SetBrokeringUserNameNil sets the value for BrokeringUserName to be an explicit nil
+func (o *ConnectionLog) SetBrokeringUserNameNil() {
+	o.BrokeringUserName.Set(nil)
+}
+
+// UnsetBrokeringUserName ensures that no value is present for BrokeringUserName, not even an explicit nil
+func (o *ConnectionLog) UnsetBrokeringUserName() {
+	o.BrokeringUserName.Unset()
+}
+
+// GetBrokeringUserUPN returns the BrokeringUserUPN field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectionLog) GetBrokeringUserUPN() string {
-	if o == nil || IsNil(o.BrokeringUserUPN) {
+	if o == nil || IsNil(o.BrokeringUserUPN.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BrokeringUserUPN
+	return *o.BrokeringUserUPN.Get()
 }
 
 // GetBrokeringUserUPNOk returns a tuple with the BrokeringUserUPN field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionLog) GetBrokeringUserUPNOk() (*string, bool) {
-	if o == nil || IsNil(o.BrokeringUserUPN) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BrokeringUserUPN, true
+	return o.BrokeringUserUPN.Get(), o.BrokeringUserUPN.IsSet()
 }
 
-// SetBrokeringUserUPN gets a reference to the given string and assigns it to the BrokeringUserUPN field.
+// SetBrokeringUserUPN gets a reference to the given NullableString and assigns it to the BrokeringUserUPN field.
 func (o *ConnectionLog) SetBrokeringUserUPN(v string) {
-	o.BrokeringUserUPN = &v
+	o.BrokeringUserUPN.Set(&v)
 }
 
-// GetConnectionFailureReason returns the ConnectionFailureReason field value if set, zero value otherwise.
+// SetBrokeringUserUPNNil sets the value for BrokeringUserUPN to be an explicit nil
+func (o *ConnectionLog) SetBrokeringUserUPNNil() {
+	o.BrokeringUserUPN.Set(nil)
+}
+
+// UnsetBrokeringUserUPN ensures that no value is present for BrokeringUserUPN, not even an explicit nil
+func (o *ConnectionLog) UnsetBrokeringUserUPN() {
+	o.BrokeringUserUPN.Unset()
+}
+
+// GetConnectionFailureReason returns the ConnectionFailureReason field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectionLog) GetConnectionFailureReason() ConnectionLogConnectionFailureReason {
-	if o == nil || IsNil(o.ConnectionFailureReason) {
+	if o == nil || IsNil(o.ConnectionFailureReason.Get()) {
 		var ret ConnectionLogConnectionFailureReason
 		return ret
 	}
-	return *o.ConnectionFailureReason
+	return *o.ConnectionFailureReason.Get()
 }
 
 // GetConnectionFailureReasonOk returns a tuple with the ConnectionFailureReason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionLog) GetConnectionFailureReasonOk() (*ConnectionLogConnectionFailureReason, bool) {
-	if o == nil || IsNil(o.ConnectionFailureReason) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConnectionFailureReason, true
+	return o.ConnectionFailureReason.Get(), o.ConnectionFailureReason.IsSet()
 }
 
-// SetConnectionFailureReason gets a reference to the given ConnectionLogConnectionFailureReason and assigns it to the ConnectionFailureReason field.
+// SetConnectionFailureReason gets a reference to the given NullableConnectionLogConnectionFailureReason and assigns it to the ConnectionFailureReason field.
 func (o *ConnectionLog) SetConnectionFailureReason(v ConnectionLogConnectionFailureReason) {
-	o.ConnectionFailureReason = &v
+	o.ConnectionFailureReason.Set(&v)
 }
 
-// GetDisconnected returns the Disconnected field value if set, zero value otherwise.
+// SetConnectionFailureReasonNil sets the value for ConnectionFailureReason to be an explicit nil
+func (o *ConnectionLog) SetConnectionFailureReasonNil() {
+	o.ConnectionFailureReason.Set(nil)
+}
+
+// UnsetConnectionFailureReason ensures that no value is present for ConnectionFailureReason, not even an explicit nil
+func (o *ConnectionLog) UnsetConnectionFailureReason() {
+	o.ConnectionFailureReason.Unset()
+}
+
+// GetDisconnected returns the Disconnected field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectionLog) GetDisconnected() bool {
-	if o == nil || IsNil(o.Disconnected) {
+	if o == nil || IsNil(o.Disconnected.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.Disconnected
+	return *o.Disconnected.Get()
 }
 
 // GetDisconnectedOk returns a tuple with the Disconnected field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionLog) GetDisconnectedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Disconnected) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Disconnected, true
+	return o.Disconnected.Get(), o.Disconnected.IsSet()
 }
 
-// SetDisconnected gets a reference to the given bool and assigns it to the Disconnected field.
+// SetDisconnected gets a reference to the given NullableBool and assigns it to the Disconnected field.
 func (o *ConnectionLog) SetDisconnected(v bool) {
-	o.Disconnected = &v
+	o.Disconnected.Set(&v)
 }
 
-// GetEndTime returns the EndTime field value if set, zero value otherwise.
+// SetDisconnectedNil sets the value for Disconnected to be an explicit nil
+func (o *ConnectionLog) SetDisconnectedNil() {
+	o.Disconnected.Set(nil)
+}
+
+// UnsetDisconnected ensures that no value is present for Disconnected, not even an explicit nil
+func (o *ConnectionLog) UnsetDisconnected() {
+	o.Disconnected.Unset()
+}
+
+// GetEndTime returns the EndTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectionLog) GetEndTime() time.Time {
-	if o == nil || IsNil(o.EndTime) {
+	if o == nil || IsNil(o.EndTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndTime
+	return *o.EndTime.Get()
 }
 
 // GetEndTimeOk returns a tuple with the EndTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionLog) GetEndTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.EndTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EndTime, true
+	return o.EndTime.Get(), o.EndTime.IsSet()
 }
 
-// SetEndTime gets a reference to the given time.Time and assigns it to the EndTime field.
+// SetEndTime gets a reference to the given NullableTime and assigns it to the EndTime field.
 func (o *ConnectionLog) SetEndTime(v time.Time) {
-	o.EndTime = &v
+	o.EndTime.Set(&v)
 }
 
-// GetEstablishmentTime returns the EstablishmentTime field value if set, zero value otherwise.
+// SetEndTimeNil sets the value for EndTime to be an explicit nil
+func (o *ConnectionLog) SetEndTimeNil() {
+	o.EndTime.Set(nil)
+}
+
+// UnsetEndTime ensures that no value is present for EndTime, not even an explicit nil
+func (o *ConnectionLog) UnsetEndTime() {
+	o.EndTime.Unset()
+}
+
+// GetEstablishmentTime returns the EstablishmentTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectionLog) GetEstablishmentTime() time.Time {
-	if o == nil || IsNil(o.EstablishmentTime) {
+	if o == nil || IsNil(o.EstablishmentTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EstablishmentTime
+	return *o.EstablishmentTime.Get()
 }
 
 // GetEstablishmentTimeOk returns a tuple with the EstablishmentTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionLog) GetEstablishmentTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.EstablishmentTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EstablishmentTime, true
+	return o.EstablishmentTime.Get(), o.EstablishmentTime.IsSet()
 }
 
-// SetEstablishmentTime gets a reference to the given time.Time and assigns it to the EstablishmentTime field.
+// SetEstablishmentTime gets a reference to the given NullableTime and assigns it to the EstablishmentTime field.
 func (o *ConnectionLog) SetEstablishmentTime(v time.Time) {
-	o.EstablishmentTime = &v
+	o.EstablishmentTime.Set(&v)
 }
 
-// GetMachineDNSName returns the MachineDNSName field value if set, zero value otherwise.
+// SetEstablishmentTimeNil sets the value for EstablishmentTime to be an explicit nil
+func (o *ConnectionLog) SetEstablishmentTimeNil() {
+	o.EstablishmentTime.Set(nil)
+}
+
+// UnsetEstablishmentTime ensures that no value is present for EstablishmentTime, not even an explicit nil
+func (o *ConnectionLog) UnsetEstablishmentTime() {
+	o.EstablishmentTime.Unset()
+}
+
+// GetMachineDNSName returns the MachineDNSName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectionLog) GetMachineDNSName() string {
-	if o == nil || IsNil(o.MachineDNSName) {
+	if o == nil || IsNil(o.MachineDNSName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MachineDNSName
+	return *o.MachineDNSName.Get()
 }
 
 // GetMachineDNSNameOk returns a tuple with the MachineDNSName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionLog) GetMachineDNSNameOk() (*string, bool) {
-	if o == nil || IsNil(o.MachineDNSName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MachineDNSName, true
+	return o.MachineDNSName.Get(), o.MachineDNSName.IsSet()
 }
 
-// SetMachineDNSName gets a reference to the given string and assigns it to the MachineDNSName field.
+// SetMachineDNSName gets a reference to the given NullableString and assigns it to the MachineDNSName field.
 func (o *ConnectionLog) SetMachineDNSName(v string) {
-	o.MachineDNSName = &v
+	o.MachineDNSName.Set(&v)
 }
 
-// GetMachineName returns the MachineName field value if set, zero value otherwise.
+// SetMachineDNSNameNil sets the value for MachineDNSName to be an explicit nil
+func (o *ConnectionLog) SetMachineDNSNameNil() {
+	o.MachineDNSName.Set(nil)
+}
+
+// UnsetMachineDNSName ensures that no value is present for MachineDNSName, not even an explicit nil
+func (o *ConnectionLog) UnsetMachineDNSName() {
+	o.MachineDNSName.Unset()
+}
+
+// GetMachineName returns the MachineName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectionLog) GetMachineName() string {
-	if o == nil || IsNil(o.MachineName) {
+	if o == nil || IsNil(o.MachineName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MachineName
+	return *o.MachineName.Get()
 }
 
 // GetMachineNameOk returns a tuple with the MachineName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionLog) GetMachineNameOk() (*string, bool) {
-	if o == nil || IsNil(o.MachineName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MachineName, true
+	return o.MachineName.Get(), o.MachineName.IsSet()
 }
 
-// SetMachineName gets a reference to the given string and assigns it to the MachineName field.
+// SetMachineName gets a reference to the given NullableString and assigns it to the MachineName field.
 func (o *ConnectionLog) SetMachineName(v string) {
-	o.MachineName = &v
+	o.MachineName.Set(&v)
 }
 
-// GetMachineUid returns the MachineUid field value if set, zero value otherwise.
+// SetMachineNameNil sets the value for MachineName to be an explicit nil
+func (o *ConnectionLog) SetMachineNameNil() {
+	o.MachineName.Set(nil)
+}
+
+// UnsetMachineName ensures that no value is present for MachineName, not even an explicit nil
+func (o *ConnectionLog) UnsetMachineName() {
+	o.MachineName.Unset()
+}
+
+// GetMachineUid returns the MachineUid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectionLog) GetMachineUid() int32 {
-	if o == nil || IsNil(o.MachineUid) {
+	if o == nil || IsNil(o.MachineUid.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.MachineUid
+	return *o.MachineUid.Get()
 }
 
 // GetMachineUidOk returns a tuple with the MachineUid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionLog) GetMachineUidOk() (*int32, bool) {
-	if o == nil || IsNil(o.MachineUid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MachineUid, true
+	return o.MachineUid.Get(), o.MachineUid.IsSet()
 }
 
-// SetMachineUid gets a reference to the given int32 and assigns it to the MachineUid field.
+// SetMachineUid gets a reference to the given NullableInt32 and assigns it to the MachineUid field.
 func (o *ConnectionLog) SetMachineUid(v int32) {
-	o.MachineUid = &v
+	o.MachineUid.Set(&v)
 }
 
-// GetUid returns the Uid field value if set, zero value otherwise.
+// SetMachineUidNil sets the value for MachineUid to be an explicit nil
+func (o *ConnectionLog) SetMachineUidNil() {
+	o.MachineUid.Set(nil)
+}
+
+// UnsetMachineUid ensures that no value is present for MachineUid, not even an explicit nil
+func (o *ConnectionLog) UnsetMachineUid() {
+	o.MachineUid.Unset()
+}
+
+// GetUid returns the Uid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectionLog) GetUid() int64 {
-	if o == nil || IsNil(o.Uid) {
+	if o == nil || IsNil(o.Uid.Get()) {
 		var ret int64
 		return ret
 	}
-	return *o.Uid
+	return *o.Uid.Get()
 }
 
 // GetUidOk returns a tuple with the Uid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionLog) GetUidOk() (*int64, bool) {
-	if o == nil || IsNil(o.Uid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Uid, true
+	return o.Uid.Get(), o.Uid.IsSet()
 }
 
-// SetUid gets a reference to the given int64 and assigns it to the Uid field.
+// SetUid gets a reference to the given NullableInt64 and assigns it to the Uid field.
 func (o *ConnectionLog) SetUid(v int64) {
-	o.Uid = &v
+	o.Uid.Set(&v)
+}
+
+// SetUidNil sets the value for Uid to be an explicit nil
+func (o *ConnectionLog) SetUidNil() {
+	o.Uid.Set(nil)
+}
+
+// UnsetUid ensures that no value is present for Uid, not even an explicit nil
+func (o *ConnectionLog) UnsetUid() {
+	o.Uid.Unset()
 }
 
 func (o ConnectionLog) MarshalJSON() ([]byte, error) {
@@ -304,38 +425,38 @@ func (o ConnectionLog) MarshalJSON() ([]byte, error) {
 
 func (o ConnectionLog) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.BrokeringTime) {
-		toSerialize["brokeringTime"] = o.BrokeringTime
+	if o.BrokeringTime.IsSet() {
+		toSerialize["brokeringTime"] = o.BrokeringTime.Get()
 	}
-	if !IsNil(o.BrokeringUserName) {
-		toSerialize["brokeringUserName"] = o.BrokeringUserName
+	if o.BrokeringUserName.IsSet() {
+		toSerialize["brokeringUserName"] = o.BrokeringUserName.Get()
 	}
-	if !IsNil(o.BrokeringUserUPN) {
-		toSerialize["brokeringUserUPN"] = o.BrokeringUserUPN
+	if o.BrokeringUserUPN.IsSet() {
+		toSerialize["brokeringUserUPN"] = o.BrokeringUserUPN.Get()
 	}
-	if !IsNil(o.ConnectionFailureReason) {
-		toSerialize["connectionFailureReason"] = o.ConnectionFailureReason
+	if o.ConnectionFailureReason.IsSet() {
+		toSerialize["connectionFailureReason"] = o.ConnectionFailureReason.Get()
 	}
-	if !IsNil(o.Disconnected) {
-		toSerialize["disconnected"] = o.Disconnected
+	if o.Disconnected.IsSet() {
+		toSerialize["disconnected"] = o.Disconnected.Get()
 	}
-	if !IsNil(o.EndTime) {
-		toSerialize["endTime"] = o.EndTime
+	if o.EndTime.IsSet() {
+		toSerialize["endTime"] = o.EndTime.Get()
 	}
-	if !IsNil(o.EstablishmentTime) {
-		toSerialize["establishmentTime"] = o.EstablishmentTime
+	if o.EstablishmentTime.IsSet() {
+		toSerialize["establishmentTime"] = o.EstablishmentTime.Get()
 	}
-	if !IsNil(o.MachineDNSName) {
-		toSerialize["machineDNSName"] = o.MachineDNSName
+	if o.MachineDNSName.IsSet() {
+		toSerialize["machineDNSName"] = o.MachineDNSName.Get()
 	}
-	if !IsNil(o.MachineName) {
-		toSerialize["machineName"] = o.MachineName
+	if o.MachineName.IsSet() {
+		toSerialize["machineName"] = o.MachineName.Get()
 	}
-	if !IsNil(o.MachineUid) {
-		toSerialize["machineUid"] = o.MachineUid
+	if o.MachineUid.IsSet() {
+		toSerialize["machineUid"] = o.MachineUid.Get()
 	}
-	if !IsNil(o.Uid) {
-		toSerialize["uid"] = o.Uid
+	if o.Uid.IsSet() {
+		toSerialize["uid"] = o.Uid.Get()
 	}
 	return toSerialize, nil
 }

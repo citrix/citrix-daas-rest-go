@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,9 +20,9 @@ var _ MappedNullable = &AzureCatalogVdaCostModel{}
 // AzureCatalogVdaCostModel struct for AzureCatalogVdaCostModel
 type AzureCatalogVdaCostModel struct {
 	// Name of the VDA VM
-	VmName *string `json:"vmName,omitempty"`
+	VmName NullableString `json:"vmName,omitempty"`
 	// Name of the Azure resource group which the VDA VM is located
-	AzureResourceGroup *string `json:"azureResourceGroup,omitempty"`
+	AzureResourceGroup NullableString `json:"azureResourceGroup,omitempty"`
 	// Total cost on Azure for the VDA
 	TotalCost *float64 `json:"totalCost,omitempty"`
 	// Cost of the VDA Disk
@@ -34,7 +34,7 @@ type AzureCatalogVdaCostModel struct {
 	// Cost of the VDA Network
 	NetworkCost *float64 `json:"networkCost,omitempty"`
 	// A list of users assigned to the VDA, concatenated into a string with comma for csv output
-	AssignedUsers *string `json:"assignedUsers,omitempty"`
+	AssignedUsers NullableString `json:"assignedUsers,omitempty"`
 }
 
 // NewAzureCatalogVdaCostModelWithDefaults instantiates a new AzureCatalogVdaCostModel object
@@ -45,50 +45,72 @@ func NewAzureCatalogVdaCostModelWithDefaults() *AzureCatalogVdaCostModel {
 	return &this
 }
 
-// GetVmName returns the VmName field value if set, zero value otherwise.
+// GetVmName returns the VmName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureCatalogVdaCostModel) GetVmName() string {
-	if o == nil || IsNil(o.VmName) {
+	if o == nil || IsNil(o.VmName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VmName
+	return *o.VmName.Get()
 }
 
 // GetVmNameOk returns a tuple with the VmName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureCatalogVdaCostModel) GetVmNameOk() (*string, bool) {
-	if o == nil || IsNil(o.VmName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VmName, true
+	return o.VmName.Get(), o.VmName.IsSet()
 }
 
-// SetVmName gets a reference to the given string and assigns it to the VmName field.
+// SetVmName gets a reference to the given NullableString and assigns it to the VmName field.
 func (o *AzureCatalogVdaCostModel) SetVmName(v string) {
-	o.VmName = &v
+	o.VmName.Set(&v)
 }
 
-// GetAzureResourceGroup returns the AzureResourceGroup field value if set, zero value otherwise.
+// SetVmNameNil sets the value for VmName to be an explicit nil
+func (o *AzureCatalogVdaCostModel) SetVmNameNil() {
+	o.VmName.Set(nil)
+}
+
+// UnsetVmName ensures that no value is present for VmName, not even an explicit nil
+func (o *AzureCatalogVdaCostModel) UnsetVmName() {
+	o.VmName.Unset()
+}
+
+// GetAzureResourceGroup returns the AzureResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureCatalogVdaCostModel) GetAzureResourceGroup() string {
-	if o == nil || IsNil(o.AzureResourceGroup) {
+	if o == nil || IsNil(o.AzureResourceGroup.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzureResourceGroup
+	return *o.AzureResourceGroup.Get()
 }
 
 // GetAzureResourceGroupOk returns a tuple with the AzureResourceGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureCatalogVdaCostModel) GetAzureResourceGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.AzureResourceGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureResourceGroup, true
+	return o.AzureResourceGroup.Get(), o.AzureResourceGroup.IsSet()
 }
 
-// SetAzureResourceGroup gets a reference to the given string and assigns it to the AzureResourceGroup field.
+// SetAzureResourceGroup gets a reference to the given NullableString and assigns it to the AzureResourceGroup field.
 func (o *AzureCatalogVdaCostModel) SetAzureResourceGroup(v string) {
-	o.AzureResourceGroup = &v
+	o.AzureResourceGroup.Set(&v)
+}
+
+// SetAzureResourceGroupNil sets the value for AzureResourceGroup to be an explicit nil
+func (o *AzureCatalogVdaCostModel) SetAzureResourceGroupNil() {
+	o.AzureResourceGroup.Set(nil)
+}
+
+// UnsetAzureResourceGroup ensures that no value is present for AzureResourceGroup, not even an explicit nil
+func (o *AzureCatalogVdaCostModel) UnsetAzureResourceGroup() {
+	o.AzureResourceGroup.Unset()
 }
 
 // GetTotalCost returns the TotalCost field value if set, zero value otherwise.
@@ -206,27 +228,38 @@ func (o *AzureCatalogVdaCostModel) SetNetworkCost(v float64) {
 	o.NetworkCost = &v
 }
 
-// GetAssignedUsers returns the AssignedUsers field value if set, zero value otherwise.
+// GetAssignedUsers returns the AssignedUsers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureCatalogVdaCostModel) GetAssignedUsers() string {
-	if o == nil || IsNil(o.AssignedUsers) {
+	if o == nil || IsNil(o.AssignedUsers.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AssignedUsers
+	return *o.AssignedUsers.Get()
 }
 
 // GetAssignedUsersOk returns a tuple with the AssignedUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureCatalogVdaCostModel) GetAssignedUsersOk() (*string, bool) {
-	if o == nil || IsNil(o.AssignedUsers) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AssignedUsers, true
+	return o.AssignedUsers.Get(), o.AssignedUsers.IsSet()
 }
 
-// SetAssignedUsers gets a reference to the given string and assigns it to the AssignedUsers field.
+// SetAssignedUsers gets a reference to the given NullableString and assigns it to the AssignedUsers field.
 func (o *AzureCatalogVdaCostModel) SetAssignedUsers(v string) {
-	o.AssignedUsers = &v
+	o.AssignedUsers.Set(&v)
+}
+
+// SetAssignedUsersNil sets the value for AssignedUsers to be an explicit nil
+func (o *AzureCatalogVdaCostModel) SetAssignedUsersNil() {
+	o.AssignedUsers.Set(nil)
+}
+
+// UnsetAssignedUsers ensures that no value is present for AssignedUsers, not even an explicit nil
+func (o *AzureCatalogVdaCostModel) UnsetAssignedUsers() {
+	o.AssignedUsers.Unset()
 }
 
 func (o AzureCatalogVdaCostModel) MarshalJSON() ([]byte, error) {
@@ -239,11 +272,11 @@ func (o AzureCatalogVdaCostModel) MarshalJSON() ([]byte, error) {
 
 func (o AzureCatalogVdaCostModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.VmName) {
-		toSerialize["vmName"] = o.VmName
+	if o.VmName.IsSet() {
+		toSerialize["vmName"] = o.VmName.Get()
 	}
-	if !IsNil(o.AzureResourceGroup) {
-		toSerialize["azureResourceGroup"] = o.AzureResourceGroup
+	if o.AzureResourceGroup.IsSet() {
+		toSerialize["azureResourceGroup"] = o.AzureResourceGroup.Get()
 	}
 	if !IsNil(o.TotalCost) {
 		toSerialize["totalCost"] = o.TotalCost
@@ -260,8 +293,8 @@ func (o AzureCatalogVdaCostModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NetworkCost) {
 		toSerialize["networkCost"] = o.NetworkCost
 	}
-	if !IsNil(o.AssignedUsers) {
-		toSerialize["assignedUsers"] = o.AssignedUsers
+	if o.AssignedUsers.IsSet() {
+		toSerialize["assignedUsers"] = o.AssignedUsers.Get()
 	}
 	return toSerialize, nil
 }

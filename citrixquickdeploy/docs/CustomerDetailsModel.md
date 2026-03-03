@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomerId** | Pointer to **string** | ID of the customer | [optional] 
-**SiteId** | Pointer to **string** | ID of the customer&#39;s site | [optional] 
+**CustomerId** | Pointer to **NullableString** | ID of the customer | [optional] 
+**SiteId** | Pointer to **NullableString** | ID of the customer&#39;s site | [optional] 
 **Catalogs** | Pointer to [**[]CatalogConfiguration**](CatalogConfiguration.md) | List of catalogs configured by the user | [optional] 
-**Images** | Pointer to **[]map[string]map[string]interface{}** | List of Images configured by the user | [optional] 
-**Domains** | Pointer to **[]map[string]map[string]interface{}** | List of domains configured by the user | [optional] 
-**ResourceLocations** | Pointer to **[]map[string]map[string]interface{}** | List of Resource Locations configured for the user | [optional] 
-**Directories** | Pointer to **[]map[string]map[string]interface{}** | List of directories configured by the user | [optional] 
-**OnpremConnections** | Pointer to **[]map[string]map[string]interface{}** | List of onprem connections configured by the user | [optional] 
+**Images** | Pointer to **[]map[string]interface{}** | List of Images configured by the user | [optional] 
+**Domains** | Pointer to **[]map[string]interface{}** | List of domains configured by the user | [optional] 
+**ResourceLocations** | Pointer to **[]map[string]interface{}** | List of Resource Locations configured for the user | [optional] 
+**Directories** | Pointer to **[]map[string]interface{}** | List of directories configured by the user | [optional] 
+**OnpremConnections** | Pointer to **[]map[string]interface{}** | List of onprem connections configured by the user | [optional] 
 
 ## Methods
 
@@ -57,6 +57,16 @@ SetCustomerId sets CustomerId field to given value.
 
 HasCustomerId returns a boolean if a field has been set.
 
+### SetCustomerIdNil
+
+`func (o *CustomerDetailsModel) SetCustomerIdNil(b bool)`
+
+ SetCustomerIdNil sets the value for CustomerId to be an explicit nil
+
+### UnsetCustomerId
+`func (o *CustomerDetailsModel) UnsetCustomerId()`
+
+UnsetCustomerId ensures that no value is present for CustomerId, not even an explicit nil
 ### GetSiteId
 
 `func (o *CustomerDetailsModel) GetSiteId() string`
@@ -82,6 +92,16 @@ SetSiteId sets SiteId field to given value.
 
 HasSiteId returns a boolean if a field has been set.
 
+### SetSiteIdNil
+
+`func (o *CustomerDetailsModel) SetSiteIdNil(b bool)`
+
+ SetSiteIdNil sets the value for SiteId to be an explicit nil
+
+### UnsetSiteId
+`func (o *CustomerDetailsModel) UnsetSiteId()`
+
+UnsetSiteId ensures that no value is present for SiteId, not even an explicit nil
 ### GetCatalogs
 
 `func (o *CustomerDetailsModel) GetCatalogs() []CatalogConfiguration`
@@ -107,22 +127,32 @@ SetCatalogs sets Catalogs field to given value.
 
 HasCatalogs returns a boolean if a field has been set.
 
+### SetCatalogsNil
+
+`func (o *CustomerDetailsModel) SetCatalogsNil(b bool)`
+
+ SetCatalogsNil sets the value for Catalogs to be an explicit nil
+
+### UnsetCatalogs
+`func (o *CustomerDetailsModel) UnsetCatalogs()`
+
+UnsetCatalogs ensures that no value is present for Catalogs, not even an explicit nil
 ### GetImages
 
-`func (o *CustomerDetailsModel) GetImages() []map[string]map[string]interface{}`
+`func (o *CustomerDetailsModel) GetImages() []map[string]interface{}`
 
 GetImages returns the Images field if non-nil, zero value otherwise.
 
 ### GetImagesOk
 
-`func (o *CustomerDetailsModel) GetImagesOk() (*[]map[string]map[string]interface{}, bool)`
+`func (o *CustomerDetailsModel) GetImagesOk() (*[]map[string]interface{}, bool)`
 
 GetImagesOk returns a tuple with the Images field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImages
 
-`func (o *CustomerDetailsModel) SetImages(v []map[string]map[string]interface{})`
+`func (o *CustomerDetailsModel) SetImages(v []map[string]interface{})`
 
 SetImages sets Images field to given value.
 
@@ -132,22 +162,32 @@ SetImages sets Images field to given value.
 
 HasImages returns a boolean if a field has been set.
 
+### SetImagesNil
+
+`func (o *CustomerDetailsModel) SetImagesNil(b bool)`
+
+ SetImagesNil sets the value for Images to be an explicit nil
+
+### UnsetImages
+`func (o *CustomerDetailsModel) UnsetImages()`
+
+UnsetImages ensures that no value is present for Images, not even an explicit nil
 ### GetDomains
 
-`func (o *CustomerDetailsModel) GetDomains() []map[string]map[string]interface{}`
+`func (o *CustomerDetailsModel) GetDomains() []map[string]interface{}`
 
 GetDomains returns the Domains field if non-nil, zero value otherwise.
 
 ### GetDomainsOk
 
-`func (o *CustomerDetailsModel) GetDomainsOk() (*[]map[string]map[string]interface{}, bool)`
+`func (o *CustomerDetailsModel) GetDomainsOk() (*[]map[string]interface{}, bool)`
 
 GetDomainsOk returns a tuple with the Domains field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDomains
 
-`func (o *CustomerDetailsModel) SetDomains(v []map[string]map[string]interface{})`
+`func (o *CustomerDetailsModel) SetDomains(v []map[string]interface{})`
 
 SetDomains sets Domains field to given value.
 
@@ -157,22 +197,32 @@ SetDomains sets Domains field to given value.
 
 HasDomains returns a boolean if a field has been set.
 
+### SetDomainsNil
+
+`func (o *CustomerDetailsModel) SetDomainsNil(b bool)`
+
+ SetDomainsNil sets the value for Domains to be an explicit nil
+
+### UnsetDomains
+`func (o *CustomerDetailsModel) UnsetDomains()`
+
+UnsetDomains ensures that no value is present for Domains, not even an explicit nil
 ### GetResourceLocations
 
-`func (o *CustomerDetailsModel) GetResourceLocations() []map[string]map[string]interface{}`
+`func (o *CustomerDetailsModel) GetResourceLocations() []map[string]interface{}`
 
 GetResourceLocations returns the ResourceLocations field if non-nil, zero value otherwise.
 
 ### GetResourceLocationsOk
 
-`func (o *CustomerDetailsModel) GetResourceLocationsOk() (*[]map[string]map[string]interface{}, bool)`
+`func (o *CustomerDetailsModel) GetResourceLocationsOk() (*[]map[string]interface{}, bool)`
 
 GetResourceLocationsOk returns a tuple with the ResourceLocations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourceLocations
 
-`func (o *CustomerDetailsModel) SetResourceLocations(v []map[string]map[string]interface{})`
+`func (o *CustomerDetailsModel) SetResourceLocations(v []map[string]interface{})`
 
 SetResourceLocations sets ResourceLocations field to given value.
 
@@ -182,22 +232,32 @@ SetResourceLocations sets ResourceLocations field to given value.
 
 HasResourceLocations returns a boolean if a field has been set.
 
+### SetResourceLocationsNil
+
+`func (o *CustomerDetailsModel) SetResourceLocationsNil(b bool)`
+
+ SetResourceLocationsNil sets the value for ResourceLocations to be an explicit nil
+
+### UnsetResourceLocations
+`func (o *CustomerDetailsModel) UnsetResourceLocations()`
+
+UnsetResourceLocations ensures that no value is present for ResourceLocations, not even an explicit nil
 ### GetDirectories
 
-`func (o *CustomerDetailsModel) GetDirectories() []map[string]map[string]interface{}`
+`func (o *CustomerDetailsModel) GetDirectories() []map[string]interface{}`
 
 GetDirectories returns the Directories field if non-nil, zero value otherwise.
 
 ### GetDirectoriesOk
 
-`func (o *CustomerDetailsModel) GetDirectoriesOk() (*[]map[string]map[string]interface{}, bool)`
+`func (o *CustomerDetailsModel) GetDirectoriesOk() (*[]map[string]interface{}, bool)`
 
 GetDirectoriesOk returns a tuple with the Directories field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDirectories
 
-`func (o *CustomerDetailsModel) SetDirectories(v []map[string]map[string]interface{})`
+`func (o *CustomerDetailsModel) SetDirectories(v []map[string]interface{})`
 
 SetDirectories sets Directories field to given value.
 
@@ -207,22 +267,32 @@ SetDirectories sets Directories field to given value.
 
 HasDirectories returns a boolean if a field has been set.
 
+### SetDirectoriesNil
+
+`func (o *CustomerDetailsModel) SetDirectoriesNil(b bool)`
+
+ SetDirectoriesNil sets the value for Directories to be an explicit nil
+
+### UnsetDirectories
+`func (o *CustomerDetailsModel) UnsetDirectories()`
+
+UnsetDirectories ensures that no value is present for Directories, not even an explicit nil
 ### GetOnpremConnections
 
-`func (o *CustomerDetailsModel) GetOnpremConnections() []map[string]map[string]interface{}`
+`func (o *CustomerDetailsModel) GetOnpremConnections() []map[string]interface{}`
 
 GetOnpremConnections returns the OnpremConnections field if non-nil, zero value otherwise.
 
 ### GetOnpremConnectionsOk
 
-`func (o *CustomerDetailsModel) GetOnpremConnectionsOk() (*[]map[string]map[string]interface{}, bool)`
+`func (o *CustomerDetailsModel) GetOnpremConnectionsOk() (*[]map[string]interface{}, bool)`
 
 GetOnpremConnectionsOk returns a tuple with the OnpremConnections field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOnpremConnections
 
-`func (o *CustomerDetailsModel) SetOnpremConnections(v []map[string]map[string]interface{})`
+`func (o *CustomerDetailsModel) SetOnpremConnections(v []map[string]interface{})`
 
 SetOnpremConnections sets OnpremConnections field to given value.
 
@@ -232,6 +302,16 @@ SetOnpremConnections sets OnpremConnections field to given value.
 
 HasOnpremConnections returns a boolean if a field has been set.
 
+### SetOnpremConnectionsNil
+
+`func (o *CustomerDetailsModel) SetOnpremConnectionsNil(b bool)`
+
+ SetOnpremConnectionsNil sets the value for OnpremConnections to be an explicit nil
+
+### UnsetOnpremConnections
+`func (o *CustomerDetailsModel) UnsetOnpremConnections()`
+
+UnsetOnpremConnections ensures that no value is present for OnpremConnections, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

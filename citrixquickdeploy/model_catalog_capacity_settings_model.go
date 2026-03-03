@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,13 +20,13 @@ var _ MappedNullable = &CatalogCapacitySettingsModel{}
 // CatalogCapacitySettingsModel struct for CatalogCapacitySettingsModel
 type CatalogCapacitySettingsModel struct {
 	// Compute settings for the catalog
-	ComputeWorker *CatalogComputeWorkerModel `json:"computeWorker,omitempty"`
+	ComputeWorker NullableCatalogComputeWorkerModel `json:"computeWorker,omitempty"`
 	// Scale settings for the catalog
-	ScaleSettings *CatalogScaleSettingsModel `json:"scaleSettings,omitempty"`
+	ScaleSettings NullableCatalogScaleSettingsModel `json:"scaleSettings,omitempty"`
 	// Idle timeout for session in the catalog (in mins)
-	SessionTimeout *int32 `json:"sessionTimeout,omitempty"`
+	SessionTimeout NullableInt32 `json:"sessionTimeout,omitempty"`
 	// Minutes to wait for disconnected sessions to be logged off on multi-session VMs
-	MultiSessionDisconnectedSessionTimeout *int32 `json:"multiSessionDisconnectedSessionTimeout,omitempty"`
+	MultiSessionDisconnectedSessionTimeout NullableInt32 `json:"multiSessionDisconnectedSessionTimeout,omitempty"`
 	// Indicates if the capacity job is currently active
 	IsActive *bool `json:"isActive,omitempty"`
 }
@@ -39,96 +39,140 @@ func NewCatalogCapacitySettingsModelWithDefaults() *CatalogCapacitySettingsModel
 	return &this
 }
 
-// GetComputeWorker returns the ComputeWorker field value if set, zero value otherwise.
+// GetComputeWorker returns the ComputeWorker field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogCapacitySettingsModel) GetComputeWorker() CatalogComputeWorkerModel {
-	if o == nil || IsNil(o.ComputeWorker) {
+	if o == nil || IsNil(o.ComputeWorker.Get()) {
 		var ret CatalogComputeWorkerModel
 		return ret
 	}
-	return *o.ComputeWorker
+	return *o.ComputeWorker.Get()
 }
 
 // GetComputeWorkerOk returns a tuple with the ComputeWorker field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogCapacitySettingsModel) GetComputeWorkerOk() (*CatalogComputeWorkerModel, bool) {
-	if o == nil || IsNil(o.ComputeWorker) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ComputeWorker, true
+	return o.ComputeWorker.Get(), o.ComputeWorker.IsSet()
 }
 
-// SetComputeWorker gets a reference to the given CatalogComputeWorkerModel and assigns it to the ComputeWorker field.
+// SetComputeWorker gets a reference to the given NullableCatalogComputeWorkerModel and assigns it to the ComputeWorker field.
 func (o *CatalogCapacitySettingsModel) SetComputeWorker(v CatalogComputeWorkerModel) {
-	o.ComputeWorker = &v
+	o.ComputeWorker.Set(&v)
 }
 
-// GetScaleSettings returns the ScaleSettings field value if set, zero value otherwise.
+// SetComputeWorkerNil sets the value for ComputeWorker to be an explicit nil
+func (o *CatalogCapacitySettingsModel) SetComputeWorkerNil() {
+	o.ComputeWorker.Set(nil)
+}
+
+// UnsetComputeWorker ensures that no value is present for ComputeWorker, not even an explicit nil
+func (o *CatalogCapacitySettingsModel) UnsetComputeWorker() {
+	o.ComputeWorker.Unset()
+}
+
+// GetScaleSettings returns the ScaleSettings field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogCapacitySettingsModel) GetScaleSettings() CatalogScaleSettingsModel {
-	if o == nil || IsNil(o.ScaleSettings) {
+	if o == nil || IsNil(o.ScaleSettings.Get()) {
 		var ret CatalogScaleSettingsModel
 		return ret
 	}
-	return *o.ScaleSettings
+	return *o.ScaleSettings.Get()
 }
 
 // GetScaleSettingsOk returns a tuple with the ScaleSettings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogCapacitySettingsModel) GetScaleSettingsOk() (*CatalogScaleSettingsModel, bool) {
-	if o == nil || IsNil(o.ScaleSettings) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ScaleSettings, true
+	return o.ScaleSettings.Get(), o.ScaleSettings.IsSet()
 }
 
-// SetScaleSettings gets a reference to the given CatalogScaleSettingsModel and assigns it to the ScaleSettings field.
+// SetScaleSettings gets a reference to the given NullableCatalogScaleSettingsModel and assigns it to the ScaleSettings field.
 func (o *CatalogCapacitySettingsModel) SetScaleSettings(v CatalogScaleSettingsModel) {
-	o.ScaleSettings = &v
+	o.ScaleSettings.Set(&v)
 }
 
-// GetSessionTimeout returns the SessionTimeout field value if set, zero value otherwise.
+// SetScaleSettingsNil sets the value for ScaleSettings to be an explicit nil
+func (o *CatalogCapacitySettingsModel) SetScaleSettingsNil() {
+	o.ScaleSettings.Set(nil)
+}
+
+// UnsetScaleSettings ensures that no value is present for ScaleSettings, not even an explicit nil
+func (o *CatalogCapacitySettingsModel) UnsetScaleSettings() {
+	o.ScaleSettings.Unset()
+}
+
+// GetSessionTimeout returns the SessionTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogCapacitySettingsModel) GetSessionTimeout() int32 {
-	if o == nil || IsNil(o.SessionTimeout) {
+	if o == nil || IsNil(o.SessionTimeout.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.SessionTimeout
+	return *o.SessionTimeout.Get()
 }
 
 // GetSessionTimeoutOk returns a tuple with the SessionTimeout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogCapacitySettingsModel) GetSessionTimeoutOk() (*int32, bool) {
-	if o == nil || IsNil(o.SessionTimeout) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SessionTimeout, true
+	return o.SessionTimeout.Get(), o.SessionTimeout.IsSet()
 }
 
-// SetSessionTimeout gets a reference to the given int32 and assigns it to the SessionTimeout field.
+// SetSessionTimeout gets a reference to the given NullableInt32 and assigns it to the SessionTimeout field.
 func (o *CatalogCapacitySettingsModel) SetSessionTimeout(v int32) {
-	o.SessionTimeout = &v
+	o.SessionTimeout.Set(&v)
 }
 
-// GetMultiSessionDisconnectedSessionTimeout returns the MultiSessionDisconnectedSessionTimeout field value if set, zero value otherwise.
+// SetSessionTimeoutNil sets the value for SessionTimeout to be an explicit nil
+func (o *CatalogCapacitySettingsModel) SetSessionTimeoutNil() {
+	o.SessionTimeout.Set(nil)
+}
+
+// UnsetSessionTimeout ensures that no value is present for SessionTimeout, not even an explicit nil
+func (o *CatalogCapacitySettingsModel) UnsetSessionTimeout() {
+	o.SessionTimeout.Unset()
+}
+
+// GetMultiSessionDisconnectedSessionTimeout returns the MultiSessionDisconnectedSessionTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogCapacitySettingsModel) GetMultiSessionDisconnectedSessionTimeout() int32 {
-	if o == nil || IsNil(o.MultiSessionDisconnectedSessionTimeout) {
+	if o == nil || IsNil(o.MultiSessionDisconnectedSessionTimeout.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.MultiSessionDisconnectedSessionTimeout
+	return *o.MultiSessionDisconnectedSessionTimeout.Get()
 }
 
 // GetMultiSessionDisconnectedSessionTimeoutOk returns a tuple with the MultiSessionDisconnectedSessionTimeout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogCapacitySettingsModel) GetMultiSessionDisconnectedSessionTimeoutOk() (*int32, bool) {
-	if o == nil || IsNil(o.MultiSessionDisconnectedSessionTimeout) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MultiSessionDisconnectedSessionTimeout, true
+	return o.MultiSessionDisconnectedSessionTimeout.Get(), o.MultiSessionDisconnectedSessionTimeout.IsSet()
 }
 
-// SetMultiSessionDisconnectedSessionTimeout gets a reference to the given int32 and assigns it to the MultiSessionDisconnectedSessionTimeout field.
+// SetMultiSessionDisconnectedSessionTimeout gets a reference to the given NullableInt32 and assigns it to the MultiSessionDisconnectedSessionTimeout field.
 func (o *CatalogCapacitySettingsModel) SetMultiSessionDisconnectedSessionTimeout(v int32) {
-	o.MultiSessionDisconnectedSessionTimeout = &v
+	o.MultiSessionDisconnectedSessionTimeout.Set(&v)
+}
+
+// SetMultiSessionDisconnectedSessionTimeoutNil sets the value for MultiSessionDisconnectedSessionTimeout to be an explicit nil
+func (o *CatalogCapacitySettingsModel) SetMultiSessionDisconnectedSessionTimeoutNil() {
+	o.MultiSessionDisconnectedSessionTimeout.Set(nil)
+}
+
+// UnsetMultiSessionDisconnectedSessionTimeout ensures that no value is present for MultiSessionDisconnectedSessionTimeout, not even an explicit nil
+func (o *CatalogCapacitySettingsModel) UnsetMultiSessionDisconnectedSessionTimeout() {
+	o.MultiSessionDisconnectedSessionTimeout.Unset()
 }
 
 // GetIsActive returns the IsActive field value if set, zero value otherwise.
@@ -164,17 +208,17 @@ func (o CatalogCapacitySettingsModel) MarshalJSON() ([]byte, error) {
 
 func (o CatalogCapacitySettingsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ComputeWorker) {
-		toSerialize["computeWorker"] = o.ComputeWorker
+	if o.ComputeWorker.IsSet() {
+		toSerialize["computeWorker"] = o.ComputeWorker.Get()
 	}
-	if !IsNil(o.ScaleSettings) {
-		toSerialize["scaleSettings"] = o.ScaleSettings
+	if o.ScaleSettings.IsSet() {
+		toSerialize["scaleSettings"] = o.ScaleSettings.Get()
 	}
-	if !IsNil(o.SessionTimeout) {
-		toSerialize["sessionTimeout"] = o.SessionTimeout
+	if o.SessionTimeout.IsSet() {
+		toSerialize["sessionTimeout"] = o.SessionTimeout.Get()
 	}
-	if !IsNil(o.MultiSessionDisconnectedSessionTimeout) {
-		toSerialize["multiSessionDisconnectedSessionTimeout"] = o.MultiSessionDisconnectedSessionTimeout
+	if o.MultiSessionDisconnectedSessionTimeout.IsSet() {
+		toSerialize["multiSessionDisconnectedSessionTimeout"] = o.MultiSessionDisconnectedSessionTimeout.Get()
 	}
 	if !IsNil(o.IsActive) {
 		toSerialize["isActive"] = o.IsActive

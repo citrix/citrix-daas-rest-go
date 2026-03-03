@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ServiceAccountPassword** | Pointer to **string** | Service account password for required in domain joining. This will be stored in a vault. | [optional] 
+**ServiceAccountPassword** | Pointer to **NullableString** | Service account password for required in domain joining. This will be stored in a vault. | [optional] 
 
 ## Methods
 
@@ -50,6 +50,16 @@ SetServiceAccountPassword sets ServiceAccountPassword field to given value.
 
 HasServiceAccountPassword returns a boolean if a field has been set.
 
+### SetServiceAccountPasswordNil
+
+`func (o *DeploySecretsModel) SetServiceAccountPasswordNil(b bool)`
+
+ SetServiceAccountPasswordNil sets the value for ServiceAccountPassword to be an explicit nil
+
+### UnsetServiceAccountPassword
+`func (o *DeploySecretsModel) UnsetServiceAccountPassword()`
+
+UnsetServiceAccountPassword ensures that no value is present for ServiceAccountPassword, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

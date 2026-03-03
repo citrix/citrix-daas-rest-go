@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -23,13 +23,13 @@ type VnetPeeringModel struct {
 	// State of the peering
 	State *VnetPeeringState `json:"state,omitempty"`
 	// Error that occured while peering the vnet
-	Error *string `json:"error,omitempty"`
+	Error NullableString `json:"error,omitempty"`
 	// ID of the transaction that performed pairing job
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionId NullableString `json:"transactionId,omitempty"`
 	// Azure region where the vnet in the managed subscription is located
-	Region *string `json:"region,omitempty"`
+	Region NullableString `json:"region,omitempty"`
 	// Azure region where the originating vnet is located
-	SourceVnetRegion *string `json:"sourceVnetRegion,omitempty"`
+	SourceVnetRegion NullableString `json:"sourceVnetRegion,omitempty"`
 	// The IP Ranges allocated to the peering
 	IpAddressSpace []string `json:"ipAddressSpace,omitempty"`
 	// Number of IP Addresses that are currently in use in the subnet
@@ -39,13 +39,13 @@ type VnetPeeringModel struct {
 	// Indicates if the Peering is managed by Citrix
 	CitrixManaged *bool `json:"citrixManaged,omitempty"`
 	// Resource ID of the Peered VNET
-	PeeredVnetId *string `json:"peeredVnetId,omitempty"`
+	PeeredVnetId NullableString `json:"peeredVnetId,omitempty"`
 	// ID of the Azure Subscription that the citrix managed vnet is associated with
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionId NullableString `json:"subscriptionId,omitempty"`
 	// IP address of the DNS server of this VNet
 	DnsServers []string `json:"dnsServers,omitempty"`
 	// Indicates that partner-tenant relationship exists if not null
-	CspCustomer *string `json:"cspCustomer,omitempty"`
+	CspCustomer NullableString `json:"cspCustomer,omitempty"`
 	// List of associated catalogs
 	Catalogs []string `json:"catalogs,omitempty"`
 	// List of associated images
@@ -53,21 +53,25 @@ type VnetPeeringModel struct {
 	// List of associated bastions
 	Bastions []string `json:"bastions,omitempty"`
 	// Indicates if the peered vnet will be using the customers gateway
-	UseGateway *bool `json:"useGateway,omitempty"`
+	UseGateway NullableBool `json:"useGateway,omitempty"`
 	// Indicates if route propagation in the route table should be disabled (option is valid only if customer is using gateway).
-	DisableRoutePropagation *bool `json:"disableRoutePropagation,omitempty"`
+	DisableRoutePropagation NullableBool `json:"disableRoutePropagation,omitempty"`
 	// The NAT gateway config
-	NatGatewayConfig *NatGatewayModelOverview `json:"natGatewayConfig,omitempty"`
+	NatGatewayConfig NullableNatGatewayModelOverview `json:"natGatewayConfig,omitempty"`
+	// The TenantId of the VNet we are peered into
+	RemoteTenantId NullableString `json:"remoteTenantId,omitempty"`
+	// The Azure Resource ID of the VNet Peering
+	ResourceId NullableString `json:"resourceId,omitempty"`
 	// ID of the connection
-	Id *string `json:"id,omitempty"`
+	Id NullableString `json:"id,omitempty"`
 	// The type of connection
 	Type *OnPremConnectionType `json:"type,omitempty"`
 	// Name of the connection
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	// The datetime when the job started
-	StartedAt *time.Time `json:"startedAt,omitempty"`
+	StartedAt NullableTime `json:"startedAt,omitempty"`
 	// Estimated total time for the job to finish
-	EstimatedTimeInMinute *int32 `json:"estimatedTimeInMinute,omitempty"`
+	EstimatedTimeInMinute NullableInt32 `json:"estimatedTimeInMinute,omitempty"`
 }
 
 // NewVnetPeeringModelWithDefaults instantiates a new VnetPeeringModel object
@@ -101,101 +105,145 @@ func (o *VnetPeeringModel) SetState(v VnetPeeringState) {
 	o.State = &v
 }
 
-// GetError returns the Error field value if set, zero value otherwise.
+// GetError returns the Error field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetError() string {
-	if o == nil || IsNil(o.Error) {
+	if o == nil || IsNil(o.Error.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Error
+	return *o.Error.Get()
 }
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetErrorOk() (*string, bool) {
-	if o == nil || IsNil(o.Error) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Error, true
+	return o.Error.Get(), o.Error.IsSet()
 }
 
-// SetError gets a reference to the given string and assigns it to the Error field.
+// SetError gets a reference to the given NullableString and assigns it to the Error field.
 func (o *VnetPeeringModel) SetError(v string) {
-	o.Error = &v
+	o.Error.Set(&v)
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// SetErrorNil sets the value for Error to be an explicit nil
+func (o *VnetPeeringModel) SetErrorNil() {
+	o.Error.Set(nil)
+}
+
+// UnsetError ensures that no value is present for Error, not even an explicit nil
+func (o *VnetPeeringModel) UnsetError() {
+	o.Error.Unset()
+}
+
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *VnetPeeringModel) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
 }
 
-// GetRegion returns the Region field value if set, zero value otherwise.
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *VnetPeeringModel) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *VnetPeeringModel) UnsetTransactionId() {
+	o.TransactionId.Unset()
+}
+
+// GetRegion returns the Region field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetRegion() string {
-	if o == nil || IsNil(o.Region) {
+	if o == nil || IsNil(o.Region.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Region
+	return *o.Region.Get()
 }
 
 // GetRegionOk returns a tuple with the Region field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.Region) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Region, true
+	return o.Region.Get(), o.Region.IsSet()
 }
 
-// SetRegion gets a reference to the given string and assigns it to the Region field.
+// SetRegion gets a reference to the given NullableString and assigns it to the Region field.
 func (o *VnetPeeringModel) SetRegion(v string) {
-	o.Region = &v
+	o.Region.Set(&v)
 }
 
-// GetSourceVnetRegion returns the SourceVnetRegion field value if set, zero value otherwise.
+// SetRegionNil sets the value for Region to be an explicit nil
+func (o *VnetPeeringModel) SetRegionNil() {
+	o.Region.Set(nil)
+}
+
+// UnsetRegion ensures that no value is present for Region, not even an explicit nil
+func (o *VnetPeeringModel) UnsetRegion() {
+	o.Region.Unset()
+}
+
+// GetSourceVnetRegion returns the SourceVnetRegion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetSourceVnetRegion() string {
-	if o == nil || IsNil(o.SourceVnetRegion) {
+	if o == nil || IsNil(o.SourceVnetRegion.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SourceVnetRegion
+	return *o.SourceVnetRegion.Get()
 }
 
 // GetSourceVnetRegionOk returns a tuple with the SourceVnetRegion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetSourceVnetRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.SourceVnetRegion) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SourceVnetRegion, true
+	return o.SourceVnetRegion.Get(), o.SourceVnetRegion.IsSet()
 }
 
-// SetSourceVnetRegion gets a reference to the given string and assigns it to the SourceVnetRegion field.
+// SetSourceVnetRegion gets a reference to the given NullableString and assigns it to the SourceVnetRegion field.
 func (o *VnetPeeringModel) SetSourceVnetRegion(v string) {
-	o.SourceVnetRegion = &v
+	o.SourceVnetRegion.Set(&v)
 }
 
-// GetIpAddressSpace returns the IpAddressSpace field value if set, zero value otherwise.
+// SetSourceVnetRegionNil sets the value for SourceVnetRegion to be an explicit nil
+func (o *VnetPeeringModel) SetSourceVnetRegionNil() {
+	o.SourceVnetRegion.Set(nil)
+}
+
+// UnsetSourceVnetRegion ensures that no value is present for SourceVnetRegion, not even an explicit nil
+func (o *VnetPeeringModel) UnsetSourceVnetRegion() {
+	o.SourceVnetRegion.Unset()
+}
+
+// GetIpAddressSpace returns the IpAddressSpace field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetIpAddressSpace() []string {
-	if o == nil || IsNil(o.IpAddressSpace) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -204,6 +252,7 @@ func (o *VnetPeeringModel) GetIpAddressSpace() []string {
 
 // GetIpAddressSpaceOk returns a tuple with the IpAddressSpace field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetIpAddressSpaceOk() ([]string, bool) {
 	if o == nil || IsNil(o.IpAddressSpace) {
 		return nil, false
@@ -285,55 +334,77 @@ func (o *VnetPeeringModel) SetCitrixManaged(v bool) {
 	o.CitrixManaged = &v
 }
 
-// GetPeeredVnetId returns the PeeredVnetId field value if set, zero value otherwise.
+// GetPeeredVnetId returns the PeeredVnetId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetPeeredVnetId() string {
-	if o == nil || IsNil(o.PeeredVnetId) {
+	if o == nil || IsNil(o.PeeredVnetId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PeeredVnetId
+	return *o.PeeredVnetId.Get()
 }
 
 // GetPeeredVnetIdOk returns a tuple with the PeeredVnetId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetPeeredVnetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.PeeredVnetId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PeeredVnetId, true
+	return o.PeeredVnetId.Get(), o.PeeredVnetId.IsSet()
 }
 
-// SetPeeredVnetId gets a reference to the given string and assigns it to the PeeredVnetId field.
+// SetPeeredVnetId gets a reference to the given NullableString and assigns it to the PeeredVnetId field.
 func (o *VnetPeeringModel) SetPeeredVnetId(v string) {
-	o.PeeredVnetId = &v
+	o.PeeredVnetId.Set(&v)
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// SetPeeredVnetIdNil sets the value for PeeredVnetId to be an explicit nil
+func (o *VnetPeeringModel) SetPeeredVnetIdNil() {
+	o.PeeredVnetId.Set(nil)
+}
+
+// UnsetPeeredVnetId ensures that no value is present for PeeredVnetId, not even an explicit nil
+func (o *VnetPeeringModel) UnsetPeeredVnetId() {
+	o.PeeredVnetId.Unset()
+}
+
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *VnetPeeringModel) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
 }
 
-// GetDnsServers returns the DnsServers field value if set, zero value otherwise.
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *VnetPeeringModel) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *VnetPeeringModel) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
+}
+
+// GetDnsServers returns the DnsServers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetDnsServers() []string {
-	if o == nil || IsNil(o.DnsServers) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -342,6 +413,7 @@ func (o *VnetPeeringModel) GetDnsServers() []string {
 
 // GetDnsServersOk returns a tuple with the DnsServers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetDnsServersOk() ([]string, bool) {
 	if o == nil || IsNil(o.DnsServers) {
 		return nil, false
@@ -354,32 +426,43 @@ func (o *VnetPeeringModel) SetDnsServers(v []string) {
 	o.DnsServers = v
 }
 
-// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise.
+// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetCspCustomer() string {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil || IsNil(o.CspCustomer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomer
+	return *o.CspCustomer.Get()
 }
 
 // GetCspCustomerOk returns a tuple with the CspCustomer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetCspCustomerOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomer, true
+	return o.CspCustomer.Get(), o.CspCustomer.IsSet()
 }
 
-// SetCspCustomer gets a reference to the given string and assigns it to the CspCustomer field.
+// SetCspCustomer gets a reference to the given NullableString and assigns it to the CspCustomer field.
 func (o *VnetPeeringModel) SetCspCustomer(v string) {
-	o.CspCustomer = &v
+	o.CspCustomer.Set(&v)
 }
 
-// GetCatalogs returns the Catalogs field value if set, zero value otherwise.
+// SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+func (o *VnetPeeringModel) SetCspCustomerNil() {
+	o.CspCustomer.Set(nil)
+}
+
+// UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
+func (o *VnetPeeringModel) UnsetCspCustomer() {
+	o.CspCustomer.Unset()
+}
+
+// GetCatalogs returns the Catalogs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetCatalogs() []string {
-	if o == nil || IsNil(o.Catalogs) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -388,6 +471,7 @@ func (o *VnetPeeringModel) GetCatalogs() []string {
 
 // GetCatalogsOk returns a tuple with the Catalogs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetCatalogsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Catalogs) {
 		return nil, false
@@ -400,9 +484,9 @@ func (o *VnetPeeringModel) SetCatalogs(v []string) {
 	o.Catalogs = v
 }
 
-// GetImages returns the Images field value if set, zero value otherwise.
+// GetImages returns the Images field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetImages() []string {
-	if o == nil || IsNil(o.Images) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -411,6 +495,7 @@ func (o *VnetPeeringModel) GetImages() []string {
 
 // GetImagesOk returns a tuple with the Images field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetImagesOk() ([]string, bool) {
 	if o == nil || IsNil(o.Images) {
 		return nil, false
@@ -423,9 +508,9 @@ func (o *VnetPeeringModel) SetImages(v []string) {
 	o.Images = v
 }
 
-// GetBastions returns the Bastions field value if set, zero value otherwise.
+// GetBastions returns the Bastions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetBastions() []string {
-	if o == nil || IsNil(o.Bastions) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -434,6 +519,7 @@ func (o *VnetPeeringModel) GetBastions() []string {
 
 // GetBastionsOk returns a tuple with the Bastions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetBastionsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Bastions) {
 		return nil, false
@@ -446,96 +532,208 @@ func (o *VnetPeeringModel) SetBastions(v []string) {
 	o.Bastions = v
 }
 
-// GetUseGateway returns the UseGateway field value if set, zero value otherwise.
+// GetUseGateway returns the UseGateway field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetUseGateway() bool {
-	if o == nil || IsNil(o.UseGateway) {
+	if o == nil || IsNil(o.UseGateway.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.UseGateway
+	return *o.UseGateway.Get()
 }
 
 // GetUseGatewayOk returns a tuple with the UseGateway field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetUseGatewayOk() (*bool, bool) {
-	if o == nil || IsNil(o.UseGateway) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UseGateway, true
+	return o.UseGateway.Get(), o.UseGateway.IsSet()
 }
 
-// SetUseGateway gets a reference to the given bool and assigns it to the UseGateway field.
+// SetUseGateway gets a reference to the given NullableBool and assigns it to the UseGateway field.
 func (o *VnetPeeringModel) SetUseGateway(v bool) {
-	o.UseGateway = &v
+	o.UseGateway.Set(&v)
 }
 
-// GetDisableRoutePropagation returns the DisableRoutePropagation field value if set, zero value otherwise.
+// SetUseGatewayNil sets the value for UseGateway to be an explicit nil
+func (o *VnetPeeringModel) SetUseGatewayNil() {
+	o.UseGateway.Set(nil)
+}
+
+// UnsetUseGateway ensures that no value is present for UseGateway, not even an explicit nil
+func (o *VnetPeeringModel) UnsetUseGateway() {
+	o.UseGateway.Unset()
+}
+
+// GetDisableRoutePropagation returns the DisableRoutePropagation field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetDisableRoutePropagation() bool {
-	if o == nil || IsNil(o.DisableRoutePropagation) {
+	if o == nil || IsNil(o.DisableRoutePropagation.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.DisableRoutePropagation
+	return *o.DisableRoutePropagation.Get()
 }
 
 // GetDisableRoutePropagationOk returns a tuple with the DisableRoutePropagation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetDisableRoutePropagationOk() (*bool, bool) {
-	if o == nil || IsNil(o.DisableRoutePropagation) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DisableRoutePropagation, true
+	return o.DisableRoutePropagation.Get(), o.DisableRoutePropagation.IsSet()
 }
 
-// SetDisableRoutePropagation gets a reference to the given bool and assigns it to the DisableRoutePropagation field.
+// SetDisableRoutePropagation gets a reference to the given NullableBool and assigns it to the DisableRoutePropagation field.
 func (o *VnetPeeringModel) SetDisableRoutePropagation(v bool) {
-	o.DisableRoutePropagation = &v
+	o.DisableRoutePropagation.Set(&v)
 }
 
-// GetNatGatewayConfig returns the NatGatewayConfig field value if set, zero value otherwise.
+// SetDisableRoutePropagationNil sets the value for DisableRoutePropagation to be an explicit nil
+func (o *VnetPeeringModel) SetDisableRoutePropagationNil() {
+	o.DisableRoutePropagation.Set(nil)
+}
+
+// UnsetDisableRoutePropagation ensures that no value is present for DisableRoutePropagation, not even an explicit nil
+func (o *VnetPeeringModel) UnsetDisableRoutePropagation() {
+	o.DisableRoutePropagation.Unset()
+}
+
+// GetNatGatewayConfig returns the NatGatewayConfig field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetNatGatewayConfig() NatGatewayModelOverview {
-	if o == nil || IsNil(o.NatGatewayConfig) {
+	if o == nil || IsNil(o.NatGatewayConfig.Get()) {
 		var ret NatGatewayModelOverview
 		return ret
 	}
-	return *o.NatGatewayConfig
+	return *o.NatGatewayConfig.Get()
 }
 
 // GetNatGatewayConfigOk returns a tuple with the NatGatewayConfig field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetNatGatewayConfigOk() (*NatGatewayModelOverview, bool) {
-	if o == nil || IsNil(o.NatGatewayConfig) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NatGatewayConfig, true
+	return o.NatGatewayConfig.Get(), o.NatGatewayConfig.IsSet()
 }
 
-// SetNatGatewayConfig gets a reference to the given NatGatewayModelOverview and assigns it to the NatGatewayConfig field.
+// SetNatGatewayConfig gets a reference to the given NullableNatGatewayModelOverview and assigns it to the NatGatewayConfig field.
 func (o *VnetPeeringModel) SetNatGatewayConfig(v NatGatewayModelOverview) {
-	o.NatGatewayConfig = &v
+	o.NatGatewayConfig.Set(&v)
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *VnetPeeringModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+// SetNatGatewayConfigNil sets the value for NatGatewayConfig to be an explicit nil
+func (o *VnetPeeringModel) SetNatGatewayConfigNil() {
+	o.NatGatewayConfig.Set(nil)
+}
+
+// UnsetNatGatewayConfig ensures that no value is present for NatGatewayConfig, not even an explicit nil
+func (o *VnetPeeringModel) UnsetNatGatewayConfig() {
+	o.NatGatewayConfig.Unset()
+}
+
+// GetRemoteTenantId returns the RemoteTenantId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *VnetPeeringModel) GetRemoteTenantId() string {
+	if o == nil || IsNil(o.RemoteTenantId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.RemoteTenantId.Get()
+}
+
+// GetRemoteTenantIdOk returns a tuple with the RemoteTenantId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *VnetPeeringModel) GetRemoteTenantIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RemoteTenantId.Get(), o.RemoteTenantId.IsSet()
+}
+
+// SetRemoteTenantId gets a reference to the given NullableString and assigns it to the RemoteTenantId field.
+func (o *VnetPeeringModel) SetRemoteTenantId(v string) {
+	o.RemoteTenantId.Set(&v)
+}
+
+// SetRemoteTenantIdNil sets the value for RemoteTenantId to be an explicit nil
+func (o *VnetPeeringModel) SetRemoteTenantIdNil() {
+	o.RemoteTenantId.Set(nil)
+}
+
+// UnsetRemoteTenantId ensures that no value is present for RemoteTenantId, not even an explicit nil
+func (o *VnetPeeringModel) UnsetRemoteTenantId() {
+	o.RemoteTenantId.Unset()
+}
+
+// GetResourceId returns the ResourceId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *VnetPeeringModel) GetResourceId() string {
+	if o == nil || IsNil(o.ResourceId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ResourceId.Get()
+}
+
+// GetResourceIdOk returns a tuple with the ResourceId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *VnetPeeringModel) GetResourceIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ResourceId.Get(), o.ResourceId.IsSet()
+}
+
+// SetResourceId gets a reference to the given NullableString and assigns it to the ResourceId field.
+func (o *VnetPeeringModel) SetResourceId(v string) {
+	o.ResourceId.Set(&v)
+}
+
+// SetResourceIdNil sets the value for ResourceId to be an explicit nil
+func (o *VnetPeeringModel) SetResourceIdNil() {
+	o.ResourceId.Set(nil)
+}
+
+// UnsetResourceId ensures that no value is present for ResourceId, not even an explicit nil
+func (o *VnetPeeringModel) UnsetResourceId() {
+	o.ResourceId.Unset()
+}
+
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *VnetPeeringModel) GetId() string {
+	if o == nil || IsNil(o.Id.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *VnetPeeringModel) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
+}
+
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *VnetPeeringModel) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *VnetPeeringModel) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
@@ -561,73 +759,106 @@ func (o *VnetPeeringModel) SetType(v OnPremConnectionType) {
 	o.Type = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *VnetPeeringModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
 }
 
-// GetStartedAt returns the StartedAt field value if set, zero value otherwise.
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *VnetPeeringModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *VnetPeeringModel) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetStartedAt() time.Time {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil || IsNil(o.StartedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartedAt
+	return *o.StartedAt.Get()
 }
 
 // GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetStartedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StartedAt, true
+	return o.StartedAt.Get(), o.StartedAt.IsSet()
 }
 
-// SetStartedAt gets a reference to the given time.Time and assigns it to the StartedAt field.
+// SetStartedAt gets a reference to the given NullableTime and assigns it to the StartedAt field.
 func (o *VnetPeeringModel) SetStartedAt(v time.Time) {
-	o.StartedAt = &v
+	o.StartedAt.Set(&v)
 }
 
-// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise.
+// SetStartedAtNil sets the value for StartedAt to be an explicit nil
+func (o *VnetPeeringModel) SetStartedAtNil() {
+	o.StartedAt.Set(nil)
+}
+
+// UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
+func (o *VnetPeeringModel) UnsetStartedAt() {
+	o.StartedAt.Unset()
+}
+
+// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetEstimatedTimeInMinute() int32 {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil || IsNil(o.EstimatedTimeInMinute.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.EstimatedTimeInMinute
+	return *o.EstimatedTimeInMinute.Get()
 }
 
 // GetEstimatedTimeInMinuteOk returns a tuple with the EstimatedTimeInMinute field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VnetPeeringModel) GetEstimatedTimeInMinuteOk() (*int32, bool) {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EstimatedTimeInMinute, true
+	return o.EstimatedTimeInMinute.Get(), o.EstimatedTimeInMinute.IsSet()
 }
 
-// SetEstimatedTimeInMinute gets a reference to the given int32 and assigns it to the EstimatedTimeInMinute field.
+// SetEstimatedTimeInMinute gets a reference to the given NullableInt32 and assigns it to the EstimatedTimeInMinute field.
 func (o *VnetPeeringModel) SetEstimatedTimeInMinute(v int32) {
-	o.EstimatedTimeInMinute = &v
+	o.EstimatedTimeInMinute.Set(&v)
+}
+
+// SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+func (o *VnetPeeringModel) SetEstimatedTimeInMinuteNil() {
+	o.EstimatedTimeInMinute.Set(nil)
+}
+
+// UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
+func (o *VnetPeeringModel) UnsetEstimatedTimeInMinute() {
+	o.EstimatedTimeInMinute.Unset()
 }
 
 func (o VnetPeeringModel) MarshalJSON() ([]byte, error) {
@@ -643,19 +874,19 @@ func (o VnetPeeringModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
 	}
-	if !IsNil(o.Error) {
-		toSerialize["error"] = o.Error
+	if o.Error.IsSet() {
+		toSerialize["error"] = o.Error.Get()
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
-	if !IsNil(o.Region) {
-		toSerialize["region"] = o.Region
+	if o.Region.IsSet() {
+		toSerialize["region"] = o.Region.Get()
 	}
-	if !IsNil(o.SourceVnetRegion) {
-		toSerialize["sourceVnetRegion"] = o.SourceVnetRegion
+	if o.SourceVnetRegion.IsSet() {
+		toSerialize["sourceVnetRegion"] = o.SourceVnetRegion.Get()
 	}
-	if !IsNil(o.IpAddressSpace) {
+	if o.IpAddressSpace != nil {
 		toSerialize["ipAddressSpace"] = o.IpAddressSpace
 	}
 	if !IsNil(o.NumberOfAddressesInUse) {
@@ -667,50 +898,56 @@ func (o VnetPeeringModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CitrixManaged) {
 		toSerialize["citrixManaged"] = o.CitrixManaged
 	}
-	if !IsNil(o.PeeredVnetId) {
-		toSerialize["peeredVnetId"] = o.PeeredVnetId
+	if o.PeeredVnetId.IsSet() {
+		toSerialize["peeredVnetId"] = o.PeeredVnetId.Get()
 	}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
-	if !IsNil(o.DnsServers) {
+	if o.DnsServers != nil {
 		toSerialize["dnsServers"] = o.DnsServers
 	}
-	if !IsNil(o.CspCustomer) {
-		toSerialize["cspCustomer"] = o.CspCustomer
+	if o.CspCustomer.IsSet() {
+		toSerialize["cspCustomer"] = o.CspCustomer.Get()
 	}
-	if !IsNil(o.Catalogs) {
+	if o.Catalogs != nil {
 		toSerialize["catalogs"] = o.Catalogs
 	}
-	if !IsNil(o.Images) {
+	if o.Images != nil {
 		toSerialize["images"] = o.Images
 	}
-	if !IsNil(o.Bastions) {
+	if o.Bastions != nil {
 		toSerialize["bastions"] = o.Bastions
 	}
-	if !IsNil(o.UseGateway) {
-		toSerialize["useGateway"] = o.UseGateway
+	if o.UseGateway.IsSet() {
+		toSerialize["useGateway"] = o.UseGateway.Get()
 	}
-	if !IsNil(o.DisableRoutePropagation) {
-		toSerialize["disableRoutePropagation"] = o.DisableRoutePropagation
+	if o.DisableRoutePropagation.IsSet() {
+		toSerialize["disableRoutePropagation"] = o.DisableRoutePropagation.Get()
 	}
-	if !IsNil(o.NatGatewayConfig) {
-		toSerialize["natGatewayConfig"] = o.NatGatewayConfig
+	if o.NatGatewayConfig.IsSet() {
+		toSerialize["natGatewayConfig"] = o.NatGatewayConfig.Get()
 	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.RemoteTenantId.IsSet() {
+		toSerialize["remoteTenantId"] = o.RemoteTenantId.Get()
+	}
+	if o.ResourceId.IsSet() {
+		toSerialize["resourceId"] = o.ResourceId.Get()
+	}
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.StartedAt) {
-		toSerialize["startedAt"] = o.StartedAt
+	if o.StartedAt.IsSet() {
+		toSerialize["startedAt"] = o.StartedAt.Get()
 	}
-	if !IsNil(o.EstimatedTimeInMinute) {
-		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute
+	if o.EstimatedTimeInMinute.IsSet() {
+		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute.Get()
 	}
 	return toSerialize, nil
 }

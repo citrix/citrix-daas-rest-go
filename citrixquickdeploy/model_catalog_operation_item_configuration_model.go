@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,11 +19,11 @@ var _ MappedNullable = &CatalogOperationItemConfigurationModel{}
 
 // CatalogOperationItemConfigurationModel struct for CatalogOperationItemConfigurationModel
 type CatalogOperationItemConfigurationModel struct {
-	Name          string                            `json:"name"`
-	Description   string                            `json:"description"`
-	OperationType CatalogOperationType              `json:"operationType"`
-	Parameters    map[string]map[string]interface{} `json:"parameters"`
-	SupportsXae   *bool                             `json:"supportsXae,omitempty"`
+	Name          string                 `json:"name"`
+	Description   string                 `json:"description"`
+	OperationType CatalogOperationType   `json:"operationType"`
+	Parameters    map[string]interface{} `json:"parameters"`
+	SupportsXae   *bool                  `json:"supportsXae,omitempty"`
 }
 
 // NewCatalogOperationItemConfigurationModelWithDefaults instantiates a new CatalogOperationItemConfigurationModel object
@@ -107,9 +107,9 @@ func (o *CatalogOperationItemConfigurationModel) SetOperationType(v CatalogOpera
 }
 
 // GetParameters returns the Parameters field value
-func (o *CatalogOperationItemConfigurationModel) GetParameters() map[string]map[string]interface{} {
+func (o *CatalogOperationItemConfigurationModel) GetParameters() map[string]interface{} {
 	if o == nil {
-		var ret map[string]map[string]interface{}
+		var ret map[string]interface{}
 		return ret
 	}
 
@@ -118,15 +118,15 @@ func (o *CatalogOperationItemConfigurationModel) GetParameters() map[string]map[
 
 // GetParametersOk returns a tuple with the Parameters field value
 // and a boolean to check if the value has been set.
-func (o *CatalogOperationItemConfigurationModel) GetParametersOk() (map[string]map[string]interface{}, bool) {
+func (o *CatalogOperationItemConfigurationModel) GetParametersOk() (map[string]interface{}, bool) {
 	if o == nil {
-		return map[string]map[string]interface{}{}, false
+		return map[string]interface{}{}, false
 	}
 	return o.Parameters, true
 }
 
 // SetParameters sets field value
-func (o *CatalogOperationItemConfigurationModel) SetParameters(v map[string]map[string]interface{}) {
+func (o *CatalogOperationItemConfigurationModel) SetParameters(v map[string]interface{}) {
 	o.Parameters = v
 }
 

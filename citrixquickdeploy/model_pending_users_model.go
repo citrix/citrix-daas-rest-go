@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -55,9 +55,9 @@ func (o *PendingUsersModel) SetIdentityProvider(v IdentityProvider) {
 	o.IdentityProvider = &v
 }
 
-// GetUsers returns the Users field value if set, zero value otherwise.
+// GetUsers returns the Users field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PendingUsersModel) GetUsers() []PendingUser {
-	if o == nil || IsNil(o.Users) {
+	if o == nil {
 		var ret []PendingUser
 		return ret
 	}
@@ -66,6 +66,7 @@ func (o *PendingUsersModel) GetUsers() []PendingUser {
 
 // GetUsersOk returns a tuple with the Users field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PendingUsersModel) GetUsersOk() ([]PendingUser, bool) {
 	if o == nil || IsNil(o.Users) {
 		return nil, false
@@ -91,7 +92,7 @@ func (o PendingUsersModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IdentityProvider) {
 		toSerialize["identityProvider"] = o.IdentityProvider
 	}
-	if !IsNil(o.Users) {
+	if o.Users != nil {
 		toSerialize["users"] = o.Users
 	}
 	return toSerialize, nil

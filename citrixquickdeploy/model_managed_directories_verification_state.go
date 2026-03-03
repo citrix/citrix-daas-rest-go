@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -31,9 +31,9 @@ func NewManagedDirectoriesVerificationStateWithDefaults() *ManagedDirectoriesVer
 	return &this
 }
 
-// GetInvalidDirectories returns the InvalidDirectories field value if set, zero value otherwise.
+// GetInvalidDirectories returns the InvalidDirectories field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedDirectoriesVerificationState) GetInvalidDirectories() []DirectoryVerificationState {
-	if o == nil || IsNil(o.InvalidDirectories) {
+	if o == nil {
 		var ret []DirectoryVerificationState
 		return ret
 	}
@@ -42,6 +42,7 @@ func (o *ManagedDirectoriesVerificationState) GetInvalidDirectories() []Director
 
 // GetInvalidDirectoriesOk returns a tuple with the InvalidDirectories field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedDirectoriesVerificationState) GetInvalidDirectoriesOk() ([]DirectoryVerificationState, bool) {
 	if o == nil || IsNil(o.InvalidDirectories) {
 		return nil, false
@@ -64,7 +65,7 @@ func (o ManagedDirectoriesVerificationState) MarshalJSON() ([]byte, error) {
 
 func (o ManagedDirectoriesVerificationState) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.InvalidDirectories) {
+	if o.InvalidDirectories != nil {
 		toSerialize["invalidDirectories"] = o.InvalidDirectories
 	}
 	return toSerialize, nil

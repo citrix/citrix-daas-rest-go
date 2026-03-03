@@ -4,17 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DomainName** | **string** | Domain the VMs will join | 
-**DomainOu** | Pointer to **string** | OU of the domain | [optional] 
-**ServiceAccountName** | Pointer to **string** | Name of the service account that will be used to join the domain | [optional] 
+**DomainName** | Pointer to **NullableString** | Domain the VMs will join | [optional] 
+**DomainOu** | Pointer to **NullableString** | OU of the domain | [optional] 
+**ServiceAccountName** | Pointer to **NullableString** | Name of the service account that will be used to join the domain | [optional] 
+**ServiceAccountUid** | Pointer to **NullableString** | Service account to associate to the IdentityPool.  Used for Pure Entra ID joined catalogs. | [optional] 
 **IsSecureBrowser** | Pointer to **bool** |  | [optional] 
-**CspCustomer** | Pointer to **string** |  | [optional] 
+**CspCustomer** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewCatalogDomainModel
 
-`func NewCatalogDomainModel(domainName string, ) *CatalogDomainModel`
+`func NewCatalogDomainModel() *CatalogDomainModel`
 
 NewCatalogDomainModel instantiates a new CatalogDomainModel object
 This constructor will assign default values to properties that have it defined,
@@ -48,7 +49,22 @@ and a boolean to check if the value has been set.
 
 SetDomainName sets DomainName field to given value.
 
+### HasDomainName
 
+`func (o *CatalogDomainModel) HasDomainName() bool`
+
+HasDomainName returns a boolean if a field has been set.
+
+### SetDomainNameNil
+
+`func (o *CatalogDomainModel) SetDomainNameNil(b bool)`
+
+ SetDomainNameNil sets the value for DomainName to be an explicit nil
+
+### UnsetDomainName
+`func (o *CatalogDomainModel) UnsetDomainName()`
+
+UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
 ### GetDomainOu
 
 `func (o *CatalogDomainModel) GetDomainOu() string`
@@ -74,6 +90,16 @@ SetDomainOu sets DomainOu field to given value.
 
 HasDomainOu returns a boolean if a field has been set.
 
+### SetDomainOuNil
+
+`func (o *CatalogDomainModel) SetDomainOuNil(b bool)`
+
+ SetDomainOuNil sets the value for DomainOu to be an explicit nil
+
+### UnsetDomainOu
+`func (o *CatalogDomainModel) UnsetDomainOu()`
+
+UnsetDomainOu ensures that no value is present for DomainOu, not even an explicit nil
 ### GetServiceAccountName
 
 `func (o *CatalogDomainModel) GetServiceAccountName() string`
@@ -99,6 +125,51 @@ SetServiceAccountName sets ServiceAccountName field to given value.
 
 HasServiceAccountName returns a boolean if a field has been set.
 
+### SetServiceAccountNameNil
+
+`func (o *CatalogDomainModel) SetServiceAccountNameNil(b bool)`
+
+ SetServiceAccountNameNil sets the value for ServiceAccountName to be an explicit nil
+
+### UnsetServiceAccountName
+`func (o *CatalogDomainModel) UnsetServiceAccountName()`
+
+UnsetServiceAccountName ensures that no value is present for ServiceAccountName, not even an explicit nil
+### GetServiceAccountUid
+
+`func (o *CatalogDomainModel) GetServiceAccountUid() string`
+
+GetServiceAccountUid returns the ServiceAccountUid field if non-nil, zero value otherwise.
+
+### GetServiceAccountUidOk
+
+`func (o *CatalogDomainModel) GetServiceAccountUidOk() (*string, bool)`
+
+GetServiceAccountUidOk returns a tuple with the ServiceAccountUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceAccountUid
+
+`func (o *CatalogDomainModel) SetServiceAccountUid(v string)`
+
+SetServiceAccountUid sets ServiceAccountUid field to given value.
+
+### HasServiceAccountUid
+
+`func (o *CatalogDomainModel) HasServiceAccountUid() bool`
+
+HasServiceAccountUid returns a boolean if a field has been set.
+
+### SetServiceAccountUidNil
+
+`func (o *CatalogDomainModel) SetServiceAccountUidNil(b bool)`
+
+ SetServiceAccountUidNil sets the value for ServiceAccountUid to be an explicit nil
+
+### UnsetServiceAccountUid
+`func (o *CatalogDomainModel) UnsetServiceAccountUid()`
+
+UnsetServiceAccountUid ensures that no value is present for ServiceAccountUid, not even an explicit nil
 ### GetIsSecureBrowser
 
 `func (o *CatalogDomainModel) GetIsSecureBrowser() bool`
@@ -149,6 +220,16 @@ SetCspCustomer sets CspCustomer field to given value.
 
 HasCspCustomer returns a boolean if a field has been set.
 
+### SetCspCustomerNil
+
+`func (o *CatalogDomainModel) SetCspCustomerNil(b bool)`
+
+ SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+
+### UnsetCspCustomer
+`func (o *CatalogDomainModel) UnsetCspCustomer()`
+
+UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

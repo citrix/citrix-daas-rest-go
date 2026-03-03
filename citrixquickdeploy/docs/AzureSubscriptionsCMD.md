@@ -4,15 +4,15 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetSubscriptions**](AzureSubscriptionsCMD.md#GetSubscriptions) | **Get** /{customerId}/{siteId}/subscriptions | Returns the subscriptions that we have a known association with
+[**GetSubscriptions**](AzureSubscriptionsCMD.md#GetSubscriptions) | **Get** /{customerId}/{siteId}/subscriptions | 
 
 
 
 ## GetSubscriptions
 
-> AzureSubscriptionsModel GetSubscriptions(ctx, customerId, siteId).CitrixTransactionId(citrixTransactionId).XAZUREACCESSTOKEN(xAZUREACCESSTOKEN).XAZUREGRAPHACCESSTOKEN(xAZUREGRAPHACCESSTOKEN).XAZURETENANTID(xAZURETENANTID).XAZUREAPPCLIENTID(xAZUREAPPCLIENTID).XAZUREAPPCLIENTSECRET(xAZUREAPPCLIENTSECRET).Execute()
+> AzureSubscriptionsModel GetSubscriptions(ctx, customerId, siteId).SkipCache(skipCache).CitrixTransactionId(citrixTransactionId).XAZUREACCESSTOKEN(xAZUREACCESSTOKEN).XAZUREGRAPHACCESSTOKEN(xAZUREGRAPHACCESSTOKEN).XAZURETENANTID(xAZURETENANTID).XAZUREAPPCLIENTID(xAZUREAPPCLIENTID).XAZUREAPPCLIENTSECRET(xAZUREAPPCLIENTSECRET).Execute()
 
-Returns the subscriptions that we have a known association with
+
 
 ### Example
 
@@ -27,8 +27,9 @@ import (
 )
 
 func main() {
-    customerId := "customerId_example" // string | Specific customer id
+    customerId := "customerId_example" // string | 
     siteId := "siteId_example" // string | 
+    skipCache := true // bool |  (optional) (default to false)
     citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
     xAZUREACCESSTOKEN := "xAZUREACCESSTOKEN_example" // string | Azure Access Token. (optional)
     xAZUREGRAPHACCESSTOKEN := "xAZUREGRAPHACCESSTOKEN_example" // string | Azure Graph Access Token. (optional)
@@ -38,7 +39,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AzureSubscriptionsCMD.GetSubscriptions(context.Background(), customerId, siteId).CitrixTransactionId(citrixTransactionId).XAZUREACCESSTOKEN(xAZUREACCESSTOKEN).XAZUREGRAPHACCESSTOKEN(xAZUREGRAPHACCESSTOKEN).XAZURETENANTID(xAZURETENANTID).XAZUREAPPCLIENTID(xAZUREAPPCLIENTID).XAZUREAPPCLIENTSECRET(xAZUREAPPCLIENTSECRET).Execute()
+    resp, r, err := apiClient.AzureSubscriptionsCMD.GetSubscriptions(context.Background(), customerId, siteId).SkipCache(skipCache).CitrixTransactionId(citrixTransactionId).XAZUREACCESSTOKEN(xAZUREACCESSTOKEN).XAZUREGRAPHACCESSTOKEN(xAZUREGRAPHACCESSTOKEN).XAZURETENANTID(xAZURETENANTID).XAZUREAPPCLIENTID(xAZUREAPPCLIENTID).XAZUREAPPCLIENTSECRET(xAZUREAPPCLIENTSECRET).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AzureSubscriptionsCMD.GetSubscriptions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -54,7 +55,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**customerId** | **string** | Specific customer id | 
+**customerId** | **string** |  | 
 **siteId** | **string** |  | 
 
 ### Other Parameters
@@ -66,6 +67,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **skipCache** | **bool** |  | [default to false]
  **citrixTransactionId** | **string** | The Transaction Id. | 
  **xAZUREACCESSTOKEN** | **string** | Azure Access Token. | 
  **xAZUREGRAPHACCESSTOKEN** | **string** | Azure Graph Access Token. | 

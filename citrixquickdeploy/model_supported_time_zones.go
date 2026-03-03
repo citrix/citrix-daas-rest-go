@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &SupportedTimeZones{}
 // SupportedTimeZones struct for SupportedTimeZones
 type SupportedTimeZones struct {
 	// List of timezones supported by .Net.
-	Items []map[string]interface{} `json:"items,omitempty"`
+	Items []interface{} `json:"items,omitempty"`
 }
 
 // NewSupportedTimeZonesWithDefaults instantiates a new SupportedTimeZones object
@@ -31,10 +31,10 @@ func NewSupportedTimeZonesWithDefaults() *SupportedTimeZones {
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise.
-func (o *SupportedTimeZones) GetItems() []map[string]interface{} {
-	if o == nil || IsNil(o.Items) {
-		var ret []map[string]interface{}
+// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SupportedTimeZones) GetItems() []interface{} {
+	if o == nil {
+		var ret []interface{}
 		return ret
 	}
 	return o.Items
@@ -42,15 +42,16 @@ func (o *SupportedTimeZones) GetItems() []map[string]interface{} {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SupportedTimeZones) GetItemsOk() ([]map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SupportedTimeZones) GetItemsOk() ([]interface{}, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// SetItems gets a reference to the given []map[string]interface{} and assigns it to the Items field.
-func (o *SupportedTimeZones) SetItems(v []map[string]interface{}) {
+// SetItems gets a reference to the given []interface{} and assigns it to the Items field.
+func (o *SupportedTimeZones) SetItems(v []interface{}) {
 	o.Items = v
 }
 
@@ -64,7 +65,7 @@ func (o SupportedTimeZones) MarshalJSON() ([]byte, error) {
 
 func (o SupportedTimeZones) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Items) {
+	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
 	return toSerialize, nil

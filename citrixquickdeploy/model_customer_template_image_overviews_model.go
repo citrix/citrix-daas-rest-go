@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -58,9 +58,9 @@ func (o *CustomerTemplateImageOverviewsModel) SetItems(v []TemplateImageOverview
 	o.Items = v
 }
 
-// GetOverviews returns the Overviews field value if set, zero value otherwise.
+// GetOverviews returns the Overviews field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CustomerTemplateImageOverviewsModel) GetOverviews() []TemplateImageOverview {
-	if o == nil || IsNil(o.Overviews) {
+	if o == nil {
 		var ret []TemplateImageOverview
 		return ret
 	}
@@ -69,6 +69,7 @@ func (o *CustomerTemplateImageOverviewsModel) GetOverviews() []TemplateImageOver
 
 // GetOverviewsOk returns a tuple with the Overviews field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomerTemplateImageOverviewsModel) GetOverviewsOk() ([]TemplateImageOverview, bool) {
 	if o == nil || IsNil(o.Overviews) {
 		return nil, false
@@ -115,7 +116,7 @@ func (o CustomerTemplateImageOverviewsModel) MarshalJSON() ([]byte, error) {
 func (o CustomerTemplateImageOverviewsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["items"] = o.Items
-	if !IsNil(o.Overviews) {
+	if o.Overviews != nil {
 		toSerialize["overviews"] = o.Overviews
 	}
 	if !IsNil(o.StaleData) {

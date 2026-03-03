@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -48,6 +48,7 @@ const (
 	CATALOGOVERALLSUBSTATE_ERROR_INSUFFICIENT_DOMAIN_PERMISSIONS                CatalogOverallSubState = "ErrorInsufficientDomainPermissions"
 	CATALOGOVERALLSUBSTATE_ERROR_DOMAIN_JOIN_FAILED                             CatalogOverallSubState = "ErrorDomainJoinFailed"
 	CATALOGOVERALLSUBSTATE_ERROR_CATALOG_SUBSCRIPTION_AT_CAPACITY               CatalogOverallSubState = "ErrorCatalogSubscriptionAtCapacity"
+	CATALOGOVERALLSUBSTATE_ERROR_DOWNLOADING_SCRIPT                             CatalogOverallSubState = "ErrorDownloadingScript"
 	CATALOGOVERALLSUBSTATE_ERROR_CONNECTOR_INSTALL_FAILED                       CatalogOverallSubState = "ErrorConnectorInstallFailed"
 	CATALOGOVERALLSUBSTATE_ERROR_CONNECTOR_NOT_IN_CONNECTED_STATE               CatalogOverallSubState = "ErrorConnectorNotInConnectedState"
 	CATALOGOVERALLSUBSTATE_ERROR_CONNECTOR_INSTALL_UNKNOWN                      CatalogOverallSubState = "ErrorConnectorInstallUnknown"
@@ -128,6 +129,7 @@ var AllowedCatalogOverallSubStateEnumValues = []CatalogOverallSubState{
 	"ErrorInsufficientDomainPermissions",
 	"ErrorDomainJoinFailed",
 	"ErrorCatalogSubscriptionAtCapacity",
+	"ErrorDownloadingScript",
 	"ErrorConnectorInstallFailed",
 	"ErrorConnectorNotInConnectedState",
 	"ErrorConnectorInstallUnknown",

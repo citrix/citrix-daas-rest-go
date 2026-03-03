@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DirectoryId** | Pointer to **string** | ID of the directory | [optional] 
-**DirectoryName** | Pointer to **string** | Name of the directory | [optional] 
-**DirectoryAssignment** | Pointer to [**DirectoryAssignmentType**](DirectoryAssignmentType.md) | Indicates if the directory is assigned to the pool or a customer | [optional] 
-**AssignedCustomerId** | Pointer to **string** | ID of the assigned customer | [optional] [readonly] 
-**AssignedCustomerSiteId** | Pointer to **string** | ID of the assigned customer&#39;s site | [optional] [readonly] 
+**DirectoryId** | Pointer to **NullableString** | ID of the directory | [optional] 
+**DirectoryName** | Pointer to **NullableString** | Name of the directory | [optional] 
+**DirectoryAssignment** | Pointer to [**DirectoryAssignmentType**](DirectoryAssignmentType.md) | Indicates if the directory is assigned to the pool or a customer | [optional] [readonly] 
+**AssignedCustomerId** | Pointer to **NullableString** | ID of the assigned customer | [optional] [readonly] 
+**AssignedCustomerSiteId** | Pointer to **NullableString** | ID of the assigned customer&#39;s site | [optional] [readonly] 
 **HasAssociatedSubscriptions** | Pointer to **bool** | Indicates if the Directory is invalid because it does not have any associated subscriptions | [optional] [readonly] 
 **Subscriptions** | Pointer to [**[]SubscriptionVerificationState**](SubscriptionVerificationState.md) | List of subscriptions that have unexpected users | [optional] 
 **UnexpectedAssignments** | Pointer to [**[]AzureAssignment**](AzureAssignment.md) | List of assignments in the directory that are not expected | [optional] 
@@ -58,6 +58,16 @@ SetDirectoryId sets DirectoryId field to given value.
 
 HasDirectoryId returns a boolean if a field has been set.
 
+### SetDirectoryIdNil
+
+`func (o *DirectoryVerificationState) SetDirectoryIdNil(b bool)`
+
+ SetDirectoryIdNil sets the value for DirectoryId to be an explicit nil
+
+### UnsetDirectoryId
+`func (o *DirectoryVerificationState) UnsetDirectoryId()`
+
+UnsetDirectoryId ensures that no value is present for DirectoryId, not even an explicit nil
 ### GetDirectoryName
 
 `func (o *DirectoryVerificationState) GetDirectoryName() string`
@@ -83,6 +93,16 @@ SetDirectoryName sets DirectoryName field to given value.
 
 HasDirectoryName returns a boolean if a field has been set.
 
+### SetDirectoryNameNil
+
+`func (o *DirectoryVerificationState) SetDirectoryNameNil(b bool)`
+
+ SetDirectoryNameNil sets the value for DirectoryName to be an explicit nil
+
+### UnsetDirectoryName
+`func (o *DirectoryVerificationState) UnsetDirectoryName()`
+
+UnsetDirectoryName ensures that no value is present for DirectoryName, not even an explicit nil
 ### GetDirectoryAssignment
 
 `func (o *DirectoryVerificationState) GetDirectoryAssignment() DirectoryAssignmentType`
@@ -133,6 +153,16 @@ SetAssignedCustomerId sets AssignedCustomerId field to given value.
 
 HasAssignedCustomerId returns a boolean if a field has been set.
 
+### SetAssignedCustomerIdNil
+
+`func (o *DirectoryVerificationState) SetAssignedCustomerIdNil(b bool)`
+
+ SetAssignedCustomerIdNil sets the value for AssignedCustomerId to be an explicit nil
+
+### UnsetAssignedCustomerId
+`func (o *DirectoryVerificationState) UnsetAssignedCustomerId()`
+
+UnsetAssignedCustomerId ensures that no value is present for AssignedCustomerId, not even an explicit nil
 ### GetAssignedCustomerSiteId
 
 `func (o *DirectoryVerificationState) GetAssignedCustomerSiteId() string`
@@ -158,6 +188,16 @@ SetAssignedCustomerSiteId sets AssignedCustomerSiteId field to given value.
 
 HasAssignedCustomerSiteId returns a boolean if a field has been set.
 
+### SetAssignedCustomerSiteIdNil
+
+`func (o *DirectoryVerificationState) SetAssignedCustomerSiteIdNil(b bool)`
+
+ SetAssignedCustomerSiteIdNil sets the value for AssignedCustomerSiteId to be an explicit nil
+
+### UnsetAssignedCustomerSiteId
+`func (o *DirectoryVerificationState) UnsetAssignedCustomerSiteId()`
+
+UnsetAssignedCustomerSiteId ensures that no value is present for AssignedCustomerSiteId, not even an explicit nil
 ### GetHasAssociatedSubscriptions
 
 `func (o *DirectoryVerificationState) GetHasAssociatedSubscriptions() bool`
@@ -208,6 +248,16 @@ SetSubscriptions sets Subscriptions field to given value.
 
 HasSubscriptions returns a boolean if a field has been set.
 
+### SetSubscriptionsNil
+
+`func (o *DirectoryVerificationState) SetSubscriptionsNil(b bool)`
+
+ SetSubscriptionsNil sets the value for Subscriptions to be an explicit nil
+
+### UnsetSubscriptions
+`func (o *DirectoryVerificationState) UnsetSubscriptions()`
+
+UnsetSubscriptions ensures that no value is present for Subscriptions, not even an explicit nil
 ### GetUnexpectedAssignments
 
 `func (o *DirectoryVerificationState) GetUnexpectedAssignments() []AzureAssignment`
@@ -233,6 +283,16 @@ SetUnexpectedAssignments sets UnexpectedAssignments field to given value.
 
 HasUnexpectedAssignments returns a boolean if a field has been set.
 
+### SetUnexpectedAssignmentsNil
+
+`func (o *DirectoryVerificationState) SetUnexpectedAssignmentsNil(b bool)`
+
+ SetUnexpectedAssignmentsNil sets the value for UnexpectedAssignments to be an explicit nil
+
+### UnsetUnexpectedAssignments
+`func (o *DirectoryVerificationState) UnsetUnexpectedAssignments()`
+
+UnsetUnexpectedAssignments ensures that no value is present for UnexpectedAssignments, not even an explicit nil
 ### GetHasUnexpectedAssignments
 
 `func (o *DirectoryVerificationState) GetHasUnexpectedAssignments() bool`

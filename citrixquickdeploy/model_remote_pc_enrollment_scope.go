@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &RemotePcEnrollmentScope{}
 // RemotePcEnrollmentScope struct for RemotePcEnrollmentScope
 type RemotePcEnrollmentScope struct {
 	// The OU to include in the catalog.
-	Ou *string `json:"ou,omitempty"`
+	Ou NullableString `json:"ou,omitempty"`
 	// Indicates if the subfolders of this OU should also be included.
 	IncludeSubfolders *bool `json:"includeSubfolders,omitempty"`
 }
@@ -33,27 +33,38 @@ func NewRemotePcEnrollmentScopeWithDefaults() *RemotePcEnrollmentScope {
 	return &this
 }
 
-// GetOu returns the Ou field value if set, zero value otherwise.
+// GetOu returns the Ou field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemotePcEnrollmentScope) GetOu() string {
-	if o == nil || IsNil(o.Ou) {
+	if o == nil || IsNil(o.Ou.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Ou
+	return *o.Ou.Get()
 }
 
 // GetOuOk returns a tuple with the Ou field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemotePcEnrollmentScope) GetOuOk() (*string, bool) {
-	if o == nil || IsNil(o.Ou) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Ou, true
+	return o.Ou.Get(), o.Ou.IsSet()
 }
 
-// SetOu gets a reference to the given string and assigns it to the Ou field.
+// SetOu gets a reference to the given NullableString and assigns it to the Ou field.
 func (o *RemotePcEnrollmentScope) SetOu(v string) {
-	o.Ou = &v
+	o.Ou.Set(&v)
+}
+
+// SetOuNil sets the value for Ou to be an explicit nil
+func (o *RemotePcEnrollmentScope) SetOuNil() {
+	o.Ou.Set(nil)
+}
+
+// UnsetOu ensures that no value is present for Ou, not even an explicit nil
+func (o *RemotePcEnrollmentScope) UnsetOu() {
+	o.Ou.Unset()
 }
 
 // GetIncludeSubfolders returns the IncludeSubfolders field value if set, zero value otherwise.
@@ -89,8 +100,8 @@ func (o RemotePcEnrollmentScope) MarshalJSON() ([]byte, error) {
 
 func (o RemotePcEnrollmentScope) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Ou) {
-		toSerialize["ou"] = o.Ou
+	if o.Ou.IsSet() {
+		toSerialize["ou"] = o.Ou.Get()
 	}
 	if !IsNil(o.IncludeSubfolders) {
 		toSerialize["includeSubfolders"] = o.IncludeSubfolders

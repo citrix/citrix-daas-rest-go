@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,17 +20,17 @@ var _ MappedNullable = &CatalogStatusOverview{}
 
 // CatalogStatusOverview struct for CatalogStatusOverview
 type CatalogStatusOverview struct {
-	State               CatalogOverallState     `json:"state"`
-	SubState            *CatalogOverallSubState `json:"subState,omitempty"`
-	Warnings            []CatalogWarning        `json:"warnings,omitempty"`
-	StatusMessage       *string                 `json:"statusMessage,omitempty"`
-	CatalogErrorDetails *string                 `json:"catalogErrorDetails,omitempty"`
-	TransactionId       *string                 `json:"transactionId,omitempty"`
-	ExtraInfo           *string                 `json:"extraInfo,omitempty"`
+	State               CatalogOverallState            `json:"state"`
+	SubState            NullableCatalogOverallSubState `json:"subState,omitempty"`
+	Warnings            []CatalogWarning               `json:"warnings,omitempty"`
+	StatusMessage       NullableString                 `json:"statusMessage,omitempty"`
+	CatalogErrorDetails NullableString                 `json:"catalogErrorDetails,omitempty"`
+	TransactionId       NullableString                 `json:"transactionId,omitempty"`
+	ExtraInfo           NullableString                 `json:"extraInfo,omitempty"`
 	// The datetime when the job started
-	StartedAt *time.Time `json:"startedAt,omitempty"`
+	StartedAt NullableTime `json:"startedAt,omitempty"`
 	// Estimated total time for the job to finish
-	EstimatedTimeInMinute *int32 `json:"estimatedTimeInMinute,omitempty"`
+	EstimatedTimeInMinute NullableInt32 `json:"estimatedTimeInMinute,omitempty"`
 }
 
 // NewCatalogStatusOverviewWithDefaults instantiates a new CatalogStatusOverview object
@@ -65,32 +65,43 @@ func (o *CatalogStatusOverview) SetState(v CatalogOverallState) {
 	o.State = v
 }
 
-// GetSubState returns the SubState field value if set, zero value otherwise.
+// GetSubState returns the SubState field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogStatusOverview) GetSubState() CatalogOverallSubState {
-	if o == nil || IsNil(o.SubState) {
+	if o == nil || IsNil(o.SubState.Get()) {
 		var ret CatalogOverallSubState
 		return ret
 	}
-	return *o.SubState
+	return *o.SubState.Get()
 }
 
 // GetSubStateOk returns a tuple with the SubState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogStatusOverview) GetSubStateOk() (*CatalogOverallSubState, bool) {
-	if o == nil || IsNil(o.SubState) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubState, true
+	return o.SubState.Get(), o.SubState.IsSet()
 }
 
-// SetSubState gets a reference to the given CatalogOverallSubState and assigns it to the SubState field.
+// SetSubState gets a reference to the given NullableCatalogOverallSubState and assigns it to the SubState field.
 func (o *CatalogStatusOverview) SetSubState(v CatalogOverallSubState) {
-	o.SubState = &v
+	o.SubState.Set(&v)
 }
 
-// GetWarnings returns the Warnings field value if set, zero value otherwise.
+// SetSubStateNil sets the value for SubState to be an explicit nil
+func (o *CatalogStatusOverview) SetSubStateNil() {
+	o.SubState.Set(nil)
+}
+
+// UnsetSubState ensures that no value is present for SubState, not even an explicit nil
+func (o *CatalogStatusOverview) UnsetSubState() {
+	o.SubState.Unset()
+}
+
+// GetWarnings returns the Warnings field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogStatusOverview) GetWarnings() []CatalogWarning {
-	if o == nil || IsNil(o.Warnings) {
+	if o == nil {
 		var ret []CatalogWarning
 		return ret
 	}
@@ -99,6 +110,7 @@ func (o *CatalogStatusOverview) GetWarnings() []CatalogWarning {
 
 // GetWarningsOk returns a tuple with the Warnings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogStatusOverview) GetWarningsOk() ([]CatalogWarning, bool) {
 	if o == nil || IsNil(o.Warnings) {
 		return nil, false
@@ -111,142 +123,208 @@ func (o *CatalogStatusOverview) SetWarnings(v []CatalogWarning) {
 	o.Warnings = v
 }
 
-// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise.
+// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogStatusOverview) GetStatusMessage() string {
-	if o == nil || IsNil(o.StatusMessage) {
+	if o == nil || IsNil(o.StatusMessage.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.StatusMessage
+	return *o.StatusMessage.Get()
 }
 
 // GetStatusMessageOk returns a tuple with the StatusMessage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogStatusOverview) GetStatusMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.StatusMessage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StatusMessage, true
+	return o.StatusMessage.Get(), o.StatusMessage.IsSet()
 }
 
-// SetStatusMessage gets a reference to the given string and assigns it to the StatusMessage field.
+// SetStatusMessage gets a reference to the given NullableString and assigns it to the StatusMessage field.
 func (o *CatalogStatusOverview) SetStatusMessage(v string) {
-	o.StatusMessage = &v
+	o.StatusMessage.Set(&v)
 }
 
-// GetCatalogErrorDetails returns the CatalogErrorDetails field value if set, zero value otherwise.
+// SetStatusMessageNil sets the value for StatusMessage to be an explicit nil
+func (o *CatalogStatusOverview) SetStatusMessageNil() {
+	o.StatusMessage.Set(nil)
+}
+
+// UnsetStatusMessage ensures that no value is present for StatusMessage, not even an explicit nil
+func (o *CatalogStatusOverview) UnsetStatusMessage() {
+	o.StatusMessage.Unset()
+}
+
+// GetCatalogErrorDetails returns the CatalogErrorDetails field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogStatusOverview) GetCatalogErrorDetails() string {
-	if o == nil || IsNil(o.CatalogErrorDetails) {
+	if o == nil || IsNil(o.CatalogErrorDetails.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CatalogErrorDetails
+	return *o.CatalogErrorDetails.Get()
 }
 
 // GetCatalogErrorDetailsOk returns a tuple with the CatalogErrorDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogStatusOverview) GetCatalogErrorDetailsOk() (*string, bool) {
-	if o == nil || IsNil(o.CatalogErrorDetails) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CatalogErrorDetails, true
+	return o.CatalogErrorDetails.Get(), o.CatalogErrorDetails.IsSet()
 }
 
-// SetCatalogErrorDetails gets a reference to the given string and assigns it to the CatalogErrorDetails field.
+// SetCatalogErrorDetails gets a reference to the given NullableString and assigns it to the CatalogErrorDetails field.
 func (o *CatalogStatusOverview) SetCatalogErrorDetails(v string) {
-	o.CatalogErrorDetails = &v
+	o.CatalogErrorDetails.Set(&v)
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// SetCatalogErrorDetailsNil sets the value for CatalogErrorDetails to be an explicit nil
+func (o *CatalogStatusOverview) SetCatalogErrorDetailsNil() {
+	o.CatalogErrorDetails.Set(nil)
+}
+
+// UnsetCatalogErrorDetails ensures that no value is present for CatalogErrorDetails, not even an explicit nil
+func (o *CatalogStatusOverview) UnsetCatalogErrorDetails() {
+	o.CatalogErrorDetails.Unset()
+}
+
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogStatusOverview) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogStatusOverview) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *CatalogStatusOverview) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
 }
 
-// GetExtraInfo returns the ExtraInfo field value if set, zero value otherwise.
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *CatalogStatusOverview) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *CatalogStatusOverview) UnsetTransactionId() {
+	o.TransactionId.Unset()
+}
+
+// GetExtraInfo returns the ExtraInfo field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogStatusOverview) GetExtraInfo() string {
-	if o == nil || IsNil(o.ExtraInfo) {
+	if o == nil || IsNil(o.ExtraInfo.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ExtraInfo
+	return *o.ExtraInfo.Get()
 }
 
 // GetExtraInfoOk returns a tuple with the ExtraInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogStatusOverview) GetExtraInfoOk() (*string, bool) {
-	if o == nil || IsNil(o.ExtraInfo) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ExtraInfo, true
+	return o.ExtraInfo.Get(), o.ExtraInfo.IsSet()
 }
 
-// SetExtraInfo gets a reference to the given string and assigns it to the ExtraInfo field.
+// SetExtraInfo gets a reference to the given NullableString and assigns it to the ExtraInfo field.
 func (o *CatalogStatusOverview) SetExtraInfo(v string) {
-	o.ExtraInfo = &v
+	o.ExtraInfo.Set(&v)
 }
 
-// GetStartedAt returns the StartedAt field value if set, zero value otherwise.
+// SetExtraInfoNil sets the value for ExtraInfo to be an explicit nil
+func (o *CatalogStatusOverview) SetExtraInfoNil() {
+	o.ExtraInfo.Set(nil)
+}
+
+// UnsetExtraInfo ensures that no value is present for ExtraInfo, not even an explicit nil
+func (o *CatalogStatusOverview) UnsetExtraInfo() {
+	o.ExtraInfo.Unset()
+}
+
+// GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogStatusOverview) GetStartedAt() time.Time {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil || IsNil(o.StartedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartedAt
+	return *o.StartedAt.Get()
 }
 
 // GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogStatusOverview) GetStartedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StartedAt, true
+	return o.StartedAt.Get(), o.StartedAt.IsSet()
 }
 
-// SetStartedAt gets a reference to the given time.Time and assigns it to the StartedAt field.
+// SetStartedAt gets a reference to the given NullableTime and assigns it to the StartedAt field.
 func (o *CatalogStatusOverview) SetStartedAt(v time.Time) {
-	o.StartedAt = &v
+	o.StartedAt.Set(&v)
 }
 
-// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise.
+// SetStartedAtNil sets the value for StartedAt to be an explicit nil
+func (o *CatalogStatusOverview) SetStartedAtNil() {
+	o.StartedAt.Set(nil)
+}
+
+// UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
+func (o *CatalogStatusOverview) UnsetStartedAt() {
+	o.StartedAt.Unset()
+}
+
+// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogStatusOverview) GetEstimatedTimeInMinute() int32 {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil || IsNil(o.EstimatedTimeInMinute.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.EstimatedTimeInMinute
+	return *o.EstimatedTimeInMinute.Get()
 }
 
 // GetEstimatedTimeInMinuteOk returns a tuple with the EstimatedTimeInMinute field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogStatusOverview) GetEstimatedTimeInMinuteOk() (*int32, bool) {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EstimatedTimeInMinute, true
+	return o.EstimatedTimeInMinute.Get(), o.EstimatedTimeInMinute.IsSet()
 }
 
-// SetEstimatedTimeInMinute gets a reference to the given int32 and assigns it to the EstimatedTimeInMinute field.
+// SetEstimatedTimeInMinute gets a reference to the given NullableInt32 and assigns it to the EstimatedTimeInMinute field.
 func (o *CatalogStatusOverview) SetEstimatedTimeInMinute(v int32) {
-	o.EstimatedTimeInMinute = &v
+	o.EstimatedTimeInMinute.Set(&v)
+}
+
+// SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+func (o *CatalogStatusOverview) SetEstimatedTimeInMinuteNil() {
+	o.EstimatedTimeInMinute.Set(nil)
+}
+
+// UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
+func (o *CatalogStatusOverview) UnsetEstimatedTimeInMinute() {
+	o.EstimatedTimeInMinute.Unset()
 }
 
 func (o CatalogStatusOverview) MarshalJSON() ([]byte, error) {
@@ -260,29 +338,29 @@ func (o CatalogStatusOverview) MarshalJSON() ([]byte, error) {
 func (o CatalogStatusOverview) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["state"] = o.State
-	if !IsNil(o.SubState) {
-		toSerialize["subState"] = o.SubState
+	if o.SubState.IsSet() {
+		toSerialize["subState"] = o.SubState.Get()
 	}
-	if !IsNil(o.Warnings) {
+	if o.Warnings != nil {
 		toSerialize["warnings"] = o.Warnings
 	}
-	if !IsNil(o.StatusMessage) {
-		toSerialize["statusMessage"] = o.StatusMessage
+	if o.StatusMessage.IsSet() {
+		toSerialize["statusMessage"] = o.StatusMessage.Get()
 	}
-	if !IsNil(o.CatalogErrorDetails) {
-		toSerialize["catalogErrorDetails"] = o.CatalogErrorDetails
+	if o.CatalogErrorDetails.IsSet() {
+		toSerialize["catalogErrorDetails"] = o.CatalogErrorDetails.Get()
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
-	if !IsNil(o.ExtraInfo) {
-		toSerialize["extraInfo"] = o.ExtraInfo
+	if o.ExtraInfo.IsSet() {
+		toSerialize["extraInfo"] = o.ExtraInfo.Get()
 	}
-	if !IsNil(o.StartedAt) {
-		toSerialize["startedAt"] = o.StartedAt
+	if o.StartedAt.IsSet() {
+		toSerialize["startedAt"] = o.StartedAt.Get()
 	}
-	if !IsNil(o.EstimatedTimeInMinute) {
-		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute
+	if o.EstimatedTimeInMinute.IsSet() {
+		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute.Get()
 	}
 	return toSerialize, nil
 }

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**DeletePortForNetworkSecurityGroup**](ManagedCapacityCMD.md#DeletePortForNetworkSecurityGroup) | **Delete** /{customerId}/{siteId}/managedCapacity/resourcelocations/{resourceLocationId}/port/{port} | Perform operation to Delete Port For CMA Vnet
 [**GetAllPortsForNetworkSecurityGroup**](ManagedCapacityCMD.md#GetAllPortsForNetworkSecurityGroup) | **Get** /{customerId}/{siteId}/managedCapacity/ports | Get details of all ports in CMA VNet
 [**GetDeploymentRegions**](ManagedCapacityCMD.md#GetDeploymentRegions) | **Get** /{customerId}/{siteId}/managedCapacity/regions | Get the regions that are available for deployment by the customer
+[**GetEstimatedCreditsForPersona**](ManagedCapacityCMD.md#GetEstimatedCreditsForPersona) | **Post** /{customerId}/{siteId}/managedCapacity/personas/estimateCredits | Get estimated credits for a specific persona
 [**GetOnPremConnections**](ManagedCapacityCMD.md#GetOnPremConnections) | **Get** /{customerId}/{siteId}/managedCapacity/onPremConnections | Get the On-Prem connections configured for the customer
 [**GetOpenPortsForNetworkSecurityGroup**](ManagedCapacityCMD.md#GetOpenPortsForNetworkSecurityGroup) | **Get** /{customerId}/{siteId}/managedCapacity/resourcelocations/{resourceLocationId}/openPorts | Get list of open ports in CMA Vnet for provided resource location
 [**OpenPortForNetworkSecurityGroup**](ManagedCapacityCMD.md#OpenPortForNetworkSecurityGroup) | **Post** /{customerId}/{siteId}/managedCapacity/resourcelocations/{resourceLocationId}/port/{port}/openPort | Perform operation to Open Port For CMA Vnet
@@ -233,6 +234,81 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetEstimatedCreditsForPersona
+
+> float64 GetEstimatedCreditsForPersona(ctx, customerId, siteId).CitrixTransactionId(citrixTransactionId).EstimatePersonaCreditsRequestModel(estimatePersonaCreditsRequestModel).Execute()
+
+Get estimated credits for a specific persona
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickdeploy"
+)
+
+func main() {
+    customerId := "customerId_example" // string | 
+    siteId := "siteId_example" // string | 
+    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+    estimatePersonaCreditsRequestModel := *openapiclient.NewEstimatePersonaCreditsRequestModel() // EstimatePersonaCreditsRequestModel |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ManagedCapacityCMD.GetEstimatedCreditsForPersona(context.Background(), customerId, siteId).CitrixTransactionId(citrixTransactionId).EstimatePersonaCreditsRequestModel(estimatePersonaCreditsRequestModel).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ManagedCapacityCMD.GetEstimatedCreditsForPersona``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetEstimatedCreditsForPersona`: float64
+    fmt.Fprintf(os.Stdout, "Response from `ManagedCapacityCMD.GetEstimatedCreditsForPersona`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**customerId** | **string** |  | 
+**siteId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetEstimatedCreditsForPersonaRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **citrixTransactionId** | **string** | The Transaction Id. | 
+ **estimatePersonaCreditsRequestModel** | [**EstimatePersonaCreditsRequestModel**](EstimatePersonaCreditsRequestModel.md) |  | 
+
+### Return type
+
+**float64**
+
+### Authorization
+
+[CWSAuth](../README.md#CWSAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,105 +19,12 @@ import (
 	"strings"
 )
 
-type ManagedCapacityCMD interface {
-
-	/*
-		DeletePortForNetworkSecurityGroup Perform operation to Delete Port For CMA Vnet
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId
-		@param siteId
-		@param resourceLocationId
-		@param port
-		@return ApiDeletePortForNetworkSecurityGroupRequest
-	*/
-	DeletePortForNetworkSecurityGroup(ctx context.Context, customerId string, siteId string, resourceLocationId string, port string) ApiDeletePortForNetworkSecurityGroupRequest
-
-	// DeletePortForNetworkSecurityGroupExecute executes the request
-	DeletePortForNetworkSecurityGroupExecute(r ApiDeletePortForNetworkSecurityGroupRequest) (*http.Response, error)
-
-	/*
-		GetAllPortsForNetworkSecurityGroup Get details of all ports in CMA VNet
-
-		<b>Authorization</b> (Policy: RouteBasedMultiTenantKeyOnly)
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId
-		@param siteId
-		@return ApiGetAllPortsForNetworkSecurityGroupRequest
-	*/
-	GetAllPortsForNetworkSecurityGroup(ctx context.Context, customerId string, siteId string) ApiGetAllPortsForNetworkSecurityGroupRequest
-
-	// GetAllPortsForNetworkSecurityGroupExecute executes the request
-	//  @return VNetResourceDetails
-	GetAllPortsForNetworkSecurityGroupExecute(r ApiGetAllPortsForNetworkSecurityGroupRequest) (*VNetResourceDetails, *http.Response, error)
-
-	/*
-		GetDeploymentRegions Get the regions that are available for deployment by the customer
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId ID of the user
-		@param siteId ID of the customer's site
-		@return ApiGetDeploymentRegionsRequest
-	*/
-	GetDeploymentRegions(ctx context.Context, customerId string, siteId string) ApiGetDeploymentRegionsRequest
-
-	// GetDeploymentRegionsExecute executes the request
-	//  @return DeploymentRegionsModel
-	GetDeploymentRegionsExecute(r ApiGetDeploymentRegionsRequest) (*DeploymentRegionsModel, *http.Response, error)
-
-	/*
-		GetOnPremConnections Get the On-Prem connections configured for the customer
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId ID of the user
-		@param siteId ID of the customer's site
-		@return ApiGetOnPremConnectionsRequest
-	*/
-	GetOnPremConnections(ctx context.Context, customerId string, siteId string) ApiGetOnPremConnectionsRequest
-
-	// GetOnPremConnectionsExecute executes the request
-	//  @return OnPremConnectionsModel
-	GetOnPremConnectionsExecute(r ApiGetOnPremConnectionsRequest) (*OnPremConnectionsModel, *http.Response, error)
-
-	/*
-		GetOpenPortsForNetworkSecurityGroup Get list of open ports in CMA Vnet for provided resource location
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId
-		@param siteId
-		@param resourceLocationId
-		@return ApiGetOpenPortsForNetworkSecurityGroupRequest
-	*/
-	GetOpenPortsForNetworkSecurityGroup(ctx context.Context, customerId string, siteId string, resourceLocationId string) ApiGetOpenPortsForNetworkSecurityGroupRequest
-
-	// GetOpenPortsForNetworkSecurityGroupExecute executes the request
-	//  @return VNetResourceLocation
-	GetOpenPortsForNetworkSecurityGroupExecute(r ApiGetOpenPortsForNetworkSecurityGroupRequest) (*VNetResourceLocation, *http.Response, error)
-
-	/*
-		OpenPortForNetworkSecurityGroup Perform operation to Open Port For CMA Vnet
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId
-		@param siteId
-		@param resourceLocationId
-		@param port
-		@return ApiOpenPortForNetworkSecurityGroupRequest
-	*/
-	OpenPortForNetworkSecurityGroup(ctx context.Context, customerId string, siteId string, resourceLocationId string, port string) ApiOpenPortForNetworkSecurityGroupRequest
-
-	// OpenPortForNetworkSecurityGroupExecute executes the request
-	//  @return string
-	OpenPortForNetworkSecurityGroupExecute(r ApiOpenPortForNetworkSecurityGroupRequest) (string, *http.Response, error)
-}
-
 // ManagedCapacityCMDService ManagedCapacityCMD service
 type ManagedCapacityCMDService service
 
 type ApiDeletePortForNetworkSecurityGroupRequest struct {
 	ctx                 context.Context
-	ApiService          ManagedCapacityCMD
+	ApiService          *ManagedCapacityCMDService
 	customerId          string
 	siteId              string
 	resourceLocationId  string
@@ -243,7 +150,7 @@ func (a *ManagedCapacityCMDService) DeletePortForNetworkSecurityGroupExecute(r A
 
 type ApiGetAllPortsForNetworkSecurityGroupRequest struct {
 	ctx                 context.Context
-	ApiService          ManagedCapacityCMD
+	ApiService          *ManagedCapacityCMDService
 	customerId          string
 	siteId              string
 	citrixTransactionId *string
@@ -375,7 +282,7 @@ func (a *ManagedCapacityCMDService) GetAllPortsForNetworkSecurityGroupExecute(r 
 
 type ApiGetDeploymentRegionsRequest struct {
 	ctx                 context.Context
-	ApiService          ManagedCapacityCMD
+	ApiService          *ManagedCapacityCMDService
 	customerId          string
 	siteId              string
 	includeHidden       *bool
@@ -513,9 +420,147 @@ func (a *ManagedCapacityCMDService) GetDeploymentRegionsExecute(r ApiGetDeployme
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetEstimatedCreditsForPersonaRequest struct {
+	ctx                                context.Context
+	ApiService                         *ManagedCapacityCMDService
+	customerId                         string
+	siteId                             string
+	citrixTransactionId                *string
+	estimatePersonaCreditsRequestModel *EstimatePersonaCreditsRequestModel
+}
+
+// The Transaction Id.
+func (r ApiGetEstimatedCreditsForPersonaRequest) CitrixTransactionId(citrixTransactionId string) ApiGetEstimatedCreditsForPersonaRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+func (r ApiGetEstimatedCreditsForPersonaRequest) EstimatePersonaCreditsRequestModel(estimatePersonaCreditsRequestModel EstimatePersonaCreditsRequestModel) ApiGetEstimatedCreditsForPersonaRequest {
+	r.estimatePersonaCreditsRequestModel = &estimatePersonaCreditsRequestModel
+	return r
+}
+
+func (r ApiGetEstimatedCreditsForPersonaRequest) Execute() (float64, *http.Response, error) {
+	return r.ApiService.GetEstimatedCreditsForPersonaExecute(r)
+}
+
+/*
+GetEstimatedCreditsForPersona Get estimated credits for a specific persona
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId
+	@param siteId
+	@return ApiGetEstimatedCreditsForPersonaRequest
+*/
+func (a *ManagedCapacityCMDService) GetEstimatedCreditsForPersona(ctx context.Context, customerId string, siteId string) ApiGetEstimatedCreditsForPersonaRequest {
+	return ApiGetEstimatedCreditsForPersonaRequest{
+		ApiService: a,
+		ctx:        ctx,
+		customerId: customerId,
+		siteId:     siteId,
+	}
+}
+
+// Execute executes the request
+//
+//	@return float64
+func (a *ManagedCapacityCMDService) GetEstimatedCreditsForPersonaExecute(r ApiGetEstimatedCreditsForPersonaRequest) (float64, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue float64
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ManagedCapacityCMDService.GetEstimatedCreditsForPersona")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/{customerId}/{siteId}/managedCapacity/personas/estimateCredits"
+	localVarPath = strings.Replace(localVarPath, "{"+"customerId"+"}", url.PathEscape(parameterValueToString(r.customerId, "customerId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"siteId"+"}", url.PathEscape(parameterValueToString(r.siteId, "siteId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	// body params
+	localVarPostBody = r.estimatePersonaCreditsRequestModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["CWSAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetOnPremConnectionsRequest struct {
 	ctx                 context.Context
-	ApiService          ManagedCapacityCMD
+	ApiService          *ManagedCapacityCMDService
 	customerId          string
 	siteId              string
 	cspCustomerId       *string
@@ -675,7 +720,7 @@ func (a *ManagedCapacityCMDService) GetOnPremConnectionsExecute(r ApiGetOnPremCo
 
 type ApiGetOpenPortsForNetworkSecurityGroupRequest struct {
 	ctx                 context.Context
-	ApiService          ManagedCapacityCMD
+	ApiService          *ManagedCapacityCMDService
 	customerId          string
 	siteId              string
 	resourceLocationId  string
@@ -809,7 +854,7 @@ func (a *ManagedCapacityCMDService) GetOpenPortsForNetworkSecurityGroupExecute(r
 
 type ApiOpenPortForNetworkSecurityGroupRequest struct {
 	ctx                 context.Context
-	ApiService          ManagedCapacityCMD
+	ApiService          *ManagedCapacityCMDService
 	customerId          string
 	siteId              string
 	resourceLocationId  string

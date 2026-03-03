@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CloudAwareAppId** | Pointer to **string** | Application Id of the cloud aware app service principal added to the subscription | [optional] 
+**CloudAwareAppId** | Pointer to **NullableString** | Application Id of the cloud aware app service principal added to the subscription | [optional] 
 **AzurePoolSubscriptionDetailsList** | Pointer to [**[]AzurePoolSubscriptionDetails**](AzurePoolSubscriptionDetails.md) | Subscription details | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetCloudAwareAppId sets CloudAwareAppId field to given value.
 
 HasCloudAwareAppId returns a boolean if a field has been set.
 
+### SetCloudAwareAppIdNil
+
+`func (o *SubscriptionOnboardingStatusModel) SetCloudAwareAppIdNil(b bool)`
+
+ SetCloudAwareAppIdNil sets the value for CloudAwareAppId to be an explicit nil
+
+### UnsetCloudAwareAppId
+`func (o *SubscriptionOnboardingStatusModel) UnsetCloudAwareAppId()`
+
+UnsetCloudAwareAppId ensures that no value is present for CloudAwareAppId, not even an explicit nil
 ### GetAzurePoolSubscriptionDetailsList
 
 `func (o *SubscriptionOnboardingStatusModel) GetAzurePoolSubscriptionDetailsList() []AzurePoolSubscriptionDetails`
@@ -76,6 +86,16 @@ SetAzurePoolSubscriptionDetailsList sets AzurePoolSubscriptionDetailsList field 
 
 HasAzurePoolSubscriptionDetailsList returns a boolean if a field has been set.
 
+### SetAzurePoolSubscriptionDetailsListNil
+
+`func (o *SubscriptionOnboardingStatusModel) SetAzurePoolSubscriptionDetailsListNil(b bool)`
+
+ SetAzurePoolSubscriptionDetailsListNil sets the value for AzurePoolSubscriptionDetailsList to be an explicit nil
+
+### UnsetAzurePoolSubscriptionDetailsList
+`func (o *SubscriptionOnboardingStatusModel) UnsetAzurePoolSubscriptionDetailsList()`
+
+UnsetAzurePoolSubscriptionDetailsList ensures that no value is present for AzurePoolSubscriptionDetailsList, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

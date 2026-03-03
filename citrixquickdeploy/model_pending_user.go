@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,7 +19,7 @@ var _ MappedNullable = &PendingUser{}
 
 // PendingUser struct for PendingUser
 type PendingUser struct {
-	Upn *string `json:"upn,omitempty"`
+	Upn NullableString `json:"upn,omitempty"`
 }
 
 // NewPendingUserWithDefaults instantiates a new PendingUser object
@@ -30,27 +30,38 @@ func NewPendingUserWithDefaults() *PendingUser {
 	return &this
 }
 
-// GetUpn returns the Upn field value if set, zero value otherwise.
+// GetUpn returns the Upn field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PendingUser) GetUpn() string {
-	if o == nil || IsNil(o.Upn) {
+	if o == nil || IsNil(o.Upn.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Upn
+	return *o.Upn.Get()
 }
 
 // GetUpnOk returns a tuple with the Upn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PendingUser) GetUpnOk() (*string, bool) {
-	if o == nil || IsNil(o.Upn) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Upn, true
+	return o.Upn.Get(), o.Upn.IsSet()
 }
 
-// SetUpn gets a reference to the given string and assigns it to the Upn field.
+// SetUpn gets a reference to the given NullableString and assigns it to the Upn field.
 func (o *PendingUser) SetUpn(v string) {
-	o.Upn = &v
+	o.Upn.Set(&v)
+}
+
+// SetUpnNil sets the value for Upn to be an explicit nil
+func (o *PendingUser) SetUpnNil() {
+	o.Upn.Set(nil)
+}
+
+// UnsetUpn ensures that no value is present for Upn, not even an explicit nil
+func (o *PendingUser) UnsetUpn() {
+	o.Upn.Unset()
 }
 
 func (o PendingUser) MarshalJSON() ([]byte, error) {
@@ -63,8 +74,8 @@ func (o PendingUser) MarshalJSON() ([]byte, error) {
 
 func (o PendingUser) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Upn) {
-		toSerialize["upn"] = o.Upn
+	if o.Upn.IsSet() {
+		toSerialize["upn"] = o.Upn.Get()
 	}
 	return toSerialize, nil
 }

@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **ForceDelete** | Pointer to **bool** | Indicates that we want to bypass processing checks on deploy and force delete the catalog | [optional] 
 **DeleteVm** | Pointer to **bool** | Specifies whether to delete virtual machines that were provisioned in the machine catalog | [optional] 
 **DeleteResourceLocationIfUnused** | Pointer to **bool** | Indicates if the Resource Location associated with the catalog should be removed (along with any Catalog Service deployed connectors)  if this is the last catalog to use the Resource Location | [optional] 
-**ServiceAccount** | Pointer to **string** | Service account to perform delete with | [optional] 
-**ServiceAccountPassword** | Pointer to **string** | Customer&#39;s domain password | [optional] 
+**ServiceAccount** | Pointer to **NullableString** | Service account to perform delete with | [optional] 
+**ServiceAccountPassword** | Pointer to **NullableString** | Customer&#39;s domain password | [optional] 
 
 ## Methods
 
@@ -129,6 +129,16 @@ SetServiceAccount sets ServiceAccount field to given value.
 
 HasServiceAccount returns a boolean if a field has been set.
 
+### SetServiceAccountNil
+
+`func (o *DeleteCatalogModel) SetServiceAccountNil(b bool)`
+
+ SetServiceAccountNil sets the value for ServiceAccount to be an explicit nil
+
+### UnsetServiceAccount
+`func (o *DeleteCatalogModel) UnsetServiceAccount()`
+
+UnsetServiceAccount ensures that no value is present for ServiceAccount, not even an explicit nil
 ### GetServiceAccountPassword
 
 `func (o *DeleteCatalogModel) GetServiceAccountPassword() string`
@@ -154,6 +164,16 @@ SetServiceAccountPassword sets ServiceAccountPassword field to given value.
 
 HasServiceAccountPassword returns a boolean if a field has been set.
 
+### SetServiceAccountPasswordNil
+
+`func (o *DeleteCatalogModel) SetServiceAccountPasswordNil(b bool)`
+
+ SetServiceAccountPasswordNil sets the value for ServiceAccountPassword to be an explicit nil
+
+### UnsetServiceAccountPassword
+`func (o *DeleteCatalogModel) UnsetServiceAccountPassword()`
+
+UnsetServiceAccountPassword ensures that no value is present for ServiceAccountPassword, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

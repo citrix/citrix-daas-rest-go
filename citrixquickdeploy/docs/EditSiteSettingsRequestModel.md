@@ -4,19 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UseVerticalScalingForRdsLaunches** | Pointer to **bool** | Determines whether to use vertical scaling when considering RDS machines for launches.    Vertical scaling would saturate machines in the current pool rather than    send sessions to the least loaded machines.    This would be a trade in performance vs. cost, where vertical scaling would be less costly. | [optional] 
-**DnsResolutionEnabled** | Pointer to **bool** | Changes whether ICA files returned by a broker service to    a user device contain the numeric IP address or the DNS name    of the desktop machine to which a session should be established. | [optional] 
-**TrustRequestsSentToTheXmlServicePortEnabled** | Pointer to **bool** | Changes whether the XML Service (as used by Storefront)    implicitly trusts the originator of requests it receives,    or whether it fully authenticates them. | [optional] 
-**WebUiPolicySetEnabled** | Pointer to **bool** | Determine whether the policy set in web UI is enabled or not | [optional] 
-**ConsoleInactivityTimeoutMinutes** | Pointer to **int32** | The max number of minutes that console can be inactive. | [optional] 
-**SupportedAuthenticators** | Pointer to [**Authenticator**](Authenticator.md) | Applicable only for On-Premise.    Determine the supported authentication methods. | [optional] 
-**ShowSecurityBannerOnLoginPage** | Pointer to **bool** | Applicable only for On-Premise.    Indicate whether to display security banner on the login page. | [optional] 
-**SecurityBannerOnLoginPage** | Pointer to **string** | Applicable only for On-Premise.    The custom security banner on the login page, max length is 5000. | [optional] 
-**ShowConnectedControllerOnLoginPage** | Pointer to **bool** | Applicable only for On-Premise.    Indicate whether to display the DDC used for the current Studio session on the login page. | [optional] 
+**UseVerticalScalingForRdsLaunches** | Pointer to **NullableBool** | Determines whether to use vertical scaling when considering RDS machines for launches.    Vertical scaling would saturate machines in the current pool rather than    send sessions to the least loaded machines.    This would be a trade in performance vs. cost, where vertical scaling would be less costly. | [optional] 
+**DnsResolutionEnabled** | Pointer to **NullableBool** | Changes whether ICA files returned by a broker service to    a user device contain the numeric IP address or the DNS name    of the desktop machine to which a session should be established. | [optional] 
+**TrustRequestsSentToTheXmlServicePortEnabled** | Pointer to **NullableBool** | Changes whether the XML Service (as used by Storefront)    implicitly trusts the originator of requests it receives,    or whether it fully authenticates them. | [optional] 
+**WebUiPolicySetEnabled** | Pointer to **NullableBool** | Determine whether the policy set in web UI is enabled or not | [optional] 
+**ConsoleInactivityTimeoutMinutes** | Pointer to **NullableInt32** | The max number of minutes that console can be inactive. | [optional] 
+**SupportedAuthenticators** | Pointer to [**NullableAuthenticator**](Authenticator.md) | Applicable only for On-Premise.    Determine the supported authentication methods. | [optional] 
+**ShowSecurityBannerOnLoginPage** | Pointer to **NullableBool** | Applicable only for On-Premise.    Indicate whether to display security banner on the login page. | [optional] 
+**SecurityBannerOnLoginPage** | Pointer to **NullableString** | Applicable only for On-Premise.    The custom security banner on the login page, max length is 5000. | [optional] 
+**ShowConnectedControllerOnLoginPage** | Pointer to **NullableBool** | Applicable only for On-Premise.    Indicate whether to display the DDC used for the current Studio session on the login page. | [optional] 
 **AllowedCorsOriginsForIwa** | Pointer to **[]string** | Applicable only for On-Premise.    List of origins allowed to make cross-origin requests for Integrated Windows Authentication. | [optional] 
 **MultiSites** | Pointer to [**[]MultiSiteModel**](MultiSiteModel.md) | Applicable only for On-Premise.    Multiple sites configuration. | [optional] 
-**DefaultDomain** | Pointer to **string** | The default domain to be used in the login page. | [optional] 
-**MultiTenantServicesAccess** | Pointer to [**MultiTenantServicesAccessModel**](MultiTenantServicesAccessModel.md) | Cloud Services access to DaaS. | [optional] 
+**DefaultDomain** | Pointer to **NullableString** | The default domain to be used in the login page. | [optional] 
+**MultiTenantServicesAccess** | Pointer to [**NullableMultiTenantServicesAccessModel**](MultiTenantServicesAccessModel.md) | Cloud Services access to DaaS. | [optional] 
+**AotSetting** | Pointer to [**NullableEditAotSettingRequestModel**](EditAotSettingRequestModel.md) |  | [optional] 
+**EntraIdSetting** | Pointer to [**NullableEntraIdSettingModel**](EntraIdSettingModel.md) | Entra ID settings. | [optional] 
 
 ## Methods
 
@@ -62,6 +64,16 @@ SetUseVerticalScalingForRdsLaunches sets UseVerticalScalingForRdsLaunches field 
 
 HasUseVerticalScalingForRdsLaunches returns a boolean if a field has been set.
 
+### SetUseVerticalScalingForRdsLaunchesNil
+
+`func (o *EditSiteSettingsRequestModel) SetUseVerticalScalingForRdsLaunchesNil(b bool)`
+
+ SetUseVerticalScalingForRdsLaunchesNil sets the value for UseVerticalScalingForRdsLaunches to be an explicit nil
+
+### UnsetUseVerticalScalingForRdsLaunches
+`func (o *EditSiteSettingsRequestModel) UnsetUseVerticalScalingForRdsLaunches()`
+
+UnsetUseVerticalScalingForRdsLaunches ensures that no value is present for UseVerticalScalingForRdsLaunches, not even an explicit nil
 ### GetDnsResolutionEnabled
 
 `func (o *EditSiteSettingsRequestModel) GetDnsResolutionEnabled() bool`
@@ -87,6 +99,16 @@ SetDnsResolutionEnabled sets DnsResolutionEnabled field to given value.
 
 HasDnsResolutionEnabled returns a boolean if a field has been set.
 
+### SetDnsResolutionEnabledNil
+
+`func (o *EditSiteSettingsRequestModel) SetDnsResolutionEnabledNil(b bool)`
+
+ SetDnsResolutionEnabledNil sets the value for DnsResolutionEnabled to be an explicit nil
+
+### UnsetDnsResolutionEnabled
+`func (o *EditSiteSettingsRequestModel) UnsetDnsResolutionEnabled()`
+
+UnsetDnsResolutionEnabled ensures that no value is present for DnsResolutionEnabled, not even an explicit nil
 ### GetTrustRequestsSentToTheXmlServicePortEnabled
 
 `func (o *EditSiteSettingsRequestModel) GetTrustRequestsSentToTheXmlServicePortEnabled() bool`
@@ -112,6 +134,16 @@ SetTrustRequestsSentToTheXmlServicePortEnabled sets TrustRequestsSentToTheXmlSer
 
 HasTrustRequestsSentToTheXmlServicePortEnabled returns a boolean if a field has been set.
 
+### SetTrustRequestsSentToTheXmlServicePortEnabledNil
+
+`func (o *EditSiteSettingsRequestModel) SetTrustRequestsSentToTheXmlServicePortEnabledNil(b bool)`
+
+ SetTrustRequestsSentToTheXmlServicePortEnabledNil sets the value for TrustRequestsSentToTheXmlServicePortEnabled to be an explicit nil
+
+### UnsetTrustRequestsSentToTheXmlServicePortEnabled
+`func (o *EditSiteSettingsRequestModel) UnsetTrustRequestsSentToTheXmlServicePortEnabled()`
+
+UnsetTrustRequestsSentToTheXmlServicePortEnabled ensures that no value is present for TrustRequestsSentToTheXmlServicePortEnabled, not even an explicit nil
 ### GetWebUiPolicySetEnabled
 
 `func (o *EditSiteSettingsRequestModel) GetWebUiPolicySetEnabled() bool`
@@ -137,6 +169,16 @@ SetWebUiPolicySetEnabled sets WebUiPolicySetEnabled field to given value.
 
 HasWebUiPolicySetEnabled returns a boolean if a field has been set.
 
+### SetWebUiPolicySetEnabledNil
+
+`func (o *EditSiteSettingsRequestModel) SetWebUiPolicySetEnabledNil(b bool)`
+
+ SetWebUiPolicySetEnabledNil sets the value for WebUiPolicySetEnabled to be an explicit nil
+
+### UnsetWebUiPolicySetEnabled
+`func (o *EditSiteSettingsRequestModel) UnsetWebUiPolicySetEnabled()`
+
+UnsetWebUiPolicySetEnabled ensures that no value is present for WebUiPolicySetEnabled, not even an explicit nil
 ### GetConsoleInactivityTimeoutMinutes
 
 `func (o *EditSiteSettingsRequestModel) GetConsoleInactivityTimeoutMinutes() int32`
@@ -162,6 +204,16 @@ SetConsoleInactivityTimeoutMinutes sets ConsoleInactivityTimeoutMinutes field to
 
 HasConsoleInactivityTimeoutMinutes returns a boolean if a field has been set.
 
+### SetConsoleInactivityTimeoutMinutesNil
+
+`func (o *EditSiteSettingsRequestModel) SetConsoleInactivityTimeoutMinutesNil(b bool)`
+
+ SetConsoleInactivityTimeoutMinutesNil sets the value for ConsoleInactivityTimeoutMinutes to be an explicit nil
+
+### UnsetConsoleInactivityTimeoutMinutes
+`func (o *EditSiteSettingsRequestModel) UnsetConsoleInactivityTimeoutMinutes()`
+
+UnsetConsoleInactivityTimeoutMinutes ensures that no value is present for ConsoleInactivityTimeoutMinutes, not even an explicit nil
 ### GetSupportedAuthenticators
 
 `func (o *EditSiteSettingsRequestModel) GetSupportedAuthenticators() Authenticator`
@@ -187,6 +239,16 @@ SetSupportedAuthenticators sets SupportedAuthenticators field to given value.
 
 HasSupportedAuthenticators returns a boolean if a field has been set.
 
+### SetSupportedAuthenticatorsNil
+
+`func (o *EditSiteSettingsRequestModel) SetSupportedAuthenticatorsNil(b bool)`
+
+ SetSupportedAuthenticatorsNil sets the value for SupportedAuthenticators to be an explicit nil
+
+### UnsetSupportedAuthenticators
+`func (o *EditSiteSettingsRequestModel) UnsetSupportedAuthenticators()`
+
+UnsetSupportedAuthenticators ensures that no value is present for SupportedAuthenticators, not even an explicit nil
 ### GetShowSecurityBannerOnLoginPage
 
 `func (o *EditSiteSettingsRequestModel) GetShowSecurityBannerOnLoginPage() bool`
@@ -212,6 +274,16 @@ SetShowSecurityBannerOnLoginPage sets ShowSecurityBannerOnLoginPage field to giv
 
 HasShowSecurityBannerOnLoginPage returns a boolean if a field has been set.
 
+### SetShowSecurityBannerOnLoginPageNil
+
+`func (o *EditSiteSettingsRequestModel) SetShowSecurityBannerOnLoginPageNil(b bool)`
+
+ SetShowSecurityBannerOnLoginPageNil sets the value for ShowSecurityBannerOnLoginPage to be an explicit nil
+
+### UnsetShowSecurityBannerOnLoginPage
+`func (o *EditSiteSettingsRequestModel) UnsetShowSecurityBannerOnLoginPage()`
+
+UnsetShowSecurityBannerOnLoginPage ensures that no value is present for ShowSecurityBannerOnLoginPage, not even an explicit nil
 ### GetSecurityBannerOnLoginPage
 
 `func (o *EditSiteSettingsRequestModel) GetSecurityBannerOnLoginPage() string`
@@ -237,6 +309,16 @@ SetSecurityBannerOnLoginPage sets SecurityBannerOnLoginPage field to given value
 
 HasSecurityBannerOnLoginPage returns a boolean if a field has been set.
 
+### SetSecurityBannerOnLoginPageNil
+
+`func (o *EditSiteSettingsRequestModel) SetSecurityBannerOnLoginPageNil(b bool)`
+
+ SetSecurityBannerOnLoginPageNil sets the value for SecurityBannerOnLoginPage to be an explicit nil
+
+### UnsetSecurityBannerOnLoginPage
+`func (o *EditSiteSettingsRequestModel) UnsetSecurityBannerOnLoginPage()`
+
+UnsetSecurityBannerOnLoginPage ensures that no value is present for SecurityBannerOnLoginPage, not even an explicit nil
 ### GetShowConnectedControllerOnLoginPage
 
 `func (o *EditSiteSettingsRequestModel) GetShowConnectedControllerOnLoginPage() bool`
@@ -262,6 +344,16 @@ SetShowConnectedControllerOnLoginPage sets ShowConnectedControllerOnLoginPage fi
 
 HasShowConnectedControllerOnLoginPage returns a boolean if a field has been set.
 
+### SetShowConnectedControllerOnLoginPageNil
+
+`func (o *EditSiteSettingsRequestModel) SetShowConnectedControllerOnLoginPageNil(b bool)`
+
+ SetShowConnectedControllerOnLoginPageNil sets the value for ShowConnectedControllerOnLoginPage to be an explicit nil
+
+### UnsetShowConnectedControllerOnLoginPage
+`func (o *EditSiteSettingsRequestModel) UnsetShowConnectedControllerOnLoginPage()`
+
+UnsetShowConnectedControllerOnLoginPage ensures that no value is present for ShowConnectedControllerOnLoginPage, not even an explicit nil
 ### GetAllowedCorsOriginsForIwa
 
 `func (o *EditSiteSettingsRequestModel) GetAllowedCorsOriginsForIwa() []string`
@@ -287,6 +379,16 @@ SetAllowedCorsOriginsForIwa sets AllowedCorsOriginsForIwa field to given value.
 
 HasAllowedCorsOriginsForIwa returns a boolean if a field has been set.
 
+### SetAllowedCorsOriginsForIwaNil
+
+`func (o *EditSiteSettingsRequestModel) SetAllowedCorsOriginsForIwaNil(b bool)`
+
+ SetAllowedCorsOriginsForIwaNil sets the value for AllowedCorsOriginsForIwa to be an explicit nil
+
+### UnsetAllowedCorsOriginsForIwa
+`func (o *EditSiteSettingsRequestModel) UnsetAllowedCorsOriginsForIwa()`
+
+UnsetAllowedCorsOriginsForIwa ensures that no value is present for AllowedCorsOriginsForIwa, not even an explicit nil
 ### GetMultiSites
 
 `func (o *EditSiteSettingsRequestModel) GetMultiSites() []MultiSiteModel`
@@ -312,6 +414,16 @@ SetMultiSites sets MultiSites field to given value.
 
 HasMultiSites returns a boolean if a field has been set.
 
+### SetMultiSitesNil
+
+`func (o *EditSiteSettingsRequestModel) SetMultiSitesNil(b bool)`
+
+ SetMultiSitesNil sets the value for MultiSites to be an explicit nil
+
+### UnsetMultiSites
+`func (o *EditSiteSettingsRequestModel) UnsetMultiSites()`
+
+UnsetMultiSites ensures that no value is present for MultiSites, not even an explicit nil
 ### GetDefaultDomain
 
 `func (o *EditSiteSettingsRequestModel) GetDefaultDomain() string`
@@ -337,6 +449,16 @@ SetDefaultDomain sets DefaultDomain field to given value.
 
 HasDefaultDomain returns a boolean if a field has been set.
 
+### SetDefaultDomainNil
+
+`func (o *EditSiteSettingsRequestModel) SetDefaultDomainNil(b bool)`
+
+ SetDefaultDomainNil sets the value for DefaultDomain to be an explicit nil
+
+### UnsetDefaultDomain
+`func (o *EditSiteSettingsRequestModel) UnsetDefaultDomain()`
+
+UnsetDefaultDomain ensures that no value is present for DefaultDomain, not even an explicit nil
 ### GetMultiTenantServicesAccess
 
 `func (o *EditSiteSettingsRequestModel) GetMultiTenantServicesAccess() MultiTenantServicesAccessModel`
@@ -362,6 +484,86 @@ SetMultiTenantServicesAccess sets MultiTenantServicesAccess field to given value
 
 HasMultiTenantServicesAccess returns a boolean if a field has been set.
 
+### SetMultiTenantServicesAccessNil
+
+`func (o *EditSiteSettingsRequestModel) SetMultiTenantServicesAccessNil(b bool)`
+
+ SetMultiTenantServicesAccessNil sets the value for MultiTenantServicesAccess to be an explicit nil
+
+### UnsetMultiTenantServicesAccess
+`func (o *EditSiteSettingsRequestModel) UnsetMultiTenantServicesAccess()`
+
+UnsetMultiTenantServicesAccess ensures that no value is present for MultiTenantServicesAccess, not even an explicit nil
+### GetAotSetting
+
+`func (o *EditSiteSettingsRequestModel) GetAotSetting() EditAotSettingRequestModel`
+
+GetAotSetting returns the AotSetting field if non-nil, zero value otherwise.
+
+### GetAotSettingOk
+
+`func (o *EditSiteSettingsRequestModel) GetAotSettingOk() (*EditAotSettingRequestModel, bool)`
+
+GetAotSettingOk returns a tuple with the AotSetting field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAotSetting
+
+`func (o *EditSiteSettingsRequestModel) SetAotSetting(v EditAotSettingRequestModel)`
+
+SetAotSetting sets AotSetting field to given value.
+
+### HasAotSetting
+
+`func (o *EditSiteSettingsRequestModel) HasAotSetting() bool`
+
+HasAotSetting returns a boolean if a field has been set.
+
+### SetAotSettingNil
+
+`func (o *EditSiteSettingsRequestModel) SetAotSettingNil(b bool)`
+
+ SetAotSettingNil sets the value for AotSetting to be an explicit nil
+
+### UnsetAotSetting
+`func (o *EditSiteSettingsRequestModel) UnsetAotSetting()`
+
+UnsetAotSetting ensures that no value is present for AotSetting, not even an explicit nil
+### GetEntraIdSetting
+
+`func (o *EditSiteSettingsRequestModel) GetEntraIdSetting() EntraIdSettingModel`
+
+GetEntraIdSetting returns the EntraIdSetting field if non-nil, zero value otherwise.
+
+### GetEntraIdSettingOk
+
+`func (o *EditSiteSettingsRequestModel) GetEntraIdSettingOk() (*EntraIdSettingModel, bool)`
+
+GetEntraIdSettingOk returns a tuple with the EntraIdSetting field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEntraIdSetting
+
+`func (o *EditSiteSettingsRequestModel) SetEntraIdSetting(v EntraIdSettingModel)`
+
+SetEntraIdSetting sets EntraIdSetting field to given value.
+
+### HasEntraIdSetting
+
+`func (o *EditSiteSettingsRequestModel) HasEntraIdSetting() bool`
+
+HasEntraIdSetting returns a boolean if a field has been set.
+
+### SetEntraIdSettingNil
+
+`func (o *EditSiteSettingsRequestModel) SetEntraIdSettingNil(b bool)`
+
+ SetEntraIdSettingNil sets the value for EntraIdSetting to be an explicit nil
+
+### UnsetEntraIdSetting
+`func (o *EditSiteSettingsRequestModel) UnsetEntraIdSetting()`
+
+UnsetEntraIdSetting ensures that no value is present for EntraIdSetting, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

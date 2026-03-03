@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AddCatalog** | Pointer to [**AddCitrixManagedCatalogModel**](AddCitrixManagedCatalogModel.md) |  | [optional] 
-**AddCatalogOnPremConnectivity** | Pointer to [**CatalogOnPremConnectivityModel**](CatalogOnPremConnectivityModel.md) |  | [optional] 
-**AddCatalogDomain** | Pointer to [**CatalogDomainModel**](CatalogDomainModel.md) |  | [optional] 
-**AddCatalogResourceLocation** | Pointer to [**CatalogResourceLocationConfiguration**](CatalogResourceLocationConfiguration.md) |  | [optional] 
-**AddCatalogImage** | Pointer to [**CatalogTemplateImageModel**](CatalogTemplateImageModel.md) |  | [optional] 
-**AddCatalogCapacity** | Pointer to [**CatalogCapacitySettingsModel**](CatalogCapacitySettingsModel.md) |  | [optional] 
-**DeploySecrets** | Pointer to [**DeploySecretsModel**](DeploySecretsModel.md) | Only needed for vnet peered/domain joined catalogs | [optional] 
-**CspCustomerId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
-**CspSiteId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
-**ManagedSubscriptionId** | Pointer to **string** | ID of the managed subscription the peering should be added to. | [optional] 
+**AddCatalog** | Pointer to [**NullableAddCitrixManagedCatalogModel**](AddCitrixManagedCatalogModel.md) |  | [optional] 
+**AddCatalogOnPremConnectivity** | Pointer to [**NullableCatalogOnPremConnectivityModel**](CatalogOnPremConnectivityModel.md) |  | [optional] 
+**AddCatalogDomain** | Pointer to [**NullableCatalogDomainModel**](CatalogDomainModel.md) |  | [optional] 
+**AddCatalogResourceLocation** | Pointer to [**NullableCatalogResourceLocationConfiguration**](CatalogResourceLocationConfiguration.md) |  | [optional] 
+**AddCatalogImage** | Pointer to [**NullableCatalogTemplateImageModel**](CatalogTemplateImageModel.md) |  | [optional] 
+**AddCatalogCapacity** | Pointer to [**NullableCatalogCapacitySettingsModel**](CatalogCapacitySettingsModel.md) |  | [optional] 
+**DeploySecrets** | Pointer to [**NullableDeploySecretsModel**](DeploySecretsModel.md) | Only needed for vnet peered/domain joined catalogs | [optional] 
+**CspCustomerId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**CspSiteId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**ManagedSubscriptionId** | Pointer to **NullableString** | ID of the managed subscription the peering should be added to. | [optional] 
 **SetDefault** | Pointer to **bool** |  | [optional] 
 **PendingCitrixManagedUsers** | Pointer to [**[]NewAzureADUser**](NewAzureADUser.md) |  | [optional] 
-**PendingUsers** | Pointer to [**PendingUsersModel**](PendingUsersModel.md) |  | [optional] 
-**WbcConfig** | Pointer to [**WbcConfig**](WbcConfig.md) | Write back cache (MCS IO optimization) config | [optional] 
+**PendingUsers** | Pointer to [**NullablePendingUsersModel**](PendingUsersModel.md) |  | [optional] 
+**WbcConfig** | Pointer to [**NullableWbcConfig**](WbcConfig.md) | Write back cache (MCS IO optimization) config | [optional] 
 
 ## Methods
 
@@ -63,6 +63,16 @@ SetAddCatalog sets AddCatalog field to given value.
 
 HasAddCatalog returns a boolean if a field has been set.
 
+### SetAddCatalogNil
+
+`func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogNil(b bool)`
+
+ SetAddCatalogNil sets the value for AddCatalog to be an explicit nil
+
+### UnsetAddCatalog
+`func (o *CitrixManagedCatalogConfigDeployModel) UnsetAddCatalog()`
+
+UnsetAddCatalog ensures that no value is present for AddCatalog, not even an explicit nil
 ### GetAddCatalogOnPremConnectivity
 
 `func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogOnPremConnectivity() CatalogOnPremConnectivityModel`
@@ -88,6 +98,16 @@ SetAddCatalogOnPremConnectivity sets AddCatalogOnPremConnectivity field to given
 
 HasAddCatalogOnPremConnectivity returns a boolean if a field has been set.
 
+### SetAddCatalogOnPremConnectivityNil
+
+`func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogOnPremConnectivityNil(b bool)`
+
+ SetAddCatalogOnPremConnectivityNil sets the value for AddCatalogOnPremConnectivity to be an explicit nil
+
+### UnsetAddCatalogOnPremConnectivity
+`func (o *CitrixManagedCatalogConfigDeployModel) UnsetAddCatalogOnPremConnectivity()`
+
+UnsetAddCatalogOnPremConnectivity ensures that no value is present for AddCatalogOnPremConnectivity, not even an explicit nil
 ### GetAddCatalogDomain
 
 `func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogDomain() CatalogDomainModel`
@@ -113,6 +133,16 @@ SetAddCatalogDomain sets AddCatalogDomain field to given value.
 
 HasAddCatalogDomain returns a boolean if a field has been set.
 
+### SetAddCatalogDomainNil
+
+`func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogDomainNil(b bool)`
+
+ SetAddCatalogDomainNil sets the value for AddCatalogDomain to be an explicit nil
+
+### UnsetAddCatalogDomain
+`func (o *CitrixManagedCatalogConfigDeployModel) UnsetAddCatalogDomain()`
+
+UnsetAddCatalogDomain ensures that no value is present for AddCatalogDomain, not even an explicit nil
 ### GetAddCatalogResourceLocation
 
 `func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogResourceLocation() CatalogResourceLocationConfiguration`
@@ -138,6 +168,16 @@ SetAddCatalogResourceLocation sets AddCatalogResourceLocation field to given val
 
 HasAddCatalogResourceLocation returns a boolean if a field has been set.
 
+### SetAddCatalogResourceLocationNil
+
+`func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogResourceLocationNil(b bool)`
+
+ SetAddCatalogResourceLocationNil sets the value for AddCatalogResourceLocation to be an explicit nil
+
+### UnsetAddCatalogResourceLocation
+`func (o *CitrixManagedCatalogConfigDeployModel) UnsetAddCatalogResourceLocation()`
+
+UnsetAddCatalogResourceLocation ensures that no value is present for AddCatalogResourceLocation, not even an explicit nil
 ### GetAddCatalogImage
 
 `func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogImage() CatalogTemplateImageModel`
@@ -163,6 +203,16 @@ SetAddCatalogImage sets AddCatalogImage field to given value.
 
 HasAddCatalogImage returns a boolean if a field has been set.
 
+### SetAddCatalogImageNil
+
+`func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogImageNil(b bool)`
+
+ SetAddCatalogImageNil sets the value for AddCatalogImage to be an explicit nil
+
+### UnsetAddCatalogImage
+`func (o *CitrixManagedCatalogConfigDeployModel) UnsetAddCatalogImage()`
+
+UnsetAddCatalogImage ensures that no value is present for AddCatalogImage, not even an explicit nil
 ### GetAddCatalogCapacity
 
 `func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogCapacity() CatalogCapacitySettingsModel`
@@ -188,6 +238,16 @@ SetAddCatalogCapacity sets AddCatalogCapacity field to given value.
 
 HasAddCatalogCapacity returns a boolean if a field has been set.
 
+### SetAddCatalogCapacityNil
+
+`func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogCapacityNil(b bool)`
+
+ SetAddCatalogCapacityNil sets the value for AddCatalogCapacity to be an explicit nil
+
+### UnsetAddCatalogCapacity
+`func (o *CitrixManagedCatalogConfigDeployModel) UnsetAddCatalogCapacity()`
+
+UnsetAddCatalogCapacity ensures that no value is present for AddCatalogCapacity, not even an explicit nil
 ### GetDeploySecrets
 
 `func (o *CitrixManagedCatalogConfigDeployModel) GetDeploySecrets() DeploySecretsModel`
@@ -213,6 +273,16 @@ SetDeploySecrets sets DeploySecrets field to given value.
 
 HasDeploySecrets returns a boolean if a field has been set.
 
+### SetDeploySecretsNil
+
+`func (o *CitrixManagedCatalogConfigDeployModel) SetDeploySecretsNil(b bool)`
+
+ SetDeploySecretsNil sets the value for DeploySecrets to be an explicit nil
+
+### UnsetDeploySecrets
+`func (o *CitrixManagedCatalogConfigDeployModel) UnsetDeploySecrets()`
+
+UnsetDeploySecrets ensures that no value is present for DeploySecrets, not even an explicit nil
 ### GetCspCustomerId
 
 `func (o *CitrixManagedCatalogConfigDeployModel) GetCspCustomerId() string`
@@ -238,6 +308,16 @@ SetCspCustomerId sets CspCustomerId field to given value.
 
 HasCspCustomerId returns a boolean if a field has been set.
 
+### SetCspCustomerIdNil
+
+`func (o *CitrixManagedCatalogConfigDeployModel) SetCspCustomerIdNil(b bool)`
+
+ SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+
+### UnsetCspCustomerId
+`func (o *CitrixManagedCatalogConfigDeployModel) UnsetCspCustomerId()`
+
+UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
 ### GetCspSiteId
 
 `func (o *CitrixManagedCatalogConfigDeployModel) GetCspSiteId() string`
@@ -263,6 +343,16 @@ SetCspSiteId sets CspSiteId field to given value.
 
 HasCspSiteId returns a boolean if a field has been set.
 
+### SetCspSiteIdNil
+
+`func (o *CitrixManagedCatalogConfigDeployModel) SetCspSiteIdNil(b bool)`
+
+ SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+
+### UnsetCspSiteId
+`func (o *CitrixManagedCatalogConfigDeployModel) UnsetCspSiteId()`
+
+UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
 ### GetManagedSubscriptionId
 
 `func (o *CitrixManagedCatalogConfigDeployModel) GetManagedSubscriptionId() string`
@@ -288,6 +378,16 @@ SetManagedSubscriptionId sets ManagedSubscriptionId field to given value.
 
 HasManagedSubscriptionId returns a boolean if a field has been set.
 
+### SetManagedSubscriptionIdNil
+
+`func (o *CitrixManagedCatalogConfigDeployModel) SetManagedSubscriptionIdNil(b bool)`
+
+ SetManagedSubscriptionIdNil sets the value for ManagedSubscriptionId to be an explicit nil
+
+### UnsetManagedSubscriptionId
+`func (o *CitrixManagedCatalogConfigDeployModel) UnsetManagedSubscriptionId()`
+
+UnsetManagedSubscriptionId ensures that no value is present for ManagedSubscriptionId, not even an explicit nil
 ### GetSetDefault
 
 `func (o *CitrixManagedCatalogConfigDeployModel) GetSetDefault() bool`
@@ -338,6 +438,16 @@ SetPendingCitrixManagedUsers sets PendingCitrixManagedUsers field to given value
 
 HasPendingCitrixManagedUsers returns a boolean if a field has been set.
 
+### SetPendingCitrixManagedUsersNil
+
+`func (o *CitrixManagedCatalogConfigDeployModel) SetPendingCitrixManagedUsersNil(b bool)`
+
+ SetPendingCitrixManagedUsersNil sets the value for PendingCitrixManagedUsers to be an explicit nil
+
+### UnsetPendingCitrixManagedUsers
+`func (o *CitrixManagedCatalogConfigDeployModel) UnsetPendingCitrixManagedUsers()`
+
+UnsetPendingCitrixManagedUsers ensures that no value is present for PendingCitrixManagedUsers, not even an explicit nil
 ### GetPendingUsers
 
 `func (o *CitrixManagedCatalogConfigDeployModel) GetPendingUsers() PendingUsersModel`
@@ -363,6 +473,16 @@ SetPendingUsers sets PendingUsers field to given value.
 
 HasPendingUsers returns a boolean if a field has been set.
 
+### SetPendingUsersNil
+
+`func (o *CitrixManagedCatalogConfigDeployModel) SetPendingUsersNil(b bool)`
+
+ SetPendingUsersNil sets the value for PendingUsers to be an explicit nil
+
+### UnsetPendingUsers
+`func (o *CitrixManagedCatalogConfigDeployModel) UnsetPendingUsers()`
+
+UnsetPendingUsers ensures that no value is present for PendingUsers, not even an explicit nil
 ### GetWbcConfig
 
 `func (o *CitrixManagedCatalogConfigDeployModel) GetWbcConfig() WbcConfig`
@@ -388,6 +508,16 @@ SetWbcConfig sets WbcConfig field to given value.
 
 HasWbcConfig returns a boolean if a field has been set.
 
+### SetWbcConfigNil
+
+`func (o *CitrixManagedCatalogConfigDeployModel) SetWbcConfigNil(b bool)`
+
+ SetWbcConfigNil sets the value for WbcConfig to be an explicit nil
+
+### UnsetWbcConfig
+`func (o *CitrixManagedCatalogConfigDeployModel) UnsetWbcConfig()`
+
+UnsetWbcConfig ensures that no value is present for WbcConfig, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -83,9 +83,9 @@ func (o *AzureStorageAccountFilesModel) SetItems(v []AzureStorageFile) {
 	o.Items = v
 }
 
-// GetFiles returns the Files field value if set, zero value otherwise.
+// GetFiles returns the Files field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureStorageAccountFilesModel) GetFiles() []AzureStorageFile {
-	if o == nil || IsNil(o.Files) {
+	if o == nil {
 		var ret []AzureStorageFile
 		return ret
 	}
@@ -94,6 +94,7 @@ func (o *AzureStorageAccountFilesModel) GetFiles() []AzureStorageFile {
 
 // GetFilesOk returns a tuple with the Files field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureStorageAccountFilesModel) GetFilesOk() ([]AzureStorageFile, bool) {
 	if o == nil || IsNil(o.Files) {
 		return nil, false
@@ -118,7 +119,7 @@ func (o AzureStorageAccountFilesModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["storageAccount"] = o.StorageAccount
 	toSerialize["items"] = o.Items
-	if !IsNil(o.Files) {
+	if o.Files != nil {
 		toSerialize["files"] = o.Files
 	}
 	return toSerialize, nil

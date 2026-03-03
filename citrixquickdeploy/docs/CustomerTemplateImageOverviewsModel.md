@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]TemplateImageOverview**](TemplateImageOverview.md) | Template Images associated with a customer | 
+**Items** | [**[]TemplateImageOverview**](TemplateImageOverview.md) | Template Images associated with a customer | [readonly] 
 **Overviews** | Pointer to [**[]TemplateImageOverview**](TemplateImageOverview.md) | Alias of Items property for backward compatibility | [optional] 
 **StaleData** | Pointer to **bool** |  | [optional] 
 
@@ -72,6 +72,16 @@ SetOverviews sets Overviews field to given value.
 
 HasOverviews returns a boolean if a field has been set.
 
+### SetOverviewsNil
+
+`func (o *CustomerTemplateImageOverviewsModel) SetOverviewsNil(b bool)`
+
+ SetOverviewsNil sets the value for Overviews to be an explicit nil
+
+### UnsetOverviews
+`func (o *CustomerTemplateImageOverviewsModel) UnsetOverviews()`
+
+UnsetOverviews ensures that no value is present for Overviews, not even an explicit nil
 ### GetStaleData
 
 `func (o *CustomerTemplateImageOverviewsModel) GetStaleData() bool`

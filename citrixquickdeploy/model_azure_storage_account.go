@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &AzureStorageAccount{}
 // AzureStorageAccount struct for AzureStorageAccount
 type AzureStorageAccount struct {
 	// Azure subscription the storage account is associated with
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionId NullableString `json:"subscriptionId,omitempty"`
 	// Name of the Resource Group the Storage Account is associated with
 	ResourceGroup string `json:"resourceGroup"`
 	// The location of the storage account
@@ -28,8 +28,8 @@ type AzureStorageAccount struct {
 	// Name of the storage account
 	Name string `json:"name"`
 	// Indicates if the storage account is using premium storage
-	IsPremiumStorage *bool   `json:"isPremiumStorage,omitempty"`
-	AccountKey       *string `json:"accountKey,omitempty"`
+	IsPremiumStorage *bool          `json:"isPremiumStorage,omitempty"`
+	AccountKey       NullableString `json:"accountKey,omitempty"`
 }
 
 // NewAzureStorageAccountWithDefaults instantiates a new AzureStorageAccount object
@@ -40,27 +40,38 @@ func NewAzureStorageAccountWithDefaults() *AzureStorageAccount {
 	return &this
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureStorageAccount) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureStorageAccount) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *AzureStorageAccount) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
+}
+
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *AzureStorageAccount) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *AzureStorageAccount) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
 }
 
 // GetResourceGroup returns the ResourceGroup field value
@@ -158,27 +169,38 @@ func (o *AzureStorageAccount) SetIsPremiumStorage(v bool) {
 	o.IsPremiumStorage = &v
 }
 
-// GetAccountKey returns the AccountKey field value if set, zero value otherwise.
+// GetAccountKey returns the AccountKey field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureStorageAccount) GetAccountKey() string {
-	if o == nil || IsNil(o.AccountKey) {
+	if o == nil || IsNil(o.AccountKey.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AccountKey
+	return *o.AccountKey.Get()
 }
 
 // GetAccountKeyOk returns a tuple with the AccountKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureStorageAccount) GetAccountKeyOk() (*string, bool) {
-	if o == nil || IsNil(o.AccountKey) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AccountKey, true
+	return o.AccountKey.Get(), o.AccountKey.IsSet()
 }
 
-// SetAccountKey gets a reference to the given string and assigns it to the AccountKey field.
+// SetAccountKey gets a reference to the given NullableString and assigns it to the AccountKey field.
 func (o *AzureStorageAccount) SetAccountKey(v string) {
-	o.AccountKey = &v
+	o.AccountKey.Set(&v)
+}
+
+// SetAccountKeyNil sets the value for AccountKey to be an explicit nil
+func (o *AzureStorageAccount) SetAccountKeyNil() {
+	o.AccountKey.Set(nil)
+}
+
+// UnsetAccountKey ensures that no value is present for AccountKey, not even an explicit nil
+func (o *AzureStorageAccount) UnsetAccountKey() {
+	o.AccountKey.Unset()
 }
 
 func (o AzureStorageAccount) MarshalJSON() ([]byte, error) {
@@ -191,8 +213,8 @@ func (o AzureStorageAccount) MarshalJSON() ([]byte, error) {
 
 func (o AzureStorageAccount) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
 	toSerialize["resourceGroup"] = o.ResourceGroup
 	toSerialize["location"] = o.Location
@@ -200,8 +222,8 @@ func (o AzureStorageAccount) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsPremiumStorage) {
 		toSerialize["isPremiumStorage"] = o.IsPremiumStorage
 	}
-	if !IsNil(o.AccountKey) {
-		toSerialize["accountKey"] = o.AccountKey
+	if o.AccountKey.IsSet() {
+		toSerialize["accountKey"] = o.AccountKey.Get()
 	}
 	return toSerialize, nil
 }

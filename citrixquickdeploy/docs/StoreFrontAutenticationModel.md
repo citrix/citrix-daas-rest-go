@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StoreId** | Pointer to **string** |  | [optional] 
-**IdpType** | Pointer to **string** |  | [optional] 
-**IdpConfigId** | Pointer to **string** |  | [optional] 
-**StoreFrontUrl** | Pointer to **string** |  | [optional] 
+**StoreId** | Pointer to **NullableString** |  | [optional] 
+**IdpType** | Pointer to **NullableString** |  | [optional] 
+**IdpConfigId** | Pointer to **NullableString** |  | [optional] 
+**StoreFrontUrl** | Pointer to **NullableString** |  | [optional] 
 **CitrixManaged** | Pointer to **bool** |  | [optional] 
 **WorkspaceAdministrator** | Pointer to **bool** |  | [optional] 
 **LibraryAdministrator** | Pointer to **bool** |  | [optional] 
-**CspCustomer** | Pointer to **string** |  | [optional] 
+**CspCustomer** | Pointer to **NullableString** |  | [optional] 
 **Tenants** | Pointer to [**[]StoreFrontAutenticationModel**](StoreFrontAutenticationModel.md) |  | [optional] 
 
 ## Methods
@@ -58,6 +58,16 @@ SetStoreId sets StoreId field to given value.
 
 HasStoreId returns a boolean if a field has been set.
 
+### SetStoreIdNil
+
+`func (o *StoreFrontAutenticationModel) SetStoreIdNil(b bool)`
+
+ SetStoreIdNil sets the value for StoreId to be an explicit nil
+
+### UnsetStoreId
+`func (o *StoreFrontAutenticationModel) UnsetStoreId()`
+
+UnsetStoreId ensures that no value is present for StoreId, not even an explicit nil
 ### GetIdpType
 
 `func (o *StoreFrontAutenticationModel) GetIdpType() string`
@@ -83,6 +93,16 @@ SetIdpType sets IdpType field to given value.
 
 HasIdpType returns a boolean if a field has been set.
 
+### SetIdpTypeNil
+
+`func (o *StoreFrontAutenticationModel) SetIdpTypeNil(b bool)`
+
+ SetIdpTypeNil sets the value for IdpType to be an explicit nil
+
+### UnsetIdpType
+`func (o *StoreFrontAutenticationModel) UnsetIdpType()`
+
+UnsetIdpType ensures that no value is present for IdpType, not even an explicit nil
 ### GetIdpConfigId
 
 `func (o *StoreFrontAutenticationModel) GetIdpConfigId() string`
@@ -108,6 +128,16 @@ SetIdpConfigId sets IdpConfigId field to given value.
 
 HasIdpConfigId returns a boolean if a field has been set.
 
+### SetIdpConfigIdNil
+
+`func (o *StoreFrontAutenticationModel) SetIdpConfigIdNil(b bool)`
+
+ SetIdpConfigIdNil sets the value for IdpConfigId to be an explicit nil
+
+### UnsetIdpConfigId
+`func (o *StoreFrontAutenticationModel) UnsetIdpConfigId()`
+
+UnsetIdpConfigId ensures that no value is present for IdpConfigId, not even an explicit nil
 ### GetStoreFrontUrl
 
 `func (o *StoreFrontAutenticationModel) GetStoreFrontUrl() string`
@@ -133,6 +163,16 @@ SetStoreFrontUrl sets StoreFrontUrl field to given value.
 
 HasStoreFrontUrl returns a boolean if a field has been set.
 
+### SetStoreFrontUrlNil
+
+`func (o *StoreFrontAutenticationModel) SetStoreFrontUrlNil(b bool)`
+
+ SetStoreFrontUrlNil sets the value for StoreFrontUrl to be an explicit nil
+
+### UnsetStoreFrontUrl
+`func (o *StoreFrontAutenticationModel) UnsetStoreFrontUrl()`
+
+UnsetStoreFrontUrl ensures that no value is present for StoreFrontUrl, not even an explicit nil
 ### GetCitrixManaged
 
 `func (o *StoreFrontAutenticationModel) GetCitrixManaged() bool`
@@ -233,6 +273,16 @@ SetCspCustomer sets CspCustomer field to given value.
 
 HasCspCustomer returns a boolean if a field has been set.
 
+### SetCspCustomerNil
+
+`func (o *StoreFrontAutenticationModel) SetCspCustomerNil(b bool)`
+
+ SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+
+### UnsetCspCustomer
+`func (o *StoreFrontAutenticationModel) UnsetCspCustomer()`
+
+UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
 ### GetTenants
 
 `func (o *StoreFrontAutenticationModel) GetTenants() []StoreFrontAutenticationModel`
@@ -258,6 +308,16 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### SetTenantsNil
+
+`func (o *StoreFrontAutenticationModel) SetTenantsNil(b bool)`
+
+ SetTenantsNil sets the value for Tenants to be an explicit nil
+
+### UnsetTenants
+`func (o *StoreFrontAutenticationModel) UnsetTenants()`
+
+UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

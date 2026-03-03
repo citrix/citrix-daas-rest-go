@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -22,15 +22,15 @@ type RouteTableOverview struct {
 	// The id of the route table
 	Id string `json:"id"`
 	// The current state of the route table
-	State *RouteTableState `json:"state,omitempty"`
+	State NullableRouteTableState `json:"state,omitempty"`
 	// The error message if the route table failed
-	ErrorMessage *string `json:"errorMessage,omitempty"`
+	ErrorMessage NullableString `json:"errorMessage,omitempty"`
 	// The routes in the route table that are currently active
 	ActiveRoutes []RouteOverview `json:"activeRoutes,omitempty"`
 	// The routes that have to be applied to the route table
 	PendingRoutes []RouteOverview `json:"pendingRoutes,omitempty"`
 	// The transaction id
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionId NullableString `json:"transactionId,omitempty"`
 }
 
 // NewRouteTableOverviewWithDefaults instantiates a new RouteTableOverview object
@@ -65,55 +65,77 @@ func (o *RouteTableOverview) SetId(v string) {
 	o.Id = v
 }
 
-// GetState returns the State field value if set, zero value otherwise.
+// GetState returns the State field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RouteTableOverview) GetState() RouteTableState {
-	if o == nil || IsNil(o.State) {
+	if o == nil || IsNil(o.State.Get()) {
 		var ret RouteTableState
 		return ret
 	}
-	return *o.State
+	return *o.State.Get()
 }
 
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RouteTableOverview) GetStateOk() (*RouteTableState, bool) {
-	if o == nil || IsNil(o.State) {
+	if o == nil {
 		return nil, false
 	}
-	return o.State, true
+	return o.State.Get(), o.State.IsSet()
 }
 
-// SetState gets a reference to the given RouteTableState and assigns it to the State field.
+// SetState gets a reference to the given NullableRouteTableState and assigns it to the State field.
 func (o *RouteTableOverview) SetState(v RouteTableState) {
-	o.State = &v
+	o.State.Set(&v)
 }
 
-// GetErrorMessage returns the ErrorMessage field value if set, zero value otherwise.
+// SetStateNil sets the value for State to be an explicit nil
+func (o *RouteTableOverview) SetStateNil() {
+	o.State.Set(nil)
+}
+
+// UnsetState ensures that no value is present for State, not even an explicit nil
+func (o *RouteTableOverview) UnsetState() {
+	o.State.Unset()
+}
+
+// GetErrorMessage returns the ErrorMessage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RouteTableOverview) GetErrorMessage() string {
-	if o == nil || IsNil(o.ErrorMessage) {
+	if o == nil || IsNil(o.ErrorMessage.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ErrorMessage
+	return *o.ErrorMessage.Get()
 }
 
 // GetErrorMessageOk returns a tuple with the ErrorMessage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RouteTableOverview) GetErrorMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.ErrorMessage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ErrorMessage, true
+	return o.ErrorMessage.Get(), o.ErrorMessage.IsSet()
 }
 
-// SetErrorMessage gets a reference to the given string and assigns it to the ErrorMessage field.
+// SetErrorMessage gets a reference to the given NullableString and assigns it to the ErrorMessage field.
 func (o *RouteTableOverview) SetErrorMessage(v string) {
-	o.ErrorMessage = &v
+	o.ErrorMessage.Set(&v)
 }
 
-// GetActiveRoutes returns the ActiveRoutes field value if set, zero value otherwise.
+// SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
+func (o *RouteTableOverview) SetErrorMessageNil() {
+	o.ErrorMessage.Set(nil)
+}
+
+// UnsetErrorMessage ensures that no value is present for ErrorMessage, not even an explicit nil
+func (o *RouteTableOverview) UnsetErrorMessage() {
+	o.ErrorMessage.Unset()
+}
+
+// GetActiveRoutes returns the ActiveRoutes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RouteTableOverview) GetActiveRoutes() []RouteOverview {
-	if o == nil || IsNil(o.ActiveRoutes) {
+	if o == nil {
 		var ret []RouteOverview
 		return ret
 	}
@@ -122,6 +144,7 @@ func (o *RouteTableOverview) GetActiveRoutes() []RouteOverview {
 
 // GetActiveRoutesOk returns a tuple with the ActiveRoutes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RouteTableOverview) GetActiveRoutesOk() ([]RouteOverview, bool) {
 	if o == nil || IsNil(o.ActiveRoutes) {
 		return nil, false
@@ -134,9 +157,9 @@ func (o *RouteTableOverview) SetActiveRoutes(v []RouteOverview) {
 	o.ActiveRoutes = v
 }
 
-// GetPendingRoutes returns the PendingRoutes field value if set, zero value otherwise.
+// GetPendingRoutes returns the PendingRoutes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RouteTableOverview) GetPendingRoutes() []RouteOverview {
-	if o == nil || IsNil(o.PendingRoutes) {
+	if o == nil {
 		var ret []RouteOverview
 		return ret
 	}
@@ -145,6 +168,7 @@ func (o *RouteTableOverview) GetPendingRoutes() []RouteOverview {
 
 // GetPendingRoutesOk returns a tuple with the PendingRoutes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RouteTableOverview) GetPendingRoutesOk() ([]RouteOverview, bool) {
 	if o == nil || IsNil(o.PendingRoutes) {
 		return nil, false
@@ -157,27 +181,38 @@ func (o *RouteTableOverview) SetPendingRoutes(v []RouteOverview) {
 	o.PendingRoutes = v
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RouteTableOverview) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RouteTableOverview) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *RouteTableOverview) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
+}
+
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *RouteTableOverview) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *RouteTableOverview) UnsetTransactionId() {
+	o.TransactionId.Unset()
 }
 
 func (o RouteTableOverview) MarshalJSON() ([]byte, error) {
@@ -191,20 +226,20 @@ func (o RouteTableOverview) MarshalJSON() ([]byte, error) {
 func (o RouteTableOverview) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	if !IsNil(o.State) {
-		toSerialize["state"] = o.State
+	if o.State.IsSet() {
+		toSerialize["state"] = o.State.Get()
 	}
-	if !IsNil(o.ErrorMessage) {
-		toSerialize["errorMessage"] = o.ErrorMessage
+	if o.ErrorMessage.IsSet() {
+		toSerialize["errorMessage"] = o.ErrorMessage.Get()
 	}
-	if !IsNil(o.ActiveRoutes) {
+	if o.ActiveRoutes != nil {
 		toSerialize["activeRoutes"] = o.ActiveRoutes
 	}
-	if !IsNil(o.PendingRoutes) {
+	if o.PendingRoutes != nil {
 		toSerialize["pendingRoutes"] = o.PendingRoutes
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
 	return toSerialize, nil
 }

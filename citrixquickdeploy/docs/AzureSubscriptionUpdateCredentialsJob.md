@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TransactionId** | Pointer to **string** | ID of the transaction associated with the update. | [optional] 
+**TransactionId** | Pointer to **NullableString** | ID of the transaction associated with the update. | [optional] 
 **State** | Pointer to [**UpdateAzureSubscriptionCredentialJobState**](UpdateAzureSubscriptionCredentialJobState.md) | State of the update job. | [optional] 
 **FailedCatalogIds** | Pointer to **[]string** | List of catalog IDs that failed to update. | [optional] 
-**StartedAt** | Pointer to **time.Time** | The datetime when the job started | [optional] 
+**StartedAt** | Pointer to **NullableTime** | The datetime when the job started | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetTransactionId sets TransactionId field to given value.
 
 HasTransactionId returns a boolean if a field has been set.
 
+### SetTransactionIdNil
+
+`func (o *AzureSubscriptionUpdateCredentialsJob) SetTransactionIdNil(b bool)`
+
+ SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+
+### UnsetTransactionId
+`func (o *AzureSubscriptionUpdateCredentialsJob) UnsetTransactionId()`
+
+UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
 ### GetState
 
 `func (o *AzureSubscriptionUpdateCredentialsJob) GetState() UpdateAzureSubscriptionCredentialJobState`
@@ -103,6 +113,16 @@ SetFailedCatalogIds sets FailedCatalogIds field to given value.
 
 HasFailedCatalogIds returns a boolean if a field has been set.
 
+### SetFailedCatalogIdsNil
+
+`func (o *AzureSubscriptionUpdateCredentialsJob) SetFailedCatalogIdsNil(b bool)`
+
+ SetFailedCatalogIdsNil sets the value for FailedCatalogIds to be an explicit nil
+
+### UnsetFailedCatalogIds
+`func (o *AzureSubscriptionUpdateCredentialsJob) UnsetFailedCatalogIds()`
+
+UnsetFailedCatalogIds ensures that no value is present for FailedCatalogIds, not even an explicit nil
 ### GetStartedAt
 
 `func (o *AzureSubscriptionUpdateCredentialsJob) GetStartedAt() time.Time`
@@ -128,6 +148,16 @@ SetStartedAt sets StartedAt field to given value.
 
 HasStartedAt returns a boolean if a field has been set.
 
+### SetStartedAtNil
+
+`func (o *AzureSubscriptionUpdateCredentialsJob) SetStartedAtNil(b bool)`
+
+ SetStartedAtNil sets the value for StartedAt to be an explicit nil
+
+### UnsetStartedAt
+`func (o *AzureSubscriptionUpdateCredentialsJob) UnsetStartedAt()`
+
+UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

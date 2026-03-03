@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -31,9 +31,9 @@ func NewRestartConnectorModelWithDefaults() *RestartConnectorModel {
 	return &this
 }
 
-// GetConnectorIds returns the ConnectorIds field value if set, zero value otherwise.
+// GetConnectorIds returns the ConnectorIds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RestartConnectorModel) GetConnectorIds() []string {
-	if o == nil || IsNil(o.ConnectorIds) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -42,6 +42,7 @@ func (o *RestartConnectorModel) GetConnectorIds() []string {
 
 // GetConnectorIdsOk returns a tuple with the ConnectorIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RestartConnectorModel) GetConnectorIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.ConnectorIds) {
 		return nil, false
@@ -64,7 +65,7 @@ func (o RestartConnectorModel) MarshalJSON() ([]byte, error) {
 
 func (o RestartConnectorModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ConnectorIds) {
+	if o.ConnectorIds != nil {
 		toSerialize["connectorIds"] = o.ConnectorIds
 	}
 	return toSerialize, nil

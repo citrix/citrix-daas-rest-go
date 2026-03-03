@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ou** | Pointer to **string** | The OU to include in the catalog. | [optional] 
+**Ou** | Pointer to **NullableString** | The OU to include in the catalog. | [optional] 
 **IncludeSubfolders** | Pointer to **bool** | Indicates if the subfolders of this OU should also be included. | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetOu sets Ou field to given value.
 
 HasOu returns a boolean if a field has been set.
 
+### SetOuNil
+
+`func (o *RemotePcEnrollmentScope) SetOuNil(b bool)`
+
+ SetOuNil sets the value for Ou to be an explicit nil
+
+### UnsetOu
+`func (o *RemotePcEnrollmentScope) UnsetOu()`
+
+UnsetOu ensures that no value is present for Ou, not even an explicit nil
 ### GetIncludeSubfolders
 
 `func (o *RemotePcEnrollmentScope) GetIncludeSubfolders() bool`

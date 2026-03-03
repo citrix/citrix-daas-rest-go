@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SubscriptionId** | Pointer to **string** | Azure Subscription ID | [optional] 
-**CatalogId** | Pointer to **string** | Catalog ID | [optional] 
-**CatalogName** | Pointer to **string** | Catalog Name | [optional] 
-**Category** | Pointer to **string** | Azure Cost category | [optional] 
+**SubscriptionId** | Pointer to **NullableString** | Azure Subscription ID | [optional] 
+**CatalogId** | Pointer to **NullableString** | Catalog ID | [optional] 
+**CatalogName** | Pointer to **NullableString** | Catalog Name | [optional] 
+**Category** | Pointer to **NullableString** | Azure Cost category | [optional] 
 **Cost** | Pointer to **float64** | Azure Cost | [optional] 
 
 ## Methods
@@ -54,6 +54,16 @@ SetSubscriptionId sets SubscriptionId field to given value.
 
 HasSubscriptionId returns a boolean if a field has been set.
 
+### SetSubscriptionIdNil
+
+`func (o *AzureCatalogCostByCategoryFlattenModel) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *AzureCatalogCostByCategoryFlattenModel) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
 ### GetCatalogId
 
 `func (o *AzureCatalogCostByCategoryFlattenModel) GetCatalogId() string`
@@ -79,6 +89,16 @@ SetCatalogId sets CatalogId field to given value.
 
 HasCatalogId returns a boolean if a field has been set.
 
+### SetCatalogIdNil
+
+`func (o *AzureCatalogCostByCategoryFlattenModel) SetCatalogIdNil(b bool)`
+
+ SetCatalogIdNil sets the value for CatalogId to be an explicit nil
+
+### UnsetCatalogId
+`func (o *AzureCatalogCostByCategoryFlattenModel) UnsetCatalogId()`
+
+UnsetCatalogId ensures that no value is present for CatalogId, not even an explicit nil
 ### GetCatalogName
 
 `func (o *AzureCatalogCostByCategoryFlattenModel) GetCatalogName() string`
@@ -104,6 +124,16 @@ SetCatalogName sets CatalogName field to given value.
 
 HasCatalogName returns a boolean if a field has been set.
 
+### SetCatalogNameNil
+
+`func (o *AzureCatalogCostByCategoryFlattenModel) SetCatalogNameNil(b bool)`
+
+ SetCatalogNameNil sets the value for CatalogName to be an explicit nil
+
+### UnsetCatalogName
+`func (o *AzureCatalogCostByCategoryFlattenModel) UnsetCatalogName()`
+
+UnsetCatalogName ensures that no value is present for CatalogName, not even an explicit nil
 ### GetCategory
 
 `func (o *AzureCatalogCostByCategoryFlattenModel) GetCategory() string`
@@ -129,6 +159,16 @@ SetCategory sets Category field to given value.
 
 HasCategory returns a boolean if a field has been set.
 
+### SetCategoryNil
+
+`func (o *AzureCatalogCostByCategoryFlattenModel) SetCategoryNil(b bool)`
+
+ SetCategoryNil sets the value for Category to be an explicit nil
+
+### UnsetCategory
+`func (o *AzureCatalogCostByCategoryFlattenModel) UnsetCategory()`
+
+UnsetCategory ensures that no value is present for Category, not even an explicit nil
 ### GetCost
 
 `func (o *AzureCatalogCostByCategoryFlattenModel) GetCost() float64`

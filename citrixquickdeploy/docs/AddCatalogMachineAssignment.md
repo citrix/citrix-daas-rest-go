@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MachineName** | Pointer to **string** | Name of the machine (in UPN format) to be assigned to a catalog. | [optional] 
+**MachineName** | Pointer to **NullableString** | Name of the machine (in UPN format) to be assigned to a catalog. | [optional] 
 **AssignedUsers** | Pointer to **[]string** | List of users to assign to the machine. | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetMachineName sets MachineName field to given value.
 
 HasMachineName returns a boolean if a field has been set.
 
+### SetMachineNameNil
+
+`func (o *AddCatalogMachineAssignment) SetMachineNameNil(b bool)`
+
+ SetMachineNameNil sets the value for MachineName to be an explicit nil
+
+### UnsetMachineName
+`func (o *AddCatalogMachineAssignment) UnsetMachineName()`
+
+UnsetMachineName ensures that no value is present for MachineName, not even an explicit nil
 ### GetAssignedUsers
 
 `func (o *AddCatalogMachineAssignment) GetAssignedUsers() []string`
@@ -76,6 +86,16 @@ SetAssignedUsers sets AssignedUsers field to given value.
 
 HasAssignedUsers returns a boolean if a field has been set.
 
+### SetAssignedUsersNil
+
+`func (o *AddCatalogMachineAssignment) SetAssignedUsersNil(b bool)`
+
+ SetAssignedUsersNil sets the value for AssignedUsers to be an explicit nil
+
+### UnsetAssignedUsers
+`func (o *AddCatalogMachineAssignment) UnsetAssignedUsers()`
+
+UnsetAssignedUsers ensures that no value is present for AssignedUsers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

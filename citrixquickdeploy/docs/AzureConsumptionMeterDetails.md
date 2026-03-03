@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MeterName** | Pointer to **string** | The name of the meter, within the given meter category. | [optional] 
-**MeterCategory** | Pointer to **string** | The category of the meter, for example, &#39;Cloud services&#39;, &#39;Networking&#39;, etc.. | [optional] 
-**MeterSubCategory** | Pointer to **string** | The subcategory of the meter, for example, &#39;A6 Cloud services&#39;, &#39;ExpressRoute (IXP)&#39;, etc.. | [optional] 
-**Unit** | Pointer to **string** | The unit in which the meter consumption is charged, for example, &#39;Hours&#39;, &#39;GB&#39;, etc. | [optional] 
-**UnitOfMeasure** | Pointer to **string** | The unit in which the meter consumption is charged, for example, &#39;Hours&#39;, &#39;GB&#39;, etc. | [optional] 
-**MeterLocation** | Pointer to **string** | The location in which the Azure service is available. | [optional] 
+**MeterName** | Pointer to **NullableString** | The name of the meter, within the given meter category. | [optional] 
+**MeterCategory** | Pointer to **NullableString** | The category of the meter, for example, &#39;Cloud services&#39;, &#39;Networking&#39;, etc.. | [optional] 
+**MeterSubCategory** | Pointer to **NullableString** | The subcategory of the meter, for example, &#39;A6 Cloud services&#39;, &#39;ExpressRoute (IXP)&#39;, etc.. | [optional] 
+**Unit** | Pointer to **NullableString** | The unit in which the meter consumption is charged, for example, &#39;Hours&#39;, &#39;GB&#39;, etc. | [optional] 
+**UnitOfMeasure** | Pointer to **NullableString** | The unit in which the meter consumption is charged, for example, &#39;Hours&#39;, &#39;GB&#39;, etc. | [optional] 
+**MeterLocation** | Pointer to **NullableString** | The location in which the Azure service is available. | [optional] 
 
 ## Methods
 
@@ -55,6 +55,16 @@ SetMeterName sets MeterName field to given value.
 
 HasMeterName returns a boolean if a field has been set.
 
+### SetMeterNameNil
+
+`func (o *AzureConsumptionMeterDetails) SetMeterNameNil(b bool)`
+
+ SetMeterNameNil sets the value for MeterName to be an explicit nil
+
+### UnsetMeterName
+`func (o *AzureConsumptionMeterDetails) UnsetMeterName()`
+
+UnsetMeterName ensures that no value is present for MeterName, not even an explicit nil
 ### GetMeterCategory
 
 `func (o *AzureConsumptionMeterDetails) GetMeterCategory() string`
@@ -80,6 +90,16 @@ SetMeterCategory sets MeterCategory field to given value.
 
 HasMeterCategory returns a boolean if a field has been set.
 
+### SetMeterCategoryNil
+
+`func (o *AzureConsumptionMeterDetails) SetMeterCategoryNil(b bool)`
+
+ SetMeterCategoryNil sets the value for MeterCategory to be an explicit nil
+
+### UnsetMeterCategory
+`func (o *AzureConsumptionMeterDetails) UnsetMeterCategory()`
+
+UnsetMeterCategory ensures that no value is present for MeterCategory, not even an explicit nil
 ### GetMeterSubCategory
 
 `func (o *AzureConsumptionMeterDetails) GetMeterSubCategory() string`
@@ -105,6 +125,16 @@ SetMeterSubCategory sets MeterSubCategory field to given value.
 
 HasMeterSubCategory returns a boolean if a field has been set.
 
+### SetMeterSubCategoryNil
+
+`func (o *AzureConsumptionMeterDetails) SetMeterSubCategoryNil(b bool)`
+
+ SetMeterSubCategoryNil sets the value for MeterSubCategory to be an explicit nil
+
+### UnsetMeterSubCategory
+`func (o *AzureConsumptionMeterDetails) UnsetMeterSubCategory()`
+
+UnsetMeterSubCategory ensures that no value is present for MeterSubCategory, not even an explicit nil
 ### GetUnit
 
 `func (o *AzureConsumptionMeterDetails) GetUnit() string`
@@ -130,6 +160,16 @@ SetUnit sets Unit field to given value.
 
 HasUnit returns a boolean if a field has been set.
 
+### SetUnitNil
+
+`func (o *AzureConsumptionMeterDetails) SetUnitNil(b bool)`
+
+ SetUnitNil sets the value for Unit to be an explicit nil
+
+### UnsetUnit
+`func (o *AzureConsumptionMeterDetails) UnsetUnit()`
+
+UnsetUnit ensures that no value is present for Unit, not even an explicit nil
 ### GetUnitOfMeasure
 
 `func (o *AzureConsumptionMeterDetails) GetUnitOfMeasure() string`
@@ -155,6 +195,16 @@ SetUnitOfMeasure sets UnitOfMeasure field to given value.
 
 HasUnitOfMeasure returns a boolean if a field has been set.
 
+### SetUnitOfMeasureNil
+
+`func (o *AzureConsumptionMeterDetails) SetUnitOfMeasureNil(b bool)`
+
+ SetUnitOfMeasureNil sets the value for UnitOfMeasure to be an explicit nil
+
+### UnsetUnitOfMeasure
+`func (o *AzureConsumptionMeterDetails) UnsetUnitOfMeasure()`
+
+UnsetUnitOfMeasure ensures that no value is present for UnitOfMeasure, not even an explicit nil
 ### GetMeterLocation
 
 `func (o *AzureConsumptionMeterDetails) GetMeterLocation() string`
@@ -180,6 +230,16 @@ SetMeterLocation sets MeterLocation field to given value.
 
 HasMeterLocation returns a boolean if a field has been set.
 
+### SetMeterLocationNil
+
+`func (o *AzureConsumptionMeterDetails) SetMeterLocationNil(b bool)`
+
+ SetMeterLocationNil sets the value for MeterLocation to be an explicit nil
+
+### UnsetMeterLocation
+`func (o *AzureConsumptionMeterDetails) UnsetMeterLocation()`
+
+UnsetMeterLocation ensures that no value is present for MeterLocation, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

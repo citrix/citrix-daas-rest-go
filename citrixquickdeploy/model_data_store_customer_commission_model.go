@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &DataStoreCustomerCommissionModel{}
 // DataStoreCustomerCommissionModel struct for DataStoreCustomerCommissionModel
 type DataStoreCustomerCommissionModel struct {
 	CommissionState                    *CommissionState `json:"commissionState,omitempty"`
-	Error                              *string          `json:"error,omitempty"`
-	TransactionId                      *string          `json:"transactionId,omitempty"`
-	CommissionStateTransitionTimeStamp *time.Time       `json:"commissionStateTransitionTimeStamp,omitempty"`
+	Error                              NullableString   `json:"error,omitempty"`
+	TransactionId                      NullableString   `json:"transactionId,omitempty"`
+	CommissionStateTransitionTimeStamp NullableTime     `json:"commissionStateTransitionTimeStamp,omitempty"`
 }
 
 // NewDataStoreCustomerCommissionModelWithDefaults instantiates a new DataStoreCustomerCommissionModel object
@@ -57,73 +57,106 @@ func (o *DataStoreCustomerCommissionModel) SetCommissionState(v CommissionState)
 	o.CommissionState = &v
 }
 
-// GetError returns the Error field value if set, zero value otherwise.
+// GetError returns the Error field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreCustomerCommissionModel) GetError() string {
-	if o == nil || IsNil(o.Error) {
+	if o == nil || IsNil(o.Error.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Error
+	return *o.Error.Get()
 }
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreCustomerCommissionModel) GetErrorOk() (*string, bool) {
-	if o == nil || IsNil(o.Error) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Error, true
+	return o.Error.Get(), o.Error.IsSet()
 }
 
-// SetError gets a reference to the given string and assigns it to the Error field.
+// SetError gets a reference to the given NullableString and assigns it to the Error field.
 func (o *DataStoreCustomerCommissionModel) SetError(v string) {
-	o.Error = &v
+	o.Error.Set(&v)
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// SetErrorNil sets the value for Error to be an explicit nil
+func (o *DataStoreCustomerCommissionModel) SetErrorNil() {
+	o.Error.Set(nil)
+}
+
+// UnsetError ensures that no value is present for Error, not even an explicit nil
+func (o *DataStoreCustomerCommissionModel) UnsetError() {
+	o.Error.Unset()
+}
+
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreCustomerCommissionModel) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreCustomerCommissionModel) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *DataStoreCustomerCommissionModel) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
 }
 
-// GetCommissionStateTransitionTimeStamp returns the CommissionStateTransitionTimeStamp field value if set, zero value otherwise.
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *DataStoreCustomerCommissionModel) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *DataStoreCustomerCommissionModel) UnsetTransactionId() {
+	o.TransactionId.Unset()
+}
+
+// GetCommissionStateTransitionTimeStamp returns the CommissionStateTransitionTimeStamp field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreCustomerCommissionModel) GetCommissionStateTransitionTimeStamp() time.Time {
-	if o == nil || IsNil(o.CommissionStateTransitionTimeStamp) {
+	if o == nil || IsNil(o.CommissionStateTransitionTimeStamp.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.CommissionStateTransitionTimeStamp
+	return *o.CommissionStateTransitionTimeStamp.Get()
 }
 
 // GetCommissionStateTransitionTimeStampOk returns a tuple with the CommissionStateTransitionTimeStamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreCustomerCommissionModel) GetCommissionStateTransitionTimeStampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CommissionStateTransitionTimeStamp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CommissionStateTransitionTimeStamp, true
+	return o.CommissionStateTransitionTimeStamp.Get(), o.CommissionStateTransitionTimeStamp.IsSet()
 }
 
-// SetCommissionStateTransitionTimeStamp gets a reference to the given time.Time and assigns it to the CommissionStateTransitionTimeStamp field.
+// SetCommissionStateTransitionTimeStamp gets a reference to the given NullableTime and assigns it to the CommissionStateTransitionTimeStamp field.
 func (o *DataStoreCustomerCommissionModel) SetCommissionStateTransitionTimeStamp(v time.Time) {
-	o.CommissionStateTransitionTimeStamp = &v
+	o.CommissionStateTransitionTimeStamp.Set(&v)
+}
+
+// SetCommissionStateTransitionTimeStampNil sets the value for CommissionStateTransitionTimeStamp to be an explicit nil
+func (o *DataStoreCustomerCommissionModel) SetCommissionStateTransitionTimeStampNil() {
+	o.CommissionStateTransitionTimeStamp.Set(nil)
+}
+
+// UnsetCommissionStateTransitionTimeStamp ensures that no value is present for CommissionStateTransitionTimeStamp, not even an explicit nil
+func (o *DataStoreCustomerCommissionModel) UnsetCommissionStateTransitionTimeStamp() {
+	o.CommissionStateTransitionTimeStamp.Unset()
 }
 
 func (o DataStoreCustomerCommissionModel) MarshalJSON() ([]byte, error) {
@@ -139,14 +172,14 @@ func (o DataStoreCustomerCommissionModel) ToMap() (map[string]interface{}, error
 	if !IsNil(o.CommissionState) {
 		toSerialize["commissionState"] = o.CommissionState
 	}
-	if !IsNil(o.Error) {
-		toSerialize["error"] = o.Error
+	if o.Error.IsSet() {
+		toSerialize["error"] = o.Error.Get()
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
-	if !IsNil(o.CommissionStateTransitionTimeStamp) {
-		toSerialize["commissionStateTransitionTimeStamp"] = o.CommissionStateTransitionTimeStamp
+	if o.CommissionStateTransitionTimeStamp.IsSet() {
+		toSerialize["commissionStateTransitionTimeStamp"] = o.CommissionStateTransitionTimeStamp.Get()
 	}
 	return toSerialize, nil
 }

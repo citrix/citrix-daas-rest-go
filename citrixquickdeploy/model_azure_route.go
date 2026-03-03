@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -24,7 +24,7 @@ type AzureRoute struct {
 	// The type of hop the packet should be sent to.
 	NextHopType string `json:"nextHopType"`
 	// The IP address packets should be forwarded to
-	NextHopIpAddress *string `json:"nextHopIpAddress,omitempty"`
+	NextHopIpAddress NullableString `json:"nextHopIpAddress,omitempty"`
 	// Name of the route
 	Name string `json:"name"`
 	// Specifying if the route should be applied
@@ -87,27 +87,38 @@ func (o *AzureRoute) SetNextHopType(v string) {
 	o.NextHopType = v
 }
 
-// GetNextHopIpAddress returns the NextHopIpAddress field value if set, zero value otherwise.
+// GetNextHopIpAddress returns the NextHopIpAddress field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureRoute) GetNextHopIpAddress() string {
-	if o == nil || IsNil(o.NextHopIpAddress) {
+	if o == nil || IsNil(o.NextHopIpAddress.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.NextHopIpAddress
+	return *o.NextHopIpAddress.Get()
 }
 
 // GetNextHopIpAddressOk returns a tuple with the NextHopIpAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureRoute) GetNextHopIpAddressOk() (*string, bool) {
-	if o == nil || IsNil(o.NextHopIpAddress) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NextHopIpAddress, true
+	return o.NextHopIpAddress.Get(), o.NextHopIpAddress.IsSet()
 }
 
-// SetNextHopIpAddress gets a reference to the given string and assigns it to the NextHopIpAddress field.
+// SetNextHopIpAddress gets a reference to the given NullableString and assigns it to the NextHopIpAddress field.
 func (o *AzureRoute) SetNextHopIpAddress(v string) {
-	o.NextHopIpAddress = &v
+	o.NextHopIpAddress.Set(&v)
+}
+
+// SetNextHopIpAddressNil sets the value for NextHopIpAddress to be an explicit nil
+func (o *AzureRoute) SetNextHopIpAddressNil() {
+	o.NextHopIpAddress.Set(nil)
+}
+
+// UnsetNextHopIpAddress ensures that no value is present for NextHopIpAddress, not even an explicit nil
+func (o *AzureRoute) UnsetNextHopIpAddress() {
+	o.NextHopIpAddress.Unset()
 }
 
 // GetName returns the Name field value
@@ -169,8 +180,8 @@ func (o AzureRoute) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["addressPrefix"] = o.AddressPrefix
 	toSerialize["nextHopType"] = o.NextHopType
-	if !IsNil(o.NextHopIpAddress) {
-		toSerialize["nextHopIpAddress"] = o.NextHopIpAddress
+	if o.NextHopIpAddress.IsSet() {
+		toSerialize["nextHopIpAddress"] = o.NextHopIpAddress.Get()
 	}
 	toSerialize["name"] = o.Name
 	if !IsNil(o.Enabled) {

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,10 +20,10 @@ var _ MappedNullable = &SnapshotModel{}
 
 // SnapshotModel struct for SnapshotModel
 type SnapshotModel struct {
-	TimeStamp    *time.Time    `json:"timeStamp,omitempty"`
-	Type         *SnapshotType `json:"type,omitempty"`
-	DisplayName  *string       `json:"displayName,omitempty"`
-	SnapshotName *string       `json:"snapshotName,omitempty" validate:"regexp=^[a-zA-Z0-9_]*$"`
+	TimeStamp    NullableTime   `json:"timeStamp,omitempty"`
+	Type         *SnapshotType  `json:"type,omitempty"`
+	DisplayName  NullableString `json:"displayName,omitempty"`
+	SnapshotName NullableString `json:"snapshotName,omitempty" validate:"regexp=^[a-zA-Z0-9_]*$"`
 }
 
 // NewSnapshotModelWithDefaults instantiates a new SnapshotModel object
@@ -34,27 +34,38 @@ func NewSnapshotModelWithDefaults() *SnapshotModel {
 	return &this
 }
 
-// GetTimeStamp returns the TimeStamp field value if set, zero value otherwise.
+// GetTimeStamp returns the TimeStamp field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SnapshotModel) GetTimeStamp() time.Time {
-	if o == nil || IsNil(o.TimeStamp) {
+	if o == nil || IsNil(o.TimeStamp.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.TimeStamp
+	return *o.TimeStamp.Get()
 }
 
 // GetTimeStampOk returns a tuple with the TimeStamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SnapshotModel) GetTimeStampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.TimeStamp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TimeStamp, true
+	return o.TimeStamp.Get(), o.TimeStamp.IsSet()
 }
 
-// SetTimeStamp gets a reference to the given time.Time and assigns it to the TimeStamp field.
+// SetTimeStamp gets a reference to the given NullableTime and assigns it to the TimeStamp field.
 func (o *SnapshotModel) SetTimeStamp(v time.Time) {
-	o.TimeStamp = &v
+	o.TimeStamp.Set(&v)
+}
+
+// SetTimeStampNil sets the value for TimeStamp to be an explicit nil
+func (o *SnapshotModel) SetTimeStampNil() {
+	o.TimeStamp.Set(nil)
+}
+
+// UnsetTimeStamp ensures that no value is present for TimeStamp, not even an explicit nil
+func (o *SnapshotModel) UnsetTimeStamp() {
+	o.TimeStamp.Unset()
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
@@ -80,50 +91,72 @@ func (o *SnapshotModel) SetType(v SnapshotType) {
 	o.Type = &v
 }
 
-// GetDisplayName returns the DisplayName field value if set, zero value otherwise.
+// GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SnapshotModel) GetDisplayName() string {
-	if o == nil || IsNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayName
+	return *o.DisplayName.Get()
 }
 
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SnapshotModel) GetDisplayNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DisplayName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DisplayName, true
+	return o.DisplayName.Get(), o.DisplayName.IsSet()
 }
 
-// SetDisplayName gets a reference to the given string and assigns it to the DisplayName field.
+// SetDisplayName gets a reference to the given NullableString and assigns it to the DisplayName field.
 func (o *SnapshotModel) SetDisplayName(v string) {
-	o.DisplayName = &v
+	o.DisplayName.Set(&v)
 }
 
-// GetSnapshotName returns the SnapshotName field value if set, zero value otherwise.
+// SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+func (o *SnapshotModel) SetDisplayNameNil() {
+	o.DisplayName.Set(nil)
+}
+
+// UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
+func (o *SnapshotModel) UnsetDisplayName() {
+	o.DisplayName.Unset()
+}
+
+// GetSnapshotName returns the SnapshotName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SnapshotModel) GetSnapshotName() string {
-	if o == nil || IsNil(o.SnapshotName) {
+	if o == nil || IsNil(o.SnapshotName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SnapshotName
+	return *o.SnapshotName.Get()
 }
 
 // GetSnapshotNameOk returns a tuple with the SnapshotName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SnapshotModel) GetSnapshotNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SnapshotName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SnapshotName, true
+	return o.SnapshotName.Get(), o.SnapshotName.IsSet()
 }
 
-// SetSnapshotName gets a reference to the given string and assigns it to the SnapshotName field.
+// SetSnapshotName gets a reference to the given NullableString and assigns it to the SnapshotName field.
 func (o *SnapshotModel) SetSnapshotName(v string) {
-	o.SnapshotName = &v
+	o.SnapshotName.Set(&v)
+}
+
+// SetSnapshotNameNil sets the value for SnapshotName to be an explicit nil
+func (o *SnapshotModel) SetSnapshotNameNil() {
+	o.SnapshotName.Set(nil)
+}
+
+// UnsetSnapshotName ensures that no value is present for SnapshotName, not even an explicit nil
+func (o *SnapshotModel) UnsetSnapshotName() {
+	o.SnapshotName.Unset()
 }
 
 func (o SnapshotModel) MarshalJSON() ([]byte, error) {
@@ -136,17 +169,17 @@ func (o SnapshotModel) MarshalJSON() ([]byte, error) {
 
 func (o SnapshotModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TimeStamp) {
-		toSerialize["timeStamp"] = o.TimeStamp
+	if o.TimeStamp.IsSet() {
+		toSerialize["timeStamp"] = o.TimeStamp.Get()
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
-	if !IsNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
+	if o.DisplayName.IsSet() {
+		toSerialize["displayName"] = o.DisplayName.Get()
 	}
-	if !IsNil(o.SnapshotName) {
-		toSerialize["snapshotName"] = o.SnapshotName
+	if o.SnapshotName.IsSet() {
+		toSerialize["snapshotName"] = o.SnapshotName.Get()
 	}
 	return toSerialize, nil
 }

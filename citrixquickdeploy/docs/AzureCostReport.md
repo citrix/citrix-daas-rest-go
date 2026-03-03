@@ -51,6 +51,16 @@ SetAzureCostWithCitrixMeters sets AzureCostWithCitrixMeters field to given value
 
 HasAzureCostWithCitrixMeters returns a boolean if a field has been set.
 
+### SetAzureCostWithCitrixMetersNil
+
+`func (o *AzureCostReport) SetAzureCostWithCitrixMetersNil(b bool)`
+
+ SetAzureCostWithCitrixMetersNil sets the value for AzureCostWithCitrixMeters to be an explicit nil
+
+### UnsetAzureCostWithCitrixMeters
+`func (o *AzureCostReport) UnsetAzureCostWithCitrixMeters()`
+
+UnsetAzureCostWithCitrixMeters ensures that no value is present for AzureCostWithCitrixMeters, not even an explicit nil
 ### GetAzureCostWithoutCitrixMeters
 
 `func (o *AzureCostReport) GetAzureCostWithoutCitrixMeters() map[string]float64`
@@ -76,6 +86,16 @@ SetAzureCostWithoutCitrixMeters sets AzureCostWithoutCitrixMeters field to given
 
 HasAzureCostWithoutCitrixMeters returns a boolean if a field has been set.
 
+### SetAzureCostWithoutCitrixMetersNil
+
+`func (o *AzureCostReport) SetAzureCostWithoutCitrixMetersNil(b bool)`
+
+ SetAzureCostWithoutCitrixMetersNil sets the value for AzureCostWithoutCitrixMeters to be an explicit nil
+
+### UnsetAzureCostWithoutCitrixMeters
+`func (o *AzureCostReport) UnsetAzureCostWithoutCitrixMeters()`
+
+UnsetAzureCostWithoutCitrixMeters ensures that no value is present for AzureCostWithoutCitrixMeters, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

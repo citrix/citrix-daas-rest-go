@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | ID of the connection | [optional] 
+**Id** | Pointer to **NullableString** | ID of the connection | [optional] 
 **Type** | Pointer to [**OnPremConnectionType**](OnPremConnectionType.md) | The type of connection | [optional] 
-**Name** | Pointer to **string** | Name of the connection | [optional] 
-**StartedAt** | Pointer to **time.Time** | The datetime when the job started | [optional] 
-**EstimatedTimeInMinute** | Pointer to **int32** | Estimated total time for the job to finish | [optional] 
+**Name** | Pointer to **NullableString** | Name of the connection | [optional] 
+**StartedAt** | Pointer to **NullableTime** | The datetime when the job started | [optional] 
+**EstimatedTimeInMinute** | Pointer to **NullableInt32** | Estimated total time for the job to finish | [optional] 
 
 ## Methods
 
@@ -54,6 +54,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *OnPremConnectionModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *OnPremConnectionModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetType
 
 `func (o *OnPremConnectionModel) GetType() OnPremConnectionType`
@@ -104,6 +114,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *OnPremConnectionModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *OnPremConnectionModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetStartedAt
 
 `func (o *OnPremConnectionModel) GetStartedAt() time.Time`
@@ -129,6 +149,16 @@ SetStartedAt sets StartedAt field to given value.
 
 HasStartedAt returns a boolean if a field has been set.
 
+### SetStartedAtNil
+
+`func (o *OnPremConnectionModel) SetStartedAtNil(b bool)`
+
+ SetStartedAtNil sets the value for StartedAt to be an explicit nil
+
+### UnsetStartedAt
+`func (o *OnPremConnectionModel) UnsetStartedAt()`
+
+UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
 ### GetEstimatedTimeInMinute
 
 `func (o *OnPremConnectionModel) GetEstimatedTimeInMinute() int32`
@@ -154,6 +184,16 @@ SetEstimatedTimeInMinute sets EstimatedTimeInMinute field to given value.
 
 HasEstimatedTimeInMinute returns a boolean if a field has been set.
 
+### SetEstimatedTimeInMinuteNil
+
+`func (o *OnPremConnectionModel) SetEstimatedTimeInMinuteNil(b bool)`
+
+ SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+
+### UnsetEstimatedTimeInMinute
+`func (o *OnPremConnectionModel) UnsetEstimatedTimeInMinute()`
+
+UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

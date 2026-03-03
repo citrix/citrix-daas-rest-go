@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,14 +19,14 @@ var _ MappedNullable = &StoreFrontAutenticationModel{}
 
 // StoreFrontAutenticationModel struct for StoreFrontAutenticationModel
 type StoreFrontAutenticationModel struct {
-	StoreId                *string                        `json:"storeId,omitempty"`
-	IdpType                *string                        `json:"idpType,omitempty"`
-	IdpConfigId            *string                        `json:"idpConfigId,omitempty"`
-	StoreFrontUrl          *string                        `json:"storeFrontUrl,omitempty"`
+	StoreId                NullableString                 `json:"storeId,omitempty"`
+	IdpType                NullableString                 `json:"idpType,omitempty"`
+	IdpConfigId            NullableString                 `json:"idpConfigId,omitempty"`
+	StoreFrontUrl          NullableString                 `json:"storeFrontUrl,omitempty"`
 	CitrixManaged          *bool                          `json:"citrixManaged,omitempty"`
 	WorkspaceAdministrator *bool                          `json:"workspaceAdministrator,omitempty"`
 	LibraryAdministrator   *bool                          `json:"libraryAdministrator,omitempty"`
-	CspCustomer            *string                        `json:"cspCustomer,omitempty"`
+	CspCustomer            NullableString                 `json:"cspCustomer,omitempty"`
 	Tenants                []StoreFrontAutenticationModel `json:"tenants,omitempty"`
 }
 
@@ -38,96 +38,140 @@ func NewStoreFrontAutenticationModelWithDefaults() *StoreFrontAutenticationModel
 	return &this
 }
 
-// GetStoreId returns the StoreId field value if set, zero value otherwise.
+// GetStoreId returns the StoreId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StoreFrontAutenticationModel) GetStoreId() string {
-	if o == nil || IsNil(o.StoreId) {
+	if o == nil || IsNil(o.StoreId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.StoreId
+	return *o.StoreId.Get()
 }
 
 // GetStoreIdOk returns a tuple with the StoreId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StoreFrontAutenticationModel) GetStoreIdOk() (*string, bool) {
-	if o == nil || IsNil(o.StoreId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StoreId, true
+	return o.StoreId.Get(), o.StoreId.IsSet()
 }
 
-// SetStoreId gets a reference to the given string and assigns it to the StoreId field.
+// SetStoreId gets a reference to the given NullableString and assigns it to the StoreId field.
 func (o *StoreFrontAutenticationModel) SetStoreId(v string) {
-	o.StoreId = &v
+	o.StoreId.Set(&v)
 }
 
-// GetIdpType returns the IdpType field value if set, zero value otherwise.
+// SetStoreIdNil sets the value for StoreId to be an explicit nil
+func (o *StoreFrontAutenticationModel) SetStoreIdNil() {
+	o.StoreId.Set(nil)
+}
+
+// UnsetStoreId ensures that no value is present for StoreId, not even an explicit nil
+func (o *StoreFrontAutenticationModel) UnsetStoreId() {
+	o.StoreId.Unset()
+}
+
+// GetIdpType returns the IdpType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StoreFrontAutenticationModel) GetIdpType() string {
-	if o == nil || IsNil(o.IdpType) {
+	if o == nil || IsNil(o.IdpType.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.IdpType
+	return *o.IdpType.Get()
 }
 
 // GetIdpTypeOk returns a tuple with the IdpType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StoreFrontAutenticationModel) GetIdpTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.IdpType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IdpType, true
+	return o.IdpType.Get(), o.IdpType.IsSet()
 }
 
-// SetIdpType gets a reference to the given string and assigns it to the IdpType field.
+// SetIdpType gets a reference to the given NullableString and assigns it to the IdpType field.
 func (o *StoreFrontAutenticationModel) SetIdpType(v string) {
-	o.IdpType = &v
+	o.IdpType.Set(&v)
 }
 
-// GetIdpConfigId returns the IdpConfigId field value if set, zero value otherwise.
+// SetIdpTypeNil sets the value for IdpType to be an explicit nil
+func (o *StoreFrontAutenticationModel) SetIdpTypeNil() {
+	o.IdpType.Set(nil)
+}
+
+// UnsetIdpType ensures that no value is present for IdpType, not even an explicit nil
+func (o *StoreFrontAutenticationModel) UnsetIdpType() {
+	o.IdpType.Unset()
+}
+
+// GetIdpConfigId returns the IdpConfigId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StoreFrontAutenticationModel) GetIdpConfigId() string {
-	if o == nil || IsNil(o.IdpConfigId) {
+	if o == nil || IsNil(o.IdpConfigId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.IdpConfigId
+	return *o.IdpConfigId.Get()
 }
 
 // GetIdpConfigIdOk returns a tuple with the IdpConfigId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StoreFrontAutenticationModel) GetIdpConfigIdOk() (*string, bool) {
-	if o == nil || IsNil(o.IdpConfigId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IdpConfigId, true
+	return o.IdpConfigId.Get(), o.IdpConfigId.IsSet()
 }
 
-// SetIdpConfigId gets a reference to the given string and assigns it to the IdpConfigId field.
+// SetIdpConfigId gets a reference to the given NullableString and assigns it to the IdpConfigId field.
 func (o *StoreFrontAutenticationModel) SetIdpConfigId(v string) {
-	o.IdpConfigId = &v
+	o.IdpConfigId.Set(&v)
 }
 
-// GetStoreFrontUrl returns the StoreFrontUrl field value if set, zero value otherwise.
+// SetIdpConfigIdNil sets the value for IdpConfigId to be an explicit nil
+func (o *StoreFrontAutenticationModel) SetIdpConfigIdNil() {
+	o.IdpConfigId.Set(nil)
+}
+
+// UnsetIdpConfigId ensures that no value is present for IdpConfigId, not even an explicit nil
+func (o *StoreFrontAutenticationModel) UnsetIdpConfigId() {
+	o.IdpConfigId.Unset()
+}
+
+// GetStoreFrontUrl returns the StoreFrontUrl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StoreFrontAutenticationModel) GetStoreFrontUrl() string {
-	if o == nil || IsNil(o.StoreFrontUrl) {
+	if o == nil || IsNil(o.StoreFrontUrl.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.StoreFrontUrl
+	return *o.StoreFrontUrl.Get()
 }
 
 // GetStoreFrontUrlOk returns a tuple with the StoreFrontUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StoreFrontAutenticationModel) GetStoreFrontUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.StoreFrontUrl) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StoreFrontUrl, true
+	return o.StoreFrontUrl.Get(), o.StoreFrontUrl.IsSet()
 }
 
-// SetStoreFrontUrl gets a reference to the given string and assigns it to the StoreFrontUrl field.
+// SetStoreFrontUrl gets a reference to the given NullableString and assigns it to the StoreFrontUrl field.
 func (o *StoreFrontAutenticationModel) SetStoreFrontUrl(v string) {
-	o.StoreFrontUrl = &v
+	o.StoreFrontUrl.Set(&v)
+}
+
+// SetStoreFrontUrlNil sets the value for StoreFrontUrl to be an explicit nil
+func (o *StoreFrontAutenticationModel) SetStoreFrontUrlNil() {
+	o.StoreFrontUrl.Set(nil)
+}
+
+// UnsetStoreFrontUrl ensures that no value is present for StoreFrontUrl, not even an explicit nil
+func (o *StoreFrontAutenticationModel) UnsetStoreFrontUrl() {
+	o.StoreFrontUrl.Unset()
 }
 
 // GetCitrixManaged returns the CitrixManaged field value if set, zero value otherwise.
@@ -199,32 +243,43 @@ func (o *StoreFrontAutenticationModel) SetLibraryAdministrator(v bool) {
 	o.LibraryAdministrator = &v
 }
 
-// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise.
+// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StoreFrontAutenticationModel) GetCspCustomer() string {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil || IsNil(o.CspCustomer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomer
+	return *o.CspCustomer.Get()
 }
 
 // GetCspCustomerOk returns a tuple with the CspCustomer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StoreFrontAutenticationModel) GetCspCustomerOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomer, true
+	return o.CspCustomer.Get(), o.CspCustomer.IsSet()
 }
 
-// SetCspCustomer gets a reference to the given string and assigns it to the CspCustomer field.
+// SetCspCustomer gets a reference to the given NullableString and assigns it to the CspCustomer field.
 func (o *StoreFrontAutenticationModel) SetCspCustomer(v string) {
-	o.CspCustomer = &v
+	o.CspCustomer.Set(&v)
 }
 
-// GetTenants returns the Tenants field value if set, zero value otherwise.
+// SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+func (o *StoreFrontAutenticationModel) SetCspCustomerNil() {
+	o.CspCustomer.Set(nil)
+}
+
+// UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
+func (o *StoreFrontAutenticationModel) UnsetCspCustomer() {
+	o.CspCustomer.Unset()
+}
+
+// GetTenants returns the Tenants field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StoreFrontAutenticationModel) GetTenants() []StoreFrontAutenticationModel {
-	if o == nil || IsNil(o.Tenants) {
+	if o == nil {
 		var ret []StoreFrontAutenticationModel
 		return ret
 	}
@@ -233,6 +288,7 @@ func (o *StoreFrontAutenticationModel) GetTenants() []StoreFrontAutenticationMod
 
 // GetTenantsOk returns a tuple with the Tenants field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StoreFrontAutenticationModel) GetTenantsOk() ([]StoreFrontAutenticationModel, bool) {
 	if o == nil || IsNil(o.Tenants) {
 		return nil, false
@@ -255,17 +311,17 @@ func (o StoreFrontAutenticationModel) MarshalJSON() ([]byte, error) {
 
 func (o StoreFrontAutenticationModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.StoreId) {
-		toSerialize["storeId"] = o.StoreId
+	if o.StoreId.IsSet() {
+		toSerialize["storeId"] = o.StoreId.Get()
 	}
-	if !IsNil(o.IdpType) {
-		toSerialize["idpType"] = o.IdpType
+	if o.IdpType.IsSet() {
+		toSerialize["idpType"] = o.IdpType.Get()
 	}
-	if !IsNil(o.IdpConfigId) {
-		toSerialize["idpConfigId"] = o.IdpConfigId
+	if o.IdpConfigId.IsSet() {
+		toSerialize["idpConfigId"] = o.IdpConfigId.Get()
 	}
-	if !IsNil(o.StoreFrontUrl) {
-		toSerialize["storeFrontUrl"] = o.StoreFrontUrl
+	if o.StoreFrontUrl.IsSet() {
+		toSerialize["storeFrontUrl"] = o.StoreFrontUrl.Get()
 	}
 	if !IsNil(o.CitrixManaged) {
 		toSerialize["citrixManaged"] = o.CitrixManaged
@@ -276,10 +332,10 @@ func (o StoreFrontAutenticationModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.LibraryAdministrator) {
 		toSerialize["libraryAdministrator"] = o.LibraryAdministrator
 	}
-	if !IsNil(o.CspCustomer) {
-		toSerialize["cspCustomer"] = o.CspCustomer
+	if o.CspCustomer.IsSet() {
+		toSerialize["cspCustomer"] = o.CspCustomer.Get()
 	}
-	if !IsNil(o.Tenants) {
+	if o.Tenants != nil {
 		toSerialize["tenants"] = o.Tenants
 	}
 	return toSerialize, nil

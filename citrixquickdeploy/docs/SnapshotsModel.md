@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Items** | Pointer to [**[]SnapshotModel**](SnapshotModel.md) |  | [optional] 
-**LastRestoreTime** | Pointer to **time.Time** |  | [optional] 
-**LastBackupTime** | Pointer to **time.Time** |  | [optional] 
-**LastRestoredSnapshotName** | Pointer to **string** |  | [optional] 
-**LastRestoredSnapshot** | Pointer to [**SnapshotModel**](SnapshotModel.md) |  | [optional] 
+**LastRestoreTime** | Pointer to **NullableTime** |  | [optional] 
+**LastBackupTime** | Pointer to **NullableTime** |  | [optional] 
+**LastRestoredSnapshotName** | Pointer to **NullableString** |  | [optional] 
+**LastRestoredSnapshot** | Pointer to [**NullableSnapshotModel**](SnapshotModel.md) |  | [optional] 
 
 ## Methods
 
@@ -54,6 +54,16 @@ SetItems sets Items field to given value.
 
 HasItems returns a boolean if a field has been set.
 
+### SetItemsNil
+
+`func (o *SnapshotsModel) SetItemsNil(b bool)`
+
+ SetItemsNil sets the value for Items to be an explicit nil
+
+### UnsetItems
+`func (o *SnapshotsModel) UnsetItems()`
+
+UnsetItems ensures that no value is present for Items, not even an explicit nil
 ### GetLastRestoreTime
 
 `func (o *SnapshotsModel) GetLastRestoreTime() time.Time`
@@ -79,6 +89,16 @@ SetLastRestoreTime sets LastRestoreTime field to given value.
 
 HasLastRestoreTime returns a boolean if a field has been set.
 
+### SetLastRestoreTimeNil
+
+`func (o *SnapshotsModel) SetLastRestoreTimeNil(b bool)`
+
+ SetLastRestoreTimeNil sets the value for LastRestoreTime to be an explicit nil
+
+### UnsetLastRestoreTime
+`func (o *SnapshotsModel) UnsetLastRestoreTime()`
+
+UnsetLastRestoreTime ensures that no value is present for LastRestoreTime, not even an explicit nil
 ### GetLastBackupTime
 
 `func (o *SnapshotsModel) GetLastBackupTime() time.Time`
@@ -104,6 +124,16 @@ SetLastBackupTime sets LastBackupTime field to given value.
 
 HasLastBackupTime returns a boolean if a field has been set.
 
+### SetLastBackupTimeNil
+
+`func (o *SnapshotsModel) SetLastBackupTimeNil(b bool)`
+
+ SetLastBackupTimeNil sets the value for LastBackupTime to be an explicit nil
+
+### UnsetLastBackupTime
+`func (o *SnapshotsModel) UnsetLastBackupTime()`
+
+UnsetLastBackupTime ensures that no value is present for LastBackupTime, not even an explicit nil
 ### GetLastRestoredSnapshotName
 
 `func (o *SnapshotsModel) GetLastRestoredSnapshotName() string`
@@ -129,6 +159,16 @@ SetLastRestoredSnapshotName sets LastRestoredSnapshotName field to given value.
 
 HasLastRestoredSnapshotName returns a boolean if a field has been set.
 
+### SetLastRestoredSnapshotNameNil
+
+`func (o *SnapshotsModel) SetLastRestoredSnapshotNameNil(b bool)`
+
+ SetLastRestoredSnapshotNameNil sets the value for LastRestoredSnapshotName to be an explicit nil
+
+### UnsetLastRestoredSnapshotName
+`func (o *SnapshotsModel) UnsetLastRestoredSnapshotName()`
+
+UnsetLastRestoredSnapshotName ensures that no value is present for LastRestoredSnapshotName, not even an explicit nil
 ### GetLastRestoredSnapshot
 
 `func (o *SnapshotsModel) GetLastRestoredSnapshot() SnapshotModel`
@@ -154,6 +194,16 @@ SetLastRestoredSnapshot sets LastRestoredSnapshot field to given value.
 
 HasLastRestoredSnapshot returns a boolean if a field has been set.
 
+### SetLastRestoredSnapshotNil
+
+`func (o *SnapshotsModel) SetLastRestoredSnapshotNil(b bool)`
+
+ SetLastRestoredSnapshotNil sets the value for LastRestoredSnapshot to be an explicit nil
+
+### UnsetLastRestoredSnapshot
+`func (o *SnapshotsModel) UnsetLastRestoredSnapshot()`
+
+UnsetLastRestoredSnapshot ensures that no value is present for LastRestoredSnapshot, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

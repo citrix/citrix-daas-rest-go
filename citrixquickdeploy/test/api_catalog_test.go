@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Testing CatalogCMDService
 
@@ -84,6 +84,39 @@ func Test_citrixquickdeploy_CatalogCMDService(t *testing.T) {
 
 	})
 
+	t.Run("Test CatalogCMDService GetAllTroubleshootScripts", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var catalogId string
+		var machineName string
+
+		resp, httpRes, err := apiClient.CatalogCMD.GetAllTroubleshootScripts(context.Background(), customerId, catalogId, machineName).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CatalogCMDService GetAllTroubleshootScripts_1", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var siteId string
+		var catalogId string
+		var machineName string
+
+		resp, httpRes, err := apiClient.CatalogCMD.GetAllTroubleshootScripts_0(context.Background(), customerId, siteId, catalogId, machineName).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test CatalogCMDService GetCatalogCapacityConfiguration", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
@@ -155,6 +188,134 @@ func Test_citrixquickdeploy_CatalogCMDService(t *testing.T) {
 		var catalogId string
 
 		resp, httpRes, err := apiClient.CatalogCMD.GetCustomerManagedCatalogsById(context.Background(), customerId, siteId, catalogId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CatalogCMDService GetScriptsAndParameters", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var catalogId string
+
+		httpRes, err := apiClient.CatalogCMD.GetScriptsAndParameters(context.Background(), customerId, catalogId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CatalogCMDService GetScriptsAndParameters_2", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var siteId string
+		var catalogId string
+
+		httpRes, err := apiClient.CatalogCMD.GetScriptsAndParameters_0(context.Background(), customerId, siteId, catalogId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CatalogCMDService GetTroubleshootScriptStatus", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var catalogId string
+		var machineName string
+		var troubleshootId string
+
+		resp, httpRes, err := apiClient.CatalogCMD.GetTroubleshootScriptStatus(context.Background(), customerId, catalogId, machineName, troubleshootId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CatalogCMDService GetTroubleshootScriptStatus_3", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var siteId string
+		var catalogId string
+		var machineName string
+		var troubleshootId string
+
+		resp, httpRes, err := apiClient.CatalogCMD.GetTroubleshootScriptStatus_0(context.Background(), customerId, siteId, catalogId, machineName, troubleshootId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CatalogCMDService GetTroubleshootScriptsOnlyForFailedConnectorInstalls", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var catalogId string
+
+		resp, httpRes, err := apiClient.CatalogCMD.GetTroubleshootScriptsOnlyForFailedConnectorInstalls(context.Background(), customerId, catalogId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CatalogCMDService GetTroubleshootScriptsOnlyForFailedConnectorInstalls_4", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var siteId string
+		var catalogId string
+
+		resp, httpRes, err := apiClient.CatalogCMD.GetTroubleshootScriptsOnlyForFailedConnectorInstalls_0(context.Background(), customerId, siteId, catalogId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CatalogCMDService RunScriptOnVm", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var catalogId string
+		var machineName string
+
+		resp, httpRes, err := apiClient.CatalogCMD.RunScriptOnVm(context.Background(), customerId, catalogId, machineName).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CatalogCMDService RunScriptOnVm_5", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var siteId string
+		var catalogId string
+		var machineName string
+
+		resp, httpRes, err := apiClient.CatalogCMD.RunScriptOnVm_0(context.Background(), customerId, siteId, catalogId, machineName).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

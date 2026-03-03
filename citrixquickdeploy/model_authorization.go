@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,8 +19,8 @@ var _ MappedNullable = &Authorization{}
 
 // Authorization struct for Authorization
 type Authorization struct {
-	Action *string `json:"action,omitempty"`
-	Scope  *string `json:"scope,omitempty"`
+	Action NullableString `json:"action,omitempty"`
+	Scope  NullableString `json:"scope,omitempty"`
 }
 
 // NewAuthorizationWithDefaults instantiates a new Authorization object
@@ -31,50 +31,72 @@ func NewAuthorizationWithDefaults() *Authorization {
 	return &this
 }
 
-// GetAction returns the Action field value if set, zero value otherwise.
+// GetAction returns the Action field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Authorization) GetAction() string {
-	if o == nil || IsNil(o.Action) {
+	if o == nil || IsNil(o.Action.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Action
+	return *o.Action.Get()
 }
 
 // GetActionOk returns a tuple with the Action field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Authorization) GetActionOk() (*string, bool) {
-	if o == nil || IsNil(o.Action) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Action, true
+	return o.Action.Get(), o.Action.IsSet()
 }
 
-// SetAction gets a reference to the given string and assigns it to the Action field.
+// SetAction gets a reference to the given NullableString and assigns it to the Action field.
 func (o *Authorization) SetAction(v string) {
-	o.Action = &v
+	o.Action.Set(&v)
 }
 
-// GetScope returns the Scope field value if set, zero value otherwise.
+// SetActionNil sets the value for Action to be an explicit nil
+func (o *Authorization) SetActionNil() {
+	o.Action.Set(nil)
+}
+
+// UnsetAction ensures that no value is present for Action, not even an explicit nil
+func (o *Authorization) UnsetAction() {
+	o.Action.Unset()
+}
+
+// GetScope returns the Scope field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Authorization) GetScope() string {
-	if o == nil || IsNil(o.Scope) {
+	if o == nil || IsNil(o.Scope.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Scope
+	return *o.Scope.Get()
 }
 
 // GetScopeOk returns a tuple with the Scope field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Authorization) GetScopeOk() (*string, bool) {
-	if o == nil || IsNil(o.Scope) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Scope, true
+	return o.Scope.Get(), o.Scope.IsSet()
 }
 
-// SetScope gets a reference to the given string and assigns it to the Scope field.
+// SetScope gets a reference to the given NullableString and assigns it to the Scope field.
 func (o *Authorization) SetScope(v string) {
-	o.Scope = &v
+	o.Scope.Set(&v)
+}
+
+// SetScopeNil sets the value for Scope to be an explicit nil
+func (o *Authorization) SetScopeNil() {
+	o.Scope.Set(nil)
+}
+
+// UnsetScope ensures that no value is present for Scope, not even an explicit nil
+func (o *Authorization) UnsetScope() {
+	o.Scope.Unset()
 }
 
 func (o Authorization) MarshalJSON() ([]byte, error) {
@@ -87,11 +109,11 @@ func (o Authorization) MarshalJSON() ([]byte, error) {
 
 func (o Authorization) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Action) {
-		toSerialize["action"] = o.Action
+	if o.Action.IsSet() {
+		toSerialize["action"] = o.Action.Get()
 	}
-	if !IsNil(o.Scope) {
-		toSerialize["scope"] = o.Scope
+	if o.Scope.IsSet() {
+		toSerialize["scope"] = o.Scope.Get()
 	}
 	return toSerialize, nil
 }

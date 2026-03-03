@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,39 +21,39 @@ var _ MappedNullable = &AzureVpnConnectionModel{}
 // AzureVpnConnectionModel struct for AzureVpnConnectionModel
 type AzureVpnConnectionModel struct {
 	// State of the vpn connection
-	State *AzureVpnConnectionState `json:"state,omitempty"`
+	State NullableAzureVpnConnectionState `json:"state,omitempty"`
 	// Tenant customer the connection is associated with
-	CspCustomer *string `json:"cspCustomer,omitempty"`
+	CspCustomer NullableString `json:"cspCustomer,omitempty"`
 	// Name of the azure region where the connection will be created
-	Region *string `json:"region,omitempty"`
+	Region NullableString `json:"region,omitempty"`
 	// Details of the vda subnet
-	VdaSubnet *ConnectionSubnet `json:"vdaSubnet,omitempty"`
+	VdaSubnet NullableConnectionSubnet `json:"vdaSubnet,omitempty"`
 	// Details of the subnet the gateway uses to communicate
-	GatewaySubnet *ConnectionSubnet `json:"gatewaySubnet,omitempty"`
+	GatewaySubnet NullableConnectionSubnet `json:"gatewaySubnet,omitempty"`
 	// IP address of the on-prem gateway
-	LocalGatewayIP *string `json:"localGatewayIP,omitempty"`
+	LocalGatewayIP NullableString `json:"localGatewayIP,omitempty"`
 	// List of DNS Servers
 	DnsServers []string `json:"dnsServers,omitempty"`
 	// List of addresses that will be accessible behind the gateway
 	LocalAddresses []ConnectionSubnet `json:"localAddresses,omitempty"`
 	// Status of the VPN connection
-	ConnectionStatus *string `json:"connectionStatus,omitempty"`
+	ConnectionStatus NullableString `json:"connectionStatus,omitempty"`
 	// IP address of the gateway for this connection
 	GatewayIps []string `json:"gatewayIps,omitempty"`
 	// Number of addresses in use on the VDA subnet
-	NumberAddressesInUse *int32 `json:"numberAddressesInUse,omitempty"`
+	NumberAddressesInUse NullableInt32 `json:"numberAddressesInUse,omitempty"`
 	// ID of the Managed Subscription the Connection is associated with.
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionId NullableString `json:"subscriptionId,omitempty"`
 	// The pre shared key that was used for the connection (obfuscated)
-	SharedKey *string `json:"sharedKey,omitempty"`
+	SharedKey NullableString `json:"sharedKey,omitempty"`
 	// The SKU type of the gateway
-	GatewaySku *string `json:"gatewaySku,omitempty"`
+	GatewaySku NullableString `json:"gatewaySku,omitempty"`
 	// Specifies if connection is active-standby or active-active
 	ActiveActive *bool `json:"activeActive,omitempty"`
 	// The transaction ID associated with the vpn connection
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionId NullableString `json:"transactionId,omitempty"`
 	// Error that occurred while creating vpn connection
-	Error *string `json:"error,omitempty"`
+	Error NullableString `json:"error,omitempty"`
 	// List of associated catalogs
 	Catalogs []string `json:"catalogs,omitempty"`
 	// List of associated images
@@ -61,15 +61,15 @@ type AzureVpnConnectionModel struct {
 	// List of associated bastions
 	Bastions []string `json:"bastions,omitempty"`
 	// ID of the connection
-	Id *string `json:"id,omitempty"`
+	Id NullableString `json:"id,omitempty"`
 	// The type of connection
 	Type *OnPremConnectionType `json:"type,omitempty"`
 	// Name of the connection
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	// The datetime when the job started
-	StartedAt *time.Time `json:"startedAt,omitempty"`
+	StartedAt NullableTime `json:"startedAt,omitempty"`
 	// Estimated total time for the job to finish
-	EstimatedTimeInMinute *int32 `json:"estimatedTimeInMinute,omitempty"`
+	EstimatedTimeInMinute NullableInt32 `json:"estimatedTimeInMinute,omitempty"`
 }
 
 // NewAzureVpnConnectionModelWithDefaults instantiates a new AzureVpnConnectionModel object
@@ -80,147 +80,213 @@ func NewAzureVpnConnectionModelWithDefaults() *AzureVpnConnectionModel {
 	return &this
 }
 
-// GetState returns the State field value if set, zero value otherwise.
+// GetState returns the State field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetState() AzureVpnConnectionState {
-	if o == nil || IsNil(o.State) {
+	if o == nil || IsNil(o.State.Get()) {
 		var ret AzureVpnConnectionState
 		return ret
 	}
-	return *o.State
+	return *o.State.Get()
 }
 
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetStateOk() (*AzureVpnConnectionState, bool) {
-	if o == nil || IsNil(o.State) {
+	if o == nil {
 		return nil, false
 	}
-	return o.State, true
+	return o.State.Get(), o.State.IsSet()
 }
 
-// SetState gets a reference to the given AzureVpnConnectionState and assigns it to the State field.
+// SetState gets a reference to the given NullableAzureVpnConnectionState and assigns it to the State field.
 func (o *AzureVpnConnectionModel) SetState(v AzureVpnConnectionState) {
-	o.State = &v
+	o.State.Set(&v)
 }
 
-// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise.
+// SetStateNil sets the value for State to be an explicit nil
+func (o *AzureVpnConnectionModel) SetStateNil() {
+	o.State.Set(nil)
+}
+
+// UnsetState ensures that no value is present for State, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetState() {
+	o.State.Unset()
+}
+
+// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetCspCustomer() string {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil || IsNil(o.CspCustomer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomer
+	return *o.CspCustomer.Get()
 }
 
 // GetCspCustomerOk returns a tuple with the CspCustomer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetCspCustomerOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomer, true
+	return o.CspCustomer.Get(), o.CspCustomer.IsSet()
 }
 
-// SetCspCustomer gets a reference to the given string and assigns it to the CspCustomer field.
+// SetCspCustomer gets a reference to the given NullableString and assigns it to the CspCustomer field.
 func (o *AzureVpnConnectionModel) SetCspCustomer(v string) {
-	o.CspCustomer = &v
+	o.CspCustomer.Set(&v)
 }
 
-// GetRegion returns the Region field value if set, zero value otherwise.
+// SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+func (o *AzureVpnConnectionModel) SetCspCustomerNil() {
+	o.CspCustomer.Set(nil)
+}
+
+// UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetCspCustomer() {
+	o.CspCustomer.Unset()
+}
+
+// GetRegion returns the Region field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetRegion() string {
-	if o == nil || IsNil(o.Region) {
+	if o == nil || IsNil(o.Region.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Region
+	return *o.Region.Get()
 }
 
 // GetRegionOk returns a tuple with the Region field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.Region) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Region, true
+	return o.Region.Get(), o.Region.IsSet()
 }
 
-// SetRegion gets a reference to the given string and assigns it to the Region field.
+// SetRegion gets a reference to the given NullableString and assigns it to the Region field.
 func (o *AzureVpnConnectionModel) SetRegion(v string) {
-	o.Region = &v
+	o.Region.Set(&v)
 }
 
-// GetVdaSubnet returns the VdaSubnet field value if set, zero value otherwise.
+// SetRegionNil sets the value for Region to be an explicit nil
+func (o *AzureVpnConnectionModel) SetRegionNil() {
+	o.Region.Set(nil)
+}
+
+// UnsetRegion ensures that no value is present for Region, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetRegion() {
+	o.Region.Unset()
+}
+
+// GetVdaSubnet returns the VdaSubnet field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetVdaSubnet() ConnectionSubnet {
-	if o == nil || IsNil(o.VdaSubnet) {
+	if o == nil || IsNil(o.VdaSubnet.Get()) {
 		var ret ConnectionSubnet
 		return ret
 	}
-	return *o.VdaSubnet
+	return *o.VdaSubnet.Get()
 }
 
 // GetVdaSubnetOk returns a tuple with the VdaSubnet field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetVdaSubnetOk() (*ConnectionSubnet, bool) {
-	if o == nil || IsNil(o.VdaSubnet) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VdaSubnet, true
+	return o.VdaSubnet.Get(), o.VdaSubnet.IsSet()
 }
 
-// SetVdaSubnet gets a reference to the given ConnectionSubnet and assigns it to the VdaSubnet field.
+// SetVdaSubnet gets a reference to the given NullableConnectionSubnet and assigns it to the VdaSubnet field.
 func (o *AzureVpnConnectionModel) SetVdaSubnet(v ConnectionSubnet) {
-	o.VdaSubnet = &v
+	o.VdaSubnet.Set(&v)
 }
 
-// GetGatewaySubnet returns the GatewaySubnet field value if set, zero value otherwise.
+// SetVdaSubnetNil sets the value for VdaSubnet to be an explicit nil
+func (o *AzureVpnConnectionModel) SetVdaSubnetNil() {
+	o.VdaSubnet.Set(nil)
+}
+
+// UnsetVdaSubnet ensures that no value is present for VdaSubnet, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetVdaSubnet() {
+	o.VdaSubnet.Unset()
+}
+
+// GetGatewaySubnet returns the GatewaySubnet field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetGatewaySubnet() ConnectionSubnet {
-	if o == nil || IsNil(o.GatewaySubnet) {
+	if o == nil || IsNil(o.GatewaySubnet.Get()) {
 		var ret ConnectionSubnet
 		return ret
 	}
-	return *o.GatewaySubnet
+	return *o.GatewaySubnet.Get()
 }
 
 // GetGatewaySubnetOk returns a tuple with the GatewaySubnet field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetGatewaySubnetOk() (*ConnectionSubnet, bool) {
-	if o == nil || IsNil(o.GatewaySubnet) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GatewaySubnet, true
+	return o.GatewaySubnet.Get(), o.GatewaySubnet.IsSet()
 }
 
-// SetGatewaySubnet gets a reference to the given ConnectionSubnet and assigns it to the GatewaySubnet field.
+// SetGatewaySubnet gets a reference to the given NullableConnectionSubnet and assigns it to the GatewaySubnet field.
 func (o *AzureVpnConnectionModel) SetGatewaySubnet(v ConnectionSubnet) {
-	o.GatewaySubnet = &v
+	o.GatewaySubnet.Set(&v)
 }
 
-// GetLocalGatewayIP returns the LocalGatewayIP field value if set, zero value otherwise.
+// SetGatewaySubnetNil sets the value for GatewaySubnet to be an explicit nil
+func (o *AzureVpnConnectionModel) SetGatewaySubnetNil() {
+	o.GatewaySubnet.Set(nil)
+}
+
+// UnsetGatewaySubnet ensures that no value is present for GatewaySubnet, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetGatewaySubnet() {
+	o.GatewaySubnet.Unset()
+}
+
+// GetLocalGatewayIP returns the LocalGatewayIP field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetLocalGatewayIP() string {
-	if o == nil || IsNil(o.LocalGatewayIP) {
+	if o == nil || IsNil(o.LocalGatewayIP.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LocalGatewayIP
+	return *o.LocalGatewayIP.Get()
 }
 
 // GetLocalGatewayIPOk returns a tuple with the LocalGatewayIP field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetLocalGatewayIPOk() (*string, bool) {
-	if o == nil || IsNil(o.LocalGatewayIP) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LocalGatewayIP, true
+	return o.LocalGatewayIP.Get(), o.LocalGatewayIP.IsSet()
 }
 
-// SetLocalGatewayIP gets a reference to the given string and assigns it to the LocalGatewayIP field.
+// SetLocalGatewayIP gets a reference to the given NullableString and assigns it to the LocalGatewayIP field.
 func (o *AzureVpnConnectionModel) SetLocalGatewayIP(v string) {
-	o.LocalGatewayIP = &v
+	o.LocalGatewayIP.Set(&v)
 }
 
-// GetDnsServers returns the DnsServers field value if set, zero value otherwise.
+// SetLocalGatewayIPNil sets the value for LocalGatewayIP to be an explicit nil
+func (o *AzureVpnConnectionModel) SetLocalGatewayIPNil() {
+	o.LocalGatewayIP.Set(nil)
+}
+
+// UnsetLocalGatewayIP ensures that no value is present for LocalGatewayIP, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetLocalGatewayIP() {
+	o.LocalGatewayIP.Unset()
+}
+
+// GetDnsServers returns the DnsServers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetDnsServers() []string {
-	if o == nil || IsNil(o.DnsServers) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -229,6 +295,7 @@ func (o *AzureVpnConnectionModel) GetDnsServers() []string {
 
 // GetDnsServersOk returns a tuple with the DnsServers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetDnsServersOk() ([]string, bool) {
 	if o == nil || IsNil(o.DnsServers) {
 		return nil, false
@@ -241,9 +308,9 @@ func (o *AzureVpnConnectionModel) SetDnsServers(v []string) {
 	o.DnsServers = v
 }
 
-// GetLocalAddresses returns the LocalAddresses field value if set, zero value otherwise.
+// GetLocalAddresses returns the LocalAddresses field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetLocalAddresses() []ConnectionSubnet {
-	if o == nil || IsNil(o.LocalAddresses) {
+	if o == nil {
 		var ret []ConnectionSubnet
 		return ret
 	}
@@ -252,6 +319,7 @@ func (o *AzureVpnConnectionModel) GetLocalAddresses() []ConnectionSubnet {
 
 // GetLocalAddressesOk returns a tuple with the LocalAddresses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetLocalAddressesOk() ([]ConnectionSubnet, bool) {
 	if o == nil || IsNil(o.LocalAddresses) {
 		return nil, false
@@ -264,32 +332,43 @@ func (o *AzureVpnConnectionModel) SetLocalAddresses(v []ConnectionSubnet) {
 	o.LocalAddresses = v
 }
 
-// GetConnectionStatus returns the ConnectionStatus field value if set, zero value otherwise.
+// GetConnectionStatus returns the ConnectionStatus field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetConnectionStatus() string {
-	if o == nil || IsNil(o.ConnectionStatus) {
+	if o == nil || IsNil(o.ConnectionStatus.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ConnectionStatus
+	return *o.ConnectionStatus.Get()
 }
 
 // GetConnectionStatusOk returns a tuple with the ConnectionStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetConnectionStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.ConnectionStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConnectionStatus, true
+	return o.ConnectionStatus.Get(), o.ConnectionStatus.IsSet()
 }
 
-// SetConnectionStatus gets a reference to the given string and assigns it to the ConnectionStatus field.
+// SetConnectionStatus gets a reference to the given NullableString and assigns it to the ConnectionStatus field.
 func (o *AzureVpnConnectionModel) SetConnectionStatus(v string) {
-	o.ConnectionStatus = &v
+	o.ConnectionStatus.Set(&v)
 }
 
-// GetGatewayIps returns the GatewayIps field value if set, zero value otherwise.
+// SetConnectionStatusNil sets the value for ConnectionStatus to be an explicit nil
+func (o *AzureVpnConnectionModel) SetConnectionStatusNil() {
+	o.ConnectionStatus.Set(nil)
+}
+
+// UnsetConnectionStatus ensures that no value is present for ConnectionStatus, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetConnectionStatus() {
+	o.ConnectionStatus.Unset()
+}
+
+// GetGatewayIps returns the GatewayIps field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetGatewayIps() []string {
-	if o == nil || IsNil(o.GatewayIps) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -298,6 +377,7 @@ func (o *AzureVpnConnectionModel) GetGatewayIps() []string {
 
 // GetGatewayIpsOk returns a tuple with the GatewayIps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetGatewayIpsOk() ([]string, bool) {
 	if o == nil || IsNil(o.GatewayIps) {
 		return nil, false
@@ -310,96 +390,140 @@ func (o *AzureVpnConnectionModel) SetGatewayIps(v []string) {
 	o.GatewayIps = v
 }
 
-// GetNumberAddressesInUse returns the NumberAddressesInUse field value if set, zero value otherwise.
+// GetNumberAddressesInUse returns the NumberAddressesInUse field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetNumberAddressesInUse() int32 {
-	if o == nil || IsNil(o.NumberAddressesInUse) {
+	if o == nil || IsNil(o.NumberAddressesInUse.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.NumberAddressesInUse
+	return *o.NumberAddressesInUse.Get()
 }
 
 // GetNumberAddressesInUseOk returns a tuple with the NumberAddressesInUse field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetNumberAddressesInUseOk() (*int32, bool) {
-	if o == nil || IsNil(o.NumberAddressesInUse) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NumberAddressesInUse, true
+	return o.NumberAddressesInUse.Get(), o.NumberAddressesInUse.IsSet()
 }
 
-// SetNumberAddressesInUse gets a reference to the given int32 and assigns it to the NumberAddressesInUse field.
+// SetNumberAddressesInUse gets a reference to the given NullableInt32 and assigns it to the NumberAddressesInUse field.
 func (o *AzureVpnConnectionModel) SetNumberAddressesInUse(v int32) {
-	o.NumberAddressesInUse = &v
+	o.NumberAddressesInUse.Set(&v)
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// SetNumberAddressesInUseNil sets the value for NumberAddressesInUse to be an explicit nil
+func (o *AzureVpnConnectionModel) SetNumberAddressesInUseNil() {
+	o.NumberAddressesInUse.Set(nil)
+}
+
+// UnsetNumberAddressesInUse ensures that no value is present for NumberAddressesInUse, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetNumberAddressesInUse() {
+	o.NumberAddressesInUse.Unset()
+}
+
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *AzureVpnConnectionModel) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
 }
 
-// GetSharedKey returns the SharedKey field value if set, zero value otherwise.
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *AzureVpnConnectionModel) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
+}
+
+// GetSharedKey returns the SharedKey field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetSharedKey() string {
-	if o == nil || IsNil(o.SharedKey) {
+	if o == nil || IsNil(o.SharedKey.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SharedKey
+	return *o.SharedKey.Get()
 }
 
 // GetSharedKeyOk returns a tuple with the SharedKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetSharedKeyOk() (*string, bool) {
-	if o == nil || IsNil(o.SharedKey) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SharedKey, true
+	return o.SharedKey.Get(), o.SharedKey.IsSet()
 }
 
-// SetSharedKey gets a reference to the given string and assigns it to the SharedKey field.
+// SetSharedKey gets a reference to the given NullableString and assigns it to the SharedKey field.
 func (o *AzureVpnConnectionModel) SetSharedKey(v string) {
-	o.SharedKey = &v
+	o.SharedKey.Set(&v)
 }
 
-// GetGatewaySku returns the GatewaySku field value if set, zero value otherwise.
+// SetSharedKeyNil sets the value for SharedKey to be an explicit nil
+func (o *AzureVpnConnectionModel) SetSharedKeyNil() {
+	o.SharedKey.Set(nil)
+}
+
+// UnsetSharedKey ensures that no value is present for SharedKey, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetSharedKey() {
+	o.SharedKey.Unset()
+}
+
+// GetGatewaySku returns the GatewaySku field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetGatewaySku() string {
-	if o == nil || IsNil(o.GatewaySku) {
+	if o == nil || IsNil(o.GatewaySku.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.GatewaySku
+	return *o.GatewaySku.Get()
 }
 
 // GetGatewaySkuOk returns a tuple with the GatewaySku field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetGatewaySkuOk() (*string, bool) {
-	if o == nil || IsNil(o.GatewaySku) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GatewaySku, true
+	return o.GatewaySku.Get(), o.GatewaySku.IsSet()
 }
 
-// SetGatewaySku gets a reference to the given string and assigns it to the GatewaySku field.
+// SetGatewaySku gets a reference to the given NullableString and assigns it to the GatewaySku field.
 func (o *AzureVpnConnectionModel) SetGatewaySku(v string) {
-	o.GatewaySku = &v
+	o.GatewaySku.Set(&v)
+}
+
+// SetGatewaySkuNil sets the value for GatewaySku to be an explicit nil
+func (o *AzureVpnConnectionModel) SetGatewaySkuNil() {
+	o.GatewaySku.Set(nil)
+}
+
+// UnsetGatewaySku ensures that no value is present for GatewaySku, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetGatewaySku() {
+	o.GatewaySku.Unset()
 }
 
 // GetActiveActive returns the ActiveActive field value if set, zero value otherwise.
@@ -425,55 +549,77 @@ func (o *AzureVpnConnectionModel) SetActiveActive(v bool) {
 	o.ActiveActive = &v
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *AzureVpnConnectionModel) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
 }
 
-// GetError returns the Error field value if set, zero value otherwise.
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *AzureVpnConnectionModel) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetTransactionId() {
+	o.TransactionId.Unset()
+}
+
+// GetError returns the Error field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetError() string {
-	if o == nil || IsNil(o.Error) {
+	if o == nil || IsNil(o.Error.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Error
+	return *o.Error.Get()
 }
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetErrorOk() (*string, bool) {
-	if o == nil || IsNil(o.Error) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Error, true
+	return o.Error.Get(), o.Error.IsSet()
 }
 
-// SetError gets a reference to the given string and assigns it to the Error field.
+// SetError gets a reference to the given NullableString and assigns it to the Error field.
 func (o *AzureVpnConnectionModel) SetError(v string) {
-	o.Error = &v
+	o.Error.Set(&v)
 }
 
-// GetCatalogs returns the Catalogs field value if set, zero value otherwise.
+// SetErrorNil sets the value for Error to be an explicit nil
+func (o *AzureVpnConnectionModel) SetErrorNil() {
+	o.Error.Set(nil)
+}
+
+// UnsetError ensures that no value is present for Error, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetError() {
+	o.Error.Unset()
+}
+
+// GetCatalogs returns the Catalogs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetCatalogs() []string {
-	if o == nil || IsNil(o.Catalogs) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -482,6 +628,7 @@ func (o *AzureVpnConnectionModel) GetCatalogs() []string {
 
 // GetCatalogsOk returns a tuple with the Catalogs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetCatalogsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Catalogs) {
 		return nil, false
@@ -494,9 +641,9 @@ func (o *AzureVpnConnectionModel) SetCatalogs(v []string) {
 	o.Catalogs = v
 }
 
-// GetImages returns the Images field value if set, zero value otherwise.
+// GetImages returns the Images field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetImages() []string {
-	if o == nil || IsNil(o.Images) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -505,6 +652,7 @@ func (o *AzureVpnConnectionModel) GetImages() []string {
 
 // GetImagesOk returns a tuple with the Images field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetImagesOk() ([]string, bool) {
 	if o == nil || IsNil(o.Images) {
 		return nil, false
@@ -517,9 +665,9 @@ func (o *AzureVpnConnectionModel) SetImages(v []string) {
 	o.Images = v
 }
 
-// GetBastions returns the Bastions field value if set, zero value otherwise.
+// GetBastions returns the Bastions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetBastions() []string {
-	if o == nil || IsNil(o.Bastions) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -528,6 +676,7 @@ func (o *AzureVpnConnectionModel) GetBastions() []string {
 
 // GetBastionsOk returns a tuple with the Bastions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetBastionsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Bastions) {
 		return nil, false
@@ -540,27 +689,38 @@ func (o *AzureVpnConnectionModel) SetBastions(v []string) {
 	o.Bastions = v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *AzureVpnConnectionModel) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
+}
+
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *AzureVpnConnectionModel) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
@@ -586,73 +746,106 @@ func (o *AzureVpnConnectionModel) SetType(v OnPremConnectionType) {
 	o.Type = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *AzureVpnConnectionModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
 }
 
-// GetStartedAt returns the StartedAt field value if set, zero value otherwise.
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *AzureVpnConnectionModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetStartedAt() time.Time {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil || IsNil(o.StartedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartedAt
+	return *o.StartedAt.Get()
 }
 
 // GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetStartedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StartedAt, true
+	return o.StartedAt.Get(), o.StartedAt.IsSet()
 }
 
-// SetStartedAt gets a reference to the given time.Time and assigns it to the StartedAt field.
+// SetStartedAt gets a reference to the given NullableTime and assigns it to the StartedAt field.
 func (o *AzureVpnConnectionModel) SetStartedAt(v time.Time) {
-	o.StartedAt = &v
+	o.StartedAt.Set(&v)
 }
 
-// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise.
+// SetStartedAtNil sets the value for StartedAt to be an explicit nil
+func (o *AzureVpnConnectionModel) SetStartedAtNil() {
+	o.StartedAt.Set(nil)
+}
+
+// UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetStartedAt() {
+	o.StartedAt.Unset()
+}
+
+// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVpnConnectionModel) GetEstimatedTimeInMinute() int32 {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil || IsNil(o.EstimatedTimeInMinute.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.EstimatedTimeInMinute
+	return *o.EstimatedTimeInMinute.Get()
 }
 
 // GetEstimatedTimeInMinuteOk returns a tuple with the EstimatedTimeInMinute field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVpnConnectionModel) GetEstimatedTimeInMinuteOk() (*int32, bool) {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EstimatedTimeInMinute, true
+	return o.EstimatedTimeInMinute.Get(), o.EstimatedTimeInMinute.IsSet()
 }
 
-// SetEstimatedTimeInMinute gets a reference to the given int32 and assigns it to the EstimatedTimeInMinute field.
+// SetEstimatedTimeInMinute gets a reference to the given NullableInt32 and assigns it to the EstimatedTimeInMinute field.
 func (o *AzureVpnConnectionModel) SetEstimatedTimeInMinute(v int32) {
-	o.EstimatedTimeInMinute = &v
+	o.EstimatedTimeInMinute.Set(&v)
+}
+
+// SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+func (o *AzureVpnConnectionModel) SetEstimatedTimeInMinuteNil() {
+	o.EstimatedTimeInMinute.Set(nil)
+}
+
+// UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
+func (o *AzureVpnConnectionModel) UnsetEstimatedTimeInMinute() {
+	o.EstimatedTimeInMinute.Unset()
 }
 
 func (o AzureVpnConnectionModel) MarshalJSON() ([]byte, error) {
@@ -665,80 +858,80 @@ func (o AzureVpnConnectionModel) MarshalJSON() ([]byte, error) {
 
 func (o AzureVpnConnectionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.State) {
-		toSerialize["state"] = o.State
+	if o.State.IsSet() {
+		toSerialize["state"] = o.State.Get()
 	}
-	if !IsNil(o.CspCustomer) {
-		toSerialize["cspCustomer"] = o.CspCustomer
+	if o.CspCustomer.IsSet() {
+		toSerialize["cspCustomer"] = o.CspCustomer.Get()
 	}
-	if !IsNil(o.Region) {
-		toSerialize["region"] = o.Region
+	if o.Region.IsSet() {
+		toSerialize["region"] = o.Region.Get()
 	}
-	if !IsNil(o.VdaSubnet) {
-		toSerialize["vdaSubnet"] = o.VdaSubnet
+	if o.VdaSubnet.IsSet() {
+		toSerialize["vdaSubnet"] = o.VdaSubnet.Get()
 	}
-	if !IsNil(o.GatewaySubnet) {
-		toSerialize["gatewaySubnet"] = o.GatewaySubnet
+	if o.GatewaySubnet.IsSet() {
+		toSerialize["gatewaySubnet"] = o.GatewaySubnet.Get()
 	}
-	if !IsNil(o.LocalGatewayIP) {
-		toSerialize["localGatewayIP"] = o.LocalGatewayIP
+	if o.LocalGatewayIP.IsSet() {
+		toSerialize["localGatewayIP"] = o.LocalGatewayIP.Get()
 	}
-	if !IsNil(o.DnsServers) {
+	if o.DnsServers != nil {
 		toSerialize["dnsServers"] = o.DnsServers
 	}
-	if !IsNil(o.LocalAddresses) {
+	if o.LocalAddresses != nil {
 		toSerialize["localAddresses"] = o.LocalAddresses
 	}
-	if !IsNil(o.ConnectionStatus) {
-		toSerialize["connectionStatus"] = o.ConnectionStatus
+	if o.ConnectionStatus.IsSet() {
+		toSerialize["connectionStatus"] = o.ConnectionStatus.Get()
 	}
-	if !IsNil(o.GatewayIps) {
+	if o.GatewayIps != nil {
 		toSerialize["gatewayIps"] = o.GatewayIps
 	}
-	if !IsNil(o.NumberAddressesInUse) {
-		toSerialize["numberAddressesInUse"] = o.NumberAddressesInUse
+	if o.NumberAddressesInUse.IsSet() {
+		toSerialize["numberAddressesInUse"] = o.NumberAddressesInUse.Get()
 	}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
-	if !IsNil(o.SharedKey) {
-		toSerialize["sharedKey"] = o.SharedKey
+	if o.SharedKey.IsSet() {
+		toSerialize["sharedKey"] = o.SharedKey.Get()
 	}
-	if !IsNil(o.GatewaySku) {
-		toSerialize["gatewaySku"] = o.GatewaySku
+	if o.GatewaySku.IsSet() {
+		toSerialize["gatewaySku"] = o.GatewaySku.Get()
 	}
 	if !IsNil(o.ActiveActive) {
 		toSerialize["activeActive"] = o.ActiveActive
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
-	if !IsNil(o.Error) {
-		toSerialize["error"] = o.Error
+	if o.Error.IsSet() {
+		toSerialize["error"] = o.Error.Get()
 	}
-	if !IsNil(o.Catalogs) {
+	if o.Catalogs != nil {
 		toSerialize["catalogs"] = o.Catalogs
 	}
-	if !IsNil(o.Images) {
+	if o.Images != nil {
 		toSerialize["images"] = o.Images
 	}
-	if !IsNil(o.Bastions) {
+	if o.Bastions != nil {
 		toSerialize["bastions"] = o.Bastions
 	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.StartedAt) {
-		toSerialize["startedAt"] = o.StartedAt
+	if o.StartedAt.IsSet() {
+		toSerialize["startedAt"] = o.StartedAt.Get()
 	}
-	if !IsNil(o.EstimatedTimeInMinute) {
-		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute
+	if o.EstimatedTimeInMinute.IsSet() {
+		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute.Get()
 	}
 	return toSerialize, nil
 }

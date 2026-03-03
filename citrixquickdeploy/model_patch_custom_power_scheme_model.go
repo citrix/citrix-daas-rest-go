@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &PatchCustomPowerSchemeModel{}
 // PatchCustomPowerSchemeModel struct for PatchCustomPowerSchemeModel
 type PatchCustomPowerSchemeModel struct {
 	// Name of the custom power scheme
-	SchemeName *string `json:"schemeName,omitempty"`
+	SchemeName NullableString `json:"schemeName,omitempty"`
 }
 
 // NewPatchCustomPowerSchemeModelWithDefaults instantiates a new PatchCustomPowerSchemeModel object
@@ -31,27 +31,38 @@ func NewPatchCustomPowerSchemeModelWithDefaults() *PatchCustomPowerSchemeModel {
 	return &this
 }
 
-// GetSchemeName returns the SchemeName field value if set, zero value otherwise.
+// GetSchemeName returns the SchemeName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PatchCustomPowerSchemeModel) GetSchemeName() string {
-	if o == nil || IsNil(o.SchemeName) {
+	if o == nil || IsNil(o.SchemeName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SchemeName
+	return *o.SchemeName.Get()
 }
 
 // GetSchemeNameOk returns a tuple with the SchemeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PatchCustomPowerSchemeModel) GetSchemeNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SchemeName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SchemeName, true
+	return o.SchemeName.Get(), o.SchemeName.IsSet()
 }
 
-// SetSchemeName gets a reference to the given string and assigns it to the SchemeName field.
+// SetSchemeName gets a reference to the given NullableString and assigns it to the SchemeName field.
 func (o *PatchCustomPowerSchemeModel) SetSchemeName(v string) {
-	o.SchemeName = &v
+	o.SchemeName.Set(&v)
+}
+
+// SetSchemeNameNil sets the value for SchemeName to be an explicit nil
+func (o *PatchCustomPowerSchemeModel) SetSchemeNameNil() {
+	o.SchemeName.Set(nil)
+}
+
+// UnsetSchemeName ensures that no value is present for SchemeName, not even an explicit nil
+func (o *PatchCustomPowerSchemeModel) UnsetSchemeName() {
+	o.SchemeName.Unset()
 }
 
 func (o PatchCustomPowerSchemeModel) MarshalJSON() ([]byte, error) {
@@ -64,8 +75,8 @@ func (o PatchCustomPowerSchemeModel) MarshalJSON() ([]byte, error) {
 
 func (o PatchCustomPowerSchemeModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.SchemeName) {
-		toSerialize["schemeName"] = o.SchemeName
+	if o.SchemeName.IsSet() {
+		toSerialize["schemeName"] = o.SchemeName.Get()
 	}
 	return toSerialize, nil
 }

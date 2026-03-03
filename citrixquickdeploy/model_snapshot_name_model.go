@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,7 +19,7 @@ var _ MappedNullable = &SnapshotNameModel{}
 
 // SnapshotNameModel struct for SnapshotNameModel
 type SnapshotNameModel struct {
-	SnapshotName *string `json:"snapshotName,omitempty" validate:"regexp=^[a-zA-Z0-9_]*$"`
+	SnapshotName NullableString `json:"snapshotName,omitempty" validate:"regexp=^[a-zA-Z0-9_]*$"`
 }
 
 // NewSnapshotNameModelWithDefaults instantiates a new SnapshotNameModel object
@@ -30,27 +30,38 @@ func NewSnapshotNameModelWithDefaults() *SnapshotNameModel {
 	return &this
 }
 
-// GetSnapshotName returns the SnapshotName field value if set, zero value otherwise.
+// GetSnapshotName returns the SnapshotName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SnapshotNameModel) GetSnapshotName() string {
-	if o == nil || IsNil(o.SnapshotName) {
+	if o == nil || IsNil(o.SnapshotName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SnapshotName
+	return *o.SnapshotName.Get()
 }
 
 // GetSnapshotNameOk returns a tuple with the SnapshotName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SnapshotNameModel) GetSnapshotNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SnapshotName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SnapshotName, true
+	return o.SnapshotName.Get(), o.SnapshotName.IsSet()
 }
 
-// SetSnapshotName gets a reference to the given string and assigns it to the SnapshotName field.
+// SetSnapshotName gets a reference to the given NullableString and assigns it to the SnapshotName field.
 func (o *SnapshotNameModel) SetSnapshotName(v string) {
-	o.SnapshotName = &v
+	o.SnapshotName.Set(&v)
+}
+
+// SetSnapshotNameNil sets the value for SnapshotName to be an explicit nil
+func (o *SnapshotNameModel) SetSnapshotNameNil() {
+	o.SnapshotName.Set(nil)
+}
+
+// UnsetSnapshotName ensures that no value is present for SnapshotName, not even an explicit nil
+func (o *SnapshotNameModel) UnsetSnapshotName() {
+	o.SnapshotName.Unset()
 }
 
 func (o SnapshotNameModel) MarshalJSON() ([]byte, error) {
@@ -63,8 +74,8 @@ func (o SnapshotNameModel) MarshalJSON() ([]byte, error) {
 
 func (o SnapshotNameModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.SnapshotName) {
-		toSerialize["snapshotName"] = o.SnapshotName
+	if o.SnapshotName.IsSet() {
+		toSerialize["snapshotName"] = o.SnapshotName.Get()
 	}
 	return toSerialize, nil
 }

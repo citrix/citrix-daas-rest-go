@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -31,9 +31,9 @@ func NewUpdateRemotePcCatalogScopesModelWithDefaults() *UpdateRemotePcCatalogSco
 	return &this
 }
 
-// GetEnrollmentScopes returns the EnrollmentScopes field value if set, zero value otherwise.
+// GetEnrollmentScopes returns the EnrollmentScopes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateRemotePcCatalogScopesModel) GetEnrollmentScopes() []RemotePcEnrollmentScope {
-	if o == nil || IsNil(o.EnrollmentScopes) {
+	if o == nil {
 		var ret []RemotePcEnrollmentScope
 		return ret
 	}
@@ -42,6 +42,7 @@ func (o *UpdateRemotePcCatalogScopesModel) GetEnrollmentScopes() []RemotePcEnrol
 
 // GetEnrollmentScopesOk returns a tuple with the EnrollmentScopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateRemotePcCatalogScopesModel) GetEnrollmentScopesOk() ([]RemotePcEnrollmentScope, bool) {
 	if o == nil || IsNil(o.EnrollmentScopes) {
 		return nil, false
@@ -64,7 +65,7 @@ func (o UpdateRemotePcCatalogScopesModel) MarshalJSON() ([]byte, error) {
 
 func (o UpdateRemotePcCatalogScopesModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.EnrollmentScopes) {
+	if o.EnrollmentScopes != nil {
 		toSerialize["enrollmentScopes"] = o.EnrollmentScopes
 	}
 	return toSerialize, nil

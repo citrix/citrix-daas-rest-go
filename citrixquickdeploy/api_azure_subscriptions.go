@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,37 +19,26 @@ import (
 	"strings"
 )
 
-type AzureSubscriptionsCMD interface {
-
-	/*
-		GetSubscriptions Returns the subscriptions that we have a known association with
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId Specific customer id
-		@param siteId
-		@return ApiGetSubscriptionsRequest
-	*/
-	GetSubscriptions(ctx context.Context, customerId string, siteId string) ApiGetSubscriptionsRequest
-
-	// GetSubscriptionsExecute executes the request
-	//  @return AzureSubscriptionsModel
-	GetSubscriptionsExecute(r ApiGetSubscriptionsRequest) (*AzureSubscriptionsModel, *http.Response, error)
-}
-
 // AzureSubscriptionsCMDService AzureSubscriptionsCMD service
 type AzureSubscriptionsCMDService service
 
 type ApiGetSubscriptionsRequest struct {
 	ctx                    context.Context
-	ApiService             AzureSubscriptionsCMD
+	ApiService             *AzureSubscriptionsCMDService
 	customerId             string
 	siteId                 string
+	skipCache              *bool
 	citrixTransactionId    *string
 	xAZUREACCESSTOKEN      *string
 	xAZUREGRAPHACCESSTOKEN *string
 	xAZURETENANTID         *string
 	xAZUREAPPCLIENTID      *string
 	xAZUREAPPCLIENTSECRET  *string
+}
+
+func (r ApiGetSubscriptionsRequest) SkipCache(skipCache bool) ApiGetSubscriptionsRequest {
+	r.skipCache = &skipCache
+	return r
 }
 
 // The Transaction Id.
@@ -93,10 +82,10 @@ func (r ApiGetSubscriptionsRequest) Execute() (*AzureSubscriptionsModel, *http.R
 }
 
 /*
-GetSubscriptions Returns the subscriptions that we have a known association with
+GetSubscriptions Method for GetSubscriptions
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param customerId Specific customer id
+	@param customerId
 	@param siteId
 	@return ApiGetSubscriptionsRequest
 */
@@ -133,6 +122,9 @@ func (a *AzureSubscriptionsCMDService) GetSubscriptionsExecute(r ApiGetSubscript
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.skipCache != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skipCache", r.skipCache, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

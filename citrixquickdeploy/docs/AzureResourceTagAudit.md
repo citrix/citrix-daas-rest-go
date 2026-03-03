@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to [**AzureResourceTagAuditType**](AzureResourceTagAuditType.md) |  | [optional] 
 **Violation** | Pointer to [**AzureResourceTagAuditViolation**](AzureResourceTagAuditViolation.md) |  | [optional] 
-**ResourceIdTag** | Pointer to **string** |  | [optional] 
-**TagName** | Pointer to **string** |  | [optional] 
-**TagValue** | Pointer to **string** |  | [optional] 
-**CorrectTagValue** | Pointer to **string** |  | [optional] 
-**RepairCompleted** | Pointer to **bool** |  | [optional] 
+**ResourceIdTag** | Pointer to **NullableString** |  | [optional] 
+**TagName** | Pointer to **NullableString** |  | [optional] 
+**TagValue** | Pointer to **NullableString** |  | [optional] 
+**CorrectTagValue** | Pointer to **NullableString** |  | [optional] 
+**RepairCompleted** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
 
@@ -106,6 +106,16 @@ SetResourceIdTag sets ResourceIdTag field to given value.
 
 HasResourceIdTag returns a boolean if a field has been set.
 
+### SetResourceIdTagNil
+
+`func (o *AzureResourceTagAudit) SetResourceIdTagNil(b bool)`
+
+ SetResourceIdTagNil sets the value for ResourceIdTag to be an explicit nil
+
+### UnsetResourceIdTag
+`func (o *AzureResourceTagAudit) UnsetResourceIdTag()`
+
+UnsetResourceIdTag ensures that no value is present for ResourceIdTag, not even an explicit nil
 ### GetTagName
 
 `func (o *AzureResourceTagAudit) GetTagName() string`
@@ -131,6 +141,16 @@ SetTagName sets TagName field to given value.
 
 HasTagName returns a boolean if a field has been set.
 
+### SetTagNameNil
+
+`func (o *AzureResourceTagAudit) SetTagNameNil(b bool)`
+
+ SetTagNameNil sets the value for TagName to be an explicit nil
+
+### UnsetTagName
+`func (o *AzureResourceTagAudit) UnsetTagName()`
+
+UnsetTagName ensures that no value is present for TagName, not even an explicit nil
 ### GetTagValue
 
 `func (o *AzureResourceTagAudit) GetTagValue() string`
@@ -156,6 +176,16 @@ SetTagValue sets TagValue field to given value.
 
 HasTagValue returns a boolean if a field has been set.
 
+### SetTagValueNil
+
+`func (o *AzureResourceTagAudit) SetTagValueNil(b bool)`
+
+ SetTagValueNil sets the value for TagValue to be an explicit nil
+
+### UnsetTagValue
+`func (o *AzureResourceTagAudit) UnsetTagValue()`
+
+UnsetTagValue ensures that no value is present for TagValue, not even an explicit nil
 ### GetCorrectTagValue
 
 `func (o *AzureResourceTagAudit) GetCorrectTagValue() string`
@@ -181,6 +211,16 @@ SetCorrectTagValue sets CorrectTagValue field to given value.
 
 HasCorrectTagValue returns a boolean if a field has been set.
 
+### SetCorrectTagValueNil
+
+`func (o *AzureResourceTagAudit) SetCorrectTagValueNil(b bool)`
+
+ SetCorrectTagValueNil sets the value for CorrectTagValue to be an explicit nil
+
+### UnsetCorrectTagValue
+`func (o *AzureResourceTagAudit) UnsetCorrectTagValue()`
+
+UnsetCorrectTagValue ensures that no value is present for CorrectTagValue, not even an explicit nil
 ### GetRepairCompleted
 
 `func (o *AzureResourceTagAudit) GetRepairCompleted() bool`
@@ -206,6 +246,16 @@ SetRepairCompleted sets RepairCompleted field to given value.
 
 HasRepairCompleted returns a boolean if a field has been set.
 
+### SetRepairCompletedNil
+
+`func (o *AzureResourceTagAudit) SetRepairCompletedNil(b bool)`
+
+ SetRepairCompletedNil sets the value for RepairCompleted to be an explicit nil
+
+### UnsetRepairCompleted
+`func (o *AzureResourceTagAudit) UnsetRepairCompleted()`
+
+UnsetRepairCompleted ensures that no value is present for RepairCompleted, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

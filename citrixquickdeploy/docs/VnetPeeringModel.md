@@ -5,29 +5,31 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **State** | Pointer to [**VnetPeeringState**](VnetPeeringState.md) | State of the peering | [optional] 
-**Error** | Pointer to **string** | Error that occured while peering the vnet | [optional] 
-**TransactionId** | Pointer to **string** | ID of the transaction that performed pairing job | [optional] 
-**Region** | Pointer to **string** | Azure region where the vnet in the managed subscription is located | [optional] 
-**SourceVnetRegion** | Pointer to **string** | Azure region where the originating vnet is located | [optional] 
+**Error** | Pointer to **NullableString** | Error that occured while peering the vnet | [optional] 
+**TransactionId** | Pointer to **NullableString** | ID of the transaction that performed pairing job | [optional] 
+**Region** | Pointer to **NullableString** | Azure region where the vnet in the managed subscription is located | [optional] 
+**SourceVnetRegion** | Pointer to **NullableString** | Azure region where the originating vnet is located | [optional] 
 **IpAddressSpace** | Pointer to **[]string** | The IP Ranges allocated to the peering | [optional] [readonly] 
 **NumberOfAddressesInUse** | Pointer to **int32** | Number of IP Addresses that are currently in use in the subnet | [optional] [readonly] 
 **IsPeeringActive** | Pointer to **bool** | Indicates if the Peering is active | [optional] 
 **CitrixManaged** | Pointer to **bool** | Indicates if the Peering is managed by Citrix | [optional] 
-**PeeredVnetId** | Pointer to **string** | Resource ID of the Peered VNET | [optional] 
-**SubscriptionId** | Pointer to **string** | ID of the Azure Subscription that the citrix managed vnet is associated with | [optional] [readonly] 
+**PeeredVnetId** | Pointer to **NullableString** | Resource ID of the Peered VNET | [optional] 
+**SubscriptionId** | Pointer to **NullableString** | ID of the Azure Subscription that the citrix managed vnet is associated with | [optional] [readonly] 
 **DnsServers** | Pointer to **[]string** | IP address of the DNS server of this VNet | [optional] 
-**CspCustomer** | Pointer to **string** | Indicates that partner-tenant relationship exists if not null | [optional] 
+**CspCustomer** | Pointer to **NullableString** | Indicates that partner-tenant relationship exists if not null | [optional] 
 **Catalogs** | Pointer to **[]string** | List of associated catalogs | [optional] 
 **Images** | Pointer to **[]string** | List of associated images | [optional] 
 **Bastions** | Pointer to **[]string** | List of associated bastions | [optional] 
-**UseGateway** | Pointer to **bool** | Indicates if the peered vnet will be using the customers gateway | [optional] 
-**DisableRoutePropagation** | Pointer to **bool** | Indicates if route propagation in the route table should be disabled (option is valid only if customer is using gateway). | [optional] 
-**NatGatewayConfig** | Pointer to [**NatGatewayModelOverview**](NatGatewayModelOverview.md) | The NAT gateway config | [optional] 
-**Id** | Pointer to **string** | ID of the connection | [optional] 
+**UseGateway** | Pointer to **NullableBool** | Indicates if the peered vnet will be using the customers gateway | [optional] 
+**DisableRoutePropagation** | Pointer to **NullableBool** | Indicates if route propagation in the route table should be disabled (option is valid only if customer is using gateway). | [optional] 
+**NatGatewayConfig** | Pointer to [**NullableNatGatewayModelOverview**](NatGatewayModelOverview.md) | The NAT gateway config | [optional] 
+**RemoteTenantId** | Pointer to **NullableString** | The TenantId of the VNet we are peered into | [optional] 
+**ResourceId** | Pointer to **NullableString** | The Azure Resource ID of the VNet Peering | [optional] 
+**Id** | Pointer to **NullableString** | ID of the connection | [optional] 
 **Type** | Pointer to [**OnPremConnectionType**](OnPremConnectionType.md) | The type of connection | [optional] 
-**Name** | Pointer to **string** | Name of the connection | [optional] 
-**StartedAt** | Pointer to **time.Time** | The datetime when the job started | [optional] 
-**EstimatedTimeInMinute** | Pointer to **int32** | Estimated total time for the job to finish | [optional] 
+**Name** | Pointer to **NullableString** | Name of the connection | [optional] 
+**StartedAt** | Pointer to **NullableTime** | The datetime when the job started | [optional] 
+**EstimatedTimeInMinute** | Pointer to **NullableInt32** | Estimated total time for the job to finish | [optional] 
 
 ## Methods
 
@@ -98,6 +100,16 @@ SetError sets Error field to given value.
 
 HasError returns a boolean if a field has been set.
 
+### SetErrorNil
+
+`func (o *VnetPeeringModel) SetErrorNil(b bool)`
+
+ SetErrorNil sets the value for Error to be an explicit nil
+
+### UnsetError
+`func (o *VnetPeeringModel) UnsetError()`
+
+UnsetError ensures that no value is present for Error, not even an explicit nil
 ### GetTransactionId
 
 `func (o *VnetPeeringModel) GetTransactionId() string`
@@ -123,6 +135,16 @@ SetTransactionId sets TransactionId field to given value.
 
 HasTransactionId returns a boolean if a field has been set.
 
+### SetTransactionIdNil
+
+`func (o *VnetPeeringModel) SetTransactionIdNil(b bool)`
+
+ SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+
+### UnsetTransactionId
+`func (o *VnetPeeringModel) UnsetTransactionId()`
+
+UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
 ### GetRegion
 
 `func (o *VnetPeeringModel) GetRegion() string`
@@ -148,6 +170,16 @@ SetRegion sets Region field to given value.
 
 HasRegion returns a boolean if a field has been set.
 
+### SetRegionNil
+
+`func (o *VnetPeeringModel) SetRegionNil(b bool)`
+
+ SetRegionNil sets the value for Region to be an explicit nil
+
+### UnsetRegion
+`func (o *VnetPeeringModel) UnsetRegion()`
+
+UnsetRegion ensures that no value is present for Region, not even an explicit nil
 ### GetSourceVnetRegion
 
 `func (o *VnetPeeringModel) GetSourceVnetRegion() string`
@@ -173,6 +205,16 @@ SetSourceVnetRegion sets SourceVnetRegion field to given value.
 
 HasSourceVnetRegion returns a boolean if a field has been set.
 
+### SetSourceVnetRegionNil
+
+`func (o *VnetPeeringModel) SetSourceVnetRegionNil(b bool)`
+
+ SetSourceVnetRegionNil sets the value for SourceVnetRegion to be an explicit nil
+
+### UnsetSourceVnetRegion
+`func (o *VnetPeeringModel) UnsetSourceVnetRegion()`
+
+UnsetSourceVnetRegion ensures that no value is present for SourceVnetRegion, not even an explicit nil
 ### GetIpAddressSpace
 
 `func (o *VnetPeeringModel) GetIpAddressSpace() []string`
@@ -198,6 +240,16 @@ SetIpAddressSpace sets IpAddressSpace field to given value.
 
 HasIpAddressSpace returns a boolean if a field has been set.
 
+### SetIpAddressSpaceNil
+
+`func (o *VnetPeeringModel) SetIpAddressSpaceNil(b bool)`
+
+ SetIpAddressSpaceNil sets the value for IpAddressSpace to be an explicit nil
+
+### UnsetIpAddressSpace
+`func (o *VnetPeeringModel) UnsetIpAddressSpace()`
+
+UnsetIpAddressSpace ensures that no value is present for IpAddressSpace, not even an explicit nil
 ### GetNumberOfAddressesInUse
 
 `func (o *VnetPeeringModel) GetNumberOfAddressesInUse() int32`
@@ -298,6 +350,16 @@ SetPeeredVnetId sets PeeredVnetId field to given value.
 
 HasPeeredVnetId returns a boolean if a field has been set.
 
+### SetPeeredVnetIdNil
+
+`func (o *VnetPeeringModel) SetPeeredVnetIdNil(b bool)`
+
+ SetPeeredVnetIdNil sets the value for PeeredVnetId to be an explicit nil
+
+### UnsetPeeredVnetId
+`func (o *VnetPeeringModel) UnsetPeeredVnetId()`
+
+UnsetPeeredVnetId ensures that no value is present for PeeredVnetId, not even an explicit nil
 ### GetSubscriptionId
 
 `func (o *VnetPeeringModel) GetSubscriptionId() string`
@@ -323,6 +385,16 @@ SetSubscriptionId sets SubscriptionId field to given value.
 
 HasSubscriptionId returns a boolean if a field has been set.
 
+### SetSubscriptionIdNil
+
+`func (o *VnetPeeringModel) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *VnetPeeringModel) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
 ### GetDnsServers
 
 `func (o *VnetPeeringModel) GetDnsServers() []string`
@@ -348,6 +420,16 @@ SetDnsServers sets DnsServers field to given value.
 
 HasDnsServers returns a boolean if a field has been set.
 
+### SetDnsServersNil
+
+`func (o *VnetPeeringModel) SetDnsServersNil(b bool)`
+
+ SetDnsServersNil sets the value for DnsServers to be an explicit nil
+
+### UnsetDnsServers
+`func (o *VnetPeeringModel) UnsetDnsServers()`
+
+UnsetDnsServers ensures that no value is present for DnsServers, not even an explicit nil
 ### GetCspCustomer
 
 `func (o *VnetPeeringModel) GetCspCustomer() string`
@@ -373,6 +455,16 @@ SetCspCustomer sets CspCustomer field to given value.
 
 HasCspCustomer returns a boolean if a field has been set.
 
+### SetCspCustomerNil
+
+`func (o *VnetPeeringModel) SetCspCustomerNil(b bool)`
+
+ SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+
+### UnsetCspCustomer
+`func (o *VnetPeeringModel) UnsetCspCustomer()`
+
+UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
 ### GetCatalogs
 
 `func (o *VnetPeeringModel) GetCatalogs() []string`
@@ -398,6 +490,16 @@ SetCatalogs sets Catalogs field to given value.
 
 HasCatalogs returns a boolean if a field has been set.
 
+### SetCatalogsNil
+
+`func (o *VnetPeeringModel) SetCatalogsNil(b bool)`
+
+ SetCatalogsNil sets the value for Catalogs to be an explicit nil
+
+### UnsetCatalogs
+`func (o *VnetPeeringModel) UnsetCatalogs()`
+
+UnsetCatalogs ensures that no value is present for Catalogs, not even an explicit nil
 ### GetImages
 
 `func (o *VnetPeeringModel) GetImages() []string`
@@ -423,6 +525,16 @@ SetImages sets Images field to given value.
 
 HasImages returns a boolean if a field has been set.
 
+### SetImagesNil
+
+`func (o *VnetPeeringModel) SetImagesNil(b bool)`
+
+ SetImagesNil sets the value for Images to be an explicit nil
+
+### UnsetImages
+`func (o *VnetPeeringModel) UnsetImages()`
+
+UnsetImages ensures that no value is present for Images, not even an explicit nil
 ### GetBastions
 
 `func (o *VnetPeeringModel) GetBastions() []string`
@@ -448,6 +560,16 @@ SetBastions sets Bastions field to given value.
 
 HasBastions returns a boolean if a field has been set.
 
+### SetBastionsNil
+
+`func (o *VnetPeeringModel) SetBastionsNil(b bool)`
+
+ SetBastionsNil sets the value for Bastions to be an explicit nil
+
+### UnsetBastions
+`func (o *VnetPeeringModel) UnsetBastions()`
+
+UnsetBastions ensures that no value is present for Bastions, not even an explicit nil
 ### GetUseGateway
 
 `func (o *VnetPeeringModel) GetUseGateway() bool`
@@ -473,6 +595,16 @@ SetUseGateway sets UseGateway field to given value.
 
 HasUseGateway returns a boolean if a field has been set.
 
+### SetUseGatewayNil
+
+`func (o *VnetPeeringModel) SetUseGatewayNil(b bool)`
+
+ SetUseGatewayNil sets the value for UseGateway to be an explicit nil
+
+### UnsetUseGateway
+`func (o *VnetPeeringModel) UnsetUseGateway()`
+
+UnsetUseGateway ensures that no value is present for UseGateway, not even an explicit nil
 ### GetDisableRoutePropagation
 
 `func (o *VnetPeeringModel) GetDisableRoutePropagation() bool`
@@ -498,6 +630,16 @@ SetDisableRoutePropagation sets DisableRoutePropagation field to given value.
 
 HasDisableRoutePropagation returns a boolean if a field has been set.
 
+### SetDisableRoutePropagationNil
+
+`func (o *VnetPeeringModel) SetDisableRoutePropagationNil(b bool)`
+
+ SetDisableRoutePropagationNil sets the value for DisableRoutePropagation to be an explicit nil
+
+### UnsetDisableRoutePropagation
+`func (o *VnetPeeringModel) UnsetDisableRoutePropagation()`
+
+UnsetDisableRoutePropagation ensures that no value is present for DisableRoutePropagation, not even an explicit nil
 ### GetNatGatewayConfig
 
 `func (o *VnetPeeringModel) GetNatGatewayConfig() NatGatewayModelOverview`
@@ -523,6 +665,86 @@ SetNatGatewayConfig sets NatGatewayConfig field to given value.
 
 HasNatGatewayConfig returns a boolean if a field has been set.
 
+### SetNatGatewayConfigNil
+
+`func (o *VnetPeeringModel) SetNatGatewayConfigNil(b bool)`
+
+ SetNatGatewayConfigNil sets the value for NatGatewayConfig to be an explicit nil
+
+### UnsetNatGatewayConfig
+`func (o *VnetPeeringModel) UnsetNatGatewayConfig()`
+
+UnsetNatGatewayConfig ensures that no value is present for NatGatewayConfig, not even an explicit nil
+### GetRemoteTenantId
+
+`func (o *VnetPeeringModel) GetRemoteTenantId() string`
+
+GetRemoteTenantId returns the RemoteTenantId field if non-nil, zero value otherwise.
+
+### GetRemoteTenantIdOk
+
+`func (o *VnetPeeringModel) GetRemoteTenantIdOk() (*string, bool)`
+
+GetRemoteTenantIdOk returns a tuple with the RemoteTenantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRemoteTenantId
+
+`func (o *VnetPeeringModel) SetRemoteTenantId(v string)`
+
+SetRemoteTenantId sets RemoteTenantId field to given value.
+
+### HasRemoteTenantId
+
+`func (o *VnetPeeringModel) HasRemoteTenantId() bool`
+
+HasRemoteTenantId returns a boolean if a field has been set.
+
+### SetRemoteTenantIdNil
+
+`func (o *VnetPeeringModel) SetRemoteTenantIdNil(b bool)`
+
+ SetRemoteTenantIdNil sets the value for RemoteTenantId to be an explicit nil
+
+### UnsetRemoteTenantId
+`func (o *VnetPeeringModel) UnsetRemoteTenantId()`
+
+UnsetRemoteTenantId ensures that no value is present for RemoteTenantId, not even an explicit nil
+### GetResourceId
+
+`func (o *VnetPeeringModel) GetResourceId() string`
+
+GetResourceId returns the ResourceId field if non-nil, zero value otherwise.
+
+### GetResourceIdOk
+
+`func (o *VnetPeeringModel) GetResourceIdOk() (*string, bool)`
+
+GetResourceIdOk returns a tuple with the ResourceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceId
+
+`func (o *VnetPeeringModel) SetResourceId(v string)`
+
+SetResourceId sets ResourceId field to given value.
+
+### HasResourceId
+
+`func (o *VnetPeeringModel) HasResourceId() bool`
+
+HasResourceId returns a boolean if a field has been set.
+
+### SetResourceIdNil
+
+`func (o *VnetPeeringModel) SetResourceIdNil(b bool)`
+
+ SetResourceIdNil sets the value for ResourceId to be an explicit nil
+
+### UnsetResourceId
+`func (o *VnetPeeringModel) UnsetResourceId()`
+
+UnsetResourceId ensures that no value is present for ResourceId, not even an explicit nil
 ### GetId
 
 `func (o *VnetPeeringModel) GetId() string`
@@ -548,6 +770,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *VnetPeeringModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *VnetPeeringModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetType
 
 `func (o *VnetPeeringModel) GetType() OnPremConnectionType`
@@ -598,6 +830,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *VnetPeeringModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *VnetPeeringModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetStartedAt
 
 `func (o *VnetPeeringModel) GetStartedAt() time.Time`
@@ -623,6 +865,16 @@ SetStartedAt sets StartedAt field to given value.
 
 HasStartedAt returns a boolean if a field has been set.
 
+### SetStartedAtNil
+
+`func (o *VnetPeeringModel) SetStartedAtNil(b bool)`
+
+ SetStartedAtNil sets the value for StartedAt to be an explicit nil
+
+### UnsetStartedAt
+`func (o *VnetPeeringModel) UnsetStartedAt()`
+
+UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
 ### GetEstimatedTimeInMinute
 
 `func (o *VnetPeeringModel) GetEstimatedTimeInMinute() int32`
@@ -648,6 +900,16 @@ SetEstimatedTimeInMinute sets EstimatedTimeInMinute field to given value.
 
 HasEstimatedTimeInMinute returns a boolean if a field has been set.
 
+### SetEstimatedTimeInMinuteNil
+
+`func (o *VnetPeeringModel) SetEstimatedTimeInMinuteNil(b bool)`
+
+ SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+
+### UnsetEstimatedTimeInMinute
+`func (o *VnetPeeringModel) UnsetEstimatedTimeInMinute()`
+
+UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

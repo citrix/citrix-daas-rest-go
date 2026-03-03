@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -54,9 +54,9 @@ func (o *OnPremConnectionsModel) SetStaleData(v bool) {
 	o.StaleData = &v
 }
 
-// GetItems returns the Items field value if set, zero value otherwise.
+// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *OnPremConnectionsModel) GetItems() []OnPremConnectionModel {
-	if o == nil || IsNil(o.Items) {
+	if o == nil {
 		var ret []OnPremConnectionModel
 		return ret
 	}
@@ -65,6 +65,7 @@ func (o *OnPremConnectionsModel) GetItems() []OnPremConnectionModel {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OnPremConnectionsModel) GetItemsOk() ([]OnPremConnectionModel, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
@@ -90,7 +91,7 @@ func (o OnPremConnectionsModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.StaleData) {
 		toSerialize["staleData"] = o.StaleData
 	}
-	if !IsNil(o.Items) {
+	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
 	return toSerialize, nil

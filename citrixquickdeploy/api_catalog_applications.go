@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,89 +20,12 @@ import (
 	"strings"
 )
 
-type CatalogApplicationsCMD interface {
-
-	/*
-		GetCatalogApps Get the list of apps that have been published for the specified catalog
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId ID of the customer
-		@param siteId The site ID of the customer
-		@param catalogId ID of the catalog
-		@return ApiGetCatalogAppsRequest
-	*/
-	GetCatalogApps(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetCatalogAppsRequest
-
-	// GetCatalogAppsExecute executes the request
-	//  @return CatalogApplicationsModel
-	GetCatalogAppsExecute(r ApiGetCatalogAppsRequest) (*CatalogApplicationsModel, *http.Response, error)
-
-	/*
-		PublishApplications Publish the specified apps to the catalog
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId ID of the customer
-		@param siteId The site ID of the customer
-		@param catalogId ID of the catalog
-		@return ApiPublishApplicationsRequest
-	*/
-	PublishApplications(ctx context.Context, customerId string, siteId string, catalogId string) ApiPublishApplicationsRequest
-
-	// PublishApplicationsExecute executes the request
-	//  @return CatalogApplicationsModel
-	PublishApplicationsExecute(r ApiPublishApplicationsRequest) (*CatalogApplicationsModel, *http.Response, error)
-
-	/*
-		UnpublishApplication Remove an application from the published list
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId ID of the customer
-		@param siteId
-		@param catalogId ID of the catalog
-		@param appId Identifier of the application
-		@return ApiUnpublishApplicationRequest
-	*/
-	UnpublishApplication(ctx context.Context, customerId string, siteId string, catalogId string, appId string) ApiUnpublishApplicationRequest
-
-	// UnpublishApplicationExecute executes the request
-	UnpublishApplicationExecute(r ApiUnpublishApplicationRequest) (*http.Response, error)
-
-	/*
-		UnpublishApplications Remove a list of applications from a catalog
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId ID of the customer
-		@param siteId The site ID of the customer
-		@param catalogId ID of the catalog
-		@return ApiUnpublishApplicationsRequest
-	*/
-	UnpublishApplications(ctx context.Context, customerId string, siteId string, catalogId string) ApiUnpublishApplicationsRequest
-
-	// UnpublishApplicationsExecute executes the request
-	UnpublishApplicationsExecute(r ApiUnpublishApplicationsRequest) (*http.Response, error)
-
-	/*
-		UpdateApplication Update the configuration of a published app
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId ID of the customer
-		@param siteId The site ID of the customer
-		@param catalogId ID of the catalog
-		@param appId Identifier of the application
-		@return ApiUpdateApplicationRequest
-	*/
-	UpdateApplication(ctx context.Context, customerId string, siteId string, catalogId string, appId string) ApiUpdateApplicationRequest
-
-	// UpdateApplicationExecute executes the request
-	UpdateApplicationExecute(r ApiUpdateApplicationRequest) (*http.Response, error)
-}
-
 // CatalogApplicationsCMDService CatalogApplicationsCMD service
 type CatalogApplicationsCMDService service
 
 type ApiGetCatalogAppsRequest struct {
 	ctx                 context.Context
-	ApiService          CatalogApplicationsCMD
+	ApiService          *CatalogApplicationsCMDService
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -235,13 +158,13 @@ func (a *CatalogApplicationsCMDService) GetCatalogAppsExecute(r ApiGetCatalogApp
 }
 
 type ApiPublishApplicationsRequest struct {
-	ctx                 context.Context
-	ApiService          CatalogApplicationsCMD
-	customerId          string
-	siteId              string
-	catalogId           string
-	citrixTransactionId *string
-	body                *AddCatalogApplicationsModel
+	ctx                         context.Context
+	ApiService                  *CatalogApplicationsCMDService
+	customerId                  string
+	siteId                      string
+	catalogId                   string
+	citrixTransactionId         *string
+	addCatalogApplicationsModel *AddCatalogApplicationsModel
 }
 
 // The Transaction Id.
@@ -251,8 +174,8 @@ func (r ApiPublishApplicationsRequest) CitrixTransactionId(citrixTransactionId s
 }
 
 // List of applications to add
-func (r ApiPublishApplicationsRequest) Body(body AddCatalogApplicationsModel) ApiPublishApplicationsRequest {
-	r.body = &body
+func (r ApiPublishApplicationsRequest) AddCatalogApplicationsModel(addCatalogApplicationsModel AddCatalogApplicationsModel) ApiPublishApplicationsRequest {
+	r.addCatalogApplicationsModel = &addCatalogApplicationsModel
 	return r
 }
 
@@ -325,7 +248,7 @@ func (a *CatalogApplicationsCMDService) PublishApplicationsExecute(r ApiPublishA
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.addCatalogApplicationsModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -379,7 +302,7 @@ func (a *CatalogApplicationsCMDService) PublishApplicationsExecute(r ApiPublishA
 
 type ApiUnpublishApplicationRequest struct {
 	ctx                 context.Context
-	ApiService          CatalogApplicationsCMD
+	ApiService          *CatalogApplicationsCMDService
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -505,7 +428,7 @@ func (a *CatalogApplicationsCMDService) UnpublishApplicationExecute(r ApiUnpubli
 
 type ApiUnpublishApplicationsRequest struct {
 	ctx                 context.Context
-	ApiService          CatalogApplicationsCMD
+	ApiService          *CatalogApplicationsCMDService
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -644,14 +567,14 @@ func (a *CatalogApplicationsCMDService) UnpublishApplicationsExecute(r ApiUnpubl
 }
 
 type ApiUpdateApplicationRequest struct {
-	ctx                 context.Context
-	ApiService          CatalogApplicationsCMD
-	customerId          string
-	siteId              string
-	catalogId           string
-	appId               string
-	citrixTransactionId *string
-	body                *UpdateApplicationConfigurationModel
+	ctx                                 context.Context
+	ApiService                          *CatalogApplicationsCMDService
+	customerId                          string
+	siteId                              string
+	catalogId                           string
+	appId                               string
+	citrixTransactionId                 *string
+	updateApplicationConfigurationModel *UpdateApplicationConfigurationModel
 }
 
 // The Transaction Id.
@@ -661,8 +584,8 @@ func (r ApiUpdateApplicationRequest) CitrixTransactionId(citrixTransactionId str
 }
 
 // New configuration of the application
-func (r ApiUpdateApplicationRequest) Body(body UpdateApplicationConfigurationModel) ApiUpdateApplicationRequest {
-	r.body = &body
+func (r ApiUpdateApplicationRequest) UpdateApplicationConfigurationModel(updateApplicationConfigurationModel UpdateApplicationConfigurationModel) ApiUpdateApplicationRequest {
+	r.updateApplicationConfigurationModel = &updateApplicationConfigurationModel
 	return r
 }
 
@@ -735,7 +658,7 @@ func (a *CatalogApplicationsCMDService) UpdateApplicationExecute(r ApiUpdateAppl
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.updateApplicationConfigurationModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

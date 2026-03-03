@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,20 +20,27 @@ type CatalogOperationType string
 
 // List of CatalogOperationType
 const (
-	CATALOGOPERATIONTYPE_SET_CATALOG_LIMITS                  CatalogOperationType = "SetCatalogLimits"
-	CATALOGOPERATIONTYPE_SET_IMAGE_FAILED                    CatalogOperationType = "SetImageFailed"
-	CATALOGOPERATIONTYPE_SET_CATALOG_FAILED                  CatalogOperationType = "SetCatalogFailed"
-	CATALOGOPERATIONTYPE_DELETE_CATALOG                      CatalogOperationType = "DeleteCatalog"
-	CATALOGOPERATIONTYPE_DELETE_COMMISSION_DATA              CatalogOperationType = "DeleteCommissionData"
-	CATALOGOPERATIONTYPE_ADD_CITRIX_MANAGED_SUBSCRIPTION     CatalogOperationType = "AddCitrixManagedSubscription"
-	CATALOGOPERATIONTYPE_GRANT_CITRIX_MANAGED_SUBSCRIPTION   CatalogOperationType = "GrantCitrixManagedSubscription"
-	CATALOGOPERATIONTYPE_REVOKE_CITRIX_MANAGED_SUBSCRIPTION  CatalogOperationType = "RevokeCitrixManagedSubscription"
-	CATALOGOPERATIONTYPE_RENEW_CITRIX_MANAGED_SUBSCRIPTION   CatalogOperationType = "RenewCitrixManagedSubscription"
-	CATALOGOPERATIONTYPE_SUSPEND_CITRIX_MANAGED_SUBSCRIPTION CatalogOperationType = "SuspendCitrixManagedSubscription"
-	CATALOGOPERATIONTYPE_SET_CITRIX_MANAGED_VDA_LIMIT        CatalogOperationType = "SetCitrixManagedVdaLimit"
-	CATALOGOPERATIONTYPE_SET_BYOA_VDA_LIMIT                  CatalogOperationType = "SetByoaVdaLimit"
-	CATALOGOPERATIONTYPE_OPEN_VNET_PORT                      CatalogOperationType = "OpenVnetPort"
-	CATALOGOPERATIONTYPE_CLEAN_UP_MANAGED_SUBSCRIPTION       CatalogOperationType = "CleanUpManagedSubscription"
+	CATALOGOPERATIONTYPE_SET_CATALOG_LIMITS                      CatalogOperationType = "SetCatalogLimits"
+	CATALOGOPERATIONTYPE_SET_IMAGE_FAILED                        CatalogOperationType = "SetImageFailed"
+	CATALOGOPERATIONTYPE_SET_CATALOG_FAILED                      CatalogOperationType = "SetCatalogFailed"
+	CATALOGOPERATIONTYPE_DELETE_CATALOG                          CatalogOperationType = "DeleteCatalog"
+	CATALOGOPERATIONTYPE_DELETE_COMMISSION_DATA                  CatalogOperationType = "DeleteCommissionData"
+	CATALOGOPERATIONTYPE_ADD_CITRIX_MANAGED_SUBSCRIPTION         CatalogOperationType = "AddCitrixManagedSubscription"
+	CATALOGOPERATIONTYPE_GRANT_CITRIX_MANAGED_SUBSCRIPTION       CatalogOperationType = "GrantCitrixManagedSubscription"
+	CATALOGOPERATIONTYPE_REVOKE_CITRIX_MANAGED_SUBSCRIPTION      CatalogOperationType = "RevokeCitrixManagedSubscription"
+	CATALOGOPERATIONTYPE_RENEW_CITRIX_MANAGED_SUBSCRIPTION       CatalogOperationType = "RenewCitrixManagedSubscription"
+	CATALOGOPERATIONTYPE_SUSPEND_CITRIX_MANAGED_SUBSCRIPTION     CatalogOperationType = "SuspendCitrixManagedSubscription"
+	CATALOGOPERATIONTYPE_SET_CITRIX_MANAGED_VDA_LIMIT            CatalogOperationType = "SetCitrixManagedVdaLimit"
+	CATALOGOPERATIONTYPE_SET_BYOA_VDA_LIMIT                      CatalogOperationType = "SetByoaVdaLimit"
+	CATALOGOPERATIONTYPE_OPEN_VNET_PORT                          CatalogOperationType = "OpenVnetPort"
+	CATALOGOPERATIONTYPE_CLEAN_UP_MANAGED_SUBSCRIPTION           CatalogOperationType = "CleanUpManagedSubscription"
+	CATALOGOPERATIONTYPE_ADD_CUSTOMER_VM_SKU                     CatalogOperationType = "AddCustomerVmSku"
+	CATALOGOPERATIONTYPE_REMOVE_CUSTOMER_VM_SKU                  CatalogOperationType = "RemoveCustomerVmSku"
+	CATALOGOPERATIONTYPE_ADD_CUSTOMER_REGION                     CatalogOperationType = "AddCustomerRegion"
+	CATALOGOPERATIONTYPE_REMOVE_CUSTOMER_REGION                  CatalogOperationType = "RemoveCustomerRegion"
+	CATALOGOPERATIONTYPE_DOWNLOAD_VDA_EFFECTIVE_ROUTES           CatalogOperationType = "DownloadVdaEffectiveRoutes"
+	CATALOGOPERATIONTYPE_SET_MAX_MANAGED_SUBSCRIPTIONS           CatalogOperationType = "SetMaxManagedSubscriptions"
+	CATALOGOPERATIONTYPE_REMOVE_BASTION_NSG_RULE_BASED_ON_PREFIX CatalogOperationType = "RemoveBastionNsgRuleBasedOnPrefix"
 )
 
 // All allowed values of CatalogOperationType enum
@@ -52,6 +59,13 @@ var AllowedCatalogOperationTypeEnumValues = []CatalogOperationType{
 	"SetByoaVdaLimit",
 	"OpenVnetPort",
 	"CleanUpManagedSubscription",
+	"AddCustomerVmSku",
+	"RemoveCustomerVmSku",
+	"AddCustomerRegion",
+	"RemoveCustomerRegion",
+	"DownloadVdaEffectiveRoutes",
+	"SetMaxManagedSubscriptions",
+	"RemoveBastionNsgRuleBasedOnPrefix",
 }
 
 func (v *CatalogOperationType) UnmarshalJSON(src []byte) error {

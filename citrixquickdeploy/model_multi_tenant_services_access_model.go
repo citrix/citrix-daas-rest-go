@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,13 +20,13 @@ var _ MappedNullable = &MultiTenantServicesAccessModel{}
 // MultiTenantServicesAccessModel Multi-tenant services access to DaaS.
 type MultiTenantServicesAccessModel struct {
 	// Indicate whether Citrix DaaS Standard for Azure is allowed.
-	XaCatalogService *bool `json:"xaCatalogService,omitempty"`
+	XaCatalogService NullableBool `json:"xaCatalogService,omitempty"`
 	// Indicate whether Citrix DaaS for Amazon WorkSpaces Core is allowed.
-	XdQuickCreateService *bool `json:"xdQuickCreateService,omitempty"`
+	XdQuickCreateService NullableBool `json:"xdQuickCreateService,omitempty"`
 	// Indicate whether Citrix HDX Plus for Windows 365 is allowed.
-	XdCloudPcRegistrationService *bool `json:"xdCloudPcRegistrationService,omitempty"`
+	XdCloudPcRegistrationService NullableBool `json:"xdCloudPcRegistrationService,omitempty"`
 	// Indicate whether Citrix ITSM Adapter service is allowed.
-	Itsm *bool `json:"itsm,omitempty"`
+	Itsm NullableBool `json:"itsm,omitempty"`
 }
 
 // NewMultiTenantServicesAccessModelWithDefaults instantiates a new MultiTenantServicesAccessModel object
@@ -37,96 +37,140 @@ func NewMultiTenantServicesAccessModelWithDefaults() *MultiTenantServicesAccessM
 	return &this
 }
 
-// GetXaCatalogService returns the XaCatalogService field value if set, zero value otherwise.
+// GetXaCatalogService returns the XaCatalogService field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MultiTenantServicesAccessModel) GetXaCatalogService() bool {
-	if o == nil || IsNil(o.XaCatalogService) {
+	if o == nil || IsNil(o.XaCatalogService.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.XaCatalogService
+	return *o.XaCatalogService.Get()
 }
 
 // GetXaCatalogServiceOk returns a tuple with the XaCatalogService field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MultiTenantServicesAccessModel) GetXaCatalogServiceOk() (*bool, bool) {
-	if o == nil || IsNil(o.XaCatalogService) {
+	if o == nil {
 		return nil, false
 	}
-	return o.XaCatalogService, true
+	return o.XaCatalogService.Get(), o.XaCatalogService.IsSet()
 }
 
-// SetXaCatalogService gets a reference to the given bool and assigns it to the XaCatalogService field.
+// SetXaCatalogService gets a reference to the given NullableBool and assigns it to the XaCatalogService field.
 func (o *MultiTenantServicesAccessModel) SetXaCatalogService(v bool) {
-	o.XaCatalogService = &v
+	o.XaCatalogService.Set(&v)
 }
 
-// GetXdQuickCreateService returns the XdQuickCreateService field value if set, zero value otherwise.
+// SetXaCatalogServiceNil sets the value for XaCatalogService to be an explicit nil
+func (o *MultiTenantServicesAccessModel) SetXaCatalogServiceNil() {
+	o.XaCatalogService.Set(nil)
+}
+
+// UnsetXaCatalogService ensures that no value is present for XaCatalogService, not even an explicit nil
+func (o *MultiTenantServicesAccessModel) UnsetXaCatalogService() {
+	o.XaCatalogService.Unset()
+}
+
+// GetXdQuickCreateService returns the XdQuickCreateService field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MultiTenantServicesAccessModel) GetXdQuickCreateService() bool {
-	if o == nil || IsNil(o.XdQuickCreateService) {
+	if o == nil || IsNil(o.XdQuickCreateService.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.XdQuickCreateService
+	return *o.XdQuickCreateService.Get()
 }
 
 // GetXdQuickCreateServiceOk returns a tuple with the XdQuickCreateService field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MultiTenantServicesAccessModel) GetXdQuickCreateServiceOk() (*bool, bool) {
-	if o == nil || IsNil(o.XdQuickCreateService) {
+	if o == nil {
 		return nil, false
 	}
-	return o.XdQuickCreateService, true
+	return o.XdQuickCreateService.Get(), o.XdQuickCreateService.IsSet()
 }
 
-// SetXdQuickCreateService gets a reference to the given bool and assigns it to the XdQuickCreateService field.
+// SetXdQuickCreateService gets a reference to the given NullableBool and assigns it to the XdQuickCreateService field.
 func (o *MultiTenantServicesAccessModel) SetXdQuickCreateService(v bool) {
-	o.XdQuickCreateService = &v
+	o.XdQuickCreateService.Set(&v)
 }
 
-// GetXdCloudPcRegistrationService returns the XdCloudPcRegistrationService field value if set, zero value otherwise.
+// SetXdQuickCreateServiceNil sets the value for XdQuickCreateService to be an explicit nil
+func (o *MultiTenantServicesAccessModel) SetXdQuickCreateServiceNil() {
+	o.XdQuickCreateService.Set(nil)
+}
+
+// UnsetXdQuickCreateService ensures that no value is present for XdQuickCreateService, not even an explicit nil
+func (o *MultiTenantServicesAccessModel) UnsetXdQuickCreateService() {
+	o.XdQuickCreateService.Unset()
+}
+
+// GetXdCloudPcRegistrationService returns the XdCloudPcRegistrationService field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MultiTenantServicesAccessModel) GetXdCloudPcRegistrationService() bool {
-	if o == nil || IsNil(o.XdCloudPcRegistrationService) {
+	if o == nil || IsNil(o.XdCloudPcRegistrationService.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.XdCloudPcRegistrationService
+	return *o.XdCloudPcRegistrationService.Get()
 }
 
 // GetXdCloudPcRegistrationServiceOk returns a tuple with the XdCloudPcRegistrationService field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MultiTenantServicesAccessModel) GetXdCloudPcRegistrationServiceOk() (*bool, bool) {
-	if o == nil || IsNil(o.XdCloudPcRegistrationService) {
+	if o == nil {
 		return nil, false
 	}
-	return o.XdCloudPcRegistrationService, true
+	return o.XdCloudPcRegistrationService.Get(), o.XdCloudPcRegistrationService.IsSet()
 }
 
-// SetXdCloudPcRegistrationService gets a reference to the given bool and assigns it to the XdCloudPcRegistrationService field.
+// SetXdCloudPcRegistrationService gets a reference to the given NullableBool and assigns it to the XdCloudPcRegistrationService field.
 func (o *MultiTenantServicesAccessModel) SetXdCloudPcRegistrationService(v bool) {
-	o.XdCloudPcRegistrationService = &v
+	o.XdCloudPcRegistrationService.Set(&v)
 }
 
-// GetItsm returns the Itsm field value if set, zero value otherwise.
+// SetXdCloudPcRegistrationServiceNil sets the value for XdCloudPcRegistrationService to be an explicit nil
+func (o *MultiTenantServicesAccessModel) SetXdCloudPcRegistrationServiceNil() {
+	o.XdCloudPcRegistrationService.Set(nil)
+}
+
+// UnsetXdCloudPcRegistrationService ensures that no value is present for XdCloudPcRegistrationService, not even an explicit nil
+func (o *MultiTenantServicesAccessModel) UnsetXdCloudPcRegistrationService() {
+	o.XdCloudPcRegistrationService.Unset()
+}
+
+// GetItsm returns the Itsm field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MultiTenantServicesAccessModel) GetItsm() bool {
-	if o == nil || IsNil(o.Itsm) {
+	if o == nil || IsNil(o.Itsm.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.Itsm
+	return *o.Itsm.Get()
 }
 
 // GetItsmOk returns a tuple with the Itsm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MultiTenantServicesAccessModel) GetItsmOk() (*bool, bool) {
-	if o == nil || IsNil(o.Itsm) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Itsm, true
+	return o.Itsm.Get(), o.Itsm.IsSet()
 }
 
-// SetItsm gets a reference to the given bool and assigns it to the Itsm field.
+// SetItsm gets a reference to the given NullableBool and assigns it to the Itsm field.
 func (o *MultiTenantServicesAccessModel) SetItsm(v bool) {
-	o.Itsm = &v
+	o.Itsm.Set(&v)
+}
+
+// SetItsmNil sets the value for Itsm to be an explicit nil
+func (o *MultiTenantServicesAccessModel) SetItsmNil() {
+	o.Itsm.Set(nil)
+}
+
+// UnsetItsm ensures that no value is present for Itsm, not even an explicit nil
+func (o *MultiTenantServicesAccessModel) UnsetItsm() {
+	o.Itsm.Unset()
 }
 
 func (o MultiTenantServicesAccessModel) MarshalJSON() ([]byte, error) {
@@ -139,17 +183,17 @@ func (o MultiTenantServicesAccessModel) MarshalJSON() ([]byte, error) {
 
 func (o MultiTenantServicesAccessModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.XaCatalogService) {
-		toSerialize["xaCatalogService"] = o.XaCatalogService
+	if o.XaCatalogService.IsSet() {
+		toSerialize["xaCatalogService"] = o.XaCatalogService.Get()
 	}
-	if !IsNil(o.XdQuickCreateService) {
-		toSerialize["xdQuickCreateService"] = o.XdQuickCreateService
+	if o.XdQuickCreateService.IsSet() {
+		toSerialize["xdQuickCreateService"] = o.XdQuickCreateService.Get()
 	}
-	if !IsNil(o.XdCloudPcRegistrationService) {
-		toSerialize["xdCloudPcRegistrationService"] = o.XdCloudPcRegistrationService
+	if o.XdCloudPcRegistrationService.IsSet() {
+		toSerialize["xdCloudPcRegistrationService"] = o.XdCloudPcRegistrationService.Get()
 	}
-	if !IsNil(o.Itsm) {
-		toSerialize["itsm"] = o.Itsm
+	if o.Itsm.IsSet() {
+		toSerialize["itsm"] = o.Itsm.Get()
 	}
 	return toSerialize, nil
 }

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -17,14 +17,16 @@ import (
 // checks if the AddManagedEncryptionKeyModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AddManagedEncryptionKeyModel{}
 
-// AddManagedEncryptionKeyModel struct for AddManagedEncryptionKeyModel
+// AddManagedEncryptionKeyModel Model for adding a new customer managed encryption key
 type AddManagedEncryptionKeyModel struct {
 	SubscriptionId string `json:"subscriptionId"`
 	Region         string `json:"region"`
 	Name           string `json:"name"`
 	// Enum to describe option to either generate or upload a key
 	KeyOption ManagedEncryptionKeyOption `json:"keyOption"`
-	KeyUpload *string                    `json:"keyUpload,omitempty"`
+	KeyUpload NullableString             `json:"keyUpload,omitempty"`
+	// Optional rotation policy configuration for the managed encryption key
+	RotationPolicy NullableManagedEncryptionKeyRotationPolicyModel `json:"rotationPolicy,omitempty"`
 }
 
 // NewAddManagedEncryptionKeyModelWithDefaults instantiates a new AddManagedEncryptionKeyModel object
@@ -131,27 +133,72 @@ func (o *AddManagedEncryptionKeyModel) SetKeyOption(v ManagedEncryptionKeyOption
 	o.KeyOption = v
 }
 
-// GetKeyUpload returns the KeyUpload field value if set, zero value otherwise.
+// GetKeyUpload returns the KeyUpload field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddManagedEncryptionKeyModel) GetKeyUpload() string {
-	if o == nil || IsNil(o.KeyUpload) {
+	if o == nil || IsNil(o.KeyUpload.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.KeyUpload
+	return *o.KeyUpload.Get()
 }
 
 // GetKeyUploadOk returns a tuple with the KeyUpload field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddManagedEncryptionKeyModel) GetKeyUploadOk() (*string, bool) {
-	if o == nil || IsNil(o.KeyUpload) {
+	if o == nil {
 		return nil, false
 	}
-	return o.KeyUpload, true
+	return o.KeyUpload.Get(), o.KeyUpload.IsSet()
 }
 
-// SetKeyUpload gets a reference to the given string and assigns it to the KeyUpload field.
+// SetKeyUpload gets a reference to the given NullableString and assigns it to the KeyUpload field.
 func (o *AddManagedEncryptionKeyModel) SetKeyUpload(v string) {
-	o.KeyUpload = &v
+	o.KeyUpload.Set(&v)
+}
+
+// SetKeyUploadNil sets the value for KeyUpload to be an explicit nil
+func (o *AddManagedEncryptionKeyModel) SetKeyUploadNil() {
+	o.KeyUpload.Set(nil)
+}
+
+// UnsetKeyUpload ensures that no value is present for KeyUpload, not even an explicit nil
+func (o *AddManagedEncryptionKeyModel) UnsetKeyUpload() {
+	o.KeyUpload.Unset()
+}
+
+// GetRotationPolicy returns the RotationPolicy field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AddManagedEncryptionKeyModel) GetRotationPolicy() ManagedEncryptionKeyRotationPolicyModel {
+	if o == nil || IsNil(o.RotationPolicy.Get()) {
+		var ret ManagedEncryptionKeyRotationPolicyModel
+		return ret
+	}
+	return *o.RotationPolicy.Get()
+}
+
+// GetRotationPolicyOk returns a tuple with the RotationPolicy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AddManagedEncryptionKeyModel) GetRotationPolicyOk() (*ManagedEncryptionKeyRotationPolicyModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RotationPolicy.Get(), o.RotationPolicy.IsSet()
+}
+
+// SetRotationPolicy gets a reference to the given NullableManagedEncryptionKeyRotationPolicyModel and assigns it to the RotationPolicy field.
+func (o *AddManagedEncryptionKeyModel) SetRotationPolicy(v ManagedEncryptionKeyRotationPolicyModel) {
+	o.RotationPolicy.Set(&v)
+}
+
+// SetRotationPolicyNil sets the value for RotationPolicy to be an explicit nil
+func (o *AddManagedEncryptionKeyModel) SetRotationPolicyNil() {
+	o.RotationPolicy.Set(nil)
+}
+
+// UnsetRotationPolicy ensures that no value is present for RotationPolicy, not even an explicit nil
+func (o *AddManagedEncryptionKeyModel) UnsetRotationPolicy() {
+	o.RotationPolicy.Unset()
 }
 
 func (o AddManagedEncryptionKeyModel) MarshalJSON() ([]byte, error) {
@@ -168,8 +215,11 @@ func (o AddManagedEncryptionKeyModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["region"] = o.Region
 	toSerialize["name"] = o.Name
 	toSerialize["keyOption"] = o.KeyOption
-	if !IsNil(o.KeyUpload) {
-		toSerialize["keyUpload"] = o.KeyUpload
+	if o.KeyUpload.IsSet() {
+		toSerialize["keyUpload"] = o.KeyUpload.Get()
+	}
+	if o.RotationPolicy.IsSet() {
+		toSerialize["rotationPolicy"] = o.RotationPolicy.Get()
 	}
 	return toSerialize, nil
 }

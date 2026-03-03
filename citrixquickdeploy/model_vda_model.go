@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,24 +20,24 @@ var _ MappedNullable = &VdaModel{}
 
 // VdaModel struct for VdaModel
 type VdaModel struct {
-	DnsName                  *string                `json:"dnsName,omitempty"`
-	Name                     *string                `json:"name,omitempty"`
-	MachineUid               *int32                 `json:"machineUid,omitempty"`
-	Sid                      *string                `json:"sid,omitempty"`
-	CatalogUid               *int32                 `json:"catalogUid,omitempty"`
-	RegistrationState        *string                `json:"registrationState,omitempty"`
-	SummaryState             *string                `json:"summaryState,omitempty"`
-	Powerstate               *string                `json:"powerstate,omitempty"`
-	SessionCount             *int32                 `json:"sessionCount,omitempty"`
-	InMaintenanceMode        *bool                  `json:"inMaintenanceMode,omitempty"`
-	LastDeregistrationTime   *time.Time             `json:"lastDeregistrationTime,omitempty"`
-	LastDeregistrationReason *string                `json:"lastDeregistrationReason,omitempty"`
-	VdaResourceGroup         *string                `json:"vdaResourceGroup,omitempty"`
-	AllocationType           *CatalogAllocationType `json:"allocationType,omitempty"`
-	AssociatedUsers          []string               `json:"associatedUsers,omitempty"`
-	RestoreStatus            *RestoreStatusModel    `json:"restoreStatus,omitempty"`
-	IpAddress                *string                `json:"ipAddress,omitempty"`
-	ImageOutOfDate           *bool                  `json:"imageOutOfDate,omitempty"`
+	DnsName                  NullableString             `json:"dnsName,omitempty"`
+	Name                     NullableString             `json:"name,omitempty"`
+	MachineUid               *int32                     `json:"machineUid,omitempty"`
+	Sid                      NullableString             `json:"sid,omitempty"`
+	CatalogUid               *int32                     `json:"catalogUid,omitempty"`
+	RegistrationState        NullableString             `json:"registrationState,omitempty"`
+	SummaryState             NullableString             `json:"summaryState,omitempty"`
+	Powerstate               NullableString             `json:"powerstate,omitempty"`
+	SessionCount             *int32                     `json:"sessionCount,omitempty"`
+	InMaintenanceMode        *bool                      `json:"inMaintenanceMode,omitempty"`
+	LastDeregistrationTime   NullableTime               `json:"lastDeregistrationTime,omitempty"`
+	LastDeregistrationReason NullableString             `json:"lastDeregistrationReason,omitempty"`
+	VdaResourceGroup         NullableString             `json:"vdaResourceGroup,omitempty"`
+	AllocationType           *CatalogAllocationType     `json:"allocationType,omitempty"`
+	AssociatedUsers          []string                   `json:"associatedUsers,omitempty"`
+	RestoreStatus            NullableRestoreStatusModel `json:"restoreStatus,omitempty"`
+	IpAddress                NullableString             `json:"ipAddress,omitempty"`
+	ImageOutOfDate           NullableBool               `json:"imageOutOfDate,omitempty"`
 }
 
 // NewVdaModelWithDefaults instantiates a new VdaModel object
@@ -48,50 +48,72 @@ func NewVdaModelWithDefaults() *VdaModel {
 	return &this
 }
 
-// GetDnsName returns the DnsName field value if set, zero value otherwise.
+// GetDnsName returns the DnsName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VdaModel) GetDnsName() string {
-	if o == nil || IsNil(o.DnsName) {
+	if o == nil || IsNil(o.DnsName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DnsName
+	return *o.DnsName.Get()
 }
 
 // GetDnsNameOk returns a tuple with the DnsName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VdaModel) GetDnsNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DnsName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DnsName, true
+	return o.DnsName.Get(), o.DnsName.IsSet()
 }
 
-// SetDnsName gets a reference to the given string and assigns it to the DnsName field.
+// SetDnsName gets a reference to the given NullableString and assigns it to the DnsName field.
 func (o *VdaModel) SetDnsName(v string) {
-	o.DnsName = &v
+	o.DnsName.Set(&v)
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// SetDnsNameNil sets the value for DnsName to be an explicit nil
+func (o *VdaModel) SetDnsNameNil() {
+	o.DnsName.Set(nil)
+}
+
+// UnsetDnsName ensures that no value is present for DnsName, not even an explicit nil
+func (o *VdaModel) UnsetDnsName() {
+	o.DnsName.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VdaModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VdaModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *VdaModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *VdaModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *VdaModel) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetMachineUid returns the MachineUid field value if set, zero value otherwise.
@@ -117,27 +139,38 @@ func (o *VdaModel) SetMachineUid(v int32) {
 	o.MachineUid = &v
 }
 
-// GetSid returns the Sid field value if set, zero value otherwise.
+// GetSid returns the Sid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VdaModel) GetSid() string {
-	if o == nil || IsNil(o.Sid) {
+	if o == nil || IsNil(o.Sid.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Sid
+	return *o.Sid.Get()
 }
 
 // GetSidOk returns a tuple with the Sid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VdaModel) GetSidOk() (*string, bool) {
-	if o == nil || IsNil(o.Sid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Sid, true
+	return o.Sid.Get(), o.Sid.IsSet()
 }
 
-// SetSid gets a reference to the given string and assigns it to the Sid field.
+// SetSid gets a reference to the given NullableString and assigns it to the Sid field.
 func (o *VdaModel) SetSid(v string) {
-	o.Sid = &v
+	o.Sid.Set(&v)
+}
+
+// SetSidNil sets the value for Sid to be an explicit nil
+func (o *VdaModel) SetSidNil() {
+	o.Sid.Set(nil)
+}
+
+// UnsetSid ensures that no value is present for Sid, not even an explicit nil
+func (o *VdaModel) UnsetSid() {
+	o.Sid.Unset()
 }
 
 // GetCatalogUid returns the CatalogUid field value if set, zero value otherwise.
@@ -163,73 +196,106 @@ func (o *VdaModel) SetCatalogUid(v int32) {
 	o.CatalogUid = &v
 }
 
-// GetRegistrationState returns the RegistrationState field value if set, zero value otherwise.
+// GetRegistrationState returns the RegistrationState field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VdaModel) GetRegistrationState() string {
-	if o == nil || IsNil(o.RegistrationState) {
+	if o == nil || IsNil(o.RegistrationState.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.RegistrationState
+	return *o.RegistrationState.Get()
 }
 
 // GetRegistrationStateOk returns a tuple with the RegistrationState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VdaModel) GetRegistrationStateOk() (*string, bool) {
-	if o == nil || IsNil(o.RegistrationState) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RegistrationState, true
+	return o.RegistrationState.Get(), o.RegistrationState.IsSet()
 }
 
-// SetRegistrationState gets a reference to the given string and assigns it to the RegistrationState field.
+// SetRegistrationState gets a reference to the given NullableString and assigns it to the RegistrationState field.
 func (o *VdaModel) SetRegistrationState(v string) {
-	o.RegistrationState = &v
+	o.RegistrationState.Set(&v)
 }
 
-// GetSummaryState returns the SummaryState field value if set, zero value otherwise.
+// SetRegistrationStateNil sets the value for RegistrationState to be an explicit nil
+func (o *VdaModel) SetRegistrationStateNil() {
+	o.RegistrationState.Set(nil)
+}
+
+// UnsetRegistrationState ensures that no value is present for RegistrationState, not even an explicit nil
+func (o *VdaModel) UnsetRegistrationState() {
+	o.RegistrationState.Unset()
+}
+
+// GetSummaryState returns the SummaryState field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VdaModel) GetSummaryState() string {
-	if o == nil || IsNil(o.SummaryState) {
+	if o == nil || IsNil(o.SummaryState.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SummaryState
+	return *o.SummaryState.Get()
 }
 
 // GetSummaryStateOk returns a tuple with the SummaryState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VdaModel) GetSummaryStateOk() (*string, bool) {
-	if o == nil || IsNil(o.SummaryState) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SummaryState, true
+	return o.SummaryState.Get(), o.SummaryState.IsSet()
 }
 
-// SetSummaryState gets a reference to the given string and assigns it to the SummaryState field.
+// SetSummaryState gets a reference to the given NullableString and assigns it to the SummaryState field.
 func (o *VdaModel) SetSummaryState(v string) {
-	o.SummaryState = &v
+	o.SummaryState.Set(&v)
 }
 
-// GetPowerstate returns the Powerstate field value if set, zero value otherwise.
+// SetSummaryStateNil sets the value for SummaryState to be an explicit nil
+func (o *VdaModel) SetSummaryStateNil() {
+	o.SummaryState.Set(nil)
+}
+
+// UnsetSummaryState ensures that no value is present for SummaryState, not even an explicit nil
+func (o *VdaModel) UnsetSummaryState() {
+	o.SummaryState.Unset()
+}
+
+// GetPowerstate returns the Powerstate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VdaModel) GetPowerstate() string {
-	if o == nil || IsNil(o.Powerstate) {
+	if o == nil || IsNil(o.Powerstate.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Powerstate
+	return *o.Powerstate.Get()
 }
 
 // GetPowerstateOk returns a tuple with the Powerstate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VdaModel) GetPowerstateOk() (*string, bool) {
-	if o == nil || IsNil(o.Powerstate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Powerstate, true
+	return o.Powerstate.Get(), o.Powerstate.IsSet()
 }
 
-// SetPowerstate gets a reference to the given string and assigns it to the Powerstate field.
+// SetPowerstate gets a reference to the given NullableString and assigns it to the Powerstate field.
 func (o *VdaModel) SetPowerstate(v string) {
-	o.Powerstate = &v
+	o.Powerstate.Set(&v)
+}
+
+// SetPowerstateNil sets the value for Powerstate to be an explicit nil
+func (o *VdaModel) SetPowerstateNil() {
+	o.Powerstate.Set(nil)
+}
+
+// UnsetPowerstate ensures that no value is present for Powerstate, not even an explicit nil
+func (o *VdaModel) UnsetPowerstate() {
+	o.Powerstate.Unset()
 }
 
 // GetSessionCount returns the SessionCount field value if set, zero value otherwise.
@@ -278,73 +344,106 @@ func (o *VdaModel) SetInMaintenanceMode(v bool) {
 	o.InMaintenanceMode = &v
 }
 
-// GetLastDeregistrationTime returns the LastDeregistrationTime field value if set, zero value otherwise.
+// GetLastDeregistrationTime returns the LastDeregistrationTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VdaModel) GetLastDeregistrationTime() time.Time {
-	if o == nil || IsNil(o.LastDeregistrationTime) {
+	if o == nil || IsNil(o.LastDeregistrationTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastDeregistrationTime
+	return *o.LastDeregistrationTime.Get()
 }
 
 // GetLastDeregistrationTimeOk returns a tuple with the LastDeregistrationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VdaModel) GetLastDeregistrationTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.LastDeregistrationTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastDeregistrationTime, true
+	return o.LastDeregistrationTime.Get(), o.LastDeregistrationTime.IsSet()
 }
 
-// SetLastDeregistrationTime gets a reference to the given time.Time and assigns it to the LastDeregistrationTime field.
+// SetLastDeregistrationTime gets a reference to the given NullableTime and assigns it to the LastDeregistrationTime field.
 func (o *VdaModel) SetLastDeregistrationTime(v time.Time) {
-	o.LastDeregistrationTime = &v
+	o.LastDeregistrationTime.Set(&v)
 }
 
-// GetLastDeregistrationReason returns the LastDeregistrationReason field value if set, zero value otherwise.
+// SetLastDeregistrationTimeNil sets the value for LastDeregistrationTime to be an explicit nil
+func (o *VdaModel) SetLastDeregistrationTimeNil() {
+	o.LastDeregistrationTime.Set(nil)
+}
+
+// UnsetLastDeregistrationTime ensures that no value is present for LastDeregistrationTime, not even an explicit nil
+func (o *VdaModel) UnsetLastDeregistrationTime() {
+	o.LastDeregistrationTime.Unset()
+}
+
+// GetLastDeregistrationReason returns the LastDeregistrationReason field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VdaModel) GetLastDeregistrationReason() string {
-	if o == nil || IsNil(o.LastDeregistrationReason) {
+	if o == nil || IsNil(o.LastDeregistrationReason.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LastDeregistrationReason
+	return *o.LastDeregistrationReason.Get()
 }
 
 // GetLastDeregistrationReasonOk returns a tuple with the LastDeregistrationReason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VdaModel) GetLastDeregistrationReasonOk() (*string, bool) {
-	if o == nil || IsNil(o.LastDeregistrationReason) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastDeregistrationReason, true
+	return o.LastDeregistrationReason.Get(), o.LastDeregistrationReason.IsSet()
 }
 
-// SetLastDeregistrationReason gets a reference to the given string and assigns it to the LastDeregistrationReason field.
+// SetLastDeregistrationReason gets a reference to the given NullableString and assigns it to the LastDeregistrationReason field.
 func (o *VdaModel) SetLastDeregistrationReason(v string) {
-	o.LastDeregistrationReason = &v
+	o.LastDeregistrationReason.Set(&v)
 }
 
-// GetVdaResourceGroup returns the VdaResourceGroup field value if set, zero value otherwise.
+// SetLastDeregistrationReasonNil sets the value for LastDeregistrationReason to be an explicit nil
+func (o *VdaModel) SetLastDeregistrationReasonNil() {
+	o.LastDeregistrationReason.Set(nil)
+}
+
+// UnsetLastDeregistrationReason ensures that no value is present for LastDeregistrationReason, not even an explicit nil
+func (o *VdaModel) UnsetLastDeregistrationReason() {
+	o.LastDeregistrationReason.Unset()
+}
+
+// GetVdaResourceGroup returns the VdaResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VdaModel) GetVdaResourceGroup() string {
-	if o == nil || IsNil(o.VdaResourceGroup) {
+	if o == nil || IsNil(o.VdaResourceGroup.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VdaResourceGroup
+	return *o.VdaResourceGroup.Get()
 }
 
 // GetVdaResourceGroupOk returns a tuple with the VdaResourceGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VdaModel) GetVdaResourceGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.VdaResourceGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VdaResourceGroup, true
+	return o.VdaResourceGroup.Get(), o.VdaResourceGroup.IsSet()
 }
 
-// SetVdaResourceGroup gets a reference to the given string and assigns it to the VdaResourceGroup field.
+// SetVdaResourceGroup gets a reference to the given NullableString and assigns it to the VdaResourceGroup field.
 func (o *VdaModel) SetVdaResourceGroup(v string) {
-	o.VdaResourceGroup = &v
+	o.VdaResourceGroup.Set(&v)
+}
+
+// SetVdaResourceGroupNil sets the value for VdaResourceGroup to be an explicit nil
+func (o *VdaModel) SetVdaResourceGroupNil() {
+	o.VdaResourceGroup.Set(nil)
+}
+
+// UnsetVdaResourceGroup ensures that no value is present for VdaResourceGroup, not even an explicit nil
+func (o *VdaModel) UnsetVdaResourceGroup() {
+	o.VdaResourceGroup.Unset()
 }
 
 // GetAllocationType returns the AllocationType field value if set, zero value otherwise.
@@ -370,9 +469,9 @@ func (o *VdaModel) SetAllocationType(v CatalogAllocationType) {
 	o.AllocationType = &v
 }
 
-// GetAssociatedUsers returns the AssociatedUsers field value if set, zero value otherwise.
+// GetAssociatedUsers returns the AssociatedUsers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VdaModel) GetAssociatedUsers() []string {
-	if o == nil || IsNil(o.AssociatedUsers) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -381,6 +480,7 @@ func (o *VdaModel) GetAssociatedUsers() []string {
 
 // GetAssociatedUsersOk returns a tuple with the AssociatedUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VdaModel) GetAssociatedUsersOk() ([]string, bool) {
 	if o == nil || IsNil(o.AssociatedUsers) {
 		return nil, false
@@ -393,73 +493,106 @@ func (o *VdaModel) SetAssociatedUsers(v []string) {
 	o.AssociatedUsers = v
 }
 
-// GetRestoreStatus returns the RestoreStatus field value if set, zero value otherwise.
+// GetRestoreStatus returns the RestoreStatus field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VdaModel) GetRestoreStatus() RestoreStatusModel {
-	if o == nil || IsNil(o.RestoreStatus) {
+	if o == nil || IsNil(o.RestoreStatus.Get()) {
 		var ret RestoreStatusModel
 		return ret
 	}
-	return *o.RestoreStatus
+	return *o.RestoreStatus.Get()
 }
 
 // GetRestoreStatusOk returns a tuple with the RestoreStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VdaModel) GetRestoreStatusOk() (*RestoreStatusModel, bool) {
-	if o == nil || IsNil(o.RestoreStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RestoreStatus, true
+	return o.RestoreStatus.Get(), o.RestoreStatus.IsSet()
 }
 
-// SetRestoreStatus gets a reference to the given RestoreStatusModel and assigns it to the RestoreStatus field.
+// SetRestoreStatus gets a reference to the given NullableRestoreStatusModel and assigns it to the RestoreStatus field.
 func (o *VdaModel) SetRestoreStatus(v RestoreStatusModel) {
-	o.RestoreStatus = &v
+	o.RestoreStatus.Set(&v)
 }
 
-// GetIpAddress returns the IpAddress field value if set, zero value otherwise.
+// SetRestoreStatusNil sets the value for RestoreStatus to be an explicit nil
+func (o *VdaModel) SetRestoreStatusNil() {
+	o.RestoreStatus.Set(nil)
+}
+
+// UnsetRestoreStatus ensures that no value is present for RestoreStatus, not even an explicit nil
+func (o *VdaModel) UnsetRestoreStatus() {
+	o.RestoreStatus.Unset()
+}
+
+// GetIpAddress returns the IpAddress field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VdaModel) GetIpAddress() string {
-	if o == nil || IsNil(o.IpAddress) {
+	if o == nil || IsNil(o.IpAddress.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.IpAddress
+	return *o.IpAddress.Get()
 }
 
 // GetIpAddressOk returns a tuple with the IpAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VdaModel) GetIpAddressOk() (*string, bool) {
-	if o == nil || IsNil(o.IpAddress) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IpAddress, true
+	return o.IpAddress.Get(), o.IpAddress.IsSet()
 }
 
-// SetIpAddress gets a reference to the given string and assigns it to the IpAddress field.
+// SetIpAddress gets a reference to the given NullableString and assigns it to the IpAddress field.
 func (o *VdaModel) SetIpAddress(v string) {
-	o.IpAddress = &v
+	o.IpAddress.Set(&v)
 }
 
-// GetImageOutOfDate returns the ImageOutOfDate field value if set, zero value otherwise.
+// SetIpAddressNil sets the value for IpAddress to be an explicit nil
+func (o *VdaModel) SetIpAddressNil() {
+	o.IpAddress.Set(nil)
+}
+
+// UnsetIpAddress ensures that no value is present for IpAddress, not even an explicit nil
+func (o *VdaModel) UnsetIpAddress() {
+	o.IpAddress.Unset()
+}
+
+// GetImageOutOfDate returns the ImageOutOfDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VdaModel) GetImageOutOfDate() bool {
-	if o == nil || IsNil(o.ImageOutOfDate) {
+	if o == nil || IsNil(o.ImageOutOfDate.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.ImageOutOfDate
+	return *o.ImageOutOfDate.Get()
 }
 
 // GetImageOutOfDateOk returns a tuple with the ImageOutOfDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VdaModel) GetImageOutOfDateOk() (*bool, bool) {
-	if o == nil || IsNil(o.ImageOutOfDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ImageOutOfDate, true
+	return o.ImageOutOfDate.Get(), o.ImageOutOfDate.IsSet()
 }
 
-// SetImageOutOfDate gets a reference to the given bool and assigns it to the ImageOutOfDate field.
+// SetImageOutOfDate gets a reference to the given NullableBool and assigns it to the ImageOutOfDate field.
 func (o *VdaModel) SetImageOutOfDate(v bool) {
-	o.ImageOutOfDate = &v
+	o.ImageOutOfDate.Set(&v)
+}
+
+// SetImageOutOfDateNil sets the value for ImageOutOfDate to be an explicit nil
+func (o *VdaModel) SetImageOutOfDateNil() {
+	o.ImageOutOfDate.Set(nil)
+}
+
+// UnsetImageOutOfDate ensures that no value is present for ImageOutOfDate, not even an explicit nil
+func (o *VdaModel) UnsetImageOutOfDate() {
+	o.ImageOutOfDate.Unset()
 }
 
 func (o VdaModel) MarshalJSON() ([]byte, error) {
@@ -472,29 +605,29 @@ func (o VdaModel) MarshalJSON() ([]byte, error) {
 
 func (o VdaModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.DnsName) {
-		toSerialize["dnsName"] = o.DnsName
+	if o.DnsName.IsSet() {
+		toSerialize["dnsName"] = o.DnsName.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	if !IsNil(o.MachineUid) {
 		toSerialize["machineUid"] = o.MachineUid
 	}
-	if !IsNil(o.Sid) {
-		toSerialize["sid"] = o.Sid
+	if o.Sid.IsSet() {
+		toSerialize["sid"] = o.Sid.Get()
 	}
 	if !IsNil(o.CatalogUid) {
 		toSerialize["catalogUid"] = o.CatalogUid
 	}
-	if !IsNil(o.RegistrationState) {
-		toSerialize["registrationState"] = o.RegistrationState
+	if o.RegistrationState.IsSet() {
+		toSerialize["registrationState"] = o.RegistrationState.Get()
 	}
-	if !IsNil(o.SummaryState) {
-		toSerialize["summaryState"] = o.SummaryState
+	if o.SummaryState.IsSet() {
+		toSerialize["summaryState"] = o.SummaryState.Get()
 	}
-	if !IsNil(o.Powerstate) {
-		toSerialize["powerstate"] = o.Powerstate
+	if o.Powerstate.IsSet() {
+		toSerialize["powerstate"] = o.Powerstate.Get()
 	}
 	if !IsNil(o.SessionCount) {
 		toSerialize["sessionCount"] = o.SessionCount
@@ -502,29 +635,29 @@ func (o VdaModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.InMaintenanceMode) {
 		toSerialize["inMaintenanceMode"] = o.InMaintenanceMode
 	}
-	if !IsNil(o.LastDeregistrationTime) {
-		toSerialize["lastDeregistrationTime"] = o.LastDeregistrationTime
+	if o.LastDeregistrationTime.IsSet() {
+		toSerialize["lastDeregistrationTime"] = o.LastDeregistrationTime.Get()
 	}
-	if !IsNil(o.LastDeregistrationReason) {
-		toSerialize["lastDeregistrationReason"] = o.LastDeregistrationReason
+	if o.LastDeregistrationReason.IsSet() {
+		toSerialize["lastDeregistrationReason"] = o.LastDeregistrationReason.Get()
 	}
-	if !IsNil(o.VdaResourceGroup) {
-		toSerialize["vdaResourceGroup"] = o.VdaResourceGroup
+	if o.VdaResourceGroup.IsSet() {
+		toSerialize["vdaResourceGroup"] = o.VdaResourceGroup.Get()
 	}
 	if !IsNil(o.AllocationType) {
 		toSerialize["allocationType"] = o.AllocationType
 	}
-	if !IsNil(o.AssociatedUsers) {
+	if o.AssociatedUsers != nil {
 		toSerialize["associatedUsers"] = o.AssociatedUsers
 	}
-	if !IsNil(o.RestoreStatus) {
-		toSerialize["restoreStatus"] = o.RestoreStatus
+	if o.RestoreStatus.IsSet() {
+		toSerialize["restoreStatus"] = o.RestoreStatus.Get()
 	}
-	if !IsNil(o.IpAddress) {
-		toSerialize["ipAddress"] = o.IpAddress
+	if o.IpAddress.IsSet() {
+		toSerialize["ipAddress"] = o.IpAddress.Get()
 	}
-	if !IsNil(o.ImageOutOfDate) {
-		toSerialize["imageOutOfDate"] = o.ImageOutOfDate
+	if o.ImageOutOfDate.IsSet() {
+		toSerialize["imageOutOfDate"] = o.ImageOutOfDate.Get()
 	}
 	return toSerialize, nil
 }

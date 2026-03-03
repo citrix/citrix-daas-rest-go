@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -22,7 +22,7 @@ type NatGatewayModelOverview struct {
 	// The list of public IPs configured for the NAT gateway.
 	IpAddresses []string `json:"ipAddresses,omitempty"`
 	// An error message when an operation has failed.
-	Error *string `json:"error,omitempty"`
+	Error NullableString `json:"error,omitempty"`
 	// A boolean value to state if a NAT gateway for the given name exists or not.
 	GatewayExists *bool `json:"gatewayExists,omitempty"`
 	// The idle timeout for NAT gateway.
@@ -39,9 +39,9 @@ func NewNatGatewayModelOverviewWithDefaults() *NatGatewayModelOverview {
 	return &this
 }
 
-// GetIpAddresses returns the IpAddresses field value if set, zero value otherwise.
+// GetIpAddresses returns the IpAddresses field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NatGatewayModelOverview) GetIpAddresses() []string {
-	if o == nil || IsNil(o.IpAddresses) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -50,6 +50,7 @@ func (o *NatGatewayModelOverview) GetIpAddresses() []string {
 
 // GetIpAddressesOk returns a tuple with the IpAddresses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NatGatewayModelOverview) GetIpAddressesOk() ([]string, bool) {
 	if o == nil || IsNil(o.IpAddresses) {
 		return nil, false
@@ -62,27 +63,38 @@ func (o *NatGatewayModelOverview) SetIpAddresses(v []string) {
 	o.IpAddresses = v
 }
 
-// GetError returns the Error field value if set, zero value otherwise.
+// GetError returns the Error field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NatGatewayModelOverview) GetError() string {
-	if o == nil || IsNil(o.Error) {
+	if o == nil || IsNil(o.Error.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Error
+	return *o.Error.Get()
 }
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NatGatewayModelOverview) GetErrorOk() (*string, bool) {
-	if o == nil || IsNil(o.Error) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Error, true
+	return o.Error.Get(), o.Error.IsSet()
 }
 
-// SetError gets a reference to the given string and assigns it to the Error field.
+// SetError gets a reference to the given NullableString and assigns it to the Error field.
 func (o *NatGatewayModelOverview) SetError(v string) {
-	o.Error = &v
+	o.Error.Set(&v)
+}
+
+// SetErrorNil sets the value for Error to be an explicit nil
+func (o *NatGatewayModelOverview) SetErrorNil() {
+	o.Error.Set(nil)
+}
+
+// UnsetError ensures that no value is present for Error, not even an explicit nil
+func (o *NatGatewayModelOverview) UnsetError() {
+	o.Error.Unset()
 }
 
 // GetGatewayExists returns the GatewayExists field value if set, zero value otherwise.
@@ -165,11 +177,11 @@ func (o NatGatewayModelOverview) MarshalJSON() ([]byte, error) {
 
 func (o NatGatewayModelOverview) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.IpAddresses) {
+	if o.IpAddresses != nil {
 		toSerialize["ipAddresses"] = o.IpAddresses
 	}
-	if !IsNil(o.Error) {
-		toSerialize["error"] = o.Error
+	if o.Error.IsSet() {
+		toSerialize["error"] = o.Error.Get()
 	}
 	if !IsNil(o.GatewayExists) {
 		toSerialize["gatewayExists"] = o.GatewayExists

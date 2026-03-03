@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &AddCatalogMachineAssignment{}
 // AddCatalogMachineAssignment struct for AddCatalogMachineAssignment
 type AddCatalogMachineAssignment struct {
 	// Name of the machine (in UPN format) to be assigned to a catalog.
-	MachineName *string `json:"machineName,omitempty"`
+	MachineName NullableString `json:"machineName,omitempty"`
 	// List of users to assign to the machine.
 	AssignedUsers []string `json:"assignedUsers,omitempty"`
 }
@@ -33,32 +33,43 @@ func NewAddCatalogMachineAssignmentWithDefaults() *AddCatalogMachineAssignment {
 	return &this
 }
 
-// GetMachineName returns the MachineName field value if set, zero value otherwise.
+// GetMachineName returns the MachineName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCatalogMachineAssignment) GetMachineName() string {
-	if o == nil || IsNil(o.MachineName) {
+	if o == nil || IsNil(o.MachineName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MachineName
+	return *o.MachineName.Get()
 }
 
 // GetMachineNameOk returns a tuple with the MachineName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCatalogMachineAssignment) GetMachineNameOk() (*string, bool) {
-	if o == nil || IsNil(o.MachineName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MachineName, true
+	return o.MachineName.Get(), o.MachineName.IsSet()
 }
 
-// SetMachineName gets a reference to the given string and assigns it to the MachineName field.
+// SetMachineName gets a reference to the given NullableString and assigns it to the MachineName field.
 func (o *AddCatalogMachineAssignment) SetMachineName(v string) {
-	o.MachineName = &v
+	o.MachineName.Set(&v)
 }
 
-// GetAssignedUsers returns the AssignedUsers field value if set, zero value otherwise.
+// SetMachineNameNil sets the value for MachineName to be an explicit nil
+func (o *AddCatalogMachineAssignment) SetMachineNameNil() {
+	o.MachineName.Set(nil)
+}
+
+// UnsetMachineName ensures that no value is present for MachineName, not even an explicit nil
+func (o *AddCatalogMachineAssignment) UnsetMachineName() {
+	o.MachineName.Unset()
+}
+
+// GetAssignedUsers returns the AssignedUsers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCatalogMachineAssignment) GetAssignedUsers() []string {
-	if o == nil || IsNil(o.AssignedUsers) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -67,6 +78,7 @@ func (o *AddCatalogMachineAssignment) GetAssignedUsers() []string {
 
 // GetAssignedUsersOk returns a tuple with the AssignedUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCatalogMachineAssignment) GetAssignedUsersOk() ([]string, bool) {
 	if o == nil || IsNil(o.AssignedUsers) {
 		return nil, false
@@ -89,10 +101,10 @@ func (o AddCatalogMachineAssignment) MarshalJSON() ([]byte, error) {
 
 func (o AddCatalogMachineAssignment) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.MachineName) {
-		toSerialize["machineName"] = o.MachineName
+	if o.MachineName.IsSet() {
+		toSerialize["machineName"] = o.MachineName.Get()
 	}
-	if !IsNil(o.AssignedUsers) {
+	if o.AssignedUsers != nil {
 		toSerialize["assignedUsers"] = o.AssignedUsers
 	}
 	return toSerialize, nil

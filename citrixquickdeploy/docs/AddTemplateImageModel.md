@@ -8,17 +8,17 @@ Name | Type | Description | Notes
 **SubscriptionId** | **string** | ID of the Azure Subscription | 
 **ResourceGroup** | **string** | Name of the Resource Group | 
 **StorageAccount** | **string** | Name of the storage account | 
-**VhdUrl** | Pointer to **string** | Url of the VHD image within the storage account | [optional] 
-**VhdEncryptionUri** | Pointer to **string** | URI of the VHD guest disk file that will be imported | [optional] 
-**OsPlatform** | Pointer to [**SupportedOperatingSystemType**](SupportedOperatingSystemType.md) | Type of operating system that will be imported | [optional] 
-**Notes** | Pointer to **string** | Customer notes about template image | [optional] 
-**CspCustomerId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
-**CspSiteId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
-**HyperVGen** | Pointer to **string** | The HyperVGeneration that should be set to either V1 or V2 | [optional] 
+**VhdUrl** | Pointer to **NullableString** | Url of the VHD image within the storage account | [optional] 
+**VhdEncryptionUri** | Pointer to **NullableString** | URI of the VHD guest disk file that will be imported | [optional] 
+**OsPlatform** | Pointer to [**NullableSupportedOperatingSystemType**](SupportedOperatingSystemType.md) | Type of operating system that will be imported | [optional] 
+**Notes** | Pointer to **NullableString** | Customer notes about template image | [optional] 
+**CspCustomerId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**CspSiteId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**HyperVGen** | Pointer to **NullableString** | The HyperVGeneration that should be set to either V1 or V2 | [optional] 
 **VtpmEnabled** | Pointer to **bool** | The HyperVGeneration V2 supports vTPM TrustedLaunch | [optional] 
 **SecureBootEnabled** | Pointer to **bool** | The Secure boot support enabled | [optional] 
 **CmekEnabled** | Pointer to **bool** | The customer managed encryption key enabled | [optional] 
-**CmekID** | Pointer to **string** | The customer managed encryption ID | [optional] 
+**CmekID** | Pointer to **NullableString** | The customer managed encryption ID | [optional] 
 **Validate** | Pointer to **bool** | Indicates if the template image should be validated upon creation | [optional] 
 
 ## Methods
@@ -145,6 +145,16 @@ SetVhdUrl sets VhdUrl field to given value.
 
 HasVhdUrl returns a boolean if a field has been set.
 
+### SetVhdUrlNil
+
+`func (o *AddTemplateImageModel) SetVhdUrlNil(b bool)`
+
+ SetVhdUrlNil sets the value for VhdUrl to be an explicit nil
+
+### UnsetVhdUrl
+`func (o *AddTemplateImageModel) UnsetVhdUrl()`
+
+UnsetVhdUrl ensures that no value is present for VhdUrl, not even an explicit nil
 ### GetVhdEncryptionUri
 
 `func (o *AddTemplateImageModel) GetVhdEncryptionUri() string`
@@ -170,6 +180,16 @@ SetVhdEncryptionUri sets VhdEncryptionUri field to given value.
 
 HasVhdEncryptionUri returns a boolean if a field has been set.
 
+### SetVhdEncryptionUriNil
+
+`func (o *AddTemplateImageModel) SetVhdEncryptionUriNil(b bool)`
+
+ SetVhdEncryptionUriNil sets the value for VhdEncryptionUri to be an explicit nil
+
+### UnsetVhdEncryptionUri
+`func (o *AddTemplateImageModel) UnsetVhdEncryptionUri()`
+
+UnsetVhdEncryptionUri ensures that no value is present for VhdEncryptionUri, not even an explicit nil
 ### GetOsPlatform
 
 `func (o *AddTemplateImageModel) GetOsPlatform() SupportedOperatingSystemType`
@@ -195,6 +215,16 @@ SetOsPlatform sets OsPlatform field to given value.
 
 HasOsPlatform returns a boolean if a field has been set.
 
+### SetOsPlatformNil
+
+`func (o *AddTemplateImageModel) SetOsPlatformNil(b bool)`
+
+ SetOsPlatformNil sets the value for OsPlatform to be an explicit nil
+
+### UnsetOsPlatform
+`func (o *AddTemplateImageModel) UnsetOsPlatform()`
+
+UnsetOsPlatform ensures that no value is present for OsPlatform, not even an explicit nil
 ### GetNotes
 
 `func (o *AddTemplateImageModel) GetNotes() string`
@@ -220,6 +250,16 @@ SetNotes sets Notes field to given value.
 
 HasNotes returns a boolean if a field has been set.
 
+### SetNotesNil
+
+`func (o *AddTemplateImageModel) SetNotesNil(b bool)`
+
+ SetNotesNil sets the value for Notes to be an explicit nil
+
+### UnsetNotes
+`func (o *AddTemplateImageModel) UnsetNotes()`
+
+UnsetNotes ensures that no value is present for Notes, not even an explicit nil
 ### GetCspCustomerId
 
 `func (o *AddTemplateImageModel) GetCspCustomerId() string`
@@ -245,6 +285,16 @@ SetCspCustomerId sets CspCustomerId field to given value.
 
 HasCspCustomerId returns a boolean if a field has been set.
 
+### SetCspCustomerIdNil
+
+`func (o *AddTemplateImageModel) SetCspCustomerIdNil(b bool)`
+
+ SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+
+### UnsetCspCustomerId
+`func (o *AddTemplateImageModel) UnsetCspCustomerId()`
+
+UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
 ### GetCspSiteId
 
 `func (o *AddTemplateImageModel) GetCspSiteId() string`
@@ -270,6 +320,16 @@ SetCspSiteId sets CspSiteId field to given value.
 
 HasCspSiteId returns a boolean if a field has been set.
 
+### SetCspSiteIdNil
+
+`func (o *AddTemplateImageModel) SetCspSiteIdNil(b bool)`
+
+ SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+
+### UnsetCspSiteId
+`func (o *AddTemplateImageModel) UnsetCspSiteId()`
+
+UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
 ### GetHyperVGen
 
 `func (o *AddTemplateImageModel) GetHyperVGen() string`
@@ -295,6 +355,16 @@ SetHyperVGen sets HyperVGen field to given value.
 
 HasHyperVGen returns a boolean if a field has been set.
 
+### SetHyperVGenNil
+
+`func (o *AddTemplateImageModel) SetHyperVGenNil(b bool)`
+
+ SetHyperVGenNil sets the value for HyperVGen to be an explicit nil
+
+### UnsetHyperVGen
+`func (o *AddTemplateImageModel) UnsetHyperVGen()`
+
+UnsetHyperVGen ensures that no value is present for HyperVGen, not even an explicit nil
 ### GetVtpmEnabled
 
 `func (o *AddTemplateImageModel) GetVtpmEnabled() bool`
@@ -395,6 +465,16 @@ SetCmekID sets CmekID field to given value.
 
 HasCmekID returns a boolean if a field has been set.
 
+### SetCmekIDNil
+
+`func (o *AddTemplateImageModel) SetCmekIDNil(b bool)`
+
+ SetCmekIDNil sets the value for CmekID to be an explicit nil
+
+### UnsetCmekID
+`func (o *AddTemplateImageModel) UnsetCmekID()`
+
+UnsetCmekID ensures that no value is present for CmekID, not even an explicit nil
 ### GetValidate
 
 `func (o *AddTemplateImageModel) GetValidate() bool`

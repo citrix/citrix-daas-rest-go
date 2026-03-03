@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ResourceGroup** | **string** | Name of the resource group the storge accounts are attached to | 
-**Items** | [**[]AzureStorageAccount**](AzureStorageAccount.md) | List of Storage Account that are configured for the specified resource group | 
+**Items** | [**[]AzureStorageAccount**](AzureStorageAccount.md) | List of Storage Account that are configured for the specified resource group | [readonly] 
 **StorageAccounts** | Pointer to [**[]AzureStorageAccount**](AzureStorageAccount.md) | Alias of Items property for backward compatibility | [optional] 
 
 ## Methods
@@ -92,6 +92,16 @@ SetStorageAccounts sets StorageAccounts field to given value.
 
 HasStorageAccounts returns a boolean if a field has been set.
 
+### SetStorageAccountsNil
+
+`func (o *AzureResourceGroupStorageAccountsModel) SetStorageAccountsNil(b bool)`
+
+ SetStorageAccountsNil sets the value for StorageAccounts to be an explicit nil
+
+### UnsetStorageAccounts
+`func (o *AzureResourceGroupStorageAccountsModel) UnsetStorageAccounts()`
+
+UnsetStorageAccounts ensures that no value is present for StorageAccounts, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

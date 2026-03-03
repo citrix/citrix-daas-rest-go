@@ -6,20 +6,20 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Friendly name of the template | 
 **ImageId** | **string** | ID of the image we will be building off of | 
-**ManagedSubscriptionId** | Pointer to **string** | ID of the managed subscription that the image will be placed in. | [optional] 
+**ManagedSubscriptionId** | Pointer to **NullableString** | ID of the managed subscription that the image will be placed in. | [optional] 
 **IsDomainJoined** | Pointer to **bool** | Indicates if the builder vm will be domain joined | [optional] 
-**AzureRegion** | Pointer to **string** | Azure region to deploy image builder vm that does not have on-prem connectivity | [optional] 
-**VnetPeeringId** | Pointer to **string** | ID of the vnet peering the image builder vm will be associated with | [optional] 
-**AzureVpnId** | Pointer to **string** | ID of the Azure VPN the image builder will be associated with | [optional] 
-**DomainName** | Pointer to **string** | Name of the Domain the Image Builder will join | [optional] 
-**OrganizationalUnit** | Pointer to **string** | The OU to associate the Image Builder VM with | [optional] 
+**AzureRegion** | Pointer to **NullableString** | Azure region to deploy image builder vm that does not have on-prem connectivity | [optional] 
+**VnetPeeringId** | Pointer to **NullableString** | ID of the vnet peering the image builder vm will be associated with | [optional] 
+**AzureVpnId** | Pointer to **NullableString** | ID of the Azure VPN the image builder will be associated with | [optional] 
+**DomainName** | Pointer to **NullableString** | Name of the Domain the Image Builder will join | [optional] 
+**OrganizationalUnit** | Pointer to **NullableString** | The OU to associate the Image Builder VM with | [optional] 
 **VmType** | **string** | The type of VM Instance type | 
 **ServiceAccountName** | **string** | The service account used to join the Image Builder VM to the domain or local account that will be created for non-domain joined images | 
 **ServiceAccountPassword** | **string** | The service account password | 
-**Notes** | Pointer to **string** | Customer notes about template image | [optional] 
+**Notes** | Pointer to **NullableString** | Customer notes about template image | [optional] 
 **AllowedIPs** | Pointer to **[]string** | Ip Addresses allowed to RDP | [optional] 
-**CspCustomerId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
-**CspSiteId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**CspCustomerId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**CspSiteId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
 
 ## Methods
 
@@ -105,6 +105,16 @@ SetManagedSubscriptionId sets ManagedSubscriptionId field to given value.
 
 HasManagedSubscriptionId returns a boolean if a field has been set.
 
+### SetManagedSubscriptionIdNil
+
+`func (o *AddManagedImageBuilderModel) SetManagedSubscriptionIdNil(b bool)`
+
+ SetManagedSubscriptionIdNil sets the value for ManagedSubscriptionId to be an explicit nil
+
+### UnsetManagedSubscriptionId
+`func (o *AddManagedImageBuilderModel) UnsetManagedSubscriptionId()`
+
+UnsetManagedSubscriptionId ensures that no value is present for ManagedSubscriptionId, not even an explicit nil
 ### GetIsDomainJoined
 
 `func (o *AddManagedImageBuilderModel) GetIsDomainJoined() bool`
@@ -155,6 +165,16 @@ SetAzureRegion sets AzureRegion field to given value.
 
 HasAzureRegion returns a boolean if a field has been set.
 
+### SetAzureRegionNil
+
+`func (o *AddManagedImageBuilderModel) SetAzureRegionNil(b bool)`
+
+ SetAzureRegionNil sets the value for AzureRegion to be an explicit nil
+
+### UnsetAzureRegion
+`func (o *AddManagedImageBuilderModel) UnsetAzureRegion()`
+
+UnsetAzureRegion ensures that no value is present for AzureRegion, not even an explicit nil
 ### GetVnetPeeringId
 
 `func (o *AddManagedImageBuilderModel) GetVnetPeeringId() string`
@@ -180,6 +200,16 @@ SetVnetPeeringId sets VnetPeeringId field to given value.
 
 HasVnetPeeringId returns a boolean if a field has been set.
 
+### SetVnetPeeringIdNil
+
+`func (o *AddManagedImageBuilderModel) SetVnetPeeringIdNil(b bool)`
+
+ SetVnetPeeringIdNil sets the value for VnetPeeringId to be an explicit nil
+
+### UnsetVnetPeeringId
+`func (o *AddManagedImageBuilderModel) UnsetVnetPeeringId()`
+
+UnsetVnetPeeringId ensures that no value is present for VnetPeeringId, not even an explicit nil
 ### GetAzureVpnId
 
 `func (o *AddManagedImageBuilderModel) GetAzureVpnId() string`
@@ -205,6 +235,16 @@ SetAzureVpnId sets AzureVpnId field to given value.
 
 HasAzureVpnId returns a boolean if a field has been set.
 
+### SetAzureVpnIdNil
+
+`func (o *AddManagedImageBuilderModel) SetAzureVpnIdNil(b bool)`
+
+ SetAzureVpnIdNil sets the value for AzureVpnId to be an explicit nil
+
+### UnsetAzureVpnId
+`func (o *AddManagedImageBuilderModel) UnsetAzureVpnId()`
+
+UnsetAzureVpnId ensures that no value is present for AzureVpnId, not even an explicit nil
 ### GetDomainName
 
 `func (o *AddManagedImageBuilderModel) GetDomainName() string`
@@ -230,6 +270,16 @@ SetDomainName sets DomainName field to given value.
 
 HasDomainName returns a boolean if a field has been set.
 
+### SetDomainNameNil
+
+`func (o *AddManagedImageBuilderModel) SetDomainNameNil(b bool)`
+
+ SetDomainNameNil sets the value for DomainName to be an explicit nil
+
+### UnsetDomainName
+`func (o *AddManagedImageBuilderModel) UnsetDomainName()`
+
+UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
 ### GetOrganizationalUnit
 
 `func (o *AddManagedImageBuilderModel) GetOrganizationalUnit() string`
@@ -255,6 +305,16 @@ SetOrganizationalUnit sets OrganizationalUnit field to given value.
 
 HasOrganizationalUnit returns a boolean if a field has been set.
 
+### SetOrganizationalUnitNil
+
+`func (o *AddManagedImageBuilderModel) SetOrganizationalUnitNil(b bool)`
+
+ SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
+
+### UnsetOrganizationalUnit
+`func (o *AddManagedImageBuilderModel) UnsetOrganizationalUnit()`
+
+UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
 ### GetVmType
 
 `func (o *AddManagedImageBuilderModel) GetVmType() string`
@@ -340,6 +400,16 @@ SetNotes sets Notes field to given value.
 
 HasNotes returns a boolean if a field has been set.
 
+### SetNotesNil
+
+`func (o *AddManagedImageBuilderModel) SetNotesNil(b bool)`
+
+ SetNotesNil sets the value for Notes to be an explicit nil
+
+### UnsetNotes
+`func (o *AddManagedImageBuilderModel) UnsetNotes()`
+
+UnsetNotes ensures that no value is present for Notes, not even an explicit nil
 ### GetAllowedIPs
 
 `func (o *AddManagedImageBuilderModel) GetAllowedIPs() []string`
@@ -365,6 +435,16 @@ SetAllowedIPs sets AllowedIPs field to given value.
 
 HasAllowedIPs returns a boolean if a field has been set.
 
+### SetAllowedIPsNil
+
+`func (o *AddManagedImageBuilderModel) SetAllowedIPsNil(b bool)`
+
+ SetAllowedIPsNil sets the value for AllowedIPs to be an explicit nil
+
+### UnsetAllowedIPs
+`func (o *AddManagedImageBuilderModel) UnsetAllowedIPs()`
+
+UnsetAllowedIPs ensures that no value is present for AllowedIPs, not even an explicit nil
 ### GetCspCustomerId
 
 `func (o *AddManagedImageBuilderModel) GetCspCustomerId() string`
@@ -390,6 +470,16 @@ SetCspCustomerId sets CspCustomerId field to given value.
 
 HasCspCustomerId returns a boolean if a field has been set.
 
+### SetCspCustomerIdNil
+
+`func (o *AddManagedImageBuilderModel) SetCspCustomerIdNil(b bool)`
+
+ SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+
+### UnsetCspCustomerId
+`func (o *AddManagedImageBuilderModel) UnsetCspCustomerId()`
+
+UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
 ### GetCspSiteId
 
 `func (o *AddManagedImageBuilderModel) GetCspSiteId() string`
@@ -415,6 +505,16 @@ SetCspSiteId sets CspSiteId field to given value.
 
 HasCspSiteId returns a boolean if a field has been set.
 
+### SetCspSiteIdNil
+
+`func (o *AddManagedImageBuilderModel) SetCspSiteIdNil(b bool)`
+
+ SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+
+### UnsetCspSiteId
+`func (o *AddManagedImageBuilderModel) UnsetCspSiteId()`
+
+UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

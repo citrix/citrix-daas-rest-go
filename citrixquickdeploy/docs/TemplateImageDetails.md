@@ -10,53 +10,57 @@ Name | Type | Description | Notes
 **Name** | **string** | Name of the Template Image / VM | 
 **SessionSupport** | [**TemplateImageSessionSupport**](TemplateImageSessionSupport.md) | Type of sessions that are supported by OS | 
 **State** | [**TemplateImageState**](TemplateImageState.md) | State of the template image | 
-**SubState** | Pointer to [**TemplateImageSubState**](TemplateImageSubState.md) | Sub State of template image | [optional] 
-**OsPlatform** | Pointer to [**SupportedOperatingSystemType**](SupportedOperatingSystemType.md) | Type of operating system that will be imported | [optional] 
-**OsName** | Pointer to **string** | Shows name of image OS | [optional] 
-**OsVersion** | Pointer to **string** | Shows version of image OS | [optional] 
-**LinuxDomainSupport** | Pointer to **string** | For linux customers it shows domain configuration set in mcs.conf file | [optional] 
-**LinuxRdpSupport** | Pointer to **bool** | For linux customers it shows if rdp package was installed | [optional] 
-**McsioSupport** | Pointer to **bool** | For windows customers it shows if mcsio driver was installed | [optional] 
-**VusSupport** | Pointer to **bool** | For windows customers it shows if VDA update service was installed | [optional] 
-**PublicIp** | Pointer to **string** | Shows public ip address for image | [optional] 
-**PrivateIp** | Pointer to **string** | Shows private ip address for image | [optional] 
-**DomainName** | Pointer to **string** | Shows if image is currently domain joined and to which domain | [optional] 
+**SubState** | Pointer to [**NullableTemplateImageSubState**](TemplateImageSubState.md) | Sub State of template image | [optional] 
+**OsPlatform** | Pointer to [**NullableSupportedOperatingSystemType**](SupportedOperatingSystemType.md) | Type of operating system that will be imported | [optional] 
+**OsName** | Pointer to **NullableString** | Shows name of image OS | [optional] 
+**OsVersion** | Pointer to **NullableString** | Shows version of image OS | [optional] 
+**LinuxDomainSupport** | Pointer to **NullableString** | For linux customers it shows domain configuration set in mcs.conf file | [optional] 
+**LinuxRdpSupport** | Pointer to **NullableBool** | For linux customers it shows if rdp package was installed | [optional] 
+**McsioSupport** | Pointer to **NullableBool** | For windows customers it shows if mcsio driver was installed | [optional] 
+**VusSupport** | Pointer to **NullableBool** | For windows customers it shows if VDA update service was installed | [optional] 
+**SccmAgentSupport** | Pointer to **NullableBool** | For windows customers it shows if sccm agent was installed | [optional] 
+**SccmAgentVersion** | Pointer to **NullableString** | For windows customers it shows sccm agent version | [optional] 
+**PublicIp** | Pointer to **NullableString** | Shows public ip address for image | [optional] 
+**PrivateIp** | Pointer to **NullableString** | Shows private ip address for image | [optional] 
+**DomainName** | Pointer to **NullableString** | Shows if image is currently domain joined and to which domain | [optional] 
 **IsServerOs** | Pointer to **bool** | Indicates if the image is using a server based OS | [optional] 
-**VdaVersion** | Pointer to **string** | Shows version of image Virtual Desktop Agent | [optional] 
-**StatusMessageId** | Pointer to **string** | Status message enum related to verifying and enumerating the image | [optional] 
-**Status** | Pointer to **string** | Status message related to verifying and enumerating the image | [optional] 
-**ExtraInfo** | Pointer to **string** | The string to displayed in UI for extra information | [optional] 
-**Notes** | Pointer to **string** | Customer notes about template image | [optional] 
-**TransactionId** | Pointer to **string** | ID of the transaction that the image was verified on | [optional] 
-**SubscriptionId** | Pointer to **string** | Id of the Subscription where the image is stored (BYOA) | [optional] 
+**VdaVersion** | Pointer to **NullableString** | Shows version of image Virtual Desktop Agent | [optional] 
+**StatusMessageId** | Pointer to **NullableString** | Status message enum related to verifying and enumerating the image | [optional] 
+**Status** | Pointer to **NullableString** | Status message related to verifying and enumerating the image | [optional] 
+**ExtraInfo** | Pointer to **NullableString** | The string to displayed in UI for extra information | [optional] 
+**Notes** | Pointer to **NullableString** | Customer notes about template image | [optional] 
+**TransactionId** | Pointer to **NullableString** | ID of the transaction that the image was verified on | [optional] 
+**SubscriptionId** | Pointer to **NullableString** | Id of the Subscription where the image is stored (BYOA) | [optional] 
 **SubscriptionName** | **string** | Name of the Subscription that catalog VMs will be deployed to | 
-**ResourceGroup** | Pointer to **string** | Name of the Azure Resource Group where the image is stored | [optional] 
-**StorageAccount** | Pointer to **string** | Name of the Storage Account where the image is stored | [optional] 
+**ResourceGroup** | Pointer to **NullableString** | Name of the Azure Resource Group where the image is stored | [optional] 
+**StorageAccount** | Pointer to **NullableString** | Name of the Storage Account where the image is stored | [optional] 
 **Region** | **string** | Azure region where VMs are deployed for this catalog | 
-**BuilderDomainName** | Pointer to **string** | Name of the Domain the Image Builder will join | [optional] 
-**BuilderConnectionId** | Pointer to **string** | ID of the on-prem connection associated with the builder image | [optional] 
-**BuilderVmName** | Pointer to **string** | Name of VM that is being used by the builder image | [optional] 
-**BuilderVmType** | Pointer to **string** | Type of VM that is being used by the builder image | [optional] 
-**BuilderVmDiskSize** | Pointer to **string** | Size of disk of VM that is being used by the builder image | [optional] 
+**BuilderDomainName** | Pointer to **NullableString** | Name of the Domain the Image Builder will join | [optional] 
+**BuilderConnectionId** | Pointer to **NullableString** | ID of the on-prem connection associated with the builder image | [optional] 
+**BuilderVmName** | Pointer to **NullableString** | Name of VM that is being used by the builder image | [optional] 
+**BuilderVmType** | Pointer to **NullableString** | Type of VM that is being used by the builder image | [optional] 
+**BuilderVmDiskSize** | Pointer to **NullableString** | Size of disk of VM that is being used by the builder image | [optional] 
 **BuilderAllowedIPs** | Pointer to **[]string** | Ip Addresses allowed to RDP | [optional] 
-**HyperVGen** | Pointer to **string** | The HyperVGeneration that should be set to either V1 or V2 | [optional] 
+**HyperVGen** | Pointer to **NullableString** | The HyperVGeneration that should be set to either V1 or V2 | [optional] 
 **VtpmEnabled** | Pointer to **bool** | Is TrustedLaunch VTPM supported in V2 gen | [optional] 
 **SecureBootEnabled** | Pointer to **bool** | Is TrustedLaunch SecureBoot supported in V2 gen | [optional] 
 **CitrixPrepared** | **bool** | Whether the image was prepared by Citrix, or provided by the customer | 
-**CspCustomer** | Pointer to **string** | Indicates that partner-tenant relationship exists if not null | [optional] 
+**CspCustomer** | Pointer to **NullableString** | Indicates that partner-tenant relationship exists if not null | [optional] 
 **IsCmekEnabled** | Pointer to **bool** | Indicates if the image is using customer managed encryption keys | [optional] 
-**CmekId** | Pointer to **string** | Indicates if customer managed encryption key Id | [optional] 
+**CmekId** | Pointer to **NullableString** | Indicates if customer managed encryption key Id | [optional] 
+**CmekName** | Pointer to **NullableString** | Indicates if customer managed encryption key name | [optional] 
 **IsDeprecated** | Pointer to **bool** | Indicates if the image is deprecated and should not be used in new catalogs | [optional] 
-**IsByoaImage** | Pointer to **bool** | Indicates if the image is built or imported with BYOA | [optional] 
+**IsByoaImage** | Pointer to **NullableBool** | Indicates if the image is built or imported with BYOA | [optional] 
 **LinkedCatalogs** | Pointer to **int32** | Number of catalogs that are using this image | [optional] 
 **LinkedCatalogsNames** | Pointer to **[]string** | Names of catalogs that are using this image | [optional] 
-**CreatedDate** | Pointer to **time.Time** | Created from datastore. | [optional] 
-**FinalizedDate** | Pointer to **time.Time** | Image builder finalized date. | [optional] 
-**Path** | Pointer to **string** | Customer image path in Azure | [optional] 
-**SbSessionVdaVersion** | Pointer to **string** | Shows version of sbsession | [optional] 
-**IsSecureBrowserImage** | Pointer to **bool** | Indicates if the image is for Secure Browser | [optional] 
-**StartedAt** | Pointer to **time.Time** | The datetime when the job started | [optional] 
-**EstimatedTimeInMinute** | Pointer to **int32** | Estimated total time for the job to finish | [optional] 
+**CreatedDate** | Pointer to **NullableTime** | Created from datastore. | [optional] 
+**FinalizedDate** | Pointer to **NullableTime** | Image builder finalized date. | [optional] 
+**Path** | Pointer to **NullableString** | Customer image path in Azure | [optional] 
+**SbSessionVdaVersion** | Pointer to **NullableString** | Shows version of sbsession | [optional] 
+**IsSecureBrowserImage** | Pointer to **NullableBool** | Indicates if the image is for Secure Browser | [optional] 
+**DiskSizeInGB** | Pointer to **NullableInt32** | The size of the disk in GB | [optional] 
+**StartedAt** | Pointer to **NullableTime** | The datetime when the job started | [optional] 
+**EstimatedTimeInMinute** | Pointer to **NullableInt32** | Estimated total time for the job to finish | [optional] 
 
 ## Methods
 
@@ -222,6 +226,16 @@ SetSubState sets SubState field to given value.
 
 HasSubState returns a boolean if a field has been set.
 
+### SetSubStateNil
+
+`func (o *TemplateImageDetails) SetSubStateNil(b bool)`
+
+ SetSubStateNil sets the value for SubState to be an explicit nil
+
+### UnsetSubState
+`func (o *TemplateImageDetails) UnsetSubState()`
+
+UnsetSubState ensures that no value is present for SubState, not even an explicit nil
 ### GetOsPlatform
 
 `func (o *TemplateImageDetails) GetOsPlatform() SupportedOperatingSystemType`
@@ -247,6 +261,16 @@ SetOsPlatform sets OsPlatform field to given value.
 
 HasOsPlatform returns a boolean if a field has been set.
 
+### SetOsPlatformNil
+
+`func (o *TemplateImageDetails) SetOsPlatformNil(b bool)`
+
+ SetOsPlatformNil sets the value for OsPlatform to be an explicit nil
+
+### UnsetOsPlatform
+`func (o *TemplateImageDetails) UnsetOsPlatform()`
+
+UnsetOsPlatform ensures that no value is present for OsPlatform, not even an explicit nil
 ### GetOsName
 
 `func (o *TemplateImageDetails) GetOsName() string`
@@ -272,6 +296,16 @@ SetOsName sets OsName field to given value.
 
 HasOsName returns a boolean if a field has been set.
 
+### SetOsNameNil
+
+`func (o *TemplateImageDetails) SetOsNameNil(b bool)`
+
+ SetOsNameNil sets the value for OsName to be an explicit nil
+
+### UnsetOsName
+`func (o *TemplateImageDetails) UnsetOsName()`
+
+UnsetOsName ensures that no value is present for OsName, not even an explicit nil
 ### GetOsVersion
 
 `func (o *TemplateImageDetails) GetOsVersion() string`
@@ -297,6 +331,16 @@ SetOsVersion sets OsVersion field to given value.
 
 HasOsVersion returns a boolean if a field has been set.
 
+### SetOsVersionNil
+
+`func (o *TemplateImageDetails) SetOsVersionNil(b bool)`
+
+ SetOsVersionNil sets the value for OsVersion to be an explicit nil
+
+### UnsetOsVersion
+`func (o *TemplateImageDetails) UnsetOsVersion()`
+
+UnsetOsVersion ensures that no value is present for OsVersion, not even an explicit nil
 ### GetLinuxDomainSupport
 
 `func (o *TemplateImageDetails) GetLinuxDomainSupport() string`
@@ -322,6 +366,16 @@ SetLinuxDomainSupport sets LinuxDomainSupport field to given value.
 
 HasLinuxDomainSupport returns a boolean if a field has been set.
 
+### SetLinuxDomainSupportNil
+
+`func (o *TemplateImageDetails) SetLinuxDomainSupportNil(b bool)`
+
+ SetLinuxDomainSupportNil sets the value for LinuxDomainSupport to be an explicit nil
+
+### UnsetLinuxDomainSupport
+`func (o *TemplateImageDetails) UnsetLinuxDomainSupport()`
+
+UnsetLinuxDomainSupport ensures that no value is present for LinuxDomainSupport, not even an explicit nil
 ### GetLinuxRdpSupport
 
 `func (o *TemplateImageDetails) GetLinuxRdpSupport() bool`
@@ -347,6 +401,16 @@ SetLinuxRdpSupport sets LinuxRdpSupport field to given value.
 
 HasLinuxRdpSupport returns a boolean if a field has been set.
 
+### SetLinuxRdpSupportNil
+
+`func (o *TemplateImageDetails) SetLinuxRdpSupportNil(b bool)`
+
+ SetLinuxRdpSupportNil sets the value for LinuxRdpSupport to be an explicit nil
+
+### UnsetLinuxRdpSupport
+`func (o *TemplateImageDetails) UnsetLinuxRdpSupport()`
+
+UnsetLinuxRdpSupport ensures that no value is present for LinuxRdpSupport, not even an explicit nil
 ### GetMcsioSupport
 
 `func (o *TemplateImageDetails) GetMcsioSupport() bool`
@@ -372,6 +436,16 @@ SetMcsioSupport sets McsioSupport field to given value.
 
 HasMcsioSupport returns a boolean if a field has been set.
 
+### SetMcsioSupportNil
+
+`func (o *TemplateImageDetails) SetMcsioSupportNil(b bool)`
+
+ SetMcsioSupportNil sets the value for McsioSupport to be an explicit nil
+
+### UnsetMcsioSupport
+`func (o *TemplateImageDetails) UnsetMcsioSupport()`
+
+UnsetMcsioSupport ensures that no value is present for McsioSupport, not even an explicit nil
 ### GetVusSupport
 
 `func (o *TemplateImageDetails) GetVusSupport() bool`
@@ -397,6 +471,86 @@ SetVusSupport sets VusSupport field to given value.
 
 HasVusSupport returns a boolean if a field has been set.
 
+### SetVusSupportNil
+
+`func (o *TemplateImageDetails) SetVusSupportNil(b bool)`
+
+ SetVusSupportNil sets the value for VusSupport to be an explicit nil
+
+### UnsetVusSupport
+`func (o *TemplateImageDetails) UnsetVusSupport()`
+
+UnsetVusSupport ensures that no value is present for VusSupport, not even an explicit nil
+### GetSccmAgentSupport
+
+`func (o *TemplateImageDetails) GetSccmAgentSupport() bool`
+
+GetSccmAgentSupport returns the SccmAgentSupport field if non-nil, zero value otherwise.
+
+### GetSccmAgentSupportOk
+
+`func (o *TemplateImageDetails) GetSccmAgentSupportOk() (*bool, bool)`
+
+GetSccmAgentSupportOk returns a tuple with the SccmAgentSupport field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSccmAgentSupport
+
+`func (o *TemplateImageDetails) SetSccmAgentSupport(v bool)`
+
+SetSccmAgentSupport sets SccmAgentSupport field to given value.
+
+### HasSccmAgentSupport
+
+`func (o *TemplateImageDetails) HasSccmAgentSupport() bool`
+
+HasSccmAgentSupport returns a boolean if a field has been set.
+
+### SetSccmAgentSupportNil
+
+`func (o *TemplateImageDetails) SetSccmAgentSupportNil(b bool)`
+
+ SetSccmAgentSupportNil sets the value for SccmAgentSupport to be an explicit nil
+
+### UnsetSccmAgentSupport
+`func (o *TemplateImageDetails) UnsetSccmAgentSupport()`
+
+UnsetSccmAgentSupport ensures that no value is present for SccmAgentSupport, not even an explicit nil
+### GetSccmAgentVersion
+
+`func (o *TemplateImageDetails) GetSccmAgentVersion() string`
+
+GetSccmAgentVersion returns the SccmAgentVersion field if non-nil, zero value otherwise.
+
+### GetSccmAgentVersionOk
+
+`func (o *TemplateImageDetails) GetSccmAgentVersionOk() (*string, bool)`
+
+GetSccmAgentVersionOk returns a tuple with the SccmAgentVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSccmAgentVersion
+
+`func (o *TemplateImageDetails) SetSccmAgentVersion(v string)`
+
+SetSccmAgentVersion sets SccmAgentVersion field to given value.
+
+### HasSccmAgentVersion
+
+`func (o *TemplateImageDetails) HasSccmAgentVersion() bool`
+
+HasSccmAgentVersion returns a boolean if a field has been set.
+
+### SetSccmAgentVersionNil
+
+`func (o *TemplateImageDetails) SetSccmAgentVersionNil(b bool)`
+
+ SetSccmAgentVersionNil sets the value for SccmAgentVersion to be an explicit nil
+
+### UnsetSccmAgentVersion
+`func (o *TemplateImageDetails) UnsetSccmAgentVersion()`
+
+UnsetSccmAgentVersion ensures that no value is present for SccmAgentVersion, not even an explicit nil
 ### GetPublicIp
 
 `func (o *TemplateImageDetails) GetPublicIp() string`
@@ -422,6 +576,16 @@ SetPublicIp sets PublicIp field to given value.
 
 HasPublicIp returns a boolean if a field has been set.
 
+### SetPublicIpNil
+
+`func (o *TemplateImageDetails) SetPublicIpNil(b bool)`
+
+ SetPublicIpNil sets the value for PublicIp to be an explicit nil
+
+### UnsetPublicIp
+`func (o *TemplateImageDetails) UnsetPublicIp()`
+
+UnsetPublicIp ensures that no value is present for PublicIp, not even an explicit nil
 ### GetPrivateIp
 
 `func (o *TemplateImageDetails) GetPrivateIp() string`
@@ -447,6 +611,16 @@ SetPrivateIp sets PrivateIp field to given value.
 
 HasPrivateIp returns a boolean if a field has been set.
 
+### SetPrivateIpNil
+
+`func (o *TemplateImageDetails) SetPrivateIpNil(b bool)`
+
+ SetPrivateIpNil sets the value for PrivateIp to be an explicit nil
+
+### UnsetPrivateIp
+`func (o *TemplateImageDetails) UnsetPrivateIp()`
+
+UnsetPrivateIp ensures that no value is present for PrivateIp, not even an explicit nil
 ### GetDomainName
 
 `func (o *TemplateImageDetails) GetDomainName() string`
@@ -472,6 +646,16 @@ SetDomainName sets DomainName field to given value.
 
 HasDomainName returns a boolean if a field has been set.
 
+### SetDomainNameNil
+
+`func (o *TemplateImageDetails) SetDomainNameNil(b bool)`
+
+ SetDomainNameNil sets the value for DomainName to be an explicit nil
+
+### UnsetDomainName
+`func (o *TemplateImageDetails) UnsetDomainName()`
+
+UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
 ### GetIsServerOs
 
 `func (o *TemplateImageDetails) GetIsServerOs() bool`
@@ -522,6 +706,16 @@ SetVdaVersion sets VdaVersion field to given value.
 
 HasVdaVersion returns a boolean if a field has been set.
 
+### SetVdaVersionNil
+
+`func (o *TemplateImageDetails) SetVdaVersionNil(b bool)`
+
+ SetVdaVersionNil sets the value for VdaVersion to be an explicit nil
+
+### UnsetVdaVersion
+`func (o *TemplateImageDetails) UnsetVdaVersion()`
+
+UnsetVdaVersion ensures that no value is present for VdaVersion, not even an explicit nil
 ### GetStatusMessageId
 
 `func (o *TemplateImageDetails) GetStatusMessageId() string`
@@ -547,6 +741,16 @@ SetStatusMessageId sets StatusMessageId field to given value.
 
 HasStatusMessageId returns a boolean if a field has been set.
 
+### SetStatusMessageIdNil
+
+`func (o *TemplateImageDetails) SetStatusMessageIdNil(b bool)`
+
+ SetStatusMessageIdNil sets the value for StatusMessageId to be an explicit nil
+
+### UnsetStatusMessageId
+`func (o *TemplateImageDetails) UnsetStatusMessageId()`
+
+UnsetStatusMessageId ensures that no value is present for StatusMessageId, not even an explicit nil
 ### GetStatus
 
 `func (o *TemplateImageDetails) GetStatus() string`
@@ -572,6 +776,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *TemplateImageDetails) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *TemplateImageDetails) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetExtraInfo
 
 `func (o *TemplateImageDetails) GetExtraInfo() string`
@@ -597,6 +811,16 @@ SetExtraInfo sets ExtraInfo field to given value.
 
 HasExtraInfo returns a boolean if a field has been set.
 
+### SetExtraInfoNil
+
+`func (o *TemplateImageDetails) SetExtraInfoNil(b bool)`
+
+ SetExtraInfoNil sets the value for ExtraInfo to be an explicit nil
+
+### UnsetExtraInfo
+`func (o *TemplateImageDetails) UnsetExtraInfo()`
+
+UnsetExtraInfo ensures that no value is present for ExtraInfo, not even an explicit nil
 ### GetNotes
 
 `func (o *TemplateImageDetails) GetNotes() string`
@@ -622,6 +846,16 @@ SetNotes sets Notes field to given value.
 
 HasNotes returns a boolean if a field has been set.
 
+### SetNotesNil
+
+`func (o *TemplateImageDetails) SetNotesNil(b bool)`
+
+ SetNotesNil sets the value for Notes to be an explicit nil
+
+### UnsetNotes
+`func (o *TemplateImageDetails) UnsetNotes()`
+
+UnsetNotes ensures that no value is present for Notes, not even an explicit nil
 ### GetTransactionId
 
 `func (o *TemplateImageDetails) GetTransactionId() string`
@@ -647,6 +881,16 @@ SetTransactionId sets TransactionId field to given value.
 
 HasTransactionId returns a boolean if a field has been set.
 
+### SetTransactionIdNil
+
+`func (o *TemplateImageDetails) SetTransactionIdNil(b bool)`
+
+ SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+
+### UnsetTransactionId
+`func (o *TemplateImageDetails) UnsetTransactionId()`
+
+UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
 ### GetSubscriptionId
 
 `func (o *TemplateImageDetails) GetSubscriptionId() string`
@@ -672,6 +916,16 @@ SetSubscriptionId sets SubscriptionId field to given value.
 
 HasSubscriptionId returns a boolean if a field has been set.
 
+### SetSubscriptionIdNil
+
+`func (o *TemplateImageDetails) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *TemplateImageDetails) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
 ### GetSubscriptionName
 
 `func (o *TemplateImageDetails) GetSubscriptionName() string`
@@ -717,6 +971,16 @@ SetResourceGroup sets ResourceGroup field to given value.
 
 HasResourceGroup returns a boolean if a field has been set.
 
+### SetResourceGroupNil
+
+`func (o *TemplateImageDetails) SetResourceGroupNil(b bool)`
+
+ SetResourceGroupNil sets the value for ResourceGroup to be an explicit nil
+
+### UnsetResourceGroup
+`func (o *TemplateImageDetails) UnsetResourceGroup()`
+
+UnsetResourceGroup ensures that no value is present for ResourceGroup, not even an explicit nil
 ### GetStorageAccount
 
 `func (o *TemplateImageDetails) GetStorageAccount() string`
@@ -742,6 +1006,16 @@ SetStorageAccount sets StorageAccount field to given value.
 
 HasStorageAccount returns a boolean if a field has been set.
 
+### SetStorageAccountNil
+
+`func (o *TemplateImageDetails) SetStorageAccountNil(b bool)`
+
+ SetStorageAccountNil sets the value for StorageAccount to be an explicit nil
+
+### UnsetStorageAccount
+`func (o *TemplateImageDetails) UnsetStorageAccount()`
+
+UnsetStorageAccount ensures that no value is present for StorageAccount, not even an explicit nil
 ### GetRegion
 
 `func (o *TemplateImageDetails) GetRegion() string`
@@ -787,6 +1061,16 @@ SetBuilderDomainName sets BuilderDomainName field to given value.
 
 HasBuilderDomainName returns a boolean if a field has been set.
 
+### SetBuilderDomainNameNil
+
+`func (o *TemplateImageDetails) SetBuilderDomainNameNil(b bool)`
+
+ SetBuilderDomainNameNil sets the value for BuilderDomainName to be an explicit nil
+
+### UnsetBuilderDomainName
+`func (o *TemplateImageDetails) UnsetBuilderDomainName()`
+
+UnsetBuilderDomainName ensures that no value is present for BuilderDomainName, not even an explicit nil
 ### GetBuilderConnectionId
 
 `func (o *TemplateImageDetails) GetBuilderConnectionId() string`
@@ -812,6 +1096,16 @@ SetBuilderConnectionId sets BuilderConnectionId field to given value.
 
 HasBuilderConnectionId returns a boolean if a field has been set.
 
+### SetBuilderConnectionIdNil
+
+`func (o *TemplateImageDetails) SetBuilderConnectionIdNil(b bool)`
+
+ SetBuilderConnectionIdNil sets the value for BuilderConnectionId to be an explicit nil
+
+### UnsetBuilderConnectionId
+`func (o *TemplateImageDetails) UnsetBuilderConnectionId()`
+
+UnsetBuilderConnectionId ensures that no value is present for BuilderConnectionId, not even an explicit nil
 ### GetBuilderVmName
 
 `func (o *TemplateImageDetails) GetBuilderVmName() string`
@@ -837,6 +1131,16 @@ SetBuilderVmName sets BuilderVmName field to given value.
 
 HasBuilderVmName returns a boolean if a field has been set.
 
+### SetBuilderVmNameNil
+
+`func (o *TemplateImageDetails) SetBuilderVmNameNil(b bool)`
+
+ SetBuilderVmNameNil sets the value for BuilderVmName to be an explicit nil
+
+### UnsetBuilderVmName
+`func (o *TemplateImageDetails) UnsetBuilderVmName()`
+
+UnsetBuilderVmName ensures that no value is present for BuilderVmName, not even an explicit nil
 ### GetBuilderVmType
 
 `func (o *TemplateImageDetails) GetBuilderVmType() string`
@@ -862,6 +1166,16 @@ SetBuilderVmType sets BuilderVmType field to given value.
 
 HasBuilderVmType returns a boolean if a field has been set.
 
+### SetBuilderVmTypeNil
+
+`func (o *TemplateImageDetails) SetBuilderVmTypeNil(b bool)`
+
+ SetBuilderVmTypeNil sets the value for BuilderVmType to be an explicit nil
+
+### UnsetBuilderVmType
+`func (o *TemplateImageDetails) UnsetBuilderVmType()`
+
+UnsetBuilderVmType ensures that no value is present for BuilderVmType, not even an explicit nil
 ### GetBuilderVmDiskSize
 
 `func (o *TemplateImageDetails) GetBuilderVmDiskSize() string`
@@ -887,6 +1201,16 @@ SetBuilderVmDiskSize sets BuilderVmDiskSize field to given value.
 
 HasBuilderVmDiskSize returns a boolean if a field has been set.
 
+### SetBuilderVmDiskSizeNil
+
+`func (o *TemplateImageDetails) SetBuilderVmDiskSizeNil(b bool)`
+
+ SetBuilderVmDiskSizeNil sets the value for BuilderVmDiskSize to be an explicit nil
+
+### UnsetBuilderVmDiskSize
+`func (o *TemplateImageDetails) UnsetBuilderVmDiskSize()`
+
+UnsetBuilderVmDiskSize ensures that no value is present for BuilderVmDiskSize, not even an explicit nil
 ### GetBuilderAllowedIPs
 
 `func (o *TemplateImageDetails) GetBuilderAllowedIPs() []string`
@@ -912,6 +1236,16 @@ SetBuilderAllowedIPs sets BuilderAllowedIPs field to given value.
 
 HasBuilderAllowedIPs returns a boolean if a field has been set.
 
+### SetBuilderAllowedIPsNil
+
+`func (o *TemplateImageDetails) SetBuilderAllowedIPsNil(b bool)`
+
+ SetBuilderAllowedIPsNil sets the value for BuilderAllowedIPs to be an explicit nil
+
+### UnsetBuilderAllowedIPs
+`func (o *TemplateImageDetails) UnsetBuilderAllowedIPs()`
+
+UnsetBuilderAllowedIPs ensures that no value is present for BuilderAllowedIPs, not even an explicit nil
 ### GetHyperVGen
 
 `func (o *TemplateImageDetails) GetHyperVGen() string`
@@ -937,6 +1271,16 @@ SetHyperVGen sets HyperVGen field to given value.
 
 HasHyperVGen returns a boolean if a field has been set.
 
+### SetHyperVGenNil
+
+`func (o *TemplateImageDetails) SetHyperVGenNil(b bool)`
+
+ SetHyperVGenNil sets the value for HyperVGen to be an explicit nil
+
+### UnsetHyperVGen
+`func (o *TemplateImageDetails) UnsetHyperVGen()`
+
+UnsetHyperVGen ensures that no value is present for HyperVGen, not even an explicit nil
 ### GetVtpmEnabled
 
 `func (o *TemplateImageDetails) GetVtpmEnabled() bool`
@@ -1032,6 +1376,16 @@ SetCspCustomer sets CspCustomer field to given value.
 
 HasCspCustomer returns a boolean if a field has been set.
 
+### SetCspCustomerNil
+
+`func (o *TemplateImageDetails) SetCspCustomerNil(b bool)`
+
+ SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+
+### UnsetCspCustomer
+`func (o *TemplateImageDetails) UnsetCspCustomer()`
+
+UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
 ### GetIsCmekEnabled
 
 `func (o *TemplateImageDetails) GetIsCmekEnabled() bool`
@@ -1082,6 +1436,51 @@ SetCmekId sets CmekId field to given value.
 
 HasCmekId returns a boolean if a field has been set.
 
+### SetCmekIdNil
+
+`func (o *TemplateImageDetails) SetCmekIdNil(b bool)`
+
+ SetCmekIdNil sets the value for CmekId to be an explicit nil
+
+### UnsetCmekId
+`func (o *TemplateImageDetails) UnsetCmekId()`
+
+UnsetCmekId ensures that no value is present for CmekId, not even an explicit nil
+### GetCmekName
+
+`func (o *TemplateImageDetails) GetCmekName() string`
+
+GetCmekName returns the CmekName field if non-nil, zero value otherwise.
+
+### GetCmekNameOk
+
+`func (o *TemplateImageDetails) GetCmekNameOk() (*string, bool)`
+
+GetCmekNameOk returns a tuple with the CmekName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCmekName
+
+`func (o *TemplateImageDetails) SetCmekName(v string)`
+
+SetCmekName sets CmekName field to given value.
+
+### HasCmekName
+
+`func (o *TemplateImageDetails) HasCmekName() bool`
+
+HasCmekName returns a boolean if a field has been set.
+
+### SetCmekNameNil
+
+`func (o *TemplateImageDetails) SetCmekNameNil(b bool)`
+
+ SetCmekNameNil sets the value for CmekName to be an explicit nil
+
+### UnsetCmekName
+`func (o *TemplateImageDetails) UnsetCmekName()`
+
+UnsetCmekName ensures that no value is present for CmekName, not even an explicit nil
 ### GetIsDeprecated
 
 `func (o *TemplateImageDetails) GetIsDeprecated() bool`
@@ -1132,6 +1531,16 @@ SetIsByoaImage sets IsByoaImage field to given value.
 
 HasIsByoaImage returns a boolean if a field has been set.
 
+### SetIsByoaImageNil
+
+`func (o *TemplateImageDetails) SetIsByoaImageNil(b bool)`
+
+ SetIsByoaImageNil sets the value for IsByoaImage to be an explicit nil
+
+### UnsetIsByoaImage
+`func (o *TemplateImageDetails) UnsetIsByoaImage()`
+
+UnsetIsByoaImage ensures that no value is present for IsByoaImage, not even an explicit nil
 ### GetLinkedCatalogs
 
 `func (o *TemplateImageDetails) GetLinkedCatalogs() int32`
@@ -1182,6 +1591,16 @@ SetLinkedCatalogsNames sets LinkedCatalogsNames field to given value.
 
 HasLinkedCatalogsNames returns a boolean if a field has been set.
 
+### SetLinkedCatalogsNamesNil
+
+`func (o *TemplateImageDetails) SetLinkedCatalogsNamesNil(b bool)`
+
+ SetLinkedCatalogsNamesNil sets the value for LinkedCatalogsNames to be an explicit nil
+
+### UnsetLinkedCatalogsNames
+`func (o *TemplateImageDetails) UnsetLinkedCatalogsNames()`
+
+UnsetLinkedCatalogsNames ensures that no value is present for LinkedCatalogsNames, not even an explicit nil
 ### GetCreatedDate
 
 `func (o *TemplateImageDetails) GetCreatedDate() time.Time`
@@ -1207,6 +1626,16 @@ SetCreatedDate sets CreatedDate field to given value.
 
 HasCreatedDate returns a boolean if a field has been set.
 
+### SetCreatedDateNil
+
+`func (o *TemplateImageDetails) SetCreatedDateNil(b bool)`
+
+ SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+
+### UnsetCreatedDate
+`func (o *TemplateImageDetails) UnsetCreatedDate()`
+
+UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
 ### GetFinalizedDate
 
 `func (o *TemplateImageDetails) GetFinalizedDate() time.Time`
@@ -1232,6 +1661,16 @@ SetFinalizedDate sets FinalizedDate field to given value.
 
 HasFinalizedDate returns a boolean if a field has been set.
 
+### SetFinalizedDateNil
+
+`func (o *TemplateImageDetails) SetFinalizedDateNil(b bool)`
+
+ SetFinalizedDateNil sets the value for FinalizedDate to be an explicit nil
+
+### UnsetFinalizedDate
+`func (o *TemplateImageDetails) UnsetFinalizedDate()`
+
+UnsetFinalizedDate ensures that no value is present for FinalizedDate, not even an explicit nil
 ### GetPath
 
 `func (o *TemplateImageDetails) GetPath() string`
@@ -1257,6 +1696,16 @@ SetPath sets Path field to given value.
 
 HasPath returns a boolean if a field has been set.
 
+### SetPathNil
+
+`func (o *TemplateImageDetails) SetPathNil(b bool)`
+
+ SetPathNil sets the value for Path to be an explicit nil
+
+### UnsetPath
+`func (o *TemplateImageDetails) UnsetPath()`
+
+UnsetPath ensures that no value is present for Path, not even an explicit nil
 ### GetSbSessionVdaVersion
 
 `func (o *TemplateImageDetails) GetSbSessionVdaVersion() string`
@@ -1282,6 +1731,16 @@ SetSbSessionVdaVersion sets SbSessionVdaVersion field to given value.
 
 HasSbSessionVdaVersion returns a boolean if a field has been set.
 
+### SetSbSessionVdaVersionNil
+
+`func (o *TemplateImageDetails) SetSbSessionVdaVersionNil(b bool)`
+
+ SetSbSessionVdaVersionNil sets the value for SbSessionVdaVersion to be an explicit nil
+
+### UnsetSbSessionVdaVersion
+`func (o *TemplateImageDetails) UnsetSbSessionVdaVersion()`
+
+UnsetSbSessionVdaVersion ensures that no value is present for SbSessionVdaVersion, not even an explicit nil
 ### GetIsSecureBrowserImage
 
 `func (o *TemplateImageDetails) GetIsSecureBrowserImage() bool`
@@ -1307,6 +1766,51 @@ SetIsSecureBrowserImage sets IsSecureBrowserImage field to given value.
 
 HasIsSecureBrowserImage returns a boolean if a field has been set.
 
+### SetIsSecureBrowserImageNil
+
+`func (o *TemplateImageDetails) SetIsSecureBrowserImageNil(b bool)`
+
+ SetIsSecureBrowserImageNil sets the value for IsSecureBrowserImage to be an explicit nil
+
+### UnsetIsSecureBrowserImage
+`func (o *TemplateImageDetails) UnsetIsSecureBrowserImage()`
+
+UnsetIsSecureBrowserImage ensures that no value is present for IsSecureBrowserImage, not even an explicit nil
+### GetDiskSizeInGB
+
+`func (o *TemplateImageDetails) GetDiskSizeInGB() int32`
+
+GetDiskSizeInGB returns the DiskSizeInGB field if non-nil, zero value otherwise.
+
+### GetDiskSizeInGBOk
+
+`func (o *TemplateImageDetails) GetDiskSizeInGBOk() (*int32, bool)`
+
+GetDiskSizeInGBOk returns a tuple with the DiskSizeInGB field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDiskSizeInGB
+
+`func (o *TemplateImageDetails) SetDiskSizeInGB(v int32)`
+
+SetDiskSizeInGB sets DiskSizeInGB field to given value.
+
+### HasDiskSizeInGB
+
+`func (o *TemplateImageDetails) HasDiskSizeInGB() bool`
+
+HasDiskSizeInGB returns a boolean if a field has been set.
+
+### SetDiskSizeInGBNil
+
+`func (o *TemplateImageDetails) SetDiskSizeInGBNil(b bool)`
+
+ SetDiskSizeInGBNil sets the value for DiskSizeInGB to be an explicit nil
+
+### UnsetDiskSizeInGB
+`func (o *TemplateImageDetails) UnsetDiskSizeInGB()`
+
+UnsetDiskSizeInGB ensures that no value is present for DiskSizeInGB, not even an explicit nil
 ### GetStartedAt
 
 `func (o *TemplateImageDetails) GetStartedAt() time.Time`
@@ -1332,6 +1836,16 @@ SetStartedAt sets StartedAt field to given value.
 
 HasStartedAt returns a boolean if a field has been set.
 
+### SetStartedAtNil
+
+`func (o *TemplateImageDetails) SetStartedAtNil(b bool)`
+
+ SetStartedAtNil sets the value for StartedAt to be an explicit nil
+
+### UnsetStartedAt
+`func (o *TemplateImageDetails) UnsetStartedAt()`
+
+UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
 ### GetEstimatedTimeInMinute
 
 `func (o *TemplateImageDetails) GetEstimatedTimeInMinute() int32`
@@ -1357,6 +1871,16 @@ SetEstimatedTimeInMinute sets EstimatedTimeInMinute field to given value.
 
 HasEstimatedTimeInMinute returns a boolean if a field has been set.
 
+### SetEstimatedTimeInMinuteNil
+
+`func (o *TemplateImageDetails) SetEstimatedTimeInMinuteNil(b bool)`
+
+ SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+
+### UnsetEstimatedTimeInMinute
+`func (o *TemplateImageDetails) UnsetEstimatedTimeInMinute()`
+
+UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

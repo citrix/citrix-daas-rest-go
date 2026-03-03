@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DomainName** | Pointer to **string** |  | [optional] 
+**DomainName** | Pointer to **NullableString** |  | [optional] 
 **DomainUsers** | Pointer to [**[]ManagedDomainUser**](ManagedDomainUser.md) |  | [optional] [readonly] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetDomainName sets DomainName field to given value.
 
 HasDomainName returns a boolean if a field has been set.
 
+### SetDomainNameNil
+
+`func (o *ManagedDomainConfiguration) SetDomainNameNil(b bool)`
+
+ SetDomainNameNil sets the value for DomainName to be an explicit nil
+
+### UnsetDomainName
+`func (o *ManagedDomainConfiguration) UnsetDomainName()`
+
+UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
 ### GetDomainUsers
 
 `func (o *ManagedDomainConfiguration) GetDomainUsers() []ManagedDomainUser`
@@ -76,6 +86,16 @@ SetDomainUsers sets DomainUsers field to given value.
 
 HasDomainUsers returns a boolean if a field has been set.
 
+### SetDomainUsersNil
+
+`func (o *ManagedDomainConfiguration) SetDomainUsersNil(b bool)`
+
+ SetDomainUsersNil sets the value for DomainUsers to be an explicit nil
+
+### UnsetDomainUsers
+`func (o *ManagedDomainConfiguration) UnsetDomainUsers()`
+
+UnsetDomainUsers ensures that no value is present for DomainUsers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

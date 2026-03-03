@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,17 +20,17 @@ var _ MappedNullable = &VNetResourceLocation{}
 // VNetResourceLocation struct for VNetResourceLocation
 type VNetResourceLocation struct {
 	// ID for the Resource Location
-	ResourceLocationId *string `json:"resourceLocationId,omitempty"`
+	ResourceLocationId NullableString `json:"resourceLocationId,omitempty"`
 	// List of ports
 	Ports []NetworkSecurityGroupPort `json:"ports,omitempty"`
 	// Network Security Group Name
-	NetworkSecurityGroup *string `json:"networkSecurityGroup,omitempty"`
+	NetworkSecurityGroup NullableString `json:"networkSecurityGroup,omitempty"`
 	// Domain name tied to the resource location
-	DomainJoined *string `json:"domainJoined,omitempty"`
+	DomainJoined NullableString `json:"domainJoined,omitempty"`
 	// The list of connectors configured for the resource location
 	Connectors []string `json:"connectors,omitempty"`
 	// Vnet Peering associated with the resource location
-	VnetPeering *string `json:"vnetPeering,omitempty"`
+	VnetPeering NullableString `json:"vnetPeering,omitempty"`
 }
 
 // NewVNetResourceLocationWithDefaults instantiates a new VNetResourceLocation object
@@ -41,32 +41,43 @@ func NewVNetResourceLocationWithDefaults() *VNetResourceLocation {
 	return &this
 }
 
-// GetResourceLocationId returns the ResourceLocationId field value if set, zero value otherwise.
+// GetResourceLocationId returns the ResourceLocationId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VNetResourceLocation) GetResourceLocationId() string {
-	if o == nil || IsNil(o.ResourceLocationId) {
+	if o == nil || IsNil(o.ResourceLocationId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResourceLocationId
+	return *o.ResourceLocationId.Get()
 }
 
 // GetResourceLocationIdOk returns a tuple with the ResourceLocationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VNetResourceLocation) GetResourceLocationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceLocationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceLocationId, true
+	return o.ResourceLocationId.Get(), o.ResourceLocationId.IsSet()
 }
 
-// SetResourceLocationId gets a reference to the given string and assigns it to the ResourceLocationId field.
+// SetResourceLocationId gets a reference to the given NullableString and assigns it to the ResourceLocationId field.
 func (o *VNetResourceLocation) SetResourceLocationId(v string) {
-	o.ResourceLocationId = &v
+	o.ResourceLocationId.Set(&v)
 }
 
-// GetPorts returns the Ports field value if set, zero value otherwise.
+// SetResourceLocationIdNil sets the value for ResourceLocationId to be an explicit nil
+func (o *VNetResourceLocation) SetResourceLocationIdNil() {
+	o.ResourceLocationId.Set(nil)
+}
+
+// UnsetResourceLocationId ensures that no value is present for ResourceLocationId, not even an explicit nil
+func (o *VNetResourceLocation) UnsetResourceLocationId() {
+	o.ResourceLocationId.Unset()
+}
+
+// GetPorts returns the Ports field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VNetResourceLocation) GetPorts() []NetworkSecurityGroupPort {
-	if o == nil || IsNil(o.Ports) {
+	if o == nil {
 		var ret []NetworkSecurityGroupPort
 		return ret
 	}
@@ -75,6 +86,7 @@ func (o *VNetResourceLocation) GetPorts() []NetworkSecurityGroupPort {
 
 // GetPortsOk returns a tuple with the Ports field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VNetResourceLocation) GetPortsOk() ([]NetworkSecurityGroupPort, bool) {
 	if o == nil || IsNil(o.Ports) {
 		return nil, false
@@ -87,55 +99,77 @@ func (o *VNetResourceLocation) SetPorts(v []NetworkSecurityGroupPort) {
 	o.Ports = v
 }
 
-// GetNetworkSecurityGroup returns the NetworkSecurityGroup field value if set, zero value otherwise.
+// GetNetworkSecurityGroup returns the NetworkSecurityGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VNetResourceLocation) GetNetworkSecurityGroup() string {
-	if o == nil || IsNil(o.NetworkSecurityGroup) {
+	if o == nil || IsNil(o.NetworkSecurityGroup.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.NetworkSecurityGroup
+	return *o.NetworkSecurityGroup.Get()
 }
 
 // GetNetworkSecurityGroupOk returns a tuple with the NetworkSecurityGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VNetResourceLocation) GetNetworkSecurityGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.NetworkSecurityGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NetworkSecurityGroup, true
+	return o.NetworkSecurityGroup.Get(), o.NetworkSecurityGroup.IsSet()
 }
 
-// SetNetworkSecurityGroup gets a reference to the given string and assigns it to the NetworkSecurityGroup field.
+// SetNetworkSecurityGroup gets a reference to the given NullableString and assigns it to the NetworkSecurityGroup field.
 func (o *VNetResourceLocation) SetNetworkSecurityGroup(v string) {
-	o.NetworkSecurityGroup = &v
+	o.NetworkSecurityGroup.Set(&v)
 }
 
-// GetDomainJoined returns the DomainJoined field value if set, zero value otherwise.
+// SetNetworkSecurityGroupNil sets the value for NetworkSecurityGroup to be an explicit nil
+func (o *VNetResourceLocation) SetNetworkSecurityGroupNil() {
+	o.NetworkSecurityGroup.Set(nil)
+}
+
+// UnsetNetworkSecurityGroup ensures that no value is present for NetworkSecurityGroup, not even an explicit nil
+func (o *VNetResourceLocation) UnsetNetworkSecurityGroup() {
+	o.NetworkSecurityGroup.Unset()
+}
+
+// GetDomainJoined returns the DomainJoined field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VNetResourceLocation) GetDomainJoined() string {
-	if o == nil || IsNil(o.DomainJoined) {
+	if o == nil || IsNil(o.DomainJoined.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DomainJoined
+	return *o.DomainJoined.Get()
 }
 
 // GetDomainJoinedOk returns a tuple with the DomainJoined field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VNetResourceLocation) GetDomainJoinedOk() (*string, bool) {
-	if o == nil || IsNil(o.DomainJoined) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainJoined, true
+	return o.DomainJoined.Get(), o.DomainJoined.IsSet()
 }
 
-// SetDomainJoined gets a reference to the given string and assigns it to the DomainJoined field.
+// SetDomainJoined gets a reference to the given NullableString and assigns it to the DomainJoined field.
 func (o *VNetResourceLocation) SetDomainJoined(v string) {
-	o.DomainJoined = &v
+	o.DomainJoined.Set(&v)
 }
 
-// GetConnectors returns the Connectors field value if set, zero value otherwise.
+// SetDomainJoinedNil sets the value for DomainJoined to be an explicit nil
+func (o *VNetResourceLocation) SetDomainJoinedNil() {
+	o.DomainJoined.Set(nil)
+}
+
+// UnsetDomainJoined ensures that no value is present for DomainJoined, not even an explicit nil
+func (o *VNetResourceLocation) UnsetDomainJoined() {
+	o.DomainJoined.Unset()
+}
+
+// GetConnectors returns the Connectors field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VNetResourceLocation) GetConnectors() []string {
-	if o == nil || IsNil(o.Connectors) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -144,6 +178,7 @@ func (o *VNetResourceLocation) GetConnectors() []string {
 
 // GetConnectorsOk returns a tuple with the Connectors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VNetResourceLocation) GetConnectorsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Connectors) {
 		return nil, false
@@ -156,27 +191,38 @@ func (o *VNetResourceLocation) SetConnectors(v []string) {
 	o.Connectors = v
 }
 
-// GetVnetPeering returns the VnetPeering field value if set, zero value otherwise.
+// GetVnetPeering returns the VnetPeering field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VNetResourceLocation) GetVnetPeering() string {
-	if o == nil || IsNil(o.VnetPeering) {
+	if o == nil || IsNil(o.VnetPeering.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VnetPeering
+	return *o.VnetPeering.Get()
 }
 
 // GetVnetPeeringOk returns a tuple with the VnetPeering field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VNetResourceLocation) GetVnetPeeringOk() (*string, bool) {
-	if o == nil || IsNil(o.VnetPeering) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VnetPeering, true
+	return o.VnetPeering.Get(), o.VnetPeering.IsSet()
 }
 
-// SetVnetPeering gets a reference to the given string and assigns it to the VnetPeering field.
+// SetVnetPeering gets a reference to the given NullableString and assigns it to the VnetPeering field.
 func (o *VNetResourceLocation) SetVnetPeering(v string) {
-	o.VnetPeering = &v
+	o.VnetPeering.Set(&v)
+}
+
+// SetVnetPeeringNil sets the value for VnetPeering to be an explicit nil
+func (o *VNetResourceLocation) SetVnetPeeringNil() {
+	o.VnetPeering.Set(nil)
+}
+
+// UnsetVnetPeering ensures that no value is present for VnetPeering, not even an explicit nil
+func (o *VNetResourceLocation) UnsetVnetPeering() {
+	o.VnetPeering.Unset()
 }
 
 func (o VNetResourceLocation) MarshalJSON() ([]byte, error) {
@@ -189,23 +235,23 @@ func (o VNetResourceLocation) MarshalJSON() ([]byte, error) {
 
 func (o VNetResourceLocation) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ResourceLocationId) {
-		toSerialize["resourceLocationId"] = o.ResourceLocationId
+	if o.ResourceLocationId.IsSet() {
+		toSerialize["resourceLocationId"] = o.ResourceLocationId.Get()
 	}
-	if !IsNil(o.Ports) {
+	if o.Ports != nil {
 		toSerialize["ports"] = o.Ports
 	}
-	if !IsNil(o.NetworkSecurityGroup) {
-		toSerialize["networkSecurityGroup"] = o.NetworkSecurityGroup
+	if o.NetworkSecurityGroup.IsSet() {
+		toSerialize["networkSecurityGroup"] = o.NetworkSecurityGroup.Get()
 	}
-	if !IsNil(o.DomainJoined) {
-		toSerialize["domainJoined"] = o.DomainJoined
+	if o.DomainJoined.IsSet() {
+		toSerialize["domainJoined"] = o.DomainJoined.Get()
 	}
-	if !IsNil(o.Connectors) {
+	if o.Connectors != nil {
 		toSerialize["connectors"] = o.Connectors
 	}
-	if !IsNil(o.VnetPeering) {
-		toSerialize["vnetPeering"] = o.VnetPeering
+	if o.VnetPeering.IsSet() {
+		toSerialize["vnetPeering"] = o.VnetPeering.Get()
 	}
 	return toSerialize, nil
 }

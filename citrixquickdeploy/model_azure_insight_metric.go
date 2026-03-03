@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,9 +19,9 @@ var _ MappedNullable = &AzureInsightMetric{}
 
 // AzureInsightMetric struct for AzureInsightMetric
 type AzureInsightMetric struct {
-	Name *LocalizableString `json:"name,omitempty"`
-	Unit *Unit              `json:"unit,omitempty"`
-	Data []MetricData       `json:"data,omitempty"`
+	Name NullableLocalizableString `json:"name,omitempty"`
+	Unit *Unit                     `json:"unit,omitempty"`
+	Data []MetricData              `json:"data,omitempty"`
 }
 
 // NewAzureInsightMetricWithDefaults instantiates a new AzureInsightMetric object
@@ -32,27 +32,38 @@ func NewAzureInsightMetricWithDefaults() *AzureInsightMetric {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureInsightMetric) GetName() LocalizableString {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret LocalizableString
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureInsightMetric) GetNameOk() (*LocalizableString, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given LocalizableString and assigns it to the Name field.
+// SetName gets a reference to the given NullableLocalizableString and assigns it to the Name field.
 func (o *AzureInsightMetric) SetName(v LocalizableString) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *AzureInsightMetric) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *AzureInsightMetric) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetUnit returns the Unit field value if set, zero value otherwise.
@@ -78,9 +89,9 @@ func (o *AzureInsightMetric) SetUnit(v Unit) {
 	o.Unit = &v
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
+// GetData returns the Data field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureInsightMetric) GetData() []MetricData {
-	if o == nil || IsNil(o.Data) {
+	if o == nil {
 		var ret []MetricData
 		return ret
 	}
@@ -89,6 +100,7 @@ func (o *AzureInsightMetric) GetData() []MetricData {
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureInsightMetric) GetDataOk() ([]MetricData, bool) {
 	if o == nil || IsNil(o.Data) {
 		return nil, false
@@ -111,13 +123,13 @@ func (o AzureInsightMetric) MarshalJSON() ([]byte, error) {
 
 func (o AzureInsightMetric) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	if !IsNil(o.Unit) {
 		toSerialize["unit"] = o.Unit
 	}
-	if !IsNil(o.Data) {
+	if o.Data != nil {
 		toSerialize["data"] = o.Data
 	}
 	return toSerialize, nil

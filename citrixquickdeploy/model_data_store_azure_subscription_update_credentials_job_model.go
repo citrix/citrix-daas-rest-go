@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,17 +21,17 @@ var _ MappedNullable = &DataStoreAzureSubscriptionUpdateCredentialsJobModel{}
 // DataStoreAzureSubscriptionUpdateCredentialsJobModel struct for DataStoreAzureSubscriptionUpdateCredentialsJobModel
 type DataStoreAzureSubscriptionUpdateCredentialsJobModel struct {
 	// ID of the transaction associated with the update.
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionId NullableString `json:"transactionId,omitempty"`
 	// State of the update job.
 	State *UpdateAzureSubscriptionCredentialJobState `json:"state,omitempty"`
 	// List of catalog IDs that failed to update.
 	FailedCatalogIds []string `json:"failedCatalogIds,omitempty"`
 	// ID of the transaction associated with the update.
-	PreviousKeySecretId *string `json:"previousKeySecretId,omitempty"`
+	PreviousKeySecretId NullableString `json:"previousKeySecretId,omitempty"`
 	// The datetime when the job started
-	StartedAt *time.Time `json:"startedAt,omitempty"`
+	StartedAt NullableTime `json:"startedAt,omitempty"`
 	// Estimated total time for the job to finish
-	EstimatedTimeInMinute *int32 `json:"estimatedTimeInMinute,omitempty"`
+	EstimatedTimeInMinute NullableInt32 `json:"estimatedTimeInMinute,omitempty"`
 }
 
 // NewDataStoreAzureSubscriptionUpdateCredentialsJobModelWithDefaults instantiates a new DataStoreAzureSubscriptionUpdateCredentialsJobModel object
@@ -42,27 +42,38 @@ func NewDataStoreAzureSubscriptionUpdateCredentialsJobModelWithDefaults() *DataS
 	return &this
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
+}
+
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) UnsetTransactionId() {
+	o.TransactionId.Unset()
 }
 
 // GetState returns the State field value if set, zero value otherwise.
@@ -88,9 +99,9 @@ func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) SetState(v UpdateA
 	o.State = &v
 }
 
-// GetFailedCatalogIds returns the FailedCatalogIds field value if set, zero value otherwise.
+// GetFailedCatalogIds returns the FailedCatalogIds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) GetFailedCatalogIds() []string {
-	if o == nil || IsNil(o.FailedCatalogIds) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -99,6 +110,7 @@ func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) GetFailedCatalogId
 
 // GetFailedCatalogIdsOk returns a tuple with the FailedCatalogIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) GetFailedCatalogIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.FailedCatalogIds) {
 		return nil, false
@@ -111,73 +123,106 @@ func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) SetFailedCatalogId
 	o.FailedCatalogIds = v
 }
 
-// GetPreviousKeySecretId returns the PreviousKeySecretId field value if set, zero value otherwise.
+// GetPreviousKeySecretId returns the PreviousKeySecretId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) GetPreviousKeySecretId() string {
-	if o == nil || IsNil(o.PreviousKeySecretId) {
+	if o == nil || IsNil(o.PreviousKeySecretId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PreviousKeySecretId
+	return *o.PreviousKeySecretId.Get()
 }
 
 // GetPreviousKeySecretIdOk returns a tuple with the PreviousKeySecretId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) GetPreviousKeySecretIdOk() (*string, bool) {
-	if o == nil || IsNil(o.PreviousKeySecretId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PreviousKeySecretId, true
+	return o.PreviousKeySecretId.Get(), o.PreviousKeySecretId.IsSet()
 }
 
-// SetPreviousKeySecretId gets a reference to the given string and assigns it to the PreviousKeySecretId field.
+// SetPreviousKeySecretId gets a reference to the given NullableString and assigns it to the PreviousKeySecretId field.
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) SetPreviousKeySecretId(v string) {
-	o.PreviousKeySecretId = &v
+	o.PreviousKeySecretId.Set(&v)
 }
 
-// GetStartedAt returns the StartedAt field value if set, zero value otherwise.
+// SetPreviousKeySecretIdNil sets the value for PreviousKeySecretId to be an explicit nil
+func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) SetPreviousKeySecretIdNil() {
+	o.PreviousKeySecretId.Set(nil)
+}
+
+// UnsetPreviousKeySecretId ensures that no value is present for PreviousKeySecretId, not even an explicit nil
+func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) UnsetPreviousKeySecretId() {
+	o.PreviousKeySecretId.Unset()
+}
+
+// GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) GetStartedAt() time.Time {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil || IsNil(o.StartedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartedAt
+	return *o.StartedAt.Get()
 }
 
 // GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) GetStartedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StartedAt, true
+	return o.StartedAt.Get(), o.StartedAt.IsSet()
 }
 
-// SetStartedAt gets a reference to the given time.Time and assigns it to the StartedAt field.
+// SetStartedAt gets a reference to the given NullableTime and assigns it to the StartedAt field.
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) SetStartedAt(v time.Time) {
-	o.StartedAt = &v
+	o.StartedAt.Set(&v)
 }
 
-// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise.
+// SetStartedAtNil sets the value for StartedAt to be an explicit nil
+func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) SetStartedAtNil() {
+	o.StartedAt.Set(nil)
+}
+
+// UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
+func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) UnsetStartedAt() {
+	o.StartedAt.Unset()
+}
+
+// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) GetEstimatedTimeInMinute() int32 {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil || IsNil(o.EstimatedTimeInMinute.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.EstimatedTimeInMinute
+	return *o.EstimatedTimeInMinute.Get()
 }
 
 // GetEstimatedTimeInMinuteOk returns a tuple with the EstimatedTimeInMinute field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) GetEstimatedTimeInMinuteOk() (*int32, bool) {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EstimatedTimeInMinute, true
+	return o.EstimatedTimeInMinute.Get(), o.EstimatedTimeInMinute.IsSet()
 }
 
-// SetEstimatedTimeInMinute gets a reference to the given int32 and assigns it to the EstimatedTimeInMinute field.
+// SetEstimatedTimeInMinute gets a reference to the given NullableInt32 and assigns it to the EstimatedTimeInMinute field.
 func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) SetEstimatedTimeInMinute(v int32) {
-	o.EstimatedTimeInMinute = &v
+	o.EstimatedTimeInMinute.Set(&v)
+}
+
+// SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) SetEstimatedTimeInMinuteNil() {
+	o.EstimatedTimeInMinute.Set(nil)
+}
+
+// UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
+func (o *DataStoreAzureSubscriptionUpdateCredentialsJobModel) UnsetEstimatedTimeInMinute() {
+	o.EstimatedTimeInMinute.Unset()
 }
 
 func (o DataStoreAzureSubscriptionUpdateCredentialsJobModel) MarshalJSON() ([]byte, error) {
@@ -190,23 +235,23 @@ func (o DataStoreAzureSubscriptionUpdateCredentialsJobModel) MarshalJSON() ([]by
 
 func (o DataStoreAzureSubscriptionUpdateCredentialsJobModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
 	}
-	if !IsNil(o.FailedCatalogIds) {
+	if o.FailedCatalogIds != nil {
 		toSerialize["failedCatalogIds"] = o.FailedCatalogIds
 	}
-	if !IsNil(o.PreviousKeySecretId) {
-		toSerialize["previousKeySecretId"] = o.PreviousKeySecretId
+	if o.PreviousKeySecretId.IsSet() {
+		toSerialize["previousKeySecretId"] = o.PreviousKeySecretId.Get()
 	}
-	if !IsNil(o.StartedAt) {
-		toSerialize["startedAt"] = o.StartedAt
+	if o.StartedAt.IsSet() {
+		toSerialize["startedAt"] = o.StartedAt.Get()
 	}
-	if !IsNil(o.EstimatedTimeInMinute) {
-		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute
+	if o.EstimatedTimeInMinute.IsSet() {
+		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute.Get()
 	}
 	return toSerialize, nil
 }

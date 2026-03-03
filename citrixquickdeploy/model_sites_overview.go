@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -57,9 +57,9 @@ func (o *SitesOverview) SetItems(v []SiteModel) {
 	o.Items = v
 }
 
-// GetSites returns the Sites field value if set, zero value otherwise.
+// GetSites returns the Sites field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SitesOverview) GetSites() []SiteModel {
-	if o == nil || IsNil(o.Sites) {
+	if o == nil {
 		var ret []SiteModel
 		return ret
 	}
@@ -68,6 +68,7 @@ func (o *SitesOverview) GetSites() []SiteModel {
 
 // GetSitesOk returns a tuple with the Sites field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SitesOverview) GetSitesOk() ([]SiteModel, bool) {
 	if o == nil || IsNil(o.Sites) {
 		return nil, false
@@ -91,7 +92,7 @@ func (o SitesOverview) MarshalJSON() ([]byte, error) {
 func (o SitesOverview) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["items"] = o.Items
-	if !IsNil(o.Sites) {
+	if o.Sites != nil {
 		toSerialize["sites"] = o.Sites
 	}
 	return toSerialize, nil

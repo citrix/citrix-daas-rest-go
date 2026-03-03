@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SubscriptionId** | Pointer to **string** | ID of the subscription | [optional] 
+**SubscriptionId** | Pointer to **NullableString** | ID of the subscription | [optional] 
 **UnexpectedAssignments** | Pointer to [**[]AzureAssignment**](AzureAssignment.md) | List of assignments in the subscription that are not expected | [optional] 
 **HasUnexpectedAssignments** | Pointer to **bool** |  | [optional] [readonly] 
 
@@ -52,6 +52,16 @@ SetSubscriptionId sets SubscriptionId field to given value.
 
 HasSubscriptionId returns a boolean if a field has been set.
 
+### SetSubscriptionIdNil
+
+`func (o *SubscriptionVerificationState) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *SubscriptionVerificationState) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
 ### GetUnexpectedAssignments
 
 `func (o *SubscriptionVerificationState) GetUnexpectedAssignments() []AzureAssignment`
@@ -77,6 +87,16 @@ SetUnexpectedAssignments sets UnexpectedAssignments field to given value.
 
 HasUnexpectedAssignments returns a boolean if a field has been set.
 
+### SetUnexpectedAssignmentsNil
+
+`func (o *SubscriptionVerificationState) SetUnexpectedAssignmentsNil(b bool)`
+
+ SetUnexpectedAssignmentsNil sets the value for UnexpectedAssignments to be an explicit nil
+
+### UnsetUnexpectedAssignments
+`func (o *SubscriptionVerificationState) UnsetUnexpectedAssignments()`
+
+UnsetUnexpectedAssignments ensures that no value is present for UnexpectedAssignments, not even an explicit nil
 ### GetHasUnexpectedAssignments
 
 `func (o *SubscriptionVerificationState) GetHasUnexpectedAssignments() bool`

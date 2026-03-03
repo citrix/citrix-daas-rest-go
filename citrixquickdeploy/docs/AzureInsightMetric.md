@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to [**LocalizableString**](LocalizableString.md) |  | [optional] 
+**Name** | Pointer to [**NullableLocalizableString**](LocalizableString.md) |  | [optional] 
 **Unit** | Pointer to [**Unit**](Unit.md) |  | [optional] 
 **Data** | Pointer to [**[]MetricData**](MetricData.md) |  | [optional] 
 
@@ -52,6 +52,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *AzureInsightMetric) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *AzureInsightMetric) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetUnit
 
 `func (o *AzureInsightMetric) GetUnit() Unit`
@@ -102,6 +112,16 @@ SetData sets Data field to given value.
 
 HasData returns a boolean if a field has been set.
 
+### SetDataNil
+
+`func (o *AzureInsightMetric) SetDataNil(b bool)`
+
+ SetDataNil sets the value for Data to be an explicit nil
+
+### UnsetData
+`func (o *AzureInsightMetric) UnsetData()`
+
+UnsetData ensures that no value is present for Data, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

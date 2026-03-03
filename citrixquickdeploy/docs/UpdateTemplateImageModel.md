@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NewName** | Pointer to **string** | Updated name of the template | [optional] 
-**NewNotes** | Pointer to **string** | Customer notes about template image | [optional] 
+**NewName** | Pointer to **NullableString** | Updated name of the template | [optional] 
+**NewNotes** | Pointer to **NullableString** | Customer notes about template image | [optional] 
 **UpdateAllowedIPs** | Pointer to **bool** | Ip Addresses allowed to RDP flag | [optional] 
 **AllowedIPs** | Pointer to **[]string** | Ip Addresses allowed to RDP | [optional] 
 
@@ -53,6 +53,16 @@ SetNewName sets NewName field to given value.
 
 HasNewName returns a boolean if a field has been set.
 
+### SetNewNameNil
+
+`func (o *UpdateTemplateImageModel) SetNewNameNil(b bool)`
+
+ SetNewNameNil sets the value for NewName to be an explicit nil
+
+### UnsetNewName
+`func (o *UpdateTemplateImageModel) UnsetNewName()`
+
+UnsetNewName ensures that no value is present for NewName, not even an explicit nil
 ### GetNewNotes
 
 `func (o *UpdateTemplateImageModel) GetNewNotes() string`
@@ -78,6 +88,16 @@ SetNewNotes sets NewNotes field to given value.
 
 HasNewNotes returns a boolean if a field has been set.
 
+### SetNewNotesNil
+
+`func (o *UpdateTemplateImageModel) SetNewNotesNil(b bool)`
+
+ SetNewNotesNil sets the value for NewNotes to be an explicit nil
+
+### UnsetNewNotes
+`func (o *UpdateTemplateImageModel) UnsetNewNotes()`
+
+UnsetNewNotes ensures that no value is present for NewNotes, not even an explicit nil
 ### GetUpdateAllowedIPs
 
 `func (o *UpdateTemplateImageModel) GetUpdateAllowedIPs() bool`
@@ -128,6 +148,16 @@ SetAllowedIPs sets AllowedIPs field to given value.
 
 HasAllowedIPs returns a boolean if a field has been set.
 
+### SetAllowedIPsNil
+
+`func (o *UpdateTemplateImageModel) SetAllowedIPsNil(b bool)`
+
+ SetAllowedIPsNil sets the value for AllowedIPs to be an explicit nil
+
+### UnsetAllowedIPs
+`func (o *UpdateTemplateImageModel) UnsetAllowedIPs()`
+
+UnsetAllowedIPs ensures that no value is present for AllowedIPs, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

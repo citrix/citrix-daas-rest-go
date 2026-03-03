@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,9 +20,9 @@ var _ MappedNullable = &BackupVmConfiguration{}
 // BackupVmConfiguration struct for BackupVmConfiguration
 type BackupVmConfiguration struct {
 	// The service offering for the backup VM.  Ex: \"Standard_D2as_v4\"
-	ServiceOffering *string `json:"serviceOffering,omitempty"`
+	ServiceOffering NullableString `json:"serviceOffering,omitempty"`
 	// The service offering type for the backup VM.  Options are: \"Regular\" or \"Spot\".  Default to \"Regular\" if unspecified.
-	Type *string `json:"type,omitempty"`
+	Type NullableString `json:"type,omitempty"`
 }
 
 // NewBackupVmConfigurationWithDefaults instantiates a new BackupVmConfiguration object
@@ -33,50 +33,72 @@ func NewBackupVmConfigurationWithDefaults() *BackupVmConfiguration {
 	return &this
 }
 
-// GetServiceOffering returns the ServiceOffering field value if set, zero value otherwise.
+// GetServiceOffering returns the ServiceOffering field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BackupVmConfiguration) GetServiceOffering() string {
-	if o == nil || IsNil(o.ServiceOffering) {
+	if o == nil || IsNil(o.ServiceOffering.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ServiceOffering
+	return *o.ServiceOffering.Get()
 }
 
 // GetServiceOfferingOk returns a tuple with the ServiceOffering field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BackupVmConfiguration) GetServiceOfferingOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceOffering) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceOffering, true
+	return o.ServiceOffering.Get(), o.ServiceOffering.IsSet()
 }
 
-// SetServiceOffering gets a reference to the given string and assigns it to the ServiceOffering field.
+// SetServiceOffering gets a reference to the given NullableString and assigns it to the ServiceOffering field.
 func (o *BackupVmConfiguration) SetServiceOffering(v string) {
-	o.ServiceOffering = &v
+	o.ServiceOffering.Set(&v)
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// SetServiceOfferingNil sets the value for ServiceOffering to be an explicit nil
+func (o *BackupVmConfiguration) SetServiceOfferingNil() {
+	o.ServiceOffering.Set(nil)
+}
+
+// UnsetServiceOffering ensures that no value is present for ServiceOffering, not even an explicit nil
+func (o *BackupVmConfiguration) UnsetServiceOffering() {
+	o.ServiceOffering.Unset()
+}
+
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BackupVmConfiguration) GetType() string {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BackupVmConfiguration) GetTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
-// SetType gets a reference to the given string and assigns it to the Type field.
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
 func (o *BackupVmConfiguration) SetType(v string) {
-	o.Type = &v
+	o.Type.Set(&v)
+}
+
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *BackupVmConfiguration) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *BackupVmConfiguration) UnsetType() {
+	o.Type.Unset()
 }
 
 func (o BackupVmConfiguration) MarshalJSON() ([]byte, error) {
@@ -89,11 +111,11 @@ func (o BackupVmConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o BackupVmConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ServiceOffering) {
-		toSerialize["serviceOffering"] = o.ServiceOffering
+	if o.ServiceOffering.IsSet() {
+		toSerialize["serviceOffering"] = o.ServiceOffering.Get()
 	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
 	return toSerialize, nil
 }

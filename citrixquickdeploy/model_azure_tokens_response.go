@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &AzureTokensResponse{}
 // AzureTokensResponse struct for AzureTokensResponse
 type AzureTokensResponse struct {
 	// ID of the apps the tokens are applicable to
-	AppId *string `json:"appId,omitempty"`
+	AppId NullableString `json:"appId,omitempty"`
 	// The tokens to the specified resources
 	Tokens []AzureToken `json:"tokens,omitempty"`
 }
@@ -33,32 +33,43 @@ func NewAzureTokensResponseWithDefaults() *AzureTokensResponse {
 	return &this
 }
 
-// GetAppId returns the AppId field value if set, zero value otherwise.
+// GetAppId returns the AppId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTokensResponse) GetAppId() string {
-	if o == nil || IsNil(o.AppId) {
+	if o == nil || IsNil(o.AppId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AppId
+	return *o.AppId.Get()
 }
 
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTokensResponse) GetAppIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AppId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AppId, true
+	return o.AppId.Get(), o.AppId.IsSet()
 }
 
-// SetAppId gets a reference to the given string and assigns it to the AppId field.
+// SetAppId gets a reference to the given NullableString and assigns it to the AppId field.
 func (o *AzureTokensResponse) SetAppId(v string) {
-	o.AppId = &v
+	o.AppId.Set(&v)
 }
 
-// GetTokens returns the Tokens field value if set, zero value otherwise.
+// SetAppIdNil sets the value for AppId to be an explicit nil
+func (o *AzureTokensResponse) SetAppIdNil() {
+	o.AppId.Set(nil)
+}
+
+// UnsetAppId ensures that no value is present for AppId, not even an explicit nil
+func (o *AzureTokensResponse) UnsetAppId() {
+	o.AppId.Unset()
+}
+
+// GetTokens returns the Tokens field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTokensResponse) GetTokens() []AzureToken {
-	if o == nil || IsNil(o.Tokens) {
+	if o == nil {
 		var ret []AzureToken
 		return ret
 	}
@@ -67,6 +78,7 @@ func (o *AzureTokensResponse) GetTokens() []AzureToken {
 
 // GetTokensOk returns a tuple with the Tokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTokensResponse) GetTokensOk() ([]AzureToken, bool) {
 	if o == nil || IsNil(o.Tokens) {
 		return nil, false
@@ -89,10 +101,10 @@ func (o AzureTokensResponse) MarshalJSON() ([]byte, error) {
 
 func (o AzureTokensResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AppId) {
-		toSerialize["appId"] = o.AppId
+	if o.AppId.IsSet() {
+		toSerialize["appId"] = o.AppId.Get()
 	}
-	if !IsNil(o.Tokens) {
+	if o.Tokens != nil {
 		toSerialize["tokens"] = o.Tokens
 	}
 	return toSerialize, nil

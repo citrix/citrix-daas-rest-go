@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Id of the bastion | [optional] 
-**Name** | Pointer to **string** | Name of the bastion | [optional] 
-**State** | Pointer to **string** | The current state of the bastion | [optional] 
-**Error** | Pointer to **string** | Error message if bastion is in failed state | [optional] 
-**VnetName** | Pointer to **string** | The name of the Vnet in which the bastion is created | [optional] 
-**VnetAddressSpace** | Pointer to **string** | The address space of the Vnet in which the bastion is created | [optional] 
-**RestrictedIpAddressPrefix** | Pointer to **string** | The Ip Address prefix, if any, to which the bastion rdp access is restricted | [optional] 
-**TransactionId** | Pointer to **string** | The transaction ID associated with the bastion | [optional] 
+**Id** | Pointer to **NullableString** | Id of the bastion | [optional] 
+**Name** | Pointer to **NullableString** | Name of the bastion | [optional] 
+**State** | Pointer to **NullableString** | The current state of the bastion | [optional] 
+**Error** | Pointer to **NullableString** | Error message if bastion is in failed state | [optional] 
+**VnetName** | Pointer to **NullableString** | The name of the Vnet in which the bastion is created | [optional] 
+**VnetAddressSpace** | Pointer to **NullableString** | The address space of the Vnet in which the bastion is created | [optional] 
+**RestrictedIpAddressPrefix** | Pointer to **NullableString** | The Ip Address prefix, if any, to which the bastion rdp access is restricted | [optional] 
+**TransactionId** | Pointer to **NullableString** | The transaction ID associated with the bastion | [optional] 
 **HasRdpFileBeenRequested** | Pointer to **bool** | A boolean to check if the rdp file has been requested | [optional] 
-**Type** | Pointer to **string** | Specifies if it is a bastion or a rdp access | [optional] 
-**CspCustomer** | Pointer to **string** | Indicates that partner-tenant relationship exists if not null | [optional] 
-**StartedAt** | Pointer to **time.Time** | DateTime when the import image job started | [optional] 
-**EstimatedTimeInMinute** | Pointer to **int32** | Estimated total time in minute for the job to finish | [optional] 
+**Type** | Pointer to **NullableString** | Specifies if it is a bastion or a rdp access | [optional] 
+**CspCustomer** | Pointer to **NullableString** | Indicates that partner-tenant relationship exists if not null | [optional] 
+**StartedAt** | Pointer to **NullableTime** | DateTime when the import image job started | [optional] 
+**EstimatedTimeInMinute** | Pointer to **NullableInt32** | Estimated total time in minute for the job to finish | [optional] 
 
 ## Methods
 
@@ -62,6 +62,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *BastionAndRdpAccessOverview) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *BastionAndRdpAccessOverview) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *BastionAndRdpAccessOverview) GetName() string`
@@ -87,6 +97,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *BastionAndRdpAccessOverview) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *BastionAndRdpAccessOverview) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetState
 
 `func (o *BastionAndRdpAccessOverview) GetState() string`
@@ -112,6 +132,16 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
+### SetStateNil
+
+`func (o *BastionAndRdpAccessOverview) SetStateNil(b bool)`
+
+ SetStateNil sets the value for State to be an explicit nil
+
+### UnsetState
+`func (o *BastionAndRdpAccessOverview) UnsetState()`
+
+UnsetState ensures that no value is present for State, not even an explicit nil
 ### GetError
 
 `func (o *BastionAndRdpAccessOverview) GetError() string`
@@ -137,6 +167,16 @@ SetError sets Error field to given value.
 
 HasError returns a boolean if a field has been set.
 
+### SetErrorNil
+
+`func (o *BastionAndRdpAccessOverview) SetErrorNil(b bool)`
+
+ SetErrorNil sets the value for Error to be an explicit nil
+
+### UnsetError
+`func (o *BastionAndRdpAccessOverview) UnsetError()`
+
+UnsetError ensures that no value is present for Error, not even an explicit nil
 ### GetVnetName
 
 `func (o *BastionAndRdpAccessOverview) GetVnetName() string`
@@ -162,6 +202,16 @@ SetVnetName sets VnetName field to given value.
 
 HasVnetName returns a boolean if a field has been set.
 
+### SetVnetNameNil
+
+`func (o *BastionAndRdpAccessOverview) SetVnetNameNil(b bool)`
+
+ SetVnetNameNil sets the value for VnetName to be an explicit nil
+
+### UnsetVnetName
+`func (o *BastionAndRdpAccessOverview) UnsetVnetName()`
+
+UnsetVnetName ensures that no value is present for VnetName, not even an explicit nil
 ### GetVnetAddressSpace
 
 `func (o *BastionAndRdpAccessOverview) GetVnetAddressSpace() string`
@@ -187,6 +237,16 @@ SetVnetAddressSpace sets VnetAddressSpace field to given value.
 
 HasVnetAddressSpace returns a boolean if a field has been set.
 
+### SetVnetAddressSpaceNil
+
+`func (o *BastionAndRdpAccessOverview) SetVnetAddressSpaceNil(b bool)`
+
+ SetVnetAddressSpaceNil sets the value for VnetAddressSpace to be an explicit nil
+
+### UnsetVnetAddressSpace
+`func (o *BastionAndRdpAccessOverview) UnsetVnetAddressSpace()`
+
+UnsetVnetAddressSpace ensures that no value is present for VnetAddressSpace, not even an explicit nil
 ### GetRestrictedIpAddressPrefix
 
 `func (o *BastionAndRdpAccessOverview) GetRestrictedIpAddressPrefix() string`
@@ -212,6 +272,16 @@ SetRestrictedIpAddressPrefix sets RestrictedIpAddressPrefix field to given value
 
 HasRestrictedIpAddressPrefix returns a boolean if a field has been set.
 
+### SetRestrictedIpAddressPrefixNil
+
+`func (o *BastionAndRdpAccessOverview) SetRestrictedIpAddressPrefixNil(b bool)`
+
+ SetRestrictedIpAddressPrefixNil sets the value for RestrictedIpAddressPrefix to be an explicit nil
+
+### UnsetRestrictedIpAddressPrefix
+`func (o *BastionAndRdpAccessOverview) UnsetRestrictedIpAddressPrefix()`
+
+UnsetRestrictedIpAddressPrefix ensures that no value is present for RestrictedIpAddressPrefix, not even an explicit nil
 ### GetTransactionId
 
 `func (o *BastionAndRdpAccessOverview) GetTransactionId() string`
@@ -237,6 +307,16 @@ SetTransactionId sets TransactionId field to given value.
 
 HasTransactionId returns a boolean if a field has been set.
 
+### SetTransactionIdNil
+
+`func (o *BastionAndRdpAccessOverview) SetTransactionIdNil(b bool)`
+
+ SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+
+### UnsetTransactionId
+`func (o *BastionAndRdpAccessOverview) UnsetTransactionId()`
+
+UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
 ### GetHasRdpFileBeenRequested
 
 `func (o *BastionAndRdpAccessOverview) GetHasRdpFileBeenRequested() bool`
@@ -287,6 +367,16 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *BastionAndRdpAccessOverview) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *BastionAndRdpAccessOverview) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetCspCustomer
 
 `func (o *BastionAndRdpAccessOverview) GetCspCustomer() string`
@@ -312,6 +402,16 @@ SetCspCustomer sets CspCustomer field to given value.
 
 HasCspCustomer returns a boolean if a field has been set.
 
+### SetCspCustomerNil
+
+`func (o *BastionAndRdpAccessOverview) SetCspCustomerNil(b bool)`
+
+ SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+
+### UnsetCspCustomer
+`func (o *BastionAndRdpAccessOverview) UnsetCspCustomer()`
+
+UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
 ### GetStartedAt
 
 `func (o *BastionAndRdpAccessOverview) GetStartedAt() time.Time`
@@ -337,6 +437,16 @@ SetStartedAt sets StartedAt field to given value.
 
 HasStartedAt returns a boolean if a field has been set.
 
+### SetStartedAtNil
+
+`func (o *BastionAndRdpAccessOverview) SetStartedAtNil(b bool)`
+
+ SetStartedAtNil sets the value for StartedAt to be an explicit nil
+
+### UnsetStartedAt
+`func (o *BastionAndRdpAccessOverview) UnsetStartedAt()`
+
+UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
 ### GetEstimatedTimeInMinute
 
 `func (o *BastionAndRdpAccessOverview) GetEstimatedTimeInMinute() int32`
@@ -362,6 +472,16 @@ SetEstimatedTimeInMinute sets EstimatedTimeInMinute field to given value.
 
 HasEstimatedTimeInMinute returns a boolean if a field has been set.
 
+### SetEstimatedTimeInMinuteNil
+
+`func (o *BastionAndRdpAccessOverview) SetEstimatedTimeInMinuteNil(b bool)`
+
+ SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+
+### UnsetEstimatedTimeInMinute
+`func (o *BastionAndRdpAccessOverview) UnsetEstimatedTimeInMinute()`
+
+UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &DeploySecretsModel{}
 // DeploySecretsModel struct for DeploySecretsModel
 type DeploySecretsModel struct {
 	// Service account password for required in domain joining. This will be stored in a vault.
-	ServiceAccountPassword *string `json:"serviceAccountPassword,omitempty"`
+	ServiceAccountPassword NullableString `json:"serviceAccountPassword,omitempty"`
 }
 
 // NewDeploySecretsModelWithDefaults instantiates a new DeploySecretsModel object
@@ -31,27 +31,38 @@ func NewDeploySecretsModelWithDefaults() *DeploySecretsModel {
 	return &this
 }
 
-// GetServiceAccountPassword returns the ServiceAccountPassword field value if set, zero value otherwise.
+// GetServiceAccountPassword returns the ServiceAccountPassword field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeploySecretsModel) GetServiceAccountPassword() string {
-	if o == nil || IsNil(o.ServiceAccountPassword) {
+	if o == nil || IsNil(o.ServiceAccountPassword.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ServiceAccountPassword
+	return *o.ServiceAccountPassword.Get()
 }
 
 // GetServiceAccountPasswordOk returns a tuple with the ServiceAccountPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeploySecretsModel) GetServiceAccountPasswordOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceAccountPassword) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceAccountPassword, true
+	return o.ServiceAccountPassword.Get(), o.ServiceAccountPassword.IsSet()
 }
 
-// SetServiceAccountPassword gets a reference to the given string and assigns it to the ServiceAccountPassword field.
+// SetServiceAccountPassword gets a reference to the given NullableString and assigns it to the ServiceAccountPassword field.
 func (o *DeploySecretsModel) SetServiceAccountPassword(v string) {
-	o.ServiceAccountPassword = &v
+	o.ServiceAccountPassword.Set(&v)
+}
+
+// SetServiceAccountPasswordNil sets the value for ServiceAccountPassword to be an explicit nil
+func (o *DeploySecretsModel) SetServiceAccountPasswordNil() {
+	o.ServiceAccountPassword.Set(nil)
+}
+
+// UnsetServiceAccountPassword ensures that no value is present for ServiceAccountPassword, not even an explicit nil
+func (o *DeploySecretsModel) UnsetServiceAccountPassword() {
+	o.ServiceAccountPassword.Unset()
 }
 
 func (o DeploySecretsModel) MarshalJSON() ([]byte, error) {
@@ -64,8 +75,8 @@ func (o DeploySecretsModel) MarshalJSON() ([]byte, error) {
 
 func (o DeploySecretsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ServiceAccountPassword) {
-		toSerialize["serviceAccountPassword"] = o.ServiceAccountPassword
+	if o.ServiceAccountPassword.IsSet() {
+		toSerialize["serviceAccountPassword"] = o.ServiceAccountPassword.Get()
 	}
 	return toSerialize, nil
 }

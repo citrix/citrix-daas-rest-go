@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ExtractIcon
 
-> string ExtractIcon(ctx, customerId, siteId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+> string ExtractIcon(ctx, customerId, siteId).CitrixTransactionId(citrixTransactionId).ExtractIconModel(extractIconModel).Execute()
 
 Extract an icon from the specified file data
 
@@ -30,11 +30,11 @@ func main() {
     customerId := "customerId_example" // string | ID of the customer
     siteId := "siteId_example" // string | The site ID of the customer
     citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := *openapiclient.NewExtractIconModel() // ExtractIconModel | Name and bytes of the file to extract icon from (optional)
+    extractIconModel := *openapiclient.NewExtractIconModel() // ExtractIconModel | Name and bytes of the file to extract icon from (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IconCMD.ExtractIcon(context.Background(), customerId, siteId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+    resp, r, err := apiClient.IconCMD.ExtractIcon(context.Background(), customerId, siteId).CitrixTransactionId(citrixTransactionId).ExtractIconModel(extractIconModel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IconCMD.ExtractIcon``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 
  **citrixTransactionId** | **string** | The Transaction Id. | 
- **body** | [**ExtractIconModel**](ExtractIconModel.md) | Name and bytes of the file to extract icon from | 
+ **extractIconModel** | [**ExtractIconModel**](ExtractIconModel.md) | Name and bytes of the file to extract icon from | 
 
 ### Return type
 

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,9 +19,9 @@ var _ MappedNullable = &Properties{}
 
 // Properties struct for Properties
 type Properties struct {
-	ResponseBody     *string `json:"responseBody,omitempty"`
-	StatusCode       *string `json:"statusCode,omitempty"`
-	ServiceRequestId *string `json:"serviceRequestId,omitempty"`
+	ResponseBody     NullableString `json:"responseBody,omitempty"`
+	StatusCode       NullableString `json:"statusCode,omitempty"`
+	ServiceRequestId NullableString `json:"serviceRequestId,omitempty"`
 }
 
 // NewPropertiesWithDefaults instantiates a new Properties object
@@ -32,73 +32,106 @@ func NewPropertiesWithDefaults() *Properties {
 	return &this
 }
 
-// GetResponseBody returns the ResponseBody field value if set, zero value otherwise.
+// GetResponseBody returns the ResponseBody field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Properties) GetResponseBody() string {
-	if o == nil || IsNil(o.ResponseBody) {
+	if o == nil || IsNil(o.ResponseBody.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResponseBody
+	return *o.ResponseBody.Get()
 }
 
 // GetResponseBodyOk returns a tuple with the ResponseBody field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Properties) GetResponseBodyOk() (*string, bool) {
-	if o == nil || IsNil(o.ResponseBody) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResponseBody, true
+	return o.ResponseBody.Get(), o.ResponseBody.IsSet()
 }
 
-// SetResponseBody gets a reference to the given string and assigns it to the ResponseBody field.
+// SetResponseBody gets a reference to the given NullableString and assigns it to the ResponseBody field.
 func (o *Properties) SetResponseBody(v string) {
-	o.ResponseBody = &v
+	o.ResponseBody.Set(&v)
 }
 
-// GetStatusCode returns the StatusCode field value if set, zero value otherwise.
+// SetResponseBodyNil sets the value for ResponseBody to be an explicit nil
+func (o *Properties) SetResponseBodyNil() {
+	o.ResponseBody.Set(nil)
+}
+
+// UnsetResponseBody ensures that no value is present for ResponseBody, not even an explicit nil
+func (o *Properties) UnsetResponseBody() {
+	o.ResponseBody.Unset()
+}
+
+// GetStatusCode returns the StatusCode field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Properties) GetStatusCode() string {
-	if o == nil || IsNil(o.StatusCode) {
+	if o == nil || IsNil(o.StatusCode.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.StatusCode
+	return *o.StatusCode.Get()
 }
 
 // GetStatusCodeOk returns a tuple with the StatusCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Properties) GetStatusCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.StatusCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StatusCode, true
+	return o.StatusCode.Get(), o.StatusCode.IsSet()
 }
 
-// SetStatusCode gets a reference to the given string and assigns it to the StatusCode field.
+// SetStatusCode gets a reference to the given NullableString and assigns it to the StatusCode field.
 func (o *Properties) SetStatusCode(v string) {
-	o.StatusCode = &v
+	o.StatusCode.Set(&v)
 }
 
-// GetServiceRequestId returns the ServiceRequestId field value if set, zero value otherwise.
+// SetStatusCodeNil sets the value for StatusCode to be an explicit nil
+func (o *Properties) SetStatusCodeNil() {
+	o.StatusCode.Set(nil)
+}
+
+// UnsetStatusCode ensures that no value is present for StatusCode, not even an explicit nil
+func (o *Properties) UnsetStatusCode() {
+	o.StatusCode.Unset()
+}
+
+// GetServiceRequestId returns the ServiceRequestId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Properties) GetServiceRequestId() string {
-	if o == nil || IsNil(o.ServiceRequestId) {
+	if o == nil || IsNil(o.ServiceRequestId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ServiceRequestId
+	return *o.ServiceRequestId.Get()
 }
 
 // GetServiceRequestIdOk returns a tuple with the ServiceRequestId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Properties) GetServiceRequestIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceRequestId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceRequestId, true
+	return o.ServiceRequestId.Get(), o.ServiceRequestId.IsSet()
 }
 
-// SetServiceRequestId gets a reference to the given string and assigns it to the ServiceRequestId field.
+// SetServiceRequestId gets a reference to the given NullableString and assigns it to the ServiceRequestId field.
 func (o *Properties) SetServiceRequestId(v string) {
-	o.ServiceRequestId = &v
+	o.ServiceRequestId.Set(&v)
+}
+
+// SetServiceRequestIdNil sets the value for ServiceRequestId to be an explicit nil
+func (o *Properties) SetServiceRequestIdNil() {
+	o.ServiceRequestId.Set(nil)
+}
+
+// UnsetServiceRequestId ensures that no value is present for ServiceRequestId, not even an explicit nil
+func (o *Properties) UnsetServiceRequestId() {
+	o.ServiceRequestId.Unset()
 }
 
 func (o Properties) MarshalJSON() ([]byte, error) {
@@ -111,14 +144,14 @@ func (o Properties) MarshalJSON() ([]byte, error) {
 
 func (o Properties) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ResponseBody) {
-		toSerialize["responseBody"] = o.ResponseBody
+	if o.ResponseBody.IsSet() {
+		toSerialize["responseBody"] = o.ResponseBody.Get()
 	}
-	if !IsNil(o.StatusCode) {
-		toSerialize["statusCode"] = o.StatusCode
+	if o.StatusCode.IsSet() {
+		toSerialize["statusCode"] = o.StatusCode.Get()
 	}
-	if !IsNil(o.ServiceRequestId) {
-		toSerialize["serviceRequestId"] = o.ServiceRequestId
+	if o.ServiceRequestId.IsSet() {
+		toSerialize["serviceRequestId"] = o.ServiceRequestId.Get()
 	}
 	return toSerialize, nil
 }

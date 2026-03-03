@@ -4,9 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResourceGroupName** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
+**ResourceGroupName** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **ResourceType** | Pointer to [**CatalogResourceType**](CatalogResourceType.md) |  | [optional] 
+**NetworkInterfaceName** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -52,6 +53,16 @@ SetResourceGroupName sets ResourceGroupName field to given value.
 
 HasResourceGroupName returns a boolean if a field has been set.
 
+### SetResourceGroupNameNil
+
+`func (o *AzureVMBase) SetResourceGroupNameNil(b bool)`
+
+ SetResourceGroupNameNil sets the value for ResourceGroupName to be an explicit nil
+
+### UnsetResourceGroupName
+`func (o *AzureVMBase) UnsetResourceGroupName()`
+
+UnsetResourceGroupName ensures that no value is present for ResourceGroupName, not even an explicit nil
 ### GetName
 
 `func (o *AzureVMBase) GetName() string`
@@ -77,6 +88,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *AzureVMBase) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *AzureVMBase) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetResourceType
 
 `func (o *AzureVMBase) GetResourceType() CatalogResourceType`
@@ -102,6 +123,41 @@ SetResourceType sets ResourceType field to given value.
 
 HasResourceType returns a boolean if a field has been set.
 
+### GetNetworkInterfaceName
+
+`func (o *AzureVMBase) GetNetworkInterfaceName() string`
+
+GetNetworkInterfaceName returns the NetworkInterfaceName field if non-nil, zero value otherwise.
+
+### GetNetworkInterfaceNameOk
+
+`func (o *AzureVMBase) GetNetworkInterfaceNameOk() (*string, bool)`
+
+GetNetworkInterfaceNameOk returns a tuple with the NetworkInterfaceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkInterfaceName
+
+`func (o *AzureVMBase) SetNetworkInterfaceName(v string)`
+
+SetNetworkInterfaceName sets NetworkInterfaceName field to given value.
+
+### HasNetworkInterfaceName
+
+`func (o *AzureVMBase) HasNetworkInterfaceName() bool`
+
+HasNetworkInterfaceName returns a boolean if a field has been set.
+
+### SetNetworkInterfaceNameNil
+
+`func (o *AzureVMBase) SetNetworkInterfaceNameNil(b bool)`
+
+ SetNetworkInterfaceNameNil sets the value for NetworkInterfaceName to be an explicit nil
+
+### UnsetNetworkInterfaceName
+`func (o *AzureVMBase) UnsetNetworkInterfaceName()`
+
+UnsetNetworkInterfaceName ensures that no value is present for NetworkInterfaceName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

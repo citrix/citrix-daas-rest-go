@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResourceType** | Pointer to [**ResourceType**](ResourceType.md) |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] [readonly] 
-**Parent** | Pointer to [**ResourceIdentifier**](ResourceIdentifier.md) |  | [optional] 
-**SubscriptionId** | Pointer to **string** |  | [optional] [readonly] 
-**Provider** | Pointer to **string** |  | [optional] [readonly] 
-**Location** | Pointer to [**AzureLocation**](AzureLocation.md) |  | [optional] 
-**ResourceGroupName** | Pointer to **string** |  | [optional] [readonly] 
+**ResourceType** | Pointer to [**ResourceType**](ResourceType.md) |  | [optional] [readonly] 
+**Name** | Pointer to **NullableString** |  | [optional] [readonly] 
+**Parent** | Pointer to [**NullableResourceIdentifier**](ResourceIdentifier.md) |  | [optional] [readonly] 
+**SubscriptionId** | Pointer to **NullableString** |  | [optional] [readonly] 
+**Provider** | Pointer to **NullableString** |  | [optional] [readonly] 
+**Location** | Pointer to [**NullableAzureLocation**](AzureLocation.md) |  | [optional] [readonly] 
+**ResourceGroupName** | Pointer to **NullableString** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -81,6 +81,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ResourceIdentifier) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ResourceIdentifier) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetParent
 
 `func (o *ResourceIdentifier) GetParent() ResourceIdentifier`
@@ -106,6 +116,16 @@ SetParent sets Parent field to given value.
 
 HasParent returns a boolean if a field has been set.
 
+### SetParentNil
+
+`func (o *ResourceIdentifier) SetParentNil(b bool)`
+
+ SetParentNil sets the value for Parent to be an explicit nil
+
+### UnsetParent
+`func (o *ResourceIdentifier) UnsetParent()`
+
+UnsetParent ensures that no value is present for Parent, not even an explicit nil
 ### GetSubscriptionId
 
 `func (o *ResourceIdentifier) GetSubscriptionId() string`
@@ -131,6 +151,16 @@ SetSubscriptionId sets SubscriptionId field to given value.
 
 HasSubscriptionId returns a boolean if a field has been set.
 
+### SetSubscriptionIdNil
+
+`func (o *ResourceIdentifier) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *ResourceIdentifier) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
 ### GetProvider
 
 `func (o *ResourceIdentifier) GetProvider() string`
@@ -156,6 +186,16 @@ SetProvider sets Provider field to given value.
 
 HasProvider returns a boolean if a field has been set.
 
+### SetProviderNil
+
+`func (o *ResourceIdentifier) SetProviderNil(b bool)`
+
+ SetProviderNil sets the value for Provider to be an explicit nil
+
+### UnsetProvider
+`func (o *ResourceIdentifier) UnsetProvider()`
+
+UnsetProvider ensures that no value is present for Provider, not even an explicit nil
 ### GetLocation
 
 `func (o *ResourceIdentifier) GetLocation() AzureLocation`
@@ -181,6 +221,16 @@ SetLocation sets Location field to given value.
 
 HasLocation returns a boolean if a field has been set.
 
+### SetLocationNil
+
+`func (o *ResourceIdentifier) SetLocationNil(b bool)`
+
+ SetLocationNil sets the value for Location to be an explicit nil
+
+### UnsetLocation
+`func (o *ResourceIdentifier) UnsetLocation()`
+
+UnsetLocation ensures that no value is present for Location, not even an explicit nil
 ### GetResourceGroupName
 
 `func (o *ResourceIdentifier) GetResourceGroupName() string`
@@ -206,6 +256,16 @@ SetResourceGroupName sets ResourceGroupName field to given value.
 
 HasResourceGroupName returns a boolean if a field has been set.
 
+### SetResourceGroupNameNil
+
+`func (o *ResourceIdentifier) SetResourceGroupNameNil(b bool)`
+
+ SetResourceGroupNameNil sets the value for ResourceGroupName to be an explicit nil
+
+### UnsetResourceGroupName
+`func (o *ResourceIdentifier) UnsetResourceGroupName()`
+
+UnsetResourceGroupName ensures that no value is present for ResourceGroupName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique identifier of app, generally a GUID | 
 **Name** | **string** | Display name of app | 
-**ApplicationPath** | **string** | Path to execute the application | 
-**WorkingDirectory** | Pointer to **string** | Working directory of the app at launch | [optional] 
-**Description** | Pointer to **string** | Application description that show up in Workspace | [optional] 
-**Compressedb64Icon** | Pointer to **string** | The compressed b64 icon used by UI | [optional] 
-**CommandLineParams** | Pointer to **string** | Extra parameters to provide the application when it is launched | [optional] 
+**ApplicationPath** | **string** | Path to execute the application | [readonly] 
+**WorkingDirectory** | Pointer to **NullableString** | Working directory of the app at launch | [optional] 
+**Description** | Pointer to **NullableString** | Application description that show up in Workspace | [optional] 
+**Compressedb64Icon** | Pointer to **NullableString** | The compressed b64 icon used by UI | [optional] 
+**CommandLineParams** | Pointer to **NullableString** | Extra parameters to provide the application when it is launched | [optional] 
 
 ## Methods
 
@@ -116,6 +116,16 @@ SetWorkingDirectory sets WorkingDirectory field to given value.
 
 HasWorkingDirectory returns a boolean if a field has been set.
 
+### SetWorkingDirectoryNil
+
+`func (o *Application) SetWorkingDirectoryNil(b bool)`
+
+ SetWorkingDirectoryNil sets the value for WorkingDirectory to be an explicit nil
+
+### UnsetWorkingDirectory
+`func (o *Application) UnsetWorkingDirectory()`
+
+UnsetWorkingDirectory ensures that no value is present for WorkingDirectory, not even an explicit nil
 ### GetDescription
 
 `func (o *Application) GetDescription() string`
@@ -141,6 +151,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *Application) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *Application) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetCompressedb64Icon
 
 `func (o *Application) GetCompressedb64Icon() string`
@@ -166,6 +186,16 @@ SetCompressedb64Icon sets Compressedb64Icon field to given value.
 
 HasCompressedb64Icon returns a boolean if a field has been set.
 
+### SetCompressedb64IconNil
+
+`func (o *Application) SetCompressedb64IconNil(b bool)`
+
+ SetCompressedb64IconNil sets the value for Compressedb64Icon to be an explicit nil
+
+### UnsetCompressedb64Icon
+`func (o *Application) UnsetCompressedb64Icon()`
+
+UnsetCompressedb64Icon ensures that no value is present for Compressedb64Icon, not even an explicit nil
 ### GetCommandLineParams
 
 `func (o *Application) GetCommandLineParams() string`
@@ -191,6 +221,16 @@ SetCommandLineParams sets CommandLineParams field to given value.
 
 HasCommandLineParams returns a boolean if a field has been set.
 
+### SetCommandLineParamsNil
+
+`func (o *Application) SetCommandLineParamsNil(b bool)`
+
+ SetCommandLineParamsNil sets the value for CommandLineParams to be an explicit nil
+
+### UnsetCommandLineParams
+`func (o *Application) UnsetCommandLineParams()`
+
+UnsetCommandLineParams ensures that no value is present for CommandLineParams, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

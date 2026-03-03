@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FriendlyName** | Pointer to **string** | The friendly name displayed to the admin in the UI | [optional] 
-**DestinationUrl** | Pointer to **string** | The target URL of the published app | [optional] 
-**WebBrowser** | Pointer to **string** | Which web browser was used for the launch | [optional] [default to "ChromeLnx"]
+**FriendlyName** | Pointer to **NullableString** | The friendly name displayed to the admin in the UI | [optional] 
+**DestinationUrl** | Pointer to **NullableString** | The target URL of the published app | [optional] 
+**WebBrowser** | Pointer to **NullableString** | Which web browser was used for the launch | [optional] [default to "ChromeLnx"]
 **PasscodeBased** | Pointer to **bool** | Indicates that an app uses shared passcode | [optional] 
 **Authenticated** | Pointer to **bool** | Indicates that an app requires user authentication | [optional] 
-**Password** | Pointer to **string** | The password of an app | [optional] 
-**IconHash** | Pointer to **string** | The hash of the Secure Browser app icon | [optional] 
+**Password** | Pointer to **NullableString** | The password of an app | [optional] 
+**IconHash** | Pointer to **NullableString** | The hash of the Secure Browser app icon | [optional] 
 
 ## Methods
 
@@ -56,6 +56,16 @@ SetFriendlyName sets FriendlyName field to given value.
 
 HasFriendlyName returns a boolean if a field has been set.
 
+### SetFriendlyNameNil
+
+`func (o *AddRemoteBrowserIsolationWebAppModel) SetFriendlyNameNil(b bool)`
+
+ SetFriendlyNameNil sets the value for FriendlyName to be an explicit nil
+
+### UnsetFriendlyName
+`func (o *AddRemoteBrowserIsolationWebAppModel) UnsetFriendlyName()`
+
+UnsetFriendlyName ensures that no value is present for FriendlyName, not even an explicit nil
 ### GetDestinationUrl
 
 `func (o *AddRemoteBrowserIsolationWebAppModel) GetDestinationUrl() string`
@@ -81,6 +91,16 @@ SetDestinationUrl sets DestinationUrl field to given value.
 
 HasDestinationUrl returns a boolean if a field has been set.
 
+### SetDestinationUrlNil
+
+`func (o *AddRemoteBrowserIsolationWebAppModel) SetDestinationUrlNil(b bool)`
+
+ SetDestinationUrlNil sets the value for DestinationUrl to be an explicit nil
+
+### UnsetDestinationUrl
+`func (o *AddRemoteBrowserIsolationWebAppModel) UnsetDestinationUrl()`
+
+UnsetDestinationUrl ensures that no value is present for DestinationUrl, not even an explicit nil
 ### GetWebBrowser
 
 `func (o *AddRemoteBrowserIsolationWebAppModel) GetWebBrowser() string`
@@ -106,6 +126,16 @@ SetWebBrowser sets WebBrowser field to given value.
 
 HasWebBrowser returns a boolean if a field has been set.
 
+### SetWebBrowserNil
+
+`func (o *AddRemoteBrowserIsolationWebAppModel) SetWebBrowserNil(b bool)`
+
+ SetWebBrowserNil sets the value for WebBrowser to be an explicit nil
+
+### UnsetWebBrowser
+`func (o *AddRemoteBrowserIsolationWebAppModel) UnsetWebBrowser()`
+
+UnsetWebBrowser ensures that no value is present for WebBrowser, not even an explicit nil
 ### GetPasscodeBased
 
 `func (o *AddRemoteBrowserIsolationWebAppModel) GetPasscodeBased() bool`
@@ -181,6 +211,16 @@ SetPassword sets Password field to given value.
 
 HasPassword returns a boolean if a field has been set.
 
+### SetPasswordNil
+
+`func (o *AddRemoteBrowserIsolationWebAppModel) SetPasswordNil(b bool)`
+
+ SetPasswordNil sets the value for Password to be an explicit nil
+
+### UnsetPassword
+`func (o *AddRemoteBrowserIsolationWebAppModel) UnsetPassword()`
+
+UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetIconHash
 
 `func (o *AddRemoteBrowserIsolationWebAppModel) GetIconHash() string`
@@ -206,6 +246,16 @@ SetIconHash sets IconHash field to given value.
 
 HasIconHash returns a boolean if a field has been set.
 
+### SetIconHashNil
+
+`func (o *AddRemoteBrowserIsolationWebAppModel) SetIconHashNil(b bool)`
+
+ SetIconHashNil sets the value for IconHash to be an explicit nil
+
+### UnsetIconHash
+`func (o *AddRemoteBrowserIsolationWebAppModel) UnsetIconHash()`
+
+UnsetIconHash ensures that no value is present for IconHash, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

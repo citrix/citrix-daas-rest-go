@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SchemeName** | Pointer to **string** | Name of the custom power scheme | [optional] 
+**SchemeName** | Pointer to **NullableString** | Name of the custom power scheme | [optional] 
 
 ## Methods
 
@@ -50,6 +50,16 @@ SetSchemeName sets SchemeName field to given value.
 
 HasSchemeName returns a boolean if a field has been set.
 
+### SetSchemeNameNil
+
+`func (o *PatchCustomPowerSchemeModel) SetSchemeNameNil(b bool)`
+
+ SetSchemeNameNil sets the value for SchemeName to be an explicit nil
+
+### UnsetSchemeName
+`func (o *PatchCustomPowerSchemeModel) UnsetSchemeName()`
+
+UnsetSchemeName ensures that no value is present for SchemeName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

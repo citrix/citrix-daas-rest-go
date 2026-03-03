@@ -77,16 +77,26 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AzureSubscriptionsCMD* | [**GetSubscriptions**](docs/AzureSubscriptionsCMD.md#getsubscriptions) | **Get** /{customerId}/{siteId}/subscriptions | Returns the subscriptions that we have a known association with
+*AzureSubscriptionsCMD* | [**GetSubscriptions**](docs/AzureSubscriptionsCMD.md#getsubscriptions) | **Get** /{customerId}/{siteId}/subscriptions | 
 *CatalogCMD* | [**AddRemotePcCatalogMachineAssignments**](docs/CatalogCMD.md#addremotepccatalogmachineassignments) | **Post** /{customerId}/{siteId}/catalogs/{catalogId}/machinesassignments | Add machine assignments to a remote pc catalog.  New machines will be added to the catalog with the specified users  Existing machines will be updated with the included assignments
 *CatalogCMD* | [**ConfigureAndDeployCitrixManagedCatalogApi**](docs/CatalogCMD.md#configureanddeploycitrixmanagedcatalogapi) | **Post** /{customerId}/{siteId}/catalogs/$manageddeploy | Configure all the Citrix managed catalog deployment steps and initiate the catalog deployment
 *CatalogCMD* | [**CreateRemotePcCatalog**](docs/CatalogCMD.md#createremotepccatalog) | **Post** /{customerId}/{siteId}/catalogs/remotePc | Create a Remote PC catalog.
 *CatalogCMD* | [**DeleteCustomerCatalog**](docs/CatalogCMD.md#deletecustomercatalog) | **Delete** /{customerId}/{siteId}/catalogs/{catalogId} | Delete a catalog along with all the pubhishd apps for the catalog
+*CatalogCMD* | [**GetAllTroubleshootScripts**](docs/CatalogCMD.md#getalltroubleshootscripts) | **Get** /{customerId}/catalogs/{catalogId}/jobs/troubleshoot/{machineName} | Get the statuses of all the troubleshoot scripts assocaited with a vda
+*CatalogCMD* | [**GetAllTroubleshootScripts_0**](docs/CatalogCMD.md#getalltroubleshootscripts_0) | **Get** /{customerId}/{siteId}/catalogs/{catalogId}/jobs/troubleshoot/{machineName} | Get the statuses of all the troubleshoot scripts associated with a vda
 *CatalogCMD* | [**GetCatalogCapacityConfiguration**](docs/CatalogCMD.md#getcatalogcapacityconfiguration) | **Get** /{customerId}/{siteId}/catalogs/{catalogId}/capacity | Get the performance information configured for this catalog
 *CatalogCMD* | [**GetCustomerCatalog**](docs/CatalogCMD.md#getcustomercatalog) | **Get** /{customerId}/{siteId}/catalogs/{catalogId} | Returns a specific catalog for a specific customer
 *CatalogCMD* | [**GetCustomerCatalogs**](docs/CatalogCMD.md#getcustomercatalogs) | **Get** /{customerId}/{siteId}/catalogs | Returns all the catalogs that the specified customer has created
 *CatalogCMD* | [**GetCustomerManagedCatalogs**](docs/CatalogCMD.md#getcustomermanagedcatalogs) | **Get** /{customerId}/{siteId}/managedcatalogs | Returns all the catalogs that the specified Citrix managed customer has created
 *CatalogCMD* | [**GetCustomerManagedCatalogsById**](docs/CatalogCMD.md#getcustomermanagedcatalogsbyid) | **Get** /{customerId}/{siteId}/managedcatalogs/{catalogId} | Returns all the catalogs that the specified Citrix managed customer has created
+*CatalogCMD* | [**GetScriptsAndParameters**](docs/CatalogCMD.md#getscriptsandparameters) | **Get** /{customerId}/catalogs/{catalogId}/scripts | Gets available scripts and corresponding default parameters for available operations
+*CatalogCMD* | [**GetScriptsAndParameters_0**](docs/CatalogCMD.md#getscriptsandparameters_0) | **Get** /{customerId}/{siteId}/catalogs/{catalogId}/scripts | Gets available scripts and corresponding default parameters for available operations
+*CatalogCMD* | [**GetTroubleshootScriptStatus**](docs/CatalogCMD.md#gettroubleshootscriptstatus) | **Get** /{customerId}/catalogs/{catalogId}/jobs/troubleshoot/{machineName}/{troubleshootId} | Get the status of the troubleshoot script
+*CatalogCMD* | [**GetTroubleshootScriptStatus_0**](docs/CatalogCMD.md#gettroubleshootscriptstatus_0) | **Get** /{customerId}/{siteId}/catalogs/{catalogId}/jobs/troubleshoot/{machineName}/{troubleshootId} | Get the status of the troubleshoot script
+*CatalogCMD* | [**GetTroubleshootScriptsOnlyForFailedConnectorInstalls**](docs/CatalogCMD.md#gettroubleshootscriptsonlyforfailedconnectorinstalls) | **Get** /{customerId}/catalogs/{catalogId}/jobs/troubleshoot/failedConnectorInstalls | Get the statuses of all the troubleshoot scripts assocaited with catalog connectors
+*CatalogCMD* | [**GetTroubleshootScriptsOnlyForFailedConnectorInstalls_0**](docs/CatalogCMD.md#gettroubleshootscriptsonlyforfailedconnectorinstalls_0) | **Get** /{customerId}/{siteId}/catalogs/{catalogId}/jobs/troubleshoot/failedConnectorInstalls | Get the statuses of all the troubleshoot scripts associated with catalog connectors
+*CatalogCMD* | [**RunScriptOnVm**](docs/CatalogCMD.md#runscriptonvm) | **Post** /{customerId}/catalogs/{catalogId}/vmresources/{machineName}/$runscriptWithModel | Run a troubleshoot script on a VDA
+*CatalogCMD* | [**RunScriptOnVm_0**](docs/CatalogCMD.md#runscriptonvm_0) | **Post** /{customerId}/{siteId}/catalogs/{catalogId}/vmresources/{machineName}/$runscriptWithModel | Run a troubleshoot script on a VDA
 *CatalogCMD* | [**UpdateCatalogImage**](docs/CatalogCMD.md#updatecatalogimage) | **Post** /{customerId}/{siteId}/catalogs/{catalogId}/updateImage | Update the catalog&#39;s master image.
 *CatalogCMD* | [**UpdateCatalogImageApi**](docs/CatalogCMD.md#updatecatalogimageapi) | **Post** /{customerId}/{siteId}/catalogs/{catalogId}/$updateImage | Update the catalog&#39;s master image.
 *CatalogCMD* | [**UpdateCatalogScaleConfiguration**](docs/CatalogCMD.md#updatecatalogscaleconfiguration) | **Patch** /{customerId}/{siteId}/catalogs/{catalogId}/capacity | Update the performance information configured for this catalog
@@ -105,6 +115,7 @@ Class | Method | HTTP request | Description
 *ManagedCapacityCMD* | [**DeletePortForNetworkSecurityGroup**](docs/ManagedCapacityCMD.md#deleteportfornetworksecuritygroup) | **Delete** /{customerId}/{siteId}/managedCapacity/resourcelocations/{resourceLocationId}/port/{port} | Perform operation to Delete Port For CMA Vnet
 *ManagedCapacityCMD* | [**GetAllPortsForNetworkSecurityGroup**](docs/ManagedCapacityCMD.md#getallportsfornetworksecuritygroup) | **Get** /{customerId}/{siteId}/managedCapacity/ports | Get details of all ports in CMA VNet
 *ManagedCapacityCMD* | [**GetDeploymentRegions**](docs/ManagedCapacityCMD.md#getdeploymentregions) | **Get** /{customerId}/{siteId}/managedCapacity/regions | Get the regions that are available for deployment by the customer
+*ManagedCapacityCMD* | [**GetEstimatedCreditsForPersona**](docs/ManagedCapacityCMD.md#getestimatedcreditsforpersona) | **Post** /{customerId}/{siteId}/managedCapacity/personas/estimateCredits | Get estimated credits for a specific persona
 *ManagedCapacityCMD* | [**GetOnPremConnections**](docs/ManagedCapacityCMD.md#getonpremconnections) | **Get** /{customerId}/{siteId}/managedCapacity/onPremConnections | Get the On-Prem connections configured for the customer
 *ManagedCapacityCMD* | [**GetOpenPortsForNetworkSecurityGroup**](docs/ManagedCapacityCMD.md#getopenportsfornetworksecuritygroup) | **Get** /{customerId}/{siteId}/managedCapacity/resourcelocations/{resourceLocationId}/openPorts | Get list of open ports in CMA Vnet for provided resource location
 *ManagedCapacityCMD* | [**OpenPortForNetworkSecurityGroup**](docs/ManagedCapacityCMD.md#openportfornetworksecuritygroup) | **Post** /{customerId}/{siteId}/managedCapacity/resourcelocations/{resourceLocationId}/port/{port}/openPort | Perform operation to Open Port For CMA Vnet
@@ -116,6 +127,7 @@ Class | Method | HTTP request | Description
 *MasterImageCMD* | [**GetImages**](docs/MasterImageCMD.md#getimages) | **Get** /{customerId}/{siteId}/images | Returns all the master images the customer has linked to their account
 *MasterImageCMD* | [**GetTemplateImage**](docs/MasterImageCMD.md#gettemplateimage) | **Get** /{customerId}/{siteId}/images/{imageId} | Returns details of the specified master image
 *MasterImageCMD* | [**ImportTemplateImage**](docs/MasterImageCMD.md#importtemplateimage) | **Post** /{customerId}/{siteId}/images/$import | Add a new master image to the DaaS customer&#39;s account, which is linked to a VHD image inside the customer&#39;s storage account (Image import feature for DaaS)
+*MasterImageCMD* | [**ImportTemplateImageWithoutVerification**](docs/MasterImageCMD.md#importtemplateimagewithoutverification) | **Post** /{customerId}/{siteId}/images/$skipverificationimport | Add a new master image to the DaaS customer&#39;s account, which is linked to a VHD image inside the customer&#39;s storage account (Image import feature for DaaS)
 *MasterImageCMD* | [**UpdateTemplateImage**](docs/MasterImageCMD.md#updatetemplateimage) | **Patch** /{customerId}/{siteId}/images/{imageId} | Updates template image configuration (name, notes, allowed ips)
 *SitesCMD* | [**GetSiteIds**](docs/SitesCMD.md#getsiteids) | **Get** /{customerId}/sites | Get all the sites for a customer
 
@@ -145,10 +157,14 @@ Class | Method | HTTP request | Description
  - [AddRemotePcCatalog](docs/AddRemotePcCatalog.md)
  - [AddRemotePcType](docs/AddRemotePcType.md)
  - [AddSecureBrowserCatalogModel](docs/AddSecureBrowserCatalogModel.md)
+ - [AddSupportedDiskSkusModel](docs/AddSupportedDiskSkusModel.md)
+ - [AddSupportedPersonasModel](docs/AddSupportedPersonasModel.md)
+ - [AddSupportedVmSkusModel](docs/AddSupportedVmSkusModel.md)
  - [AddTemplateImageModel](docs/AddTemplateImageModel.md)
  - [AddVnetPeeringModel](docs/AddVnetPeeringModel.md)
  - [AddressFamily](docs/AddressFamily.md)
  - [AlertContext](docs/AlertContext.md)
+ - [AotSettingResponseModel](docs/AotSettingResponseModel.md)
  - [ApiGetComputersResult](docs/ApiGetComputersResult.md)
  - [ApiGetContainersResult](docs/ApiGetContainersResult.md)
  - [Application](docs/Application.md)
@@ -220,6 +236,7 @@ Class | Method | HTTP request | Description
  - [CatalogJobSubState](docs/CatalogJobSubState.md)
  - [CatalogJobType](docs/CatalogJobType.md)
  - [CatalogLimitModel](docs/CatalogLimitModel.md)
+ - [CatalogMachineEventSummary](docs/CatalogMachineEventSummary.md)
  - [CatalogOnPremConnectivityModel](docs/CatalogOnPremConnectivityModel.md)
  - [CatalogOperationItemConfigurationModel](docs/CatalogOperationItemConfigurationModel.md)
  - [CatalogOperationRequestModel](docs/CatalogOperationRequestModel.md)
@@ -236,6 +253,7 @@ Class | Method | HTTP request | Description
  - [CatalogStatusOverview](docs/CatalogStatusOverview.md)
  - [CatalogSublimitModel](docs/CatalogSublimitModel.md)
  - [CatalogTemplateImageModel](docs/CatalogTemplateImageModel.md)
+ - [CatalogType](docs/CatalogType.md)
  - [CatalogWarning](docs/CatalogWarning.md)
  - [CatalogWarningType](docs/CatalogWarningType.md)
  - [CatalogsForBackup](docs/CatalogsForBackup.md)
@@ -281,13 +299,22 @@ Class | Method | HTTP request | Description
  - [DirectoryAssignmentType](docs/DirectoryAssignmentType.md)
  - [DirectoryState](docs/DirectoryState.md)
  - [DirectoryVerificationState](docs/DirectoryVerificationState.md)
+ - [DisableFlowLogsModel](docs/DisableFlowLogsModel.md)
  - [DomainUserState](docs/DomainUserState.md)
+ - [EditAotSettingRequestModel](docs/EditAotSettingRequestModel.md)
  - [EditSiteSettingsRequestModel](docs/EditSiteSettingsRequestModel.md)
+ - [EnableFlowLogsModel](docs/EnableFlowLogsModel.md)
+ - [EnableServiceEndpointsRequest](docs/EnableServiceEndpointsRequest.md)
+ - [EntraIdSettingModel](docs/EntraIdSettingModel.md)
  - [Essentials](docs/Essentials.md)
+ - [EstimatePersonaCreditsRequestModel](docs/EstimatePersonaCreditsRequestModel.md)
  - [EventDataHttpRequestInfo](docs/EventDataHttpRequestInfo.md)
  - [EventDataInfo](docs/EventDataInfo.md)
  - [ExtractIconModel](docs/ExtractIconModel.md)
+ - [FlowLogAccessResponseModel](docs/FlowLogAccessResponseModel.md)
+ - [FlowLogConfigurationModel](docs/FlowLogConfigurationModel.md)
  - [FtuConfigurationModel](docs/FtuConfigurationModel.md)
+ - [FunctionalLevel](docs/FunctionalLevel.md)
  - [HostingPowerActionVdaModel](docs/HostingPowerActionVdaModel.md)
  - [IPAddress](docs/IPAddress.md)
  - [IdentityClaimsResponseModel](docs/IdentityClaimsResponseModel.md)
@@ -297,6 +324,10 @@ Class | Method | HTTP request | Description
  - [IdentityUserResponseModel](docs/IdentityUserResponseModel.md)
  - [ImageJobStatusModel](docs/ImageJobStatusModel.md)
  - [ImportTemplateImageModel](docs/ImportTemplateImageModel.md)
+ - [JobErrorCode](docs/JobErrorCode.md)
+ - [JobResponseModel](docs/JobResponseModel.md)
+ - [JobStatus](docs/JobStatus.md)
+ - [JobType](docs/JobType.md)
  - [LinkAzureActiveDirectoryModel](docs/LinkAzureActiveDirectoryModel.md)
  - [LocalizableString](docs/LocalizableString.md)
  - [Location](docs/Location.md)
@@ -312,6 +343,8 @@ Class | Method | HTTP request | Description
  - [ManagedDomainConfiguration](docs/ManagedDomainConfiguration.md)
  - [ManagedDomainUser](docs/ManagedDomainUser.md)
  - [ManagedEncryptionKeyOption](docs/ManagedEncryptionKeyOption.md)
+ - [ManagedEncryptionKeyRotationPolicyModel](docs/ManagedEncryptionKeyRotationPolicyModel.md)
+ - [ManagedEncryptionKeyRotationPolicyType](docs/ManagedEncryptionKeyRotationPolicyType.md)
  - [MeterSrpDetailEntity](docs/MeterSrpDetailEntity.md)
  - [MetricData](docs/MetricData.md)
  - [MonitorEventLevel](docs/MonitorEventLevel.md)
@@ -345,8 +378,12 @@ Class | Method | HTTP request | Description
  - [PowerResourcesJobStatus](docs/PowerResourcesJobStatus.md)
  - [Properties](docs/Properties.md)
  - [ProvisionConnectorsModel](docs/ProvisionConnectorsModel.md)
+ - [ProvisionedBackupResponseModel](docs/ProvisionedBackupResponseModel.md)
+ - [ProvisionedBackupResponseModelCollection](docs/ProvisionedBackupResponseModelCollection.md)
+ - [ProvisionedBackupRestoreType](docs/ProvisionedBackupRestoreType.md)
  - [PublishedApplication](docs/PublishedApplication.md)
  - [PublishedDesktop](docs/PublishedDesktop.md)
+ - [RefResponseModel](docs/RefResponseModel.md)
  - [RemoteBrowserIsolationImageModel](docs/RemoteBrowserIsolationImageModel.md)
  - [RemoteBrowserIsolationInternalAppCreateRequestModel](docs/RemoteBrowserIsolationInternalAppCreateRequestModel.md)
  - [RemoteBrowserIsolationInternalAppCreateResponseModel](docs/RemoteBrowserIsolationInternalAppCreateResponseModel.md)
@@ -370,17 +407,24 @@ Class | Method | HTTP request | Description
  - [RestoreState](docs/RestoreState.md)
  - [RestoreStatusModel](docs/RestoreStatusModel.md)
  - [RestoreSubState](docs/RestoreSubState.md)
+ - [RotateManagedEncryptionKeyModel](docs/RotateManagedEncryptionKeyModel.md)
  - [RouteOverview](docs/RouteOverview.md)
  - [RouteTableOverview](docs/RouteTableOverview.md)
  - [RouteTableState](docs/RouteTableState.md)
+ - [RunScriptOnVmModel](docs/RunScriptOnVmModel.md)
+ - [ScheduleProvisionedVMBackupRequestModel](docs/ScheduleProvisionedVMBackupRequestModel.md)
+ - [ScheduleProvisionedVMRestoreRequestModel](docs/ScheduleProvisionedVMRestoreRequestModel.md)
  - [ScheduledBackupModel](docs/ScheduledBackupModel.md)
  - [ScheduledBackupsModel](docs/ScheduledBackupsModel.md)
  - [ScriptOperationType](docs/ScriptOperationType.md)
  - [SecureBrowserCatalogConfigDeployModel](docs/SecureBrowserCatalogConfigDeployModel.md)
  - [SenderAuthorization](docs/SenderAuthorization.md)
+ - [ServiceEndpointInfo](docs/ServiceEndpointInfo.md)
+ - [ServiceEndpointsResponse](docs/ServiceEndpointsResponse.md)
  - [ServiceState](docs/ServiceState.md)
  - [SessionChangeHostingAction](docs/SessionChangeHostingAction.md)
  - [SessionSupport](docs/SessionSupport.md)
+ - [SingleTenantSubscriptionOnboardingModel](docs/SingleTenantSubscriptionOnboardingModel.md)
  - [SiteModel](docs/SiteModel.md)
  - [SiteSettingsResponseModel](docs/SiteSettingsResponseModel.md)
  - [SitesOverview](docs/SitesOverview.md)
@@ -392,7 +436,12 @@ Class | Method | HTTP request | Description
  - [SubscriptionOnboardingModel](docs/SubscriptionOnboardingModel.md)
  - [SubscriptionOnboardingStatusModel](docs/SubscriptionOnboardingStatusModel.md)
  - [SubscriptionVerificationState](docs/SubscriptionVerificationState.md)
+ - [SupportedAzureDiskSku](docs/SupportedAzureDiskSku.md)
+ - [SupportedAzureVmSku](docs/SupportedAzureVmSku.md)
  - [SupportedOperatingSystemType](docs/SupportedOperatingSystemType.md)
+ - [SupportedPersona](docs/SupportedPersona.md)
+ - [SupportedPersonaAddOn](docs/SupportedPersonaAddOn.md)
+ - [SupportedPersonaAddOnProperty](docs/SupportedPersonaAddOnProperty.md)
  - [SupportedPowerAction](docs/SupportedPowerAction.md)
  - [SupportedTimeZones](docs/SupportedTimeZones.md)
  - [TemplateImageAssociatedCatalog](docs/TemplateImageAssociatedCatalog.md)

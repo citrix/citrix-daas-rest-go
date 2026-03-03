@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 **Subnet** | **string** | Subnet to assign to the Vnet that is created | 
 **SubnetMask** | **int32** | Mask for the created subnet | 
 **UseGateway** | Pointer to **bool** | Indicates if the peered vnet will be using the customers gateway | [optional] 
-**ManagedVnetRegion** | Pointer to **string** | The region the Citrix managed vnet will be located in.  If unspecified, assume that the customer wants to peer to the region where the vnet is located in | [optional] 
-**CspCustomerId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
-**CspSiteId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**ManagedVnetRegion** | Pointer to **NullableString** | The region the Citrix managed vnet will be located in.  If unspecified, assume that the customer wants to peer to the region where the vnet is located in | [optional] 
+**CspCustomerId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**CspSiteId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
 **Routes** | Pointer to [**[]AzureRoute**](AzureRoute.md) | A list of user defined routes if any | [optional] 
-**ManagedSubscriptionId** | Pointer to **string** | ID of the managed subscription the peering should be added to. | [optional] 
+**ManagedSubscriptionId** | Pointer to **NullableString** | ID of the managed subscription the peering should be added to. | [optional] 
 **DnsServers** | Pointer to **[]string** | An array containing the dns servers | [optional] 
 **DisableRoutePropagation** | Pointer to **bool** | Indicates if route propagation in the route table should be disabled (option is valid only if customer is using gateway). | [optional] 
-**NatGatewayConfig** | Pointer to [**NatGatewayModel**](NatGatewayModel.md) | The NAT config. | [optional] 
+**NatGatewayConfig** | Pointer to [**NullableNatGatewayModel**](NatGatewayModel.md) | The NAT config. | [optional] 
 
 ## Methods
 
@@ -209,6 +209,16 @@ SetManagedVnetRegion sets ManagedVnetRegion field to given value.
 
 HasManagedVnetRegion returns a boolean if a field has been set.
 
+### SetManagedVnetRegionNil
+
+`func (o *AddVnetPeeringModel) SetManagedVnetRegionNil(b bool)`
+
+ SetManagedVnetRegionNil sets the value for ManagedVnetRegion to be an explicit nil
+
+### UnsetManagedVnetRegion
+`func (o *AddVnetPeeringModel) UnsetManagedVnetRegion()`
+
+UnsetManagedVnetRegion ensures that no value is present for ManagedVnetRegion, not even an explicit nil
 ### GetCspCustomerId
 
 `func (o *AddVnetPeeringModel) GetCspCustomerId() string`
@@ -234,6 +244,16 @@ SetCspCustomerId sets CspCustomerId field to given value.
 
 HasCspCustomerId returns a boolean if a field has been set.
 
+### SetCspCustomerIdNil
+
+`func (o *AddVnetPeeringModel) SetCspCustomerIdNil(b bool)`
+
+ SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+
+### UnsetCspCustomerId
+`func (o *AddVnetPeeringModel) UnsetCspCustomerId()`
+
+UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
 ### GetCspSiteId
 
 `func (o *AddVnetPeeringModel) GetCspSiteId() string`
@@ -259,6 +279,16 @@ SetCspSiteId sets CspSiteId field to given value.
 
 HasCspSiteId returns a boolean if a field has been set.
 
+### SetCspSiteIdNil
+
+`func (o *AddVnetPeeringModel) SetCspSiteIdNil(b bool)`
+
+ SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+
+### UnsetCspSiteId
+`func (o *AddVnetPeeringModel) UnsetCspSiteId()`
+
+UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
 ### GetRoutes
 
 `func (o *AddVnetPeeringModel) GetRoutes() []AzureRoute`
@@ -284,6 +314,16 @@ SetRoutes sets Routes field to given value.
 
 HasRoutes returns a boolean if a field has been set.
 
+### SetRoutesNil
+
+`func (o *AddVnetPeeringModel) SetRoutesNil(b bool)`
+
+ SetRoutesNil sets the value for Routes to be an explicit nil
+
+### UnsetRoutes
+`func (o *AddVnetPeeringModel) UnsetRoutes()`
+
+UnsetRoutes ensures that no value is present for Routes, not even an explicit nil
 ### GetManagedSubscriptionId
 
 `func (o *AddVnetPeeringModel) GetManagedSubscriptionId() string`
@@ -309,6 +349,16 @@ SetManagedSubscriptionId sets ManagedSubscriptionId field to given value.
 
 HasManagedSubscriptionId returns a boolean if a field has been set.
 
+### SetManagedSubscriptionIdNil
+
+`func (o *AddVnetPeeringModel) SetManagedSubscriptionIdNil(b bool)`
+
+ SetManagedSubscriptionIdNil sets the value for ManagedSubscriptionId to be an explicit nil
+
+### UnsetManagedSubscriptionId
+`func (o *AddVnetPeeringModel) UnsetManagedSubscriptionId()`
+
+UnsetManagedSubscriptionId ensures that no value is present for ManagedSubscriptionId, not even an explicit nil
 ### GetDnsServers
 
 `func (o *AddVnetPeeringModel) GetDnsServers() []string`
@@ -334,6 +384,16 @@ SetDnsServers sets DnsServers field to given value.
 
 HasDnsServers returns a boolean if a field has been set.
 
+### SetDnsServersNil
+
+`func (o *AddVnetPeeringModel) SetDnsServersNil(b bool)`
+
+ SetDnsServersNil sets the value for DnsServers to be an explicit nil
+
+### UnsetDnsServers
+`func (o *AddVnetPeeringModel) UnsetDnsServers()`
+
+UnsetDnsServers ensures that no value is present for DnsServers, not even an explicit nil
 ### GetDisableRoutePropagation
 
 `func (o *AddVnetPeeringModel) GetDisableRoutePropagation() bool`
@@ -384,6 +444,16 @@ SetNatGatewayConfig sets NatGatewayConfig field to given value.
 
 HasNatGatewayConfig returns a boolean if a field has been set.
 
+### SetNatGatewayConfigNil
+
+`func (o *AddVnetPeeringModel) SetNatGatewayConfigNil(b bool)`
+
+ SetNatGatewayConfigNil sets the value for NatGatewayConfig to be an explicit nil
+
+### UnsetNatGatewayConfig
+`func (o *AddVnetPeeringModel) UnsetNatGatewayConfig()`
+
+UnsetNatGatewayConfig ensures that no value is present for NatGatewayConfig, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

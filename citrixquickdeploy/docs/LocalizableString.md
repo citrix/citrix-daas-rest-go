@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to **string** |  | [optional] 
-**LocalizedValue** | Pointer to **string** |  | [optional] 
+**Value** | Pointer to **NullableString** |  | [optional] 
+**LocalizedValue** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetValue sets Value field to given value.
 
 HasValue returns a boolean if a field has been set.
 
+### SetValueNil
+
+`func (o *LocalizableString) SetValueNil(b bool)`
+
+ SetValueNil sets the value for Value to be an explicit nil
+
+### UnsetValue
+`func (o *LocalizableString) UnsetValue()`
+
+UnsetValue ensures that no value is present for Value, not even an explicit nil
 ### GetLocalizedValue
 
 `func (o *LocalizableString) GetLocalizedValue() string`
@@ -76,6 +86,16 @@ SetLocalizedValue sets LocalizedValue field to given value.
 
 HasLocalizedValue returns a boolean if a field has been set.
 
+### SetLocalizedValueNil
+
+`func (o *LocalizableString) SetLocalizedValueNil(b bool)`
+
+ SetLocalizedValueNil sets the value for LocalizedValue to be an explicit nil
+
+### UnsetLocalizedValue
+`func (o *LocalizableString) UnsetLocalizedValue()`
+
+UnsetLocalizedValue ensures that no value is present for LocalizedValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

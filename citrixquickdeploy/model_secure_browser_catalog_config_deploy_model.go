@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,9 +19,9 @@ var _ MappedNullable = &SecureBrowserCatalogConfigDeployModel{}
 
 // SecureBrowserCatalogConfigDeployModel struct for SecureBrowserCatalogConfigDeployModel
 type SecureBrowserCatalogConfigDeployModel struct {
-	AddCatalog         *AddSecureBrowserCatalogModel `json:"addCatalog,omitempty"`
-	AddCatalogCapacity *CatalogCapacitySettingsModel `json:"addCatalogCapacity,omitempty"`
-	AddSecureBrowser   *CatalogSecureBrowserModel    `json:"addSecureBrowser,omitempty"`
+	AddCatalog         NullableAddSecureBrowserCatalogModel `json:"addCatalog,omitempty"`
+	AddCatalogCapacity NullableCatalogCapacitySettingsModel `json:"addCatalogCapacity,omitempty"`
+	AddSecureBrowser   NullableCatalogSecureBrowserModel    `json:"addSecureBrowser,omitempty"`
 }
 
 // NewSecureBrowserCatalogConfigDeployModelWithDefaults instantiates a new SecureBrowserCatalogConfigDeployModel object
@@ -32,73 +32,106 @@ func NewSecureBrowserCatalogConfigDeployModelWithDefaults() *SecureBrowserCatalo
 	return &this
 }
 
-// GetAddCatalog returns the AddCatalog field value if set, zero value otherwise.
+// GetAddCatalog returns the AddCatalog field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SecureBrowserCatalogConfigDeployModel) GetAddCatalog() AddSecureBrowserCatalogModel {
-	if o == nil || IsNil(o.AddCatalog) {
+	if o == nil || IsNil(o.AddCatalog.Get()) {
 		var ret AddSecureBrowserCatalogModel
 		return ret
 	}
-	return *o.AddCatalog
+	return *o.AddCatalog.Get()
 }
 
 // GetAddCatalogOk returns a tuple with the AddCatalog field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SecureBrowserCatalogConfigDeployModel) GetAddCatalogOk() (*AddSecureBrowserCatalogModel, bool) {
-	if o == nil || IsNil(o.AddCatalog) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddCatalog, true
+	return o.AddCatalog.Get(), o.AddCatalog.IsSet()
 }
 
-// SetAddCatalog gets a reference to the given AddSecureBrowserCatalogModel and assigns it to the AddCatalog field.
+// SetAddCatalog gets a reference to the given NullableAddSecureBrowserCatalogModel and assigns it to the AddCatalog field.
 func (o *SecureBrowserCatalogConfigDeployModel) SetAddCatalog(v AddSecureBrowserCatalogModel) {
-	o.AddCatalog = &v
+	o.AddCatalog.Set(&v)
 }
 
-// GetAddCatalogCapacity returns the AddCatalogCapacity field value if set, zero value otherwise.
+// SetAddCatalogNil sets the value for AddCatalog to be an explicit nil
+func (o *SecureBrowserCatalogConfigDeployModel) SetAddCatalogNil() {
+	o.AddCatalog.Set(nil)
+}
+
+// UnsetAddCatalog ensures that no value is present for AddCatalog, not even an explicit nil
+func (o *SecureBrowserCatalogConfigDeployModel) UnsetAddCatalog() {
+	o.AddCatalog.Unset()
+}
+
+// GetAddCatalogCapacity returns the AddCatalogCapacity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SecureBrowserCatalogConfigDeployModel) GetAddCatalogCapacity() CatalogCapacitySettingsModel {
-	if o == nil || IsNil(o.AddCatalogCapacity) {
+	if o == nil || IsNil(o.AddCatalogCapacity.Get()) {
 		var ret CatalogCapacitySettingsModel
 		return ret
 	}
-	return *o.AddCatalogCapacity
+	return *o.AddCatalogCapacity.Get()
 }
 
 // GetAddCatalogCapacityOk returns a tuple with the AddCatalogCapacity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SecureBrowserCatalogConfigDeployModel) GetAddCatalogCapacityOk() (*CatalogCapacitySettingsModel, bool) {
-	if o == nil || IsNil(o.AddCatalogCapacity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddCatalogCapacity, true
+	return o.AddCatalogCapacity.Get(), o.AddCatalogCapacity.IsSet()
 }
 
-// SetAddCatalogCapacity gets a reference to the given CatalogCapacitySettingsModel and assigns it to the AddCatalogCapacity field.
+// SetAddCatalogCapacity gets a reference to the given NullableCatalogCapacitySettingsModel and assigns it to the AddCatalogCapacity field.
 func (o *SecureBrowserCatalogConfigDeployModel) SetAddCatalogCapacity(v CatalogCapacitySettingsModel) {
-	o.AddCatalogCapacity = &v
+	o.AddCatalogCapacity.Set(&v)
 }
 
-// GetAddSecureBrowser returns the AddSecureBrowser field value if set, zero value otherwise.
+// SetAddCatalogCapacityNil sets the value for AddCatalogCapacity to be an explicit nil
+func (o *SecureBrowserCatalogConfigDeployModel) SetAddCatalogCapacityNil() {
+	o.AddCatalogCapacity.Set(nil)
+}
+
+// UnsetAddCatalogCapacity ensures that no value is present for AddCatalogCapacity, not even an explicit nil
+func (o *SecureBrowserCatalogConfigDeployModel) UnsetAddCatalogCapacity() {
+	o.AddCatalogCapacity.Unset()
+}
+
+// GetAddSecureBrowser returns the AddSecureBrowser field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SecureBrowserCatalogConfigDeployModel) GetAddSecureBrowser() CatalogSecureBrowserModel {
-	if o == nil || IsNil(o.AddSecureBrowser) {
+	if o == nil || IsNil(o.AddSecureBrowser.Get()) {
 		var ret CatalogSecureBrowserModel
 		return ret
 	}
-	return *o.AddSecureBrowser
+	return *o.AddSecureBrowser.Get()
 }
 
 // GetAddSecureBrowserOk returns a tuple with the AddSecureBrowser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SecureBrowserCatalogConfigDeployModel) GetAddSecureBrowserOk() (*CatalogSecureBrowserModel, bool) {
-	if o == nil || IsNil(o.AddSecureBrowser) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddSecureBrowser, true
+	return o.AddSecureBrowser.Get(), o.AddSecureBrowser.IsSet()
 }
 
-// SetAddSecureBrowser gets a reference to the given CatalogSecureBrowserModel and assigns it to the AddSecureBrowser field.
+// SetAddSecureBrowser gets a reference to the given NullableCatalogSecureBrowserModel and assigns it to the AddSecureBrowser field.
 func (o *SecureBrowserCatalogConfigDeployModel) SetAddSecureBrowser(v CatalogSecureBrowserModel) {
-	o.AddSecureBrowser = &v
+	o.AddSecureBrowser.Set(&v)
+}
+
+// SetAddSecureBrowserNil sets the value for AddSecureBrowser to be an explicit nil
+func (o *SecureBrowserCatalogConfigDeployModel) SetAddSecureBrowserNil() {
+	o.AddSecureBrowser.Set(nil)
+}
+
+// UnsetAddSecureBrowser ensures that no value is present for AddSecureBrowser, not even an explicit nil
+func (o *SecureBrowserCatalogConfigDeployModel) UnsetAddSecureBrowser() {
+	o.AddSecureBrowser.Unset()
 }
 
 func (o SecureBrowserCatalogConfigDeployModel) MarshalJSON() ([]byte, error) {
@@ -111,14 +144,14 @@ func (o SecureBrowserCatalogConfigDeployModel) MarshalJSON() ([]byte, error) {
 
 func (o SecureBrowserCatalogConfigDeployModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AddCatalog) {
-		toSerialize["addCatalog"] = o.AddCatalog
+	if o.AddCatalog.IsSet() {
+		toSerialize["addCatalog"] = o.AddCatalog.Get()
 	}
-	if !IsNil(o.AddCatalogCapacity) {
-		toSerialize["addCatalogCapacity"] = o.AddCatalogCapacity
+	if o.AddCatalogCapacity.IsSet() {
+		toSerialize["addCatalogCapacity"] = o.AddCatalogCapacity.Get()
 	}
-	if !IsNil(o.AddSecureBrowser) {
-		toSerialize["addSecureBrowser"] = o.AddSecureBrowser
+	if o.AddSecureBrowser.IsSet() {
+		toSerialize["addSecureBrowser"] = o.AddSecureBrowser.Get()
 	}
 	return toSerialize, nil
 }

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,9 +20,9 @@ var _ MappedNullable = &AzureCostReport{}
 // AzureCostReport struct for AzureCostReport
 type AzureCostReport struct {
 	// MeterCategory mapping to MeterCost for Azure Meters with defined Citrix Meters
-	AzureCostWithCitrixMeters *map[string]float64 `json:"azureCostWithCitrixMeters,omitempty"`
+	AzureCostWithCitrixMeters map[string]float64 `json:"azureCostWithCitrixMeters,omitempty"`
 	// MeterCategory mapping to MeterCost for Azure Meters w/o defined Citrix Meters
-	AzureCostWithoutCitrixMeters *map[string]float64 `json:"azureCostWithoutCitrixMeters,omitempty"`
+	AzureCostWithoutCitrixMeters map[string]float64 `json:"azureCostWithoutCitrixMeters,omitempty"`
 }
 
 // NewAzureCostReportWithDefaults instantiates a new AzureCostReport object
@@ -33,50 +33,52 @@ func NewAzureCostReportWithDefaults() *AzureCostReport {
 	return &this
 }
 
-// GetAzureCostWithCitrixMeters returns the AzureCostWithCitrixMeters field value if set, zero value otherwise.
+// GetAzureCostWithCitrixMeters returns the AzureCostWithCitrixMeters field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureCostReport) GetAzureCostWithCitrixMeters() map[string]float64 {
-	if o == nil || IsNil(o.AzureCostWithCitrixMeters) {
+	if o == nil {
 		var ret map[string]float64
 		return ret
 	}
-	return *o.AzureCostWithCitrixMeters
+	return o.AzureCostWithCitrixMeters
 }
 
 // GetAzureCostWithCitrixMetersOk returns a tuple with the AzureCostWithCitrixMeters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureCostReport) GetAzureCostWithCitrixMetersOk() (*map[string]float64, bool) {
 	if o == nil || IsNil(o.AzureCostWithCitrixMeters) {
 		return nil, false
 	}
-	return o.AzureCostWithCitrixMeters, true
+	return &o.AzureCostWithCitrixMeters, true
 }
 
 // SetAzureCostWithCitrixMeters gets a reference to the given map[string]float64 and assigns it to the AzureCostWithCitrixMeters field.
 func (o *AzureCostReport) SetAzureCostWithCitrixMeters(v map[string]float64) {
-	o.AzureCostWithCitrixMeters = &v
+	o.AzureCostWithCitrixMeters = v
 }
 
-// GetAzureCostWithoutCitrixMeters returns the AzureCostWithoutCitrixMeters field value if set, zero value otherwise.
+// GetAzureCostWithoutCitrixMeters returns the AzureCostWithoutCitrixMeters field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureCostReport) GetAzureCostWithoutCitrixMeters() map[string]float64 {
-	if o == nil || IsNil(o.AzureCostWithoutCitrixMeters) {
+	if o == nil {
 		var ret map[string]float64
 		return ret
 	}
-	return *o.AzureCostWithoutCitrixMeters
+	return o.AzureCostWithoutCitrixMeters
 }
 
 // GetAzureCostWithoutCitrixMetersOk returns a tuple with the AzureCostWithoutCitrixMeters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureCostReport) GetAzureCostWithoutCitrixMetersOk() (*map[string]float64, bool) {
 	if o == nil || IsNil(o.AzureCostWithoutCitrixMeters) {
 		return nil, false
 	}
-	return o.AzureCostWithoutCitrixMeters, true
+	return &o.AzureCostWithoutCitrixMeters, true
 }
 
 // SetAzureCostWithoutCitrixMeters gets a reference to the given map[string]float64 and assigns it to the AzureCostWithoutCitrixMeters field.
 func (o *AzureCostReport) SetAzureCostWithoutCitrixMeters(v map[string]float64) {
-	o.AzureCostWithoutCitrixMeters = &v
+	o.AzureCostWithoutCitrixMeters = v
 }
 
 func (o AzureCostReport) MarshalJSON() ([]byte, error) {
@@ -89,10 +91,10 @@ func (o AzureCostReport) MarshalJSON() ([]byte, error) {
 
 func (o AzureCostReport) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AzureCostWithCitrixMeters) {
+	if o.AzureCostWithCitrixMeters != nil {
 		toSerialize["azureCostWithCitrixMeters"] = o.AzureCostWithCitrixMeters
 	}
-	if !IsNil(o.AzureCostWithoutCitrixMeters) {
+	if o.AzureCostWithoutCitrixMeters != nil {
 		toSerialize["azureCostWithoutCitrixMeters"] = o.AzureCostWithoutCitrixMeters
 	}
 	return toSerialize, nil

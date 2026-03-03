@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SchemaId** | Pointer to **string** |  | [optional] 
-**Data** | Pointer to [**Data**](Data.md) |  | [optional] 
+**SchemaId** | Pointer to **NullableString** |  | [optional] 
+**Data** | Pointer to [**NullableData**](Data.md) |  | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetSchemaId sets SchemaId field to given value.
 
 HasSchemaId returns a boolean if a field has been set.
 
+### SetSchemaIdNil
+
+`func (o *AzureAlertModel) SetSchemaIdNil(b bool)`
+
+ SetSchemaIdNil sets the value for SchemaId to be an explicit nil
+
+### UnsetSchemaId
+`func (o *AzureAlertModel) UnsetSchemaId()`
+
+UnsetSchemaId ensures that no value is present for SchemaId, not even an explicit nil
 ### GetData
 
 `func (o *AzureAlertModel) GetData() Data`
@@ -76,6 +86,16 @@ SetData sets Data field to given value.
 
 HasData returns a boolean if a field has been set.
 
+### SetDataNil
+
+`func (o *AzureAlertModel) SetDataNil(b bool)`
+
+ SetDataNil sets the value for Data to be an explicit nil
+
+### UnsetData
+`func (o *AzureAlertModel) UnsetData()`
+
+UnsetData ensures that no value is present for Data, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

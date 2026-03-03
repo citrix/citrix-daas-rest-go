@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,11 +20,11 @@ var _ MappedNullable = &AzureVNetPeeringModel{}
 // AzureVNetPeeringModel struct for AzureVNetPeeringModel
 type AzureVNetPeeringModel struct {
 	// A unique name for this vnet peering
-	PeeringName *string `json:"peeringName,omitempty"`
+	PeeringName NullableString `json:"peeringName,omitempty"`
 	// The first VNet, the one owned by Citrix
-	CitrixVNet *AzureVNet `json:"citrixVNet,omitempty"`
+	CitrixVNet NullableAzureVNet `json:"citrixVNet,omitempty"`
 	// The second VNet which the customers owns
-	CustomerVNet *AzureVNet `json:"customerVNet,omitempty"`
+	CustomerVNet NullableAzureVNet `json:"customerVNet,omitempty"`
 	// Indicates if the vpn peering will use the customer's gateway
 	UseCustomerGateway *bool `json:"useCustomerGateway,omitempty"`
 	// Indicates if traffic forwarded from another peer should be allowed into the citrix created vnet  This does not apply to traffic from a gateway on a customer side  When using this feature, a route table entry will need to be added
@@ -39,73 +39,106 @@ func NewAzureVNetPeeringModelWithDefaults() *AzureVNetPeeringModel {
 	return &this
 }
 
-// GetPeeringName returns the PeeringName field value if set, zero value otherwise.
+// GetPeeringName returns the PeeringName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVNetPeeringModel) GetPeeringName() string {
-	if o == nil || IsNil(o.PeeringName) {
+	if o == nil || IsNil(o.PeeringName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PeeringName
+	return *o.PeeringName.Get()
 }
 
 // GetPeeringNameOk returns a tuple with the PeeringName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVNetPeeringModel) GetPeeringNameOk() (*string, bool) {
-	if o == nil || IsNil(o.PeeringName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PeeringName, true
+	return o.PeeringName.Get(), o.PeeringName.IsSet()
 }
 
-// SetPeeringName gets a reference to the given string and assigns it to the PeeringName field.
+// SetPeeringName gets a reference to the given NullableString and assigns it to the PeeringName field.
 func (o *AzureVNetPeeringModel) SetPeeringName(v string) {
-	o.PeeringName = &v
+	o.PeeringName.Set(&v)
 }
 
-// GetCitrixVNet returns the CitrixVNet field value if set, zero value otherwise.
+// SetPeeringNameNil sets the value for PeeringName to be an explicit nil
+func (o *AzureVNetPeeringModel) SetPeeringNameNil() {
+	o.PeeringName.Set(nil)
+}
+
+// UnsetPeeringName ensures that no value is present for PeeringName, not even an explicit nil
+func (o *AzureVNetPeeringModel) UnsetPeeringName() {
+	o.PeeringName.Unset()
+}
+
+// GetCitrixVNet returns the CitrixVNet field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVNetPeeringModel) GetCitrixVNet() AzureVNet {
-	if o == nil || IsNil(o.CitrixVNet) {
+	if o == nil || IsNil(o.CitrixVNet.Get()) {
 		var ret AzureVNet
 		return ret
 	}
-	return *o.CitrixVNet
+	return *o.CitrixVNet.Get()
 }
 
 // GetCitrixVNetOk returns a tuple with the CitrixVNet field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVNetPeeringModel) GetCitrixVNetOk() (*AzureVNet, bool) {
-	if o == nil || IsNil(o.CitrixVNet) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CitrixVNet, true
+	return o.CitrixVNet.Get(), o.CitrixVNet.IsSet()
 }
 
-// SetCitrixVNet gets a reference to the given AzureVNet and assigns it to the CitrixVNet field.
+// SetCitrixVNet gets a reference to the given NullableAzureVNet and assigns it to the CitrixVNet field.
 func (o *AzureVNetPeeringModel) SetCitrixVNet(v AzureVNet) {
-	o.CitrixVNet = &v
+	o.CitrixVNet.Set(&v)
 }
 
-// GetCustomerVNet returns the CustomerVNet field value if set, zero value otherwise.
+// SetCitrixVNetNil sets the value for CitrixVNet to be an explicit nil
+func (o *AzureVNetPeeringModel) SetCitrixVNetNil() {
+	o.CitrixVNet.Set(nil)
+}
+
+// UnsetCitrixVNet ensures that no value is present for CitrixVNet, not even an explicit nil
+func (o *AzureVNetPeeringModel) UnsetCitrixVNet() {
+	o.CitrixVNet.Unset()
+}
+
+// GetCustomerVNet returns the CustomerVNet field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVNetPeeringModel) GetCustomerVNet() AzureVNet {
-	if o == nil || IsNil(o.CustomerVNet) {
+	if o == nil || IsNil(o.CustomerVNet.Get()) {
 		var ret AzureVNet
 		return ret
 	}
-	return *o.CustomerVNet
+	return *o.CustomerVNet.Get()
 }
 
 // GetCustomerVNetOk returns a tuple with the CustomerVNet field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVNetPeeringModel) GetCustomerVNetOk() (*AzureVNet, bool) {
-	if o == nil || IsNil(o.CustomerVNet) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CustomerVNet, true
+	return o.CustomerVNet.Get(), o.CustomerVNet.IsSet()
 }
 
-// SetCustomerVNet gets a reference to the given AzureVNet and assigns it to the CustomerVNet field.
+// SetCustomerVNet gets a reference to the given NullableAzureVNet and assigns it to the CustomerVNet field.
 func (o *AzureVNetPeeringModel) SetCustomerVNet(v AzureVNet) {
-	o.CustomerVNet = &v
+	o.CustomerVNet.Set(&v)
+}
+
+// SetCustomerVNetNil sets the value for CustomerVNet to be an explicit nil
+func (o *AzureVNetPeeringModel) SetCustomerVNetNil() {
+	o.CustomerVNet.Set(nil)
+}
+
+// UnsetCustomerVNet ensures that no value is present for CustomerVNet, not even an explicit nil
+func (o *AzureVNetPeeringModel) UnsetCustomerVNet() {
+	o.CustomerVNet.Unset()
 }
 
 // GetUseCustomerGateway returns the UseCustomerGateway field value if set, zero value otherwise.
@@ -164,14 +197,14 @@ func (o AzureVNetPeeringModel) MarshalJSON() ([]byte, error) {
 
 func (o AzureVNetPeeringModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PeeringName) {
-		toSerialize["peeringName"] = o.PeeringName
+	if o.PeeringName.IsSet() {
+		toSerialize["peeringName"] = o.PeeringName.Get()
 	}
-	if !IsNil(o.CitrixVNet) {
-		toSerialize["citrixVNet"] = o.CitrixVNet
+	if o.CitrixVNet.IsSet() {
+		toSerialize["citrixVNet"] = o.CitrixVNet.Get()
 	}
-	if !IsNil(o.CustomerVNet) {
-		toSerialize["customerVNet"] = o.CustomerVNet
+	if o.CustomerVNet.IsSet() {
+		toSerialize["customerVNet"] = o.CustomerVNet.Get()
 	}
 	if !IsNil(o.UseCustomerGateway) {
 		toSerialize["useCustomerGateway"] = o.UseCustomerGateway

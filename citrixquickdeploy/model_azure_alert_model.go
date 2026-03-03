@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,8 +19,8 @@ var _ MappedNullable = &AzureAlertModel{}
 
 // AzureAlertModel struct for AzureAlertModel
 type AzureAlertModel struct {
-	SchemaId *string `json:"schemaId,omitempty"`
-	Data     *Data   `json:"data,omitempty"`
+	SchemaId NullableString `json:"schemaId,omitempty"`
+	Data     NullableData   `json:"data,omitempty"`
 }
 
 // NewAzureAlertModelWithDefaults instantiates a new AzureAlertModel object
@@ -31,50 +31,72 @@ func NewAzureAlertModelWithDefaults() *AzureAlertModel {
 	return &this
 }
 
-// GetSchemaId returns the SchemaId field value if set, zero value otherwise.
+// GetSchemaId returns the SchemaId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureAlertModel) GetSchemaId() string {
-	if o == nil || IsNil(o.SchemaId) {
+	if o == nil || IsNil(o.SchemaId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SchemaId
+	return *o.SchemaId.Get()
 }
 
 // GetSchemaIdOk returns a tuple with the SchemaId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureAlertModel) GetSchemaIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SchemaId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SchemaId, true
+	return o.SchemaId.Get(), o.SchemaId.IsSet()
 }
 
-// SetSchemaId gets a reference to the given string and assigns it to the SchemaId field.
+// SetSchemaId gets a reference to the given NullableString and assigns it to the SchemaId field.
 func (o *AzureAlertModel) SetSchemaId(v string) {
-	o.SchemaId = &v
+	o.SchemaId.Set(&v)
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
+// SetSchemaIdNil sets the value for SchemaId to be an explicit nil
+func (o *AzureAlertModel) SetSchemaIdNil() {
+	o.SchemaId.Set(nil)
+}
+
+// UnsetSchemaId ensures that no value is present for SchemaId, not even an explicit nil
+func (o *AzureAlertModel) UnsetSchemaId() {
+	o.SchemaId.Unset()
+}
+
+// GetData returns the Data field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureAlertModel) GetData() Data {
-	if o == nil || IsNil(o.Data) {
+	if o == nil || IsNil(o.Data.Get()) {
 		var ret Data
 		return ret
 	}
-	return *o.Data
+	return *o.Data.Get()
 }
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureAlertModel) GetDataOk() (*Data, bool) {
-	if o == nil || IsNil(o.Data) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Data, true
+	return o.Data.Get(), o.Data.IsSet()
 }
 
-// SetData gets a reference to the given Data and assigns it to the Data field.
+// SetData gets a reference to the given NullableData and assigns it to the Data field.
 func (o *AzureAlertModel) SetData(v Data) {
-	o.Data = &v
+	o.Data.Set(&v)
+}
+
+// SetDataNil sets the value for Data to be an explicit nil
+func (o *AzureAlertModel) SetDataNil() {
+	o.Data.Set(nil)
+}
+
+// UnsetData ensures that no value is present for Data, not even an explicit nil
+func (o *AzureAlertModel) UnsetData() {
+	o.Data.Unset()
 }
 
 func (o AzureAlertModel) MarshalJSON() ([]byte, error) {
@@ -87,11 +109,11 @@ func (o AzureAlertModel) MarshalJSON() ([]byte, error) {
 
 func (o AzureAlertModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.SchemaId) {
-		toSerialize["schemaId"] = o.SchemaId
+	if o.SchemaId.IsSet() {
+		toSerialize["schemaId"] = o.SchemaId.Get()
 	}
-	if !IsNil(o.Data) {
-		toSerialize["data"] = o.Data
+	if o.Data.IsSet() {
+		toSerialize["data"] = o.Data.Get()
 	}
 	return toSerialize, nil
 }

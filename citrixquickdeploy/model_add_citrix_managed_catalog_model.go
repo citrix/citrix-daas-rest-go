@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,13 @@ var _ MappedNullable = &AddCitrixManagedCatalogModel{}
 // AddCitrixManagedCatalogModel struct for AddCitrixManagedCatalogModel
 type AddCitrixManagedCatalogModel struct {
 	// The region where the catalog should be deployed, if it does not have any on-prem connectivity
-	Region *string `json:"region,omitempty"`
+	Region NullableString `json:"region,omitempty"`
+	// Specifies whether to enable accelerated networking on the VM NIC
+	EnableAcceleratedNetworking *bool `json:"enableAcceleratedNetworking,omitempty"`
+	// The minimum functional level to be set for the catalog
+	MinimumFunctionalLevel NullableFunctionalLevel `json:"minimumFunctionalLevel,omitempty"`
+	// Indicates whether encryption at the host level is enabled.
+	EnableEncryptionAtHost *bool `json:"enableEncryptionAtHost,omitempty"`
 	// Name of the catalog
 	Name string `json:"name"`
 	// Indicates if the catalog VDAs run a single session or multiple sessions
@@ -28,12 +34,14 @@ type AddCitrixManagedCatalogModel struct {
 	// Indicates if the catalog will connected to the customers domain
 	IsDomainJoined *bool `json:"isDomainJoined,omitempty"`
 	// Indicates if catalogs that use statically allocated machines will have the disk contents persisted after shutdown
-	PersistStaticAllocatedVmDisks *bool                     `json:"persistStaticAllocatedVmDisks,omitempty"`
-	MachineNamingScheme           *MachineNamingSchemeModel `json:"machineNamingScheme,omitempty"`
+	PersistStaticAllocatedVmDisks *bool                            `json:"persistStaticAllocatedVmDisks,omitempty"`
+	MachineNamingScheme           NullableMachineNamingSchemeModel `json:"machineNamingScheme,omitempty"`
 	// Indicates if the machines in catalog will be Azure AD joined
 	IsAzureAdJoined *bool `json:"isAzureAdJoined,omitempty"`
 	// Specifies if intune enroll is enabled
 	EnableIntuneEnroll *bool `json:"enableIntuneEnroll,omitempty"`
+	// Specifies the minimum number of unique users that the catalog will support. This field (in conjunction with MaxUserPerVm in capacity settings) will determine the number of machines. MaxInstances in scale settings will be overridden if specified.  For Citrix Managed catalogs only
+	MinUniqueUsers NullableInt32 `json:"minUniqueUsers,omitempty"`
 }
 
 // NewAddCitrixManagedCatalogModelWithDefaults instantiates a new AddCitrixManagedCatalogModel object
@@ -41,30 +49,123 @@ type AddCitrixManagedCatalogModel struct {
 // but it doesn't guarantee that properties required by API are set
 func NewAddCitrixManagedCatalogModelWithDefaults() *AddCitrixManagedCatalogModel {
 	this := AddCitrixManagedCatalogModel{}
+	var type_ AddCatalogType = ADDCATALOGTYPE_MULTI_SESSION
+	this.Type = &type_
 	return &this
 }
 
-// GetRegion returns the Region field value if set, zero value otherwise.
+// GetRegion returns the Region field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCitrixManagedCatalogModel) GetRegion() string {
-	if o == nil || IsNil(o.Region) {
+	if o == nil || IsNil(o.Region.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Region
+	return *o.Region.Get()
 }
 
 // GetRegionOk returns a tuple with the Region field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCitrixManagedCatalogModel) GetRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.Region) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Region, true
+	return o.Region.Get(), o.Region.IsSet()
 }
 
-// SetRegion gets a reference to the given string and assigns it to the Region field.
+// SetRegion gets a reference to the given NullableString and assigns it to the Region field.
 func (o *AddCitrixManagedCatalogModel) SetRegion(v string) {
-	o.Region = &v
+	o.Region.Set(&v)
+}
+
+// SetRegionNil sets the value for Region to be an explicit nil
+func (o *AddCitrixManagedCatalogModel) SetRegionNil() {
+	o.Region.Set(nil)
+}
+
+// UnsetRegion ensures that no value is present for Region, not even an explicit nil
+func (o *AddCitrixManagedCatalogModel) UnsetRegion() {
+	o.Region.Unset()
+}
+
+// GetEnableAcceleratedNetworking returns the EnableAcceleratedNetworking field value if set, zero value otherwise.
+func (o *AddCitrixManagedCatalogModel) GetEnableAcceleratedNetworking() bool {
+	if o == nil || IsNil(o.EnableAcceleratedNetworking) {
+		var ret bool
+		return ret
+	}
+	return *o.EnableAcceleratedNetworking
+}
+
+// GetEnableAcceleratedNetworkingOk returns a tuple with the EnableAcceleratedNetworking field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AddCitrixManagedCatalogModel) GetEnableAcceleratedNetworkingOk() (*bool, bool) {
+	if o == nil || IsNil(o.EnableAcceleratedNetworking) {
+		return nil, false
+	}
+	return o.EnableAcceleratedNetworking, true
+}
+
+// SetEnableAcceleratedNetworking gets a reference to the given bool and assigns it to the EnableAcceleratedNetworking field.
+func (o *AddCitrixManagedCatalogModel) SetEnableAcceleratedNetworking(v bool) {
+	o.EnableAcceleratedNetworking = &v
+}
+
+// GetMinimumFunctionalLevel returns the MinimumFunctionalLevel field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AddCitrixManagedCatalogModel) GetMinimumFunctionalLevel() FunctionalLevel {
+	if o == nil || IsNil(o.MinimumFunctionalLevel.Get()) {
+		var ret FunctionalLevel
+		return ret
+	}
+	return *o.MinimumFunctionalLevel.Get()
+}
+
+// GetMinimumFunctionalLevelOk returns a tuple with the MinimumFunctionalLevel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AddCitrixManagedCatalogModel) GetMinimumFunctionalLevelOk() (*FunctionalLevel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MinimumFunctionalLevel.Get(), o.MinimumFunctionalLevel.IsSet()
+}
+
+// SetMinimumFunctionalLevel gets a reference to the given NullableFunctionalLevel and assigns it to the MinimumFunctionalLevel field.
+func (o *AddCitrixManagedCatalogModel) SetMinimumFunctionalLevel(v FunctionalLevel) {
+	o.MinimumFunctionalLevel.Set(&v)
+}
+
+// SetMinimumFunctionalLevelNil sets the value for MinimumFunctionalLevel to be an explicit nil
+func (o *AddCitrixManagedCatalogModel) SetMinimumFunctionalLevelNil() {
+	o.MinimumFunctionalLevel.Set(nil)
+}
+
+// UnsetMinimumFunctionalLevel ensures that no value is present for MinimumFunctionalLevel, not even an explicit nil
+func (o *AddCitrixManagedCatalogModel) UnsetMinimumFunctionalLevel() {
+	o.MinimumFunctionalLevel.Unset()
+}
+
+// GetEnableEncryptionAtHost returns the EnableEncryptionAtHost field value if set, zero value otherwise.
+func (o *AddCitrixManagedCatalogModel) GetEnableEncryptionAtHost() bool {
+	if o == nil || IsNil(o.EnableEncryptionAtHost) {
+		var ret bool
+		return ret
+	}
+	return *o.EnableEncryptionAtHost
+}
+
+// GetEnableEncryptionAtHostOk returns a tuple with the EnableEncryptionAtHost field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AddCitrixManagedCatalogModel) GetEnableEncryptionAtHostOk() (*bool, bool) {
+	if o == nil || IsNil(o.EnableEncryptionAtHost) {
+		return nil, false
+	}
+	return o.EnableEncryptionAtHost, true
+}
+
+// SetEnableEncryptionAtHost gets a reference to the given bool and assigns it to the EnableEncryptionAtHost field.
+func (o *AddCitrixManagedCatalogModel) SetEnableEncryptionAtHost(v bool) {
+	o.EnableEncryptionAtHost = &v
 }
 
 // GetName returns the Name field value
@@ -160,27 +261,38 @@ func (o *AddCitrixManagedCatalogModel) SetPersistStaticAllocatedVmDisks(v bool) 
 	o.PersistStaticAllocatedVmDisks = &v
 }
 
-// GetMachineNamingScheme returns the MachineNamingScheme field value if set, zero value otherwise.
+// GetMachineNamingScheme returns the MachineNamingScheme field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCitrixManagedCatalogModel) GetMachineNamingScheme() MachineNamingSchemeModel {
-	if o == nil || IsNil(o.MachineNamingScheme) {
+	if o == nil || IsNil(o.MachineNamingScheme.Get()) {
 		var ret MachineNamingSchemeModel
 		return ret
 	}
-	return *o.MachineNamingScheme
+	return *o.MachineNamingScheme.Get()
 }
 
 // GetMachineNamingSchemeOk returns a tuple with the MachineNamingScheme field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCitrixManagedCatalogModel) GetMachineNamingSchemeOk() (*MachineNamingSchemeModel, bool) {
-	if o == nil || IsNil(o.MachineNamingScheme) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MachineNamingScheme, true
+	return o.MachineNamingScheme.Get(), o.MachineNamingScheme.IsSet()
 }
 
-// SetMachineNamingScheme gets a reference to the given MachineNamingSchemeModel and assigns it to the MachineNamingScheme field.
+// SetMachineNamingScheme gets a reference to the given NullableMachineNamingSchemeModel and assigns it to the MachineNamingScheme field.
 func (o *AddCitrixManagedCatalogModel) SetMachineNamingScheme(v MachineNamingSchemeModel) {
-	o.MachineNamingScheme = &v
+	o.MachineNamingScheme.Set(&v)
+}
+
+// SetMachineNamingSchemeNil sets the value for MachineNamingScheme to be an explicit nil
+func (o *AddCitrixManagedCatalogModel) SetMachineNamingSchemeNil() {
+	o.MachineNamingScheme.Set(nil)
+}
+
+// UnsetMachineNamingScheme ensures that no value is present for MachineNamingScheme, not even an explicit nil
+func (o *AddCitrixManagedCatalogModel) UnsetMachineNamingScheme() {
+	o.MachineNamingScheme.Unset()
 }
 
 // GetIsAzureAdJoined returns the IsAzureAdJoined field value if set, zero value otherwise.
@@ -229,6 +341,40 @@ func (o *AddCitrixManagedCatalogModel) SetEnableIntuneEnroll(v bool) {
 	o.EnableIntuneEnroll = &v
 }
 
+// GetMinUniqueUsers returns the MinUniqueUsers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AddCitrixManagedCatalogModel) GetMinUniqueUsers() int32 {
+	if o == nil || IsNil(o.MinUniqueUsers.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.MinUniqueUsers.Get()
+}
+
+// GetMinUniqueUsersOk returns a tuple with the MinUniqueUsers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AddCitrixManagedCatalogModel) GetMinUniqueUsersOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MinUniqueUsers.Get(), o.MinUniqueUsers.IsSet()
+}
+
+// SetMinUniqueUsers gets a reference to the given NullableInt32 and assigns it to the MinUniqueUsers field.
+func (o *AddCitrixManagedCatalogModel) SetMinUniqueUsers(v int32) {
+	o.MinUniqueUsers.Set(&v)
+}
+
+// SetMinUniqueUsersNil sets the value for MinUniqueUsers to be an explicit nil
+func (o *AddCitrixManagedCatalogModel) SetMinUniqueUsersNil() {
+	o.MinUniqueUsers.Set(nil)
+}
+
+// UnsetMinUniqueUsers ensures that no value is present for MinUniqueUsers, not even an explicit nil
+func (o *AddCitrixManagedCatalogModel) UnsetMinUniqueUsers() {
+	o.MinUniqueUsers.Unset()
+}
+
 func (o AddCitrixManagedCatalogModel) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -239,8 +385,17 @@ func (o AddCitrixManagedCatalogModel) MarshalJSON() ([]byte, error) {
 
 func (o AddCitrixManagedCatalogModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Region) {
-		toSerialize["region"] = o.Region
+	if o.Region.IsSet() {
+		toSerialize["region"] = o.Region.Get()
+	}
+	if !IsNil(o.EnableAcceleratedNetworking) {
+		toSerialize["enableAcceleratedNetworking"] = o.EnableAcceleratedNetworking
+	}
+	if o.MinimumFunctionalLevel.IsSet() {
+		toSerialize["minimumFunctionalLevel"] = o.MinimumFunctionalLevel.Get()
+	}
+	if !IsNil(o.EnableEncryptionAtHost) {
+		toSerialize["enableEncryptionAtHost"] = o.EnableEncryptionAtHost
 	}
 	toSerialize["name"] = o.Name
 	if !IsNil(o.Type) {
@@ -252,14 +407,17 @@ func (o AddCitrixManagedCatalogModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PersistStaticAllocatedVmDisks) {
 		toSerialize["persistStaticAllocatedVmDisks"] = o.PersistStaticAllocatedVmDisks
 	}
-	if !IsNil(o.MachineNamingScheme) {
-		toSerialize["machineNamingScheme"] = o.MachineNamingScheme
+	if o.MachineNamingScheme.IsSet() {
+		toSerialize["machineNamingScheme"] = o.MachineNamingScheme.Get()
 	}
 	if !IsNil(o.IsAzureAdJoined) {
 		toSerialize["isAzureAdJoined"] = o.IsAzureAdJoined
 	}
 	if !IsNil(o.EnableIntuneEnroll) {
 		toSerialize["enableIntuneEnroll"] = o.EnableIntuneEnroll
+	}
+	if o.MinUniqueUsers.IsSet() {
+		toSerialize["minUniqueUsers"] = o.MinUniqueUsers.Get()
 	}
 	return toSerialize, nil
 }

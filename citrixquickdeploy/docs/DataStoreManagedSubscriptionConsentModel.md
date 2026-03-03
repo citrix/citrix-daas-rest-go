@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConsentedBy** | Pointer to **string** | The name of the user that consented | [optional] 
+**ConsentedBy** | Pointer to **NullableString** | The name of the user that consented | [optional] 
 **ConsentedAt** | Pointer to **time.Time** | The date time when the consent was given | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetConsentedBy sets ConsentedBy field to given value.
 
 HasConsentedBy returns a boolean if a field has been set.
 
+### SetConsentedByNil
+
+`func (o *DataStoreManagedSubscriptionConsentModel) SetConsentedByNil(b bool)`
+
+ SetConsentedByNil sets the value for ConsentedBy to be an explicit nil
+
+### UnsetConsentedBy
+`func (o *DataStoreManagedSubscriptionConsentModel) UnsetConsentedBy()`
+
+UnsetConsentedBy ensures that no value is present for ConsentedBy, not even an explicit nil
 ### GetConsentedAt
 
 `func (o *DataStoreManagedSubscriptionConsentModel) GetConsentedAt() time.Time`

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VmConfig** | Pointer to [**AzureVMBase**](AzureVMBase.md) |  | [optional] 
+**VmConfig** | Pointer to [**NullableAzureVMBase**](AzureVMBase.md) |  | [optional] 
 **VmOperation** | Pointer to [**AzureVmOperation**](AzureVmOperation.md) |  | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetVmConfig sets VmConfig field to given value.
 
 HasVmConfig returns a boolean if a field has been set.
 
+### SetVmConfigNil
+
+`func (o *AzureVmOperationInputModel) SetVmConfigNil(b bool)`
+
+ SetVmConfigNil sets the value for VmConfig to be an explicit nil
+
+### UnsetVmConfig
+`func (o *AzureVmOperationInputModel) UnsetVmConfig()`
+
+UnsetVmConfig ensures that no value is present for VmConfig, not even an explicit nil
 ### GetVmOperation
 
 `func (o *AzureVmOperationInputModel) GetVmOperation() AzureVmOperation`

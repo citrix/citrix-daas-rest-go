@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Quantity** | Pointer to **int32** | Number of connectors to provision | [optional] 
-**OrganizationalUnit** | Pointer to **string** | The OU the new connectors should be added to | [optional] 
-**ServiceAccount** | Pointer to **string** | Service account to join the connector to the Resource Location&#39;s domain | [optional] 
-**ServiceAccountPassword** | Pointer to **string** | Password for the service account | [optional] 
-**AzureResourceGroup** | Pointer to **string** | Azure Resource Group where the connectors should be deployed | [optional] 
+**OrganizationalUnit** | Pointer to **NullableString** | The OU the new connectors should be added to | [optional] 
+**ServiceAccount** | Pointer to **NullableString** | Service account to join the connector to the Resource Location&#39;s domain | [optional] 
+**ServiceAccountPassword** | Pointer to **NullableString** | Password for the service account | [optional] 
+**AzureResourceGroup** | Pointer to **NullableString** | Azure Resource Group where the connectors should be deployed | [optional] 
 **UseAzureHub** | Pointer to **bool** | Indicates if the connector should be provisioned with Azure HUB enabled | [optional] 
-**VmSize** | Pointer to **string** | The ID of the vm size | [optional] 
-**DomainName** | Pointer to **string** | The domain the connectors will be joined to. Used when adding connectors to connectorless RL | [optional] 
+**VmSize** | Pointer to **NullableString** | The ID of the vm size | [optional] 
+**DomainName** | Pointer to **NullableString** | The domain the connectors will be joined to. Used when adding connectors to connectorless RL | [optional] 
 **ExistingConnectorsCount** | Pointer to **int32** | The number of existing connectors in the Resource Location.  Used to determine which Zone(s) the new connectors will be provisioned in. | [optional] 
 
 ## Methods
@@ -83,6 +83,16 @@ SetOrganizationalUnit sets OrganizationalUnit field to given value.
 
 HasOrganizationalUnit returns a boolean if a field has been set.
 
+### SetOrganizationalUnitNil
+
+`func (o *ProvisionConnectorsModel) SetOrganizationalUnitNil(b bool)`
+
+ SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
+
+### UnsetOrganizationalUnit
+`func (o *ProvisionConnectorsModel) UnsetOrganizationalUnit()`
+
+UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
 ### GetServiceAccount
 
 `func (o *ProvisionConnectorsModel) GetServiceAccount() string`
@@ -108,6 +118,16 @@ SetServiceAccount sets ServiceAccount field to given value.
 
 HasServiceAccount returns a boolean if a field has been set.
 
+### SetServiceAccountNil
+
+`func (o *ProvisionConnectorsModel) SetServiceAccountNil(b bool)`
+
+ SetServiceAccountNil sets the value for ServiceAccount to be an explicit nil
+
+### UnsetServiceAccount
+`func (o *ProvisionConnectorsModel) UnsetServiceAccount()`
+
+UnsetServiceAccount ensures that no value is present for ServiceAccount, not even an explicit nil
 ### GetServiceAccountPassword
 
 `func (o *ProvisionConnectorsModel) GetServiceAccountPassword() string`
@@ -133,6 +153,16 @@ SetServiceAccountPassword sets ServiceAccountPassword field to given value.
 
 HasServiceAccountPassword returns a boolean if a field has been set.
 
+### SetServiceAccountPasswordNil
+
+`func (o *ProvisionConnectorsModel) SetServiceAccountPasswordNil(b bool)`
+
+ SetServiceAccountPasswordNil sets the value for ServiceAccountPassword to be an explicit nil
+
+### UnsetServiceAccountPassword
+`func (o *ProvisionConnectorsModel) UnsetServiceAccountPassword()`
+
+UnsetServiceAccountPassword ensures that no value is present for ServiceAccountPassword, not even an explicit nil
 ### GetAzureResourceGroup
 
 `func (o *ProvisionConnectorsModel) GetAzureResourceGroup() string`
@@ -158,6 +188,16 @@ SetAzureResourceGroup sets AzureResourceGroup field to given value.
 
 HasAzureResourceGroup returns a boolean if a field has been set.
 
+### SetAzureResourceGroupNil
+
+`func (o *ProvisionConnectorsModel) SetAzureResourceGroupNil(b bool)`
+
+ SetAzureResourceGroupNil sets the value for AzureResourceGroup to be an explicit nil
+
+### UnsetAzureResourceGroup
+`func (o *ProvisionConnectorsModel) UnsetAzureResourceGroup()`
+
+UnsetAzureResourceGroup ensures that no value is present for AzureResourceGroup, not even an explicit nil
 ### GetUseAzureHub
 
 `func (o *ProvisionConnectorsModel) GetUseAzureHub() bool`
@@ -208,6 +248,16 @@ SetVmSize sets VmSize field to given value.
 
 HasVmSize returns a boolean if a field has been set.
 
+### SetVmSizeNil
+
+`func (o *ProvisionConnectorsModel) SetVmSizeNil(b bool)`
+
+ SetVmSizeNil sets the value for VmSize to be an explicit nil
+
+### UnsetVmSize
+`func (o *ProvisionConnectorsModel) UnsetVmSize()`
+
+UnsetVmSize ensures that no value is present for VmSize, not even an explicit nil
 ### GetDomainName
 
 `func (o *ProvisionConnectorsModel) GetDomainName() string`
@@ -233,6 +283,16 @@ SetDomainName sets DomainName field to given value.
 
 HasDomainName returns a boolean if a field has been set.
 
+### SetDomainNameNil
+
+`func (o *ProvisionConnectorsModel) SetDomainNameNil(b bool)`
+
+ SetDomainNameNil sets the value for DomainName to be an explicit nil
+
+### UnsetDomainName
+`func (o *ProvisionConnectorsModel) UnsetDomainName()`
+
+UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
 ### GetExistingConnectorsCount
 
 `func (o *ProvisionConnectorsModel) GetExistingConnectorsCount() int32`

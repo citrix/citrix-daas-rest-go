@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,8 +19,8 @@ var _ MappedNullable = &CatalogOperationRequestModel{}
 
 // CatalogOperationRequestModel struct for CatalogOperationRequestModel
 type CatalogOperationRequestModel struct {
-	OperationType *CatalogOperationType             `json:"operationType,omitempty"`
-	Parameters    map[string]map[string]interface{} `json:"parameters,omitempty"`
+	OperationType *CatalogOperationType  `json:"operationType,omitempty"`
+	Parameters    map[string]interface{} `json:"parameters,omitempty"`
 }
 
 // NewCatalogOperationRequestModelWithDefaults instantiates a new CatalogOperationRequestModel object
@@ -54,10 +54,10 @@ func (o *CatalogOperationRequestModel) SetOperationType(v CatalogOperationType) 
 	o.OperationType = &v
 }
 
-// GetParameters returns the Parameters field value if set, zero value otherwise.
-func (o *CatalogOperationRequestModel) GetParameters() map[string]map[string]interface{} {
-	if o == nil || IsNil(o.Parameters) {
-		var ret map[string]map[string]interface{}
+// GetParameters returns the Parameters field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CatalogOperationRequestModel) GetParameters() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
 		return ret
 	}
 	return o.Parameters
@@ -65,15 +65,16 @@ func (o *CatalogOperationRequestModel) GetParameters() map[string]map[string]int
 
 // GetParametersOk returns a tuple with the Parameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CatalogOperationRequestModel) GetParametersOk() (map[string]map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CatalogOperationRequestModel) GetParametersOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Parameters) {
-		return map[string]map[string]interface{}{}, false
+		return map[string]interface{}{}, false
 	}
 	return o.Parameters, true
 }
 
-// SetParameters gets a reference to the given map[string]map[string]interface{} and assigns it to the Parameters field.
-func (o *CatalogOperationRequestModel) SetParameters(v map[string]map[string]interface{}) {
+// SetParameters gets a reference to the given map[string]interface{} and assigns it to the Parameters field.
+func (o *CatalogOperationRequestModel) SetParameters(v map[string]interface{}) {
 	o.Parameters = v
 }
 
@@ -90,7 +91,7 @@ func (o CatalogOperationRequestModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OperationType) {
 		toSerialize["operationType"] = o.OperationType
 	}
-	if !IsNil(o.Parameters) {
+	if o.Parameters != nil {
 		toSerialize["parameters"] = o.Parameters
 	}
 	return toSerialize, nil

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,19 +20,19 @@ var _ MappedNullable = &AzureAssignment{}
 // AzureAssignment struct for AzureAssignment
 type AzureAssignment struct {
 	// ID of the assignment
-	ObjectId *string `json:"objectId,omitempty"`
+	ObjectId NullableString `json:"objectId,omitempty"`
 	// ID of the Role that has been assigned
-	RoleId *string `json:"roleId,omitempty"`
+	RoleId NullableString `json:"roleId,omitempty"`
 	// Name of the assigned Role
-	RoleName *string `json:"roleName,omitempty"`
+	RoleName NullableString `json:"roleName,omitempty"`
 	// Type of object that has been assigned the role
-	ObjectType *string `json:"objectType,omitempty"`
+	ObjectType NullableString `json:"objectType,omitempty"`
 	// Display name of the app / user assigned the role
-	DisplayName *string `json:"displayName,omitempty"`
+	DisplayName NullableString `json:"displayName,omitempty"`
 	// ID of the app that is associated with the Service Principal that hasd the assignment
-	AppId *string `json:"appId,omitempty"`
+	AppId NullableString `json:"appId,omitempty"`
 	// UPN of the user assigned the role
-	Upn *string `json:"upn,omitempty"`
+	Upn NullableString `json:"upn,omitempty"`
 }
 
 // NewAzureAssignmentWithDefaults instantiates a new AzureAssignment object
@@ -43,165 +43,242 @@ func NewAzureAssignmentWithDefaults() *AzureAssignment {
 	return &this
 }
 
-// GetObjectId returns the ObjectId field value if set, zero value otherwise.
+// GetObjectId returns the ObjectId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureAssignment) GetObjectId() string {
-	if o == nil || IsNil(o.ObjectId) {
+	if o == nil || IsNil(o.ObjectId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ObjectId
+	return *o.ObjectId.Get()
 }
 
 // GetObjectIdOk returns a tuple with the ObjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureAssignment) GetObjectIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ObjectId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ObjectId, true
+	return o.ObjectId.Get(), o.ObjectId.IsSet()
 }
 
-// SetObjectId gets a reference to the given string and assigns it to the ObjectId field.
+// SetObjectId gets a reference to the given NullableString and assigns it to the ObjectId field.
 func (o *AzureAssignment) SetObjectId(v string) {
-	o.ObjectId = &v
+	o.ObjectId.Set(&v)
 }
 
-// GetRoleId returns the RoleId field value if set, zero value otherwise.
+// SetObjectIdNil sets the value for ObjectId to be an explicit nil
+func (o *AzureAssignment) SetObjectIdNil() {
+	o.ObjectId.Set(nil)
+}
+
+// UnsetObjectId ensures that no value is present for ObjectId, not even an explicit nil
+func (o *AzureAssignment) UnsetObjectId() {
+	o.ObjectId.Unset()
+}
+
+// GetRoleId returns the RoleId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureAssignment) GetRoleId() string {
-	if o == nil || IsNil(o.RoleId) {
+	if o == nil || IsNil(o.RoleId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.RoleId
+	return *o.RoleId.Get()
 }
 
 // GetRoleIdOk returns a tuple with the RoleId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureAssignment) GetRoleIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RoleId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RoleId, true
+	return o.RoleId.Get(), o.RoleId.IsSet()
 }
 
-// SetRoleId gets a reference to the given string and assigns it to the RoleId field.
+// SetRoleId gets a reference to the given NullableString and assigns it to the RoleId field.
 func (o *AzureAssignment) SetRoleId(v string) {
-	o.RoleId = &v
+	o.RoleId.Set(&v)
 }
 
-// GetRoleName returns the RoleName field value if set, zero value otherwise.
+// SetRoleIdNil sets the value for RoleId to be an explicit nil
+func (o *AzureAssignment) SetRoleIdNil() {
+	o.RoleId.Set(nil)
+}
+
+// UnsetRoleId ensures that no value is present for RoleId, not even an explicit nil
+func (o *AzureAssignment) UnsetRoleId() {
+	o.RoleId.Unset()
+}
+
+// GetRoleName returns the RoleName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureAssignment) GetRoleName() string {
-	if o == nil || IsNil(o.RoleName) {
+	if o == nil || IsNil(o.RoleName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.RoleName
+	return *o.RoleName.Get()
 }
 
 // GetRoleNameOk returns a tuple with the RoleName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureAssignment) GetRoleNameOk() (*string, bool) {
-	if o == nil || IsNil(o.RoleName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RoleName, true
+	return o.RoleName.Get(), o.RoleName.IsSet()
 }
 
-// SetRoleName gets a reference to the given string and assigns it to the RoleName field.
+// SetRoleName gets a reference to the given NullableString and assigns it to the RoleName field.
 func (o *AzureAssignment) SetRoleName(v string) {
-	o.RoleName = &v
+	o.RoleName.Set(&v)
 }
 
-// GetObjectType returns the ObjectType field value if set, zero value otherwise.
+// SetRoleNameNil sets the value for RoleName to be an explicit nil
+func (o *AzureAssignment) SetRoleNameNil() {
+	o.RoleName.Set(nil)
+}
+
+// UnsetRoleName ensures that no value is present for RoleName, not even an explicit nil
+func (o *AzureAssignment) UnsetRoleName() {
+	o.RoleName.Unset()
+}
+
+// GetObjectType returns the ObjectType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureAssignment) GetObjectType() string {
-	if o == nil || IsNil(o.ObjectType) {
+	if o == nil || IsNil(o.ObjectType.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ObjectType
+	return *o.ObjectType.Get()
 }
 
 // GetObjectTypeOk returns a tuple with the ObjectType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureAssignment) GetObjectTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ObjectType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ObjectType, true
+	return o.ObjectType.Get(), o.ObjectType.IsSet()
 }
 
-// SetObjectType gets a reference to the given string and assigns it to the ObjectType field.
+// SetObjectType gets a reference to the given NullableString and assigns it to the ObjectType field.
 func (o *AzureAssignment) SetObjectType(v string) {
-	o.ObjectType = &v
+	o.ObjectType.Set(&v)
 }
 
-// GetDisplayName returns the DisplayName field value if set, zero value otherwise.
+// SetObjectTypeNil sets the value for ObjectType to be an explicit nil
+func (o *AzureAssignment) SetObjectTypeNil() {
+	o.ObjectType.Set(nil)
+}
+
+// UnsetObjectType ensures that no value is present for ObjectType, not even an explicit nil
+func (o *AzureAssignment) UnsetObjectType() {
+	o.ObjectType.Unset()
+}
+
+// GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureAssignment) GetDisplayName() string {
-	if o == nil || IsNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayName
+	return *o.DisplayName.Get()
 }
 
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureAssignment) GetDisplayNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DisplayName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DisplayName, true
+	return o.DisplayName.Get(), o.DisplayName.IsSet()
 }
 
-// SetDisplayName gets a reference to the given string and assigns it to the DisplayName field.
+// SetDisplayName gets a reference to the given NullableString and assigns it to the DisplayName field.
 func (o *AzureAssignment) SetDisplayName(v string) {
-	o.DisplayName = &v
+	o.DisplayName.Set(&v)
 }
 
-// GetAppId returns the AppId field value if set, zero value otherwise.
+// SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+func (o *AzureAssignment) SetDisplayNameNil() {
+	o.DisplayName.Set(nil)
+}
+
+// UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
+func (o *AzureAssignment) UnsetDisplayName() {
+	o.DisplayName.Unset()
+}
+
+// GetAppId returns the AppId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureAssignment) GetAppId() string {
-	if o == nil || IsNil(o.AppId) {
+	if o == nil || IsNil(o.AppId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AppId
+	return *o.AppId.Get()
 }
 
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureAssignment) GetAppIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AppId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AppId, true
+	return o.AppId.Get(), o.AppId.IsSet()
 }
 
-// SetAppId gets a reference to the given string and assigns it to the AppId field.
+// SetAppId gets a reference to the given NullableString and assigns it to the AppId field.
 func (o *AzureAssignment) SetAppId(v string) {
-	o.AppId = &v
+	o.AppId.Set(&v)
 }
 
-// GetUpn returns the Upn field value if set, zero value otherwise.
+// SetAppIdNil sets the value for AppId to be an explicit nil
+func (o *AzureAssignment) SetAppIdNil() {
+	o.AppId.Set(nil)
+}
+
+// UnsetAppId ensures that no value is present for AppId, not even an explicit nil
+func (o *AzureAssignment) UnsetAppId() {
+	o.AppId.Unset()
+}
+
+// GetUpn returns the Upn field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureAssignment) GetUpn() string {
-	if o == nil || IsNil(o.Upn) {
+	if o == nil || IsNil(o.Upn.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Upn
+	return *o.Upn.Get()
 }
 
 // GetUpnOk returns a tuple with the Upn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureAssignment) GetUpnOk() (*string, bool) {
-	if o == nil || IsNil(o.Upn) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Upn, true
+	return o.Upn.Get(), o.Upn.IsSet()
 }
 
-// SetUpn gets a reference to the given string and assigns it to the Upn field.
+// SetUpn gets a reference to the given NullableString and assigns it to the Upn field.
 func (o *AzureAssignment) SetUpn(v string) {
-	o.Upn = &v
+	o.Upn.Set(&v)
+}
+
+// SetUpnNil sets the value for Upn to be an explicit nil
+func (o *AzureAssignment) SetUpnNil() {
+	o.Upn.Set(nil)
+}
+
+// UnsetUpn ensures that no value is present for Upn, not even an explicit nil
+func (o *AzureAssignment) UnsetUpn() {
+	o.Upn.Unset()
 }
 
 func (o AzureAssignment) MarshalJSON() ([]byte, error) {
@@ -214,26 +291,26 @@ func (o AzureAssignment) MarshalJSON() ([]byte, error) {
 
 func (o AzureAssignment) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ObjectId) {
-		toSerialize["objectId"] = o.ObjectId
+	if o.ObjectId.IsSet() {
+		toSerialize["objectId"] = o.ObjectId.Get()
 	}
-	if !IsNil(o.RoleId) {
-		toSerialize["roleId"] = o.RoleId
+	if o.RoleId.IsSet() {
+		toSerialize["roleId"] = o.RoleId.Get()
 	}
-	if !IsNil(o.RoleName) {
-		toSerialize["roleName"] = o.RoleName
+	if o.RoleName.IsSet() {
+		toSerialize["roleName"] = o.RoleName.Get()
 	}
-	if !IsNil(o.ObjectType) {
-		toSerialize["objectType"] = o.ObjectType
+	if o.ObjectType.IsSet() {
+		toSerialize["objectType"] = o.ObjectType.Get()
 	}
-	if !IsNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
+	if o.DisplayName.IsSet() {
+		toSerialize["displayName"] = o.DisplayName.Get()
 	}
-	if !IsNil(o.AppId) {
-		toSerialize["appId"] = o.AppId
+	if o.AppId.IsSet() {
+		toSerialize["appId"] = o.AppId.Get()
 	}
-	if !IsNil(o.Upn) {
-		toSerialize["upn"] = o.Upn
+	if o.Upn.IsSet() {
+		toSerialize["upn"] = o.Upn.Get()
 	}
 	return toSerialize, nil
 }

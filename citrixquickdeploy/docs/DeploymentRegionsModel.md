@@ -51,6 +51,16 @@ SetItems sets Items field to given value.
 
 HasItems returns a boolean if a field has been set.
 
+### SetItemsNil
+
+`func (o *DeploymentRegionsModel) SetItemsNil(b bool)`
+
+ SetItemsNil sets the value for Items to be an explicit nil
+
+### UnsetItems
+`func (o *DeploymentRegionsModel) UnsetItems()`
+
+UnsetItems ensures that no value is present for Items, not even an explicit nil
 ### GetRegions
 
 `func (o *DeploymentRegionsModel) GetRegions() []DeploymentRegionModel`
@@ -76,6 +86,16 @@ SetRegions sets Regions field to given value.
 
 HasRegions returns a boolean if a field has been set.
 
+### SetRegionsNil
+
+`func (o *DeploymentRegionsModel) SetRegionsNil(b bool)`
+
+ SetRegionsNil sets the value for Regions to be an explicit nil
+
+### UnsetRegions
+`func (o *DeploymentRegionsModel) UnsetRegions()`
+
+UnsetRegions ensures that no value is present for Regions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

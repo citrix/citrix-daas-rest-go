@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,30 +20,30 @@ var _ MappedNullable = &ObjectChangeEventModel{}
 
 // ObjectChangeEventModel struct for ObjectChangeEventModel
 type ObjectChangeEventModel struct {
-	CustomerId              *string                 `json:"customerId,omitempty"`
-	Type                    *string                 `json:"type,omitempty"`
+	CustomerId              NullableString          `json:"customerId,omitempty"`
+	Type                    NullableString          `json:"type,omitempty"`
 	ChangeType              *ChangeEventsChangeType `json:"changeType,omitempty"`
-	Identifier              *string                 `json:"identifier,omitempty"`
-	ServiceProfile          *string                 `json:"serviceProfile,omitempty"`
-	TransactionId           *string                 `json:"transactionId,omitempty"`
-	Identity                *string                 `json:"identity,omitempty"`
-	UserId                  *string                 `json:"userId,omitempty"`
-	CustomerGeo             *string                 `json:"customerGeo,omitempty"`
-	Geo                     *string                 `json:"geo,omitempty"`
-	ResourceProvider        *string                 `json:"resourceProvider,omitempty"`
-	Service                 *string                 `json:"service,omitempty"`
-	BeforeChange            *string                 `json:"beforeChange,omitempty"`
-	AfterChange             *string                 `json:"afterChange,omitempty"`
-	TimeStamp               *time.Time              `json:"timeStamp,omitempty"`
-	CallerServiceIdentity   *string                 `json:"callerServiceIdentity,omitempty"`
-	CallerPrincipal         *string                 `json:"callerPrincipal,omitempty"`
-	CallerServiceInstanceId *string                 `json:"callerServiceInstanceId,omitempty"`
-	SystemLogCorrelationId  *string                 `json:"systemLogCorrelationId,omitempty"`
-	Oid                     *string                 `json:"oid,omitempty"`
-	Email                   *string                 `json:"email,omitempty"`
-	DisplayName             *string                 `json:"displayName,omitempty"`
-	Sid                     *string                 `json:"sid,omitempty"`
-	Upn                     *string                 `json:"upn,omitempty"`
+	Identifier              NullableString          `json:"identifier,omitempty"`
+	ServiceProfile          NullableString          `json:"serviceProfile,omitempty"`
+	TransactionId           NullableString          `json:"transactionId,omitempty"`
+	Identity                NullableString          `json:"identity,omitempty"`
+	UserId                  NullableString          `json:"userId,omitempty"`
+	CustomerGeo             NullableString          `json:"customerGeo,omitempty"`
+	Geo                     NullableString          `json:"geo,omitempty"`
+	ResourceProvider        NullableString          `json:"resourceProvider,omitempty"`
+	Service                 NullableString          `json:"service,omitempty"`
+	BeforeChange            NullableString          `json:"beforeChange,omitempty"`
+	AfterChange             NullableString          `json:"afterChange,omitempty"`
+	TimeStamp               NullableTime            `json:"timeStamp,omitempty"`
+	CallerServiceIdentity   NullableString          `json:"callerServiceIdentity,omitempty"`
+	CallerPrincipal         NullableString          `json:"callerPrincipal,omitempty"`
+	CallerServiceInstanceId NullableString          `json:"callerServiceInstanceId,omitempty"`
+	SystemLogCorrelationId  NullableString          `json:"systemLogCorrelationId,omitempty"`
+	Oid                     NullableString          `json:"oid,omitempty"`
+	Email                   NullableString          `json:"email,omitempty"`
+	DisplayName             NullableString          `json:"displayName,omitempty"`
+	Sid                     NullableString          `json:"sid,omitempty"`
+	Upn                     NullableString          `json:"upn,omitempty"`
 }
 
 // NewObjectChangeEventModelWithDefaults instantiates a new ObjectChangeEventModel object
@@ -54,50 +54,72 @@ func NewObjectChangeEventModelWithDefaults() *ObjectChangeEventModel {
 	return &this
 }
 
-// GetCustomerId returns the CustomerId field value if set, zero value otherwise.
+// GetCustomerId returns the CustomerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetCustomerId() string {
-	if o == nil || IsNil(o.CustomerId) {
+	if o == nil || IsNil(o.CustomerId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CustomerId
+	return *o.CustomerId.Get()
 }
 
 // GetCustomerIdOk returns a tuple with the CustomerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetCustomerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CustomerId, true
+	return o.CustomerId.Get(), o.CustomerId.IsSet()
 }
 
-// SetCustomerId gets a reference to the given string and assigns it to the CustomerId field.
+// SetCustomerId gets a reference to the given NullableString and assigns it to the CustomerId field.
 func (o *ObjectChangeEventModel) SetCustomerId(v string) {
-	o.CustomerId = &v
+	o.CustomerId.Set(&v)
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// SetCustomerIdNil sets the value for CustomerId to be an explicit nil
+func (o *ObjectChangeEventModel) SetCustomerIdNil() {
+	o.CustomerId.Set(nil)
+}
+
+// UnsetCustomerId ensures that no value is present for CustomerId, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetCustomerId() {
+	o.CustomerId.Unset()
+}
+
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetType() string {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
-// SetType gets a reference to the given string and assigns it to the Type field.
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
 func (o *ObjectChangeEventModel) SetType(v string) {
-	o.Type = &v
+	o.Type.Set(&v)
+}
+
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *ObjectChangeEventModel) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetType() {
+	o.Type.Unset()
 }
 
 // GetChangeType returns the ChangeType field value if set, zero value otherwise.
@@ -123,487 +145,718 @@ func (o *ObjectChangeEventModel) SetChangeType(v ChangeEventsChangeType) {
 	o.ChangeType = &v
 }
 
-// GetIdentifier returns the Identifier field value if set, zero value otherwise.
+// GetIdentifier returns the Identifier field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetIdentifier() string {
-	if o == nil || IsNil(o.Identifier) {
+	if o == nil || IsNil(o.Identifier.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Identifier
+	return *o.Identifier.Get()
 }
 
 // GetIdentifierOk returns a tuple with the Identifier field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetIdentifierOk() (*string, bool) {
-	if o == nil || IsNil(o.Identifier) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Identifier, true
+	return o.Identifier.Get(), o.Identifier.IsSet()
 }
 
-// SetIdentifier gets a reference to the given string and assigns it to the Identifier field.
+// SetIdentifier gets a reference to the given NullableString and assigns it to the Identifier field.
 func (o *ObjectChangeEventModel) SetIdentifier(v string) {
-	o.Identifier = &v
+	o.Identifier.Set(&v)
 }
 
-// GetServiceProfile returns the ServiceProfile field value if set, zero value otherwise.
+// SetIdentifierNil sets the value for Identifier to be an explicit nil
+func (o *ObjectChangeEventModel) SetIdentifierNil() {
+	o.Identifier.Set(nil)
+}
+
+// UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetIdentifier() {
+	o.Identifier.Unset()
+}
+
+// GetServiceProfile returns the ServiceProfile field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetServiceProfile() string {
-	if o == nil || IsNil(o.ServiceProfile) {
+	if o == nil || IsNil(o.ServiceProfile.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ServiceProfile
+	return *o.ServiceProfile.Get()
 }
 
 // GetServiceProfileOk returns a tuple with the ServiceProfile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetServiceProfileOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceProfile) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceProfile, true
+	return o.ServiceProfile.Get(), o.ServiceProfile.IsSet()
 }
 
-// SetServiceProfile gets a reference to the given string and assigns it to the ServiceProfile field.
+// SetServiceProfile gets a reference to the given NullableString and assigns it to the ServiceProfile field.
 func (o *ObjectChangeEventModel) SetServiceProfile(v string) {
-	o.ServiceProfile = &v
+	o.ServiceProfile.Set(&v)
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// SetServiceProfileNil sets the value for ServiceProfile to be an explicit nil
+func (o *ObjectChangeEventModel) SetServiceProfileNil() {
+	o.ServiceProfile.Set(nil)
+}
+
+// UnsetServiceProfile ensures that no value is present for ServiceProfile, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetServiceProfile() {
+	o.ServiceProfile.Unset()
+}
+
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *ObjectChangeEventModel) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
 }
 
-// GetIdentity returns the Identity field value if set, zero value otherwise.
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *ObjectChangeEventModel) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetTransactionId() {
+	o.TransactionId.Unset()
+}
+
+// GetIdentity returns the Identity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetIdentity() string {
-	if o == nil || IsNil(o.Identity) {
+	if o == nil || IsNil(o.Identity.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Identity
+	return *o.Identity.Get()
 }
 
 // GetIdentityOk returns a tuple with the Identity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetIdentityOk() (*string, bool) {
-	if o == nil || IsNil(o.Identity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Identity, true
+	return o.Identity.Get(), o.Identity.IsSet()
 }
 
-// SetIdentity gets a reference to the given string and assigns it to the Identity field.
+// SetIdentity gets a reference to the given NullableString and assigns it to the Identity field.
 func (o *ObjectChangeEventModel) SetIdentity(v string) {
-	o.Identity = &v
+	o.Identity.Set(&v)
 }
 
-// GetUserId returns the UserId field value if set, zero value otherwise.
+// SetIdentityNil sets the value for Identity to be an explicit nil
+func (o *ObjectChangeEventModel) SetIdentityNil() {
+	o.Identity.Set(nil)
+}
+
+// UnsetIdentity ensures that no value is present for Identity, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetIdentity() {
+	o.Identity.Unset()
+}
+
+// GetUserId returns the UserId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetUserId() string {
-	if o == nil || IsNil(o.UserId) {
+	if o == nil || IsNil(o.UserId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.UserId
+	return *o.UserId.Get()
 }
 
 // GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetUserIdOk() (*string, bool) {
-	if o == nil || IsNil(o.UserId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UserId, true
+	return o.UserId.Get(), o.UserId.IsSet()
 }
 
-// SetUserId gets a reference to the given string and assigns it to the UserId field.
+// SetUserId gets a reference to the given NullableString and assigns it to the UserId field.
 func (o *ObjectChangeEventModel) SetUserId(v string) {
-	o.UserId = &v
+	o.UserId.Set(&v)
 }
 
-// GetCustomerGeo returns the CustomerGeo field value if set, zero value otherwise.
+// SetUserIdNil sets the value for UserId to be an explicit nil
+func (o *ObjectChangeEventModel) SetUserIdNil() {
+	o.UserId.Set(nil)
+}
+
+// UnsetUserId ensures that no value is present for UserId, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetUserId() {
+	o.UserId.Unset()
+}
+
+// GetCustomerGeo returns the CustomerGeo field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetCustomerGeo() string {
-	if o == nil || IsNil(o.CustomerGeo) {
+	if o == nil || IsNil(o.CustomerGeo.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CustomerGeo
+	return *o.CustomerGeo.Get()
 }
 
 // GetCustomerGeoOk returns a tuple with the CustomerGeo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetCustomerGeoOk() (*string, bool) {
-	if o == nil || IsNil(o.CustomerGeo) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CustomerGeo, true
+	return o.CustomerGeo.Get(), o.CustomerGeo.IsSet()
 }
 
-// SetCustomerGeo gets a reference to the given string and assigns it to the CustomerGeo field.
+// SetCustomerGeo gets a reference to the given NullableString and assigns it to the CustomerGeo field.
 func (o *ObjectChangeEventModel) SetCustomerGeo(v string) {
-	o.CustomerGeo = &v
+	o.CustomerGeo.Set(&v)
 }
 
-// GetGeo returns the Geo field value if set, zero value otherwise.
+// SetCustomerGeoNil sets the value for CustomerGeo to be an explicit nil
+func (o *ObjectChangeEventModel) SetCustomerGeoNil() {
+	o.CustomerGeo.Set(nil)
+}
+
+// UnsetCustomerGeo ensures that no value is present for CustomerGeo, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetCustomerGeo() {
+	o.CustomerGeo.Unset()
+}
+
+// GetGeo returns the Geo field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetGeo() string {
-	if o == nil || IsNil(o.Geo) {
+	if o == nil || IsNil(o.Geo.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Geo
+	return *o.Geo.Get()
 }
 
 // GetGeoOk returns a tuple with the Geo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetGeoOk() (*string, bool) {
-	if o == nil || IsNil(o.Geo) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Geo, true
+	return o.Geo.Get(), o.Geo.IsSet()
 }
 
-// SetGeo gets a reference to the given string and assigns it to the Geo field.
+// SetGeo gets a reference to the given NullableString and assigns it to the Geo field.
 func (o *ObjectChangeEventModel) SetGeo(v string) {
-	o.Geo = &v
+	o.Geo.Set(&v)
 }
 
-// GetResourceProvider returns the ResourceProvider field value if set, zero value otherwise.
+// SetGeoNil sets the value for Geo to be an explicit nil
+func (o *ObjectChangeEventModel) SetGeoNil() {
+	o.Geo.Set(nil)
+}
+
+// UnsetGeo ensures that no value is present for Geo, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetGeo() {
+	o.Geo.Unset()
+}
+
+// GetResourceProvider returns the ResourceProvider field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetResourceProvider() string {
-	if o == nil || IsNil(o.ResourceProvider) {
+	if o == nil || IsNil(o.ResourceProvider.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResourceProvider
+	return *o.ResourceProvider.Get()
 }
 
 // GetResourceProviderOk returns a tuple with the ResourceProvider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetResourceProviderOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceProvider) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceProvider, true
+	return o.ResourceProvider.Get(), o.ResourceProvider.IsSet()
 }
 
-// SetResourceProvider gets a reference to the given string and assigns it to the ResourceProvider field.
+// SetResourceProvider gets a reference to the given NullableString and assigns it to the ResourceProvider field.
 func (o *ObjectChangeEventModel) SetResourceProvider(v string) {
-	o.ResourceProvider = &v
+	o.ResourceProvider.Set(&v)
 }
 
-// GetService returns the Service field value if set, zero value otherwise.
+// SetResourceProviderNil sets the value for ResourceProvider to be an explicit nil
+func (o *ObjectChangeEventModel) SetResourceProviderNil() {
+	o.ResourceProvider.Set(nil)
+}
+
+// UnsetResourceProvider ensures that no value is present for ResourceProvider, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetResourceProvider() {
+	o.ResourceProvider.Unset()
+}
+
+// GetService returns the Service field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetService() string {
-	if o == nil || IsNil(o.Service) {
+	if o == nil || IsNil(o.Service.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Service
+	return *o.Service.Get()
 }
 
 // GetServiceOk returns a tuple with the Service field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetServiceOk() (*string, bool) {
-	if o == nil || IsNil(o.Service) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Service, true
+	return o.Service.Get(), o.Service.IsSet()
 }
 
-// SetService gets a reference to the given string and assigns it to the Service field.
+// SetService gets a reference to the given NullableString and assigns it to the Service field.
 func (o *ObjectChangeEventModel) SetService(v string) {
-	o.Service = &v
+	o.Service.Set(&v)
 }
 
-// GetBeforeChange returns the BeforeChange field value if set, zero value otherwise.
+// SetServiceNil sets the value for Service to be an explicit nil
+func (o *ObjectChangeEventModel) SetServiceNil() {
+	o.Service.Set(nil)
+}
+
+// UnsetService ensures that no value is present for Service, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetService() {
+	o.Service.Unset()
+}
+
+// GetBeforeChange returns the BeforeChange field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetBeforeChange() string {
-	if o == nil || IsNil(o.BeforeChange) {
+	if o == nil || IsNil(o.BeforeChange.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BeforeChange
+	return *o.BeforeChange.Get()
 }
 
 // GetBeforeChangeOk returns a tuple with the BeforeChange field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetBeforeChangeOk() (*string, bool) {
-	if o == nil || IsNil(o.BeforeChange) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BeforeChange, true
+	return o.BeforeChange.Get(), o.BeforeChange.IsSet()
 }
 
-// SetBeforeChange gets a reference to the given string and assigns it to the BeforeChange field.
+// SetBeforeChange gets a reference to the given NullableString and assigns it to the BeforeChange field.
 func (o *ObjectChangeEventModel) SetBeforeChange(v string) {
-	o.BeforeChange = &v
+	o.BeforeChange.Set(&v)
 }
 
-// GetAfterChange returns the AfterChange field value if set, zero value otherwise.
+// SetBeforeChangeNil sets the value for BeforeChange to be an explicit nil
+func (o *ObjectChangeEventModel) SetBeforeChangeNil() {
+	o.BeforeChange.Set(nil)
+}
+
+// UnsetBeforeChange ensures that no value is present for BeforeChange, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetBeforeChange() {
+	o.BeforeChange.Unset()
+}
+
+// GetAfterChange returns the AfterChange field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetAfterChange() string {
-	if o == nil || IsNil(o.AfterChange) {
+	if o == nil || IsNil(o.AfterChange.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AfterChange
+	return *o.AfterChange.Get()
 }
 
 // GetAfterChangeOk returns a tuple with the AfterChange field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetAfterChangeOk() (*string, bool) {
-	if o == nil || IsNil(o.AfterChange) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AfterChange, true
+	return o.AfterChange.Get(), o.AfterChange.IsSet()
 }
 
-// SetAfterChange gets a reference to the given string and assigns it to the AfterChange field.
+// SetAfterChange gets a reference to the given NullableString and assigns it to the AfterChange field.
 func (o *ObjectChangeEventModel) SetAfterChange(v string) {
-	o.AfterChange = &v
+	o.AfterChange.Set(&v)
 }
 
-// GetTimeStamp returns the TimeStamp field value if set, zero value otherwise.
+// SetAfterChangeNil sets the value for AfterChange to be an explicit nil
+func (o *ObjectChangeEventModel) SetAfterChangeNil() {
+	o.AfterChange.Set(nil)
+}
+
+// UnsetAfterChange ensures that no value is present for AfterChange, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetAfterChange() {
+	o.AfterChange.Unset()
+}
+
+// GetTimeStamp returns the TimeStamp field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetTimeStamp() time.Time {
-	if o == nil || IsNil(o.TimeStamp) {
+	if o == nil || IsNil(o.TimeStamp.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.TimeStamp
+	return *o.TimeStamp.Get()
 }
 
 // GetTimeStampOk returns a tuple with the TimeStamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetTimeStampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.TimeStamp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TimeStamp, true
+	return o.TimeStamp.Get(), o.TimeStamp.IsSet()
 }
 
-// SetTimeStamp gets a reference to the given time.Time and assigns it to the TimeStamp field.
+// SetTimeStamp gets a reference to the given NullableTime and assigns it to the TimeStamp field.
 func (o *ObjectChangeEventModel) SetTimeStamp(v time.Time) {
-	o.TimeStamp = &v
+	o.TimeStamp.Set(&v)
 }
 
-// GetCallerServiceIdentity returns the CallerServiceIdentity field value if set, zero value otherwise.
+// SetTimeStampNil sets the value for TimeStamp to be an explicit nil
+func (o *ObjectChangeEventModel) SetTimeStampNil() {
+	o.TimeStamp.Set(nil)
+}
+
+// UnsetTimeStamp ensures that no value is present for TimeStamp, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetTimeStamp() {
+	o.TimeStamp.Unset()
+}
+
+// GetCallerServiceIdentity returns the CallerServiceIdentity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetCallerServiceIdentity() string {
-	if o == nil || IsNil(o.CallerServiceIdentity) {
+	if o == nil || IsNil(o.CallerServiceIdentity.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CallerServiceIdentity
+	return *o.CallerServiceIdentity.Get()
 }
 
 // GetCallerServiceIdentityOk returns a tuple with the CallerServiceIdentity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetCallerServiceIdentityOk() (*string, bool) {
-	if o == nil || IsNil(o.CallerServiceIdentity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CallerServiceIdentity, true
+	return o.CallerServiceIdentity.Get(), o.CallerServiceIdentity.IsSet()
 }
 
-// SetCallerServiceIdentity gets a reference to the given string and assigns it to the CallerServiceIdentity field.
+// SetCallerServiceIdentity gets a reference to the given NullableString and assigns it to the CallerServiceIdentity field.
 func (o *ObjectChangeEventModel) SetCallerServiceIdentity(v string) {
-	o.CallerServiceIdentity = &v
+	o.CallerServiceIdentity.Set(&v)
 }
 
-// GetCallerPrincipal returns the CallerPrincipal field value if set, zero value otherwise.
+// SetCallerServiceIdentityNil sets the value for CallerServiceIdentity to be an explicit nil
+func (o *ObjectChangeEventModel) SetCallerServiceIdentityNil() {
+	o.CallerServiceIdentity.Set(nil)
+}
+
+// UnsetCallerServiceIdentity ensures that no value is present for CallerServiceIdentity, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetCallerServiceIdentity() {
+	o.CallerServiceIdentity.Unset()
+}
+
+// GetCallerPrincipal returns the CallerPrincipal field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetCallerPrincipal() string {
-	if o == nil || IsNil(o.CallerPrincipal) {
+	if o == nil || IsNil(o.CallerPrincipal.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CallerPrincipal
+	return *o.CallerPrincipal.Get()
 }
 
 // GetCallerPrincipalOk returns a tuple with the CallerPrincipal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetCallerPrincipalOk() (*string, bool) {
-	if o == nil || IsNil(o.CallerPrincipal) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CallerPrincipal, true
+	return o.CallerPrincipal.Get(), o.CallerPrincipal.IsSet()
 }
 
-// SetCallerPrincipal gets a reference to the given string and assigns it to the CallerPrincipal field.
+// SetCallerPrincipal gets a reference to the given NullableString and assigns it to the CallerPrincipal field.
 func (o *ObjectChangeEventModel) SetCallerPrincipal(v string) {
-	o.CallerPrincipal = &v
+	o.CallerPrincipal.Set(&v)
 }
 
-// GetCallerServiceInstanceId returns the CallerServiceInstanceId field value if set, zero value otherwise.
+// SetCallerPrincipalNil sets the value for CallerPrincipal to be an explicit nil
+func (o *ObjectChangeEventModel) SetCallerPrincipalNil() {
+	o.CallerPrincipal.Set(nil)
+}
+
+// UnsetCallerPrincipal ensures that no value is present for CallerPrincipal, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetCallerPrincipal() {
+	o.CallerPrincipal.Unset()
+}
+
+// GetCallerServiceInstanceId returns the CallerServiceInstanceId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetCallerServiceInstanceId() string {
-	if o == nil || IsNil(o.CallerServiceInstanceId) {
+	if o == nil || IsNil(o.CallerServiceInstanceId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CallerServiceInstanceId
+	return *o.CallerServiceInstanceId.Get()
 }
 
 // GetCallerServiceInstanceIdOk returns a tuple with the CallerServiceInstanceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetCallerServiceInstanceIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CallerServiceInstanceId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CallerServiceInstanceId, true
+	return o.CallerServiceInstanceId.Get(), o.CallerServiceInstanceId.IsSet()
 }
 
-// SetCallerServiceInstanceId gets a reference to the given string and assigns it to the CallerServiceInstanceId field.
+// SetCallerServiceInstanceId gets a reference to the given NullableString and assigns it to the CallerServiceInstanceId field.
 func (o *ObjectChangeEventModel) SetCallerServiceInstanceId(v string) {
-	o.CallerServiceInstanceId = &v
+	o.CallerServiceInstanceId.Set(&v)
 }
 
-// GetSystemLogCorrelationId returns the SystemLogCorrelationId field value if set, zero value otherwise.
+// SetCallerServiceInstanceIdNil sets the value for CallerServiceInstanceId to be an explicit nil
+func (o *ObjectChangeEventModel) SetCallerServiceInstanceIdNil() {
+	o.CallerServiceInstanceId.Set(nil)
+}
+
+// UnsetCallerServiceInstanceId ensures that no value is present for CallerServiceInstanceId, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetCallerServiceInstanceId() {
+	o.CallerServiceInstanceId.Unset()
+}
+
+// GetSystemLogCorrelationId returns the SystemLogCorrelationId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetSystemLogCorrelationId() string {
-	if o == nil || IsNil(o.SystemLogCorrelationId) {
+	if o == nil || IsNil(o.SystemLogCorrelationId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SystemLogCorrelationId
+	return *o.SystemLogCorrelationId.Get()
 }
 
 // GetSystemLogCorrelationIdOk returns a tuple with the SystemLogCorrelationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetSystemLogCorrelationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SystemLogCorrelationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SystemLogCorrelationId, true
+	return o.SystemLogCorrelationId.Get(), o.SystemLogCorrelationId.IsSet()
 }
 
-// SetSystemLogCorrelationId gets a reference to the given string and assigns it to the SystemLogCorrelationId field.
+// SetSystemLogCorrelationId gets a reference to the given NullableString and assigns it to the SystemLogCorrelationId field.
 func (o *ObjectChangeEventModel) SetSystemLogCorrelationId(v string) {
-	o.SystemLogCorrelationId = &v
+	o.SystemLogCorrelationId.Set(&v)
 }
 
-// GetOid returns the Oid field value if set, zero value otherwise.
+// SetSystemLogCorrelationIdNil sets the value for SystemLogCorrelationId to be an explicit nil
+func (o *ObjectChangeEventModel) SetSystemLogCorrelationIdNil() {
+	o.SystemLogCorrelationId.Set(nil)
+}
+
+// UnsetSystemLogCorrelationId ensures that no value is present for SystemLogCorrelationId, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetSystemLogCorrelationId() {
+	o.SystemLogCorrelationId.Unset()
+}
+
+// GetOid returns the Oid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetOid() string {
-	if o == nil || IsNil(o.Oid) {
+	if o == nil || IsNil(o.Oid.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Oid
+	return *o.Oid.Get()
 }
 
 // GetOidOk returns a tuple with the Oid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetOidOk() (*string, bool) {
-	if o == nil || IsNil(o.Oid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Oid, true
+	return o.Oid.Get(), o.Oid.IsSet()
 }
 
-// SetOid gets a reference to the given string and assigns it to the Oid field.
+// SetOid gets a reference to the given NullableString and assigns it to the Oid field.
 func (o *ObjectChangeEventModel) SetOid(v string) {
-	o.Oid = &v
+	o.Oid.Set(&v)
 }
 
-// GetEmail returns the Email field value if set, zero value otherwise.
+// SetOidNil sets the value for Oid to be an explicit nil
+func (o *ObjectChangeEventModel) SetOidNil() {
+	o.Oid.Set(nil)
+}
+
+// UnsetOid ensures that no value is present for Oid, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetOid() {
+	o.Oid.Unset()
+}
+
+// GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetEmail() string {
-	if o == nil || IsNil(o.Email) {
+	if o == nil || IsNil(o.Email.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Email
+	return *o.Email.Get()
 }
 
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetEmailOk() (*string, bool) {
-	if o == nil || IsNil(o.Email) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Email, true
+	return o.Email.Get(), o.Email.IsSet()
 }
 
-// SetEmail gets a reference to the given string and assigns it to the Email field.
+// SetEmail gets a reference to the given NullableString and assigns it to the Email field.
 func (o *ObjectChangeEventModel) SetEmail(v string) {
-	o.Email = &v
+	o.Email.Set(&v)
 }
 
-// GetDisplayName returns the DisplayName field value if set, zero value otherwise.
+// SetEmailNil sets the value for Email to be an explicit nil
+func (o *ObjectChangeEventModel) SetEmailNil() {
+	o.Email.Set(nil)
+}
+
+// UnsetEmail ensures that no value is present for Email, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetEmail() {
+	o.Email.Unset()
+}
+
+// GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetDisplayName() string {
-	if o == nil || IsNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayName
+	return *o.DisplayName.Get()
 }
 
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetDisplayNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DisplayName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DisplayName, true
+	return o.DisplayName.Get(), o.DisplayName.IsSet()
 }
 
-// SetDisplayName gets a reference to the given string and assigns it to the DisplayName field.
+// SetDisplayName gets a reference to the given NullableString and assigns it to the DisplayName field.
 func (o *ObjectChangeEventModel) SetDisplayName(v string) {
-	o.DisplayName = &v
+	o.DisplayName.Set(&v)
 }
 
-// GetSid returns the Sid field value if set, zero value otherwise.
+// SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+func (o *ObjectChangeEventModel) SetDisplayNameNil() {
+	o.DisplayName.Set(nil)
+}
+
+// UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetDisplayName() {
+	o.DisplayName.Unset()
+}
+
+// GetSid returns the Sid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetSid() string {
-	if o == nil || IsNil(o.Sid) {
+	if o == nil || IsNil(o.Sid.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Sid
+	return *o.Sid.Get()
 }
 
 // GetSidOk returns a tuple with the Sid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetSidOk() (*string, bool) {
-	if o == nil || IsNil(o.Sid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Sid, true
+	return o.Sid.Get(), o.Sid.IsSet()
 }
 
-// SetSid gets a reference to the given string and assigns it to the Sid field.
+// SetSid gets a reference to the given NullableString and assigns it to the Sid field.
 func (o *ObjectChangeEventModel) SetSid(v string) {
-	o.Sid = &v
+	o.Sid.Set(&v)
 }
 
-// GetUpn returns the Upn field value if set, zero value otherwise.
+// SetSidNil sets the value for Sid to be an explicit nil
+func (o *ObjectChangeEventModel) SetSidNil() {
+	o.Sid.Set(nil)
+}
+
+// UnsetSid ensures that no value is present for Sid, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetSid() {
+	o.Sid.Unset()
+}
+
+// GetUpn returns the Upn field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectChangeEventModel) GetUpn() string {
-	if o == nil || IsNil(o.Upn) {
+	if o == nil || IsNil(o.Upn.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Upn
+	return *o.Upn.Get()
 }
 
 // GetUpnOk returns a tuple with the Upn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectChangeEventModel) GetUpnOk() (*string, bool) {
-	if o == nil || IsNil(o.Upn) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Upn, true
+	return o.Upn.Get(), o.Upn.IsSet()
 }
 
-// SetUpn gets a reference to the given string and assigns it to the Upn field.
+// SetUpn gets a reference to the given NullableString and assigns it to the Upn field.
 func (o *ObjectChangeEventModel) SetUpn(v string) {
-	o.Upn = &v
+	o.Upn.Set(&v)
+}
+
+// SetUpnNil sets the value for Upn to be an explicit nil
+func (o *ObjectChangeEventModel) SetUpnNil() {
+	o.Upn.Set(nil)
+}
+
+// UnsetUpn ensures that no value is present for Upn, not even an explicit nil
+func (o *ObjectChangeEventModel) UnsetUpn() {
+	o.Upn.Unset()
 }
 
 func (o ObjectChangeEventModel) MarshalJSON() ([]byte, error) {
@@ -616,77 +869,77 @@ func (o ObjectChangeEventModel) MarshalJSON() ([]byte, error) {
 
 func (o ObjectChangeEventModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CustomerId) {
-		toSerialize["customerId"] = o.CustomerId
+	if o.CustomerId.IsSet() {
+		toSerialize["customerId"] = o.CustomerId.Get()
 	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
 	if !IsNil(o.ChangeType) {
 		toSerialize["changeType"] = o.ChangeType
 	}
-	if !IsNil(o.Identifier) {
-		toSerialize["identifier"] = o.Identifier
+	if o.Identifier.IsSet() {
+		toSerialize["identifier"] = o.Identifier.Get()
 	}
-	if !IsNil(o.ServiceProfile) {
-		toSerialize["serviceProfile"] = o.ServiceProfile
+	if o.ServiceProfile.IsSet() {
+		toSerialize["serviceProfile"] = o.ServiceProfile.Get()
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
-	if !IsNil(o.Identity) {
-		toSerialize["identity"] = o.Identity
+	if o.Identity.IsSet() {
+		toSerialize["identity"] = o.Identity.Get()
 	}
-	if !IsNil(o.UserId) {
-		toSerialize["userId"] = o.UserId
+	if o.UserId.IsSet() {
+		toSerialize["userId"] = o.UserId.Get()
 	}
-	if !IsNil(o.CustomerGeo) {
-		toSerialize["customerGeo"] = o.CustomerGeo
+	if o.CustomerGeo.IsSet() {
+		toSerialize["customerGeo"] = o.CustomerGeo.Get()
 	}
-	if !IsNil(o.Geo) {
-		toSerialize["geo"] = o.Geo
+	if o.Geo.IsSet() {
+		toSerialize["geo"] = o.Geo.Get()
 	}
-	if !IsNil(o.ResourceProvider) {
-		toSerialize["resourceProvider"] = o.ResourceProvider
+	if o.ResourceProvider.IsSet() {
+		toSerialize["resourceProvider"] = o.ResourceProvider.Get()
 	}
-	if !IsNil(o.Service) {
-		toSerialize["service"] = o.Service
+	if o.Service.IsSet() {
+		toSerialize["service"] = o.Service.Get()
 	}
-	if !IsNil(o.BeforeChange) {
-		toSerialize["beforeChange"] = o.BeforeChange
+	if o.BeforeChange.IsSet() {
+		toSerialize["beforeChange"] = o.BeforeChange.Get()
 	}
-	if !IsNil(o.AfterChange) {
-		toSerialize["afterChange"] = o.AfterChange
+	if o.AfterChange.IsSet() {
+		toSerialize["afterChange"] = o.AfterChange.Get()
 	}
-	if !IsNil(o.TimeStamp) {
-		toSerialize["timeStamp"] = o.TimeStamp
+	if o.TimeStamp.IsSet() {
+		toSerialize["timeStamp"] = o.TimeStamp.Get()
 	}
-	if !IsNil(o.CallerServiceIdentity) {
-		toSerialize["callerServiceIdentity"] = o.CallerServiceIdentity
+	if o.CallerServiceIdentity.IsSet() {
+		toSerialize["callerServiceIdentity"] = o.CallerServiceIdentity.Get()
 	}
-	if !IsNil(o.CallerPrincipal) {
-		toSerialize["callerPrincipal"] = o.CallerPrincipal
+	if o.CallerPrincipal.IsSet() {
+		toSerialize["callerPrincipal"] = o.CallerPrincipal.Get()
 	}
-	if !IsNil(o.CallerServiceInstanceId) {
-		toSerialize["callerServiceInstanceId"] = o.CallerServiceInstanceId
+	if o.CallerServiceInstanceId.IsSet() {
+		toSerialize["callerServiceInstanceId"] = o.CallerServiceInstanceId.Get()
 	}
-	if !IsNil(o.SystemLogCorrelationId) {
-		toSerialize["systemLogCorrelationId"] = o.SystemLogCorrelationId
+	if o.SystemLogCorrelationId.IsSet() {
+		toSerialize["systemLogCorrelationId"] = o.SystemLogCorrelationId.Get()
 	}
-	if !IsNil(o.Oid) {
-		toSerialize["oid"] = o.Oid
+	if o.Oid.IsSet() {
+		toSerialize["oid"] = o.Oid.Get()
 	}
-	if !IsNil(o.Email) {
-		toSerialize["email"] = o.Email
+	if o.Email.IsSet() {
+		toSerialize["email"] = o.Email.Get()
 	}
-	if !IsNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
+	if o.DisplayName.IsSet() {
+		toSerialize["displayName"] = o.DisplayName.Get()
 	}
-	if !IsNil(o.Sid) {
-		toSerialize["sid"] = o.Sid
+	if o.Sid.IsSet() {
+		toSerialize["sid"] = o.Sid.Get()
 	}
-	if !IsNil(o.Upn) {
-		toSerialize["upn"] = o.Upn
+	if o.Upn.IsSet() {
+		toSerialize["upn"] = o.Upn.Get()
 	}
 	return toSerialize, nil
 }

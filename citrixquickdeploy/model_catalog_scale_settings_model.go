@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -28,43 +28,45 @@ type CatalogScaleSettingsModel struct {
 	// Number of VMs the admin would like the catalog changed to
 	PendingMaxInstances *int32 `json:"pendingMaxInstances,omitempty"`
 	// Days of the week that are included in peak days
-	Weekdays *map[string]bool `json:"weekdays,omitempty"`
+	Weekdays map[string]bool `json:"weekdays,omitempty"`
 	// Days of the week that are included in peak days
-	WeekdaysString *string `json:"weekdaysString,omitempty"`
+	WeekdaysString NullableString `json:"weekdaysString,omitempty"`
 	// Hour of day when peak usage begins
 	PeakStartTime *int32 `json:"peakStartTime,omitempty"`
 	// Hour of day when peak usage ends
 	PeakEndTime *int32 `json:"peakEndTime,omitempty"`
 	// Display of the peak usage timezone
-	PeakTimeZone *string `json:"peakTimeZone,omitempty"`
+	PeakTimeZone NullableString `json:"peakTimeZone,omitempty"`
 	// ID of the peak usage Timezone
-	PeakTimeZoneId *string `json:"peakTimeZoneId,omitempty"`
+	PeakTimeZoneId NullableString `json:"peakTimeZoneId,omitempty"`
 	// Min number of insances that should be running durring peak hours
 	PeakMinInstances *int32 `json:"peakMinInstances,omitempty"`
 	// Percentage of buffer capacity during peak hours
-	BufferCapacity *int32 `json:"bufferCapacity,omitempty"`
+	BufferCapacity NullableInt32 `json:"bufferCapacity,omitempty"`
 	// Percentage of buffer capacity during off-peak hours
-	OffPeakBufferCapacity *int32 `json:"offPeakBufferCapacity,omitempty"`
+	OffPeakBufferCapacity NullableInt32 `json:"offPeakBufferCapacity,omitempty"`
 	// The service account to use for modifying max instances
-	ServiceAccount *string `json:"serviceAccount,omitempty"`
+	ServiceAccount NullableString `json:"serviceAccount,omitempty"`
 	// Password of the service account used to modify max instances
-	ServiceAccountPassword *string `json:"serviceAccountPassword,omitempty"`
+	ServiceAccountPassword NullableString `json:"serviceAccountPassword,omitempty"`
 	// Indicates if the smart scale settings are enabled or disabled
 	IsSmartScaleDisabled *bool `json:"isSmartScaleDisabled,omitempty"`
 	// During Peak Hours, the time before an action is taken on disconnected session
 	PeakDisconnectedSessionTimeout *int32 `json:"peakDisconnectedSessionTimeout,omitempty"`
 	// During peak hours, the action to be taken on disconnected session
-	PeakDisconnectedSessionAction *SessionChangeHostingAction `json:"peakDisconnectedSessionAction,omitempty"`
+	PeakDisconnectedSessionAction NullableSessionChangeHostingAction `json:"peakDisconnectedSessionAction,omitempty"`
 	// During Off Peak Hours, the time before an action is taken on disconnected session
 	OffPeakDisconnectedSessionTimeout *int32 `json:"offPeakDisconnectedSessionTimeout,omitempty"`
 	// During off peak hours, the action to be taken on disconnected session
-	OffPeakDisconnectedSessionAction *SessionChangeHostingAction `json:"offPeakDisconnectedSessionAction,omitempty"`
+	OffPeakDisconnectedSessionAction NullableSessionChangeHostingAction `json:"offPeakDisconnectedSessionAction,omitempty"`
 	// The number of minutes before the second action (Shutdown) should be performed after a user session disconnects during peak hours. Used when peak disconnection action is Suspend
-	PeakExtendedDisconnectTimeoutMinutes *int32 `json:"peakExtendedDisconnectTimeoutMinutes,omitempty"`
+	PeakExtendedDisconnectTimeoutMinutes NullableInt32 `json:"peakExtendedDisconnectTimeoutMinutes,omitempty"`
 	// The number of minutes before the second action (Shutdown) should be performed after a user session disconnects outside peak hours. Used when off peak disconnect action is Suspend
-	OffPeakExtendedDisconnectTimeoutMinutes *int32 `json:"offPeakExtendedDisconnectTimeoutMinutes,omitempty"`
+	OffPeakExtendedDisconnectTimeoutMinutes NullableInt32 `json:"offPeakExtendedDisconnectTimeoutMinutes,omitempty"`
 	// Amount of time to delay powering off machines with no active sessions
 	PowerOffDelay *int32 `json:"powerOffDelay,omitempty"`
+	// Number of users to add to a catalog. This field will determine the number of machines to be added to a catalog. PendingMaxInstances will be overridden if specified. For Citrix Managed catalogs only.
+	AdditionalUsers *int32 `json:"additionalUsers,omitempty"`
 }
 
 // NewCatalogScaleSettingsModelWithDefaults instantiates a new CatalogScaleSettingsModel object
@@ -167,50 +169,62 @@ func (o *CatalogScaleSettingsModel) SetPendingMaxInstances(v int32) {
 	o.PendingMaxInstances = &v
 }
 
-// GetWeekdays returns the Weekdays field value if set, zero value otherwise.
+// GetWeekdays returns the Weekdays field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScaleSettingsModel) GetWeekdays() map[string]bool {
-	if o == nil || IsNil(o.Weekdays) {
+	if o == nil {
 		var ret map[string]bool
 		return ret
 	}
-	return *o.Weekdays
+	return o.Weekdays
 }
 
 // GetWeekdaysOk returns a tuple with the Weekdays field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScaleSettingsModel) GetWeekdaysOk() (*map[string]bool, bool) {
 	if o == nil || IsNil(o.Weekdays) {
 		return nil, false
 	}
-	return o.Weekdays, true
+	return &o.Weekdays, true
 }
 
 // SetWeekdays gets a reference to the given map[string]bool and assigns it to the Weekdays field.
 func (o *CatalogScaleSettingsModel) SetWeekdays(v map[string]bool) {
-	o.Weekdays = &v
+	o.Weekdays = v
 }
 
-// GetWeekdaysString returns the WeekdaysString field value if set, zero value otherwise.
+// GetWeekdaysString returns the WeekdaysString field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScaleSettingsModel) GetWeekdaysString() string {
-	if o == nil || IsNil(o.WeekdaysString) {
+	if o == nil || IsNil(o.WeekdaysString.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.WeekdaysString
+	return *o.WeekdaysString.Get()
 }
 
 // GetWeekdaysStringOk returns a tuple with the WeekdaysString field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScaleSettingsModel) GetWeekdaysStringOk() (*string, bool) {
-	if o == nil || IsNil(o.WeekdaysString) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WeekdaysString, true
+	return o.WeekdaysString.Get(), o.WeekdaysString.IsSet()
 }
 
-// SetWeekdaysString gets a reference to the given string and assigns it to the WeekdaysString field.
+// SetWeekdaysString gets a reference to the given NullableString and assigns it to the WeekdaysString field.
 func (o *CatalogScaleSettingsModel) SetWeekdaysString(v string) {
-	o.WeekdaysString = &v
+	o.WeekdaysString.Set(&v)
+}
+
+// SetWeekdaysStringNil sets the value for WeekdaysString to be an explicit nil
+func (o *CatalogScaleSettingsModel) SetWeekdaysStringNil() {
+	o.WeekdaysString.Set(nil)
+}
+
+// UnsetWeekdaysString ensures that no value is present for WeekdaysString, not even an explicit nil
+func (o *CatalogScaleSettingsModel) UnsetWeekdaysString() {
+	o.WeekdaysString.Unset()
 }
 
 // GetPeakStartTime returns the PeakStartTime field value if set, zero value otherwise.
@@ -259,50 +273,72 @@ func (o *CatalogScaleSettingsModel) SetPeakEndTime(v int32) {
 	o.PeakEndTime = &v
 }
 
-// GetPeakTimeZone returns the PeakTimeZone field value if set, zero value otherwise.
+// GetPeakTimeZone returns the PeakTimeZone field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScaleSettingsModel) GetPeakTimeZone() string {
-	if o == nil || IsNil(o.PeakTimeZone) {
+	if o == nil || IsNil(o.PeakTimeZone.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PeakTimeZone
+	return *o.PeakTimeZone.Get()
 }
 
 // GetPeakTimeZoneOk returns a tuple with the PeakTimeZone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScaleSettingsModel) GetPeakTimeZoneOk() (*string, bool) {
-	if o == nil || IsNil(o.PeakTimeZone) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PeakTimeZone, true
+	return o.PeakTimeZone.Get(), o.PeakTimeZone.IsSet()
 }
 
-// SetPeakTimeZone gets a reference to the given string and assigns it to the PeakTimeZone field.
+// SetPeakTimeZone gets a reference to the given NullableString and assigns it to the PeakTimeZone field.
 func (o *CatalogScaleSettingsModel) SetPeakTimeZone(v string) {
-	o.PeakTimeZone = &v
+	o.PeakTimeZone.Set(&v)
 }
 
-// GetPeakTimeZoneId returns the PeakTimeZoneId field value if set, zero value otherwise.
+// SetPeakTimeZoneNil sets the value for PeakTimeZone to be an explicit nil
+func (o *CatalogScaleSettingsModel) SetPeakTimeZoneNil() {
+	o.PeakTimeZone.Set(nil)
+}
+
+// UnsetPeakTimeZone ensures that no value is present for PeakTimeZone, not even an explicit nil
+func (o *CatalogScaleSettingsModel) UnsetPeakTimeZone() {
+	o.PeakTimeZone.Unset()
+}
+
+// GetPeakTimeZoneId returns the PeakTimeZoneId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScaleSettingsModel) GetPeakTimeZoneId() string {
-	if o == nil || IsNil(o.PeakTimeZoneId) {
+	if o == nil || IsNil(o.PeakTimeZoneId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PeakTimeZoneId
+	return *o.PeakTimeZoneId.Get()
 }
 
 // GetPeakTimeZoneIdOk returns a tuple with the PeakTimeZoneId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScaleSettingsModel) GetPeakTimeZoneIdOk() (*string, bool) {
-	if o == nil || IsNil(o.PeakTimeZoneId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PeakTimeZoneId, true
+	return o.PeakTimeZoneId.Get(), o.PeakTimeZoneId.IsSet()
 }
 
-// SetPeakTimeZoneId gets a reference to the given string and assigns it to the PeakTimeZoneId field.
+// SetPeakTimeZoneId gets a reference to the given NullableString and assigns it to the PeakTimeZoneId field.
 func (o *CatalogScaleSettingsModel) SetPeakTimeZoneId(v string) {
-	o.PeakTimeZoneId = &v
+	o.PeakTimeZoneId.Set(&v)
+}
+
+// SetPeakTimeZoneIdNil sets the value for PeakTimeZoneId to be an explicit nil
+func (o *CatalogScaleSettingsModel) SetPeakTimeZoneIdNil() {
+	o.PeakTimeZoneId.Set(nil)
+}
+
+// UnsetPeakTimeZoneId ensures that no value is present for PeakTimeZoneId, not even an explicit nil
+func (o *CatalogScaleSettingsModel) UnsetPeakTimeZoneId() {
+	o.PeakTimeZoneId.Unset()
 }
 
 // GetPeakMinInstances returns the PeakMinInstances field value if set, zero value otherwise.
@@ -328,96 +364,140 @@ func (o *CatalogScaleSettingsModel) SetPeakMinInstances(v int32) {
 	o.PeakMinInstances = &v
 }
 
-// GetBufferCapacity returns the BufferCapacity field value if set, zero value otherwise.
+// GetBufferCapacity returns the BufferCapacity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScaleSettingsModel) GetBufferCapacity() int32 {
-	if o == nil || IsNil(o.BufferCapacity) {
+	if o == nil || IsNil(o.BufferCapacity.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.BufferCapacity
+	return *o.BufferCapacity.Get()
 }
 
 // GetBufferCapacityOk returns a tuple with the BufferCapacity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScaleSettingsModel) GetBufferCapacityOk() (*int32, bool) {
-	if o == nil || IsNil(o.BufferCapacity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BufferCapacity, true
+	return o.BufferCapacity.Get(), o.BufferCapacity.IsSet()
 }
 
-// SetBufferCapacity gets a reference to the given int32 and assigns it to the BufferCapacity field.
+// SetBufferCapacity gets a reference to the given NullableInt32 and assigns it to the BufferCapacity field.
 func (o *CatalogScaleSettingsModel) SetBufferCapacity(v int32) {
-	o.BufferCapacity = &v
+	o.BufferCapacity.Set(&v)
 }
 
-// GetOffPeakBufferCapacity returns the OffPeakBufferCapacity field value if set, zero value otherwise.
+// SetBufferCapacityNil sets the value for BufferCapacity to be an explicit nil
+func (o *CatalogScaleSettingsModel) SetBufferCapacityNil() {
+	o.BufferCapacity.Set(nil)
+}
+
+// UnsetBufferCapacity ensures that no value is present for BufferCapacity, not even an explicit nil
+func (o *CatalogScaleSettingsModel) UnsetBufferCapacity() {
+	o.BufferCapacity.Unset()
+}
+
+// GetOffPeakBufferCapacity returns the OffPeakBufferCapacity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScaleSettingsModel) GetOffPeakBufferCapacity() int32 {
-	if o == nil || IsNil(o.OffPeakBufferCapacity) {
+	if o == nil || IsNil(o.OffPeakBufferCapacity.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.OffPeakBufferCapacity
+	return *o.OffPeakBufferCapacity.Get()
 }
 
 // GetOffPeakBufferCapacityOk returns a tuple with the OffPeakBufferCapacity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScaleSettingsModel) GetOffPeakBufferCapacityOk() (*int32, bool) {
-	if o == nil || IsNil(o.OffPeakBufferCapacity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OffPeakBufferCapacity, true
+	return o.OffPeakBufferCapacity.Get(), o.OffPeakBufferCapacity.IsSet()
 }
 
-// SetOffPeakBufferCapacity gets a reference to the given int32 and assigns it to the OffPeakBufferCapacity field.
+// SetOffPeakBufferCapacity gets a reference to the given NullableInt32 and assigns it to the OffPeakBufferCapacity field.
 func (o *CatalogScaleSettingsModel) SetOffPeakBufferCapacity(v int32) {
-	o.OffPeakBufferCapacity = &v
+	o.OffPeakBufferCapacity.Set(&v)
 }
 
-// GetServiceAccount returns the ServiceAccount field value if set, zero value otherwise.
+// SetOffPeakBufferCapacityNil sets the value for OffPeakBufferCapacity to be an explicit nil
+func (o *CatalogScaleSettingsModel) SetOffPeakBufferCapacityNil() {
+	o.OffPeakBufferCapacity.Set(nil)
+}
+
+// UnsetOffPeakBufferCapacity ensures that no value is present for OffPeakBufferCapacity, not even an explicit nil
+func (o *CatalogScaleSettingsModel) UnsetOffPeakBufferCapacity() {
+	o.OffPeakBufferCapacity.Unset()
+}
+
+// GetServiceAccount returns the ServiceAccount field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScaleSettingsModel) GetServiceAccount() string {
-	if o == nil || IsNil(o.ServiceAccount) {
+	if o == nil || IsNil(o.ServiceAccount.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ServiceAccount
+	return *o.ServiceAccount.Get()
 }
 
 // GetServiceAccountOk returns a tuple with the ServiceAccount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScaleSettingsModel) GetServiceAccountOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceAccount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceAccount, true
+	return o.ServiceAccount.Get(), o.ServiceAccount.IsSet()
 }
 
-// SetServiceAccount gets a reference to the given string and assigns it to the ServiceAccount field.
+// SetServiceAccount gets a reference to the given NullableString and assigns it to the ServiceAccount field.
 func (o *CatalogScaleSettingsModel) SetServiceAccount(v string) {
-	o.ServiceAccount = &v
+	o.ServiceAccount.Set(&v)
 }
 
-// GetServiceAccountPassword returns the ServiceAccountPassword field value if set, zero value otherwise.
+// SetServiceAccountNil sets the value for ServiceAccount to be an explicit nil
+func (o *CatalogScaleSettingsModel) SetServiceAccountNil() {
+	o.ServiceAccount.Set(nil)
+}
+
+// UnsetServiceAccount ensures that no value is present for ServiceAccount, not even an explicit nil
+func (o *CatalogScaleSettingsModel) UnsetServiceAccount() {
+	o.ServiceAccount.Unset()
+}
+
+// GetServiceAccountPassword returns the ServiceAccountPassword field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScaleSettingsModel) GetServiceAccountPassword() string {
-	if o == nil || IsNil(o.ServiceAccountPassword) {
+	if o == nil || IsNil(o.ServiceAccountPassword.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ServiceAccountPassword
+	return *o.ServiceAccountPassword.Get()
 }
 
 // GetServiceAccountPasswordOk returns a tuple with the ServiceAccountPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScaleSettingsModel) GetServiceAccountPasswordOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceAccountPassword) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceAccountPassword, true
+	return o.ServiceAccountPassword.Get(), o.ServiceAccountPassword.IsSet()
 }
 
-// SetServiceAccountPassword gets a reference to the given string and assigns it to the ServiceAccountPassword field.
+// SetServiceAccountPassword gets a reference to the given NullableString and assigns it to the ServiceAccountPassword field.
 func (o *CatalogScaleSettingsModel) SetServiceAccountPassword(v string) {
-	o.ServiceAccountPassword = &v
+	o.ServiceAccountPassword.Set(&v)
+}
+
+// SetServiceAccountPasswordNil sets the value for ServiceAccountPassword to be an explicit nil
+func (o *CatalogScaleSettingsModel) SetServiceAccountPasswordNil() {
+	o.ServiceAccountPassword.Set(nil)
+}
+
+// UnsetServiceAccountPassword ensures that no value is present for ServiceAccountPassword, not even an explicit nil
+func (o *CatalogScaleSettingsModel) UnsetServiceAccountPassword() {
+	o.ServiceAccountPassword.Unset()
 }
 
 // GetIsSmartScaleDisabled returns the IsSmartScaleDisabled field value if set, zero value otherwise.
@@ -466,27 +546,38 @@ func (o *CatalogScaleSettingsModel) SetPeakDisconnectedSessionTimeout(v int32) {
 	o.PeakDisconnectedSessionTimeout = &v
 }
 
-// GetPeakDisconnectedSessionAction returns the PeakDisconnectedSessionAction field value if set, zero value otherwise.
+// GetPeakDisconnectedSessionAction returns the PeakDisconnectedSessionAction field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScaleSettingsModel) GetPeakDisconnectedSessionAction() SessionChangeHostingAction {
-	if o == nil || IsNil(o.PeakDisconnectedSessionAction) {
+	if o == nil || IsNil(o.PeakDisconnectedSessionAction.Get()) {
 		var ret SessionChangeHostingAction
 		return ret
 	}
-	return *o.PeakDisconnectedSessionAction
+	return *o.PeakDisconnectedSessionAction.Get()
 }
 
 // GetPeakDisconnectedSessionActionOk returns a tuple with the PeakDisconnectedSessionAction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScaleSettingsModel) GetPeakDisconnectedSessionActionOk() (*SessionChangeHostingAction, bool) {
-	if o == nil || IsNil(o.PeakDisconnectedSessionAction) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PeakDisconnectedSessionAction, true
+	return o.PeakDisconnectedSessionAction.Get(), o.PeakDisconnectedSessionAction.IsSet()
 }
 
-// SetPeakDisconnectedSessionAction gets a reference to the given SessionChangeHostingAction and assigns it to the PeakDisconnectedSessionAction field.
+// SetPeakDisconnectedSessionAction gets a reference to the given NullableSessionChangeHostingAction and assigns it to the PeakDisconnectedSessionAction field.
 func (o *CatalogScaleSettingsModel) SetPeakDisconnectedSessionAction(v SessionChangeHostingAction) {
-	o.PeakDisconnectedSessionAction = &v
+	o.PeakDisconnectedSessionAction.Set(&v)
+}
+
+// SetPeakDisconnectedSessionActionNil sets the value for PeakDisconnectedSessionAction to be an explicit nil
+func (o *CatalogScaleSettingsModel) SetPeakDisconnectedSessionActionNil() {
+	o.PeakDisconnectedSessionAction.Set(nil)
+}
+
+// UnsetPeakDisconnectedSessionAction ensures that no value is present for PeakDisconnectedSessionAction, not even an explicit nil
+func (o *CatalogScaleSettingsModel) UnsetPeakDisconnectedSessionAction() {
+	o.PeakDisconnectedSessionAction.Unset()
 }
 
 // GetOffPeakDisconnectedSessionTimeout returns the OffPeakDisconnectedSessionTimeout field value if set, zero value otherwise.
@@ -512,73 +603,106 @@ func (o *CatalogScaleSettingsModel) SetOffPeakDisconnectedSessionTimeout(v int32
 	o.OffPeakDisconnectedSessionTimeout = &v
 }
 
-// GetOffPeakDisconnectedSessionAction returns the OffPeakDisconnectedSessionAction field value if set, zero value otherwise.
+// GetOffPeakDisconnectedSessionAction returns the OffPeakDisconnectedSessionAction field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScaleSettingsModel) GetOffPeakDisconnectedSessionAction() SessionChangeHostingAction {
-	if o == nil || IsNil(o.OffPeakDisconnectedSessionAction) {
+	if o == nil || IsNil(o.OffPeakDisconnectedSessionAction.Get()) {
 		var ret SessionChangeHostingAction
 		return ret
 	}
-	return *o.OffPeakDisconnectedSessionAction
+	return *o.OffPeakDisconnectedSessionAction.Get()
 }
 
 // GetOffPeakDisconnectedSessionActionOk returns a tuple with the OffPeakDisconnectedSessionAction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScaleSettingsModel) GetOffPeakDisconnectedSessionActionOk() (*SessionChangeHostingAction, bool) {
-	if o == nil || IsNil(o.OffPeakDisconnectedSessionAction) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OffPeakDisconnectedSessionAction, true
+	return o.OffPeakDisconnectedSessionAction.Get(), o.OffPeakDisconnectedSessionAction.IsSet()
 }
 
-// SetOffPeakDisconnectedSessionAction gets a reference to the given SessionChangeHostingAction and assigns it to the OffPeakDisconnectedSessionAction field.
+// SetOffPeakDisconnectedSessionAction gets a reference to the given NullableSessionChangeHostingAction and assigns it to the OffPeakDisconnectedSessionAction field.
 func (o *CatalogScaleSettingsModel) SetOffPeakDisconnectedSessionAction(v SessionChangeHostingAction) {
-	o.OffPeakDisconnectedSessionAction = &v
+	o.OffPeakDisconnectedSessionAction.Set(&v)
 }
 
-// GetPeakExtendedDisconnectTimeoutMinutes returns the PeakExtendedDisconnectTimeoutMinutes field value if set, zero value otherwise.
+// SetOffPeakDisconnectedSessionActionNil sets the value for OffPeakDisconnectedSessionAction to be an explicit nil
+func (o *CatalogScaleSettingsModel) SetOffPeakDisconnectedSessionActionNil() {
+	o.OffPeakDisconnectedSessionAction.Set(nil)
+}
+
+// UnsetOffPeakDisconnectedSessionAction ensures that no value is present for OffPeakDisconnectedSessionAction, not even an explicit nil
+func (o *CatalogScaleSettingsModel) UnsetOffPeakDisconnectedSessionAction() {
+	o.OffPeakDisconnectedSessionAction.Unset()
+}
+
+// GetPeakExtendedDisconnectTimeoutMinutes returns the PeakExtendedDisconnectTimeoutMinutes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScaleSettingsModel) GetPeakExtendedDisconnectTimeoutMinutes() int32 {
-	if o == nil || IsNil(o.PeakExtendedDisconnectTimeoutMinutes) {
+	if o == nil || IsNil(o.PeakExtendedDisconnectTimeoutMinutes.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.PeakExtendedDisconnectTimeoutMinutes
+	return *o.PeakExtendedDisconnectTimeoutMinutes.Get()
 }
 
 // GetPeakExtendedDisconnectTimeoutMinutesOk returns a tuple with the PeakExtendedDisconnectTimeoutMinutes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScaleSettingsModel) GetPeakExtendedDisconnectTimeoutMinutesOk() (*int32, bool) {
-	if o == nil || IsNil(o.PeakExtendedDisconnectTimeoutMinutes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PeakExtendedDisconnectTimeoutMinutes, true
+	return o.PeakExtendedDisconnectTimeoutMinutes.Get(), o.PeakExtendedDisconnectTimeoutMinutes.IsSet()
 }
 
-// SetPeakExtendedDisconnectTimeoutMinutes gets a reference to the given int32 and assigns it to the PeakExtendedDisconnectTimeoutMinutes field.
+// SetPeakExtendedDisconnectTimeoutMinutes gets a reference to the given NullableInt32 and assigns it to the PeakExtendedDisconnectTimeoutMinutes field.
 func (o *CatalogScaleSettingsModel) SetPeakExtendedDisconnectTimeoutMinutes(v int32) {
-	o.PeakExtendedDisconnectTimeoutMinutes = &v
+	o.PeakExtendedDisconnectTimeoutMinutes.Set(&v)
 }
 
-// GetOffPeakExtendedDisconnectTimeoutMinutes returns the OffPeakExtendedDisconnectTimeoutMinutes field value if set, zero value otherwise.
+// SetPeakExtendedDisconnectTimeoutMinutesNil sets the value for PeakExtendedDisconnectTimeoutMinutes to be an explicit nil
+func (o *CatalogScaleSettingsModel) SetPeakExtendedDisconnectTimeoutMinutesNil() {
+	o.PeakExtendedDisconnectTimeoutMinutes.Set(nil)
+}
+
+// UnsetPeakExtendedDisconnectTimeoutMinutes ensures that no value is present for PeakExtendedDisconnectTimeoutMinutes, not even an explicit nil
+func (o *CatalogScaleSettingsModel) UnsetPeakExtendedDisconnectTimeoutMinutes() {
+	o.PeakExtendedDisconnectTimeoutMinutes.Unset()
+}
+
+// GetOffPeakExtendedDisconnectTimeoutMinutes returns the OffPeakExtendedDisconnectTimeoutMinutes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScaleSettingsModel) GetOffPeakExtendedDisconnectTimeoutMinutes() int32 {
-	if o == nil || IsNil(o.OffPeakExtendedDisconnectTimeoutMinutes) {
+	if o == nil || IsNil(o.OffPeakExtendedDisconnectTimeoutMinutes.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.OffPeakExtendedDisconnectTimeoutMinutes
+	return *o.OffPeakExtendedDisconnectTimeoutMinutes.Get()
 }
 
 // GetOffPeakExtendedDisconnectTimeoutMinutesOk returns a tuple with the OffPeakExtendedDisconnectTimeoutMinutes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScaleSettingsModel) GetOffPeakExtendedDisconnectTimeoutMinutesOk() (*int32, bool) {
-	if o == nil || IsNil(o.OffPeakExtendedDisconnectTimeoutMinutes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OffPeakExtendedDisconnectTimeoutMinutes, true
+	return o.OffPeakExtendedDisconnectTimeoutMinutes.Get(), o.OffPeakExtendedDisconnectTimeoutMinutes.IsSet()
 }
 
-// SetOffPeakExtendedDisconnectTimeoutMinutes gets a reference to the given int32 and assigns it to the OffPeakExtendedDisconnectTimeoutMinutes field.
+// SetOffPeakExtendedDisconnectTimeoutMinutes gets a reference to the given NullableInt32 and assigns it to the OffPeakExtendedDisconnectTimeoutMinutes field.
 func (o *CatalogScaleSettingsModel) SetOffPeakExtendedDisconnectTimeoutMinutes(v int32) {
-	o.OffPeakExtendedDisconnectTimeoutMinutes = &v
+	o.OffPeakExtendedDisconnectTimeoutMinutes.Set(&v)
+}
+
+// SetOffPeakExtendedDisconnectTimeoutMinutesNil sets the value for OffPeakExtendedDisconnectTimeoutMinutes to be an explicit nil
+func (o *CatalogScaleSettingsModel) SetOffPeakExtendedDisconnectTimeoutMinutesNil() {
+	o.OffPeakExtendedDisconnectTimeoutMinutes.Set(nil)
+}
+
+// UnsetOffPeakExtendedDisconnectTimeoutMinutes ensures that no value is present for OffPeakExtendedDisconnectTimeoutMinutes, not even an explicit nil
+func (o *CatalogScaleSettingsModel) UnsetOffPeakExtendedDisconnectTimeoutMinutes() {
+	o.OffPeakExtendedDisconnectTimeoutMinutes.Unset()
 }
 
 // GetPowerOffDelay returns the PowerOffDelay field value if set, zero value otherwise.
@@ -604,6 +728,29 @@ func (o *CatalogScaleSettingsModel) SetPowerOffDelay(v int32) {
 	o.PowerOffDelay = &v
 }
 
+// GetAdditionalUsers returns the AdditionalUsers field value if set, zero value otherwise.
+func (o *CatalogScaleSettingsModel) GetAdditionalUsers() int32 {
+	if o == nil || IsNil(o.AdditionalUsers) {
+		var ret int32
+		return ret
+	}
+	return *o.AdditionalUsers
+}
+
+// GetAdditionalUsersOk returns a tuple with the AdditionalUsers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CatalogScaleSettingsModel) GetAdditionalUsersOk() (*int32, bool) {
+	if o == nil || IsNil(o.AdditionalUsers) {
+		return nil, false
+	}
+	return o.AdditionalUsers, true
+}
+
+// SetAdditionalUsers gets a reference to the given int32 and assigns it to the AdditionalUsers field.
+func (o *CatalogScaleSettingsModel) SetAdditionalUsers(v int32) {
+	o.AdditionalUsers = &v
+}
+
 func (o CatalogScaleSettingsModel) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -626,11 +773,11 @@ func (o CatalogScaleSettingsModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PendingMaxInstances) {
 		toSerialize["pendingMaxInstances"] = o.PendingMaxInstances
 	}
-	if !IsNil(o.Weekdays) {
+	if o.Weekdays != nil {
 		toSerialize["weekdays"] = o.Weekdays
 	}
-	if !IsNil(o.WeekdaysString) {
-		toSerialize["weekdaysString"] = o.WeekdaysString
+	if o.WeekdaysString.IsSet() {
+		toSerialize["weekdaysString"] = o.WeekdaysString.Get()
 	}
 	if !IsNil(o.PeakStartTime) {
 		toSerialize["peakStartTime"] = o.PeakStartTime
@@ -638,26 +785,26 @@ func (o CatalogScaleSettingsModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PeakEndTime) {
 		toSerialize["peakEndTime"] = o.PeakEndTime
 	}
-	if !IsNil(o.PeakTimeZone) {
-		toSerialize["peakTimeZone"] = o.PeakTimeZone
+	if o.PeakTimeZone.IsSet() {
+		toSerialize["peakTimeZone"] = o.PeakTimeZone.Get()
 	}
-	if !IsNil(o.PeakTimeZoneId) {
-		toSerialize["peakTimeZoneId"] = o.PeakTimeZoneId
+	if o.PeakTimeZoneId.IsSet() {
+		toSerialize["peakTimeZoneId"] = o.PeakTimeZoneId.Get()
 	}
 	if !IsNil(o.PeakMinInstances) {
 		toSerialize["peakMinInstances"] = o.PeakMinInstances
 	}
-	if !IsNil(o.BufferCapacity) {
-		toSerialize["bufferCapacity"] = o.BufferCapacity
+	if o.BufferCapacity.IsSet() {
+		toSerialize["bufferCapacity"] = o.BufferCapacity.Get()
 	}
-	if !IsNil(o.OffPeakBufferCapacity) {
-		toSerialize["offPeakBufferCapacity"] = o.OffPeakBufferCapacity
+	if o.OffPeakBufferCapacity.IsSet() {
+		toSerialize["offPeakBufferCapacity"] = o.OffPeakBufferCapacity.Get()
 	}
-	if !IsNil(o.ServiceAccount) {
-		toSerialize["serviceAccount"] = o.ServiceAccount
+	if o.ServiceAccount.IsSet() {
+		toSerialize["serviceAccount"] = o.ServiceAccount.Get()
 	}
-	if !IsNil(o.ServiceAccountPassword) {
-		toSerialize["serviceAccountPassword"] = o.ServiceAccountPassword
+	if o.ServiceAccountPassword.IsSet() {
+		toSerialize["serviceAccountPassword"] = o.ServiceAccountPassword.Get()
 	}
 	if !IsNil(o.IsSmartScaleDisabled) {
 		toSerialize["isSmartScaleDisabled"] = o.IsSmartScaleDisabled
@@ -665,23 +812,26 @@ func (o CatalogScaleSettingsModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PeakDisconnectedSessionTimeout) {
 		toSerialize["peakDisconnectedSessionTimeout"] = o.PeakDisconnectedSessionTimeout
 	}
-	if !IsNil(o.PeakDisconnectedSessionAction) {
-		toSerialize["peakDisconnectedSessionAction"] = o.PeakDisconnectedSessionAction
+	if o.PeakDisconnectedSessionAction.IsSet() {
+		toSerialize["peakDisconnectedSessionAction"] = o.PeakDisconnectedSessionAction.Get()
 	}
 	if !IsNil(o.OffPeakDisconnectedSessionTimeout) {
 		toSerialize["offPeakDisconnectedSessionTimeout"] = o.OffPeakDisconnectedSessionTimeout
 	}
-	if !IsNil(o.OffPeakDisconnectedSessionAction) {
-		toSerialize["offPeakDisconnectedSessionAction"] = o.OffPeakDisconnectedSessionAction
+	if o.OffPeakDisconnectedSessionAction.IsSet() {
+		toSerialize["offPeakDisconnectedSessionAction"] = o.OffPeakDisconnectedSessionAction.Get()
 	}
-	if !IsNil(o.PeakExtendedDisconnectTimeoutMinutes) {
-		toSerialize["peakExtendedDisconnectTimeoutMinutes"] = o.PeakExtendedDisconnectTimeoutMinutes
+	if o.PeakExtendedDisconnectTimeoutMinutes.IsSet() {
+		toSerialize["peakExtendedDisconnectTimeoutMinutes"] = o.PeakExtendedDisconnectTimeoutMinutes.Get()
 	}
-	if !IsNil(o.OffPeakExtendedDisconnectTimeoutMinutes) {
-		toSerialize["offPeakExtendedDisconnectTimeoutMinutes"] = o.OffPeakExtendedDisconnectTimeoutMinutes
+	if o.OffPeakExtendedDisconnectTimeoutMinutes.IsSet() {
+		toSerialize["offPeakExtendedDisconnectTimeoutMinutes"] = o.OffPeakExtendedDisconnectTimeoutMinutes.Get()
 	}
 	if !IsNil(o.PowerOffDelay) {
 		toSerialize["powerOffDelay"] = o.PowerOffDelay
+	}
+	if !IsNil(o.AdditionalUsers) {
+		toSerialize["additionalUsers"] = o.AdditionalUsers
 	}
 	return toSerialize, nil
 }

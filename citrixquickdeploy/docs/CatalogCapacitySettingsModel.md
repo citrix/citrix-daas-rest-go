@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ComputeWorker** | Pointer to [**CatalogComputeWorkerModel**](CatalogComputeWorkerModel.md) | Compute settings for the catalog | [optional] 
-**ScaleSettings** | Pointer to [**CatalogScaleSettingsModel**](CatalogScaleSettingsModel.md) | Scale settings for the catalog | [optional] 
-**SessionTimeout** | Pointer to **int32** | Idle timeout for session in the catalog (in mins) | [optional] 
-**MultiSessionDisconnectedSessionTimeout** | Pointer to **int32** | Minutes to wait for disconnected sessions to be logged off on multi-session VMs | [optional] 
+**ComputeWorker** | Pointer to [**NullableCatalogComputeWorkerModel**](CatalogComputeWorkerModel.md) | Compute settings for the catalog | [optional] 
+**ScaleSettings** | Pointer to [**NullableCatalogScaleSettingsModel**](CatalogScaleSettingsModel.md) | Scale settings for the catalog | [optional] 
+**SessionTimeout** | Pointer to **NullableInt32** | Idle timeout for session in the catalog (in mins) | [optional] 
+**MultiSessionDisconnectedSessionTimeout** | Pointer to **NullableInt32** | Minutes to wait for disconnected sessions to be logged off on multi-session VMs | [optional] 
 **IsActive** | Pointer to **bool** | Indicates if the capacity job is currently active | [optional] [readonly] 
 
 ## Methods
@@ -54,6 +54,16 @@ SetComputeWorker sets ComputeWorker field to given value.
 
 HasComputeWorker returns a boolean if a field has been set.
 
+### SetComputeWorkerNil
+
+`func (o *CatalogCapacitySettingsModel) SetComputeWorkerNil(b bool)`
+
+ SetComputeWorkerNil sets the value for ComputeWorker to be an explicit nil
+
+### UnsetComputeWorker
+`func (o *CatalogCapacitySettingsModel) UnsetComputeWorker()`
+
+UnsetComputeWorker ensures that no value is present for ComputeWorker, not even an explicit nil
 ### GetScaleSettings
 
 `func (o *CatalogCapacitySettingsModel) GetScaleSettings() CatalogScaleSettingsModel`
@@ -79,6 +89,16 @@ SetScaleSettings sets ScaleSettings field to given value.
 
 HasScaleSettings returns a boolean if a field has been set.
 
+### SetScaleSettingsNil
+
+`func (o *CatalogCapacitySettingsModel) SetScaleSettingsNil(b bool)`
+
+ SetScaleSettingsNil sets the value for ScaleSettings to be an explicit nil
+
+### UnsetScaleSettings
+`func (o *CatalogCapacitySettingsModel) UnsetScaleSettings()`
+
+UnsetScaleSettings ensures that no value is present for ScaleSettings, not even an explicit nil
 ### GetSessionTimeout
 
 `func (o *CatalogCapacitySettingsModel) GetSessionTimeout() int32`
@@ -104,6 +124,16 @@ SetSessionTimeout sets SessionTimeout field to given value.
 
 HasSessionTimeout returns a boolean if a field has been set.
 
+### SetSessionTimeoutNil
+
+`func (o *CatalogCapacitySettingsModel) SetSessionTimeoutNil(b bool)`
+
+ SetSessionTimeoutNil sets the value for SessionTimeout to be an explicit nil
+
+### UnsetSessionTimeout
+`func (o *CatalogCapacitySettingsModel) UnsetSessionTimeout()`
+
+UnsetSessionTimeout ensures that no value is present for SessionTimeout, not even an explicit nil
 ### GetMultiSessionDisconnectedSessionTimeout
 
 `func (o *CatalogCapacitySettingsModel) GetMultiSessionDisconnectedSessionTimeout() int32`
@@ -129,6 +159,16 @@ SetMultiSessionDisconnectedSessionTimeout sets MultiSessionDisconnectedSessionTi
 
 HasMultiSessionDisconnectedSessionTimeout returns a boolean if a field has been set.
 
+### SetMultiSessionDisconnectedSessionTimeoutNil
+
+`func (o *CatalogCapacitySettingsModel) SetMultiSessionDisconnectedSessionTimeoutNil(b bool)`
+
+ SetMultiSessionDisconnectedSessionTimeoutNil sets the value for MultiSessionDisconnectedSessionTimeout to be an explicit nil
+
+### UnsetMultiSessionDisconnectedSessionTimeout
+`func (o *CatalogCapacitySettingsModel) UnsetMultiSessionDisconnectedSessionTimeout()`
+
+UnsetMultiSessionDisconnectedSessionTimeout ensures that no value is present for MultiSessionDisconnectedSessionTimeout, not even an explicit nil
 ### GetIsActive
 
 `func (o *CatalogCapacitySettingsModel) GetIsActive() bool`

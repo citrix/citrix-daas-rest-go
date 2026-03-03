@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | ID of the region | [optional] 
-**Name** | Pointer to **string** | Display name of the region | [optional] 
+**Id** | Pointer to **NullableString** | ID of the region | [optional] 
+**Name** | Pointer to **NullableString** | Display name of the region | [optional] 
 **NonDomainJoinedCatalogsSupported** | Pointer to **bool** | Indicates if non-domain joined catalogs are supported in this region | [optional] 
 **IsDefault** | Pointer to **bool** | Indicates that the region is the default to use | [optional] 
 **IsHidden** | Pointer to **bool** | Inidicates if the regino is hidden from the UI | [optional] 
@@ -54,6 +54,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *DeploymentRegionModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *DeploymentRegionModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *DeploymentRegionModel) GetName() string`
@@ -79,6 +89,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *DeploymentRegionModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *DeploymentRegionModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetNonDomainJoinedCatalogsSupported
 
 `func (o *DeploymentRegionModel) GetNonDomainJoinedCatalogsSupported() bool`

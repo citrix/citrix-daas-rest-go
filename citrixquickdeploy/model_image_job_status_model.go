@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,31 +21,31 @@ var _ MappedNullable = &ImageJobStatusModel{}
 // ImageJobStatusModel struct for ImageJobStatusModel
 type ImageJobStatusModel struct {
 	// ID of the job
-	Id *string `json:"id,omitempty"`
+	Id NullableString `json:"id,omitempty"`
 	// Type of the job
-	JobType *CatalogJobType `json:"jobType,omitempty"`
+	JobType NullableCatalogJobType `json:"jobType,omitempty"`
 	// The percentage of progress of the job
-	OverallProgressPercent *int32 `json:"overallProgressPercent,omitempty"`
+	OverallProgressPercent NullableInt32 `json:"overallProgressPercent,omitempty"`
 	// Indicator of whether the job is cancellable
 	IsCancellable *bool `json:"isCancellable,omitempty"`
 	// Parameters for the job
-	Parameters *map[string]string `json:"parameters,omitempty"`
+	Parameters map[string]string `json:"parameters,omitempty"`
 	// Subjobs of the job
 	SubJobs []CatalogJobType `json:"subJobs,omitempty"`
 	// Current state of the job
-	Status *TemplateImageState `json:"status,omitempty"`
+	Status NullableTemplateImageState `json:"status,omitempty"`
 	// Uri for query result of the job
-	ResultLocation *string `json:"resultLocation,omitempty"`
+	ResultLocation NullableString `json:"resultLocation,omitempty"`
 	// Warnings of the job
 	Warnings []string `json:"warnings,omitempty"`
 	// Error occurred in the job
-	Error *string `json:"error,omitempty"`
+	Error NullableString `json:"error,omitempty"`
 	// Timestamp when the job is created
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
+	CreatedAt NullableTime `json:"createdAt,omitempty"`
 	// Timestamp when the job started
-	StartedAt *time.Time `json:"startedAt,omitempty"`
+	StartedAt NullableTime `json:"startedAt,omitempty"`
 	// Timestamp when the job ended
-	EndedAt *time.Time `json:"endedAt,omitempty"`
+	EndedAt NullableTime `json:"endedAt,omitempty"`
 }
 
 // NewImageJobStatusModelWithDefaults instantiates a new ImageJobStatusModel object
@@ -56,73 +56,106 @@ func NewImageJobStatusModelWithDefaults() *ImageJobStatusModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImageJobStatusModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImageJobStatusModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *ImageJobStatusModel) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
 }
 
-// GetJobType returns the JobType field value if set, zero value otherwise.
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *ImageJobStatusModel) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *ImageJobStatusModel) UnsetId() {
+	o.Id.Unset()
+}
+
+// GetJobType returns the JobType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImageJobStatusModel) GetJobType() CatalogJobType {
-	if o == nil || IsNil(o.JobType) {
+	if o == nil || IsNil(o.JobType.Get()) {
 		var ret CatalogJobType
 		return ret
 	}
-	return *o.JobType
+	return *o.JobType.Get()
 }
 
 // GetJobTypeOk returns a tuple with the JobType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImageJobStatusModel) GetJobTypeOk() (*CatalogJobType, bool) {
-	if o == nil || IsNil(o.JobType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.JobType, true
+	return o.JobType.Get(), o.JobType.IsSet()
 }
 
-// SetJobType gets a reference to the given CatalogJobType and assigns it to the JobType field.
+// SetJobType gets a reference to the given NullableCatalogJobType and assigns it to the JobType field.
 func (o *ImageJobStatusModel) SetJobType(v CatalogJobType) {
-	o.JobType = &v
+	o.JobType.Set(&v)
 }
 
-// GetOverallProgressPercent returns the OverallProgressPercent field value if set, zero value otherwise.
+// SetJobTypeNil sets the value for JobType to be an explicit nil
+func (o *ImageJobStatusModel) SetJobTypeNil() {
+	o.JobType.Set(nil)
+}
+
+// UnsetJobType ensures that no value is present for JobType, not even an explicit nil
+func (o *ImageJobStatusModel) UnsetJobType() {
+	o.JobType.Unset()
+}
+
+// GetOverallProgressPercent returns the OverallProgressPercent field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImageJobStatusModel) GetOverallProgressPercent() int32 {
-	if o == nil || IsNil(o.OverallProgressPercent) {
+	if o == nil || IsNil(o.OverallProgressPercent.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.OverallProgressPercent
+	return *o.OverallProgressPercent.Get()
 }
 
 // GetOverallProgressPercentOk returns a tuple with the OverallProgressPercent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImageJobStatusModel) GetOverallProgressPercentOk() (*int32, bool) {
-	if o == nil || IsNil(o.OverallProgressPercent) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OverallProgressPercent, true
+	return o.OverallProgressPercent.Get(), o.OverallProgressPercent.IsSet()
 }
 
-// SetOverallProgressPercent gets a reference to the given int32 and assigns it to the OverallProgressPercent field.
+// SetOverallProgressPercent gets a reference to the given NullableInt32 and assigns it to the OverallProgressPercent field.
 func (o *ImageJobStatusModel) SetOverallProgressPercent(v int32) {
-	o.OverallProgressPercent = &v
+	o.OverallProgressPercent.Set(&v)
+}
+
+// SetOverallProgressPercentNil sets the value for OverallProgressPercent to be an explicit nil
+func (o *ImageJobStatusModel) SetOverallProgressPercentNil() {
+	o.OverallProgressPercent.Set(nil)
+}
+
+// UnsetOverallProgressPercent ensures that no value is present for OverallProgressPercent, not even an explicit nil
+func (o *ImageJobStatusModel) UnsetOverallProgressPercent() {
+	o.OverallProgressPercent.Unset()
 }
 
 // GetIsCancellable returns the IsCancellable field value if set, zero value otherwise.
@@ -148,32 +181,33 @@ func (o *ImageJobStatusModel) SetIsCancellable(v bool) {
 	o.IsCancellable = &v
 }
 
-// GetParameters returns the Parameters field value if set, zero value otherwise.
+// GetParameters returns the Parameters field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImageJobStatusModel) GetParameters() map[string]string {
-	if o == nil || IsNil(o.Parameters) {
+	if o == nil {
 		var ret map[string]string
 		return ret
 	}
-	return *o.Parameters
+	return o.Parameters
 }
 
 // GetParametersOk returns a tuple with the Parameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImageJobStatusModel) GetParametersOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.Parameters) {
 		return nil, false
 	}
-	return o.Parameters, true
+	return &o.Parameters, true
 }
 
 // SetParameters gets a reference to the given map[string]string and assigns it to the Parameters field.
 func (o *ImageJobStatusModel) SetParameters(v map[string]string) {
-	o.Parameters = &v
+	o.Parameters = v
 }
 
-// GetSubJobs returns the SubJobs field value if set, zero value otherwise.
+// GetSubJobs returns the SubJobs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImageJobStatusModel) GetSubJobs() []CatalogJobType {
-	if o == nil || IsNil(o.SubJobs) {
+	if o == nil {
 		var ret []CatalogJobType
 		return ret
 	}
@@ -182,6 +216,7 @@ func (o *ImageJobStatusModel) GetSubJobs() []CatalogJobType {
 
 // GetSubJobsOk returns a tuple with the SubJobs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImageJobStatusModel) GetSubJobsOk() ([]CatalogJobType, bool) {
 	if o == nil || IsNil(o.SubJobs) {
 		return nil, false
@@ -194,55 +229,77 @@ func (o *ImageJobStatusModel) SetSubJobs(v []CatalogJobType) {
 	o.SubJobs = v
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImageJobStatusModel) GetStatus() TemplateImageState {
-	if o == nil || IsNil(o.Status) {
+	if o == nil || IsNil(o.Status.Get()) {
 		var ret TemplateImageState
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImageJobStatusModel) GetStatusOk() (*TemplateImageState, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
-// SetStatus gets a reference to the given TemplateImageState and assigns it to the Status field.
+// SetStatus gets a reference to the given NullableTemplateImageState and assigns it to the Status field.
 func (o *ImageJobStatusModel) SetStatus(v TemplateImageState) {
-	o.Status = &v
+	o.Status.Set(&v)
 }
 
-// GetResultLocation returns the ResultLocation field value if set, zero value otherwise.
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *ImageJobStatusModel) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *ImageJobStatusModel) UnsetStatus() {
+	o.Status.Unset()
+}
+
+// GetResultLocation returns the ResultLocation field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImageJobStatusModel) GetResultLocation() string {
-	if o == nil || IsNil(o.ResultLocation) {
+	if o == nil || IsNil(o.ResultLocation.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResultLocation
+	return *o.ResultLocation.Get()
 }
 
 // GetResultLocationOk returns a tuple with the ResultLocation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImageJobStatusModel) GetResultLocationOk() (*string, bool) {
-	if o == nil || IsNil(o.ResultLocation) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResultLocation, true
+	return o.ResultLocation.Get(), o.ResultLocation.IsSet()
 }
 
-// SetResultLocation gets a reference to the given string and assigns it to the ResultLocation field.
+// SetResultLocation gets a reference to the given NullableString and assigns it to the ResultLocation field.
 func (o *ImageJobStatusModel) SetResultLocation(v string) {
-	o.ResultLocation = &v
+	o.ResultLocation.Set(&v)
 }
 
-// GetWarnings returns the Warnings field value if set, zero value otherwise.
+// SetResultLocationNil sets the value for ResultLocation to be an explicit nil
+func (o *ImageJobStatusModel) SetResultLocationNil() {
+	o.ResultLocation.Set(nil)
+}
+
+// UnsetResultLocation ensures that no value is present for ResultLocation, not even an explicit nil
+func (o *ImageJobStatusModel) UnsetResultLocation() {
+	o.ResultLocation.Unset()
+}
+
+// GetWarnings returns the Warnings field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImageJobStatusModel) GetWarnings() []string {
-	if o == nil || IsNil(o.Warnings) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -251,6 +308,7 @@ func (o *ImageJobStatusModel) GetWarnings() []string {
 
 // GetWarningsOk returns a tuple with the Warnings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImageJobStatusModel) GetWarningsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Warnings) {
 		return nil, false
@@ -263,96 +321,140 @@ func (o *ImageJobStatusModel) SetWarnings(v []string) {
 	o.Warnings = v
 }
 
-// GetError returns the Error field value if set, zero value otherwise.
+// GetError returns the Error field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImageJobStatusModel) GetError() string {
-	if o == nil || IsNil(o.Error) {
+	if o == nil || IsNil(o.Error.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Error
+	return *o.Error.Get()
 }
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImageJobStatusModel) GetErrorOk() (*string, bool) {
-	if o == nil || IsNil(o.Error) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Error, true
+	return o.Error.Get(), o.Error.IsSet()
 }
 
-// SetError gets a reference to the given string and assigns it to the Error field.
+// SetError gets a reference to the given NullableString and assigns it to the Error field.
 func (o *ImageJobStatusModel) SetError(v string) {
-	o.Error = &v
+	o.Error.Set(&v)
 }
 
-// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
+// SetErrorNil sets the value for Error to be an explicit nil
+func (o *ImageJobStatusModel) SetErrorNil() {
+	o.Error.Set(nil)
+}
+
+// UnsetError ensures that no value is present for Error, not even an explicit nil
+func (o *ImageJobStatusModel) UnsetError() {
+	o.Error.Unset()
+}
+
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImageJobStatusModel) GetCreatedAt() time.Time {
-	if o == nil || IsNil(o.CreatedAt) {
+	if o == nil || IsNil(o.CreatedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedAt
+	return *o.CreatedAt.Get()
 }
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImageJobStatusModel) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedAt, true
+	return o.CreatedAt.Get(), o.CreatedAt.IsSet()
 }
 
-// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
+// SetCreatedAt gets a reference to the given NullableTime and assigns it to the CreatedAt field.
 func (o *ImageJobStatusModel) SetCreatedAt(v time.Time) {
-	o.CreatedAt = &v
+	o.CreatedAt.Set(&v)
 }
 
-// GetStartedAt returns the StartedAt field value if set, zero value otherwise.
+// SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
+func (o *ImageJobStatusModel) SetCreatedAtNil() {
+	o.CreatedAt.Set(nil)
+}
+
+// UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
+func (o *ImageJobStatusModel) UnsetCreatedAt() {
+	o.CreatedAt.Unset()
+}
+
+// GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImageJobStatusModel) GetStartedAt() time.Time {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil || IsNil(o.StartedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartedAt
+	return *o.StartedAt.Get()
 }
 
 // GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImageJobStatusModel) GetStartedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StartedAt, true
+	return o.StartedAt.Get(), o.StartedAt.IsSet()
 }
 
-// SetStartedAt gets a reference to the given time.Time and assigns it to the StartedAt field.
+// SetStartedAt gets a reference to the given NullableTime and assigns it to the StartedAt field.
 func (o *ImageJobStatusModel) SetStartedAt(v time.Time) {
-	o.StartedAt = &v
+	o.StartedAt.Set(&v)
 }
 
-// GetEndedAt returns the EndedAt field value if set, zero value otherwise.
+// SetStartedAtNil sets the value for StartedAt to be an explicit nil
+func (o *ImageJobStatusModel) SetStartedAtNil() {
+	o.StartedAt.Set(nil)
+}
+
+// UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
+func (o *ImageJobStatusModel) UnsetStartedAt() {
+	o.StartedAt.Unset()
+}
+
+// GetEndedAt returns the EndedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImageJobStatusModel) GetEndedAt() time.Time {
-	if o == nil || IsNil(o.EndedAt) {
+	if o == nil || IsNil(o.EndedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndedAt
+	return *o.EndedAt.Get()
 }
 
 // GetEndedAtOk returns a tuple with the EndedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImageJobStatusModel) GetEndedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.EndedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EndedAt, true
+	return o.EndedAt.Get(), o.EndedAt.IsSet()
 }
 
-// SetEndedAt gets a reference to the given time.Time and assigns it to the EndedAt field.
+// SetEndedAt gets a reference to the given NullableTime and assigns it to the EndedAt field.
 func (o *ImageJobStatusModel) SetEndedAt(v time.Time) {
-	o.EndedAt = &v
+	o.EndedAt.Set(&v)
+}
+
+// SetEndedAtNil sets the value for EndedAt to be an explicit nil
+func (o *ImageJobStatusModel) SetEndedAtNil() {
+	o.EndedAt.Set(nil)
+}
+
+// UnsetEndedAt ensures that no value is present for EndedAt, not even an explicit nil
+func (o *ImageJobStatusModel) UnsetEndedAt() {
+	o.EndedAt.Unset()
 }
 
 func (o ImageJobStatusModel) MarshalJSON() ([]byte, error) {
@@ -365,44 +467,44 @@ func (o ImageJobStatusModel) MarshalJSON() ([]byte, error) {
 
 func (o ImageJobStatusModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
-	if !IsNil(o.JobType) {
-		toSerialize["jobType"] = o.JobType
+	if o.JobType.IsSet() {
+		toSerialize["jobType"] = o.JobType.Get()
 	}
-	if !IsNil(o.OverallProgressPercent) {
-		toSerialize["overallProgressPercent"] = o.OverallProgressPercent
+	if o.OverallProgressPercent.IsSet() {
+		toSerialize["overallProgressPercent"] = o.OverallProgressPercent.Get()
 	}
 	if !IsNil(o.IsCancellable) {
 		toSerialize["isCancellable"] = o.IsCancellable
 	}
-	if !IsNil(o.Parameters) {
+	if o.Parameters != nil {
 		toSerialize["parameters"] = o.Parameters
 	}
-	if !IsNil(o.SubJobs) {
+	if o.SubJobs != nil {
 		toSerialize["subJobs"] = o.SubJobs
 	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
-	if !IsNil(o.ResultLocation) {
-		toSerialize["resultLocation"] = o.ResultLocation
+	if o.ResultLocation.IsSet() {
+		toSerialize["resultLocation"] = o.ResultLocation.Get()
 	}
-	if !IsNil(o.Warnings) {
+	if o.Warnings != nil {
 		toSerialize["warnings"] = o.Warnings
 	}
-	if !IsNil(o.Error) {
-		toSerialize["error"] = o.Error
+	if o.Error.IsSet() {
+		toSerialize["error"] = o.Error.Get()
 	}
-	if !IsNil(o.CreatedAt) {
-		toSerialize["createdAt"] = o.CreatedAt
+	if o.CreatedAt.IsSet() {
+		toSerialize["createdAt"] = o.CreatedAt.Get()
 	}
-	if !IsNil(o.StartedAt) {
-		toSerialize["startedAt"] = o.StartedAt
+	if o.StartedAt.IsSet() {
+		toSerialize["startedAt"] = o.StartedAt.Get()
 	}
-	if !IsNil(o.EndedAt) {
-		toSerialize["endedAt"] = o.EndedAt
+	if o.EndedAt.IsSet() {
+		toSerialize["endedAt"] = o.EndedAt.Get()
 	}
 	return toSerialize, nil
 }

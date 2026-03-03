@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,21 +19,21 @@ var _ MappedNullable = &AzureTagAudit{}
 
 // AzureTagAudit struct for AzureTagAudit
 type AzureTagAudit struct {
-	DirectoryId               *string                 `json:"directoryId,omitempty"`
-	SubscriptionId            *string                 `json:"subscriptionId,omitempty"`
-	CustomerId                *string                 `json:"customerId,omitempty"`
-	SiteId                    *string                 `json:"siteId,omitempty"`
-	PoolName                  *string                 `json:"poolName,omitempty"`
-	IssuesFound               *bool                   `json:"issuesFound,omitempty"`
-	AuditCompleted            *bool                   `json:"auditCompleted,omitempty"`
-	AuditErrors               *string                 `json:"auditErrors,omitempty"`
-	IsActiveCustomerAssigned  *bool                   `json:"isActiveCustomerAssigned,omitempty"`
-	IsActiveCspCustomer       *bool                   `json:"isActiveCspCustomer,omitempty"`
-	IsAzurePoolAssigned       *bool                   `json:"isAzurePoolAssigned,omitempty"`
-	NumberOfPolicies          *int32                  `json:"numberOfPolicies,omitempty"`
-	NumberOfPolicyDefinitions *int32                  `json:"numberOfPolicyDefinitions,omitempty"`
-	NumberOfResourceGroups    *int32                  `json:"numberOfResourceGroups,omitempty"`
-	NumberOfResources         *int32                  `json:"numberOfResources,omitempty"`
+	DirectoryId               NullableString          `json:"directoryId,omitempty"`
+	SubscriptionId            NullableString          `json:"subscriptionId,omitempty"`
+	CustomerId                NullableString          `json:"customerId,omitempty"`
+	SiteId                    NullableString          `json:"siteId,omitempty"`
+	PoolName                  NullableString          `json:"poolName,omitempty"`
+	IssuesFound               NullableBool            `json:"issuesFound,omitempty"`
+	AuditCompleted            NullableBool            `json:"auditCompleted,omitempty"`
+	AuditErrors               NullableString          `json:"auditErrors,omitempty"`
+	IsActiveCustomerAssigned  NullableBool            `json:"isActiveCustomerAssigned,omitempty"`
+	IsActiveCspCustomer       NullableBool            `json:"isActiveCspCustomer,omitempty"`
+	IsAzurePoolAssigned       NullableBool            `json:"isAzurePoolAssigned,omitempty"`
+	NumberOfPolicies          NullableInt32           `json:"numberOfPolicies,omitempty"`
+	NumberOfPolicyDefinitions NullableInt32           `json:"numberOfPolicyDefinitions,omitempty"`
+	NumberOfResourceGroups    NullableInt32           `json:"numberOfResourceGroups,omitempty"`
+	NumberOfResources         NullableInt32           `json:"numberOfResources,omitempty"`
 	Issues                    []AzureResourceTagAudit `json:"issues,omitempty"`
 }
 
@@ -45,354 +45,519 @@ func NewAzureTagAuditWithDefaults() *AzureTagAudit {
 	return &this
 }
 
-// GetDirectoryId returns the DirectoryId field value if set, zero value otherwise.
+// GetDirectoryId returns the DirectoryId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetDirectoryId() string {
-	if o == nil || IsNil(o.DirectoryId) {
+	if o == nil || IsNil(o.DirectoryId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DirectoryId
+	return *o.DirectoryId.Get()
 }
 
 // GetDirectoryIdOk returns a tuple with the DirectoryId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetDirectoryIdOk() (*string, bool) {
-	if o == nil || IsNil(o.DirectoryId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DirectoryId, true
+	return o.DirectoryId.Get(), o.DirectoryId.IsSet()
 }
 
-// SetDirectoryId gets a reference to the given string and assigns it to the DirectoryId field.
+// SetDirectoryId gets a reference to the given NullableString and assigns it to the DirectoryId field.
 func (o *AzureTagAudit) SetDirectoryId(v string) {
-	o.DirectoryId = &v
+	o.DirectoryId.Set(&v)
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// SetDirectoryIdNil sets the value for DirectoryId to be an explicit nil
+func (o *AzureTagAudit) SetDirectoryIdNil() {
+	o.DirectoryId.Set(nil)
+}
+
+// UnsetDirectoryId ensures that no value is present for DirectoryId, not even an explicit nil
+func (o *AzureTagAudit) UnsetDirectoryId() {
+	o.DirectoryId.Unset()
+}
+
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *AzureTagAudit) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
 }
 
-// GetCustomerId returns the CustomerId field value if set, zero value otherwise.
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *AzureTagAudit) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *AzureTagAudit) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
+}
+
+// GetCustomerId returns the CustomerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetCustomerId() string {
-	if o == nil || IsNil(o.CustomerId) {
+	if o == nil || IsNil(o.CustomerId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CustomerId
+	return *o.CustomerId.Get()
 }
 
 // GetCustomerIdOk returns a tuple with the CustomerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetCustomerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CustomerId, true
+	return o.CustomerId.Get(), o.CustomerId.IsSet()
 }
 
-// SetCustomerId gets a reference to the given string and assigns it to the CustomerId field.
+// SetCustomerId gets a reference to the given NullableString and assigns it to the CustomerId field.
 func (o *AzureTagAudit) SetCustomerId(v string) {
-	o.CustomerId = &v
+	o.CustomerId.Set(&v)
 }
 
-// GetSiteId returns the SiteId field value if set, zero value otherwise.
+// SetCustomerIdNil sets the value for CustomerId to be an explicit nil
+func (o *AzureTagAudit) SetCustomerIdNil() {
+	o.CustomerId.Set(nil)
+}
+
+// UnsetCustomerId ensures that no value is present for CustomerId, not even an explicit nil
+func (o *AzureTagAudit) UnsetCustomerId() {
+	o.CustomerId.Unset()
+}
+
+// GetSiteId returns the SiteId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetSiteId() string {
-	if o == nil || IsNil(o.SiteId) {
+	if o == nil || IsNil(o.SiteId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SiteId
+	return *o.SiteId.Get()
 }
 
 // GetSiteIdOk returns a tuple with the SiteId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetSiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SiteId, true
+	return o.SiteId.Get(), o.SiteId.IsSet()
 }
 
-// SetSiteId gets a reference to the given string and assigns it to the SiteId field.
+// SetSiteId gets a reference to the given NullableString and assigns it to the SiteId field.
 func (o *AzureTagAudit) SetSiteId(v string) {
-	o.SiteId = &v
+	o.SiteId.Set(&v)
 }
 
-// GetPoolName returns the PoolName field value if set, zero value otherwise.
+// SetSiteIdNil sets the value for SiteId to be an explicit nil
+func (o *AzureTagAudit) SetSiteIdNil() {
+	o.SiteId.Set(nil)
+}
+
+// UnsetSiteId ensures that no value is present for SiteId, not even an explicit nil
+func (o *AzureTagAudit) UnsetSiteId() {
+	o.SiteId.Unset()
+}
+
+// GetPoolName returns the PoolName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetPoolName() string {
-	if o == nil || IsNil(o.PoolName) {
+	if o == nil || IsNil(o.PoolName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PoolName
+	return *o.PoolName.Get()
 }
 
 // GetPoolNameOk returns a tuple with the PoolName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetPoolNameOk() (*string, bool) {
-	if o == nil || IsNil(o.PoolName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PoolName, true
+	return o.PoolName.Get(), o.PoolName.IsSet()
 }
 
-// SetPoolName gets a reference to the given string and assigns it to the PoolName field.
+// SetPoolName gets a reference to the given NullableString and assigns it to the PoolName field.
 func (o *AzureTagAudit) SetPoolName(v string) {
-	o.PoolName = &v
+	o.PoolName.Set(&v)
 }
 
-// GetIssuesFound returns the IssuesFound field value if set, zero value otherwise.
+// SetPoolNameNil sets the value for PoolName to be an explicit nil
+func (o *AzureTagAudit) SetPoolNameNil() {
+	o.PoolName.Set(nil)
+}
+
+// UnsetPoolName ensures that no value is present for PoolName, not even an explicit nil
+func (o *AzureTagAudit) UnsetPoolName() {
+	o.PoolName.Unset()
+}
+
+// GetIssuesFound returns the IssuesFound field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetIssuesFound() bool {
-	if o == nil || IsNil(o.IssuesFound) {
+	if o == nil || IsNil(o.IssuesFound.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.IssuesFound
+	return *o.IssuesFound.Get()
 }
 
 // GetIssuesFoundOk returns a tuple with the IssuesFound field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetIssuesFoundOk() (*bool, bool) {
-	if o == nil || IsNil(o.IssuesFound) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IssuesFound, true
+	return o.IssuesFound.Get(), o.IssuesFound.IsSet()
 }
 
-// SetIssuesFound gets a reference to the given bool and assigns it to the IssuesFound field.
+// SetIssuesFound gets a reference to the given NullableBool and assigns it to the IssuesFound field.
 func (o *AzureTagAudit) SetIssuesFound(v bool) {
-	o.IssuesFound = &v
+	o.IssuesFound.Set(&v)
 }
 
-// GetAuditCompleted returns the AuditCompleted field value if set, zero value otherwise.
+// SetIssuesFoundNil sets the value for IssuesFound to be an explicit nil
+func (o *AzureTagAudit) SetIssuesFoundNil() {
+	o.IssuesFound.Set(nil)
+}
+
+// UnsetIssuesFound ensures that no value is present for IssuesFound, not even an explicit nil
+func (o *AzureTagAudit) UnsetIssuesFound() {
+	o.IssuesFound.Unset()
+}
+
+// GetAuditCompleted returns the AuditCompleted field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetAuditCompleted() bool {
-	if o == nil || IsNil(o.AuditCompleted) {
+	if o == nil || IsNil(o.AuditCompleted.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.AuditCompleted
+	return *o.AuditCompleted.Get()
 }
 
 // GetAuditCompletedOk returns a tuple with the AuditCompleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetAuditCompletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.AuditCompleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AuditCompleted, true
+	return o.AuditCompleted.Get(), o.AuditCompleted.IsSet()
 }
 
-// SetAuditCompleted gets a reference to the given bool and assigns it to the AuditCompleted field.
+// SetAuditCompleted gets a reference to the given NullableBool and assigns it to the AuditCompleted field.
 func (o *AzureTagAudit) SetAuditCompleted(v bool) {
-	o.AuditCompleted = &v
+	o.AuditCompleted.Set(&v)
 }
 
-// GetAuditErrors returns the AuditErrors field value if set, zero value otherwise.
+// SetAuditCompletedNil sets the value for AuditCompleted to be an explicit nil
+func (o *AzureTagAudit) SetAuditCompletedNil() {
+	o.AuditCompleted.Set(nil)
+}
+
+// UnsetAuditCompleted ensures that no value is present for AuditCompleted, not even an explicit nil
+func (o *AzureTagAudit) UnsetAuditCompleted() {
+	o.AuditCompleted.Unset()
+}
+
+// GetAuditErrors returns the AuditErrors field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetAuditErrors() string {
-	if o == nil || IsNil(o.AuditErrors) {
+	if o == nil || IsNil(o.AuditErrors.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AuditErrors
+	return *o.AuditErrors.Get()
 }
 
 // GetAuditErrorsOk returns a tuple with the AuditErrors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetAuditErrorsOk() (*string, bool) {
-	if o == nil || IsNil(o.AuditErrors) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AuditErrors, true
+	return o.AuditErrors.Get(), o.AuditErrors.IsSet()
 }
 
-// SetAuditErrors gets a reference to the given string and assigns it to the AuditErrors field.
+// SetAuditErrors gets a reference to the given NullableString and assigns it to the AuditErrors field.
 func (o *AzureTagAudit) SetAuditErrors(v string) {
-	o.AuditErrors = &v
+	o.AuditErrors.Set(&v)
 }
 
-// GetIsActiveCustomerAssigned returns the IsActiveCustomerAssigned field value if set, zero value otherwise.
+// SetAuditErrorsNil sets the value for AuditErrors to be an explicit nil
+func (o *AzureTagAudit) SetAuditErrorsNil() {
+	o.AuditErrors.Set(nil)
+}
+
+// UnsetAuditErrors ensures that no value is present for AuditErrors, not even an explicit nil
+func (o *AzureTagAudit) UnsetAuditErrors() {
+	o.AuditErrors.Unset()
+}
+
+// GetIsActiveCustomerAssigned returns the IsActiveCustomerAssigned field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetIsActiveCustomerAssigned() bool {
-	if o == nil || IsNil(o.IsActiveCustomerAssigned) {
+	if o == nil || IsNil(o.IsActiveCustomerAssigned.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.IsActiveCustomerAssigned
+	return *o.IsActiveCustomerAssigned.Get()
 }
 
 // GetIsActiveCustomerAssignedOk returns a tuple with the IsActiveCustomerAssigned field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetIsActiveCustomerAssignedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsActiveCustomerAssigned) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsActiveCustomerAssigned, true
+	return o.IsActiveCustomerAssigned.Get(), o.IsActiveCustomerAssigned.IsSet()
 }
 
-// SetIsActiveCustomerAssigned gets a reference to the given bool and assigns it to the IsActiveCustomerAssigned field.
+// SetIsActiveCustomerAssigned gets a reference to the given NullableBool and assigns it to the IsActiveCustomerAssigned field.
 func (o *AzureTagAudit) SetIsActiveCustomerAssigned(v bool) {
-	o.IsActiveCustomerAssigned = &v
+	o.IsActiveCustomerAssigned.Set(&v)
 }
 
-// GetIsActiveCspCustomer returns the IsActiveCspCustomer field value if set, zero value otherwise.
+// SetIsActiveCustomerAssignedNil sets the value for IsActiveCustomerAssigned to be an explicit nil
+func (o *AzureTagAudit) SetIsActiveCustomerAssignedNil() {
+	o.IsActiveCustomerAssigned.Set(nil)
+}
+
+// UnsetIsActiveCustomerAssigned ensures that no value is present for IsActiveCustomerAssigned, not even an explicit nil
+func (o *AzureTagAudit) UnsetIsActiveCustomerAssigned() {
+	o.IsActiveCustomerAssigned.Unset()
+}
+
+// GetIsActiveCspCustomer returns the IsActiveCspCustomer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetIsActiveCspCustomer() bool {
-	if o == nil || IsNil(o.IsActiveCspCustomer) {
+	if o == nil || IsNil(o.IsActiveCspCustomer.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.IsActiveCspCustomer
+	return *o.IsActiveCspCustomer.Get()
 }
 
 // GetIsActiveCspCustomerOk returns a tuple with the IsActiveCspCustomer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetIsActiveCspCustomerOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsActiveCspCustomer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsActiveCspCustomer, true
+	return o.IsActiveCspCustomer.Get(), o.IsActiveCspCustomer.IsSet()
 }
 
-// SetIsActiveCspCustomer gets a reference to the given bool and assigns it to the IsActiveCspCustomer field.
+// SetIsActiveCspCustomer gets a reference to the given NullableBool and assigns it to the IsActiveCspCustomer field.
 func (o *AzureTagAudit) SetIsActiveCspCustomer(v bool) {
-	o.IsActiveCspCustomer = &v
+	o.IsActiveCspCustomer.Set(&v)
 }
 
-// GetIsAzurePoolAssigned returns the IsAzurePoolAssigned field value if set, zero value otherwise.
+// SetIsActiveCspCustomerNil sets the value for IsActiveCspCustomer to be an explicit nil
+func (o *AzureTagAudit) SetIsActiveCspCustomerNil() {
+	o.IsActiveCspCustomer.Set(nil)
+}
+
+// UnsetIsActiveCspCustomer ensures that no value is present for IsActiveCspCustomer, not even an explicit nil
+func (o *AzureTagAudit) UnsetIsActiveCspCustomer() {
+	o.IsActiveCspCustomer.Unset()
+}
+
+// GetIsAzurePoolAssigned returns the IsAzurePoolAssigned field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetIsAzurePoolAssigned() bool {
-	if o == nil || IsNil(o.IsAzurePoolAssigned) {
+	if o == nil || IsNil(o.IsAzurePoolAssigned.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.IsAzurePoolAssigned
+	return *o.IsAzurePoolAssigned.Get()
 }
 
 // GetIsAzurePoolAssignedOk returns a tuple with the IsAzurePoolAssigned field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetIsAzurePoolAssignedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsAzurePoolAssigned) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsAzurePoolAssigned, true
+	return o.IsAzurePoolAssigned.Get(), o.IsAzurePoolAssigned.IsSet()
 }
 
-// SetIsAzurePoolAssigned gets a reference to the given bool and assigns it to the IsAzurePoolAssigned field.
+// SetIsAzurePoolAssigned gets a reference to the given NullableBool and assigns it to the IsAzurePoolAssigned field.
 func (o *AzureTagAudit) SetIsAzurePoolAssigned(v bool) {
-	o.IsAzurePoolAssigned = &v
+	o.IsAzurePoolAssigned.Set(&v)
 }
 
-// GetNumberOfPolicies returns the NumberOfPolicies field value if set, zero value otherwise.
+// SetIsAzurePoolAssignedNil sets the value for IsAzurePoolAssigned to be an explicit nil
+func (o *AzureTagAudit) SetIsAzurePoolAssignedNil() {
+	o.IsAzurePoolAssigned.Set(nil)
+}
+
+// UnsetIsAzurePoolAssigned ensures that no value is present for IsAzurePoolAssigned, not even an explicit nil
+func (o *AzureTagAudit) UnsetIsAzurePoolAssigned() {
+	o.IsAzurePoolAssigned.Unset()
+}
+
+// GetNumberOfPolicies returns the NumberOfPolicies field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetNumberOfPolicies() int32 {
-	if o == nil || IsNil(o.NumberOfPolicies) {
+	if o == nil || IsNil(o.NumberOfPolicies.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.NumberOfPolicies
+	return *o.NumberOfPolicies.Get()
 }
 
 // GetNumberOfPoliciesOk returns a tuple with the NumberOfPolicies field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetNumberOfPoliciesOk() (*int32, bool) {
-	if o == nil || IsNil(o.NumberOfPolicies) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NumberOfPolicies, true
+	return o.NumberOfPolicies.Get(), o.NumberOfPolicies.IsSet()
 }
 
-// SetNumberOfPolicies gets a reference to the given int32 and assigns it to the NumberOfPolicies field.
+// SetNumberOfPolicies gets a reference to the given NullableInt32 and assigns it to the NumberOfPolicies field.
 func (o *AzureTagAudit) SetNumberOfPolicies(v int32) {
-	o.NumberOfPolicies = &v
+	o.NumberOfPolicies.Set(&v)
 }
 
-// GetNumberOfPolicyDefinitions returns the NumberOfPolicyDefinitions field value if set, zero value otherwise.
+// SetNumberOfPoliciesNil sets the value for NumberOfPolicies to be an explicit nil
+func (o *AzureTagAudit) SetNumberOfPoliciesNil() {
+	o.NumberOfPolicies.Set(nil)
+}
+
+// UnsetNumberOfPolicies ensures that no value is present for NumberOfPolicies, not even an explicit nil
+func (o *AzureTagAudit) UnsetNumberOfPolicies() {
+	o.NumberOfPolicies.Unset()
+}
+
+// GetNumberOfPolicyDefinitions returns the NumberOfPolicyDefinitions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetNumberOfPolicyDefinitions() int32 {
-	if o == nil || IsNil(o.NumberOfPolicyDefinitions) {
+	if o == nil || IsNil(o.NumberOfPolicyDefinitions.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.NumberOfPolicyDefinitions
+	return *o.NumberOfPolicyDefinitions.Get()
 }
 
 // GetNumberOfPolicyDefinitionsOk returns a tuple with the NumberOfPolicyDefinitions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetNumberOfPolicyDefinitionsOk() (*int32, bool) {
-	if o == nil || IsNil(o.NumberOfPolicyDefinitions) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NumberOfPolicyDefinitions, true
+	return o.NumberOfPolicyDefinitions.Get(), o.NumberOfPolicyDefinitions.IsSet()
 }
 
-// SetNumberOfPolicyDefinitions gets a reference to the given int32 and assigns it to the NumberOfPolicyDefinitions field.
+// SetNumberOfPolicyDefinitions gets a reference to the given NullableInt32 and assigns it to the NumberOfPolicyDefinitions field.
 func (o *AzureTagAudit) SetNumberOfPolicyDefinitions(v int32) {
-	o.NumberOfPolicyDefinitions = &v
+	o.NumberOfPolicyDefinitions.Set(&v)
 }
 
-// GetNumberOfResourceGroups returns the NumberOfResourceGroups field value if set, zero value otherwise.
+// SetNumberOfPolicyDefinitionsNil sets the value for NumberOfPolicyDefinitions to be an explicit nil
+func (o *AzureTagAudit) SetNumberOfPolicyDefinitionsNil() {
+	o.NumberOfPolicyDefinitions.Set(nil)
+}
+
+// UnsetNumberOfPolicyDefinitions ensures that no value is present for NumberOfPolicyDefinitions, not even an explicit nil
+func (o *AzureTagAudit) UnsetNumberOfPolicyDefinitions() {
+	o.NumberOfPolicyDefinitions.Unset()
+}
+
+// GetNumberOfResourceGroups returns the NumberOfResourceGroups field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetNumberOfResourceGroups() int32 {
-	if o == nil || IsNil(o.NumberOfResourceGroups) {
+	if o == nil || IsNil(o.NumberOfResourceGroups.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.NumberOfResourceGroups
+	return *o.NumberOfResourceGroups.Get()
 }
 
 // GetNumberOfResourceGroupsOk returns a tuple with the NumberOfResourceGroups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetNumberOfResourceGroupsOk() (*int32, bool) {
-	if o == nil || IsNil(o.NumberOfResourceGroups) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NumberOfResourceGroups, true
+	return o.NumberOfResourceGroups.Get(), o.NumberOfResourceGroups.IsSet()
 }
 
-// SetNumberOfResourceGroups gets a reference to the given int32 and assigns it to the NumberOfResourceGroups field.
+// SetNumberOfResourceGroups gets a reference to the given NullableInt32 and assigns it to the NumberOfResourceGroups field.
 func (o *AzureTagAudit) SetNumberOfResourceGroups(v int32) {
-	o.NumberOfResourceGroups = &v
+	o.NumberOfResourceGroups.Set(&v)
 }
 
-// GetNumberOfResources returns the NumberOfResources field value if set, zero value otherwise.
+// SetNumberOfResourceGroupsNil sets the value for NumberOfResourceGroups to be an explicit nil
+func (o *AzureTagAudit) SetNumberOfResourceGroupsNil() {
+	o.NumberOfResourceGroups.Set(nil)
+}
+
+// UnsetNumberOfResourceGroups ensures that no value is present for NumberOfResourceGroups, not even an explicit nil
+func (o *AzureTagAudit) UnsetNumberOfResourceGroups() {
+	o.NumberOfResourceGroups.Unset()
+}
+
+// GetNumberOfResources returns the NumberOfResources field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetNumberOfResources() int32 {
-	if o == nil || IsNil(o.NumberOfResources) {
+	if o == nil || IsNil(o.NumberOfResources.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.NumberOfResources
+	return *o.NumberOfResources.Get()
 }
 
 // GetNumberOfResourcesOk returns a tuple with the NumberOfResources field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetNumberOfResourcesOk() (*int32, bool) {
-	if o == nil || IsNil(o.NumberOfResources) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NumberOfResources, true
+	return o.NumberOfResources.Get(), o.NumberOfResources.IsSet()
 }
 
-// SetNumberOfResources gets a reference to the given int32 and assigns it to the NumberOfResources field.
+// SetNumberOfResources gets a reference to the given NullableInt32 and assigns it to the NumberOfResources field.
 func (o *AzureTagAudit) SetNumberOfResources(v int32) {
-	o.NumberOfResources = &v
+	o.NumberOfResources.Set(&v)
 }
 
-// GetIssues returns the Issues field value if set, zero value otherwise.
+// SetNumberOfResourcesNil sets the value for NumberOfResources to be an explicit nil
+func (o *AzureTagAudit) SetNumberOfResourcesNil() {
+	o.NumberOfResources.Set(nil)
+}
+
+// UnsetNumberOfResources ensures that no value is present for NumberOfResources, not even an explicit nil
+func (o *AzureTagAudit) UnsetNumberOfResources() {
+	o.NumberOfResources.Unset()
+}
+
+// GetIssues returns the Issues field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureTagAudit) GetIssues() []AzureResourceTagAudit {
-	if o == nil || IsNil(o.Issues) {
+	if o == nil {
 		var ret []AzureResourceTagAudit
 		return ret
 	}
@@ -401,6 +566,7 @@ func (o *AzureTagAudit) GetIssues() []AzureResourceTagAudit {
 
 // GetIssuesOk returns a tuple with the Issues field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureTagAudit) GetIssuesOk() ([]AzureResourceTagAudit, bool) {
 	if o == nil || IsNil(o.Issues) {
 		return nil, false
@@ -423,52 +589,52 @@ func (o AzureTagAudit) MarshalJSON() ([]byte, error) {
 
 func (o AzureTagAudit) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.DirectoryId) {
-		toSerialize["directoryId"] = o.DirectoryId
+	if o.DirectoryId.IsSet() {
+		toSerialize["directoryId"] = o.DirectoryId.Get()
 	}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
-	if !IsNil(o.CustomerId) {
-		toSerialize["customerId"] = o.CustomerId
+	if o.CustomerId.IsSet() {
+		toSerialize["customerId"] = o.CustomerId.Get()
 	}
-	if !IsNil(o.SiteId) {
-		toSerialize["siteId"] = o.SiteId
+	if o.SiteId.IsSet() {
+		toSerialize["siteId"] = o.SiteId.Get()
 	}
-	if !IsNil(o.PoolName) {
-		toSerialize["poolName"] = o.PoolName
+	if o.PoolName.IsSet() {
+		toSerialize["poolName"] = o.PoolName.Get()
 	}
-	if !IsNil(o.IssuesFound) {
-		toSerialize["issuesFound"] = o.IssuesFound
+	if o.IssuesFound.IsSet() {
+		toSerialize["issuesFound"] = o.IssuesFound.Get()
 	}
-	if !IsNil(o.AuditCompleted) {
-		toSerialize["auditCompleted"] = o.AuditCompleted
+	if o.AuditCompleted.IsSet() {
+		toSerialize["auditCompleted"] = o.AuditCompleted.Get()
 	}
-	if !IsNil(o.AuditErrors) {
-		toSerialize["auditErrors"] = o.AuditErrors
+	if o.AuditErrors.IsSet() {
+		toSerialize["auditErrors"] = o.AuditErrors.Get()
 	}
-	if !IsNil(o.IsActiveCustomerAssigned) {
-		toSerialize["isActiveCustomerAssigned"] = o.IsActiveCustomerAssigned
+	if o.IsActiveCustomerAssigned.IsSet() {
+		toSerialize["isActiveCustomerAssigned"] = o.IsActiveCustomerAssigned.Get()
 	}
-	if !IsNil(o.IsActiveCspCustomer) {
-		toSerialize["isActiveCspCustomer"] = o.IsActiveCspCustomer
+	if o.IsActiveCspCustomer.IsSet() {
+		toSerialize["isActiveCspCustomer"] = o.IsActiveCspCustomer.Get()
 	}
-	if !IsNil(o.IsAzurePoolAssigned) {
-		toSerialize["isAzurePoolAssigned"] = o.IsAzurePoolAssigned
+	if o.IsAzurePoolAssigned.IsSet() {
+		toSerialize["isAzurePoolAssigned"] = o.IsAzurePoolAssigned.Get()
 	}
-	if !IsNil(o.NumberOfPolicies) {
-		toSerialize["numberOfPolicies"] = o.NumberOfPolicies
+	if o.NumberOfPolicies.IsSet() {
+		toSerialize["numberOfPolicies"] = o.NumberOfPolicies.Get()
 	}
-	if !IsNil(o.NumberOfPolicyDefinitions) {
-		toSerialize["numberOfPolicyDefinitions"] = o.NumberOfPolicyDefinitions
+	if o.NumberOfPolicyDefinitions.IsSet() {
+		toSerialize["numberOfPolicyDefinitions"] = o.NumberOfPolicyDefinitions.Get()
 	}
-	if !IsNil(o.NumberOfResourceGroups) {
-		toSerialize["numberOfResourceGroups"] = o.NumberOfResourceGroups
+	if o.NumberOfResourceGroups.IsSet() {
+		toSerialize["numberOfResourceGroups"] = o.NumberOfResourceGroups.Get()
 	}
-	if !IsNil(o.NumberOfResources) {
-		toSerialize["numberOfResources"] = o.NumberOfResources
+	if o.NumberOfResources.IsSet() {
+		toSerialize["numberOfResources"] = o.NumberOfResources.Get()
 	}
-	if !IsNil(o.Issues) {
+	if o.Issues != nil {
 		toSerialize["issues"] = o.Issues
 	}
 	return toSerialize, nil

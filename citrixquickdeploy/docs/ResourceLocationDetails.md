@@ -4,28 +4,30 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LocationId** | Pointer to **string** | ID of the Resource Location | [optional] 
-**CspCustomer** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
-**Name** | Pointer to **string** | Name of the Resource Location | [optional] 
+**LocationId** | Pointer to **NullableString** | ID of the Resource Location | [optional] 
+**CspCustomer** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**Name** | Pointer to **NullableString** | Name of the Resource Location | [optional] 
 **State** | Pointer to [**ResourceLocationState**](ResourceLocationState.md) | State of the Resource Location | [optional] 
-**Region** | Pointer to **string** | Region where resources associated with the RL is located | [optional] 
-**RegionId** | Pointer to **string** | Id of the Region where resources associated with the RL is located | [optional] 
+**Region** | Pointer to **NullableString** | Region where resources associated with the RL is located | [optional] 
+**RegionId** | Pointer to **NullableString** | Id of the Region where resources associated with the RL is located | [optional] 
 **IsCitrixManaged** | Pointer to **bool** | Indicates if this RL is associated with Citrix Managed resources | [optional] 
 **IsForNonDomainJoinedVms** | Pointer to **bool** | Indicates if the RL is used by non-domain joined catalogs | [optional] 
-**DomainName** | Pointer to **string** | Domain name of the AD domain catalogs in this RL are associated with | [optional] 
-**AzureSubscriptionId** | Pointer to **string** | ID of the Azure subscription associated with the Resource Location | [optional] 
-**AzureVnet** | Pointer to **string** | Name of the Azure Virtual Network the RL is associated with | [optional] 
-**OnPremConnection** | Pointer to **string** | Name of the on-prem connection associated with | [optional] 
+**DomainName** | Pointer to **NullableString** | Domain name of the AD domain catalogs in this RL are associated with | [optional] 
+**AzureSubscriptionId** | Pointer to **NullableString** | ID of the Azure subscription associated with the Resource Location | [optional] 
+**AzureVnet** | Pointer to **NullableString** | Name of the Azure Virtual Network the RL is associated with | [optional] 
+**OnPremConnection** | Pointer to **NullableString** | Name of the on-prem connection associated with | [optional] 
 **Connectors** | Pointer to [**[]ConnectorDetails**](ConnectorDetails.md) | List of connectors configured for the RL | [optional] 
 **Jobs** | Pointer to [**[]ResourceLocationJob**](ResourceLocationJob.md) | List of jobs performed by the Resource Location. | [optional] 
 **AssociatedCatalogs** | Pointer to [**[]AssociatedCatalog**](AssociatedCatalog.md) | List of catalogs that are associate with the Resource Location. | [optional] 
-**ConnectorResourceGroup** | Pointer to **string** | The most recently used resource group for connectors of a BYOA RL | [optional] 
-**VnetResourceGroup** | Pointer to **string** | The resource group containing the vnet the RL is associated with | [optional] 
-**OrganizationalUnit** | Pointer to **string** | The most recently used OU for the connectors of a BYOA RL | [optional] 
-**IsSecureBrowser** | Pointer to **bool** | Indicates if the Resource Location is for Secure Browser | [optional] 
+**ConnectorResourceGroup** | Pointer to **NullableString** | The most recently used resource group for connectors of a BYOA RL | [optional] 
+**VnetResourceGroup** | Pointer to **NullableString** | The resource group containing the vnet the RL is associated with | [optional] 
+**SubnetNames** | Pointer to **[]string** | The subnet names within the VNet | [optional] 
+**ManagedSubnetIds** | Pointer to **[]string** | The full Azure resource IDs of the managed subnets | [optional] 
+**OrganizationalUnit** | Pointer to **NullableString** | The most recently used OU for the connectors of a BYOA RL | [optional] 
+**IsSecureBrowser** | Pointer to **NullableBool** | Indicates if the Resource Location is for Secure Browser | [optional] 
 **IsForConnectorlessCatalogs** | Pointer to **bool** | Indicates if the Resource Location is for connectorless catalogs | [optional] 
 **IsSupportingAddingConnectors** | Pointer to **bool** | Indicates if connectorless Resource Location can add connectors | [optional] 
-**NatGateway** | Pointer to [**NatGatewayModelOverview**](NatGatewayModelOverview.md) | Overview model of the NatGateway | [optional] 
+**NatGateway** | Pointer to [**NullableNatGatewayModelOverview**](NatGatewayModelOverview.md) | Overview model of the NatGateway | [optional] 
 
 ## Methods
 
@@ -71,6 +73,16 @@ SetLocationId sets LocationId field to given value.
 
 HasLocationId returns a boolean if a field has been set.
 
+### SetLocationIdNil
+
+`func (o *ResourceLocationDetails) SetLocationIdNil(b bool)`
+
+ SetLocationIdNil sets the value for LocationId to be an explicit nil
+
+### UnsetLocationId
+`func (o *ResourceLocationDetails) UnsetLocationId()`
+
+UnsetLocationId ensures that no value is present for LocationId, not even an explicit nil
 ### GetCspCustomer
 
 `func (o *ResourceLocationDetails) GetCspCustomer() string`
@@ -96,6 +108,16 @@ SetCspCustomer sets CspCustomer field to given value.
 
 HasCspCustomer returns a boolean if a field has been set.
 
+### SetCspCustomerNil
+
+`func (o *ResourceLocationDetails) SetCspCustomerNil(b bool)`
+
+ SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+
+### UnsetCspCustomer
+`func (o *ResourceLocationDetails) UnsetCspCustomer()`
+
+UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
 ### GetName
 
 `func (o *ResourceLocationDetails) GetName() string`
@@ -121,6 +143,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ResourceLocationDetails) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ResourceLocationDetails) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetState
 
 `func (o *ResourceLocationDetails) GetState() ResourceLocationState`
@@ -171,6 +203,16 @@ SetRegion sets Region field to given value.
 
 HasRegion returns a boolean if a field has been set.
 
+### SetRegionNil
+
+`func (o *ResourceLocationDetails) SetRegionNil(b bool)`
+
+ SetRegionNil sets the value for Region to be an explicit nil
+
+### UnsetRegion
+`func (o *ResourceLocationDetails) UnsetRegion()`
+
+UnsetRegion ensures that no value is present for Region, not even an explicit nil
 ### GetRegionId
 
 `func (o *ResourceLocationDetails) GetRegionId() string`
@@ -196,6 +238,16 @@ SetRegionId sets RegionId field to given value.
 
 HasRegionId returns a boolean if a field has been set.
 
+### SetRegionIdNil
+
+`func (o *ResourceLocationDetails) SetRegionIdNil(b bool)`
+
+ SetRegionIdNil sets the value for RegionId to be an explicit nil
+
+### UnsetRegionId
+`func (o *ResourceLocationDetails) UnsetRegionId()`
+
+UnsetRegionId ensures that no value is present for RegionId, not even an explicit nil
 ### GetIsCitrixManaged
 
 `func (o *ResourceLocationDetails) GetIsCitrixManaged() bool`
@@ -271,6 +323,16 @@ SetDomainName sets DomainName field to given value.
 
 HasDomainName returns a boolean if a field has been set.
 
+### SetDomainNameNil
+
+`func (o *ResourceLocationDetails) SetDomainNameNil(b bool)`
+
+ SetDomainNameNil sets the value for DomainName to be an explicit nil
+
+### UnsetDomainName
+`func (o *ResourceLocationDetails) UnsetDomainName()`
+
+UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
 ### GetAzureSubscriptionId
 
 `func (o *ResourceLocationDetails) GetAzureSubscriptionId() string`
@@ -296,6 +358,16 @@ SetAzureSubscriptionId sets AzureSubscriptionId field to given value.
 
 HasAzureSubscriptionId returns a boolean if a field has been set.
 
+### SetAzureSubscriptionIdNil
+
+`func (o *ResourceLocationDetails) SetAzureSubscriptionIdNil(b bool)`
+
+ SetAzureSubscriptionIdNil sets the value for AzureSubscriptionId to be an explicit nil
+
+### UnsetAzureSubscriptionId
+`func (o *ResourceLocationDetails) UnsetAzureSubscriptionId()`
+
+UnsetAzureSubscriptionId ensures that no value is present for AzureSubscriptionId, not even an explicit nil
 ### GetAzureVnet
 
 `func (o *ResourceLocationDetails) GetAzureVnet() string`
@@ -321,6 +393,16 @@ SetAzureVnet sets AzureVnet field to given value.
 
 HasAzureVnet returns a boolean if a field has been set.
 
+### SetAzureVnetNil
+
+`func (o *ResourceLocationDetails) SetAzureVnetNil(b bool)`
+
+ SetAzureVnetNil sets the value for AzureVnet to be an explicit nil
+
+### UnsetAzureVnet
+`func (o *ResourceLocationDetails) UnsetAzureVnet()`
+
+UnsetAzureVnet ensures that no value is present for AzureVnet, not even an explicit nil
 ### GetOnPremConnection
 
 `func (o *ResourceLocationDetails) GetOnPremConnection() string`
@@ -346,6 +428,16 @@ SetOnPremConnection sets OnPremConnection field to given value.
 
 HasOnPremConnection returns a boolean if a field has been set.
 
+### SetOnPremConnectionNil
+
+`func (o *ResourceLocationDetails) SetOnPremConnectionNil(b bool)`
+
+ SetOnPremConnectionNil sets the value for OnPremConnection to be an explicit nil
+
+### UnsetOnPremConnection
+`func (o *ResourceLocationDetails) UnsetOnPremConnection()`
+
+UnsetOnPremConnection ensures that no value is present for OnPremConnection, not even an explicit nil
 ### GetConnectors
 
 `func (o *ResourceLocationDetails) GetConnectors() []ConnectorDetails`
@@ -371,6 +463,16 @@ SetConnectors sets Connectors field to given value.
 
 HasConnectors returns a boolean if a field has been set.
 
+### SetConnectorsNil
+
+`func (o *ResourceLocationDetails) SetConnectorsNil(b bool)`
+
+ SetConnectorsNil sets the value for Connectors to be an explicit nil
+
+### UnsetConnectors
+`func (o *ResourceLocationDetails) UnsetConnectors()`
+
+UnsetConnectors ensures that no value is present for Connectors, not even an explicit nil
 ### GetJobs
 
 `func (o *ResourceLocationDetails) GetJobs() []ResourceLocationJob`
@@ -396,6 +498,16 @@ SetJobs sets Jobs field to given value.
 
 HasJobs returns a boolean if a field has been set.
 
+### SetJobsNil
+
+`func (o *ResourceLocationDetails) SetJobsNil(b bool)`
+
+ SetJobsNil sets the value for Jobs to be an explicit nil
+
+### UnsetJobs
+`func (o *ResourceLocationDetails) UnsetJobs()`
+
+UnsetJobs ensures that no value is present for Jobs, not even an explicit nil
 ### GetAssociatedCatalogs
 
 `func (o *ResourceLocationDetails) GetAssociatedCatalogs() []AssociatedCatalog`
@@ -421,6 +533,16 @@ SetAssociatedCatalogs sets AssociatedCatalogs field to given value.
 
 HasAssociatedCatalogs returns a boolean if a field has been set.
 
+### SetAssociatedCatalogsNil
+
+`func (o *ResourceLocationDetails) SetAssociatedCatalogsNil(b bool)`
+
+ SetAssociatedCatalogsNil sets the value for AssociatedCatalogs to be an explicit nil
+
+### UnsetAssociatedCatalogs
+`func (o *ResourceLocationDetails) UnsetAssociatedCatalogs()`
+
+UnsetAssociatedCatalogs ensures that no value is present for AssociatedCatalogs, not even an explicit nil
 ### GetConnectorResourceGroup
 
 `func (o *ResourceLocationDetails) GetConnectorResourceGroup() string`
@@ -446,6 +568,16 @@ SetConnectorResourceGroup sets ConnectorResourceGroup field to given value.
 
 HasConnectorResourceGroup returns a boolean if a field has been set.
 
+### SetConnectorResourceGroupNil
+
+`func (o *ResourceLocationDetails) SetConnectorResourceGroupNil(b bool)`
+
+ SetConnectorResourceGroupNil sets the value for ConnectorResourceGroup to be an explicit nil
+
+### UnsetConnectorResourceGroup
+`func (o *ResourceLocationDetails) UnsetConnectorResourceGroup()`
+
+UnsetConnectorResourceGroup ensures that no value is present for ConnectorResourceGroup, not even an explicit nil
 ### GetVnetResourceGroup
 
 `func (o *ResourceLocationDetails) GetVnetResourceGroup() string`
@@ -471,6 +603,86 @@ SetVnetResourceGroup sets VnetResourceGroup field to given value.
 
 HasVnetResourceGroup returns a boolean if a field has been set.
 
+### SetVnetResourceGroupNil
+
+`func (o *ResourceLocationDetails) SetVnetResourceGroupNil(b bool)`
+
+ SetVnetResourceGroupNil sets the value for VnetResourceGroup to be an explicit nil
+
+### UnsetVnetResourceGroup
+`func (o *ResourceLocationDetails) UnsetVnetResourceGroup()`
+
+UnsetVnetResourceGroup ensures that no value is present for VnetResourceGroup, not even an explicit nil
+### GetSubnetNames
+
+`func (o *ResourceLocationDetails) GetSubnetNames() []string`
+
+GetSubnetNames returns the SubnetNames field if non-nil, zero value otherwise.
+
+### GetSubnetNamesOk
+
+`func (o *ResourceLocationDetails) GetSubnetNamesOk() (*[]string, bool)`
+
+GetSubnetNamesOk returns a tuple with the SubnetNames field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubnetNames
+
+`func (o *ResourceLocationDetails) SetSubnetNames(v []string)`
+
+SetSubnetNames sets SubnetNames field to given value.
+
+### HasSubnetNames
+
+`func (o *ResourceLocationDetails) HasSubnetNames() bool`
+
+HasSubnetNames returns a boolean if a field has been set.
+
+### SetSubnetNamesNil
+
+`func (o *ResourceLocationDetails) SetSubnetNamesNil(b bool)`
+
+ SetSubnetNamesNil sets the value for SubnetNames to be an explicit nil
+
+### UnsetSubnetNames
+`func (o *ResourceLocationDetails) UnsetSubnetNames()`
+
+UnsetSubnetNames ensures that no value is present for SubnetNames, not even an explicit nil
+### GetManagedSubnetIds
+
+`func (o *ResourceLocationDetails) GetManagedSubnetIds() []string`
+
+GetManagedSubnetIds returns the ManagedSubnetIds field if non-nil, zero value otherwise.
+
+### GetManagedSubnetIdsOk
+
+`func (o *ResourceLocationDetails) GetManagedSubnetIdsOk() (*[]string, bool)`
+
+GetManagedSubnetIdsOk returns a tuple with the ManagedSubnetIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManagedSubnetIds
+
+`func (o *ResourceLocationDetails) SetManagedSubnetIds(v []string)`
+
+SetManagedSubnetIds sets ManagedSubnetIds field to given value.
+
+### HasManagedSubnetIds
+
+`func (o *ResourceLocationDetails) HasManagedSubnetIds() bool`
+
+HasManagedSubnetIds returns a boolean if a field has been set.
+
+### SetManagedSubnetIdsNil
+
+`func (o *ResourceLocationDetails) SetManagedSubnetIdsNil(b bool)`
+
+ SetManagedSubnetIdsNil sets the value for ManagedSubnetIds to be an explicit nil
+
+### UnsetManagedSubnetIds
+`func (o *ResourceLocationDetails) UnsetManagedSubnetIds()`
+
+UnsetManagedSubnetIds ensures that no value is present for ManagedSubnetIds, not even an explicit nil
 ### GetOrganizationalUnit
 
 `func (o *ResourceLocationDetails) GetOrganizationalUnit() string`
@@ -496,6 +708,16 @@ SetOrganizationalUnit sets OrganizationalUnit field to given value.
 
 HasOrganizationalUnit returns a boolean if a field has been set.
 
+### SetOrganizationalUnitNil
+
+`func (o *ResourceLocationDetails) SetOrganizationalUnitNil(b bool)`
+
+ SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
+
+### UnsetOrganizationalUnit
+`func (o *ResourceLocationDetails) UnsetOrganizationalUnit()`
+
+UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
 ### GetIsSecureBrowser
 
 `func (o *ResourceLocationDetails) GetIsSecureBrowser() bool`
@@ -521,6 +743,16 @@ SetIsSecureBrowser sets IsSecureBrowser field to given value.
 
 HasIsSecureBrowser returns a boolean if a field has been set.
 
+### SetIsSecureBrowserNil
+
+`func (o *ResourceLocationDetails) SetIsSecureBrowserNil(b bool)`
+
+ SetIsSecureBrowserNil sets the value for IsSecureBrowser to be an explicit nil
+
+### UnsetIsSecureBrowser
+`func (o *ResourceLocationDetails) UnsetIsSecureBrowser()`
+
+UnsetIsSecureBrowser ensures that no value is present for IsSecureBrowser, not even an explicit nil
 ### GetIsForConnectorlessCatalogs
 
 `func (o *ResourceLocationDetails) GetIsForConnectorlessCatalogs() bool`
@@ -596,6 +828,16 @@ SetNatGateway sets NatGateway field to given value.
 
 HasNatGateway returns a boolean if a field has been set.
 
+### SetNatGatewayNil
+
+`func (o *ResourceLocationDetails) SetNatGatewayNil(b bool)`
+
+ SetNatGatewayNil sets the value for NatGateway to be an explicit nil
+
+### UnsetNatGateway
+`func (o *ResourceLocationDetails) UnsetNatGateway()`
+
+UnsetNatGateway ensures that no value is present for NatGateway, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

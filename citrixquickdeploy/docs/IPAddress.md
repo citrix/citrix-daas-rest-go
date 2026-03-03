@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AddressFamily** | Pointer to [**AddressFamily**](AddressFamily.md) |  | [optional] 
+**AddressFamily** | Pointer to [**AddressFamily**](AddressFamily.md) |  | [optional] [readonly] 
 **ScopeId** | Pointer to **int64** |  | [optional] 
 **IsIPv6Multicast** | Pointer to **bool** |  | [optional] [readonly] 
 **IsIPv6LinkLocal** | Pointer to **bool** |  | [optional] [readonly] 

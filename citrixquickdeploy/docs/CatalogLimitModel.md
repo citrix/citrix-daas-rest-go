@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ExistingCatalogsCount** | Pointer to **int32** | Number of existing catalogs | [optional] 
 **ServiceState** | Pointer to [**ServiceState**](ServiceState.md) | Current service state of customer | [optional] 
-**CitrixManagedLimit** | Pointer to [**CatalogSublimitModel**](CatalogSublimitModel.md) | Limits on the Citrix Managed catalogs | [optional] 
-**ByoaLimit** | Pointer to [**CatalogSublimitModel**](CatalogSublimitModel.md) | Limits on the BYOA catalogs | [optional] 
+**CitrixManagedLimit** | Pointer to [**NullableCatalogSublimitModel**](CatalogSublimitModel.md) | Limits on the Citrix Managed catalogs | [optional] 
+**ByoaLimit** | Pointer to [**NullableCatalogSublimitModel**](CatalogSublimitModel.md) | Limits on the BYOA catalogs | [optional] 
 
 ## Methods
 
@@ -103,6 +103,16 @@ SetCitrixManagedLimit sets CitrixManagedLimit field to given value.
 
 HasCitrixManagedLimit returns a boolean if a field has been set.
 
+### SetCitrixManagedLimitNil
+
+`func (o *CatalogLimitModel) SetCitrixManagedLimitNil(b bool)`
+
+ SetCitrixManagedLimitNil sets the value for CitrixManagedLimit to be an explicit nil
+
+### UnsetCitrixManagedLimit
+`func (o *CatalogLimitModel) UnsetCitrixManagedLimit()`
+
+UnsetCitrixManagedLimit ensures that no value is present for CitrixManagedLimit, not even an explicit nil
 ### GetByoaLimit
 
 `func (o *CatalogLimitModel) GetByoaLimit() CatalogSublimitModel`
@@ -128,6 +138,16 @@ SetByoaLimit sets ByoaLimit field to given value.
 
 HasByoaLimit returns a boolean if a field has been set.
 
+### SetByoaLimitNil
+
+`func (o *CatalogLimitModel) SetByoaLimitNil(b bool)`
+
+ SetByoaLimitNil sets the value for ByoaLimit to be an explicit nil
+
+### UnsetByoaLimit
+`func (o *CatalogLimitModel) UnsetByoaLimit()`
+
+UnsetByoaLimit ensures that no value is present for ByoaLimit, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | Pointer to **string** |  | [optional] 
+**ApplicationId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -50,6 +50,16 @@ SetApplicationId sets ApplicationId field to given value.
 
 HasApplicationId returns a boolean if a field has been set.
 
+### SetApplicationIdNil
+
+`func (o *RemoteBrowserIsolationInternalAppCreateResponseModel) SetApplicationIdNil(b bool)`
+
+ SetApplicationIdNil sets the value for ApplicationId to be an explicit nil
+
+### UnsetApplicationId
+`func (o *RemoteBrowserIsolationInternalAppCreateResponseModel) UnsetApplicationId()`
+
+UnsetApplicationId ensures that no value is present for ApplicationId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

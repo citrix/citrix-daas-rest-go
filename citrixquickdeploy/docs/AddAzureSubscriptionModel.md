@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SubscriptionId** | Pointer to **string** | ID of the subscription to add | [optional] 
+**SubscriptionId** | Pointer to **NullableString** | ID of the subscription to add | [optional] 
 **CitrixManaged** | Pointer to **bool** |  | [optional] 
-**CspCustomerId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
-**CspSiteId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
-**ConsentedBy** | Pointer to **string** | The user that consented to using Citrix managed subscription | [optional] 
-**SecretExpirationDate** | Pointer to **time.Time** | The expiration date of the user provided secret, if one was given in the headers | [optional] 
+**CspCustomerId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**CspSiteId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**ConsentedBy** | Pointer to **NullableString** | The user that consented to using Citrix managed subscription | [optional] 
+**SecretExpirationDate** | Pointer to **NullableTime** | The expiration date of the user provided secret, if one was given in the headers | [optional] 
 
 ## Methods
 
@@ -55,6 +55,16 @@ SetSubscriptionId sets SubscriptionId field to given value.
 
 HasSubscriptionId returns a boolean if a field has been set.
 
+### SetSubscriptionIdNil
+
+`func (o *AddAzureSubscriptionModel) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *AddAzureSubscriptionModel) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
 ### GetCitrixManaged
 
 `func (o *AddAzureSubscriptionModel) GetCitrixManaged() bool`
@@ -105,6 +115,16 @@ SetCspCustomerId sets CspCustomerId field to given value.
 
 HasCspCustomerId returns a boolean if a field has been set.
 
+### SetCspCustomerIdNil
+
+`func (o *AddAzureSubscriptionModel) SetCspCustomerIdNil(b bool)`
+
+ SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+
+### UnsetCspCustomerId
+`func (o *AddAzureSubscriptionModel) UnsetCspCustomerId()`
+
+UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
 ### GetCspSiteId
 
 `func (o *AddAzureSubscriptionModel) GetCspSiteId() string`
@@ -130,6 +150,16 @@ SetCspSiteId sets CspSiteId field to given value.
 
 HasCspSiteId returns a boolean if a field has been set.
 
+### SetCspSiteIdNil
+
+`func (o *AddAzureSubscriptionModel) SetCspSiteIdNil(b bool)`
+
+ SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+
+### UnsetCspSiteId
+`func (o *AddAzureSubscriptionModel) UnsetCspSiteId()`
+
+UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
 ### GetConsentedBy
 
 `func (o *AddAzureSubscriptionModel) GetConsentedBy() string`
@@ -155,6 +185,16 @@ SetConsentedBy sets ConsentedBy field to given value.
 
 HasConsentedBy returns a boolean if a field has been set.
 
+### SetConsentedByNil
+
+`func (o *AddAzureSubscriptionModel) SetConsentedByNil(b bool)`
+
+ SetConsentedByNil sets the value for ConsentedBy to be an explicit nil
+
+### UnsetConsentedBy
+`func (o *AddAzureSubscriptionModel) UnsetConsentedBy()`
+
+UnsetConsentedBy ensures that no value is present for ConsentedBy, not even an explicit nil
 ### GetSecretExpirationDate
 
 `func (o *AddAzureSubscriptionModel) GetSecretExpirationDate() time.Time`
@@ -180,6 +220,16 @@ SetSecretExpirationDate sets SecretExpirationDate field to given value.
 
 HasSecretExpirationDate returns a boolean if a field has been set.
 
+### SetSecretExpirationDateNil
+
+`func (o *AddAzureSubscriptionModel) SetSecretExpirationDateNil(b bool)`
+
+ SetSecretExpirationDateNil sets the value for SecretExpirationDate to be an explicit nil
+
+### UnsetSecretExpirationDate
+`func (o *AddAzureSubscriptionModel) UnsetSecretExpirationDate()`
+
+UnsetSecretExpirationDate ensures that no value is present for SecretExpirationDate, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

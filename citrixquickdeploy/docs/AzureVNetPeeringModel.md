@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PeeringName** | Pointer to **string** | A unique name for this vnet peering | [optional] 
-**CitrixVNet** | Pointer to [**AzureVNet**](AzureVNet.md) | The first VNet, the one owned by Citrix | [optional] 
-**CustomerVNet** | Pointer to [**AzureVNet**](AzureVNet.md) | The second VNet which the customers owns | [optional] 
+**PeeringName** | Pointer to **NullableString** | A unique name for this vnet peering | [optional] 
+**CitrixVNet** | Pointer to [**NullableAzureVNet**](AzureVNet.md) | The first VNet, the one owned by Citrix | [optional] 
+**CustomerVNet** | Pointer to [**NullableAzureVNet**](AzureVNet.md) | The second VNet which the customers owns | [optional] 
 **UseCustomerGateway** | Pointer to **bool** | Indicates if the vpn peering will use the customer&#39;s gateway | [optional] 
 **AllowForwardedTraffic** | Pointer to **bool** | Indicates if traffic forwarded from another peer should be allowed into the citrix created vnet  This does not apply to traffic from a gateway on a customer side  When using this feature, a route table entry will need to be added | [optional] 
 
@@ -54,6 +54,16 @@ SetPeeringName sets PeeringName field to given value.
 
 HasPeeringName returns a boolean if a field has been set.
 
+### SetPeeringNameNil
+
+`func (o *AzureVNetPeeringModel) SetPeeringNameNil(b bool)`
+
+ SetPeeringNameNil sets the value for PeeringName to be an explicit nil
+
+### UnsetPeeringName
+`func (o *AzureVNetPeeringModel) UnsetPeeringName()`
+
+UnsetPeeringName ensures that no value is present for PeeringName, not even an explicit nil
 ### GetCitrixVNet
 
 `func (o *AzureVNetPeeringModel) GetCitrixVNet() AzureVNet`
@@ -79,6 +89,16 @@ SetCitrixVNet sets CitrixVNet field to given value.
 
 HasCitrixVNet returns a boolean if a field has been set.
 
+### SetCitrixVNetNil
+
+`func (o *AzureVNetPeeringModel) SetCitrixVNetNil(b bool)`
+
+ SetCitrixVNetNil sets the value for CitrixVNet to be an explicit nil
+
+### UnsetCitrixVNet
+`func (o *AzureVNetPeeringModel) UnsetCitrixVNet()`
+
+UnsetCitrixVNet ensures that no value is present for CitrixVNet, not even an explicit nil
 ### GetCustomerVNet
 
 `func (o *AzureVNetPeeringModel) GetCustomerVNet() AzureVNet`
@@ -104,6 +124,16 @@ SetCustomerVNet sets CustomerVNet field to given value.
 
 HasCustomerVNet returns a boolean if a field has been set.
 
+### SetCustomerVNetNil
+
+`func (o *AzureVNetPeeringModel) SetCustomerVNetNil(b bool)`
+
+ SetCustomerVNetNil sets the value for CustomerVNet to be an explicit nil
+
+### UnsetCustomerVNet
+`func (o *AzureVNetPeeringModel) UnsetCustomerVNet()`
+
+UnsetCustomerVNet ensures that no value is present for CustomerVNet, not even an explicit nil
 ### GetUseCustomerGateway
 
 `func (o *AzureVNetPeeringModel) GetUseCustomerGateway() bool`

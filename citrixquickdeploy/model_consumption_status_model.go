@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,14 +19,14 @@ var _ MappedNullable = &ConsumptionStatusModel{}
 
 // ConsumptionStatusModel struct for ConsumptionStatusModel
 type ConsumptionStatusModel struct {
-	MonthlyConsumptionCommitment *float64                            `json:"monthlyConsumptionCommitment,omitempty"`
-	MonthlyConsumption           *float64                            `json:"monthlyConsumption,omitempty"`
-	TermConsumptionCommitment    *float64                            `json:"termConsumptionCommitment,omitempty"`
-	TermConsumption              *float64                            `json:"termConsumption,omitempty"`
-	TotalConsumption             *float64                            `json:"totalConsumption,omitempty"`
-	NumberOfLicensedUsers        *int32                              `json:"numberOfLicensedUsers,omitempty"`
-	ConsumptionSettings          *DataStoreConsumptionThresholdModel `json:"consumptionSettings,omitempty"`
-	StaleData                    *bool                               `json:"staleData,omitempty"`
+	MonthlyConsumptionCommitment NullableFloat64                            `json:"monthlyConsumptionCommitment,omitempty"`
+	MonthlyConsumption           NullableFloat64                            `json:"monthlyConsumption,omitempty"`
+	TermConsumptionCommitment    NullableFloat64                            `json:"termConsumptionCommitment,omitempty"`
+	TermConsumption              NullableFloat64                            `json:"termConsumption,omitempty"`
+	TotalConsumption             *float64                                   `json:"totalConsumption,omitempty"`
+	NumberOfLicensedUsers        NullableInt32                              `json:"numberOfLicensedUsers,omitempty"`
+	ConsumptionSettings          NullableDataStoreConsumptionThresholdModel `json:"consumptionSettings,omitempty"`
+	StaleData                    *bool                                      `json:"staleData,omitempty"`
 }
 
 // NewConsumptionStatusModelWithDefaults instantiates a new ConsumptionStatusModel object
@@ -37,96 +37,140 @@ func NewConsumptionStatusModelWithDefaults() *ConsumptionStatusModel {
 	return &this
 }
 
-// GetMonthlyConsumptionCommitment returns the MonthlyConsumptionCommitment field value if set, zero value otherwise.
+// GetMonthlyConsumptionCommitment returns the MonthlyConsumptionCommitment field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConsumptionStatusModel) GetMonthlyConsumptionCommitment() float64 {
-	if o == nil || IsNil(o.MonthlyConsumptionCommitment) {
+	if o == nil || IsNil(o.MonthlyConsumptionCommitment.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.MonthlyConsumptionCommitment
+	return *o.MonthlyConsumptionCommitment.Get()
 }
 
 // GetMonthlyConsumptionCommitmentOk returns a tuple with the MonthlyConsumptionCommitment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConsumptionStatusModel) GetMonthlyConsumptionCommitmentOk() (*float64, bool) {
-	if o == nil || IsNil(o.MonthlyConsumptionCommitment) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MonthlyConsumptionCommitment, true
+	return o.MonthlyConsumptionCommitment.Get(), o.MonthlyConsumptionCommitment.IsSet()
 }
 
-// SetMonthlyConsumptionCommitment gets a reference to the given float64 and assigns it to the MonthlyConsumptionCommitment field.
+// SetMonthlyConsumptionCommitment gets a reference to the given NullableFloat64 and assigns it to the MonthlyConsumptionCommitment field.
 func (o *ConsumptionStatusModel) SetMonthlyConsumptionCommitment(v float64) {
-	o.MonthlyConsumptionCommitment = &v
+	o.MonthlyConsumptionCommitment.Set(&v)
 }
 
-// GetMonthlyConsumption returns the MonthlyConsumption field value if set, zero value otherwise.
+// SetMonthlyConsumptionCommitmentNil sets the value for MonthlyConsumptionCommitment to be an explicit nil
+func (o *ConsumptionStatusModel) SetMonthlyConsumptionCommitmentNil() {
+	o.MonthlyConsumptionCommitment.Set(nil)
+}
+
+// UnsetMonthlyConsumptionCommitment ensures that no value is present for MonthlyConsumptionCommitment, not even an explicit nil
+func (o *ConsumptionStatusModel) UnsetMonthlyConsumptionCommitment() {
+	o.MonthlyConsumptionCommitment.Unset()
+}
+
+// GetMonthlyConsumption returns the MonthlyConsumption field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConsumptionStatusModel) GetMonthlyConsumption() float64 {
-	if o == nil || IsNil(o.MonthlyConsumption) {
+	if o == nil || IsNil(o.MonthlyConsumption.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.MonthlyConsumption
+	return *o.MonthlyConsumption.Get()
 }
 
 // GetMonthlyConsumptionOk returns a tuple with the MonthlyConsumption field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConsumptionStatusModel) GetMonthlyConsumptionOk() (*float64, bool) {
-	if o == nil || IsNil(o.MonthlyConsumption) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MonthlyConsumption, true
+	return o.MonthlyConsumption.Get(), o.MonthlyConsumption.IsSet()
 }
 
-// SetMonthlyConsumption gets a reference to the given float64 and assigns it to the MonthlyConsumption field.
+// SetMonthlyConsumption gets a reference to the given NullableFloat64 and assigns it to the MonthlyConsumption field.
 func (o *ConsumptionStatusModel) SetMonthlyConsumption(v float64) {
-	o.MonthlyConsumption = &v
+	o.MonthlyConsumption.Set(&v)
 }
 
-// GetTermConsumptionCommitment returns the TermConsumptionCommitment field value if set, zero value otherwise.
+// SetMonthlyConsumptionNil sets the value for MonthlyConsumption to be an explicit nil
+func (o *ConsumptionStatusModel) SetMonthlyConsumptionNil() {
+	o.MonthlyConsumption.Set(nil)
+}
+
+// UnsetMonthlyConsumption ensures that no value is present for MonthlyConsumption, not even an explicit nil
+func (o *ConsumptionStatusModel) UnsetMonthlyConsumption() {
+	o.MonthlyConsumption.Unset()
+}
+
+// GetTermConsumptionCommitment returns the TermConsumptionCommitment field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConsumptionStatusModel) GetTermConsumptionCommitment() float64 {
-	if o == nil || IsNil(o.TermConsumptionCommitment) {
+	if o == nil || IsNil(o.TermConsumptionCommitment.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.TermConsumptionCommitment
+	return *o.TermConsumptionCommitment.Get()
 }
 
 // GetTermConsumptionCommitmentOk returns a tuple with the TermConsumptionCommitment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConsumptionStatusModel) GetTermConsumptionCommitmentOk() (*float64, bool) {
-	if o == nil || IsNil(o.TermConsumptionCommitment) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TermConsumptionCommitment, true
+	return o.TermConsumptionCommitment.Get(), o.TermConsumptionCommitment.IsSet()
 }
 
-// SetTermConsumptionCommitment gets a reference to the given float64 and assigns it to the TermConsumptionCommitment field.
+// SetTermConsumptionCommitment gets a reference to the given NullableFloat64 and assigns it to the TermConsumptionCommitment field.
 func (o *ConsumptionStatusModel) SetTermConsumptionCommitment(v float64) {
-	o.TermConsumptionCommitment = &v
+	o.TermConsumptionCommitment.Set(&v)
 }
 
-// GetTermConsumption returns the TermConsumption field value if set, zero value otherwise.
+// SetTermConsumptionCommitmentNil sets the value for TermConsumptionCommitment to be an explicit nil
+func (o *ConsumptionStatusModel) SetTermConsumptionCommitmentNil() {
+	o.TermConsumptionCommitment.Set(nil)
+}
+
+// UnsetTermConsumptionCommitment ensures that no value is present for TermConsumptionCommitment, not even an explicit nil
+func (o *ConsumptionStatusModel) UnsetTermConsumptionCommitment() {
+	o.TermConsumptionCommitment.Unset()
+}
+
+// GetTermConsumption returns the TermConsumption field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConsumptionStatusModel) GetTermConsumption() float64 {
-	if o == nil || IsNil(o.TermConsumption) {
+	if o == nil || IsNil(o.TermConsumption.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.TermConsumption
+	return *o.TermConsumption.Get()
 }
 
 // GetTermConsumptionOk returns a tuple with the TermConsumption field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConsumptionStatusModel) GetTermConsumptionOk() (*float64, bool) {
-	if o == nil || IsNil(o.TermConsumption) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TermConsumption, true
+	return o.TermConsumption.Get(), o.TermConsumption.IsSet()
 }
 
-// SetTermConsumption gets a reference to the given float64 and assigns it to the TermConsumption field.
+// SetTermConsumption gets a reference to the given NullableFloat64 and assigns it to the TermConsumption field.
 func (o *ConsumptionStatusModel) SetTermConsumption(v float64) {
-	o.TermConsumption = &v
+	o.TermConsumption.Set(&v)
+}
+
+// SetTermConsumptionNil sets the value for TermConsumption to be an explicit nil
+func (o *ConsumptionStatusModel) SetTermConsumptionNil() {
+	o.TermConsumption.Set(nil)
+}
+
+// UnsetTermConsumption ensures that no value is present for TermConsumption, not even an explicit nil
+func (o *ConsumptionStatusModel) UnsetTermConsumption() {
+	o.TermConsumption.Unset()
 }
 
 // GetTotalConsumption returns the TotalConsumption field value if set, zero value otherwise.
@@ -152,50 +196,72 @@ func (o *ConsumptionStatusModel) SetTotalConsumption(v float64) {
 	o.TotalConsumption = &v
 }
 
-// GetNumberOfLicensedUsers returns the NumberOfLicensedUsers field value if set, zero value otherwise.
+// GetNumberOfLicensedUsers returns the NumberOfLicensedUsers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConsumptionStatusModel) GetNumberOfLicensedUsers() int32 {
-	if o == nil || IsNil(o.NumberOfLicensedUsers) {
+	if o == nil || IsNil(o.NumberOfLicensedUsers.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.NumberOfLicensedUsers
+	return *o.NumberOfLicensedUsers.Get()
 }
 
 // GetNumberOfLicensedUsersOk returns a tuple with the NumberOfLicensedUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConsumptionStatusModel) GetNumberOfLicensedUsersOk() (*int32, bool) {
-	if o == nil || IsNil(o.NumberOfLicensedUsers) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NumberOfLicensedUsers, true
+	return o.NumberOfLicensedUsers.Get(), o.NumberOfLicensedUsers.IsSet()
 }
 
-// SetNumberOfLicensedUsers gets a reference to the given int32 and assigns it to the NumberOfLicensedUsers field.
+// SetNumberOfLicensedUsers gets a reference to the given NullableInt32 and assigns it to the NumberOfLicensedUsers field.
 func (o *ConsumptionStatusModel) SetNumberOfLicensedUsers(v int32) {
-	o.NumberOfLicensedUsers = &v
+	o.NumberOfLicensedUsers.Set(&v)
 }
 
-// GetConsumptionSettings returns the ConsumptionSettings field value if set, zero value otherwise.
+// SetNumberOfLicensedUsersNil sets the value for NumberOfLicensedUsers to be an explicit nil
+func (o *ConsumptionStatusModel) SetNumberOfLicensedUsersNil() {
+	o.NumberOfLicensedUsers.Set(nil)
+}
+
+// UnsetNumberOfLicensedUsers ensures that no value is present for NumberOfLicensedUsers, not even an explicit nil
+func (o *ConsumptionStatusModel) UnsetNumberOfLicensedUsers() {
+	o.NumberOfLicensedUsers.Unset()
+}
+
+// GetConsumptionSettings returns the ConsumptionSettings field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConsumptionStatusModel) GetConsumptionSettings() DataStoreConsumptionThresholdModel {
-	if o == nil || IsNil(o.ConsumptionSettings) {
+	if o == nil || IsNil(o.ConsumptionSettings.Get()) {
 		var ret DataStoreConsumptionThresholdModel
 		return ret
 	}
-	return *o.ConsumptionSettings
+	return *o.ConsumptionSettings.Get()
 }
 
 // GetConsumptionSettingsOk returns a tuple with the ConsumptionSettings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConsumptionStatusModel) GetConsumptionSettingsOk() (*DataStoreConsumptionThresholdModel, bool) {
-	if o == nil || IsNil(o.ConsumptionSettings) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConsumptionSettings, true
+	return o.ConsumptionSettings.Get(), o.ConsumptionSettings.IsSet()
 }
 
-// SetConsumptionSettings gets a reference to the given DataStoreConsumptionThresholdModel and assigns it to the ConsumptionSettings field.
+// SetConsumptionSettings gets a reference to the given NullableDataStoreConsumptionThresholdModel and assigns it to the ConsumptionSettings field.
 func (o *ConsumptionStatusModel) SetConsumptionSettings(v DataStoreConsumptionThresholdModel) {
-	o.ConsumptionSettings = &v
+	o.ConsumptionSettings.Set(&v)
+}
+
+// SetConsumptionSettingsNil sets the value for ConsumptionSettings to be an explicit nil
+func (o *ConsumptionStatusModel) SetConsumptionSettingsNil() {
+	o.ConsumptionSettings.Set(nil)
+}
+
+// UnsetConsumptionSettings ensures that no value is present for ConsumptionSettings, not even an explicit nil
+func (o *ConsumptionStatusModel) UnsetConsumptionSettings() {
+	o.ConsumptionSettings.Unset()
 }
 
 // GetStaleData returns the StaleData field value if set, zero value otherwise.
@@ -231,26 +297,26 @@ func (o ConsumptionStatusModel) MarshalJSON() ([]byte, error) {
 
 func (o ConsumptionStatusModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.MonthlyConsumptionCommitment) {
-		toSerialize["monthlyConsumptionCommitment"] = o.MonthlyConsumptionCommitment
+	if o.MonthlyConsumptionCommitment.IsSet() {
+		toSerialize["monthlyConsumptionCommitment"] = o.MonthlyConsumptionCommitment.Get()
 	}
-	if !IsNil(o.MonthlyConsumption) {
-		toSerialize["monthlyConsumption"] = o.MonthlyConsumption
+	if o.MonthlyConsumption.IsSet() {
+		toSerialize["monthlyConsumption"] = o.MonthlyConsumption.Get()
 	}
-	if !IsNil(o.TermConsumptionCommitment) {
-		toSerialize["termConsumptionCommitment"] = o.TermConsumptionCommitment
+	if o.TermConsumptionCommitment.IsSet() {
+		toSerialize["termConsumptionCommitment"] = o.TermConsumptionCommitment.Get()
 	}
-	if !IsNil(o.TermConsumption) {
-		toSerialize["termConsumption"] = o.TermConsumption
+	if o.TermConsumption.IsSet() {
+		toSerialize["termConsumption"] = o.TermConsumption.Get()
 	}
 	if !IsNil(o.TotalConsumption) {
 		toSerialize["totalConsumption"] = o.TotalConsumption
 	}
-	if !IsNil(o.NumberOfLicensedUsers) {
-		toSerialize["numberOfLicensedUsers"] = o.NumberOfLicensedUsers
+	if o.NumberOfLicensedUsers.IsSet() {
+		toSerialize["numberOfLicensedUsers"] = o.NumberOfLicensedUsers.Get()
 	}
-	if !IsNil(o.ConsumptionSettings) {
-		toSerialize["consumptionSettings"] = o.ConsumptionSettings
+	if o.ConsumptionSettings.IsSet() {
+		toSerialize["consumptionSettings"] = o.ConsumptionSettings.Get()
 	}
 	if !IsNil(o.StaleData) {
 		toSerialize["staleData"] = o.StaleData

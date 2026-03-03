@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppId** | Pointer to **string** | ID of the apps the tokens are applicable to | [optional] 
+**AppId** | Pointer to **NullableString** | ID of the apps the tokens are applicable to | [optional] 
 **Tokens** | Pointer to [**[]AzureToken**](AzureToken.md) | The tokens to the specified resources | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetAppId sets AppId field to given value.
 
 HasAppId returns a boolean if a field has been set.
 
+### SetAppIdNil
+
+`func (o *AzureTokensResponse) SetAppIdNil(b bool)`
+
+ SetAppIdNil sets the value for AppId to be an explicit nil
+
+### UnsetAppId
+`func (o *AzureTokensResponse) UnsetAppId()`
+
+UnsetAppId ensures that no value is present for AppId, not even an explicit nil
 ### GetTokens
 
 `func (o *AzureTokensResponse) GetTokens() []AzureToken`
@@ -76,6 +86,16 @@ SetTokens sets Tokens field to given value.
 
 HasTokens returns a boolean if a field has been set.
 
+### SetTokensNil
+
+`func (o *AzureTokensResponse) SetTokensNil(b bool)`
+
+ SetTokensNil sets the value for Tokens to be an explicit nil
+
+### UnsetTokens
+`func (o *AzureTokensResponse) UnsetTokens()`
+
+UnsetTokens ensures that no value is present for Tokens, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

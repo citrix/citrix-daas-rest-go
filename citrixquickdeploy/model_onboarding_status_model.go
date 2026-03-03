@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -24,7 +24,7 @@ type OnboardingStatusModel struct {
 	// Reason codes that caused onboarding to fail
 	FailureReason *OnboardingFailureReason `json:"failureReason,omitempty"`
 	// Failure details
-	ErrorDetails *string `json:"errorDetails,omitempty"`
+	ErrorDetails NullableString `json:"errorDetails,omitempty"`
 }
 
 // NewOnboardingStatusModelWithDefaults instantiates a new OnboardingStatusModel object
@@ -81,27 +81,38 @@ func (o *OnboardingStatusModel) SetFailureReason(v OnboardingFailureReason) {
 	o.FailureReason = &v
 }
 
-// GetErrorDetails returns the ErrorDetails field value if set, zero value otherwise.
+// GetErrorDetails returns the ErrorDetails field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *OnboardingStatusModel) GetErrorDetails() string {
-	if o == nil || IsNil(o.ErrorDetails) {
+	if o == nil || IsNil(o.ErrorDetails.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ErrorDetails
+	return *o.ErrorDetails.Get()
 }
 
 // GetErrorDetailsOk returns a tuple with the ErrorDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OnboardingStatusModel) GetErrorDetailsOk() (*string, bool) {
-	if o == nil || IsNil(o.ErrorDetails) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ErrorDetails, true
+	return o.ErrorDetails.Get(), o.ErrorDetails.IsSet()
 }
 
-// SetErrorDetails gets a reference to the given string and assigns it to the ErrorDetails field.
+// SetErrorDetails gets a reference to the given NullableString and assigns it to the ErrorDetails field.
 func (o *OnboardingStatusModel) SetErrorDetails(v string) {
-	o.ErrorDetails = &v
+	o.ErrorDetails.Set(&v)
+}
+
+// SetErrorDetailsNil sets the value for ErrorDetails to be an explicit nil
+func (o *OnboardingStatusModel) SetErrorDetailsNil() {
+	o.ErrorDetails.Set(nil)
+}
+
+// UnsetErrorDetails ensures that no value is present for ErrorDetails, not even an explicit nil
+func (o *OnboardingStatusModel) UnsetErrorDetails() {
+	o.ErrorDetails.Unset()
 }
 
 func (o OnboardingStatusModel) MarshalJSON() ([]byte, error) {
@@ -120,8 +131,8 @@ func (o OnboardingStatusModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.FailureReason) {
 		toSerialize["failureReason"] = o.FailureReason
 	}
-	if !IsNil(o.ErrorDetails) {
-		toSerialize["errorDetails"] = o.ErrorDetails
+	if o.ErrorDetails.IsSet() {
+		toSerialize["errorDetails"] = o.ErrorDetails.Get()
 	}
 	return toSerialize, nil
 }

@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CommissionState** | Pointer to [**CommissionState**](CommissionState.md) |  | [optional] 
-**Error** | Pointer to **string** |  | [optional] 
-**TransactionId** | Pointer to **string** |  | [optional] 
-**CommissionStateTransitionTimeStamp** | Pointer to **time.Time** |  | [optional] 
+**Error** | Pointer to **NullableString** |  | [optional] 
+**TransactionId** | Pointer to **NullableString** |  | [optional] 
+**CommissionStateTransitionTimeStamp** | Pointer to **NullableTime** |  | [optional] 
 
 ## Methods
 
@@ -78,6 +78,16 @@ SetError sets Error field to given value.
 
 HasError returns a boolean if a field has been set.
 
+### SetErrorNil
+
+`func (o *DataStoreCustomerCommissionModel) SetErrorNil(b bool)`
+
+ SetErrorNil sets the value for Error to be an explicit nil
+
+### UnsetError
+`func (o *DataStoreCustomerCommissionModel) UnsetError()`
+
+UnsetError ensures that no value is present for Error, not even an explicit nil
 ### GetTransactionId
 
 `func (o *DataStoreCustomerCommissionModel) GetTransactionId() string`
@@ -103,6 +113,16 @@ SetTransactionId sets TransactionId field to given value.
 
 HasTransactionId returns a boolean if a field has been set.
 
+### SetTransactionIdNil
+
+`func (o *DataStoreCustomerCommissionModel) SetTransactionIdNil(b bool)`
+
+ SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+
+### UnsetTransactionId
+`func (o *DataStoreCustomerCommissionModel) UnsetTransactionId()`
+
+UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
 ### GetCommissionStateTransitionTimeStamp
 
 `func (o *DataStoreCustomerCommissionModel) GetCommissionStateTransitionTimeStamp() time.Time`
@@ -128,6 +148,16 @@ SetCommissionStateTransitionTimeStamp sets CommissionStateTransitionTimeStamp fi
 
 HasCommissionStateTransitionTimeStamp returns a boolean if a field has been set.
 
+### SetCommissionStateTransitionTimeStampNil
+
+`func (o *DataStoreCustomerCommissionModel) SetCommissionStateTransitionTimeStampNil(b bool)`
+
+ SetCommissionStateTransitionTimeStampNil sets the value for CommissionStateTransitionTimeStamp to be an explicit nil
+
+### UnsetCommissionStateTransitionTimeStamp
+`func (o *DataStoreCustomerCommissionModel) UnsetCommissionStateTransitionTimeStamp()`
+
+UnsetCommissionStateTransitionTimeStamp ensures that no value is present for CommissionStateTransitionTimeStamp, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ## PublishDesktops
 
-> CatalogDesktopsModel PublishDesktops(ctx, customerId, siteId, catalogId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+> CatalogDesktopsModel PublishDesktops(ctx, customerId, siteId, catalogId).CitrixTransactionId(citrixTransactionId).AddCatalogDesktopsModel(addCatalogDesktopsModel).Execute()
 
 Publish the specified desktops to the catalog
 
@@ -111,11 +111,11 @@ func main() {
     siteId := "siteId_example" // string | The site ID of the customer
     catalogId := "catalogId_example" // string | ID of the catalog
     citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := *openapiclient.NewAddCatalogDesktopsModel([]openapiclient.AddCatalogDesktopModel{*openapiclient.NewAddCatalogDesktopModel("Name_example")}) // AddCatalogDesktopsModel | List of desktops to add (optional)
+    addCatalogDesktopsModel := *openapiclient.NewAddCatalogDesktopsModel([]openapiclient.AddCatalogDesktopModel{*openapiclient.NewAddCatalogDesktopModel("Name_example")}) // AddCatalogDesktopsModel | List of desktops to add (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CatalogDesktopsCMD.PublishDesktops(context.Background(), customerId, siteId, catalogId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+    resp, r, err := apiClient.CatalogDesktopsCMD.PublishDesktops(context.Background(), customerId, siteId, catalogId).CitrixTransactionId(citrixTransactionId).AddCatalogDesktopsModel(addCatalogDesktopsModel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CatalogDesktopsCMD.PublishDesktops``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 
  **citrixTransactionId** | **string** | The Transaction Id. | 
- **body** | [**AddCatalogDesktopsModel**](AddCatalogDesktopsModel.md) | List of desktops to add | 
+ **addCatalogDesktopsModel** | [**AddCatalogDesktopsModel**](AddCatalogDesktopsModel.md) | List of desktops to add | 
 
 ### Return type
 
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 
 ## UpdateDesktop
 
-> UpdateDesktop(ctx, customerId, siteId, catalogId, desktopId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+> UpdateDesktop(ctx, customerId, siteId, catalogId, desktopId).CitrixTransactionId(citrixTransactionId).UpdateDesktopConfigurationModel(updateDesktopConfigurationModel).Execute()
 
 Update the configuration of a published desktop
 
@@ -343,11 +343,11 @@ func main() {
     catalogId := "catalogId_example" // string | ID of the catalog
     desktopId := "desktopId_example" // string | Identifier of the desktop
     citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := *openapiclient.NewUpdateDesktopConfigurationModel("Name_example") // UpdateDesktopConfigurationModel | New configuration of the application (optional)
+    updateDesktopConfigurationModel := *openapiclient.NewUpdateDesktopConfigurationModel("Name_example") // UpdateDesktopConfigurationModel | New configuration of the application (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CatalogDesktopsCMD.UpdateDesktop(context.Background(), customerId, siteId, catalogId, desktopId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+    r, err := apiClient.CatalogDesktopsCMD.UpdateDesktop(context.Background(), customerId, siteId, catalogId, desktopId).CitrixTransactionId(citrixTransactionId).UpdateDesktopConfigurationModel(updateDesktopConfigurationModel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CatalogDesktopsCMD.UpdateDesktop``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 
  **citrixTransactionId** | **string** | The Transaction Id. | 
- **body** | [**UpdateDesktopConfigurationModel**](UpdateDesktopConfigurationModel.md) | New configuration of the application | 
+ **updateDesktopConfigurationModel** | [**UpdateDesktopConfigurationModel**](UpdateDesktopConfigurationModel.md) | New configuration of the application | 
 
 ### Return type
 

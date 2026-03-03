@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MonthlyConsumptionCommitmentThreshold** | Pointer to **int32** | Threshold for monthly consumption commitment (in unit) | [optional] 
-**MonthlyConsumptionAlertEnabled** | Pointer to **bool** | Indicator for whether monthly consumption threshold alert has been enabled | [optional] 
-**TermConsumptionCommitmentThreshold** | Pointer to **float64** | Threshold for term consumption commitment (in percentage) | [optional] 
-**TermConsumptionAlertEnabled** | Pointer to **bool** | Indicator for whether term consumption threshold alert has been enabled | [optional] 
+**MonthlyConsumptionCommitmentThreshold** | Pointer to **NullableInt32** | Threshold for monthly consumption commitment (in unit) | [optional] 
+**MonthlyConsumptionAlertEnabled** | Pointer to **NullableBool** | Indicator for whether monthly consumption threshold alert has been enabled | [optional] 
+**TermConsumptionCommitmentThreshold** | Pointer to **NullableFloat64** | Threshold for term consumption commitment (in percentage) | [optional] 
+**TermConsumptionAlertEnabled** | Pointer to **NullableBool** | Indicator for whether term consumption threshold alert has been enabled | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetMonthlyConsumptionCommitmentThreshold sets MonthlyConsumptionCommitmentThresh
 
 HasMonthlyConsumptionCommitmentThreshold returns a boolean if a field has been set.
 
+### SetMonthlyConsumptionCommitmentThresholdNil
+
+`func (o *DataStoreConsumptionThresholdModel) SetMonthlyConsumptionCommitmentThresholdNil(b bool)`
+
+ SetMonthlyConsumptionCommitmentThresholdNil sets the value for MonthlyConsumptionCommitmentThreshold to be an explicit nil
+
+### UnsetMonthlyConsumptionCommitmentThreshold
+`func (o *DataStoreConsumptionThresholdModel) UnsetMonthlyConsumptionCommitmentThreshold()`
+
+UnsetMonthlyConsumptionCommitmentThreshold ensures that no value is present for MonthlyConsumptionCommitmentThreshold, not even an explicit nil
 ### GetMonthlyConsumptionAlertEnabled
 
 `func (o *DataStoreConsumptionThresholdModel) GetMonthlyConsumptionAlertEnabled() bool`
@@ -78,6 +88,16 @@ SetMonthlyConsumptionAlertEnabled sets MonthlyConsumptionAlertEnabled field to g
 
 HasMonthlyConsumptionAlertEnabled returns a boolean if a field has been set.
 
+### SetMonthlyConsumptionAlertEnabledNil
+
+`func (o *DataStoreConsumptionThresholdModel) SetMonthlyConsumptionAlertEnabledNil(b bool)`
+
+ SetMonthlyConsumptionAlertEnabledNil sets the value for MonthlyConsumptionAlertEnabled to be an explicit nil
+
+### UnsetMonthlyConsumptionAlertEnabled
+`func (o *DataStoreConsumptionThresholdModel) UnsetMonthlyConsumptionAlertEnabled()`
+
+UnsetMonthlyConsumptionAlertEnabled ensures that no value is present for MonthlyConsumptionAlertEnabled, not even an explicit nil
 ### GetTermConsumptionCommitmentThreshold
 
 `func (o *DataStoreConsumptionThresholdModel) GetTermConsumptionCommitmentThreshold() float64`
@@ -103,6 +123,16 @@ SetTermConsumptionCommitmentThreshold sets TermConsumptionCommitmentThreshold fi
 
 HasTermConsumptionCommitmentThreshold returns a boolean if a field has been set.
 
+### SetTermConsumptionCommitmentThresholdNil
+
+`func (o *DataStoreConsumptionThresholdModel) SetTermConsumptionCommitmentThresholdNil(b bool)`
+
+ SetTermConsumptionCommitmentThresholdNil sets the value for TermConsumptionCommitmentThreshold to be an explicit nil
+
+### UnsetTermConsumptionCommitmentThreshold
+`func (o *DataStoreConsumptionThresholdModel) UnsetTermConsumptionCommitmentThreshold()`
+
+UnsetTermConsumptionCommitmentThreshold ensures that no value is present for TermConsumptionCommitmentThreshold, not even an explicit nil
 ### GetTermConsumptionAlertEnabled
 
 `func (o *DataStoreConsumptionThresholdModel) GetTermConsumptionAlertEnabled() bool`
@@ -128,6 +158,16 @@ SetTermConsumptionAlertEnabled sets TermConsumptionAlertEnabled field to given v
 
 HasTermConsumptionAlertEnabled returns a boolean if a field has been set.
 
+### SetTermConsumptionAlertEnabledNil
+
+`func (o *DataStoreConsumptionThresholdModel) SetTermConsumptionAlertEnabledNil(b bool)`
+
+ SetTermConsumptionAlertEnabledNil sets the value for TermConsumptionAlertEnabled to be an explicit nil
+
+### UnsetTermConsumptionAlertEnabled
+`func (o *DataStoreConsumptionThresholdModel) UnsetTermConsumptionAlertEnabled()`
+
+UnsetTermConsumptionAlertEnabled ensures that no value is present for TermConsumptionAlertEnabled, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

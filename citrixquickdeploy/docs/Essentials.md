@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AlertId** | Pointer to **string** |  | [optional] 
-**AlertRule** | Pointer to **string** |  | [optional] 
-**Severity** | Pointer to **string** |  | [optional] 
-**SignalType** | Pointer to **string** |  | [optional] 
-**MonitorCondition** | Pointer to **string** |  | [optional] 
-**MonitoringService** | Pointer to **string** |  | [optional] 
+**AlertId** | Pointer to **NullableString** |  | [optional] 
+**AlertRule** | Pointer to **NullableString** |  | [optional] 
+**Severity** | Pointer to **NullableString** |  | [optional] 
+**SignalType** | Pointer to **NullableString** |  | [optional] 
+**MonitorCondition** | Pointer to **NullableString** |  | [optional] 
+**MonitoringService** | Pointer to **NullableString** |  | [optional] 
 **AlertTargetIDs** | Pointer to **[]string** |  | [optional] 
-**OriginAlertId** | Pointer to **string** |  | [optional] 
+**OriginAlertId** | Pointer to **NullableString** |  | [optional] 
 **FiredDateTime** | Pointer to **time.Time** |  | [optional] 
-**Description** | Pointer to **string** |  | [optional] 
-**EssentialsVersion** | Pointer to **string** |  | [optional] 
-**AlertContextVersion** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
+**EssentialsVersion** | Pointer to **NullableString** |  | [optional] 
+**AlertContextVersion** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -61,6 +61,16 @@ SetAlertId sets AlertId field to given value.
 
 HasAlertId returns a boolean if a field has been set.
 
+### SetAlertIdNil
+
+`func (o *Essentials) SetAlertIdNil(b bool)`
+
+ SetAlertIdNil sets the value for AlertId to be an explicit nil
+
+### UnsetAlertId
+`func (o *Essentials) UnsetAlertId()`
+
+UnsetAlertId ensures that no value is present for AlertId, not even an explicit nil
 ### GetAlertRule
 
 `func (o *Essentials) GetAlertRule() string`
@@ -86,6 +96,16 @@ SetAlertRule sets AlertRule field to given value.
 
 HasAlertRule returns a boolean if a field has been set.
 
+### SetAlertRuleNil
+
+`func (o *Essentials) SetAlertRuleNil(b bool)`
+
+ SetAlertRuleNil sets the value for AlertRule to be an explicit nil
+
+### UnsetAlertRule
+`func (o *Essentials) UnsetAlertRule()`
+
+UnsetAlertRule ensures that no value is present for AlertRule, not even an explicit nil
 ### GetSeverity
 
 `func (o *Essentials) GetSeverity() string`
@@ -111,6 +131,16 @@ SetSeverity sets Severity field to given value.
 
 HasSeverity returns a boolean if a field has been set.
 
+### SetSeverityNil
+
+`func (o *Essentials) SetSeverityNil(b bool)`
+
+ SetSeverityNil sets the value for Severity to be an explicit nil
+
+### UnsetSeverity
+`func (o *Essentials) UnsetSeverity()`
+
+UnsetSeverity ensures that no value is present for Severity, not even an explicit nil
 ### GetSignalType
 
 `func (o *Essentials) GetSignalType() string`
@@ -136,6 +166,16 @@ SetSignalType sets SignalType field to given value.
 
 HasSignalType returns a boolean if a field has been set.
 
+### SetSignalTypeNil
+
+`func (o *Essentials) SetSignalTypeNil(b bool)`
+
+ SetSignalTypeNil sets the value for SignalType to be an explicit nil
+
+### UnsetSignalType
+`func (o *Essentials) UnsetSignalType()`
+
+UnsetSignalType ensures that no value is present for SignalType, not even an explicit nil
 ### GetMonitorCondition
 
 `func (o *Essentials) GetMonitorCondition() string`
@@ -161,6 +201,16 @@ SetMonitorCondition sets MonitorCondition field to given value.
 
 HasMonitorCondition returns a boolean if a field has been set.
 
+### SetMonitorConditionNil
+
+`func (o *Essentials) SetMonitorConditionNil(b bool)`
+
+ SetMonitorConditionNil sets the value for MonitorCondition to be an explicit nil
+
+### UnsetMonitorCondition
+`func (o *Essentials) UnsetMonitorCondition()`
+
+UnsetMonitorCondition ensures that no value is present for MonitorCondition, not even an explicit nil
 ### GetMonitoringService
 
 `func (o *Essentials) GetMonitoringService() string`
@@ -186,6 +236,16 @@ SetMonitoringService sets MonitoringService field to given value.
 
 HasMonitoringService returns a boolean if a field has been set.
 
+### SetMonitoringServiceNil
+
+`func (o *Essentials) SetMonitoringServiceNil(b bool)`
+
+ SetMonitoringServiceNil sets the value for MonitoringService to be an explicit nil
+
+### UnsetMonitoringService
+`func (o *Essentials) UnsetMonitoringService()`
+
+UnsetMonitoringService ensures that no value is present for MonitoringService, not even an explicit nil
 ### GetAlertTargetIDs
 
 `func (o *Essentials) GetAlertTargetIDs() []string`
@@ -211,6 +271,16 @@ SetAlertTargetIDs sets AlertTargetIDs field to given value.
 
 HasAlertTargetIDs returns a boolean if a field has been set.
 
+### SetAlertTargetIDsNil
+
+`func (o *Essentials) SetAlertTargetIDsNil(b bool)`
+
+ SetAlertTargetIDsNil sets the value for AlertTargetIDs to be an explicit nil
+
+### UnsetAlertTargetIDs
+`func (o *Essentials) UnsetAlertTargetIDs()`
+
+UnsetAlertTargetIDs ensures that no value is present for AlertTargetIDs, not even an explicit nil
 ### GetOriginAlertId
 
 `func (o *Essentials) GetOriginAlertId() string`
@@ -236,6 +306,16 @@ SetOriginAlertId sets OriginAlertId field to given value.
 
 HasOriginAlertId returns a boolean if a field has been set.
 
+### SetOriginAlertIdNil
+
+`func (o *Essentials) SetOriginAlertIdNil(b bool)`
+
+ SetOriginAlertIdNil sets the value for OriginAlertId to be an explicit nil
+
+### UnsetOriginAlertId
+`func (o *Essentials) UnsetOriginAlertId()`
+
+UnsetOriginAlertId ensures that no value is present for OriginAlertId, not even an explicit nil
 ### GetFiredDateTime
 
 `func (o *Essentials) GetFiredDateTime() time.Time`
@@ -286,6 +366,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *Essentials) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *Essentials) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetEssentialsVersion
 
 `func (o *Essentials) GetEssentialsVersion() string`
@@ -311,6 +401,16 @@ SetEssentialsVersion sets EssentialsVersion field to given value.
 
 HasEssentialsVersion returns a boolean if a field has been set.
 
+### SetEssentialsVersionNil
+
+`func (o *Essentials) SetEssentialsVersionNil(b bool)`
+
+ SetEssentialsVersionNil sets the value for EssentialsVersion to be an explicit nil
+
+### UnsetEssentialsVersion
+`func (o *Essentials) UnsetEssentialsVersion()`
+
+UnsetEssentialsVersion ensures that no value is present for EssentialsVersion, not even an explicit nil
 ### GetAlertContextVersion
 
 `func (o *Essentials) GetAlertContextVersion() string`
@@ -336,6 +436,16 @@ SetAlertContextVersion sets AlertContextVersion field to given value.
 
 HasAlertContextVersion returns a boolean if a field has been set.
 
+### SetAlertContextVersionNil
+
+`func (o *Essentials) SetAlertContextVersionNil(b bool)`
+
+ SetAlertContextVersionNil sets the value for AlertContextVersion to be an explicit nil
+
+### UnsetAlertContextVersion
+`func (o *Essentials) UnsetAlertContextVersion()`
+
+UnsetAlertContextVersion ensures that no value is present for AlertContextVersion, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

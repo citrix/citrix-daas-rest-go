@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -32,9 +32,9 @@ type AddImageBuilderModel struct {
 	// Name of the subnet the Image Builder VM will connect to
 	Subnet string `json:"subnet" validate:"regexp=^[\\\\p{L}0-9-_.]*$"`
 	// Name of the Domain the Image Builder will join
-	DomainName *string `json:"domainName,omitempty" validate:"regexp=^[\\\\p{L}0-9-_.]*$"`
+	DomainName NullableString `json:"domainName,omitempty" validate:"regexp=^[\\\\p{L}0-9-_.]*$"`
 	// The OU to associate the Image Builder VM with
-	OrganizationalUnit *string `json:"organizationalUnit,omitempty"`
+	OrganizationalUnit NullableString `json:"organizationalUnit,omitempty"`
 	// The type of VM Instance type
 	VmType string `json:"vmType"`
 	// The service account used to join the Image Builder VM to the domain
@@ -42,13 +42,13 @@ type AddImageBuilderModel struct {
 	// The service account password
 	ServiceAccountPassword string `json:"serviceAccountPassword"`
 	// Customer notes about template image
-	Notes *string `json:"notes,omitempty"`
+	Notes NullableString `json:"notes,omitempty"`
 	// Ip Addresses allowed to RDP
 	AllowedIPs []string `json:"allowedIPs,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
-	CspCustomerId *string `json:"cspCustomerId,omitempty"`
+	CspCustomerId NullableString `json:"cspCustomerId,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
-	CspSiteId *string `json:"cspSiteId,omitempty"`
+	CspSiteId NullableString `json:"cspSiteId,omitempty"`
 }
 
 // NewAddImageBuilderModelWithDefaults instantiates a new AddImageBuilderModel object
@@ -203,50 +203,72 @@ func (o *AddImageBuilderModel) SetSubnet(v string) {
 	o.Subnet = v
 }
 
-// GetDomainName returns the DomainName field value if set, zero value otherwise.
+// GetDomainName returns the DomainName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddImageBuilderModel) GetDomainName() string {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil || IsNil(o.DomainName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DomainName
+	return *o.DomainName.Get()
 }
 
 // GetDomainNameOk returns a tuple with the DomainName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddImageBuilderModel) GetDomainNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainName, true
+	return o.DomainName.Get(), o.DomainName.IsSet()
 }
 
-// SetDomainName gets a reference to the given string and assigns it to the DomainName field.
+// SetDomainName gets a reference to the given NullableString and assigns it to the DomainName field.
 func (o *AddImageBuilderModel) SetDomainName(v string) {
-	o.DomainName = &v
+	o.DomainName.Set(&v)
 }
 
-// GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise.
+// SetDomainNameNil sets the value for DomainName to be an explicit nil
+func (o *AddImageBuilderModel) SetDomainNameNil() {
+	o.DomainName.Set(nil)
+}
+
+// UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
+func (o *AddImageBuilderModel) UnsetDomainName() {
+	o.DomainName.Unset()
+}
+
+// GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddImageBuilderModel) GetOrganizationalUnit() string {
-	if o == nil || IsNil(o.OrganizationalUnit) {
+	if o == nil || IsNil(o.OrganizationalUnit.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OrganizationalUnit
+	return *o.OrganizationalUnit.Get()
 }
 
 // GetOrganizationalUnitOk returns a tuple with the OrganizationalUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddImageBuilderModel) GetOrganizationalUnitOk() (*string, bool) {
-	if o == nil || IsNil(o.OrganizationalUnit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrganizationalUnit, true
+	return o.OrganizationalUnit.Get(), o.OrganizationalUnit.IsSet()
 }
 
-// SetOrganizationalUnit gets a reference to the given string and assigns it to the OrganizationalUnit field.
+// SetOrganizationalUnit gets a reference to the given NullableString and assigns it to the OrganizationalUnit field.
 func (o *AddImageBuilderModel) SetOrganizationalUnit(v string) {
-	o.OrganizationalUnit = &v
+	o.OrganizationalUnit.Set(&v)
+}
+
+// SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
+func (o *AddImageBuilderModel) SetOrganizationalUnitNil() {
+	o.OrganizationalUnit.Set(nil)
+}
+
+// UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
+func (o *AddImageBuilderModel) UnsetOrganizationalUnit() {
+	o.OrganizationalUnit.Unset()
 }
 
 // GetVmType returns the VmType field value
@@ -321,32 +343,43 @@ func (o *AddImageBuilderModel) SetServiceAccountPassword(v string) {
 	o.ServiceAccountPassword = v
 }
 
-// GetNotes returns the Notes field value if set, zero value otherwise.
+// GetNotes returns the Notes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddImageBuilderModel) GetNotes() string {
-	if o == nil || IsNil(o.Notes) {
+	if o == nil || IsNil(o.Notes.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Notes
+	return *o.Notes.Get()
 }
 
 // GetNotesOk returns a tuple with the Notes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddImageBuilderModel) GetNotesOk() (*string, bool) {
-	if o == nil || IsNil(o.Notes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Notes, true
+	return o.Notes.Get(), o.Notes.IsSet()
 }
 
-// SetNotes gets a reference to the given string and assigns it to the Notes field.
+// SetNotes gets a reference to the given NullableString and assigns it to the Notes field.
 func (o *AddImageBuilderModel) SetNotes(v string) {
-	o.Notes = &v
+	o.Notes.Set(&v)
 }
 
-// GetAllowedIPs returns the AllowedIPs field value if set, zero value otherwise.
+// SetNotesNil sets the value for Notes to be an explicit nil
+func (o *AddImageBuilderModel) SetNotesNil() {
+	o.Notes.Set(nil)
+}
+
+// UnsetNotes ensures that no value is present for Notes, not even an explicit nil
+func (o *AddImageBuilderModel) UnsetNotes() {
+	o.Notes.Unset()
+}
+
+// GetAllowedIPs returns the AllowedIPs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddImageBuilderModel) GetAllowedIPs() []string {
-	if o == nil || IsNil(o.AllowedIPs) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -355,6 +388,7 @@ func (o *AddImageBuilderModel) GetAllowedIPs() []string {
 
 // GetAllowedIPsOk returns a tuple with the AllowedIPs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddImageBuilderModel) GetAllowedIPsOk() ([]string, bool) {
 	if o == nil || IsNil(o.AllowedIPs) {
 		return nil, false
@@ -367,50 +401,72 @@ func (o *AddImageBuilderModel) SetAllowedIPs(v []string) {
 	o.AllowedIPs = v
 }
 
-// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise.
+// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddImageBuilderModel) GetCspCustomerId() string {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil || IsNil(o.CspCustomerId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomerId
+	return *o.CspCustomerId.Get()
 }
 
 // GetCspCustomerIdOk returns a tuple with the CspCustomerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddImageBuilderModel) GetCspCustomerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomerId, true
+	return o.CspCustomerId.Get(), o.CspCustomerId.IsSet()
 }
 
-// SetCspCustomerId gets a reference to the given string and assigns it to the CspCustomerId field.
+// SetCspCustomerId gets a reference to the given NullableString and assigns it to the CspCustomerId field.
 func (o *AddImageBuilderModel) SetCspCustomerId(v string) {
-	o.CspCustomerId = &v
+	o.CspCustomerId.Set(&v)
 }
 
-// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise.
+// SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+func (o *AddImageBuilderModel) SetCspCustomerIdNil() {
+	o.CspCustomerId.Set(nil)
+}
+
+// UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
+func (o *AddImageBuilderModel) UnsetCspCustomerId() {
+	o.CspCustomerId.Unset()
+}
+
+// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddImageBuilderModel) GetCspSiteId() string {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil || IsNil(o.CspSiteId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspSiteId
+	return *o.CspSiteId.Get()
 }
 
 // GetCspSiteIdOk returns a tuple with the CspSiteId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddImageBuilderModel) GetCspSiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspSiteId, true
+	return o.CspSiteId.Get(), o.CspSiteId.IsSet()
 }
 
-// SetCspSiteId gets a reference to the given string and assigns it to the CspSiteId field.
+// SetCspSiteId gets a reference to the given NullableString and assigns it to the CspSiteId field.
 func (o *AddImageBuilderModel) SetCspSiteId(v string) {
-	o.CspSiteId = &v
+	o.CspSiteId.Set(&v)
+}
+
+// SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+func (o *AddImageBuilderModel) SetCspSiteIdNil() {
+	o.CspSiteId.Set(nil)
+}
+
+// UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
+func (o *AddImageBuilderModel) UnsetCspSiteId() {
+	o.CspSiteId.Unset()
 }
 
 func (o AddImageBuilderModel) MarshalJSON() ([]byte, error) {
@@ -429,26 +485,26 @@ func (o AddImageBuilderModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["resourceGroup"] = o.ResourceGroup
 	toSerialize["vNet"] = o.VNet
 	toSerialize["subnet"] = o.Subnet
-	if !IsNil(o.DomainName) {
-		toSerialize["domainName"] = o.DomainName
+	if o.DomainName.IsSet() {
+		toSerialize["domainName"] = o.DomainName.Get()
 	}
-	if !IsNil(o.OrganizationalUnit) {
-		toSerialize["organizationalUnit"] = o.OrganizationalUnit
+	if o.OrganizationalUnit.IsSet() {
+		toSerialize["organizationalUnit"] = o.OrganizationalUnit.Get()
 	}
 	toSerialize["vmType"] = o.VmType
 	toSerialize["serviceAccountName"] = o.ServiceAccountName
 	toSerialize["serviceAccountPassword"] = o.ServiceAccountPassword
-	if !IsNil(o.Notes) {
-		toSerialize["notes"] = o.Notes
+	if o.Notes.IsSet() {
+		toSerialize["notes"] = o.Notes.Get()
 	}
-	if !IsNil(o.AllowedIPs) {
+	if o.AllowedIPs != nil {
 		toSerialize["allowedIPs"] = o.AllowedIPs
 	}
-	if !IsNil(o.CspCustomerId) {
-		toSerialize["cspCustomerId"] = o.CspCustomerId
+	if o.CspCustomerId.IsSet() {
+		toSerialize["cspCustomerId"] = o.CspCustomerId.Get()
 	}
-	if !IsNil(o.CspSiteId) {
-		toSerialize["cspSiteId"] = o.CspSiteId
+	if o.CspSiteId.IsSet() {
+		toSerialize["cspSiteId"] = o.CspSiteId.Get()
 	}
 	return toSerialize, nil
 }

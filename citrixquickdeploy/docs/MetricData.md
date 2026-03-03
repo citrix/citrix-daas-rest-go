@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TimeStamp** | Pointer to **time.Time** |  | [optional] 
-**Average** | Pointer to **float64** |  | [optional] 
-**Minimum** | Pointer to **float64** |  | [optional] 
-**Maximum** | Pointer to **float64** |  | [optional] 
-**Total** | Pointer to **float64** |  | [optional] 
-**Count** | Pointer to **int64** |  | [optional] 
+**Average** | Pointer to **NullableFloat64** |  | [optional] 
+**Minimum** | Pointer to **NullableFloat64** |  | [optional] 
+**Maximum** | Pointer to **NullableFloat64** |  | [optional] 
+**Total** | Pointer to **NullableFloat64** |  | [optional] 
+**Count** | Pointer to **NullableInt64** |  | [optional] 
 
 ## Methods
 
@@ -80,6 +80,16 @@ SetAverage sets Average field to given value.
 
 HasAverage returns a boolean if a field has been set.
 
+### SetAverageNil
+
+`func (o *MetricData) SetAverageNil(b bool)`
+
+ SetAverageNil sets the value for Average to be an explicit nil
+
+### UnsetAverage
+`func (o *MetricData) UnsetAverage()`
+
+UnsetAverage ensures that no value is present for Average, not even an explicit nil
 ### GetMinimum
 
 `func (o *MetricData) GetMinimum() float64`
@@ -105,6 +115,16 @@ SetMinimum sets Minimum field to given value.
 
 HasMinimum returns a boolean if a field has been set.
 
+### SetMinimumNil
+
+`func (o *MetricData) SetMinimumNil(b bool)`
+
+ SetMinimumNil sets the value for Minimum to be an explicit nil
+
+### UnsetMinimum
+`func (o *MetricData) UnsetMinimum()`
+
+UnsetMinimum ensures that no value is present for Minimum, not even an explicit nil
 ### GetMaximum
 
 `func (o *MetricData) GetMaximum() float64`
@@ -130,6 +150,16 @@ SetMaximum sets Maximum field to given value.
 
 HasMaximum returns a boolean if a field has been set.
 
+### SetMaximumNil
+
+`func (o *MetricData) SetMaximumNil(b bool)`
+
+ SetMaximumNil sets the value for Maximum to be an explicit nil
+
+### UnsetMaximum
+`func (o *MetricData) UnsetMaximum()`
+
+UnsetMaximum ensures that no value is present for Maximum, not even an explicit nil
 ### GetTotal
 
 `func (o *MetricData) GetTotal() float64`
@@ -155,6 +185,16 @@ SetTotal sets Total field to given value.
 
 HasTotal returns a boolean if a field has been set.
 
+### SetTotalNil
+
+`func (o *MetricData) SetTotalNil(b bool)`
+
+ SetTotalNil sets the value for Total to be an explicit nil
+
+### UnsetTotal
+`func (o *MetricData) UnsetTotal()`
+
+UnsetTotal ensures that no value is present for Total, not even an explicit nil
 ### GetCount
 
 `func (o *MetricData) GetCount() int64`
@@ -180,6 +220,16 @@ SetCount sets Count field to given value.
 
 HasCount returns a boolean if a field has been set.
 
+### SetCountNil
+
+`func (o *MetricData) SetCountNil(b bool)`
+
+ SetCountNil sets the value for Count to be an explicit nil
+
+### UnsetCount
+`func (o *MetricData) UnsetCount()`
+
+UnsetCount ensures that no value is present for Count, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

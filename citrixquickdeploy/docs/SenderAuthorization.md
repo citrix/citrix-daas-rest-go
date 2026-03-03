@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Action** | Pointer to **string** |  | [optional] [readonly] 
-**Role** | Pointer to **string** |  | [optional] [readonly] 
-**Scope** | Pointer to **string** |  | [optional] [readonly] 
+**Action** | Pointer to **NullableString** |  | [optional] [readonly] 
+**Role** | Pointer to **NullableString** |  | [optional] [readonly] 
+**Scope** | Pointer to **NullableString** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetAction sets Action field to given value.
 
 HasAction returns a boolean if a field has been set.
 
+### SetActionNil
+
+`func (o *SenderAuthorization) SetActionNil(b bool)`
+
+ SetActionNil sets the value for Action to be an explicit nil
+
+### UnsetAction
+`func (o *SenderAuthorization) UnsetAction()`
+
+UnsetAction ensures that no value is present for Action, not even an explicit nil
 ### GetRole
 
 `func (o *SenderAuthorization) GetRole() string`
@@ -77,6 +87,16 @@ SetRole sets Role field to given value.
 
 HasRole returns a boolean if a field has been set.
 
+### SetRoleNil
+
+`func (o *SenderAuthorization) SetRoleNil(b bool)`
+
+ SetRoleNil sets the value for Role to be an explicit nil
+
+### UnsetRole
+`func (o *SenderAuthorization) UnsetRole()`
+
+UnsetRole ensures that no value is present for Role, not even an explicit nil
 ### GetScope
 
 `func (o *SenderAuthorization) GetScope() string`
@@ -102,6 +122,16 @@ SetScope sets Scope field to given value.
 
 HasScope returns a boolean if a field has been set.
 
+### SetScopeNil
+
+`func (o *SenderAuthorization) SetScopeNil(b bool)`
+
+ SetScopeNil sets the value for Scope to be an explicit nil
+
+### UnsetScope
+`func (o *SenderAuthorization) UnsetScope()`
+
+UnsetScope ensures that no value is present for Scope, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

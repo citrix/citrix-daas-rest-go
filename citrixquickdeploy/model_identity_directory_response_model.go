@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,17 +20,17 @@ var _ MappedNullable = &IdentityDirectoryResponseModel{}
 // IdentityDirectoryResponseModel The universal identity directory object.
 type IdentityDirectoryResponseModel struct {
 	// Forest of the directory.
-	Forest *string `json:"forest,omitempty"`
+	Forest NullableString `json:"forest,omitempty"`
 	// Domain of the directory.
-	Domain *string `json:"domain,omitempty"`
+	Domain NullableString `json:"domain,omitempty"`
 	// Tenant of the directory.
-	Tenant *string `json:"tenant,omitempty"`
+	Tenant NullableString `json:"tenant,omitempty"`
 	// Identity provider type of the directory.
-	IdentityProvider *IdentityProviderType `json:"identityProvider,omitempty"`
+	IdentityProvider NullableIdentityProviderType `json:"identityProvider,omitempty"`
 	// Instance of the directory.
-	IdpInstanceId *string `json:"idpInstanceId,omitempty"`
+	IdpInstanceId NullableString `json:"idpInstanceId,omitempty"`
 	// Nickname of the directory
-	IdpNickName *string `json:"idpNickName,omitempty"`
+	IdpNickName NullableString `json:"idpNickName,omitempty"`
 }
 
 // NewIdentityDirectoryResponseModelWithDefaults instantiates a new IdentityDirectoryResponseModel object
@@ -41,142 +41,208 @@ func NewIdentityDirectoryResponseModelWithDefaults() *IdentityDirectoryResponseM
 	return &this
 }
 
-// GetForest returns the Forest field value if set, zero value otherwise.
+// GetForest returns the Forest field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityDirectoryResponseModel) GetForest() string {
-	if o == nil || IsNil(o.Forest) {
+	if o == nil || IsNil(o.Forest.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Forest
+	return *o.Forest.Get()
 }
 
 // GetForestOk returns a tuple with the Forest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityDirectoryResponseModel) GetForestOk() (*string, bool) {
-	if o == nil || IsNil(o.Forest) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Forest, true
+	return o.Forest.Get(), o.Forest.IsSet()
 }
 
-// SetForest gets a reference to the given string and assigns it to the Forest field.
+// SetForest gets a reference to the given NullableString and assigns it to the Forest field.
 func (o *IdentityDirectoryResponseModel) SetForest(v string) {
-	o.Forest = &v
+	o.Forest.Set(&v)
 }
 
-// GetDomain returns the Domain field value if set, zero value otherwise.
+// SetForestNil sets the value for Forest to be an explicit nil
+func (o *IdentityDirectoryResponseModel) SetForestNil() {
+	o.Forest.Set(nil)
+}
+
+// UnsetForest ensures that no value is present for Forest, not even an explicit nil
+func (o *IdentityDirectoryResponseModel) UnsetForest() {
+	o.Forest.Unset()
+}
+
+// GetDomain returns the Domain field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityDirectoryResponseModel) GetDomain() string {
-	if o == nil || IsNil(o.Domain) {
+	if o == nil || IsNil(o.Domain.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Domain
+	return *o.Domain.Get()
 }
 
 // GetDomainOk returns a tuple with the Domain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityDirectoryResponseModel) GetDomainOk() (*string, bool) {
-	if o == nil || IsNil(o.Domain) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Domain, true
+	return o.Domain.Get(), o.Domain.IsSet()
 }
 
-// SetDomain gets a reference to the given string and assigns it to the Domain field.
+// SetDomain gets a reference to the given NullableString and assigns it to the Domain field.
 func (o *IdentityDirectoryResponseModel) SetDomain(v string) {
-	o.Domain = &v
+	o.Domain.Set(&v)
 }
 
-// GetTenant returns the Tenant field value if set, zero value otherwise.
+// SetDomainNil sets the value for Domain to be an explicit nil
+func (o *IdentityDirectoryResponseModel) SetDomainNil() {
+	o.Domain.Set(nil)
+}
+
+// UnsetDomain ensures that no value is present for Domain, not even an explicit nil
+func (o *IdentityDirectoryResponseModel) UnsetDomain() {
+	o.Domain.Unset()
+}
+
+// GetTenant returns the Tenant field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityDirectoryResponseModel) GetTenant() string {
-	if o == nil || IsNil(o.Tenant) {
+	if o == nil || IsNil(o.Tenant.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Tenant
+	return *o.Tenant.Get()
 }
 
 // GetTenantOk returns a tuple with the Tenant field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityDirectoryResponseModel) GetTenantOk() (*string, bool) {
-	if o == nil || IsNil(o.Tenant) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Tenant, true
+	return o.Tenant.Get(), o.Tenant.IsSet()
 }
 
-// SetTenant gets a reference to the given string and assigns it to the Tenant field.
+// SetTenant gets a reference to the given NullableString and assigns it to the Tenant field.
 func (o *IdentityDirectoryResponseModel) SetTenant(v string) {
-	o.Tenant = &v
+	o.Tenant.Set(&v)
 }
 
-// GetIdentityProvider returns the IdentityProvider field value if set, zero value otherwise.
+// SetTenantNil sets the value for Tenant to be an explicit nil
+func (o *IdentityDirectoryResponseModel) SetTenantNil() {
+	o.Tenant.Set(nil)
+}
+
+// UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
+func (o *IdentityDirectoryResponseModel) UnsetTenant() {
+	o.Tenant.Unset()
+}
+
+// GetIdentityProvider returns the IdentityProvider field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityDirectoryResponseModel) GetIdentityProvider() IdentityProviderType {
-	if o == nil || IsNil(o.IdentityProvider) {
+	if o == nil || IsNil(o.IdentityProvider.Get()) {
 		var ret IdentityProviderType
 		return ret
 	}
-	return *o.IdentityProvider
+	return *o.IdentityProvider.Get()
 }
 
 // GetIdentityProviderOk returns a tuple with the IdentityProvider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityDirectoryResponseModel) GetIdentityProviderOk() (*IdentityProviderType, bool) {
-	if o == nil || IsNil(o.IdentityProvider) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IdentityProvider, true
+	return o.IdentityProvider.Get(), o.IdentityProvider.IsSet()
 }
 
-// SetIdentityProvider gets a reference to the given IdentityProviderType and assigns it to the IdentityProvider field.
+// SetIdentityProvider gets a reference to the given NullableIdentityProviderType and assigns it to the IdentityProvider field.
 func (o *IdentityDirectoryResponseModel) SetIdentityProvider(v IdentityProviderType) {
-	o.IdentityProvider = &v
+	o.IdentityProvider.Set(&v)
 }
 
-// GetIdpInstanceId returns the IdpInstanceId field value if set, zero value otherwise.
+// SetIdentityProviderNil sets the value for IdentityProvider to be an explicit nil
+func (o *IdentityDirectoryResponseModel) SetIdentityProviderNil() {
+	o.IdentityProvider.Set(nil)
+}
+
+// UnsetIdentityProvider ensures that no value is present for IdentityProvider, not even an explicit nil
+func (o *IdentityDirectoryResponseModel) UnsetIdentityProvider() {
+	o.IdentityProvider.Unset()
+}
+
+// GetIdpInstanceId returns the IdpInstanceId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityDirectoryResponseModel) GetIdpInstanceId() string {
-	if o == nil || IsNil(o.IdpInstanceId) {
+	if o == nil || IsNil(o.IdpInstanceId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.IdpInstanceId
+	return *o.IdpInstanceId.Get()
 }
 
 // GetIdpInstanceIdOk returns a tuple with the IdpInstanceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityDirectoryResponseModel) GetIdpInstanceIdOk() (*string, bool) {
-	if o == nil || IsNil(o.IdpInstanceId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IdpInstanceId, true
+	return o.IdpInstanceId.Get(), o.IdpInstanceId.IsSet()
 }
 
-// SetIdpInstanceId gets a reference to the given string and assigns it to the IdpInstanceId field.
+// SetIdpInstanceId gets a reference to the given NullableString and assigns it to the IdpInstanceId field.
 func (o *IdentityDirectoryResponseModel) SetIdpInstanceId(v string) {
-	o.IdpInstanceId = &v
+	o.IdpInstanceId.Set(&v)
 }
 
-// GetIdpNickName returns the IdpNickName field value if set, zero value otherwise.
+// SetIdpInstanceIdNil sets the value for IdpInstanceId to be an explicit nil
+func (o *IdentityDirectoryResponseModel) SetIdpInstanceIdNil() {
+	o.IdpInstanceId.Set(nil)
+}
+
+// UnsetIdpInstanceId ensures that no value is present for IdpInstanceId, not even an explicit nil
+func (o *IdentityDirectoryResponseModel) UnsetIdpInstanceId() {
+	o.IdpInstanceId.Unset()
+}
+
+// GetIdpNickName returns the IdpNickName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityDirectoryResponseModel) GetIdpNickName() string {
-	if o == nil || IsNil(o.IdpNickName) {
+	if o == nil || IsNil(o.IdpNickName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.IdpNickName
+	return *o.IdpNickName.Get()
 }
 
 // GetIdpNickNameOk returns a tuple with the IdpNickName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityDirectoryResponseModel) GetIdpNickNameOk() (*string, bool) {
-	if o == nil || IsNil(o.IdpNickName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IdpNickName, true
+	return o.IdpNickName.Get(), o.IdpNickName.IsSet()
 }
 
-// SetIdpNickName gets a reference to the given string and assigns it to the IdpNickName field.
+// SetIdpNickName gets a reference to the given NullableString and assigns it to the IdpNickName field.
 func (o *IdentityDirectoryResponseModel) SetIdpNickName(v string) {
-	o.IdpNickName = &v
+	o.IdpNickName.Set(&v)
+}
+
+// SetIdpNickNameNil sets the value for IdpNickName to be an explicit nil
+func (o *IdentityDirectoryResponseModel) SetIdpNickNameNil() {
+	o.IdpNickName.Set(nil)
+}
+
+// UnsetIdpNickName ensures that no value is present for IdpNickName, not even an explicit nil
+func (o *IdentityDirectoryResponseModel) UnsetIdpNickName() {
+	o.IdpNickName.Unset()
 }
 
 func (o IdentityDirectoryResponseModel) MarshalJSON() ([]byte, error) {
@@ -189,23 +255,23 @@ func (o IdentityDirectoryResponseModel) MarshalJSON() ([]byte, error) {
 
 func (o IdentityDirectoryResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Forest) {
-		toSerialize["forest"] = o.Forest
+	if o.Forest.IsSet() {
+		toSerialize["forest"] = o.Forest.Get()
 	}
-	if !IsNil(o.Domain) {
-		toSerialize["domain"] = o.Domain
+	if o.Domain.IsSet() {
+		toSerialize["domain"] = o.Domain.Get()
 	}
-	if !IsNil(o.Tenant) {
-		toSerialize["tenant"] = o.Tenant
+	if o.Tenant.IsSet() {
+		toSerialize["tenant"] = o.Tenant.Get()
 	}
-	if !IsNil(o.IdentityProvider) {
-		toSerialize["identityProvider"] = o.IdentityProvider
+	if o.IdentityProvider.IsSet() {
+		toSerialize["identityProvider"] = o.IdentityProvider.Get()
 	}
-	if !IsNil(o.IdpInstanceId) {
-		toSerialize["idpInstanceId"] = o.IdpInstanceId
+	if o.IdpInstanceId.IsSet() {
+		toSerialize["idpInstanceId"] = o.IdpInstanceId.Get()
 	}
-	if !IsNil(o.IdpNickName) {
-		toSerialize["idpNickName"] = o.IdpNickName
+	if o.IdpNickName.IsSet() {
+		toSerialize["idpNickName"] = o.IdpNickName.Get()
 	}
 	return toSerialize, nil
 }

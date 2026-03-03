@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -26,8 +26,10 @@ type AzureSubscriptionsModel struct {
 	// The maximum allowed Citrix Managed subscriptions for the customer
 	MaxCitrixManagedSubscriptions *int32 `json:"maxCitrixManagedSubscriptions,omitempty"`
 	// The unique name of the user who provided the auth code to list subscriptions. Will only be present if an Azure Authorization Code was provided
-	UniqueName *string `json:"uniqueName,omitempty"`
-	StaleData  *bool   `json:"staleData,omitempty"`
+	UniqueName NullableString `json:"uniqueName,omitempty"`
+	StaleData  *bool          `json:"staleData,omitempty"`
+	// The tenant ID of the subscriptions
+	TenantId NullableString `json:"tenantId,omitempty"`
 }
 
 // NewAzureSubscriptionsModelWithDefaults instantiates a new AzureSubscriptionsModel object
@@ -62,9 +64,9 @@ func (o *AzureSubscriptionsModel) SetItems(v []AzureSubscriptionOverview) {
 	o.Items = v
 }
 
-// GetSubscriptions returns the Subscriptions field value if set, zero value otherwise.
+// GetSubscriptions returns the Subscriptions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionsModel) GetSubscriptions() []AzureSubscriptionOverview {
-	if o == nil || IsNil(o.Subscriptions) {
+	if o == nil {
 		var ret []AzureSubscriptionOverview
 		return ret
 	}
@@ -73,6 +75,7 @@ func (o *AzureSubscriptionsModel) GetSubscriptions() []AzureSubscriptionOverview
 
 // GetSubscriptionsOk returns a tuple with the Subscriptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionsModel) GetSubscriptionsOk() ([]AzureSubscriptionOverview, bool) {
 	if o == nil || IsNil(o.Subscriptions) {
 		return nil, false
@@ -108,27 +111,38 @@ func (o *AzureSubscriptionsModel) SetMaxCitrixManagedSubscriptions(v int32) {
 	o.MaxCitrixManagedSubscriptions = &v
 }
 
-// GetUniqueName returns the UniqueName field value if set, zero value otherwise.
+// GetUniqueName returns the UniqueName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionsModel) GetUniqueName() string {
-	if o == nil || IsNil(o.UniqueName) {
+	if o == nil || IsNil(o.UniqueName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.UniqueName
+	return *o.UniqueName.Get()
 }
 
 // GetUniqueNameOk returns a tuple with the UniqueName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionsModel) GetUniqueNameOk() (*string, bool) {
-	if o == nil || IsNil(o.UniqueName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UniqueName, true
+	return o.UniqueName.Get(), o.UniqueName.IsSet()
 }
 
-// SetUniqueName gets a reference to the given string and assigns it to the UniqueName field.
+// SetUniqueName gets a reference to the given NullableString and assigns it to the UniqueName field.
 func (o *AzureSubscriptionsModel) SetUniqueName(v string) {
-	o.UniqueName = &v
+	o.UniqueName.Set(&v)
+}
+
+// SetUniqueNameNil sets the value for UniqueName to be an explicit nil
+func (o *AzureSubscriptionsModel) SetUniqueNameNil() {
+	o.UniqueName.Set(nil)
+}
+
+// UnsetUniqueName ensures that no value is present for UniqueName, not even an explicit nil
+func (o *AzureSubscriptionsModel) UnsetUniqueName() {
+	o.UniqueName.Unset()
 }
 
 // GetStaleData returns the StaleData field value if set, zero value otherwise.
@@ -154,6 +168,40 @@ func (o *AzureSubscriptionsModel) SetStaleData(v bool) {
 	o.StaleData = &v
 }
 
+// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AzureSubscriptionsModel) GetTenantId() string {
+	if o == nil || IsNil(o.TenantId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.TenantId.Get()
+}
+
+// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AzureSubscriptionsModel) GetTenantIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TenantId.Get(), o.TenantId.IsSet()
+}
+
+// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
+func (o *AzureSubscriptionsModel) SetTenantId(v string) {
+	o.TenantId.Set(&v)
+}
+
+// SetTenantIdNil sets the value for TenantId to be an explicit nil
+func (o *AzureSubscriptionsModel) SetTenantIdNil() {
+	o.TenantId.Set(nil)
+}
+
+// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+func (o *AzureSubscriptionsModel) UnsetTenantId() {
+	o.TenantId.Unset()
+}
+
 func (o AzureSubscriptionsModel) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -165,17 +213,20 @@ func (o AzureSubscriptionsModel) MarshalJSON() ([]byte, error) {
 func (o AzureSubscriptionsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["items"] = o.Items
-	if !IsNil(o.Subscriptions) {
+	if o.Subscriptions != nil {
 		toSerialize["subscriptions"] = o.Subscriptions
 	}
 	if !IsNil(o.MaxCitrixManagedSubscriptions) {
 		toSerialize["maxCitrixManagedSubscriptions"] = o.MaxCitrixManagedSubscriptions
 	}
-	if !IsNil(o.UniqueName) {
-		toSerialize["uniqueName"] = o.UniqueName
+	if o.UniqueName.IsSet() {
+		toSerialize["uniqueName"] = o.UniqueName.Get()
 	}
 	if !IsNil(o.StaleData) {
 		toSerialize["staleData"] = o.StaleData
+	}
+	if o.TenantId.IsSet() {
+		toSerialize["tenantId"] = o.TenantId.Get()
 	}
 	return toSerialize, nil
 }

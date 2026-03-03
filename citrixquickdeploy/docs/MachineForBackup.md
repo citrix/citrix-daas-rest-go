@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MachineName** | **string** |  | 
+**MachineName** | **string** |  | [readonly] 
 **ResourceGroup** | **string** |  | 
 
 ## Methods

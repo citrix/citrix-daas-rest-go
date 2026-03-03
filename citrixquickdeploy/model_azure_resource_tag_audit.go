@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,11 +21,11 @@ var _ MappedNullable = &AzureResourceTagAudit{}
 type AzureResourceTagAudit struct {
 	Type            *AzureResourceTagAuditType      `json:"type,omitempty"`
 	Violation       *AzureResourceTagAuditViolation `json:"violation,omitempty"`
-	ResourceIdTag   *string                         `json:"resourceIdTag,omitempty"`
-	TagName         *string                         `json:"tagName,omitempty"`
-	TagValue        *string                         `json:"tagValue,omitempty"`
-	CorrectTagValue *string                         `json:"correctTagValue,omitempty"`
-	RepairCompleted *bool                           `json:"repairCompleted,omitempty"`
+	ResourceIdTag   NullableString                  `json:"resourceIdTag,omitempty"`
+	TagName         NullableString                  `json:"tagName,omitempty"`
+	TagValue        NullableString                  `json:"tagValue,omitempty"`
+	CorrectTagValue NullableString                  `json:"correctTagValue,omitempty"`
+	RepairCompleted NullableBool                    `json:"repairCompleted,omitempty"`
 }
 
 // NewAzureResourceTagAuditWithDefaults instantiates a new AzureResourceTagAudit object
@@ -82,119 +82,174 @@ func (o *AzureResourceTagAudit) SetViolation(v AzureResourceTagAuditViolation) {
 	o.Violation = &v
 }
 
-// GetResourceIdTag returns the ResourceIdTag field value if set, zero value otherwise.
+// GetResourceIdTag returns the ResourceIdTag field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureResourceTagAudit) GetResourceIdTag() string {
-	if o == nil || IsNil(o.ResourceIdTag) {
+	if o == nil || IsNil(o.ResourceIdTag.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResourceIdTag
+	return *o.ResourceIdTag.Get()
 }
 
 // GetResourceIdTagOk returns a tuple with the ResourceIdTag field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureResourceTagAudit) GetResourceIdTagOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceIdTag) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceIdTag, true
+	return o.ResourceIdTag.Get(), o.ResourceIdTag.IsSet()
 }
 
-// SetResourceIdTag gets a reference to the given string and assigns it to the ResourceIdTag field.
+// SetResourceIdTag gets a reference to the given NullableString and assigns it to the ResourceIdTag field.
 func (o *AzureResourceTagAudit) SetResourceIdTag(v string) {
-	o.ResourceIdTag = &v
+	o.ResourceIdTag.Set(&v)
 }
 
-// GetTagName returns the TagName field value if set, zero value otherwise.
+// SetResourceIdTagNil sets the value for ResourceIdTag to be an explicit nil
+func (o *AzureResourceTagAudit) SetResourceIdTagNil() {
+	o.ResourceIdTag.Set(nil)
+}
+
+// UnsetResourceIdTag ensures that no value is present for ResourceIdTag, not even an explicit nil
+func (o *AzureResourceTagAudit) UnsetResourceIdTag() {
+	o.ResourceIdTag.Unset()
+}
+
+// GetTagName returns the TagName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureResourceTagAudit) GetTagName() string {
-	if o == nil || IsNil(o.TagName) {
+	if o == nil || IsNil(o.TagName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TagName
+	return *o.TagName.Get()
 }
 
 // GetTagNameOk returns a tuple with the TagName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureResourceTagAudit) GetTagNameOk() (*string, bool) {
-	if o == nil || IsNil(o.TagName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TagName, true
+	return o.TagName.Get(), o.TagName.IsSet()
 }
 
-// SetTagName gets a reference to the given string and assigns it to the TagName field.
+// SetTagName gets a reference to the given NullableString and assigns it to the TagName field.
 func (o *AzureResourceTagAudit) SetTagName(v string) {
-	o.TagName = &v
+	o.TagName.Set(&v)
 }
 
-// GetTagValue returns the TagValue field value if set, zero value otherwise.
+// SetTagNameNil sets the value for TagName to be an explicit nil
+func (o *AzureResourceTagAudit) SetTagNameNil() {
+	o.TagName.Set(nil)
+}
+
+// UnsetTagName ensures that no value is present for TagName, not even an explicit nil
+func (o *AzureResourceTagAudit) UnsetTagName() {
+	o.TagName.Unset()
+}
+
+// GetTagValue returns the TagValue field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureResourceTagAudit) GetTagValue() string {
-	if o == nil || IsNil(o.TagValue) {
+	if o == nil || IsNil(o.TagValue.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TagValue
+	return *o.TagValue.Get()
 }
 
 // GetTagValueOk returns a tuple with the TagValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureResourceTagAudit) GetTagValueOk() (*string, bool) {
-	if o == nil || IsNil(o.TagValue) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TagValue, true
+	return o.TagValue.Get(), o.TagValue.IsSet()
 }
 
-// SetTagValue gets a reference to the given string and assigns it to the TagValue field.
+// SetTagValue gets a reference to the given NullableString and assigns it to the TagValue field.
 func (o *AzureResourceTagAudit) SetTagValue(v string) {
-	o.TagValue = &v
+	o.TagValue.Set(&v)
 }
 
-// GetCorrectTagValue returns the CorrectTagValue field value if set, zero value otherwise.
+// SetTagValueNil sets the value for TagValue to be an explicit nil
+func (o *AzureResourceTagAudit) SetTagValueNil() {
+	o.TagValue.Set(nil)
+}
+
+// UnsetTagValue ensures that no value is present for TagValue, not even an explicit nil
+func (o *AzureResourceTagAudit) UnsetTagValue() {
+	o.TagValue.Unset()
+}
+
+// GetCorrectTagValue returns the CorrectTagValue field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureResourceTagAudit) GetCorrectTagValue() string {
-	if o == nil || IsNil(o.CorrectTagValue) {
+	if o == nil || IsNil(o.CorrectTagValue.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CorrectTagValue
+	return *o.CorrectTagValue.Get()
 }
 
 // GetCorrectTagValueOk returns a tuple with the CorrectTagValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureResourceTagAudit) GetCorrectTagValueOk() (*string, bool) {
-	if o == nil || IsNil(o.CorrectTagValue) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CorrectTagValue, true
+	return o.CorrectTagValue.Get(), o.CorrectTagValue.IsSet()
 }
 
-// SetCorrectTagValue gets a reference to the given string and assigns it to the CorrectTagValue field.
+// SetCorrectTagValue gets a reference to the given NullableString and assigns it to the CorrectTagValue field.
 func (o *AzureResourceTagAudit) SetCorrectTagValue(v string) {
-	o.CorrectTagValue = &v
+	o.CorrectTagValue.Set(&v)
 }
 
-// GetRepairCompleted returns the RepairCompleted field value if set, zero value otherwise.
+// SetCorrectTagValueNil sets the value for CorrectTagValue to be an explicit nil
+func (o *AzureResourceTagAudit) SetCorrectTagValueNil() {
+	o.CorrectTagValue.Set(nil)
+}
+
+// UnsetCorrectTagValue ensures that no value is present for CorrectTagValue, not even an explicit nil
+func (o *AzureResourceTagAudit) UnsetCorrectTagValue() {
+	o.CorrectTagValue.Unset()
+}
+
+// GetRepairCompleted returns the RepairCompleted field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureResourceTagAudit) GetRepairCompleted() bool {
-	if o == nil || IsNil(o.RepairCompleted) {
+	if o == nil || IsNil(o.RepairCompleted.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.RepairCompleted
+	return *o.RepairCompleted.Get()
 }
 
 // GetRepairCompletedOk returns a tuple with the RepairCompleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureResourceTagAudit) GetRepairCompletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.RepairCompleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RepairCompleted, true
+	return o.RepairCompleted.Get(), o.RepairCompleted.IsSet()
 }
 
-// SetRepairCompleted gets a reference to the given bool and assigns it to the RepairCompleted field.
+// SetRepairCompleted gets a reference to the given NullableBool and assigns it to the RepairCompleted field.
 func (o *AzureResourceTagAudit) SetRepairCompleted(v bool) {
-	o.RepairCompleted = &v
+	o.RepairCompleted.Set(&v)
+}
+
+// SetRepairCompletedNil sets the value for RepairCompleted to be an explicit nil
+func (o *AzureResourceTagAudit) SetRepairCompletedNil() {
+	o.RepairCompleted.Set(nil)
+}
+
+// UnsetRepairCompleted ensures that no value is present for RepairCompleted, not even an explicit nil
+func (o *AzureResourceTagAudit) UnsetRepairCompleted() {
+	o.RepairCompleted.Unset()
 }
 
 func (o AzureResourceTagAudit) MarshalJSON() ([]byte, error) {
@@ -213,20 +268,20 @@ func (o AzureResourceTagAudit) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Violation) {
 		toSerialize["violation"] = o.Violation
 	}
-	if !IsNil(o.ResourceIdTag) {
-		toSerialize["resourceIdTag"] = o.ResourceIdTag
+	if o.ResourceIdTag.IsSet() {
+		toSerialize["resourceIdTag"] = o.ResourceIdTag.Get()
 	}
-	if !IsNil(o.TagName) {
-		toSerialize["tagName"] = o.TagName
+	if o.TagName.IsSet() {
+		toSerialize["tagName"] = o.TagName.Get()
 	}
-	if !IsNil(o.TagValue) {
-		toSerialize["tagValue"] = o.TagValue
+	if o.TagValue.IsSet() {
+		toSerialize["tagValue"] = o.TagValue.Get()
 	}
-	if !IsNil(o.CorrectTagValue) {
-		toSerialize["correctTagValue"] = o.CorrectTagValue
+	if o.CorrectTagValue.IsSet() {
+		toSerialize["correctTagValue"] = o.CorrectTagValue.Get()
 	}
-	if !IsNil(o.RepairCompleted) {
-		toSerialize["repairCompleted"] = o.RepairCompleted
+	if o.RepairCompleted.IsSet() {
+		toSerialize["repairCompleted"] = o.RepairCompleted.Get()
 	}
 	return toSerialize, nil
 }

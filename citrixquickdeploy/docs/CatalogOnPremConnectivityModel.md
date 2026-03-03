@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VnetPeeringId** | Pointer to **string** | ID of the Vnet Peering that will be used for on-prem connections | [optional] 
-**VpnConnectionId** | Pointer to **string** | ID of the VPN Connection that will be used by this catalog | [optional] 
+**VnetPeeringId** | Pointer to **NullableString** | ID of the Vnet Peering that will be used for on-prem connections | [optional] 
+**VpnConnectionId** | Pointer to **NullableString** | ID of the VPN Connection that will be used by this catalog | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetVnetPeeringId sets VnetPeeringId field to given value.
 
 HasVnetPeeringId returns a boolean if a field has been set.
 
+### SetVnetPeeringIdNil
+
+`func (o *CatalogOnPremConnectivityModel) SetVnetPeeringIdNil(b bool)`
+
+ SetVnetPeeringIdNil sets the value for VnetPeeringId to be an explicit nil
+
+### UnsetVnetPeeringId
+`func (o *CatalogOnPremConnectivityModel) UnsetVnetPeeringId()`
+
+UnsetVnetPeeringId ensures that no value is present for VnetPeeringId, not even an explicit nil
 ### GetVpnConnectionId
 
 `func (o *CatalogOnPremConnectivityModel) GetVpnConnectionId() string`
@@ -76,6 +86,16 @@ SetVpnConnectionId sets VpnConnectionId field to given value.
 
 HasVpnConnectionId returns a boolean if a field has been set.
 
+### SetVpnConnectionIdNil
+
+`func (o *CatalogOnPremConnectivityModel) SetVpnConnectionIdNil(b bool)`
+
+ SetVpnConnectionIdNil sets the value for VpnConnectionId to be an explicit nil
+
+### UnsetVpnConnectionId
+`func (o *CatalogOnPremConnectivityModel) UnsetVpnConnectionId()`
+
+UnsetVpnConnectionId ensures that no value is present for VpnConnectionId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConnectorName** | Pointer to **string** | Name of the Edge Server VM | [optional] 
-**AzureResourceGroup** | Pointer to **string** | Resource group of the Edge Server VM | [optional] 
+**ConnectorName** | Pointer to **NullableString** | Name of the Edge Server VM | [optional] 
+**AzureResourceGroup** | Pointer to **NullableString** | Resource group of the Edge Server VM | [optional] 
 **State** | [**ConnectorJobState**](ConnectorJobState.md) | The current state of the connector install job | 
-**Status** | Pointer to **string** | Any status message that needs to be shown to the user | [optional] 
+**Status** | Pointer to **NullableString** | Any status message that needs to be shown to the user | [optional] 
 **LastStatusModified** | Pointer to **time.Time** | Last time the status was modified | [optional] 
-**Error** | Pointer to **string** | Error message in case of failures | [optional] 
+**Error** | Pointer to **NullableString** | Error message in case of failures | [optional] 
 **CompletionPercentage** | Pointer to **int32** | The completion percentage of the current job | [optional] 
 **IsRebootInProgress** | Pointer to **bool** | Whether the connector is currently being rebooted or not. | [optional] 
 
@@ -57,6 +57,16 @@ SetConnectorName sets ConnectorName field to given value.
 
 HasConnectorName returns a boolean if a field has been set.
 
+### SetConnectorNameNil
+
+`func (o *ConnectorOverview) SetConnectorNameNil(b bool)`
+
+ SetConnectorNameNil sets the value for ConnectorName to be an explicit nil
+
+### UnsetConnectorName
+`func (o *ConnectorOverview) UnsetConnectorName()`
+
+UnsetConnectorName ensures that no value is present for ConnectorName, not even an explicit nil
 ### GetAzureResourceGroup
 
 `func (o *ConnectorOverview) GetAzureResourceGroup() string`
@@ -82,6 +92,16 @@ SetAzureResourceGroup sets AzureResourceGroup field to given value.
 
 HasAzureResourceGroup returns a boolean if a field has been set.
 
+### SetAzureResourceGroupNil
+
+`func (o *ConnectorOverview) SetAzureResourceGroupNil(b bool)`
+
+ SetAzureResourceGroupNil sets the value for AzureResourceGroup to be an explicit nil
+
+### UnsetAzureResourceGroup
+`func (o *ConnectorOverview) UnsetAzureResourceGroup()`
+
+UnsetAzureResourceGroup ensures that no value is present for AzureResourceGroup, not even an explicit nil
 ### GetState
 
 `func (o *ConnectorOverview) GetState() ConnectorJobState`
@@ -127,6 +147,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *ConnectorOverview) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *ConnectorOverview) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetLastStatusModified
 
 `func (o *ConnectorOverview) GetLastStatusModified() time.Time`
@@ -177,6 +207,16 @@ SetError sets Error field to given value.
 
 HasError returns a boolean if a field has been set.
 
+### SetErrorNil
+
+`func (o *ConnectorOverview) SetErrorNil(b bool)`
+
+ SetErrorNil sets the value for Error to be an explicit nil
+
+### UnsetError
+`func (o *ConnectorOverview) UnsetError()`
+
+UnsetError ensures that no value is present for Error, not even an explicit nil
 ### GetCompletionPercentage
 
 `func (o *ConnectorOverview) GetCompletionPercentage() int32`

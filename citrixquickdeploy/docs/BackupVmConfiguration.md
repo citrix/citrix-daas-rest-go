@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ServiceOffering** | Pointer to **string** | The service offering for the backup VM.  Ex: \&quot;Standard_D2as_v4\&quot; | [optional] 
-**Type** | Pointer to **string** | The service offering type for the backup VM.  Options are: \&quot;Regular\&quot; or \&quot;Spot\&quot;.  Default to \&quot;Regular\&quot; if unspecified. | [optional] 
+**ServiceOffering** | Pointer to **NullableString** | The service offering for the backup VM.  Ex: \&quot;Standard_D2as_v4\&quot; | [optional] 
+**Type** | Pointer to **NullableString** | The service offering type for the backup VM.  Options are: \&quot;Regular\&quot; or \&quot;Spot\&quot;.  Default to \&quot;Regular\&quot; if unspecified. | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetServiceOffering sets ServiceOffering field to given value.
 
 HasServiceOffering returns a boolean if a field has been set.
 
+### SetServiceOfferingNil
+
+`func (o *BackupVmConfiguration) SetServiceOfferingNil(b bool)`
+
+ SetServiceOfferingNil sets the value for ServiceOffering to be an explicit nil
+
+### UnsetServiceOffering
+`func (o *BackupVmConfiguration) UnsetServiceOffering()`
+
+UnsetServiceOffering ensures that no value is present for ServiceOffering, not even an explicit nil
 ### GetType
 
 `func (o *BackupVmConfiguration) GetType() string`
@@ -76,6 +86,16 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *BackupVmConfiguration) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *BackupVmConfiguration) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

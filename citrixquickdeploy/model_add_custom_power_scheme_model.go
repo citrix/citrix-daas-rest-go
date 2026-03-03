@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -22,13 +22,13 @@ type AddCustomPowerSchemeModel struct {
 	// Name of the custom power scheme
 	SchemeName string `json:"schemeName"`
 	// Days of the week that are included in peak days
-	Weekdays *map[string]bool `json:"weekdays,omitempty"`
+	Weekdays map[string]bool `json:"weekdays,omitempty"`
 	// Hour of day when peak usage ends
 	PeakEndTime *int32 `json:"peakEndTime,omitempty"`
 	// Hour of day when peak usage begins
 	PeakStartTime *int32 `json:"peakStartTime,omitempty"`
 	// ID of the peak usage Timezone
-	PeakTimeZoneId *string `json:"peakTimeZoneId,omitempty"`
+	PeakTimeZoneId NullableString `json:"peakTimeZoneId,omitempty"`
 	// During Peak Hours, the time before a disconnected session is shutdown
 	PeakDisconnectedSessionTimeout *int32 `json:"peakDisconnectedSessionTimeout,omitempty"`
 	// During Off Peak Hours, the time before a disconnected session is shutdown
@@ -36,19 +36,19 @@ type AddCustomPowerSchemeModel struct {
 	// Minutes to wait for disconnected sessions to be logged off on multi-session VMs
 	MultiSessionDisconnectedSessionTimeout *int32 `json:"multiSessionDisconnectedSessionTimeout,omitempty"`
 	// Idle timeout for session in the catalog (in mins)
-	SessionTimeout *int32 `json:"sessionTimeout,omitempty"`
+	SessionTimeout NullableInt32 `json:"sessionTimeout,omitempty"`
 	// Percentage of buffer capacity
-	BufferCapacity *int32 `json:"bufferCapacity,omitempty"`
+	BufferCapacity NullableInt32 `json:"bufferCapacity,omitempty"`
 	// During peak hours, the action to be taken on disconnected session
-	PeakDisconnectedSessionAction *SessionChangeHostingAction `json:"peakDisconnectedSessionAction,omitempty"`
+	PeakDisconnectedSessionAction NullableSessionChangeHostingAction `json:"peakDisconnectedSessionAction,omitempty"`
 	// During off peak hours, the action to be taken on disconnected session
-	OffPeakDisconnectedSessionAction *SessionChangeHostingAction `json:"offPeakDisconnectedSessionAction,omitempty"`
+	OffPeakDisconnectedSessionAction NullableSessionChangeHostingAction `json:"offPeakDisconnectedSessionAction,omitempty"`
 	// TThe number of minutes before the second action (Shutdown) should be performed after a user session disconnects during peak hours. Used when peak disconnection action is Suspend
-	PeakExtendedDisconnectTimeoutMinutes *int32 `json:"peakExtendedDisconnectTimeoutMinutes,omitempty"`
+	PeakExtendedDisconnectTimeoutMinutes NullableInt32 `json:"peakExtendedDisconnectTimeoutMinutes,omitempty"`
 	// The number of minutes before the second action (Shutdown) should be performed after a user session disconnects outside peak hours. Used when off peak disconnect action is Suspend
-	OffPeakExtendedDisconnectTimeoutMinutes *int32 `json:"offPeakExtendedDisconnectTimeoutMinutes,omitempty"`
+	OffPeakExtendedDisconnectTimeoutMinutes NullableInt32 `json:"offPeakExtendedDisconnectTimeoutMinutes,omitempty"`
 	// Percentage of buffer capacity during off-peak hours
-	OffPeakBufferCapacity *int32 `json:"offPeakBufferCapacity,omitempty"`
+	OffPeakBufferCapacity NullableInt32 `json:"offPeakBufferCapacity,omitempty"`
 	// Amount of time to delay powering off machines with no active sessions
 	PowerOffDelay *int32 `json:"powerOffDelay,omitempty"`
 }
@@ -85,27 +85,28 @@ func (o *AddCustomPowerSchemeModel) SetSchemeName(v string) {
 	o.SchemeName = v
 }
 
-// GetWeekdays returns the Weekdays field value if set, zero value otherwise.
+// GetWeekdays returns the Weekdays field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCustomPowerSchemeModel) GetWeekdays() map[string]bool {
-	if o == nil || IsNil(o.Weekdays) {
+	if o == nil {
 		var ret map[string]bool
 		return ret
 	}
-	return *o.Weekdays
+	return o.Weekdays
 }
 
 // GetWeekdaysOk returns a tuple with the Weekdays field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCustomPowerSchemeModel) GetWeekdaysOk() (*map[string]bool, bool) {
 	if o == nil || IsNil(o.Weekdays) {
 		return nil, false
 	}
-	return o.Weekdays, true
+	return &o.Weekdays, true
 }
 
 // SetWeekdays gets a reference to the given map[string]bool and assigns it to the Weekdays field.
 func (o *AddCustomPowerSchemeModel) SetWeekdays(v map[string]bool) {
-	o.Weekdays = &v
+	o.Weekdays = v
 }
 
 // GetPeakEndTime returns the PeakEndTime field value if set, zero value otherwise.
@@ -154,27 +155,38 @@ func (o *AddCustomPowerSchemeModel) SetPeakStartTime(v int32) {
 	o.PeakStartTime = &v
 }
 
-// GetPeakTimeZoneId returns the PeakTimeZoneId field value if set, zero value otherwise.
+// GetPeakTimeZoneId returns the PeakTimeZoneId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCustomPowerSchemeModel) GetPeakTimeZoneId() string {
-	if o == nil || IsNil(o.PeakTimeZoneId) {
+	if o == nil || IsNil(o.PeakTimeZoneId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PeakTimeZoneId
+	return *o.PeakTimeZoneId.Get()
 }
 
 // GetPeakTimeZoneIdOk returns a tuple with the PeakTimeZoneId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCustomPowerSchemeModel) GetPeakTimeZoneIdOk() (*string, bool) {
-	if o == nil || IsNil(o.PeakTimeZoneId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PeakTimeZoneId, true
+	return o.PeakTimeZoneId.Get(), o.PeakTimeZoneId.IsSet()
 }
 
-// SetPeakTimeZoneId gets a reference to the given string and assigns it to the PeakTimeZoneId field.
+// SetPeakTimeZoneId gets a reference to the given NullableString and assigns it to the PeakTimeZoneId field.
 func (o *AddCustomPowerSchemeModel) SetPeakTimeZoneId(v string) {
-	o.PeakTimeZoneId = &v
+	o.PeakTimeZoneId.Set(&v)
+}
+
+// SetPeakTimeZoneIdNil sets the value for PeakTimeZoneId to be an explicit nil
+func (o *AddCustomPowerSchemeModel) SetPeakTimeZoneIdNil() {
+	o.PeakTimeZoneId.Set(nil)
+}
+
+// UnsetPeakTimeZoneId ensures that no value is present for PeakTimeZoneId, not even an explicit nil
+func (o *AddCustomPowerSchemeModel) UnsetPeakTimeZoneId() {
+	o.PeakTimeZoneId.Unset()
 }
 
 // GetPeakDisconnectedSessionTimeout returns the PeakDisconnectedSessionTimeout field value if set, zero value otherwise.
@@ -246,165 +258,242 @@ func (o *AddCustomPowerSchemeModel) SetMultiSessionDisconnectedSessionTimeout(v 
 	o.MultiSessionDisconnectedSessionTimeout = &v
 }
 
-// GetSessionTimeout returns the SessionTimeout field value if set, zero value otherwise.
+// GetSessionTimeout returns the SessionTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCustomPowerSchemeModel) GetSessionTimeout() int32 {
-	if o == nil || IsNil(o.SessionTimeout) {
+	if o == nil || IsNil(o.SessionTimeout.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.SessionTimeout
+	return *o.SessionTimeout.Get()
 }
 
 // GetSessionTimeoutOk returns a tuple with the SessionTimeout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCustomPowerSchemeModel) GetSessionTimeoutOk() (*int32, bool) {
-	if o == nil || IsNil(o.SessionTimeout) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SessionTimeout, true
+	return o.SessionTimeout.Get(), o.SessionTimeout.IsSet()
 }
 
-// SetSessionTimeout gets a reference to the given int32 and assigns it to the SessionTimeout field.
+// SetSessionTimeout gets a reference to the given NullableInt32 and assigns it to the SessionTimeout field.
 func (o *AddCustomPowerSchemeModel) SetSessionTimeout(v int32) {
-	o.SessionTimeout = &v
+	o.SessionTimeout.Set(&v)
 }
 
-// GetBufferCapacity returns the BufferCapacity field value if set, zero value otherwise.
+// SetSessionTimeoutNil sets the value for SessionTimeout to be an explicit nil
+func (o *AddCustomPowerSchemeModel) SetSessionTimeoutNil() {
+	o.SessionTimeout.Set(nil)
+}
+
+// UnsetSessionTimeout ensures that no value is present for SessionTimeout, not even an explicit nil
+func (o *AddCustomPowerSchemeModel) UnsetSessionTimeout() {
+	o.SessionTimeout.Unset()
+}
+
+// GetBufferCapacity returns the BufferCapacity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCustomPowerSchemeModel) GetBufferCapacity() int32 {
-	if o == nil || IsNil(o.BufferCapacity) {
+	if o == nil || IsNil(o.BufferCapacity.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.BufferCapacity
+	return *o.BufferCapacity.Get()
 }
 
 // GetBufferCapacityOk returns a tuple with the BufferCapacity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCustomPowerSchemeModel) GetBufferCapacityOk() (*int32, bool) {
-	if o == nil || IsNil(o.BufferCapacity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BufferCapacity, true
+	return o.BufferCapacity.Get(), o.BufferCapacity.IsSet()
 }
 
-// SetBufferCapacity gets a reference to the given int32 and assigns it to the BufferCapacity field.
+// SetBufferCapacity gets a reference to the given NullableInt32 and assigns it to the BufferCapacity field.
 func (o *AddCustomPowerSchemeModel) SetBufferCapacity(v int32) {
-	o.BufferCapacity = &v
+	o.BufferCapacity.Set(&v)
 }
 
-// GetPeakDisconnectedSessionAction returns the PeakDisconnectedSessionAction field value if set, zero value otherwise.
+// SetBufferCapacityNil sets the value for BufferCapacity to be an explicit nil
+func (o *AddCustomPowerSchemeModel) SetBufferCapacityNil() {
+	o.BufferCapacity.Set(nil)
+}
+
+// UnsetBufferCapacity ensures that no value is present for BufferCapacity, not even an explicit nil
+func (o *AddCustomPowerSchemeModel) UnsetBufferCapacity() {
+	o.BufferCapacity.Unset()
+}
+
+// GetPeakDisconnectedSessionAction returns the PeakDisconnectedSessionAction field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCustomPowerSchemeModel) GetPeakDisconnectedSessionAction() SessionChangeHostingAction {
-	if o == nil || IsNil(o.PeakDisconnectedSessionAction) {
+	if o == nil || IsNil(o.PeakDisconnectedSessionAction.Get()) {
 		var ret SessionChangeHostingAction
 		return ret
 	}
-	return *o.PeakDisconnectedSessionAction
+	return *o.PeakDisconnectedSessionAction.Get()
 }
 
 // GetPeakDisconnectedSessionActionOk returns a tuple with the PeakDisconnectedSessionAction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCustomPowerSchemeModel) GetPeakDisconnectedSessionActionOk() (*SessionChangeHostingAction, bool) {
-	if o == nil || IsNil(o.PeakDisconnectedSessionAction) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PeakDisconnectedSessionAction, true
+	return o.PeakDisconnectedSessionAction.Get(), o.PeakDisconnectedSessionAction.IsSet()
 }
 
-// SetPeakDisconnectedSessionAction gets a reference to the given SessionChangeHostingAction and assigns it to the PeakDisconnectedSessionAction field.
+// SetPeakDisconnectedSessionAction gets a reference to the given NullableSessionChangeHostingAction and assigns it to the PeakDisconnectedSessionAction field.
 func (o *AddCustomPowerSchemeModel) SetPeakDisconnectedSessionAction(v SessionChangeHostingAction) {
-	o.PeakDisconnectedSessionAction = &v
+	o.PeakDisconnectedSessionAction.Set(&v)
 }
 
-// GetOffPeakDisconnectedSessionAction returns the OffPeakDisconnectedSessionAction field value if set, zero value otherwise.
+// SetPeakDisconnectedSessionActionNil sets the value for PeakDisconnectedSessionAction to be an explicit nil
+func (o *AddCustomPowerSchemeModel) SetPeakDisconnectedSessionActionNil() {
+	o.PeakDisconnectedSessionAction.Set(nil)
+}
+
+// UnsetPeakDisconnectedSessionAction ensures that no value is present for PeakDisconnectedSessionAction, not even an explicit nil
+func (o *AddCustomPowerSchemeModel) UnsetPeakDisconnectedSessionAction() {
+	o.PeakDisconnectedSessionAction.Unset()
+}
+
+// GetOffPeakDisconnectedSessionAction returns the OffPeakDisconnectedSessionAction field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCustomPowerSchemeModel) GetOffPeakDisconnectedSessionAction() SessionChangeHostingAction {
-	if o == nil || IsNil(o.OffPeakDisconnectedSessionAction) {
+	if o == nil || IsNil(o.OffPeakDisconnectedSessionAction.Get()) {
 		var ret SessionChangeHostingAction
 		return ret
 	}
-	return *o.OffPeakDisconnectedSessionAction
+	return *o.OffPeakDisconnectedSessionAction.Get()
 }
 
 // GetOffPeakDisconnectedSessionActionOk returns a tuple with the OffPeakDisconnectedSessionAction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCustomPowerSchemeModel) GetOffPeakDisconnectedSessionActionOk() (*SessionChangeHostingAction, bool) {
-	if o == nil || IsNil(o.OffPeakDisconnectedSessionAction) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OffPeakDisconnectedSessionAction, true
+	return o.OffPeakDisconnectedSessionAction.Get(), o.OffPeakDisconnectedSessionAction.IsSet()
 }
 
-// SetOffPeakDisconnectedSessionAction gets a reference to the given SessionChangeHostingAction and assigns it to the OffPeakDisconnectedSessionAction field.
+// SetOffPeakDisconnectedSessionAction gets a reference to the given NullableSessionChangeHostingAction and assigns it to the OffPeakDisconnectedSessionAction field.
 func (o *AddCustomPowerSchemeModel) SetOffPeakDisconnectedSessionAction(v SessionChangeHostingAction) {
-	o.OffPeakDisconnectedSessionAction = &v
+	o.OffPeakDisconnectedSessionAction.Set(&v)
 }
 
-// GetPeakExtendedDisconnectTimeoutMinutes returns the PeakExtendedDisconnectTimeoutMinutes field value if set, zero value otherwise.
+// SetOffPeakDisconnectedSessionActionNil sets the value for OffPeakDisconnectedSessionAction to be an explicit nil
+func (o *AddCustomPowerSchemeModel) SetOffPeakDisconnectedSessionActionNil() {
+	o.OffPeakDisconnectedSessionAction.Set(nil)
+}
+
+// UnsetOffPeakDisconnectedSessionAction ensures that no value is present for OffPeakDisconnectedSessionAction, not even an explicit nil
+func (o *AddCustomPowerSchemeModel) UnsetOffPeakDisconnectedSessionAction() {
+	o.OffPeakDisconnectedSessionAction.Unset()
+}
+
+// GetPeakExtendedDisconnectTimeoutMinutes returns the PeakExtendedDisconnectTimeoutMinutes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCustomPowerSchemeModel) GetPeakExtendedDisconnectTimeoutMinutes() int32 {
-	if o == nil || IsNil(o.PeakExtendedDisconnectTimeoutMinutes) {
+	if o == nil || IsNil(o.PeakExtendedDisconnectTimeoutMinutes.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.PeakExtendedDisconnectTimeoutMinutes
+	return *o.PeakExtendedDisconnectTimeoutMinutes.Get()
 }
 
 // GetPeakExtendedDisconnectTimeoutMinutesOk returns a tuple with the PeakExtendedDisconnectTimeoutMinutes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCustomPowerSchemeModel) GetPeakExtendedDisconnectTimeoutMinutesOk() (*int32, bool) {
-	if o == nil || IsNil(o.PeakExtendedDisconnectTimeoutMinutes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PeakExtendedDisconnectTimeoutMinutes, true
+	return o.PeakExtendedDisconnectTimeoutMinutes.Get(), o.PeakExtendedDisconnectTimeoutMinutes.IsSet()
 }
 
-// SetPeakExtendedDisconnectTimeoutMinutes gets a reference to the given int32 and assigns it to the PeakExtendedDisconnectTimeoutMinutes field.
+// SetPeakExtendedDisconnectTimeoutMinutes gets a reference to the given NullableInt32 and assigns it to the PeakExtendedDisconnectTimeoutMinutes field.
 func (o *AddCustomPowerSchemeModel) SetPeakExtendedDisconnectTimeoutMinutes(v int32) {
-	o.PeakExtendedDisconnectTimeoutMinutes = &v
+	o.PeakExtendedDisconnectTimeoutMinutes.Set(&v)
 }
 
-// GetOffPeakExtendedDisconnectTimeoutMinutes returns the OffPeakExtendedDisconnectTimeoutMinutes field value if set, zero value otherwise.
+// SetPeakExtendedDisconnectTimeoutMinutesNil sets the value for PeakExtendedDisconnectTimeoutMinutes to be an explicit nil
+func (o *AddCustomPowerSchemeModel) SetPeakExtendedDisconnectTimeoutMinutesNil() {
+	o.PeakExtendedDisconnectTimeoutMinutes.Set(nil)
+}
+
+// UnsetPeakExtendedDisconnectTimeoutMinutes ensures that no value is present for PeakExtendedDisconnectTimeoutMinutes, not even an explicit nil
+func (o *AddCustomPowerSchemeModel) UnsetPeakExtendedDisconnectTimeoutMinutes() {
+	o.PeakExtendedDisconnectTimeoutMinutes.Unset()
+}
+
+// GetOffPeakExtendedDisconnectTimeoutMinutes returns the OffPeakExtendedDisconnectTimeoutMinutes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCustomPowerSchemeModel) GetOffPeakExtendedDisconnectTimeoutMinutes() int32 {
-	if o == nil || IsNil(o.OffPeakExtendedDisconnectTimeoutMinutes) {
+	if o == nil || IsNil(o.OffPeakExtendedDisconnectTimeoutMinutes.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.OffPeakExtendedDisconnectTimeoutMinutes
+	return *o.OffPeakExtendedDisconnectTimeoutMinutes.Get()
 }
 
 // GetOffPeakExtendedDisconnectTimeoutMinutesOk returns a tuple with the OffPeakExtendedDisconnectTimeoutMinutes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCustomPowerSchemeModel) GetOffPeakExtendedDisconnectTimeoutMinutesOk() (*int32, bool) {
-	if o == nil || IsNil(o.OffPeakExtendedDisconnectTimeoutMinutes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OffPeakExtendedDisconnectTimeoutMinutes, true
+	return o.OffPeakExtendedDisconnectTimeoutMinutes.Get(), o.OffPeakExtendedDisconnectTimeoutMinutes.IsSet()
 }
 
-// SetOffPeakExtendedDisconnectTimeoutMinutes gets a reference to the given int32 and assigns it to the OffPeakExtendedDisconnectTimeoutMinutes field.
+// SetOffPeakExtendedDisconnectTimeoutMinutes gets a reference to the given NullableInt32 and assigns it to the OffPeakExtendedDisconnectTimeoutMinutes field.
 func (o *AddCustomPowerSchemeModel) SetOffPeakExtendedDisconnectTimeoutMinutes(v int32) {
-	o.OffPeakExtendedDisconnectTimeoutMinutes = &v
+	o.OffPeakExtendedDisconnectTimeoutMinutes.Set(&v)
 }
 
-// GetOffPeakBufferCapacity returns the OffPeakBufferCapacity field value if set, zero value otherwise.
+// SetOffPeakExtendedDisconnectTimeoutMinutesNil sets the value for OffPeakExtendedDisconnectTimeoutMinutes to be an explicit nil
+func (o *AddCustomPowerSchemeModel) SetOffPeakExtendedDisconnectTimeoutMinutesNil() {
+	o.OffPeakExtendedDisconnectTimeoutMinutes.Set(nil)
+}
+
+// UnsetOffPeakExtendedDisconnectTimeoutMinutes ensures that no value is present for OffPeakExtendedDisconnectTimeoutMinutes, not even an explicit nil
+func (o *AddCustomPowerSchemeModel) UnsetOffPeakExtendedDisconnectTimeoutMinutes() {
+	o.OffPeakExtendedDisconnectTimeoutMinutes.Unset()
+}
+
+// GetOffPeakBufferCapacity returns the OffPeakBufferCapacity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCustomPowerSchemeModel) GetOffPeakBufferCapacity() int32 {
-	if o == nil || IsNil(o.OffPeakBufferCapacity) {
+	if o == nil || IsNil(o.OffPeakBufferCapacity.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.OffPeakBufferCapacity
+	return *o.OffPeakBufferCapacity.Get()
 }
 
 // GetOffPeakBufferCapacityOk returns a tuple with the OffPeakBufferCapacity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCustomPowerSchemeModel) GetOffPeakBufferCapacityOk() (*int32, bool) {
-	if o == nil || IsNil(o.OffPeakBufferCapacity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OffPeakBufferCapacity, true
+	return o.OffPeakBufferCapacity.Get(), o.OffPeakBufferCapacity.IsSet()
 }
 
-// SetOffPeakBufferCapacity gets a reference to the given int32 and assigns it to the OffPeakBufferCapacity field.
+// SetOffPeakBufferCapacity gets a reference to the given NullableInt32 and assigns it to the OffPeakBufferCapacity field.
 func (o *AddCustomPowerSchemeModel) SetOffPeakBufferCapacity(v int32) {
-	o.OffPeakBufferCapacity = &v
+	o.OffPeakBufferCapacity.Set(&v)
+}
+
+// SetOffPeakBufferCapacityNil sets the value for OffPeakBufferCapacity to be an explicit nil
+func (o *AddCustomPowerSchemeModel) SetOffPeakBufferCapacityNil() {
+	o.OffPeakBufferCapacity.Set(nil)
+}
+
+// UnsetOffPeakBufferCapacity ensures that no value is present for OffPeakBufferCapacity, not even an explicit nil
+func (o *AddCustomPowerSchemeModel) UnsetOffPeakBufferCapacity() {
+	o.OffPeakBufferCapacity.Unset()
 }
 
 // GetPowerOffDelay returns the PowerOffDelay field value if set, zero value otherwise.
@@ -441,7 +530,7 @@ func (o AddCustomPowerSchemeModel) MarshalJSON() ([]byte, error) {
 func (o AddCustomPowerSchemeModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["schemeName"] = o.SchemeName
-	if !IsNil(o.Weekdays) {
+	if o.Weekdays != nil {
 		toSerialize["weekdays"] = o.Weekdays
 	}
 	if !IsNil(o.PeakEndTime) {
@@ -450,8 +539,8 @@ func (o AddCustomPowerSchemeModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PeakStartTime) {
 		toSerialize["peakStartTime"] = o.PeakStartTime
 	}
-	if !IsNil(o.PeakTimeZoneId) {
-		toSerialize["peakTimeZoneId"] = o.PeakTimeZoneId
+	if o.PeakTimeZoneId.IsSet() {
+		toSerialize["peakTimeZoneId"] = o.PeakTimeZoneId.Get()
 	}
 	if !IsNil(o.PeakDisconnectedSessionTimeout) {
 		toSerialize["peakDisconnectedSessionTimeout"] = o.PeakDisconnectedSessionTimeout
@@ -462,26 +551,26 @@ func (o AddCustomPowerSchemeModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MultiSessionDisconnectedSessionTimeout) {
 		toSerialize["multiSessionDisconnectedSessionTimeout"] = o.MultiSessionDisconnectedSessionTimeout
 	}
-	if !IsNil(o.SessionTimeout) {
-		toSerialize["sessionTimeout"] = o.SessionTimeout
+	if o.SessionTimeout.IsSet() {
+		toSerialize["sessionTimeout"] = o.SessionTimeout.Get()
 	}
-	if !IsNil(o.BufferCapacity) {
-		toSerialize["bufferCapacity"] = o.BufferCapacity
+	if o.BufferCapacity.IsSet() {
+		toSerialize["bufferCapacity"] = o.BufferCapacity.Get()
 	}
-	if !IsNil(o.PeakDisconnectedSessionAction) {
-		toSerialize["peakDisconnectedSessionAction"] = o.PeakDisconnectedSessionAction
+	if o.PeakDisconnectedSessionAction.IsSet() {
+		toSerialize["peakDisconnectedSessionAction"] = o.PeakDisconnectedSessionAction.Get()
 	}
-	if !IsNil(o.OffPeakDisconnectedSessionAction) {
-		toSerialize["offPeakDisconnectedSessionAction"] = o.OffPeakDisconnectedSessionAction
+	if o.OffPeakDisconnectedSessionAction.IsSet() {
+		toSerialize["offPeakDisconnectedSessionAction"] = o.OffPeakDisconnectedSessionAction.Get()
 	}
-	if !IsNil(o.PeakExtendedDisconnectTimeoutMinutes) {
-		toSerialize["peakExtendedDisconnectTimeoutMinutes"] = o.PeakExtendedDisconnectTimeoutMinutes
+	if o.PeakExtendedDisconnectTimeoutMinutes.IsSet() {
+		toSerialize["peakExtendedDisconnectTimeoutMinutes"] = o.PeakExtendedDisconnectTimeoutMinutes.Get()
 	}
-	if !IsNil(o.OffPeakExtendedDisconnectTimeoutMinutes) {
-		toSerialize["offPeakExtendedDisconnectTimeoutMinutes"] = o.OffPeakExtendedDisconnectTimeoutMinutes
+	if o.OffPeakExtendedDisconnectTimeoutMinutes.IsSet() {
+		toSerialize["offPeakExtendedDisconnectTimeoutMinutes"] = o.OffPeakExtendedDisconnectTimeoutMinutes.Get()
 	}
-	if !IsNil(o.OffPeakBufferCapacity) {
-		toSerialize["offPeakBufferCapacity"] = o.OffPeakBufferCapacity
+	if o.OffPeakBufferCapacity.IsSet() {
+		toSerialize["offPeakBufferCapacity"] = o.OffPeakBufferCapacity.Get()
 	}
 	if !IsNil(o.PowerOffDelay) {
 		toSerialize["powerOffDelay"] = o.PowerOffDelay

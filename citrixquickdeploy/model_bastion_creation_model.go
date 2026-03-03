@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,10 +19,10 @@ var _ MappedNullable = &BastionCreationModel{}
 
 // BastionCreationModel struct for BastionCreationModel
 type BastionCreationModel struct {
-	Username        *string               `json:"username,omitempty"`
-	Password        *string               `json:"password,omitempty"`
-	IpAddressPrefix *string               `json:"ipAddressPrefix,omitempty"`
-	ConnectionType  *OnPremConnectionType `json:"connectionType,omitempty"`
+	Username        NullableString               `json:"username,omitempty"`
+	Password        NullableString               `json:"password,omitempty"`
+	IpAddressPrefix NullableString               `json:"ipAddressPrefix,omitempty"`
+	ConnectionType  NullableOnPremConnectionType `json:"connectionType,omitempty"`
 }
 
 // NewBastionCreationModelWithDefaults instantiates a new BastionCreationModel object
@@ -33,96 +33,140 @@ func NewBastionCreationModelWithDefaults() *BastionCreationModel {
 	return &this
 }
 
-// GetUsername returns the Username field value if set, zero value otherwise.
+// GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionCreationModel) GetUsername() string {
-	if o == nil || IsNil(o.Username) {
+	if o == nil || IsNil(o.Username.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Username
+	return *o.Username.Get()
 }
 
 // GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionCreationModel) GetUsernameOk() (*string, bool) {
-	if o == nil || IsNil(o.Username) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Username, true
+	return o.Username.Get(), o.Username.IsSet()
 }
 
-// SetUsername gets a reference to the given string and assigns it to the Username field.
+// SetUsername gets a reference to the given NullableString and assigns it to the Username field.
 func (o *BastionCreationModel) SetUsername(v string) {
-	o.Username = &v
+	o.Username.Set(&v)
 }
 
-// GetPassword returns the Password field value if set, zero value otherwise.
+// SetUsernameNil sets the value for Username to be an explicit nil
+func (o *BastionCreationModel) SetUsernameNil() {
+	o.Username.Set(nil)
+}
+
+// UnsetUsername ensures that no value is present for Username, not even an explicit nil
+func (o *BastionCreationModel) UnsetUsername() {
+	o.Username.Unset()
+}
+
+// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionCreationModel) GetPassword() string {
-	if o == nil || IsNil(o.Password) {
+	if o == nil || IsNil(o.Password.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Password
+	return *o.Password.Get()
 }
 
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionCreationModel) GetPasswordOk() (*string, bool) {
-	if o == nil || IsNil(o.Password) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Password, true
+	return o.Password.Get(), o.Password.IsSet()
 }
 
-// SetPassword gets a reference to the given string and assigns it to the Password field.
+// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
 func (o *BastionCreationModel) SetPassword(v string) {
-	o.Password = &v
+	o.Password.Set(&v)
 }
 
-// GetIpAddressPrefix returns the IpAddressPrefix field value if set, zero value otherwise.
+// SetPasswordNil sets the value for Password to be an explicit nil
+func (o *BastionCreationModel) SetPasswordNil() {
+	o.Password.Set(nil)
+}
+
+// UnsetPassword ensures that no value is present for Password, not even an explicit nil
+func (o *BastionCreationModel) UnsetPassword() {
+	o.Password.Unset()
+}
+
+// GetIpAddressPrefix returns the IpAddressPrefix field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionCreationModel) GetIpAddressPrefix() string {
-	if o == nil || IsNil(o.IpAddressPrefix) {
+	if o == nil || IsNil(o.IpAddressPrefix.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.IpAddressPrefix
+	return *o.IpAddressPrefix.Get()
 }
 
 // GetIpAddressPrefixOk returns a tuple with the IpAddressPrefix field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionCreationModel) GetIpAddressPrefixOk() (*string, bool) {
-	if o == nil || IsNil(o.IpAddressPrefix) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IpAddressPrefix, true
+	return o.IpAddressPrefix.Get(), o.IpAddressPrefix.IsSet()
 }
 
-// SetIpAddressPrefix gets a reference to the given string and assigns it to the IpAddressPrefix field.
+// SetIpAddressPrefix gets a reference to the given NullableString and assigns it to the IpAddressPrefix field.
 func (o *BastionCreationModel) SetIpAddressPrefix(v string) {
-	o.IpAddressPrefix = &v
+	o.IpAddressPrefix.Set(&v)
 }
 
-// GetConnectionType returns the ConnectionType field value if set, zero value otherwise.
+// SetIpAddressPrefixNil sets the value for IpAddressPrefix to be an explicit nil
+func (o *BastionCreationModel) SetIpAddressPrefixNil() {
+	o.IpAddressPrefix.Set(nil)
+}
+
+// UnsetIpAddressPrefix ensures that no value is present for IpAddressPrefix, not even an explicit nil
+func (o *BastionCreationModel) UnsetIpAddressPrefix() {
+	o.IpAddressPrefix.Unset()
+}
+
+// GetConnectionType returns the ConnectionType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BastionCreationModel) GetConnectionType() OnPremConnectionType {
-	if o == nil || IsNil(o.ConnectionType) {
+	if o == nil || IsNil(o.ConnectionType.Get()) {
 		var ret OnPremConnectionType
 		return ret
 	}
-	return *o.ConnectionType
+	return *o.ConnectionType.Get()
 }
 
 // GetConnectionTypeOk returns a tuple with the ConnectionType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BastionCreationModel) GetConnectionTypeOk() (*OnPremConnectionType, bool) {
-	if o == nil || IsNil(o.ConnectionType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConnectionType, true
+	return o.ConnectionType.Get(), o.ConnectionType.IsSet()
 }
 
-// SetConnectionType gets a reference to the given OnPremConnectionType and assigns it to the ConnectionType field.
+// SetConnectionType gets a reference to the given NullableOnPremConnectionType and assigns it to the ConnectionType field.
 func (o *BastionCreationModel) SetConnectionType(v OnPremConnectionType) {
-	o.ConnectionType = &v
+	o.ConnectionType.Set(&v)
+}
+
+// SetConnectionTypeNil sets the value for ConnectionType to be an explicit nil
+func (o *BastionCreationModel) SetConnectionTypeNil() {
+	o.ConnectionType.Set(nil)
+}
+
+// UnsetConnectionType ensures that no value is present for ConnectionType, not even an explicit nil
+func (o *BastionCreationModel) UnsetConnectionType() {
+	o.ConnectionType.Unset()
 }
 
 func (o BastionCreationModel) MarshalJSON() ([]byte, error) {
@@ -135,17 +179,17 @@ func (o BastionCreationModel) MarshalJSON() ([]byte, error) {
 
 func (o BastionCreationModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Username) {
-		toSerialize["username"] = o.Username
+	if o.Username.IsSet() {
+		toSerialize["username"] = o.Username.Get()
 	}
-	if !IsNil(o.Password) {
-		toSerialize["password"] = o.Password
+	if o.Password.IsSet() {
+		toSerialize["password"] = o.Password.Get()
 	}
-	if !IsNil(o.IpAddressPrefix) {
-		toSerialize["ipAddressPrefix"] = o.IpAddressPrefix
+	if o.IpAddressPrefix.IsSet() {
+		toSerialize["ipAddressPrefix"] = o.IpAddressPrefix.Get()
 	}
-	if !IsNil(o.ConnectionType) {
-		toSerialize["connectionType"] = o.ConnectionType
+	if o.ConnectionType.IsSet() {
+		toSerialize["connectionType"] = o.ConnectionType.Get()
 	}
 	return toSerialize, nil
 }

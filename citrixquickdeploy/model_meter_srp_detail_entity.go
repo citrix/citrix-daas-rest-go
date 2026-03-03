@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,21 +21,21 @@ var _ MappedNullable = &MeterSrpDetailEntity{}
 // MeterSrpDetailEntity struct for MeterSrpDetailEntity
 type MeterSrpDetailEntity struct {
 	// The Meter Id
-	MeterId *string `json:"meterId,omitempty"`
+	MeterId NullableString `json:"meterId,omitempty"`
 	// Meter Name
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	// The Meter Price
 	SrpPrice *float64 `json:"srpPrice,omitempty"`
 	// Meter Category
-	Category *string `json:"category,omitempty"`
+	Category NullableString `json:"category,omitempty"`
 	// Cloud Provider Name
-	CloudProviderName *string `json:"cloudProviderName,omitempty"`
+	CloudProviderName NullableString `json:"cloudProviderName,omitempty"`
 	// Unit of measure
-	UnitOfMeasure *string `json:"unitOfMeasure,omitempty"`
+	UnitOfMeasure NullableString `json:"unitOfMeasure,omitempty"`
 	// Include units
 	IncludedUnits *float64 `json:"includedUnits,omitempty"`
 	// Region
-	Region *string `json:"region,omitempty"`
+	Region NullableString `json:"region,omitempty"`
 	// The effective date of the price.
 	EffectiveDate *time.Time `json:"effectiveDate,omitempty"`
 	// The expiration date of the price.
@@ -52,50 +52,72 @@ func NewMeterSrpDetailEntityWithDefaults() *MeterSrpDetailEntity {
 	return &this
 }
 
-// GetMeterId returns the MeterId field value if set, zero value otherwise.
+// GetMeterId returns the MeterId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MeterSrpDetailEntity) GetMeterId() string {
-	if o == nil || IsNil(o.MeterId) {
+	if o == nil || IsNil(o.MeterId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MeterId
+	return *o.MeterId.Get()
 }
 
 // GetMeterIdOk returns a tuple with the MeterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MeterSrpDetailEntity) GetMeterIdOk() (*string, bool) {
-	if o == nil || IsNil(o.MeterId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MeterId, true
+	return o.MeterId.Get(), o.MeterId.IsSet()
 }
 
-// SetMeterId gets a reference to the given string and assigns it to the MeterId field.
+// SetMeterId gets a reference to the given NullableString and assigns it to the MeterId field.
 func (o *MeterSrpDetailEntity) SetMeterId(v string) {
-	o.MeterId = &v
+	o.MeterId.Set(&v)
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// SetMeterIdNil sets the value for MeterId to be an explicit nil
+func (o *MeterSrpDetailEntity) SetMeterIdNil() {
+	o.MeterId.Set(nil)
+}
+
+// UnsetMeterId ensures that no value is present for MeterId, not even an explicit nil
+func (o *MeterSrpDetailEntity) UnsetMeterId() {
+	o.MeterId.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MeterSrpDetailEntity) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MeterSrpDetailEntity) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *MeterSrpDetailEntity) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *MeterSrpDetailEntity) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *MeterSrpDetailEntity) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetSrpPrice returns the SrpPrice field value if set, zero value otherwise.
@@ -121,73 +143,106 @@ func (o *MeterSrpDetailEntity) SetSrpPrice(v float64) {
 	o.SrpPrice = &v
 }
 
-// GetCategory returns the Category field value if set, zero value otherwise.
+// GetCategory returns the Category field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MeterSrpDetailEntity) GetCategory() string {
-	if o == nil || IsNil(o.Category) {
+	if o == nil || IsNil(o.Category.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Category
+	return *o.Category.Get()
 }
 
 // GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MeterSrpDetailEntity) GetCategoryOk() (*string, bool) {
-	if o == nil || IsNil(o.Category) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Category, true
+	return o.Category.Get(), o.Category.IsSet()
 }
 
-// SetCategory gets a reference to the given string and assigns it to the Category field.
+// SetCategory gets a reference to the given NullableString and assigns it to the Category field.
 func (o *MeterSrpDetailEntity) SetCategory(v string) {
-	o.Category = &v
+	o.Category.Set(&v)
 }
 
-// GetCloudProviderName returns the CloudProviderName field value if set, zero value otherwise.
+// SetCategoryNil sets the value for Category to be an explicit nil
+func (o *MeterSrpDetailEntity) SetCategoryNil() {
+	o.Category.Set(nil)
+}
+
+// UnsetCategory ensures that no value is present for Category, not even an explicit nil
+func (o *MeterSrpDetailEntity) UnsetCategory() {
+	o.Category.Unset()
+}
+
+// GetCloudProviderName returns the CloudProviderName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MeterSrpDetailEntity) GetCloudProviderName() string {
-	if o == nil || IsNil(o.CloudProviderName) {
+	if o == nil || IsNil(o.CloudProviderName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CloudProviderName
+	return *o.CloudProviderName.Get()
 }
 
 // GetCloudProviderNameOk returns a tuple with the CloudProviderName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MeterSrpDetailEntity) GetCloudProviderNameOk() (*string, bool) {
-	if o == nil || IsNil(o.CloudProviderName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CloudProviderName, true
+	return o.CloudProviderName.Get(), o.CloudProviderName.IsSet()
 }
 
-// SetCloudProviderName gets a reference to the given string and assigns it to the CloudProviderName field.
+// SetCloudProviderName gets a reference to the given NullableString and assigns it to the CloudProviderName field.
 func (o *MeterSrpDetailEntity) SetCloudProviderName(v string) {
-	o.CloudProviderName = &v
+	o.CloudProviderName.Set(&v)
 }
 
-// GetUnitOfMeasure returns the UnitOfMeasure field value if set, zero value otherwise.
+// SetCloudProviderNameNil sets the value for CloudProviderName to be an explicit nil
+func (o *MeterSrpDetailEntity) SetCloudProviderNameNil() {
+	o.CloudProviderName.Set(nil)
+}
+
+// UnsetCloudProviderName ensures that no value is present for CloudProviderName, not even an explicit nil
+func (o *MeterSrpDetailEntity) UnsetCloudProviderName() {
+	o.CloudProviderName.Unset()
+}
+
+// GetUnitOfMeasure returns the UnitOfMeasure field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MeterSrpDetailEntity) GetUnitOfMeasure() string {
-	if o == nil || IsNil(o.UnitOfMeasure) {
+	if o == nil || IsNil(o.UnitOfMeasure.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.UnitOfMeasure
+	return *o.UnitOfMeasure.Get()
 }
 
 // GetUnitOfMeasureOk returns a tuple with the UnitOfMeasure field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MeterSrpDetailEntity) GetUnitOfMeasureOk() (*string, bool) {
-	if o == nil || IsNil(o.UnitOfMeasure) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UnitOfMeasure, true
+	return o.UnitOfMeasure.Get(), o.UnitOfMeasure.IsSet()
 }
 
-// SetUnitOfMeasure gets a reference to the given string and assigns it to the UnitOfMeasure field.
+// SetUnitOfMeasure gets a reference to the given NullableString and assigns it to the UnitOfMeasure field.
 func (o *MeterSrpDetailEntity) SetUnitOfMeasure(v string) {
-	o.UnitOfMeasure = &v
+	o.UnitOfMeasure.Set(&v)
+}
+
+// SetUnitOfMeasureNil sets the value for UnitOfMeasure to be an explicit nil
+func (o *MeterSrpDetailEntity) SetUnitOfMeasureNil() {
+	o.UnitOfMeasure.Set(nil)
+}
+
+// UnsetUnitOfMeasure ensures that no value is present for UnitOfMeasure, not even an explicit nil
+func (o *MeterSrpDetailEntity) UnsetUnitOfMeasure() {
+	o.UnitOfMeasure.Unset()
 }
 
 // GetIncludedUnits returns the IncludedUnits field value if set, zero value otherwise.
@@ -213,27 +268,38 @@ func (o *MeterSrpDetailEntity) SetIncludedUnits(v float64) {
 	o.IncludedUnits = &v
 }
 
-// GetRegion returns the Region field value if set, zero value otherwise.
+// GetRegion returns the Region field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MeterSrpDetailEntity) GetRegion() string {
-	if o == nil || IsNil(o.Region) {
+	if o == nil || IsNil(o.Region.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Region
+	return *o.Region.Get()
 }
 
 // GetRegionOk returns a tuple with the Region field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MeterSrpDetailEntity) GetRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.Region) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Region, true
+	return o.Region.Get(), o.Region.IsSet()
 }
 
-// SetRegion gets a reference to the given string and assigns it to the Region field.
+// SetRegion gets a reference to the given NullableString and assigns it to the Region field.
 func (o *MeterSrpDetailEntity) SetRegion(v string) {
-	o.Region = &v
+	o.Region.Set(&v)
+}
+
+// SetRegionNil sets the value for Region to be an explicit nil
+func (o *MeterSrpDetailEntity) SetRegionNil() {
+	o.Region.Set(nil)
+}
+
+// UnsetRegion ensures that no value is present for Region, not even an explicit nil
+func (o *MeterSrpDetailEntity) UnsetRegion() {
+	o.Region.Unset()
 }
 
 // GetEffectiveDate returns the EffectiveDate field value if set, zero value otherwise.
@@ -315,29 +381,29 @@ func (o MeterSrpDetailEntity) MarshalJSON() ([]byte, error) {
 
 func (o MeterSrpDetailEntity) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.MeterId) {
-		toSerialize["meterId"] = o.MeterId
+	if o.MeterId.IsSet() {
+		toSerialize["meterId"] = o.MeterId.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	if !IsNil(o.SrpPrice) {
 		toSerialize["srpPrice"] = o.SrpPrice
 	}
-	if !IsNil(o.Category) {
-		toSerialize["category"] = o.Category
+	if o.Category.IsSet() {
+		toSerialize["category"] = o.Category.Get()
 	}
-	if !IsNil(o.CloudProviderName) {
-		toSerialize["cloudProviderName"] = o.CloudProviderName
+	if o.CloudProviderName.IsSet() {
+		toSerialize["cloudProviderName"] = o.CloudProviderName.Get()
 	}
-	if !IsNil(o.UnitOfMeasure) {
-		toSerialize["unitOfMeasure"] = o.UnitOfMeasure
+	if o.UnitOfMeasure.IsSet() {
+		toSerialize["unitOfMeasure"] = o.UnitOfMeasure.Get()
 	}
 	if !IsNil(o.IncludedUnits) {
 		toSerialize["includedUnits"] = o.IncludedUnits
 	}
-	if !IsNil(o.Region) {
-		toSerialize["region"] = o.Region
+	if o.Region.IsSet() {
+		toSerialize["region"] = o.Region.Get()
 	}
 	if !IsNil(o.EffectiveDate) {
 		toSerialize["effectiveDate"] = o.EffectiveDate

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CatalogId** | **string** | ID of the catalog | 
-**CatalogName** | **string** | Name of the catalog | 
+**CatalogId** | **string** | ID of the catalog | [readonly] 
+**CatalogName** | **string** | Name of the catalog | [readonly] 
 **State** | [**CatalogOverallState**](CatalogOverallState.md) | State of the catalog | 
-**AzureSubscription** | **string** | Name of the Azure Subscription the catalog is associated with | 
+**AzureSubscription** | **string** | Name of the Azure Subscription the catalog is associated with | [readonly] 
 
 ## Methods
 

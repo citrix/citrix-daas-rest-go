@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,30 +20,30 @@ var _ MappedNullable = &EventDataInfo{}
 
 // EventDataInfo struct for EventDataInfo
 type EventDataInfo struct {
-	Authorization        *SenderAuthorization      `json:"authorization,omitempty"`
-	Claims               *map[string]string        `json:"claims,omitempty"`
-	Caller               *string                   `json:"caller,omitempty"`
-	Description          *string                   `json:"description,omitempty"`
-	Id                   *string                   `json:"id,omitempty"`
-	EventDataId          *string                   `json:"eventDataId,omitempty"`
-	CorrelationId        *string                   `json:"correlationId,omitempty"`
-	EventName            *MonitorLocalizableString `json:"eventName,omitempty"`
-	Category             *MonitorLocalizableString `json:"category,omitempty"`
-	HttpRequest          *EventDataHttpRequestInfo `json:"httpRequest,omitempty"`
-	Level                *MonitorEventLevel        `json:"level,omitempty"`
-	ResourceGroupName    *string                   `json:"resourceGroupName,omitempty"`
-	ResourceProviderName *MonitorLocalizableString `json:"resourceProviderName,omitempty"`
-	ResourceId           *ResourceIdentifier       `json:"resourceId,omitempty"`
-	ResourceType         *MonitorLocalizableString `json:"resourceType,omitempty"`
-	OperationId          *string                   `json:"operationId,omitempty"`
-	OperationName        *MonitorLocalizableString `json:"operationName,omitempty"`
-	Properties           *map[string]string        `json:"properties,omitempty"`
-	Status               *MonitorLocalizableString `json:"status,omitempty"`
-	SubStatus            *MonitorLocalizableString `json:"subStatus,omitempty"`
-	EventTimestamp       *time.Time                `json:"eventTimestamp,omitempty"`
-	SubmissionTimestamp  *time.Time                `json:"submissionTimestamp,omitempty"`
-	SubscriptionId       *string                   `json:"subscriptionId,omitempty"`
-	TenantId             *string                   `json:"tenantId,omitempty"`
+	Authorization        NullableSenderAuthorization      `json:"authorization,omitempty"`
+	Claims               map[string]string                `json:"claims,omitempty"`
+	Caller               NullableString                   `json:"caller,omitempty"`
+	Description          NullableString                   `json:"description,omitempty"`
+	Id                   NullableString                   `json:"id,omitempty"`
+	EventDataId          NullableString                   `json:"eventDataId,omitempty"`
+	CorrelationId        NullableString                   `json:"correlationId,omitempty"`
+	EventName            NullableMonitorLocalizableString `json:"eventName,omitempty"`
+	Category             NullableMonitorLocalizableString `json:"category,omitempty"`
+	HttpRequest          NullableEventDataHttpRequestInfo `json:"httpRequest,omitempty"`
+	Level                NullableMonitorEventLevel        `json:"level,omitempty"`
+	ResourceGroupName    NullableString                   `json:"resourceGroupName,omitempty"`
+	ResourceProviderName NullableMonitorLocalizableString `json:"resourceProviderName,omitempty"`
+	ResourceId           NullableResourceIdentifier       `json:"resourceId,omitempty"`
+	ResourceType         NullableMonitorLocalizableString `json:"resourceType,omitempty"`
+	OperationId          NullableString                   `json:"operationId,omitempty"`
+	OperationName        NullableMonitorLocalizableString `json:"operationName,omitempty"`
+	Properties           map[string]string                `json:"properties,omitempty"`
+	Status               NullableMonitorLocalizableString `json:"status,omitempty"`
+	SubStatus            NullableMonitorLocalizableString `json:"subStatus,omitempty"`
+	EventTimestamp       NullableTime                     `json:"eventTimestamp,omitempty"`
+	SubmissionTimestamp  NullableTime                     `json:"submissionTimestamp,omitempty"`
+	SubscriptionId       NullableString                   `json:"subscriptionId,omitempty"`
+	TenantId             NullableString                   `json:"tenantId,omitempty"`
 }
 
 // NewEventDataInfoWithDefaults instantiates a new EventDataInfo object
@@ -54,556 +54,800 @@ func NewEventDataInfoWithDefaults() *EventDataInfo {
 	return &this
 }
 
-// GetAuthorization returns the Authorization field value if set, zero value otherwise.
+// GetAuthorization returns the Authorization field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetAuthorization() SenderAuthorization {
-	if o == nil || IsNil(o.Authorization) {
+	if o == nil || IsNil(o.Authorization.Get()) {
 		var ret SenderAuthorization
 		return ret
 	}
-	return *o.Authorization
+	return *o.Authorization.Get()
 }
 
 // GetAuthorizationOk returns a tuple with the Authorization field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetAuthorizationOk() (*SenderAuthorization, bool) {
-	if o == nil || IsNil(o.Authorization) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Authorization, true
+	return o.Authorization.Get(), o.Authorization.IsSet()
 }
 
-// SetAuthorization gets a reference to the given SenderAuthorization and assigns it to the Authorization field.
+// SetAuthorization gets a reference to the given NullableSenderAuthorization and assigns it to the Authorization field.
 func (o *EventDataInfo) SetAuthorization(v SenderAuthorization) {
-	o.Authorization = &v
+	o.Authorization.Set(&v)
 }
 
-// GetClaims returns the Claims field value if set, zero value otherwise.
+// SetAuthorizationNil sets the value for Authorization to be an explicit nil
+func (o *EventDataInfo) SetAuthorizationNil() {
+	o.Authorization.Set(nil)
+}
+
+// UnsetAuthorization ensures that no value is present for Authorization, not even an explicit nil
+func (o *EventDataInfo) UnsetAuthorization() {
+	o.Authorization.Unset()
+}
+
+// GetClaims returns the Claims field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetClaims() map[string]string {
-	if o == nil || IsNil(o.Claims) {
+	if o == nil {
 		var ret map[string]string
 		return ret
 	}
-	return *o.Claims
+	return o.Claims
 }
 
 // GetClaimsOk returns a tuple with the Claims field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetClaimsOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.Claims) {
 		return nil, false
 	}
-	return o.Claims, true
+	return &o.Claims, true
 }
 
 // SetClaims gets a reference to the given map[string]string and assigns it to the Claims field.
 func (o *EventDataInfo) SetClaims(v map[string]string) {
-	o.Claims = &v
+	o.Claims = v
 }
 
-// GetCaller returns the Caller field value if set, zero value otherwise.
+// GetCaller returns the Caller field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetCaller() string {
-	if o == nil || IsNil(o.Caller) {
+	if o == nil || IsNil(o.Caller.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Caller
+	return *o.Caller.Get()
 }
 
 // GetCallerOk returns a tuple with the Caller field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetCallerOk() (*string, bool) {
-	if o == nil || IsNil(o.Caller) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Caller, true
+	return o.Caller.Get(), o.Caller.IsSet()
 }
 
-// SetCaller gets a reference to the given string and assigns it to the Caller field.
+// SetCaller gets a reference to the given NullableString and assigns it to the Caller field.
 func (o *EventDataInfo) SetCaller(v string) {
-	o.Caller = &v
+	o.Caller.Set(&v)
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
+// SetCallerNil sets the value for Caller to be an explicit nil
+func (o *EventDataInfo) SetCallerNil() {
+	o.Caller.Set(nil)
+}
+
+// UnsetCaller ensures that no value is present for Caller, not even an explicit nil
+func (o *EventDataInfo) UnsetCaller() {
+	o.Caller.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetDescription() string {
-	if o == nil || IsNil(o.Description) {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
-// SetDescription gets a reference to the given string and assigns it to the Description field.
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *EventDataInfo) SetDescription(v string) {
-	o.Description = &v
+	o.Description.Set(&v)
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *EventDataInfo) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *EventDataInfo) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *EventDataInfo) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
 }
 
-// GetEventDataId returns the EventDataId field value if set, zero value otherwise.
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *EventDataInfo) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *EventDataInfo) UnsetId() {
+	o.Id.Unset()
+}
+
+// GetEventDataId returns the EventDataId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetEventDataId() string {
-	if o == nil || IsNil(o.EventDataId) {
+	if o == nil || IsNil(o.EventDataId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.EventDataId
+	return *o.EventDataId.Get()
 }
 
 // GetEventDataIdOk returns a tuple with the EventDataId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetEventDataIdOk() (*string, bool) {
-	if o == nil || IsNil(o.EventDataId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EventDataId, true
+	return o.EventDataId.Get(), o.EventDataId.IsSet()
 }
 
-// SetEventDataId gets a reference to the given string and assigns it to the EventDataId field.
+// SetEventDataId gets a reference to the given NullableString and assigns it to the EventDataId field.
 func (o *EventDataInfo) SetEventDataId(v string) {
-	o.EventDataId = &v
+	o.EventDataId.Set(&v)
 }
 
-// GetCorrelationId returns the CorrelationId field value if set, zero value otherwise.
+// SetEventDataIdNil sets the value for EventDataId to be an explicit nil
+func (o *EventDataInfo) SetEventDataIdNil() {
+	o.EventDataId.Set(nil)
+}
+
+// UnsetEventDataId ensures that no value is present for EventDataId, not even an explicit nil
+func (o *EventDataInfo) UnsetEventDataId() {
+	o.EventDataId.Unset()
+}
+
+// GetCorrelationId returns the CorrelationId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetCorrelationId() string {
-	if o == nil || IsNil(o.CorrelationId) {
+	if o == nil || IsNil(o.CorrelationId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CorrelationId
+	return *o.CorrelationId.Get()
 }
 
 // GetCorrelationIdOk returns a tuple with the CorrelationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetCorrelationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CorrelationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CorrelationId, true
+	return o.CorrelationId.Get(), o.CorrelationId.IsSet()
 }
 
-// SetCorrelationId gets a reference to the given string and assigns it to the CorrelationId field.
+// SetCorrelationId gets a reference to the given NullableString and assigns it to the CorrelationId field.
 func (o *EventDataInfo) SetCorrelationId(v string) {
-	o.CorrelationId = &v
+	o.CorrelationId.Set(&v)
 }
 
-// GetEventName returns the EventName field value if set, zero value otherwise.
+// SetCorrelationIdNil sets the value for CorrelationId to be an explicit nil
+func (o *EventDataInfo) SetCorrelationIdNil() {
+	o.CorrelationId.Set(nil)
+}
+
+// UnsetCorrelationId ensures that no value is present for CorrelationId, not even an explicit nil
+func (o *EventDataInfo) UnsetCorrelationId() {
+	o.CorrelationId.Unset()
+}
+
+// GetEventName returns the EventName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetEventName() MonitorLocalizableString {
-	if o == nil || IsNil(o.EventName) {
+	if o == nil || IsNil(o.EventName.Get()) {
 		var ret MonitorLocalizableString
 		return ret
 	}
-	return *o.EventName
+	return *o.EventName.Get()
 }
 
 // GetEventNameOk returns a tuple with the EventName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetEventNameOk() (*MonitorLocalizableString, bool) {
-	if o == nil || IsNil(o.EventName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EventName, true
+	return o.EventName.Get(), o.EventName.IsSet()
 }
 
-// SetEventName gets a reference to the given MonitorLocalizableString and assigns it to the EventName field.
+// SetEventName gets a reference to the given NullableMonitorLocalizableString and assigns it to the EventName field.
 func (o *EventDataInfo) SetEventName(v MonitorLocalizableString) {
-	o.EventName = &v
+	o.EventName.Set(&v)
 }
 
-// GetCategory returns the Category field value if set, zero value otherwise.
+// SetEventNameNil sets the value for EventName to be an explicit nil
+func (o *EventDataInfo) SetEventNameNil() {
+	o.EventName.Set(nil)
+}
+
+// UnsetEventName ensures that no value is present for EventName, not even an explicit nil
+func (o *EventDataInfo) UnsetEventName() {
+	o.EventName.Unset()
+}
+
+// GetCategory returns the Category field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetCategory() MonitorLocalizableString {
-	if o == nil || IsNil(o.Category) {
+	if o == nil || IsNil(o.Category.Get()) {
 		var ret MonitorLocalizableString
 		return ret
 	}
-	return *o.Category
+	return *o.Category.Get()
 }
 
 // GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetCategoryOk() (*MonitorLocalizableString, bool) {
-	if o == nil || IsNil(o.Category) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Category, true
+	return o.Category.Get(), o.Category.IsSet()
 }
 
-// SetCategory gets a reference to the given MonitorLocalizableString and assigns it to the Category field.
+// SetCategory gets a reference to the given NullableMonitorLocalizableString and assigns it to the Category field.
 func (o *EventDataInfo) SetCategory(v MonitorLocalizableString) {
-	o.Category = &v
+	o.Category.Set(&v)
 }
 
-// GetHttpRequest returns the HttpRequest field value if set, zero value otherwise.
+// SetCategoryNil sets the value for Category to be an explicit nil
+func (o *EventDataInfo) SetCategoryNil() {
+	o.Category.Set(nil)
+}
+
+// UnsetCategory ensures that no value is present for Category, not even an explicit nil
+func (o *EventDataInfo) UnsetCategory() {
+	o.Category.Unset()
+}
+
+// GetHttpRequest returns the HttpRequest field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetHttpRequest() EventDataHttpRequestInfo {
-	if o == nil || IsNil(o.HttpRequest) {
+	if o == nil || IsNil(o.HttpRequest.Get()) {
 		var ret EventDataHttpRequestInfo
 		return ret
 	}
-	return *o.HttpRequest
+	return *o.HttpRequest.Get()
 }
 
 // GetHttpRequestOk returns a tuple with the HttpRequest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetHttpRequestOk() (*EventDataHttpRequestInfo, bool) {
-	if o == nil || IsNil(o.HttpRequest) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HttpRequest, true
+	return o.HttpRequest.Get(), o.HttpRequest.IsSet()
 }
 
-// SetHttpRequest gets a reference to the given EventDataHttpRequestInfo and assigns it to the HttpRequest field.
+// SetHttpRequest gets a reference to the given NullableEventDataHttpRequestInfo and assigns it to the HttpRequest field.
 func (o *EventDataInfo) SetHttpRequest(v EventDataHttpRequestInfo) {
-	o.HttpRequest = &v
+	o.HttpRequest.Set(&v)
 }
 
-// GetLevel returns the Level field value if set, zero value otherwise.
+// SetHttpRequestNil sets the value for HttpRequest to be an explicit nil
+func (o *EventDataInfo) SetHttpRequestNil() {
+	o.HttpRequest.Set(nil)
+}
+
+// UnsetHttpRequest ensures that no value is present for HttpRequest, not even an explicit nil
+func (o *EventDataInfo) UnsetHttpRequest() {
+	o.HttpRequest.Unset()
+}
+
+// GetLevel returns the Level field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetLevel() MonitorEventLevel {
-	if o == nil || IsNil(o.Level) {
+	if o == nil || IsNil(o.Level.Get()) {
 		var ret MonitorEventLevel
 		return ret
 	}
-	return *o.Level
+	return *o.Level.Get()
 }
 
 // GetLevelOk returns a tuple with the Level field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetLevelOk() (*MonitorEventLevel, bool) {
-	if o == nil || IsNil(o.Level) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Level, true
+	return o.Level.Get(), o.Level.IsSet()
 }
 
-// SetLevel gets a reference to the given MonitorEventLevel and assigns it to the Level field.
+// SetLevel gets a reference to the given NullableMonitorEventLevel and assigns it to the Level field.
 func (o *EventDataInfo) SetLevel(v MonitorEventLevel) {
-	o.Level = &v
+	o.Level.Set(&v)
 }
 
-// GetResourceGroupName returns the ResourceGroupName field value if set, zero value otherwise.
+// SetLevelNil sets the value for Level to be an explicit nil
+func (o *EventDataInfo) SetLevelNil() {
+	o.Level.Set(nil)
+}
+
+// UnsetLevel ensures that no value is present for Level, not even an explicit nil
+func (o *EventDataInfo) UnsetLevel() {
+	o.Level.Unset()
+}
+
+// GetResourceGroupName returns the ResourceGroupName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetResourceGroupName() string {
-	if o == nil || IsNil(o.ResourceGroupName) {
+	if o == nil || IsNil(o.ResourceGroupName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResourceGroupName
+	return *o.ResourceGroupName.Get()
 }
 
 // GetResourceGroupNameOk returns a tuple with the ResourceGroupName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetResourceGroupNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceGroupName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceGroupName, true
+	return o.ResourceGroupName.Get(), o.ResourceGroupName.IsSet()
 }
 
-// SetResourceGroupName gets a reference to the given string and assigns it to the ResourceGroupName field.
+// SetResourceGroupName gets a reference to the given NullableString and assigns it to the ResourceGroupName field.
 func (o *EventDataInfo) SetResourceGroupName(v string) {
-	o.ResourceGroupName = &v
+	o.ResourceGroupName.Set(&v)
 }
 
-// GetResourceProviderName returns the ResourceProviderName field value if set, zero value otherwise.
+// SetResourceGroupNameNil sets the value for ResourceGroupName to be an explicit nil
+func (o *EventDataInfo) SetResourceGroupNameNil() {
+	o.ResourceGroupName.Set(nil)
+}
+
+// UnsetResourceGroupName ensures that no value is present for ResourceGroupName, not even an explicit nil
+func (o *EventDataInfo) UnsetResourceGroupName() {
+	o.ResourceGroupName.Unset()
+}
+
+// GetResourceProviderName returns the ResourceProviderName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetResourceProviderName() MonitorLocalizableString {
-	if o == nil || IsNil(o.ResourceProviderName) {
+	if o == nil || IsNil(o.ResourceProviderName.Get()) {
 		var ret MonitorLocalizableString
 		return ret
 	}
-	return *o.ResourceProviderName
+	return *o.ResourceProviderName.Get()
 }
 
 // GetResourceProviderNameOk returns a tuple with the ResourceProviderName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetResourceProviderNameOk() (*MonitorLocalizableString, bool) {
-	if o == nil || IsNil(o.ResourceProviderName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceProviderName, true
+	return o.ResourceProviderName.Get(), o.ResourceProviderName.IsSet()
 }
 
-// SetResourceProviderName gets a reference to the given MonitorLocalizableString and assigns it to the ResourceProviderName field.
+// SetResourceProviderName gets a reference to the given NullableMonitorLocalizableString and assigns it to the ResourceProviderName field.
 func (o *EventDataInfo) SetResourceProviderName(v MonitorLocalizableString) {
-	o.ResourceProviderName = &v
+	o.ResourceProviderName.Set(&v)
 }
 
-// GetResourceId returns the ResourceId field value if set, zero value otherwise.
+// SetResourceProviderNameNil sets the value for ResourceProviderName to be an explicit nil
+func (o *EventDataInfo) SetResourceProviderNameNil() {
+	o.ResourceProviderName.Set(nil)
+}
+
+// UnsetResourceProviderName ensures that no value is present for ResourceProviderName, not even an explicit nil
+func (o *EventDataInfo) UnsetResourceProviderName() {
+	o.ResourceProviderName.Unset()
+}
+
+// GetResourceId returns the ResourceId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetResourceId() ResourceIdentifier {
-	if o == nil || IsNil(o.ResourceId) {
+	if o == nil || IsNil(o.ResourceId.Get()) {
 		var ret ResourceIdentifier
 		return ret
 	}
-	return *o.ResourceId
+	return *o.ResourceId.Get()
 }
 
 // GetResourceIdOk returns a tuple with the ResourceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetResourceIdOk() (*ResourceIdentifier, bool) {
-	if o == nil || IsNil(o.ResourceId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceId, true
+	return o.ResourceId.Get(), o.ResourceId.IsSet()
 }
 
-// SetResourceId gets a reference to the given ResourceIdentifier and assigns it to the ResourceId field.
+// SetResourceId gets a reference to the given NullableResourceIdentifier and assigns it to the ResourceId field.
 func (o *EventDataInfo) SetResourceId(v ResourceIdentifier) {
-	o.ResourceId = &v
+	o.ResourceId.Set(&v)
 }
 
-// GetResourceType returns the ResourceType field value if set, zero value otherwise.
+// SetResourceIdNil sets the value for ResourceId to be an explicit nil
+func (o *EventDataInfo) SetResourceIdNil() {
+	o.ResourceId.Set(nil)
+}
+
+// UnsetResourceId ensures that no value is present for ResourceId, not even an explicit nil
+func (o *EventDataInfo) UnsetResourceId() {
+	o.ResourceId.Unset()
+}
+
+// GetResourceType returns the ResourceType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetResourceType() MonitorLocalizableString {
-	if o == nil || IsNil(o.ResourceType) {
+	if o == nil || IsNil(o.ResourceType.Get()) {
 		var ret MonitorLocalizableString
 		return ret
 	}
-	return *o.ResourceType
+	return *o.ResourceType.Get()
 }
 
 // GetResourceTypeOk returns a tuple with the ResourceType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetResourceTypeOk() (*MonitorLocalizableString, bool) {
-	if o == nil || IsNil(o.ResourceType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceType, true
+	return o.ResourceType.Get(), o.ResourceType.IsSet()
 }
 
-// SetResourceType gets a reference to the given MonitorLocalizableString and assigns it to the ResourceType field.
+// SetResourceType gets a reference to the given NullableMonitorLocalizableString and assigns it to the ResourceType field.
 func (o *EventDataInfo) SetResourceType(v MonitorLocalizableString) {
-	o.ResourceType = &v
+	o.ResourceType.Set(&v)
 }
 
-// GetOperationId returns the OperationId field value if set, zero value otherwise.
+// SetResourceTypeNil sets the value for ResourceType to be an explicit nil
+func (o *EventDataInfo) SetResourceTypeNil() {
+	o.ResourceType.Set(nil)
+}
+
+// UnsetResourceType ensures that no value is present for ResourceType, not even an explicit nil
+func (o *EventDataInfo) UnsetResourceType() {
+	o.ResourceType.Unset()
+}
+
+// GetOperationId returns the OperationId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetOperationId() string {
-	if o == nil || IsNil(o.OperationId) {
+	if o == nil || IsNil(o.OperationId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OperationId
+	return *o.OperationId.Get()
 }
 
 // GetOperationIdOk returns a tuple with the OperationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetOperationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.OperationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OperationId, true
+	return o.OperationId.Get(), o.OperationId.IsSet()
 }
 
-// SetOperationId gets a reference to the given string and assigns it to the OperationId field.
+// SetOperationId gets a reference to the given NullableString and assigns it to the OperationId field.
 func (o *EventDataInfo) SetOperationId(v string) {
-	o.OperationId = &v
+	o.OperationId.Set(&v)
 }
 
-// GetOperationName returns the OperationName field value if set, zero value otherwise.
+// SetOperationIdNil sets the value for OperationId to be an explicit nil
+func (o *EventDataInfo) SetOperationIdNil() {
+	o.OperationId.Set(nil)
+}
+
+// UnsetOperationId ensures that no value is present for OperationId, not even an explicit nil
+func (o *EventDataInfo) UnsetOperationId() {
+	o.OperationId.Unset()
+}
+
+// GetOperationName returns the OperationName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetOperationName() MonitorLocalizableString {
-	if o == nil || IsNil(o.OperationName) {
+	if o == nil || IsNil(o.OperationName.Get()) {
 		var ret MonitorLocalizableString
 		return ret
 	}
-	return *o.OperationName
+	return *o.OperationName.Get()
 }
 
 // GetOperationNameOk returns a tuple with the OperationName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetOperationNameOk() (*MonitorLocalizableString, bool) {
-	if o == nil || IsNil(o.OperationName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OperationName, true
+	return o.OperationName.Get(), o.OperationName.IsSet()
 }
 
-// SetOperationName gets a reference to the given MonitorLocalizableString and assigns it to the OperationName field.
+// SetOperationName gets a reference to the given NullableMonitorLocalizableString and assigns it to the OperationName field.
 func (o *EventDataInfo) SetOperationName(v MonitorLocalizableString) {
-	o.OperationName = &v
+	o.OperationName.Set(&v)
 }
 
-// GetProperties returns the Properties field value if set, zero value otherwise.
+// SetOperationNameNil sets the value for OperationName to be an explicit nil
+func (o *EventDataInfo) SetOperationNameNil() {
+	o.OperationName.Set(nil)
+}
+
+// UnsetOperationName ensures that no value is present for OperationName, not even an explicit nil
+func (o *EventDataInfo) UnsetOperationName() {
+	o.OperationName.Unset()
+}
+
+// GetProperties returns the Properties field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetProperties() map[string]string {
-	if o == nil || IsNil(o.Properties) {
+	if o == nil {
 		var ret map[string]string
 		return ret
 	}
-	return *o.Properties
+	return o.Properties
 }
 
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetPropertiesOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.Properties) {
 		return nil, false
 	}
-	return o.Properties, true
+	return &o.Properties, true
 }
 
 // SetProperties gets a reference to the given map[string]string and assigns it to the Properties field.
 func (o *EventDataInfo) SetProperties(v map[string]string) {
-	o.Properties = &v
+	o.Properties = v
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetStatus() MonitorLocalizableString {
-	if o == nil || IsNil(o.Status) {
+	if o == nil || IsNil(o.Status.Get()) {
 		var ret MonitorLocalizableString
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetStatusOk() (*MonitorLocalizableString, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
-// SetStatus gets a reference to the given MonitorLocalizableString and assigns it to the Status field.
+// SetStatus gets a reference to the given NullableMonitorLocalizableString and assigns it to the Status field.
 func (o *EventDataInfo) SetStatus(v MonitorLocalizableString) {
-	o.Status = &v
+	o.Status.Set(&v)
 }
 
-// GetSubStatus returns the SubStatus field value if set, zero value otherwise.
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *EventDataInfo) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *EventDataInfo) UnsetStatus() {
+	o.Status.Unset()
+}
+
+// GetSubStatus returns the SubStatus field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetSubStatus() MonitorLocalizableString {
-	if o == nil || IsNil(o.SubStatus) {
+	if o == nil || IsNil(o.SubStatus.Get()) {
 		var ret MonitorLocalizableString
 		return ret
 	}
-	return *o.SubStatus
+	return *o.SubStatus.Get()
 }
 
 // GetSubStatusOk returns a tuple with the SubStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetSubStatusOk() (*MonitorLocalizableString, bool) {
-	if o == nil || IsNil(o.SubStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubStatus, true
+	return o.SubStatus.Get(), o.SubStatus.IsSet()
 }
 
-// SetSubStatus gets a reference to the given MonitorLocalizableString and assigns it to the SubStatus field.
+// SetSubStatus gets a reference to the given NullableMonitorLocalizableString and assigns it to the SubStatus field.
 func (o *EventDataInfo) SetSubStatus(v MonitorLocalizableString) {
-	o.SubStatus = &v
+	o.SubStatus.Set(&v)
 }
 
-// GetEventTimestamp returns the EventTimestamp field value if set, zero value otherwise.
+// SetSubStatusNil sets the value for SubStatus to be an explicit nil
+func (o *EventDataInfo) SetSubStatusNil() {
+	o.SubStatus.Set(nil)
+}
+
+// UnsetSubStatus ensures that no value is present for SubStatus, not even an explicit nil
+func (o *EventDataInfo) UnsetSubStatus() {
+	o.SubStatus.Unset()
+}
+
+// GetEventTimestamp returns the EventTimestamp field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetEventTimestamp() time.Time {
-	if o == nil || IsNil(o.EventTimestamp) {
+	if o == nil || IsNil(o.EventTimestamp.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EventTimestamp
+	return *o.EventTimestamp.Get()
 }
 
 // GetEventTimestampOk returns a tuple with the EventTimestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetEventTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.EventTimestamp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EventTimestamp, true
+	return o.EventTimestamp.Get(), o.EventTimestamp.IsSet()
 }
 
-// SetEventTimestamp gets a reference to the given time.Time and assigns it to the EventTimestamp field.
+// SetEventTimestamp gets a reference to the given NullableTime and assigns it to the EventTimestamp field.
 func (o *EventDataInfo) SetEventTimestamp(v time.Time) {
-	o.EventTimestamp = &v
+	o.EventTimestamp.Set(&v)
 }
 
-// GetSubmissionTimestamp returns the SubmissionTimestamp field value if set, zero value otherwise.
+// SetEventTimestampNil sets the value for EventTimestamp to be an explicit nil
+func (o *EventDataInfo) SetEventTimestampNil() {
+	o.EventTimestamp.Set(nil)
+}
+
+// UnsetEventTimestamp ensures that no value is present for EventTimestamp, not even an explicit nil
+func (o *EventDataInfo) UnsetEventTimestamp() {
+	o.EventTimestamp.Unset()
+}
+
+// GetSubmissionTimestamp returns the SubmissionTimestamp field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetSubmissionTimestamp() time.Time {
-	if o == nil || IsNil(o.SubmissionTimestamp) {
+	if o == nil || IsNil(o.SubmissionTimestamp.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.SubmissionTimestamp
+	return *o.SubmissionTimestamp.Get()
 }
 
 // GetSubmissionTimestampOk returns a tuple with the SubmissionTimestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetSubmissionTimestampOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.SubmissionTimestamp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubmissionTimestamp, true
+	return o.SubmissionTimestamp.Get(), o.SubmissionTimestamp.IsSet()
 }
 
-// SetSubmissionTimestamp gets a reference to the given time.Time and assigns it to the SubmissionTimestamp field.
+// SetSubmissionTimestamp gets a reference to the given NullableTime and assigns it to the SubmissionTimestamp field.
 func (o *EventDataInfo) SetSubmissionTimestamp(v time.Time) {
-	o.SubmissionTimestamp = &v
+	o.SubmissionTimestamp.Set(&v)
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// SetSubmissionTimestampNil sets the value for SubmissionTimestamp to be an explicit nil
+func (o *EventDataInfo) SetSubmissionTimestampNil() {
+	o.SubmissionTimestamp.Set(nil)
+}
+
+// UnsetSubmissionTimestamp ensures that no value is present for SubmissionTimestamp, not even an explicit nil
+func (o *EventDataInfo) UnsetSubmissionTimestamp() {
+	o.SubmissionTimestamp.Unset()
+}
+
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *EventDataInfo) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *EventDataInfo) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *EventDataInfo) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
+}
+
+// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataInfo) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil || IsNil(o.TenantId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+	return *o.TenantId.Get()
 }
 
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataInfo) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return o.TenantId.Get(), o.TenantId.IsSet()
 }
 
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
 func (o *EventDataInfo) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId.Set(&v)
+}
+
+// SetTenantIdNil sets the value for TenantId to be an explicit nil
+func (o *EventDataInfo) SetTenantIdNil() {
+	o.TenantId.Set(nil)
+}
+
+// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+func (o *EventDataInfo) UnsetTenantId() {
+	o.TenantId.Unset()
 }
 
 func (o EventDataInfo) MarshalJSON() ([]byte, error) {
@@ -616,77 +860,77 @@ func (o EventDataInfo) MarshalJSON() ([]byte, error) {
 
 func (o EventDataInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Authorization) {
-		toSerialize["authorization"] = o.Authorization
+	if o.Authorization.IsSet() {
+		toSerialize["authorization"] = o.Authorization.Get()
 	}
-	if !IsNil(o.Claims) {
+	if o.Claims != nil {
 		toSerialize["claims"] = o.Claims
 	}
-	if !IsNil(o.Caller) {
-		toSerialize["caller"] = o.Caller
+	if o.Caller.IsSet() {
+		toSerialize["caller"] = o.Caller.Get()
 	}
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
-	if !IsNil(o.EventDataId) {
-		toSerialize["eventDataId"] = o.EventDataId
+	if o.EventDataId.IsSet() {
+		toSerialize["eventDataId"] = o.EventDataId.Get()
 	}
-	if !IsNil(o.CorrelationId) {
-		toSerialize["correlationId"] = o.CorrelationId
+	if o.CorrelationId.IsSet() {
+		toSerialize["correlationId"] = o.CorrelationId.Get()
 	}
-	if !IsNil(o.EventName) {
-		toSerialize["eventName"] = o.EventName
+	if o.EventName.IsSet() {
+		toSerialize["eventName"] = o.EventName.Get()
 	}
-	if !IsNil(o.Category) {
-		toSerialize["category"] = o.Category
+	if o.Category.IsSet() {
+		toSerialize["category"] = o.Category.Get()
 	}
-	if !IsNil(o.HttpRequest) {
-		toSerialize["httpRequest"] = o.HttpRequest
+	if o.HttpRequest.IsSet() {
+		toSerialize["httpRequest"] = o.HttpRequest.Get()
 	}
-	if !IsNil(o.Level) {
-		toSerialize["level"] = o.Level
+	if o.Level.IsSet() {
+		toSerialize["level"] = o.Level.Get()
 	}
-	if !IsNil(o.ResourceGroupName) {
-		toSerialize["resourceGroupName"] = o.ResourceGroupName
+	if o.ResourceGroupName.IsSet() {
+		toSerialize["resourceGroupName"] = o.ResourceGroupName.Get()
 	}
-	if !IsNil(o.ResourceProviderName) {
-		toSerialize["resourceProviderName"] = o.ResourceProviderName
+	if o.ResourceProviderName.IsSet() {
+		toSerialize["resourceProviderName"] = o.ResourceProviderName.Get()
 	}
-	if !IsNil(o.ResourceId) {
-		toSerialize["resourceId"] = o.ResourceId
+	if o.ResourceId.IsSet() {
+		toSerialize["resourceId"] = o.ResourceId.Get()
 	}
-	if !IsNil(o.ResourceType) {
-		toSerialize["resourceType"] = o.ResourceType
+	if o.ResourceType.IsSet() {
+		toSerialize["resourceType"] = o.ResourceType.Get()
 	}
-	if !IsNil(o.OperationId) {
-		toSerialize["operationId"] = o.OperationId
+	if o.OperationId.IsSet() {
+		toSerialize["operationId"] = o.OperationId.Get()
 	}
-	if !IsNil(o.OperationName) {
-		toSerialize["operationName"] = o.OperationName
+	if o.OperationName.IsSet() {
+		toSerialize["operationName"] = o.OperationName.Get()
 	}
-	if !IsNil(o.Properties) {
+	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
-	if !IsNil(o.SubStatus) {
-		toSerialize["subStatus"] = o.SubStatus
+	if o.SubStatus.IsSet() {
+		toSerialize["subStatus"] = o.SubStatus.Get()
 	}
-	if !IsNil(o.EventTimestamp) {
-		toSerialize["eventTimestamp"] = o.EventTimestamp
+	if o.EventTimestamp.IsSet() {
+		toSerialize["eventTimestamp"] = o.EventTimestamp.Get()
 	}
-	if !IsNil(o.SubmissionTimestamp) {
-		toSerialize["submissionTimestamp"] = o.SubmissionTimestamp
+	if o.SubmissionTimestamp.IsSet() {
+		toSerialize["submissionTimestamp"] = o.SubmissionTimestamp.Get()
 	}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
+	if o.TenantId.IsSet() {
+		toSerialize["tenantId"] = o.TenantId.Get()
 	}
 	return toSerialize, nil
 }

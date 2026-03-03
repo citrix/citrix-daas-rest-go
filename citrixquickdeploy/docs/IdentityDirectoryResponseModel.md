@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Forest** | Pointer to **string** | Forest of the directory. | [optional] 
-**Domain** | Pointer to **string** | Domain of the directory. | [optional] 
-**Tenant** | Pointer to **string** | Tenant of the directory. | [optional] 
-**IdentityProvider** | Pointer to [**IdentityProviderType**](IdentityProviderType.md) | Identity provider type of the directory. | [optional] 
-**IdpInstanceId** | Pointer to **string** | Instance of the directory. | [optional] 
-**IdpNickName** | Pointer to **string** | Nickname of the directory | [optional] 
+**Forest** | Pointer to **NullableString** | Forest of the directory. | [optional] 
+**Domain** | Pointer to **NullableString** | Domain of the directory. | [optional] 
+**Tenant** | Pointer to **NullableString** | Tenant of the directory. | [optional] 
+**IdentityProvider** | Pointer to [**NullableIdentityProviderType**](IdentityProviderType.md) | Identity provider type of the directory. | [optional] 
+**IdpInstanceId** | Pointer to **NullableString** | Instance of the directory. | [optional] 
+**IdpNickName** | Pointer to **NullableString** | Nickname of the directory | [optional] 
 
 ## Methods
 
@@ -55,6 +55,16 @@ SetForest sets Forest field to given value.
 
 HasForest returns a boolean if a field has been set.
 
+### SetForestNil
+
+`func (o *IdentityDirectoryResponseModel) SetForestNil(b bool)`
+
+ SetForestNil sets the value for Forest to be an explicit nil
+
+### UnsetForest
+`func (o *IdentityDirectoryResponseModel) UnsetForest()`
+
+UnsetForest ensures that no value is present for Forest, not even an explicit nil
 ### GetDomain
 
 `func (o *IdentityDirectoryResponseModel) GetDomain() string`
@@ -80,6 +90,16 @@ SetDomain sets Domain field to given value.
 
 HasDomain returns a boolean if a field has been set.
 
+### SetDomainNil
+
+`func (o *IdentityDirectoryResponseModel) SetDomainNil(b bool)`
+
+ SetDomainNil sets the value for Domain to be an explicit nil
+
+### UnsetDomain
+`func (o *IdentityDirectoryResponseModel) UnsetDomain()`
+
+UnsetDomain ensures that no value is present for Domain, not even an explicit nil
 ### GetTenant
 
 `func (o *IdentityDirectoryResponseModel) GetTenant() string`
@@ -105,6 +125,16 @@ SetTenant sets Tenant field to given value.
 
 HasTenant returns a boolean if a field has been set.
 
+### SetTenantNil
+
+`func (o *IdentityDirectoryResponseModel) SetTenantNil(b bool)`
+
+ SetTenantNil sets the value for Tenant to be an explicit nil
+
+### UnsetTenant
+`func (o *IdentityDirectoryResponseModel) UnsetTenant()`
+
+UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
 ### GetIdentityProvider
 
 `func (o *IdentityDirectoryResponseModel) GetIdentityProvider() IdentityProviderType`
@@ -130,6 +160,16 @@ SetIdentityProvider sets IdentityProvider field to given value.
 
 HasIdentityProvider returns a boolean if a field has been set.
 
+### SetIdentityProviderNil
+
+`func (o *IdentityDirectoryResponseModel) SetIdentityProviderNil(b bool)`
+
+ SetIdentityProviderNil sets the value for IdentityProvider to be an explicit nil
+
+### UnsetIdentityProvider
+`func (o *IdentityDirectoryResponseModel) UnsetIdentityProvider()`
+
+UnsetIdentityProvider ensures that no value is present for IdentityProvider, not even an explicit nil
 ### GetIdpInstanceId
 
 `func (o *IdentityDirectoryResponseModel) GetIdpInstanceId() string`
@@ -155,6 +195,16 @@ SetIdpInstanceId sets IdpInstanceId field to given value.
 
 HasIdpInstanceId returns a boolean if a field has been set.
 
+### SetIdpInstanceIdNil
+
+`func (o *IdentityDirectoryResponseModel) SetIdpInstanceIdNil(b bool)`
+
+ SetIdpInstanceIdNil sets the value for IdpInstanceId to be an explicit nil
+
+### UnsetIdpInstanceId
+`func (o *IdentityDirectoryResponseModel) UnsetIdpInstanceId()`
+
+UnsetIdpInstanceId ensures that no value is present for IdpInstanceId, not even an explicit nil
 ### GetIdpNickName
 
 `func (o *IdentityDirectoryResponseModel) GetIdpNickName() string`
@@ -180,6 +230,16 @@ SetIdpNickName sets IdpNickName field to given value.
 
 HasIdpNickName returns a boolean if a field has been set.
 
+### SetIdpNickNameNil
+
+`func (o *IdentityDirectoryResponseModel) SetIdpNickNameNil(b bool)`
+
+ SetIdpNickNameNil sets the value for IdpNickName to be an explicit nil
+
+### UnsetIdpNickName
+`func (o *IdentityDirectoryResponseModel) UnsetIdpNickName()`
+
+UnsetIdpNickName ensures that no value is present for IdpNickName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

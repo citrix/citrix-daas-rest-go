@@ -59,6 +59,8 @@
 
 * `ERROR_CATALOG_SUBSCRIPTION_AT_CAPACITY` (value: `"ErrorCatalogSubscriptionAtCapacity"`)
 
+* `ERROR_DOWNLOADING_SCRIPT` (value: `"ErrorDownloadingScript"`)
+
 * `ERROR_CONNECTOR_INSTALL_FAILED` (value: `"ErrorConnectorInstallFailed"`)
 
 * `ERROR_CONNECTOR_NOT_IN_CONNECTED_STATE` (value: `"ErrorConnectorNotInConnectedState"`)

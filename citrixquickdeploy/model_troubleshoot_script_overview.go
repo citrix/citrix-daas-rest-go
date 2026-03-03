@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,23 +21,25 @@ var _ MappedNullable = &TroubleshootScriptOverview{}
 // TroubleshootScriptOverview struct for TroubleshootScriptOverview
 type TroubleshootScriptOverview struct {
 	// The Id of the troubleshoot script
-	TroubleshootId *string `json:"troubleshootId,omitempty"`
+	TroubleshootId NullableString `json:"troubleshootId,omitempty"`
 	// The name of the troubleshoot script
-	ScriptName *string `json:"scriptName,omitempty"`
+	ScriptName NullableString `json:"scriptName,omitempty"`
+	// The localized display name of the troubleshoot script
+	DisplayName NullableString `json:"displayName,omitempty"`
 	// The current state of the script
 	State *TroubleshootState `json:"state,omitempty"`
 	// Any error that occured during execution of the troubleshoot script
-	ErrorMsg *string `json:"errorMsg,omitempty"`
+	ErrorMsg NullableString `json:"errorMsg,omitempty"`
 	// The datetime when the job started
-	StartedAt *time.Time `json:"startedAt,omitempty"`
+	StartedAt NullableTime `json:"startedAt,omitempty"`
 	// The datetime when the job ended
-	EndedAt *time.Time `json:"endedAt,omitempty"`
+	EndedAt NullableTime `json:"endedAt,omitempty"`
 	// The name of the machine that the script runs on
-	MachineName *string `json:"machineName,omitempty"`
+	MachineName NullableString `json:"machineName,omitempty"`
 	// The sas url for downloading the output of the script
-	SasUrl *string `json:"sasUrl,omitempty"`
+	SasUrl NullableString `json:"sasUrl,omitempty"`
 	// The transaction id
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionId NullableString `json:"transactionId,omitempty"`
 }
 
 // NewTroubleshootScriptOverviewWithDefaults instantiates a new TroubleshootScriptOverview object
@@ -48,50 +50,106 @@ func NewTroubleshootScriptOverviewWithDefaults() *TroubleshootScriptOverview {
 	return &this
 }
 
-// GetTroubleshootId returns the TroubleshootId field value if set, zero value otherwise.
+// GetTroubleshootId returns the TroubleshootId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TroubleshootScriptOverview) GetTroubleshootId() string {
-	if o == nil || IsNil(o.TroubleshootId) {
+	if o == nil || IsNil(o.TroubleshootId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TroubleshootId
+	return *o.TroubleshootId.Get()
 }
 
 // GetTroubleshootIdOk returns a tuple with the TroubleshootId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TroubleshootScriptOverview) GetTroubleshootIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TroubleshootId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TroubleshootId, true
+	return o.TroubleshootId.Get(), o.TroubleshootId.IsSet()
 }
 
-// SetTroubleshootId gets a reference to the given string and assigns it to the TroubleshootId field.
+// SetTroubleshootId gets a reference to the given NullableString and assigns it to the TroubleshootId field.
 func (o *TroubleshootScriptOverview) SetTroubleshootId(v string) {
-	o.TroubleshootId = &v
+	o.TroubleshootId.Set(&v)
 }
 
-// GetScriptName returns the ScriptName field value if set, zero value otherwise.
+// SetTroubleshootIdNil sets the value for TroubleshootId to be an explicit nil
+func (o *TroubleshootScriptOverview) SetTroubleshootIdNil() {
+	o.TroubleshootId.Set(nil)
+}
+
+// UnsetTroubleshootId ensures that no value is present for TroubleshootId, not even an explicit nil
+func (o *TroubleshootScriptOverview) UnsetTroubleshootId() {
+	o.TroubleshootId.Unset()
+}
+
+// GetScriptName returns the ScriptName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TroubleshootScriptOverview) GetScriptName() string {
-	if o == nil || IsNil(o.ScriptName) {
+	if o == nil || IsNil(o.ScriptName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ScriptName
+	return *o.ScriptName.Get()
 }
 
 // GetScriptNameOk returns a tuple with the ScriptName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TroubleshootScriptOverview) GetScriptNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ScriptName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ScriptName, true
+	return o.ScriptName.Get(), o.ScriptName.IsSet()
 }
 
-// SetScriptName gets a reference to the given string and assigns it to the ScriptName field.
+// SetScriptName gets a reference to the given NullableString and assigns it to the ScriptName field.
 func (o *TroubleshootScriptOverview) SetScriptName(v string) {
-	o.ScriptName = &v
+	o.ScriptName.Set(&v)
+}
+
+// SetScriptNameNil sets the value for ScriptName to be an explicit nil
+func (o *TroubleshootScriptOverview) SetScriptNameNil() {
+	o.ScriptName.Set(nil)
+}
+
+// UnsetScriptName ensures that no value is present for ScriptName, not even an explicit nil
+func (o *TroubleshootScriptOverview) UnsetScriptName() {
+	o.ScriptName.Unset()
+}
+
+// GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TroubleshootScriptOverview) GetDisplayName() string {
+	if o == nil || IsNil(o.DisplayName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.DisplayName.Get()
+}
+
+// GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TroubleshootScriptOverview) GetDisplayNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DisplayName.Get(), o.DisplayName.IsSet()
+}
+
+// SetDisplayName gets a reference to the given NullableString and assigns it to the DisplayName field.
+func (o *TroubleshootScriptOverview) SetDisplayName(v string) {
+	o.DisplayName.Set(&v)
+}
+
+// SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+func (o *TroubleshootScriptOverview) SetDisplayNameNil() {
+	o.DisplayName.Set(nil)
+}
+
+// UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
+func (o *TroubleshootScriptOverview) UnsetDisplayName() {
+	o.DisplayName.Unset()
 }
 
 // GetState returns the State field value if set, zero value otherwise.
@@ -117,142 +175,208 @@ func (o *TroubleshootScriptOverview) SetState(v TroubleshootState) {
 	o.State = &v
 }
 
-// GetErrorMsg returns the ErrorMsg field value if set, zero value otherwise.
+// GetErrorMsg returns the ErrorMsg field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TroubleshootScriptOverview) GetErrorMsg() string {
-	if o == nil || IsNil(o.ErrorMsg) {
+	if o == nil || IsNil(o.ErrorMsg.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ErrorMsg
+	return *o.ErrorMsg.Get()
 }
 
 // GetErrorMsgOk returns a tuple with the ErrorMsg field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TroubleshootScriptOverview) GetErrorMsgOk() (*string, bool) {
-	if o == nil || IsNil(o.ErrorMsg) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ErrorMsg, true
+	return o.ErrorMsg.Get(), o.ErrorMsg.IsSet()
 }
 
-// SetErrorMsg gets a reference to the given string and assigns it to the ErrorMsg field.
+// SetErrorMsg gets a reference to the given NullableString and assigns it to the ErrorMsg field.
 func (o *TroubleshootScriptOverview) SetErrorMsg(v string) {
-	o.ErrorMsg = &v
+	o.ErrorMsg.Set(&v)
 }
 
-// GetStartedAt returns the StartedAt field value if set, zero value otherwise.
+// SetErrorMsgNil sets the value for ErrorMsg to be an explicit nil
+func (o *TroubleshootScriptOverview) SetErrorMsgNil() {
+	o.ErrorMsg.Set(nil)
+}
+
+// UnsetErrorMsg ensures that no value is present for ErrorMsg, not even an explicit nil
+func (o *TroubleshootScriptOverview) UnsetErrorMsg() {
+	o.ErrorMsg.Unset()
+}
+
+// GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TroubleshootScriptOverview) GetStartedAt() time.Time {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil || IsNil(o.StartedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartedAt
+	return *o.StartedAt.Get()
 }
 
 // GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TroubleshootScriptOverview) GetStartedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StartedAt, true
+	return o.StartedAt.Get(), o.StartedAt.IsSet()
 }
 
-// SetStartedAt gets a reference to the given time.Time and assigns it to the StartedAt field.
+// SetStartedAt gets a reference to the given NullableTime and assigns it to the StartedAt field.
 func (o *TroubleshootScriptOverview) SetStartedAt(v time.Time) {
-	o.StartedAt = &v
+	o.StartedAt.Set(&v)
 }
 
-// GetEndedAt returns the EndedAt field value if set, zero value otherwise.
+// SetStartedAtNil sets the value for StartedAt to be an explicit nil
+func (o *TroubleshootScriptOverview) SetStartedAtNil() {
+	o.StartedAt.Set(nil)
+}
+
+// UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
+func (o *TroubleshootScriptOverview) UnsetStartedAt() {
+	o.StartedAt.Unset()
+}
+
+// GetEndedAt returns the EndedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TroubleshootScriptOverview) GetEndedAt() time.Time {
-	if o == nil || IsNil(o.EndedAt) {
+	if o == nil || IsNil(o.EndedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndedAt
+	return *o.EndedAt.Get()
 }
 
 // GetEndedAtOk returns a tuple with the EndedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TroubleshootScriptOverview) GetEndedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.EndedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EndedAt, true
+	return o.EndedAt.Get(), o.EndedAt.IsSet()
 }
 
-// SetEndedAt gets a reference to the given time.Time and assigns it to the EndedAt field.
+// SetEndedAt gets a reference to the given NullableTime and assigns it to the EndedAt field.
 func (o *TroubleshootScriptOverview) SetEndedAt(v time.Time) {
-	o.EndedAt = &v
+	o.EndedAt.Set(&v)
 }
 
-// GetMachineName returns the MachineName field value if set, zero value otherwise.
+// SetEndedAtNil sets the value for EndedAt to be an explicit nil
+func (o *TroubleshootScriptOverview) SetEndedAtNil() {
+	o.EndedAt.Set(nil)
+}
+
+// UnsetEndedAt ensures that no value is present for EndedAt, not even an explicit nil
+func (o *TroubleshootScriptOverview) UnsetEndedAt() {
+	o.EndedAt.Unset()
+}
+
+// GetMachineName returns the MachineName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TroubleshootScriptOverview) GetMachineName() string {
-	if o == nil || IsNil(o.MachineName) {
+	if o == nil || IsNil(o.MachineName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MachineName
+	return *o.MachineName.Get()
 }
 
 // GetMachineNameOk returns a tuple with the MachineName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TroubleshootScriptOverview) GetMachineNameOk() (*string, bool) {
-	if o == nil || IsNil(o.MachineName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MachineName, true
+	return o.MachineName.Get(), o.MachineName.IsSet()
 }
 
-// SetMachineName gets a reference to the given string and assigns it to the MachineName field.
+// SetMachineName gets a reference to the given NullableString and assigns it to the MachineName field.
 func (o *TroubleshootScriptOverview) SetMachineName(v string) {
-	o.MachineName = &v
+	o.MachineName.Set(&v)
 }
 
-// GetSasUrl returns the SasUrl field value if set, zero value otherwise.
+// SetMachineNameNil sets the value for MachineName to be an explicit nil
+func (o *TroubleshootScriptOverview) SetMachineNameNil() {
+	o.MachineName.Set(nil)
+}
+
+// UnsetMachineName ensures that no value is present for MachineName, not even an explicit nil
+func (o *TroubleshootScriptOverview) UnsetMachineName() {
+	o.MachineName.Unset()
+}
+
+// GetSasUrl returns the SasUrl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TroubleshootScriptOverview) GetSasUrl() string {
-	if o == nil || IsNil(o.SasUrl) {
+	if o == nil || IsNil(o.SasUrl.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SasUrl
+	return *o.SasUrl.Get()
 }
 
 // GetSasUrlOk returns a tuple with the SasUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TroubleshootScriptOverview) GetSasUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.SasUrl) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SasUrl, true
+	return o.SasUrl.Get(), o.SasUrl.IsSet()
 }
 
-// SetSasUrl gets a reference to the given string and assigns it to the SasUrl field.
+// SetSasUrl gets a reference to the given NullableString and assigns it to the SasUrl field.
 func (o *TroubleshootScriptOverview) SetSasUrl(v string) {
-	o.SasUrl = &v
+	o.SasUrl.Set(&v)
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// SetSasUrlNil sets the value for SasUrl to be an explicit nil
+func (o *TroubleshootScriptOverview) SetSasUrlNil() {
+	o.SasUrl.Set(nil)
+}
+
+// UnsetSasUrl ensures that no value is present for SasUrl, not even an explicit nil
+func (o *TroubleshootScriptOverview) UnsetSasUrl() {
+	o.SasUrl.Unset()
+}
+
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TroubleshootScriptOverview) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TroubleshootScriptOverview) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *TroubleshootScriptOverview) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
+}
+
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *TroubleshootScriptOverview) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *TroubleshootScriptOverview) UnsetTransactionId() {
+	o.TransactionId.Unset()
 }
 
 func (o TroubleshootScriptOverview) MarshalJSON() ([]byte, error) {
@@ -265,32 +389,35 @@ func (o TroubleshootScriptOverview) MarshalJSON() ([]byte, error) {
 
 func (o TroubleshootScriptOverview) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TroubleshootId) {
-		toSerialize["troubleshootId"] = o.TroubleshootId
+	if o.TroubleshootId.IsSet() {
+		toSerialize["troubleshootId"] = o.TroubleshootId.Get()
 	}
-	if !IsNil(o.ScriptName) {
-		toSerialize["scriptName"] = o.ScriptName
+	if o.ScriptName.IsSet() {
+		toSerialize["scriptName"] = o.ScriptName.Get()
+	}
+	if o.DisplayName.IsSet() {
+		toSerialize["displayName"] = o.DisplayName.Get()
 	}
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
 	}
-	if !IsNil(o.ErrorMsg) {
-		toSerialize["errorMsg"] = o.ErrorMsg
+	if o.ErrorMsg.IsSet() {
+		toSerialize["errorMsg"] = o.ErrorMsg.Get()
 	}
-	if !IsNil(o.StartedAt) {
-		toSerialize["startedAt"] = o.StartedAt
+	if o.StartedAt.IsSet() {
+		toSerialize["startedAt"] = o.StartedAt.Get()
 	}
-	if !IsNil(o.EndedAt) {
-		toSerialize["endedAt"] = o.EndedAt
+	if o.EndedAt.IsSet() {
+		toSerialize["endedAt"] = o.EndedAt.Get()
 	}
-	if !IsNil(o.MachineName) {
-		toSerialize["machineName"] = o.MachineName
+	if o.MachineName.IsSet() {
+		toSerialize["machineName"] = o.MachineName.Get()
 	}
-	if !IsNil(o.SasUrl) {
-		toSerialize["sasUrl"] = o.SasUrl
+	if o.SasUrl.IsSet() {
+		toSerialize["sasUrl"] = o.SasUrl.Get()
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
 	return toSerialize, nil
 }

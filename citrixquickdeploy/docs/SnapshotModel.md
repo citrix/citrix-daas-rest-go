@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TimeStamp** | Pointer to **time.Time** |  | [optional] [readonly] 
-**Type** | Pointer to [**SnapshotType**](SnapshotType.md) |  | [optional] 
-**DisplayName** | Pointer to **string** |  | [optional] [readonly] 
-**SnapshotName** | Pointer to **string** |  | [optional] 
+**TimeStamp** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**Type** | Pointer to [**SnapshotType**](SnapshotType.md) |  | [optional] [readonly] 
+**DisplayName** | Pointer to **NullableString** |  | [optional] [readonly] 
+**SnapshotName** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetTimeStamp sets TimeStamp field to given value.
 
 HasTimeStamp returns a boolean if a field has been set.
 
+### SetTimeStampNil
+
+`func (o *SnapshotModel) SetTimeStampNil(b bool)`
+
+ SetTimeStampNil sets the value for TimeStamp to be an explicit nil
+
+### UnsetTimeStamp
+`func (o *SnapshotModel) UnsetTimeStamp()`
+
+UnsetTimeStamp ensures that no value is present for TimeStamp, not even an explicit nil
 ### GetType
 
 `func (o *SnapshotModel) GetType() SnapshotType`
@@ -103,6 +113,16 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
+### SetDisplayNameNil
+
+`func (o *SnapshotModel) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *SnapshotModel) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetSnapshotName
 
 `func (o *SnapshotModel) GetSnapshotName() string`
@@ -128,6 +148,16 @@ SetSnapshotName sets SnapshotName field to given value.
 
 HasSnapshotName returns a boolean if a field has been set.
 
+### SetSnapshotNameNil
+
+`func (o *SnapshotModel) SetSnapshotNameNil(b bool)`
+
+ SetSnapshotNameNil sets the value for SnapshotName to be an explicit nil
+
+### UnsetSnapshotName
+`func (o *SnapshotModel) UnsetSnapshotName()`
+
+UnsetSnapshotName ensures that no value is present for SnapshotName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

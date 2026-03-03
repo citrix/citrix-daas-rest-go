@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,26 +21,26 @@ var _ MappedNullable = &ConnectorDetails{}
 // ConnectorDetails struct for ConnectorDetails
 type ConnectorDetails struct {
 	// ID of the connector.
-	Id *string `json:"id,omitempty"`
+	Id NullableString `json:"id,omitempty"`
 	// State of the connector.
 	State *ConnectorDetailsState `json:"state,omitempty"`
 	// Hostname of the connector.
-	Fqdn               *string `json:"fqdn,omitempty"`
-	OrganizationalUnit *string `json:"organizationalUnit,omitempty"`
+	Fqdn               NullableString `json:"fqdn,omitempty"`
+	OrganizationalUnit NullableString `json:"organizationalUnit,omitempty"`
 	// Time at which the connector made last contact.
-	LastContactDate *time.Time `json:"lastContactDate,omitempty"`
+	LastContactDate NullableTime `json:"lastContactDate,omitempty"`
 	// Connection status of the connector
-	Status *string `json:"status,omitempty"`
+	Status NullableString `json:"status,omitempty"`
 	// Details about the connector status.
-	StatusMessage *string `json:"statusMessage,omitempty"`
+	StatusMessage NullableString `json:"statusMessage,omitempty"`
 	// ID of the transaction in which the connector was provisioned.
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionId NullableString `json:"transactionId,omitempty"`
 	// The IP Address of the connector
-	IpAddress *string `json:"ipAddress,omitempty"`
+	IpAddress NullableString `json:"ipAddress,omitempty"`
 	// The resource group of the connector
-	AzureResourceGroup *string `json:"azureResourceGroup,omitempty"`
+	AzureResourceGroup NullableString `json:"azureResourceGroup,omitempty"`
 	// The vm size of the resource group
-	VmSize *string `json:"vmSize,omitempty"`
+	VmSize NullableString `json:"vmSize,omitempty"`
 }
 
 // NewConnectorDetailsWithDefaults instantiates a new ConnectorDetails object
@@ -51,27 +51,38 @@ func NewConnectorDetailsWithDefaults() *ConnectorDetails {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorDetails) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorDetails) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *ConnectorDetails) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
+}
+
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *ConnectorDetails) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *ConnectorDetails) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetState returns the State field value if set, zero value otherwise.
@@ -97,211 +108,310 @@ func (o *ConnectorDetails) SetState(v ConnectorDetailsState) {
 	o.State = &v
 }
 
-// GetFqdn returns the Fqdn field value if set, zero value otherwise.
+// GetFqdn returns the Fqdn field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorDetails) GetFqdn() string {
-	if o == nil || IsNil(o.Fqdn) {
+	if o == nil || IsNil(o.Fqdn.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Fqdn
+	return *o.Fqdn.Get()
 }
 
 // GetFqdnOk returns a tuple with the Fqdn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorDetails) GetFqdnOk() (*string, bool) {
-	if o == nil || IsNil(o.Fqdn) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Fqdn, true
+	return o.Fqdn.Get(), o.Fqdn.IsSet()
 }
 
-// SetFqdn gets a reference to the given string and assigns it to the Fqdn field.
+// SetFqdn gets a reference to the given NullableString and assigns it to the Fqdn field.
 func (o *ConnectorDetails) SetFqdn(v string) {
-	o.Fqdn = &v
+	o.Fqdn.Set(&v)
 }
 
-// GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise.
+// SetFqdnNil sets the value for Fqdn to be an explicit nil
+func (o *ConnectorDetails) SetFqdnNil() {
+	o.Fqdn.Set(nil)
+}
+
+// UnsetFqdn ensures that no value is present for Fqdn, not even an explicit nil
+func (o *ConnectorDetails) UnsetFqdn() {
+	o.Fqdn.Unset()
+}
+
+// GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorDetails) GetOrganizationalUnit() string {
-	if o == nil || IsNil(o.OrganizationalUnit) {
+	if o == nil || IsNil(o.OrganizationalUnit.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OrganizationalUnit
+	return *o.OrganizationalUnit.Get()
 }
 
 // GetOrganizationalUnitOk returns a tuple with the OrganizationalUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorDetails) GetOrganizationalUnitOk() (*string, bool) {
-	if o == nil || IsNil(o.OrganizationalUnit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrganizationalUnit, true
+	return o.OrganizationalUnit.Get(), o.OrganizationalUnit.IsSet()
 }
 
-// SetOrganizationalUnit gets a reference to the given string and assigns it to the OrganizationalUnit field.
+// SetOrganizationalUnit gets a reference to the given NullableString and assigns it to the OrganizationalUnit field.
 func (o *ConnectorDetails) SetOrganizationalUnit(v string) {
-	o.OrganizationalUnit = &v
+	o.OrganizationalUnit.Set(&v)
 }
 
-// GetLastContactDate returns the LastContactDate field value if set, zero value otherwise.
+// SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
+func (o *ConnectorDetails) SetOrganizationalUnitNil() {
+	o.OrganizationalUnit.Set(nil)
+}
+
+// UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
+func (o *ConnectorDetails) UnsetOrganizationalUnit() {
+	o.OrganizationalUnit.Unset()
+}
+
+// GetLastContactDate returns the LastContactDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorDetails) GetLastContactDate() time.Time {
-	if o == nil || IsNil(o.LastContactDate) {
+	if o == nil || IsNil(o.LastContactDate.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastContactDate
+	return *o.LastContactDate.Get()
 }
 
 // GetLastContactDateOk returns a tuple with the LastContactDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorDetails) GetLastContactDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.LastContactDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastContactDate, true
+	return o.LastContactDate.Get(), o.LastContactDate.IsSet()
 }
 
-// SetLastContactDate gets a reference to the given time.Time and assigns it to the LastContactDate field.
+// SetLastContactDate gets a reference to the given NullableTime and assigns it to the LastContactDate field.
 func (o *ConnectorDetails) SetLastContactDate(v time.Time) {
-	o.LastContactDate = &v
+	o.LastContactDate.Set(&v)
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// SetLastContactDateNil sets the value for LastContactDate to be an explicit nil
+func (o *ConnectorDetails) SetLastContactDateNil() {
+	o.LastContactDate.Set(nil)
+}
+
+// UnsetLastContactDate ensures that no value is present for LastContactDate, not even an explicit nil
+func (o *ConnectorDetails) UnsetLastContactDate() {
+	o.LastContactDate.Unset()
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorDetails) GetStatus() string {
-	if o == nil || IsNil(o.Status) {
+	if o == nil || IsNil(o.Status.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorDetails) GetStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
-// SetStatus gets a reference to the given string and assigns it to the Status field.
+// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
 func (o *ConnectorDetails) SetStatus(v string) {
-	o.Status = &v
+	o.Status.Set(&v)
 }
 
-// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise.
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *ConnectorDetails) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *ConnectorDetails) UnsetStatus() {
+	o.Status.Unset()
+}
+
+// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorDetails) GetStatusMessage() string {
-	if o == nil || IsNil(o.StatusMessage) {
+	if o == nil || IsNil(o.StatusMessage.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.StatusMessage
+	return *o.StatusMessage.Get()
 }
 
 // GetStatusMessageOk returns a tuple with the StatusMessage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorDetails) GetStatusMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.StatusMessage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StatusMessage, true
+	return o.StatusMessage.Get(), o.StatusMessage.IsSet()
 }
 
-// SetStatusMessage gets a reference to the given string and assigns it to the StatusMessage field.
+// SetStatusMessage gets a reference to the given NullableString and assigns it to the StatusMessage field.
 func (o *ConnectorDetails) SetStatusMessage(v string) {
-	o.StatusMessage = &v
+	o.StatusMessage.Set(&v)
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// SetStatusMessageNil sets the value for StatusMessage to be an explicit nil
+func (o *ConnectorDetails) SetStatusMessageNil() {
+	o.StatusMessage.Set(nil)
+}
+
+// UnsetStatusMessage ensures that no value is present for StatusMessage, not even an explicit nil
+func (o *ConnectorDetails) UnsetStatusMessage() {
+	o.StatusMessage.Unset()
+}
+
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorDetails) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorDetails) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *ConnectorDetails) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
 }
 
-// GetIpAddress returns the IpAddress field value if set, zero value otherwise.
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *ConnectorDetails) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *ConnectorDetails) UnsetTransactionId() {
+	o.TransactionId.Unset()
+}
+
+// GetIpAddress returns the IpAddress field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorDetails) GetIpAddress() string {
-	if o == nil || IsNil(o.IpAddress) {
+	if o == nil || IsNil(o.IpAddress.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.IpAddress
+	return *o.IpAddress.Get()
 }
 
 // GetIpAddressOk returns a tuple with the IpAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorDetails) GetIpAddressOk() (*string, bool) {
-	if o == nil || IsNil(o.IpAddress) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IpAddress, true
+	return o.IpAddress.Get(), o.IpAddress.IsSet()
 }
 
-// SetIpAddress gets a reference to the given string and assigns it to the IpAddress field.
+// SetIpAddress gets a reference to the given NullableString and assigns it to the IpAddress field.
 func (o *ConnectorDetails) SetIpAddress(v string) {
-	o.IpAddress = &v
+	o.IpAddress.Set(&v)
 }
 
-// GetAzureResourceGroup returns the AzureResourceGroup field value if set, zero value otherwise.
+// SetIpAddressNil sets the value for IpAddress to be an explicit nil
+func (o *ConnectorDetails) SetIpAddressNil() {
+	o.IpAddress.Set(nil)
+}
+
+// UnsetIpAddress ensures that no value is present for IpAddress, not even an explicit nil
+func (o *ConnectorDetails) UnsetIpAddress() {
+	o.IpAddress.Unset()
+}
+
+// GetAzureResourceGroup returns the AzureResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorDetails) GetAzureResourceGroup() string {
-	if o == nil || IsNil(o.AzureResourceGroup) {
+	if o == nil || IsNil(o.AzureResourceGroup.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzureResourceGroup
+	return *o.AzureResourceGroup.Get()
 }
 
 // GetAzureResourceGroupOk returns a tuple with the AzureResourceGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorDetails) GetAzureResourceGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.AzureResourceGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureResourceGroup, true
+	return o.AzureResourceGroup.Get(), o.AzureResourceGroup.IsSet()
 }
 
-// SetAzureResourceGroup gets a reference to the given string and assigns it to the AzureResourceGroup field.
+// SetAzureResourceGroup gets a reference to the given NullableString and assigns it to the AzureResourceGroup field.
 func (o *ConnectorDetails) SetAzureResourceGroup(v string) {
-	o.AzureResourceGroup = &v
+	o.AzureResourceGroup.Set(&v)
 }
 
-// GetVmSize returns the VmSize field value if set, zero value otherwise.
+// SetAzureResourceGroupNil sets the value for AzureResourceGroup to be an explicit nil
+func (o *ConnectorDetails) SetAzureResourceGroupNil() {
+	o.AzureResourceGroup.Set(nil)
+}
+
+// UnsetAzureResourceGroup ensures that no value is present for AzureResourceGroup, not even an explicit nil
+func (o *ConnectorDetails) UnsetAzureResourceGroup() {
+	o.AzureResourceGroup.Unset()
+}
+
+// GetVmSize returns the VmSize field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorDetails) GetVmSize() string {
-	if o == nil || IsNil(o.VmSize) {
+	if o == nil || IsNil(o.VmSize.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VmSize
+	return *o.VmSize.Get()
 }
 
 // GetVmSizeOk returns a tuple with the VmSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorDetails) GetVmSizeOk() (*string, bool) {
-	if o == nil || IsNil(o.VmSize) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VmSize, true
+	return o.VmSize.Get(), o.VmSize.IsSet()
 }
 
-// SetVmSize gets a reference to the given string and assigns it to the VmSize field.
+// SetVmSize gets a reference to the given NullableString and assigns it to the VmSize field.
 func (o *ConnectorDetails) SetVmSize(v string) {
-	o.VmSize = &v
+	o.VmSize.Set(&v)
+}
+
+// SetVmSizeNil sets the value for VmSize to be an explicit nil
+func (o *ConnectorDetails) SetVmSizeNil() {
+	o.VmSize.Set(nil)
+}
+
+// UnsetVmSize ensures that no value is present for VmSize, not even an explicit nil
+func (o *ConnectorDetails) UnsetVmSize() {
+	o.VmSize.Unset()
 }
 
 func (o ConnectorDetails) MarshalJSON() ([]byte, error) {
@@ -314,38 +424,38 @@ func (o ConnectorDetails) MarshalJSON() ([]byte, error) {
 
 func (o ConnectorDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
 	}
-	if !IsNil(o.Fqdn) {
-		toSerialize["fqdn"] = o.Fqdn
+	if o.Fqdn.IsSet() {
+		toSerialize["fqdn"] = o.Fqdn.Get()
 	}
-	if !IsNil(o.OrganizationalUnit) {
-		toSerialize["organizationalUnit"] = o.OrganizationalUnit
+	if o.OrganizationalUnit.IsSet() {
+		toSerialize["organizationalUnit"] = o.OrganizationalUnit.Get()
 	}
-	if !IsNil(o.LastContactDate) {
-		toSerialize["lastContactDate"] = o.LastContactDate
+	if o.LastContactDate.IsSet() {
+		toSerialize["lastContactDate"] = o.LastContactDate.Get()
 	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
-	if !IsNil(o.StatusMessage) {
-		toSerialize["statusMessage"] = o.StatusMessage
+	if o.StatusMessage.IsSet() {
+		toSerialize["statusMessage"] = o.StatusMessage.Get()
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
-	if !IsNil(o.IpAddress) {
-		toSerialize["ipAddress"] = o.IpAddress
+	if o.IpAddress.IsSet() {
+		toSerialize["ipAddress"] = o.IpAddress.Get()
 	}
-	if !IsNil(o.AzureResourceGroup) {
-		toSerialize["azureResourceGroup"] = o.AzureResourceGroup
+	if o.AzureResourceGroup.IsSet() {
+		toSerialize["azureResourceGroup"] = o.AzureResourceGroup.Get()
 	}
-	if !IsNil(o.VmSize) {
-		toSerialize["vmSize"] = o.VmSize
+	if o.VmSize.IsSet() {
+		toSerialize["vmSize"] = o.VmSize.Get()
 	}
 	return toSerialize, nil
 }

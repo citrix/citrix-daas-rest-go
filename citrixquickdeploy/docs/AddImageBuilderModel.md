@@ -10,15 +10,15 @@ Name | Type | Description | Notes
 **ResourceGroup** | **string** | Name of the Resource Group where the VNet is located | 
 **VNet** | **string** | Name of the Virtual Network the Image Builder VM will connect to | 
 **Subnet** | **string** | Name of the subnet the Image Builder VM will connect to | 
-**DomainName** | Pointer to **string** | Name of the Domain the Image Builder will join | [optional] 
-**OrganizationalUnit** | Pointer to **string** | The OU to associate the Image Builder VM with | [optional] 
+**DomainName** | Pointer to **NullableString** | Name of the Domain the Image Builder will join | [optional] 
+**OrganizationalUnit** | Pointer to **NullableString** | The OU to associate the Image Builder VM with | [optional] 
 **VmType** | **string** | The type of VM Instance type | 
 **ServiceAccountName** | **string** | The service account used to join the Image Builder VM to the domain | 
 **ServiceAccountPassword** | **string** | The service account password | 
-**Notes** | Pointer to **string** | Customer notes about template image | [optional] 
+**Notes** | Pointer to **NullableString** | Customer notes about template image | [optional] 
 **AllowedIPs** | Pointer to **[]string** | Ip Addresses allowed to RDP | [optional] 
-**CspCustomerId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
-**CspSiteId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**CspCustomerId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**CspSiteId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
 
 ## Methods
 
@@ -184,6 +184,16 @@ SetDomainName sets DomainName field to given value.
 
 HasDomainName returns a boolean if a field has been set.
 
+### SetDomainNameNil
+
+`func (o *AddImageBuilderModel) SetDomainNameNil(b bool)`
+
+ SetDomainNameNil sets the value for DomainName to be an explicit nil
+
+### UnsetDomainName
+`func (o *AddImageBuilderModel) UnsetDomainName()`
+
+UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
 ### GetOrganizationalUnit
 
 `func (o *AddImageBuilderModel) GetOrganizationalUnit() string`
@@ -209,6 +219,16 @@ SetOrganizationalUnit sets OrganizationalUnit field to given value.
 
 HasOrganizationalUnit returns a boolean if a field has been set.
 
+### SetOrganizationalUnitNil
+
+`func (o *AddImageBuilderModel) SetOrganizationalUnitNil(b bool)`
+
+ SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
+
+### UnsetOrganizationalUnit
+`func (o *AddImageBuilderModel) UnsetOrganizationalUnit()`
+
+UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
 ### GetVmType
 
 `func (o *AddImageBuilderModel) GetVmType() string`
@@ -294,6 +314,16 @@ SetNotes sets Notes field to given value.
 
 HasNotes returns a boolean if a field has been set.
 
+### SetNotesNil
+
+`func (o *AddImageBuilderModel) SetNotesNil(b bool)`
+
+ SetNotesNil sets the value for Notes to be an explicit nil
+
+### UnsetNotes
+`func (o *AddImageBuilderModel) UnsetNotes()`
+
+UnsetNotes ensures that no value is present for Notes, not even an explicit nil
 ### GetAllowedIPs
 
 `func (o *AddImageBuilderModel) GetAllowedIPs() []string`
@@ -319,6 +349,16 @@ SetAllowedIPs sets AllowedIPs field to given value.
 
 HasAllowedIPs returns a boolean if a field has been set.
 
+### SetAllowedIPsNil
+
+`func (o *AddImageBuilderModel) SetAllowedIPsNil(b bool)`
+
+ SetAllowedIPsNil sets the value for AllowedIPs to be an explicit nil
+
+### UnsetAllowedIPs
+`func (o *AddImageBuilderModel) UnsetAllowedIPs()`
+
+UnsetAllowedIPs ensures that no value is present for AllowedIPs, not even an explicit nil
 ### GetCspCustomerId
 
 `func (o *AddImageBuilderModel) GetCspCustomerId() string`
@@ -344,6 +384,16 @@ SetCspCustomerId sets CspCustomerId field to given value.
 
 HasCspCustomerId returns a boolean if a field has been set.
 
+### SetCspCustomerIdNil
+
+`func (o *AddImageBuilderModel) SetCspCustomerIdNil(b bool)`
+
+ SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+
+### UnsetCspCustomerId
+`func (o *AddImageBuilderModel) UnsetCspCustomerId()`
+
+UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
 ### GetCspSiteId
 
 `func (o *AddImageBuilderModel) GetCspSiteId() string`
@@ -369,6 +419,16 @@ SetCspSiteId sets CspSiteId field to given value.
 
 HasCspSiteId returns a boolean if a field has been set.
 
+### SetCspSiteIdNil
+
+`func (o *AddImageBuilderModel) SetCspSiteIdNil(b bool)`
+
+ SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+
+### UnsetCspSiteId
+`func (o *AddImageBuilderModel) UnsetCspSiteId()`
+
+UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

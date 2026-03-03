@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,13 +20,13 @@ var _ MappedNullable = &AzureCatalogCostByCategoryFlattenModel{}
 // AzureCatalogCostByCategoryFlattenModel struct for AzureCatalogCostByCategoryFlattenModel
 type AzureCatalogCostByCategoryFlattenModel struct {
 	// Azure Subscription ID
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionId NullableString `json:"subscriptionId,omitempty"`
 	// Catalog ID
-	CatalogId *string `json:"catalogId,omitempty"`
+	CatalogId NullableString `json:"catalogId,omitempty"`
 	// Catalog Name
-	CatalogName *string `json:"catalogName,omitempty"`
+	CatalogName NullableString `json:"catalogName,omitempty"`
 	// Azure Cost category
-	Category *string `json:"category,omitempty"`
+	Category NullableString `json:"category,omitempty"`
 	// Azure Cost
 	Cost *float64 `json:"cost,omitempty"`
 }
@@ -39,96 +39,140 @@ func NewAzureCatalogCostByCategoryFlattenModelWithDefaults() *AzureCatalogCostBy
 	return &this
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureCatalogCostByCategoryFlattenModel) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureCatalogCostByCategoryFlattenModel) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *AzureCatalogCostByCategoryFlattenModel) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
 }
 
-// GetCatalogId returns the CatalogId field value if set, zero value otherwise.
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *AzureCatalogCostByCategoryFlattenModel) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *AzureCatalogCostByCategoryFlattenModel) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
+}
+
+// GetCatalogId returns the CatalogId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureCatalogCostByCategoryFlattenModel) GetCatalogId() string {
-	if o == nil || IsNil(o.CatalogId) {
+	if o == nil || IsNil(o.CatalogId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CatalogId
+	return *o.CatalogId.Get()
 }
 
 // GetCatalogIdOk returns a tuple with the CatalogId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureCatalogCostByCategoryFlattenModel) GetCatalogIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CatalogId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CatalogId, true
+	return o.CatalogId.Get(), o.CatalogId.IsSet()
 }
 
-// SetCatalogId gets a reference to the given string and assigns it to the CatalogId field.
+// SetCatalogId gets a reference to the given NullableString and assigns it to the CatalogId field.
 func (o *AzureCatalogCostByCategoryFlattenModel) SetCatalogId(v string) {
-	o.CatalogId = &v
+	o.CatalogId.Set(&v)
 }
 
-// GetCatalogName returns the CatalogName field value if set, zero value otherwise.
+// SetCatalogIdNil sets the value for CatalogId to be an explicit nil
+func (o *AzureCatalogCostByCategoryFlattenModel) SetCatalogIdNil() {
+	o.CatalogId.Set(nil)
+}
+
+// UnsetCatalogId ensures that no value is present for CatalogId, not even an explicit nil
+func (o *AzureCatalogCostByCategoryFlattenModel) UnsetCatalogId() {
+	o.CatalogId.Unset()
+}
+
+// GetCatalogName returns the CatalogName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureCatalogCostByCategoryFlattenModel) GetCatalogName() string {
-	if o == nil || IsNil(o.CatalogName) {
+	if o == nil || IsNil(o.CatalogName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CatalogName
+	return *o.CatalogName.Get()
 }
 
 // GetCatalogNameOk returns a tuple with the CatalogName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureCatalogCostByCategoryFlattenModel) GetCatalogNameOk() (*string, bool) {
-	if o == nil || IsNil(o.CatalogName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CatalogName, true
+	return o.CatalogName.Get(), o.CatalogName.IsSet()
 }
 
-// SetCatalogName gets a reference to the given string and assigns it to the CatalogName field.
+// SetCatalogName gets a reference to the given NullableString and assigns it to the CatalogName field.
 func (o *AzureCatalogCostByCategoryFlattenModel) SetCatalogName(v string) {
-	o.CatalogName = &v
+	o.CatalogName.Set(&v)
 }
 
-// GetCategory returns the Category field value if set, zero value otherwise.
+// SetCatalogNameNil sets the value for CatalogName to be an explicit nil
+func (o *AzureCatalogCostByCategoryFlattenModel) SetCatalogNameNil() {
+	o.CatalogName.Set(nil)
+}
+
+// UnsetCatalogName ensures that no value is present for CatalogName, not even an explicit nil
+func (o *AzureCatalogCostByCategoryFlattenModel) UnsetCatalogName() {
+	o.CatalogName.Unset()
+}
+
+// GetCategory returns the Category field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureCatalogCostByCategoryFlattenModel) GetCategory() string {
-	if o == nil || IsNil(o.Category) {
+	if o == nil || IsNil(o.Category.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Category
+	return *o.Category.Get()
 }
 
 // GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureCatalogCostByCategoryFlattenModel) GetCategoryOk() (*string, bool) {
-	if o == nil || IsNil(o.Category) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Category, true
+	return o.Category.Get(), o.Category.IsSet()
 }
 
-// SetCategory gets a reference to the given string and assigns it to the Category field.
+// SetCategory gets a reference to the given NullableString and assigns it to the Category field.
 func (o *AzureCatalogCostByCategoryFlattenModel) SetCategory(v string) {
-	o.Category = &v
+	o.Category.Set(&v)
+}
+
+// SetCategoryNil sets the value for Category to be an explicit nil
+func (o *AzureCatalogCostByCategoryFlattenModel) SetCategoryNil() {
+	o.Category.Set(nil)
+}
+
+// UnsetCategory ensures that no value is present for Category, not even an explicit nil
+func (o *AzureCatalogCostByCategoryFlattenModel) UnsetCategory() {
+	o.Category.Unset()
 }
 
 // GetCost returns the Cost field value if set, zero value otherwise.
@@ -164,17 +208,17 @@ func (o AzureCatalogCostByCategoryFlattenModel) MarshalJSON() ([]byte, error) {
 
 func (o AzureCatalogCostByCategoryFlattenModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
-	if !IsNil(o.CatalogId) {
-		toSerialize["catalogId"] = o.CatalogId
+	if o.CatalogId.IsSet() {
+		toSerialize["catalogId"] = o.CatalogId.Get()
 	}
-	if !IsNil(o.CatalogName) {
-		toSerialize["catalogName"] = o.CatalogName
+	if o.CatalogName.IsSet() {
+		toSerialize["catalogName"] = o.CatalogName.Get()
 	}
-	if !IsNil(o.Category) {
-		toSerialize["category"] = o.Category
+	if o.Category.IsSet() {
+		toSerialize["category"] = o.Category.Get()
 	}
 	if !IsNil(o.Cost) {
 		toSerialize["cost"] = o.Cost

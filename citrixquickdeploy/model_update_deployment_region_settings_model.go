@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &UpdateDeploymentRegionSettingsModel{}
 // UpdateDeploymentRegionSettingsModel struct for UpdateDeploymentRegionSettingsModel
 type UpdateDeploymentRegionSettingsModel struct {
 	// ID of the azure region to set as the default region
-	DefaultRegion *string `json:"defaultRegion,omitempty"`
+	DefaultRegion NullableString `json:"defaultRegion,omitempty"`
 }
 
 // NewUpdateDeploymentRegionSettingsModelWithDefaults instantiates a new UpdateDeploymentRegionSettingsModel object
@@ -31,27 +31,38 @@ func NewUpdateDeploymentRegionSettingsModelWithDefaults() *UpdateDeploymentRegio
 	return &this
 }
 
-// GetDefaultRegion returns the DefaultRegion field value if set, zero value otherwise.
+// GetDefaultRegion returns the DefaultRegion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateDeploymentRegionSettingsModel) GetDefaultRegion() string {
-	if o == nil || IsNil(o.DefaultRegion) {
+	if o == nil || IsNil(o.DefaultRegion.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DefaultRegion
+	return *o.DefaultRegion.Get()
 }
 
 // GetDefaultRegionOk returns a tuple with the DefaultRegion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateDeploymentRegionSettingsModel) GetDefaultRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.DefaultRegion) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DefaultRegion, true
+	return o.DefaultRegion.Get(), o.DefaultRegion.IsSet()
 }
 
-// SetDefaultRegion gets a reference to the given string and assigns it to the DefaultRegion field.
+// SetDefaultRegion gets a reference to the given NullableString and assigns it to the DefaultRegion field.
 func (o *UpdateDeploymentRegionSettingsModel) SetDefaultRegion(v string) {
-	o.DefaultRegion = &v
+	o.DefaultRegion.Set(&v)
+}
+
+// SetDefaultRegionNil sets the value for DefaultRegion to be an explicit nil
+func (o *UpdateDeploymentRegionSettingsModel) SetDefaultRegionNil() {
+	o.DefaultRegion.Set(nil)
+}
+
+// UnsetDefaultRegion ensures that no value is present for DefaultRegion, not even an explicit nil
+func (o *UpdateDeploymentRegionSettingsModel) UnsetDefaultRegion() {
+	o.DefaultRegion.Unset()
 }
 
 func (o UpdateDeploymentRegionSettingsModel) MarshalJSON() ([]byte, error) {
@@ -64,8 +75,8 @@ func (o UpdateDeploymentRegionSettingsModel) MarshalJSON() ([]byte, error) {
 
 func (o UpdateDeploymentRegionSettingsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.DefaultRegion) {
-		toSerialize["defaultRegion"] = o.DefaultRegion
+	if o.DefaultRegion.IsSet() {
+		toSerialize["defaultRegion"] = o.DefaultRegion.Get()
 	}
 	return toSerialize, nil
 }

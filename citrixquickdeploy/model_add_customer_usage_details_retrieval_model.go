@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,8 +19,8 @@ var _ MappedNullable = &AddCustomerUsageDetailsRetrievalModel{}
 
 // AddCustomerUsageDetailsRetrievalModel struct for AddCustomerUsageDetailsRetrievalModel
 type AddCustomerUsageDetailsRetrievalModel struct {
-	ReportStartUTC              *string                 `json:"reportStartUTC,omitempty"`
-	ReportEndUTC                *string                 `json:"reportEndUTC,omitempty"`
+	ReportStartUTC              NullableString          `json:"reportStartUTC,omitempty"`
+	ReportEndUTC                NullableString          `json:"reportEndUTC,omitempty"`
 	ReportType                  *UsageDetailsReportType `json:"reportType,omitempty"`
 	ForceOverrideIfReportExists *bool                   `json:"forceOverrideIfReportExists,omitempty"`
 	SkipSendingEventsToCAS      *bool                   `json:"skipSendingEventsToCAS,omitempty"`
@@ -34,50 +34,72 @@ func NewAddCustomerUsageDetailsRetrievalModelWithDefaults() *AddCustomerUsageDet
 	return &this
 }
 
-// GetReportStartUTC returns the ReportStartUTC field value if set, zero value otherwise.
+// GetReportStartUTC returns the ReportStartUTC field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCustomerUsageDetailsRetrievalModel) GetReportStartUTC() string {
-	if o == nil || IsNil(o.ReportStartUTC) {
+	if o == nil || IsNil(o.ReportStartUTC.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ReportStartUTC
+	return *o.ReportStartUTC.Get()
 }
 
 // GetReportStartUTCOk returns a tuple with the ReportStartUTC field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCustomerUsageDetailsRetrievalModel) GetReportStartUTCOk() (*string, bool) {
-	if o == nil || IsNil(o.ReportStartUTC) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ReportStartUTC, true
+	return o.ReportStartUTC.Get(), o.ReportStartUTC.IsSet()
 }
 
-// SetReportStartUTC gets a reference to the given string and assigns it to the ReportStartUTC field.
+// SetReportStartUTC gets a reference to the given NullableString and assigns it to the ReportStartUTC field.
 func (o *AddCustomerUsageDetailsRetrievalModel) SetReportStartUTC(v string) {
-	o.ReportStartUTC = &v
+	o.ReportStartUTC.Set(&v)
 }
 
-// GetReportEndUTC returns the ReportEndUTC field value if set, zero value otherwise.
+// SetReportStartUTCNil sets the value for ReportStartUTC to be an explicit nil
+func (o *AddCustomerUsageDetailsRetrievalModel) SetReportStartUTCNil() {
+	o.ReportStartUTC.Set(nil)
+}
+
+// UnsetReportStartUTC ensures that no value is present for ReportStartUTC, not even an explicit nil
+func (o *AddCustomerUsageDetailsRetrievalModel) UnsetReportStartUTC() {
+	o.ReportStartUTC.Unset()
+}
+
+// GetReportEndUTC returns the ReportEndUTC field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCustomerUsageDetailsRetrievalModel) GetReportEndUTC() string {
-	if o == nil || IsNil(o.ReportEndUTC) {
+	if o == nil || IsNil(o.ReportEndUTC.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ReportEndUTC
+	return *o.ReportEndUTC.Get()
 }
 
 // GetReportEndUTCOk returns a tuple with the ReportEndUTC field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCustomerUsageDetailsRetrievalModel) GetReportEndUTCOk() (*string, bool) {
-	if o == nil || IsNil(o.ReportEndUTC) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ReportEndUTC, true
+	return o.ReportEndUTC.Get(), o.ReportEndUTC.IsSet()
 }
 
-// SetReportEndUTC gets a reference to the given string and assigns it to the ReportEndUTC field.
+// SetReportEndUTC gets a reference to the given NullableString and assigns it to the ReportEndUTC field.
 func (o *AddCustomerUsageDetailsRetrievalModel) SetReportEndUTC(v string) {
-	o.ReportEndUTC = &v
+	o.ReportEndUTC.Set(&v)
+}
+
+// SetReportEndUTCNil sets the value for ReportEndUTC to be an explicit nil
+func (o *AddCustomerUsageDetailsRetrievalModel) SetReportEndUTCNil() {
+	o.ReportEndUTC.Set(nil)
+}
+
+// UnsetReportEndUTC ensures that no value is present for ReportEndUTC, not even an explicit nil
+func (o *AddCustomerUsageDetailsRetrievalModel) UnsetReportEndUTC() {
+	o.ReportEndUTC.Unset()
 }
 
 // GetReportType returns the ReportType field value if set, zero value otherwise.
@@ -159,11 +181,11 @@ func (o AddCustomerUsageDetailsRetrievalModel) MarshalJSON() ([]byte, error) {
 
 func (o AddCustomerUsageDetailsRetrievalModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ReportStartUTC) {
-		toSerialize["reportStartUTC"] = o.ReportStartUTC
+	if o.ReportStartUTC.IsSet() {
+		toSerialize["reportStartUTC"] = o.ReportStartUTC.Get()
 	}
-	if !IsNil(o.ReportEndUTC) {
-		toSerialize["reportEndUTC"] = o.ReportEndUTC
+	if o.ReportEndUTC.IsSet() {
+		toSerialize["reportEndUTC"] = o.ReportEndUTC.Get()
 	}
 	if !IsNil(o.ReportType) {
 		toSerialize["reportType"] = o.ReportType

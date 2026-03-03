@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,11 +20,11 @@ var _ MappedNullable = &SnapshotsModel{}
 
 // SnapshotsModel struct for SnapshotsModel
 type SnapshotsModel struct {
-	Items                    []SnapshotModel `json:"items,omitempty"`
-	LastRestoreTime          *time.Time      `json:"lastRestoreTime,omitempty"`
-	LastBackupTime           *time.Time      `json:"lastBackupTime,omitempty"`
-	LastRestoredSnapshotName *string         `json:"lastRestoredSnapshotName,omitempty"`
-	LastRestoredSnapshot     *SnapshotModel  `json:"lastRestoredSnapshot,omitempty"`
+	Items                    []SnapshotModel       `json:"items,omitempty"`
+	LastRestoreTime          NullableTime          `json:"lastRestoreTime,omitempty"`
+	LastBackupTime           NullableTime          `json:"lastBackupTime,omitempty"`
+	LastRestoredSnapshotName NullableString        `json:"lastRestoredSnapshotName,omitempty"`
+	LastRestoredSnapshot     NullableSnapshotModel `json:"lastRestoredSnapshot,omitempty"`
 }
 
 // NewSnapshotsModelWithDefaults instantiates a new SnapshotsModel object
@@ -35,9 +35,9 @@ func NewSnapshotsModelWithDefaults() *SnapshotsModel {
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise.
+// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SnapshotsModel) GetItems() []SnapshotModel {
-	if o == nil || IsNil(o.Items) {
+	if o == nil {
 		var ret []SnapshotModel
 		return ret
 	}
@@ -46,6 +46,7 @@ func (o *SnapshotsModel) GetItems() []SnapshotModel {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SnapshotsModel) GetItemsOk() ([]SnapshotModel, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
@@ -58,96 +59,140 @@ func (o *SnapshotsModel) SetItems(v []SnapshotModel) {
 	o.Items = v
 }
 
-// GetLastRestoreTime returns the LastRestoreTime field value if set, zero value otherwise.
+// GetLastRestoreTime returns the LastRestoreTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SnapshotsModel) GetLastRestoreTime() time.Time {
-	if o == nil || IsNil(o.LastRestoreTime) {
+	if o == nil || IsNil(o.LastRestoreTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastRestoreTime
+	return *o.LastRestoreTime.Get()
 }
 
 // GetLastRestoreTimeOk returns a tuple with the LastRestoreTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SnapshotsModel) GetLastRestoreTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.LastRestoreTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastRestoreTime, true
+	return o.LastRestoreTime.Get(), o.LastRestoreTime.IsSet()
 }
 
-// SetLastRestoreTime gets a reference to the given time.Time and assigns it to the LastRestoreTime field.
+// SetLastRestoreTime gets a reference to the given NullableTime and assigns it to the LastRestoreTime field.
 func (o *SnapshotsModel) SetLastRestoreTime(v time.Time) {
-	o.LastRestoreTime = &v
+	o.LastRestoreTime.Set(&v)
 }
 
-// GetLastBackupTime returns the LastBackupTime field value if set, zero value otherwise.
+// SetLastRestoreTimeNil sets the value for LastRestoreTime to be an explicit nil
+func (o *SnapshotsModel) SetLastRestoreTimeNil() {
+	o.LastRestoreTime.Set(nil)
+}
+
+// UnsetLastRestoreTime ensures that no value is present for LastRestoreTime, not even an explicit nil
+func (o *SnapshotsModel) UnsetLastRestoreTime() {
+	o.LastRestoreTime.Unset()
+}
+
+// GetLastBackupTime returns the LastBackupTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SnapshotsModel) GetLastBackupTime() time.Time {
-	if o == nil || IsNil(o.LastBackupTime) {
+	if o == nil || IsNil(o.LastBackupTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastBackupTime
+	return *o.LastBackupTime.Get()
 }
 
 // GetLastBackupTimeOk returns a tuple with the LastBackupTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SnapshotsModel) GetLastBackupTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.LastBackupTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastBackupTime, true
+	return o.LastBackupTime.Get(), o.LastBackupTime.IsSet()
 }
 
-// SetLastBackupTime gets a reference to the given time.Time and assigns it to the LastBackupTime field.
+// SetLastBackupTime gets a reference to the given NullableTime and assigns it to the LastBackupTime field.
 func (o *SnapshotsModel) SetLastBackupTime(v time.Time) {
-	o.LastBackupTime = &v
+	o.LastBackupTime.Set(&v)
 }
 
-// GetLastRestoredSnapshotName returns the LastRestoredSnapshotName field value if set, zero value otherwise.
+// SetLastBackupTimeNil sets the value for LastBackupTime to be an explicit nil
+func (o *SnapshotsModel) SetLastBackupTimeNil() {
+	o.LastBackupTime.Set(nil)
+}
+
+// UnsetLastBackupTime ensures that no value is present for LastBackupTime, not even an explicit nil
+func (o *SnapshotsModel) UnsetLastBackupTime() {
+	o.LastBackupTime.Unset()
+}
+
+// GetLastRestoredSnapshotName returns the LastRestoredSnapshotName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SnapshotsModel) GetLastRestoredSnapshotName() string {
-	if o == nil || IsNil(o.LastRestoredSnapshotName) {
+	if o == nil || IsNil(o.LastRestoredSnapshotName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LastRestoredSnapshotName
+	return *o.LastRestoredSnapshotName.Get()
 }
 
 // GetLastRestoredSnapshotNameOk returns a tuple with the LastRestoredSnapshotName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SnapshotsModel) GetLastRestoredSnapshotNameOk() (*string, bool) {
-	if o == nil || IsNil(o.LastRestoredSnapshotName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastRestoredSnapshotName, true
+	return o.LastRestoredSnapshotName.Get(), o.LastRestoredSnapshotName.IsSet()
 }
 
-// SetLastRestoredSnapshotName gets a reference to the given string and assigns it to the LastRestoredSnapshotName field.
+// SetLastRestoredSnapshotName gets a reference to the given NullableString and assigns it to the LastRestoredSnapshotName field.
 func (o *SnapshotsModel) SetLastRestoredSnapshotName(v string) {
-	o.LastRestoredSnapshotName = &v
+	o.LastRestoredSnapshotName.Set(&v)
 }
 
-// GetLastRestoredSnapshot returns the LastRestoredSnapshot field value if set, zero value otherwise.
+// SetLastRestoredSnapshotNameNil sets the value for LastRestoredSnapshotName to be an explicit nil
+func (o *SnapshotsModel) SetLastRestoredSnapshotNameNil() {
+	o.LastRestoredSnapshotName.Set(nil)
+}
+
+// UnsetLastRestoredSnapshotName ensures that no value is present for LastRestoredSnapshotName, not even an explicit nil
+func (o *SnapshotsModel) UnsetLastRestoredSnapshotName() {
+	o.LastRestoredSnapshotName.Unset()
+}
+
+// GetLastRestoredSnapshot returns the LastRestoredSnapshot field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SnapshotsModel) GetLastRestoredSnapshot() SnapshotModel {
-	if o == nil || IsNil(o.LastRestoredSnapshot) {
+	if o == nil || IsNil(o.LastRestoredSnapshot.Get()) {
 		var ret SnapshotModel
 		return ret
 	}
-	return *o.LastRestoredSnapshot
+	return *o.LastRestoredSnapshot.Get()
 }
 
 // GetLastRestoredSnapshotOk returns a tuple with the LastRestoredSnapshot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SnapshotsModel) GetLastRestoredSnapshotOk() (*SnapshotModel, bool) {
-	if o == nil || IsNil(o.LastRestoredSnapshot) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastRestoredSnapshot, true
+	return o.LastRestoredSnapshot.Get(), o.LastRestoredSnapshot.IsSet()
 }
 
-// SetLastRestoredSnapshot gets a reference to the given SnapshotModel and assigns it to the LastRestoredSnapshot field.
+// SetLastRestoredSnapshot gets a reference to the given NullableSnapshotModel and assigns it to the LastRestoredSnapshot field.
 func (o *SnapshotsModel) SetLastRestoredSnapshot(v SnapshotModel) {
-	o.LastRestoredSnapshot = &v
+	o.LastRestoredSnapshot.Set(&v)
+}
+
+// SetLastRestoredSnapshotNil sets the value for LastRestoredSnapshot to be an explicit nil
+func (o *SnapshotsModel) SetLastRestoredSnapshotNil() {
+	o.LastRestoredSnapshot.Set(nil)
+}
+
+// UnsetLastRestoredSnapshot ensures that no value is present for LastRestoredSnapshot, not even an explicit nil
+func (o *SnapshotsModel) UnsetLastRestoredSnapshot() {
+	o.LastRestoredSnapshot.Unset()
 }
 
 func (o SnapshotsModel) MarshalJSON() ([]byte, error) {
@@ -160,20 +205,20 @@ func (o SnapshotsModel) MarshalJSON() ([]byte, error) {
 
 func (o SnapshotsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Items) {
+	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-	if !IsNil(o.LastRestoreTime) {
-		toSerialize["lastRestoreTime"] = o.LastRestoreTime
+	if o.LastRestoreTime.IsSet() {
+		toSerialize["lastRestoreTime"] = o.LastRestoreTime.Get()
 	}
-	if !IsNil(o.LastBackupTime) {
-		toSerialize["lastBackupTime"] = o.LastBackupTime
+	if o.LastBackupTime.IsSet() {
+		toSerialize["lastBackupTime"] = o.LastBackupTime.Get()
 	}
-	if !IsNil(o.LastRestoredSnapshotName) {
-		toSerialize["lastRestoredSnapshotName"] = o.LastRestoredSnapshotName
+	if o.LastRestoredSnapshotName.IsSet() {
+		toSerialize["lastRestoredSnapshotName"] = o.LastRestoredSnapshotName.Get()
 	}
-	if !IsNil(o.LastRestoredSnapshot) {
-		toSerialize["lastRestoredSnapshot"] = o.LastRestoredSnapshot
+	if o.LastRestoredSnapshot.IsSet() {
+		toSerialize["lastRestoredSnapshot"] = o.LastRestoredSnapshot.Get()
 	}
 	return toSerialize, nil
 }

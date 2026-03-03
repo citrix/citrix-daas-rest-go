@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,19 +19,19 @@ var _ MappedNullable = &CatalogConfigDeployModel{}
 
 // CatalogConfigDeployModel struct for CatalogConfigDeployModel
 type CatalogConfigDeployModel struct {
-	AddCatalog                 *AddCatalogModel                      `json:"addCatalog,omitempty"`
-	AddAzureConfiguration      *CatalogAzureConfigurationModel       `json:"addAzureConfiguration,omitempty"`
-	AddCatalogDomain           *CatalogDomainModel                   `json:"addCatalogDomain,omitempty"`
-	AddCatalogResourceLocation *CatalogResourceLocationConfiguration `json:"addCatalogResourceLocation,omitempty"`
-	AddCatalogImage            *CatalogTemplateImageModel            `json:"addCatalogImage,omitempty"`
-	AddCatalogCapacity         *CatalogCapacitySettingsModel         `json:"addCatalogCapacity,omitempty"`
-	DeploySecrets              *DeploySecretsModel                   `json:"deploySecrets,omitempty"`
-	AddSecureBrowser           *CatalogSecureBrowserModel            `json:"addSecureBrowser,omitempty"`
+	AddCatalog                 NullableAddCatalogModel                      `json:"addCatalog,omitempty"`
+	AddAzureConfiguration      NullableCatalogAzureConfigurationModel       `json:"addAzureConfiguration,omitempty"`
+	AddCatalogDomain           NullableCatalogDomainModel                   `json:"addCatalogDomain,omitempty"`
+	AddCatalogResourceLocation NullableCatalogResourceLocationConfiguration `json:"addCatalogResourceLocation,omitempty"`
+	AddCatalogImage            NullableCatalogTemplateImageModel            `json:"addCatalogImage,omitempty"`
+	AddCatalogCapacity         NullableCatalogCapacitySettingsModel         `json:"addCatalogCapacity,omitempty"`
+	DeploySecrets              NullableDeploySecretsModel                   `json:"deploySecrets,omitempty"`
+	AddSecureBrowser           NullableCatalogSecureBrowserModel            `json:"addSecureBrowser,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
-	CspCustomerId *string `json:"cspCustomerId,omitempty"`
+	CspCustomerId NullableString `json:"cspCustomerId,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
-	CspSiteId *string    `json:"cspSiteId,omitempty"`
-	WbcConfig *WbcConfig `json:"wbcConfig,omitempty"`
+	CspSiteId NullableString    `json:"cspSiteId,omitempty"`
+	WbcConfig NullableWbcConfig `json:"wbcConfig,omitempty"`
 }
 
 // NewCatalogConfigDeployModelWithDefaults instantiates a new CatalogConfigDeployModel object
@@ -42,257 +42,378 @@ func NewCatalogConfigDeployModelWithDefaults() *CatalogConfigDeployModel {
 	return &this
 }
 
-// GetAddCatalog returns the AddCatalog field value if set, zero value otherwise.
+// GetAddCatalog returns the AddCatalog field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogConfigDeployModel) GetAddCatalog() AddCatalogModel {
-	if o == nil || IsNil(o.AddCatalog) {
+	if o == nil || IsNil(o.AddCatalog.Get()) {
 		var ret AddCatalogModel
 		return ret
 	}
-	return *o.AddCatalog
+	return *o.AddCatalog.Get()
 }
 
 // GetAddCatalogOk returns a tuple with the AddCatalog field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogConfigDeployModel) GetAddCatalogOk() (*AddCatalogModel, bool) {
-	if o == nil || IsNil(o.AddCatalog) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddCatalog, true
+	return o.AddCatalog.Get(), o.AddCatalog.IsSet()
 }
 
-// SetAddCatalog gets a reference to the given AddCatalogModel and assigns it to the AddCatalog field.
+// SetAddCatalog gets a reference to the given NullableAddCatalogModel and assigns it to the AddCatalog field.
 func (o *CatalogConfigDeployModel) SetAddCatalog(v AddCatalogModel) {
-	o.AddCatalog = &v
+	o.AddCatalog.Set(&v)
 }
 
-// GetAddAzureConfiguration returns the AddAzureConfiguration field value if set, zero value otherwise.
+// SetAddCatalogNil sets the value for AddCatalog to be an explicit nil
+func (o *CatalogConfigDeployModel) SetAddCatalogNil() {
+	o.AddCatalog.Set(nil)
+}
+
+// UnsetAddCatalog ensures that no value is present for AddCatalog, not even an explicit nil
+func (o *CatalogConfigDeployModel) UnsetAddCatalog() {
+	o.AddCatalog.Unset()
+}
+
+// GetAddAzureConfiguration returns the AddAzureConfiguration field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogConfigDeployModel) GetAddAzureConfiguration() CatalogAzureConfigurationModel {
-	if o == nil || IsNil(o.AddAzureConfiguration) {
+	if o == nil || IsNil(o.AddAzureConfiguration.Get()) {
 		var ret CatalogAzureConfigurationModel
 		return ret
 	}
-	return *o.AddAzureConfiguration
+	return *o.AddAzureConfiguration.Get()
 }
 
 // GetAddAzureConfigurationOk returns a tuple with the AddAzureConfiguration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogConfigDeployModel) GetAddAzureConfigurationOk() (*CatalogAzureConfigurationModel, bool) {
-	if o == nil || IsNil(o.AddAzureConfiguration) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddAzureConfiguration, true
+	return o.AddAzureConfiguration.Get(), o.AddAzureConfiguration.IsSet()
 }
 
-// SetAddAzureConfiguration gets a reference to the given CatalogAzureConfigurationModel and assigns it to the AddAzureConfiguration field.
+// SetAddAzureConfiguration gets a reference to the given NullableCatalogAzureConfigurationModel and assigns it to the AddAzureConfiguration field.
 func (o *CatalogConfigDeployModel) SetAddAzureConfiguration(v CatalogAzureConfigurationModel) {
-	o.AddAzureConfiguration = &v
+	o.AddAzureConfiguration.Set(&v)
 }
 
-// GetAddCatalogDomain returns the AddCatalogDomain field value if set, zero value otherwise.
+// SetAddAzureConfigurationNil sets the value for AddAzureConfiguration to be an explicit nil
+func (o *CatalogConfigDeployModel) SetAddAzureConfigurationNil() {
+	o.AddAzureConfiguration.Set(nil)
+}
+
+// UnsetAddAzureConfiguration ensures that no value is present for AddAzureConfiguration, not even an explicit nil
+func (o *CatalogConfigDeployModel) UnsetAddAzureConfiguration() {
+	o.AddAzureConfiguration.Unset()
+}
+
+// GetAddCatalogDomain returns the AddCatalogDomain field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogConfigDeployModel) GetAddCatalogDomain() CatalogDomainModel {
-	if o == nil || IsNil(o.AddCatalogDomain) {
+	if o == nil || IsNil(o.AddCatalogDomain.Get()) {
 		var ret CatalogDomainModel
 		return ret
 	}
-	return *o.AddCatalogDomain
+	return *o.AddCatalogDomain.Get()
 }
 
 // GetAddCatalogDomainOk returns a tuple with the AddCatalogDomain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogConfigDeployModel) GetAddCatalogDomainOk() (*CatalogDomainModel, bool) {
-	if o == nil || IsNil(o.AddCatalogDomain) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddCatalogDomain, true
+	return o.AddCatalogDomain.Get(), o.AddCatalogDomain.IsSet()
 }
 
-// SetAddCatalogDomain gets a reference to the given CatalogDomainModel and assigns it to the AddCatalogDomain field.
+// SetAddCatalogDomain gets a reference to the given NullableCatalogDomainModel and assigns it to the AddCatalogDomain field.
 func (o *CatalogConfigDeployModel) SetAddCatalogDomain(v CatalogDomainModel) {
-	o.AddCatalogDomain = &v
+	o.AddCatalogDomain.Set(&v)
 }
 
-// GetAddCatalogResourceLocation returns the AddCatalogResourceLocation field value if set, zero value otherwise.
+// SetAddCatalogDomainNil sets the value for AddCatalogDomain to be an explicit nil
+func (o *CatalogConfigDeployModel) SetAddCatalogDomainNil() {
+	o.AddCatalogDomain.Set(nil)
+}
+
+// UnsetAddCatalogDomain ensures that no value is present for AddCatalogDomain, not even an explicit nil
+func (o *CatalogConfigDeployModel) UnsetAddCatalogDomain() {
+	o.AddCatalogDomain.Unset()
+}
+
+// GetAddCatalogResourceLocation returns the AddCatalogResourceLocation field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogConfigDeployModel) GetAddCatalogResourceLocation() CatalogResourceLocationConfiguration {
-	if o == nil || IsNil(o.AddCatalogResourceLocation) {
+	if o == nil || IsNil(o.AddCatalogResourceLocation.Get()) {
 		var ret CatalogResourceLocationConfiguration
 		return ret
 	}
-	return *o.AddCatalogResourceLocation
+	return *o.AddCatalogResourceLocation.Get()
 }
 
 // GetAddCatalogResourceLocationOk returns a tuple with the AddCatalogResourceLocation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogConfigDeployModel) GetAddCatalogResourceLocationOk() (*CatalogResourceLocationConfiguration, bool) {
-	if o == nil || IsNil(o.AddCatalogResourceLocation) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddCatalogResourceLocation, true
+	return o.AddCatalogResourceLocation.Get(), o.AddCatalogResourceLocation.IsSet()
 }
 
-// SetAddCatalogResourceLocation gets a reference to the given CatalogResourceLocationConfiguration and assigns it to the AddCatalogResourceLocation field.
+// SetAddCatalogResourceLocation gets a reference to the given NullableCatalogResourceLocationConfiguration and assigns it to the AddCatalogResourceLocation field.
 func (o *CatalogConfigDeployModel) SetAddCatalogResourceLocation(v CatalogResourceLocationConfiguration) {
-	o.AddCatalogResourceLocation = &v
+	o.AddCatalogResourceLocation.Set(&v)
 }
 
-// GetAddCatalogImage returns the AddCatalogImage field value if set, zero value otherwise.
+// SetAddCatalogResourceLocationNil sets the value for AddCatalogResourceLocation to be an explicit nil
+func (o *CatalogConfigDeployModel) SetAddCatalogResourceLocationNil() {
+	o.AddCatalogResourceLocation.Set(nil)
+}
+
+// UnsetAddCatalogResourceLocation ensures that no value is present for AddCatalogResourceLocation, not even an explicit nil
+func (o *CatalogConfigDeployModel) UnsetAddCatalogResourceLocation() {
+	o.AddCatalogResourceLocation.Unset()
+}
+
+// GetAddCatalogImage returns the AddCatalogImage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogConfigDeployModel) GetAddCatalogImage() CatalogTemplateImageModel {
-	if o == nil || IsNil(o.AddCatalogImage) {
+	if o == nil || IsNil(o.AddCatalogImage.Get()) {
 		var ret CatalogTemplateImageModel
 		return ret
 	}
-	return *o.AddCatalogImage
+	return *o.AddCatalogImage.Get()
 }
 
 // GetAddCatalogImageOk returns a tuple with the AddCatalogImage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogConfigDeployModel) GetAddCatalogImageOk() (*CatalogTemplateImageModel, bool) {
-	if o == nil || IsNil(o.AddCatalogImage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddCatalogImage, true
+	return o.AddCatalogImage.Get(), o.AddCatalogImage.IsSet()
 }
 
-// SetAddCatalogImage gets a reference to the given CatalogTemplateImageModel and assigns it to the AddCatalogImage field.
+// SetAddCatalogImage gets a reference to the given NullableCatalogTemplateImageModel and assigns it to the AddCatalogImage field.
 func (o *CatalogConfigDeployModel) SetAddCatalogImage(v CatalogTemplateImageModel) {
-	o.AddCatalogImage = &v
+	o.AddCatalogImage.Set(&v)
 }
 
-// GetAddCatalogCapacity returns the AddCatalogCapacity field value if set, zero value otherwise.
+// SetAddCatalogImageNil sets the value for AddCatalogImage to be an explicit nil
+func (o *CatalogConfigDeployModel) SetAddCatalogImageNil() {
+	o.AddCatalogImage.Set(nil)
+}
+
+// UnsetAddCatalogImage ensures that no value is present for AddCatalogImage, not even an explicit nil
+func (o *CatalogConfigDeployModel) UnsetAddCatalogImage() {
+	o.AddCatalogImage.Unset()
+}
+
+// GetAddCatalogCapacity returns the AddCatalogCapacity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogConfigDeployModel) GetAddCatalogCapacity() CatalogCapacitySettingsModel {
-	if o == nil || IsNil(o.AddCatalogCapacity) {
+	if o == nil || IsNil(o.AddCatalogCapacity.Get()) {
 		var ret CatalogCapacitySettingsModel
 		return ret
 	}
-	return *o.AddCatalogCapacity
+	return *o.AddCatalogCapacity.Get()
 }
 
 // GetAddCatalogCapacityOk returns a tuple with the AddCatalogCapacity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogConfigDeployModel) GetAddCatalogCapacityOk() (*CatalogCapacitySettingsModel, bool) {
-	if o == nil || IsNil(o.AddCatalogCapacity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddCatalogCapacity, true
+	return o.AddCatalogCapacity.Get(), o.AddCatalogCapacity.IsSet()
 }
 
-// SetAddCatalogCapacity gets a reference to the given CatalogCapacitySettingsModel and assigns it to the AddCatalogCapacity field.
+// SetAddCatalogCapacity gets a reference to the given NullableCatalogCapacitySettingsModel and assigns it to the AddCatalogCapacity field.
 func (o *CatalogConfigDeployModel) SetAddCatalogCapacity(v CatalogCapacitySettingsModel) {
-	o.AddCatalogCapacity = &v
+	o.AddCatalogCapacity.Set(&v)
 }
 
-// GetDeploySecrets returns the DeploySecrets field value if set, zero value otherwise.
+// SetAddCatalogCapacityNil sets the value for AddCatalogCapacity to be an explicit nil
+func (o *CatalogConfigDeployModel) SetAddCatalogCapacityNil() {
+	o.AddCatalogCapacity.Set(nil)
+}
+
+// UnsetAddCatalogCapacity ensures that no value is present for AddCatalogCapacity, not even an explicit nil
+func (o *CatalogConfigDeployModel) UnsetAddCatalogCapacity() {
+	o.AddCatalogCapacity.Unset()
+}
+
+// GetDeploySecrets returns the DeploySecrets field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogConfigDeployModel) GetDeploySecrets() DeploySecretsModel {
-	if o == nil || IsNil(o.DeploySecrets) {
+	if o == nil || IsNil(o.DeploySecrets.Get()) {
 		var ret DeploySecretsModel
 		return ret
 	}
-	return *o.DeploySecrets
+	return *o.DeploySecrets.Get()
 }
 
 // GetDeploySecretsOk returns a tuple with the DeploySecrets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogConfigDeployModel) GetDeploySecretsOk() (*DeploySecretsModel, bool) {
-	if o == nil || IsNil(o.DeploySecrets) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DeploySecrets, true
+	return o.DeploySecrets.Get(), o.DeploySecrets.IsSet()
 }
 
-// SetDeploySecrets gets a reference to the given DeploySecretsModel and assigns it to the DeploySecrets field.
+// SetDeploySecrets gets a reference to the given NullableDeploySecretsModel and assigns it to the DeploySecrets field.
 func (o *CatalogConfigDeployModel) SetDeploySecrets(v DeploySecretsModel) {
-	o.DeploySecrets = &v
+	o.DeploySecrets.Set(&v)
 }
 
-// GetAddSecureBrowser returns the AddSecureBrowser field value if set, zero value otherwise.
+// SetDeploySecretsNil sets the value for DeploySecrets to be an explicit nil
+func (o *CatalogConfigDeployModel) SetDeploySecretsNil() {
+	o.DeploySecrets.Set(nil)
+}
+
+// UnsetDeploySecrets ensures that no value is present for DeploySecrets, not even an explicit nil
+func (o *CatalogConfigDeployModel) UnsetDeploySecrets() {
+	o.DeploySecrets.Unset()
+}
+
+// GetAddSecureBrowser returns the AddSecureBrowser field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogConfigDeployModel) GetAddSecureBrowser() CatalogSecureBrowserModel {
-	if o == nil || IsNil(o.AddSecureBrowser) {
+	if o == nil || IsNil(o.AddSecureBrowser.Get()) {
 		var ret CatalogSecureBrowserModel
 		return ret
 	}
-	return *o.AddSecureBrowser
+	return *o.AddSecureBrowser.Get()
 }
 
 // GetAddSecureBrowserOk returns a tuple with the AddSecureBrowser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogConfigDeployModel) GetAddSecureBrowserOk() (*CatalogSecureBrowserModel, bool) {
-	if o == nil || IsNil(o.AddSecureBrowser) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddSecureBrowser, true
+	return o.AddSecureBrowser.Get(), o.AddSecureBrowser.IsSet()
 }
 
-// SetAddSecureBrowser gets a reference to the given CatalogSecureBrowserModel and assigns it to the AddSecureBrowser field.
+// SetAddSecureBrowser gets a reference to the given NullableCatalogSecureBrowserModel and assigns it to the AddSecureBrowser field.
 func (o *CatalogConfigDeployModel) SetAddSecureBrowser(v CatalogSecureBrowserModel) {
-	o.AddSecureBrowser = &v
+	o.AddSecureBrowser.Set(&v)
 }
 
-// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise.
+// SetAddSecureBrowserNil sets the value for AddSecureBrowser to be an explicit nil
+func (o *CatalogConfigDeployModel) SetAddSecureBrowserNil() {
+	o.AddSecureBrowser.Set(nil)
+}
+
+// UnsetAddSecureBrowser ensures that no value is present for AddSecureBrowser, not even an explicit nil
+func (o *CatalogConfigDeployModel) UnsetAddSecureBrowser() {
+	o.AddSecureBrowser.Unset()
+}
+
+// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogConfigDeployModel) GetCspCustomerId() string {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil || IsNil(o.CspCustomerId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomerId
+	return *o.CspCustomerId.Get()
 }
 
 // GetCspCustomerIdOk returns a tuple with the CspCustomerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogConfigDeployModel) GetCspCustomerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomerId, true
+	return o.CspCustomerId.Get(), o.CspCustomerId.IsSet()
 }
 
-// SetCspCustomerId gets a reference to the given string and assigns it to the CspCustomerId field.
+// SetCspCustomerId gets a reference to the given NullableString and assigns it to the CspCustomerId field.
 func (o *CatalogConfigDeployModel) SetCspCustomerId(v string) {
-	o.CspCustomerId = &v
+	o.CspCustomerId.Set(&v)
 }
 
-// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise.
+// SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+func (o *CatalogConfigDeployModel) SetCspCustomerIdNil() {
+	o.CspCustomerId.Set(nil)
+}
+
+// UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
+func (o *CatalogConfigDeployModel) UnsetCspCustomerId() {
+	o.CspCustomerId.Unset()
+}
+
+// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogConfigDeployModel) GetCspSiteId() string {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil || IsNil(o.CspSiteId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspSiteId
+	return *o.CspSiteId.Get()
 }
 
 // GetCspSiteIdOk returns a tuple with the CspSiteId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogConfigDeployModel) GetCspSiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspSiteId, true
+	return o.CspSiteId.Get(), o.CspSiteId.IsSet()
 }
 
-// SetCspSiteId gets a reference to the given string and assigns it to the CspSiteId field.
+// SetCspSiteId gets a reference to the given NullableString and assigns it to the CspSiteId field.
 func (o *CatalogConfigDeployModel) SetCspSiteId(v string) {
-	o.CspSiteId = &v
+	o.CspSiteId.Set(&v)
 }
 
-// GetWbcConfig returns the WbcConfig field value if set, zero value otherwise.
+// SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+func (o *CatalogConfigDeployModel) SetCspSiteIdNil() {
+	o.CspSiteId.Set(nil)
+}
+
+// UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
+func (o *CatalogConfigDeployModel) UnsetCspSiteId() {
+	o.CspSiteId.Unset()
+}
+
+// GetWbcConfig returns the WbcConfig field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogConfigDeployModel) GetWbcConfig() WbcConfig {
-	if o == nil || IsNil(o.WbcConfig) {
+	if o == nil || IsNil(o.WbcConfig.Get()) {
 		var ret WbcConfig
 		return ret
 	}
-	return *o.WbcConfig
+	return *o.WbcConfig.Get()
 }
 
 // GetWbcConfigOk returns a tuple with the WbcConfig field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogConfigDeployModel) GetWbcConfigOk() (*WbcConfig, bool) {
-	if o == nil || IsNil(o.WbcConfig) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WbcConfig, true
+	return o.WbcConfig.Get(), o.WbcConfig.IsSet()
 }
 
-// SetWbcConfig gets a reference to the given WbcConfig and assigns it to the WbcConfig field.
+// SetWbcConfig gets a reference to the given NullableWbcConfig and assigns it to the WbcConfig field.
 func (o *CatalogConfigDeployModel) SetWbcConfig(v WbcConfig) {
-	o.WbcConfig = &v
+	o.WbcConfig.Set(&v)
+}
+
+// SetWbcConfigNil sets the value for WbcConfig to be an explicit nil
+func (o *CatalogConfigDeployModel) SetWbcConfigNil() {
+	o.WbcConfig.Set(nil)
+}
+
+// UnsetWbcConfig ensures that no value is present for WbcConfig, not even an explicit nil
+func (o *CatalogConfigDeployModel) UnsetWbcConfig() {
+	o.WbcConfig.Unset()
 }
 
 func (o CatalogConfigDeployModel) MarshalJSON() ([]byte, error) {
@@ -305,38 +426,38 @@ func (o CatalogConfigDeployModel) MarshalJSON() ([]byte, error) {
 
 func (o CatalogConfigDeployModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AddCatalog) {
-		toSerialize["addCatalog"] = o.AddCatalog
+	if o.AddCatalog.IsSet() {
+		toSerialize["addCatalog"] = o.AddCatalog.Get()
 	}
-	if !IsNil(o.AddAzureConfiguration) {
-		toSerialize["addAzureConfiguration"] = o.AddAzureConfiguration
+	if o.AddAzureConfiguration.IsSet() {
+		toSerialize["addAzureConfiguration"] = o.AddAzureConfiguration.Get()
 	}
-	if !IsNil(o.AddCatalogDomain) {
-		toSerialize["addCatalogDomain"] = o.AddCatalogDomain
+	if o.AddCatalogDomain.IsSet() {
+		toSerialize["addCatalogDomain"] = o.AddCatalogDomain.Get()
 	}
-	if !IsNil(o.AddCatalogResourceLocation) {
-		toSerialize["addCatalogResourceLocation"] = o.AddCatalogResourceLocation
+	if o.AddCatalogResourceLocation.IsSet() {
+		toSerialize["addCatalogResourceLocation"] = o.AddCatalogResourceLocation.Get()
 	}
-	if !IsNil(o.AddCatalogImage) {
-		toSerialize["addCatalogImage"] = o.AddCatalogImage
+	if o.AddCatalogImage.IsSet() {
+		toSerialize["addCatalogImage"] = o.AddCatalogImage.Get()
 	}
-	if !IsNil(o.AddCatalogCapacity) {
-		toSerialize["addCatalogCapacity"] = o.AddCatalogCapacity
+	if o.AddCatalogCapacity.IsSet() {
+		toSerialize["addCatalogCapacity"] = o.AddCatalogCapacity.Get()
 	}
-	if !IsNil(o.DeploySecrets) {
-		toSerialize["deploySecrets"] = o.DeploySecrets
+	if o.DeploySecrets.IsSet() {
+		toSerialize["deploySecrets"] = o.DeploySecrets.Get()
 	}
-	if !IsNil(o.AddSecureBrowser) {
-		toSerialize["addSecureBrowser"] = o.AddSecureBrowser
+	if o.AddSecureBrowser.IsSet() {
+		toSerialize["addSecureBrowser"] = o.AddSecureBrowser.Get()
 	}
-	if !IsNil(o.CspCustomerId) {
-		toSerialize["cspCustomerId"] = o.CspCustomerId
+	if o.CspCustomerId.IsSet() {
+		toSerialize["cspCustomerId"] = o.CspCustomerId.Get()
 	}
-	if !IsNil(o.CspSiteId) {
-		toSerialize["cspSiteId"] = o.CspSiteId
+	if o.CspSiteId.IsSet() {
+		toSerialize["cspSiteId"] = o.CspSiteId.Get()
 	}
-	if !IsNil(o.WbcConfig) {
-		toSerialize["wbcConfig"] = o.WbcConfig
+	if o.WbcConfig.IsSet() {
+		toSerialize["wbcConfig"] = o.WbcConfig.Get()
 	}
 	return toSerialize, nil
 }

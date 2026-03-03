@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -22,9 +22,9 @@ type PowerActionScheduleResponseModelCollection struct {
 	// List of items.
 	Items []PowerActionScheduleResponseModel `json:"items"`
 	// If present, indicates to the caller that the query was not complete,    and they should call the API again specifying the continuation token    as a query parameter.
-	ContinuationToken *string `json:"continuationToken,omitempty"`
+	ContinuationToken NullableString `json:"continuationToken,omitempty"`
 	// Indicates the total number of items in the collection, which may be    more than the number of Items returned, if there is a    ContinuationToken.  Only returned in the response to `$search` APIs.
-	TotalItems *int32 `json:"totalItems,omitempty"`
+	TotalItems NullableInt32 `json:"totalItems,omitempty"`
 }
 
 // NewPowerActionScheduleResponseModelCollectionWithDefaults instantiates a new PowerActionScheduleResponseModelCollection object
@@ -59,50 +59,72 @@ func (o *PowerActionScheduleResponseModelCollection) SetItems(v []PowerActionSch
 	o.Items = v
 }
 
-// GetContinuationToken returns the ContinuationToken field value if set, zero value otherwise.
+// GetContinuationToken returns the ContinuationToken field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PowerActionScheduleResponseModelCollection) GetContinuationToken() string {
-	if o == nil || IsNil(o.ContinuationToken) {
+	if o == nil || IsNil(o.ContinuationToken.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ContinuationToken
+	return *o.ContinuationToken.Get()
 }
 
 // GetContinuationTokenOk returns a tuple with the ContinuationToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PowerActionScheduleResponseModelCollection) GetContinuationTokenOk() (*string, bool) {
-	if o == nil || IsNil(o.ContinuationToken) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ContinuationToken, true
+	return o.ContinuationToken.Get(), o.ContinuationToken.IsSet()
 }
 
-// SetContinuationToken gets a reference to the given string and assigns it to the ContinuationToken field.
+// SetContinuationToken gets a reference to the given NullableString and assigns it to the ContinuationToken field.
 func (o *PowerActionScheduleResponseModelCollection) SetContinuationToken(v string) {
-	o.ContinuationToken = &v
+	o.ContinuationToken.Set(&v)
 }
 
-// GetTotalItems returns the TotalItems field value if set, zero value otherwise.
+// SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
+func (o *PowerActionScheduleResponseModelCollection) SetContinuationTokenNil() {
+	o.ContinuationToken.Set(nil)
+}
+
+// UnsetContinuationToken ensures that no value is present for ContinuationToken, not even an explicit nil
+func (o *PowerActionScheduleResponseModelCollection) UnsetContinuationToken() {
+	o.ContinuationToken.Unset()
+}
+
+// GetTotalItems returns the TotalItems field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PowerActionScheduleResponseModelCollection) GetTotalItems() int32 {
-	if o == nil || IsNil(o.TotalItems) {
+	if o == nil || IsNil(o.TotalItems.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.TotalItems
+	return *o.TotalItems.Get()
 }
 
 // GetTotalItemsOk returns a tuple with the TotalItems field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PowerActionScheduleResponseModelCollection) GetTotalItemsOk() (*int32, bool) {
-	if o == nil || IsNil(o.TotalItems) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TotalItems, true
+	return o.TotalItems.Get(), o.TotalItems.IsSet()
 }
 
-// SetTotalItems gets a reference to the given int32 and assigns it to the TotalItems field.
+// SetTotalItems gets a reference to the given NullableInt32 and assigns it to the TotalItems field.
 func (o *PowerActionScheduleResponseModelCollection) SetTotalItems(v int32) {
-	o.TotalItems = &v
+	o.TotalItems.Set(&v)
+}
+
+// SetTotalItemsNil sets the value for TotalItems to be an explicit nil
+func (o *PowerActionScheduleResponseModelCollection) SetTotalItemsNil() {
+	o.TotalItems.Set(nil)
+}
+
+// UnsetTotalItems ensures that no value is present for TotalItems, not even an explicit nil
+func (o *PowerActionScheduleResponseModelCollection) UnsetTotalItems() {
+	o.TotalItems.Unset()
 }
 
 func (o PowerActionScheduleResponseModelCollection) MarshalJSON() ([]byte, error) {
@@ -116,11 +138,11 @@ func (o PowerActionScheduleResponseModelCollection) MarshalJSON() ([]byte, error
 func (o PowerActionScheduleResponseModelCollection) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["items"] = o.Items
-	if !IsNil(o.ContinuationToken) {
-		toSerialize["continuationToken"] = o.ContinuationToken
+	if o.ContinuationToken.IsSet() {
+		toSerialize["continuationToken"] = o.ContinuationToken.Get()
 	}
-	if !IsNil(o.TotalItems) {
-		toSerialize["totalItems"] = o.TotalItems
+	if o.TotalItems.IsSet() {
+		toSerialize["totalItems"] = o.TotalItems.Get()
 	}
 	return toSerialize, nil
 }

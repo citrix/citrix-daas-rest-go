@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,10 +20,10 @@ var _ MappedNullable = &DataStoreCustomerPowerResourcesModel{}
 
 // DataStoreCustomerPowerResourcesModel struct for DataStoreCustomerPowerResourcesModel
 type DataStoreCustomerPowerResourcesModel struct {
-	Id        *string                  `json:"id,omitempty"`
+	Id        NullableString           `json:"id,omitempty"`
 	Mode      *PowerMode               `json:"mode,omitempty"`
 	Status    *PowerResourcesJobStatus `json:"status,omitempty"`
-	Error     *string                  `json:"error,omitempty"`
+	Error     NullableString           `json:"error,omitempty"`
 	CreatedAt *time.Time               `json:"createdAt,omitempty"`
 	StartedAt *time.Time               `json:"startedAt,omitempty"`
 	EndedAt   *time.Time               `json:"endedAt,omitempty"`
@@ -37,27 +37,38 @@ func NewDataStoreCustomerPowerResourcesModelWithDefaults() *DataStoreCustomerPow
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreCustomerPowerResourcesModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreCustomerPowerResourcesModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *DataStoreCustomerPowerResourcesModel) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
+}
+
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *DataStoreCustomerPowerResourcesModel) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *DataStoreCustomerPowerResourcesModel) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetMode returns the Mode field value if set, zero value otherwise.
@@ -106,27 +117,38 @@ func (o *DataStoreCustomerPowerResourcesModel) SetStatus(v PowerResourcesJobStat
 	o.Status = &v
 }
 
-// GetError returns the Error field value if set, zero value otherwise.
+// GetError returns the Error field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreCustomerPowerResourcesModel) GetError() string {
-	if o == nil || IsNil(o.Error) {
+	if o == nil || IsNil(o.Error.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Error
+	return *o.Error.Get()
 }
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreCustomerPowerResourcesModel) GetErrorOk() (*string, bool) {
-	if o == nil || IsNil(o.Error) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Error, true
+	return o.Error.Get(), o.Error.IsSet()
 }
 
-// SetError gets a reference to the given string and assigns it to the Error field.
+// SetError gets a reference to the given NullableString and assigns it to the Error field.
 func (o *DataStoreCustomerPowerResourcesModel) SetError(v string) {
-	o.Error = &v
+	o.Error.Set(&v)
+}
+
+// SetErrorNil sets the value for Error to be an explicit nil
+func (o *DataStoreCustomerPowerResourcesModel) SetErrorNil() {
+	o.Error.Set(nil)
+}
+
+// UnsetError ensures that no value is present for Error, not even an explicit nil
+func (o *DataStoreCustomerPowerResourcesModel) UnsetError() {
+	o.Error.Unset()
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
@@ -208,8 +230,8 @@ func (o DataStoreCustomerPowerResourcesModel) MarshalJSON() ([]byte, error) {
 
 func (o DataStoreCustomerPowerResourcesModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
 	if !IsNil(o.Mode) {
 		toSerialize["mode"] = o.Mode
@@ -217,8 +239,8 @@ func (o DataStoreCustomerPowerResourcesModel) ToMap() (map[string]interface{}, e
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	if !IsNil(o.Error) {
-		toSerialize["error"] = o.Error
+	if o.Error.IsSet() {
+		toSerialize["error"] = o.Error.Get()
 	}
 	if !IsNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Resource** | Pointer to **string** |  | [optional] 
-**AccessToken** | Pointer to **string** |  | [optional] 
+**Resource** | Pointer to **NullableString** |  | [optional] 
+**AccessToken** | Pointer to **NullableString** |  | [optional] 
 **Type** | Pointer to [**AzureTokenType**](AzureTokenType.md) |  | [optional] 
 
 ## Methods
@@ -52,6 +52,16 @@ SetResource sets Resource field to given value.
 
 HasResource returns a boolean if a field has been set.
 
+### SetResourceNil
+
+`func (o *AzureToken) SetResourceNil(b bool)`
+
+ SetResourceNil sets the value for Resource to be an explicit nil
+
+### UnsetResource
+`func (o *AzureToken) UnsetResource()`
+
+UnsetResource ensures that no value is present for Resource, not even an explicit nil
 ### GetAccessToken
 
 `func (o *AzureToken) GetAccessToken() string`
@@ -77,6 +87,16 @@ SetAccessToken sets AccessToken field to given value.
 
 HasAccessToken returns a boolean if a field has been set.
 
+### SetAccessTokenNil
+
+`func (o *AzureToken) SetAccessTokenNil(b bool)`
+
+ SetAccessTokenNil sets the value for AccessToken to be an explicit nil
+
+### UnsetAccessToken
+`func (o *AzureToken) UnsetAccessToken()`
+
+UnsetAccessToken ensures that no value is present for AccessToken, not even an explicit nil
 ### GetType
 
 `func (o *AzureToken) GetType() AzureTokenType`

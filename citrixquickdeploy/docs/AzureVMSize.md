@@ -4,21 +4,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Instance type ID used when provisioning a VM | [optional] 
-**DisplayName** | Pointer to **string** |  | [optional] 
-**Sku** | Pointer to **string** | Name of the VM SKU to display to the user | [optional] 
+**Id** | Pointer to **NullableString** | Instance type ID used when provisioning a VM | [optional] 
+**DisplayName** | Pointer to **NullableString** |  | [optional] 
+**Sku** | Pointer to **NullableString** | Name of the VM SKU to display to the user | [optional] 
 **IsBasicVM** | Pointer to **bool** |  | [optional] [readonly] 
 **SupportsPremiumStorage** | Pointer to **bool** | True if a virtual machine size supports premium storage. False otherwise. | [optional] [readonly] 
 **SupportsHibernation** | Pointer to **bool** | True if a virtual machine size supports hibernation. False otherwise. | [optional] [readonly] 
-**NumberOfCores** | Pointer to **int32** | the Number of cores supported by a VM size. | [optional] [readonly] 
-**OsDiskSizeInMB** | Pointer to **int32** | the OS disk size allowed by a VM size. | [optional] [readonly] 
-**ResourceDiskSizeInMB** | Pointer to **int32** | the Resource disk size allowed by a VM size. | [optional] [readonly] 
-**MemoryInMB** | Pointer to **float64** | the Memory size supported by a VM size. | [optional] [readonly] 
-**MaxDataDiskCount** | Pointer to **int32** | the Maximum number of data disks allowed by a VM size. | [optional] [readonly] 
+**NumberOfCores** | Pointer to **NullableInt32** | the Number of cores supported by a VM size. | [optional] [readonly] 
+**OsDiskSizeInMB** | Pointer to **NullableInt32** | the OS disk size allowed by a VM size. | [optional] [readonly] 
+**ResourceDiskSizeInMB** | Pointer to **NullableInt32** | the Resource disk size allowed by a VM size. | [optional] [readonly] 
+**MemoryInMB** | Pointer to **NullableFloat64** | the Memory size supported by a VM size. | [optional] [readonly] 
+**MaxDataDiskCount** | Pointer to **NullableInt32** | the Maximum number of data disks allowed by a VM size. | [optional] [readonly] 
 **HyperVGen1** | Pointer to **bool** | Is compatible with HyperVGeneration V1 | [optional] [readonly] 
 **HyperVGen2** | Pointer to **bool** | Is compatible with HyperVGeneration V2 | [optional] [readonly] 
-**NumberofGPUs** | Pointer to **int32** | Specifies the number of GPUs in the VM SKU | [optional] [readonly] 
-**UsageType** | Pointer to **string** | The Usage Type that this VM size&#39;s Quota is associated with | [optional] [readonly] 
+**NumberofGPUs** | Pointer to **NullableInt32** | Specifies the number of GPUs in the VM SKU | [optional] [readonly] 
+**GpuMemoryInMB** | Pointer to **NullableFloat64** | The GPU memory in MB | [optional] [readonly] 
+**SupportedSessionsPerVm** | Pointer to **[]int32** | A set of supported sessions per vm for this sku. Valid only if sku is a cma phoenix sku | [optional] 
+**EstimatedCredits** | Pointer to **NullableFloat64** | The estimated credits per month per user for this sku. Valid only if sku is a cma phoenix sku | [optional] 
+**UsageType** | Pointer to **NullableString** | The Usage Type that this VM size&#39;s Quota is associated with | [optional] [readonly] 
 
 ## Methods
 
@@ -64,6 +67,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *AzureVMSize) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *AzureVMSize) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetDisplayName
 
 `func (o *AzureVMSize) GetDisplayName() string`
@@ -89,6 +102,16 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
+### SetDisplayNameNil
+
+`func (o *AzureVMSize) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *AzureVMSize) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetSku
 
 `func (o *AzureVMSize) GetSku() string`
@@ -114,6 +137,16 @@ SetSku sets Sku field to given value.
 
 HasSku returns a boolean if a field has been set.
 
+### SetSkuNil
+
+`func (o *AzureVMSize) SetSkuNil(b bool)`
+
+ SetSkuNil sets the value for Sku to be an explicit nil
+
+### UnsetSku
+`func (o *AzureVMSize) UnsetSku()`
+
+UnsetSku ensures that no value is present for Sku, not even an explicit nil
 ### GetIsBasicVM
 
 `func (o *AzureVMSize) GetIsBasicVM() bool`
@@ -214,6 +247,16 @@ SetNumberOfCores sets NumberOfCores field to given value.
 
 HasNumberOfCores returns a boolean if a field has been set.
 
+### SetNumberOfCoresNil
+
+`func (o *AzureVMSize) SetNumberOfCoresNil(b bool)`
+
+ SetNumberOfCoresNil sets the value for NumberOfCores to be an explicit nil
+
+### UnsetNumberOfCores
+`func (o *AzureVMSize) UnsetNumberOfCores()`
+
+UnsetNumberOfCores ensures that no value is present for NumberOfCores, not even an explicit nil
 ### GetOsDiskSizeInMB
 
 `func (o *AzureVMSize) GetOsDiskSizeInMB() int32`
@@ -239,6 +282,16 @@ SetOsDiskSizeInMB sets OsDiskSizeInMB field to given value.
 
 HasOsDiskSizeInMB returns a boolean if a field has been set.
 
+### SetOsDiskSizeInMBNil
+
+`func (o *AzureVMSize) SetOsDiskSizeInMBNil(b bool)`
+
+ SetOsDiskSizeInMBNil sets the value for OsDiskSizeInMB to be an explicit nil
+
+### UnsetOsDiskSizeInMB
+`func (o *AzureVMSize) UnsetOsDiskSizeInMB()`
+
+UnsetOsDiskSizeInMB ensures that no value is present for OsDiskSizeInMB, not even an explicit nil
 ### GetResourceDiskSizeInMB
 
 `func (o *AzureVMSize) GetResourceDiskSizeInMB() int32`
@@ -264,6 +317,16 @@ SetResourceDiskSizeInMB sets ResourceDiskSizeInMB field to given value.
 
 HasResourceDiskSizeInMB returns a boolean if a field has been set.
 
+### SetResourceDiskSizeInMBNil
+
+`func (o *AzureVMSize) SetResourceDiskSizeInMBNil(b bool)`
+
+ SetResourceDiskSizeInMBNil sets the value for ResourceDiskSizeInMB to be an explicit nil
+
+### UnsetResourceDiskSizeInMB
+`func (o *AzureVMSize) UnsetResourceDiskSizeInMB()`
+
+UnsetResourceDiskSizeInMB ensures that no value is present for ResourceDiskSizeInMB, not even an explicit nil
 ### GetMemoryInMB
 
 `func (o *AzureVMSize) GetMemoryInMB() float64`
@@ -289,6 +352,16 @@ SetMemoryInMB sets MemoryInMB field to given value.
 
 HasMemoryInMB returns a boolean if a field has been set.
 
+### SetMemoryInMBNil
+
+`func (o *AzureVMSize) SetMemoryInMBNil(b bool)`
+
+ SetMemoryInMBNil sets the value for MemoryInMB to be an explicit nil
+
+### UnsetMemoryInMB
+`func (o *AzureVMSize) UnsetMemoryInMB()`
+
+UnsetMemoryInMB ensures that no value is present for MemoryInMB, not even an explicit nil
 ### GetMaxDataDiskCount
 
 `func (o *AzureVMSize) GetMaxDataDiskCount() int32`
@@ -314,6 +387,16 @@ SetMaxDataDiskCount sets MaxDataDiskCount field to given value.
 
 HasMaxDataDiskCount returns a boolean if a field has been set.
 
+### SetMaxDataDiskCountNil
+
+`func (o *AzureVMSize) SetMaxDataDiskCountNil(b bool)`
+
+ SetMaxDataDiskCountNil sets the value for MaxDataDiskCount to be an explicit nil
+
+### UnsetMaxDataDiskCount
+`func (o *AzureVMSize) UnsetMaxDataDiskCount()`
+
+UnsetMaxDataDiskCount ensures that no value is present for MaxDataDiskCount, not even an explicit nil
 ### GetHyperVGen1
 
 `func (o *AzureVMSize) GetHyperVGen1() bool`
@@ -389,6 +472,121 @@ SetNumberofGPUs sets NumberofGPUs field to given value.
 
 HasNumberofGPUs returns a boolean if a field has been set.
 
+### SetNumberofGPUsNil
+
+`func (o *AzureVMSize) SetNumberofGPUsNil(b bool)`
+
+ SetNumberofGPUsNil sets the value for NumberofGPUs to be an explicit nil
+
+### UnsetNumberofGPUs
+`func (o *AzureVMSize) UnsetNumberofGPUs()`
+
+UnsetNumberofGPUs ensures that no value is present for NumberofGPUs, not even an explicit nil
+### GetGpuMemoryInMB
+
+`func (o *AzureVMSize) GetGpuMemoryInMB() float64`
+
+GetGpuMemoryInMB returns the GpuMemoryInMB field if non-nil, zero value otherwise.
+
+### GetGpuMemoryInMBOk
+
+`func (o *AzureVMSize) GetGpuMemoryInMBOk() (*float64, bool)`
+
+GetGpuMemoryInMBOk returns a tuple with the GpuMemoryInMB field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGpuMemoryInMB
+
+`func (o *AzureVMSize) SetGpuMemoryInMB(v float64)`
+
+SetGpuMemoryInMB sets GpuMemoryInMB field to given value.
+
+### HasGpuMemoryInMB
+
+`func (o *AzureVMSize) HasGpuMemoryInMB() bool`
+
+HasGpuMemoryInMB returns a boolean if a field has been set.
+
+### SetGpuMemoryInMBNil
+
+`func (o *AzureVMSize) SetGpuMemoryInMBNil(b bool)`
+
+ SetGpuMemoryInMBNil sets the value for GpuMemoryInMB to be an explicit nil
+
+### UnsetGpuMemoryInMB
+`func (o *AzureVMSize) UnsetGpuMemoryInMB()`
+
+UnsetGpuMemoryInMB ensures that no value is present for GpuMemoryInMB, not even an explicit nil
+### GetSupportedSessionsPerVm
+
+`func (o *AzureVMSize) GetSupportedSessionsPerVm() []int32`
+
+GetSupportedSessionsPerVm returns the SupportedSessionsPerVm field if non-nil, zero value otherwise.
+
+### GetSupportedSessionsPerVmOk
+
+`func (o *AzureVMSize) GetSupportedSessionsPerVmOk() (*[]int32, bool)`
+
+GetSupportedSessionsPerVmOk returns a tuple with the SupportedSessionsPerVm field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedSessionsPerVm
+
+`func (o *AzureVMSize) SetSupportedSessionsPerVm(v []int32)`
+
+SetSupportedSessionsPerVm sets SupportedSessionsPerVm field to given value.
+
+### HasSupportedSessionsPerVm
+
+`func (o *AzureVMSize) HasSupportedSessionsPerVm() bool`
+
+HasSupportedSessionsPerVm returns a boolean if a field has been set.
+
+### SetSupportedSessionsPerVmNil
+
+`func (o *AzureVMSize) SetSupportedSessionsPerVmNil(b bool)`
+
+ SetSupportedSessionsPerVmNil sets the value for SupportedSessionsPerVm to be an explicit nil
+
+### UnsetSupportedSessionsPerVm
+`func (o *AzureVMSize) UnsetSupportedSessionsPerVm()`
+
+UnsetSupportedSessionsPerVm ensures that no value is present for SupportedSessionsPerVm, not even an explicit nil
+### GetEstimatedCredits
+
+`func (o *AzureVMSize) GetEstimatedCredits() float64`
+
+GetEstimatedCredits returns the EstimatedCredits field if non-nil, zero value otherwise.
+
+### GetEstimatedCreditsOk
+
+`func (o *AzureVMSize) GetEstimatedCreditsOk() (*float64, bool)`
+
+GetEstimatedCreditsOk returns a tuple with the EstimatedCredits field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEstimatedCredits
+
+`func (o *AzureVMSize) SetEstimatedCredits(v float64)`
+
+SetEstimatedCredits sets EstimatedCredits field to given value.
+
+### HasEstimatedCredits
+
+`func (o *AzureVMSize) HasEstimatedCredits() bool`
+
+HasEstimatedCredits returns a boolean if a field has been set.
+
+### SetEstimatedCreditsNil
+
+`func (o *AzureVMSize) SetEstimatedCreditsNil(b bool)`
+
+ SetEstimatedCreditsNil sets the value for EstimatedCredits to be an explicit nil
+
+### UnsetEstimatedCredits
+`func (o *AzureVMSize) UnsetEstimatedCredits()`
+
+UnsetEstimatedCredits ensures that no value is present for EstimatedCredits, not even an explicit nil
 ### GetUsageType
 
 `func (o *AzureVMSize) GetUsageType() string`
@@ -414,6 +612,16 @@ SetUsageType sets UsageType field to given value.
 
 HasUsageType returns a boolean if a field has been set.
 
+### SetUsageTypeNil
+
+`func (o *AzureVMSize) SetUsageTypeNil(b bool)`
+
+ SetUsageTypeNil sets the value for UsageType to be an explicit nil
+
+### UnsetUsageType
+`func (o *AzureVMSize) UnsetUsageType()`
+
+UnsetUsageType ensures that no value is present for UsageType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **State** | Pointer to [**OnboardingState**](OnboardingState.md) | Current state of onboarind process | [optional] 
 **FailureReason** | Pointer to [**OnboardingFailureReason**](OnboardingFailureReason.md) | Reason codes that caused onboarding to fail | [optional] 
-**ErrorDetails** | Pointer to **string** | Failure details | [optional] 
+**ErrorDetails** | Pointer to **NullableString** | Failure details | [optional] 
 
 ## Methods
 
@@ -102,6 +102,16 @@ SetErrorDetails sets ErrorDetails field to given value.
 
 HasErrorDetails returns a boolean if a field has been set.
 
+### SetErrorDetailsNil
+
+`func (o *OnboardingStatusModel) SetErrorDetailsNil(b bool)`
+
+ SetErrorDetailsNil sets the value for ErrorDetails to be an explicit nil
+
+### UnsetErrorDetails
+`func (o *OnboardingStatusModel) UnsetErrorDetails()`
+
+UnsetErrorDetails ensures that no value is present for ErrorDetails, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

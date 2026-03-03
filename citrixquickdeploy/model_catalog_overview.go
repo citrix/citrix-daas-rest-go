@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &CatalogOverview{}
 // CatalogOverview Summary view of the catalog for EXTERNAL consumption
 type CatalogOverview struct {
 	// ID of the Azure Subscription linked to this catalog
-	AzureSubscriptionId *string `json:"azureSubscriptionId,omitempty"`
+	AzureSubscriptionId NullableString `json:"azureSubscriptionId,omitempty"`
 	// Unique identifier of the catalog
 	Id string `json:"id"`
 	// User configured name
@@ -31,7 +31,7 @@ type CatalogOverview struct {
 	// Indicates the manner in which machines are allocated to users
 	AllocationType *CatalogAllocationType `json:"allocationType,omitempty"`
 	// Indicates if catalogs that use statically allocated machines will have the disk contents persisted after shutdown
-	PersistStaticAllocatedVmDisks *bool `json:"persistStaticAllocatedVmDisks,omitempty"`
+	PersistStaticAllocatedVmDisks NullableBool `json:"persistStaticAllocatedVmDisks,omitempty"`
 	// The offeringId for the catalog to be used in Cloud Library operations
 	OfferingId string `json:"offeringId"`
 	// The Application offeringId for the catalog to be used in Cloud Library operations
@@ -45,72 +45,80 @@ type CatalogOverview struct {
 	// Status of the catalog
 	State CatalogOverallState `json:"state"`
 	// Sub Status of the catalog
-	SubState *CatalogOverallSubState `json:"subState,omitempty"`
-	Warnings []CatalogWarning        `json:"warnings,omitempty"`
+	SubState NullableCatalogOverallSubState `json:"subState,omitempty"`
+	Warnings []CatalogWarning               `json:"warnings,omitempty"`
 	// Current status of the catalog
-	StatusMessage *string `json:"statusMessage,omitempty"`
+	StatusMessage NullableString `json:"statusMessage,omitempty"`
 	// The string to displayed in UI for extra information
-	ExtraInfo *string `json:"extraInfo,omitempty"`
+	ExtraInfo NullableString `json:"extraInfo,omitempty"`
 	// The transaction id of the catalog deployment
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionId NullableString `json:"transactionId,omitempty"`
 	// ID of the Vnet Peering associated with the catalog
-	VnetPeeringId *string `json:"vnetPeeringId,omitempty"`
+	VnetPeeringId NullableString `json:"vnetPeeringId,omitempty"`
 	// Name of the Vnet Peering associated with the catalog
-	VnetPeeringName *string `json:"vnetPeeringName,omitempty"`
+	VnetPeeringName NullableString `json:"vnetPeeringName,omitempty"`
 	// ID of the Vpn Connection associated with the catalog
-	VpnConnectionId *string `json:"vpnConnectionId,omitempty"`
+	VpnConnectionId NullableString `json:"vpnConnectionId,omitempty"`
 	// Name of the Vpn Connection associated with the catalog
-	VpnConnectionName *string `json:"vpnConnectionName,omitempty"`
+	VpnConnectionName NullableString `json:"vpnConnectionName,omitempty"`
 	// Id of the Subscription that catalog VMs will be deployed to
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionId NullableString `json:"subscriptionId,omitempty"`
 	// Name of the Subscription that catalog VMs will be deployed to
 	SubscriptionName string `json:"subscriptionName"`
 	// Name of the resource group used for this catalog
 	ResourceGroup string `json:"resourceGroup"`
+	// Resource Group for the Template Specs used by the catalog
+	TemplateSpecResourceGroup NullableString `json:"templateSpecResourceGroup,omitempty"`
 	// The resource group for the VDAs in Azure
-	VdaResourceGroup *string `json:"vdaResourceGroup,omitempty"`
+	VdaResourceGroup NullableString `json:"vdaResourceGroup,omitempty"`
 	// The resource groups for the VDAs in Azure
-	VdaProvisioningSchemeId *string `json:"vdaProvisioningSchemeId,omitempty"`
+	VdaProvisioningSchemeId NullableString `json:"vdaProvisioningSchemeId,omitempty"`
 	// The resource groups for the VDAs in Azure
-	AreMcsVdaResourceGroupsUsed *bool `json:"areMcsVdaResourceGroupsUsed,omitempty"`
+	AreMcsVdaResourceGroupsUsed NullableBool `json:"areMcsVdaResourceGroupsUsed,omitempty"`
 	// ID of the Resource Location associated with the catalog
-	ResourceLocationId *string `json:"resourceLocationId,omitempty"`
+	ResourceLocationId NullableString `json:"resourceLocationId,omitempty"`
 	// Azure region where VMs are deployed for this catalog
 	Region string `json:"region"`
 	// Name of the vnet assigned to the catalog
 	VNetName string `json:"vNetName"`
 	// The subnet that is associated with the catalog's VNet
-	Subnet *string `json:"subnet,omitempty"`
+	Subnet NullableString `json:"subnet,omitempty"`
 	// The flag to indicate if the catalog is joined with customer domain
-	DomainJoined *bool `json:"domainJoined,omitempty"`
+	DomainJoined NullableBool `json:"domainJoined,omitempty"`
 	// Name of the domain that the catalog's VMs will join
-	DomainName *string `json:"domainName,omitempty"`
+	DomainName NullableString `json:"domainName,omitempty"`
 	// OU of the domain we are joining
-	DomainOU *string `json:"domainOU,omitempty"`
+	DomainOU NullableString `json:"domainOU,omitempty"`
 	// Name of the service account that will perform domain join opperations
-	DomainServiceAccount *string `json:"domainServiceAccount,omitempty"`
+	DomainServiceAccount NullableString `json:"domainServiceAccount,omitempty"`
+	// Service account to associate to the IdentityPool.  Used for Pure Entra ID joined catalogs.
+	ServiceAccountUid NullableString `json:"serviceAccountUid,omitempty"`
 	// Type of the VM machines used to create VDAs
-	VmTypeInstanceType *string `json:"vmTypeInstanceType,omitempty"`
+	VmTypeInstanceType NullableString `json:"vmTypeInstanceType,omitempty"`
 	// ID of the image that is used by the catalog
-	ImageId *string `json:"imageId,omitempty"`
+	ImageId NullableString `json:"imageId,omitempty"`
 	// Name of the template image that we are using for this catalog
-	TemplateImageName *string `json:"templateImageName,omitempty"`
+	TemplateImageName NullableString `json:"templateImageName,omitempty"`
 	// Os type of the template image that we are using for this catalog
-	TemplateImageOs *string `json:"templateImageOs,omitempty"`
+	TemplateImageOs NullableString `json:"templateImageOs,omitempty"`
 	// Indicates that partner-tenant relationship exists if not null
-	CitrixManaged *bool `json:"citrixManaged,omitempty"`
+	CitrixManaged NullableBool `json:"citrixManaged,omitempty"`
 	// Indicates that partner-tenant relationship exists if not null
-	CspCustomer *string `json:"cspCustomer,omitempty"`
+	CspCustomer NullableString `json:"cspCustomer,omitempty"`
 	// Maximum number of machines assigned to the catalog
-	TotalMachinesInCatalog *int32 `json:"totalMachinesInCatalog,omitempty"`
+	TotalMachinesInCatalog NullableInt32 `json:"totalMachinesInCatalog,omitempty"`
+	// The number of users that the catalog should support (user defined value)
+	NumOfUsers NullableInt32 `json:"numOfUsers,omitempty"`
+	// The maximum number of users supported by the catalog (TotalMachines * Sessions per VM)
+	MaxNumOfUsers NullableInt32 `json:"maxNumOfUsers,omitempty"`
 	// Indicates whether or not write back cache is enabled for the VMs created from this provisioning scheme.
-	WriteBackCacheConfiguration *WbcConfig `json:"writeBackCacheConfiguration,omitempty"`
+	WriteBackCacheConfiguration NullableWbcConfig `json:"writeBackCacheConfiguration,omitempty"`
 	// Percentage complete the current task being performed on the catalog is at
-	TaskCompletionPercentage *int32 `json:"taskCompletionPercentage,omitempty"`
+	TaskCompletionPercentage NullableInt32 `json:"taskCompletionPercentage,omitempty"`
 	// Last time when the catalog was modified
-	LastModifiedTime *time.Time `json:"lastModifiedTime,omitempty"`
+	LastModifiedTime NullableTime `json:"lastModifiedTime,omitempty"`
 	// Last backup time for the catalog's VDAs
-	LastBackupTime *time.Time `json:"lastBackupTime,omitempty"`
+	LastBackupTime NullableTime `json:"lastBackupTime,omitempty"`
 	// Indicates if this is a remote pc catalog
 	IsRemotePcCatalog *bool `json:"isRemotePcCatalog,omitempty"`
 	// Indicates if the machines in the catalog will be Azure AD joined
@@ -121,6 +129,12 @@ type CatalogOverview struct {
 	OrganizationalUnits []RemotePCEnrollmentScopeResponseModel `json:"organizationalUnits,omitempty"`
 	// Indicates whether machines in catalog support hibernation
 	SupportsHibernation *bool `json:"supportsHibernation,omitempty"`
+	// Specifies whether to enable accelerated networking on the VM NIC
+	EnableAcceleratedNetworking *bool `json:"enableAcceleratedNetworking,omitempty"`
+	// Indicates whether encryption at the host level is enabled.
+	EnableEncryptionAtHost *bool `json:"enableEncryptionAtHost,omitempty"`
+	// The type of catalog
+	CatalogType *CatalogType `json:"catalogType,omitempty"`
 }
 
 // NewCatalogOverviewWithDefaults instantiates a new CatalogOverview object
@@ -131,27 +145,38 @@ func NewCatalogOverviewWithDefaults() *CatalogOverview {
 	return &this
 }
 
-// GetAzureSubscriptionId returns the AzureSubscriptionId field value if set, zero value otherwise.
+// GetAzureSubscriptionId returns the AzureSubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetAzureSubscriptionId() string {
-	if o == nil || IsNil(o.AzureSubscriptionId) {
+	if o == nil || IsNil(o.AzureSubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzureSubscriptionId
+	return *o.AzureSubscriptionId.Get()
 }
 
 // GetAzureSubscriptionIdOk returns a tuple with the AzureSubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetAzureSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AzureSubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureSubscriptionId, true
+	return o.AzureSubscriptionId.Get(), o.AzureSubscriptionId.IsSet()
 }
 
-// SetAzureSubscriptionId gets a reference to the given string and assigns it to the AzureSubscriptionId field.
+// SetAzureSubscriptionId gets a reference to the given NullableString and assigns it to the AzureSubscriptionId field.
 func (o *CatalogOverview) SetAzureSubscriptionId(v string) {
-	o.AzureSubscriptionId = &v
+	o.AzureSubscriptionId.Set(&v)
+}
+
+// SetAzureSubscriptionIdNil sets the value for AzureSubscriptionId to be an explicit nil
+func (o *CatalogOverview) SetAzureSubscriptionIdNil() {
+	o.AzureSubscriptionId.Set(nil)
+}
+
+// UnsetAzureSubscriptionId ensures that no value is present for AzureSubscriptionId, not even an explicit nil
+func (o *CatalogOverview) UnsetAzureSubscriptionId() {
+	o.AzureSubscriptionId.Unset()
 }
 
 // GetId returns the Id field value
@@ -248,27 +273,38 @@ func (o *CatalogOverview) SetAllocationType(v CatalogAllocationType) {
 	o.AllocationType = &v
 }
 
-// GetPersistStaticAllocatedVmDisks returns the PersistStaticAllocatedVmDisks field value if set, zero value otherwise.
+// GetPersistStaticAllocatedVmDisks returns the PersistStaticAllocatedVmDisks field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetPersistStaticAllocatedVmDisks() bool {
-	if o == nil || IsNil(o.PersistStaticAllocatedVmDisks) {
+	if o == nil || IsNil(o.PersistStaticAllocatedVmDisks.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.PersistStaticAllocatedVmDisks
+	return *o.PersistStaticAllocatedVmDisks.Get()
 }
 
 // GetPersistStaticAllocatedVmDisksOk returns a tuple with the PersistStaticAllocatedVmDisks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetPersistStaticAllocatedVmDisksOk() (*bool, bool) {
-	if o == nil || IsNil(o.PersistStaticAllocatedVmDisks) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PersistStaticAllocatedVmDisks, true
+	return o.PersistStaticAllocatedVmDisks.Get(), o.PersistStaticAllocatedVmDisks.IsSet()
 }
 
-// SetPersistStaticAllocatedVmDisks gets a reference to the given bool and assigns it to the PersistStaticAllocatedVmDisks field.
+// SetPersistStaticAllocatedVmDisks gets a reference to the given NullableBool and assigns it to the PersistStaticAllocatedVmDisks field.
 func (o *CatalogOverview) SetPersistStaticAllocatedVmDisks(v bool) {
-	o.PersistStaticAllocatedVmDisks = &v
+	o.PersistStaticAllocatedVmDisks.Set(&v)
+}
+
+// SetPersistStaticAllocatedVmDisksNil sets the value for PersistStaticAllocatedVmDisks to be an explicit nil
+func (o *CatalogOverview) SetPersistStaticAllocatedVmDisksNil() {
+	o.PersistStaticAllocatedVmDisks.Set(nil)
+}
+
+// UnsetPersistStaticAllocatedVmDisks ensures that no value is present for PersistStaticAllocatedVmDisks, not even an explicit nil
+func (o *CatalogOverview) UnsetPersistStaticAllocatedVmDisks() {
+	o.PersistStaticAllocatedVmDisks.Unset()
 }
 
 // GetOfferingId returns the OfferingId field value
@@ -415,32 +451,43 @@ func (o *CatalogOverview) SetState(v CatalogOverallState) {
 	o.State = v
 }
 
-// GetSubState returns the SubState field value if set, zero value otherwise.
+// GetSubState returns the SubState field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetSubState() CatalogOverallSubState {
-	if o == nil || IsNil(o.SubState) {
+	if o == nil || IsNil(o.SubState.Get()) {
 		var ret CatalogOverallSubState
 		return ret
 	}
-	return *o.SubState
+	return *o.SubState.Get()
 }
 
 // GetSubStateOk returns a tuple with the SubState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetSubStateOk() (*CatalogOverallSubState, bool) {
-	if o == nil || IsNil(o.SubState) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubState, true
+	return o.SubState.Get(), o.SubState.IsSet()
 }
 
-// SetSubState gets a reference to the given CatalogOverallSubState and assigns it to the SubState field.
+// SetSubState gets a reference to the given NullableCatalogOverallSubState and assigns it to the SubState field.
 func (o *CatalogOverview) SetSubState(v CatalogOverallSubState) {
-	o.SubState = &v
+	o.SubState.Set(&v)
 }
 
-// GetWarnings returns the Warnings field value if set, zero value otherwise.
+// SetSubStateNil sets the value for SubState to be an explicit nil
+func (o *CatalogOverview) SetSubStateNil() {
+	o.SubState.Set(nil)
+}
+
+// UnsetSubState ensures that no value is present for SubState, not even an explicit nil
+func (o *CatalogOverview) UnsetSubState() {
+	o.SubState.Unset()
+}
+
+// GetWarnings returns the Warnings field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetWarnings() []CatalogWarning {
-	if o == nil || IsNil(o.Warnings) {
+	if o == nil {
 		var ret []CatalogWarning
 		return ret
 	}
@@ -449,6 +496,7 @@ func (o *CatalogOverview) GetWarnings() []CatalogWarning {
 
 // GetWarningsOk returns a tuple with the Warnings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetWarningsOk() ([]CatalogWarning, bool) {
 	if o == nil || IsNil(o.Warnings) {
 		return nil, false
@@ -461,188 +509,276 @@ func (o *CatalogOverview) SetWarnings(v []CatalogWarning) {
 	o.Warnings = v
 }
 
-// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise.
+// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetStatusMessage() string {
-	if o == nil || IsNil(o.StatusMessage) {
+	if o == nil || IsNil(o.StatusMessage.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.StatusMessage
+	return *o.StatusMessage.Get()
 }
 
 // GetStatusMessageOk returns a tuple with the StatusMessage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetStatusMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.StatusMessage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StatusMessage, true
+	return o.StatusMessage.Get(), o.StatusMessage.IsSet()
 }
 
-// SetStatusMessage gets a reference to the given string and assigns it to the StatusMessage field.
+// SetStatusMessage gets a reference to the given NullableString and assigns it to the StatusMessage field.
 func (o *CatalogOverview) SetStatusMessage(v string) {
-	o.StatusMessage = &v
+	o.StatusMessage.Set(&v)
 }
 
-// GetExtraInfo returns the ExtraInfo field value if set, zero value otherwise.
+// SetStatusMessageNil sets the value for StatusMessage to be an explicit nil
+func (o *CatalogOverview) SetStatusMessageNil() {
+	o.StatusMessage.Set(nil)
+}
+
+// UnsetStatusMessage ensures that no value is present for StatusMessage, not even an explicit nil
+func (o *CatalogOverview) UnsetStatusMessage() {
+	o.StatusMessage.Unset()
+}
+
+// GetExtraInfo returns the ExtraInfo field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetExtraInfo() string {
-	if o == nil || IsNil(o.ExtraInfo) {
+	if o == nil || IsNil(o.ExtraInfo.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ExtraInfo
+	return *o.ExtraInfo.Get()
 }
 
 // GetExtraInfoOk returns a tuple with the ExtraInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetExtraInfoOk() (*string, bool) {
-	if o == nil || IsNil(o.ExtraInfo) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ExtraInfo, true
+	return o.ExtraInfo.Get(), o.ExtraInfo.IsSet()
 }
 
-// SetExtraInfo gets a reference to the given string and assigns it to the ExtraInfo field.
+// SetExtraInfo gets a reference to the given NullableString and assigns it to the ExtraInfo field.
 func (o *CatalogOverview) SetExtraInfo(v string) {
-	o.ExtraInfo = &v
+	o.ExtraInfo.Set(&v)
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// SetExtraInfoNil sets the value for ExtraInfo to be an explicit nil
+func (o *CatalogOverview) SetExtraInfoNil() {
+	o.ExtraInfo.Set(nil)
+}
+
+// UnsetExtraInfo ensures that no value is present for ExtraInfo, not even an explicit nil
+func (o *CatalogOverview) UnsetExtraInfo() {
+	o.ExtraInfo.Unset()
+}
+
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *CatalogOverview) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
 }
 
-// GetVnetPeeringId returns the VnetPeeringId field value if set, zero value otherwise.
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *CatalogOverview) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *CatalogOverview) UnsetTransactionId() {
+	o.TransactionId.Unset()
+}
+
+// GetVnetPeeringId returns the VnetPeeringId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetVnetPeeringId() string {
-	if o == nil || IsNil(o.VnetPeeringId) {
+	if o == nil || IsNil(o.VnetPeeringId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VnetPeeringId
+	return *o.VnetPeeringId.Get()
 }
 
 // GetVnetPeeringIdOk returns a tuple with the VnetPeeringId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetVnetPeeringIdOk() (*string, bool) {
-	if o == nil || IsNil(o.VnetPeeringId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VnetPeeringId, true
+	return o.VnetPeeringId.Get(), o.VnetPeeringId.IsSet()
 }
 
-// SetVnetPeeringId gets a reference to the given string and assigns it to the VnetPeeringId field.
+// SetVnetPeeringId gets a reference to the given NullableString and assigns it to the VnetPeeringId field.
 func (o *CatalogOverview) SetVnetPeeringId(v string) {
-	o.VnetPeeringId = &v
+	o.VnetPeeringId.Set(&v)
 }
 
-// GetVnetPeeringName returns the VnetPeeringName field value if set, zero value otherwise.
+// SetVnetPeeringIdNil sets the value for VnetPeeringId to be an explicit nil
+func (o *CatalogOverview) SetVnetPeeringIdNil() {
+	o.VnetPeeringId.Set(nil)
+}
+
+// UnsetVnetPeeringId ensures that no value is present for VnetPeeringId, not even an explicit nil
+func (o *CatalogOverview) UnsetVnetPeeringId() {
+	o.VnetPeeringId.Unset()
+}
+
+// GetVnetPeeringName returns the VnetPeeringName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetVnetPeeringName() string {
-	if o == nil || IsNil(o.VnetPeeringName) {
+	if o == nil || IsNil(o.VnetPeeringName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VnetPeeringName
+	return *o.VnetPeeringName.Get()
 }
 
 // GetVnetPeeringNameOk returns a tuple with the VnetPeeringName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetVnetPeeringNameOk() (*string, bool) {
-	if o == nil || IsNil(o.VnetPeeringName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VnetPeeringName, true
+	return o.VnetPeeringName.Get(), o.VnetPeeringName.IsSet()
 }
 
-// SetVnetPeeringName gets a reference to the given string and assigns it to the VnetPeeringName field.
+// SetVnetPeeringName gets a reference to the given NullableString and assigns it to the VnetPeeringName field.
 func (o *CatalogOverview) SetVnetPeeringName(v string) {
-	o.VnetPeeringName = &v
+	o.VnetPeeringName.Set(&v)
 }
 
-// GetVpnConnectionId returns the VpnConnectionId field value if set, zero value otherwise.
+// SetVnetPeeringNameNil sets the value for VnetPeeringName to be an explicit nil
+func (o *CatalogOverview) SetVnetPeeringNameNil() {
+	o.VnetPeeringName.Set(nil)
+}
+
+// UnsetVnetPeeringName ensures that no value is present for VnetPeeringName, not even an explicit nil
+func (o *CatalogOverview) UnsetVnetPeeringName() {
+	o.VnetPeeringName.Unset()
+}
+
+// GetVpnConnectionId returns the VpnConnectionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetVpnConnectionId() string {
-	if o == nil || IsNil(o.VpnConnectionId) {
+	if o == nil || IsNil(o.VpnConnectionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VpnConnectionId
+	return *o.VpnConnectionId.Get()
 }
 
 // GetVpnConnectionIdOk returns a tuple with the VpnConnectionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetVpnConnectionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.VpnConnectionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VpnConnectionId, true
+	return o.VpnConnectionId.Get(), o.VpnConnectionId.IsSet()
 }
 
-// SetVpnConnectionId gets a reference to the given string and assigns it to the VpnConnectionId field.
+// SetVpnConnectionId gets a reference to the given NullableString and assigns it to the VpnConnectionId field.
 func (o *CatalogOverview) SetVpnConnectionId(v string) {
-	o.VpnConnectionId = &v
+	o.VpnConnectionId.Set(&v)
 }
 
-// GetVpnConnectionName returns the VpnConnectionName field value if set, zero value otherwise.
+// SetVpnConnectionIdNil sets the value for VpnConnectionId to be an explicit nil
+func (o *CatalogOverview) SetVpnConnectionIdNil() {
+	o.VpnConnectionId.Set(nil)
+}
+
+// UnsetVpnConnectionId ensures that no value is present for VpnConnectionId, not even an explicit nil
+func (o *CatalogOverview) UnsetVpnConnectionId() {
+	o.VpnConnectionId.Unset()
+}
+
+// GetVpnConnectionName returns the VpnConnectionName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetVpnConnectionName() string {
-	if o == nil || IsNil(o.VpnConnectionName) {
+	if o == nil || IsNil(o.VpnConnectionName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VpnConnectionName
+	return *o.VpnConnectionName.Get()
 }
 
 // GetVpnConnectionNameOk returns a tuple with the VpnConnectionName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetVpnConnectionNameOk() (*string, bool) {
-	if o == nil || IsNil(o.VpnConnectionName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VpnConnectionName, true
+	return o.VpnConnectionName.Get(), o.VpnConnectionName.IsSet()
 }
 
-// SetVpnConnectionName gets a reference to the given string and assigns it to the VpnConnectionName field.
+// SetVpnConnectionName gets a reference to the given NullableString and assigns it to the VpnConnectionName field.
 func (o *CatalogOverview) SetVpnConnectionName(v string) {
-	o.VpnConnectionName = &v
+	o.VpnConnectionName.Set(&v)
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// SetVpnConnectionNameNil sets the value for VpnConnectionName to be an explicit nil
+func (o *CatalogOverview) SetVpnConnectionNameNil() {
+	o.VpnConnectionName.Set(nil)
+}
+
+// UnsetVpnConnectionName ensures that no value is present for VpnConnectionName, not even an explicit nil
+func (o *CatalogOverview) UnsetVpnConnectionName() {
+	o.VpnConnectionName.Unset()
+}
+
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *CatalogOverview) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
+}
+
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *CatalogOverview) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *CatalogOverview) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
 }
 
 // GetSubscriptionName returns the SubscriptionName field value
@@ -693,96 +829,174 @@ func (o *CatalogOverview) SetResourceGroup(v string) {
 	o.ResourceGroup = v
 }
 
-// GetVdaResourceGroup returns the VdaResourceGroup field value if set, zero value otherwise.
-func (o *CatalogOverview) GetVdaResourceGroup() string {
-	if o == nil || IsNil(o.VdaResourceGroup) {
+// GetTemplateSpecResourceGroup returns the TemplateSpecResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CatalogOverview) GetTemplateSpecResourceGroup() string {
+	if o == nil || IsNil(o.TemplateSpecResourceGroup.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VdaResourceGroup
+	return *o.TemplateSpecResourceGroup.Get()
+}
+
+// GetTemplateSpecResourceGroupOk returns a tuple with the TemplateSpecResourceGroup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CatalogOverview) GetTemplateSpecResourceGroupOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TemplateSpecResourceGroup.Get(), o.TemplateSpecResourceGroup.IsSet()
+}
+
+// SetTemplateSpecResourceGroup gets a reference to the given NullableString and assigns it to the TemplateSpecResourceGroup field.
+func (o *CatalogOverview) SetTemplateSpecResourceGroup(v string) {
+	o.TemplateSpecResourceGroup.Set(&v)
+}
+
+// SetTemplateSpecResourceGroupNil sets the value for TemplateSpecResourceGroup to be an explicit nil
+func (o *CatalogOverview) SetTemplateSpecResourceGroupNil() {
+	o.TemplateSpecResourceGroup.Set(nil)
+}
+
+// UnsetTemplateSpecResourceGroup ensures that no value is present for TemplateSpecResourceGroup, not even an explicit nil
+func (o *CatalogOverview) UnsetTemplateSpecResourceGroup() {
+	o.TemplateSpecResourceGroup.Unset()
+}
+
+// GetVdaResourceGroup returns the VdaResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CatalogOverview) GetVdaResourceGroup() string {
+	if o == nil || IsNil(o.VdaResourceGroup.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VdaResourceGroup.Get()
 }
 
 // GetVdaResourceGroupOk returns a tuple with the VdaResourceGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetVdaResourceGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.VdaResourceGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VdaResourceGroup, true
+	return o.VdaResourceGroup.Get(), o.VdaResourceGroup.IsSet()
 }
 
-// SetVdaResourceGroup gets a reference to the given string and assigns it to the VdaResourceGroup field.
+// SetVdaResourceGroup gets a reference to the given NullableString and assigns it to the VdaResourceGroup field.
 func (o *CatalogOverview) SetVdaResourceGroup(v string) {
-	o.VdaResourceGroup = &v
+	o.VdaResourceGroup.Set(&v)
 }
 
-// GetVdaProvisioningSchemeId returns the VdaProvisioningSchemeId field value if set, zero value otherwise.
+// SetVdaResourceGroupNil sets the value for VdaResourceGroup to be an explicit nil
+func (o *CatalogOverview) SetVdaResourceGroupNil() {
+	o.VdaResourceGroup.Set(nil)
+}
+
+// UnsetVdaResourceGroup ensures that no value is present for VdaResourceGroup, not even an explicit nil
+func (o *CatalogOverview) UnsetVdaResourceGroup() {
+	o.VdaResourceGroup.Unset()
+}
+
+// GetVdaProvisioningSchemeId returns the VdaProvisioningSchemeId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetVdaProvisioningSchemeId() string {
-	if o == nil || IsNil(o.VdaProvisioningSchemeId) {
+	if o == nil || IsNil(o.VdaProvisioningSchemeId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VdaProvisioningSchemeId
+	return *o.VdaProvisioningSchemeId.Get()
 }
 
 // GetVdaProvisioningSchemeIdOk returns a tuple with the VdaProvisioningSchemeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetVdaProvisioningSchemeIdOk() (*string, bool) {
-	if o == nil || IsNil(o.VdaProvisioningSchemeId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VdaProvisioningSchemeId, true
+	return o.VdaProvisioningSchemeId.Get(), o.VdaProvisioningSchemeId.IsSet()
 }
 
-// SetVdaProvisioningSchemeId gets a reference to the given string and assigns it to the VdaProvisioningSchemeId field.
+// SetVdaProvisioningSchemeId gets a reference to the given NullableString and assigns it to the VdaProvisioningSchemeId field.
 func (o *CatalogOverview) SetVdaProvisioningSchemeId(v string) {
-	o.VdaProvisioningSchemeId = &v
+	o.VdaProvisioningSchemeId.Set(&v)
 }
 
-// GetAreMcsVdaResourceGroupsUsed returns the AreMcsVdaResourceGroupsUsed field value if set, zero value otherwise.
+// SetVdaProvisioningSchemeIdNil sets the value for VdaProvisioningSchemeId to be an explicit nil
+func (o *CatalogOverview) SetVdaProvisioningSchemeIdNil() {
+	o.VdaProvisioningSchemeId.Set(nil)
+}
+
+// UnsetVdaProvisioningSchemeId ensures that no value is present for VdaProvisioningSchemeId, not even an explicit nil
+func (o *CatalogOverview) UnsetVdaProvisioningSchemeId() {
+	o.VdaProvisioningSchemeId.Unset()
+}
+
+// GetAreMcsVdaResourceGroupsUsed returns the AreMcsVdaResourceGroupsUsed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetAreMcsVdaResourceGroupsUsed() bool {
-	if o == nil || IsNil(o.AreMcsVdaResourceGroupsUsed) {
+	if o == nil || IsNil(o.AreMcsVdaResourceGroupsUsed.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.AreMcsVdaResourceGroupsUsed
+	return *o.AreMcsVdaResourceGroupsUsed.Get()
 }
 
 // GetAreMcsVdaResourceGroupsUsedOk returns a tuple with the AreMcsVdaResourceGroupsUsed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetAreMcsVdaResourceGroupsUsedOk() (*bool, bool) {
-	if o == nil || IsNil(o.AreMcsVdaResourceGroupsUsed) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AreMcsVdaResourceGroupsUsed, true
+	return o.AreMcsVdaResourceGroupsUsed.Get(), o.AreMcsVdaResourceGroupsUsed.IsSet()
 }
 
-// SetAreMcsVdaResourceGroupsUsed gets a reference to the given bool and assigns it to the AreMcsVdaResourceGroupsUsed field.
+// SetAreMcsVdaResourceGroupsUsed gets a reference to the given NullableBool and assigns it to the AreMcsVdaResourceGroupsUsed field.
 func (o *CatalogOverview) SetAreMcsVdaResourceGroupsUsed(v bool) {
-	o.AreMcsVdaResourceGroupsUsed = &v
+	o.AreMcsVdaResourceGroupsUsed.Set(&v)
 }
 
-// GetResourceLocationId returns the ResourceLocationId field value if set, zero value otherwise.
+// SetAreMcsVdaResourceGroupsUsedNil sets the value for AreMcsVdaResourceGroupsUsed to be an explicit nil
+func (o *CatalogOverview) SetAreMcsVdaResourceGroupsUsedNil() {
+	o.AreMcsVdaResourceGroupsUsed.Set(nil)
+}
+
+// UnsetAreMcsVdaResourceGroupsUsed ensures that no value is present for AreMcsVdaResourceGroupsUsed, not even an explicit nil
+func (o *CatalogOverview) UnsetAreMcsVdaResourceGroupsUsed() {
+	o.AreMcsVdaResourceGroupsUsed.Unset()
+}
+
+// GetResourceLocationId returns the ResourceLocationId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetResourceLocationId() string {
-	if o == nil || IsNil(o.ResourceLocationId) {
+	if o == nil || IsNil(o.ResourceLocationId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResourceLocationId
+	return *o.ResourceLocationId.Get()
 }
 
 // GetResourceLocationIdOk returns a tuple with the ResourceLocationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetResourceLocationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceLocationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceLocationId, true
+	return o.ResourceLocationId.Get(), o.ResourceLocationId.IsSet()
 }
 
-// SetResourceLocationId gets a reference to the given string and assigns it to the ResourceLocationId field.
+// SetResourceLocationId gets a reference to the given NullableString and assigns it to the ResourceLocationId field.
 func (o *CatalogOverview) SetResourceLocationId(v string) {
-	o.ResourceLocationId = &v
+	o.ResourceLocationId.Set(&v)
+}
+
+// SetResourceLocationIdNil sets the value for ResourceLocationId to be an explicit nil
+func (o *CatalogOverview) SetResourceLocationIdNil() {
+	o.ResourceLocationId.Set(nil)
+}
+
+// UnsetResourceLocationId ensures that no value is present for ResourceLocationId, not even an explicit nil
+func (o *CatalogOverview) UnsetResourceLocationId() {
+	o.ResourceLocationId.Unset()
 }
 
 // GetRegion returns the Region field value
@@ -833,372 +1047,650 @@ func (o *CatalogOverview) SetVNetName(v string) {
 	o.VNetName = v
 }
 
-// GetSubnet returns the Subnet field value if set, zero value otherwise.
+// GetSubnet returns the Subnet field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetSubnet() string {
-	if o == nil || IsNil(o.Subnet) {
+	if o == nil || IsNil(o.Subnet.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Subnet
+	return *o.Subnet.Get()
 }
 
 // GetSubnetOk returns a tuple with the Subnet field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetSubnetOk() (*string, bool) {
-	if o == nil || IsNil(o.Subnet) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Subnet, true
+	return o.Subnet.Get(), o.Subnet.IsSet()
 }
 
-// SetSubnet gets a reference to the given string and assigns it to the Subnet field.
+// SetSubnet gets a reference to the given NullableString and assigns it to the Subnet field.
 func (o *CatalogOverview) SetSubnet(v string) {
-	o.Subnet = &v
+	o.Subnet.Set(&v)
 }
 
-// GetDomainJoined returns the DomainJoined field value if set, zero value otherwise.
+// SetSubnetNil sets the value for Subnet to be an explicit nil
+func (o *CatalogOverview) SetSubnetNil() {
+	o.Subnet.Set(nil)
+}
+
+// UnsetSubnet ensures that no value is present for Subnet, not even an explicit nil
+func (o *CatalogOverview) UnsetSubnet() {
+	o.Subnet.Unset()
+}
+
+// GetDomainJoined returns the DomainJoined field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetDomainJoined() bool {
-	if o == nil || IsNil(o.DomainJoined) {
+	if o == nil || IsNil(o.DomainJoined.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.DomainJoined
+	return *o.DomainJoined.Get()
 }
 
 // GetDomainJoinedOk returns a tuple with the DomainJoined field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetDomainJoinedOk() (*bool, bool) {
-	if o == nil || IsNil(o.DomainJoined) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainJoined, true
+	return o.DomainJoined.Get(), o.DomainJoined.IsSet()
 }
 
-// SetDomainJoined gets a reference to the given bool and assigns it to the DomainJoined field.
+// SetDomainJoined gets a reference to the given NullableBool and assigns it to the DomainJoined field.
 func (o *CatalogOverview) SetDomainJoined(v bool) {
-	o.DomainJoined = &v
+	o.DomainJoined.Set(&v)
 }
 
-// GetDomainName returns the DomainName field value if set, zero value otherwise.
+// SetDomainJoinedNil sets the value for DomainJoined to be an explicit nil
+func (o *CatalogOverview) SetDomainJoinedNil() {
+	o.DomainJoined.Set(nil)
+}
+
+// UnsetDomainJoined ensures that no value is present for DomainJoined, not even an explicit nil
+func (o *CatalogOverview) UnsetDomainJoined() {
+	o.DomainJoined.Unset()
+}
+
+// GetDomainName returns the DomainName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetDomainName() string {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil || IsNil(o.DomainName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DomainName
+	return *o.DomainName.Get()
 }
 
 // GetDomainNameOk returns a tuple with the DomainName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetDomainNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainName, true
+	return o.DomainName.Get(), o.DomainName.IsSet()
 }
 
-// SetDomainName gets a reference to the given string and assigns it to the DomainName field.
+// SetDomainName gets a reference to the given NullableString and assigns it to the DomainName field.
 func (o *CatalogOverview) SetDomainName(v string) {
-	o.DomainName = &v
+	o.DomainName.Set(&v)
 }
 
-// GetDomainOU returns the DomainOU field value if set, zero value otherwise.
+// SetDomainNameNil sets the value for DomainName to be an explicit nil
+func (o *CatalogOverview) SetDomainNameNil() {
+	o.DomainName.Set(nil)
+}
+
+// UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
+func (o *CatalogOverview) UnsetDomainName() {
+	o.DomainName.Unset()
+}
+
+// GetDomainOU returns the DomainOU field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetDomainOU() string {
-	if o == nil || IsNil(o.DomainOU) {
+	if o == nil || IsNil(o.DomainOU.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DomainOU
+	return *o.DomainOU.Get()
 }
 
 // GetDomainOUOk returns a tuple with the DomainOU field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetDomainOUOk() (*string, bool) {
-	if o == nil || IsNil(o.DomainOU) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainOU, true
+	return o.DomainOU.Get(), o.DomainOU.IsSet()
 }
 
-// SetDomainOU gets a reference to the given string and assigns it to the DomainOU field.
+// SetDomainOU gets a reference to the given NullableString and assigns it to the DomainOU field.
 func (o *CatalogOverview) SetDomainOU(v string) {
-	o.DomainOU = &v
+	o.DomainOU.Set(&v)
 }
 
-// GetDomainServiceAccount returns the DomainServiceAccount field value if set, zero value otherwise.
+// SetDomainOUNil sets the value for DomainOU to be an explicit nil
+func (o *CatalogOverview) SetDomainOUNil() {
+	o.DomainOU.Set(nil)
+}
+
+// UnsetDomainOU ensures that no value is present for DomainOU, not even an explicit nil
+func (o *CatalogOverview) UnsetDomainOU() {
+	o.DomainOU.Unset()
+}
+
+// GetDomainServiceAccount returns the DomainServiceAccount field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetDomainServiceAccount() string {
-	if o == nil || IsNil(o.DomainServiceAccount) {
+	if o == nil || IsNil(o.DomainServiceAccount.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DomainServiceAccount
+	return *o.DomainServiceAccount.Get()
 }
 
 // GetDomainServiceAccountOk returns a tuple with the DomainServiceAccount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetDomainServiceAccountOk() (*string, bool) {
-	if o == nil || IsNil(o.DomainServiceAccount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainServiceAccount, true
+	return o.DomainServiceAccount.Get(), o.DomainServiceAccount.IsSet()
 }
 
-// SetDomainServiceAccount gets a reference to the given string and assigns it to the DomainServiceAccount field.
+// SetDomainServiceAccount gets a reference to the given NullableString and assigns it to the DomainServiceAccount field.
 func (o *CatalogOverview) SetDomainServiceAccount(v string) {
-	o.DomainServiceAccount = &v
+	o.DomainServiceAccount.Set(&v)
 }
 
-// GetVmTypeInstanceType returns the VmTypeInstanceType field value if set, zero value otherwise.
-func (o *CatalogOverview) GetVmTypeInstanceType() string {
-	if o == nil || IsNil(o.VmTypeInstanceType) {
+// SetDomainServiceAccountNil sets the value for DomainServiceAccount to be an explicit nil
+func (o *CatalogOverview) SetDomainServiceAccountNil() {
+	o.DomainServiceAccount.Set(nil)
+}
+
+// UnsetDomainServiceAccount ensures that no value is present for DomainServiceAccount, not even an explicit nil
+func (o *CatalogOverview) UnsetDomainServiceAccount() {
+	o.DomainServiceAccount.Unset()
+}
+
+// GetServiceAccountUid returns the ServiceAccountUid field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CatalogOverview) GetServiceAccountUid() string {
+	if o == nil || IsNil(o.ServiceAccountUid.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VmTypeInstanceType
+	return *o.ServiceAccountUid.Get()
+}
+
+// GetServiceAccountUidOk returns a tuple with the ServiceAccountUid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CatalogOverview) GetServiceAccountUidOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ServiceAccountUid.Get(), o.ServiceAccountUid.IsSet()
+}
+
+// SetServiceAccountUid gets a reference to the given NullableString and assigns it to the ServiceAccountUid field.
+func (o *CatalogOverview) SetServiceAccountUid(v string) {
+	o.ServiceAccountUid.Set(&v)
+}
+
+// SetServiceAccountUidNil sets the value for ServiceAccountUid to be an explicit nil
+func (o *CatalogOverview) SetServiceAccountUidNil() {
+	o.ServiceAccountUid.Set(nil)
+}
+
+// UnsetServiceAccountUid ensures that no value is present for ServiceAccountUid, not even an explicit nil
+func (o *CatalogOverview) UnsetServiceAccountUid() {
+	o.ServiceAccountUid.Unset()
+}
+
+// GetVmTypeInstanceType returns the VmTypeInstanceType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CatalogOverview) GetVmTypeInstanceType() string {
+	if o == nil || IsNil(o.VmTypeInstanceType.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VmTypeInstanceType.Get()
 }
 
 // GetVmTypeInstanceTypeOk returns a tuple with the VmTypeInstanceType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetVmTypeInstanceTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.VmTypeInstanceType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VmTypeInstanceType, true
+	return o.VmTypeInstanceType.Get(), o.VmTypeInstanceType.IsSet()
 }
 
-// SetVmTypeInstanceType gets a reference to the given string and assigns it to the VmTypeInstanceType field.
+// SetVmTypeInstanceType gets a reference to the given NullableString and assigns it to the VmTypeInstanceType field.
 func (o *CatalogOverview) SetVmTypeInstanceType(v string) {
-	o.VmTypeInstanceType = &v
+	o.VmTypeInstanceType.Set(&v)
 }
 
-// GetImageId returns the ImageId field value if set, zero value otherwise.
+// SetVmTypeInstanceTypeNil sets the value for VmTypeInstanceType to be an explicit nil
+func (o *CatalogOverview) SetVmTypeInstanceTypeNil() {
+	o.VmTypeInstanceType.Set(nil)
+}
+
+// UnsetVmTypeInstanceType ensures that no value is present for VmTypeInstanceType, not even an explicit nil
+func (o *CatalogOverview) UnsetVmTypeInstanceType() {
+	o.VmTypeInstanceType.Unset()
+}
+
+// GetImageId returns the ImageId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetImageId() string {
-	if o == nil || IsNil(o.ImageId) {
+	if o == nil || IsNil(o.ImageId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ImageId
+	return *o.ImageId.Get()
 }
 
 // GetImageIdOk returns a tuple with the ImageId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetImageIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ImageId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ImageId, true
+	return o.ImageId.Get(), o.ImageId.IsSet()
 }
 
-// SetImageId gets a reference to the given string and assigns it to the ImageId field.
+// SetImageId gets a reference to the given NullableString and assigns it to the ImageId field.
 func (o *CatalogOverview) SetImageId(v string) {
-	o.ImageId = &v
+	o.ImageId.Set(&v)
 }
 
-// GetTemplateImageName returns the TemplateImageName field value if set, zero value otherwise.
+// SetImageIdNil sets the value for ImageId to be an explicit nil
+func (o *CatalogOverview) SetImageIdNil() {
+	o.ImageId.Set(nil)
+}
+
+// UnsetImageId ensures that no value is present for ImageId, not even an explicit nil
+func (o *CatalogOverview) UnsetImageId() {
+	o.ImageId.Unset()
+}
+
+// GetTemplateImageName returns the TemplateImageName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetTemplateImageName() string {
-	if o == nil || IsNil(o.TemplateImageName) {
+	if o == nil || IsNil(o.TemplateImageName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TemplateImageName
+	return *o.TemplateImageName.Get()
 }
 
 // GetTemplateImageNameOk returns a tuple with the TemplateImageName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetTemplateImageNameOk() (*string, bool) {
-	if o == nil || IsNil(o.TemplateImageName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TemplateImageName, true
+	return o.TemplateImageName.Get(), o.TemplateImageName.IsSet()
 }
 
-// SetTemplateImageName gets a reference to the given string and assigns it to the TemplateImageName field.
+// SetTemplateImageName gets a reference to the given NullableString and assigns it to the TemplateImageName field.
 func (o *CatalogOverview) SetTemplateImageName(v string) {
-	o.TemplateImageName = &v
+	o.TemplateImageName.Set(&v)
 }
 
-// GetTemplateImageOs returns the TemplateImageOs field value if set, zero value otherwise.
+// SetTemplateImageNameNil sets the value for TemplateImageName to be an explicit nil
+func (o *CatalogOverview) SetTemplateImageNameNil() {
+	o.TemplateImageName.Set(nil)
+}
+
+// UnsetTemplateImageName ensures that no value is present for TemplateImageName, not even an explicit nil
+func (o *CatalogOverview) UnsetTemplateImageName() {
+	o.TemplateImageName.Unset()
+}
+
+// GetTemplateImageOs returns the TemplateImageOs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetTemplateImageOs() string {
-	if o == nil || IsNil(o.TemplateImageOs) {
+	if o == nil || IsNil(o.TemplateImageOs.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TemplateImageOs
+	return *o.TemplateImageOs.Get()
 }
 
 // GetTemplateImageOsOk returns a tuple with the TemplateImageOs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetTemplateImageOsOk() (*string, bool) {
-	if o == nil || IsNil(o.TemplateImageOs) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TemplateImageOs, true
+	return o.TemplateImageOs.Get(), o.TemplateImageOs.IsSet()
 }
 
-// SetTemplateImageOs gets a reference to the given string and assigns it to the TemplateImageOs field.
+// SetTemplateImageOs gets a reference to the given NullableString and assigns it to the TemplateImageOs field.
 func (o *CatalogOverview) SetTemplateImageOs(v string) {
-	o.TemplateImageOs = &v
+	o.TemplateImageOs.Set(&v)
 }
 
-// GetCitrixManaged returns the CitrixManaged field value if set, zero value otherwise.
+// SetTemplateImageOsNil sets the value for TemplateImageOs to be an explicit nil
+func (o *CatalogOverview) SetTemplateImageOsNil() {
+	o.TemplateImageOs.Set(nil)
+}
+
+// UnsetTemplateImageOs ensures that no value is present for TemplateImageOs, not even an explicit nil
+func (o *CatalogOverview) UnsetTemplateImageOs() {
+	o.TemplateImageOs.Unset()
+}
+
+// GetCitrixManaged returns the CitrixManaged field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetCitrixManaged() bool {
-	if o == nil || IsNil(o.CitrixManaged) {
+	if o == nil || IsNil(o.CitrixManaged.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.CitrixManaged
+	return *o.CitrixManaged.Get()
 }
 
 // GetCitrixManagedOk returns a tuple with the CitrixManaged field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetCitrixManagedOk() (*bool, bool) {
-	if o == nil || IsNil(o.CitrixManaged) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CitrixManaged, true
+	return o.CitrixManaged.Get(), o.CitrixManaged.IsSet()
 }
 
-// SetCitrixManaged gets a reference to the given bool and assigns it to the CitrixManaged field.
+// SetCitrixManaged gets a reference to the given NullableBool and assigns it to the CitrixManaged field.
 func (o *CatalogOverview) SetCitrixManaged(v bool) {
-	o.CitrixManaged = &v
+	o.CitrixManaged.Set(&v)
 }
 
-// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise.
+// SetCitrixManagedNil sets the value for CitrixManaged to be an explicit nil
+func (o *CatalogOverview) SetCitrixManagedNil() {
+	o.CitrixManaged.Set(nil)
+}
+
+// UnsetCitrixManaged ensures that no value is present for CitrixManaged, not even an explicit nil
+func (o *CatalogOverview) UnsetCitrixManaged() {
+	o.CitrixManaged.Unset()
+}
+
+// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetCspCustomer() string {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil || IsNil(o.CspCustomer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomer
+	return *o.CspCustomer.Get()
 }
 
 // GetCspCustomerOk returns a tuple with the CspCustomer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetCspCustomerOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomer, true
+	return o.CspCustomer.Get(), o.CspCustomer.IsSet()
 }
 
-// SetCspCustomer gets a reference to the given string and assigns it to the CspCustomer field.
+// SetCspCustomer gets a reference to the given NullableString and assigns it to the CspCustomer field.
 func (o *CatalogOverview) SetCspCustomer(v string) {
-	o.CspCustomer = &v
+	o.CspCustomer.Set(&v)
 }
 
-// GetTotalMachinesInCatalog returns the TotalMachinesInCatalog field value if set, zero value otherwise.
+// SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+func (o *CatalogOverview) SetCspCustomerNil() {
+	o.CspCustomer.Set(nil)
+}
+
+// UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
+func (o *CatalogOverview) UnsetCspCustomer() {
+	o.CspCustomer.Unset()
+}
+
+// GetTotalMachinesInCatalog returns the TotalMachinesInCatalog field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetTotalMachinesInCatalog() int32 {
-	if o == nil || IsNil(o.TotalMachinesInCatalog) {
+	if o == nil || IsNil(o.TotalMachinesInCatalog.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.TotalMachinesInCatalog
+	return *o.TotalMachinesInCatalog.Get()
 }
 
 // GetTotalMachinesInCatalogOk returns a tuple with the TotalMachinesInCatalog field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetTotalMachinesInCatalogOk() (*int32, bool) {
-	if o == nil || IsNil(o.TotalMachinesInCatalog) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TotalMachinesInCatalog, true
+	return o.TotalMachinesInCatalog.Get(), o.TotalMachinesInCatalog.IsSet()
 }
 
-// SetTotalMachinesInCatalog gets a reference to the given int32 and assigns it to the TotalMachinesInCatalog field.
+// SetTotalMachinesInCatalog gets a reference to the given NullableInt32 and assigns it to the TotalMachinesInCatalog field.
 func (o *CatalogOverview) SetTotalMachinesInCatalog(v int32) {
-	o.TotalMachinesInCatalog = &v
+	o.TotalMachinesInCatalog.Set(&v)
 }
 
-// GetWriteBackCacheConfiguration returns the WriteBackCacheConfiguration field value if set, zero value otherwise.
+// SetTotalMachinesInCatalogNil sets the value for TotalMachinesInCatalog to be an explicit nil
+func (o *CatalogOverview) SetTotalMachinesInCatalogNil() {
+	o.TotalMachinesInCatalog.Set(nil)
+}
+
+// UnsetTotalMachinesInCatalog ensures that no value is present for TotalMachinesInCatalog, not even an explicit nil
+func (o *CatalogOverview) UnsetTotalMachinesInCatalog() {
+	o.TotalMachinesInCatalog.Unset()
+}
+
+// GetNumOfUsers returns the NumOfUsers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CatalogOverview) GetNumOfUsers() int32 {
+	if o == nil || IsNil(o.NumOfUsers.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.NumOfUsers.Get()
+}
+
+// GetNumOfUsersOk returns a tuple with the NumOfUsers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CatalogOverview) GetNumOfUsersOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NumOfUsers.Get(), o.NumOfUsers.IsSet()
+}
+
+// SetNumOfUsers gets a reference to the given NullableInt32 and assigns it to the NumOfUsers field.
+func (o *CatalogOverview) SetNumOfUsers(v int32) {
+	o.NumOfUsers.Set(&v)
+}
+
+// SetNumOfUsersNil sets the value for NumOfUsers to be an explicit nil
+func (o *CatalogOverview) SetNumOfUsersNil() {
+	o.NumOfUsers.Set(nil)
+}
+
+// UnsetNumOfUsers ensures that no value is present for NumOfUsers, not even an explicit nil
+func (o *CatalogOverview) UnsetNumOfUsers() {
+	o.NumOfUsers.Unset()
+}
+
+// GetMaxNumOfUsers returns the MaxNumOfUsers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CatalogOverview) GetMaxNumOfUsers() int32 {
+	if o == nil || IsNil(o.MaxNumOfUsers.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.MaxNumOfUsers.Get()
+}
+
+// GetMaxNumOfUsersOk returns a tuple with the MaxNumOfUsers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CatalogOverview) GetMaxNumOfUsersOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MaxNumOfUsers.Get(), o.MaxNumOfUsers.IsSet()
+}
+
+// SetMaxNumOfUsers gets a reference to the given NullableInt32 and assigns it to the MaxNumOfUsers field.
+func (o *CatalogOverview) SetMaxNumOfUsers(v int32) {
+	o.MaxNumOfUsers.Set(&v)
+}
+
+// SetMaxNumOfUsersNil sets the value for MaxNumOfUsers to be an explicit nil
+func (o *CatalogOverview) SetMaxNumOfUsersNil() {
+	o.MaxNumOfUsers.Set(nil)
+}
+
+// UnsetMaxNumOfUsers ensures that no value is present for MaxNumOfUsers, not even an explicit nil
+func (o *CatalogOverview) UnsetMaxNumOfUsers() {
+	o.MaxNumOfUsers.Unset()
+}
+
+// GetWriteBackCacheConfiguration returns the WriteBackCacheConfiguration field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetWriteBackCacheConfiguration() WbcConfig {
-	if o == nil || IsNil(o.WriteBackCacheConfiguration) {
+	if o == nil || IsNil(o.WriteBackCacheConfiguration.Get()) {
 		var ret WbcConfig
 		return ret
 	}
-	return *o.WriteBackCacheConfiguration
+	return *o.WriteBackCacheConfiguration.Get()
 }
 
 // GetWriteBackCacheConfigurationOk returns a tuple with the WriteBackCacheConfiguration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetWriteBackCacheConfigurationOk() (*WbcConfig, bool) {
-	if o == nil || IsNil(o.WriteBackCacheConfiguration) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WriteBackCacheConfiguration, true
+	return o.WriteBackCacheConfiguration.Get(), o.WriteBackCacheConfiguration.IsSet()
 }
 
-// SetWriteBackCacheConfiguration gets a reference to the given WbcConfig and assigns it to the WriteBackCacheConfiguration field.
+// SetWriteBackCacheConfiguration gets a reference to the given NullableWbcConfig and assigns it to the WriteBackCacheConfiguration field.
 func (o *CatalogOverview) SetWriteBackCacheConfiguration(v WbcConfig) {
-	o.WriteBackCacheConfiguration = &v
+	o.WriteBackCacheConfiguration.Set(&v)
 }
 
-// GetTaskCompletionPercentage returns the TaskCompletionPercentage field value if set, zero value otherwise.
+// SetWriteBackCacheConfigurationNil sets the value for WriteBackCacheConfiguration to be an explicit nil
+func (o *CatalogOverview) SetWriteBackCacheConfigurationNil() {
+	o.WriteBackCacheConfiguration.Set(nil)
+}
+
+// UnsetWriteBackCacheConfiguration ensures that no value is present for WriteBackCacheConfiguration, not even an explicit nil
+func (o *CatalogOverview) UnsetWriteBackCacheConfiguration() {
+	o.WriteBackCacheConfiguration.Unset()
+}
+
+// GetTaskCompletionPercentage returns the TaskCompletionPercentage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetTaskCompletionPercentage() int32 {
-	if o == nil || IsNil(o.TaskCompletionPercentage) {
+	if o == nil || IsNil(o.TaskCompletionPercentage.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.TaskCompletionPercentage
+	return *o.TaskCompletionPercentage.Get()
 }
 
 // GetTaskCompletionPercentageOk returns a tuple with the TaskCompletionPercentage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetTaskCompletionPercentageOk() (*int32, bool) {
-	if o == nil || IsNil(o.TaskCompletionPercentage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TaskCompletionPercentage, true
+	return o.TaskCompletionPercentage.Get(), o.TaskCompletionPercentage.IsSet()
 }
 
-// SetTaskCompletionPercentage gets a reference to the given int32 and assigns it to the TaskCompletionPercentage field.
+// SetTaskCompletionPercentage gets a reference to the given NullableInt32 and assigns it to the TaskCompletionPercentage field.
 func (o *CatalogOverview) SetTaskCompletionPercentage(v int32) {
-	o.TaskCompletionPercentage = &v
+	o.TaskCompletionPercentage.Set(&v)
 }
 
-// GetLastModifiedTime returns the LastModifiedTime field value if set, zero value otherwise.
+// SetTaskCompletionPercentageNil sets the value for TaskCompletionPercentage to be an explicit nil
+func (o *CatalogOverview) SetTaskCompletionPercentageNil() {
+	o.TaskCompletionPercentage.Set(nil)
+}
+
+// UnsetTaskCompletionPercentage ensures that no value is present for TaskCompletionPercentage, not even an explicit nil
+func (o *CatalogOverview) UnsetTaskCompletionPercentage() {
+	o.TaskCompletionPercentage.Unset()
+}
+
+// GetLastModifiedTime returns the LastModifiedTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetLastModifiedTime() time.Time {
-	if o == nil || IsNil(o.LastModifiedTime) {
+	if o == nil || IsNil(o.LastModifiedTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastModifiedTime
+	return *o.LastModifiedTime.Get()
 }
 
 // GetLastModifiedTimeOk returns a tuple with the LastModifiedTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetLastModifiedTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.LastModifiedTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastModifiedTime, true
+	return o.LastModifiedTime.Get(), o.LastModifiedTime.IsSet()
 }
 
-// SetLastModifiedTime gets a reference to the given time.Time and assigns it to the LastModifiedTime field.
+// SetLastModifiedTime gets a reference to the given NullableTime and assigns it to the LastModifiedTime field.
 func (o *CatalogOverview) SetLastModifiedTime(v time.Time) {
-	o.LastModifiedTime = &v
+	o.LastModifiedTime.Set(&v)
 }
 
-// GetLastBackupTime returns the LastBackupTime field value if set, zero value otherwise.
+// SetLastModifiedTimeNil sets the value for LastModifiedTime to be an explicit nil
+func (o *CatalogOverview) SetLastModifiedTimeNil() {
+	o.LastModifiedTime.Set(nil)
+}
+
+// UnsetLastModifiedTime ensures that no value is present for LastModifiedTime, not even an explicit nil
+func (o *CatalogOverview) UnsetLastModifiedTime() {
+	o.LastModifiedTime.Unset()
+}
+
+// GetLastBackupTime returns the LastBackupTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetLastBackupTime() time.Time {
-	if o == nil || IsNil(o.LastBackupTime) {
+	if o == nil || IsNil(o.LastBackupTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastBackupTime
+	return *o.LastBackupTime.Get()
 }
 
 // GetLastBackupTimeOk returns a tuple with the LastBackupTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetLastBackupTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.LastBackupTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastBackupTime, true
+	return o.LastBackupTime.Get(), o.LastBackupTime.IsSet()
 }
 
-// SetLastBackupTime gets a reference to the given time.Time and assigns it to the LastBackupTime field.
+// SetLastBackupTime gets a reference to the given NullableTime and assigns it to the LastBackupTime field.
 func (o *CatalogOverview) SetLastBackupTime(v time.Time) {
-	o.LastBackupTime = &v
+	o.LastBackupTime.Set(&v)
+}
+
+// SetLastBackupTimeNil sets the value for LastBackupTime to be an explicit nil
+func (o *CatalogOverview) SetLastBackupTimeNil() {
+	o.LastBackupTime.Set(nil)
+}
+
+// UnsetLastBackupTime ensures that no value is present for LastBackupTime, not even an explicit nil
+func (o *CatalogOverview) UnsetLastBackupTime() {
+	o.LastBackupTime.Unset()
 }
 
 // GetIsRemotePcCatalog returns the IsRemotePcCatalog field value if set, zero value otherwise.
@@ -1270,9 +1762,9 @@ func (o *CatalogOverview) SetIsSecureBrowserCatalog(v bool) {
 	o.IsSecureBrowserCatalog = &v
 }
 
-// GetOrganizationalUnits returns the OrganizationalUnits field value if set, zero value otherwise.
+// GetOrganizationalUnits returns the OrganizationalUnits field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetOrganizationalUnits() []RemotePCEnrollmentScopeResponseModel {
-	if o == nil || IsNil(o.OrganizationalUnits) {
+	if o == nil {
 		var ret []RemotePCEnrollmentScopeResponseModel
 		return ret
 	}
@@ -1281,6 +1773,7 @@ func (o *CatalogOverview) GetOrganizationalUnits() []RemotePCEnrollmentScopeResp
 
 // GetOrganizationalUnitsOk returns a tuple with the OrganizationalUnits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOverview) GetOrganizationalUnitsOk() ([]RemotePCEnrollmentScopeResponseModel, bool) {
 	if o == nil || IsNil(o.OrganizationalUnits) {
 		return nil, false
@@ -1316,6 +1809,75 @@ func (o *CatalogOverview) SetSupportsHibernation(v bool) {
 	o.SupportsHibernation = &v
 }
 
+// GetEnableAcceleratedNetworking returns the EnableAcceleratedNetworking field value if set, zero value otherwise.
+func (o *CatalogOverview) GetEnableAcceleratedNetworking() bool {
+	if o == nil || IsNil(o.EnableAcceleratedNetworking) {
+		var ret bool
+		return ret
+	}
+	return *o.EnableAcceleratedNetworking
+}
+
+// GetEnableAcceleratedNetworkingOk returns a tuple with the EnableAcceleratedNetworking field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CatalogOverview) GetEnableAcceleratedNetworkingOk() (*bool, bool) {
+	if o == nil || IsNil(o.EnableAcceleratedNetworking) {
+		return nil, false
+	}
+	return o.EnableAcceleratedNetworking, true
+}
+
+// SetEnableAcceleratedNetworking gets a reference to the given bool and assigns it to the EnableAcceleratedNetworking field.
+func (o *CatalogOverview) SetEnableAcceleratedNetworking(v bool) {
+	o.EnableAcceleratedNetworking = &v
+}
+
+// GetEnableEncryptionAtHost returns the EnableEncryptionAtHost field value if set, zero value otherwise.
+func (o *CatalogOverview) GetEnableEncryptionAtHost() bool {
+	if o == nil || IsNil(o.EnableEncryptionAtHost) {
+		var ret bool
+		return ret
+	}
+	return *o.EnableEncryptionAtHost
+}
+
+// GetEnableEncryptionAtHostOk returns a tuple with the EnableEncryptionAtHost field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CatalogOverview) GetEnableEncryptionAtHostOk() (*bool, bool) {
+	if o == nil || IsNil(o.EnableEncryptionAtHost) {
+		return nil, false
+	}
+	return o.EnableEncryptionAtHost, true
+}
+
+// SetEnableEncryptionAtHost gets a reference to the given bool and assigns it to the EnableEncryptionAtHost field.
+func (o *CatalogOverview) SetEnableEncryptionAtHost(v bool) {
+	o.EnableEncryptionAtHost = &v
+}
+
+// GetCatalogType returns the CatalogType field value if set, zero value otherwise.
+func (o *CatalogOverview) GetCatalogType() CatalogType {
+	if o == nil || IsNil(o.CatalogType) {
+		var ret CatalogType
+		return ret
+	}
+	return *o.CatalogType
+}
+
+// GetCatalogTypeOk returns a tuple with the CatalogType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CatalogOverview) GetCatalogTypeOk() (*CatalogType, bool) {
+	if o == nil || IsNil(o.CatalogType) {
+		return nil, false
+	}
+	return o.CatalogType, true
+}
+
+// SetCatalogType gets a reference to the given CatalogType and assigns it to the CatalogType field.
+func (o *CatalogOverview) SetCatalogType(v CatalogType) {
+	o.CatalogType = &v
+}
+
 func (o CatalogOverview) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -1326,8 +1888,8 @@ func (o CatalogOverview) MarshalJSON() ([]byte, error) {
 
 func (o CatalogOverview) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AzureSubscriptionId) {
-		toSerialize["azureSubscriptionId"] = o.AzureSubscriptionId
+	if o.AzureSubscriptionId.IsSet() {
+		toSerialize["azureSubscriptionId"] = o.AzureSubscriptionId.Get()
 	}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
@@ -1337,8 +1899,8 @@ func (o CatalogOverview) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AllocationType) {
 		toSerialize["allocationType"] = o.AllocationType
 	}
-	if !IsNil(o.PersistStaticAllocatedVmDisks) {
-		toSerialize["persistStaticAllocatedVmDisks"] = o.PersistStaticAllocatedVmDisks
+	if o.PersistStaticAllocatedVmDisks.IsSet() {
+		toSerialize["persistStaticAllocatedVmDisks"] = o.PersistStaticAllocatedVmDisks.Get()
 	}
 	toSerialize["offeringId"] = o.OfferingId
 	toSerialize["offeringIdApp"] = o.OfferingIdApp
@@ -1346,99 +1908,111 @@ func (o CatalogOverview) ToMap() (map[string]interface{}, error) {
 	toSerialize["deliveryGroupId"] = o.DeliveryGroupId
 	toSerialize["advanced"] = o.Advanced
 	toSerialize["state"] = o.State
-	if !IsNil(o.SubState) {
-		toSerialize["subState"] = o.SubState
+	if o.SubState.IsSet() {
+		toSerialize["subState"] = o.SubState.Get()
 	}
-	if !IsNil(o.Warnings) {
+	if o.Warnings != nil {
 		toSerialize["warnings"] = o.Warnings
 	}
-	if !IsNil(o.StatusMessage) {
-		toSerialize["statusMessage"] = o.StatusMessage
+	if o.StatusMessage.IsSet() {
+		toSerialize["statusMessage"] = o.StatusMessage.Get()
 	}
-	if !IsNil(o.ExtraInfo) {
-		toSerialize["extraInfo"] = o.ExtraInfo
+	if o.ExtraInfo.IsSet() {
+		toSerialize["extraInfo"] = o.ExtraInfo.Get()
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
-	if !IsNil(o.VnetPeeringId) {
-		toSerialize["vnetPeeringId"] = o.VnetPeeringId
+	if o.VnetPeeringId.IsSet() {
+		toSerialize["vnetPeeringId"] = o.VnetPeeringId.Get()
 	}
-	if !IsNil(o.VnetPeeringName) {
-		toSerialize["vnetPeeringName"] = o.VnetPeeringName
+	if o.VnetPeeringName.IsSet() {
+		toSerialize["vnetPeeringName"] = o.VnetPeeringName.Get()
 	}
-	if !IsNil(o.VpnConnectionId) {
-		toSerialize["vpnConnectionId"] = o.VpnConnectionId
+	if o.VpnConnectionId.IsSet() {
+		toSerialize["vpnConnectionId"] = o.VpnConnectionId.Get()
 	}
-	if !IsNil(o.VpnConnectionName) {
-		toSerialize["vpnConnectionName"] = o.VpnConnectionName
+	if o.VpnConnectionName.IsSet() {
+		toSerialize["vpnConnectionName"] = o.VpnConnectionName.Get()
 	}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
 	toSerialize["subscriptionName"] = o.SubscriptionName
 	toSerialize["resourceGroup"] = o.ResourceGroup
-	if !IsNil(o.VdaResourceGroup) {
-		toSerialize["vdaResourceGroup"] = o.VdaResourceGroup
+	if o.TemplateSpecResourceGroup.IsSet() {
+		toSerialize["templateSpecResourceGroup"] = o.TemplateSpecResourceGroup.Get()
 	}
-	if !IsNil(o.VdaProvisioningSchemeId) {
-		toSerialize["vdaProvisioningSchemeId"] = o.VdaProvisioningSchemeId
+	if o.VdaResourceGroup.IsSet() {
+		toSerialize["vdaResourceGroup"] = o.VdaResourceGroup.Get()
 	}
-	if !IsNil(o.AreMcsVdaResourceGroupsUsed) {
-		toSerialize["areMcsVdaResourceGroupsUsed"] = o.AreMcsVdaResourceGroupsUsed
+	if o.VdaProvisioningSchemeId.IsSet() {
+		toSerialize["vdaProvisioningSchemeId"] = o.VdaProvisioningSchemeId.Get()
 	}
-	if !IsNil(o.ResourceLocationId) {
-		toSerialize["resourceLocationId"] = o.ResourceLocationId
+	if o.AreMcsVdaResourceGroupsUsed.IsSet() {
+		toSerialize["areMcsVdaResourceGroupsUsed"] = o.AreMcsVdaResourceGroupsUsed.Get()
+	}
+	if o.ResourceLocationId.IsSet() {
+		toSerialize["resourceLocationId"] = o.ResourceLocationId.Get()
 	}
 	toSerialize["region"] = o.Region
 	toSerialize["vNetName"] = o.VNetName
-	if !IsNil(o.Subnet) {
-		toSerialize["subnet"] = o.Subnet
+	if o.Subnet.IsSet() {
+		toSerialize["subnet"] = o.Subnet.Get()
 	}
-	if !IsNil(o.DomainJoined) {
-		toSerialize["domainJoined"] = o.DomainJoined
+	if o.DomainJoined.IsSet() {
+		toSerialize["domainJoined"] = o.DomainJoined.Get()
 	}
-	if !IsNil(o.DomainName) {
-		toSerialize["domainName"] = o.DomainName
+	if o.DomainName.IsSet() {
+		toSerialize["domainName"] = o.DomainName.Get()
 	}
-	if !IsNil(o.DomainOU) {
-		toSerialize["domainOU"] = o.DomainOU
+	if o.DomainOU.IsSet() {
+		toSerialize["domainOU"] = o.DomainOU.Get()
 	}
-	if !IsNil(o.DomainServiceAccount) {
-		toSerialize["domainServiceAccount"] = o.DomainServiceAccount
+	if o.DomainServiceAccount.IsSet() {
+		toSerialize["domainServiceAccount"] = o.DomainServiceAccount.Get()
 	}
-	if !IsNil(o.VmTypeInstanceType) {
-		toSerialize["vmTypeInstanceType"] = o.VmTypeInstanceType
+	if o.ServiceAccountUid.IsSet() {
+		toSerialize["serviceAccountUid"] = o.ServiceAccountUid.Get()
 	}
-	if !IsNil(o.ImageId) {
-		toSerialize["imageId"] = o.ImageId
+	if o.VmTypeInstanceType.IsSet() {
+		toSerialize["vmTypeInstanceType"] = o.VmTypeInstanceType.Get()
 	}
-	if !IsNil(o.TemplateImageName) {
-		toSerialize["templateImageName"] = o.TemplateImageName
+	if o.ImageId.IsSet() {
+		toSerialize["imageId"] = o.ImageId.Get()
 	}
-	if !IsNil(o.TemplateImageOs) {
-		toSerialize["templateImageOs"] = o.TemplateImageOs
+	if o.TemplateImageName.IsSet() {
+		toSerialize["templateImageName"] = o.TemplateImageName.Get()
 	}
-	if !IsNil(o.CitrixManaged) {
-		toSerialize["citrixManaged"] = o.CitrixManaged
+	if o.TemplateImageOs.IsSet() {
+		toSerialize["templateImageOs"] = o.TemplateImageOs.Get()
 	}
-	if !IsNil(o.CspCustomer) {
-		toSerialize["cspCustomer"] = o.CspCustomer
+	if o.CitrixManaged.IsSet() {
+		toSerialize["citrixManaged"] = o.CitrixManaged.Get()
 	}
-	if !IsNil(o.TotalMachinesInCatalog) {
-		toSerialize["totalMachinesInCatalog"] = o.TotalMachinesInCatalog
+	if o.CspCustomer.IsSet() {
+		toSerialize["cspCustomer"] = o.CspCustomer.Get()
 	}
-	if !IsNil(o.WriteBackCacheConfiguration) {
-		toSerialize["writeBackCacheConfiguration"] = o.WriteBackCacheConfiguration
+	if o.TotalMachinesInCatalog.IsSet() {
+		toSerialize["totalMachinesInCatalog"] = o.TotalMachinesInCatalog.Get()
 	}
-	if !IsNil(o.TaskCompletionPercentage) {
-		toSerialize["taskCompletionPercentage"] = o.TaskCompletionPercentage
+	if o.NumOfUsers.IsSet() {
+		toSerialize["numOfUsers"] = o.NumOfUsers.Get()
 	}
-	if !IsNil(o.LastModifiedTime) {
-		toSerialize["lastModifiedTime"] = o.LastModifiedTime
+	if o.MaxNumOfUsers.IsSet() {
+		toSerialize["maxNumOfUsers"] = o.MaxNumOfUsers.Get()
 	}
-	if !IsNil(o.LastBackupTime) {
-		toSerialize["lastBackupTime"] = o.LastBackupTime
+	if o.WriteBackCacheConfiguration.IsSet() {
+		toSerialize["writeBackCacheConfiguration"] = o.WriteBackCacheConfiguration.Get()
+	}
+	if o.TaskCompletionPercentage.IsSet() {
+		toSerialize["taskCompletionPercentage"] = o.TaskCompletionPercentage.Get()
+	}
+	if o.LastModifiedTime.IsSet() {
+		toSerialize["lastModifiedTime"] = o.LastModifiedTime.Get()
+	}
+	if o.LastBackupTime.IsSet() {
+		toSerialize["lastBackupTime"] = o.LastBackupTime.Get()
 	}
 	if !IsNil(o.IsRemotePcCatalog) {
 		toSerialize["isRemotePcCatalog"] = o.IsRemotePcCatalog
@@ -1449,11 +2023,20 @@ func (o CatalogOverview) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsSecureBrowserCatalog) {
 		toSerialize["isSecureBrowserCatalog"] = o.IsSecureBrowserCatalog
 	}
-	if !IsNil(o.OrganizationalUnits) {
+	if o.OrganizationalUnits != nil {
 		toSerialize["organizationalUnits"] = o.OrganizationalUnits
 	}
 	if !IsNil(o.SupportsHibernation) {
 		toSerialize["supportsHibernation"] = o.SupportsHibernation
+	}
+	if !IsNil(o.EnableAcceleratedNetworking) {
+		toSerialize["enableAcceleratedNetworking"] = o.EnableAcceleratedNetworking
+	}
+	if !IsNil(o.EnableEncryptionAtHost) {
+		toSerialize["enableEncryptionAtHost"] = o.EnableEncryptionAtHost
+	}
+	if !IsNil(o.CatalogType) {
+		toSerialize["catalogType"] = o.CatalogType
 	}
 	return toSerialize, nil
 }

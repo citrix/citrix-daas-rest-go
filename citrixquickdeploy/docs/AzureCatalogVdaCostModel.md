@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VmName** | Pointer to **string** | Name of the VDA VM | [optional] 
-**AzureResourceGroup** | Pointer to **string** | Name of the Azure resource group which the VDA VM is located | [optional] 
+**VmName** | Pointer to **NullableString** | Name of the VDA VM | [optional] 
+**AzureResourceGroup** | Pointer to **NullableString** | Name of the Azure resource group which the VDA VM is located | [optional] 
 **TotalCost** | Pointer to **float64** | Total cost on Azure for the VDA | [optional] 
 **DiskCost** | Pointer to **float64** | Cost of the VDA Disk | [optional] 
 **VmCost** | Pointer to **float64** | Cost of the VDA VM | [optional] 
 **VmUsage** | Pointer to **float64** | Unit of usage of the VDA VM | [optional] 
 **NetworkCost** | Pointer to **float64** | Cost of the VDA Network | [optional] 
-**AssignedUsers** | Pointer to **string** | A list of users assigned to the VDA, concatenated into a string with comma for csv output | [optional] 
+**AssignedUsers** | Pointer to **NullableString** | A list of users assigned to the VDA, concatenated into a string with comma for csv output | [optional] 
 
 ## Methods
 
@@ -57,6 +57,16 @@ SetVmName sets VmName field to given value.
 
 HasVmName returns a boolean if a field has been set.
 
+### SetVmNameNil
+
+`func (o *AzureCatalogVdaCostModel) SetVmNameNil(b bool)`
+
+ SetVmNameNil sets the value for VmName to be an explicit nil
+
+### UnsetVmName
+`func (o *AzureCatalogVdaCostModel) UnsetVmName()`
+
+UnsetVmName ensures that no value is present for VmName, not even an explicit nil
 ### GetAzureResourceGroup
 
 `func (o *AzureCatalogVdaCostModel) GetAzureResourceGroup() string`
@@ -82,6 +92,16 @@ SetAzureResourceGroup sets AzureResourceGroup field to given value.
 
 HasAzureResourceGroup returns a boolean if a field has been set.
 
+### SetAzureResourceGroupNil
+
+`func (o *AzureCatalogVdaCostModel) SetAzureResourceGroupNil(b bool)`
+
+ SetAzureResourceGroupNil sets the value for AzureResourceGroup to be an explicit nil
+
+### UnsetAzureResourceGroup
+`func (o *AzureCatalogVdaCostModel) UnsetAzureResourceGroup()`
+
+UnsetAzureResourceGroup ensures that no value is present for AzureResourceGroup, not even an explicit nil
 ### GetTotalCost
 
 `func (o *AzureCatalogVdaCostModel) GetTotalCost() float64`
@@ -232,6 +252,16 @@ SetAssignedUsers sets AssignedUsers field to given value.
 
 HasAssignedUsers returns a boolean if a field has been set.
 
+### SetAssignedUsersNil
+
+`func (o *AzureCatalogVdaCostModel) SetAssignedUsersNil(b bool)`
+
+ SetAssignedUsersNil sets the value for AssignedUsers to be an explicit nil
+
+### UnsetAssignedUsers
+`func (o *AzureCatalogVdaCostModel) UnsetAssignedUsers()`
+
+UnsetAssignedUsers ensures that no value is present for AssignedUsers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

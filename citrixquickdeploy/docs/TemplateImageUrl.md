@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | Pointer to **string** | URL of the image | [optional] 
+**Url** | Pointer to **NullableString** | URL of the image | [optional] 
 **AzureSasUrlExpiryTime** | **time.Time** | Time for which the Url would be valid | 
 
 ## Methods
@@ -51,6 +51,16 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
+### SetUrlNil
+
+`func (o *TemplateImageUrl) SetUrlNil(b bool)`
+
+ SetUrlNil sets the value for Url to be an explicit nil
+
+### UnsetUrl
+`func (o *TemplateImageUrl) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetAzureSasUrlExpiryTime
 
 `func (o *TemplateImageUrl) GetAzureSasUrlExpiryTime() time.Time`

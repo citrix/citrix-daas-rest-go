@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,8 +19,8 @@ var _ MappedNullable = &AzureToken{}
 
 // AzureToken struct for AzureToken
 type AzureToken struct {
-	Resource    *string         `json:"resource,omitempty"`
-	AccessToken *string         `json:"accessToken,omitempty"`
+	Resource    NullableString  `json:"resource,omitempty"`
+	AccessToken NullableString  `json:"accessToken,omitempty"`
 	Type        *AzureTokenType `json:"type,omitempty"`
 }
 
@@ -32,50 +32,72 @@ func NewAzureTokenWithDefaults() *AzureToken {
 	return &this
 }
 
-// GetResource returns the Resource field value if set, zero value otherwise.
+// GetResource returns the Resource field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureToken) GetResource() string {
-	if o == nil || IsNil(o.Resource) {
+	if o == nil || IsNil(o.Resource.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Resource
+	return *o.Resource.Get()
 }
 
 // GetResourceOk returns a tuple with the Resource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureToken) GetResourceOk() (*string, bool) {
-	if o == nil || IsNil(o.Resource) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Resource, true
+	return o.Resource.Get(), o.Resource.IsSet()
 }
 
-// SetResource gets a reference to the given string and assigns it to the Resource field.
+// SetResource gets a reference to the given NullableString and assigns it to the Resource field.
 func (o *AzureToken) SetResource(v string) {
-	o.Resource = &v
+	o.Resource.Set(&v)
 }
 
-// GetAccessToken returns the AccessToken field value if set, zero value otherwise.
+// SetResourceNil sets the value for Resource to be an explicit nil
+func (o *AzureToken) SetResourceNil() {
+	o.Resource.Set(nil)
+}
+
+// UnsetResource ensures that no value is present for Resource, not even an explicit nil
+func (o *AzureToken) UnsetResource() {
+	o.Resource.Unset()
+}
+
+// GetAccessToken returns the AccessToken field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureToken) GetAccessToken() string {
-	if o == nil || IsNil(o.AccessToken) {
+	if o == nil || IsNil(o.AccessToken.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AccessToken
+	return *o.AccessToken.Get()
 }
 
 // GetAccessTokenOk returns a tuple with the AccessToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureToken) GetAccessTokenOk() (*string, bool) {
-	if o == nil || IsNil(o.AccessToken) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AccessToken, true
+	return o.AccessToken.Get(), o.AccessToken.IsSet()
 }
 
-// SetAccessToken gets a reference to the given string and assigns it to the AccessToken field.
+// SetAccessToken gets a reference to the given NullableString and assigns it to the AccessToken field.
 func (o *AzureToken) SetAccessToken(v string) {
-	o.AccessToken = &v
+	o.AccessToken.Set(&v)
+}
+
+// SetAccessTokenNil sets the value for AccessToken to be an explicit nil
+func (o *AzureToken) SetAccessTokenNil() {
+	o.AccessToken.Set(nil)
+}
+
+// UnsetAccessToken ensures that no value is present for AccessToken, not even an explicit nil
+func (o *AzureToken) UnsetAccessToken() {
+	o.AccessToken.Unset()
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
@@ -111,11 +133,11 @@ func (o AzureToken) MarshalJSON() ([]byte, error) {
 
 func (o AzureToken) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Resource) {
-		toSerialize["resource"] = o.Resource
+	if o.Resource.IsSet() {
+		toSerialize["resource"] = o.Resource.Get()
 	}
-	if !IsNil(o.AccessToken) {
-		toSerialize["accessToken"] = o.AccessToken
+	if o.AccessToken.IsSet() {
+		toSerialize["accessToken"] = o.AccessToken.Get()
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type

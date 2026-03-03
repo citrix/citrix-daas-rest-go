@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SchemeName** | Pointer to **string** | Name of the custom power scheme | [optional] 
+**SchemeName** | Pointer to **NullableString** | Name of the custom power scheme | [optional] 
 **Weekdays** | Pointer to **map[string]bool** | Days of the week that are included in peak days | [optional] 
 **PeakEndTime** | Pointer to **int32** | Hour of day when peak usage ends | [optional] 
 **PeakStartTime** | Pointer to **int32** | Hour of day when peak usage begins | [optional] 
-**PeakTimeZoneId** | Pointer to **string** | ID of the peak usage Timezone | [optional] 
+**PeakTimeZoneId** | Pointer to **NullableString** | ID of the peak usage Timezone | [optional] 
 **PeakDisconnectedSessionTimeout** | Pointer to **int32** | Durring Peak Hours, the time before a disconnected session is shutdown | [optional] 
 **OffPeakDisconnectedSessionTimeout** | Pointer to **int32** | During Off Peak Hours, the time before a disconnected session is shutdown | [optional] 
 **MultiSessionDisconnectedSessionTimeout** | Pointer to **int32** | Minutes to wait for disconnected sessions to be logged off on multi-session VMs | [optional] 
-**SessionTimeout** | Pointer to **int32** | Idle timeout for session in the catalog (in mins) | [optional] 
-**BufferCapacity** | Pointer to **int32** | Percentage of buffer capacity | [optional] 
-**PeakDisconnectedSessionAction** | Pointer to [**SessionChangeHostingAction**](SessionChangeHostingAction.md) | During peak hours, the action to be taken on disconnected session | [optional] 
-**OffPeakDisconnectedSessionAction** | Pointer to [**SessionChangeHostingAction**](SessionChangeHostingAction.md) | During off peak hours, the action to be taken on disconnected session | [optional] 
-**PeakExtendedDisconnectTimeoutMinutes** | Pointer to **int32** | TThe number of minutes before the second action (Shutdown) should be performed after a user session disconnects during peak hours. Used when peak disconnection action is Suspend | [optional] 
-**OffPeakExtendedDisconnectTimeoutMinutes** | Pointer to **int32** | The number of minutes before the second action (Shutdown) should be performed after a user session disconnects outside peak hours. Used when off peak disconnect action is Suspend | [optional] 
-**OffPeakBufferCapacity** | Pointer to **int32** | Percentage of buffer capacity during off-peak hours | [optional] 
+**SessionTimeout** | Pointer to **NullableInt32** | Idle timeout for session in the catalog (in mins) | [optional] 
+**BufferCapacity** | Pointer to **NullableInt32** | Percentage of buffer capacity | [optional] 
+**PeakDisconnectedSessionAction** | Pointer to [**NullableSessionChangeHostingAction**](SessionChangeHostingAction.md) | During peak hours, the action to be taken on disconnected session | [optional] 
+**OffPeakDisconnectedSessionAction** | Pointer to [**NullableSessionChangeHostingAction**](SessionChangeHostingAction.md) | During off peak hours, the action to be taken on disconnected session | [optional] 
+**PeakExtendedDisconnectTimeoutMinutes** | Pointer to **NullableInt32** | TThe number of minutes before the second action (Shutdown) should be performed after a user session disconnects during peak hours. Used when peak disconnection action is Suspend | [optional] 
+**OffPeakExtendedDisconnectTimeoutMinutes** | Pointer to **NullableInt32** | The number of minutes before the second action (Shutdown) should be performed after a user session disconnects outside peak hours. Used when off peak disconnect action is Suspend | [optional] 
+**OffPeakBufferCapacity** | Pointer to **NullableInt32** | Percentage of buffer capacity during off-peak hours | [optional] 
 **PowerOffDelay** | Pointer to **int32** | Amount of time to delay powering off machines with no active sessions | [optional] 
 
 ## Methods
@@ -65,6 +65,16 @@ SetSchemeName sets SchemeName field to given value.
 
 HasSchemeName returns a boolean if a field has been set.
 
+### SetSchemeNameNil
+
+`func (o *DataStoreCatalogPowerSchemeModel) SetSchemeNameNil(b bool)`
+
+ SetSchemeNameNil sets the value for SchemeName to be an explicit nil
+
+### UnsetSchemeName
+`func (o *DataStoreCatalogPowerSchemeModel) UnsetSchemeName()`
+
+UnsetSchemeName ensures that no value is present for SchemeName, not even an explicit nil
 ### GetWeekdays
 
 `func (o *DataStoreCatalogPowerSchemeModel) GetWeekdays() map[string]bool`
@@ -90,6 +100,16 @@ SetWeekdays sets Weekdays field to given value.
 
 HasWeekdays returns a boolean if a field has been set.
 
+### SetWeekdaysNil
+
+`func (o *DataStoreCatalogPowerSchemeModel) SetWeekdaysNil(b bool)`
+
+ SetWeekdaysNil sets the value for Weekdays to be an explicit nil
+
+### UnsetWeekdays
+`func (o *DataStoreCatalogPowerSchemeModel) UnsetWeekdays()`
+
+UnsetWeekdays ensures that no value is present for Weekdays, not even an explicit nil
 ### GetPeakEndTime
 
 `func (o *DataStoreCatalogPowerSchemeModel) GetPeakEndTime() int32`
@@ -165,6 +185,16 @@ SetPeakTimeZoneId sets PeakTimeZoneId field to given value.
 
 HasPeakTimeZoneId returns a boolean if a field has been set.
 
+### SetPeakTimeZoneIdNil
+
+`func (o *DataStoreCatalogPowerSchemeModel) SetPeakTimeZoneIdNil(b bool)`
+
+ SetPeakTimeZoneIdNil sets the value for PeakTimeZoneId to be an explicit nil
+
+### UnsetPeakTimeZoneId
+`func (o *DataStoreCatalogPowerSchemeModel) UnsetPeakTimeZoneId()`
+
+UnsetPeakTimeZoneId ensures that no value is present for PeakTimeZoneId, not even an explicit nil
 ### GetPeakDisconnectedSessionTimeout
 
 `func (o *DataStoreCatalogPowerSchemeModel) GetPeakDisconnectedSessionTimeout() int32`
@@ -265,6 +295,16 @@ SetSessionTimeout sets SessionTimeout field to given value.
 
 HasSessionTimeout returns a boolean if a field has been set.
 
+### SetSessionTimeoutNil
+
+`func (o *DataStoreCatalogPowerSchemeModel) SetSessionTimeoutNil(b bool)`
+
+ SetSessionTimeoutNil sets the value for SessionTimeout to be an explicit nil
+
+### UnsetSessionTimeout
+`func (o *DataStoreCatalogPowerSchemeModel) UnsetSessionTimeout()`
+
+UnsetSessionTimeout ensures that no value is present for SessionTimeout, not even an explicit nil
 ### GetBufferCapacity
 
 `func (o *DataStoreCatalogPowerSchemeModel) GetBufferCapacity() int32`
@@ -290,6 +330,16 @@ SetBufferCapacity sets BufferCapacity field to given value.
 
 HasBufferCapacity returns a boolean if a field has been set.
 
+### SetBufferCapacityNil
+
+`func (o *DataStoreCatalogPowerSchemeModel) SetBufferCapacityNil(b bool)`
+
+ SetBufferCapacityNil sets the value for BufferCapacity to be an explicit nil
+
+### UnsetBufferCapacity
+`func (o *DataStoreCatalogPowerSchemeModel) UnsetBufferCapacity()`
+
+UnsetBufferCapacity ensures that no value is present for BufferCapacity, not even an explicit nil
 ### GetPeakDisconnectedSessionAction
 
 `func (o *DataStoreCatalogPowerSchemeModel) GetPeakDisconnectedSessionAction() SessionChangeHostingAction`
@@ -315,6 +365,16 @@ SetPeakDisconnectedSessionAction sets PeakDisconnectedSessionAction field to giv
 
 HasPeakDisconnectedSessionAction returns a boolean if a field has been set.
 
+### SetPeakDisconnectedSessionActionNil
+
+`func (o *DataStoreCatalogPowerSchemeModel) SetPeakDisconnectedSessionActionNil(b bool)`
+
+ SetPeakDisconnectedSessionActionNil sets the value for PeakDisconnectedSessionAction to be an explicit nil
+
+### UnsetPeakDisconnectedSessionAction
+`func (o *DataStoreCatalogPowerSchemeModel) UnsetPeakDisconnectedSessionAction()`
+
+UnsetPeakDisconnectedSessionAction ensures that no value is present for PeakDisconnectedSessionAction, not even an explicit nil
 ### GetOffPeakDisconnectedSessionAction
 
 `func (o *DataStoreCatalogPowerSchemeModel) GetOffPeakDisconnectedSessionAction() SessionChangeHostingAction`
@@ -340,6 +400,16 @@ SetOffPeakDisconnectedSessionAction sets OffPeakDisconnectedSessionAction field 
 
 HasOffPeakDisconnectedSessionAction returns a boolean if a field has been set.
 
+### SetOffPeakDisconnectedSessionActionNil
+
+`func (o *DataStoreCatalogPowerSchemeModel) SetOffPeakDisconnectedSessionActionNil(b bool)`
+
+ SetOffPeakDisconnectedSessionActionNil sets the value for OffPeakDisconnectedSessionAction to be an explicit nil
+
+### UnsetOffPeakDisconnectedSessionAction
+`func (o *DataStoreCatalogPowerSchemeModel) UnsetOffPeakDisconnectedSessionAction()`
+
+UnsetOffPeakDisconnectedSessionAction ensures that no value is present for OffPeakDisconnectedSessionAction, not even an explicit nil
 ### GetPeakExtendedDisconnectTimeoutMinutes
 
 `func (o *DataStoreCatalogPowerSchemeModel) GetPeakExtendedDisconnectTimeoutMinutes() int32`
@@ -365,6 +435,16 @@ SetPeakExtendedDisconnectTimeoutMinutes sets PeakExtendedDisconnectTimeoutMinute
 
 HasPeakExtendedDisconnectTimeoutMinutes returns a boolean if a field has been set.
 
+### SetPeakExtendedDisconnectTimeoutMinutesNil
+
+`func (o *DataStoreCatalogPowerSchemeModel) SetPeakExtendedDisconnectTimeoutMinutesNil(b bool)`
+
+ SetPeakExtendedDisconnectTimeoutMinutesNil sets the value for PeakExtendedDisconnectTimeoutMinutes to be an explicit nil
+
+### UnsetPeakExtendedDisconnectTimeoutMinutes
+`func (o *DataStoreCatalogPowerSchemeModel) UnsetPeakExtendedDisconnectTimeoutMinutes()`
+
+UnsetPeakExtendedDisconnectTimeoutMinutes ensures that no value is present for PeakExtendedDisconnectTimeoutMinutes, not even an explicit nil
 ### GetOffPeakExtendedDisconnectTimeoutMinutes
 
 `func (o *DataStoreCatalogPowerSchemeModel) GetOffPeakExtendedDisconnectTimeoutMinutes() int32`
@@ -390,6 +470,16 @@ SetOffPeakExtendedDisconnectTimeoutMinutes sets OffPeakExtendedDisconnectTimeout
 
 HasOffPeakExtendedDisconnectTimeoutMinutes returns a boolean if a field has been set.
 
+### SetOffPeakExtendedDisconnectTimeoutMinutesNil
+
+`func (o *DataStoreCatalogPowerSchemeModel) SetOffPeakExtendedDisconnectTimeoutMinutesNil(b bool)`
+
+ SetOffPeakExtendedDisconnectTimeoutMinutesNil sets the value for OffPeakExtendedDisconnectTimeoutMinutes to be an explicit nil
+
+### UnsetOffPeakExtendedDisconnectTimeoutMinutes
+`func (o *DataStoreCatalogPowerSchemeModel) UnsetOffPeakExtendedDisconnectTimeoutMinutes()`
+
+UnsetOffPeakExtendedDisconnectTimeoutMinutes ensures that no value is present for OffPeakExtendedDisconnectTimeoutMinutes, not even an explicit nil
 ### GetOffPeakBufferCapacity
 
 `func (o *DataStoreCatalogPowerSchemeModel) GetOffPeakBufferCapacity() int32`
@@ -415,6 +505,16 @@ SetOffPeakBufferCapacity sets OffPeakBufferCapacity field to given value.
 
 HasOffPeakBufferCapacity returns a boolean if a field has been set.
 
+### SetOffPeakBufferCapacityNil
+
+`func (o *DataStoreCatalogPowerSchemeModel) SetOffPeakBufferCapacityNil(b bool)`
+
+ SetOffPeakBufferCapacityNil sets the value for OffPeakBufferCapacity to be an explicit nil
+
+### UnsetOffPeakBufferCapacity
+`func (o *DataStoreCatalogPowerSchemeModel) UnsetOffPeakBufferCapacity()`
+
+UnsetOffPeakBufferCapacity ensures that no value is present for OffPeakBufferCapacity, not even an explicit nil
 ### GetPowerOffDelay
 
 `func (o *DataStoreCatalogPowerSchemeModel) GetPowerOffDelay() int32`

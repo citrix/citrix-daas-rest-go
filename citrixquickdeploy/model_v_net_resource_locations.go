@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &VNetResourceLocations{}
 // VNetResourceLocations struct for VNetResourceLocations
 type VNetResourceLocations struct {
 	// The id of the subscription
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionId NullableString `json:"subscriptionId,omitempty"`
 	// The list of resource locations associated with the subscription
 	ResourceLocations []VNetResourceLocation `json:"resourceLocations,omitempty"`
 }
@@ -33,32 +33,43 @@ func NewVNetResourceLocationsWithDefaults() *VNetResourceLocations {
 	return &this
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VNetResourceLocations) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VNetResourceLocations) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *VNetResourceLocations) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
 }
 
-// GetResourceLocations returns the ResourceLocations field value if set, zero value otherwise.
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *VNetResourceLocations) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *VNetResourceLocations) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
+}
+
+// GetResourceLocations returns the ResourceLocations field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VNetResourceLocations) GetResourceLocations() []VNetResourceLocation {
-	if o == nil || IsNil(o.ResourceLocations) {
+	if o == nil {
 		var ret []VNetResourceLocation
 		return ret
 	}
@@ -67,6 +78,7 @@ func (o *VNetResourceLocations) GetResourceLocations() []VNetResourceLocation {
 
 // GetResourceLocationsOk returns a tuple with the ResourceLocations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VNetResourceLocations) GetResourceLocationsOk() ([]VNetResourceLocation, bool) {
 	if o == nil || IsNil(o.ResourceLocations) {
 		return nil, false
@@ -89,10 +101,10 @@ func (o VNetResourceLocations) MarshalJSON() ([]byte, error) {
 
 func (o VNetResourceLocations) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
-	if !IsNil(o.ResourceLocations) {
+	if o.ResourceLocations != nil {
 		toSerialize["resourceLocations"] = o.ResourceLocations
 	}
 	return toSerialize, nil

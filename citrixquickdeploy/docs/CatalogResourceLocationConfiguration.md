@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IsAssignedExistingResourceLocation** | Pointer to **bool** | Indicates if the catalog is assigned to an existing Resource Location, instead of needing a new one | [optional] 
 **Name** | **string** | The desired name of the resource location that will be created for the catalog | 
-**AzureResourceGroup** | Pointer to **string** | Name of the resource location where to provision the connector vdas | [optional] 
-**OrganizationalUnit** | Pointer to **string** | Organization Unit associated with computer accounts added for the Resource Location | [optional] 
+**AzureResourceGroup** | Pointer to **NullableString** | Name of the resource location where to provision the connector vdas | [optional] 
+**OrganizationalUnit** | Pointer to **NullableString** | Organization Unit associated with computer accounts added for the Resource Location | [optional] 
 **ConnectivityMethod** | Pointer to [**ConnectivityType**](ConnectivityType.md) | Connectivity method for access to desktops and apps | [optional] 
-**VmSize** | Pointer to **string** | The ID of the vm size for the connector | [optional] 
+**VmSize** | Pointer to **NullableString** | The ID of the vm size for the connector | [optional] 
 
 ## Methods
 
@@ -100,6 +100,16 @@ SetAzureResourceGroup sets AzureResourceGroup field to given value.
 
 HasAzureResourceGroup returns a boolean if a field has been set.
 
+### SetAzureResourceGroupNil
+
+`func (o *CatalogResourceLocationConfiguration) SetAzureResourceGroupNil(b bool)`
+
+ SetAzureResourceGroupNil sets the value for AzureResourceGroup to be an explicit nil
+
+### UnsetAzureResourceGroup
+`func (o *CatalogResourceLocationConfiguration) UnsetAzureResourceGroup()`
+
+UnsetAzureResourceGroup ensures that no value is present for AzureResourceGroup, not even an explicit nil
 ### GetOrganizationalUnit
 
 `func (o *CatalogResourceLocationConfiguration) GetOrganizationalUnit() string`
@@ -125,6 +135,16 @@ SetOrganizationalUnit sets OrganizationalUnit field to given value.
 
 HasOrganizationalUnit returns a boolean if a field has been set.
 
+### SetOrganizationalUnitNil
+
+`func (o *CatalogResourceLocationConfiguration) SetOrganizationalUnitNil(b bool)`
+
+ SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
+
+### UnsetOrganizationalUnit
+`func (o *CatalogResourceLocationConfiguration) UnsetOrganizationalUnit()`
+
+UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
 ### GetConnectivityMethod
 
 `func (o *CatalogResourceLocationConfiguration) GetConnectivityMethod() ConnectivityType`
@@ -175,6 +195,16 @@ SetVmSize sets VmSize field to given value.
 
 HasVmSize returns a boolean if a field has been set.
 
+### SetVmSizeNil
+
+`func (o *CatalogResourceLocationConfiguration) SetVmSizeNil(b bool)`
+
+ SetVmSizeNil sets the value for VmSize to be an explicit nil
+
+### UnsetVmSize
+`func (o *CatalogResourceLocationConfiguration) UnsetVmSize()`
+
+UnsetVmSize ensures that no value is present for VmSize, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

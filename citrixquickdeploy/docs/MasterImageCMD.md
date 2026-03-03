@@ -12,13 +12,14 @@ Method | HTTP request | Description
 [**GetImages**](MasterImageCMD.md#GetImages) | **Get** /{customerId}/{siteId}/images | Returns all the master images the customer has linked to their account
 [**GetTemplateImage**](MasterImageCMD.md#GetTemplateImage) | **Get** /{customerId}/{siteId}/images/{imageId} | Returns details of the specified master image
 [**ImportTemplateImage**](MasterImageCMD.md#ImportTemplateImage) | **Post** /{customerId}/{siteId}/images/$import | Add a new master image to the DaaS customer&#39;s account, which is linked to a VHD image inside the customer&#39;s storage account (Image import feature for DaaS)
+[**ImportTemplateImageWithoutVerification**](MasterImageCMD.md#ImportTemplateImageWithoutVerification) | **Post** /{customerId}/{siteId}/images/$skipverificationimport | Add a new master image to the DaaS customer&#39;s account, which is linked to a VHD image inside the customer&#39;s storage account (Image import feature for DaaS)
 [**UpdateTemplateImage**](MasterImageCMD.md#UpdateTemplateImage) | **Patch** /{customerId}/{siteId}/images/{imageId} | Updates template image configuration (name, notes, allowed ips)
 
 
 
 ## AddTemplateImage
 
-> string AddTemplateImage(ctx, customerId, siteId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+> string AddTemplateImage(ctx, customerId, siteId).CitrixTransactionId(citrixTransactionId).AddTemplateImageModel(addTemplateImageModel).Execute()
 
 Add a new master image to the XenApp Essential customer's account, which is linked to a VHD image inside the customer's storage account.
 
@@ -38,11 +39,11 @@ func main() {
     customerId := "customerId_example" // string | Specific customer id
     siteId := "siteId_example" // string | The site ID of the customer
     citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := *openapiclient.NewAddTemplateImageModel("Name_example", "SubscriptionId_example", "ResourceGroup_example", "StorageAccount_example") // AddTemplateImageModel | Configuration of the master image to add (optional)
+    addTemplateImageModel := *openapiclient.NewAddTemplateImageModel("Name_example", "SubscriptionId_example", "ResourceGroup_example", "StorageAccount_example") // AddTemplateImageModel | Configuration of the master image to add (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MasterImageCMD.AddTemplateImage(context.Background(), customerId, siteId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+    resp, r, err := apiClient.MasterImageCMD.AddTemplateImage(context.Background(), customerId, siteId).CitrixTransactionId(citrixTransactionId).AddTemplateImageModel(addTemplateImageModel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MasterImageCMD.AddTemplateImage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -71,7 +72,7 @@ Name | Type | Description  | Notes
 
 
  **citrixTransactionId** | **string** | The Transaction Id. | 
- **body** | [**AddTemplateImageModel**](AddTemplateImageModel.md) | Configuration of the master image to add | 
+ **addTemplateImageModel** | [**AddTemplateImageModel**](AddTemplateImageModel.md) | Configuration of the master image to add | 
 
 ### Return type
 
@@ -167,7 +168,7 @@ Name | Type | Description  | Notes
 
 ## CreateCustomerImageUrl
 
-> TemplateImageUrl CreateCustomerImageUrl(ctx, customerId, siteId, imageId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+> TemplateImageUrl CreateCustomerImageUrl(ctx, customerId, siteId, imageId).CitrixTransactionId(citrixTransactionId).CustomerImgUrlModel(customerImgUrlModel).Execute()
 
 Returns url of customer image
 
@@ -188,11 +189,11 @@ func main() {
     siteId := "siteId_example" // string | The site ID of the customer
     imageId := "imageId_example" // string | The master image to view details of
     citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := *openapiclient.NewCustomerImgUrlModel() // CustomerImgUrlModel |  (optional)
+    customerImgUrlModel := *openapiclient.NewCustomerImgUrlModel() // CustomerImgUrlModel |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MasterImageCMD.CreateCustomerImageUrl(context.Background(), customerId, siteId, imageId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+    resp, r, err := apiClient.MasterImageCMD.CreateCustomerImageUrl(context.Background(), customerId, siteId, imageId).CitrixTransactionId(citrixTransactionId).CustomerImgUrlModel(customerImgUrlModel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MasterImageCMD.CreateCustomerImageUrl``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -223,7 +224,7 @@ Name | Type | Description  | Notes
 
 
  **citrixTransactionId** | **string** | The Transaction Id. | 
- **body** | [**CustomerImgUrlModel**](CustomerImgUrlModel.md) |  | 
+ **customerImgUrlModel** | [**CustomerImgUrlModel**](CustomerImgUrlModel.md) |  | 
 
 ### Return type
 
@@ -554,7 +555,7 @@ Name | Type | Description  | Notes
 
 ## ImportTemplateImage
 
-> TemplateImageOverview ImportTemplateImage(ctx, customerId, siteId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+> TemplateImageOverview ImportTemplateImage(ctx, customerId, siteId).CitrixTransactionId(citrixTransactionId).ImportTemplateImageModel(importTemplateImageModel).Execute()
 
 Add a new master image to the DaaS customer's account, which is linked to a VHD image inside the customer's storage account (Image import feature for DaaS)
 
@@ -574,11 +575,11 @@ func main() {
     customerId := "customerId_example" // string | Specific customer id
     siteId := "siteId_example" // string | The site ID of the customer
     citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := *openapiclient.NewImportTemplateImageModel("Name_example", "VhdUri_example") // ImportTemplateImageModel | Configuration of the master image to add (optional)
+    importTemplateImageModel := *openapiclient.NewImportTemplateImageModel("Name_example", "VhdUri_example") // ImportTemplateImageModel | Configuration of the master image to add (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MasterImageCMD.ImportTemplateImage(context.Background(), customerId, siteId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+    resp, r, err := apiClient.MasterImageCMD.ImportTemplateImage(context.Background(), customerId, siteId).CitrixTransactionId(citrixTransactionId).ImportTemplateImageModel(importTemplateImageModel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MasterImageCMD.ImportTemplateImage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -607,7 +608,84 @@ Name | Type | Description  | Notes
 
 
  **citrixTransactionId** | **string** | The Transaction Id. | 
- **body** | [**ImportTemplateImageModel**](ImportTemplateImageModel.md) | Configuration of the master image to add | 
+ **importTemplateImageModel** | [**ImportTemplateImageModel**](ImportTemplateImageModel.md) | Configuration of the master image to add | 
+
+### Return type
+
+[**TemplateImageOverview**](TemplateImageOverview.md)
+
+### Authorization
+
+[CWSAuth](../README.md#CWSAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ImportTemplateImageWithoutVerification
+
+> TemplateImageOverview ImportTemplateImageWithoutVerification(ctx, customerId, siteId).CitrixTransactionId(citrixTransactionId).ImportTemplateImageModel(importTemplateImageModel).Execute()
+
+Add a new master image to the DaaS customer's account, which is linked to a VHD image inside the customer's storage account (Image import feature for DaaS)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickdeploy"
+)
+
+func main() {
+    customerId := "customerId_example" // string | Specific customer id
+    siteId := "siteId_example" // string | The site ID of the customer
+    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+    importTemplateImageModel := *openapiclient.NewImportTemplateImageModel("Name_example", "VhdUri_example") // ImportTemplateImageModel | Configuration of the master image to add (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MasterImageCMD.ImportTemplateImageWithoutVerification(context.Background(), customerId, siteId).CitrixTransactionId(citrixTransactionId).ImportTemplateImageModel(importTemplateImageModel).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MasterImageCMD.ImportTemplateImageWithoutVerification``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ImportTemplateImageWithoutVerification`: TemplateImageOverview
+    fmt.Fprintf(os.Stdout, "Response from `MasterImageCMD.ImportTemplateImageWithoutVerification`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**customerId** | **string** | Specific customer id | 
+**siteId** | **string** | The site ID of the customer | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiImportTemplateImageWithoutVerificationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **citrixTransactionId** | **string** | The Transaction Id. | 
+ **importTemplateImageModel** | [**ImportTemplateImageModel**](ImportTemplateImageModel.md) | Configuration of the master image to add | 
 
 ### Return type
 
@@ -629,7 +707,7 @@ Name | Type | Description  | Notes
 
 ## UpdateTemplateImage
 
-> UpdateTemplateImage(ctx, customerId, siteId, imageId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+> UpdateTemplateImage(ctx, customerId, siteId, imageId).CitrixTransactionId(citrixTransactionId).UpdateTemplateImageModel(updateTemplateImageModel).Execute()
 
 Updates template image configuration (name, notes, allowed ips)
 
@@ -650,11 +728,11 @@ func main() {
     siteId := "siteId_example" // string | 
     imageId := "imageId_example" // string | The template image to update
     citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := *openapiclient.NewUpdateTemplateImageModel() // UpdateTemplateImageModel | The updated configuration of image (optional)
+    updateTemplateImageModel := *openapiclient.NewUpdateTemplateImageModel() // UpdateTemplateImageModel | The updated configuration of image (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MasterImageCMD.UpdateTemplateImage(context.Background(), customerId, siteId, imageId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+    r, err := apiClient.MasterImageCMD.UpdateTemplateImage(context.Background(), customerId, siteId, imageId).CitrixTransactionId(citrixTransactionId).UpdateTemplateImageModel(updateTemplateImageModel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MasterImageCMD.UpdateTemplateImage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -683,7 +761,7 @@ Name | Type | Description  | Notes
 
 
  **citrixTransactionId** | **string** | The Transaction Id. | 
- **body** | [**UpdateTemplateImageModel**](UpdateTemplateImageModel.md) | The updated configuration of image | 
+ **updateTemplateImageModel** | [**UpdateTemplateImageModel**](UpdateTemplateImageModel.md) | The updated configuration of image | 
 
 ### Return type
 
