@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -24,8 +24,8 @@ type CustomerCatalogOverviewsModel struct {
 	// Alias of Items property for backward compatibility
 	Catalogs []CatalogConfiguration `json:"catalogs,omitempty"`
 	// Limit imposed on the number of catalogs for the customer
-	CatalogLimit *CatalogLimitModel `json:"catalogLimit,omitempty"`
-	StaleData    *bool              `json:"staleData,omitempty"`
+	CatalogLimit NullableCatalogLimitModel `json:"catalogLimit,omitempty"`
+	StaleData    *bool                     `json:"staleData,omitempty"`
 }
 
 // NewCustomerCatalogOverviewsModelWithDefaults instantiates a new CustomerCatalogOverviewsModel object
@@ -60,9 +60,9 @@ func (o *CustomerCatalogOverviewsModel) SetItems(v []CatalogConfiguration) {
 	o.Items = v
 }
 
-// GetCatalogs returns the Catalogs field value if set, zero value otherwise.
+// GetCatalogs returns the Catalogs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CustomerCatalogOverviewsModel) GetCatalogs() []CatalogConfiguration {
-	if o == nil || IsNil(o.Catalogs) {
+	if o == nil {
 		var ret []CatalogConfiguration
 		return ret
 	}
@@ -71,6 +71,7 @@ func (o *CustomerCatalogOverviewsModel) GetCatalogs() []CatalogConfiguration {
 
 // GetCatalogsOk returns a tuple with the Catalogs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomerCatalogOverviewsModel) GetCatalogsOk() ([]CatalogConfiguration, bool) {
 	if o == nil || IsNil(o.Catalogs) {
 		return nil, false
@@ -83,27 +84,38 @@ func (o *CustomerCatalogOverviewsModel) SetCatalogs(v []CatalogConfiguration) {
 	o.Catalogs = v
 }
 
-// GetCatalogLimit returns the CatalogLimit field value if set, zero value otherwise.
+// GetCatalogLimit returns the CatalogLimit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CustomerCatalogOverviewsModel) GetCatalogLimit() CatalogLimitModel {
-	if o == nil || IsNil(o.CatalogLimit) {
+	if o == nil || IsNil(o.CatalogLimit.Get()) {
 		var ret CatalogLimitModel
 		return ret
 	}
-	return *o.CatalogLimit
+	return *o.CatalogLimit.Get()
 }
 
 // GetCatalogLimitOk returns a tuple with the CatalogLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomerCatalogOverviewsModel) GetCatalogLimitOk() (*CatalogLimitModel, bool) {
-	if o == nil || IsNil(o.CatalogLimit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CatalogLimit, true
+	return o.CatalogLimit.Get(), o.CatalogLimit.IsSet()
 }
 
-// SetCatalogLimit gets a reference to the given CatalogLimitModel and assigns it to the CatalogLimit field.
+// SetCatalogLimit gets a reference to the given NullableCatalogLimitModel and assigns it to the CatalogLimit field.
 func (o *CustomerCatalogOverviewsModel) SetCatalogLimit(v CatalogLimitModel) {
-	o.CatalogLimit = &v
+	o.CatalogLimit.Set(&v)
+}
+
+// SetCatalogLimitNil sets the value for CatalogLimit to be an explicit nil
+func (o *CustomerCatalogOverviewsModel) SetCatalogLimitNil() {
+	o.CatalogLimit.Set(nil)
+}
+
+// UnsetCatalogLimit ensures that no value is present for CatalogLimit, not even an explicit nil
+func (o *CustomerCatalogOverviewsModel) UnsetCatalogLimit() {
+	o.CatalogLimit.Unset()
 }
 
 // GetStaleData returns the StaleData field value if set, zero value otherwise.
@@ -140,11 +152,11 @@ func (o CustomerCatalogOverviewsModel) MarshalJSON() ([]byte, error) {
 func (o CustomerCatalogOverviewsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["items"] = o.Items
-	if !IsNil(o.Catalogs) {
+	if o.Catalogs != nil {
 		toSerialize["catalogs"] = o.Catalogs
 	}
-	if !IsNil(o.CatalogLimit) {
-		toSerialize["catalogLimit"] = o.CatalogLimit
+	if o.CatalogLimit.IsSet() {
+		toSerialize["catalogLimit"] = o.CatalogLimit.Get()
 	}
 	if !IsNil(o.StaleData) {
 		toSerialize["staleData"] = o.StaleData

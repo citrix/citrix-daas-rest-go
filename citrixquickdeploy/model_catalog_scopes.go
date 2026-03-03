@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,8 +19,8 @@ var _ MappedNullable = &CatalogScopes{}
 
 // CatalogScopes Summary view of the catalog scopes
 type CatalogScopes struct {
-	CatalogId                 *string                    `json:"catalogId,omitempty"`
-	CatalogName               *string                    `json:"catalogName,omitempty"`
+	CatalogId                 NullableString             `json:"catalogId,omitempty"`
+	CatalogName               NullableString             `json:"catalogName,omitempty"`
 	Advanced                  *bool                      `json:"advanced,omitempty"`
 	DeliveryGroupScopes       []string                   `json:"deliveryGroupScopes,omitempty"`
 	DeliveryGroupMetadata     []NameValueStringPairModel `json:"deliveryGroupMetadata,omitempty"`
@@ -29,7 +29,7 @@ type CatalogScopes struct {
 	HostingConnectionScopes   []string                   `json:"hostingConnectionScopes,omitempty"`
 	HostingConnectionMetadata []NameValueStringPairModel `json:"hostingConnectionMetadata,omitempty"`
 	Error                     *bool                      `json:"error,omitempty"`
-	ErrorMessage              *string                    `json:"errorMessage,omitempty"`
+	ErrorMessage              NullableString             `json:"errorMessage,omitempty"`
 }
 
 // NewCatalogScopesWithDefaults instantiates a new CatalogScopes object
@@ -40,50 +40,72 @@ func NewCatalogScopesWithDefaults() *CatalogScopes {
 	return &this
 }
 
-// GetCatalogId returns the CatalogId field value if set, zero value otherwise.
+// GetCatalogId returns the CatalogId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScopes) GetCatalogId() string {
-	if o == nil || IsNil(o.CatalogId) {
+	if o == nil || IsNil(o.CatalogId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CatalogId
+	return *o.CatalogId.Get()
 }
 
 // GetCatalogIdOk returns a tuple with the CatalogId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScopes) GetCatalogIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CatalogId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CatalogId, true
+	return o.CatalogId.Get(), o.CatalogId.IsSet()
 }
 
-// SetCatalogId gets a reference to the given string and assigns it to the CatalogId field.
+// SetCatalogId gets a reference to the given NullableString and assigns it to the CatalogId field.
 func (o *CatalogScopes) SetCatalogId(v string) {
-	o.CatalogId = &v
+	o.CatalogId.Set(&v)
 }
 
-// GetCatalogName returns the CatalogName field value if set, zero value otherwise.
+// SetCatalogIdNil sets the value for CatalogId to be an explicit nil
+func (o *CatalogScopes) SetCatalogIdNil() {
+	o.CatalogId.Set(nil)
+}
+
+// UnsetCatalogId ensures that no value is present for CatalogId, not even an explicit nil
+func (o *CatalogScopes) UnsetCatalogId() {
+	o.CatalogId.Unset()
+}
+
+// GetCatalogName returns the CatalogName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScopes) GetCatalogName() string {
-	if o == nil || IsNil(o.CatalogName) {
+	if o == nil || IsNil(o.CatalogName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CatalogName
+	return *o.CatalogName.Get()
 }
 
 // GetCatalogNameOk returns a tuple with the CatalogName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScopes) GetCatalogNameOk() (*string, bool) {
-	if o == nil || IsNil(o.CatalogName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CatalogName, true
+	return o.CatalogName.Get(), o.CatalogName.IsSet()
 }
 
-// SetCatalogName gets a reference to the given string and assigns it to the CatalogName field.
+// SetCatalogName gets a reference to the given NullableString and assigns it to the CatalogName field.
 func (o *CatalogScopes) SetCatalogName(v string) {
-	o.CatalogName = &v
+	o.CatalogName.Set(&v)
+}
+
+// SetCatalogNameNil sets the value for CatalogName to be an explicit nil
+func (o *CatalogScopes) SetCatalogNameNil() {
+	o.CatalogName.Set(nil)
+}
+
+// UnsetCatalogName ensures that no value is present for CatalogName, not even an explicit nil
+func (o *CatalogScopes) UnsetCatalogName() {
+	o.CatalogName.Unset()
 }
 
 // GetAdvanced returns the Advanced field value if set, zero value otherwise.
@@ -109,9 +131,9 @@ func (o *CatalogScopes) SetAdvanced(v bool) {
 	o.Advanced = &v
 }
 
-// GetDeliveryGroupScopes returns the DeliveryGroupScopes field value if set, zero value otherwise.
+// GetDeliveryGroupScopes returns the DeliveryGroupScopes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScopes) GetDeliveryGroupScopes() []string {
-	if o == nil || IsNil(o.DeliveryGroupScopes) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -120,6 +142,7 @@ func (o *CatalogScopes) GetDeliveryGroupScopes() []string {
 
 // GetDeliveryGroupScopesOk returns a tuple with the DeliveryGroupScopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScopes) GetDeliveryGroupScopesOk() ([]string, bool) {
 	if o == nil || IsNil(o.DeliveryGroupScopes) {
 		return nil, false
@@ -132,9 +155,9 @@ func (o *CatalogScopes) SetDeliveryGroupScopes(v []string) {
 	o.DeliveryGroupScopes = v
 }
 
-// GetDeliveryGroupMetadata returns the DeliveryGroupMetadata field value if set, zero value otherwise.
+// GetDeliveryGroupMetadata returns the DeliveryGroupMetadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScopes) GetDeliveryGroupMetadata() []NameValueStringPairModel {
-	if o == nil || IsNil(o.DeliveryGroupMetadata) {
+	if o == nil {
 		var ret []NameValueStringPairModel
 		return ret
 	}
@@ -143,6 +166,7 @@ func (o *CatalogScopes) GetDeliveryGroupMetadata() []NameValueStringPairModel {
 
 // GetDeliveryGroupMetadataOk returns a tuple with the DeliveryGroupMetadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScopes) GetDeliveryGroupMetadataOk() ([]NameValueStringPairModel, bool) {
 	if o == nil || IsNil(o.DeliveryGroupMetadata) {
 		return nil, false
@@ -155,9 +179,9 @@ func (o *CatalogScopes) SetDeliveryGroupMetadata(v []NameValueStringPairModel) {
 	o.DeliveryGroupMetadata = v
 }
 
-// GetMachineCatalogScopes returns the MachineCatalogScopes field value if set, zero value otherwise.
+// GetMachineCatalogScopes returns the MachineCatalogScopes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScopes) GetMachineCatalogScopes() []string {
-	if o == nil || IsNil(o.MachineCatalogScopes) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -166,6 +190,7 @@ func (o *CatalogScopes) GetMachineCatalogScopes() []string {
 
 // GetMachineCatalogScopesOk returns a tuple with the MachineCatalogScopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScopes) GetMachineCatalogScopesOk() ([]string, bool) {
 	if o == nil || IsNil(o.MachineCatalogScopes) {
 		return nil, false
@@ -178,9 +203,9 @@ func (o *CatalogScopes) SetMachineCatalogScopes(v []string) {
 	o.MachineCatalogScopes = v
 }
 
-// GetMachineCatalogMetadata returns the MachineCatalogMetadata field value if set, zero value otherwise.
+// GetMachineCatalogMetadata returns the MachineCatalogMetadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScopes) GetMachineCatalogMetadata() []NameValueStringPairModel {
-	if o == nil || IsNil(o.MachineCatalogMetadata) {
+	if o == nil {
 		var ret []NameValueStringPairModel
 		return ret
 	}
@@ -189,6 +214,7 @@ func (o *CatalogScopes) GetMachineCatalogMetadata() []NameValueStringPairModel {
 
 // GetMachineCatalogMetadataOk returns a tuple with the MachineCatalogMetadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScopes) GetMachineCatalogMetadataOk() ([]NameValueStringPairModel, bool) {
 	if o == nil || IsNil(o.MachineCatalogMetadata) {
 		return nil, false
@@ -201,9 +227,9 @@ func (o *CatalogScopes) SetMachineCatalogMetadata(v []NameValueStringPairModel) 
 	o.MachineCatalogMetadata = v
 }
 
-// GetHostingConnectionScopes returns the HostingConnectionScopes field value if set, zero value otherwise.
+// GetHostingConnectionScopes returns the HostingConnectionScopes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScopes) GetHostingConnectionScopes() []string {
-	if o == nil || IsNil(o.HostingConnectionScopes) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -212,6 +238,7 @@ func (o *CatalogScopes) GetHostingConnectionScopes() []string {
 
 // GetHostingConnectionScopesOk returns a tuple with the HostingConnectionScopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScopes) GetHostingConnectionScopesOk() ([]string, bool) {
 	if o == nil || IsNil(o.HostingConnectionScopes) {
 		return nil, false
@@ -224,9 +251,9 @@ func (o *CatalogScopes) SetHostingConnectionScopes(v []string) {
 	o.HostingConnectionScopes = v
 }
 
-// GetHostingConnectionMetadata returns the HostingConnectionMetadata field value if set, zero value otherwise.
+// GetHostingConnectionMetadata returns the HostingConnectionMetadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScopes) GetHostingConnectionMetadata() []NameValueStringPairModel {
-	if o == nil || IsNil(o.HostingConnectionMetadata) {
+	if o == nil {
 		var ret []NameValueStringPairModel
 		return ret
 	}
@@ -235,6 +262,7 @@ func (o *CatalogScopes) GetHostingConnectionMetadata() []NameValueStringPairMode
 
 // GetHostingConnectionMetadataOk returns a tuple with the HostingConnectionMetadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScopes) GetHostingConnectionMetadataOk() ([]NameValueStringPairModel, bool) {
 	if o == nil || IsNil(o.HostingConnectionMetadata) {
 		return nil, false
@@ -270,27 +298,38 @@ func (o *CatalogScopes) SetError(v bool) {
 	o.Error = &v
 }
 
-// GetErrorMessage returns the ErrorMessage field value if set, zero value otherwise.
+// GetErrorMessage returns the ErrorMessage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogScopes) GetErrorMessage() string {
-	if o == nil || IsNil(o.ErrorMessage) {
+	if o == nil || IsNil(o.ErrorMessage.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ErrorMessage
+	return *o.ErrorMessage.Get()
 }
 
 // GetErrorMessageOk returns a tuple with the ErrorMessage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogScopes) GetErrorMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.ErrorMessage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ErrorMessage, true
+	return o.ErrorMessage.Get(), o.ErrorMessage.IsSet()
 }
 
-// SetErrorMessage gets a reference to the given string and assigns it to the ErrorMessage field.
+// SetErrorMessage gets a reference to the given NullableString and assigns it to the ErrorMessage field.
 func (o *CatalogScopes) SetErrorMessage(v string) {
-	o.ErrorMessage = &v
+	o.ErrorMessage.Set(&v)
+}
+
+// SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
+func (o *CatalogScopes) SetErrorMessageNil() {
+	o.ErrorMessage.Set(nil)
+}
+
+// UnsetErrorMessage ensures that no value is present for ErrorMessage, not even an explicit nil
+func (o *CatalogScopes) UnsetErrorMessage() {
+	o.ErrorMessage.Unset()
 }
 
 func (o CatalogScopes) MarshalJSON() ([]byte, error) {
@@ -303,38 +342,38 @@ func (o CatalogScopes) MarshalJSON() ([]byte, error) {
 
 func (o CatalogScopes) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CatalogId) {
-		toSerialize["catalogId"] = o.CatalogId
+	if o.CatalogId.IsSet() {
+		toSerialize["catalogId"] = o.CatalogId.Get()
 	}
-	if !IsNil(o.CatalogName) {
-		toSerialize["catalogName"] = o.CatalogName
+	if o.CatalogName.IsSet() {
+		toSerialize["catalogName"] = o.CatalogName.Get()
 	}
 	if !IsNil(o.Advanced) {
 		toSerialize["advanced"] = o.Advanced
 	}
-	if !IsNil(o.DeliveryGroupScopes) {
+	if o.DeliveryGroupScopes != nil {
 		toSerialize["deliveryGroupScopes"] = o.DeliveryGroupScopes
 	}
-	if !IsNil(o.DeliveryGroupMetadata) {
+	if o.DeliveryGroupMetadata != nil {
 		toSerialize["deliveryGroupMetadata"] = o.DeliveryGroupMetadata
 	}
-	if !IsNil(o.MachineCatalogScopes) {
+	if o.MachineCatalogScopes != nil {
 		toSerialize["machineCatalogScopes"] = o.MachineCatalogScopes
 	}
-	if !IsNil(o.MachineCatalogMetadata) {
+	if o.MachineCatalogMetadata != nil {
 		toSerialize["machineCatalogMetadata"] = o.MachineCatalogMetadata
 	}
-	if !IsNil(o.HostingConnectionScopes) {
+	if o.HostingConnectionScopes != nil {
 		toSerialize["hostingConnectionScopes"] = o.HostingConnectionScopes
 	}
-	if !IsNil(o.HostingConnectionMetadata) {
+	if o.HostingConnectionMetadata != nil {
 		toSerialize["hostingConnectionMetadata"] = o.HostingConnectionMetadata
 	}
 	if !IsNil(o.Error) {
 		toSerialize["error"] = o.Error
 	}
-	if !IsNil(o.ErrorMessage) {
-		toSerialize["errorMessage"] = o.ErrorMessage
+	if o.ErrorMessage.IsSet() {
+		toSerialize["errorMessage"] = o.ErrorMessage.Get()
 	}
 	return toSerialize, nil
 }

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &CatalogBackupScheduleTime{}
 // CatalogBackupScheduleTime struct for CatalogBackupScheduleTime
 type CatalogBackupScheduleTime struct {
 	// Timezone the backup should take place in
-	TimeZoneId *string `json:"timeZoneId,omitempty"`
+	TimeZoneId NullableString `json:"timeZoneId,omitempty"`
 	// Hour of the day to initiate backup (backup will occur sometime within the hour)
 	Hour *int32 `json:"hour,omitempty"`
 }
@@ -33,27 +33,38 @@ func NewCatalogBackupScheduleTimeWithDefaults() *CatalogBackupScheduleTime {
 	return &this
 }
 
-// GetTimeZoneId returns the TimeZoneId field value if set, zero value otherwise.
+// GetTimeZoneId returns the TimeZoneId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogBackupScheduleTime) GetTimeZoneId() string {
-	if o == nil || IsNil(o.TimeZoneId) {
+	if o == nil || IsNil(o.TimeZoneId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TimeZoneId
+	return *o.TimeZoneId.Get()
 }
 
 // GetTimeZoneIdOk returns a tuple with the TimeZoneId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogBackupScheduleTime) GetTimeZoneIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TimeZoneId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TimeZoneId, true
+	return o.TimeZoneId.Get(), o.TimeZoneId.IsSet()
 }
 
-// SetTimeZoneId gets a reference to the given string and assigns it to the TimeZoneId field.
+// SetTimeZoneId gets a reference to the given NullableString and assigns it to the TimeZoneId field.
 func (o *CatalogBackupScheduleTime) SetTimeZoneId(v string) {
-	o.TimeZoneId = &v
+	o.TimeZoneId.Set(&v)
+}
+
+// SetTimeZoneIdNil sets the value for TimeZoneId to be an explicit nil
+func (o *CatalogBackupScheduleTime) SetTimeZoneIdNil() {
+	o.TimeZoneId.Set(nil)
+}
+
+// UnsetTimeZoneId ensures that no value is present for TimeZoneId, not even an explicit nil
+func (o *CatalogBackupScheduleTime) UnsetTimeZoneId() {
+	o.TimeZoneId.Unset()
 }
 
 // GetHour returns the Hour field value if set, zero value otherwise.
@@ -89,8 +100,8 @@ func (o CatalogBackupScheduleTime) MarshalJSON() ([]byte, error) {
 
 func (o CatalogBackupScheduleTime) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TimeZoneId) {
-		toSerialize["timeZoneId"] = o.TimeZoneId
+	if o.TimeZoneId.IsSet() {
+		toSerialize["timeZoneId"] = o.TimeZoneId.Get()
 	}
 	if !IsNil(o.Hour) {
 		toSerialize["hour"] = o.Hour

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -24,9 +24,9 @@ type CatalogLimitModel struct {
 	// Current service state of customer
 	ServiceState *ServiceState `json:"serviceState,omitempty"`
 	// Limits on the Citrix Managed catalogs
-	CitrixManagedLimit *CatalogSublimitModel `json:"citrixManagedLimit,omitempty"`
+	CitrixManagedLimit NullableCatalogSublimitModel `json:"citrixManagedLimit,omitempty"`
 	// Limits on the BYOA catalogs
-	ByoaLimit *CatalogSublimitModel `json:"byoaLimit,omitempty"`
+	ByoaLimit NullableCatalogSublimitModel `json:"byoaLimit,omitempty"`
 }
 
 // NewCatalogLimitModelWithDefaults instantiates a new CatalogLimitModel object
@@ -83,50 +83,72 @@ func (o *CatalogLimitModel) SetServiceState(v ServiceState) {
 	o.ServiceState = &v
 }
 
-// GetCitrixManagedLimit returns the CitrixManagedLimit field value if set, zero value otherwise.
+// GetCitrixManagedLimit returns the CitrixManagedLimit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogLimitModel) GetCitrixManagedLimit() CatalogSublimitModel {
-	if o == nil || IsNil(o.CitrixManagedLimit) {
+	if o == nil || IsNil(o.CitrixManagedLimit.Get()) {
 		var ret CatalogSublimitModel
 		return ret
 	}
-	return *o.CitrixManagedLimit
+	return *o.CitrixManagedLimit.Get()
 }
 
 // GetCitrixManagedLimitOk returns a tuple with the CitrixManagedLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogLimitModel) GetCitrixManagedLimitOk() (*CatalogSublimitModel, bool) {
-	if o == nil || IsNil(o.CitrixManagedLimit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CitrixManagedLimit, true
+	return o.CitrixManagedLimit.Get(), o.CitrixManagedLimit.IsSet()
 }
 
-// SetCitrixManagedLimit gets a reference to the given CatalogSublimitModel and assigns it to the CitrixManagedLimit field.
+// SetCitrixManagedLimit gets a reference to the given NullableCatalogSublimitModel and assigns it to the CitrixManagedLimit field.
 func (o *CatalogLimitModel) SetCitrixManagedLimit(v CatalogSublimitModel) {
-	o.CitrixManagedLimit = &v
+	o.CitrixManagedLimit.Set(&v)
 }
 
-// GetByoaLimit returns the ByoaLimit field value if set, zero value otherwise.
+// SetCitrixManagedLimitNil sets the value for CitrixManagedLimit to be an explicit nil
+func (o *CatalogLimitModel) SetCitrixManagedLimitNil() {
+	o.CitrixManagedLimit.Set(nil)
+}
+
+// UnsetCitrixManagedLimit ensures that no value is present for CitrixManagedLimit, not even an explicit nil
+func (o *CatalogLimitModel) UnsetCitrixManagedLimit() {
+	o.CitrixManagedLimit.Unset()
+}
+
+// GetByoaLimit returns the ByoaLimit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogLimitModel) GetByoaLimit() CatalogSublimitModel {
-	if o == nil || IsNil(o.ByoaLimit) {
+	if o == nil || IsNil(o.ByoaLimit.Get()) {
 		var ret CatalogSublimitModel
 		return ret
 	}
-	return *o.ByoaLimit
+	return *o.ByoaLimit.Get()
 }
 
 // GetByoaLimitOk returns a tuple with the ByoaLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogLimitModel) GetByoaLimitOk() (*CatalogSublimitModel, bool) {
-	if o == nil || IsNil(o.ByoaLimit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ByoaLimit, true
+	return o.ByoaLimit.Get(), o.ByoaLimit.IsSet()
 }
 
-// SetByoaLimit gets a reference to the given CatalogSublimitModel and assigns it to the ByoaLimit field.
+// SetByoaLimit gets a reference to the given NullableCatalogSublimitModel and assigns it to the ByoaLimit field.
 func (o *CatalogLimitModel) SetByoaLimit(v CatalogSublimitModel) {
-	o.ByoaLimit = &v
+	o.ByoaLimit.Set(&v)
+}
+
+// SetByoaLimitNil sets the value for ByoaLimit to be an explicit nil
+func (o *CatalogLimitModel) SetByoaLimitNil() {
+	o.ByoaLimit.Set(nil)
+}
+
+// UnsetByoaLimit ensures that no value is present for ByoaLimit, not even an explicit nil
+func (o *CatalogLimitModel) UnsetByoaLimit() {
+	o.ByoaLimit.Unset()
 }
 
 func (o CatalogLimitModel) MarshalJSON() ([]byte, error) {
@@ -145,11 +167,11 @@ func (o CatalogLimitModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ServiceState) {
 		toSerialize["serviceState"] = o.ServiceState
 	}
-	if !IsNil(o.CitrixManagedLimit) {
-		toSerialize["citrixManagedLimit"] = o.CitrixManagedLimit
+	if o.CitrixManagedLimit.IsSet() {
+		toSerialize["citrixManagedLimit"] = o.CitrixManagedLimit.Get()
 	}
-	if !IsNil(o.ByoaLimit) {
-		toSerialize["byoaLimit"] = o.ByoaLimit
+	if o.ByoaLimit.IsSet() {
+		toSerialize["byoaLimit"] = o.ByoaLimit.Get()
 	}
 	return toSerialize, nil
 }

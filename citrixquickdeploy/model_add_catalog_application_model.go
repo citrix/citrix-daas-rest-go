@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &AddCatalogApplicationModel{}
 // AddCatalogApplicationModel struct for AddCatalogApplicationModel
 type AddCatalogApplicationModel struct {
 	// The application id in the datastore. If the id is not known (for a start menu application) or for adding a custom application, the Id should be left null
-	Id *string `json:"id,omitempty"`
+	Id NullableString `json:"id,omitempty"`
 	// Indicates if the application was discovered via scan of start menu apps or manually entered
 	IsStartMenuDiscovered *bool `json:"isStartMenuDiscovered,omitempty"`
 	// Name of the image
@@ -28,13 +28,13 @@ type AddCatalogApplicationModel struct {
 	// Path of the application
 	Path string `json:"path"`
 	// Working directory of the app at launch
-	WorkingDirectory *string `json:"workingDirectory,omitempty"`
+	WorkingDirectory NullableString `json:"workingDirectory,omitempty"`
 	// Application description that show up in Workspace
-	Description *string `json:"description,omitempty"`
+	Description NullableString `json:"description,omitempty"`
 	// Command line paramters to pass to the app when launching
-	CommandLineParameters *string `json:"commandLineParameters,omitempty"`
+	CommandLineParameters NullableString `json:"commandLineParameters,omitempty"`
 	// The raw app icon represented as a base64 string. For start menu app, if you want to use the default app icon, this field should be left blank.
-	Base64Icon *string `json:"base64Icon,omitempty"`
+	Base64Icon NullableString `json:"base64Icon,omitempty"`
 }
 
 // NewAddCatalogApplicationModelWithDefaults instantiates a new AddCatalogApplicationModel object
@@ -45,27 +45,38 @@ func NewAddCatalogApplicationModelWithDefaults() *AddCatalogApplicationModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCatalogApplicationModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCatalogApplicationModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *AddCatalogApplicationModel) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
+}
+
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *AddCatalogApplicationModel) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *AddCatalogApplicationModel) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetIsStartMenuDiscovered returns the IsStartMenuDiscovered field value if set, zero value otherwise.
@@ -139,96 +150,140 @@ func (o *AddCatalogApplicationModel) SetPath(v string) {
 	o.Path = v
 }
 
-// GetWorkingDirectory returns the WorkingDirectory field value if set, zero value otherwise.
+// GetWorkingDirectory returns the WorkingDirectory field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCatalogApplicationModel) GetWorkingDirectory() string {
-	if o == nil || IsNil(o.WorkingDirectory) {
+	if o == nil || IsNil(o.WorkingDirectory.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.WorkingDirectory
+	return *o.WorkingDirectory.Get()
 }
 
 // GetWorkingDirectoryOk returns a tuple with the WorkingDirectory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCatalogApplicationModel) GetWorkingDirectoryOk() (*string, bool) {
-	if o == nil || IsNil(o.WorkingDirectory) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkingDirectory, true
+	return o.WorkingDirectory.Get(), o.WorkingDirectory.IsSet()
 }
 
-// SetWorkingDirectory gets a reference to the given string and assigns it to the WorkingDirectory field.
+// SetWorkingDirectory gets a reference to the given NullableString and assigns it to the WorkingDirectory field.
 func (o *AddCatalogApplicationModel) SetWorkingDirectory(v string) {
-	o.WorkingDirectory = &v
+	o.WorkingDirectory.Set(&v)
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
+// SetWorkingDirectoryNil sets the value for WorkingDirectory to be an explicit nil
+func (o *AddCatalogApplicationModel) SetWorkingDirectoryNil() {
+	o.WorkingDirectory.Set(nil)
+}
+
+// UnsetWorkingDirectory ensures that no value is present for WorkingDirectory, not even an explicit nil
+func (o *AddCatalogApplicationModel) UnsetWorkingDirectory() {
+	o.WorkingDirectory.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCatalogApplicationModel) GetDescription() string {
-	if o == nil || IsNil(o.Description) {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCatalogApplicationModel) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
-// SetDescription gets a reference to the given string and assigns it to the Description field.
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *AddCatalogApplicationModel) SetDescription(v string) {
-	o.Description = &v
+	o.Description.Set(&v)
 }
 
-// GetCommandLineParameters returns the CommandLineParameters field value if set, zero value otherwise.
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *AddCatalogApplicationModel) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *AddCatalogApplicationModel) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetCommandLineParameters returns the CommandLineParameters field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCatalogApplicationModel) GetCommandLineParameters() string {
-	if o == nil || IsNil(o.CommandLineParameters) {
+	if o == nil || IsNil(o.CommandLineParameters.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CommandLineParameters
+	return *o.CommandLineParameters.Get()
 }
 
 // GetCommandLineParametersOk returns a tuple with the CommandLineParameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCatalogApplicationModel) GetCommandLineParametersOk() (*string, bool) {
-	if o == nil || IsNil(o.CommandLineParameters) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CommandLineParameters, true
+	return o.CommandLineParameters.Get(), o.CommandLineParameters.IsSet()
 }
 
-// SetCommandLineParameters gets a reference to the given string and assigns it to the CommandLineParameters field.
+// SetCommandLineParameters gets a reference to the given NullableString and assigns it to the CommandLineParameters field.
 func (o *AddCatalogApplicationModel) SetCommandLineParameters(v string) {
-	o.CommandLineParameters = &v
+	o.CommandLineParameters.Set(&v)
 }
 
-// GetBase64Icon returns the Base64Icon field value if set, zero value otherwise.
+// SetCommandLineParametersNil sets the value for CommandLineParameters to be an explicit nil
+func (o *AddCatalogApplicationModel) SetCommandLineParametersNil() {
+	o.CommandLineParameters.Set(nil)
+}
+
+// UnsetCommandLineParameters ensures that no value is present for CommandLineParameters, not even an explicit nil
+func (o *AddCatalogApplicationModel) UnsetCommandLineParameters() {
+	o.CommandLineParameters.Unset()
+}
+
+// GetBase64Icon returns the Base64Icon field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCatalogApplicationModel) GetBase64Icon() string {
-	if o == nil || IsNil(o.Base64Icon) {
+	if o == nil || IsNil(o.Base64Icon.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Base64Icon
+	return *o.Base64Icon.Get()
 }
 
 // GetBase64IconOk returns a tuple with the Base64Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCatalogApplicationModel) GetBase64IconOk() (*string, bool) {
-	if o == nil || IsNil(o.Base64Icon) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Base64Icon, true
+	return o.Base64Icon.Get(), o.Base64Icon.IsSet()
 }
 
-// SetBase64Icon gets a reference to the given string and assigns it to the Base64Icon field.
+// SetBase64Icon gets a reference to the given NullableString and assigns it to the Base64Icon field.
 func (o *AddCatalogApplicationModel) SetBase64Icon(v string) {
-	o.Base64Icon = &v
+	o.Base64Icon.Set(&v)
+}
+
+// SetBase64IconNil sets the value for Base64Icon to be an explicit nil
+func (o *AddCatalogApplicationModel) SetBase64IconNil() {
+	o.Base64Icon.Set(nil)
+}
+
+// UnsetBase64Icon ensures that no value is present for Base64Icon, not even an explicit nil
+func (o *AddCatalogApplicationModel) UnsetBase64Icon() {
+	o.Base64Icon.Unset()
 }
 
 func (o AddCatalogApplicationModel) MarshalJSON() ([]byte, error) {
@@ -241,25 +296,25 @@ func (o AddCatalogApplicationModel) MarshalJSON() ([]byte, error) {
 
 func (o AddCatalogApplicationModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
 	if !IsNil(o.IsStartMenuDiscovered) {
 		toSerialize["isStartMenuDiscovered"] = o.IsStartMenuDiscovered
 	}
 	toSerialize["name"] = o.Name
 	toSerialize["path"] = o.Path
-	if !IsNil(o.WorkingDirectory) {
-		toSerialize["workingDirectory"] = o.WorkingDirectory
+	if o.WorkingDirectory.IsSet() {
+		toSerialize["workingDirectory"] = o.WorkingDirectory.Get()
 	}
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.CommandLineParameters) {
-		toSerialize["commandLineParameters"] = o.CommandLineParameters
+	if o.CommandLineParameters.IsSet() {
+		toSerialize["commandLineParameters"] = o.CommandLineParameters.Get()
 	}
-	if !IsNil(o.Base64Icon) {
-		toSerialize["base64Icon"] = o.Base64Icon
+	if o.Base64Icon.IsSet() {
+		toSerialize["base64Icon"] = o.Base64Icon.Get()
 	}
 	return toSerialize, nil
 }

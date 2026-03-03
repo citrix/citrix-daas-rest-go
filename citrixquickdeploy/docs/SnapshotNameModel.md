@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SnapshotName** | Pointer to **string** |  | [optional] 
+**SnapshotName** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -50,6 +50,16 @@ SetSnapshotName sets SnapshotName field to given value.
 
 HasSnapshotName returns a boolean if a field has been set.
 
+### SetSnapshotNameNil
+
+`func (o *SnapshotNameModel) SetSnapshotNameNil(b bool)`
+
+ SetSnapshotNameNil sets the value for SnapshotName to be an explicit nil
+
+### UnsetSnapshotName
+`func (o *SnapshotNameModel) UnsetSnapshotName()`
+
+UnsetSnapshotName ensures that no value is present for SnapshotName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

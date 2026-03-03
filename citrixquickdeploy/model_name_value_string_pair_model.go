@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,9 +20,9 @@ var _ MappedNullable = &NameValueStringPairModel{}
 // NameValueStringPairModel A name/value pair, with the value of (JSON) type String.
 type NameValueStringPairModel struct {
 	// Name.
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	// Value.
-	Value *string `json:"value,omitempty"`
+	Value NullableString `json:"value,omitempty"`
 }
 
 // NewNameValueStringPairModelWithDefaults instantiates a new NameValueStringPairModel object
@@ -33,50 +33,72 @@ func NewNameValueStringPairModelWithDefaults() *NameValueStringPairModel {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NameValueStringPairModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NameValueStringPairModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *NameValueStringPairModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
 }
 
-// GetValue returns the Value field value if set, zero value otherwise.
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *NameValueStringPairModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *NameValueStringPairModel) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NameValueStringPairModel) GetValue() string {
-	if o == nil || IsNil(o.Value) {
+	if o == nil || IsNil(o.Value.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Value
+	return *o.Value.Get()
 }
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NameValueStringPairModel) GetValueOk() (*string, bool) {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Value, true
+	return o.Value.Get(), o.Value.IsSet()
 }
 
-// SetValue gets a reference to the given string and assigns it to the Value field.
+// SetValue gets a reference to the given NullableString and assigns it to the Value field.
 func (o *NameValueStringPairModel) SetValue(v string) {
-	o.Value = &v
+	o.Value.Set(&v)
+}
+
+// SetValueNil sets the value for Value to be an explicit nil
+func (o *NameValueStringPairModel) SetValueNil() {
+	o.Value.Set(nil)
+}
+
+// UnsetValue ensures that no value is present for Value, not even an explicit nil
+func (o *NameValueStringPairModel) UnsetValue() {
+	o.Value.Unset()
 }
 
 func (o NameValueStringPairModel) MarshalJSON() ([]byte, error) {
@@ -89,11 +111,11 @@ func (o NameValueStringPairModel) MarshalJSON() ([]byte, error) {
 
 func (o NameValueStringPairModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.Value) {
-		toSerialize["value"] = o.Value
+	if o.Value.IsSet() {
+		toSerialize["value"] = o.Value.Get()
 	}
 	return toSerialize, nil
 }

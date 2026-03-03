@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -22,7 +22,7 @@ type PublishedApplication struct {
 	// Current state in publishing the application
 	State AppsAndDesktopsProvisionState `json:"state"`
 	// Status message related to application state
-	Status *string `json:"status,omitempty"`
+	Status NullableString `json:"status,omitempty"`
 	// Unique identifier of app, generally a GUID
 	Id string `json:"id"`
 	// Display name of app
@@ -30,13 +30,13 @@ type PublishedApplication struct {
 	// Path to execute the application
 	ApplicationPath string `json:"applicationPath"`
 	// Working directory of the app at launch
-	WorkingDirectory *string `json:"workingDirectory,omitempty"`
+	WorkingDirectory NullableString `json:"workingDirectory,omitempty"`
 	// Application description that show up in Workspace
-	Description *string `json:"description,omitempty"`
+	Description NullableString `json:"description,omitempty"`
 	// The compressed b64 icon used by UI
-	Compressedb64Icon *string `json:"compressedb64Icon,omitempty"`
+	Compressedb64Icon NullableString `json:"compressedb64Icon,omitempty"`
 	// Extra parameters to provide the application when it is launched
-	CommandLineParams *string `json:"commandLineParams,omitempty"`
+	CommandLineParams NullableString `json:"commandLineParams,omitempty"`
 }
 
 // NewPublishedApplicationWithDefaults instantiates a new PublishedApplication object
@@ -71,27 +71,38 @@ func (o *PublishedApplication) SetState(v AppsAndDesktopsProvisionState) {
 	o.State = v
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublishedApplication) GetStatus() string {
-	if o == nil || IsNil(o.Status) {
+	if o == nil || IsNil(o.Status.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublishedApplication) GetStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
-// SetStatus gets a reference to the given string and assigns it to the Status field.
+// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
 func (o *PublishedApplication) SetStatus(v string) {
-	o.Status = &v
+	o.Status.Set(&v)
+}
+
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *PublishedApplication) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *PublishedApplication) UnsetStatus() {
+	o.Status.Unset()
 }
 
 // GetId returns the Id field value
@@ -166,96 +177,140 @@ func (o *PublishedApplication) SetApplicationPath(v string) {
 	o.ApplicationPath = v
 }
 
-// GetWorkingDirectory returns the WorkingDirectory field value if set, zero value otherwise.
+// GetWorkingDirectory returns the WorkingDirectory field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublishedApplication) GetWorkingDirectory() string {
-	if o == nil || IsNil(o.WorkingDirectory) {
+	if o == nil || IsNil(o.WorkingDirectory.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.WorkingDirectory
+	return *o.WorkingDirectory.Get()
 }
 
 // GetWorkingDirectoryOk returns a tuple with the WorkingDirectory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublishedApplication) GetWorkingDirectoryOk() (*string, bool) {
-	if o == nil || IsNil(o.WorkingDirectory) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkingDirectory, true
+	return o.WorkingDirectory.Get(), o.WorkingDirectory.IsSet()
 }
 
-// SetWorkingDirectory gets a reference to the given string and assigns it to the WorkingDirectory field.
+// SetWorkingDirectory gets a reference to the given NullableString and assigns it to the WorkingDirectory field.
 func (o *PublishedApplication) SetWorkingDirectory(v string) {
-	o.WorkingDirectory = &v
+	o.WorkingDirectory.Set(&v)
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
+// SetWorkingDirectoryNil sets the value for WorkingDirectory to be an explicit nil
+func (o *PublishedApplication) SetWorkingDirectoryNil() {
+	o.WorkingDirectory.Set(nil)
+}
+
+// UnsetWorkingDirectory ensures that no value is present for WorkingDirectory, not even an explicit nil
+func (o *PublishedApplication) UnsetWorkingDirectory() {
+	o.WorkingDirectory.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublishedApplication) GetDescription() string {
-	if o == nil || IsNil(o.Description) {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublishedApplication) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
-// SetDescription gets a reference to the given string and assigns it to the Description field.
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *PublishedApplication) SetDescription(v string) {
-	o.Description = &v
+	o.Description.Set(&v)
 }
 
-// GetCompressedb64Icon returns the Compressedb64Icon field value if set, zero value otherwise.
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *PublishedApplication) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *PublishedApplication) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetCompressedb64Icon returns the Compressedb64Icon field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublishedApplication) GetCompressedb64Icon() string {
-	if o == nil || IsNil(o.Compressedb64Icon) {
+	if o == nil || IsNil(o.Compressedb64Icon.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Compressedb64Icon
+	return *o.Compressedb64Icon.Get()
 }
 
 // GetCompressedb64IconOk returns a tuple with the Compressedb64Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublishedApplication) GetCompressedb64IconOk() (*string, bool) {
-	if o == nil || IsNil(o.Compressedb64Icon) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Compressedb64Icon, true
+	return o.Compressedb64Icon.Get(), o.Compressedb64Icon.IsSet()
 }
 
-// SetCompressedb64Icon gets a reference to the given string and assigns it to the Compressedb64Icon field.
+// SetCompressedb64Icon gets a reference to the given NullableString and assigns it to the Compressedb64Icon field.
 func (o *PublishedApplication) SetCompressedb64Icon(v string) {
-	o.Compressedb64Icon = &v
+	o.Compressedb64Icon.Set(&v)
 }
 
-// GetCommandLineParams returns the CommandLineParams field value if set, zero value otherwise.
+// SetCompressedb64IconNil sets the value for Compressedb64Icon to be an explicit nil
+func (o *PublishedApplication) SetCompressedb64IconNil() {
+	o.Compressedb64Icon.Set(nil)
+}
+
+// UnsetCompressedb64Icon ensures that no value is present for Compressedb64Icon, not even an explicit nil
+func (o *PublishedApplication) UnsetCompressedb64Icon() {
+	o.Compressedb64Icon.Unset()
+}
+
+// GetCommandLineParams returns the CommandLineParams field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublishedApplication) GetCommandLineParams() string {
-	if o == nil || IsNil(o.CommandLineParams) {
+	if o == nil || IsNil(o.CommandLineParams.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CommandLineParams
+	return *o.CommandLineParams.Get()
 }
 
 // GetCommandLineParamsOk returns a tuple with the CommandLineParams field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublishedApplication) GetCommandLineParamsOk() (*string, bool) {
-	if o == nil || IsNil(o.CommandLineParams) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CommandLineParams, true
+	return o.CommandLineParams.Get(), o.CommandLineParams.IsSet()
 }
 
-// SetCommandLineParams gets a reference to the given string and assigns it to the CommandLineParams field.
+// SetCommandLineParams gets a reference to the given NullableString and assigns it to the CommandLineParams field.
 func (o *PublishedApplication) SetCommandLineParams(v string) {
-	o.CommandLineParams = &v
+	o.CommandLineParams.Set(&v)
+}
+
+// SetCommandLineParamsNil sets the value for CommandLineParams to be an explicit nil
+func (o *PublishedApplication) SetCommandLineParamsNil() {
+	o.CommandLineParams.Set(nil)
+}
+
+// UnsetCommandLineParams ensures that no value is present for CommandLineParams, not even an explicit nil
+func (o *PublishedApplication) UnsetCommandLineParams() {
+	o.CommandLineParams.Unset()
 }
 
 func (o PublishedApplication) MarshalJSON() ([]byte, error) {
@@ -269,23 +324,23 @@ func (o PublishedApplication) MarshalJSON() ([]byte, error) {
 func (o PublishedApplication) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["state"] = o.State
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["applicationPath"] = o.ApplicationPath
-	if !IsNil(o.WorkingDirectory) {
-		toSerialize["workingDirectory"] = o.WorkingDirectory
+	if o.WorkingDirectory.IsSet() {
+		toSerialize["workingDirectory"] = o.WorkingDirectory.Get()
 	}
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.Compressedb64Icon) {
-		toSerialize["compressedb64Icon"] = o.Compressedb64Icon
+	if o.Compressedb64Icon.IsSet() {
+		toSerialize["compressedb64Icon"] = o.Compressedb64Icon.Get()
 	}
-	if !IsNil(o.CommandLineParams) {
-		toSerialize["commandLineParams"] = o.CommandLineParams
+	if o.CommandLineParams.IsSet() {
+		toSerialize["commandLineParams"] = o.CommandLineParams.Get()
 	}
 	return toSerialize, nil
 }

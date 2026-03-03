@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,13 +20,15 @@ var _ MappedNullable = &MultiSiteModel{}
 // MultiSiteModel Site information for Multi sites
 type MultiSiteModel struct {
 	// Site Name
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	// The site's friendly name
 	DisplayName string `json:"displayName"`
-	// The Orchestration servers belongs to the site
+	// The Orchestration servers belongs to the site, only applicable for On-Prem.
 	DeliveryControllers []string `json:"deliveryControllers,omitempty"`
+	// The On-Prem web studio server address, this setting is only applicable for Cloud deployment.
+	WebServerAddress NullableString `json:"webServerAddress,omitempty"`
 	// Indicate if it is the default site.
-	Default *bool `json:"default,omitempty"`
+	Default NullableBool `json:"default,omitempty"`
 }
 
 // NewMultiSiteModelWithDefaults instantiates a new MultiSiteModel object
@@ -37,27 +39,38 @@ func NewMultiSiteModelWithDefaults() *MultiSiteModel {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MultiSiteModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MultiSiteModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *MultiSiteModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *MultiSiteModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *MultiSiteModel) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetDisplayName returns the DisplayName field value
@@ -84,9 +97,9 @@ func (o *MultiSiteModel) SetDisplayName(v string) {
 	o.DisplayName = v
 }
 
-// GetDeliveryControllers returns the DeliveryControllers field value if set, zero value otherwise.
+// GetDeliveryControllers returns the DeliveryControllers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MultiSiteModel) GetDeliveryControllers() []string {
-	if o == nil || IsNil(o.DeliveryControllers) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -95,6 +108,7 @@ func (o *MultiSiteModel) GetDeliveryControllers() []string {
 
 // GetDeliveryControllersOk returns a tuple with the DeliveryControllers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MultiSiteModel) GetDeliveryControllersOk() ([]string, bool) {
 	if o == nil || IsNil(o.DeliveryControllers) {
 		return nil, false
@@ -107,27 +121,72 @@ func (o *MultiSiteModel) SetDeliveryControllers(v []string) {
 	o.DeliveryControllers = v
 }
 
-// GetDefault returns the Default field value if set, zero value otherwise.
+// GetWebServerAddress returns the WebServerAddress field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MultiSiteModel) GetWebServerAddress() string {
+	if o == nil || IsNil(o.WebServerAddress.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.WebServerAddress.Get()
+}
+
+// GetWebServerAddressOk returns a tuple with the WebServerAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MultiSiteModel) GetWebServerAddressOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.WebServerAddress.Get(), o.WebServerAddress.IsSet()
+}
+
+// SetWebServerAddress gets a reference to the given NullableString and assigns it to the WebServerAddress field.
+func (o *MultiSiteModel) SetWebServerAddress(v string) {
+	o.WebServerAddress.Set(&v)
+}
+
+// SetWebServerAddressNil sets the value for WebServerAddress to be an explicit nil
+func (o *MultiSiteModel) SetWebServerAddressNil() {
+	o.WebServerAddress.Set(nil)
+}
+
+// UnsetWebServerAddress ensures that no value is present for WebServerAddress, not even an explicit nil
+func (o *MultiSiteModel) UnsetWebServerAddress() {
+	o.WebServerAddress.Unset()
+}
+
+// GetDefault returns the Default field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MultiSiteModel) GetDefault() bool {
-	if o == nil || IsNil(o.Default) {
+	if o == nil || IsNil(o.Default.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.Default
+	return *o.Default.Get()
 }
 
 // GetDefaultOk returns a tuple with the Default field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MultiSiteModel) GetDefaultOk() (*bool, bool) {
-	if o == nil || IsNil(o.Default) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Default, true
+	return o.Default.Get(), o.Default.IsSet()
 }
 
-// SetDefault gets a reference to the given bool and assigns it to the Default field.
+// SetDefault gets a reference to the given NullableBool and assigns it to the Default field.
 func (o *MultiSiteModel) SetDefault(v bool) {
-	o.Default = &v
+	o.Default.Set(&v)
+}
+
+// SetDefaultNil sets the value for Default to be an explicit nil
+func (o *MultiSiteModel) SetDefaultNil() {
+	o.Default.Set(nil)
+}
+
+// UnsetDefault ensures that no value is present for Default, not even an explicit nil
+func (o *MultiSiteModel) UnsetDefault() {
+	o.Default.Unset()
 }
 
 func (o MultiSiteModel) MarshalJSON() ([]byte, error) {
@@ -140,15 +199,18 @@ func (o MultiSiteModel) MarshalJSON() ([]byte, error) {
 
 func (o MultiSiteModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	toSerialize["displayName"] = o.DisplayName
-	if !IsNil(o.DeliveryControllers) {
+	if o.DeliveryControllers != nil {
 		toSerialize["deliveryControllers"] = o.DeliveryControllers
 	}
-	if !IsNil(o.Default) {
-		toSerialize["default"] = o.Default
+	if o.WebServerAddress.IsSet() {
+		toSerialize["webServerAddress"] = o.WebServerAddress.Get()
+	}
+	if o.Default.IsSet() {
+		toSerialize["default"] = o.Default.Get()
 	}
 	return toSerialize, nil
 }

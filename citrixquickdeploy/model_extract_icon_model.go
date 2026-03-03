@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,9 +19,9 @@ var _ MappedNullable = &ExtractIconModel{}
 
 // ExtractIconModel struct for ExtractIconModel
 type ExtractIconModel struct {
-	FileName *string `json:"fileName,omitempty"`
+	FileName NullableString `json:"fileName,omitempty"`
 	// The bytes of the file that contains the icon to be extracted
-	IconFileBytes *string `json:"iconFileBytes,omitempty" validate:"regexp=^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$"`
+	IconFileBytes NullableString `json:"iconFileBytes,omitempty"`
 }
 
 // NewExtractIconModelWithDefaults instantiates a new ExtractIconModel object
@@ -32,50 +32,72 @@ func NewExtractIconModelWithDefaults() *ExtractIconModel {
 	return &this
 }
 
-// GetFileName returns the FileName field value if set, zero value otherwise.
+// GetFileName returns the FileName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ExtractIconModel) GetFileName() string {
-	if o == nil || IsNil(o.FileName) {
+	if o == nil || IsNil(o.FileName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.FileName
+	return *o.FileName.Get()
 }
 
 // GetFileNameOk returns a tuple with the FileName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExtractIconModel) GetFileNameOk() (*string, bool) {
-	if o == nil || IsNil(o.FileName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FileName, true
+	return o.FileName.Get(), o.FileName.IsSet()
 }
 
-// SetFileName gets a reference to the given string and assigns it to the FileName field.
+// SetFileName gets a reference to the given NullableString and assigns it to the FileName field.
 func (o *ExtractIconModel) SetFileName(v string) {
-	o.FileName = &v
+	o.FileName.Set(&v)
 }
 
-// GetIconFileBytes returns the IconFileBytes field value if set, zero value otherwise.
+// SetFileNameNil sets the value for FileName to be an explicit nil
+func (o *ExtractIconModel) SetFileNameNil() {
+	o.FileName.Set(nil)
+}
+
+// UnsetFileName ensures that no value is present for FileName, not even an explicit nil
+func (o *ExtractIconModel) UnsetFileName() {
+	o.FileName.Unset()
+}
+
+// GetIconFileBytes returns the IconFileBytes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ExtractIconModel) GetIconFileBytes() string {
-	if o == nil || IsNil(o.IconFileBytes) {
+	if o == nil || IsNil(o.IconFileBytes.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.IconFileBytes
+	return *o.IconFileBytes.Get()
 }
 
 // GetIconFileBytesOk returns a tuple with the IconFileBytes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExtractIconModel) GetIconFileBytesOk() (*string, bool) {
-	if o == nil || IsNil(o.IconFileBytes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IconFileBytes, true
+	return o.IconFileBytes.Get(), o.IconFileBytes.IsSet()
 }
 
-// SetIconFileBytes gets a reference to the given string and assigns it to the IconFileBytes field.
+// SetIconFileBytes gets a reference to the given NullableString and assigns it to the IconFileBytes field.
 func (o *ExtractIconModel) SetIconFileBytes(v string) {
-	o.IconFileBytes = &v
+	o.IconFileBytes.Set(&v)
+}
+
+// SetIconFileBytesNil sets the value for IconFileBytes to be an explicit nil
+func (o *ExtractIconModel) SetIconFileBytesNil() {
+	o.IconFileBytes.Set(nil)
+}
+
+// UnsetIconFileBytes ensures that no value is present for IconFileBytes, not even an explicit nil
+func (o *ExtractIconModel) UnsetIconFileBytes() {
+	o.IconFileBytes.Unset()
 }
 
 func (o ExtractIconModel) MarshalJSON() ([]byte, error) {
@@ -88,11 +110,11 @@ func (o ExtractIconModel) MarshalJSON() ([]byte, error) {
 
 func (o ExtractIconModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.FileName) {
-		toSerialize["fileName"] = o.FileName
+	if o.FileName.IsSet() {
+		toSerialize["fileName"] = o.FileName.Get()
 	}
-	if !IsNil(o.IconFileBytes) {
-		toSerialize["iconFileBytes"] = o.IconFileBytes
+	if o.IconFileBytes.IsSet() {
+		toSerialize["iconFileBytes"] = o.IconFileBytes.Get()
 	}
 	return toSerialize, nil
 }

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,12 +19,12 @@ var _ MappedNullable = &WorkspaceManagedAADModel{}
 
 // WorkspaceManagedAADModel struct for WorkspaceManagedAADModel
 type WorkspaceManagedAADModel struct {
-	WorkspaceAADName *string `json:"workspaceAADName,omitempty"`
-	DirectoryName    *string `json:"directoryName,omitempty"`
-	CitrixManaged    *bool   `json:"citrixManaged,omitempty"`
-	IsLinked         *bool   `json:"isLinked,omitempty"`
-	IsProvisioned    *bool   `json:"isProvisioned,omitempty"`
-	IdpInstanceId    *string `json:"idpInstanceId,omitempty"`
+	WorkspaceAADName NullableString `json:"workspaceAADName,omitempty"`
+	DirectoryName    NullableString `json:"directoryName,omitempty"`
+	CitrixManaged    *bool          `json:"citrixManaged,omitempty"`
+	IsLinked         *bool          `json:"isLinked,omitempty"`
+	IsProvisioned    *bool          `json:"isProvisioned,omitempty"`
+	IdpInstanceId    NullableString `json:"idpInstanceId,omitempty"`
 }
 
 // NewWorkspaceManagedAADModelWithDefaults instantiates a new WorkspaceManagedAADModel object
@@ -35,50 +35,72 @@ func NewWorkspaceManagedAADModelWithDefaults() *WorkspaceManagedAADModel {
 	return &this
 }
 
-// GetWorkspaceAADName returns the WorkspaceAADName field value if set, zero value otherwise.
+// GetWorkspaceAADName returns the WorkspaceAADName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkspaceManagedAADModel) GetWorkspaceAADName() string {
-	if o == nil || IsNil(o.WorkspaceAADName) {
+	if o == nil || IsNil(o.WorkspaceAADName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.WorkspaceAADName
+	return *o.WorkspaceAADName.Get()
 }
 
 // GetWorkspaceAADNameOk returns a tuple with the WorkspaceAADName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkspaceManagedAADModel) GetWorkspaceAADNameOk() (*string, bool) {
-	if o == nil || IsNil(o.WorkspaceAADName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkspaceAADName, true
+	return o.WorkspaceAADName.Get(), o.WorkspaceAADName.IsSet()
 }
 
-// SetWorkspaceAADName gets a reference to the given string and assigns it to the WorkspaceAADName field.
+// SetWorkspaceAADName gets a reference to the given NullableString and assigns it to the WorkspaceAADName field.
 func (o *WorkspaceManagedAADModel) SetWorkspaceAADName(v string) {
-	o.WorkspaceAADName = &v
+	o.WorkspaceAADName.Set(&v)
 }
 
-// GetDirectoryName returns the DirectoryName field value if set, zero value otherwise.
+// SetWorkspaceAADNameNil sets the value for WorkspaceAADName to be an explicit nil
+func (o *WorkspaceManagedAADModel) SetWorkspaceAADNameNil() {
+	o.WorkspaceAADName.Set(nil)
+}
+
+// UnsetWorkspaceAADName ensures that no value is present for WorkspaceAADName, not even an explicit nil
+func (o *WorkspaceManagedAADModel) UnsetWorkspaceAADName() {
+	o.WorkspaceAADName.Unset()
+}
+
+// GetDirectoryName returns the DirectoryName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkspaceManagedAADModel) GetDirectoryName() string {
-	if o == nil || IsNil(o.DirectoryName) {
+	if o == nil || IsNil(o.DirectoryName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DirectoryName
+	return *o.DirectoryName.Get()
 }
 
 // GetDirectoryNameOk returns a tuple with the DirectoryName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkspaceManagedAADModel) GetDirectoryNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DirectoryName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DirectoryName, true
+	return o.DirectoryName.Get(), o.DirectoryName.IsSet()
 }
 
-// SetDirectoryName gets a reference to the given string and assigns it to the DirectoryName field.
+// SetDirectoryName gets a reference to the given NullableString and assigns it to the DirectoryName field.
 func (o *WorkspaceManagedAADModel) SetDirectoryName(v string) {
-	o.DirectoryName = &v
+	o.DirectoryName.Set(&v)
+}
+
+// SetDirectoryNameNil sets the value for DirectoryName to be an explicit nil
+func (o *WorkspaceManagedAADModel) SetDirectoryNameNil() {
+	o.DirectoryName.Set(nil)
+}
+
+// UnsetDirectoryName ensures that no value is present for DirectoryName, not even an explicit nil
+func (o *WorkspaceManagedAADModel) UnsetDirectoryName() {
+	o.DirectoryName.Unset()
 }
 
 // GetCitrixManaged returns the CitrixManaged field value if set, zero value otherwise.
@@ -150,27 +172,38 @@ func (o *WorkspaceManagedAADModel) SetIsProvisioned(v bool) {
 	o.IsProvisioned = &v
 }
 
-// GetIdpInstanceId returns the IdpInstanceId field value if set, zero value otherwise.
+// GetIdpInstanceId returns the IdpInstanceId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkspaceManagedAADModel) GetIdpInstanceId() string {
-	if o == nil || IsNil(o.IdpInstanceId) {
+	if o == nil || IsNil(o.IdpInstanceId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.IdpInstanceId
+	return *o.IdpInstanceId.Get()
 }
 
 // GetIdpInstanceIdOk returns a tuple with the IdpInstanceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkspaceManagedAADModel) GetIdpInstanceIdOk() (*string, bool) {
-	if o == nil || IsNil(o.IdpInstanceId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IdpInstanceId, true
+	return o.IdpInstanceId.Get(), o.IdpInstanceId.IsSet()
 }
 
-// SetIdpInstanceId gets a reference to the given string and assigns it to the IdpInstanceId field.
+// SetIdpInstanceId gets a reference to the given NullableString and assigns it to the IdpInstanceId field.
 func (o *WorkspaceManagedAADModel) SetIdpInstanceId(v string) {
-	o.IdpInstanceId = &v
+	o.IdpInstanceId.Set(&v)
+}
+
+// SetIdpInstanceIdNil sets the value for IdpInstanceId to be an explicit nil
+func (o *WorkspaceManagedAADModel) SetIdpInstanceIdNil() {
+	o.IdpInstanceId.Set(nil)
+}
+
+// UnsetIdpInstanceId ensures that no value is present for IdpInstanceId, not even an explicit nil
+func (o *WorkspaceManagedAADModel) UnsetIdpInstanceId() {
+	o.IdpInstanceId.Unset()
 }
 
 func (o WorkspaceManagedAADModel) MarshalJSON() ([]byte, error) {
@@ -183,11 +216,11 @@ func (o WorkspaceManagedAADModel) MarshalJSON() ([]byte, error) {
 
 func (o WorkspaceManagedAADModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.WorkspaceAADName) {
-		toSerialize["workspaceAADName"] = o.WorkspaceAADName
+	if o.WorkspaceAADName.IsSet() {
+		toSerialize["workspaceAADName"] = o.WorkspaceAADName.Get()
 	}
-	if !IsNil(o.DirectoryName) {
-		toSerialize["directoryName"] = o.DirectoryName
+	if o.DirectoryName.IsSet() {
+		toSerialize["directoryName"] = o.DirectoryName.Get()
 	}
 	if !IsNil(o.CitrixManaged) {
 		toSerialize["citrixManaged"] = o.CitrixManaged
@@ -198,8 +231,8 @@ func (o WorkspaceManagedAADModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsProvisioned) {
 		toSerialize["isProvisioned"] = o.IsProvisioned
 	}
-	if !IsNil(o.IdpInstanceId) {
-		toSerialize["idpInstanceId"] = o.IdpInstanceId
+	if o.IdpInstanceId.IsSet() {
+		toSerialize["idpInstanceId"] = o.IdpInstanceId.Get()
 	}
 	return toSerialize, nil
 }

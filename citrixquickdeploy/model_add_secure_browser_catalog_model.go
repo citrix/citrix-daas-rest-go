@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -30,12 +30,14 @@ type AddSecureBrowserCatalogModel struct {
 	// Indicates if the catalog will connected to the customers domain
 	IsDomainJoined *bool `json:"isDomainJoined,omitempty"`
 	// Indicates if catalogs that use statically allocated machines will have the disk contents persisted after shutdown
-	PersistStaticAllocatedVmDisks *bool                     `json:"persistStaticAllocatedVmDisks,omitempty"`
-	MachineNamingScheme           *MachineNamingSchemeModel `json:"machineNamingScheme,omitempty"`
+	PersistStaticAllocatedVmDisks *bool                            `json:"persistStaticAllocatedVmDisks,omitempty"`
+	MachineNamingScheme           NullableMachineNamingSchemeModel `json:"machineNamingScheme,omitempty"`
 	// Indicates if the machines in catalog will be Azure AD joined
 	IsAzureAdJoined *bool `json:"isAzureAdJoined,omitempty"`
 	// Specifies if intune enroll is enabled
 	EnableIntuneEnroll *bool `json:"enableIntuneEnroll,omitempty"`
+	// Specifies the minimum number of unique users that the catalog will support. This field (in conjunction with MaxUserPerVm in capacity settings) will determine the number of machines. MaxInstances in scale settings will be overridden if specified.  For Citrix Managed catalogs only
+	MinUniqueUsers NullableInt32 `json:"minUniqueUsers,omitempty"`
 }
 
 // NewAddSecureBrowserCatalogModelWithDefaults instantiates a new AddSecureBrowserCatalogModel object
@@ -43,6 +45,8 @@ type AddSecureBrowserCatalogModel struct {
 // but it doesn't guarantee that properties required by API are set
 func NewAddSecureBrowserCatalogModelWithDefaults() *AddSecureBrowserCatalogModel {
 	this := AddSecureBrowserCatalogModel{}
+	var type_ AddCatalogType = ADDCATALOGTYPE_MULTI_SESSION
+	this.Type = &type_
 	return &this
 }
 
@@ -187,27 +191,38 @@ func (o *AddSecureBrowserCatalogModel) SetPersistStaticAllocatedVmDisks(v bool) 
 	o.PersistStaticAllocatedVmDisks = &v
 }
 
-// GetMachineNamingScheme returns the MachineNamingScheme field value if set, zero value otherwise.
+// GetMachineNamingScheme returns the MachineNamingScheme field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddSecureBrowserCatalogModel) GetMachineNamingScheme() MachineNamingSchemeModel {
-	if o == nil || IsNil(o.MachineNamingScheme) {
+	if o == nil || IsNil(o.MachineNamingScheme.Get()) {
 		var ret MachineNamingSchemeModel
 		return ret
 	}
-	return *o.MachineNamingScheme
+	return *o.MachineNamingScheme.Get()
 }
 
 // GetMachineNamingSchemeOk returns a tuple with the MachineNamingScheme field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddSecureBrowserCatalogModel) GetMachineNamingSchemeOk() (*MachineNamingSchemeModel, bool) {
-	if o == nil || IsNil(o.MachineNamingScheme) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MachineNamingScheme, true
+	return o.MachineNamingScheme.Get(), o.MachineNamingScheme.IsSet()
 }
 
-// SetMachineNamingScheme gets a reference to the given MachineNamingSchemeModel and assigns it to the MachineNamingScheme field.
+// SetMachineNamingScheme gets a reference to the given NullableMachineNamingSchemeModel and assigns it to the MachineNamingScheme field.
 func (o *AddSecureBrowserCatalogModel) SetMachineNamingScheme(v MachineNamingSchemeModel) {
-	o.MachineNamingScheme = &v
+	o.MachineNamingScheme.Set(&v)
+}
+
+// SetMachineNamingSchemeNil sets the value for MachineNamingScheme to be an explicit nil
+func (o *AddSecureBrowserCatalogModel) SetMachineNamingSchemeNil() {
+	o.MachineNamingScheme.Set(nil)
+}
+
+// UnsetMachineNamingScheme ensures that no value is present for MachineNamingScheme, not even an explicit nil
+func (o *AddSecureBrowserCatalogModel) UnsetMachineNamingScheme() {
+	o.MachineNamingScheme.Unset()
 }
 
 // GetIsAzureAdJoined returns the IsAzureAdJoined field value if set, zero value otherwise.
@@ -256,6 +271,40 @@ func (o *AddSecureBrowserCatalogModel) SetEnableIntuneEnroll(v bool) {
 	o.EnableIntuneEnroll = &v
 }
 
+// GetMinUniqueUsers returns the MinUniqueUsers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AddSecureBrowserCatalogModel) GetMinUniqueUsers() int32 {
+	if o == nil || IsNil(o.MinUniqueUsers.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.MinUniqueUsers.Get()
+}
+
+// GetMinUniqueUsersOk returns a tuple with the MinUniqueUsers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AddSecureBrowserCatalogModel) GetMinUniqueUsersOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MinUniqueUsers.Get(), o.MinUniqueUsers.IsSet()
+}
+
+// SetMinUniqueUsers gets a reference to the given NullableInt32 and assigns it to the MinUniqueUsers field.
+func (o *AddSecureBrowserCatalogModel) SetMinUniqueUsers(v int32) {
+	o.MinUniqueUsers.Set(&v)
+}
+
+// SetMinUniqueUsersNil sets the value for MinUniqueUsers to be an explicit nil
+func (o *AddSecureBrowserCatalogModel) SetMinUniqueUsersNil() {
+	o.MinUniqueUsers.Set(nil)
+}
+
+// UnsetMinUniqueUsers ensures that no value is present for MinUniqueUsers, not even an explicit nil
+func (o *AddSecureBrowserCatalogModel) UnsetMinUniqueUsers() {
+	o.MinUniqueUsers.Unset()
+}
+
 func (o AddSecureBrowserCatalogModel) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -278,14 +327,17 @@ func (o AddSecureBrowserCatalogModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PersistStaticAllocatedVmDisks) {
 		toSerialize["persistStaticAllocatedVmDisks"] = o.PersistStaticAllocatedVmDisks
 	}
-	if !IsNil(o.MachineNamingScheme) {
-		toSerialize["machineNamingScheme"] = o.MachineNamingScheme
+	if o.MachineNamingScheme.IsSet() {
+		toSerialize["machineNamingScheme"] = o.MachineNamingScheme.Get()
 	}
 	if !IsNil(o.IsAzureAdJoined) {
 		toSerialize["isAzureAdJoined"] = o.IsAzureAdJoined
 	}
 	if !IsNil(o.EnableIntuneEnroll) {
 		toSerialize["enableIntuneEnroll"] = o.EnableIntuneEnroll
+	}
+	if o.MinUniqueUsers.IsSet() {
+		toSerialize["minUniqueUsers"] = o.MinUniqueUsers.Get()
 	}
 	return toSerialize, nil
 }

@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | ID of the connector. | [optional] 
+**Id** | Pointer to **NullableString** | ID of the connector. | [optional] 
 **State** | Pointer to [**ConnectorDetailsState**](ConnectorDetailsState.md) | State of the connector. | [optional] 
-**Fqdn** | Pointer to **string** | Hostname of the connector. | [optional] 
-**OrganizationalUnit** | Pointer to **string** |  | [optional] 
-**LastContactDate** | Pointer to **time.Time** | Time at which the connector made last contact. | [optional] 
-**Status** | Pointer to **string** | Connection status of the connector | [optional] 
-**StatusMessage** | Pointer to **string** | Details about the connector status. | [optional] 
-**TransactionId** | Pointer to **string** | ID of the transaction in which the connector was provisioned. | [optional] 
-**IpAddress** | Pointer to **string** | The IP Address of the connector | [optional] 
-**AzureResourceGroup** | Pointer to **string** | The resource group of the connector | [optional] 
-**VmSize** | Pointer to **string** | The vm size of the resource group | [optional] 
+**Fqdn** | Pointer to **NullableString** | Hostname of the connector. | [optional] 
+**OrganizationalUnit** | Pointer to **NullableString** |  | [optional] 
+**LastContactDate** | Pointer to **NullableTime** | Time at which the connector made last contact. | [optional] 
+**Status** | Pointer to **NullableString** | Connection status of the connector | [optional] 
+**StatusMessage** | Pointer to **NullableString** | Details about the connector status. | [optional] 
+**TransactionId** | Pointer to **NullableString** | ID of the transaction in which the connector was provisioned. | [optional] 
+**IpAddress** | Pointer to **NullableString** | The IP Address of the connector | [optional] 
+**AzureResourceGroup** | Pointer to **NullableString** | The resource group of the connector | [optional] 
+**VmSize** | Pointer to **NullableString** | The vm size of the resource group | [optional] 
 
 ## Methods
 
@@ -60,6 +60,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *ConnectorDetails) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *ConnectorDetails) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetState
 
 `func (o *ConnectorDetails) GetState() ConnectorDetailsState`
@@ -110,6 +120,16 @@ SetFqdn sets Fqdn field to given value.
 
 HasFqdn returns a boolean if a field has been set.
 
+### SetFqdnNil
+
+`func (o *ConnectorDetails) SetFqdnNil(b bool)`
+
+ SetFqdnNil sets the value for Fqdn to be an explicit nil
+
+### UnsetFqdn
+`func (o *ConnectorDetails) UnsetFqdn()`
+
+UnsetFqdn ensures that no value is present for Fqdn, not even an explicit nil
 ### GetOrganizationalUnit
 
 `func (o *ConnectorDetails) GetOrganizationalUnit() string`
@@ -135,6 +155,16 @@ SetOrganizationalUnit sets OrganizationalUnit field to given value.
 
 HasOrganizationalUnit returns a boolean if a field has been set.
 
+### SetOrganizationalUnitNil
+
+`func (o *ConnectorDetails) SetOrganizationalUnitNil(b bool)`
+
+ SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
+
+### UnsetOrganizationalUnit
+`func (o *ConnectorDetails) UnsetOrganizationalUnit()`
+
+UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
 ### GetLastContactDate
 
 `func (o *ConnectorDetails) GetLastContactDate() time.Time`
@@ -160,6 +190,16 @@ SetLastContactDate sets LastContactDate field to given value.
 
 HasLastContactDate returns a boolean if a field has been set.
 
+### SetLastContactDateNil
+
+`func (o *ConnectorDetails) SetLastContactDateNil(b bool)`
+
+ SetLastContactDateNil sets the value for LastContactDate to be an explicit nil
+
+### UnsetLastContactDate
+`func (o *ConnectorDetails) UnsetLastContactDate()`
+
+UnsetLastContactDate ensures that no value is present for LastContactDate, not even an explicit nil
 ### GetStatus
 
 `func (o *ConnectorDetails) GetStatus() string`
@@ -185,6 +225,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *ConnectorDetails) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *ConnectorDetails) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetStatusMessage
 
 `func (o *ConnectorDetails) GetStatusMessage() string`
@@ -210,6 +260,16 @@ SetStatusMessage sets StatusMessage field to given value.
 
 HasStatusMessage returns a boolean if a field has been set.
 
+### SetStatusMessageNil
+
+`func (o *ConnectorDetails) SetStatusMessageNil(b bool)`
+
+ SetStatusMessageNil sets the value for StatusMessage to be an explicit nil
+
+### UnsetStatusMessage
+`func (o *ConnectorDetails) UnsetStatusMessage()`
+
+UnsetStatusMessage ensures that no value is present for StatusMessage, not even an explicit nil
 ### GetTransactionId
 
 `func (o *ConnectorDetails) GetTransactionId() string`
@@ -235,6 +295,16 @@ SetTransactionId sets TransactionId field to given value.
 
 HasTransactionId returns a boolean if a field has been set.
 
+### SetTransactionIdNil
+
+`func (o *ConnectorDetails) SetTransactionIdNil(b bool)`
+
+ SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+
+### UnsetTransactionId
+`func (o *ConnectorDetails) UnsetTransactionId()`
+
+UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
 ### GetIpAddress
 
 `func (o *ConnectorDetails) GetIpAddress() string`
@@ -260,6 +330,16 @@ SetIpAddress sets IpAddress field to given value.
 
 HasIpAddress returns a boolean if a field has been set.
 
+### SetIpAddressNil
+
+`func (o *ConnectorDetails) SetIpAddressNil(b bool)`
+
+ SetIpAddressNil sets the value for IpAddress to be an explicit nil
+
+### UnsetIpAddress
+`func (o *ConnectorDetails) UnsetIpAddress()`
+
+UnsetIpAddress ensures that no value is present for IpAddress, not even an explicit nil
 ### GetAzureResourceGroup
 
 `func (o *ConnectorDetails) GetAzureResourceGroup() string`
@@ -285,6 +365,16 @@ SetAzureResourceGroup sets AzureResourceGroup field to given value.
 
 HasAzureResourceGroup returns a boolean if a field has been set.
 
+### SetAzureResourceGroupNil
+
+`func (o *ConnectorDetails) SetAzureResourceGroupNil(b bool)`
+
+ SetAzureResourceGroupNil sets the value for AzureResourceGroup to be an explicit nil
+
+### UnsetAzureResourceGroup
+`func (o *ConnectorDetails) UnsetAzureResourceGroup()`
+
+UnsetAzureResourceGroup ensures that no value is present for AzureResourceGroup, not even an explicit nil
 ### GetVmSize
 
 `func (o *ConnectorDetails) GetVmSize() string`
@@ -310,6 +400,16 @@ SetVmSize sets VmSize field to given value.
 
 HasVmSize returns a boolean if a field has been set.
 
+### SetVmSizeNil
+
+`func (o *ConnectorDetails) SetVmSizeNil(b bool)`
+
+ SetVmSizeNil sets the value for VmSize to be an explicit nil
+
+### UnsetVmSize
+`func (o *ConnectorDetails) UnsetVmSize()`
+
+UnsetVmSize ensures that no value is present for VmSize, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

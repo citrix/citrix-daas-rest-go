@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,13 +21,13 @@ var _ MappedNullable = &AzureSubscriptionUpdateCredentialsJob{}
 // AzureSubscriptionUpdateCredentialsJob struct for AzureSubscriptionUpdateCredentialsJob
 type AzureSubscriptionUpdateCredentialsJob struct {
 	// ID of the transaction associated with the update.
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionId NullableString `json:"transactionId,omitempty"`
 	// State of the update job.
 	State *UpdateAzureSubscriptionCredentialJobState `json:"state,omitempty"`
 	// List of catalog IDs that failed to update.
 	FailedCatalogIds []string `json:"failedCatalogIds,omitempty"`
 	// The datetime when the job started
-	StartedAt *time.Time `json:"startedAt,omitempty"`
+	StartedAt NullableTime `json:"startedAt,omitempty"`
 }
 
 // NewAzureSubscriptionUpdateCredentialsJobWithDefaults instantiates a new AzureSubscriptionUpdateCredentialsJob object
@@ -38,27 +38,38 @@ func NewAzureSubscriptionUpdateCredentialsJobWithDefaults() *AzureSubscriptionUp
 	return &this
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionUpdateCredentialsJob) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionUpdateCredentialsJob) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *AzureSubscriptionUpdateCredentialsJob) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
+}
+
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *AzureSubscriptionUpdateCredentialsJob) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *AzureSubscriptionUpdateCredentialsJob) UnsetTransactionId() {
+	o.TransactionId.Unset()
 }
 
 // GetState returns the State field value if set, zero value otherwise.
@@ -84,9 +95,9 @@ func (o *AzureSubscriptionUpdateCredentialsJob) SetState(v UpdateAzureSubscripti
 	o.State = &v
 }
 
-// GetFailedCatalogIds returns the FailedCatalogIds field value if set, zero value otherwise.
+// GetFailedCatalogIds returns the FailedCatalogIds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionUpdateCredentialsJob) GetFailedCatalogIds() []string {
-	if o == nil || IsNil(o.FailedCatalogIds) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -95,6 +106,7 @@ func (o *AzureSubscriptionUpdateCredentialsJob) GetFailedCatalogIds() []string {
 
 // GetFailedCatalogIdsOk returns a tuple with the FailedCatalogIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionUpdateCredentialsJob) GetFailedCatalogIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.FailedCatalogIds) {
 		return nil, false
@@ -107,27 +119,38 @@ func (o *AzureSubscriptionUpdateCredentialsJob) SetFailedCatalogIds(v []string) 
 	o.FailedCatalogIds = v
 }
 
-// GetStartedAt returns the StartedAt field value if set, zero value otherwise.
+// GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionUpdateCredentialsJob) GetStartedAt() time.Time {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil || IsNil(o.StartedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartedAt
+	return *o.StartedAt.Get()
 }
 
 // GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionUpdateCredentialsJob) GetStartedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StartedAt, true
+	return o.StartedAt.Get(), o.StartedAt.IsSet()
 }
 
-// SetStartedAt gets a reference to the given time.Time and assigns it to the StartedAt field.
+// SetStartedAt gets a reference to the given NullableTime and assigns it to the StartedAt field.
 func (o *AzureSubscriptionUpdateCredentialsJob) SetStartedAt(v time.Time) {
-	o.StartedAt = &v
+	o.StartedAt.Set(&v)
+}
+
+// SetStartedAtNil sets the value for StartedAt to be an explicit nil
+func (o *AzureSubscriptionUpdateCredentialsJob) SetStartedAtNil() {
+	o.StartedAt.Set(nil)
+}
+
+// UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
+func (o *AzureSubscriptionUpdateCredentialsJob) UnsetStartedAt() {
+	o.StartedAt.Unset()
 }
 
 func (o AzureSubscriptionUpdateCredentialsJob) MarshalJSON() ([]byte, error) {
@@ -140,17 +163,17 @@ func (o AzureSubscriptionUpdateCredentialsJob) MarshalJSON() ([]byte, error) {
 
 func (o AzureSubscriptionUpdateCredentialsJob) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
 	}
-	if !IsNil(o.FailedCatalogIds) {
+	if o.FailedCatalogIds != nil {
 		toSerialize["failedCatalogIds"] = o.FailedCatalogIds
 	}
-	if !IsNil(o.StartedAt) {
-		toSerialize["startedAt"] = o.StartedAt
+	if o.StartedAt.IsSet() {
+		toSerialize["startedAt"] = o.StartedAt.Get()
 	}
 	return toSerialize, nil
 }

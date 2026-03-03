@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId** | Pointer to **string** | Id of the tenant being onboarded | [optional] 
-**SubscriptionId** | Pointer to **string** | Id of the subscription being onboarded | [optional] 
+**TenantId** | Pointer to **NullableString** | Id of the tenant being onboarded | [optional] 
+**SubscriptionId** | Pointer to **NullableString** | Id of the subscription being onboarded | [optional] 
+**MultitenantEntraId** | Pointer to **bool** | Indicates if this subscriptions uses the new unified/MT Entra ID | [optional] 
 **State** | Pointer to [**DirectoryState**](DirectoryState.md) | Current state of subscription onboarding process | [optional] 
-**ErrorDetails** | Pointer to **string** | Failure details if any | [optional] 
+**ErrorDetails** | Pointer to **NullableString** | Failure details if any | [optional] 
 
 ## Methods
 
@@ -53,6 +54,16 @@ SetTenantId sets TenantId field to given value.
 
 HasTenantId returns a boolean if a field has been set.
 
+### SetTenantIdNil
+
+`func (o *AzurePoolSubscriptionDetails) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *AzurePoolSubscriptionDetails) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetSubscriptionId
 
 `func (o *AzurePoolSubscriptionDetails) GetSubscriptionId() string`
@@ -77,6 +88,41 @@ SetSubscriptionId sets SubscriptionId field to given value.
 `func (o *AzurePoolSubscriptionDetails) HasSubscriptionId() bool`
 
 HasSubscriptionId returns a boolean if a field has been set.
+
+### SetSubscriptionIdNil
+
+`func (o *AzurePoolSubscriptionDetails) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *AzurePoolSubscriptionDetails) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+### GetMultitenantEntraId
+
+`func (o *AzurePoolSubscriptionDetails) GetMultitenantEntraId() bool`
+
+GetMultitenantEntraId returns the MultitenantEntraId field if non-nil, zero value otherwise.
+
+### GetMultitenantEntraIdOk
+
+`func (o *AzurePoolSubscriptionDetails) GetMultitenantEntraIdOk() (*bool, bool)`
+
+GetMultitenantEntraIdOk returns a tuple with the MultitenantEntraId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMultitenantEntraId
+
+`func (o *AzurePoolSubscriptionDetails) SetMultitenantEntraId(v bool)`
+
+SetMultitenantEntraId sets MultitenantEntraId field to given value.
+
+### HasMultitenantEntraId
+
+`func (o *AzurePoolSubscriptionDetails) HasMultitenantEntraId() bool`
+
+HasMultitenantEntraId returns a boolean if a field has been set.
 
 ### GetState
 
@@ -128,6 +174,16 @@ SetErrorDetails sets ErrorDetails field to given value.
 
 HasErrorDetails returns a boolean if a field has been set.
 
+### SetErrorDetailsNil
+
+`func (o *AzurePoolSubscriptionDetails) SetErrorDetailsNil(b bool)`
+
+ SetErrorDetailsNil sets the value for ErrorDetails to be an explicit nil
+
+### UnsetErrorDetails
+`func (o *AzurePoolSubscriptionDetails) UnsetErrorDetails()`
+
+UnsetErrorDetails ensures that no value is present for ErrorDetails, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

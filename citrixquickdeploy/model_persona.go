@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,19 +20,29 @@ var _ MappedNullable = &Persona{}
 // Persona struct for Persona
 type Persona struct {
 	// The Id of the persona
-	Id *string `json:"id,omitempty"`
+	Id NullableString `json:"id,omitempty"`
 	// Name of the persona
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	// Description of the persona
+	Description NullableString `json:"description,omitempty"`
 	// The VM SKU for the persona
-	AzureVmSku *AzureVMSize `json:"azureVmSku,omitempty"`
+	AzureVmSku NullableAzureVMSize `json:"azureVmSku,omitempty"`
 	// Quantity of sessions supported per-machine.
 	SessionSupport *SessionSupport `json:"sessionSupport,omitempty"`
 	// Number of sessions per vm. Value is 1 for Single Session Personas
 	SessionsPerVm *int32 `json:"sessionsPerVm,omitempty"`
 	// The GPU memory in MB
-	GpuMemoryInMB *int32 `json:"gpuMemoryInMB,omitempty"`
+	GpuMemoryInMB NullableInt32 `json:"gpuMemoryInMB,omitempty"`
 	// The cost per user per month for the persona
 	EstimatedCredits *int32 `json:"estimatedCredits,omitempty"`
+	// The Disk SKU for the persona
+	DiskSku NullableString `json:"diskSku,omitempty"`
+	// The Disk size associated with the persona
+	DiskSize *int32 `json:"diskSize,omitempty"`
+	// The allocation type for the persona
+	AllocationType *CatalogAllocationType `json:"allocationType,omitempty"`
+	// The add-ons supported by the persona
+	AddOns []SupportedPersonaAddOn `json:"addOns,omitempty"`
 }
 
 // NewPersonaWithDefaults instantiates a new Persona object
@@ -43,73 +53,140 @@ func NewPersonaWithDefaults() *Persona {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Persona) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Persona) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *Persona) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *Persona) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *Persona) UnsetId() {
+	o.Id.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Persona) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Persona) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *Persona) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
 }
 
-// GetAzureVmSku returns the AzureVmSku field value if set, zero value otherwise.
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *Persona) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *Persona) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Persona) GetDescription() string {
+	if o == nil || IsNil(o.Description.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Description.Get()
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Persona) GetDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Description.Get(), o.Description.IsSet()
+}
+
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+func (o *Persona) SetDescription(v string) {
+	o.Description.Set(&v)
+}
+
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *Persona) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *Persona) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetAzureVmSku returns the AzureVmSku field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Persona) GetAzureVmSku() AzureVMSize {
-	if o == nil || IsNil(o.AzureVmSku) {
+	if o == nil || IsNil(o.AzureVmSku.Get()) {
 		var ret AzureVMSize
 		return ret
 	}
-	return *o.AzureVmSku
+	return *o.AzureVmSku.Get()
 }
 
 // GetAzureVmSkuOk returns a tuple with the AzureVmSku field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Persona) GetAzureVmSkuOk() (*AzureVMSize, bool) {
-	if o == nil || IsNil(o.AzureVmSku) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureVmSku, true
+	return o.AzureVmSku.Get(), o.AzureVmSku.IsSet()
 }
 
-// SetAzureVmSku gets a reference to the given AzureVMSize and assigns it to the AzureVmSku field.
+// SetAzureVmSku gets a reference to the given NullableAzureVMSize and assigns it to the AzureVmSku field.
 func (o *Persona) SetAzureVmSku(v AzureVMSize) {
-	o.AzureVmSku = &v
+	o.AzureVmSku.Set(&v)
+}
+
+// SetAzureVmSkuNil sets the value for AzureVmSku to be an explicit nil
+func (o *Persona) SetAzureVmSkuNil() {
+	o.AzureVmSku.Set(nil)
+}
+
+// UnsetAzureVmSku ensures that no value is present for AzureVmSku, not even an explicit nil
+func (o *Persona) UnsetAzureVmSku() {
+	o.AzureVmSku.Unset()
 }
 
 // GetSessionSupport returns the SessionSupport field value if set, zero value otherwise.
@@ -158,27 +235,38 @@ func (o *Persona) SetSessionsPerVm(v int32) {
 	o.SessionsPerVm = &v
 }
 
-// GetGpuMemoryInMB returns the GpuMemoryInMB field value if set, zero value otherwise.
+// GetGpuMemoryInMB returns the GpuMemoryInMB field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Persona) GetGpuMemoryInMB() int32 {
-	if o == nil || IsNil(o.GpuMemoryInMB) {
+	if o == nil || IsNil(o.GpuMemoryInMB.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.GpuMemoryInMB
+	return *o.GpuMemoryInMB.Get()
 }
 
 // GetGpuMemoryInMBOk returns a tuple with the GpuMemoryInMB field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Persona) GetGpuMemoryInMBOk() (*int32, bool) {
-	if o == nil || IsNil(o.GpuMemoryInMB) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GpuMemoryInMB, true
+	return o.GpuMemoryInMB.Get(), o.GpuMemoryInMB.IsSet()
 }
 
-// SetGpuMemoryInMB gets a reference to the given int32 and assigns it to the GpuMemoryInMB field.
+// SetGpuMemoryInMB gets a reference to the given NullableInt32 and assigns it to the GpuMemoryInMB field.
 func (o *Persona) SetGpuMemoryInMB(v int32) {
-	o.GpuMemoryInMB = &v
+	o.GpuMemoryInMB.Set(&v)
+}
+
+// SetGpuMemoryInMBNil sets the value for GpuMemoryInMB to be an explicit nil
+func (o *Persona) SetGpuMemoryInMBNil() {
+	o.GpuMemoryInMB.Set(nil)
+}
+
+// UnsetGpuMemoryInMB ensures that no value is present for GpuMemoryInMB, not even an explicit nil
+func (o *Persona) UnsetGpuMemoryInMB() {
+	o.GpuMemoryInMB.Unset()
 }
 
 // GetEstimatedCredits returns the EstimatedCredits field value if set, zero value otherwise.
@@ -204,6 +292,110 @@ func (o *Persona) SetEstimatedCredits(v int32) {
 	o.EstimatedCredits = &v
 }
 
+// GetDiskSku returns the DiskSku field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Persona) GetDiskSku() string {
+	if o == nil || IsNil(o.DiskSku.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.DiskSku.Get()
+}
+
+// GetDiskSkuOk returns a tuple with the DiskSku field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Persona) GetDiskSkuOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DiskSku.Get(), o.DiskSku.IsSet()
+}
+
+// SetDiskSku gets a reference to the given NullableString and assigns it to the DiskSku field.
+func (o *Persona) SetDiskSku(v string) {
+	o.DiskSku.Set(&v)
+}
+
+// SetDiskSkuNil sets the value for DiskSku to be an explicit nil
+func (o *Persona) SetDiskSkuNil() {
+	o.DiskSku.Set(nil)
+}
+
+// UnsetDiskSku ensures that no value is present for DiskSku, not even an explicit nil
+func (o *Persona) UnsetDiskSku() {
+	o.DiskSku.Unset()
+}
+
+// GetDiskSize returns the DiskSize field value if set, zero value otherwise.
+func (o *Persona) GetDiskSize() int32 {
+	if o == nil || IsNil(o.DiskSize) {
+		var ret int32
+		return ret
+	}
+	return *o.DiskSize
+}
+
+// GetDiskSizeOk returns a tuple with the DiskSize field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Persona) GetDiskSizeOk() (*int32, bool) {
+	if o == nil || IsNil(o.DiskSize) {
+		return nil, false
+	}
+	return o.DiskSize, true
+}
+
+// SetDiskSize gets a reference to the given int32 and assigns it to the DiskSize field.
+func (o *Persona) SetDiskSize(v int32) {
+	o.DiskSize = &v
+}
+
+// GetAllocationType returns the AllocationType field value if set, zero value otherwise.
+func (o *Persona) GetAllocationType() CatalogAllocationType {
+	if o == nil || IsNil(o.AllocationType) {
+		var ret CatalogAllocationType
+		return ret
+	}
+	return *o.AllocationType
+}
+
+// GetAllocationTypeOk returns a tuple with the AllocationType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Persona) GetAllocationTypeOk() (*CatalogAllocationType, bool) {
+	if o == nil || IsNil(o.AllocationType) {
+		return nil, false
+	}
+	return o.AllocationType, true
+}
+
+// SetAllocationType gets a reference to the given CatalogAllocationType and assigns it to the AllocationType field.
+func (o *Persona) SetAllocationType(v CatalogAllocationType) {
+	o.AllocationType = &v
+}
+
+// GetAddOns returns the AddOns field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Persona) GetAddOns() []SupportedPersonaAddOn {
+	if o == nil {
+		var ret []SupportedPersonaAddOn
+		return ret
+	}
+	return o.AddOns
+}
+
+// GetAddOnsOk returns a tuple with the AddOns field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Persona) GetAddOnsOk() ([]SupportedPersonaAddOn, bool) {
+	if o == nil || IsNil(o.AddOns) {
+		return nil, false
+	}
+	return o.AddOns, true
+}
+
+// SetAddOns gets a reference to the given []SupportedPersonaAddOn and assigns it to the AddOns field.
+func (o *Persona) SetAddOns(v []SupportedPersonaAddOn) {
+	o.AddOns = v
+}
+
 func (o Persona) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -214,14 +406,17 @@ func (o Persona) MarshalJSON() ([]byte, error) {
 
 func (o Persona) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.AzureVmSku) {
-		toSerialize["azureVmSku"] = o.AzureVmSku
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
+	}
+	if o.AzureVmSku.IsSet() {
+		toSerialize["azureVmSku"] = o.AzureVmSku.Get()
 	}
 	if !IsNil(o.SessionSupport) {
 		toSerialize["sessionSupport"] = o.SessionSupport
@@ -229,11 +424,23 @@ func (o Persona) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SessionsPerVm) {
 		toSerialize["sessionsPerVm"] = o.SessionsPerVm
 	}
-	if !IsNil(o.GpuMemoryInMB) {
-		toSerialize["gpuMemoryInMB"] = o.GpuMemoryInMB
+	if o.GpuMemoryInMB.IsSet() {
+		toSerialize["gpuMemoryInMB"] = o.GpuMemoryInMB.Get()
 	}
 	if !IsNil(o.EstimatedCredits) {
 		toSerialize["estimatedCredits"] = o.EstimatedCredits
+	}
+	if o.DiskSku.IsSet() {
+		toSerialize["diskSku"] = o.DiskSku.Get()
+	}
+	if !IsNil(o.DiskSize) {
+		toSerialize["diskSize"] = o.DiskSize
+	}
+	if !IsNil(o.AllocationType) {
+		toSerialize["allocationType"] = o.AllocationType
+	}
+	if o.AddOns != nil {
+		toSerialize["addOns"] = o.AddOns
 	}
 	return toSerialize, nil
 }

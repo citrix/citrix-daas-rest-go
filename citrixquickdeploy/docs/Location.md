@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] [readonly] 
-**SubscriptionId** | Pointer to **string** | The subscription ID. | [optional] [readonly] 
-**Name** | Pointer to **string** | The location name. | [optional] [readonly] 
-**Type** | Pointer to [**LocationType**](LocationType.md) | The location type. | [optional] 
-**DisplayName** | Pointer to **string** | The display name of the location. | [optional] [readonly] 
-**RegionalDisplayName** | Pointer to **string** | The display name of the location and its region. | [optional] [readonly] 
-**Metadata** | Pointer to [**LocationMetaData**](LocationMetaData.md) | Metadata of the location, such as lat/long, paired region, and others. | [optional] 
+**Id** | Pointer to **NullableString** |  | [optional] [readonly] 
+**SubscriptionId** | Pointer to **NullableString** | The subscription ID. | [optional] [readonly] 
+**Name** | Pointer to **NullableString** | The location name. | [optional] [readonly] 
+**Type** | Pointer to [**NullableLocationType**](LocationType.md) | The location type. | [optional] [readonly] 
+**DisplayName** | Pointer to **NullableString** | The display name of the location. | [optional] [readonly] 
+**RegionalDisplayName** | Pointer to **NullableString** | The display name of the location and its region. | [optional] [readonly] 
+**Metadata** | Pointer to [**NullableLocationMetaData**](LocationMetaData.md) | Metadata of the location, such as lat/long, paired region, and others. | [optional] [readonly] 
 
 ## Methods
 
@@ -56,6 +56,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *Location) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *Location) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetSubscriptionId
 
 `func (o *Location) GetSubscriptionId() string`
@@ -81,6 +91,16 @@ SetSubscriptionId sets SubscriptionId field to given value.
 
 HasSubscriptionId returns a boolean if a field has been set.
 
+### SetSubscriptionIdNil
+
+`func (o *Location) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *Location) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
 ### GetName
 
 `func (o *Location) GetName() string`
@@ -106,6 +126,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *Location) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *Location) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetType
 
 `func (o *Location) GetType() LocationType`
@@ -131,6 +161,16 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *Location) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *Location) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetDisplayName
 
 `func (o *Location) GetDisplayName() string`
@@ -156,6 +196,16 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
+### SetDisplayNameNil
+
+`func (o *Location) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *Location) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetRegionalDisplayName
 
 `func (o *Location) GetRegionalDisplayName() string`
@@ -181,6 +231,16 @@ SetRegionalDisplayName sets RegionalDisplayName field to given value.
 
 HasRegionalDisplayName returns a boolean if a field has been set.
 
+### SetRegionalDisplayNameNil
+
+`func (o *Location) SetRegionalDisplayNameNil(b bool)`
+
+ SetRegionalDisplayNameNil sets the value for RegionalDisplayName to be an explicit nil
+
+### UnsetRegionalDisplayName
+`func (o *Location) UnsetRegionalDisplayName()`
+
+UnsetRegionalDisplayName ensures that no value is present for RegionalDisplayName, not even an explicit nil
 ### GetMetadata
 
 `func (o *Location) GetMetadata() LocationMetaData`
@@ -206,6 +266,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *Location) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *Location) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

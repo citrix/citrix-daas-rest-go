@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,12 +19,12 @@ var _ MappedNullable = &ManagedCapacityDirectory{}
 
 // ManagedCapacityDirectory struct for ManagedCapacityDirectory
 type ManagedCapacityDirectory struct {
-	DirectoryId      string                           `json:"directoryId"`
-	DirectoryName    string                           `json:"directoryName"`
-	AzurePoolName    *string                          `json:"azurePoolName,omitempty"`
-	CustomerDeleted  *bool                            `json:"customerDeleted,omitempty"`
-	Subscriptions    []ManagedCapacitySubscription    `json:"subscriptions,omitempty"`
-	AssignedCustomer *ManagedCapacityAssignedCustomer `json:"assignedCustomer,omitempty"`
+	DirectoryId      string                                  `json:"directoryId"`
+	DirectoryName    string                                  `json:"directoryName"`
+	AzurePoolName    NullableString                          `json:"azurePoolName,omitempty"`
+	CustomerDeleted  *bool                                   `json:"customerDeleted,omitempty"`
+	Subscriptions    []ManagedCapacitySubscription           `json:"subscriptions,omitempty"`
+	AssignedCustomer NullableManagedCapacityAssignedCustomer `json:"assignedCustomer,omitempty"`
 }
 
 // NewManagedCapacityDirectoryWithDefaults instantiates a new ManagedCapacityDirectory object
@@ -83,27 +83,38 @@ func (o *ManagedCapacityDirectory) SetDirectoryName(v string) {
 	o.DirectoryName = v
 }
 
-// GetAzurePoolName returns the AzurePoolName field value if set, zero value otherwise.
+// GetAzurePoolName returns the AzurePoolName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedCapacityDirectory) GetAzurePoolName() string {
-	if o == nil || IsNil(o.AzurePoolName) {
+	if o == nil || IsNil(o.AzurePoolName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzurePoolName
+	return *o.AzurePoolName.Get()
 }
 
 // GetAzurePoolNameOk returns a tuple with the AzurePoolName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedCapacityDirectory) GetAzurePoolNameOk() (*string, bool) {
-	if o == nil || IsNil(o.AzurePoolName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzurePoolName, true
+	return o.AzurePoolName.Get(), o.AzurePoolName.IsSet()
 }
 
-// SetAzurePoolName gets a reference to the given string and assigns it to the AzurePoolName field.
+// SetAzurePoolName gets a reference to the given NullableString and assigns it to the AzurePoolName field.
 func (o *ManagedCapacityDirectory) SetAzurePoolName(v string) {
-	o.AzurePoolName = &v
+	o.AzurePoolName.Set(&v)
+}
+
+// SetAzurePoolNameNil sets the value for AzurePoolName to be an explicit nil
+func (o *ManagedCapacityDirectory) SetAzurePoolNameNil() {
+	o.AzurePoolName.Set(nil)
+}
+
+// UnsetAzurePoolName ensures that no value is present for AzurePoolName, not even an explicit nil
+func (o *ManagedCapacityDirectory) UnsetAzurePoolName() {
+	o.AzurePoolName.Unset()
 }
 
 // GetCustomerDeleted returns the CustomerDeleted field value if set, zero value otherwise.
@@ -129,9 +140,9 @@ func (o *ManagedCapacityDirectory) SetCustomerDeleted(v bool) {
 	o.CustomerDeleted = &v
 }
 
-// GetSubscriptions returns the Subscriptions field value if set, zero value otherwise.
+// GetSubscriptions returns the Subscriptions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedCapacityDirectory) GetSubscriptions() []ManagedCapacitySubscription {
-	if o == nil || IsNil(o.Subscriptions) {
+	if o == nil {
 		var ret []ManagedCapacitySubscription
 		return ret
 	}
@@ -140,6 +151,7 @@ func (o *ManagedCapacityDirectory) GetSubscriptions() []ManagedCapacitySubscript
 
 // GetSubscriptionsOk returns a tuple with the Subscriptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedCapacityDirectory) GetSubscriptionsOk() ([]ManagedCapacitySubscription, bool) {
 	if o == nil || IsNil(o.Subscriptions) {
 		return nil, false
@@ -152,27 +164,38 @@ func (o *ManagedCapacityDirectory) SetSubscriptions(v []ManagedCapacitySubscript
 	o.Subscriptions = v
 }
 
-// GetAssignedCustomer returns the AssignedCustomer field value if set, zero value otherwise.
+// GetAssignedCustomer returns the AssignedCustomer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedCapacityDirectory) GetAssignedCustomer() ManagedCapacityAssignedCustomer {
-	if o == nil || IsNil(o.AssignedCustomer) {
+	if o == nil || IsNil(o.AssignedCustomer.Get()) {
 		var ret ManagedCapacityAssignedCustomer
 		return ret
 	}
-	return *o.AssignedCustomer
+	return *o.AssignedCustomer.Get()
 }
 
 // GetAssignedCustomerOk returns a tuple with the AssignedCustomer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedCapacityDirectory) GetAssignedCustomerOk() (*ManagedCapacityAssignedCustomer, bool) {
-	if o == nil || IsNil(o.AssignedCustomer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AssignedCustomer, true
+	return o.AssignedCustomer.Get(), o.AssignedCustomer.IsSet()
 }
 
-// SetAssignedCustomer gets a reference to the given ManagedCapacityAssignedCustomer and assigns it to the AssignedCustomer field.
+// SetAssignedCustomer gets a reference to the given NullableManagedCapacityAssignedCustomer and assigns it to the AssignedCustomer field.
 func (o *ManagedCapacityDirectory) SetAssignedCustomer(v ManagedCapacityAssignedCustomer) {
-	o.AssignedCustomer = &v
+	o.AssignedCustomer.Set(&v)
+}
+
+// SetAssignedCustomerNil sets the value for AssignedCustomer to be an explicit nil
+func (o *ManagedCapacityDirectory) SetAssignedCustomerNil() {
+	o.AssignedCustomer.Set(nil)
+}
+
+// UnsetAssignedCustomer ensures that no value is present for AssignedCustomer, not even an explicit nil
+func (o *ManagedCapacityDirectory) UnsetAssignedCustomer() {
+	o.AssignedCustomer.Unset()
 }
 
 func (o ManagedCapacityDirectory) MarshalJSON() ([]byte, error) {
@@ -187,17 +210,17 @@ func (o ManagedCapacityDirectory) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["directoryId"] = o.DirectoryId
 	toSerialize["directoryName"] = o.DirectoryName
-	if !IsNil(o.AzurePoolName) {
-		toSerialize["azurePoolName"] = o.AzurePoolName
+	if o.AzurePoolName.IsSet() {
+		toSerialize["azurePoolName"] = o.AzurePoolName.Get()
 	}
 	if !IsNil(o.CustomerDeleted) {
 		toSerialize["customerDeleted"] = o.CustomerDeleted
 	}
-	if !IsNil(o.Subscriptions) {
+	if o.Subscriptions != nil {
 		toSerialize["subscriptions"] = o.Subscriptions
 	}
-	if !IsNil(o.AssignedCustomer) {
-		toSerialize["assignedCustomer"] = o.AssignedCustomer
+	if o.AssignedCustomer.IsSet() {
+		toSerialize["assignedCustomer"] = o.AssignedCustomer.Get()
 	}
 	return toSerialize, nil
 }

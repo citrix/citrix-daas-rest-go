@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CspCustomer** | Pointer to **string** | Tenant customer the connection is associated with | [optional] 
-**GatewaySku** | Pointer to **string** | Sku type to provision | [optional] 
-**GatewayGeneration** | Pointer to **string** | Generation of VPN gateway | [optional] 
+**CspCustomer** | Pointer to **NullableString** | Tenant customer the connection is associated with | [optional] 
+**GatewaySku** | Pointer to **NullableString** | Sku type to provision | [optional] 
+**GatewayGeneration** | Pointer to **NullableString** | Generation of VPN gateway | [optional] 
 **Name** | **string** | Name to assign the connection | 
 **Region** | **string** | Name of the azure region where the connection will be created | 
 **VdaSubnet** | [**ConnectionSubnet**](ConnectionSubnet.md) | Details of the vda subnet | 
@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **GatewayIP** | **string** | IP address of the gateway to connect to | 
 **DnsServers** | Pointer to **[]string** | List of DNS Servers | [optional] 
 **LocalAddresses** | Pointer to [**[]ConnectionSubnet**](ConnectionSubnet.md) | List of addresses that will be accessible behind the gateway | [optional] 
-**SharedKey** | Pointer to **string** | Pre-shared key that will be used to configure the IPSec tunnel | [optional] 
-**ManagedSubscriptionId** | Pointer to **string** | ID of the Managed Azure Subscription to create the connection in. | [optional] 
+**SharedKey** | Pointer to **NullableString** | Pre-shared key that will be used to configure the IPSec tunnel | [optional] 
+**ManagedSubscriptionId** | Pointer to **NullableString** | ID of the Managed Azure Subscription to create the connection in. | [optional] 
 **Routes** | Pointer to [**[]AzureRoute**](AzureRoute.md) | Routes to be added to the vnet | [optional] 
 
 ## Methods
@@ -62,6 +62,16 @@ SetCspCustomer sets CspCustomer field to given value.
 
 HasCspCustomer returns a boolean if a field has been set.
 
+### SetCspCustomerNil
+
+`func (o *AddAzureVpnConnection) SetCspCustomerNil(b bool)`
+
+ SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+
+### UnsetCspCustomer
+`func (o *AddAzureVpnConnection) UnsetCspCustomer()`
+
+UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
 ### GetGatewaySku
 
 `func (o *AddAzureVpnConnection) GetGatewaySku() string`
@@ -87,6 +97,16 @@ SetGatewaySku sets GatewaySku field to given value.
 
 HasGatewaySku returns a boolean if a field has been set.
 
+### SetGatewaySkuNil
+
+`func (o *AddAzureVpnConnection) SetGatewaySkuNil(b bool)`
+
+ SetGatewaySkuNil sets the value for GatewaySku to be an explicit nil
+
+### UnsetGatewaySku
+`func (o *AddAzureVpnConnection) UnsetGatewaySku()`
+
+UnsetGatewaySku ensures that no value is present for GatewaySku, not even an explicit nil
 ### GetGatewayGeneration
 
 `func (o *AddAzureVpnConnection) GetGatewayGeneration() string`
@@ -112,6 +132,16 @@ SetGatewayGeneration sets GatewayGeneration field to given value.
 
 HasGatewayGeneration returns a boolean if a field has been set.
 
+### SetGatewayGenerationNil
+
+`func (o *AddAzureVpnConnection) SetGatewayGenerationNil(b bool)`
+
+ SetGatewayGenerationNil sets the value for GatewayGeneration to be an explicit nil
+
+### UnsetGatewayGeneration
+`func (o *AddAzureVpnConnection) UnsetGatewayGeneration()`
+
+UnsetGatewayGeneration ensures that no value is present for GatewayGeneration, not even an explicit nil
 ### GetName
 
 `func (o *AddAzureVpnConnection) GetName() string`
@@ -237,6 +267,16 @@ SetDnsServers sets DnsServers field to given value.
 
 HasDnsServers returns a boolean if a field has been set.
 
+### SetDnsServersNil
+
+`func (o *AddAzureVpnConnection) SetDnsServersNil(b bool)`
+
+ SetDnsServersNil sets the value for DnsServers to be an explicit nil
+
+### UnsetDnsServers
+`func (o *AddAzureVpnConnection) UnsetDnsServers()`
+
+UnsetDnsServers ensures that no value is present for DnsServers, not even an explicit nil
 ### GetLocalAddresses
 
 `func (o *AddAzureVpnConnection) GetLocalAddresses() []ConnectionSubnet`
@@ -262,6 +302,16 @@ SetLocalAddresses sets LocalAddresses field to given value.
 
 HasLocalAddresses returns a boolean if a field has been set.
 
+### SetLocalAddressesNil
+
+`func (o *AddAzureVpnConnection) SetLocalAddressesNil(b bool)`
+
+ SetLocalAddressesNil sets the value for LocalAddresses to be an explicit nil
+
+### UnsetLocalAddresses
+`func (o *AddAzureVpnConnection) UnsetLocalAddresses()`
+
+UnsetLocalAddresses ensures that no value is present for LocalAddresses, not even an explicit nil
 ### GetSharedKey
 
 `func (o *AddAzureVpnConnection) GetSharedKey() string`
@@ -287,6 +337,16 @@ SetSharedKey sets SharedKey field to given value.
 
 HasSharedKey returns a boolean if a field has been set.
 
+### SetSharedKeyNil
+
+`func (o *AddAzureVpnConnection) SetSharedKeyNil(b bool)`
+
+ SetSharedKeyNil sets the value for SharedKey to be an explicit nil
+
+### UnsetSharedKey
+`func (o *AddAzureVpnConnection) UnsetSharedKey()`
+
+UnsetSharedKey ensures that no value is present for SharedKey, not even an explicit nil
 ### GetManagedSubscriptionId
 
 `func (o *AddAzureVpnConnection) GetManagedSubscriptionId() string`
@@ -312,6 +372,16 @@ SetManagedSubscriptionId sets ManagedSubscriptionId field to given value.
 
 HasManagedSubscriptionId returns a boolean if a field has been set.
 
+### SetManagedSubscriptionIdNil
+
+`func (o *AddAzureVpnConnection) SetManagedSubscriptionIdNil(b bool)`
+
+ SetManagedSubscriptionIdNil sets the value for ManagedSubscriptionId to be an explicit nil
+
+### UnsetManagedSubscriptionId
+`func (o *AddAzureVpnConnection) UnsetManagedSubscriptionId()`
+
+UnsetManagedSubscriptionId ensures that no value is present for ManagedSubscriptionId, not even an explicit nil
 ### GetRoutes
 
 `func (o *AddAzureVpnConnection) GetRoutes() []AzureRoute`
@@ -337,6 +407,16 @@ SetRoutes sets Routes field to given value.
 
 HasRoutes returns a boolean if a field has been set.
 
+### SetRoutesNil
+
+`func (o *AddAzureVpnConnection) SetRoutesNil(b bool)`
+
+ SetRoutesNil sets the value for Routes to be an explicit nil
+
+### UnsetRoutes
+`func (o *AddAzureVpnConnection) UnsetRoutes()`
+
+UnsetRoutes ensures that no value is present for Routes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

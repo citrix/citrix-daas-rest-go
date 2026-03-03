@@ -50,6 +50,16 @@ SetEnrollmentScopes sets EnrollmentScopes field to given value.
 
 HasEnrollmentScopes returns a boolean if a field has been set.
 
+### SetEnrollmentScopesNil
+
+`func (o *UpdateRemotePcCatalogScopesModel) SetEnrollmentScopesNil(b bool)`
+
+ SetEnrollmentScopesNil sets the value for EnrollmentScopes to be an explicit nil
+
+### UnsetEnrollmentScopes
+`func (o *UpdateRemotePcCatalogScopesModel) UnsetEnrollmentScopes()`
+
+UnsetEnrollmentScopes ensures that no value is present for EnrollmentScopes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

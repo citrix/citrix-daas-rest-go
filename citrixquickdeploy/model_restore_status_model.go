@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,12 +20,12 @@ var _ MappedNullable = &RestoreStatusModel{}
 
 // RestoreStatusModel struct for RestoreStatusModel
 type RestoreStatusModel struct {
-	State                    *RestoreState    `json:"state,omitempty"`
-	SubState                 *RestoreSubState `json:"subState,omitempty"`
-	Error                    *string          `json:"error,omitempty"`
-	TransactionId            *string          `json:"transactionId,omitempty"`
-	LastRestoredTime         *time.Time       `json:"lastRestoredTime,omitempty"`
-	LastRestoredSnapshotName *string          `json:"lastRestoredSnapshotName,omitempty"`
+	State                    *RestoreState           `json:"state,omitempty"`
+	SubState                 NullableRestoreSubState `json:"subState,omitempty"`
+	Error                    NullableString          `json:"error,omitempty"`
+	TransactionId            NullableString          `json:"transactionId,omitempty"`
+	LastRestoredTime         NullableTime            `json:"lastRestoredTime,omitempty"`
+	LastRestoredSnapshotName NullableString          `json:"lastRestoredSnapshotName,omitempty"`
 }
 
 // NewRestoreStatusModelWithDefaults instantiates a new RestoreStatusModel object
@@ -59,119 +59,174 @@ func (o *RestoreStatusModel) SetState(v RestoreState) {
 	o.State = &v
 }
 
-// GetSubState returns the SubState field value if set, zero value otherwise.
+// GetSubState returns the SubState field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RestoreStatusModel) GetSubState() RestoreSubState {
-	if o == nil || IsNil(o.SubState) {
+	if o == nil || IsNil(o.SubState.Get()) {
 		var ret RestoreSubState
 		return ret
 	}
-	return *o.SubState
+	return *o.SubState.Get()
 }
 
 // GetSubStateOk returns a tuple with the SubState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RestoreStatusModel) GetSubStateOk() (*RestoreSubState, bool) {
-	if o == nil || IsNil(o.SubState) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubState, true
+	return o.SubState.Get(), o.SubState.IsSet()
 }
 
-// SetSubState gets a reference to the given RestoreSubState and assigns it to the SubState field.
+// SetSubState gets a reference to the given NullableRestoreSubState and assigns it to the SubState field.
 func (o *RestoreStatusModel) SetSubState(v RestoreSubState) {
-	o.SubState = &v
+	o.SubState.Set(&v)
 }
 
-// GetError returns the Error field value if set, zero value otherwise.
+// SetSubStateNil sets the value for SubState to be an explicit nil
+func (o *RestoreStatusModel) SetSubStateNil() {
+	o.SubState.Set(nil)
+}
+
+// UnsetSubState ensures that no value is present for SubState, not even an explicit nil
+func (o *RestoreStatusModel) UnsetSubState() {
+	o.SubState.Unset()
+}
+
+// GetError returns the Error field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RestoreStatusModel) GetError() string {
-	if o == nil || IsNil(o.Error) {
+	if o == nil || IsNil(o.Error.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Error
+	return *o.Error.Get()
 }
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RestoreStatusModel) GetErrorOk() (*string, bool) {
-	if o == nil || IsNil(o.Error) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Error, true
+	return o.Error.Get(), o.Error.IsSet()
 }
 
-// SetError gets a reference to the given string and assigns it to the Error field.
+// SetError gets a reference to the given NullableString and assigns it to the Error field.
 func (o *RestoreStatusModel) SetError(v string) {
-	o.Error = &v
+	o.Error.Set(&v)
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// SetErrorNil sets the value for Error to be an explicit nil
+func (o *RestoreStatusModel) SetErrorNil() {
+	o.Error.Set(nil)
+}
+
+// UnsetError ensures that no value is present for Error, not even an explicit nil
+func (o *RestoreStatusModel) UnsetError() {
+	o.Error.Unset()
+}
+
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RestoreStatusModel) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RestoreStatusModel) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *RestoreStatusModel) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
 }
 
-// GetLastRestoredTime returns the LastRestoredTime field value if set, zero value otherwise.
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *RestoreStatusModel) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *RestoreStatusModel) UnsetTransactionId() {
+	o.TransactionId.Unset()
+}
+
+// GetLastRestoredTime returns the LastRestoredTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RestoreStatusModel) GetLastRestoredTime() time.Time {
-	if o == nil || IsNil(o.LastRestoredTime) {
+	if o == nil || IsNil(o.LastRestoredTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LastRestoredTime
+	return *o.LastRestoredTime.Get()
 }
 
 // GetLastRestoredTimeOk returns a tuple with the LastRestoredTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RestoreStatusModel) GetLastRestoredTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.LastRestoredTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastRestoredTime, true
+	return o.LastRestoredTime.Get(), o.LastRestoredTime.IsSet()
 }
 
-// SetLastRestoredTime gets a reference to the given time.Time and assigns it to the LastRestoredTime field.
+// SetLastRestoredTime gets a reference to the given NullableTime and assigns it to the LastRestoredTime field.
 func (o *RestoreStatusModel) SetLastRestoredTime(v time.Time) {
-	o.LastRestoredTime = &v
+	o.LastRestoredTime.Set(&v)
 }
 
-// GetLastRestoredSnapshotName returns the LastRestoredSnapshotName field value if set, zero value otherwise.
+// SetLastRestoredTimeNil sets the value for LastRestoredTime to be an explicit nil
+func (o *RestoreStatusModel) SetLastRestoredTimeNil() {
+	o.LastRestoredTime.Set(nil)
+}
+
+// UnsetLastRestoredTime ensures that no value is present for LastRestoredTime, not even an explicit nil
+func (o *RestoreStatusModel) UnsetLastRestoredTime() {
+	o.LastRestoredTime.Unset()
+}
+
+// GetLastRestoredSnapshotName returns the LastRestoredSnapshotName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RestoreStatusModel) GetLastRestoredSnapshotName() string {
-	if o == nil || IsNil(o.LastRestoredSnapshotName) {
+	if o == nil || IsNil(o.LastRestoredSnapshotName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LastRestoredSnapshotName
+	return *o.LastRestoredSnapshotName.Get()
 }
 
 // GetLastRestoredSnapshotNameOk returns a tuple with the LastRestoredSnapshotName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RestoreStatusModel) GetLastRestoredSnapshotNameOk() (*string, bool) {
-	if o == nil || IsNil(o.LastRestoredSnapshotName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastRestoredSnapshotName, true
+	return o.LastRestoredSnapshotName.Get(), o.LastRestoredSnapshotName.IsSet()
 }
 
-// SetLastRestoredSnapshotName gets a reference to the given string and assigns it to the LastRestoredSnapshotName field.
+// SetLastRestoredSnapshotName gets a reference to the given NullableString and assigns it to the LastRestoredSnapshotName field.
 func (o *RestoreStatusModel) SetLastRestoredSnapshotName(v string) {
-	o.LastRestoredSnapshotName = &v
+	o.LastRestoredSnapshotName.Set(&v)
+}
+
+// SetLastRestoredSnapshotNameNil sets the value for LastRestoredSnapshotName to be an explicit nil
+func (o *RestoreStatusModel) SetLastRestoredSnapshotNameNil() {
+	o.LastRestoredSnapshotName.Set(nil)
+}
+
+// UnsetLastRestoredSnapshotName ensures that no value is present for LastRestoredSnapshotName, not even an explicit nil
+func (o *RestoreStatusModel) UnsetLastRestoredSnapshotName() {
+	o.LastRestoredSnapshotName.Unset()
 }
 
 func (o RestoreStatusModel) MarshalJSON() ([]byte, error) {
@@ -187,20 +242,20 @@ func (o RestoreStatusModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
 	}
-	if !IsNil(o.SubState) {
-		toSerialize["subState"] = o.SubState
+	if o.SubState.IsSet() {
+		toSerialize["subState"] = o.SubState.Get()
 	}
-	if !IsNil(o.Error) {
-		toSerialize["error"] = o.Error
+	if o.Error.IsSet() {
+		toSerialize["error"] = o.Error.Get()
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
-	if !IsNil(o.LastRestoredTime) {
-		toSerialize["lastRestoredTime"] = o.LastRestoredTime
+	if o.LastRestoredTime.IsSet() {
+		toSerialize["lastRestoredTime"] = o.LastRestoredTime.Get()
 	}
-	if !IsNil(o.LastRestoredSnapshotName) {
-		toSerialize["lastRestoredSnapshotName"] = o.LastRestoredSnapshotName
+	if o.LastRestoredSnapshotName.IsSet() {
+		toSerialize["lastRestoredSnapshotName"] = o.LastRestoredSnapshotName.Get()
 	}
 	return toSerialize, nil
 }

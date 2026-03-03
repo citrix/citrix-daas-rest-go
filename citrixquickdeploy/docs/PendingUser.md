@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Upn** | Pointer to **string** |  | [optional] 
+**Upn** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -50,6 +50,16 @@ SetUpn sets Upn field to given value.
 
 HasUpn returns a boolean if a field has been set.
 
+### SetUpnNil
+
+`func (o *PendingUser) SetUpnNil(b bool)`
+
+ SetUpnNil sets the value for Upn to be an explicit nil
+
+### UnsetUpn
+`func (o *PendingUser) UnsetUpn()`
+
+UnsetUpn ensures that no value is present for Upn, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

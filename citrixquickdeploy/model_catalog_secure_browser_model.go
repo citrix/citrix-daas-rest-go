@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -31,9 +31,9 @@ func NewCatalogSecureBrowserModelWithDefaults() *CatalogSecureBrowserModel {
 	return &this
 }
 
-// GetWebAppModels returns the WebAppModels field value if set, zero value otherwise.
+// GetWebAppModels returns the WebAppModels field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogSecureBrowserModel) GetWebAppModels() []AddRemoteBrowserIsolationWebAppModel {
-	if o == nil || IsNil(o.WebAppModels) {
+	if o == nil {
 		var ret []AddRemoteBrowserIsolationWebAppModel
 		return ret
 	}
@@ -42,6 +42,7 @@ func (o *CatalogSecureBrowserModel) GetWebAppModels() []AddRemoteBrowserIsolatio
 
 // GetWebAppModelsOk returns a tuple with the WebAppModels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogSecureBrowserModel) GetWebAppModelsOk() ([]AddRemoteBrowserIsolationWebAppModel, bool) {
 	if o == nil || IsNil(o.WebAppModels) {
 		return nil, false
@@ -64,7 +65,7 @@ func (o CatalogSecureBrowserModel) MarshalJSON() ([]byte, error) {
 
 func (o CatalogSecureBrowserModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.WebAppModels) {
+	if o.WebAppModels != nil {
 		toSerialize["webAppModels"] = o.WebAppModels
 	}
 	return toSerialize, nil

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CatalogId** | Pointer to **string** |  | [optional] 
-**CatalogName** | Pointer to **string** |  | [optional] 
+**CatalogId** | Pointer to **NullableString** |  | [optional] 
+**CatalogName** | Pointer to **NullableString** |  | [optional] 
 **Advanced** | Pointer to **bool** |  | [optional] 
 **DeliveryGroupScopes** | Pointer to **[]string** |  | [optional] 
 **DeliveryGroupMetadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) |  | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **HostingConnectionScopes** | Pointer to **[]string** |  | [optional] 
 **HostingConnectionMetadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) |  | [optional] 
 **Error** | Pointer to **bool** |  | [optional] 
-**ErrorMessage** | Pointer to **string** |  | [optional] 
+**ErrorMessage** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -60,6 +60,16 @@ SetCatalogId sets CatalogId field to given value.
 
 HasCatalogId returns a boolean if a field has been set.
 
+### SetCatalogIdNil
+
+`func (o *CatalogScopes) SetCatalogIdNil(b bool)`
+
+ SetCatalogIdNil sets the value for CatalogId to be an explicit nil
+
+### UnsetCatalogId
+`func (o *CatalogScopes) UnsetCatalogId()`
+
+UnsetCatalogId ensures that no value is present for CatalogId, not even an explicit nil
 ### GetCatalogName
 
 `func (o *CatalogScopes) GetCatalogName() string`
@@ -85,6 +95,16 @@ SetCatalogName sets CatalogName field to given value.
 
 HasCatalogName returns a boolean if a field has been set.
 
+### SetCatalogNameNil
+
+`func (o *CatalogScopes) SetCatalogNameNil(b bool)`
+
+ SetCatalogNameNil sets the value for CatalogName to be an explicit nil
+
+### UnsetCatalogName
+`func (o *CatalogScopes) UnsetCatalogName()`
+
+UnsetCatalogName ensures that no value is present for CatalogName, not even an explicit nil
 ### GetAdvanced
 
 `func (o *CatalogScopes) GetAdvanced() bool`
@@ -135,6 +155,16 @@ SetDeliveryGroupScopes sets DeliveryGroupScopes field to given value.
 
 HasDeliveryGroupScopes returns a boolean if a field has been set.
 
+### SetDeliveryGroupScopesNil
+
+`func (o *CatalogScopes) SetDeliveryGroupScopesNil(b bool)`
+
+ SetDeliveryGroupScopesNil sets the value for DeliveryGroupScopes to be an explicit nil
+
+### UnsetDeliveryGroupScopes
+`func (o *CatalogScopes) UnsetDeliveryGroupScopes()`
+
+UnsetDeliveryGroupScopes ensures that no value is present for DeliveryGroupScopes, not even an explicit nil
 ### GetDeliveryGroupMetadata
 
 `func (o *CatalogScopes) GetDeliveryGroupMetadata() []NameValueStringPairModel`
@@ -160,6 +190,16 @@ SetDeliveryGroupMetadata sets DeliveryGroupMetadata field to given value.
 
 HasDeliveryGroupMetadata returns a boolean if a field has been set.
 
+### SetDeliveryGroupMetadataNil
+
+`func (o *CatalogScopes) SetDeliveryGroupMetadataNil(b bool)`
+
+ SetDeliveryGroupMetadataNil sets the value for DeliveryGroupMetadata to be an explicit nil
+
+### UnsetDeliveryGroupMetadata
+`func (o *CatalogScopes) UnsetDeliveryGroupMetadata()`
+
+UnsetDeliveryGroupMetadata ensures that no value is present for DeliveryGroupMetadata, not even an explicit nil
 ### GetMachineCatalogScopes
 
 `func (o *CatalogScopes) GetMachineCatalogScopes() []string`
@@ -185,6 +225,16 @@ SetMachineCatalogScopes sets MachineCatalogScopes field to given value.
 
 HasMachineCatalogScopes returns a boolean if a field has been set.
 
+### SetMachineCatalogScopesNil
+
+`func (o *CatalogScopes) SetMachineCatalogScopesNil(b bool)`
+
+ SetMachineCatalogScopesNil sets the value for MachineCatalogScopes to be an explicit nil
+
+### UnsetMachineCatalogScopes
+`func (o *CatalogScopes) UnsetMachineCatalogScopes()`
+
+UnsetMachineCatalogScopes ensures that no value is present for MachineCatalogScopes, not even an explicit nil
 ### GetMachineCatalogMetadata
 
 `func (o *CatalogScopes) GetMachineCatalogMetadata() []NameValueStringPairModel`
@@ -210,6 +260,16 @@ SetMachineCatalogMetadata sets MachineCatalogMetadata field to given value.
 
 HasMachineCatalogMetadata returns a boolean if a field has been set.
 
+### SetMachineCatalogMetadataNil
+
+`func (o *CatalogScopes) SetMachineCatalogMetadataNil(b bool)`
+
+ SetMachineCatalogMetadataNil sets the value for MachineCatalogMetadata to be an explicit nil
+
+### UnsetMachineCatalogMetadata
+`func (o *CatalogScopes) UnsetMachineCatalogMetadata()`
+
+UnsetMachineCatalogMetadata ensures that no value is present for MachineCatalogMetadata, not even an explicit nil
 ### GetHostingConnectionScopes
 
 `func (o *CatalogScopes) GetHostingConnectionScopes() []string`
@@ -235,6 +295,16 @@ SetHostingConnectionScopes sets HostingConnectionScopes field to given value.
 
 HasHostingConnectionScopes returns a boolean if a field has been set.
 
+### SetHostingConnectionScopesNil
+
+`func (o *CatalogScopes) SetHostingConnectionScopesNil(b bool)`
+
+ SetHostingConnectionScopesNil sets the value for HostingConnectionScopes to be an explicit nil
+
+### UnsetHostingConnectionScopes
+`func (o *CatalogScopes) UnsetHostingConnectionScopes()`
+
+UnsetHostingConnectionScopes ensures that no value is present for HostingConnectionScopes, not even an explicit nil
 ### GetHostingConnectionMetadata
 
 `func (o *CatalogScopes) GetHostingConnectionMetadata() []NameValueStringPairModel`
@@ -260,6 +330,16 @@ SetHostingConnectionMetadata sets HostingConnectionMetadata field to given value
 
 HasHostingConnectionMetadata returns a boolean if a field has been set.
 
+### SetHostingConnectionMetadataNil
+
+`func (o *CatalogScopes) SetHostingConnectionMetadataNil(b bool)`
+
+ SetHostingConnectionMetadataNil sets the value for HostingConnectionMetadata to be an explicit nil
+
+### UnsetHostingConnectionMetadata
+`func (o *CatalogScopes) UnsetHostingConnectionMetadata()`
+
+UnsetHostingConnectionMetadata ensures that no value is present for HostingConnectionMetadata, not even an explicit nil
 ### GetError
 
 `func (o *CatalogScopes) GetError() bool`
@@ -310,6 +390,16 @@ SetErrorMessage sets ErrorMessage field to given value.
 
 HasErrorMessage returns a boolean if a field has been set.
 
+### SetErrorMessageNil
+
+`func (o *CatalogScopes) SetErrorMessageNil(b bool)`
+
+ SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
+
+### UnsetErrorMessage
+`func (o *CatalogScopes) UnsetErrorMessage()`
+
+UnsetErrorMessage ensures that no value is present for ErrorMessage, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

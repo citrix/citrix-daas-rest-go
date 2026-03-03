@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MachineUids** | Pointer to **[]int32** | List of machine Uids to delete | [optional] 
-**ServiceAccount** | Pointer to **string** | Service account to perform delete with | [optional] 
-**ServiceAccountPassword** | Pointer to **string** | Customer&#39;s domain password | [optional] 
+**ServiceAccount** | Pointer to **NullableString** | Service account to perform delete with | [optional] 
+**ServiceAccountPassword** | Pointer to **NullableString** | Customer&#39;s domain password | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetMachineUids sets MachineUids field to given value.
 
 HasMachineUids returns a boolean if a field has been set.
 
+### SetMachineUidsNil
+
+`func (o *DeleteVdaModel) SetMachineUidsNil(b bool)`
+
+ SetMachineUidsNil sets the value for MachineUids to be an explicit nil
+
+### UnsetMachineUids
+`func (o *DeleteVdaModel) UnsetMachineUids()`
+
+UnsetMachineUids ensures that no value is present for MachineUids, not even an explicit nil
 ### GetServiceAccount
 
 `func (o *DeleteVdaModel) GetServiceAccount() string`
@@ -77,6 +87,16 @@ SetServiceAccount sets ServiceAccount field to given value.
 
 HasServiceAccount returns a boolean if a field has been set.
 
+### SetServiceAccountNil
+
+`func (o *DeleteVdaModel) SetServiceAccountNil(b bool)`
+
+ SetServiceAccountNil sets the value for ServiceAccount to be an explicit nil
+
+### UnsetServiceAccount
+`func (o *DeleteVdaModel) UnsetServiceAccount()`
+
+UnsetServiceAccount ensures that no value is present for ServiceAccount, not even an explicit nil
 ### GetServiceAccountPassword
 
 `func (o *DeleteVdaModel) GetServiceAccountPassword() string`
@@ -102,6 +122,16 @@ SetServiceAccountPassword sets ServiceAccountPassword field to given value.
 
 HasServiceAccountPassword returns a boolean if a field has been set.
 
+### SetServiceAccountPasswordNil
+
+`func (o *DeleteVdaModel) SetServiceAccountPasswordNil(b bool)`
+
+ SetServiceAccountPasswordNil sets the value for ServiceAccountPassword to be an explicit nil
+
+### UnsetServiceAccountPassword
+`func (o *DeleteVdaModel) UnsetServiceAccountPassword()`
+
+UnsetServiceAccountPassword ensures that no value is present for ServiceAccountPassword, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

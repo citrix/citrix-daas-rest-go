@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of the desktop | 
-**Description** | Pointer to **string** | Description | [optional] 
-**State** | Pointer to [**AppsAndDesktopsProvisionState**](AppsAndDesktopsProvisionState.md) | The publish state of the desktop | [optional] 
+**Description** | Pointer to **NullableString** | Description | [optional] 
+**State** | Pointer to [**NullableAppsAndDesktopsProvisionState**](AppsAndDesktopsProvisionState.md) | The publish state of the desktop | [optional] 
 
 ## Methods
 
@@ -72,6 +72,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *UpdateDesktopConfigurationModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *UpdateDesktopConfigurationModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetState
 
 `func (o *UpdateDesktopConfigurationModel) GetState() AppsAndDesktopsProvisionState`
@@ -97,6 +107,16 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
+### SetStateNil
+
+`func (o *UpdateDesktopConfigurationModel) SetStateNil(b bool)`
+
+ SetStateNil sets the value for State to be an explicit nil
+
+### UnsetState
+`func (o *UpdateDesktopConfigurationModel) UnsetState()`
+
+UnsetState ensures that no value is present for State, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

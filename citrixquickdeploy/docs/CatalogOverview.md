@@ -4,57 +4,64 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AzureSubscriptionId** | Pointer to **string** | ID of the Azure Subscription linked to this catalog | [optional] [readonly] 
+**AzureSubscriptionId** | Pointer to **NullableString** | ID of the Azure Subscription linked to this catalog | [optional] [readonly] 
 **Id** | **string** | Unique identifier of the catalog | 
 **Name** | **string** | User configured name | 
 **SessionSupport** | Pointer to [**SessionSupport**](SessionSupport.md) | Quantity of sessions supported per-machine. | [optional] 
 **AllocationType** | Pointer to [**CatalogAllocationType**](CatalogAllocationType.md) | Indicates the manner in which machines are allocated to users | [optional] 
-**PersistStaticAllocatedVmDisks** | Pointer to **bool** | Indicates if catalogs that use statically allocated machines will have the disk contents persisted after shutdown | [optional] 
+**PersistStaticAllocatedVmDisks** | Pointer to **NullableBool** | Indicates if catalogs that use statically allocated machines will have the disk contents persisted after shutdown | [optional] 
 **OfferingId** | **string** | The offeringId for the catalog to be used in Cloud Library operations | 
 **OfferingIdApp** | **string** | The Application offeringId for the catalog to be used in Cloud Library operations | 
 **OfferingIdDesktop** | **string** | The Desktop offeringId for the catalog to be used in Cloud Library operations | 
 **DeliveryGroupId** | **string** | The Delivery Group Id | 
 **Advanced** | **bool** | Indicates if this is an advanced object | 
 **State** | [**CatalogOverallState**](CatalogOverallState.md) | Status of the catalog | 
-**SubState** | Pointer to [**CatalogOverallSubState**](CatalogOverallSubState.md) | Sub Status of the catalog | [optional] 
+**SubState** | Pointer to [**NullableCatalogOverallSubState**](CatalogOverallSubState.md) | Sub Status of the catalog | [optional] [readonly] 
 **Warnings** | Pointer to [**[]CatalogWarning**](CatalogWarning.md) |  | [optional] 
-**StatusMessage** | Pointer to **string** | Current status of the catalog | [optional] 
-**ExtraInfo** | Pointer to **string** | The string to displayed in UI for extra information | [optional] 
-**TransactionId** | Pointer to **string** | The transaction id of the catalog deployment | [optional] 
-**VnetPeeringId** | Pointer to **string** | ID of the Vnet Peering associated with the catalog | [optional] 
-**VnetPeeringName** | Pointer to **string** | Name of the Vnet Peering associated with the catalog | [optional] 
-**VpnConnectionId** | Pointer to **string** | ID of the Vpn Connection associated with the catalog | [optional] 
-**VpnConnectionName** | Pointer to **string** | Name of the Vpn Connection associated with the catalog | [optional] 
-**SubscriptionId** | Pointer to **string** | Id of the Subscription that catalog VMs will be deployed to | [optional] 
+**StatusMessage** | Pointer to **NullableString** | Current status of the catalog | [optional] 
+**ExtraInfo** | Pointer to **NullableString** | The string to displayed in UI for extra information | [optional] 
+**TransactionId** | Pointer to **NullableString** | The transaction id of the catalog deployment | [optional] 
+**VnetPeeringId** | Pointer to **NullableString** | ID of the Vnet Peering associated with the catalog | [optional] 
+**VnetPeeringName** | Pointer to **NullableString** | Name of the Vnet Peering associated with the catalog | [optional] 
+**VpnConnectionId** | Pointer to **NullableString** | ID of the Vpn Connection associated with the catalog | [optional] 
+**VpnConnectionName** | Pointer to **NullableString** | Name of the Vpn Connection associated with the catalog | [optional] 
+**SubscriptionId** | Pointer to **NullableString** | Id of the Subscription that catalog VMs will be deployed to | [optional] 
 **SubscriptionName** | **string** | Name of the Subscription that catalog VMs will be deployed to | 
 **ResourceGroup** | **string** | Name of the resource group used for this catalog | 
-**VdaResourceGroup** | Pointer to **string** | The resource group for the VDAs in Azure | [optional] 
-**VdaProvisioningSchemeId** | Pointer to **string** | The resource groups for the VDAs in Azure | [optional] 
-**AreMcsVdaResourceGroupsUsed** | Pointer to **bool** | The resource groups for the VDAs in Azure | [optional] 
-**ResourceLocationId** | Pointer to **string** | ID of the Resource Location associated with the catalog | [optional] 
+**TemplateSpecResourceGroup** | Pointer to **NullableString** | Resource Group for the Template Specs used by the catalog | [optional] [readonly] 
+**VdaResourceGroup** | Pointer to **NullableString** | The resource group for the VDAs in Azure | [optional] 
+**VdaProvisioningSchemeId** | Pointer to **NullableString** | The resource groups for the VDAs in Azure | [optional] 
+**AreMcsVdaResourceGroupsUsed** | Pointer to **NullableBool** | The resource groups for the VDAs in Azure | [optional] 
+**ResourceLocationId** | Pointer to **NullableString** | ID of the Resource Location associated with the catalog | [optional] 
 **Region** | **string** | Azure region where VMs are deployed for this catalog | 
-**VNetName** | **string** | Name of the vnet assigned to the catalog | 
-**Subnet** | Pointer to **string** | The subnet that is associated with the catalog&#39;s VNet | [optional] 
-**DomainJoined** | Pointer to **bool** | The flag to indicate if the catalog is joined with customer domain | [optional] 
-**DomainName** | Pointer to **string** | Name of the domain that the catalog&#39;s VMs will join | [optional] 
-**DomainOU** | Pointer to **string** | OU of the domain we are joining | [optional] 
-**DomainServiceAccount** | Pointer to **string** | Name of the service account that will perform domain join opperations | [optional] 
-**VmTypeInstanceType** | Pointer to **string** | Type of the VM machines used to create VDAs | [optional] [readonly] 
-**ImageId** | Pointer to **string** | ID of the image that is used by the catalog | [optional] 
-**TemplateImageName** | Pointer to **string** | Name of the template image that we are using for this catalog | [optional] 
-**TemplateImageOs** | Pointer to **string** | Os type of the template image that we are using for this catalog | [optional] 
-**CitrixManaged** | Pointer to **bool** | Indicates that partner-tenant relationship exists if not null | [optional] 
-**CspCustomer** | Pointer to **string** | Indicates that partner-tenant relationship exists if not null | [optional] 
-**TotalMachinesInCatalog** | Pointer to **int32** | Maximum number of machines assigned to the catalog | [optional] 
-**WriteBackCacheConfiguration** | Pointer to [**WbcConfig**](WbcConfig.md) | Indicates whether or not write back cache is enabled for the VMs created from this provisioning scheme. | [optional] 
-**TaskCompletionPercentage** | Pointer to **int32** | Percentage complete the current task being performed on the catalog is at | [optional] 
-**LastModifiedTime** | Pointer to **time.Time** | Last time when the catalog was modified | [optional] 
-**LastBackupTime** | Pointer to **time.Time** | Last backup time for the catalog&#39;s VDAs | [optional] [readonly] 
+**VNetName** | **string** | Name of the vnet assigned to the catalog | [readonly] 
+**Subnet** | Pointer to **NullableString** | The subnet that is associated with the catalog&#39;s VNet | [optional] 
+**DomainJoined** | Pointer to **NullableBool** | The flag to indicate if the catalog is joined with customer domain | [optional] 
+**DomainName** | Pointer to **NullableString** | Name of the domain that the catalog&#39;s VMs will join | [optional] 
+**DomainOU** | Pointer to **NullableString** | OU of the domain we are joining | [optional] 
+**DomainServiceAccount** | Pointer to **NullableString** | Name of the service account that will perform domain join opperations | [optional] 
+**ServiceAccountUid** | Pointer to **NullableString** | Service account to associate to the IdentityPool.  Used for Pure Entra ID joined catalogs. | [optional] [readonly] 
+**VmTypeInstanceType** | Pointer to **NullableString** | Type of the VM machines used to create VDAs | [optional] [readonly] 
+**ImageId** | Pointer to **NullableString** | ID of the image that is used by the catalog | [optional] 
+**TemplateImageName** | Pointer to **NullableString** | Name of the template image that we are using for this catalog | [optional] 
+**TemplateImageOs** | Pointer to **NullableString** | Os type of the template image that we are using for this catalog | [optional] 
+**CitrixManaged** | Pointer to **NullableBool** | Indicates that partner-tenant relationship exists if not null | [optional] 
+**CspCustomer** | Pointer to **NullableString** | Indicates that partner-tenant relationship exists if not null | [optional] 
+**TotalMachinesInCatalog** | Pointer to **NullableInt32** | Maximum number of machines assigned to the catalog | [optional] 
+**NumOfUsers** | Pointer to **NullableInt32** | The number of users that the catalog should support (user defined value) | [optional] 
+**MaxNumOfUsers** | Pointer to **NullableInt32** | The maximum number of users supported by the catalog (TotalMachines * Sessions per VM) | [optional] 
+**WriteBackCacheConfiguration** | Pointer to [**NullableWbcConfig**](WbcConfig.md) | Indicates whether or not write back cache is enabled for the VMs created from this provisioning scheme. | [optional] 
+**TaskCompletionPercentage** | Pointer to **NullableInt32** | Percentage complete the current task being performed on the catalog is at | [optional] 
+**LastModifiedTime** | Pointer to **NullableTime** | Last time when the catalog was modified | [optional] 
+**LastBackupTime** | Pointer to **NullableTime** | Last backup time for the catalog&#39;s VDAs | [optional] [readonly] 
 **IsRemotePcCatalog** | Pointer to **bool** | Indicates if this is a remote pc catalog | [optional] 
 **IsAzureAdJoined** | Pointer to **bool** | Indicates if the machines in the catalog will be Azure AD joined | [optional] 
 **IsSecureBrowserCatalog** | Pointer to **bool** | Indicates if the catalog is for Secure Browser service | [optional] [readonly] 
 **OrganizationalUnits** | Pointer to [**[]RemotePCEnrollmentScopeResponseModel**](RemotePCEnrollmentScopeResponseModel.md) | List of OUs for remote pc | [optional] 
 **SupportsHibernation** | Pointer to **bool** | Indicates whether machines in catalog support hibernation | [optional] 
+**EnableAcceleratedNetworking** | Pointer to **bool** | Specifies whether to enable accelerated networking on the VM NIC | [optional] 
+**EnableEncryptionAtHost** | Pointer to **bool** | Indicates whether encryption at the host level is enabled. | [optional] 
+**CatalogType** | Pointer to [**CatalogType**](CatalogType.md) | The type of catalog | [optional] [readonly] 
 
 ## Methods
 
@@ -100,6 +107,16 @@ SetAzureSubscriptionId sets AzureSubscriptionId field to given value.
 
 HasAzureSubscriptionId returns a boolean if a field has been set.
 
+### SetAzureSubscriptionIdNil
+
+`func (o *CatalogOverview) SetAzureSubscriptionIdNil(b bool)`
+
+ SetAzureSubscriptionIdNil sets the value for AzureSubscriptionId to be an explicit nil
+
+### UnsetAzureSubscriptionId
+`func (o *CatalogOverview) UnsetAzureSubscriptionId()`
+
+UnsetAzureSubscriptionId ensures that no value is present for AzureSubscriptionId, not even an explicit nil
 ### GetId
 
 `func (o *CatalogOverview) GetId() string`
@@ -215,6 +232,16 @@ SetPersistStaticAllocatedVmDisks sets PersistStaticAllocatedVmDisks field to giv
 
 HasPersistStaticAllocatedVmDisks returns a boolean if a field has been set.
 
+### SetPersistStaticAllocatedVmDisksNil
+
+`func (o *CatalogOverview) SetPersistStaticAllocatedVmDisksNil(b bool)`
+
+ SetPersistStaticAllocatedVmDisksNil sets the value for PersistStaticAllocatedVmDisks to be an explicit nil
+
+### UnsetPersistStaticAllocatedVmDisks
+`func (o *CatalogOverview) UnsetPersistStaticAllocatedVmDisks()`
+
+UnsetPersistStaticAllocatedVmDisks ensures that no value is present for PersistStaticAllocatedVmDisks, not even an explicit nil
 ### GetOfferingId
 
 `func (o *CatalogOverview) GetOfferingId() string`
@@ -360,6 +387,16 @@ SetSubState sets SubState field to given value.
 
 HasSubState returns a boolean if a field has been set.
 
+### SetSubStateNil
+
+`func (o *CatalogOverview) SetSubStateNil(b bool)`
+
+ SetSubStateNil sets the value for SubState to be an explicit nil
+
+### UnsetSubState
+`func (o *CatalogOverview) UnsetSubState()`
+
+UnsetSubState ensures that no value is present for SubState, not even an explicit nil
 ### GetWarnings
 
 `func (o *CatalogOverview) GetWarnings() []CatalogWarning`
@@ -385,6 +422,16 @@ SetWarnings sets Warnings field to given value.
 
 HasWarnings returns a boolean if a field has been set.
 
+### SetWarningsNil
+
+`func (o *CatalogOverview) SetWarningsNil(b bool)`
+
+ SetWarningsNil sets the value for Warnings to be an explicit nil
+
+### UnsetWarnings
+`func (o *CatalogOverview) UnsetWarnings()`
+
+UnsetWarnings ensures that no value is present for Warnings, not even an explicit nil
 ### GetStatusMessage
 
 `func (o *CatalogOverview) GetStatusMessage() string`
@@ -410,6 +457,16 @@ SetStatusMessage sets StatusMessage field to given value.
 
 HasStatusMessage returns a boolean if a field has been set.
 
+### SetStatusMessageNil
+
+`func (o *CatalogOverview) SetStatusMessageNil(b bool)`
+
+ SetStatusMessageNil sets the value for StatusMessage to be an explicit nil
+
+### UnsetStatusMessage
+`func (o *CatalogOverview) UnsetStatusMessage()`
+
+UnsetStatusMessage ensures that no value is present for StatusMessage, not even an explicit nil
 ### GetExtraInfo
 
 `func (o *CatalogOverview) GetExtraInfo() string`
@@ -435,6 +492,16 @@ SetExtraInfo sets ExtraInfo field to given value.
 
 HasExtraInfo returns a boolean if a field has been set.
 
+### SetExtraInfoNil
+
+`func (o *CatalogOverview) SetExtraInfoNil(b bool)`
+
+ SetExtraInfoNil sets the value for ExtraInfo to be an explicit nil
+
+### UnsetExtraInfo
+`func (o *CatalogOverview) UnsetExtraInfo()`
+
+UnsetExtraInfo ensures that no value is present for ExtraInfo, not even an explicit nil
 ### GetTransactionId
 
 `func (o *CatalogOverview) GetTransactionId() string`
@@ -460,6 +527,16 @@ SetTransactionId sets TransactionId field to given value.
 
 HasTransactionId returns a boolean if a field has been set.
 
+### SetTransactionIdNil
+
+`func (o *CatalogOverview) SetTransactionIdNil(b bool)`
+
+ SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+
+### UnsetTransactionId
+`func (o *CatalogOverview) UnsetTransactionId()`
+
+UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
 ### GetVnetPeeringId
 
 `func (o *CatalogOverview) GetVnetPeeringId() string`
@@ -485,6 +562,16 @@ SetVnetPeeringId sets VnetPeeringId field to given value.
 
 HasVnetPeeringId returns a boolean if a field has been set.
 
+### SetVnetPeeringIdNil
+
+`func (o *CatalogOverview) SetVnetPeeringIdNil(b bool)`
+
+ SetVnetPeeringIdNil sets the value for VnetPeeringId to be an explicit nil
+
+### UnsetVnetPeeringId
+`func (o *CatalogOverview) UnsetVnetPeeringId()`
+
+UnsetVnetPeeringId ensures that no value is present for VnetPeeringId, not even an explicit nil
 ### GetVnetPeeringName
 
 `func (o *CatalogOverview) GetVnetPeeringName() string`
@@ -510,6 +597,16 @@ SetVnetPeeringName sets VnetPeeringName field to given value.
 
 HasVnetPeeringName returns a boolean if a field has been set.
 
+### SetVnetPeeringNameNil
+
+`func (o *CatalogOverview) SetVnetPeeringNameNil(b bool)`
+
+ SetVnetPeeringNameNil sets the value for VnetPeeringName to be an explicit nil
+
+### UnsetVnetPeeringName
+`func (o *CatalogOverview) UnsetVnetPeeringName()`
+
+UnsetVnetPeeringName ensures that no value is present for VnetPeeringName, not even an explicit nil
 ### GetVpnConnectionId
 
 `func (o *CatalogOverview) GetVpnConnectionId() string`
@@ -535,6 +632,16 @@ SetVpnConnectionId sets VpnConnectionId field to given value.
 
 HasVpnConnectionId returns a boolean if a field has been set.
 
+### SetVpnConnectionIdNil
+
+`func (o *CatalogOverview) SetVpnConnectionIdNil(b bool)`
+
+ SetVpnConnectionIdNil sets the value for VpnConnectionId to be an explicit nil
+
+### UnsetVpnConnectionId
+`func (o *CatalogOverview) UnsetVpnConnectionId()`
+
+UnsetVpnConnectionId ensures that no value is present for VpnConnectionId, not even an explicit nil
 ### GetVpnConnectionName
 
 `func (o *CatalogOverview) GetVpnConnectionName() string`
@@ -560,6 +667,16 @@ SetVpnConnectionName sets VpnConnectionName field to given value.
 
 HasVpnConnectionName returns a boolean if a field has been set.
 
+### SetVpnConnectionNameNil
+
+`func (o *CatalogOverview) SetVpnConnectionNameNil(b bool)`
+
+ SetVpnConnectionNameNil sets the value for VpnConnectionName to be an explicit nil
+
+### UnsetVpnConnectionName
+`func (o *CatalogOverview) UnsetVpnConnectionName()`
+
+UnsetVpnConnectionName ensures that no value is present for VpnConnectionName, not even an explicit nil
 ### GetSubscriptionId
 
 `func (o *CatalogOverview) GetSubscriptionId() string`
@@ -585,6 +702,16 @@ SetSubscriptionId sets SubscriptionId field to given value.
 
 HasSubscriptionId returns a boolean if a field has been set.
 
+### SetSubscriptionIdNil
+
+`func (o *CatalogOverview) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *CatalogOverview) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
 ### GetSubscriptionName
 
 `func (o *CatalogOverview) GetSubscriptionName() string`
@@ -625,6 +752,41 @@ and a boolean to check if the value has been set.
 SetResourceGroup sets ResourceGroup field to given value.
 
 
+### GetTemplateSpecResourceGroup
+
+`func (o *CatalogOverview) GetTemplateSpecResourceGroup() string`
+
+GetTemplateSpecResourceGroup returns the TemplateSpecResourceGroup field if non-nil, zero value otherwise.
+
+### GetTemplateSpecResourceGroupOk
+
+`func (o *CatalogOverview) GetTemplateSpecResourceGroupOk() (*string, bool)`
+
+GetTemplateSpecResourceGroupOk returns a tuple with the TemplateSpecResourceGroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTemplateSpecResourceGroup
+
+`func (o *CatalogOverview) SetTemplateSpecResourceGroup(v string)`
+
+SetTemplateSpecResourceGroup sets TemplateSpecResourceGroup field to given value.
+
+### HasTemplateSpecResourceGroup
+
+`func (o *CatalogOverview) HasTemplateSpecResourceGroup() bool`
+
+HasTemplateSpecResourceGroup returns a boolean if a field has been set.
+
+### SetTemplateSpecResourceGroupNil
+
+`func (o *CatalogOverview) SetTemplateSpecResourceGroupNil(b bool)`
+
+ SetTemplateSpecResourceGroupNil sets the value for TemplateSpecResourceGroup to be an explicit nil
+
+### UnsetTemplateSpecResourceGroup
+`func (o *CatalogOverview) UnsetTemplateSpecResourceGroup()`
+
+UnsetTemplateSpecResourceGroup ensures that no value is present for TemplateSpecResourceGroup, not even an explicit nil
 ### GetVdaResourceGroup
 
 `func (o *CatalogOverview) GetVdaResourceGroup() string`
@@ -650,6 +812,16 @@ SetVdaResourceGroup sets VdaResourceGroup field to given value.
 
 HasVdaResourceGroup returns a boolean if a field has been set.
 
+### SetVdaResourceGroupNil
+
+`func (o *CatalogOverview) SetVdaResourceGroupNil(b bool)`
+
+ SetVdaResourceGroupNil sets the value for VdaResourceGroup to be an explicit nil
+
+### UnsetVdaResourceGroup
+`func (o *CatalogOverview) UnsetVdaResourceGroup()`
+
+UnsetVdaResourceGroup ensures that no value is present for VdaResourceGroup, not even an explicit nil
 ### GetVdaProvisioningSchemeId
 
 `func (o *CatalogOverview) GetVdaProvisioningSchemeId() string`
@@ -675,6 +847,16 @@ SetVdaProvisioningSchemeId sets VdaProvisioningSchemeId field to given value.
 
 HasVdaProvisioningSchemeId returns a boolean if a field has been set.
 
+### SetVdaProvisioningSchemeIdNil
+
+`func (o *CatalogOverview) SetVdaProvisioningSchemeIdNil(b bool)`
+
+ SetVdaProvisioningSchemeIdNil sets the value for VdaProvisioningSchemeId to be an explicit nil
+
+### UnsetVdaProvisioningSchemeId
+`func (o *CatalogOverview) UnsetVdaProvisioningSchemeId()`
+
+UnsetVdaProvisioningSchemeId ensures that no value is present for VdaProvisioningSchemeId, not even an explicit nil
 ### GetAreMcsVdaResourceGroupsUsed
 
 `func (o *CatalogOverview) GetAreMcsVdaResourceGroupsUsed() bool`
@@ -700,6 +882,16 @@ SetAreMcsVdaResourceGroupsUsed sets AreMcsVdaResourceGroupsUsed field to given v
 
 HasAreMcsVdaResourceGroupsUsed returns a boolean if a field has been set.
 
+### SetAreMcsVdaResourceGroupsUsedNil
+
+`func (o *CatalogOverview) SetAreMcsVdaResourceGroupsUsedNil(b bool)`
+
+ SetAreMcsVdaResourceGroupsUsedNil sets the value for AreMcsVdaResourceGroupsUsed to be an explicit nil
+
+### UnsetAreMcsVdaResourceGroupsUsed
+`func (o *CatalogOverview) UnsetAreMcsVdaResourceGroupsUsed()`
+
+UnsetAreMcsVdaResourceGroupsUsed ensures that no value is present for AreMcsVdaResourceGroupsUsed, not even an explicit nil
 ### GetResourceLocationId
 
 `func (o *CatalogOverview) GetResourceLocationId() string`
@@ -725,6 +917,16 @@ SetResourceLocationId sets ResourceLocationId field to given value.
 
 HasResourceLocationId returns a boolean if a field has been set.
 
+### SetResourceLocationIdNil
+
+`func (o *CatalogOverview) SetResourceLocationIdNil(b bool)`
+
+ SetResourceLocationIdNil sets the value for ResourceLocationId to be an explicit nil
+
+### UnsetResourceLocationId
+`func (o *CatalogOverview) UnsetResourceLocationId()`
+
+UnsetResourceLocationId ensures that no value is present for ResourceLocationId, not even an explicit nil
 ### GetRegion
 
 `func (o *CatalogOverview) GetRegion() string`
@@ -790,6 +992,16 @@ SetSubnet sets Subnet field to given value.
 
 HasSubnet returns a boolean if a field has been set.
 
+### SetSubnetNil
+
+`func (o *CatalogOverview) SetSubnetNil(b bool)`
+
+ SetSubnetNil sets the value for Subnet to be an explicit nil
+
+### UnsetSubnet
+`func (o *CatalogOverview) UnsetSubnet()`
+
+UnsetSubnet ensures that no value is present for Subnet, not even an explicit nil
 ### GetDomainJoined
 
 `func (o *CatalogOverview) GetDomainJoined() bool`
@@ -815,6 +1027,16 @@ SetDomainJoined sets DomainJoined field to given value.
 
 HasDomainJoined returns a boolean if a field has been set.
 
+### SetDomainJoinedNil
+
+`func (o *CatalogOverview) SetDomainJoinedNil(b bool)`
+
+ SetDomainJoinedNil sets the value for DomainJoined to be an explicit nil
+
+### UnsetDomainJoined
+`func (o *CatalogOverview) UnsetDomainJoined()`
+
+UnsetDomainJoined ensures that no value is present for DomainJoined, not even an explicit nil
 ### GetDomainName
 
 `func (o *CatalogOverview) GetDomainName() string`
@@ -840,6 +1062,16 @@ SetDomainName sets DomainName field to given value.
 
 HasDomainName returns a boolean if a field has been set.
 
+### SetDomainNameNil
+
+`func (o *CatalogOverview) SetDomainNameNil(b bool)`
+
+ SetDomainNameNil sets the value for DomainName to be an explicit nil
+
+### UnsetDomainName
+`func (o *CatalogOverview) UnsetDomainName()`
+
+UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
 ### GetDomainOU
 
 `func (o *CatalogOverview) GetDomainOU() string`
@@ -865,6 +1097,16 @@ SetDomainOU sets DomainOU field to given value.
 
 HasDomainOU returns a boolean if a field has been set.
 
+### SetDomainOUNil
+
+`func (o *CatalogOverview) SetDomainOUNil(b bool)`
+
+ SetDomainOUNil sets the value for DomainOU to be an explicit nil
+
+### UnsetDomainOU
+`func (o *CatalogOverview) UnsetDomainOU()`
+
+UnsetDomainOU ensures that no value is present for DomainOU, not even an explicit nil
 ### GetDomainServiceAccount
 
 `func (o *CatalogOverview) GetDomainServiceAccount() string`
@@ -890,6 +1132,51 @@ SetDomainServiceAccount sets DomainServiceAccount field to given value.
 
 HasDomainServiceAccount returns a boolean if a field has been set.
 
+### SetDomainServiceAccountNil
+
+`func (o *CatalogOverview) SetDomainServiceAccountNil(b bool)`
+
+ SetDomainServiceAccountNil sets the value for DomainServiceAccount to be an explicit nil
+
+### UnsetDomainServiceAccount
+`func (o *CatalogOverview) UnsetDomainServiceAccount()`
+
+UnsetDomainServiceAccount ensures that no value is present for DomainServiceAccount, not even an explicit nil
+### GetServiceAccountUid
+
+`func (o *CatalogOverview) GetServiceAccountUid() string`
+
+GetServiceAccountUid returns the ServiceAccountUid field if non-nil, zero value otherwise.
+
+### GetServiceAccountUidOk
+
+`func (o *CatalogOverview) GetServiceAccountUidOk() (*string, bool)`
+
+GetServiceAccountUidOk returns a tuple with the ServiceAccountUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceAccountUid
+
+`func (o *CatalogOverview) SetServiceAccountUid(v string)`
+
+SetServiceAccountUid sets ServiceAccountUid field to given value.
+
+### HasServiceAccountUid
+
+`func (o *CatalogOverview) HasServiceAccountUid() bool`
+
+HasServiceAccountUid returns a boolean if a field has been set.
+
+### SetServiceAccountUidNil
+
+`func (o *CatalogOverview) SetServiceAccountUidNil(b bool)`
+
+ SetServiceAccountUidNil sets the value for ServiceAccountUid to be an explicit nil
+
+### UnsetServiceAccountUid
+`func (o *CatalogOverview) UnsetServiceAccountUid()`
+
+UnsetServiceAccountUid ensures that no value is present for ServiceAccountUid, not even an explicit nil
 ### GetVmTypeInstanceType
 
 `func (o *CatalogOverview) GetVmTypeInstanceType() string`
@@ -915,6 +1202,16 @@ SetVmTypeInstanceType sets VmTypeInstanceType field to given value.
 
 HasVmTypeInstanceType returns a boolean if a field has been set.
 
+### SetVmTypeInstanceTypeNil
+
+`func (o *CatalogOverview) SetVmTypeInstanceTypeNil(b bool)`
+
+ SetVmTypeInstanceTypeNil sets the value for VmTypeInstanceType to be an explicit nil
+
+### UnsetVmTypeInstanceType
+`func (o *CatalogOverview) UnsetVmTypeInstanceType()`
+
+UnsetVmTypeInstanceType ensures that no value is present for VmTypeInstanceType, not even an explicit nil
 ### GetImageId
 
 `func (o *CatalogOverview) GetImageId() string`
@@ -940,6 +1237,16 @@ SetImageId sets ImageId field to given value.
 
 HasImageId returns a boolean if a field has been set.
 
+### SetImageIdNil
+
+`func (o *CatalogOverview) SetImageIdNil(b bool)`
+
+ SetImageIdNil sets the value for ImageId to be an explicit nil
+
+### UnsetImageId
+`func (o *CatalogOverview) UnsetImageId()`
+
+UnsetImageId ensures that no value is present for ImageId, not even an explicit nil
 ### GetTemplateImageName
 
 `func (o *CatalogOverview) GetTemplateImageName() string`
@@ -965,6 +1272,16 @@ SetTemplateImageName sets TemplateImageName field to given value.
 
 HasTemplateImageName returns a boolean if a field has been set.
 
+### SetTemplateImageNameNil
+
+`func (o *CatalogOverview) SetTemplateImageNameNil(b bool)`
+
+ SetTemplateImageNameNil sets the value for TemplateImageName to be an explicit nil
+
+### UnsetTemplateImageName
+`func (o *CatalogOverview) UnsetTemplateImageName()`
+
+UnsetTemplateImageName ensures that no value is present for TemplateImageName, not even an explicit nil
 ### GetTemplateImageOs
 
 `func (o *CatalogOverview) GetTemplateImageOs() string`
@@ -990,6 +1307,16 @@ SetTemplateImageOs sets TemplateImageOs field to given value.
 
 HasTemplateImageOs returns a boolean if a field has been set.
 
+### SetTemplateImageOsNil
+
+`func (o *CatalogOverview) SetTemplateImageOsNil(b bool)`
+
+ SetTemplateImageOsNil sets the value for TemplateImageOs to be an explicit nil
+
+### UnsetTemplateImageOs
+`func (o *CatalogOverview) UnsetTemplateImageOs()`
+
+UnsetTemplateImageOs ensures that no value is present for TemplateImageOs, not even an explicit nil
 ### GetCitrixManaged
 
 `func (o *CatalogOverview) GetCitrixManaged() bool`
@@ -1015,6 +1342,16 @@ SetCitrixManaged sets CitrixManaged field to given value.
 
 HasCitrixManaged returns a boolean if a field has been set.
 
+### SetCitrixManagedNil
+
+`func (o *CatalogOverview) SetCitrixManagedNil(b bool)`
+
+ SetCitrixManagedNil sets the value for CitrixManaged to be an explicit nil
+
+### UnsetCitrixManaged
+`func (o *CatalogOverview) UnsetCitrixManaged()`
+
+UnsetCitrixManaged ensures that no value is present for CitrixManaged, not even an explicit nil
 ### GetCspCustomer
 
 `func (o *CatalogOverview) GetCspCustomer() string`
@@ -1040,6 +1377,16 @@ SetCspCustomer sets CspCustomer field to given value.
 
 HasCspCustomer returns a boolean if a field has been set.
 
+### SetCspCustomerNil
+
+`func (o *CatalogOverview) SetCspCustomerNil(b bool)`
+
+ SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+
+### UnsetCspCustomer
+`func (o *CatalogOverview) UnsetCspCustomer()`
+
+UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
 ### GetTotalMachinesInCatalog
 
 `func (o *CatalogOverview) GetTotalMachinesInCatalog() int32`
@@ -1065,6 +1412,86 @@ SetTotalMachinesInCatalog sets TotalMachinesInCatalog field to given value.
 
 HasTotalMachinesInCatalog returns a boolean if a field has been set.
 
+### SetTotalMachinesInCatalogNil
+
+`func (o *CatalogOverview) SetTotalMachinesInCatalogNil(b bool)`
+
+ SetTotalMachinesInCatalogNil sets the value for TotalMachinesInCatalog to be an explicit nil
+
+### UnsetTotalMachinesInCatalog
+`func (o *CatalogOverview) UnsetTotalMachinesInCatalog()`
+
+UnsetTotalMachinesInCatalog ensures that no value is present for TotalMachinesInCatalog, not even an explicit nil
+### GetNumOfUsers
+
+`func (o *CatalogOverview) GetNumOfUsers() int32`
+
+GetNumOfUsers returns the NumOfUsers field if non-nil, zero value otherwise.
+
+### GetNumOfUsersOk
+
+`func (o *CatalogOverview) GetNumOfUsersOk() (*int32, bool)`
+
+GetNumOfUsersOk returns a tuple with the NumOfUsers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNumOfUsers
+
+`func (o *CatalogOverview) SetNumOfUsers(v int32)`
+
+SetNumOfUsers sets NumOfUsers field to given value.
+
+### HasNumOfUsers
+
+`func (o *CatalogOverview) HasNumOfUsers() bool`
+
+HasNumOfUsers returns a boolean if a field has been set.
+
+### SetNumOfUsersNil
+
+`func (o *CatalogOverview) SetNumOfUsersNil(b bool)`
+
+ SetNumOfUsersNil sets the value for NumOfUsers to be an explicit nil
+
+### UnsetNumOfUsers
+`func (o *CatalogOverview) UnsetNumOfUsers()`
+
+UnsetNumOfUsers ensures that no value is present for NumOfUsers, not even an explicit nil
+### GetMaxNumOfUsers
+
+`func (o *CatalogOverview) GetMaxNumOfUsers() int32`
+
+GetMaxNumOfUsers returns the MaxNumOfUsers field if non-nil, zero value otherwise.
+
+### GetMaxNumOfUsersOk
+
+`func (o *CatalogOverview) GetMaxNumOfUsersOk() (*int32, bool)`
+
+GetMaxNumOfUsersOk returns a tuple with the MaxNumOfUsers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxNumOfUsers
+
+`func (o *CatalogOverview) SetMaxNumOfUsers(v int32)`
+
+SetMaxNumOfUsers sets MaxNumOfUsers field to given value.
+
+### HasMaxNumOfUsers
+
+`func (o *CatalogOverview) HasMaxNumOfUsers() bool`
+
+HasMaxNumOfUsers returns a boolean if a field has been set.
+
+### SetMaxNumOfUsersNil
+
+`func (o *CatalogOverview) SetMaxNumOfUsersNil(b bool)`
+
+ SetMaxNumOfUsersNil sets the value for MaxNumOfUsers to be an explicit nil
+
+### UnsetMaxNumOfUsers
+`func (o *CatalogOverview) UnsetMaxNumOfUsers()`
+
+UnsetMaxNumOfUsers ensures that no value is present for MaxNumOfUsers, not even an explicit nil
 ### GetWriteBackCacheConfiguration
 
 `func (o *CatalogOverview) GetWriteBackCacheConfiguration() WbcConfig`
@@ -1090,6 +1517,16 @@ SetWriteBackCacheConfiguration sets WriteBackCacheConfiguration field to given v
 
 HasWriteBackCacheConfiguration returns a boolean if a field has been set.
 
+### SetWriteBackCacheConfigurationNil
+
+`func (o *CatalogOverview) SetWriteBackCacheConfigurationNil(b bool)`
+
+ SetWriteBackCacheConfigurationNil sets the value for WriteBackCacheConfiguration to be an explicit nil
+
+### UnsetWriteBackCacheConfiguration
+`func (o *CatalogOverview) UnsetWriteBackCacheConfiguration()`
+
+UnsetWriteBackCacheConfiguration ensures that no value is present for WriteBackCacheConfiguration, not even an explicit nil
 ### GetTaskCompletionPercentage
 
 `func (o *CatalogOverview) GetTaskCompletionPercentage() int32`
@@ -1115,6 +1552,16 @@ SetTaskCompletionPercentage sets TaskCompletionPercentage field to given value.
 
 HasTaskCompletionPercentage returns a boolean if a field has been set.
 
+### SetTaskCompletionPercentageNil
+
+`func (o *CatalogOverview) SetTaskCompletionPercentageNil(b bool)`
+
+ SetTaskCompletionPercentageNil sets the value for TaskCompletionPercentage to be an explicit nil
+
+### UnsetTaskCompletionPercentage
+`func (o *CatalogOverview) UnsetTaskCompletionPercentage()`
+
+UnsetTaskCompletionPercentage ensures that no value is present for TaskCompletionPercentage, not even an explicit nil
 ### GetLastModifiedTime
 
 `func (o *CatalogOverview) GetLastModifiedTime() time.Time`
@@ -1140,6 +1587,16 @@ SetLastModifiedTime sets LastModifiedTime field to given value.
 
 HasLastModifiedTime returns a boolean if a field has been set.
 
+### SetLastModifiedTimeNil
+
+`func (o *CatalogOverview) SetLastModifiedTimeNil(b bool)`
+
+ SetLastModifiedTimeNil sets the value for LastModifiedTime to be an explicit nil
+
+### UnsetLastModifiedTime
+`func (o *CatalogOverview) UnsetLastModifiedTime()`
+
+UnsetLastModifiedTime ensures that no value is present for LastModifiedTime, not even an explicit nil
 ### GetLastBackupTime
 
 `func (o *CatalogOverview) GetLastBackupTime() time.Time`
@@ -1165,6 +1622,16 @@ SetLastBackupTime sets LastBackupTime field to given value.
 
 HasLastBackupTime returns a boolean if a field has been set.
 
+### SetLastBackupTimeNil
+
+`func (o *CatalogOverview) SetLastBackupTimeNil(b bool)`
+
+ SetLastBackupTimeNil sets the value for LastBackupTime to be an explicit nil
+
+### UnsetLastBackupTime
+`func (o *CatalogOverview) UnsetLastBackupTime()`
+
+UnsetLastBackupTime ensures that no value is present for LastBackupTime, not even an explicit nil
 ### GetIsRemotePcCatalog
 
 `func (o *CatalogOverview) GetIsRemotePcCatalog() bool`
@@ -1265,6 +1732,16 @@ SetOrganizationalUnits sets OrganizationalUnits field to given value.
 
 HasOrganizationalUnits returns a boolean if a field has been set.
 
+### SetOrganizationalUnitsNil
+
+`func (o *CatalogOverview) SetOrganizationalUnitsNil(b bool)`
+
+ SetOrganizationalUnitsNil sets the value for OrganizationalUnits to be an explicit nil
+
+### UnsetOrganizationalUnits
+`func (o *CatalogOverview) UnsetOrganizationalUnits()`
+
+UnsetOrganizationalUnits ensures that no value is present for OrganizationalUnits, not even an explicit nil
 ### GetSupportsHibernation
 
 `func (o *CatalogOverview) GetSupportsHibernation() bool`
@@ -1289,6 +1766,81 @@ SetSupportsHibernation sets SupportsHibernation field to given value.
 `func (o *CatalogOverview) HasSupportsHibernation() bool`
 
 HasSupportsHibernation returns a boolean if a field has been set.
+
+### GetEnableAcceleratedNetworking
+
+`func (o *CatalogOverview) GetEnableAcceleratedNetworking() bool`
+
+GetEnableAcceleratedNetworking returns the EnableAcceleratedNetworking field if non-nil, zero value otherwise.
+
+### GetEnableAcceleratedNetworkingOk
+
+`func (o *CatalogOverview) GetEnableAcceleratedNetworkingOk() (*bool, bool)`
+
+GetEnableAcceleratedNetworkingOk returns a tuple with the EnableAcceleratedNetworking field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableAcceleratedNetworking
+
+`func (o *CatalogOverview) SetEnableAcceleratedNetworking(v bool)`
+
+SetEnableAcceleratedNetworking sets EnableAcceleratedNetworking field to given value.
+
+### HasEnableAcceleratedNetworking
+
+`func (o *CatalogOverview) HasEnableAcceleratedNetworking() bool`
+
+HasEnableAcceleratedNetworking returns a boolean if a field has been set.
+
+### GetEnableEncryptionAtHost
+
+`func (o *CatalogOverview) GetEnableEncryptionAtHost() bool`
+
+GetEnableEncryptionAtHost returns the EnableEncryptionAtHost field if non-nil, zero value otherwise.
+
+### GetEnableEncryptionAtHostOk
+
+`func (o *CatalogOverview) GetEnableEncryptionAtHostOk() (*bool, bool)`
+
+GetEnableEncryptionAtHostOk returns a tuple with the EnableEncryptionAtHost field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableEncryptionAtHost
+
+`func (o *CatalogOverview) SetEnableEncryptionAtHost(v bool)`
+
+SetEnableEncryptionAtHost sets EnableEncryptionAtHost field to given value.
+
+### HasEnableEncryptionAtHost
+
+`func (o *CatalogOverview) HasEnableEncryptionAtHost() bool`
+
+HasEnableEncryptionAtHost returns a boolean if a field has been set.
+
+### GetCatalogType
+
+`func (o *CatalogOverview) GetCatalogType() CatalogType`
+
+GetCatalogType returns the CatalogType field if non-nil, zero value otherwise.
+
+### GetCatalogTypeOk
+
+`func (o *CatalogOverview) GetCatalogTypeOk() (*CatalogType, bool)`
+
+GetCatalogTypeOk returns a tuple with the CatalogType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCatalogType
+
+`func (o *CatalogOverview) SetCatalogType(v CatalogType)`
+
+SetCatalogType sets CatalogType field to given value.
+
+### HasCatalogType
+
+`func (o *CatalogOverview) HasCatalogType() bool`
+
+HasCatalogType returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -26,7 +26,9 @@ type AzureVNet struct {
 	// Name of the VNet
 	Name string `json:"name"`
 	// Azure region where the VNet is located
-	Location *string `json:"location,omitempty"`
+	Location NullableString `json:"location,omitempty"`
+	// Azure resource ID of the VNet
+	ResourceId NullableString `json:"resourceId,omitempty"`
 	// Subnets that have been configured for this VNet
 	Subnets    []AzureSubnet `json:"subnets,omitempty"`
 	DnsServers []string      `json:"dnsServers,omitempty"`
@@ -112,32 +114,77 @@ func (o *AzureVNet) SetName(v string) {
 	o.Name = v
 }
 
-// GetLocation returns the Location field value if set, zero value otherwise.
+// GetLocation returns the Location field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVNet) GetLocation() string {
-	if o == nil || IsNil(o.Location) {
+	if o == nil || IsNil(o.Location.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Location
+	return *o.Location.Get()
 }
 
 // GetLocationOk returns a tuple with the Location field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVNet) GetLocationOk() (*string, bool) {
-	if o == nil || IsNil(o.Location) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Location, true
+	return o.Location.Get(), o.Location.IsSet()
 }
 
-// SetLocation gets a reference to the given string and assigns it to the Location field.
+// SetLocation gets a reference to the given NullableString and assigns it to the Location field.
 func (o *AzureVNet) SetLocation(v string) {
-	o.Location = &v
+	o.Location.Set(&v)
 }
 
-// GetSubnets returns the Subnets field value if set, zero value otherwise.
+// SetLocationNil sets the value for Location to be an explicit nil
+func (o *AzureVNet) SetLocationNil() {
+	o.Location.Set(nil)
+}
+
+// UnsetLocation ensures that no value is present for Location, not even an explicit nil
+func (o *AzureVNet) UnsetLocation() {
+	o.Location.Unset()
+}
+
+// GetResourceId returns the ResourceId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AzureVNet) GetResourceId() string {
+	if o == nil || IsNil(o.ResourceId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ResourceId.Get()
+}
+
+// GetResourceIdOk returns a tuple with the ResourceId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AzureVNet) GetResourceIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ResourceId.Get(), o.ResourceId.IsSet()
+}
+
+// SetResourceId gets a reference to the given NullableString and assigns it to the ResourceId field.
+func (o *AzureVNet) SetResourceId(v string) {
+	o.ResourceId.Set(&v)
+}
+
+// SetResourceIdNil sets the value for ResourceId to be an explicit nil
+func (o *AzureVNet) SetResourceIdNil() {
+	o.ResourceId.Set(nil)
+}
+
+// UnsetResourceId ensures that no value is present for ResourceId, not even an explicit nil
+func (o *AzureVNet) UnsetResourceId() {
+	o.ResourceId.Unset()
+}
+
+// GetSubnets returns the Subnets field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVNet) GetSubnets() []AzureSubnet {
-	if o == nil || IsNil(o.Subnets) {
+	if o == nil {
 		var ret []AzureSubnet
 		return ret
 	}
@@ -146,6 +193,7 @@ func (o *AzureVNet) GetSubnets() []AzureSubnet {
 
 // GetSubnetsOk returns a tuple with the Subnets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVNet) GetSubnetsOk() ([]AzureSubnet, bool) {
 	if o == nil || IsNil(o.Subnets) {
 		return nil, false
@@ -158,9 +206,9 @@ func (o *AzureVNet) SetSubnets(v []AzureSubnet) {
 	o.Subnets = v
 }
 
-// GetDnsServers returns the DnsServers field value if set, zero value otherwise.
+// GetDnsServers returns the DnsServers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVNet) GetDnsServers() []string {
-	if o == nil || IsNil(o.DnsServers) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -169,6 +217,7 @@ func (o *AzureVNet) GetDnsServers() []string {
 
 // GetDnsServersOk returns a tuple with the DnsServers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVNet) GetDnsServersOk() ([]string, bool) {
 	if o == nil || IsNil(o.DnsServers) {
 		return nil, false
@@ -194,13 +243,16 @@ func (o AzureVNet) ToMap() (map[string]interface{}, error) {
 	toSerialize["subscriptionId"] = o.SubscriptionId
 	toSerialize["resourceGroup"] = o.ResourceGroup
 	toSerialize["name"] = o.Name
-	if !IsNil(o.Location) {
-		toSerialize["location"] = o.Location
+	if o.Location.IsSet() {
+		toSerialize["location"] = o.Location.Get()
 	}
-	if !IsNil(o.Subnets) {
+	if o.ResourceId.IsSet() {
+		toSerialize["resourceId"] = o.ResourceId.Get()
+	}
+	if o.Subnets != nil {
 		toSerialize["subnets"] = o.Subnets
 	}
-	if !IsNil(o.DnsServers) {
+	if o.DnsServers != nil {
 		toSerialize["dnsServers"] = o.DnsServers
 	}
 	return toSerialize, nil

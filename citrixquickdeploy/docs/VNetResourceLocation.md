@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResourceLocationId** | Pointer to **string** | ID for the Resource Location | [optional] 
+**ResourceLocationId** | Pointer to **NullableString** | ID for the Resource Location | [optional] 
 **Ports** | Pointer to [**[]NetworkSecurityGroupPort**](NetworkSecurityGroupPort.md) | List of ports | [optional] 
-**NetworkSecurityGroup** | Pointer to **string** | Network Security Group Name | [optional] 
-**DomainJoined** | Pointer to **string** | Domain name tied to the resource location | [optional] 
+**NetworkSecurityGroup** | Pointer to **NullableString** | Network Security Group Name | [optional] 
+**DomainJoined** | Pointer to **NullableString** | Domain name tied to the resource location | [optional] 
 **Connectors** | Pointer to **[]string** | The list of connectors configured for the resource location | [optional] 
-**VnetPeering** | Pointer to **string** | Vnet Peering associated with the resource location | [optional] 
+**VnetPeering** | Pointer to **NullableString** | Vnet Peering associated with the resource location | [optional] 
 
 ## Methods
 
@@ -55,6 +55,16 @@ SetResourceLocationId sets ResourceLocationId field to given value.
 
 HasResourceLocationId returns a boolean if a field has been set.
 
+### SetResourceLocationIdNil
+
+`func (o *VNetResourceLocation) SetResourceLocationIdNil(b bool)`
+
+ SetResourceLocationIdNil sets the value for ResourceLocationId to be an explicit nil
+
+### UnsetResourceLocationId
+`func (o *VNetResourceLocation) UnsetResourceLocationId()`
+
+UnsetResourceLocationId ensures that no value is present for ResourceLocationId, not even an explicit nil
 ### GetPorts
 
 `func (o *VNetResourceLocation) GetPorts() []NetworkSecurityGroupPort`
@@ -80,6 +90,16 @@ SetPorts sets Ports field to given value.
 
 HasPorts returns a boolean if a field has been set.
 
+### SetPortsNil
+
+`func (o *VNetResourceLocation) SetPortsNil(b bool)`
+
+ SetPortsNil sets the value for Ports to be an explicit nil
+
+### UnsetPorts
+`func (o *VNetResourceLocation) UnsetPorts()`
+
+UnsetPorts ensures that no value is present for Ports, not even an explicit nil
 ### GetNetworkSecurityGroup
 
 `func (o *VNetResourceLocation) GetNetworkSecurityGroup() string`
@@ -105,6 +125,16 @@ SetNetworkSecurityGroup sets NetworkSecurityGroup field to given value.
 
 HasNetworkSecurityGroup returns a boolean if a field has been set.
 
+### SetNetworkSecurityGroupNil
+
+`func (o *VNetResourceLocation) SetNetworkSecurityGroupNil(b bool)`
+
+ SetNetworkSecurityGroupNil sets the value for NetworkSecurityGroup to be an explicit nil
+
+### UnsetNetworkSecurityGroup
+`func (o *VNetResourceLocation) UnsetNetworkSecurityGroup()`
+
+UnsetNetworkSecurityGroup ensures that no value is present for NetworkSecurityGroup, not even an explicit nil
 ### GetDomainJoined
 
 `func (o *VNetResourceLocation) GetDomainJoined() string`
@@ -130,6 +160,16 @@ SetDomainJoined sets DomainJoined field to given value.
 
 HasDomainJoined returns a boolean if a field has been set.
 
+### SetDomainJoinedNil
+
+`func (o *VNetResourceLocation) SetDomainJoinedNil(b bool)`
+
+ SetDomainJoinedNil sets the value for DomainJoined to be an explicit nil
+
+### UnsetDomainJoined
+`func (o *VNetResourceLocation) UnsetDomainJoined()`
+
+UnsetDomainJoined ensures that no value is present for DomainJoined, not even an explicit nil
 ### GetConnectors
 
 `func (o *VNetResourceLocation) GetConnectors() []string`
@@ -155,6 +195,16 @@ SetConnectors sets Connectors field to given value.
 
 HasConnectors returns a boolean if a field has been set.
 
+### SetConnectorsNil
+
+`func (o *VNetResourceLocation) SetConnectorsNil(b bool)`
+
+ SetConnectorsNil sets the value for Connectors to be an explicit nil
+
+### UnsetConnectors
+`func (o *VNetResourceLocation) UnsetConnectors()`
+
+UnsetConnectors ensures that no value is present for Connectors, not even an explicit nil
 ### GetVnetPeering
 
 `func (o *VNetResourceLocation) GetVnetPeering() string`
@@ -180,6 +230,16 @@ SetVnetPeering sets VnetPeering field to given value.
 
 HasVnetPeering returns a boolean if a field has been set.
 
+### SetVnetPeeringNil
+
+`func (o *VNetResourceLocation) SetVnetPeeringNil(b bool)`
+
+ SetVnetPeeringNil sets the value for VnetPeering to be an explicit nil
+
+### UnsetVnetPeering
+`func (o *VNetResourceLocation) UnsetVnetPeering()`
+
+UnsetVnetPeering ensures that no value is present for VnetPeering, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

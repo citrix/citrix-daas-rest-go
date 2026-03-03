@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkspaceAADName** | Pointer to **string** |  | [optional] 
-**DirectoryName** | Pointer to **string** |  | [optional] 
+**WorkspaceAADName** | Pointer to **NullableString** |  | [optional] 
+**DirectoryName** | Pointer to **NullableString** |  | [optional] 
 **CitrixManaged** | Pointer to **bool** |  | [optional] 
 **IsLinked** | Pointer to **bool** |  | [optional] 
 **IsProvisioned** | Pointer to **bool** |  | [optional] 
-**IdpInstanceId** | Pointer to **string** |  | [optional] 
+**IdpInstanceId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -55,6 +55,16 @@ SetWorkspaceAADName sets WorkspaceAADName field to given value.
 
 HasWorkspaceAADName returns a boolean if a field has been set.
 
+### SetWorkspaceAADNameNil
+
+`func (o *WorkspaceManagedAADModel) SetWorkspaceAADNameNil(b bool)`
+
+ SetWorkspaceAADNameNil sets the value for WorkspaceAADName to be an explicit nil
+
+### UnsetWorkspaceAADName
+`func (o *WorkspaceManagedAADModel) UnsetWorkspaceAADName()`
+
+UnsetWorkspaceAADName ensures that no value is present for WorkspaceAADName, not even an explicit nil
 ### GetDirectoryName
 
 `func (o *WorkspaceManagedAADModel) GetDirectoryName() string`
@@ -80,6 +90,16 @@ SetDirectoryName sets DirectoryName field to given value.
 
 HasDirectoryName returns a boolean if a field has been set.
 
+### SetDirectoryNameNil
+
+`func (o *WorkspaceManagedAADModel) SetDirectoryNameNil(b bool)`
+
+ SetDirectoryNameNil sets the value for DirectoryName to be an explicit nil
+
+### UnsetDirectoryName
+`func (o *WorkspaceManagedAADModel) UnsetDirectoryName()`
+
+UnsetDirectoryName ensures that no value is present for DirectoryName, not even an explicit nil
 ### GetCitrixManaged
 
 `func (o *WorkspaceManagedAADModel) GetCitrixManaged() bool`
@@ -180,6 +200,16 @@ SetIdpInstanceId sets IdpInstanceId field to given value.
 
 HasIdpInstanceId returns a boolean if a field has been set.
 
+### SetIdpInstanceIdNil
+
+`func (o *WorkspaceManagedAADModel) SetIdpInstanceIdNil(b bool)`
+
+ SetIdpInstanceIdNil sets the value for IdpInstanceId to be an explicit nil
+
+### UnsetIdpInstanceId
+`func (o *WorkspaceManagedAADModel) UnsetIdpInstanceId()`
+
+UnsetIdpInstanceId ensures that no value is present for IdpInstanceId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

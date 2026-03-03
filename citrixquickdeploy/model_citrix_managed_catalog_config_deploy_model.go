@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,25 +19,25 @@ var _ MappedNullable = &CitrixManagedCatalogConfigDeployModel{}
 
 // CitrixManagedCatalogConfigDeployModel struct for CitrixManagedCatalogConfigDeployModel
 type CitrixManagedCatalogConfigDeployModel struct {
-	AddCatalog                   *AddCitrixManagedCatalogModel         `json:"addCatalog,omitempty"`
-	AddCatalogOnPremConnectivity *CatalogOnPremConnectivityModel       `json:"addCatalogOnPremConnectivity,omitempty"`
-	AddCatalogDomain             *CatalogDomainModel                   `json:"addCatalogDomain,omitempty"`
-	AddCatalogResourceLocation   *CatalogResourceLocationConfiguration `json:"addCatalogResourceLocation,omitempty"`
-	AddCatalogImage              *CatalogTemplateImageModel            `json:"addCatalogImage,omitempty"`
-	AddCatalogCapacity           *CatalogCapacitySettingsModel         `json:"addCatalogCapacity,omitempty"`
+	AddCatalog                   NullableAddCitrixManagedCatalogModel         `json:"addCatalog,omitempty"`
+	AddCatalogOnPremConnectivity NullableCatalogOnPremConnectivityModel       `json:"addCatalogOnPremConnectivity,omitempty"`
+	AddCatalogDomain             NullableCatalogDomainModel                   `json:"addCatalogDomain,omitempty"`
+	AddCatalogResourceLocation   NullableCatalogResourceLocationConfiguration `json:"addCatalogResourceLocation,omitempty"`
+	AddCatalogImage              NullableCatalogTemplateImageModel            `json:"addCatalogImage,omitempty"`
+	AddCatalogCapacity           NullableCatalogCapacitySettingsModel         `json:"addCatalogCapacity,omitempty"`
 	// Only needed for vnet peered/domain joined catalogs
-	DeploySecrets *DeploySecretsModel `json:"deploySecrets,omitempty"`
+	DeploySecrets NullableDeploySecretsModel `json:"deploySecrets,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
-	CspCustomerId *string `json:"cspCustomerId,omitempty"`
+	CspCustomerId NullableString `json:"cspCustomerId,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
-	CspSiteId *string `json:"cspSiteId,omitempty"`
+	CspSiteId NullableString `json:"cspSiteId,omitempty"`
 	// ID of the managed subscription the peering should be added to.
-	ManagedSubscriptionId     *string            `json:"managedSubscriptionId,omitempty"`
-	SetDefault                *bool              `json:"setDefault,omitempty"`
-	PendingCitrixManagedUsers []NewAzureADUser   `json:"pendingCitrixManagedUsers,omitempty"`
-	PendingUsers              *PendingUsersModel `json:"pendingUsers,omitempty"`
+	ManagedSubscriptionId     NullableString            `json:"managedSubscriptionId,omitempty"`
+	SetDefault                *bool                     `json:"setDefault,omitempty"`
+	PendingCitrixManagedUsers []NewAzureADUser          `json:"pendingCitrixManagedUsers,omitempty"`
+	PendingUsers              NullablePendingUsersModel `json:"pendingUsers,omitempty"`
 	// Write back cache (MCS IO optimization) config
-	WbcConfig *WbcConfig `json:"wbcConfig,omitempty"`
+	WbcConfig NullableWbcConfig `json:"wbcConfig,omitempty"`
 }
 
 // NewCitrixManagedCatalogConfigDeployModelWithDefaults instantiates a new CitrixManagedCatalogConfigDeployModel object
@@ -48,234 +48,344 @@ func NewCitrixManagedCatalogConfigDeployModelWithDefaults() *CitrixManagedCatalo
 	return &this
 }
 
-// GetAddCatalog returns the AddCatalog field value if set, zero value otherwise.
+// GetAddCatalog returns the AddCatalog field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalog() AddCitrixManagedCatalogModel {
-	if o == nil || IsNil(o.AddCatalog) {
+	if o == nil || IsNil(o.AddCatalog.Get()) {
 		var ret AddCitrixManagedCatalogModel
 		return ret
 	}
-	return *o.AddCatalog
+	return *o.AddCatalog.Get()
 }
 
 // GetAddCatalogOk returns a tuple with the AddCatalog field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogOk() (*AddCitrixManagedCatalogModel, bool) {
-	if o == nil || IsNil(o.AddCatalog) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddCatalog, true
+	return o.AddCatalog.Get(), o.AddCatalog.IsSet()
 }
 
-// SetAddCatalog gets a reference to the given AddCitrixManagedCatalogModel and assigns it to the AddCatalog field.
+// SetAddCatalog gets a reference to the given NullableAddCitrixManagedCatalogModel and assigns it to the AddCatalog field.
 func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalog(v AddCitrixManagedCatalogModel) {
-	o.AddCatalog = &v
+	o.AddCatalog.Set(&v)
 }
 
-// GetAddCatalogOnPremConnectivity returns the AddCatalogOnPremConnectivity field value if set, zero value otherwise.
+// SetAddCatalogNil sets the value for AddCatalog to be an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogNil() {
+	o.AddCatalog.Set(nil)
+}
+
+// UnsetAddCatalog ensures that no value is present for AddCatalog, not even an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) UnsetAddCatalog() {
+	o.AddCatalog.Unset()
+}
+
+// GetAddCatalogOnPremConnectivity returns the AddCatalogOnPremConnectivity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogOnPremConnectivity() CatalogOnPremConnectivityModel {
-	if o == nil || IsNil(o.AddCatalogOnPremConnectivity) {
+	if o == nil || IsNil(o.AddCatalogOnPremConnectivity.Get()) {
 		var ret CatalogOnPremConnectivityModel
 		return ret
 	}
-	return *o.AddCatalogOnPremConnectivity
+	return *o.AddCatalogOnPremConnectivity.Get()
 }
 
 // GetAddCatalogOnPremConnectivityOk returns a tuple with the AddCatalogOnPremConnectivity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogOnPremConnectivityOk() (*CatalogOnPremConnectivityModel, bool) {
-	if o == nil || IsNil(o.AddCatalogOnPremConnectivity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddCatalogOnPremConnectivity, true
+	return o.AddCatalogOnPremConnectivity.Get(), o.AddCatalogOnPremConnectivity.IsSet()
 }
 
-// SetAddCatalogOnPremConnectivity gets a reference to the given CatalogOnPremConnectivityModel and assigns it to the AddCatalogOnPremConnectivity field.
+// SetAddCatalogOnPremConnectivity gets a reference to the given NullableCatalogOnPremConnectivityModel and assigns it to the AddCatalogOnPremConnectivity field.
 func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogOnPremConnectivity(v CatalogOnPremConnectivityModel) {
-	o.AddCatalogOnPremConnectivity = &v
+	o.AddCatalogOnPremConnectivity.Set(&v)
 }
 
-// GetAddCatalogDomain returns the AddCatalogDomain field value if set, zero value otherwise.
+// SetAddCatalogOnPremConnectivityNil sets the value for AddCatalogOnPremConnectivity to be an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogOnPremConnectivityNil() {
+	o.AddCatalogOnPremConnectivity.Set(nil)
+}
+
+// UnsetAddCatalogOnPremConnectivity ensures that no value is present for AddCatalogOnPremConnectivity, not even an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) UnsetAddCatalogOnPremConnectivity() {
+	o.AddCatalogOnPremConnectivity.Unset()
+}
+
+// GetAddCatalogDomain returns the AddCatalogDomain field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogDomain() CatalogDomainModel {
-	if o == nil || IsNil(o.AddCatalogDomain) {
+	if o == nil || IsNil(o.AddCatalogDomain.Get()) {
 		var ret CatalogDomainModel
 		return ret
 	}
-	return *o.AddCatalogDomain
+	return *o.AddCatalogDomain.Get()
 }
 
 // GetAddCatalogDomainOk returns a tuple with the AddCatalogDomain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogDomainOk() (*CatalogDomainModel, bool) {
-	if o == nil || IsNil(o.AddCatalogDomain) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddCatalogDomain, true
+	return o.AddCatalogDomain.Get(), o.AddCatalogDomain.IsSet()
 }
 
-// SetAddCatalogDomain gets a reference to the given CatalogDomainModel and assigns it to the AddCatalogDomain field.
+// SetAddCatalogDomain gets a reference to the given NullableCatalogDomainModel and assigns it to the AddCatalogDomain field.
 func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogDomain(v CatalogDomainModel) {
-	o.AddCatalogDomain = &v
+	o.AddCatalogDomain.Set(&v)
 }
 
-// GetAddCatalogResourceLocation returns the AddCatalogResourceLocation field value if set, zero value otherwise.
+// SetAddCatalogDomainNil sets the value for AddCatalogDomain to be an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogDomainNil() {
+	o.AddCatalogDomain.Set(nil)
+}
+
+// UnsetAddCatalogDomain ensures that no value is present for AddCatalogDomain, not even an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) UnsetAddCatalogDomain() {
+	o.AddCatalogDomain.Unset()
+}
+
+// GetAddCatalogResourceLocation returns the AddCatalogResourceLocation field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogResourceLocation() CatalogResourceLocationConfiguration {
-	if o == nil || IsNil(o.AddCatalogResourceLocation) {
+	if o == nil || IsNil(o.AddCatalogResourceLocation.Get()) {
 		var ret CatalogResourceLocationConfiguration
 		return ret
 	}
-	return *o.AddCatalogResourceLocation
+	return *o.AddCatalogResourceLocation.Get()
 }
 
 // GetAddCatalogResourceLocationOk returns a tuple with the AddCatalogResourceLocation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogResourceLocationOk() (*CatalogResourceLocationConfiguration, bool) {
-	if o == nil || IsNil(o.AddCatalogResourceLocation) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddCatalogResourceLocation, true
+	return o.AddCatalogResourceLocation.Get(), o.AddCatalogResourceLocation.IsSet()
 }
 
-// SetAddCatalogResourceLocation gets a reference to the given CatalogResourceLocationConfiguration and assigns it to the AddCatalogResourceLocation field.
+// SetAddCatalogResourceLocation gets a reference to the given NullableCatalogResourceLocationConfiguration and assigns it to the AddCatalogResourceLocation field.
 func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogResourceLocation(v CatalogResourceLocationConfiguration) {
-	o.AddCatalogResourceLocation = &v
+	o.AddCatalogResourceLocation.Set(&v)
 }
 
-// GetAddCatalogImage returns the AddCatalogImage field value if set, zero value otherwise.
+// SetAddCatalogResourceLocationNil sets the value for AddCatalogResourceLocation to be an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogResourceLocationNil() {
+	o.AddCatalogResourceLocation.Set(nil)
+}
+
+// UnsetAddCatalogResourceLocation ensures that no value is present for AddCatalogResourceLocation, not even an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) UnsetAddCatalogResourceLocation() {
+	o.AddCatalogResourceLocation.Unset()
+}
+
+// GetAddCatalogImage returns the AddCatalogImage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogImage() CatalogTemplateImageModel {
-	if o == nil || IsNil(o.AddCatalogImage) {
+	if o == nil || IsNil(o.AddCatalogImage.Get()) {
 		var ret CatalogTemplateImageModel
 		return ret
 	}
-	return *o.AddCatalogImage
+	return *o.AddCatalogImage.Get()
 }
 
 // GetAddCatalogImageOk returns a tuple with the AddCatalogImage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogImageOk() (*CatalogTemplateImageModel, bool) {
-	if o == nil || IsNil(o.AddCatalogImage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddCatalogImage, true
+	return o.AddCatalogImage.Get(), o.AddCatalogImage.IsSet()
 }
 
-// SetAddCatalogImage gets a reference to the given CatalogTemplateImageModel and assigns it to the AddCatalogImage field.
+// SetAddCatalogImage gets a reference to the given NullableCatalogTemplateImageModel and assigns it to the AddCatalogImage field.
 func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogImage(v CatalogTemplateImageModel) {
-	o.AddCatalogImage = &v
+	o.AddCatalogImage.Set(&v)
 }
 
-// GetAddCatalogCapacity returns the AddCatalogCapacity field value if set, zero value otherwise.
+// SetAddCatalogImageNil sets the value for AddCatalogImage to be an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogImageNil() {
+	o.AddCatalogImage.Set(nil)
+}
+
+// UnsetAddCatalogImage ensures that no value is present for AddCatalogImage, not even an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) UnsetAddCatalogImage() {
+	o.AddCatalogImage.Unset()
+}
+
+// GetAddCatalogCapacity returns the AddCatalogCapacity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogCapacity() CatalogCapacitySettingsModel {
-	if o == nil || IsNil(o.AddCatalogCapacity) {
+	if o == nil || IsNil(o.AddCatalogCapacity.Get()) {
 		var ret CatalogCapacitySettingsModel
 		return ret
 	}
-	return *o.AddCatalogCapacity
+	return *o.AddCatalogCapacity.Get()
 }
 
 // GetAddCatalogCapacityOk returns a tuple with the AddCatalogCapacity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CitrixManagedCatalogConfigDeployModel) GetAddCatalogCapacityOk() (*CatalogCapacitySettingsModel, bool) {
-	if o == nil || IsNil(o.AddCatalogCapacity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AddCatalogCapacity, true
+	return o.AddCatalogCapacity.Get(), o.AddCatalogCapacity.IsSet()
 }
 
-// SetAddCatalogCapacity gets a reference to the given CatalogCapacitySettingsModel and assigns it to the AddCatalogCapacity field.
+// SetAddCatalogCapacity gets a reference to the given NullableCatalogCapacitySettingsModel and assigns it to the AddCatalogCapacity field.
 func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogCapacity(v CatalogCapacitySettingsModel) {
-	o.AddCatalogCapacity = &v
+	o.AddCatalogCapacity.Set(&v)
 }
 
-// GetDeploySecrets returns the DeploySecrets field value if set, zero value otherwise.
+// SetAddCatalogCapacityNil sets the value for AddCatalogCapacity to be an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) SetAddCatalogCapacityNil() {
+	o.AddCatalogCapacity.Set(nil)
+}
+
+// UnsetAddCatalogCapacity ensures that no value is present for AddCatalogCapacity, not even an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) UnsetAddCatalogCapacity() {
+	o.AddCatalogCapacity.Unset()
+}
+
+// GetDeploySecrets returns the DeploySecrets field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CitrixManagedCatalogConfigDeployModel) GetDeploySecrets() DeploySecretsModel {
-	if o == nil || IsNil(o.DeploySecrets) {
+	if o == nil || IsNil(o.DeploySecrets.Get()) {
 		var ret DeploySecretsModel
 		return ret
 	}
-	return *o.DeploySecrets
+	return *o.DeploySecrets.Get()
 }
 
 // GetDeploySecretsOk returns a tuple with the DeploySecrets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CitrixManagedCatalogConfigDeployModel) GetDeploySecretsOk() (*DeploySecretsModel, bool) {
-	if o == nil || IsNil(o.DeploySecrets) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DeploySecrets, true
+	return o.DeploySecrets.Get(), o.DeploySecrets.IsSet()
 }
 
-// SetDeploySecrets gets a reference to the given DeploySecretsModel and assigns it to the DeploySecrets field.
+// SetDeploySecrets gets a reference to the given NullableDeploySecretsModel and assigns it to the DeploySecrets field.
 func (o *CitrixManagedCatalogConfigDeployModel) SetDeploySecrets(v DeploySecretsModel) {
-	o.DeploySecrets = &v
+	o.DeploySecrets.Set(&v)
 }
 
-// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise.
+// SetDeploySecretsNil sets the value for DeploySecrets to be an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) SetDeploySecretsNil() {
+	o.DeploySecrets.Set(nil)
+}
+
+// UnsetDeploySecrets ensures that no value is present for DeploySecrets, not even an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) UnsetDeploySecrets() {
+	o.DeploySecrets.Unset()
+}
+
+// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CitrixManagedCatalogConfigDeployModel) GetCspCustomerId() string {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil || IsNil(o.CspCustomerId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomerId
+	return *o.CspCustomerId.Get()
 }
 
 // GetCspCustomerIdOk returns a tuple with the CspCustomerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CitrixManagedCatalogConfigDeployModel) GetCspCustomerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomerId, true
+	return o.CspCustomerId.Get(), o.CspCustomerId.IsSet()
 }
 
-// SetCspCustomerId gets a reference to the given string and assigns it to the CspCustomerId field.
+// SetCspCustomerId gets a reference to the given NullableString and assigns it to the CspCustomerId field.
 func (o *CitrixManagedCatalogConfigDeployModel) SetCspCustomerId(v string) {
-	o.CspCustomerId = &v
+	o.CspCustomerId.Set(&v)
 }
 
-// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise.
+// SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) SetCspCustomerIdNil() {
+	o.CspCustomerId.Set(nil)
+}
+
+// UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) UnsetCspCustomerId() {
+	o.CspCustomerId.Unset()
+}
+
+// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CitrixManagedCatalogConfigDeployModel) GetCspSiteId() string {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil || IsNil(o.CspSiteId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspSiteId
+	return *o.CspSiteId.Get()
 }
 
 // GetCspSiteIdOk returns a tuple with the CspSiteId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CitrixManagedCatalogConfigDeployModel) GetCspSiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspSiteId, true
+	return o.CspSiteId.Get(), o.CspSiteId.IsSet()
 }
 
-// SetCspSiteId gets a reference to the given string and assigns it to the CspSiteId field.
+// SetCspSiteId gets a reference to the given NullableString and assigns it to the CspSiteId field.
 func (o *CitrixManagedCatalogConfigDeployModel) SetCspSiteId(v string) {
-	o.CspSiteId = &v
+	o.CspSiteId.Set(&v)
 }
 
-// GetManagedSubscriptionId returns the ManagedSubscriptionId field value if set, zero value otherwise.
+// SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) SetCspSiteIdNil() {
+	o.CspSiteId.Set(nil)
+}
+
+// UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) UnsetCspSiteId() {
+	o.CspSiteId.Unset()
+}
+
+// GetManagedSubscriptionId returns the ManagedSubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CitrixManagedCatalogConfigDeployModel) GetManagedSubscriptionId() string {
-	if o == nil || IsNil(o.ManagedSubscriptionId) {
+	if o == nil || IsNil(o.ManagedSubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ManagedSubscriptionId
+	return *o.ManagedSubscriptionId.Get()
 }
 
 // GetManagedSubscriptionIdOk returns a tuple with the ManagedSubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CitrixManagedCatalogConfigDeployModel) GetManagedSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ManagedSubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ManagedSubscriptionId, true
+	return o.ManagedSubscriptionId.Get(), o.ManagedSubscriptionId.IsSet()
 }
 
-// SetManagedSubscriptionId gets a reference to the given string and assigns it to the ManagedSubscriptionId field.
+// SetManagedSubscriptionId gets a reference to the given NullableString and assigns it to the ManagedSubscriptionId field.
 func (o *CitrixManagedCatalogConfigDeployModel) SetManagedSubscriptionId(v string) {
-	o.ManagedSubscriptionId = &v
+	o.ManagedSubscriptionId.Set(&v)
+}
+
+// SetManagedSubscriptionIdNil sets the value for ManagedSubscriptionId to be an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) SetManagedSubscriptionIdNil() {
+	o.ManagedSubscriptionId.Set(nil)
+}
+
+// UnsetManagedSubscriptionId ensures that no value is present for ManagedSubscriptionId, not even an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) UnsetManagedSubscriptionId() {
+	o.ManagedSubscriptionId.Unset()
 }
 
 // GetSetDefault returns the SetDefault field value if set, zero value otherwise.
@@ -301,9 +411,9 @@ func (o *CitrixManagedCatalogConfigDeployModel) SetSetDefault(v bool) {
 	o.SetDefault = &v
 }
 
-// GetPendingCitrixManagedUsers returns the PendingCitrixManagedUsers field value if set, zero value otherwise.
+// GetPendingCitrixManagedUsers returns the PendingCitrixManagedUsers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CitrixManagedCatalogConfigDeployModel) GetPendingCitrixManagedUsers() []NewAzureADUser {
-	if o == nil || IsNil(o.PendingCitrixManagedUsers) {
+	if o == nil {
 		var ret []NewAzureADUser
 		return ret
 	}
@@ -312,6 +422,7 @@ func (o *CitrixManagedCatalogConfigDeployModel) GetPendingCitrixManagedUsers() [
 
 // GetPendingCitrixManagedUsersOk returns a tuple with the PendingCitrixManagedUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CitrixManagedCatalogConfigDeployModel) GetPendingCitrixManagedUsersOk() ([]NewAzureADUser, bool) {
 	if o == nil || IsNil(o.PendingCitrixManagedUsers) {
 		return nil, false
@@ -324,50 +435,72 @@ func (o *CitrixManagedCatalogConfigDeployModel) SetPendingCitrixManagedUsers(v [
 	o.PendingCitrixManagedUsers = v
 }
 
-// GetPendingUsers returns the PendingUsers field value if set, zero value otherwise.
+// GetPendingUsers returns the PendingUsers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CitrixManagedCatalogConfigDeployModel) GetPendingUsers() PendingUsersModel {
-	if o == nil || IsNil(o.PendingUsers) {
+	if o == nil || IsNil(o.PendingUsers.Get()) {
 		var ret PendingUsersModel
 		return ret
 	}
-	return *o.PendingUsers
+	return *o.PendingUsers.Get()
 }
 
 // GetPendingUsersOk returns a tuple with the PendingUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CitrixManagedCatalogConfigDeployModel) GetPendingUsersOk() (*PendingUsersModel, bool) {
-	if o == nil || IsNil(o.PendingUsers) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PendingUsers, true
+	return o.PendingUsers.Get(), o.PendingUsers.IsSet()
 }
 
-// SetPendingUsers gets a reference to the given PendingUsersModel and assigns it to the PendingUsers field.
+// SetPendingUsers gets a reference to the given NullablePendingUsersModel and assigns it to the PendingUsers field.
 func (o *CitrixManagedCatalogConfigDeployModel) SetPendingUsers(v PendingUsersModel) {
-	o.PendingUsers = &v
+	o.PendingUsers.Set(&v)
 }
 
-// GetWbcConfig returns the WbcConfig field value if set, zero value otherwise.
+// SetPendingUsersNil sets the value for PendingUsers to be an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) SetPendingUsersNil() {
+	o.PendingUsers.Set(nil)
+}
+
+// UnsetPendingUsers ensures that no value is present for PendingUsers, not even an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) UnsetPendingUsers() {
+	o.PendingUsers.Unset()
+}
+
+// GetWbcConfig returns the WbcConfig field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CitrixManagedCatalogConfigDeployModel) GetWbcConfig() WbcConfig {
-	if o == nil || IsNil(o.WbcConfig) {
+	if o == nil || IsNil(o.WbcConfig.Get()) {
 		var ret WbcConfig
 		return ret
 	}
-	return *o.WbcConfig
+	return *o.WbcConfig.Get()
 }
 
 // GetWbcConfigOk returns a tuple with the WbcConfig field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CitrixManagedCatalogConfigDeployModel) GetWbcConfigOk() (*WbcConfig, bool) {
-	if o == nil || IsNil(o.WbcConfig) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WbcConfig, true
+	return o.WbcConfig.Get(), o.WbcConfig.IsSet()
 }
 
-// SetWbcConfig gets a reference to the given WbcConfig and assigns it to the WbcConfig field.
+// SetWbcConfig gets a reference to the given NullableWbcConfig and assigns it to the WbcConfig field.
 func (o *CitrixManagedCatalogConfigDeployModel) SetWbcConfig(v WbcConfig) {
-	o.WbcConfig = &v
+	o.WbcConfig.Set(&v)
+}
+
+// SetWbcConfigNil sets the value for WbcConfig to be an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) SetWbcConfigNil() {
+	o.WbcConfig.Set(nil)
+}
+
+// UnsetWbcConfig ensures that no value is present for WbcConfig, not even an explicit nil
+func (o *CitrixManagedCatalogConfigDeployModel) UnsetWbcConfig() {
+	o.WbcConfig.Unset()
 }
 
 func (o CitrixManagedCatalogConfigDeployModel) MarshalJSON() ([]byte, error) {
@@ -380,47 +513,47 @@ func (o CitrixManagedCatalogConfigDeployModel) MarshalJSON() ([]byte, error) {
 
 func (o CitrixManagedCatalogConfigDeployModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AddCatalog) {
-		toSerialize["addCatalog"] = o.AddCatalog
+	if o.AddCatalog.IsSet() {
+		toSerialize["addCatalog"] = o.AddCatalog.Get()
 	}
-	if !IsNil(o.AddCatalogOnPremConnectivity) {
-		toSerialize["addCatalogOnPremConnectivity"] = o.AddCatalogOnPremConnectivity
+	if o.AddCatalogOnPremConnectivity.IsSet() {
+		toSerialize["addCatalogOnPremConnectivity"] = o.AddCatalogOnPremConnectivity.Get()
 	}
-	if !IsNil(o.AddCatalogDomain) {
-		toSerialize["addCatalogDomain"] = o.AddCatalogDomain
+	if o.AddCatalogDomain.IsSet() {
+		toSerialize["addCatalogDomain"] = o.AddCatalogDomain.Get()
 	}
-	if !IsNil(o.AddCatalogResourceLocation) {
-		toSerialize["addCatalogResourceLocation"] = o.AddCatalogResourceLocation
+	if o.AddCatalogResourceLocation.IsSet() {
+		toSerialize["addCatalogResourceLocation"] = o.AddCatalogResourceLocation.Get()
 	}
-	if !IsNil(o.AddCatalogImage) {
-		toSerialize["addCatalogImage"] = o.AddCatalogImage
+	if o.AddCatalogImage.IsSet() {
+		toSerialize["addCatalogImage"] = o.AddCatalogImage.Get()
 	}
-	if !IsNil(o.AddCatalogCapacity) {
-		toSerialize["addCatalogCapacity"] = o.AddCatalogCapacity
+	if o.AddCatalogCapacity.IsSet() {
+		toSerialize["addCatalogCapacity"] = o.AddCatalogCapacity.Get()
 	}
-	if !IsNil(o.DeploySecrets) {
-		toSerialize["deploySecrets"] = o.DeploySecrets
+	if o.DeploySecrets.IsSet() {
+		toSerialize["deploySecrets"] = o.DeploySecrets.Get()
 	}
-	if !IsNil(o.CspCustomerId) {
-		toSerialize["cspCustomerId"] = o.CspCustomerId
+	if o.CspCustomerId.IsSet() {
+		toSerialize["cspCustomerId"] = o.CspCustomerId.Get()
 	}
-	if !IsNil(o.CspSiteId) {
-		toSerialize["cspSiteId"] = o.CspSiteId
+	if o.CspSiteId.IsSet() {
+		toSerialize["cspSiteId"] = o.CspSiteId.Get()
 	}
-	if !IsNil(o.ManagedSubscriptionId) {
-		toSerialize["managedSubscriptionId"] = o.ManagedSubscriptionId
+	if o.ManagedSubscriptionId.IsSet() {
+		toSerialize["managedSubscriptionId"] = o.ManagedSubscriptionId.Get()
 	}
 	if !IsNil(o.SetDefault) {
 		toSerialize["setDefault"] = o.SetDefault
 	}
-	if !IsNil(o.PendingCitrixManagedUsers) {
+	if o.PendingCitrixManagedUsers != nil {
 		toSerialize["pendingCitrixManagedUsers"] = o.PendingCitrixManagedUsers
 	}
-	if !IsNil(o.PendingUsers) {
-		toSerialize["pendingUsers"] = o.PendingUsers
+	if o.PendingUsers.IsSet() {
+		toSerialize["pendingUsers"] = o.PendingUsers.Get()
 	}
-	if !IsNil(o.WbcConfig) {
-		toSerialize["wbcConfig"] = o.WbcConfig
+	if o.WbcConfig.IsSet() {
+		toSerialize["wbcConfig"] = o.WbcConfig.Get()
 	}
 	return toSerialize, nil
 }

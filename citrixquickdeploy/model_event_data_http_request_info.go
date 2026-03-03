@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,10 +19,10 @@ var _ MappedNullable = &EventDataHttpRequestInfo{}
 
 // EventDataHttpRequestInfo struct for EventDataHttpRequestInfo
 type EventDataHttpRequestInfo struct {
-	ClientRequestId *string    `json:"clientRequestId,omitempty"`
-	ClientIPAddress *IPAddress `json:"clientIPAddress,omitempty"`
-	Method          *string    `json:"method,omitempty"`
-	Uri             *string    `json:"uri,omitempty"`
+	ClientRequestId NullableString    `json:"clientRequestId,omitempty"`
+	ClientIPAddress NullableIPAddress `json:"clientIPAddress,omitempty"`
+	Method          NullableString    `json:"method,omitempty"`
+	Uri             NullableString    `json:"uri,omitempty"`
 }
 
 // NewEventDataHttpRequestInfoWithDefaults instantiates a new EventDataHttpRequestInfo object
@@ -33,96 +33,140 @@ func NewEventDataHttpRequestInfoWithDefaults() *EventDataHttpRequestInfo {
 	return &this
 }
 
-// GetClientRequestId returns the ClientRequestId field value if set, zero value otherwise.
+// GetClientRequestId returns the ClientRequestId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataHttpRequestInfo) GetClientRequestId() string {
-	if o == nil || IsNil(o.ClientRequestId) {
+	if o == nil || IsNil(o.ClientRequestId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ClientRequestId
+	return *o.ClientRequestId.Get()
 }
 
 // GetClientRequestIdOk returns a tuple with the ClientRequestId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataHttpRequestInfo) GetClientRequestIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ClientRequestId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ClientRequestId, true
+	return o.ClientRequestId.Get(), o.ClientRequestId.IsSet()
 }
 
-// SetClientRequestId gets a reference to the given string and assigns it to the ClientRequestId field.
+// SetClientRequestId gets a reference to the given NullableString and assigns it to the ClientRequestId field.
 func (o *EventDataHttpRequestInfo) SetClientRequestId(v string) {
-	o.ClientRequestId = &v
+	o.ClientRequestId.Set(&v)
 }
 
-// GetClientIPAddress returns the ClientIPAddress field value if set, zero value otherwise.
+// SetClientRequestIdNil sets the value for ClientRequestId to be an explicit nil
+func (o *EventDataHttpRequestInfo) SetClientRequestIdNil() {
+	o.ClientRequestId.Set(nil)
+}
+
+// UnsetClientRequestId ensures that no value is present for ClientRequestId, not even an explicit nil
+func (o *EventDataHttpRequestInfo) UnsetClientRequestId() {
+	o.ClientRequestId.Unset()
+}
+
+// GetClientIPAddress returns the ClientIPAddress field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataHttpRequestInfo) GetClientIPAddress() IPAddress {
-	if o == nil || IsNil(o.ClientIPAddress) {
+	if o == nil || IsNil(o.ClientIPAddress.Get()) {
 		var ret IPAddress
 		return ret
 	}
-	return *o.ClientIPAddress
+	return *o.ClientIPAddress.Get()
 }
 
 // GetClientIPAddressOk returns a tuple with the ClientIPAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataHttpRequestInfo) GetClientIPAddressOk() (*IPAddress, bool) {
-	if o == nil || IsNil(o.ClientIPAddress) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ClientIPAddress, true
+	return o.ClientIPAddress.Get(), o.ClientIPAddress.IsSet()
 }
 
-// SetClientIPAddress gets a reference to the given IPAddress and assigns it to the ClientIPAddress field.
+// SetClientIPAddress gets a reference to the given NullableIPAddress and assigns it to the ClientIPAddress field.
 func (o *EventDataHttpRequestInfo) SetClientIPAddress(v IPAddress) {
-	o.ClientIPAddress = &v
+	o.ClientIPAddress.Set(&v)
 }
 
-// GetMethod returns the Method field value if set, zero value otherwise.
+// SetClientIPAddressNil sets the value for ClientIPAddress to be an explicit nil
+func (o *EventDataHttpRequestInfo) SetClientIPAddressNil() {
+	o.ClientIPAddress.Set(nil)
+}
+
+// UnsetClientIPAddress ensures that no value is present for ClientIPAddress, not even an explicit nil
+func (o *EventDataHttpRequestInfo) UnsetClientIPAddress() {
+	o.ClientIPAddress.Unset()
+}
+
+// GetMethod returns the Method field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataHttpRequestInfo) GetMethod() string {
-	if o == nil || IsNil(o.Method) {
+	if o == nil || IsNil(o.Method.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Method
+	return *o.Method.Get()
 }
 
 // GetMethodOk returns a tuple with the Method field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataHttpRequestInfo) GetMethodOk() (*string, bool) {
-	if o == nil || IsNil(o.Method) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Method, true
+	return o.Method.Get(), o.Method.IsSet()
 }
 
-// SetMethod gets a reference to the given string and assigns it to the Method field.
+// SetMethod gets a reference to the given NullableString and assigns it to the Method field.
 func (o *EventDataHttpRequestInfo) SetMethod(v string) {
-	o.Method = &v
+	o.Method.Set(&v)
 }
 
-// GetUri returns the Uri field value if set, zero value otherwise.
+// SetMethodNil sets the value for Method to be an explicit nil
+func (o *EventDataHttpRequestInfo) SetMethodNil() {
+	o.Method.Set(nil)
+}
+
+// UnsetMethod ensures that no value is present for Method, not even an explicit nil
+func (o *EventDataHttpRequestInfo) UnsetMethod() {
+	o.Method.Unset()
+}
+
+// GetUri returns the Uri field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventDataHttpRequestInfo) GetUri() string {
-	if o == nil || IsNil(o.Uri) {
+	if o == nil || IsNil(o.Uri.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Uri
+	return *o.Uri.Get()
 }
 
 // GetUriOk returns a tuple with the Uri field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventDataHttpRequestInfo) GetUriOk() (*string, bool) {
-	if o == nil || IsNil(o.Uri) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Uri, true
+	return o.Uri.Get(), o.Uri.IsSet()
 }
 
-// SetUri gets a reference to the given string and assigns it to the Uri field.
+// SetUri gets a reference to the given NullableString and assigns it to the Uri field.
 func (o *EventDataHttpRequestInfo) SetUri(v string) {
-	o.Uri = &v
+	o.Uri.Set(&v)
+}
+
+// SetUriNil sets the value for Uri to be an explicit nil
+func (o *EventDataHttpRequestInfo) SetUriNil() {
+	o.Uri.Set(nil)
+}
+
+// UnsetUri ensures that no value is present for Uri, not even an explicit nil
+func (o *EventDataHttpRequestInfo) UnsetUri() {
+	o.Uri.Unset()
 }
 
 func (o EventDataHttpRequestInfo) MarshalJSON() ([]byte, error) {
@@ -135,17 +179,17 @@ func (o EventDataHttpRequestInfo) MarshalJSON() ([]byte, error) {
 
 func (o EventDataHttpRequestInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ClientRequestId) {
-		toSerialize["clientRequestId"] = o.ClientRequestId
+	if o.ClientRequestId.IsSet() {
+		toSerialize["clientRequestId"] = o.ClientRequestId.Get()
 	}
-	if !IsNil(o.ClientIPAddress) {
-		toSerialize["clientIPAddress"] = o.ClientIPAddress
+	if o.ClientIPAddress.IsSet() {
+		toSerialize["clientIPAddress"] = o.ClientIPAddress.Get()
 	}
-	if !IsNil(o.Method) {
-		toSerialize["method"] = o.Method
+	if o.Method.IsSet() {
+		toSerialize["method"] = o.Method.Get()
 	}
-	if !IsNil(o.Uri) {
-		toSerialize["uri"] = o.Uri
+	if o.Uri.IsSet() {
+		toSerialize["uri"] = o.Uri.Get()
 	}
 	return toSerialize, nil
 }

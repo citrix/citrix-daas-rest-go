@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -30,9 +30,9 @@ func NewManagedCapacityDirectoriesWithDefaults() *ManagedCapacityDirectories {
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise.
+// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedCapacityDirectories) GetItems() []ManagedCapacityDirectory {
-	if o == nil || IsNil(o.Items) {
+	if o == nil {
 		var ret []ManagedCapacityDirectory
 		return ret
 	}
@@ -41,6 +41,7 @@ func (o *ManagedCapacityDirectories) GetItems() []ManagedCapacityDirectory {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedCapacityDirectories) GetItemsOk() ([]ManagedCapacityDirectory, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
@@ -63,7 +64,7 @@ func (o ManagedCapacityDirectories) MarshalJSON() ([]byte, error) {
 
 func (o ManagedCapacityDirectories) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Items) {
+	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
 	return toSerialize, nil

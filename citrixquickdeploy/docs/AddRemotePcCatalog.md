@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **Type** | Pointer to [**AddRemotePcType**](AddRemotePcType.md) | Indicates if we are creating a catalog for Static or Random Assignment. | [optional] 
 **EnrollmentScopes** | Pointer to [**[]RemotePcEnrollmentScope**](RemotePcEnrollmentScope.md) | List of OUs that will be associated with this catalog. | [optional] 
 **MachineAssignments** | Pointer to [**[]AddCatalogMachineAssignment**](AddCatalogMachineAssignment.md) | List of Machines to add to the catalog and the users to assign them to. | [optional] 
-**CspCustomerId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null. | [optional] 
-**CspSiteId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null. | [optional] 
+**CspCustomerId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null. | [optional] 
+**CspSiteId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null. | [optional] 
 
 ## Methods
 
@@ -121,6 +121,16 @@ SetEnrollmentScopes sets EnrollmentScopes field to given value.
 
 HasEnrollmentScopes returns a boolean if a field has been set.
 
+### SetEnrollmentScopesNil
+
+`func (o *AddRemotePcCatalog) SetEnrollmentScopesNil(b bool)`
+
+ SetEnrollmentScopesNil sets the value for EnrollmentScopes to be an explicit nil
+
+### UnsetEnrollmentScopes
+`func (o *AddRemotePcCatalog) UnsetEnrollmentScopes()`
+
+UnsetEnrollmentScopes ensures that no value is present for EnrollmentScopes, not even an explicit nil
 ### GetMachineAssignments
 
 `func (o *AddRemotePcCatalog) GetMachineAssignments() []AddCatalogMachineAssignment`
@@ -146,6 +156,16 @@ SetMachineAssignments sets MachineAssignments field to given value.
 
 HasMachineAssignments returns a boolean if a field has been set.
 
+### SetMachineAssignmentsNil
+
+`func (o *AddRemotePcCatalog) SetMachineAssignmentsNil(b bool)`
+
+ SetMachineAssignmentsNil sets the value for MachineAssignments to be an explicit nil
+
+### UnsetMachineAssignments
+`func (o *AddRemotePcCatalog) UnsetMachineAssignments()`
+
+UnsetMachineAssignments ensures that no value is present for MachineAssignments, not even an explicit nil
 ### GetCspCustomerId
 
 `func (o *AddRemotePcCatalog) GetCspCustomerId() string`
@@ -171,6 +191,16 @@ SetCspCustomerId sets CspCustomerId field to given value.
 
 HasCspCustomerId returns a boolean if a field has been set.
 
+### SetCspCustomerIdNil
+
+`func (o *AddRemotePcCatalog) SetCspCustomerIdNil(b bool)`
+
+ SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+
+### UnsetCspCustomerId
+`func (o *AddRemotePcCatalog) UnsetCspCustomerId()`
+
+UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
 ### GetCspSiteId
 
 `func (o *AddRemotePcCatalog) GetCspSiteId() string`
@@ -196,6 +226,16 @@ SetCspSiteId sets CspSiteId field to given value.
 
 HasCspSiteId returns a boolean if a field has been set.
 
+### SetCspSiteIdNil
+
+`func (o *AddRemotePcCatalog) SetCspSiteIdNil(b bool)`
+
+ SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+
+### UnsetCspSiteId
+`func (o *AddRemotePcCatalog) UnsetCspSiteId()`
+
+UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

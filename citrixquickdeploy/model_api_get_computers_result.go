@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,20 +19,20 @@ var _ MappedNullable = &ApiGetComputersResult{}
 
 // ApiGetComputersResult struct for ApiGetComputersResult
 type ApiGetComputersResult struct {
-	AccountName           *string  `json:"accountName,omitempty"`
-	SecurityId            *string  `json:"securityId,omitempty"`
-	DnsHostName           *string  `json:"dnsHostName,omitempty"`
-	ServicePrincipalNames []string `json:"servicePrincipalNames,omitempty"`
-	IsEnabled             *bool    `json:"isEnabled,omitempty"`
-	IsAccountLocked       *bool    `json:"isAccountLocked,omitempty"`
-	ComputerGroupList     []string `json:"computerGroupList,omitempty"`
-	UserCertificate       *string  `json:"userCertificate,omitempty"`
-	DomainName            *string  `json:"domainName,omitempty"`
-	ForestName            *string  `json:"forestName,omitempty"`
-	Guid                  *string  `json:"guid,omitempty"`
-	DistinguishedName     *string  `json:"distinguishedName,omitempty"`
-	Name                  *string  `json:"name,omitempty"`
-	CanonicalName         *string  `json:"canonicalName,omitempty"`
+	AccountName           NullableString `json:"accountName,omitempty"`
+	SecurityId            NullableString `json:"securityId,omitempty"`
+	DnsHostName           NullableString `json:"dnsHostName,omitempty"`
+	ServicePrincipalNames []string       `json:"servicePrincipalNames,omitempty"`
+	IsEnabled             *bool          `json:"isEnabled,omitempty"`
+	IsAccountLocked       *bool          `json:"isAccountLocked,omitempty"`
+	ComputerGroupList     []string       `json:"computerGroupList,omitempty"`
+	UserCertificate       NullableString `json:"userCertificate,omitempty"`
+	DomainName            NullableString `json:"domainName,omitempty"`
+	ForestName            NullableString `json:"forestName,omitempty"`
+	Guid                  *string        `json:"guid,omitempty"`
+	DistinguishedName     NullableString `json:"distinguishedName,omitempty"`
+	Name                  NullableString `json:"name,omitempty"`
+	CanonicalName         NullableString `json:"canonicalName,omitempty"`
 }
 
 // NewApiGetComputersResultWithDefaults instantiates a new ApiGetComputersResult object
@@ -43,78 +43,111 @@ func NewApiGetComputersResultWithDefaults() *ApiGetComputersResult {
 	return &this
 }
 
-// GetAccountName returns the AccountName field value if set, zero value otherwise.
+// GetAccountName returns the AccountName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetComputersResult) GetAccountName() string {
-	if o == nil || IsNil(o.AccountName) {
+	if o == nil || IsNil(o.AccountName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AccountName
+	return *o.AccountName.Get()
 }
 
 // GetAccountNameOk returns a tuple with the AccountName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetComputersResult) GetAccountNameOk() (*string, bool) {
-	if o == nil || IsNil(o.AccountName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AccountName, true
+	return o.AccountName.Get(), o.AccountName.IsSet()
 }
 
-// SetAccountName gets a reference to the given string and assigns it to the AccountName field.
+// SetAccountName gets a reference to the given NullableString and assigns it to the AccountName field.
 func (o *ApiGetComputersResult) SetAccountName(v string) {
-	o.AccountName = &v
+	o.AccountName.Set(&v)
 }
 
-// GetSecurityId returns the SecurityId field value if set, zero value otherwise.
+// SetAccountNameNil sets the value for AccountName to be an explicit nil
+func (o *ApiGetComputersResult) SetAccountNameNil() {
+	o.AccountName.Set(nil)
+}
+
+// UnsetAccountName ensures that no value is present for AccountName, not even an explicit nil
+func (o *ApiGetComputersResult) UnsetAccountName() {
+	o.AccountName.Unset()
+}
+
+// GetSecurityId returns the SecurityId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetComputersResult) GetSecurityId() string {
-	if o == nil || IsNil(o.SecurityId) {
+	if o == nil || IsNil(o.SecurityId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SecurityId
+	return *o.SecurityId.Get()
 }
 
 // GetSecurityIdOk returns a tuple with the SecurityId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetComputersResult) GetSecurityIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SecurityId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SecurityId, true
+	return o.SecurityId.Get(), o.SecurityId.IsSet()
 }
 
-// SetSecurityId gets a reference to the given string and assigns it to the SecurityId field.
+// SetSecurityId gets a reference to the given NullableString and assigns it to the SecurityId field.
 func (o *ApiGetComputersResult) SetSecurityId(v string) {
-	o.SecurityId = &v
+	o.SecurityId.Set(&v)
 }
 
-// GetDnsHostName returns the DnsHostName field value if set, zero value otherwise.
+// SetSecurityIdNil sets the value for SecurityId to be an explicit nil
+func (o *ApiGetComputersResult) SetSecurityIdNil() {
+	o.SecurityId.Set(nil)
+}
+
+// UnsetSecurityId ensures that no value is present for SecurityId, not even an explicit nil
+func (o *ApiGetComputersResult) UnsetSecurityId() {
+	o.SecurityId.Unset()
+}
+
+// GetDnsHostName returns the DnsHostName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetComputersResult) GetDnsHostName() string {
-	if o == nil || IsNil(o.DnsHostName) {
+	if o == nil || IsNil(o.DnsHostName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DnsHostName
+	return *o.DnsHostName.Get()
 }
 
 // GetDnsHostNameOk returns a tuple with the DnsHostName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetComputersResult) GetDnsHostNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DnsHostName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DnsHostName, true
+	return o.DnsHostName.Get(), o.DnsHostName.IsSet()
 }
 
-// SetDnsHostName gets a reference to the given string and assigns it to the DnsHostName field.
+// SetDnsHostName gets a reference to the given NullableString and assigns it to the DnsHostName field.
 func (o *ApiGetComputersResult) SetDnsHostName(v string) {
-	o.DnsHostName = &v
+	o.DnsHostName.Set(&v)
 }
 
-// GetServicePrincipalNames returns the ServicePrincipalNames field value if set, zero value otherwise.
+// SetDnsHostNameNil sets the value for DnsHostName to be an explicit nil
+func (o *ApiGetComputersResult) SetDnsHostNameNil() {
+	o.DnsHostName.Set(nil)
+}
+
+// UnsetDnsHostName ensures that no value is present for DnsHostName, not even an explicit nil
+func (o *ApiGetComputersResult) UnsetDnsHostName() {
+	o.DnsHostName.Unset()
+}
+
+// GetServicePrincipalNames returns the ServicePrincipalNames field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetComputersResult) GetServicePrincipalNames() []string {
-	if o == nil || IsNil(o.ServicePrincipalNames) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -123,6 +156,7 @@ func (o *ApiGetComputersResult) GetServicePrincipalNames() []string {
 
 // GetServicePrincipalNamesOk returns a tuple with the ServicePrincipalNames field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetComputersResult) GetServicePrincipalNamesOk() ([]string, bool) {
 	if o == nil || IsNil(o.ServicePrincipalNames) {
 		return nil, false
@@ -181,9 +215,9 @@ func (o *ApiGetComputersResult) SetIsAccountLocked(v bool) {
 	o.IsAccountLocked = &v
 }
 
-// GetComputerGroupList returns the ComputerGroupList field value if set, zero value otherwise.
+// GetComputerGroupList returns the ComputerGroupList field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetComputersResult) GetComputerGroupList() []string {
-	if o == nil || IsNil(o.ComputerGroupList) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -192,6 +226,7 @@ func (o *ApiGetComputersResult) GetComputerGroupList() []string {
 
 // GetComputerGroupListOk returns a tuple with the ComputerGroupList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetComputersResult) GetComputerGroupListOk() ([]string, bool) {
 	if o == nil || IsNil(o.ComputerGroupList) {
 		return nil, false
@@ -204,73 +239,106 @@ func (o *ApiGetComputersResult) SetComputerGroupList(v []string) {
 	o.ComputerGroupList = v
 }
 
-// GetUserCertificate returns the UserCertificate field value if set, zero value otherwise.
+// GetUserCertificate returns the UserCertificate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetComputersResult) GetUserCertificate() string {
-	if o == nil || IsNil(o.UserCertificate) {
+	if o == nil || IsNil(o.UserCertificate.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.UserCertificate
+	return *o.UserCertificate.Get()
 }
 
 // GetUserCertificateOk returns a tuple with the UserCertificate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetComputersResult) GetUserCertificateOk() (*string, bool) {
-	if o == nil || IsNil(o.UserCertificate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UserCertificate, true
+	return o.UserCertificate.Get(), o.UserCertificate.IsSet()
 }
 
-// SetUserCertificate gets a reference to the given string and assigns it to the UserCertificate field.
+// SetUserCertificate gets a reference to the given NullableString and assigns it to the UserCertificate field.
 func (o *ApiGetComputersResult) SetUserCertificate(v string) {
-	o.UserCertificate = &v
+	o.UserCertificate.Set(&v)
 }
 
-// GetDomainName returns the DomainName field value if set, zero value otherwise.
+// SetUserCertificateNil sets the value for UserCertificate to be an explicit nil
+func (o *ApiGetComputersResult) SetUserCertificateNil() {
+	o.UserCertificate.Set(nil)
+}
+
+// UnsetUserCertificate ensures that no value is present for UserCertificate, not even an explicit nil
+func (o *ApiGetComputersResult) UnsetUserCertificate() {
+	o.UserCertificate.Unset()
+}
+
+// GetDomainName returns the DomainName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetComputersResult) GetDomainName() string {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil || IsNil(o.DomainName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DomainName
+	return *o.DomainName.Get()
 }
 
 // GetDomainNameOk returns a tuple with the DomainName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetComputersResult) GetDomainNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainName, true
+	return o.DomainName.Get(), o.DomainName.IsSet()
 }
 
-// SetDomainName gets a reference to the given string and assigns it to the DomainName field.
+// SetDomainName gets a reference to the given NullableString and assigns it to the DomainName field.
 func (o *ApiGetComputersResult) SetDomainName(v string) {
-	o.DomainName = &v
+	o.DomainName.Set(&v)
 }
 
-// GetForestName returns the ForestName field value if set, zero value otherwise.
+// SetDomainNameNil sets the value for DomainName to be an explicit nil
+func (o *ApiGetComputersResult) SetDomainNameNil() {
+	o.DomainName.Set(nil)
+}
+
+// UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
+func (o *ApiGetComputersResult) UnsetDomainName() {
+	o.DomainName.Unset()
+}
+
+// GetForestName returns the ForestName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetComputersResult) GetForestName() string {
-	if o == nil || IsNil(o.ForestName) {
+	if o == nil || IsNil(o.ForestName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ForestName
+	return *o.ForestName.Get()
 }
 
 // GetForestNameOk returns a tuple with the ForestName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetComputersResult) GetForestNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ForestName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ForestName, true
+	return o.ForestName.Get(), o.ForestName.IsSet()
 }
 
-// SetForestName gets a reference to the given string and assigns it to the ForestName field.
+// SetForestName gets a reference to the given NullableString and assigns it to the ForestName field.
 func (o *ApiGetComputersResult) SetForestName(v string) {
-	o.ForestName = &v
+	o.ForestName.Set(&v)
+}
+
+// SetForestNameNil sets the value for ForestName to be an explicit nil
+func (o *ApiGetComputersResult) SetForestNameNil() {
+	o.ForestName.Set(nil)
+}
+
+// UnsetForestName ensures that no value is present for ForestName, not even an explicit nil
+func (o *ApiGetComputersResult) UnsetForestName() {
+	o.ForestName.Unset()
 }
 
 // GetGuid returns the Guid field value if set, zero value otherwise.
@@ -296,73 +364,106 @@ func (o *ApiGetComputersResult) SetGuid(v string) {
 	o.Guid = &v
 }
 
-// GetDistinguishedName returns the DistinguishedName field value if set, zero value otherwise.
+// GetDistinguishedName returns the DistinguishedName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetComputersResult) GetDistinguishedName() string {
-	if o == nil || IsNil(o.DistinguishedName) {
+	if o == nil || IsNil(o.DistinguishedName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DistinguishedName
+	return *o.DistinguishedName.Get()
 }
 
 // GetDistinguishedNameOk returns a tuple with the DistinguishedName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetComputersResult) GetDistinguishedNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DistinguishedName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DistinguishedName, true
+	return o.DistinguishedName.Get(), o.DistinguishedName.IsSet()
 }
 
-// SetDistinguishedName gets a reference to the given string and assigns it to the DistinguishedName field.
+// SetDistinguishedName gets a reference to the given NullableString and assigns it to the DistinguishedName field.
 func (o *ApiGetComputersResult) SetDistinguishedName(v string) {
-	o.DistinguishedName = &v
+	o.DistinguishedName.Set(&v)
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
+func (o *ApiGetComputersResult) SetDistinguishedNameNil() {
+	o.DistinguishedName.Set(nil)
+}
+
+// UnsetDistinguishedName ensures that no value is present for DistinguishedName, not even an explicit nil
+func (o *ApiGetComputersResult) UnsetDistinguishedName() {
+	o.DistinguishedName.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetComputersResult) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetComputersResult) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *ApiGetComputersResult) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
 }
 
-// GetCanonicalName returns the CanonicalName field value if set, zero value otherwise.
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *ApiGetComputersResult) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *ApiGetComputersResult) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetCanonicalName returns the CanonicalName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetComputersResult) GetCanonicalName() string {
-	if o == nil || IsNil(o.CanonicalName) {
+	if o == nil || IsNil(o.CanonicalName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CanonicalName
+	return *o.CanonicalName.Get()
 }
 
 // GetCanonicalNameOk returns a tuple with the CanonicalName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetComputersResult) GetCanonicalNameOk() (*string, bool) {
-	if o == nil || IsNil(o.CanonicalName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CanonicalName, true
+	return o.CanonicalName.Get(), o.CanonicalName.IsSet()
 }
 
-// SetCanonicalName gets a reference to the given string and assigns it to the CanonicalName field.
+// SetCanonicalName gets a reference to the given NullableString and assigns it to the CanonicalName field.
 func (o *ApiGetComputersResult) SetCanonicalName(v string) {
-	o.CanonicalName = &v
+	o.CanonicalName.Set(&v)
+}
+
+// SetCanonicalNameNil sets the value for CanonicalName to be an explicit nil
+func (o *ApiGetComputersResult) SetCanonicalNameNil() {
+	o.CanonicalName.Set(nil)
+}
+
+// UnsetCanonicalName ensures that no value is present for CanonicalName, not even an explicit nil
+func (o *ApiGetComputersResult) UnsetCanonicalName() {
+	o.CanonicalName.Unset()
 }
 
 func (o ApiGetComputersResult) MarshalJSON() ([]byte, error) {
@@ -375,16 +476,16 @@ func (o ApiGetComputersResult) MarshalJSON() ([]byte, error) {
 
 func (o ApiGetComputersResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AccountName) {
-		toSerialize["accountName"] = o.AccountName
+	if o.AccountName.IsSet() {
+		toSerialize["accountName"] = o.AccountName.Get()
 	}
-	if !IsNil(o.SecurityId) {
-		toSerialize["securityId"] = o.SecurityId
+	if o.SecurityId.IsSet() {
+		toSerialize["securityId"] = o.SecurityId.Get()
 	}
-	if !IsNil(o.DnsHostName) {
-		toSerialize["dnsHostName"] = o.DnsHostName
+	if o.DnsHostName.IsSet() {
+		toSerialize["dnsHostName"] = o.DnsHostName.Get()
 	}
-	if !IsNil(o.ServicePrincipalNames) {
+	if o.ServicePrincipalNames != nil {
 		toSerialize["servicePrincipalNames"] = o.ServicePrincipalNames
 	}
 	if !IsNil(o.IsEnabled) {
@@ -393,29 +494,29 @@ func (o ApiGetComputersResult) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsAccountLocked) {
 		toSerialize["isAccountLocked"] = o.IsAccountLocked
 	}
-	if !IsNil(o.ComputerGroupList) {
+	if o.ComputerGroupList != nil {
 		toSerialize["computerGroupList"] = o.ComputerGroupList
 	}
-	if !IsNil(o.UserCertificate) {
-		toSerialize["userCertificate"] = o.UserCertificate
+	if o.UserCertificate.IsSet() {
+		toSerialize["userCertificate"] = o.UserCertificate.Get()
 	}
-	if !IsNil(o.DomainName) {
-		toSerialize["domainName"] = o.DomainName
+	if o.DomainName.IsSet() {
+		toSerialize["domainName"] = o.DomainName.Get()
 	}
-	if !IsNil(o.ForestName) {
-		toSerialize["forestName"] = o.ForestName
+	if o.ForestName.IsSet() {
+		toSerialize["forestName"] = o.ForestName.Get()
 	}
 	if !IsNil(o.Guid) {
 		toSerialize["guid"] = o.Guid
 	}
-	if !IsNil(o.DistinguishedName) {
-		toSerialize["distinguishedName"] = o.DistinguishedName
+	if o.DistinguishedName.IsSet() {
+		toSerialize["distinguishedName"] = o.DistinguishedName.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.CanonicalName) {
-		toSerialize["canonicalName"] = o.CanonicalName
+	if o.CanonicalName.IsSet() {
+		toSerialize["canonicalName"] = o.CanonicalName.Get()
 	}
 	return toSerialize, nil
 }

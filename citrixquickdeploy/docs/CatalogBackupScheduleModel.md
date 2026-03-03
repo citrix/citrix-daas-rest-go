@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Daily** | Pointer to [**CatalogBackupScheduleTime**](CatalogBackupScheduleTime.md) |  | [optional] 
-**Weekly** | Pointer to [**CatalogBackupScheduleTimeAndDate**](CatalogBackupScheduleTimeAndDate.md) |  | [optional] 
+**Daily** | Pointer to [**NullableCatalogBackupScheduleTime**](CatalogBackupScheduleTime.md) |  | [optional] 
+**Weekly** | Pointer to [**NullableCatalogBackupScheduleTimeAndDate**](CatalogBackupScheduleTimeAndDate.md) |  | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetDaily sets Daily field to given value.
 
 HasDaily returns a boolean if a field has been set.
 
+### SetDailyNil
+
+`func (o *CatalogBackupScheduleModel) SetDailyNil(b bool)`
+
+ SetDailyNil sets the value for Daily to be an explicit nil
+
+### UnsetDaily
+`func (o *CatalogBackupScheduleModel) UnsetDaily()`
+
+UnsetDaily ensures that no value is present for Daily, not even an explicit nil
 ### GetWeekly
 
 `func (o *CatalogBackupScheduleModel) GetWeekly() CatalogBackupScheduleTimeAndDate`
@@ -76,6 +86,16 @@ SetWeekly sets Weekly field to given value.
 
 HasWeekly returns a boolean if a field has been set.
 
+### SetWeeklyNil
+
+`func (o *CatalogBackupScheduleModel) SetWeeklyNil(b bool)`
+
+ SetWeeklyNil sets the value for Weekly to be an explicit nil
+
+### UnsetWeekly
+`func (o *CatalogBackupScheduleModel) UnsetWeekly()`
+
+UnsetWeekly ensures that no value is present for Weekly, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -22,9 +22,9 @@ type RemotePCEnrollmentScopeResponseModel struct {
 	// Specifies the DN of an AD container containing machines allowed to enroll as remote PCs.
 	Ou string `json:"ou" validate:"regexp=.*|any"`
 	// Indicates whether machines in subfolders of OU are allowed to enroll    as remote PCs.
-	IncludeSubfolders *bool `json:"includeSubfolders,omitempty"`
+	IncludeSubfolders NullableBool `json:"includeSubfolders,omitempty"`
 	// Indicates whether this objet is for a OU or for a machine
-	IsOrganizationalUnit *bool `json:"isOrganizationalUnit,omitempty"`
+	IsOrganizationalUnit NullableBool `json:"isOrganizationalUnit,omitempty"`
 	// Machines which are explicitly excluded from matching the enrollment scope.
 	MachinesExcluded []string `json:"machinesExcluded,omitempty"`
 	// Machines which are included in the enrollment scope.
@@ -63,55 +63,77 @@ func (o *RemotePCEnrollmentScopeResponseModel) SetOu(v string) {
 	o.Ou = v
 }
 
-// GetIncludeSubfolders returns the IncludeSubfolders field value if set, zero value otherwise.
+// GetIncludeSubfolders returns the IncludeSubfolders field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemotePCEnrollmentScopeResponseModel) GetIncludeSubfolders() bool {
-	if o == nil || IsNil(o.IncludeSubfolders) {
+	if o == nil || IsNil(o.IncludeSubfolders.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeSubfolders
+	return *o.IncludeSubfolders.Get()
 }
 
 // GetIncludeSubfoldersOk returns a tuple with the IncludeSubfolders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemotePCEnrollmentScopeResponseModel) GetIncludeSubfoldersOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeSubfolders) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeSubfolders, true
+	return o.IncludeSubfolders.Get(), o.IncludeSubfolders.IsSet()
 }
 
-// SetIncludeSubfolders gets a reference to the given bool and assigns it to the IncludeSubfolders field.
+// SetIncludeSubfolders gets a reference to the given NullableBool and assigns it to the IncludeSubfolders field.
 func (o *RemotePCEnrollmentScopeResponseModel) SetIncludeSubfolders(v bool) {
-	o.IncludeSubfolders = &v
+	o.IncludeSubfolders.Set(&v)
 }
 
-// GetIsOrganizationalUnit returns the IsOrganizationalUnit field value if set, zero value otherwise.
+// SetIncludeSubfoldersNil sets the value for IncludeSubfolders to be an explicit nil
+func (o *RemotePCEnrollmentScopeResponseModel) SetIncludeSubfoldersNil() {
+	o.IncludeSubfolders.Set(nil)
+}
+
+// UnsetIncludeSubfolders ensures that no value is present for IncludeSubfolders, not even an explicit nil
+func (o *RemotePCEnrollmentScopeResponseModel) UnsetIncludeSubfolders() {
+	o.IncludeSubfolders.Unset()
+}
+
+// GetIsOrganizationalUnit returns the IsOrganizationalUnit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemotePCEnrollmentScopeResponseModel) GetIsOrganizationalUnit() bool {
-	if o == nil || IsNil(o.IsOrganizationalUnit) {
+	if o == nil || IsNil(o.IsOrganizationalUnit.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.IsOrganizationalUnit
+	return *o.IsOrganizationalUnit.Get()
 }
 
 // GetIsOrganizationalUnitOk returns a tuple with the IsOrganizationalUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemotePCEnrollmentScopeResponseModel) GetIsOrganizationalUnitOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsOrganizationalUnit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsOrganizationalUnit, true
+	return o.IsOrganizationalUnit.Get(), o.IsOrganizationalUnit.IsSet()
 }
 
-// SetIsOrganizationalUnit gets a reference to the given bool and assigns it to the IsOrganizationalUnit field.
+// SetIsOrganizationalUnit gets a reference to the given NullableBool and assigns it to the IsOrganizationalUnit field.
 func (o *RemotePCEnrollmentScopeResponseModel) SetIsOrganizationalUnit(v bool) {
-	o.IsOrganizationalUnit = &v
+	o.IsOrganizationalUnit.Set(&v)
 }
 
-// GetMachinesExcluded returns the MachinesExcluded field value if set, zero value otherwise.
+// SetIsOrganizationalUnitNil sets the value for IsOrganizationalUnit to be an explicit nil
+func (o *RemotePCEnrollmentScopeResponseModel) SetIsOrganizationalUnitNil() {
+	o.IsOrganizationalUnit.Set(nil)
+}
+
+// UnsetIsOrganizationalUnit ensures that no value is present for IsOrganizationalUnit, not even an explicit nil
+func (o *RemotePCEnrollmentScopeResponseModel) UnsetIsOrganizationalUnit() {
+	o.IsOrganizationalUnit.Unset()
+}
+
+// GetMachinesExcluded returns the MachinesExcluded field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemotePCEnrollmentScopeResponseModel) GetMachinesExcluded() []string {
-	if o == nil || IsNil(o.MachinesExcluded) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -120,6 +142,7 @@ func (o *RemotePCEnrollmentScopeResponseModel) GetMachinesExcluded() []string {
 
 // GetMachinesExcludedOk returns a tuple with the MachinesExcluded field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemotePCEnrollmentScopeResponseModel) GetMachinesExcludedOk() ([]string, bool) {
 	if o == nil || IsNil(o.MachinesExcluded) {
 		return nil, false
@@ -132,9 +155,9 @@ func (o *RemotePCEnrollmentScopeResponseModel) SetMachinesExcluded(v []string) {
 	o.MachinesExcluded = v
 }
 
-// GetMachinesIncluded returns the MachinesIncluded field value if set, zero value otherwise.
+// GetMachinesIncluded returns the MachinesIncluded field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemotePCEnrollmentScopeResponseModel) GetMachinesIncluded() []string {
-	if o == nil || IsNil(o.MachinesIncluded) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -143,6 +166,7 @@ func (o *RemotePCEnrollmentScopeResponseModel) GetMachinesIncluded() []string {
 
 // GetMachinesIncludedOk returns a tuple with the MachinesIncluded field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemotePCEnrollmentScopeResponseModel) GetMachinesIncludedOk() ([]string, bool) {
 	if o == nil || IsNil(o.MachinesIncluded) {
 		return nil, false
@@ -166,16 +190,16 @@ func (o RemotePCEnrollmentScopeResponseModel) MarshalJSON() ([]byte, error) {
 func (o RemotePCEnrollmentScopeResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["ou"] = o.Ou
-	if !IsNil(o.IncludeSubfolders) {
-		toSerialize["includeSubfolders"] = o.IncludeSubfolders
+	if o.IncludeSubfolders.IsSet() {
+		toSerialize["includeSubfolders"] = o.IncludeSubfolders.Get()
 	}
-	if !IsNil(o.IsOrganizationalUnit) {
-		toSerialize["isOrganizationalUnit"] = o.IsOrganizationalUnit
+	if o.IsOrganizationalUnit.IsSet() {
+		toSerialize["isOrganizationalUnit"] = o.IsOrganizationalUnit.Get()
 	}
-	if !IsNil(o.MachinesExcluded) {
+	if o.MachinesExcluded != nil {
 		toSerialize["machinesExcluded"] = o.MachinesExcluded
 	}
-	if !IsNil(o.MachinesIncluded) {
+	if o.MachinesIncluded != nil {
 		toSerialize["machinesIncluded"] = o.MachinesIncluded
 	}
 	return toSerialize, nil

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,9 +20,9 @@ var _ MappedNullable = &DeleteAdJoinedObjectModel{}
 // DeleteAdJoinedObjectModel struct for DeleteAdJoinedObjectModel
 type DeleteAdJoinedObjectModel struct {
 	// Service account to perform delete with
-	ServiceAccount *string `json:"serviceAccount,omitempty" validate:"regexp=^[^\\/\\\\[\\\\]:;\\\\\\\\|=\\\\^,+*?<>]*$"`
+	ServiceAccount NullableString `json:"serviceAccount,omitempty" validate:"regexp=^[^\\/\\\\[\\\\]:;\\\\\\\\|=\\\\^,+*?<>]*$"`
 	// Customer's domain password
-	ServiceAccountPassword *string `json:"serviceAccountPassword,omitempty"`
+	ServiceAccountPassword NullableString `json:"serviceAccountPassword,omitempty"`
 }
 
 // NewDeleteAdJoinedObjectModelWithDefaults instantiates a new DeleteAdJoinedObjectModel object
@@ -33,50 +33,72 @@ func NewDeleteAdJoinedObjectModelWithDefaults() *DeleteAdJoinedObjectModel {
 	return &this
 }
 
-// GetServiceAccount returns the ServiceAccount field value if set, zero value otherwise.
+// GetServiceAccount returns the ServiceAccount field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeleteAdJoinedObjectModel) GetServiceAccount() string {
-	if o == nil || IsNil(o.ServiceAccount) {
+	if o == nil || IsNil(o.ServiceAccount.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ServiceAccount
+	return *o.ServiceAccount.Get()
 }
 
 // GetServiceAccountOk returns a tuple with the ServiceAccount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeleteAdJoinedObjectModel) GetServiceAccountOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceAccount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceAccount, true
+	return o.ServiceAccount.Get(), o.ServiceAccount.IsSet()
 }
 
-// SetServiceAccount gets a reference to the given string and assigns it to the ServiceAccount field.
+// SetServiceAccount gets a reference to the given NullableString and assigns it to the ServiceAccount field.
 func (o *DeleteAdJoinedObjectModel) SetServiceAccount(v string) {
-	o.ServiceAccount = &v
+	o.ServiceAccount.Set(&v)
 }
 
-// GetServiceAccountPassword returns the ServiceAccountPassword field value if set, zero value otherwise.
+// SetServiceAccountNil sets the value for ServiceAccount to be an explicit nil
+func (o *DeleteAdJoinedObjectModel) SetServiceAccountNil() {
+	o.ServiceAccount.Set(nil)
+}
+
+// UnsetServiceAccount ensures that no value is present for ServiceAccount, not even an explicit nil
+func (o *DeleteAdJoinedObjectModel) UnsetServiceAccount() {
+	o.ServiceAccount.Unset()
+}
+
+// GetServiceAccountPassword returns the ServiceAccountPassword field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeleteAdJoinedObjectModel) GetServiceAccountPassword() string {
-	if o == nil || IsNil(o.ServiceAccountPassword) {
+	if o == nil || IsNil(o.ServiceAccountPassword.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ServiceAccountPassword
+	return *o.ServiceAccountPassword.Get()
 }
 
 // GetServiceAccountPasswordOk returns a tuple with the ServiceAccountPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeleteAdJoinedObjectModel) GetServiceAccountPasswordOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceAccountPassword) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceAccountPassword, true
+	return o.ServiceAccountPassword.Get(), o.ServiceAccountPassword.IsSet()
 }
 
-// SetServiceAccountPassword gets a reference to the given string and assigns it to the ServiceAccountPassword field.
+// SetServiceAccountPassword gets a reference to the given NullableString and assigns it to the ServiceAccountPassword field.
 func (o *DeleteAdJoinedObjectModel) SetServiceAccountPassword(v string) {
-	o.ServiceAccountPassword = &v
+	o.ServiceAccountPassword.Set(&v)
+}
+
+// SetServiceAccountPasswordNil sets the value for ServiceAccountPassword to be an explicit nil
+func (o *DeleteAdJoinedObjectModel) SetServiceAccountPasswordNil() {
+	o.ServiceAccountPassword.Set(nil)
+}
+
+// UnsetServiceAccountPassword ensures that no value is present for ServiceAccountPassword, not even an explicit nil
+func (o *DeleteAdJoinedObjectModel) UnsetServiceAccountPassword() {
+	o.ServiceAccountPassword.Unset()
 }
 
 func (o DeleteAdJoinedObjectModel) MarshalJSON() ([]byte, error) {
@@ -89,11 +111,11 @@ func (o DeleteAdJoinedObjectModel) MarshalJSON() ([]byte, error) {
 
 func (o DeleteAdJoinedObjectModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ServiceAccount) {
-		toSerialize["serviceAccount"] = o.ServiceAccount
+	if o.ServiceAccount.IsSet() {
+		toSerialize["serviceAccount"] = o.ServiceAccount.Get()
 	}
-	if !IsNil(o.ServiceAccountPassword) {
-		toSerialize["serviceAccountPassword"] = o.ServiceAccountPassword
+	if o.ServiceAccountPassword.IsSet() {
+		toSerialize["serviceAccountPassword"] = o.ServiceAccountPassword.Get()
 	}
 	return toSerialize, nil
 }

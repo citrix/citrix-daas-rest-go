@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to [**CatalogWarningType**](CatalogWarningType.md) | Type of warning | [optional] 
 **IsDismissible** | Pointer to **bool** | Indicates if the warning message can be cleared out by the user | [optional] 
-**WarningMessage** | Pointer to **string** | Warning message to display to the user | [optional] 
+**WarningMessage** | Pointer to **NullableString** | Warning message to display to the user | [optional] 
 **IsError** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -103,6 +103,16 @@ SetWarningMessage sets WarningMessage field to given value.
 
 HasWarningMessage returns a boolean if a field has been set.
 
+### SetWarningMessageNil
+
+`func (o *CatalogWarning) SetWarningMessageNil(b bool)`
+
+ SetWarningMessageNil sets the value for WarningMessage to be an explicit nil
+
+### UnsetWarningMessage
+`func (o *CatalogWarning) UnsetWarningMessage()`
+
+UnsetWarningMessage ensures that no value is present for WarningMessage, not even an explicit nil
 ### GetIsError
 
 `func (o *CatalogWarning) GetIsError() bool`

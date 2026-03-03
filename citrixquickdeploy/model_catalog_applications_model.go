@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -55,9 +55,9 @@ func (o *CatalogApplicationsModel) SetItems(v []PublishedApplication) {
 	o.Items = v
 }
 
-// GetApplications returns the Applications field value if set, zero value otherwise.
+// GetApplications returns the Applications field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogApplicationsModel) GetApplications() []PublishedApplication {
-	if o == nil || IsNil(o.Applications) {
+	if o == nil {
 		var ret []PublishedApplication
 		return ret
 	}
@@ -66,6 +66,7 @@ func (o *CatalogApplicationsModel) GetApplications() []PublishedApplication {
 
 // GetApplicationsOk returns a tuple with the Applications field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogApplicationsModel) GetApplicationsOk() ([]PublishedApplication, bool) {
 	if o == nil || IsNil(o.Applications) {
 		return nil, false
@@ -89,7 +90,7 @@ func (o CatalogApplicationsModel) MarshalJSON() ([]byte, error) {
 func (o CatalogApplicationsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["items"] = o.Items
-	if !IsNil(o.Applications) {
+	if o.Applications != nil {
 		toSerialize["applications"] = o.Applications
 	}
 	return toSerialize, nil

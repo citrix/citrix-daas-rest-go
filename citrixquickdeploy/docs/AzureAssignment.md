@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjectId** | Pointer to **string** | ID of the assignment | [optional] 
-**RoleId** | Pointer to **string** | ID of the Role that has been assigned | [optional] 
-**RoleName** | Pointer to **string** | Name of the assigned Role | [optional] 
-**ObjectType** | Pointer to **string** | Type of object that has been assigned the role | [optional] 
-**DisplayName** | Pointer to **string** | Display name of the app / user assigned the role | [optional] 
-**AppId** | Pointer to **string** | ID of the app that is associated with the Service Principal that hasd the assignment | [optional] 
-**Upn** | Pointer to **string** | UPN of the user assigned the role | [optional] 
+**ObjectId** | Pointer to **NullableString** | ID of the assignment | [optional] 
+**RoleId** | Pointer to **NullableString** | ID of the Role that has been assigned | [optional] 
+**RoleName** | Pointer to **NullableString** | Name of the assigned Role | [optional] 
+**ObjectType** | Pointer to **NullableString** | Type of object that has been assigned the role | [optional] 
+**DisplayName** | Pointer to **NullableString** | Display name of the app / user assigned the role | [optional] 
+**AppId** | Pointer to **NullableString** | ID of the app that is associated with the Service Principal that hasd the assignment | [optional] 
+**Upn** | Pointer to **NullableString** | UPN of the user assigned the role | [optional] 
 
 ## Methods
 
@@ -56,6 +56,16 @@ SetObjectId sets ObjectId field to given value.
 
 HasObjectId returns a boolean if a field has been set.
 
+### SetObjectIdNil
+
+`func (o *AzureAssignment) SetObjectIdNil(b bool)`
+
+ SetObjectIdNil sets the value for ObjectId to be an explicit nil
+
+### UnsetObjectId
+`func (o *AzureAssignment) UnsetObjectId()`
+
+UnsetObjectId ensures that no value is present for ObjectId, not even an explicit nil
 ### GetRoleId
 
 `func (o *AzureAssignment) GetRoleId() string`
@@ -81,6 +91,16 @@ SetRoleId sets RoleId field to given value.
 
 HasRoleId returns a boolean if a field has been set.
 
+### SetRoleIdNil
+
+`func (o *AzureAssignment) SetRoleIdNil(b bool)`
+
+ SetRoleIdNil sets the value for RoleId to be an explicit nil
+
+### UnsetRoleId
+`func (o *AzureAssignment) UnsetRoleId()`
+
+UnsetRoleId ensures that no value is present for RoleId, not even an explicit nil
 ### GetRoleName
 
 `func (o *AzureAssignment) GetRoleName() string`
@@ -106,6 +126,16 @@ SetRoleName sets RoleName field to given value.
 
 HasRoleName returns a boolean if a field has been set.
 
+### SetRoleNameNil
+
+`func (o *AzureAssignment) SetRoleNameNil(b bool)`
+
+ SetRoleNameNil sets the value for RoleName to be an explicit nil
+
+### UnsetRoleName
+`func (o *AzureAssignment) UnsetRoleName()`
+
+UnsetRoleName ensures that no value is present for RoleName, not even an explicit nil
 ### GetObjectType
 
 `func (o *AzureAssignment) GetObjectType() string`
@@ -131,6 +161,16 @@ SetObjectType sets ObjectType field to given value.
 
 HasObjectType returns a boolean if a field has been set.
 
+### SetObjectTypeNil
+
+`func (o *AzureAssignment) SetObjectTypeNil(b bool)`
+
+ SetObjectTypeNil sets the value for ObjectType to be an explicit nil
+
+### UnsetObjectType
+`func (o *AzureAssignment) UnsetObjectType()`
+
+UnsetObjectType ensures that no value is present for ObjectType, not even an explicit nil
 ### GetDisplayName
 
 `func (o *AzureAssignment) GetDisplayName() string`
@@ -156,6 +196,16 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
+### SetDisplayNameNil
+
+`func (o *AzureAssignment) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *AzureAssignment) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetAppId
 
 `func (o *AzureAssignment) GetAppId() string`
@@ -181,6 +231,16 @@ SetAppId sets AppId field to given value.
 
 HasAppId returns a boolean if a field has been set.
 
+### SetAppIdNil
+
+`func (o *AzureAssignment) SetAppIdNil(b bool)`
+
+ SetAppIdNil sets the value for AppId to be an explicit nil
+
+### UnsetAppId
+`func (o *AzureAssignment) UnsetAppId()`
+
+UnsetAppId ensures that no value is present for AppId, not even an explicit nil
 ### GetUpn
 
 `func (o *AzureAssignment) GetUpn() string`
@@ -206,6 +266,16 @@ SetUpn sets Upn field to given value.
 
 HasUpn returns a boolean if a field has been set.
 
+### SetUpnNil
+
+`func (o *AzureAssignment) SetUpnNil(b bool)`
+
+ SetUpnNil sets the value for Upn to be an explicit nil
+
+### UnsetUpn
+`func (o *AzureAssignment) UnsetUpn()`
+
+UnsetUpn ensures that no value is present for Upn, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

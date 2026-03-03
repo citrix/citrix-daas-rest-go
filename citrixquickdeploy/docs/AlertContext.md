@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Authorization** | Pointer to [**Authorization**](Authorization.md) |  | [optional] 
-**Channels** | Pointer to **string** |  | [optional] 
-**Claims** | Pointer to **string** |  | [optional] 
-**Caller** | Pointer to **string** |  | [optional] 
-**CorrelationId** | Pointer to **string** |  | [optional] 
-**EventSource** | Pointer to **string** |  | [optional] 
+**Authorization** | Pointer to [**NullableAuthorization**](Authorization.md) |  | [optional] 
+**Channels** | Pointer to **NullableString** |  | [optional] 
+**Claims** | Pointer to **NullableString** |  | [optional] 
+**Caller** | Pointer to **NullableString** |  | [optional] 
+**CorrelationId** | Pointer to **NullableString** |  | [optional] 
+**EventSource** | Pointer to **NullableString** |  | [optional] 
 **EventTimestamp** | Pointer to **time.Time** |  | [optional] 
-**HttpRequest** | Pointer to **string** |  | [optional] 
-**EventDataId** | Pointer to **string** |  | [optional] 
-**Level** | Pointer to **string** |  | [optional] 
-**OperationName** | Pointer to **string** |  | [optional] 
-**OperationId** | Pointer to **string** |  | [optional] 
-**Properties** | Pointer to [**Properties**](Properties.md) |  | [optional] 
-**Status** | Pointer to **string** |  | [optional] 
-**SubStatus** | Pointer to **string** |  | [optional] 
+**HttpRequest** | Pointer to **NullableString** |  | [optional] 
+**EventDataId** | Pointer to **NullableString** |  | [optional] 
+**Level** | Pointer to **NullableString** |  | [optional] 
+**OperationName** | Pointer to **NullableString** |  | [optional] 
+**OperationId** | Pointer to **NullableString** |  | [optional] 
+**Properties** | Pointer to [**NullableProperties**](Properties.md) |  | [optional] 
+**Status** | Pointer to **NullableString** |  | [optional] 
+**SubStatus** | Pointer to **NullableString** |  | [optional] 
 **SubmissionTimestamp** | Pointer to **time.Time** |  | [optional] 
 
 ## Methods
@@ -65,6 +65,16 @@ SetAuthorization sets Authorization field to given value.
 
 HasAuthorization returns a boolean if a field has been set.
 
+### SetAuthorizationNil
+
+`func (o *AlertContext) SetAuthorizationNil(b bool)`
+
+ SetAuthorizationNil sets the value for Authorization to be an explicit nil
+
+### UnsetAuthorization
+`func (o *AlertContext) UnsetAuthorization()`
+
+UnsetAuthorization ensures that no value is present for Authorization, not even an explicit nil
 ### GetChannels
 
 `func (o *AlertContext) GetChannels() string`
@@ -90,6 +100,16 @@ SetChannels sets Channels field to given value.
 
 HasChannels returns a boolean if a field has been set.
 
+### SetChannelsNil
+
+`func (o *AlertContext) SetChannelsNil(b bool)`
+
+ SetChannelsNil sets the value for Channels to be an explicit nil
+
+### UnsetChannels
+`func (o *AlertContext) UnsetChannels()`
+
+UnsetChannels ensures that no value is present for Channels, not even an explicit nil
 ### GetClaims
 
 `func (o *AlertContext) GetClaims() string`
@@ -115,6 +135,16 @@ SetClaims sets Claims field to given value.
 
 HasClaims returns a boolean if a field has been set.
 
+### SetClaimsNil
+
+`func (o *AlertContext) SetClaimsNil(b bool)`
+
+ SetClaimsNil sets the value for Claims to be an explicit nil
+
+### UnsetClaims
+`func (o *AlertContext) UnsetClaims()`
+
+UnsetClaims ensures that no value is present for Claims, not even an explicit nil
 ### GetCaller
 
 `func (o *AlertContext) GetCaller() string`
@@ -140,6 +170,16 @@ SetCaller sets Caller field to given value.
 
 HasCaller returns a boolean if a field has been set.
 
+### SetCallerNil
+
+`func (o *AlertContext) SetCallerNil(b bool)`
+
+ SetCallerNil sets the value for Caller to be an explicit nil
+
+### UnsetCaller
+`func (o *AlertContext) UnsetCaller()`
+
+UnsetCaller ensures that no value is present for Caller, not even an explicit nil
 ### GetCorrelationId
 
 `func (o *AlertContext) GetCorrelationId() string`
@@ -165,6 +205,16 @@ SetCorrelationId sets CorrelationId field to given value.
 
 HasCorrelationId returns a boolean if a field has been set.
 
+### SetCorrelationIdNil
+
+`func (o *AlertContext) SetCorrelationIdNil(b bool)`
+
+ SetCorrelationIdNil sets the value for CorrelationId to be an explicit nil
+
+### UnsetCorrelationId
+`func (o *AlertContext) UnsetCorrelationId()`
+
+UnsetCorrelationId ensures that no value is present for CorrelationId, not even an explicit nil
 ### GetEventSource
 
 `func (o *AlertContext) GetEventSource() string`
@@ -190,6 +240,16 @@ SetEventSource sets EventSource field to given value.
 
 HasEventSource returns a boolean if a field has been set.
 
+### SetEventSourceNil
+
+`func (o *AlertContext) SetEventSourceNil(b bool)`
+
+ SetEventSourceNil sets the value for EventSource to be an explicit nil
+
+### UnsetEventSource
+`func (o *AlertContext) UnsetEventSource()`
+
+UnsetEventSource ensures that no value is present for EventSource, not even an explicit nil
 ### GetEventTimestamp
 
 `func (o *AlertContext) GetEventTimestamp() time.Time`
@@ -240,6 +300,16 @@ SetHttpRequest sets HttpRequest field to given value.
 
 HasHttpRequest returns a boolean if a field has been set.
 
+### SetHttpRequestNil
+
+`func (o *AlertContext) SetHttpRequestNil(b bool)`
+
+ SetHttpRequestNil sets the value for HttpRequest to be an explicit nil
+
+### UnsetHttpRequest
+`func (o *AlertContext) UnsetHttpRequest()`
+
+UnsetHttpRequest ensures that no value is present for HttpRequest, not even an explicit nil
 ### GetEventDataId
 
 `func (o *AlertContext) GetEventDataId() string`
@@ -265,6 +335,16 @@ SetEventDataId sets EventDataId field to given value.
 
 HasEventDataId returns a boolean if a field has been set.
 
+### SetEventDataIdNil
+
+`func (o *AlertContext) SetEventDataIdNil(b bool)`
+
+ SetEventDataIdNil sets the value for EventDataId to be an explicit nil
+
+### UnsetEventDataId
+`func (o *AlertContext) UnsetEventDataId()`
+
+UnsetEventDataId ensures that no value is present for EventDataId, not even an explicit nil
 ### GetLevel
 
 `func (o *AlertContext) GetLevel() string`
@@ -290,6 +370,16 @@ SetLevel sets Level field to given value.
 
 HasLevel returns a boolean if a field has been set.
 
+### SetLevelNil
+
+`func (o *AlertContext) SetLevelNil(b bool)`
+
+ SetLevelNil sets the value for Level to be an explicit nil
+
+### UnsetLevel
+`func (o *AlertContext) UnsetLevel()`
+
+UnsetLevel ensures that no value is present for Level, not even an explicit nil
 ### GetOperationName
 
 `func (o *AlertContext) GetOperationName() string`
@@ -315,6 +405,16 @@ SetOperationName sets OperationName field to given value.
 
 HasOperationName returns a boolean if a field has been set.
 
+### SetOperationNameNil
+
+`func (o *AlertContext) SetOperationNameNil(b bool)`
+
+ SetOperationNameNil sets the value for OperationName to be an explicit nil
+
+### UnsetOperationName
+`func (o *AlertContext) UnsetOperationName()`
+
+UnsetOperationName ensures that no value is present for OperationName, not even an explicit nil
 ### GetOperationId
 
 `func (o *AlertContext) GetOperationId() string`
@@ -340,6 +440,16 @@ SetOperationId sets OperationId field to given value.
 
 HasOperationId returns a boolean if a field has been set.
 
+### SetOperationIdNil
+
+`func (o *AlertContext) SetOperationIdNil(b bool)`
+
+ SetOperationIdNil sets the value for OperationId to be an explicit nil
+
+### UnsetOperationId
+`func (o *AlertContext) UnsetOperationId()`
+
+UnsetOperationId ensures that no value is present for OperationId, not even an explicit nil
 ### GetProperties
 
 `func (o *AlertContext) GetProperties() Properties`
@@ -365,6 +475,16 @@ SetProperties sets Properties field to given value.
 
 HasProperties returns a boolean if a field has been set.
 
+### SetPropertiesNil
+
+`func (o *AlertContext) SetPropertiesNil(b bool)`
+
+ SetPropertiesNil sets the value for Properties to be an explicit nil
+
+### UnsetProperties
+`func (o *AlertContext) UnsetProperties()`
+
+UnsetProperties ensures that no value is present for Properties, not even an explicit nil
 ### GetStatus
 
 `func (o *AlertContext) GetStatus() string`
@@ -390,6 +510,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *AlertContext) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *AlertContext) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetSubStatus
 
 `func (o *AlertContext) GetSubStatus() string`
@@ -415,6 +545,16 @@ SetSubStatus sets SubStatus field to given value.
 
 HasSubStatus returns a boolean if a field has been set.
 
+### SetSubStatusNil
+
+`func (o *AlertContext) SetSubStatusNil(b bool)`
+
+ SetSubStatusNil sets the value for SubStatus to be an explicit nil
+
+### UnsetSubStatus
+`func (o *AlertContext) UnsetSubStatus()`
+
+UnsetSubStatus ensures that no value is present for SubStatus, not even an explicit nil
 ### GetSubmissionTimestamp
 
 `func (o *AlertContext) GetSubmissionTimestamp() time.Time`

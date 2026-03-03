@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]ConnectorOverview**](ConnectorOverview.md) | List of catalogs that are available to the user | 
+**Items** | [**[]ConnectorOverview**](ConnectorOverview.md) | List of catalogs that are available to the user | [readonly] 
 **Connectors** | Pointer to [**[]ConnectorOverview**](ConnectorOverview.md) | Alias of Item property for backward compatibility | [optional] 
 
 ## Methods
@@ -71,6 +71,16 @@ SetConnectors sets Connectors field to given value.
 
 HasConnectors returns a boolean if a field has been set.
 
+### SetConnectorsNil
+
+`func (o *CatalogConnectorsOverview) SetConnectorsNil(b bool)`
+
+ SetConnectorsNil sets the value for Connectors to be an explicit nil
+
+### UnsetConnectors
+`func (o *CatalogConnectorsOverview) UnsetConnectors()`
+
+UnsetConnectors ensures that no value is present for Connectors, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

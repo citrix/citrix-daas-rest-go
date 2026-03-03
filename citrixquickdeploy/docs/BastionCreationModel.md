@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Username** | Pointer to **string** |  | [optional] 
-**Password** | Pointer to **string** |  | [optional] 
-**IpAddressPrefix** | Pointer to **string** |  | [optional] 
-**ConnectionType** | Pointer to [**OnPremConnectionType**](OnPremConnectionType.md) |  | [optional] 
+**Username** | Pointer to **NullableString** |  | [optional] 
+**Password** | Pointer to **NullableString** |  | [optional] 
+**IpAddressPrefix** | Pointer to **NullableString** |  | [optional] 
+**ConnectionType** | Pointer to [**NullableOnPremConnectionType**](OnPremConnectionType.md) |  | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetUsername sets Username field to given value.
 
 HasUsername returns a boolean if a field has been set.
 
+### SetUsernameNil
+
+`func (o *BastionCreationModel) SetUsernameNil(b bool)`
+
+ SetUsernameNil sets the value for Username to be an explicit nil
+
+### UnsetUsername
+`func (o *BastionCreationModel) UnsetUsername()`
+
+UnsetUsername ensures that no value is present for Username, not even an explicit nil
 ### GetPassword
 
 `func (o *BastionCreationModel) GetPassword() string`
@@ -78,6 +88,16 @@ SetPassword sets Password field to given value.
 
 HasPassword returns a boolean if a field has been set.
 
+### SetPasswordNil
+
+`func (o *BastionCreationModel) SetPasswordNil(b bool)`
+
+ SetPasswordNil sets the value for Password to be an explicit nil
+
+### UnsetPassword
+`func (o *BastionCreationModel) UnsetPassword()`
+
+UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetIpAddressPrefix
 
 `func (o *BastionCreationModel) GetIpAddressPrefix() string`
@@ -103,6 +123,16 @@ SetIpAddressPrefix sets IpAddressPrefix field to given value.
 
 HasIpAddressPrefix returns a boolean if a field has been set.
 
+### SetIpAddressPrefixNil
+
+`func (o *BastionCreationModel) SetIpAddressPrefixNil(b bool)`
+
+ SetIpAddressPrefixNil sets the value for IpAddressPrefix to be an explicit nil
+
+### UnsetIpAddressPrefix
+`func (o *BastionCreationModel) UnsetIpAddressPrefix()`
+
+UnsetIpAddressPrefix ensures that no value is present for IpAddressPrefix, not even an explicit nil
 ### GetConnectionType
 
 `func (o *BastionCreationModel) GetConnectionType() OnPremConnectionType`
@@ -128,6 +158,16 @@ SetConnectionType sets ConnectionType field to given value.
 
 HasConnectionType returns a boolean if a field has been set.
 
+### SetConnectionTypeNil
+
+`func (o *BastionCreationModel) SetConnectionTypeNil(b bool)`
+
+ SetConnectionTypeNil sets the value for ConnectionType to be an explicit nil
+
+### UnsetConnectionType
+`func (o *BastionCreationModel) UnsetConnectionType()`
+
+UnsetConnectionType ensures that no value is present for ConnectionType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

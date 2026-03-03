@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MonthlyConsumptionCommitment** | Pointer to **float64** |  | [optional] 
-**MonthlyConsumption** | Pointer to **float64** |  | [optional] 
-**TermConsumptionCommitment** | Pointer to **float64** |  | [optional] 
-**TermConsumption** | Pointer to **float64** |  | [optional] 
+**MonthlyConsumptionCommitment** | Pointer to **NullableFloat64** |  | [optional] 
+**MonthlyConsumption** | Pointer to **NullableFloat64** |  | [optional] 
+**TermConsumptionCommitment** | Pointer to **NullableFloat64** |  | [optional] 
+**TermConsumption** | Pointer to **NullableFloat64** |  | [optional] 
 **TotalConsumption** | Pointer to **float64** |  | [optional] 
-**NumberOfLicensedUsers** | Pointer to **int32** |  | [optional] 
-**ConsumptionSettings** | Pointer to [**DataStoreConsumptionThresholdModel**](DataStoreConsumptionThresholdModel.md) |  | [optional] 
+**NumberOfLicensedUsers** | Pointer to **NullableInt32** |  | [optional] 
+**ConsumptionSettings** | Pointer to [**NullableDataStoreConsumptionThresholdModel**](DataStoreConsumptionThresholdModel.md) |  | [optional] 
 **StaleData** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -57,6 +57,16 @@ SetMonthlyConsumptionCommitment sets MonthlyConsumptionCommitment field to given
 
 HasMonthlyConsumptionCommitment returns a boolean if a field has been set.
 
+### SetMonthlyConsumptionCommitmentNil
+
+`func (o *ConsumptionStatusModel) SetMonthlyConsumptionCommitmentNil(b bool)`
+
+ SetMonthlyConsumptionCommitmentNil sets the value for MonthlyConsumptionCommitment to be an explicit nil
+
+### UnsetMonthlyConsumptionCommitment
+`func (o *ConsumptionStatusModel) UnsetMonthlyConsumptionCommitment()`
+
+UnsetMonthlyConsumptionCommitment ensures that no value is present for MonthlyConsumptionCommitment, not even an explicit nil
 ### GetMonthlyConsumption
 
 `func (o *ConsumptionStatusModel) GetMonthlyConsumption() float64`
@@ -82,6 +92,16 @@ SetMonthlyConsumption sets MonthlyConsumption field to given value.
 
 HasMonthlyConsumption returns a boolean if a field has been set.
 
+### SetMonthlyConsumptionNil
+
+`func (o *ConsumptionStatusModel) SetMonthlyConsumptionNil(b bool)`
+
+ SetMonthlyConsumptionNil sets the value for MonthlyConsumption to be an explicit nil
+
+### UnsetMonthlyConsumption
+`func (o *ConsumptionStatusModel) UnsetMonthlyConsumption()`
+
+UnsetMonthlyConsumption ensures that no value is present for MonthlyConsumption, not even an explicit nil
 ### GetTermConsumptionCommitment
 
 `func (o *ConsumptionStatusModel) GetTermConsumptionCommitment() float64`
@@ -107,6 +127,16 @@ SetTermConsumptionCommitment sets TermConsumptionCommitment field to given value
 
 HasTermConsumptionCommitment returns a boolean if a field has been set.
 
+### SetTermConsumptionCommitmentNil
+
+`func (o *ConsumptionStatusModel) SetTermConsumptionCommitmentNil(b bool)`
+
+ SetTermConsumptionCommitmentNil sets the value for TermConsumptionCommitment to be an explicit nil
+
+### UnsetTermConsumptionCommitment
+`func (o *ConsumptionStatusModel) UnsetTermConsumptionCommitment()`
+
+UnsetTermConsumptionCommitment ensures that no value is present for TermConsumptionCommitment, not even an explicit nil
 ### GetTermConsumption
 
 `func (o *ConsumptionStatusModel) GetTermConsumption() float64`
@@ -132,6 +162,16 @@ SetTermConsumption sets TermConsumption field to given value.
 
 HasTermConsumption returns a boolean if a field has been set.
 
+### SetTermConsumptionNil
+
+`func (o *ConsumptionStatusModel) SetTermConsumptionNil(b bool)`
+
+ SetTermConsumptionNil sets the value for TermConsumption to be an explicit nil
+
+### UnsetTermConsumption
+`func (o *ConsumptionStatusModel) UnsetTermConsumption()`
+
+UnsetTermConsumption ensures that no value is present for TermConsumption, not even an explicit nil
 ### GetTotalConsumption
 
 `func (o *ConsumptionStatusModel) GetTotalConsumption() float64`
@@ -182,6 +222,16 @@ SetNumberOfLicensedUsers sets NumberOfLicensedUsers field to given value.
 
 HasNumberOfLicensedUsers returns a boolean if a field has been set.
 
+### SetNumberOfLicensedUsersNil
+
+`func (o *ConsumptionStatusModel) SetNumberOfLicensedUsersNil(b bool)`
+
+ SetNumberOfLicensedUsersNil sets the value for NumberOfLicensedUsers to be an explicit nil
+
+### UnsetNumberOfLicensedUsers
+`func (o *ConsumptionStatusModel) UnsetNumberOfLicensedUsers()`
+
+UnsetNumberOfLicensedUsers ensures that no value is present for NumberOfLicensedUsers, not even an explicit nil
 ### GetConsumptionSettings
 
 `func (o *ConsumptionStatusModel) GetConsumptionSettings() DataStoreConsumptionThresholdModel`
@@ -207,6 +257,16 @@ SetConsumptionSettings sets ConsumptionSettings field to given value.
 
 HasConsumptionSettings returns a boolean if a field has been set.
 
+### SetConsumptionSettingsNil
+
+`func (o *ConsumptionStatusModel) SetConsumptionSettingsNil(b bool)`
+
+ SetConsumptionSettingsNil sets the value for ConsumptionSettings to be an explicit nil
+
+### UnsetConsumptionSettings
+`func (o *ConsumptionStatusModel) UnsetConsumptionSettings()`
+
+UnsetConsumptionSettings ensures that no value is present for ConsumptionSettings, not even an explicit nil
 ### GetStaleData
 
 `func (o *ConsumptionStatusModel) GetStaleData() bool`

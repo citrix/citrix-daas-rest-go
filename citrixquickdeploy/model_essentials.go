@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,18 +20,18 @@ var _ MappedNullable = &Essentials{}
 
 // Essentials struct for Essentials
 type Essentials struct {
-	AlertId             *string    `json:"alertId,omitempty"`
-	AlertRule           *string    `json:"alertRule,omitempty"`
-	Severity            *string    `json:"severity,omitempty"`
-	SignalType          *string    `json:"signalType,omitempty"`
-	MonitorCondition    *string    `json:"monitorCondition,omitempty"`
-	MonitoringService   *string    `json:"monitoringService,omitempty"`
-	AlertTargetIDs      []string   `json:"alertTargetIDs,omitempty"`
-	OriginAlertId       *string    `json:"originAlertId,omitempty"`
-	FiredDateTime       *time.Time `json:"firedDateTime,omitempty"`
-	Description         *string    `json:"description,omitempty"`
-	EssentialsVersion   *string    `json:"essentialsVersion,omitempty"`
-	AlertContextVersion *string    `json:"alertContextVersion,omitempty"`
+	AlertId             NullableString `json:"alertId,omitempty"`
+	AlertRule           NullableString `json:"alertRule,omitempty"`
+	Severity            NullableString `json:"severity,omitempty"`
+	SignalType          NullableString `json:"signalType,omitempty"`
+	MonitorCondition    NullableString `json:"monitorCondition,omitempty"`
+	MonitoringService   NullableString `json:"monitoringService,omitempty"`
+	AlertTargetIDs      []string       `json:"alertTargetIDs,omitempty"`
+	OriginAlertId       NullableString `json:"originAlertId,omitempty"`
+	FiredDateTime       *time.Time     `json:"firedDateTime,omitempty"`
+	Description         NullableString `json:"description,omitempty"`
+	EssentialsVersion   NullableString `json:"essentialsVersion,omitempty"`
+	AlertContextVersion NullableString `json:"alertContextVersion,omitempty"`
 }
 
 // NewEssentialsWithDefaults instantiates a new Essentials object
@@ -42,147 +42,213 @@ func NewEssentialsWithDefaults() *Essentials {
 	return &this
 }
 
-// GetAlertId returns the AlertId field value if set, zero value otherwise.
+// GetAlertId returns the AlertId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Essentials) GetAlertId() string {
-	if o == nil || IsNil(o.AlertId) {
+	if o == nil || IsNil(o.AlertId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AlertId
+	return *o.AlertId.Get()
 }
 
 // GetAlertIdOk returns a tuple with the AlertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Essentials) GetAlertIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AlertId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AlertId, true
+	return o.AlertId.Get(), o.AlertId.IsSet()
 }
 
-// SetAlertId gets a reference to the given string and assigns it to the AlertId field.
+// SetAlertId gets a reference to the given NullableString and assigns it to the AlertId field.
 func (o *Essentials) SetAlertId(v string) {
-	o.AlertId = &v
+	o.AlertId.Set(&v)
 }
 
-// GetAlertRule returns the AlertRule field value if set, zero value otherwise.
+// SetAlertIdNil sets the value for AlertId to be an explicit nil
+func (o *Essentials) SetAlertIdNil() {
+	o.AlertId.Set(nil)
+}
+
+// UnsetAlertId ensures that no value is present for AlertId, not even an explicit nil
+func (o *Essentials) UnsetAlertId() {
+	o.AlertId.Unset()
+}
+
+// GetAlertRule returns the AlertRule field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Essentials) GetAlertRule() string {
-	if o == nil || IsNil(o.AlertRule) {
+	if o == nil || IsNil(o.AlertRule.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AlertRule
+	return *o.AlertRule.Get()
 }
 
 // GetAlertRuleOk returns a tuple with the AlertRule field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Essentials) GetAlertRuleOk() (*string, bool) {
-	if o == nil || IsNil(o.AlertRule) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AlertRule, true
+	return o.AlertRule.Get(), o.AlertRule.IsSet()
 }
 
-// SetAlertRule gets a reference to the given string and assigns it to the AlertRule field.
+// SetAlertRule gets a reference to the given NullableString and assigns it to the AlertRule field.
 func (o *Essentials) SetAlertRule(v string) {
-	o.AlertRule = &v
+	o.AlertRule.Set(&v)
 }
 
-// GetSeverity returns the Severity field value if set, zero value otherwise.
+// SetAlertRuleNil sets the value for AlertRule to be an explicit nil
+func (o *Essentials) SetAlertRuleNil() {
+	o.AlertRule.Set(nil)
+}
+
+// UnsetAlertRule ensures that no value is present for AlertRule, not even an explicit nil
+func (o *Essentials) UnsetAlertRule() {
+	o.AlertRule.Unset()
+}
+
+// GetSeverity returns the Severity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Essentials) GetSeverity() string {
-	if o == nil || IsNil(o.Severity) {
+	if o == nil || IsNil(o.Severity.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Severity
+	return *o.Severity.Get()
 }
 
 // GetSeverityOk returns a tuple with the Severity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Essentials) GetSeverityOk() (*string, bool) {
-	if o == nil || IsNil(o.Severity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Severity, true
+	return o.Severity.Get(), o.Severity.IsSet()
 }
 
-// SetSeverity gets a reference to the given string and assigns it to the Severity field.
+// SetSeverity gets a reference to the given NullableString and assigns it to the Severity field.
 func (o *Essentials) SetSeverity(v string) {
-	o.Severity = &v
+	o.Severity.Set(&v)
 }
 
-// GetSignalType returns the SignalType field value if set, zero value otherwise.
+// SetSeverityNil sets the value for Severity to be an explicit nil
+func (o *Essentials) SetSeverityNil() {
+	o.Severity.Set(nil)
+}
+
+// UnsetSeverity ensures that no value is present for Severity, not even an explicit nil
+func (o *Essentials) UnsetSeverity() {
+	o.Severity.Unset()
+}
+
+// GetSignalType returns the SignalType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Essentials) GetSignalType() string {
-	if o == nil || IsNil(o.SignalType) {
+	if o == nil || IsNil(o.SignalType.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SignalType
+	return *o.SignalType.Get()
 }
 
 // GetSignalTypeOk returns a tuple with the SignalType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Essentials) GetSignalTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.SignalType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SignalType, true
+	return o.SignalType.Get(), o.SignalType.IsSet()
 }
 
-// SetSignalType gets a reference to the given string and assigns it to the SignalType field.
+// SetSignalType gets a reference to the given NullableString and assigns it to the SignalType field.
 func (o *Essentials) SetSignalType(v string) {
-	o.SignalType = &v
+	o.SignalType.Set(&v)
 }
 
-// GetMonitorCondition returns the MonitorCondition field value if set, zero value otherwise.
+// SetSignalTypeNil sets the value for SignalType to be an explicit nil
+func (o *Essentials) SetSignalTypeNil() {
+	o.SignalType.Set(nil)
+}
+
+// UnsetSignalType ensures that no value is present for SignalType, not even an explicit nil
+func (o *Essentials) UnsetSignalType() {
+	o.SignalType.Unset()
+}
+
+// GetMonitorCondition returns the MonitorCondition field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Essentials) GetMonitorCondition() string {
-	if o == nil || IsNil(o.MonitorCondition) {
+	if o == nil || IsNil(o.MonitorCondition.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MonitorCondition
+	return *o.MonitorCondition.Get()
 }
 
 // GetMonitorConditionOk returns a tuple with the MonitorCondition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Essentials) GetMonitorConditionOk() (*string, bool) {
-	if o == nil || IsNil(o.MonitorCondition) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MonitorCondition, true
+	return o.MonitorCondition.Get(), o.MonitorCondition.IsSet()
 }
 
-// SetMonitorCondition gets a reference to the given string and assigns it to the MonitorCondition field.
+// SetMonitorCondition gets a reference to the given NullableString and assigns it to the MonitorCondition field.
 func (o *Essentials) SetMonitorCondition(v string) {
-	o.MonitorCondition = &v
+	o.MonitorCondition.Set(&v)
 }
 
-// GetMonitoringService returns the MonitoringService field value if set, zero value otherwise.
+// SetMonitorConditionNil sets the value for MonitorCondition to be an explicit nil
+func (o *Essentials) SetMonitorConditionNil() {
+	o.MonitorCondition.Set(nil)
+}
+
+// UnsetMonitorCondition ensures that no value is present for MonitorCondition, not even an explicit nil
+func (o *Essentials) UnsetMonitorCondition() {
+	o.MonitorCondition.Unset()
+}
+
+// GetMonitoringService returns the MonitoringService field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Essentials) GetMonitoringService() string {
-	if o == nil || IsNil(o.MonitoringService) {
+	if o == nil || IsNil(o.MonitoringService.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MonitoringService
+	return *o.MonitoringService.Get()
 }
 
 // GetMonitoringServiceOk returns a tuple with the MonitoringService field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Essentials) GetMonitoringServiceOk() (*string, bool) {
-	if o == nil || IsNil(o.MonitoringService) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MonitoringService, true
+	return o.MonitoringService.Get(), o.MonitoringService.IsSet()
 }
 
-// SetMonitoringService gets a reference to the given string and assigns it to the MonitoringService field.
+// SetMonitoringService gets a reference to the given NullableString and assigns it to the MonitoringService field.
 func (o *Essentials) SetMonitoringService(v string) {
-	o.MonitoringService = &v
+	o.MonitoringService.Set(&v)
 }
 
-// GetAlertTargetIDs returns the AlertTargetIDs field value if set, zero value otherwise.
+// SetMonitoringServiceNil sets the value for MonitoringService to be an explicit nil
+func (o *Essentials) SetMonitoringServiceNil() {
+	o.MonitoringService.Set(nil)
+}
+
+// UnsetMonitoringService ensures that no value is present for MonitoringService, not even an explicit nil
+func (o *Essentials) UnsetMonitoringService() {
+	o.MonitoringService.Unset()
+}
+
+// GetAlertTargetIDs returns the AlertTargetIDs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Essentials) GetAlertTargetIDs() []string {
-	if o == nil || IsNil(o.AlertTargetIDs) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -191,6 +257,7 @@ func (o *Essentials) GetAlertTargetIDs() []string {
 
 // GetAlertTargetIDsOk returns a tuple with the AlertTargetIDs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Essentials) GetAlertTargetIDsOk() ([]string, bool) {
 	if o == nil || IsNil(o.AlertTargetIDs) {
 		return nil, false
@@ -203,27 +270,38 @@ func (o *Essentials) SetAlertTargetIDs(v []string) {
 	o.AlertTargetIDs = v
 }
 
-// GetOriginAlertId returns the OriginAlertId field value if set, zero value otherwise.
+// GetOriginAlertId returns the OriginAlertId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Essentials) GetOriginAlertId() string {
-	if o == nil || IsNil(o.OriginAlertId) {
+	if o == nil || IsNil(o.OriginAlertId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OriginAlertId
+	return *o.OriginAlertId.Get()
 }
 
 // GetOriginAlertIdOk returns a tuple with the OriginAlertId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Essentials) GetOriginAlertIdOk() (*string, bool) {
-	if o == nil || IsNil(o.OriginAlertId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OriginAlertId, true
+	return o.OriginAlertId.Get(), o.OriginAlertId.IsSet()
 }
 
-// SetOriginAlertId gets a reference to the given string and assigns it to the OriginAlertId field.
+// SetOriginAlertId gets a reference to the given NullableString and assigns it to the OriginAlertId field.
 func (o *Essentials) SetOriginAlertId(v string) {
-	o.OriginAlertId = &v
+	o.OriginAlertId.Set(&v)
+}
+
+// SetOriginAlertIdNil sets the value for OriginAlertId to be an explicit nil
+func (o *Essentials) SetOriginAlertIdNil() {
+	o.OriginAlertId.Set(nil)
+}
+
+// UnsetOriginAlertId ensures that no value is present for OriginAlertId, not even an explicit nil
+func (o *Essentials) UnsetOriginAlertId() {
+	o.OriginAlertId.Unset()
 }
 
 // GetFiredDateTime returns the FiredDateTime field value if set, zero value otherwise.
@@ -249,73 +327,106 @@ func (o *Essentials) SetFiredDateTime(v time.Time) {
 	o.FiredDateTime = &v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Essentials) GetDescription() string {
-	if o == nil || IsNil(o.Description) {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Essentials) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
-// SetDescription gets a reference to the given string and assigns it to the Description field.
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *Essentials) SetDescription(v string) {
-	o.Description = &v
+	o.Description.Set(&v)
 }
 
-// GetEssentialsVersion returns the EssentialsVersion field value if set, zero value otherwise.
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *Essentials) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *Essentials) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetEssentialsVersion returns the EssentialsVersion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Essentials) GetEssentialsVersion() string {
-	if o == nil || IsNil(o.EssentialsVersion) {
+	if o == nil || IsNil(o.EssentialsVersion.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.EssentialsVersion
+	return *o.EssentialsVersion.Get()
 }
 
 // GetEssentialsVersionOk returns a tuple with the EssentialsVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Essentials) GetEssentialsVersionOk() (*string, bool) {
-	if o == nil || IsNil(o.EssentialsVersion) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EssentialsVersion, true
+	return o.EssentialsVersion.Get(), o.EssentialsVersion.IsSet()
 }
 
-// SetEssentialsVersion gets a reference to the given string and assigns it to the EssentialsVersion field.
+// SetEssentialsVersion gets a reference to the given NullableString and assigns it to the EssentialsVersion field.
 func (o *Essentials) SetEssentialsVersion(v string) {
-	o.EssentialsVersion = &v
+	o.EssentialsVersion.Set(&v)
 }
 
-// GetAlertContextVersion returns the AlertContextVersion field value if set, zero value otherwise.
+// SetEssentialsVersionNil sets the value for EssentialsVersion to be an explicit nil
+func (o *Essentials) SetEssentialsVersionNil() {
+	o.EssentialsVersion.Set(nil)
+}
+
+// UnsetEssentialsVersion ensures that no value is present for EssentialsVersion, not even an explicit nil
+func (o *Essentials) UnsetEssentialsVersion() {
+	o.EssentialsVersion.Unset()
+}
+
+// GetAlertContextVersion returns the AlertContextVersion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Essentials) GetAlertContextVersion() string {
-	if o == nil || IsNil(o.AlertContextVersion) {
+	if o == nil || IsNil(o.AlertContextVersion.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AlertContextVersion
+	return *o.AlertContextVersion.Get()
 }
 
 // GetAlertContextVersionOk returns a tuple with the AlertContextVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Essentials) GetAlertContextVersionOk() (*string, bool) {
-	if o == nil || IsNil(o.AlertContextVersion) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AlertContextVersion, true
+	return o.AlertContextVersion.Get(), o.AlertContextVersion.IsSet()
 }
 
-// SetAlertContextVersion gets a reference to the given string and assigns it to the AlertContextVersion field.
+// SetAlertContextVersion gets a reference to the given NullableString and assigns it to the AlertContextVersion field.
 func (o *Essentials) SetAlertContextVersion(v string) {
-	o.AlertContextVersion = &v
+	o.AlertContextVersion.Set(&v)
+}
+
+// SetAlertContextVersionNil sets the value for AlertContextVersion to be an explicit nil
+func (o *Essentials) SetAlertContextVersionNil() {
+	o.AlertContextVersion.Set(nil)
+}
+
+// UnsetAlertContextVersion ensures that no value is present for AlertContextVersion, not even an explicit nil
+func (o *Essentials) UnsetAlertContextVersion() {
+	o.AlertContextVersion.Unset()
 }
 
 func (o Essentials) MarshalJSON() ([]byte, error) {
@@ -328,41 +439,41 @@ func (o Essentials) MarshalJSON() ([]byte, error) {
 
 func (o Essentials) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AlertId) {
-		toSerialize["alertId"] = o.AlertId
+	if o.AlertId.IsSet() {
+		toSerialize["alertId"] = o.AlertId.Get()
 	}
-	if !IsNil(o.AlertRule) {
-		toSerialize["alertRule"] = o.AlertRule
+	if o.AlertRule.IsSet() {
+		toSerialize["alertRule"] = o.AlertRule.Get()
 	}
-	if !IsNil(o.Severity) {
-		toSerialize["severity"] = o.Severity
+	if o.Severity.IsSet() {
+		toSerialize["severity"] = o.Severity.Get()
 	}
-	if !IsNil(o.SignalType) {
-		toSerialize["signalType"] = o.SignalType
+	if o.SignalType.IsSet() {
+		toSerialize["signalType"] = o.SignalType.Get()
 	}
-	if !IsNil(o.MonitorCondition) {
-		toSerialize["monitorCondition"] = o.MonitorCondition
+	if o.MonitorCondition.IsSet() {
+		toSerialize["monitorCondition"] = o.MonitorCondition.Get()
 	}
-	if !IsNil(o.MonitoringService) {
-		toSerialize["monitoringService"] = o.MonitoringService
+	if o.MonitoringService.IsSet() {
+		toSerialize["monitoringService"] = o.MonitoringService.Get()
 	}
-	if !IsNil(o.AlertTargetIDs) {
+	if o.AlertTargetIDs != nil {
 		toSerialize["alertTargetIDs"] = o.AlertTargetIDs
 	}
-	if !IsNil(o.OriginAlertId) {
-		toSerialize["originAlertId"] = o.OriginAlertId
+	if o.OriginAlertId.IsSet() {
+		toSerialize["originAlertId"] = o.OriginAlertId.Get()
 	}
 	if !IsNil(o.FiredDateTime) {
 		toSerialize["firedDateTime"] = o.FiredDateTime
 	}
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.EssentialsVersion) {
-		toSerialize["essentialsVersion"] = o.EssentialsVersion
+	if o.EssentialsVersion.IsSet() {
+		toSerialize["essentialsVersion"] = o.EssentialsVersion.Get()
 	}
-	if !IsNil(o.AlertContextVersion) {
-		toSerialize["alertContextVersion"] = o.AlertContextVersion
+	if o.AlertContextVersion.IsSet() {
+		toSerialize["alertContextVersion"] = o.AlertContextVersion.Get()
 	}
 	return toSerialize, nil
 }

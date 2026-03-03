@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,13 +19,13 @@ var _ MappedNullable = &ApiGetContainersResult{}
 
 // ApiGetContainersResult struct for ApiGetContainersResult
 type ApiGetContainersResult struct {
-	ParentContainers  []string `json:"parentContainers,omitempty"`
-	DomainName        *string  `json:"domainName,omitempty"`
-	ForestName        *string  `json:"forestName,omitempty"`
-	Guid              *string  `json:"guid,omitempty"`
-	DistinguishedName *string  `json:"distinguishedName,omitempty"`
-	Name              *string  `json:"name,omitempty"`
-	CanonicalName     *string  `json:"canonicalName,omitempty"`
+	ParentContainers  []string       `json:"parentContainers,omitempty"`
+	DomainName        NullableString `json:"domainName,omitempty"`
+	ForestName        NullableString `json:"forestName,omitempty"`
+	Guid              *string        `json:"guid,omitempty"`
+	DistinguishedName NullableString `json:"distinguishedName,omitempty"`
+	Name              NullableString `json:"name,omitempty"`
+	CanonicalName     NullableString `json:"canonicalName,omitempty"`
 }
 
 // NewApiGetContainersResultWithDefaults instantiates a new ApiGetContainersResult object
@@ -36,9 +36,9 @@ func NewApiGetContainersResultWithDefaults() *ApiGetContainersResult {
 	return &this
 }
 
-// GetParentContainers returns the ParentContainers field value if set, zero value otherwise.
+// GetParentContainers returns the ParentContainers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetContainersResult) GetParentContainers() []string {
-	if o == nil || IsNil(o.ParentContainers) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -47,6 +47,7 @@ func (o *ApiGetContainersResult) GetParentContainers() []string {
 
 // GetParentContainersOk returns a tuple with the ParentContainers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetContainersResult) GetParentContainersOk() ([]string, bool) {
 	if o == nil || IsNil(o.ParentContainers) {
 		return nil, false
@@ -59,50 +60,72 @@ func (o *ApiGetContainersResult) SetParentContainers(v []string) {
 	o.ParentContainers = v
 }
 
-// GetDomainName returns the DomainName field value if set, zero value otherwise.
+// GetDomainName returns the DomainName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetContainersResult) GetDomainName() string {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil || IsNil(o.DomainName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DomainName
+	return *o.DomainName.Get()
 }
 
 // GetDomainNameOk returns a tuple with the DomainName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetContainersResult) GetDomainNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainName, true
+	return o.DomainName.Get(), o.DomainName.IsSet()
 }
 
-// SetDomainName gets a reference to the given string and assigns it to the DomainName field.
+// SetDomainName gets a reference to the given NullableString and assigns it to the DomainName field.
 func (o *ApiGetContainersResult) SetDomainName(v string) {
-	o.DomainName = &v
+	o.DomainName.Set(&v)
 }
 
-// GetForestName returns the ForestName field value if set, zero value otherwise.
+// SetDomainNameNil sets the value for DomainName to be an explicit nil
+func (o *ApiGetContainersResult) SetDomainNameNil() {
+	o.DomainName.Set(nil)
+}
+
+// UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
+func (o *ApiGetContainersResult) UnsetDomainName() {
+	o.DomainName.Unset()
+}
+
+// GetForestName returns the ForestName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetContainersResult) GetForestName() string {
-	if o == nil || IsNil(o.ForestName) {
+	if o == nil || IsNil(o.ForestName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ForestName
+	return *o.ForestName.Get()
 }
 
 // GetForestNameOk returns a tuple with the ForestName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetContainersResult) GetForestNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ForestName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ForestName, true
+	return o.ForestName.Get(), o.ForestName.IsSet()
 }
 
-// SetForestName gets a reference to the given string and assigns it to the ForestName field.
+// SetForestName gets a reference to the given NullableString and assigns it to the ForestName field.
 func (o *ApiGetContainersResult) SetForestName(v string) {
-	o.ForestName = &v
+	o.ForestName.Set(&v)
+}
+
+// SetForestNameNil sets the value for ForestName to be an explicit nil
+func (o *ApiGetContainersResult) SetForestNameNil() {
+	o.ForestName.Set(nil)
+}
+
+// UnsetForestName ensures that no value is present for ForestName, not even an explicit nil
+func (o *ApiGetContainersResult) UnsetForestName() {
+	o.ForestName.Unset()
 }
 
 // GetGuid returns the Guid field value if set, zero value otherwise.
@@ -128,73 +151,106 @@ func (o *ApiGetContainersResult) SetGuid(v string) {
 	o.Guid = &v
 }
 
-// GetDistinguishedName returns the DistinguishedName field value if set, zero value otherwise.
+// GetDistinguishedName returns the DistinguishedName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetContainersResult) GetDistinguishedName() string {
-	if o == nil || IsNil(o.DistinguishedName) {
+	if o == nil || IsNil(o.DistinguishedName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DistinguishedName
+	return *o.DistinguishedName.Get()
 }
 
 // GetDistinguishedNameOk returns a tuple with the DistinguishedName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetContainersResult) GetDistinguishedNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DistinguishedName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DistinguishedName, true
+	return o.DistinguishedName.Get(), o.DistinguishedName.IsSet()
 }
 
-// SetDistinguishedName gets a reference to the given string and assigns it to the DistinguishedName field.
+// SetDistinguishedName gets a reference to the given NullableString and assigns it to the DistinguishedName field.
 func (o *ApiGetContainersResult) SetDistinguishedName(v string) {
-	o.DistinguishedName = &v
+	o.DistinguishedName.Set(&v)
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
+func (o *ApiGetContainersResult) SetDistinguishedNameNil() {
+	o.DistinguishedName.Set(nil)
+}
+
+// UnsetDistinguishedName ensures that no value is present for DistinguishedName, not even an explicit nil
+func (o *ApiGetContainersResult) UnsetDistinguishedName() {
+	o.DistinguishedName.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetContainersResult) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetContainersResult) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *ApiGetContainersResult) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
 }
 
-// GetCanonicalName returns the CanonicalName field value if set, zero value otherwise.
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *ApiGetContainersResult) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *ApiGetContainersResult) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetCanonicalName returns the CanonicalName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiGetContainersResult) GetCanonicalName() string {
-	if o == nil || IsNil(o.CanonicalName) {
+	if o == nil || IsNil(o.CanonicalName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CanonicalName
+	return *o.CanonicalName.Get()
 }
 
 // GetCanonicalNameOk returns a tuple with the CanonicalName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiGetContainersResult) GetCanonicalNameOk() (*string, bool) {
-	if o == nil || IsNil(o.CanonicalName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CanonicalName, true
+	return o.CanonicalName.Get(), o.CanonicalName.IsSet()
 }
 
-// SetCanonicalName gets a reference to the given string and assigns it to the CanonicalName field.
+// SetCanonicalName gets a reference to the given NullableString and assigns it to the CanonicalName field.
 func (o *ApiGetContainersResult) SetCanonicalName(v string) {
-	o.CanonicalName = &v
+	o.CanonicalName.Set(&v)
+}
+
+// SetCanonicalNameNil sets the value for CanonicalName to be an explicit nil
+func (o *ApiGetContainersResult) SetCanonicalNameNil() {
+	o.CanonicalName.Set(nil)
+}
+
+// UnsetCanonicalName ensures that no value is present for CanonicalName, not even an explicit nil
+func (o *ApiGetContainersResult) UnsetCanonicalName() {
+	o.CanonicalName.Unset()
 }
 
 func (o ApiGetContainersResult) MarshalJSON() ([]byte, error) {
@@ -207,26 +263,26 @@ func (o ApiGetContainersResult) MarshalJSON() ([]byte, error) {
 
 func (o ApiGetContainersResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ParentContainers) {
+	if o.ParentContainers != nil {
 		toSerialize["parentContainers"] = o.ParentContainers
 	}
-	if !IsNil(o.DomainName) {
-		toSerialize["domainName"] = o.DomainName
+	if o.DomainName.IsSet() {
+		toSerialize["domainName"] = o.DomainName.Get()
 	}
-	if !IsNil(o.ForestName) {
-		toSerialize["forestName"] = o.ForestName
+	if o.ForestName.IsSet() {
+		toSerialize["forestName"] = o.ForestName.Get()
 	}
 	if !IsNil(o.Guid) {
 		toSerialize["guid"] = o.Guid
 	}
-	if !IsNil(o.DistinguishedName) {
-		toSerialize["distinguishedName"] = o.DistinguishedName
+	if o.DistinguishedName.IsSet() {
+		toSerialize["distinguishedName"] = o.DistinguishedName.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.CanonicalName) {
-		toSerialize["canonicalName"] = o.CanonicalName
+	if o.CanonicalName.IsSet() {
+		toSerialize["canonicalName"] = o.CanonicalName.Get()
 	}
 	return toSerialize, nil
 }

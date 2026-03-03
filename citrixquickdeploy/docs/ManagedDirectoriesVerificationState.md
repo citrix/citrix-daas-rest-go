@@ -50,6 +50,16 @@ SetInvalidDirectories sets InvalidDirectories field to given value.
 
 HasInvalidDirectories returns a boolean if a field has been set.
 
+### SetInvalidDirectoriesNil
+
+`func (o *ManagedDirectoriesVerificationState) SetInvalidDirectoriesNil(b bool)`
+
+ SetInvalidDirectoriesNil sets the value for InvalidDirectories to be an explicit nil
+
+### UnsetInvalidDirectories
+`func (o *ManagedDirectoriesVerificationState) UnsetInvalidDirectories()`
+
+UnsetInvalidDirectories ensures that no value is present for InvalidDirectories, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

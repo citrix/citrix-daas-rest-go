@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **JobType** | Pointer to [**ResourceLocationJobType**](ResourceLocationJobType.md) | The type of job | [optional] 
-**State** | Pointer to [**ResourceLocationJobState**](ResourceLocationJobState.md) | The state of the job | [optional] 
-**Status** | Pointer to [**ResourceLocationJobStatus**](ResourceLocationJobStatus.md) | Status of the job | [optional] 
-**StatusMessage** | Pointer to **string** | Error associated with the job failure | [optional] 
-**EndedAt** | Pointer to **time.Time** | Time at which the job was completed at | [optional] 
-**TransactionId** | Pointer to **string** | ID of the transaction performing the job | [optional] 
-**Quantity** | Pointer to **int32** | Quantity of items requested in the job | [optional] 
-**QuantityFailed** | Pointer to **int32** | Quantity of items that failed the job | [optional] 
-**StartedAt** | Pointer to **time.Time** | The datetime when the job started | [optional] 
-**EstimatedTimeInMinute** | Pointer to **int32** | Estimated total time for the job to finish | [optional] 
+**State** | Pointer to [**NullableResourceLocationJobState**](ResourceLocationJobState.md) | The state of the job | [optional] 
+**Status** | Pointer to [**NullableResourceLocationJobStatus**](ResourceLocationJobStatus.md) | Status of the job | [optional] 
+**StatusMessage** | Pointer to **NullableString** | Error associated with the job failure | [optional] 
+**EndedAt** | Pointer to **NullableTime** | Time at which the job was completed at | [optional] 
+**TransactionId** | Pointer to **NullableString** | ID of the transaction performing the job | [optional] 
+**Quantity** | Pointer to **NullableInt32** | Quantity of items requested in the job | [optional] 
+**QuantityFailed** | Pointer to **NullableInt32** | Quantity of items that failed the job | [optional] 
+**StartedAt** | Pointer to **NullableTime** | The datetime when the job started | [optional] 
+**EstimatedTimeInMinute** | Pointer to **NullableInt32** | Estimated total time for the job to finish | [optional] 
 
 ## Methods
 
@@ -84,6 +84,16 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
+### SetStateNil
+
+`func (o *ResourceLocationJob) SetStateNil(b bool)`
+
+ SetStateNil sets the value for State to be an explicit nil
+
+### UnsetState
+`func (o *ResourceLocationJob) UnsetState()`
+
+UnsetState ensures that no value is present for State, not even an explicit nil
 ### GetStatus
 
 `func (o *ResourceLocationJob) GetStatus() ResourceLocationJobStatus`
@@ -109,6 +119,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *ResourceLocationJob) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *ResourceLocationJob) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetStatusMessage
 
 `func (o *ResourceLocationJob) GetStatusMessage() string`
@@ -134,6 +154,16 @@ SetStatusMessage sets StatusMessage field to given value.
 
 HasStatusMessage returns a boolean if a field has been set.
 
+### SetStatusMessageNil
+
+`func (o *ResourceLocationJob) SetStatusMessageNil(b bool)`
+
+ SetStatusMessageNil sets the value for StatusMessage to be an explicit nil
+
+### UnsetStatusMessage
+`func (o *ResourceLocationJob) UnsetStatusMessage()`
+
+UnsetStatusMessage ensures that no value is present for StatusMessage, not even an explicit nil
 ### GetEndedAt
 
 `func (o *ResourceLocationJob) GetEndedAt() time.Time`
@@ -159,6 +189,16 @@ SetEndedAt sets EndedAt field to given value.
 
 HasEndedAt returns a boolean if a field has been set.
 
+### SetEndedAtNil
+
+`func (o *ResourceLocationJob) SetEndedAtNil(b bool)`
+
+ SetEndedAtNil sets the value for EndedAt to be an explicit nil
+
+### UnsetEndedAt
+`func (o *ResourceLocationJob) UnsetEndedAt()`
+
+UnsetEndedAt ensures that no value is present for EndedAt, not even an explicit nil
 ### GetTransactionId
 
 `func (o *ResourceLocationJob) GetTransactionId() string`
@@ -184,6 +224,16 @@ SetTransactionId sets TransactionId field to given value.
 
 HasTransactionId returns a boolean if a field has been set.
 
+### SetTransactionIdNil
+
+`func (o *ResourceLocationJob) SetTransactionIdNil(b bool)`
+
+ SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+
+### UnsetTransactionId
+`func (o *ResourceLocationJob) UnsetTransactionId()`
+
+UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
 ### GetQuantity
 
 `func (o *ResourceLocationJob) GetQuantity() int32`
@@ -209,6 +259,16 @@ SetQuantity sets Quantity field to given value.
 
 HasQuantity returns a boolean if a field has been set.
 
+### SetQuantityNil
+
+`func (o *ResourceLocationJob) SetQuantityNil(b bool)`
+
+ SetQuantityNil sets the value for Quantity to be an explicit nil
+
+### UnsetQuantity
+`func (o *ResourceLocationJob) UnsetQuantity()`
+
+UnsetQuantity ensures that no value is present for Quantity, not even an explicit nil
 ### GetQuantityFailed
 
 `func (o *ResourceLocationJob) GetQuantityFailed() int32`
@@ -234,6 +294,16 @@ SetQuantityFailed sets QuantityFailed field to given value.
 
 HasQuantityFailed returns a boolean if a field has been set.
 
+### SetQuantityFailedNil
+
+`func (o *ResourceLocationJob) SetQuantityFailedNil(b bool)`
+
+ SetQuantityFailedNil sets the value for QuantityFailed to be an explicit nil
+
+### UnsetQuantityFailed
+`func (o *ResourceLocationJob) UnsetQuantityFailed()`
+
+UnsetQuantityFailed ensures that no value is present for QuantityFailed, not even an explicit nil
 ### GetStartedAt
 
 `func (o *ResourceLocationJob) GetStartedAt() time.Time`
@@ -259,6 +329,16 @@ SetStartedAt sets StartedAt field to given value.
 
 HasStartedAt returns a boolean if a field has been set.
 
+### SetStartedAtNil
+
+`func (o *ResourceLocationJob) SetStartedAtNil(b bool)`
+
+ SetStartedAtNil sets the value for StartedAt to be an explicit nil
+
+### UnsetStartedAt
+`func (o *ResourceLocationJob) UnsetStartedAt()`
+
+UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
 ### GetEstimatedTimeInMinute
 
 `func (o *ResourceLocationJob) GetEstimatedTimeInMinute() int32`
@@ -284,6 +364,16 @@ SetEstimatedTimeInMinute sets EstimatedTimeInMinute field to given value.
 
 HasEstimatedTimeInMinute returns a boolean if a field has been set.
 
+### SetEstimatedTimeInMinuteNil
+
+`func (o *ResourceLocationJob) SetEstimatedTimeInMinuteNil(b bool)`
+
+ SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+
+### UnsetEstimatedTimeInMinute
+`func (o *ResourceLocationJob) UnsetEstimatedTimeInMinute()`
+
+UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

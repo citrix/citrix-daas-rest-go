@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -29,65 +29,69 @@ type TemplateImageOverview struct {
 	// State of the template image
 	State TemplateImageState `json:"state"`
 	// Sub State of template image
-	SubState *TemplateImageSubState `json:"subState,omitempty"`
+	SubState NullableTemplateImageSubState `json:"subState,omitempty"`
 	// Type of operating system that will be imported
-	OsPlatform *SupportedOperatingSystemType `json:"osPlatform,omitempty"`
+	OsPlatform NullableSupportedOperatingSystemType `json:"osPlatform,omitempty"`
 	// Shows name of image OS
-	OsName *string `json:"osName,omitempty"`
+	OsName NullableString `json:"osName,omitempty"`
 	// Shows version of image OS
-	OsVersion *string `json:"osVersion,omitempty"`
+	OsVersion NullableString `json:"osVersion,omitempty"`
 	// For linux customers it shows domain configuration set in mcs.conf file
-	LinuxDomainSupport *string `json:"linuxDomainSupport,omitempty"`
+	LinuxDomainSupport NullableString `json:"linuxDomainSupport,omitempty"`
 	// For linux customers it shows if rdp package was installed
-	LinuxRdpSupport *bool `json:"linuxRdpSupport,omitempty"`
+	LinuxRdpSupport NullableBool `json:"linuxRdpSupport,omitempty"`
 	// For windows customers it shows if mcsio driver was installed
-	McsioSupport *bool `json:"mcsioSupport,omitempty"`
+	McsioSupport NullableBool `json:"mcsioSupport,omitempty"`
 	// For windows customers it shows if VDA update service was installed
-	VusSupport *bool `json:"vusSupport,omitempty"`
+	VusSupport NullableBool `json:"vusSupport,omitempty"`
+	// For windows customers it shows if sccm agent was installed
+	SccmAgentSupport NullableBool `json:"sccmAgentSupport,omitempty"`
+	// For windows customers it shows sccm agent version
+	SccmAgentVersion NullableString `json:"sccmAgentVersion,omitempty"`
 	// Shows public ip address for image
-	PublicIp *string `json:"publicIp,omitempty"`
+	PublicIp NullableString `json:"publicIp,omitempty"`
 	// Shows private ip address for image
-	PrivateIp *string `json:"privateIp,omitempty"`
+	PrivateIp NullableString `json:"privateIp,omitempty"`
 	// Shows if image is currently domain joined and to which domain
-	DomainName *string `json:"domainName,omitempty"`
+	DomainName NullableString `json:"domainName,omitempty"`
 	// Indicates if the image is using a server based OS
 	IsServerOs *bool `json:"isServerOs,omitempty"`
 	// Shows version of image Virtual Desktop Agent
-	VdaVersion *string `json:"vdaVersion,omitempty"`
+	VdaVersion NullableString `json:"vdaVersion,omitempty"`
 	// Status message enum related to verifying and enumerating the image
-	StatusMessageId *string `json:"statusMessageId,omitempty"`
+	StatusMessageId NullableString `json:"statusMessageId,omitempty"`
 	// Status message related to verifying and enumerating the image
-	Status *string `json:"status,omitempty"`
+	Status NullableString `json:"status,omitempty"`
 	// The string to displayed in UI for extra information
-	ExtraInfo *string `json:"extraInfo,omitempty"`
+	ExtraInfo NullableString `json:"extraInfo,omitempty"`
 	// Customer notes about template image
-	Notes *string `json:"notes,omitempty"`
+	Notes NullableString `json:"notes,omitempty"`
 	// ID of the transaction that the image was verified on
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionId NullableString `json:"transactionId,omitempty"`
 	// Id of the Subscription where the image is stored (BYOA)
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionId NullableString `json:"subscriptionId,omitempty"`
 	// Name of the Subscription that catalog VMs will be deployed to
 	SubscriptionName string `json:"subscriptionName"`
 	// Name of the Azure Resource Group where the image is stored
-	ResourceGroup *string `json:"resourceGroup,omitempty"`
+	ResourceGroup NullableString `json:"resourceGroup,omitempty"`
 	// Name of the Storage Account where the image is stored
-	StorageAccount *string `json:"storageAccount,omitempty"`
+	StorageAccount NullableString `json:"storageAccount,omitempty"`
 	// Azure region where VMs are deployed for this catalog
 	Region string `json:"region"`
 	// Name of the Domain the Image Builder will join
-	BuilderDomainName *string `json:"builderDomainName,omitempty"`
+	BuilderDomainName NullableString `json:"builderDomainName,omitempty"`
 	// ID of the on-prem connection associated with the builder image
-	BuilderConnectionId *string `json:"builderConnectionId,omitempty"`
+	BuilderConnectionId NullableString `json:"builderConnectionId,omitempty"`
 	// Name of VM that is being used by the builder image
-	BuilderVmName *string `json:"builderVmName,omitempty"`
+	BuilderVmName NullableString `json:"builderVmName,omitempty"`
 	// Type of VM that is being used by the builder image
-	BuilderVmType *string `json:"builderVmType,omitempty"`
+	BuilderVmType NullableString `json:"builderVmType,omitempty"`
 	// Size of disk of VM that is being used by the builder image
-	BuilderVmDiskSize *string `json:"builderVmDiskSize,omitempty"`
+	BuilderVmDiskSize NullableString `json:"builderVmDiskSize,omitempty"`
 	// Ip Addresses allowed to RDP
 	BuilderAllowedIPs []string `json:"builderAllowedIPs,omitempty"`
 	// The HyperVGeneration that should be set to either V1 or V2
-	HyperVGen *string `json:"hyperVGen,omitempty"`
+	HyperVGen NullableString `json:"hyperVGen,omitempty"`
 	// Is TrustedLaunch VTPM supported in V2 gen
 	VtpmEnabled *bool `json:"vtpmEnabled,omitempty"`
 	// Is TrustedLaunch SecureBoot supported in V2 gen
@@ -95,33 +99,37 @@ type TemplateImageOverview struct {
 	// Whether the image was prepared by Citrix, or provided by the customer
 	CitrixPrepared bool `json:"citrixPrepared"`
 	// Indicates that partner-tenant relationship exists if not null
-	CspCustomer *string `json:"cspCustomer,omitempty"`
+	CspCustomer NullableString `json:"cspCustomer,omitempty"`
 	// Indicates if the image is using customer managed encryption keys
 	IsCmekEnabled *bool `json:"isCmekEnabled,omitempty"`
 	// Indicates if customer managed encryption key Id
-	CmekId *string `json:"cmekId,omitempty"`
+	CmekId NullableString `json:"cmekId,omitempty"`
+	// Indicates if customer managed encryption key name
+	CmekName NullableString `json:"cmekName,omitempty"`
 	// Indicates if the image is deprecated and should not be used in new catalogs
 	IsDeprecated *bool `json:"isDeprecated,omitempty"`
 	// Indicates if the image is built or imported with BYOA
-	IsByoaImage *bool `json:"isByoaImage,omitempty"`
+	IsByoaImage NullableBool `json:"isByoaImage,omitempty"`
 	// Number of catalogs that are using this image
 	LinkedCatalogs *int32 `json:"linkedCatalogs,omitempty"`
 	// Names of catalogs that are using this image
 	LinkedCatalogsNames []string `json:"linkedCatalogsNames,omitempty"`
 	// Created from datastore.
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
+	CreatedDate NullableTime `json:"createdDate,omitempty"`
 	// Image builder finalized date.
-	FinalizedDate *time.Time `json:"finalizedDate,omitempty"`
+	FinalizedDate NullableTime `json:"finalizedDate,omitempty"`
 	// Customer image path in Azure
-	Path *string `json:"path,omitempty"`
+	Path NullableString `json:"path,omitempty"`
 	// Shows version of sbsession
-	SbSessionVdaVersion *string `json:"sbSessionVdaVersion,omitempty"`
+	SbSessionVdaVersion NullableString `json:"sbSessionVdaVersion,omitempty"`
 	// Indicates if the image is for Secure Browser
-	IsSecureBrowserImage *bool `json:"isSecureBrowserImage,omitempty"`
+	IsSecureBrowserImage NullableBool `json:"isSecureBrowserImage,omitempty"`
+	// The size of the disk in GB
+	DiskSizeInGB NullableInt32 `json:"diskSizeInGB,omitempty"`
 	// The datetime when the job started
-	StartedAt *time.Time `json:"startedAt,omitempty"`
+	StartedAt NullableTime `json:"startedAt,omitempty"`
 	// Estimated total time for the job to finish
-	EstimatedTimeInMinute *int32 `json:"estimatedTimeInMinute,omitempty"`
+	EstimatedTimeInMinute NullableInt32 `json:"estimatedTimeInMinute,omitempty"`
 }
 
 // NewTemplateImageOverviewWithDefaults instantiates a new TemplateImageOverview object
@@ -228,257 +236,446 @@ func (o *TemplateImageOverview) SetState(v TemplateImageState) {
 	o.State = v
 }
 
-// GetSubState returns the SubState field value if set, zero value otherwise.
+// GetSubState returns the SubState field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetSubState() TemplateImageSubState {
-	if o == nil || IsNil(o.SubState) {
+	if o == nil || IsNil(o.SubState.Get()) {
 		var ret TemplateImageSubState
 		return ret
 	}
-	return *o.SubState
+	return *o.SubState.Get()
 }
 
 // GetSubStateOk returns a tuple with the SubState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetSubStateOk() (*TemplateImageSubState, bool) {
-	if o == nil || IsNil(o.SubState) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubState, true
+	return o.SubState.Get(), o.SubState.IsSet()
 }
 
-// SetSubState gets a reference to the given TemplateImageSubState and assigns it to the SubState field.
+// SetSubState gets a reference to the given NullableTemplateImageSubState and assigns it to the SubState field.
 func (o *TemplateImageOverview) SetSubState(v TemplateImageSubState) {
-	o.SubState = &v
+	o.SubState.Set(&v)
 }
 
-// GetOsPlatform returns the OsPlatform field value if set, zero value otherwise.
+// SetSubStateNil sets the value for SubState to be an explicit nil
+func (o *TemplateImageOverview) SetSubStateNil() {
+	o.SubState.Set(nil)
+}
+
+// UnsetSubState ensures that no value is present for SubState, not even an explicit nil
+func (o *TemplateImageOverview) UnsetSubState() {
+	o.SubState.Unset()
+}
+
+// GetOsPlatform returns the OsPlatform field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetOsPlatform() SupportedOperatingSystemType {
-	if o == nil || IsNil(o.OsPlatform) {
+	if o == nil || IsNil(o.OsPlatform.Get()) {
 		var ret SupportedOperatingSystemType
 		return ret
 	}
-	return *o.OsPlatform
+	return *o.OsPlatform.Get()
 }
 
 // GetOsPlatformOk returns a tuple with the OsPlatform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetOsPlatformOk() (*SupportedOperatingSystemType, bool) {
-	if o == nil || IsNil(o.OsPlatform) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OsPlatform, true
+	return o.OsPlatform.Get(), o.OsPlatform.IsSet()
 }
 
-// SetOsPlatform gets a reference to the given SupportedOperatingSystemType and assigns it to the OsPlatform field.
+// SetOsPlatform gets a reference to the given NullableSupportedOperatingSystemType and assigns it to the OsPlatform field.
 func (o *TemplateImageOverview) SetOsPlatform(v SupportedOperatingSystemType) {
-	o.OsPlatform = &v
+	o.OsPlatform.Set(&v)
 }
 
-// GetOsName returns the OsName field value if set, zero value otherwise.
+// SetOsPlatformNil sets the value for OsPlatform to be an explicit nil
+func (o *TemplateImageOverview) SetOsPlatformNil() {
+	o.OsPlatform.Set(nil)
+}
+
+// UnsetOsPlatform ensures that no value is present for OsPlatform, not even an explicit nil
+func (o *TemplateImageOverview) UnsetOsPlatform() {
+	o.OsPlatform.Unset()
+}
+
+// GetOsName returns the OsName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetOsName() string {
-	if o == nil || IsNil(o.OsName) {
+	if o == nil || IsNil(o.OsName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OsName
+	return *o.OsName.Get()
 }
 
 // GetOsNameOk returns a tuple with the OsName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetOsNameOk() (*string, bool) {
-	if o == nil || IsNil(o.OsName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OsName, true
+	return o.OsName.Get(), o.OsName.IsSet()
 }
 
-// SetOsName gets a reference to the given string and assigns it to the OsName field.
+// SetOsName gets a reference to the given NullableString and assigns it to the OsName field.
 func (o *TemplateImageOverview) SetOsName(v string) {
-	o.OsName = &v
+	o.OsName.Set(&v)
 }
 
-// GetOsVersion returns the OsVersion field value if set, zero value otherwise.
+// SetOsNameNil sets the value for OsName to be an explicit nil
+func (o *TemplateImageOverview) SetOsNameNil() {
+	o.OsName.Set(nil)
+}
+
+// UnsetOsName ensures that no value is present for OsName, not even an explicit nil
+func (o *TemplateImageOverview) UnsetOsName() {
+	o.OsName.Unset()
+}
+
+// GetOsVersion returns the OsVersion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetOsVersion() string {
-	if o == nil || IsNil(o.OsVersion) {
+	if o == nil || IsNil(o.OsVersion.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OsVersion
+	return *o.OsVersion.Get()
 }
 
 // GetOsVersionOk returns a tuple with the OsVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetOsVersionOk() (*string, bool) {
-	if o == nil || IsNil(o.OsVersion) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OsVersion, true
+	return o.OsVersion.Get(), o.OsVersion.IsSet()
 }
 
-// SetOsVersion gets a reference to the given string and assigns it to the OsVersion field.
+// SetOsVersion gets a reference to the given NullableString and assigns it to the OsVersion field.
 func (o *TemplateImageOverview) SetOsVersion(v string) {
-	o.OsVersion = &v
+	o.OsVersion.Set(&v)
 }
 
-// GetLinuxDomainSupport returns the LinuxDomainSupport field value if set, zero value otherwise.
+// SetOsVersionNil sets the value for OsVersion to be an explicit nil
+func (o *TemplateImageOverview) SetOsVersionNil() {
+	o.OsVersion.Set(nil)
+}
+
+// UnsetOsVersion ensures that no value is present for OsVersion, not even an explicit nil
+func (o *TemplateImageOverview) UnsetOsVersion() {
+	o.OsVersion.Unset()
+}
+
+// GetLinuxDomainSupport returns the LinuxDomainSupport field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetLinuxDomainSupport() string {
-	if o == nil || IsNil(o.LinuxDomainSupport) {
+	if o == nil || IsNil(o.LinuxDomainSupport.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LinuxDomainSupport
+	return *o.LinuxDomainSupport.Get()
 }
 
 // GetLinuxDomainSupportOk returns a tuple with the LinuxDomainSupport field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetLinuxDomainSupportOk() (*string, bool) {
-	if o == nil || IsNil(o.LinuxDomainSupport) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LinuxDomainSupport, true
+	return o.LinuxDomainSupport.Get(), o.LinuxDomainSupport.IsSet()
 }
 
-// SetLinuxDomainSupport gets a reference to the given string and assigns it to the LinuxDomainSupport field.
+// SetLinuxDomainSupport gets a reference to the given NullableString and assigns it to the LinuxDomainSupport field.
 func (o *TemplateImageOverview) SetLinuxDomainSupport(v string) {
-	o.LinuxDomainSupport = &v
+	o.LinuxDomainSupport.Set(&v)
 }
 
-// GetLinuxRdpSupport returns the LinuxRdpSupport field value if set, zero value otherwise.
+// SetLinuxDomainSupportNil sets the value for LinuxDomainSupport to be an explicit nil
+func (o *TemplateImageOverview) SetLinuxDomainSupportNil() {
+	o.LinuxDomainSupport.Set(nil)
+}
+
+// UnsetLinuxDomainSupport ensures that no value is present for LinuxDomainSupport, not even an explicit nil
+func (o *TemplateImageOverview) UnsetLinuxDomainSupport() {
+	o.LinuxDomainSupport.Unset()
+}
+
+// GetLinuxRdpSupport returns the LinuxRdpSupport field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetLinuxRdpSupport() bool {
-	if o == nil || IsNil(o.LinuxRdpSupport) {
+	if o == nil || IsNil(o.LinuxRdpSupport.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.LinuxRdpSupport
+	return *o.LinuxRdpSupport.Get()
 }
 
 // GetLinuxRdpSupportOk returns a tuple with the LinuxRdpSupport field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetLinuxRdpSupportOk() (*bool, bool) {
-	if o == nil || IsNil(o.LinuxRdpSupport) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LinuxRdpSupport, true
+	return o.LinuxRdpSupport.Get(), o.LinuxRdpSupport.IsSet()
 }
 
-// SetLinuxRdpSupport gets a reference to the given bool and assigns it to the LinuxRdpSupport field.
+// SetLinuxRdpSupport gets a reference to the given NullableBool and assigns it to the LinuxRdpSupport field.
 func (o *TemplateImageOverview) SetLinuxRdpSupport(v bool) {
-	o.LinuxRdpSupport = &v
+	o.LinuxRdpSupport.Set(&v)
 }
 
-// GetMcsioSupport returns the McsioSupport field value if set, zero value otherwise.
+// SetLinuxRdpSupportNil sets the value for LinuxRdpSupport to be an explicit nil
+func (o *TemplateImageOverview) SetLinuxRdpSupportNil() {
+	o.LinuxRdpSupport.Set(nil)
+}
+
+// UnsetLinuxRdpSupport ensures that no value is present for LinuxRdpSupport, not even an explicit nil
+func (o *TemplateImageOverview) UnsetLinuxRdpSupport() {
+	o.LinuxRdpSupport.Unset()
+}
+
+// GetMcsioSupport returns the McsioSupport field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetMcsioSupport() bool {
-	if o == nil || IsNil(o.McsioSupport) {
+	if o == nil || IsNil(o.McsioSupport.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.McsioSupport
+	return *o.McsioSupport.Get()
 }
 
 // GetMcsioSupportOk returns a tuple with the McsioSupport field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetMcsioSupportOk() (*bool, bool) {
-	if o == nil || IsNil(o.McsioSupport) {
+	if o == nil {
 		return nil, false
 	}
-	return o.McsioSupport, true
+	return o.McsioSupport.Get(), o.McsioSupport.IsSet()
 }
 
-// SetMcsioSupport gets a reference to the given bool and assigns it to the McsioSupport field.
+// SetMcsioSupport gets a reference to the given NullableBool and assigns it to the McsioSupport field.
 func (o *TemplateImageOverview) SetMcsioSupport(v bool) {
-	o.McsioSupport = &v
+	o.McsioSupport.Set(&v)
 }
 
-// GetVusSupport returns the VusSupport field value if set, zero value otherwise.
+// SetMcsioSupportNil sets the value for McsioSupport to be an explicit nil
+func (o *TemplateImageOverview) SetMcsioSupportNil() {
+	o.McsioSupport.Set(nil)
+}
+
+// UnsetMcsioSupport ensures that no value is present for McsioSupport, not even an explicit nil
+func (o *TemplateImageOverview) UnsetMcsioSupport() {
+	o.McsioSupport.Unset()
+}
+
+// GetVusSupport returns the VusSupport field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetVusSupport() bool {
-	if o == nil || IsNil(o.VusSupport) {
+	if o == nil || IsNil(o.VusSupport.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.VusSupport
+	return *o.VusSupport.Get()
 }
 
 // GetVusSupportOk returns a tuple with the VusSupport field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetVusSupportOk() (*bool, bool) {
-	if o == nil || IsNil(o.VusSupport) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VusSupport, true
+	return o.VusSupport.Get(), o.VusSupport.IsSet()
 }
 
-// SetVusSupport gets a reference to the given bool and assigns it to the VusSupport field.
+// SetVusSupport gets a reference to the given NullableBool and assigns it to the VusSupport field.
 func (o *TemplateImageOverview) SetVusSupport(v bool) {
-	o.VusSupport = &v
+	o.VusSupport.Set(&v)
 }
 
-// GetPublicIp returns the PublicIp field value if set, zero value otherwise.
-func (o *TemplateImageOverview) GetPublicIp() string {
-	if o == nil || IsNil(o.PublicIp) {
+// SetVusSupportNil sets the value for VusSupport to be an explicit nil
+func (o *TemplateImageOverview) SetVusSupportNil() {
+	o.VusSupport.Set(nil)
+}
+
+// UnsetVusSupport ensures that no value is present for VusSupport, not even an explicit nil
+func (o *TemplateImageOverview) UnsetVusSupport() {
+	o.VusSupport.Unset()
+}
+
+// GetSccmAgentSupport returns the SccmAgentSupport field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TemplateImageOverview) GetSccmAgentSupport() bool {
+	if o == nil || IsNil(o.SccmAgentSupport.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.SccmAgentSupport.Get()
+}
+
+// GetSccmAgentSupportOk returns a tuple with the SccmAgentSupport field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TemplateImageOverview) GetSccmAgentSupportOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SccmAgentSupport.Get(), o.SccmAgentSupport.IsSet()
+}
+
+// SetSccmAgentSupport gets a reference to the given NullableBool and assigns it to the SccmAgentSupport field.
+func (o *TemplateImageOverview) SetSccmAgentSupport(v bool) {
+	o.SccmAgentSupport.Set(&v)
+}
+
+// SetSccmAgentSupportNil sets the value for SccmAgentSupport to be an explicit nil
+func (o *TemplateImageOverview) SetSccmAgentSupportNil() {
+	o.SccmAgentSupport.Set(nil)
+}
+
+// UnsetSccmAgentSupport ensures that no value is present for SccmAgentSupport, not even an explicit nil
+func (o *TemplateImageOverview) UnsetSccmAgentSupport() {
+	o.SccmAgentSupport.Unset()
+}
+
+// GetSccmAgentVersion returns the SccmAgentVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TemplateImageOverview) GetSccmAgentVersion() string {
+	if o == nil || IsNil(o.SccmAgentVersion.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PublicIp
+	return *o.SccmAgentVersion.Get()
+}
+
+// GetSccmAgentVersionOk returns a tuple with the SccmAgentVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TemplateImageOverview) GetSccmAgentVersionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SccmAgentVersion.Get(), o.SccmAgentVersion.IsSet()
+}
+
+// SetSccmAgentVersion gets a reference to the given NullableString and assigns it to the SccmAgentVersion field.
+func (o *TemplateImageOverview) SetSccmAgentVersion(v string) {
+	o.SccmAgentVersion.Set(&v)
+}
+
+// SetSccmAgentVersionNil sets the value for SccmAgentVersion to be an explicit nil
+func (o *TemplateImageOverview) SetSccmAgentVersionNil() {
+	o.SccmAgentVersion.Set(nil)
+}
+
+// UnsetSccmAgentVersion ensures that no value is present for SccmAgentVersion, not even an explicit nil
+func (o *TemplateImageOverview) UnsetSccmAgentVersion() {
+	o.SccmAgentVersion.Unset()
+}
+
+// GetPublicIp returns the PublicIp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TemplateImageOverview) GetPublicIp() string {
+	if o == nil || IsNil(o.PublicIp.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.PublicIp.Get()
 }
 
 // GetPublicIpOk returns a tuple with the PublicIp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetPublicIpOk() (*string, bool) {
-	if o == nil || IsNil(o.PublicIp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PublicIp, true
+	return o.PublicIp.Get(), o.PublicIp.IsSet()
 }
 
-// SetPublicIp gets a reference to the given string and assigns it to the PublicIp field.
+// SetPublicIp gets a reference to the given NullableString and assigns it to the PublicIp field.
 func (o *TemplateImageOverview) SetPublicIp(v string) {
-	o.PublicIp = &v
+	o.PublicIp.Set(&v)
 }
 
-// GetPrivateIp returns the PrivateIp field value if set, zero value otherwise.
+// SetPublicIpNil sets the value for PublicIp to be an explicit nil
+func (o *TemplateImageOverview) SetPublicIpNil() {
+	o.PublicIp.Set(nil)
+}
+
+// UnsetPublicIp ensures that no value is present for PublicIp, not even an explicit nil
+func (o *TemplateImageOverview) UnsetPublicIp() {
+	o.PublicIp.Unset()
+}
+
+// GetPrivateIp returns the PrivateIp field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetPrivateIp() string {
-	if o == nil || IsNil(o.PrivateIp) {
+	if o == nil || IsNil(o.PrivateIp.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PrivateIp
+	return *o.PrivateIp.Get()
 }
 
 // GetPrivateIpOk returns a tuple with the PrivateIp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetPrivateIpOk() (*string, bool) {
-	if o == nil || IsNil(o.PrivateIp) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PrivateIp, true
+	return o.PrivateIp.Get(), o.PrivateIp.IsSet()
 }
 
-// SetPrivateIp gets a reference to the given string and assigns it to the PrivateIp field.
+// SetPrivateIp gets a reference to the given NullableString and assigns it to the PrivateIp field.
 func (o *TemplateImageOverview) SetPrivateIp(v string) {
-	o.PrivateIp = &v
+	o.PrivateIp.Set(&v)
 }
 
-// GetDomainName returns the DomainName field value if set, zero value otherwise.
+// SetPrivateIpNil sets the value for PrivateIp to be an explicit nil
+func (o *TemplateImageOverview) SetPrivateIpNil() {
+	o.PrivateIp.Set(nil)
+}
+
+// UnsetPrivateIp ensures that no value is present for PrivateIp, not even an explicit nil
+func (o *TemplateImageOverview) UnsetPrivateIp() {
+	o.PrivateIp.Unset()
+}
+
+// GetDomainName returns the DomainName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetDomainName() string {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil || IsNil(o.DomainName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DomainName
+	return *o.DomainName.Get()
 }
 
 // GetDomainNameOk returns a tuple with the DomainName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetDomainNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainName, true
+	return o.DomainName.Get(), o.DomainName.IsSet()
 }
 
-// SetDomainName gets a reference to the given string and assigns it to the DomainName field.
+// SetDomainName gets a reference to the given NullableString and assigns it to the DomainName field.
 func (o *TemplateImageOverview) SetDomainName(v string) {
-	o.DomainName = &v
+	o.DomainName.Set(&v)
+}
+
+// SetDomainNameNil sets the value for DomainName to be an explicit nil
+func (o *TemplateImageOverview) SetDomainNameNil() {
+	o.DomainName.Set(nil)
+}
+
+// UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
+func (o *TemplateImageOverview) UnsetDomainName() {
+	o.DomainName.Unset()
 }
 
 // GetIsServerOs returns the IsServerOs field value if set, zero value otherwise.
@@ -504,165 +701,242 @@ func (o *TemplateImageOverview) SetIsServerOs(v bool) {
 	o.IsServerOs = &v
 }
 
-// GetVdaVersion returns the VdaVersion field value if set, zero value otherwise.
+// GetVdaVersion returns the VdaVersion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetVdaVersion() string {
-	if o == nil || IsNil(o.VdaVersion) {
+	if o == nil || IsNil(o.VdaVersion.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VdaVersion
+	return *o.VdaVersion.Get()
 }
 
 // GetVdaVersionOk returns a tuple with the VdaVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetVdaVersionOk() (*string, bool) {
-	if o == nil || IsNil(o.VdaVersion) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VdaVersion, true
+	return o.VdaVersion.Get(), o.VdaVersion.IsSet()
 }
 
-// SetVdaVersion gets a reference to the given string and assigns it to the VdaVersion field.
+// SetVdaVersion gets a reference to the given NullableString and assigns it to the VdaVersion field.
 func (o *TemplateImageOverview) SetVdaVersion(v string) {
-	o.VdaVersion = &v
+	o.VdaVersion.Set(&v)
 }
 
-// GetStatusMessageId returns the StatusMessageId field value if set, zero value otherwise.
+// SetVdaVersionNil sets the value for VdaVersion to be an explicit nil
+func (o *TemplateImageOverview) SetVdaVersionNil() {
+	o.VdaVersion.Set(nil)
+}
+
+// UnsetVdaVersion ensures that no value is present for VdaVersion, not even an explicit nil
+func (o *TemplateImageOverview) UnsetVdaVersion() {
+	o.VdaVersion.Unset()
+}
+
+// GetStatusMessageId returns the StatusMessageId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetStatusMessageId() string {
-	if o == nil || IsNil(o.StatusMessageId) {
+	if o == nil || IsNil(o.StatusMessageId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.StatusMessageId
+	return *o.StatusMessageId.Get()
 }
 
 // GetStatusMessageIdOk returns a tuple with the StatusMessageId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetStatusMessageIdOk() (*string, bool) {
-	if o == nil || IsNil(o.StatusMessageId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StatusMessageId, true
+	return o.StatusMessageId.Get(), o.StatusMessageId.IsSet()
 }
 
-// SetStatusMessageId gets a reference to the given string and assigns it to the StatusMessageId field.
+// SetStatusMessageId gets a reference to the given NullableString and assigns it to the StatusMessageId field.
 func (o *TemplateImageOverview) SetStatusMessageId(v string) {
-	o.StatusMessageId = &v
+	o.StatusMessageId.Set(&v)
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// SetStatusMessageIdNil sets the value for StatusMessageId to be an explicit nil
+func (o *TemplateImageOverview) SetStatusMessageIdNil() {
+	o.StatusMessageId.Set(nil)
+}
+
+// UnsetStatusMessageId ensures that no value is present for StatusMessageId, not even an explicit nil
+func (o *TemplateImageOverview) UnsetStatusMessageId() {
+	o.StatusMessageId.Unset()
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetStatus() string {
-	if o == nil || IsNil(o.Status) {
+	if o == nil || IsNil(o.Status.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
-// SetStatus gets a reference to the given string and assigns it to the Status field.
+// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
 func (o *TemplateImageOverview) SetStatus(v string) {
-	o.Status = &v
+	o.Status.Set(&v)
 }
 
-// GetExtraInfo returns the ExtraInfo field value if set, zero value otherwise.
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *TemplateImageOverview) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *TemplateImageOverview) UnsetStatus() {
+	o.Status.Unset()
+}
+
+// GetExtraInfo returns the ExtraInfo field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetExtraInfo() string {
-	if o == nil || IsNil(o.ExtraInfo) {
+	if o == nil || IsNil(o.ExtraInfo.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ExtraInfo
+	return *o.ExtraInfo.Get()
 }
 
 // GetExtraInfoOk returns a tuple with the ExtraInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetExtraInfoOk() (*string, bool) {
-	if o == nil || IsNil(o.ExtraInfo) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ExtraInfo, true
+	return o.ExtraInfo.Get(), o.ExtraInfo.IsSet()
 }
 
-// SetExtraInfo gets a reference to the given string and assigns it to the ExtraInfo field.
+// SetExtraInfo gets a reference to the given NullableString and assigns it to the ExtraInfo field.
 func (o *TemplateImageOverview) SetExtraInfo(v string) {
-	o.ExtraInfo = &v
+	o.ExtraInfo.Set(&v)
 }
 
-// GetNotes returns the Notes field value if set, zero value otherwise.
+// SetExtraInfoNil sets the value for ExtraInfo to be an explicit nil
+func (o *TemplateImageOverview) SetExtraInfoNil() {
+	o.ExtraInfo.Set(nil)
+}
+
+// UnsetExtraInfo ensures that no value is present for ExtraInfo, not even an explicit nil
+func (o *TemplateImageOverview) UnsetExtraInfo() {
+	o.ExtraInfo.Unset()
+}
+
+// GetNotes returns the Notes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetNotes() string {
-	if o == nil || IsNil(o.Notes) {
+	if o == nil || IsNil(o.Notes.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Notes
+	return *o.Notes.Get()
 }
 
 // GetNotesOk returns a tuple with the Notes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetNotesOk() (*string, bool) {
-	if o == nil || IsNil(o.Notes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Notes, true
+	return o.Notes.Get(), o.Notes.IsSet()
 }
 
-// SetNotes gets a reference to the given string and assigns it to the Notes field.
+// SetNotes gets a reference to the given NullableString and assigns it to the Notes field.
 func (o *TemplateImageOverview) SetNotes(v string) {
-	o.Notes = &v
+	o.Notes.Set(&v)
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// SetNotesNil sets the value for Notes to be an explicit nil
+func (o *TemplateImageOverview) SetNotesNil() {
+	o.Notes.Set(nil)
+}
+
+// UnsetNotes ensures that no value is present for Notes, not even an explicit nil
+func (o *TemplateImageOverview) UnsetNotes() {
+	o.Notes.Unset()
+}
+
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *TemplateImageOverview) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *TemplateImageOverview) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *TemplateImageOverview) UnsetTransactionId() {
+	o.TransactionId.Unset()
+}
+
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *TemplateImageOverview) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
+}
+
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *TemplateImageOverview) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *TemplateImageOverview) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
 }
 
 // GetSubscriptionName returns the SubscriptionName field value
@@ -689,50 +963,72 @@ func (o *TemplateImageOverview) SetSubscriptionName(v string) {
 	o.SubscriptionName = v
 }
 
-// GetResourceGroup returns the ResourceGroup field value if set, zero value otherwise.
+// GetResourceGroup returns the ResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetResourceGroup() string {
-	if o == nil || IsNil(o.ResourceGroup) {
+	if o == nil || IsNil(o.ResourceGroup.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResourceGroup
+	return *o.ResourceGroup.Get()
 }
 
 // GetResourceGroupOk returns a tuple with the ResourceGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetResourceGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceGroup, true
+	return o.ResourceGroup.Get(), o.ResourceGroup.IsSet()
 }
 
-// SetResourceGroup gets a reference to the given string and assigns it to the ResourceGroup field.
+// SetResourceGroup gets a reference to the given NullableString and assigns it to the ResourceGroup field.
 func (o *TemplateImageOverview) SetResourceGroup(v string) {
-	o.ResourceGroup = &v
+	o.ResourceGroup.Set(&v)
 }
 
-// GetStorageAccount returns the StorageAccount field value if set, zero value otherwise.
+// SetResourceGroupNil sets the value for ResourceGroup to be an explicit nil
+func (o *TemplateImageOverview) SetResourceGroupNil() {
+	o.ResourceGroup.Set(nil)
+}
+
+// UnsetResourceGroup ensures that no value is present for ResourceGroup, not even an explicit nil
+func (o *TemplateImageOverview) UnsetResourceGroup() {
+	o.ResourceGroup.Unset()
+}
+
+// GetStorageAccount returns the StorageAccount field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetStorageAccount() string {
-	if o == nil || IsNil(o.StorageAccount) {
+	if o == nil || IsNil(o.StorageAccount.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.StorageAccount
+	return *o.StorageAccount.Get()
 }
 
 // GetStorageAccountOk returns a tuple with the StorageAccount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetStorageAccountOk() (*string, bool) {
-	if o == nil || IsNil(o.StorageAccount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StorageAccount, true
+	return o.StorageAccount.Get(), o.StorageAccount.IsSet()
 }
 
-// SetStorageAccount gets a reference to the given string and assigns it to the StorageAccount field.
+// SetStorageAccount gets a reference to the given NullableString and assigns it to the StorageAccount field.
 func (o *TemplateImageOverview) SetStorageAccount(v string) {
-	o.StorageAccount = &v
+	o.StorageAccount.Set(&v)
+}
+
+// SetStorageAccountNil sets the value for StorageAccount to be an explicit nil
+func (o *TemplateImageOverview) SetStorageAccountNil() {
+	o.StorageAccount.Set(nil)
+}
+
+// UnsetStorageAccount ensures that no value is present for StorageAccount, not even an explicit nil
+func (o *TemplateImageOverview) UnsetStorageAccount() {
+	o.StorageAccount.Unset()
 }
 
 // GetRegion returns the Region field value
@@ -759,124 +1055,179 @@ func (o *TemplateImageOverview) SetRegion(v string) {
 	o.Region = v
 }
 
-// GetBuilderDomainName returns the BuilderDomainName field value if set, zero value otherwise.
+// GetBuilderDomainName returns the BuilderDomainName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetBuilderDomainName() string {
-	if o == nil || IsNil(o.BuilderDomainName) {
+	if o == nil || IsNil(o.BuilderDomainName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BuilderDomainName
+	return *o.BuilderDomainName.Get()
 }
 
 // GetBuilderDomainNameOk returns a tuple with the BuilderDomainName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetBuilderDomainNameOk() (*string, bool) {
-	if o == nil || IsNil(o.BuilderDomainName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BuilderDomainName, true
+	return o.BuilderDomainName.Get(), o.BuilderDomainName.IsSet()
 }
 
-// SetBuilderDomainName gets a reference to the given string and assigns it to the BuilderDomainName field.
+// SetBuilderDomainName gets a reference to the given NullableString and assigns it to the BuilderDomainName field.
 func (o *TemplateImageOverview) SetBuilderDomainName(v string) {
-	o.BuilderDomainName = &v
+	o.BuilderDomainName.Set(&v)
 }
 
-// GetBuilderConnectionId returns the BuilderConnectionId field value if set, zero value otherwise.
+// SetBuilderDomainNameNil sets the value for BuilderDomainName to be an explicit nil
+func (o *TemplateImageOverview) SetBuilderDomainNameNil() {
+	o.BuilderDomainName.Set(nil)
+}
+
+// UnsetBuilderDomainName ensures that no value is present for BuilderDomainName, not even an explicit nil
+func (o *TemplateImageOverview) UnsetBuilderDomainName() {
+	o.BuilderDomainName.Unset()
+}
+
+// GetBuilderConnectionId returns the BuilderConnectionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetBuilderConnectionId() string {
-	if o == nil || IsNil(o.BuilderConnectionId) {
+	if o == nil || IsNil(o.BuilderConnectionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BuilderConnectionId
+	return *o.BuilderConnectionId.Get()
 }
 
 // GetBuilderConnectionIdOk returns a tuple with the BuilderConnectionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetBuilderConnectionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.BuilderConnectionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BuilderConnectionId, true
+	return o.BuilderConnectionId.Get(), o.BuilderConnectionId.IsSet()
 }
 
-// SetBuilderConnectionId gets a reference to the given string and assigns it to the BuilderConnectionId field.
+// SetBuilderConnectionId gets a reference to the given NullableString and assigns it to the BuilderConnectionId field.
 func (o *TemplateImageOverview) SetBuilderConnectionId(v string) {
-	o.BuilderConnectionId = &v
+	o.BuilderConnectionId.Set(&v)
 }
 
-// GetBuilderVmName returns the BuilderVmName field value if set, zero value otherwise.
+// SetBuilderConnectionIdNil sets the value for BuilderConnectionId to be an explicit nil
+func (o *TemplateImageOverview) SetBuilderConnectionIdNil() {
+	o.BuilderConnectionId.Set(nil)
+}
+
+// UnsetBuilderConnectionId ensures that no value is present for BuilderConnectionId, not even an explicit nil
+func (o *TemplateImageOverview) UnsetBuilderConnectionId() {
+	o.BuilderConnectionId.Unset()
+}
+
+// GetBuilderVmName returns the BuilderVmName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetBuilderVmName() string {
-	if o == nil || IsNil(o.BuilderVmName) {
+	if o == nil || IsNil(o.BuilderVmName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BuilderVmName
+	return *o.BuilderVmName.Get()
 }
 
 // GetBuilderVmNameOk returns a tuple with the BuilderVmName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetBuilderVmNameOk() (*string, bool) {
-	if o == nil || IsNil(o.BuilderVmName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BuilderVmName, true
+	return o.BuilderVmName.Get(), o.BuilderVmName.IsSet()
 }
 
-// SetBuilderVmName gets a reference to the given string and assigns it to the BuilderVmName field.
+// SetBuilderVmName gets a reference to the given NullableString and assigns it to the BuilderVmName field.
 func (o *TemplateImageOverview) SetBuilderVmName(v string) {
-	o.BuilderVmName = &v
+	o.BuilderVmName.Set(&v)
 }
 
-// GetBuilderVmType returns the BuilderVmType field value if set, zero value otherwise.
+// SetBuilderVmNameNil sets the value for BuilderVmName to be an explicit nil
+func (o *TemplateImageOverview) SetBuilderVmNameNil() {
+	o.BuilderVmName.Set(nil)
+}
+
+// UnsetBuilderVmName ensures that no value is present for BuilderVmName, not even an explicit nil
+func (o *TemplateImageOverview) UnsetBuilderVmName() {
+	o.BuilderVmName.Unset()
+}
+
+// GetBuilderVmType returns the BuilderVmType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetBuilderVmType() string {
-	if o == nil || IsNil(o.BuilderVmType) {
+	if o == nil || IsNil(o.BuilderVmType.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BuilderVmType
+	return *o.BuilderVmType.Get()
 }
 
 // GetBuilderVmTypeOk returns a tuple with the BuilderVmType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetBuilderVmTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.BuilderVmType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BuilderVmType, true
+	return o.BuilderVmType.Get(), o.BuilderVmType.IsSet()
 }
 
-// SetBuilderVmType gets a reference to the given string and assigns it to the BuilderVmType field.
+// SetBuilderVmType gets a reference to the given NullableString and assigns it to the BuilderVmType field.
 func (o *TemplateImageOverview) SetBuilderVmType(v string) {
-	o.BuilderVmType = &v
+	o.BuilderVmType.Set(&v)
 }
 
-// GetBuilderVmDiskSize returns the BuilderVmDiskSize field value if set, zero value otherwise.
+// SetBuilderVmTypeNil sets the value for BuilderVmType to be an explicit nil
+func (o *TemplateImageOverview) SetBuilderVmTypeNil() {
+	o.BuilderVmType.Set(nil)
+}
+
+// UnsetBuilderVmType ensures that no value is present for BuilderVmType, not even an explicit nil
+func (o *TemplateImageOverview) UnsetBuilderVmType() {
+	o.BuilderVmType.Unset()
+}
+
+// GetBuilderVmDiskSize returns the BuilderVmDiskSize field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetBuilderVmDiskSize() string {
-	if o == nil || IsNil(o.BuilderVmDiskSize) {
+	if o == nil || IsNil(o.BuilderVmDiskSize.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BuilderVmDiskSize
+	return *o.BuilderVmDiskSize.Get()
 }
 
 // GetBuilderVmDiskSizeOk returns a tuple with the BuilderVmDiskSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetBuilderVmDiskSizeOk() (*string, bool) {
-	if o == nil || IsNil(o.BuilderVmDiskSize) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BuilderVmDiskSize, true
+	return o.BuilderVmDiskSize.Get(), o.BuilderVmDiskSize.IsSet()
 }
 
-// SetBuilderVmDiskSize gets a reference to the given string and assigns it to the BuilderVmDiskSize field.
+// SetBuilderVmDiskSize gets a reference to the given NullableString and assigns it to the BuilderVmDiskSize field.
 func (o *TemplateImageOverview) SetBuilderVmDiskSize(v string) {
-	o.BuilderVmDiskSize = &v
+	o.BuilderVmDiskSize.Set(&v)
 }
 
-// GetBuilderAllowedIPs returns the BuilderAllowedIPs field value if set, zero value otherwise.
+// SetBuilderVmDiskSizeNil sets the value for BuilderVmDiskSize to be an explicit nil
+func (o *TemplateImageOverview) SetBuilderVmDiskSizeNil() {
+	o.BuilderVmDiskSize.Set(nil)
+}
+
+// UnsetBuilderVmDiskSize ensures that no value is present for BuilderVmDiskSize, not even an explicit nil
+func (o *TemplateImageOverview) UnsetBuilderVmDiskSize() {
+	o.BuilderVmDiskSize.Unset()
+}
+
+// GetBuilderAllowedIPs returns the BuilderAllowedIPs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetBuilderAllowedIPs() []string {
-	if o == nil || IsNil(o.BuilderAllowedIPs) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -885,6 +1236,7 @@ func (o *TemplateImageOverview) GetBuilderAllowedIPs() []string {
 
 // GetBuilderAllowedIPsOk returns a tuple with the BuilderAllowedIPs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetBuilderAllowedIPsOk() ([]string, bool) {
 	if o == nil || IsNil(o.BuilderAllowedIPs) {
 		return nil, false
@@ -897,27 +1249,38 @@ func (o *TemplateImageOverview) SetBuilderAllowedIPs(v []string) {
 	o.BuilderAllowedIPs = v
 }
 
-// GetHyperVGen returns the HyperVGen field value if set, zero value otherwise.
+// GetHyperVGen returns the HyperVGen field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetHyperVGen() string {
-	if o == nil || IsNil(o.HyperVGen) {
+	if o == nil || IsNil(o.HyperVGen.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HyperVGen
+	return *o.HyperVGen.Get()
 }
 
 // GetHyperVGenOk returns a tuple with the HyperVGen field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetHyperVGenOk() (*string, bool) {
-	if o == nil || IsNil(o.HyperVGen) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HyperVGen, true
+	return o.HyperVGen.Get(), o.HyperVGen.IsSet()
 }
 
-// SetHyperVGen gets a reference to the given string and assigns it to the HyperVGen field.
+// SetHyperVGen gets a reference to the given NullableString and assigns it to the HyperVGen field.
 func (o *TemplateImageOverview) SetHyperVGen(v string) {
-	o.HyperVGen = &v
+	o.HyperVGen.Set(&v)
+}
+
+// SetHyperVGenNil sets the value for HyperVGen to be an explicit nil
+func (o *TemplateImageOverview) SetHyperVGenNil() {
+	o.HyperVGen.Set(nil)
+}
+
+// UnsetHyperVGen ensures that no value is present for HyperVGen, not even an explicit nil
+func (o *TemplateImageOverview) UnsetHyperVGen() {
+	o.HyperVGen.Unset()
 }
 
 // GetVtpmEnabled returns the VtpmEnabled field value if set, zero value otherwise.
@@ -990,27 +1353,38 @@ func (o *TemplateImageOverview) SetCitrixPrepared(v bool) {
 	o.CitrixPrepared = v
 }
 
-// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise.
+// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetCspCustomer() string {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil || IsNil(o.CspCustomer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomer
+	return *o.CspCustomer.Get()
 }
 
 // GetCspCustomerOk returns a tuple with the CspCustomer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetCspCustomerOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomer, true
+	return o.CspCustomer.Get(), o.CspCustomer.IsSet()
 }
 
-// SetCspCustomer gets a reference to the given string and assigns it to the CspCustomer field.
+// SetCspCustomer gets a reference to the given NullableString and assigns it to the CspCustomer field.
 func (o *TemplateImageOverview) SetCspCustomer(v string) {
-	o.CspCustomer = &v
+	o.CspCustomer.Set(&v)
+}
+
+// SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+func (o *TemplateImageOverview) SetCspCustomerNil() {
+	o.CspCustomer.Set(nil)
+}
+
+// UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
+func (o *TemplateImageOverview) UnsetCspCustomer() {
+	o.CspCustomer.Unset()
 }
 
 // GetIsCmekEnabled returns the IsCmekEnabled field value if set, zero value otherwise.
@@ -1036,27 +1410,72 @@ func (o *TemplateImageOverview) SetIsCmekEnabled(v bool) {
 	o.IsCmekEnabled = &v
 }
 
-// GetCmekId returns the CmekId field value if set, zero value otherwise.
+// GetCmekId returns the CmekId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetCmekId() string {
-	if o == nil || IsNil(o.CmekId) {
+	if o == nil || IsNil(o.CmekId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CmekId
+	return *o.CmekId.Get()
 }
 
 // GetCmekIdOk returns a tuple with the CmekId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetCmekIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CmekId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CmekId, true
+	return o.CmekId.Get(), o.CmekId.IsSet()
 }
 
-// SetCmekId gets a reference to the given string and assigns it to the CmekId field.
+// SetCmekId gets a reference to the given NullableString and assigns it to the CmekId field.
 func (o *TemplateImageOverview) SetCmekId(v string) {
-	o.CmekId = &v
+	o.CmekId.Set(&v)
+}
+
+// SetCmekIdNil sets the value for CmekId to be an explicit nil
+func (o *TemplateImageOverview) SetCmekIdNil() {
+	o.CmekId.Set(nil)
+}
+
+// UnsetCmekId ensures that no value is present for CmekId, not even an explicit nil
+func (o *TemplateImageOverview) UnsetCmekId() {
+	o.CmekId.Unset()
+}
+
+// GetCmekName returns the CmekName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TemplateImageOverview) GetCmekName() string {
+	if o == nil || IsNil(o.CmekName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.CmekName.Get()
+}
+
+// GetCmekNameOk returns a tuple with the CmekName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TemplateImageOverview) GetCmekNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CmekName.Get(), o.CmekName.IsSet()
+}
+
+// SetCmekName gets a reference to the given NullableString and assigns it to the CmekName field.
+func (o *TemplateImageOverview) SetCmekName(v string) {
+	o.CmekName.Set(&v)
+}
+
+// SetCmekNameNil sets the value for CmekName to be an explicit nil
+func (o *TemplateImageOverview) SetCmekNameNil() {
+	o.CmekName.Set(nil)
+}
+
+// UnsetCmekName ensures that no value is present for CmekName, not even an explicit nil
+func (o *TemplateImageOverview) UnsetCmekName() {
+	o.CmekName.Unset()
 }
 
 // GetIsDeprecated returns the IsDeprecated field value if set, zero value otherwise.
@@ -1082,27 +1501,38 @@ func (o *TemplateImageOverview) SetIsDeprecated(v bool) {
 	o.IsDeprecated = &v
 }
 
-// GetIsByoaImage returns the IsByoaImage field value if set, zero value otherwise.
+// GetIsByoaImage returns the IsByoaImage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetIsByoaImage() bool {
-	if o == nil || IsNil(o.IsByoaImage) {
+	if o == nil || IsNil(o.IsByoaImage.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.IsByoaImage
+	return *o.IsByoaImage.Get()
 }
 
 // GetIsByoaImageOk returns a tuple with the IsByoaImage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetIsByoaImageOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsByoaImage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsByoaImage, true
+	return o.IsByoaImage.Get(), o.IsByoaImage.IsSet()
 }
 
-// SetIsByoaImage gets a reference to the given bool and assigns it to the IsByoaImage field.
+// SetIsByoaImage gets a reference to the given NullableBool and assigns it to the IsByoaImage field.
 func (o *TemplateImageOverview) SetIsByoaImage(v bool) {
-	o.IsByoaImage = &v
+	o.IsByoaImage.Set(&v)
+}
+
+// SetIsByoaImageNil sets the value for IsByoaImage to be an explicit nil
+func (o *TemplateImageOverview) SetIsByoaImageNil() {
+	o.IsByoaImage.Set(nil)
+}
+
+// UnsetIsByoaImage ensures that no value is present for IsByoaImage, not even an explicit nil
+func (o *TemplateImageOverview) UnsetIsByoaImage() {
+	o.IsByoaImage.Unset()
 }
 
 // GetLinkedCatalogs returns the LinkedCatalogs field value if set, zero value otherwise.
@@ -1128,9 +1558,9 @@ func (o *TemplateImageOverview) SetLinkedCatalogs(v int32) {
 	o.LinkedCatalogs = &v
 }
 
-// GetLinkedCatalogsNames returns the LinkedCatalogsNames field value if set, zero value otherwise.
+// GetLinkedCatalogsNames returns the LinkedCatalogsNames field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetLinkedCatalogsNames() []string {
-	if o == nil || IsNil(o.LinkedCatalogsNames) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -1139,6 +1569,7 @@ func (o *TemplateImageOverview) GetLinkedCatalogsNames() []string {
 
 // GetLinkedCatalogsNamesOk returns a tuple with the LinkedCatalogsNames field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetLinkedCatalogsNamesOk() ([]string, bool) {
 	if o == nil || IsNil(o.LinkedCatalogsNames) {
 		return nil, false
@@ -1151,165 +1582,276 @@ func (o *TemplateImageOverview) SetLinkedCatalogsNames(v []string) {
 	o.LinkedCatalogsNames = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
+// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetCreatedDate() time.Time {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil || IsNil(o.CreatedDate.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedDate
+	return *o.CreatedDate.Get()
 }
 
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetCreatedDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return o.CreatedDate.Get(), o.CreatedDate.IsSet()
 }
 
-// SetCreatedDate gets a reference to the given time.Time and assigns it to the CreatedDate field.
+// SetCreatedDate gets a reference to the given NullableTime and assigns it to the CreatedDate field.
 func (o *TemplateImageOverview) SetCreatedDate(v time.Time) {
-	o.CreatedDate = &v
+	o.CreatedDate.Set(&v)
 }
 
-// GetFinalizedDate returns the FinalizedDate field value if set, zero value otherwise.
+// SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+func (o *TemplateImageOverview) SetCreatedDateNil() {
+	o.CreatedDate.Set(nil)
+}
+
+// UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+func (o *TemplateImageOverview) UnsetCreatedDate() {
+	o.CreatedDate.Unset()
+}
+
+// GetFinalizedDate returns the FinalizedDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetFinalizedDate() time.Time {
-	if o == nil || IsNil(o.FinalizedDate) {
+	if o == nil || IsNil(o.FinalizedDate.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.FinalizedDate
+	return *o.FinalizedDate.Get()
 }
 
 // GetFinalizedDateOk returns a tuple with the FinalizedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetFinalizedDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.FinalizedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FinalizedDate, true
+	return o.FinalizedDate.Get(), o.FinalizedDate.IsSet()
 }
 
-// SetFinalizedDate gets a reference to the given time.Time and assigns it to the FinalizedDate field.
+// SetFinalizedDate gets a reference to the given NullableTime and assigns it to the FinalizedDate field.
 func (o *TemplateImageOverview) SetFinalizedDate(v time.Time) {
-	o.FinalizedDate = &v
+	o.FinalizedDate.Set(&v)
 }
 
-// GetPath returns the Path field value if set, zero value otherwise.
+// SetFinalizedDateNil sets the value for FinalizedDate to be an explicit nil
+func (o *TemplateImageOverview) SetFinalizedDateNil() {
+	o.FinalizedDate.Set(nil)
+}
+
+// UnsetFinalizedDate ensures that no value is present for FinalizedDate, not even an explicit nil
+func (o *TemplateImageOverview) UnsetFinalizedDate() {
+	o.FinalizedDate.Unset()
+}
+
+// GetPath returns the Path field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetPath() string {
-	if o == nil || IsNil(o.Path) {
+	if o == nil || IsNil(o.Path.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Path
+	return *o.Path.Get()
 }
 
 // GetPathOk returns a tuple with the Path field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetPathOk() (*string, bool) {
-	if o == nil || IsNil(o.Path) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Path, true
+	return o.Path.Get(), o.Path.IsSet()
 }
 
-// SetPath gets a reference to the given string and assigns it to the Path field.
+// SetPath gets a reference to the given NullableString and assigns it to the Path field.
 func (o *TemplateImageOverview) SetPath(v string) {
-	o.Path = &v
+	o.Path.Set(&v)
 }
 
-// GetSbSessionVdaVersion returns the SbSessionVdaVersion field value if set, zero value otherwise.
+// SetPathNil sets the value for Path to be an explicit nil
+func (o *TemplateImageOverview) SetPathNil() {
+	o.Path.Set(nil)
+}
+
+// UnsetPath ensures that no value is present for Path, not even an explicit nil
+func (o *TemplateImageOverview) UnsetPath() {
+	o.Path.Unset()
+}
+
+// GetSbSessionVdaVersion returns the SbSessionVdaVersion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetSbSessionVdaVersion() string {
-	if o == nil || IsNil(o.SbSessionVdaVersion) {
+	if o == nil || IsNil(o.SbSessionVdaVersion.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SbSessionVdaVersion
+	return *o.SbSessionVdaVersion.Get()
 }
 
 // GetSbSessionVdaVersionOk returns a tuple with the SbSessionVdaVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetSbSessionVdaVersionOk() (*string, bool) {
-	if o == nil || IsNil(o.SbSessionVdaVersion) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SbSessionVdaVersion, true
+	return o.SbSessionVdaVersion.Get(), o.SbSessionVdaVersion.IsSet()
 }
 
-// SetSbSessionVdaVersion gets a reference to the given string and assigns it to the SbSessionVdaVersion field.
+// SetSbSessionVdaVersion gets a reference to the given NullableString and assigns it to the SbSessionVdaVersion field.
 func (o *TemplateImageOverview) SetSbSessionVdaVersion(v string) {
-	o.SbSessionVdaVersion = &v
+	o.SbSessionVdaVersion.Set(&v)
 }
 
-// GetIsSecureBrowserImage returns the IsSecureBrowserImage field value if set, zero value otherwise.
+// SetSbSessionVdaVersionNil sets the value for SbSessionVdaVersion to be an explicit nil
+func (o *TemplateImageOverview) SetSbSessionVdaVersionNil() {
+	o.SbSessionVdaVersion.Set(nil)
+}
+
+// UnsetSbSessionVdaVersion ensures that no value is present for SbSessionVdaVersion, not even an explicit nil
+func (o *TemplateImageOverview) UnsetSbSessionVdaVersion() {
+	o.SbSessionVdaVersion.Unset()
+}
+
+// GetIsSecureBrowserImage returns the IsSecureBrowserImage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetIsSecureBrowserImage() bool {
-	if o == nil || IsNil(o.IsSecureBrowserImage) {
+	if o == nil || IsNil(o.IsSecureBrowserImage.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.IsSecureBrowserImage
+	return *o.IsSecureBrowserImage.Get()
 }
 
 // GetIsSecureBrowserImageOk returns a tuple with the IsSecureBrowserImage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetIsSecureBrowserImageOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsSecureBrowserImage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsSecureBrowserImage, true
+	return o.IsSecureBrowserImage.Get(), o.IsSecureBrowserImage.IsSet()
 }
 
-// SetIsSecureBrowserImage gets a reference to the given bool and assigns it to the IsSecureBrowserImage field.
+// SetIsSecureBrowserImage gets a reference to the given NullableBool and assigns it to the IsSecureBrowserImage field.
 func (o *TemplateImageOverview) SetIsSecureBrowserImage(v bool) {
-	o.IsSecureBrowserImage = &v
+	o.IsSecureBrowserImage.Set(&v)
 }
 
-// GetStartedAt returns the StartedAt field value if set, zero value otherwise.
+// SetIsSecureBrowserImageNil sets the value for IsSecureBrowserImage to be an explicit nil
+func (o *TemplateImageOverview) SetIsSecureBrowserImageNil() {
+	o.IsSecureBrowserImage.Set(nil)
+}
+
+// UnsetIsSecureBrowserImage ensures that no value is present for IsSecureBrowserImage, not even an explicit nil
+func (o *TemplateImageOverview) UnsetIsSecureBrowserImage() {
+	o.IsSecureBrowserImage.Unset()
+}
+
+// GetDiskSizeInGB returns the DiskSizeInGB field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TemplateImageOverview) GetDiskSizeInGB() int32 {
+	if o == nil || IsNil(o.DiskSizeInGB.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.DiskSizeInGB.Get()
+}
+
+// GetDiskSizeInGBOk returns a tuple with the DiskSizeInGB field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TemplateImageOverview) GetDiskSizeInGBOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DiskSizeInGB.Get(), o.DiskSizeInGB.IsSet()
+}
+
+// SetDiskSizeInGB gets a reference to the given NullableInt32 and assigns it to the DiskSizeInGB field.
+func (o *TemplateImageOverview) SetDiskSizeInGB(v int32) {
+	o.DiskSizeInGB.Set(&v)
+}
+
+// SetDiskSizeInGBNil sets the value for DiskSizeInGB to be an explicit nil
+func (o *TemplateImageOverview) SetDiskSizeInGBNil() {
+	o.DiskSizeInGB.Set(nil)
+}
+
+// UnsetDiskSizeInGB ensures that no value is present for DiskSizeInGB, not even an explicit nil
+func (o *TemplateImageOverview) UnsetDiskSizeInGB() {
+	o.DiskSizeInGB.Unset()
+}
+
+// GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetStartedAt() time.Time {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil || IsNil(o.StartedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartedAt
+	return *o.StartedAt.Get()
 }
 
 // GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetStartedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StartedAt, true
+	return o.StartedAt.Get(), o.StartedAt.IsSet()
 }
 
-// SetStartedAt gets a reference to the given time.Time and assigns it to the StartedAt field.
+// SetStartedAt gets a reference to the given NullableTime and assigns it to the StartedAt field.
 func (o *TemplateImageOverview) SetStartedAt(v time.Time) {
-	o.StartedAt = &v
+	o.StartedAt.Set(&v)
 }
 
-// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise.
+// SetStartedAtNil sets the value for StartedAt to be an explicit nil
+func (o *TemplateImageOverview) SetStartedAtNil() {
+	o.StartedAt.Set(nil)
+}
+
+// UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
+func (o *TemplateImageOverview) UnsetStartedAt() {
+	o.StartedAt.Unset()
+}
+
+// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageOverview) GetEstimatedTimeInMinute() int32 {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil || IsNil(o.EstimatedTimeInMinute.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.EstimatedTimeInMinute
+	return *o.EstimatedTimeInMinute.Get()
 }
 
 // GetEstimatedTimeInMinuteOk returns a tuple with the EstimatedTimeInMinute field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageOverview) GetEstimatedTimeInMinuteOk() (*int32, bool) {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EstimatedTimeInMinute, true
+	return o.EstimatedTimeInMinute.Get(), o.EstimatedTimeInMinute.IsSet()
 }
 
-// SetEstimatedTimeInMinute gets a reference to the given int32 and assigns it to the EstimatedTimeInMinute field.
+// SetEstimatedTimeInMinute gets a reference to the given NullableInt32 and assigns it to the EstimatedTimeInMinute field.
 func (o *TemplateImageOverview) SetEstimatedTimeInMinute(v int32) {
-	o.EstimatedTimeInMinute = &v
+	o.EstimatedTimeInMinute.Set(&v)
+}
+
+// SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+func (o *TemplateImageOverview) SetEstimatedTimeInMinuteNil() {
+	o.EstimatedTimeInMinute.Set(nil)
+}
+
+// UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
+func (o *TemplateImageOverview) UnsetEstimatedTimeInMinute() {
+	o.EstimatedTimeInMinute.Unset()
 }
 
 func (o TemplateImageOverview) MarshalJSON() ([]byte, error) {
@@ -1326,91 +1868,97 @@ func (o TemplateImageOverview) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["sessionSupport"] = o.SessionSupport
 	toSerialize["state"] = o.State
-	if !IsNil(o.SubState) {
-		toSerialize["subState"] = o.SubState
+	if o.SubState.IsSet() {
+		toSerialize["subState"] = o.SubState.Get()
 	}
-	if !IsNil(o.OsPlatform) {
-		toSerialize["osPlatform"] = o.OsPlatform
+	if o.OsPlatform.IsSet() {
+		toSerialize["osPlatform"] = o.OsPlatform.Get()
 	}
-	if !IsNil(o.OsName) {
-		toSerialize["osName"] = o.OsName
+	if o.OsName.IsSet() {
+		toSerialize["osName"] = o.OsName.Get()
 	}
-	if !IsNil(o.OsVersion) {
-		toSerialize["osVersion"] = o.OsVersion
+	if o.OsVersion.IsSet() {
+		toSerialize["osVersion"] = o.OsVersion.Get()
 	}
-	if !IsNil(o.LinuxDomainSupport) {
-		toSerialize["linuxDomainSupport"] = o.LinuxDomainSupport
+	if o.LinuxDomainSupport.IsSet() {
+		toSerialize["linuxDomainSupport"] = o.LinuxDomainSupport.Get()
 	}
-	if !IsNil(o.LinuxRdpSupport) {
-		toSerialize["linuxRdpSupport"] = o.LinuxRdpSupport
+	if o.LinuxRdpSupport.IsSet() {
+		toSerialize["linuxRdpSupport"] = o.LinuxRdpSupport.Get()
 	}
-	if !IsNil(o.McsioSupport) {
-		toSerialize["mcsioSupport"] = o.McsioSupport
+	if o.McsioSupport.IsSet() {
+		toSerialize["mcsioSupport"] = o.McsioSupport.Get()
 	}
-	if !IsNil(o.VusSupport) {
-		toSerialize["vusSupport"] = o.VusSupport
+	if o.VusSupport.IsSet() {
+		toSerialize["vusSupport"] = o.VusSupport.Get()
 	}
-	if !IsNil(o.PublicIp) {
-		toSerialize["publicIp"] = o.PublicIp
+	if o.SccmAgentSupport.IsSet() {
+		toSerialize["sccmAgentSupport"] = o.SccmAgentSupport.Get()
 	}
-	if !IsNil(o.PrivateIp) {
-		toSerialize["privateIp"] = o.PrivateIp
+	if o.SccmAgentVersion.IsSet() {
+		toSerialize["sccmAgentVersion"] = o.SccmAgentVersion.Get()
 	}
-	if !IsNil(o.DomainName) {
-		toSerialize["domainName"] = o.DomainName
+	if o.PublicIp.IsSet() {
+		toSerialize["publicIp"] = o.PublicIp.Get()
+	}
+	if o.PrivateIp.IsSet() {
+		toSerialize["privateIp"] = o.PrivateIp.Get()
+	}
+	if o.DomainName.IsSet() {
+		toSerialize["domainName"] = o.DomainName.Get()
 	}
 	if !IsNil(o.IsServerOs) {
 		toSerialize["isServerOs"] = o.IsServerOs
 	}
-	if !IsNil(o.VdaVersion) {
-		toSerialize["vdaVersion"] = o.VdaVersion
+	if o.VdaVersion.IsSet() {
+		toSerialize["vdaVersion"] = o.VdaVersion.Get()
 	}
-	if !IsNil(o.StatusMessageId) {
-		toSerialize["statusMessageId"] = o.StatusMessageId
+	if o.StatusMessageId.IsSet() {
+		toSerialize["statusMessageId"] = o.StatusMessageId.Get()
 	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
-	if !IsNil(o.ExtraInfo) {
-		toSerialize["extraInfo"] = o.ExtraInfo
+	if o.ExtraInfo.IsSet() {
+		toSerialize["extraInfo"] = o.ExtraInfo.Get()
 	}
-	if !IsNil(o.Notes) {
-		toSerialize["notes"] = o.Notes
+	if o.Notes.IsSet() {
+		toSerialize["notes"] = o.Notes.Get()
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
 	toSerialize["subscriptionName"] = o.SubscriptionName
-	if !IsNil(o.ResourceGroup) {
-		toSerialize["resourceGroup"] = o.ResourceGroup
+	if o.ResourceGroup.IsSet() {
+		toSerialize["resourceGroup"] = o.ResourceGroup.Get()
 	}
-	if !IsNil(o.StorageAccount) {
-		toSerialize["storageAccount"] = o.StorageAccount
+	if o.StorageAccount.IsSet() {
+		toSerialize["storageAccount"] = o.StorageAccount.Get()
 	}
 	toSerialize["region"] = o.Region
-	if !IsNil(o.BuilderDomainName) {
-		toSerialize["builderDomainName"] = o.BuilderDomainName
+	if o.BuilderDomainName.IsSet() {
+		toSerialize["builderDomainName"] = o.BuilderDomainName.Get()
 	}
-	if !IsNil(o.BuilderConnectionId) {
-		toSerialize["builderConnectionId"] = o.BuilderConnectionId
+	if o.BuilderConnectionId.IsSet() {
+		toSerialize["builderConnectionId"] = o.BuilderConnectionId.Get()
 	}
-	if !IsNil(o.BuilderVmName) {
-		toSerialize["builderVmName"] = o.BuilderVmName
+	if o.BuilderVmName.IsSet() {
+		toSerialize["builderVmName"] = o.BuilderVmName.Get()
 	}
-	if !IsNil(o.BuilderVmType) {
-		toSerialize["builderVmType"] = o.BuilderVmType
+	if o.BuilderVmType.IsSet() {
+		toSerialize["builderVmType"] = o.BuilderVmType.Get()
 	}
-	if !IsNil(o.BuilderVmDiskSize) {
-		toSerialize["builderVmDiskSize"] = o.BuilderVmDiskSize
+	if o.BuilderVmDiskSize.IsSet() {
+		toSerialize["builderVmDiskSize"] = o.BuilderVmDiskSize.Get()
 	}
-	if !IsNil(o.BuilderAllowedIPs) {
+	if o.BuilderAllowedIPs != nil {
 		toSerialize["builderAllowedIPs"] = o.BuilderAllowedIPs
 	}
-	if !IsNil(o.HyperVGen) {
-		toSerialize["hyperVGen"] = o.HyperVGen
+	if o.HyperVGen.IsSet() {
+		toSerialize["hyperVGen"] = o.HyperVGen.Get()
 	}
 	if !IsNil(o.VtpmEnabled) {
 		toSerialize["vtpmEnabled"] = o.VtpmEnabled
@@ -1419,47 +1967,53 @@ func (o TemplateImageOverview) ToMap() (map[string]interface{}, error) {
 		toSerialize["secureBootEnabled"] = o.SecureBootEnabled
 	}
 	toSerialize["citrixPrepared"] = o.CitrixPrepared
-	if !IsNil(o.CspCustomer) {
-		toSerialize["cspCustomer"] = o.CspCustomer
+	if o.CspCustomer.IsSet() {
+		toSerialize["cspCustomer"] = o.CspCustomer.Get()
 	}
 	if !IsNil(o.IsCmekEnabled) {
 		toSerialize["isCmekEnabled"] = o.IsCmekEnabled
 	}
-	if !IsNil(o.CmekId) {
-		toSerialize["cmekId"] = o.CmekId
+	if o.CmekId.IsSet() {
+		toSerialize["cmekId"] = o.CmekId.Get()
+	}
+	if o.CmekName.IsSet() {
+		toSerialize["cmekName"] = o.CmekName.Get()
 	}
 	if !IsNil(o.IsDeprecated) {
 		toSerialize["isDeprecated"] = o.IsDeprecated
 	}
-	if !IsNil(o.IsByoaImage) {
-		toSerialize["isByoaImage"] = o.IsByoaImage
+	if o.IsByoaImage.IsSet() {
+		toSerialize["isByoaImage"] = o.IsByoaImage.Get()
 	}
 	if !IsNil(o.LinkedCatalogs) {
 		toSerialize["linkedCatalogs"] = o.LinkedCatalogs
 	}
-	if !IsNil(o.LinkedCatalogsNames) {
+	if o.LinkedCatalogsNames != nil {
 		toSerialize["linkedCatalogsNames"] = o.LinkedCatalogsNames
 	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
+	if o.CreatedDate.IsSet() {
+		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}
-	if !IsNil(o.FinalizedDate) {
-		toSerialize["finalizedDate"] = o.FinalizedDate
+	if o.FinalizedDate.IsSet() {
+		toSerialize["finalizedDate"] = o.FinalizedDate.Get()
 	}
-	if !IsNil(o.Path) {
-		toSerialize["path"] = o.Path
+	if o.Path.IsSet() {
+		toSerialize["path"] = o.Path.Get()
 	}
-	if !IsNil(o.SbSessionVdaVersion) {
-		toSerialize["sbSessionVdaVersion"] = o.SbSessionVdaVersion
+	if o.SbSessionVdaVersion.IsSet() {
+		toSerialize["sbSessionVdaVersion"] = o.SbSessionVdaVersion.Get()
 	}
-	if !IsNil(o.IsSecureBrowserImage) {
-		toSerialize["isSecureBrowserImage"] = o.IsSecureBrowserImage
+	if o.IsSecureBrowserImage.IsSet() {
+		toSerialize["isSecureBrowserImage"] = o.IsSecureBrowserImage.Get()
 	}
-	if !IsNil(o.StartedAt) {
-		toSerialize["startedAt"] = o.StartedAt
+	if o.DiskSizeInGB.IsSet() {
+		toSerialize["diskSizeInGB"] = o.DiskSizeInGB.Get()
 	}
-	if !IsNil(o.EstimatedTimeInMinute) {
-		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute
+	if o.StartedAt.IsSet() {
+		toSerialize["startedAt"] = o.StartedAt.Get()
+	}
+	if o.EstimatedTimeInMinute.IsSet() {
+		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute.Get()
 	}
 	return toSerialize, nil
 }

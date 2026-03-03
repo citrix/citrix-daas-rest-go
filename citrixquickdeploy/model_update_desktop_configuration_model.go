@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -22,9 +22,9 @@ type UpdateDesktopConfigurationModel struct {
 	// Name of the desktop
 	Name string `json:"name"`
 	// Description
-	Description *string `json:"description,omitempty"`
+	Description NullableString `json:"description,omitempty"`
 	// The publish state of the desktop
-	State *AppsAndDesktopsProvisionState `json:"state,omitempty"`
+	State NullableAppsAndDesktopsProvisionState `json:"state,omitempty"`
 }
 
 // NewUpdateDesktopConfigurationModelWithDefaults instantiates a new UpdateDesktopConfigurationModel object
@@ -59,50 +59,72 @@ func (o *UpdateDesktopConfigurationModel) SetName(v string) {
 	o.Name = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateDesktopConfigurationModel) GetDescription() string {
-	if o == nil || IsNil(o.Description) {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateDesktopConfigurationModel) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
-// SetDescription gets a reference to the given string and assigns it to the Description field.
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *UpdateDesktopConfigurationModel) SetDescription(v string) {
-	o.Description = &v
+	o.Description.Set(&v)
 }
 
-// GetState returns the State field value if set, zero value otherwise.
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *UpdateDesktopConfigurationModel) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *UpdateDesktopConfigurationModel) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetState returns the State field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateDesktopConfigurationModel) GetState() AppsAndDesktopsProvisionState {
-	if o == nil || IsNil(o.State) {
+	if o == nil || IsNil(o.State.Get()) {
 		var ret AppsAndDesktopsProvisionState
 		return ret
 	}
-	return *o.State
+	return *o.State.Get()
 }
 
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateDesktopConfigurationModel) GetStateOk() (*AppsAndDesktopsProvisionState, bool) {
-	if o == nil || IsNil(o.State) {
+	if o == nil {
 		return nil, false
 	}
-	return o.State, true
+	return o.State.Get(), o.State.IsSet()
 }
 
-// SetState gets a reference to the given AppsAndDesktopsProvisionState and assigns it to the State field.
+// SetState gets a reference to the given NullableAppsAndDesktopsProvisionState and assigns it to the State field.
 func (o *UpdateDesktopConfigurationModel) SetState(v AppsAndDesktopsProvisionState) {
-	o.State = &v
+	o.State.Set(&v)
+}
+
+// SetStateNil sets the value for State to be an explicit nil
+func (o *UpdateDesktopConfigurationModel) SetStateNil() {
+	o.State.Set(nil)
+}
+
+// UnsetState ensures that no value is present for State, not even an explicit nil
+func (o *UpdateDesktopConfigurationModel) UnsetState() {
+	o.State.Unset()
 }
 
 func (o UpdateDesktopConfigurationModel) MarshalJSON() ([]byte, error) {
@@ -116,11 +138,11 @@ func (o UpdateDesktopConfigurationModel) MarshalJSON() ([]byte, error) {
 func (o UpdateDesktopConfigurationModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.State) {
-		toSerialize["state"] = o.State
+	if o.State.IsSet() {
+		toSerialize["state"] = o.State.Get()
 	}
 	return toSerialize, nil
 }

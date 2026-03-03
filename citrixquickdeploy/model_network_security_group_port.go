@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,13 +20,13 @@ var _ MappedNullable = &NetworkSecurityGroupPort{}
 // NetworkSecurityGroupPort struct for NetworkSecurityGroupPort
 type NetworkSecurityGroupPort struct {
 	// Port Number
-	PortNumber  *string `json:"portNumber,omitempty"`
-	Priority    *int32  `json:"priority,omitempty"`
-	Source      *string `json:"source,omitempty"`
-	Destination *string `json:"destination,omitempty"`
-	Protocol    *string `json:"protocol,omitempty"`
-	Action      *string `json:"action,omitempty"`
-	Direction   *string `json:"direction,omitempty"`
+	PortNumber  NullableString `json:"portNumber,omitempty"`
+	Priority    NullableInt32  `json:"priority,omitempty"`
+	Source      NullableString `json:"source,omitempty"`
+	Destination NullableString `json:"destination,omitempty"`
+	Protocol    NullableString `json:"protocol,omitempty"`
+	Action      NullableString `json:"action,omitempty"`
+	Direction   NullableString `json:"direction,omitempty"`
 }
 
 // NewNetworkSecurityGroupPortWithDefaults instantiates a new NetworkSecurityGroupPort object
@@ -37,165 +37,242 @@ func NewNetworkSecurityGroupPortWithDefaults() *NetworkSecurityGroupPort {
 	return &this
 }
 
-// GetPortNumber returns the PortNumber field value if set, zero value otherwise.
+// GetPortNumber returns the PortNumber field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NetworkSecurityGroupPort) GetPortNumber() string {
-	if o == nil || IsNil(o.PortNumber) {
+	if o == nil || IsNil(o.PortNumber.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PortNumber
+	return *o.PortNumber.Get()
 }
 
 // GetPortNumberOk returns a tuple with the PortNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NetworkSecurityGroupPort) GetPortNumberOk() (*string, bool) {
-	if o == nil || IsNil(o.PortNumber) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PortNumber, true
+	return o.PortNumber.Get(), o.PortNumber.IsSet()
 }
 
-// SetPortNumber gets a reference to the given string and assigns it to the PortNumber field.
+// SetPortNumber gets a reference to the given NullableString and assigns it to the PortNumber field.
 func (o *NetworkSecurityGroupPort) SetPortNumber(v string) {
-	o.PortNumber = &v
+	o.PortNumber.Set(&v)
 }
 
-// GetPriority returns the Priority field value if set, zero value otherwise.
+// SetPortNumberNil sets the value for PortNumber to be an explicit nil
+func (o *NetworkSecurityGroupPort) SetPortNumberNil() {
+	o.PortNumber.Set(nil)
+}
+
+// UnsetPortNumber ensures that no value is present for PortNumber, not even an explicit nil
+func (o *NetworkSecurityGroupPort) UnsetPortNumber() {
+	o.PortNumber.Unset()
+}
+
+// GetPriority returns the Priority field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NetworkSecurityGroupPort) GetPriority() int32 {
-	if o == nil || IsNil(o.Priority) {
+	if o == nil || IsNil(o.Priority.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.Priority
+	return *o.Priority.Get()
 }
 
 // GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NetworkSecurityGroupPort) GetPriorityOk() (*int32, bool) {
-	if o == nil || IsNil(o.Priority) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Priority, true
+	return o.Priority.Get(), o.Priority.IsSet()
 }
 
-// SetPriority gets a reference to the given int32 and assigns it to the Priority field.
+// SetPriority gets a reference to the given NullableInt32 and assigns it to the Priority field.
 func (o *NetworkSecurityGroupPort) SetPriority(v int32) {
-	o.Priority = &v
+	o.Priority.Set(&v)
 }
 
-// GetSource returns the Source field value if set, zero value otherwise.
+// SetPriorityNil sets the value for Priority to be an explicit nil
+func (o *NetworkSecurityGroupPort) SetPriorityNil() {
+	o.Priority.Set(nil)
+}
+
+// UnsetPriority ensures that no value is present for Priority, not even an explicit nil
+func (o *NetworkSecurityGroupPort) UnsetPriority() {
+	o.Priority.Unset()
+}
+
+// GetSource returns the Source field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NetworkSecurityGroupPort) GetSource() string {
-	if o == nil || IsNil(o.Source) {
+	if o == nil || IsNil(o.Source.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Source
+	return *o.Source.Get()
 }
 
 // GetSourceOk returns a tuple with the Source field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NetworkSecurityGroupPort) GetSourceOk() (*string, bool) {
-	if o == nil || IsNil(o.Source) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Source, true
+	return o.Source.Get(), o.Source.IsSet()
 }
 
-// SetSource gets a reference to the given string and assigns it to the Source field.
+// SetSource gets a reference to the given NullableString and assigns it to the Source field.
 func (o *NetworkSecurityGroupPort) SetSource(v string) {
-	o.Source = &v
+	o.Source.Set(&v)
 }
 
-// GetDestination returns the Destination field value if set, zero value otherwise.
+// SetSourceNil sets the value for Source to be an explicit nil
+func (o *NetworkSecurityGroupPort) SetSourceNil() {
+	o.Source.Set(nil)
+}
+
+// UnsetSource ensures that no value is present for Source, not even an explicit nil
+func (o *NetworkSecurityGroupPort) UnsetSource() {
+	o.Source.Unset()
+}
+
+// GetDestination returns the Destination field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NetworkSecurityGroupPort) GetDestination() string {
-	if o == nil || IsNil(o.Destination) {
+	if o == nil || IsNil(o.Destination.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Destination
+	return *o.Destination.Get()
 }
 
 // GetDestinationOk returns a tuple with the Destination field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NetworkSecurityGroupPort) GetDestinationOk() (*string, bool) {
-	if o == nil || IsNil(o.Destination) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Destination, true
+	return o.Destination.Get(), o.Destination.IsSet()
 }
 
-// SetDestination gets a reference to the given string and assigns it to the Destination field.
+// SetDestination gets a reference to the given NullableString and assigns it to the Destination field.
 func (o *NetworkSecurityGroupPort) SetDestination(v string) {
-	o.Destination = &v
+	o.Destination.Set(&v)
 }
 
-// GetProtocol returns the Protocol field value if set, zero value otherwise.
+// SetDestinationNil sets the value for Destination to be an explicit nil
+func (o *NetworkSecurityGroupPort) SetDestinationNil() {
+	o.Destination.Set(nil)
+}
+
+// UnsetDestination ensures that no value is present for Destination, not even an explicit nil
+func (o *NetworkSecurityGroupPort) UnsetDestination() {
+	o.Destination.Unset()
+}
+
+// GetProtocol returns the Protocol field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NetworkSecurityGroupPort) GetProtocol() string {
-	if o == nil || IsNil(o.Protocol) {
+	if o == nil || IsNil(o.Protocol.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Protocol
+	return *o.Protocol.Get()
 }
 
 // GetProtocolOk returns a tuple with the Protocol field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NetworkSecurityGroupPort) GetProtocolOk() (*string, bool) {
-	if o == nil || IsNil(o.Protocol) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Protocol, true
+	return o.Protocol.Get(), o.Protocol.IsSet()
 }
 
-// SetProtocol gets a reference to the given string and assigns it to the Protocol field.
+// SetProtocol gets a reference to the given NullableString and assigns it to the Protocol field.
 func (o *NetworkSecurityGroupPort) SetProtocol(v string) {
-	o.Protocol = &v
+	o.Protocol.Set(&v)
 }
 
-// GetAction returns the Action field value if set, zero value otherwise.
+// SetProtocolNil sets the value for Protocol to be an explicit nil
+func (o *NetworkSecurityGroupPort) SetProtocolNil() {
+	o.Protocol.Set(nil)
+}
+
+// UnsetProtocol ensures that no value is present for Protocol, not even an explicit nil
+func (o *NetworkSecurityGroupPort) UnsetProtocol() {
+	o.Protocol.Unset()
+}
+
+// GetAction returns the Action field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NetworkSecurityGroupPort) GetAction() string {
-	if o == nil || IsNil(o.Action) {
+	if o == nil || IsNil(o.Action.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Action
+	return *o.Action.Get()
 }
 
 // GetActionOk returns a tuple with the Action field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NetworkSecurityGroupPort) GetActionOk() (*string, bool) {
-	if o == nil || IsNil(o.Action) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Action, true
+	return o.Action.Get(), o.Action.IsSet()
 }
 
-// SetAction gets a reference to the given string and assigns it to the Action field.
+// SetAction gets a reference to the given NullableString and assigns it to the Action field.
 func (o *NetworkSecurityGroupPort) SetAction(v string) {
-	o.Action = &v
+	o.Action.Set(&v)
 }
 
-// GetDirection returns the Direction field value if set, zero value otherwise.
+// SetActionNil sets the value for Action to be an explicit nil
+func (o *NetworkSecurityGroupPort) SetActionNil() {
+	o.Action.Set(nil)
+}
+
+// UnsetAction ensures that no value is present for Action, not even an explicit nil
+func (o *NetworkSecurityGroupPort) UnsetAction() {
+	o.Action.Unset()
+}
+
+// GetDirection returns the Direction field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NetworkSecurityGroupPort) GetDirection() string {
-	if o == nil || IsNil(o.Direction) {
+	if o == nil || IsNil(o.Direction.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Direction
+	return *o.Direction.Get()
 }
 
 // GetDirectionOk returns a tuple with the Direction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NetworkSecurityGroupPort) GetDirectionOk() (*string, bool) {
-	if o == nil || IsNil(o.Direction) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Direction, true
+	return o.Direction.Get(), o.Direction.IsSet()
 }
 
-// SetDirection gets a reference to the given string and assigns it to the Direction field.
+// SetDirection gets a reference to the given NullableString and assigns it to the Direction field.
 func (o *NetworkSecurityGroupPort) SetDirection(v string) {
-	o.Direction = &v
+	o.Direction.Set(&v)
+}
+
+// SetDirectionNil sets the value for Direction to be an explicit nil
+func (o *NetworkSecurityGroupPort) SetDirectionNil() {
+	o.Direction.Set(nil)
+}
+
+// UnsetDirection ensures that no value is present for Direction, not even an explicit nil
+func (o *NetworkSecurityGroupPort) UnsetDirection() {
+	o.Direction.Unset()
 }
 
 func (o NetworkSecurityGroupPort) MarshalJSON() ([]byte, error) {
@@ -208,26 +285,26 @@ func (o NetworkSecurityGroupPort) MarshalJSON() ([]byte, error) {
 
 func (o NetworkSecurityGroupPort) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PortNumber) {
-		toSerialize["portNumber"] = o.PortNumber
+	if o.PortNumber.IsSet() {
+		toSerialize["portNumber"] = o.PortNumber.Get()
 	}
-	if !IsNil(o.Priority) {
-		toSerialize["priority"] = o.Priority
+	if o.Priority.IsSet() {
+		toSerialize["priority"] = o.Priority.Get()
 	}
-	if !IsNil(o.Source) {
-		toSerialize["source"] = o.Source
+	if o.Source.IsSet() {
+		toSerialize["source"] = o.Source.Get()
 	}
-	if !IsNil(o.Destination) {
-		toSerialize["destination"] = o.Destination
+	if o.Destination.IsSet() {
+		toSerialize["destination"] = o.Destination.Get()
 	}
-	if !IsNil(o.Protocol) {
-		toSerialize["protocol"] = o.Protocol
+	if o.Protocol.IsSet() {
+		toSerialize["protocol"] = o.Protocol.Get()
 	}
-	if !IsNil(o.Action) {
-		toSerialize["action"] = o.Action
+	if o.Action.IsSet() {
+		toSerialize["action"] = o.Action.Get()
 	}
-	if !IsNil(o.Direction) {
-		toSerialize["direction"] = o.Direction
+	if o.Direction.IsSet() {
+		toSerialize["direction"] = o.Direction.Get()
 	}
 	return toSerialize, nil
 }

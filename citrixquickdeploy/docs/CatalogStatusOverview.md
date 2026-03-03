@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **State** | [**CatalogOverallState**](CatalogOverallState.md) |  | 
-**SubState** | Pointer to [**CatalogOverallSubState**](CatalogOverallSubState.md) |  | [optional] 
+**SubState** | Pointer to [**NullableCatalogOverallSubState**](CatalogOverallSubState.md) |  | [optional] 
 **Warnings** | Pointer to [**[]CatalogWarning**](CatalogWarning.md) |  | [optional] 
-**StatusMessage** | Pointer to **string** |  | [optional] 
-**CatalogErrorDetails** | Pointer to **string** |  | [optional] 
-**TransactionId** | Pointer to **string** |  | [optional] 
-**ExtraInfo** | Pointer to **string** |  | [optional] 
-**StartedAt** | Pointer to **time.Time** | The datetime when the job started | [optional] 
-**EstimatedTimeInMinute** | Pointer to **int32** | Estimated total time for the job to finish | [optional] 
+**StatusMessage** | Pointer to **NullableString** |  | [optional] 
+**CatalogErrorDetails** | Pointer to **NullableString** |  | [optional] 
+**TransactionId** | Pointer to **NullableString** |  | [optional] 
+**ExtraInfo** | Pointer to **NullableString** |  | [optional] 
+**StartedAt** | Pointer to **NullableTime** | The datetime when the job started | [optional] 
+**EstimatedTimeInMinute** | Pointer to **NullableInt32** | Estimated total time for the job to finish | [optional] 
 
 ## Methods
 
@@ -78,6 +78,16 @@ SetSubState sets SubState field to given value.
 
 HasSubState returns a boolean if a field has been set.
 
+### SetSubStateNil
+
+`func (o *CatalogStatusOverview) SetSubStateNil(b bool)`
+
+ SetSubStateNil sets the value for SubState to be an explicit nil
+
+### UnsetSubState
+`func (o *CatalogStatusOverview) UnsetSubState()`
+
+UnsetSubState ensures that no value is present for SubState, not even an explicit nil
 ### GetWarnings
 
 `func (o *CatalogStatusOverview) GetWarnings() []CatalogWarning`
@@ -103,6 +113,16 @@ SetWarnings sets Warnings field to given value.
 
 HasWarnings returns a boolean if a field has been set.
 
+### SetWarningsNil
+
+`func (o *CatalogStatusOverview) SetWarningsNil(b bool)`
+
+ SetWarningsNil sets the value for Warnings to be an explicit nil
+
+### UnsetWarnings
+`func (o *CatalogStatusOverview) UnsetWarnings()`
+
+UnsetWarnings ensures that no value is present for Warnings, not even an explicit nil
 ### GetStatusMessage
 
 `func (o *CatalogStatusOverview) GetStatusMessage() string`
@@ -128,6 +148,16 @@ SetStatusMessage sets StatusMessage field to given value.
 
 HasStatusMessage returns a boolean if a field has been set.
 
+### SetStatusMessageNil
+
+`func (o *CatalogStatusOverview) SetStatusMessageNil(b bool)`
+
+ SetStatusMessageNil sets the value for StatusMessage to be an explicit nil
+
+### UnsetStatusMessage
+`func (o *CatalogStatusOverview) UnsetStatusMessage()`
+
+UnsetStatusMessage ensures that no value is present for StatusMessage, not even an explicit nil
 ### GetCatalogErrorDetails
 
 `func (o *CatalogStatusOverview) GetCatalogErrorDetails() string`
@@ -153,6 +183,16 @@ SetCatalogErrorDetails sets CatalogErrorDetails field to given value.
 
 HasCatalogErrorDetails returns a boolean if a field has been set.
 
+### SetCatalogErrorDetailsNil
+
+`func (o *CatalogStatusOverview) SetCatalogErrorDetailsNil(b bool)`
+
+ SetCatalogErrorDetailsNil sets the value for CatalogErrorDetails to be an explicit nil
+
+### UnsetCatalogErrorDetails
+`func (o *CatalogStatusOverview) UnsetCatalogErrorDetails()`
+
+UnsetCatalogErrorDetails ensures that no value is present for CatalogErrorDetails, not even an explicit nil
 ### GetTransactionId
 
 `func (o *CatalogStatusOverview) GetTransactionId() string`
@@ -178,6 +218,16 @@ SetTransactionId sets TransactionId field to given value.
 
 HasTransactionId returns a boolean if a field has been set.
 
+### SetTransactionIdNil
+
+`func (o *CatalogStatusOverview) SetTransactionIdNil(b bool)`
+
+ SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+
+### UnsetTransactionId
+`func (o *CatalogStatusOverview) UnsetTransactionId()`
+
+UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
 ### GetExtraInfo
 
 `func (o *CatalogStatusOverview) GetExtraInfo() string`
@@ -203,6 +253,16 @@ SetExtraInfo sets ExtraInfo field to given value.
 
 HasExtraInfo returns a boolean if a field has been set.
 
+### SetExtraInfoNil
+
+`func (o *CatalogStatusOverview) SetExtraInfoNil(b bool)`
+
+ SetExtraInfoNil sets the value for ExtraInfo to be an explicit nil
+
+### UnsetExtraInfo
+`func (o *CatalogStatusOverview) UnsetExtraInfo()`
+
+UnsetExtraInfo ensures that no value is present for ExtraInfo, not even an explicit nil
 ### GetStartedAt
 
 `func (o *CatalogStatusOverview) GetStartedAt() time.Time`
@@ -228,6 +288,16 @@ SetStartedAt sets StartedAt field to given value.
 
 HasStartedAt returns a boolean if a field has been set.
 
+### SetStartedAtNil
+
+`func (o *CatalogStatusOverview) SetStartedAtNil(b bool)`
+
+ SetStartedAtNil sets the value for StartedAt to be an explicit nil
+
+### UnsetStartedAt
+`func (o *CatalogStatusOverview) UnsetStartedAt()`
+
+UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
 ### GetEstimatedTimeInMinute
 
 `func (o *CatalogStatusOverview) GetEstimatedTimeInMinute() int32`
@@ -253,6 +323,16 @@ SetEstimatedTimeInMinute sets EstimatedTimeInMinute field to given value.
 
 HasEstimatedTimeInMinute returns a boolean if a field has been set.
 
+### SetEstimatedTimeInMinuteNil
+
+`func (o *CatalogStatusOverview) SetEstimatedTimeInMinuteNil(b bool)`
+
+ SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+
+### UnsetEstimatedTimeInMinute
+`func (o *CatalogStatusOverview) UnsetEstimatedTimeInMinute()`
+
+UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

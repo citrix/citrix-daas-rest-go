@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,9 +19,9 @@ var _ MappedNullable = &CustomerCancellationReasonResponsesModel{}
 
 // CustomerCancellationReasonResponsesModel struct for CustomerCancellationReasonResponsesModel
 type CustomerCancellationReasonResponsesModel struct {
-	Description *string `json:"description,omitempty"`
-	Feedback    *string `json:"feedback,omitempty"`
-	Reason      *string `json:"reason,omitempty"`
+	Description NullableString `json:"description,omitempty"`
+	Feedback    NullableString `json:"feedback,omitempty"`
+	Reason      NullableString `json:"reason,omitempty"`
 }
 
 // NewCustomerCancellationReasonResponsesModelWithDefaults instantiates a new CustomerCancellationReasonResponsesModel object
@@ -32,73 +32,106 @@ func NewCustomerCancellationReasonResponsesModelWithDefaults() *CustomerCancella
 	return &this
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CustomerCancellationReasonResponsesModel) GetDescription() string {
-	if o == nil || IsNil(o.Description) {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomerCancellationReasonResponsesModel) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
-// SetDescription gets a reference to the given string and assigns it to the Description field.
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *CustomerCancellationReasonResponsesModel) SetDescription(v string) {
-	o.Description = &v
+	o.Description.Set(&v)
 }
 
-// GetFeedback returns the Feedback field value if set, zero value otherwise.
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *CustomerCancellationReasonResponsesModel) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *CustomerCancellationReasonResponsesModel) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetFeedback returns the Feedback field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CustomerCancellationReasonResponsesModel) GetFeedback() string {
-	if o == nil || IsNil(o.Feedback) {
+	if o == nil || IsNil(o.Feedback.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Feedback
+	return *o.Feedback.Get()
 }
 
 // GetFeedbackOk returns a tuple with the Feedback field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomerCancellationReasonResponsesModel) GetFeedbackOk() (*string, bool) {
-	if o == nil || IsNil(o.Feedback) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Feedback, true
+	return o.Feedback.Get(), o.Feedback.IsSet()
 }
 
-// SetFeedback gets a reference to the given string and assigns it to the Feedback field.
+// SetFeedback gets a reference to the given NullableString and assigns it to the Feedback field.
 func (o *CustomerCancellationReasonResponsesModel) SetFeedback(v string) {
-	o.Feedback = &v
+	o.Feedback.Set(&v)
 }
 
-// GetReason returns the Reason field value if set, zero value otherwise.
+// SetFeedbackNil sets the value for Feedback to be an explicit nil
+func (o *CustomerCancellationReasonResponsesModel) SetFeedbackNil() {
+	o.Feedback.Set(nil)
+}
+
+// UnsetFeedback ensures that no value is present for Feedback, not even an explicit nil
+func (o *CustomerCancellationReasonResponsesModel) UnsetFeedback() {
+	o.Feedback.Unset()
+}
+
+// GetReason returns the Reason field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CustomerCancellationReasonResponsesModel) GetReason() string {
-	if o == nil || IsNil(o.Reason) {
+	if o == nil || IsNil(o.Reason.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Reason
+	return *o.Reason.Get()
 }
 
 // GetReasonOk returns a tuple with the Reason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomerCancellationReasonResponsesModel) GetReasonOk() (*string, bool) {
-	if o == nil || IsNil(o.Reason) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Reason, true
+	return o.Reason.Get(), o.Reason.IsSet()
 }
 
-// SetReason gets a reference to the given string and assigns it to the Reason field.
+// SetReason gets a reference to the given NullableString and assigns it to the Reason field.
 func (o *CustomerCancellationReasonResponsesModel) SetReason(v string) {
-	o.Reason = &v
+	o.Reason.Set(&v)
+}
+
+// SetReasonNil sets the value for Reason to be an explicit nil
+func (o *CustomerCancellationReasonResponsesModel) SetReasonNil() {
+	o.Reason.Set(nil)
+}
+
+// UnsetReason ensures that no value is present for Reason, not even an explicit nil
+func (o *CustomerCancellationReasonResponsesModel) UnsetReason() {
+	o.Reason.Unset()
 }
 
 func (o CustomerCancellationReasonResponsesModel) MarshalJSON() ([]byte, error) {
@@ -111,14 +144,14 @@ func (o CustomerCancellationReasonResponsesModel) MarshalJSON() ([]byte, error) 
 
 func (o CustomerCancellationReasonResponsesModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.Feedback) {
-		toSerialize["feedback"] = o.Feedback
+	if o.Feedback.IsSet() {
+		toSerialize["feedback"] = o.Feedback.Get()
 	}
-	if !IsNil(o.Reason) {
-		toSerialize["reason"] = o.Reason
+	if o.Reason.IsSet() {
+		toSerialize["reason"] = o.Reason.Get()
 	}
 	return toSerialize, nil
 }

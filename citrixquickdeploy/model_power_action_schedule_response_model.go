@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,13 +20,13 @@ var _ MappedNullable = &PowerActionScheduleResponseModel{}
 
 // PowerActionScheduleResponseModel Power action schedule.
 type PowerActionScheduleResponseModel struct {
-	Action                  *SupportedPowerAction `json:"action,omitempty"`
-	ActionDueTime           *time.Time            `json:"actionDueTime,omitempty"`
-	DnsName                 *string               `json:"dnsName,omitempty"`
-	HostedMachineName       *string               `json:"hostedMachineName,omitempty"`
-	HypervisorConnectionUid *int32                `json:"hypervisorConnectionUid,omitempty"`
-	MachineName             *string               `json:"machineName,omitempty"`
-	Uid                     *int64                `json:"uid,omitempty"`
+	Action                  NullableSupportedPowerAction `json:"action,omitempty"`
+	ActionDueTime           NullableTime                 `json:"actionDueTime,omitempty"`
+	DnsName                 NullableString               `json:"dnsName,omitempty"`
+	HostedMachineName       NullableString               `json:"hostedMachineName,omitempty"`
+	HypervisorConnectionUid NullableInt32                `json:"hypervisorConnectionUid,omitempty"`
+	MachineName             NullableString               `json:"machineName,omitempty"`
+	Uid                     NullableInt64                `json:"uid,omitempty"`
 }
 
 // NewPowerActionScheduleResponseModelWithDefaults instantiates a new PowerActionScheduleResponseModel object
@@ -37,165 +37,242 @@ func NewPowerActionScheduleResponseModelWithDefaults() *PowerActionScheduleRespo
 	return &this
 }
 
-// GetAction returns the Action field value if set, zero value otherwise.
+// GetAction returns the Action field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PowerActionScheduleResponseModel) GetAction() SupportedPowerAction {
-	if o == nil || IsNil(o.Action) {
+	if o == nil || IsNil(o.Action.Get()) {
 		var ret SupportedPowerAction
 		return ret
 	}
-	return *o.Action
+	return *o.Action.Get()
 }
 
 // GetActionOk returns a tuple with the Action field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PowerActionScheduleResponseModel) GetActionOk() (*SupportedPowerAction, bool) {
-	if o == nil || IsNil(o.Action) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Action, true
+	return o.Action.Get(), o.Action.IsSet()
 }
 
-// SetAction gets a reference to the given SupportedPowerAction and assigns it to the Action field.
+// SetAction gets a reference to the given NullableSupportedPowerAction and assigns it to the Action field.
 func (o *PowerActionScheduleResponseModel) SetAction(v SupportedPowerAction) {
-	o.Action = &v
+	o.Action.Set(&v)
 }
 
-// GetActionDueTime returns the ActionDueTime field value if set, zero value otherwise.
+// SetActionNil sets the value for Action to be an explicit nil
+func (o *PowerActionScheduleResponseModel) SetActionNil() {
+	o.Action.Set(nil)
+}
+
+// UnsetAction ensures that no value is present for Action, not even an explicit nil
+func (o *PowerActionScheduleResponseModel) UnsetAction() {
+	o.Action.Unset()
+}
+
+// GetActionDueTime returns the ActionDueTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PowerActionScheduleResponseModel) GetActionDueTime() time.Time {
-	if o == nil || IsNil(o.ActionDueTime) {
+	if o == nil || IsNil(o.ActionDueTime.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.ActionDueTime
+	return *o.ActionDueTime.Get()
 }
 
 // GetActionDueTimeOk returns a tuple with the ActionDueTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PowerActionScheduleResponseModel) GetActionDueTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.ActionDueTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ActionDueTime, true
+	return o.ActionDueTime.Get(), o.ActionDueTime.IsSet()
 }
 
-// SetActionDueTime gets a reference to the given time.Time and assigns it to the ActionDueTime field.
+// SetActionDueTime gets a reference to the given NullableTime and assigns it to the ActionDueTime field.
 func (o *PowerActionScheduleResponseModel) SetActionDueTime(v time.Time) {
-	o.ActionDueTime = &v
+	o.ActionDueTime.Set(&v)
 }
 
-// GetDnsName returns the DnsName field value if set, zero value otherwise.
+// SetActionDueTimeNil sets the value for ActionDueTime to be an explicit nil
+func (o *PowerActionScheduleResponseModel) SetActionDueTimeNil() {
+	o.ActionDueTime.Set(nil)
+}
+
+// UnsetActionDueTime ensures that no value is present for ActionDueTime, not even an explicit nil
+func (o *PowerActionScheduleResponseModel) UnsetActionDueTime() {
+	o.ActionDueTime.Unset()
+}
+
+// GetDnsName returns the DnsName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PowerActionScheduleResponseModel) GetDnsName() string {
-	if o == nil || IsNil(o.DnsName) {
+	if o == nil || IsNil(o.DnsName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DnsName
+	return *o.DnsName.Get()
 }
 
 // GetDnsNameOk returns a tuple with the DnsName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PowerActionScheduleResponseModel) GetDnsNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DnsName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DnsName, true
+	return o.DnsName.Get(), o.DnsName.IsSet()
 }
 
-// SetDnsName gets a reference to the given string and assigns it to the DnsName field.
+// SetDnsName gets a reference to the given NullableString and assigns it to the DnsName field.
 func (o *PowerActionScheduleResponseModel) SetDnsName(v string) {
-	o.DnsName = &v
+	o.DnsName.Set(&v)
 }
 
-// GetHostedMachineName returns the HostedMachineName field value if set, zero value otherwise.
+// SetDnsNameNil sets the value for DnsName to be an explicit nil
+func (o *PowerActionScheduleResponseModel) SetDnsNameNil() {
+	o.DnsName.Set(nil)
+}
+
+// UnsetDnsName ensures that no value is present for DnsName, not even an explicit nil
+func (o *PowerActionScheduleResponseModel) UnsetDnsName() {
+	o.DnsName.Unset()
+}
+
+// GetHostedMachineName returns the HostedMachineName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PowerActionScheduleResponseModel) GetHostedMachineName() string {
-	if o == nil || IsNil(o.HostedMachineName) {
+	if o == nil || IsNil(o.HostedMachineName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HostedMachineName
+	return *o.HostedMachineName.Get()
 }
 
 // GetHostedMachineNameOk returns a tuple with the HostedMachineName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PowerActionScheduleResponseModel) GetHostedMachineNameOk() (*string, bool) {
-	if o == nil || IsNil(o.HostedMachineName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HostedMachineName, true
+	return o.HostedMachineName.Get(), o.HostedMachineName.IsSet()
 }
 
-// SetHostedMachineName gets a reference to the given string and assigns it to the HostedMachineName field.
+// SetHostedMachineName gets a reference to the given NullableString and assigns it to the HostedMachineName field.
 func (o *PowerActionScheduleResponseModel) SetHostedMachineName(v string) {
-	o.HostedMachineName = &v
+	o.HostedMachineName.Set(&v)
 }
 
-// GetHypervisorConnectionUid returns the HypervisorConnectionUid field value if set, zero value otherwise.
+// SetHostedMachineNameNil sets the value for HostedMachineName to be an explicit nil
+func (o *PowerActionScheduleResponseModel) SetHostedMachineNameNil() {
+	o.HostedMachineName.Set(nil)
+}
+
+// UnsetHostedMachineName ensures that no value is present for HostedMachineName, not even an explicit nil
+func (o *PowerActionScheduleResponseModel) UnsetHostedMachineName() {
+	o.HostedMachineName.Unset()
+}
+
+// GetHypervisorConnectionUid returns the HypervisorConnectionUid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PowerActionScheduleResponseModel) GetHypervisorConnectionUid() int32 {
-	if o == nil || IsNil(o.HypervisorConnectionUid) {
+	if o == nil || IsNil(o.HypervisorConnectionUid.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.HypervisorConnectionUid
+	return *o.HypervisorConnectionUid.Get()
 }
 
 // GetHypervisorConnectionUidOk returns a tuple with the HypervisorConnectionUid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PowerActionScheduleResponseModel) GetHypervisorConnectionUidOk() (*int32, bool) {
-	if o == nil || IsNil(o.HypervisorConnectionUid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HypervisorConnectionUid, true
+	return o.HypervisorConnectionUid.Get(), o.HypervisorConnectionUid.IsSet()
 }
 
-// SetHypervisorConnectionUid gets a reference to the given int32 and assigns it to the HypervisorConnectionUid field.
+// SetHypervisorConnectionUid gets a reference to the given NullableInt32 and assigns it to the HypervisorConnectionUid field.
 func (o *PowerActionScheduleResponseModel) SetHypervisorConnectionUid(v int32) {
-	o.HypervisorConnectionUid = &v
+	o.HypervisorConnectionUid.Set(&v)
 }
 
-// GetMachineName returns the MachineName field value if set, zero value otherwise.
+// SetHypervisorConnectionUidNil sets the value for HypervisorConnectionUid to be an explicit nil
+func (o *PowerActionScheduleResponseModel) SetHypervisorConnectionUidNil() {
+	o.HypervisorConnectionUid.Set(nil)
+}
+
+// UnsetHypervisorConnectionUid ensures that no value is present for HypervisorConnectionUid, not even an explicit nil
+func (o *PowerActionScheduleResponseModel) UnsetHypervisorConnectionUid() {
+	o.HypervisorConnectionUid.Unset()
+}
+
+// GetMachineName returns the MachineName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PowerActionScheduleResponseModel) GetMachineName() string {
-	if o == nil || IsNil(o.MachineName) {
+	if o == nil || IsNil(o.MachineName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MachineName
+	return *o.MachineName.Get()
 }
 
 // GetMachineNameOk returns a tuple with the MachineName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PowerActionScheduleResponseModel) GetMachineNameOk() (*string, bool) {
-	if o == nil || IsNil(o.MachineName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MachineName, true
+	return o.MachineName.Get(), o.MachineName.IsSet()
 }
 
-// SetMachineName gets a reference to the given string and assigns it to the MachineName field.
+// SetMachineName gets a reference to the given NullableString and assigns it to the MachineName field.
 func (o *PowerActionScheduleResponseModel) SetMachineName(v string) {
-	o.MachineName = &v
+	o.MachineName.Set(&v)
 }
 
-// GetUid returns the Uid field value if set, zero value otherwise.
+// SetMachineNameNil sets the value for MachineName to be an explicit nil
+func (o *PowerActionScheduleResponseModel) SetMachineNameNil() {
+	o.MachineName.Set(nil)
+}
+
+// UnsetMachineName ensures that no value is present for MachineName, not even an explicit nil
+func (o *PowerActionScheduleResponseModel) UnsetMachineName() {
+	o.MachineName.Unset()
+}
+
+// GetUid returns the Uid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PowerActionScheduleResponseModel) GetUid() int64 {
-	if o == nil || IsNil(o.Uid) {
+	if o == nil || IsNil(o.Uid.Get()) {
 		var ret int64
 		return ret
 	}
-	return *o.Uid
+	return *o.Uid.Get()
 }
 
 // GetUidOk returns a tuple with the Uid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PowerActionScheduleResponseModel) GetUidOk() (*int64, bool) {
-	if o == nil || IsNil(o.Uid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Uid, true
+	return o.Uid.Get(), o.Uid.IsSet()
 }
 
-// SetUid gets a reference to the given int64 and assigns it to the Uid field.
+// SetUid gets a reference to the given NullableInt64 and assigns it to the Uid field.
 func (o *PowerActionScheduleResponseModel) SetUid(v int64) {
-	o.Uid = &v
+	o.Uid.Set(&v)
+}
+
+// SetUidNil sets the value for Uid to be an explicit nil
+func (o *PowerActionScheduleResponseModel) SetUidNil() {
+	o.Uid.Set(nil)
+}
+
+// UnsetUid ensures that no value is present for Uid, not even an explicit nil
+func (o *PowerActionScheduleResponseModel) UnsetUid() {
+	o.Uid.Unset()
 }
 
 func (o PowerActionScheduleResponseModel) MarshalJSON() ([]byte, error) {
@@ -208,26 +285,26 @@ func (o PowerActionScheduleResponseModel) MarshalJSON() ([]byte, error) {
 
 func (o PowerActionScheduleResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Action) {
-		toSerialize["action"] = o.Action
+	if o.Action.IsSet() {
+		toSerialize["action"] = o.Action.Get()
 	}
-	if !IsNil(o.ActionDueTime) {
-		toSerialize["actionDueTime"] = o.ActionDueTime
+	if o.ActionDueTime.IsSet() {
+		toSerialize["actionDueTime"] = o.ActionDueTime.Get()
 	}
-	if !IsNil(o.DnsName) {
-		toSerialize["dnsName"] = o.DnsName
+	if o.DnsName.IsSet() {
+		toSerialize["dnsName"] = o.DnsName.Get()
 	}
-	if !IsNil(o.HostedMachineName) {
-		toSerialize["hostedMachineName"] = o.HostedMachineName
+	if o.HostedMachineName.IsSet() {
+		toSerialize["hostedMachineName"] = o.HostedMachineName.Get()
 	}
-	if !IsNil(o.HypervisorConnectionUid) {
-		toSerialize["hypervisorConnectionUid"] = o.HypervisorConnectionUid
+	if o.HypervisorConnectionUid.IsSet() {
+		toSerialize["hypervisorConnectionUid"] = o.HypervisorConnectionUid.Get()
 	}
-	if !IsNil(o.MachineName) {
-		toSerialize["machineName"] = o.MachineName
+	if o.MachineName.IsSet() {
+		toSerialize["machineName"] = o.MachineName.Get()
 	}
-	if !IsNil(o.Uid) {
-		toSerialize["uid"] = o.Uid
+	if o.Uid.IsSet() {
+		toSerialize["uid"] = o.Uid.Get()
 	}
 	return toSerialize, nil
 }

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,29 +20,29 @@ var _ MappedNullable = &RemoteBrowserIsolationImageModel{}
 // RemoteBrowserIsolationImageModel struct for RemoteBrowserIsolationImageModel
 type RemoteBrowserIsolationImageModel struct {
 	// The ID of the image
-	Id *string `json:"id,omitempty"`
+	Id NullableString `json:"id,omitempty"`
 	// Shows version of sbsession
-	SbSessionVdaVersion *string `json:"sbSessionVdaVersion,omitempty"`
+	SbSessionVdaVersion NullableString `json:"sbSessionVdaVersion,omitempty"`
 	// The init session path
-	CommandLineExecutable *string `json:"commandLineExecutable,omitempty"`
+	CommandLineExecutable NullableString `json:"commandLineExecutable,omitempty"`
 	// The init session arguments
-	CommandLineArguments *string `json:"commandLineArguments,omitempty"`
+	CommandLineArguments NullableString `json:"commandLineArguments,omitempty"`
 	// The init session working directory
-	WorkingDirectory *string `json:"workingDirectory,omitempty"`
+	WorkingDirectory NullableString `json:"workingDirectory,omitempty"`
 	// Shows version of image Virtual Desktop Agent
-	LinuxVdaVersion *string `json:"linuxVdaVersion,omitempty"`
+	LinuxVdaVersion NullableString `json:"linuxVdaVersion,omitempty"`
 	// Shows version of image OS
-	OsVersion *string `json:"osVersion,omitempty"`
+	OsVersion NullableString `json:"osVersion,omitempty"`
 	// Url of the image which was provided by secure browser
-	VhdLocation *string `json:"vhdLocation,omitempty"`
+	VhdLocation NullableString `json:"vhdLocation,omitempty"`
 	// Url of the image with Sas token which was provided by secure browser
-	VhdSasLink *string `json:"vhdSasLink,omitempty"`
+	VhdSasLink NullableString `json:"vhdSasLink,omitempty"`
 	// Address of secure browser ticket request
-	TicketRequestAddress *string `json:"ticketRequestAddress,omitempty"`
+	TicketRequestAddress NullableString `json:"ticketRequestAddress,omitempty"`
 	// The Group Policy content in base64 format
-	PolicyContent *string `json:"policyContent,omitempty"`
+	PolicyContent NullableString `json:"policyContent,omitempty"`
 	// Approximate maximum duration over which the reboot cycle runs, in minutes.  Value of 0 causes all machines to reboot immediately.  Defaults to -1: a \"natural reboot\" cycle allowing machines that are in-use to  continue working and be restarted only after they become idle.
-	VdaUpdateDelay *int32 `json:"vdaUpdateDelay,omitempty"`
+	VdaUpdateDelay NullableInt32 `json:"vdaUpdateDelay,omitempty"`
 }
 
 // NewRemoteBrowserIsolationImageModelWithDefaults instantiates a new RemoteBrowserIsolationImageModel object
@@ -53,280 +53,412 @@ func NewRemoteBrowserIsolationImageModelWithDefaults() *RemoteBrowserIsolationIm
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationImageModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationImageModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *RemoteBrowserIsolationImageModel) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
 }
 
-// GetSbSessionVdaVersion returns the SbSessionVdaVersion field value if set, zero value otherwise.
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *RemoteBrowserIsolationImageModel) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *RemoteBrowserIsolationImageModel) UnsetId() {
+	o.Id.Unset()
+}
+
+// GetSbSessionVdaVersion returns the SbSessionVdaVersion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationImageModel) GetSbSessionVdaVersion() string {
-	if o == nil || IsNil(o.SbSessionVdaVersion) {
+	if o == nil || IsNil(o.SbSessionVdaVersion.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SbSessionVdaVersion
+	return *o.SbSessionVdaVersion.Get()
 }
 
 // GetSbSessionVdaVersionOk returns a tuple with the SbSessionVdaVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationImageModel) GetSbSessionVdaVersionOk() (*string, bool) {
-	if o == nil || IsNil(o.SbSessionVdaVersion) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SbSessionVdaVersion, true
+	return o.SbSessionVdaVersion.Get(), o.SbSessionVdaVersion.IsSet()
 }
 
-// SetSbSessionVdaVersion gets a reference to the given string and assigns it to the SbSessionVdaVersion field.
+// SetSbSessionVdaVersion gets a reference to the given NullableString and assigns it to the SbSessionVdaVersion field.
 func (o *RemoteBrowserIsolationImageModel) SetSbSessionVdaVersion(v string) {
-	o.SbSessionVdaVersion = &v
+	o.SbSessionVdaVersion.Set(&v)
 }
 
-// GetCommandLineExecutable returns the CommandLineExecutable field value if set, zero value otherwise.
+// SetSbSessionVdaVersionNil sets the value for SbSessionVdaVersion to be an explicit nil
+func (o *RemoteBrowserIsolationImageModel) SetSbSessionVdaVersionNil() {
+	o.SbSessionVdaVersion.Set(nil)
+}
+
+// UnsetSbSessionVdaVersion ensures that no value is present for SbSessionVdaVersion, not even an explicit nil
+func (o *RemoteBrowserIsolationImageModel) UnsetSbSessionVdaVersion() {
+	o.SbSessionVdaVersion.Unset()
+}
+
+// GetCommandLineExecutable returns the CommandLineExecutable field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationImageModel) GetCommandLineExecutable() string {
-	if o == nil || IsNil(o.CommandLineExecutable) {
+	if o == nil || IsNil(o.CommandLineExecutable.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CommandLineExecutable
+	return *o.CommandLineExecutable.Get()
 }
 
 // GetCommandLineExecutableOk returns a tuple with the CommandLineExecutable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationImageModel) GetCommandLineExecutableOk() (*string, bool) {
-	if o == nil || IsNil(o.CommandLineExecutable) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CommandLineExecutable, true
+	return o.CommandLineExecutable.Get(), o.CommandLineExecutable.IsSet()
 }
 
-// SetCommandLineExecutable gets a reference to the given string and assigns it to the CommandLineExecutable field.
+// SetCommandLineExecutable gets a reference to the given NullableString and assigns it to the CommandLineExecutable field.
 func (o *RemoteBrowserIsolationImageModel) SetCommandLineExecutable(v string) {
-	o.CommandLineExecutable = &v
+	o.CommandLineExecutable.Set(&v)
 }
 
-// GetCommandLineArguments returns the CommandLineArguments field value if set, zero value otherwise.
+// SetCommandLineExecutableNil sets the value for CommandLineExecutable to be an explicit nil
+func (o *RemoteBrowserIsolationImageModel) SetCommandLineExecutableNil() {
+	o.CommandLineExecutable.Set(nil)
+}
+
+// UnsetCommandLineExecutable ensures that no value is present for CommandLineExecutable, not even an explicit nil
+func (o *RemoteBrowserIsolationImageModel) UnsetCommandLineExecutable() {
+	o.CommandLineExecutable.Unset()
+}
+
+// GetCommandLineArguments returns the CommandLineArguments field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationImageModel) GetCommandLineArguments() string {
-	if o == nil || IsNil(o.CommandLineArguments) {
+	if o == nil || IsNil(o.CommandLineArguments.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CommandLineArguments
+	return *o.CommandLineArguments.Get()
 }
 
 // GetCommandLineArgumentsOk returns a tuple with the CommandLineArguments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationImageModel) GetCommandLineArgumentsOk() (*string, bool) {
-	if o == nil || IsNil(o.CommandLineArguments) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CommandLineArguments, true
+	return o.CommandLineArguments.Get(), o.CommandLineArguments.IsSet()
 }
 
-// SetCommandLineArguments gets a reference to the given string and assigns it to the CommandLineArguments field.
+// SetCommandLineArguments gets a reference to the given NullableString and assigns it to the CommandLineArguments field.
 func (o *RemoteBrowserIsolationImageModel) SetCommandLineArguments(v string) {
-	o.CommandLineArguments = &v
+	o.CommandLineArguments.Set(&v)
 }
 
-// GetWorkingDirectory returns the WorkingDirectory field value if set, zero value otherwise.
+// SetCommandLineArgumentsNil sets the value for CommandLineArguments to be an explicit nil
+func (o *RemoteBrowserIsolationImageModel) SetCommandLineArgumentsNil() {
+	o.CommandLineArguments.Set(nil)
+}
+
+// UnsetCommandLineArguments ensures that no value is present for CommandLineArguments, not even an explicit nil
+func (o *RemoteBrowserIsolationImageModel) UnsetCommandLineArguments() {
+	o.CommandLineArguments.Unset()
+}
+
+// GetWorkingDirectory returns the WorkingDirectory field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationImageModel) GetWorkingDirectory() string {
-	if o == nil || IsNil(o.WorkingDirectory) {
+	if o == nil || IsNil(o.WorkingDirectory.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.WorkingDirectory
+	return *o.WorkingDirectory.Get()
 }
 
 // GetWorkingDirectoryOk returns a tuple with the WorkingDirectory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationImageModel) GetWorkingDirectoryOk() (*string, bool) {
-	if o == nil || IsNil(o.WorkingDirectory) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkingDirectory, true
+	return o.WorkingDirectory.Get(), o.WorkingDirectory.IsSet()
 }
 
-// SetWorkingDirectory gets a reference to the given string and assigns it to the WorkingDirectory field.
+// SetWorkingDirectory gets a reference to the given NullableString and assigns it to the WorkingDirectory field.
 func (o *RemoteBrowserIsolationImageModel) SetWorkingDirectory(v string) {
-	o.WorkingDirectory = &v
+	o.WorkingDirectory.Set(&v)
 }
 
-// GetLinuxVdaVersion returns the LinuxVdaVersion field value if set, zero value otherwise.
+// SetWorkingDirectoryNil sets the value for WorkingDirectory to be an explicit nil
+func (o *RemoteBrowserIsolationImageModel) SetWorkingDirectoryNil() {
+	o.WorkingDirectory.Set(nil)
+}
+
+// UnsetWorkingDirectory ensures that no value is present for WorkingDirectory, not even an explicit nil
+func (o *RemoteBrowserIsolationImageModel) UnsetWorkingDirectory() {
+	o.WorkingDirectory.Unset()
+}
+
+// GetLinuxVdaVersion returns the LinuxVdaVersion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationImageModel) GetLinuxVdaVersion() string {
-	if o == nil || IsNil(o.LinuxVdaVersion) {
+	if o == nil || IsNil(o.LinuxVdaVersion.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LinuxVdaVersion
+	return *o.LinuxVdaVersion.Get()
 }
 
 // GetLinuxVdaVersionOk returns a tuple with the LinuxVdaVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationImageModel) GetLinuxVdaVersionOk() (*string, bool) {
-	if o == nil || IsNil(o.LinuxVdaVersion) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LinuxVdaVersion, true
+	return o.LinuxVdaVersion.Get(), o.LinuxVdaVersion.IsSet()
 }
 
-// SetLinuxVdaVersion gets a reference to the given string and assigns it to the LinuxVdaVersion field.
+// SetLinuxVdaVersion gets a reference to the given NullableString and assigns it to the LinuxVdaVersion field.
 func (o *RemoteBrowserIsolationImageModel) SetLinuxVdaVersion(v string) {
-	o.LinuxVdaVersion = &v
+	o.LinuxVdaVersion.Set(&v)
 }
 
-// GetOsVersion returns the OsVersion field value if set, zero value otherwise.
+// SetLinuxVdaVersionNil sets the value for LinuxVdaVersion to be an explicit nil
+func (o *RemoteBrowserIsolationImageModel) SetLinuxVdaVersionNil() {
+	o.LinuxVdaVersion.Set(nil)
+}
+
+// UnsetLinuxVdaVersion ensures that no value is present for LinuxVdaVersion, not even an explicit nil
+func (o *RemoteBrowserIsolationImageModel) UnsetLinuxVdaVersion() {
+	o.LinuxVdaVersion.Unset()
+}
+
+// GetOsVersion returns the OsVersion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationImageModel) GetOsVersion() string {
-	if o == nil || IsNil(o.OsVersion) {
+	if o == nil || IsNil(o.OsVersion.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OsVersion
+	return *o.OsVersion.Get()
 }
 
 // GetOsVersionOk returns a tuple with the OsVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationImageModel) GetOsVersionOk() (*string, bool) {
-	if o == nil || IsNil(o.OsVersion) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OsVersion, true
+	return o.OsVersion.Get(), o.OsVersion.IsSet()
 }
 
-// SetOsVersion gets a reference to the given string and assigns it to the OsVersion field.
+// SetOsVersion gets a reference to the given NullableString and assigns it to the OsVersion field.
 func (o *RemoteBrowserIsolationImageModel) SetOsVersion(v string) {
-	o.OsVersion = &v
+	o.OsVersion.Set(&v)
 }
 
-// GetVhdLocation returns the VhdLocation field value if set, zero value otherwise.
+// SetOsVersionNil sets the value for OsVersion to be an explicit nil
+func (o *RemoteBrowserIsolationImageModel) SetOsVersionNil() {
+	o.OsVersion.Set(nil)
+}
+
+// UnsetOsVersion ensures that no value is present for OsVersion, not even an explicit nil
+func (o *RemoteBrowserIsolationImageModel) UnsetOsVersion() {
+	o.OsVersion.Unset()
+}
+
+// GetVhdLocation returns the VhdLocation field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationImageModel) GetVhdLocation() string {
-	if o == nil || IsNil(o.VhdLocation) {
+	if o == nil || IsNil(o.VhdLocation.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VhdLocation
+	return *o.VhdLocation.Get()
 }
 
 // GetVhdLocationOk returns a tuple with the VhdLocation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationImageModel) GetVhdLocationOk() (*string, bool) {
-	if o == nil || IsNil(o.VhdLocation) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VhdLocation, true
+	return o.VhdLocation.Get(), o.VhdLocation.IsSet()
 }
 
-// SetVhdLocation gets a reference to the given string and assigns it to the VhdLocation field.
+// SetVhdLocation gets a reference to the given NullableString and assigns it to the VhdLocation field.
 func (o *RemoteBrowserIsolationImageModel) SetVhdLocation(v string) {
-	o.VhdLocation = &v
+	o.VhdLocation.Set(&v)
 }
 
-// GetVhdSasLink returns the VhdSasLink field value if set, zero value otherwise.
+// SetVhdLocationNil sets the value for VhdLocation to be an explicit nil
+func (o *RemoteBrowserIsolationImageModel) SetVhdLocationNil() {
+	o.VhdLocation.Set(nil)
+}
+
+// UnsetVhdLocation ensures that no value is present for VhdLocation, not even an explicit nil
+func (o *RemoteBrowserIsolationImageModel) UnsetVhdLocation() {
+	o.VhdLocation.Unset()
+}
+
+// GetVhdSasLink returns the VhdSasLink field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationImageModel) GetVhdSasLink() string {
-	if o == nil || IsNil(o.VhdSasLink) {
+	if o == nil || IsNil(o.VhdSasLink.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VhdSasLink
+	return *o.VhdSasLink.Get()
 }
 
 // GetVhdSasLinkOk returns a tuple with the VhdSasLink field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationImageModel) GetVhdSasLinkOk() (*string, bool) {
-	if o == nil || IsNil(o.VhdSasLink) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VhdSasLink, true
+	return o.VhdSasLink.Get(), o.VhdSasLink.IsSet()
 }
 
-// SetVhdSasLink gets a reference to the given string and assigns it to the VhdSasLink field.
+// SetVhdSasLink gets a reference to the given NullableString and assigns it to the VhdSasLink field.
 func (o *RemoteBrowserIsolationImageModel) SetVhdSasLink(v string) {
-	o.VhdSasLink = &v
+	o.VhdSasLink.Set(&v)
 }
 
-// GetTicketRequestAddress returns the TicketRequestAddress field value if set, zero value otherwise.
+// SetVhdSasLinkNil sets the value for VhdSasLink to be an explicit nil
+func (o *RemoteBrowserIsolationImageModel) SetVhdSasLinkNil() {
+	o.VhdSasLink.Set(nil)
+}
+
+// UnsetVhdSasLink ensures that no value is present for VhdSasLink, not even an explicit nil
+func (o *RemoteBrowserIsolationImageModel) UnsetVhdSasLink() {
+	o.VhdSasLink.Unset()
+}
+
+// GetTicketRequestAddress returns the TicketRequestAddress field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationImageModel) GetTicketRequestAddress() string {
-	if o == nil || IsNil(o.TicketRequestAddress) {
+	if o == nil || IsNil(o.TicketRequestAddress.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TicketRequestAddress
+	return *o.TicketRequestAddress.Get()
 }
 
 // GetTicketRequestAddressOk returns a tuple with the TicketRequestAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationImageModel) GetTicketRequestAddressOk() (*string, bool) {
-	if o == nil || IsNil(o.TicketRequestAddress) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TicketRequestAddress, true
+	return o.TicketRequestAddress.Get(), o.TicketRequestAddress.IsSet()
 }
 
-// SetTicketRequestAddress gets a reference to the given string and assigns it to the TicketRequestAddress field.
+// SetTicketRequestAddress gets a reference to the given NullableString and assigns it to the TicketRequestAddress field.
 func (o *RemoteBrowserIsolationImageModel) SetTicketRequestAddress(v string) {
-	o.TicketRequestAddress = &v
+	o.TicketRequestAddress.Set(&v)
 }
 
-// GetPolicyContent returns the PolicyContent field value if set, zero value otherwise.
+// SetTicketRequestAddressNil sets the value for TicketRequestAddress to be an explicit nil
+func (o *RemoteBrowserIsolationImageModel) SetTicketRequestAddressNil() {
+	o.TicketRequestAddress.Set(nil)
+}
+
+// UnsetTicketRequestAddress ensures that no value is present for TicketRequestAddress, not even an explicit nil
+func (o *RemoteBrowserIsolationImageModel) UnsetTicketRequestAddress() {
+	o.TicketRequestAddress.Unset()
+}
+
+// GetPolicyContent returns the PolicyContent field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationImageModel) GetPolicyContent() string {
-	if o == nil || IsNil(o.PolicyContent) {
+	if o == nil || IsNil(o.PolicyContent.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PolicyContent
+	return *o.PolicyContent.Get()
 }
 
 // GetPolicyContentOk returns a tuple with the PolicyContent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationImageModel) GetPolicyContentOk() (*string, bool) {
-	if o == nil || IsNil(o.PolicyContent) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PolicyContent, true
+	return o.PolicyContent.Get(), o.PolicyContent.IsSet()
 }
 
-// SetPolicyContent gets a reference to the given string and assigns it to the PolicyContent field.
+// SetPolicyContent gets a reference to the given NullableString and assigns it to the PolicyContent field.
 func (o *RemoteBrowserIsolationImageModel) SetPolicyContent(v string) {
-	o.PolicyContent = &v
+	o.PolicyContent.Set(&v)
 }
 
-// GetVdaUpdateDelay returns the VdaUpdateDelay field value if set, zero value otherwise.
+// SetPolicyContentNil sets the value for PolicyContent to be an explicit nil
+func (o *RemoteBrowserIsolationImageModel) SetPolicyContentNil() {
+	o.PolicyContent.Set(nil)
+}
+
+// UnsetPolicyContent ensures that no value is present for PolicyContent, not even an explicit nil
+func (o *RemoteBrowserIsolationImageModel) UnsetPolicyContent() {
+	o.PolicyContent.Unset()
+}
+
+// GetVdaUpdateDelay returns the VdaUpdateDelay field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationImageModel) GetVdaUpdateDelay() int32 {
-	if o == nil || IsNil(o.VdaUpdateDelay) {
+	if o == nil || IsNil(o.VdaUpdateDelay.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.VdaUpdateDelay
+	return *o.VdaUpdateDelay.Get()
 }
 
 // GetVdaUpdateDelayOk returns a tuple with the VdaUpdateDelay field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationImageModel) GetVdaUpdateDelayOk() (*int32, bool) {
-	if o == nil || IsNil(o.VdaUpdateDelay) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VdaUpdateDelay, true
+	return o.VdaUpdateDelay.Get(), o.VdaUpdateDelay.IsSet()
 }
 
-// SetVdaUpdateDelay gets a reference to the given int32 and assigns it to the VdaUpdateDelay field.
+// SetVdaUpdateDelay gets a reference to the given NullableInt32 and assigns it to the VdaUpdateDelay field.
 func (o *RemoteBrowserIsolationImageModel) SetVdaUpdateDelay(v int32) {
-	o.VdaUpdateDelay = &v
+	o.VdaUpdateDelay.Set(&v)
+}
+
+// SetVdaUpdateDelayNil sets the value for VdaUpdateDelay to be an explicit nil
+func (o *RemoteBrowserIsolationImageModel) SetVdaUpdateDelayNil() {
+	o.VdaUpdateDelay.Set(nil)
+}
+
+// UnsetVdaUpdateDelay ensures that no value is present for VdaUpdateDelay, not even an explicit nil
+func (o *RemoteBrowserIsolationImageModel) UnsetVdaUpdateDelay() {
+	o.VdaUpdateDelay.Unset()
 }
 
 func (o RemoteBrowserIsolationImageModel) MarshalJSON() ([]byte, error) {
@@ -339,41 +471,41 @@ func (o RemoteBrowserIsolationImageModel) MarshalJSON() ([]byte, error) {
 
 func (o RemoteBrowserIsolationImageModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
-	if !IsNil(o.SbSessionVdaVersion) {
-		toSerialize["sbSessionVdaVersion"] = o.SbSessionVdaVersion
+	if o.SbSessionVdaVersion.IsSet() {
+		toSerialize["sbSessionVdaVersion"] = o.SbSessionVdaVersion.Get()
 	}
-	if !IsNil(o.CommandLineExecutable) {
-		toSerialize["commandLineExecutable"] = o.CommandLineExecutable
+	if o.CommandLineExecutable.IsSet() {
+		toSerialize["commandLineExecutable"] = o.CommandLineExecutable.Get()
 	}
-	if !IsNil(o.CommandLineArguments) {
-		toSerialize["commandLineArguments"] = o.CommandLineArguments
+	if o.CommandLineArguments.IsSet() {
+		toSerialize["commandLineArguments"] = o.CommandLineArguments.Get()
 	}
-	if !IsNil(o.WorkingDirectory) {
-		toSerialize["workingDirectory"] = o.WorkingDirectory
+	if o.WorkingDirectory.IsSet() {
+		toSerialize["workingDirectory"] = o.WorkingDirectory.Get()
 	}
-	if !IsNil(o.LinuxVdaVersion) {
-		toSerialize["linuxVdaVersion"] = o.LinuxVdaVersion
+	if o.LinuxVdaVersion.IsSet() {
+		toSerialize["linuxVdaVersion"] = o.LinuxVdaVersion.Get()
 	}
-	if !IsNil(o.OsVersion) {
-		toSerialize["osVersion"] = o.OsVersion
+	if o.OsVersion.IsSet() {
+		toSerialize["osVersion"] = o.OsVersion.Get()
 	}
-	if !IsNil(o.VhdLocation) {
-		toSerialize["vhdLocation"] = o.VhdLocation
+	if o.VhdLocation.IsSet() {
+		toSerialize["vhdLocation"] = o.VhdLocation.Get()
 	}
-	if !IsNil(o.VhdSasLink) {
-		toSerialize["vhdSasLink"] = o.VhdSasLink
+	if o.VhdSasLink.IsSet() {
+		toSerialize["vhdSasLink"] = o.VhdSasLink.Get()
 	}
-	if !IsNil(o.TicketRequestAddress) {
-		toSerialize["ticketRequestAddress"] = o.TicketRequestAddress
+	if o.TicketRequestAddress.IsSet() {
+		toSerialize["ticketRequestAddress"] = o.TicketRequestAddress.Get()
 	}
-	if !IsNil(o.PolicyContent) {
-		toSerialize["policyContent"] = o.PolicyContent
+	if o.PolicyContent.IsSet() {
+		toSerialize["policyContent"] = o.PolicyContent.Get()
 	}
-	if !IsNil(o.VdaUpdateDelay) {
-		toSerialize["vdaUpdateDelay"] = o.VdaUpdateDelay
+	if o.VdaUpdateDelay.IsSet() {
+		toSerialize["vdaUpdateDelay"] = o.VdaUpdateDelay.Get()
 	}
 	return toSerialize, nil
 }

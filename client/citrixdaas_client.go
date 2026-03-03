@@ -1,4 +1,4 @@
-// Copyright © 2025. Citrix Systems, Inc.
+// Copyright © 2026. Citrix Systems, Inc.
 
 package citrixclient
 
@@ -308,7 +308,7 @@ func (daasClient *CitrixDaasClient) SetupCitrixClientsContext(ctx context.Contex
 }
 
 func (daasClient *CitrixDaasClient) InitializeCitrixCloudClients(ctx context.Context, ccUrl, hostname string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) {
-	daasClient.SetupResourceLocationsClient(ccUrl, middlewareFunc)
+	daasClient.SetupResourceLocationsClient(ccUrl, middlewareFuncWithCustomerIdHeader)
 	daasClient.SetupCCAdminClient(ccUrl, middlewareFuncWithCustomerIdHeader)
 	daasClient.SetupGacClient(hostname, middlewareFunc)
 }

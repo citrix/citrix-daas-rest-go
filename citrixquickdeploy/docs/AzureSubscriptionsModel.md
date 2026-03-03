@@ -4,11 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]AzureSubscriptionOverview**](AzureSubscriptionOverview.md) | List of known subscriptions that have been associated with the customer | 
+**Items** | [**[]AzureSubscriptionOverview**](AzureSubscriptionOverview.md) | List of known subscriptions that have been associated with the customer | [readonly] 
 **Subscriptions** | Pointer to [**[]AzureSubscriptionOverview**](AzureSubscriptionOverview.md) | Alias of Items property for backward compatibility | [optional] 
 **MaxCitrixManagedSubscriptions** | Pointer to **int32** | The maximum allowed Citrix Managed subscriptions for the customer | [optional] 
-**UniqueName** | Pointer to **string** | The unique name of the user who provided the auth code to list subscriptions. Will only be present if an Azure Authorization Code was provided | [optional] 
+**UniqueName** | Pointer to **NullableString** | The unique name of the user who provided the auth code to list subscriptions. Will only be present if an Azure Authorization Code was provided | [optional] 
 **StaleData** | Pointer to **bool** |  | [optional] 
+**TenantId** | Pointer to **NullableString** | The tenant ID of the subscriptions | [optional] 
 
 ## Methods
 
@@ -74,6 +75,16 @@ SetSubscriptions sets Subscriptions field to given value.
 
 HasSubscriptions returns a boolean if a field has been set.
 
+### SetSubscriptionsNil
+
+`func (o *AzureSubscriptionsModel) SetSubscriptionsNil(b bool)`
+
+ SetSubscriptionsNil sets the value for Subscriptions to be an explicit nil
+
+### UnsetSubscriptions
+`func (o *AzureSubscriptionsModel) UnsetSubscriptions()`
+
+UnsetSubscriptions ensures that no value is present for Subscriptions, not even an explicit nil
 ### GetMaxCitrixManagedSubscriptions
 
 `func (o *AzureSubscriptionsModel) GetMaxCitrixManagedSubscriptions() int32`
@@ -124,6 +135,16 @@ SetUniqueName sets UniqueName field to given value.
 
 HasUniqueName returns a boolean if a field has been set.
 
+### SetUniqueNameNil
+
+`func (o *AzureSubscriptionsModel) SetUniqueNameNil(b bool)`
+
+ SetUniqueNameNil sets the value for UniqueName to be an explicit nil
+
+### UnsetUniqueName
+`func (o *AzureSubscriptionsModel) UnsetUniqueName()`
+
+UnsetUniqueName ensures that no value is present for UniqueName, not even an explicit nil
 ### GetStaleData
 
 `func (o *AzureSubscriptionsModel) GetStaleData() bool`
@@ -149,6 +170,41 @@ SetStaleData sets StaleData field to given value.
 
 HasStaleData returns a boolean if a field has been set.
 
+### GetTenantId
+
+`func (o *AzureSubscriptionsModel) GetTenantId() string`
+
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
+
+### GetTenantIdOk
+
+`func (o *AzureSubscriptionsModel) GetTenantIdOk() (*string, bool)`
+
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTenantId
+
+`func (o *AzureSubscriptionsModel) SetTenantId(v string)`
+
+SetTenantId sets TenantId field to given value.
+
+### HasTenantId
+
+`func (o *AzureSubscriptionsModel) HasTenantId() bool`
+
+HasTenantId returns a boolean if a field has been set.
+
+### SetTenantIdNil
+
+`func (o *AzureSubscriptionsModel) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *AzureSubscriptionsModel) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

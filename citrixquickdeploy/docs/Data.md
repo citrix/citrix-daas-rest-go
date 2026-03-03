@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Essentials** | Pointer to [**Essentials**](Essentials.md) |  | [optional] 
-**AlertContext** | Pointer to [**AlertContext**](AlertContext.md) |  | [optional] 
+**Essentials** | Pointer to [**NullableEssentials**](Essentials.md) |  | [optional] 
+**AlertContext** | Pointer to [**NullableAlertContext**](AlertContext.md) |  | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetEssentials sets Essentials field to given value.
 
 HasEssentials returns a boolean if a field has been set.
 
+### SetEssentialsNil
+
+`func (o *Data) SetEssentialsNil(b bool)`
+
+ SetEssentialsNil sets the value for Essentials to be an explicit nil
+
+### UnsetEssentials
+`func (o *Data) UnsetEssentials()`
+
+UnsetEssentials ensures that no value is present for Essentials, not even an explicit nil
 ### GetAlertContext
 
 `func (o *Data) GetAlertContext() AlertContext`
@@ -76,6 +86,16 @@ SetAlertContext sets AlertContext field to given value.
 
 HasAlertContext returns a boolean if a field has been set.
 
+### SetAlertContextNil
+
+`func (o *Data) SetAlertContextNil(b bool)`
+
+ SetAlertContextNil sets the value for AlertContext to be an explicit nil
+
+### UnsetAlertContext
+`func (o *Data) UnsetAlertContext()`
+
+UnsetAlertContext ensures that no value is present for AlertContext, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

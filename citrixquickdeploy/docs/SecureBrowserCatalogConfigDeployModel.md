@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AddCatalog** | Pointer to [**AddSecureBrowserCatalogModel**](AddSecureBrowserCatalogModel.md) |  | [optional] 
-**AddCatalogCapacity** | Pointer to [**CatalogCapacitySettingsModel**](CatalogCapacitySettingsModel.md) |  | [optional] 
-**AddSecureBrowser** | Pointer to [**CatalogSecureBrowserModel**](CatalogSecureBrowserModel.md) |  | [optional] 
+**AddCatalog** | Pointer to [**NullableAddSecureBrowserCatalogModel**](AddSecureBrowserCatalogModel.md) |  | [optional] 
+**AddCatalogCapacity** | Pointer to [**NullableCatalogCapacitySettingsModel**](CatalogCapacitySettingsModel.md) |  | [optional] 
+**AddSecureBrowser** | Pointer to [**NullableCatalogSecureBrowserModel**](CatalogSecureBrowserModel.md) |  | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetAddCatalog sets AddCatalog field to given value.
 
 HasAddCatalog returns a boolean if a field has been set.
 
+### SetAddCatalogNil
+
+`func (o *SecureBrowserCatalogConfigDeployModel) SetAddCatalogNil(b bool)`
+
+ SetAddCatalogNil sets the value for AddCatalog to be an explicit nil
+
+### UnsetAddCatalog
+`func (o *SecureBrowserCatalogConfigDeployModel) UnsetAddCatalog()`
+
+UnsetAddCatalog ensures that no value is present for AddCatalog, not even an explicit nil
 ### GetAddCatalogCapacity
 
 `func (o *SecureBrowserCatalogConfigDeployModel) GetAddCatalogCapacity() CatalogCapacitySettingsModel`
@@ -77,6 +87,16 @@ SetAddCatalogCapacity sets AddCatalogCapacity field to given value.
 
 HasAddCatalogCapacity returns a boolean if a field has been set.
 
+### SetAddCatalogCapacityNil
+
+`func (o *SecureBrowserCatalogConfigDeployModel) SetAddCatalogCapacityNil(b bool)`
+
+ SetAddCatalogCapacityNil sets the value for AddCatalogCapacity to be an explicit nil
+
+### UnsetAddCatalogCapacity
+`func (o *SecureBrowserCatalogConfigDeployModel) UnsetAddCatalogCapacity()`
+
+UnsetAddCatalogCapacity ensures that no value is present for AddCatalogCapacity, not even an explicit nil
 ### GetAddSecureBrowser
 
 `func (o *SecureBrowserCatalogConfigDeployModel) GetAddSecureBrowser() CatalogSecureBrowserModel`
@@ -102,6 +122,16 @@ SetAddSecureBrowser sets AddSecureBrowser field to given value.
 
 HasAddSecureBrowser returns a boolean if a field has been set.
 
+### SetAddSecureBrowserNil
+
+`func (o *SecureBrowserCatalogConfigDeployModel) SetAddSecureBrowserNil(b bool)`
+
+ SetAddSecureBrowserNil sets the value for AddSecureBrowser to be an explicit nil
+
+### UnsetAddSecureBrowser
+`func (o *SecureBrowserCatalogConfigDeployModel) UnsetAddSecureBrowser()`
+
+UnsetAddSecureBrowser ensures that no value is present for AddSecureBrowser, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

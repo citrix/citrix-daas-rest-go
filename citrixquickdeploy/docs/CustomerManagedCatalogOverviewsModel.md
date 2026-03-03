@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MaxCatalogVdas** | Pointer to **int32** | Deprecated, check CatalogLimit.(CitrixManagedLimit | ByoaLimit).MaxVdaCount instead | [optional] [readonly] 
-**Items** | [**[]CatalogConfiguration**](CatalogConfiguration.md) | List of catalogs that are available to the user | 
+**Items** | [**[]CatalogConfiguration**](CatalogConfiguration.md) | List of catalogs that are available to the user | [readonly] 
 **Catalogs** | Pointer to [**[]CatalogConfiguration**](CatalogConfiguration.md) | Alias of Items property for backward compatibility | [optional] 
-**CatalogLimit** | Pointer to [**CatalogLimitModel**](CatalogLimitModel.md) | Limit imposed on the number of catalogs for the customer | [optional] 
+**CatalogLimit** | Pointer to [**NullableCatalogLimitModel**](CatalogLimitModel.md) | Limit imposed on the number of catalogs for the customer | [optional] 
 **StaleData** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -99,6 +99,16 @@ SetCatalogs sets Catalogs field to given value.
 
 HasCatalogs returns a boolean if a field has been set.
 
+### SetCatalogsNil
+
+`func (o *CustomerManagedCatalogOverviewsModel) SetCatalogsNil(b bool)`
+
+ SetCatalogsNil sets the value for Catalogs to be an explicit nil
+
+### UnsetCatalogs
+`func (o *CustomerManagedCatalogOverviewsModel) UnsetCatalogs()`
+
+UnsetCatalogs ensures that no value is present for Catalogs, not even an explicit nil
 ### GetCatalogLimit
 
 `func (o *CustomerManagedCatalogOverviewsModel) GetCatalogLimit() CatalogLimitModel`
@@ -124,6 +134,16 @@ SetCatalogLimit sets CatalogLimit field to given value.
 
 HasCatalogLimit returns a boolean if a field has been set.
 
+### SetCatalogLimitNil
+
+`func (o *CustomerManagedCatalogOverviewsModel) SetCatalogLimitNil(b bool)`
+
+ SetCatalogLimitNil sets the value for CatalogLimit to be an explicit nil
+
+### UnsetCatalogLimit
+`func (o *CustomerManagedCatalogOverviewsModel) UnsetCatalogLimit()`
+
+UnsetCatalogLimit ensures that no value is present for CatalogLimit, not even an explicit nil
 ### GetStaleData
 
 `func (o *CustomerManagedCatalogOverviewsModel) GetStaleData() bool`

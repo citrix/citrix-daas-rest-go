@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,13 +20,13 @@ var _ MappedNullable = &IdentityClaimsResponseModel{}
 // IdentityClaimsResponseModel The identity claims object.
 type IdentityClaimsResponseModel struct {
 	// Oid claim of the identity.
-	Oid *string `json:"oid,omitempty"`
+	Oid NullableString `json:"oid,omitempty"`
 	// Sid claim of the identity.
-	Sid *string `json:"sid,omitempty"`
+	Sid NullableString `json:"sid,omitempty"`
 	// Upn claim of the identity.
-	Upn *string `json:"upn,omitempty"`
+	Upn NullableString `json:"upn,omitempty"`
 	// Email claim of the identity.
-	Email *string `json:"email,omitempty"`
+	Email NullableString `json:"email,omitempty"`
 }
 
 // NewIdentityClaimsResponseModelWithDefaults instantiates a new IdentityClaimsResponseModel object
@@ -37,96 +37,140 @@ func NewIdentityClaimsResponseModelWithDefaults() *IdentityClaimsResponseModel {
 	return &this
 }
 
-// GetOid returns the Oid field value if set, zero value otherwise.
+// GetOid returns the Oid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityClaimsResponseModel) GetOid() string {
-	if o == nil || IsNil(o.Oid) {
+	if o == nil || IsNil(o.Oid.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Oid
+	return *o.Oid.Get()
 }
 
 // GetOidOk returns a tuple with the Oid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityClaimsResponseModel) GetOidOk() (*string, bool) {
-	if o == nil || IsNil(o.Oid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Oid, true
+	return o.Oid.Get(), o.Oid.IsSet()
 }
 
-// SetOid gets a reference to the given string and assigns it to the Oid field.
+// SetOid gets a reference to the given NullableString and assigns it to the Oid field.
 func (o *IdentityClaimsResponseModel) SetOid(v string) {
-	o.Oid = &v
+	o.Oid.Set(&v)
 }
 
-// GetSid returns the Sid field value if set, zero value otherwise.
+// SetOidNil sets the value for Oid to be an explicit nil
+func (o *IdentityClaimsResponseModel) SetOidNil() {
+	o.Oid.Set(nil)
+}
+
+// UnsetOid ensures that no value is present for Oid, not even an explicit nil
+func (o *IdentityClaimsResponseModel) UnsetOid() {
+	o.Oid.Unset()
+}
+
+// GetSid returns the Sid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityClaimsResponseModel) GetSid() string {
-	if o == nil || IsNil(o.Sid) {
+	if o == nil || IsNil(o.Sid.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Sid
+	return *o.Sid.Get()
 }
 
 // GetSidOk returns a tuple with the Sid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityClaimsResponseModel) GetSidOk() (*string, bool) {
-	if o == nil || IsNil(o.Sid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Sid, true
+	return o.Sid.Get(), o.Sid.IsSet()
 }
 
-// SetSid gets a reference to the given string and assigns it to the Sid field.
+// SetSid gets a reference to the given NullableString and assigns it to the Sid field.
 func (o *IdentityClaimsResponseModel) SetSid(v string) {
-	o.Sid = &v
+	o.Sid.Set(&v)
 }
 
-// GetUpn returns the Upn field value if set, zero value otherwise.
+// SetSidNil sets the value for Sid to be an explicit nil
+func (o *IdentityClaimsResponseModel) SetSidNil() {
+	o.Sid.Set(nil)
+}
+
+// UnsetSid ensures that no value is present for Sid, not even an explicit nil
+func (o *IdentityClaimsResponseModel) UnsetSid() {
+	o.Sid.Unset()
+}
+
+// GetUpn returns the Upn field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityClaimsResponseModel) GetUpn() string {
-	if o == nil || IsNil(o.Upn) {
+	if o == nil || IsNil(o.Upn.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Upn
+	return *o.Upn.Get()
 }
 
 // GetUpnOk returns a tuple with the Upn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityClaimsResponseModel) GetUpnOk() (*string, bool) {
-	if o == nil || IsNil(o.Upn) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Upn, true
+	return o.Upn.Get(), o.Upn.IsSet()
 }
 
-// SetUpn gets a reference to the given string and assigns it to the Upn field.
+// SetUpn gets a reference to the given NullableString and assigns it to the Upn field.
 func (o *IdentityClaimsResponseModel) SetUpn(v string) {
-	o.Upn = &v
+	o.Upn.Set(&v)
 }
 
-// GetEmail returns the Email field value if set, zero value otherwise.
+// SetUpnNil sets the value for Upn to be an explicit nil
+func (o *IdentityClaimsResponseModel) SetUpnNil() {
+	o.Upn.Set(nil)
+}
+
+// UnsetUpn ensures that no value is present for Upn, not even an explicit nil
+func (o *IdentityClaimsResponseModel) UnsetUpn() {
+	o.Upn.Unset()
+}
+
+// GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IdentityClaimsResponseModel) GetEmail() string {
-	if o == nil || IsNil(o.Email) {
+	if o == nil || IsNil(o.Email.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Email
+	return *o.Email.Get()
 }
 
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IdentityClaimsResponseModel) GetEmailOk() (*string, bool) {
-	if o == nil || IsNil(o.Email) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Email, true
+	return o.Email.Get(), o.Email.IsSet()
 }
 
-// SetEmail gets a reference to the given string and assigns it to the Email field.
+// SetEmail gets a reference to the given NullableString and assigns it to the Email field.
 func (o *IdentityClaimsResponseModel) SetEmail(v string) {
-	o.Email = &v
+	o.Email.Set(&v)
+}
+
+// SetEmailNil sets the value for Email to be an explicit nil
+func (o *IdentityClaimsResponseModel) SetEmailNil() {
+	o.Email.Set(nil)
+}
+
+// UnsetEmail ensures that no value is present for Email, not even an explicit nil
+func (o *IdentityClaimsResponseModel) UnsetEmail() {
+	o.Email.Unset()
 }
 
 func (o IdentityClaimsResponseModel) MarshalJSON() ([]byte, error) {
@@ -139,17 +183,17 @@ func (o IdentityClaimsResponseModel) MarshalJSON() ([]byte, error) {
 
 func (o IdentityClaimsResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Oid) {
-		toSerialize["oid"] = o.Oid
+	if o.Oid.IsSet() {
+		toSerialize["oid"] = o.Oid.Get()
 	}
-	if !IsNil(o.Sid) {
-		toSerialize["sid"] = o.Sid
+	if o.Sid.IsSet() {
+		toSerialize["sid"] = o.Sid.Get()
 	}
-	if !IsNil(o.Upn) {
-		toSerialize["upn"] = o.Upn
+	if o.Upn.IsSet() {
+		toSerialize["upn"] = o.Upn.Get()
 	}
-	if !IsNil(o.Email) {
-		toSerialize["email"] = o.Email
+	if o.Email.IsSet() {
+		toSerialize["email"] = o.Email.Get()
 	}
 	return toSerialize, nil
 }

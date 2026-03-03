@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,33 +19,16 @@ import (
 	"strings"
 )
 
-type IconCMD interface {
-
-	/*
-		ExtractIcon Extract an icon from the specified file data
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId ID of the customer
-		@param siteId The site ID of the customer
-		@return ApiExtractIconRequest
-	*/
-	ExtractIcon(ctx context.Context, customerId string, siteId string) ApiExtractIconRequest
-
-	// ExtractIconExecute executes the request
-	//  @return string
-	ExtractIconExecute(r ApiExtractIconRequest) (string, *http.Response, error)
-}
-
 // IconCMDService IconCMD service
 type IconCMDService service
 
 type ApiExtractIconRequest struct {
 	ctx                 context.Context
-	ApiService          IconCMD
+	ApiService          *IconCMDService
 	customerId          string
 	siteId              string
 	citrixTransactionId *string
-	body                *ExtractIconModel
+	extractIconModel    *ExtractIconModel
 }
 
 // The Transaction Id.
@@ -55,8 +38,8 @@ func (r ApiExtractIconRequest) CitrixTransactionId(citrixTransactionId string) A
 }
 
 // Name and bytes of the file to extract icon from
-func (r ApiExtractIconRequest) Body(body ExtractIconModel) ApiExtractIconRequest {
-	r.body = &body
+func (r ApiExtractIconRequest) ExtractIconModel(extractIconModel ExtractIconModel) ApiExtractIconRequest {
+	r.extractIconModel = &extractIconModel
 	return r
 }
 
@@ -126,7 +109,7 @@ func (a *IconCMDService) ExtractIconExecute(r ApiExtractIconRequest) (string, *h
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.extractIconModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

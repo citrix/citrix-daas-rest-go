@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | The application id in the datastore. If the id is not known (for a start menu application) or for adding a custom application, the Id should be left null | [optional] 
+**Id** | Pointer to **NullableString** | The application id in the datastore. If the id is not known (for a start menu application) or for adding a custom application, the Id should be left null | [optional] 
 **IsStartMenuDiscovered** | Pointer to **bool** | Indicates if the application was discovered via scan of start menu apps or manually entered | [optional] 
 **Name** | **string** | Name of the image | 
 **Path** | **string** | Path of the application | 
-**WorkingDirectory** | Pointer to **string** | Working directory of the app at launch | [optional] 
-**Description** | Pointer to **string** | Application description that show up in Workspace | [optional] 
-**CommandLineParameters** | Pointer to **string** | Command line paramters to pass to the app when launching | [optional] 
-**Base64Icon** | Pointer to **string** | The raw app icon represented as a base64 string. For start menu app, if you want to use the default app icon, this field should be left blank. | [optional] 
+**WorkingDirectory** | Pointer to **NullableString** | Working directory of the app at launch | [optional] 
+**Description** | Pointer to **NullableString** | Application description that show up in Workspace | [optional] 
+**CommandLineParameters** | Pointer to **NullableString** | Command line paramters to pass to the app when launching | [optional] 
+**Base64Icon** | Pointer to **NullableString** | The raw app icon represented as a base64 string. For start menu app, if you want to use the default app icon, this field should be left blank. | [optional] 
 
 ## Methods
 
@@ -57,6 +57,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *AddCatalogApplicationModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *AddCatalogApplicationModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetIsStartMenuDiscovered
 
 `func (o *AddCatalogApplicationModel) GetIsStartMenuDiscovered() bool`
@@ -147,6 +157,16 @@ SetWorkingDirectory sets WorkingDirectory field to given value.
 
 HasWorkingDirectory returns a boolean if a field has been set.
 
+### SetWorkingDirectoryNil
+
+`func (o *AddCatalogApplicationModel) SetWorkingDirectoryNil(b bool)`
+
+ SetWorkingDirectoryNil sets the value for WorkingDirectory to be an explicit nil
+
+### UnsetWorkingDirectory
+`func (o *AddCatalogApplicationModel) UnsetWorkingDirectory()`
+
+UnsetWorkingDirectory ensures that no value is present for WorkingDirectory, not even an explicit nil
 ### GetDescription
 
 `func (o *AddCatalogApplicationModel) GetDescription() string`
@@ -172,6 +192,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *AddCatalogApplicationModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *AddCatalogApplicationModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetCommandLineParameters
 
 `func (o *AddCatalogApplicationModel) GetCommandLineParameters() string`
@@ -197,6 +227,16 @@ SetCommandLineParameters sets CommandLineParameters field to given value.
 
 HasCommandLineParameters returns a boolean if a field has been set.
 
+### SetCommandLineParametersNil
+
+`func (o *AddCatalogApplicationModel) SetCommandLineParametersNil(b bool)`
+
+ SetCommandLineParametersNil sets the value for CommandLineParameters to be an explicit nil
+
+### UnsetCommandLineParameters
+`func (o *AddCatalogApplicationModel) UnsetCommandLineParameters()`
+
+UnsetCommandLineParameters ensures that no value is present for CommandLineParameters, not even an explicit nil
 ### GetBase64Icon
 
 `func (o *AddCatalogApplicationModel) GetBase64Icon() string`
@@ -222,6 +262,16 @@ SetBase64Icon sets Base64Icon field to given value.
 
 HasBase64Icon returns a boolean if a field has been set.
 
+### SetBase64IconNil
+
+`func (o *AddCatalogApplicationModel) SetBase64IconNil(b bool)`
+
+ SetBase64IconNil sets the value for Base64Icon to be an explicit nil
+
+### UnsetBase64Icon
+`func (o *AddCatalogApplicationModel) UnsetBase64Icon()`
+
+UnsetBase64Icon ensures that no value is present for Base64Icon, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

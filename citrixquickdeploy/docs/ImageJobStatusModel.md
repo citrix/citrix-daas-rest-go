@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | ID of the job | [optional] 
-**JobType** | Pointer to [**CatalogJobType**](CatalogJobType.md) | Type of the job | [optional] 
-**OverallProgressPercent** | Pointer to **int32** | The percentage of progress of the job | [optional] 
+**Id** | Pointer to **NullableString** | ID of the job | [optional] 
+**JobType** | Pointer to [**NullableCatalogJobType**](CatalogJobType.md) | Type of the job | [optional] 
+**OverallProgressPercent** | Pointer to **NullableInt32** | The percentage of progress of the job | [optional] 
 **IsCancellable** | Pointer to **bool** | Indicator of whether the job is cancellable | [optional] 
 **Parameters** | Pointer to **map[string]string** | Parameters for the job | [optional] 
 **SubJobs** | Pointer to [**[]CatalogJobType**](CatalogJobType.md) | Subjobs of the job | [optional] 
-**Status** | Pointer to [**TemplateImageState**](TemplateImageState.md) | Current state of the job | [optional] 
-**ResultLocation** | Pointer to **string** | Uri for query result of the job | [optional] 
+**Status** | Pointer to [**NullableTemplateImageState**](TemplateImageState.md) | Current state of the job | [optional] 
+**ResultLocation** | Pointer to **NullableString** | Uri for query result of the job | [optional] 
 **Warnings** | Pointer to **[]string** | Warnings of the job | [optional] 
-**Error** | Pointer to **string** | Error occurred in the job | [optional] 
-**CreatedAt** | Pointer to **time.Time** | Timestamp when the job is created | [optional] 
-**StartedAt** | Pointer to **time.Time** | Timestamp when the job started | [optional] 
-**EndedAt** | Pointer to **time.Time** | Timestamp when the job ended | [optional] 
+**Error** | Pointer to **NullableString** | Error occurred in the job | [optional] 
+**CreatedAt** | Pointer to **NullableTime** | Timestamp when the job is created | [optional] 
+**StartedAt** | Pointer to **NullableTime** | Timestamp when the job started | [optional] 
+**EndedAt** | Pointer to **NullableTime** | Timestamp when the job ended | [optional] 
 
 ## Methods
 
@@ -62,6 +62,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *ImageJobStatusModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *ImageJobStatusModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetJobType
 
 `func (o *ImageJobStatusModel) GetJobType() CatalogJobType`
@@ -87,6 +97,16 @@ SetJobType sets JobType field to given value.
 
 HasJobType returns a boolean if a field has been set.
 
+### SetJobTypeNil
+
+`func (o *ImageJobStatusModel) SetJobTypeNil(b bool)`
+
+ SetJobTypeNil sets the value for JobType to be an explicit nil
+
+### UnsetJobType
+`func (o *ImageJobStatusModel) UnsetJobType()`
+
+UnsetJobType ensures that no value is present for JobType, not even an explicit nil
 ### GetOverallProgressPercent
 
 `func (o *ImageJobStatusModel) GetOverallProgressPercent() int32`
@@ -112,6 +132,16 @@ SetOverallProgressPercent sets OverallProgressPercent field to given value.
 
 HasOverallProgressPercent returns a boolean if a field has been set.
 
+### SetOverallProgressPercentNil
+
+`func (o *ImageJobStatusModel) SetOverallProgressPercentNil(b bool)`
+
+ SetOverallProgressPercentNil sets the value for OverallProgressPercent to be an explicit nil
+
+### UnsetOverallProgressPercent
+`func (o *ImageJobStatusModel) UnsetOverallProgressPercent()`
+
+UnsetOverallProgressPercent ensures that no value is present for OverallProgressPercent, not even an explicit nil
 ### GetIsCancellable
 
 `func (o *ImageJobStatusModel) GetIsCancellable() bool`
@@ -162,6 +192,16 @@ SetParameters sets Parameters field to given value.
 
 HasParameters returns a boolean if a field has been set.
 
+### SetParametersNil
+
+`func (o *ImageJobStatusModel) SetParametersNil(b bool)`
+
+ SetParametersNil sets the value for Parameters to be an explicit nil
+
+### UnsetParameters
+`func (o *ImageJobStatusModel) UnsetParameters()`
+
+UnsetParameters ensures that no value is present for Parameters, not even an explicit nil
 ### GetSubJobs
 
 `func (o *ImageJobStatusModel) GetSubJobs() []CatalogJobType`
@@ -187,6 +227,16 @@ SetSubJobs sets SubJobs field to given value.
 
 HasSubJobs returns a boolean if a field has been set.
 
+### SetSubJobsNil
+
+`func (o *ImageJobStatusModel) SetSubJobsNil(b bool)`
+
+ SetSubJobsNil sets the value for SubJobs to be an explicit nil
+
+### UnsetSubJobs
+`func (o *ImageJobStatusModel) UnsetSubJobs()`
+
+UnsetSubJobs ensures that no value is present for SubJobs, not even an explicit nil
 ### GetStatus
 
 `func (o *ImageJobStatusModel) GetStatus() TemplateImageState`
@@ -212,6 +262,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *ImageJobStatusModel) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *ImageJobStatusModel) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetResultLocation
 
 `func (o *ImageJobStatusModel) GetResultLocation() string`
@@ -237,6 +297,16 @@ SetResultLocation sets ResultLocation field to given value.
 
 HasResultLocation returns a boolean if a field has been set.
 
+### SetResultLocationNil
+
+`func (o *ImageJobStatusModel) SetResultLocationNil(b bool)`
+
+ SetResultLocationNil sets the value for ResultLocation to be an explicit nil
+
+### UnsetResultLocation
+`func (o *ImageJobStatusModel) UnsetResultLocation()`
+
+UnsetResultLocation ensures that no value is present for ResultLocation, not even an explicit nil
 ### GetWarnings
 
 `func (o *ImageJobStatusModel) GetWarnings() []string`
@@ -262,6 +332,16 @@ SetWarnings sets Warnings field to given value.
 
 HasWarnings returns a boolean if a field has been set.
 
+### SetWarningsNil
+
+`func (o *ImageJobStatusModel) SetWarningsNil(b bool)`
+
+ SetWarningsNil sets the value for Warnings to be an explicit nil
+
+### UnsetWarnings
+`func (o *ImageJobStatusModel) UnsetWarnings()`
+
+UnsetWarnings ensures that no value is present for Warnings, not even an explicit nil
 ### GetError
 
 `func (o *ImageJobStatusModel) GetError() string`
@@ -287,6 +367,16 @@ SetError sets Error field to given value.
 
 HasError returns a boolean if a field has been set.
 
+### SetErrorNil
+
+`func (o *ImageJobStatusModel) SetErrorNil(b bool)`
+
+ SetErrorNil sets the value for Error to be an explicit nil
+
+### UnsetError
+`func (o *ImageJobStatusModel) UnsetError()`
+
+UnsetError ensures that no value is present for Error, not even an explicit nil
 ### GetCreatedAt
 
 `func (o *ImageJobStatusModel) GetCreatedAt() time.Time`
@@ -312,6 +402,16 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
+### SetCreatedAtNil
+
+`func (o *ImageJobStatusModel) SetCreatedAtNil(b bool)`
+
+ SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
+
+### UnsetCreatedAt
+`func (o *ImageJobStatusModel) UnsetCreatedAt()`
+
+UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
 ### GetStartedAt
 
 `func (o *ImageJobStatusModel) GetStartedAt() time.Time`
@@ -337,6 +437,16 @@ SetStartedAt sets StartedAt field to given value.
 
 HasStartedAt returns a boolean if a field has been set.
 
+### SetStartedAtNil
+
+`func (o *ImageJobStatusModel) SetStartedAtNil(b bool)`
+
+ SetStartedAtNil sets the value for StartedAt to be an explicit nil
+
+### UnsetStartedAt
+`func (o *ImageJobStatusModel) UnsetStartedAt()`
+
+UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
 ### GetEndedAt
 
 `func (o *ImageJobStatusModel) GetEndedAt() time.Time`
@@ -362,6 +472,16 @@ SetEndedAt sets EndedAt field to given value.
 
 HasEndedAt returns a boolean if a field has been set.
 
+### SetEndedAtNil
+
+`func (o *ImageJobStatusModel) SetEndedAtNil(b bool)`
+
+ SetEndedAtNil sets the value for EndedAt to be an explicit nil
+
+### UnsetEndedAt
+`func (o *ImageJobStatusModel) UnsetEndedAt()`
+
+UnsetEndedAt ensures that no value is present for EndedAt, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

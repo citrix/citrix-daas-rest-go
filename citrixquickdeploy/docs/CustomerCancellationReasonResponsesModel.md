@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | Pointer to **string** |  | [optional] 
-**Feedback** | Pointer to **string** |  | [optional] 
-**Reason** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
+**Feedback** | Pointer to **NullableString** |  | [optional] 
+**Reason** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *CustomerCancellationReasonResponsesModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *CustomerCancellationReasonResponsesModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetFeedback
 
 `func (o *CustomerCancellationReasonResponsesModel) GetFeedback() string`
@@ -77,6 +87,16 @@ SetFeedback sets Feedback field to given value.
 
 HasFeedback returns a boolean if a field has been set.
 
+### SetFeedbackNil
+
+`func (o *CustomerCancellationReasonResponsesModel) SetFeedbackNil(b bool)`
+
+ SetFeedbackNil sets the value for Feedback to be an explicit nil
+
+### UnsetFeedback
+`func (o *CustomerCancellationReasonResponsesModel) UnsetFeedback()`
+
+UnsetFeedback ensures that no value is present for Feedback, not even an explicit nil
 ### GetReason
 
 `func (o *CustomerCancellationReasonResponsesModel) GetReason() string`
@@ -102,6 +122,16 @@ SetReason sets Reason field to given value.
 
 HasReason returns a boolean if a field has been set.
 
+### SetReasonNil
+
+`func (o *CustomerCancellationReasonResponsesModel) SetReasonNil(b bool)`
+
+ SetReasonNil sets the value for Reason to be an explicit nil
+
+### UnsetReason
+`func (o *CustomerCancellationReasonResponsesModel) UnsetReason()`
+
+UnsetReason ensures that no value is present for Reason, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

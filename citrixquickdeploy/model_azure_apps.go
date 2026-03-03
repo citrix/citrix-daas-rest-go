@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &AzureApps{}
 // AzureApps struct for AzureApps
 type AzureApps struct {
 	// Dictionary containing the Azure Apps used by catalog service
-	AzureAppClients *map[string]string `json:"azureAppClients,omitempty"`
+	AzureAppClients map[string]string `json:"azureAppClients,omitempty"`
 }
 
 // NewAzureAppsWithDefaults instantiates a new AzureApps object
@@ -31,27 +31,28 @@ func NewAzureAppsWithDefaults() *AzureApps {
 	return &this
 }
 
-// GetAzureAppClients returns the AzureAppClients field value if set, zero value otherwise.
+// GetAzureAppClients returns the AzureAppClients field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureApps) GetAzureAppClients() map[string]string {
-	if o == nil || IsNil(o.AzureAppClients) {
+	if o == nil {
 		var ret map[string]string
 		return ret
 	}
-	return *o.AzureAppClients
+	return o.AzureAppClients
 }
 
 // GetAzureAppClientsOk returns a tuple with the AzureAppClients field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureApps) GetAzureAppClientsOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.AzureAppClients) {
 		return nil, false
 	}
-	return o.AzureAppClients, true
+	return &o.AzureAppClients, true
 }
 
 // SetAzureAppClients gets a reference to the given map[string]string and assigns it to the AzureAppClients field.
 func (o *AzureApps) SetAzureAppClients(v map[string]string) {
-	o.AzureAppClients = &v
+	o.AzureAppClients = v
 }
 
 func (o AzureApps) MarshalJSON() ([]byte, error) {
@@ -64,7 +65,7 @@ func (o AzureApps) MarshalJSON() ([]byte, error) {
 
 func (o AzureApps) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AzureAppClients) {
+	if o.AzureAppClients != nil {
 		toSerialize["azureAppClients"] = o.AzureAppClients
 	}
 	return toSerialize, nil

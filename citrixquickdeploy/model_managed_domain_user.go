@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,9 +19,9 @@ var _ MappedNullable = &ManagedDomainUser{}
 
 // ManagedDomainUser struct for ManagedDomainUser
 type ManagedDomainUser struct {
-	Username   *string          `json:"username,omitempty"`
-	FirstName  *string          `json:"firstName,omitempty"`
-	LastName   *string          `json:"lastName,omitempty"`
+	Username   NullableString   `json:"username,omitempty"`
+	FirstName  NullableString   `json:"firstName,omitempty"`
+	LastName   NullableString   `json:"lastName,omitempty"`
 	IsAssigned *bool            `json:"isAssigned,omitempty"`
 	IsExternal *bool            `json:"isExternal,omitempty"`
 	CustomUser *bool            `json:"customUser,omitempty"`
@@ -36,73 +36,106 @@ func NewManagedDomainUserWithDefaults() *ManagedDomainUser {
 	return &this
 }
 
-// GetUsername returns the Username field value if set, zero value otherwise.
+// GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedDomainUser) GetUsername() string {
-	if o == nil || IsNil(o.Username) {
+	if o == nil || IsNil(o.Username.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Username
+	return *o.Username.Get()
 }
 
 // GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedDomainUser) GetUsernameOk() (*string, bool) {
-	if o == nil || IsNil(o.Username) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Username, true
+	return o.Username.Get(), o.Username.IsSet()
 }
 
-// SetUsername gets a reference to the given string and assigns it to the Username field.
+// SetUsername gets a reference to the given NullableString and assigns it to the Username field.
 func (o *ManagedDomainUser) SetUsername(v string) {
-	o.Username = &v
+	o.Username.Set(&v)
 }
 
-// GetFirstName returns the FirstName field value if set, zero value otherwise.
+// SetUsernameNil sets the value for Username to be an explicit nil
+func (o *ManagedDomainUser) SetUsernameNil() {
+	o.Username.Set(nil)
+}
+
+// UnsetUsername ensures that no value is present for Username, not even an explicit nil
+func (o *ManagedDomainUser) UnsetUsername() {
+	o.Username.Unset()
+}
+
+// GetFirstName returns the FirstName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedDomainUser) GetFirstName() string {
-	if o == nil || IsNil(o.FirstName) {
+	if o == nil || IsNil(o.FirstName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.FirstName
+	return *o.FirstName.Get()
 }
 
 // GetFirstNameOk returns a tuple with the FirstName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedDomainUser) GetFirstNameOk() (*string, bool) {
-	if o == nil || IsNil(o.FirstName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FirstName, true
+	return o.FirstName.Get(), o.FirstName.IsSet()
 }
 
-// SetFirstName gets a reference to the given string and assigns it to the FirstName field.
+// SetFirstName gets a reference to the given NullableString and assigns it to the FirstName field.
 func (o *ManagedDomainUser) SetFirstName(v string) {
-	o.FirstName = &v
+	o.FirstName.Set(&v)
 }
 
-// GetLastName returns the LastName field value if set, zero value otherwise.
+// SetFirstNameNil sets the value for FirstName to be an explicit nil
+func (o *ManagedDomainUser) SetFirstNameNil() {
+	o.FirstName.Set(nil)
+}
+
+// UnsetFirstName ensures that no value is present for FirstName, not even an explicit nil
+func (o *ManagedDomainUser) UnsetFirstName() {
+	o.FirstName.Unset()
+}
+
+// GetLastName returns the LastName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedDomainUser) GetLastName() string {
-	if o == nil || IsNil(o.LastName) {
+	if o == nil || IsNil(o.LastName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LastName
+	return *o.LastName.Get()
 }
 
 // GetLastNameOk returns a tuple with the LastName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedDomainUser) GetLastNameOk() (*string, bool) {
-	if o == nil || IsNil(o.LastName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastName, true
+	return o.LastName.Get(), o.LastName.IsSet()
 }
 
-// SetLastName gets a reference to the given string and assigns it to the LastName field.
+// SetLastName gets a reference to the given NullableString and assigns it to the LastName field.
 func (o *ManagedDomainUser) SetLastName(v string) {
-	o.LastName = &v
+	o.LastName.Set(&v)
+}
+
+// SetLastNameNil sets the value for LastName to be an explicit nil
+func (o *ManagedDomainUser) SetLastNameNil() {
+	o.LastName.Set(nil)
+}
+
+// UnsetLastName ensures that no value is present for LastName, not even an explicit nil
+func (o *ManagedDomainUser) UnsetLastName() {
+	o.LastName.Unset()
 }
 
 // GetIsAssigned returns the IsAssigned field value if set, zero value otherwise.
@@ -207,14 +240,14 @@ func (o ManagedDomainUser) MarshalJSON() ([]byte, error) {
 
 func (o ManagedDomainUser) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Username) {
-		toSerialize["username"] = o.Username
+	if o.Username.IsSet() {
+		toSerialize["username"] = o.Username.Get()
 	}
-	if !IsNil(o.FirstName) {
-		toSerialize["firstName"] = o.FirstName
+	if o.FirstName.IsSet() {
+		toSerialize["firstName"] = o.FirstName.Get()
 	}
-	if !IsNil(o.LastName) {
-		toSerialize["lastName"] = o.LastName
+	if o.LastName.IsSet() {
+		toSerialize["lastName"] = o.LastName.Get()
 	}
 	if !IsNil(o.IsAssigned) {
 		toSerialize["isAssigned"] = o.IsAssigned

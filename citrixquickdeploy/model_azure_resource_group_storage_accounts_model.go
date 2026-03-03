@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -83,9 +83,9 @@ func (o *AzureResourceGroupStorageAccountsModel) SetItems(v []AzureStorageAccoun
 	o.Items = v
 }
 
-// GetStorageAccounts returns the StorageAccounts field value if set, zero value otherwise.
+// GetStorageAccounts returns the StorageAccounts field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureResourceGroupStorageAccountsModel) GetStorageAccounts() []AzureStorageAccount {
-	if o == nil || IsNil(o.StorageAccounts) {
+	if o == nil {
 		var ret []AzureStorageAccount
 		return ret
 	}
@@ -94,6 +94,7 @@ func (o *AzureResourceGroupStorageAccountsModel) GetStorageAccounts() []AzureSto
 
 // GetStorageAccountsOk returns a tuple with the StorageAccounts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureResourceGroupStorageAccountsModel) GetStorageAccountsOk() ([]AzureStorageAccount, bool) {
 	if o == nil || IsNil(o.StorageAccounts) {
 		return nil, false
@@ -118,7 +119,7 @@ func (o AzureResourceGroupStorageAccountsModel) ToMap() (map[string]interface{},
 	toSerialize := map[string]interface{}{}
 	toSerialize["resourceGroup"] = o.ResourceGroup
 	toSerialize["items"] = o.Items
-	if !IsNil(o.StorageAccounts) {
+	if o.StorageAccounts != nil {
 		toSerialize["storageAccounts"] = o.StorageAccounts
 	}
 	return toSerialize, nil

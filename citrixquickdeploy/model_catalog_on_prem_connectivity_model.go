@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,9 +20,9 @@ var _ MappedNullable = &CatalogOnPremConnectivityModel{}
 // CatalogOnPremConnectivityModel struct for CatalogOnPremConnectivityModel
 type CatalogOnPremConnectivityModel struct {
 	// ID of the Vnet Peering that will be used for on-prem connections
-	VnetPeeringId *string `json:"vnetPeeringId,omitempty"`
+	VnetPeeringId NullableString `json:"vnetPeeringId,omitempty"`
 	// ID of the VPN Connection that will be used by this catalog
-	VpnConnectionId *string `json:"vpnConnectionId,omitempty"`
+	VpnConnectionId NullableString `json:"vpnConnectionId,omitempty"`
 }
 
 // NewCatalogOnPremConnectivityModelWithDefaults instantiates a new CatalogOnPremConnectivityModel object
@@ -33,50 +33,72 @@ func NewCatalogOnPremConnectivityModelWithDefaults() *CatalogOnPremConnectivityM
 	return &this
 }
 
-// GetVnetPeeringId returns the VnetPeeringId field value if set, zero value otherwise.
+// GetVnetPeeringId returns the VnetPeeringId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOnPremConnectivityModel) GetVnetPeeringId() string {
-	if o == nil || IsNil(o.VnetPeeringId) {
+	if o == nil || IsNil(o.VnetPeeringId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VnetPeeringId
+	return *o.VnetPeeringId.Get()
 }
 
 // GetVnetPeeringIdOk returns a tuple with the VnetPeeringId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOnPremConnectivityModel) GetVnetPeeringIdOk() (*string, bool) {
-	if o == nil || IsNil(o.VnetPeeringId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VnetPeeringId, true
+	return o.VnetPeeringId.Get(), o.VnetPeeringId.IsSet()
 }
 
-// SetVnetPeeringId gets a reference to the given string and assigns it to the VnetPeeringId field.
+// SetVnetPeeringId gets a reference to the given NullableString and assigns it to the VnetPeeringId field.
 func (o *CatalogOnPremConnectivityModel) SetVnetPeeringId(v string) {
-	o.VnetPeeringId = &v
+	o.VnetPeeringId.Set(&v)
 }
 
-// GetVpnConnectionId returns the VpnConnectionId field value if set, zero value otherwise.
+// SetVnetPeeringIdNil sets the value for VnetPeeringId to be an explicit nil
+func (o *CatalogOnPremConnectivityModel) SetVnetPeeringIdNil() {
+	o.VnetPeeringId.Set(nil)
+}
+
+// UnsetVnetPeeringId ensures that no value is present for VnetPeeringId, not even an explicit nil
+func (o *CatalogOnPremConnectivityModel) UnsetVnetPeeringId() {
+	o.VnetPeeringId.Unset()
+}
+
+// GetVpnConnectionId returns the VpnConnectionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOnPremConnectivityModel) GetVpnConnectionId() string {
-	if o == nil || IsNil(o.VpnConnectionId) {
+	if o == nil || IsNil(o.VpnConnectionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VpnConnectionId
+	return *o.VpnConnectionId.Get()
 }
 
 // GetVpnConnectionIdOk returns a tuple with the VpnConnectionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogOnPremConnectivityModel) GetVpnConnectionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.VpnConnectionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VpnConnectionId, true
+	return o.VpnConnectionId.Get(), o.VpnConnectionId.IsSet()
 }
 
-// SetVpnConnectionId gets a reference to the given string and assigns it to the VpnConnectionId field.
+// SetVpnConnectionId gets a reference to the given NullableString and assigns it to the VpnConnectionId field.
 func (o *CatalogOnPremConnectivityModel) SetVpnConnectionId(v string) {
-	o.VpnConnectionId = &v
+	o.VpnConnectionId.Set(&v)
+}
+
+// SetVpnConnectionIdNil sets the value for VpnConnectionId to be an explicit nil
+func (o *CatalogOnPremConnectivityModel) SetVpnConnectionIdNil() {
+	o.VpnConnectionId.Set(nil)
+}
+
+// UnsetVpnConnectionId ensures that no value is present for VpnConnectionId, not even an explicit nil
+func (o *CatalogOnPremConnectivityModel) UnsetVpnConnectionId() {
+	o.VpnConnectionId.Unset()
 }
 
 func (o CatalogOnPremConnectivityModel) MarshalJSON() ([]byte, error) {
@@ -89,11 +111,11 @@ func (o CatalogOnPremConnectivityModel) MarshalJSON() ([]byte, error) {
 
 func (o CatalogOnPremConnectivityModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.VnetPeeringId) {
-		toSerialize["vnetPeeringId"] = o.VnetPeeringId
+	if o.VnetPeeringId.IsSet() {
+		toSerialize["vnetPeeringId"] = o.VnetPeeringId.Get()
 	}
-	if !IsNil(o.VpnConnectionId) {
-		toSerialize["vpnConnectionId"] = o.VpnConnectionId
+	if o.VpnConnectionId.IsSet() {
+		toSerialize["vpnConnectionId"] = o.VpnConnectionId.Get()
 	}
 	return toSerialize, nil
 }

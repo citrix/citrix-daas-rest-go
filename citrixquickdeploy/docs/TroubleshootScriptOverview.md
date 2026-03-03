@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TroubleshootId** | Pointer to **string** | The Id of the troubleshoot script | [optional] 
-**ScriptName** | Pointer to **string** | The name of the troubleshoot script | [optional] 
+**TroubleshootId** | Pointer to **NullableString** | The Id of the troubleshoot script | [optional] 
+**ScriptName** | Pointer to **NullableString** | The name of the troubleshoot script | [optional] 
+**DisplayName** | Pointer to **NullableString** | The localized display name of the troubleshoot script | [optional] 
 **State** | Pointer to [**TroubleshootState**](TroubleshootState.md) | The current state of the script | [optional] 
-**ErrorMsg** | Pointer to **string** | Any error that occured during execution of the troubleshoot script | [optional] 
-**StartedAt** | Pointer to **time.Time** | The datetime when the job started | [optional] 
-**EndedAt** | Pointer to **time.Time** | The datetime when the job ended | [optional] 
-**MachineName** | Pointer to **string** | The name of the machine that the script runs on | [optional] 
-**SasUrl** | Pointer to **string** | The sas url for downloading the output of the script | [optional] 
-**TransactionId** | Pointer to **string** | The transaction id | [optional] 
+**ErrorMsg** | Pointer to **NullableString** | Any error that occured during execution of the troubleshoot script | [optional] 
+**StartedAt** | Pointer to **NullableTime** | The datetime when the job started | [optional] 
+**EndedAt** | Pointer to **NullableTime** | The datetime when the job ended | [optional] 
+**MachineName** | Pointer to **NullableString** | The name of the machine that the script runs on | [optional] 
+**SasUrl** | Pointer to **NullableString** | The sas url for downloading the output of the script | [optional] 
+**TransactionId** | Pointer to **NullableString** | The transaction id | [optional] 
 
 ## Methods
 
@@ -58,6 +59,16 @@ SetTroubleshootId sets TroubleshootId field to given value.
 
 HasTroubleshootId returns a boolean if a field has been set.
 
+### SetTroubleshootIdNil
+
+`func (o *TroubleshootScriptOverview) SetTroubleshootIdNil(b bool)`
+
+ SetTroubleshootIdNil sets the value for TroubleshootId to be an explicit nil
+
+### UnsetTroubleshootId
+`func (o *TroubleshootScriptOverview) UnsetTroubleshootId()`
+
+UnsetTroubleshootId ensures that no value is present for TroubleshootId, not even an explicit nil
 ### GetScriptName
 
 `func (o *TroubleshootScriptOverview) GetScriptName() string`
@@ -83,6 +94,51 @@ SetScriptName sets ScriptName field to given value.
 
 HasScriptName returns a boolean if a field has been set.
 
+### SetScriptNameNil
+
+`func (o *TroubleshootScriptOverview) SetScriptNameNil(b bool)`
+
+ SetScriptNameNil sets the value for ScriptName to be an explicit nil
+
+### UnsetScriptName
+`func (o *TroubleshootScriptOverview) UnsetScriptName()`
+
+UnsetScriptName ensures that no value is present for ScriptName, not even an explicit nil
+### GetDisplayName
+
+`func (o *TroubleshootScriptOverview) GetDisplayName() string`
+
+GetDisplayName returns the DisplayName field if non-nil, zero value otherwise.
+
+### GetDisplayNameOk
+
+`func (o *TroubleshootScriptOverview) GetDisplayNameOk() (*string, bool)`
+
+GetDisplayNameOk returns a tuple with the DisplayName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayName
+
+`func (o *TroubleshootScriptOverview) SetDisplayName(v string)`
+
+SetDisplayName sets DisplayName field to given value.
+
+### HasDisplayName
+
+`func (o *TroubleshootScriptOverview) HasDisplayName() bool`
+
+HasDisplayName returns a boolean if a field has been set.
+
+### SetDisplayNameNil
+
+`func (o *TroubleshootScriptOverview) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *TroubleshootScriptOverview) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetState
 
 `func (o *TroubleshootScriptOverview) GetState() TroubleshootState`
@@ -133,6 +189,16 @@ SetErrorMsg sets ErrorMsg field to given value.
 
 HasErrorMsg returns a boolean if a field has been set.
 
+### SetErrorMsgNil
+
+`func (o *TroubleshootScriptOverview) SetErrorMsgNil(b bool)`
+
+ SetErrorMsgNil sets the value for ErrorMsg to be an explicit nil
+
+### UnsetErrorMsg
+`func (o *TroubleshootScriptOverview) UnsetErrorMsg()`
+
+UnsetErrorMsg ensures that no value is present for ErrorMsg, not even an explicit nil
 ### GetStartedAt
 
 `func (o *TroubleshootScriptOverview) GetStartedAt() time.Time`
@@ -158,6 +224,16 @@ SetStartedAt sets StartedAt field to given value.
 
 HasStartedAt returns a boolean if a field has been set.
 
+### SetStartedAtNil
+
+`func (o *TroubleshootScriptOverview) SetStartedAtNil(b bool)`
+
+ SetStartedAtNil sets the value for StartedAt to be an explicit nil
+
+### UnsetStartedAt
+`func (o *TroubleshootScriptOverview) UnsetStartedAt()`
+
+UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
 ### GetEndedAt
 
 `func (o *TroubleshootScriptOverview) GetEndedAt() time.Time`
@@ -183,6 +259,16 @@ SetEndedAt sets EndedAt field to given value.
 
 HasEndedAt returns a boolean if a field has been set.
 
+### SetEndedAtNil
+
+`func (o *TroubleshootScriptOverview) SetEndedAtNil(b bool)`
+
+ SetEndedAtNil sets the value for EndedAt to be an explicit nil
+
+### UnsetEndedAt
+`func (o *TroubleshootScriptOverview) UnsetEndedAt()`
+
+UnsetEndedAt ensures that no value is present for EndedAt, not even an explicit nil
 ### GetMachineName
 
 `func (o *TroubleshootScriptOverview) GetMachineName() string`
@@ -208,6 +294,16 @@ SetMachineName sets MachineName field to given value.
 
 HasMachineName returns a boolean if a field has been set.
 
+### SetMachineNameNil
+
+`func (o *TroubleshootScriptOverview) SetMachineNameNil(b bool)`
+
+ SetMachineNameNil sets the value for MachineName to be an explicit nil
+
+### UnsetMachineName
+`func (o *TroubleshootScriptOverview) UnsetMachineName()`
+
+UnsetMachineName ensures that no value is present for MachineName, not even an explicit nil
 ### GetSasUrl
 
 `func (o *TroubleshootScriptOverview) GetSasUrl() string`
@@ -233,6 +329,16 @@ SetSasUrl sets SasUrl field to given value.
 
 HasSasUrl returns a boolean if a field has been set.
 
+### SetSasUrlNil
+
+`func (o *TroubleshootScriptOverview) SetSasUrlNil(b bool)`
+
+ SetSasUrlNil sets the value for SasUrl to be an explicit nil
+
+### UnsetSasUrl
+`func (o *TroubleshootScriptOverview) UnsetSasUrl()`
+
+UnsetSasUrl ensures that no value is present for SasUrl, not even an explicit nil
 ### GetTransactionId
 
 `func (o *TroubleshootScriptOverview) GetTransactionId() string`
@@ -258,6 +364,16 @@ SetTransactionId sets TransactionId field to given value.
 
 HasTransactionId returns a boolean if a field has been set.
 
+### SetTransactionIdNil
+
+`func (o *TroubleshootScriptOverview) SetTransactionIdNil(b bool)`
+
+ SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+
+### UnsetTransactionId
+`func (o *TroubleshootScriptOverview) UnsetTransactionId()`
+
+UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]PublishedApplication**](PublishedApplication.md) |  | 
+**Items** | [**[]PublishedApplication**](PublishedApplication.md) |  | [readonly] 
 **Applications** | Pointer to [**[]PublishedApplication**](PublishedApplication.md) |  | [optional] 
 
 ## Methods
@@ -71,6 +71,16 @@ SetApplications sets Applications field to given value.
 
 HasApplications returns a boolean if a field has been set.
 
+### SetApplicationsNil
+
+`func (o *CatalogApplicationsModel) SetApplicationsNil(b bool)`
+
+ SetApplicationsNil sets the value for Applications to be an explicit nil
+
+### UnsetApplications
+`func (o *CatalogApplicationsModel) UnsetApplications()`
+
+UnsetApplications ensures that no value is present for Applications, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

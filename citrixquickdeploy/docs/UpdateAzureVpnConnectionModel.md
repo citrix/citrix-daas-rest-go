@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GatewaySku** | Pointer to **string** | Sku type for the virtual network gateway | [optional] 
-**GatewayIP** | Pointer to **string** | IP address of the gateway to connect to | [optional] 
+**GatewaySku** | Pointer to **NullableString** | Sku type for the virtual network gateway | [optional] 
+**GatewayIP** | Pointer to **NullableString** | IP address of the gateway to connect to | [optional] 
 **LocalAddresses** | Pointer to [**[]ConnectionSubnet**](ConnectionSubnet.md) | List of addresses that will be accessible behind the gateway | [optional] 
-**SharedKey** | Pointer to **string** | Pre-shared key that will be used to configure the IPSec tunnel | [optional] 
+**SharedKey** | Pointer to **NullableString** | Pre-shared key that will be used to configure the IPSec tunnel | [optional] 
 **DnsServers** | Pointer to **[]string** | List of DNS Servers | [optional] 
 
 ## Methods
@@ -54,6 +54,16 @@ SetGatewaySku sets GatewaySku field to given value.
 
 HasGatewaySku returns a boolean if a field has been set.
 
+### SetGatewaySkuNil
+
+`func (o *UpdateAzureVpnConnectionModel) SetGatewaySkuNil(b bool)`
+
+ SetGatewaySkuNil sets the value for GatewaySku to be an explicit nil
+
+### UnsetGatewaySku
+`func (o *UpdateAzureVpnConnectionModel) UnsetGatewaySku()`
+
+UnsetGatewaySku ensures that no value is present for GatewaySku, not even an explicit nil
 ### GetGatewayIP
 
 `func (o *UpdateAzureVpnConnectionModel) GetGatewayIP() string`
@@ -79,6 +89,16 @@ SetGatewayIP sets GatewayIP field to given value.
 
 HasGatewayIP returns a boolean if a field has been set.
 
+### SetGatewayIPNil
+
+`func (o *UpdateAzureVpnConnectionModel) SetGatewayIPNil(b bool)`
+
+ SetGatewayIPNil sets the value for GatewayIP to be an explicit nil
+
+### UnsetGatewayIP
+`func (o *UpdateAzureVpnConnectionModel) UnsetGatewayIP()`
+
+UnsetGatewayIP ensures that no value is present for GatewayIP, not even an explicit nil
 ### GetLocalAddresses
 
 `func (o *UpdateAzureVpnConnectionModel) GetLocalAddresses() []ConnectionSubnet`
@@ -104,6 +124,16 @@ SetLocalAddresses sets LocalAddresses field to given value.
 
 HasLocalAddresses returns a boolean if a field has been set.
 
+### SetLocalAddressesNil
+
+`func (o *UpdateAzureVpnConnectionModel) SetLocalAddressesNil(b bool)`
+
+ SetLocalAddressesNil sets the value for LocalAddresses to be an explicit nil
+
+### UnsetLocalAddresses
+`func (o *UpdateAzureVpnConnectionModel) UnsetLocalAddresses()`
+
+UnsetLocalAddresses ensures that no value is present for LocalAddresses, not even an explicit nil
 ### GetSharedKey
 
 `func (o *UpdateAzureVpnConnectionModel) GetSharedKey() string`
@@ -129,6 +159,16 @@ SetSharedKey sets SharedKey field to given value.
 
 HasSharedKey returns a boolean if a field has been set.
 
+### SetSharedKeyNil
+
+`func (o *UpdateAzureVpnConnectionModel) SetSharedKeyNil(b bool)`
+
+ SetSharedKeyNil sets the value for SharedKey to be an explicit nil
+
+### UnsetSharedKey
+`func (o *UpdateAzureVpnConnectionModel) UnsetSharedKey()`
+
+UnsetSharedKey ensures that no value is present for SharedKey, not even an explicit nil
 ### GetDnsServers
 
 `func (o *UpdateAzureVpnConnectionModel) GetDnsServers() []string`
@@ -154,6 +194,16 @@ SetDnsServers sets DnsServers field to given value.
 
 HasDnsServers returns a boolean if a field has been set.
 
+### SetDnsServersNil
+
+`func (o *UpdateAzureVpnConnectionModel) SetDnsServersNil(b bool)`
+
+ SetDnsServersNil sets the value for DnsServers to be an explicit nil
+
+### UnsetDnsServers
+`func (o *UpdateAzureVpnConnectionModel) UnsetDnsServers()`
+
+UnsetDnsServers ensures that no value is present for DnsServers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

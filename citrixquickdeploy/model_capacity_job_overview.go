@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,15 +20,15 @@ var _ MappedNullable = &CapacityJobOverview{}
 // CapacityJobOverview struct for CapacityJobOverview
 type CapacityJobOverview struct {
 	// Current state of the Capacity job
-	State *CatalogJobState `json:"state,omitempty"`
+	State NullableCatalogJobState `json:"state,omitempty"`
 	// Current sub state of the Capacity job
-	SubState *CatalogJobSubState `json:"subState,omitempty"`
+	SubState NullableCatalogJobSubState `json:"subState,omitempty"`
 	// Status message related to the job
-	Status *string `json:"status,omitempty"`
+	Status NullableString `json:"status,omitempty"`
 	// Error that occured in job processing
-	Error *string `json:"error,omitempty"`
+	Error NullableString `json:"error,omitempty"`
 	// Transaction Id for the CapacityUpdate
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionId NullableString `json:"transactionId,omitempty"`
 }
 
 // NewCapacityJobOverviewWithDefaults instantiates a new CapacityJobOverview object
@@ -39,119 +39,174 @@ func NewCapacityJobOverviewWithDefaults() *CapacityJobOverview {
 	return &this
 }
 
-// GetState returns the State field value if set, zero value otherwise.
+// GetState returns the State field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapacityJobOverview) GetState() CatalogJobState {
-	if o == nil || IsNil(o.State) {
+	if o == nil || IsNil(o.State.Get()) {
 		var ret CatalogJobState
 		return ret
 	}
-	return *o.State
+	return *o.State.Get()
 }
 
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapacityJobOverview) GetStateOk() (*CatalogJobState, bool) {
-	if o == nil || IsNil(o.State) {
+	if o == nil {
 		return nil, false
 	}
-	return o.State, true
+	return o.State.Get(), o.State.IsSet()
 }
 
-// SetState gets a reference to the given CatalogJobState and assigns it to the State field.
+// SetState gets a reference to the given NullableCatalogJobState and assigns it to the State field.
 func (o *CapacityJobOverview) SetState(v CatalogJobState) {
-	o.State = &v
+	o.State.Set(&v)
 }
 
-// GetSubState returns the SubState field value if set, zero value otherwise.
+// SetStateNil sets the value for State to be an explicit nil
+func (o *CapacityJobOverview) SetStateNil() {
+	o.State.Set(nil)
+}
+
+// UnsetState ensures that no value is present for State, not even an explicit nil
+func (o *CapacityJobOverview) UnsetState() {
+	o.State.Unset()
+}
+
+// GetSubState returns the SubState field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapacityJobOverview) GetSubState() CatalogJobSubState {
-	if o == nil || IsNil(o.SubState) {
+	if o == nil || IsNil(o.SubState.Get()) {
 		var ret CatalogJobSubState
 		return ret
 	}
-	return *o.SubState
+	return *o.SubState.Get()
 }
 
 // GetSubStateOk returns a tuple with the SubState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapacityJobOverview) GetSubStateOk() (*CatalogJobSubState, bool) {
-	if o == nil || IsNil(o.SubState) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubState, true
+	return o.SubState.Get(), o.SubState.IsSet()
 }
 
-// SetSubState gets a reference to the given CatalogJobSubState and assigns it to the SubState field.
+// SetSubState gets a reference to the given NullableCatalogJobSubState and assigns it to the SubState field.
 func (o *CapacityJobOverview) SetSubState(v CatalogJobSubState) {
-	o.SubState = &v
+	o.SubState.Set(&v)
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// SetSubStateNil sets the value for SubState to be an explicit nil
+func (o *CapacityJobOverview) SetSubStateNil() {
+	o.SubState.Set(nil)
+}
+
+// UnsetSubState ensures that no value is present for SubState, not even an explicit nil
+func (o *CapacityJobOverview) UnsetSubState() {
+	o.SubState.Unset()
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapacityJobOverview) GetStatus() string {
-	if o == nil || IsNil(o.Status) {
+	if o == nil || IsNil(o.Status.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapacityJobOverview) GetStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
-// SetStatus gets a reference to the given string and assigns it to the Status field.
+// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
 func (o *CapacityJobOverview) SetStatus(v string) {
-	o.Status = &v
+	o.Status.Set(&v)
 }
 
-// GetError returns the Error field value if set, zero value otherwise.
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *CapacityJobOverview) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *CapacityJobOverview) UnsetStatus() {
+	o.Status.Unset()
+}
+
+// GetError returns the Error field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapacityJobOverview) GetError() string {
-	if o == nil || IsNil(o.Error) {
+	if o == nil || IsNil(o.Error.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Error
+	return *o.Error.Get()
 }
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapacityJobOverview) GetErrorOk() (*string, bool) {
-	if o == nil || IsNil(o.Error) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Error, true
+	return o.Error.Get(), o.Error.IsSet()
 }
 
-// SetError gets a reference to the given string and assigns it to the Error field.
+// SetError gets a reference to the given NullableString and assigns it to the Error field.
 func (o *CapacityJobOverview) SetError(v string) {
-	o.Error = &v
+	o.Error.Set(&v)
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// SetErrorNil sets the value for Error to be an explicit nil
+func (o *CapacityJobOverview) SetErrorNil() {
+	o.Error.Set(nil)
+}
+
+// UnsetError ensures that no value is present for Error, not even an explicit nil
+func (o *CapacityJobOverview) UnsetError() {
+	o.Error.Unset()
+}
+
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapacityJobOverview) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapacityJobOverview) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *CapacityJobOverview) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
+}
+
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *CapacityJobOverview) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *CapacityJobOverview) UnsetTransactionId() {
+	o.TransactionId.Unset()
 }
 
 func (o CapacityJobOverview) MarshalJSON() ([]byte, error) {
@@ -164,20 +219,20 @@ func (o CapacityJobOverview) MarshalJSON() ([]byte, error) {
 
 func (o CapacityJobOverview) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.State) {
-		toSerialize["state"] = o.State
+	if o.State.IsSet() {
+		toSerialize["state"] = o.State.Get()
 	}
-	if !IsNil(o.SubState) {
-		toSerialize["subState"] = o.SubState
+	if o.SubState.IsSet() {
+		toSerialize["subState"] = o.SubState.Get()
 	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
-	if !IsNil(o.Error) {
-		toSerialize["error"] = o.Error
+	if o.Error.IsSet() {
+		toSerialize["error"] = o.Error.Get()
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
 	return toSerialize, nil
 }

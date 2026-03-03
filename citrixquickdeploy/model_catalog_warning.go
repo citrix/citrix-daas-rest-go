@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -24,8 +24,8 @@ type CatalogWarning struct {
 	// Indicates if the warning message can be cleared out by the user
 	IsDismissible *bool `json:"isDismissible,omitempty"`
 	// Warning message to display to the user
-	WarningMessage *string `json:"warningMessage,omitempty"`
-	IsError        *bool   `json:"isError,omitempty"`
+	WarningMessage NullableString `json:"warningMessage,omitempty"`
+	IsError        *bool          `json:"isError,omitempty"`
 }
 
 // NewCatalogWarningWithDefaults instantiates a new CatalogWarning object
@@ -82,27 +82,38 @@ func (o *CatalogWarning) SetIsDismissible(v bool) {
 	o.IsDismissible = &v
 }
 
-// GetWarningMessage returns the WarningMessage field value if set, zero value otherwise.
+// GetWarningMessage returns the WarningMessage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogWarning) GetWarningMessage() string {
-	if o == nil || IsNil(o.WarningMessage) {
+	if o == nil || IsNil(o.WarningMessage.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.WarningMessage
+	return *o.WarningMessage.Get()
 }
 
 // GetWarningMessageOk returns a tuple with the WarningMessage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogWarning) GetWarningMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.WarningMessage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WarningMessage, true
+	return o.WarningMessage.Get(), o.WarningMessage.IsSet()
 }
 
-// SetWarningMessage gets a reference to the given string and assigns it to the WarningMessage field.
+// SetWarningMessage gets a reference to the given NullableString and assigns it to the WarningMessage field.
 func (o *CatalogWarning) SetWarningMessage(v string) {
-	o.WarningMessage = &v
+	o.WarningMessage.Set(&v)
+}
+
+// SetWarningMessageNil sets the value for WarningMessage to be an explicit nil
+func (o *CatalogWarning) SetWarningMessageNil() {
+	o.WarningMessage.Set(nil)
+}
+
+// UnsetWarningMessage ensures that no value is present for WarningMessage, not even an explicit nil
+func (o *CatalogWarning) UnsetWarningMessage() {
+	o.WarningMessage.Unset()
 }
 
 // GetIsError returns the IsError field value if set, zero value otherwise.
@@ -144,8 +155,8 @@ func (o CatalogWarning) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsDismissible) {
 		toSerialize["isDismissible"] = o.IsDismissible
 	}
-	if !IsNil(o.WarningMessage) {
-		toSerialize["warningMessage"] = o.WarningMessage
+	if o.WarningMessage.IsSet() {
+		toSerialize["warningMessage"] = o.WarningMessage.Get()
 	}
 	if !IsNil(o.IsError) {
 		toSerialize["isError"] = o.IsError

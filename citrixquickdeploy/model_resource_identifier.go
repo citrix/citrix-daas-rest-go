@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,13 +19,13 @@ var _ MappedNullable = &ResourceIdentifier{}
 
 // ResourceIdentifier struct for ResourceIdentifier
 type ResourceIdentifier struct {
-	ResourceType      *ResourceType       `json:"resourceType,omitempty"`
-	Name              *string             `json:"name,omitempty"`
-	Parent            *ResourceIdentifier `json:"parent,omitempty"`
-	SubscriptionId    *string             `json:"subscriptionId,omitempty"`
-	Provider          *string             `json:"provider,omitempty"`
-	Location          *AzureLocation      `json:"location,omitempty"`
-	ResourceGroupName *string             `json:"resourceGroupName,omitempty"`
+	ResourceType      *ResourceType              `json:"resourceType,omitempty"`
+	Name              NullableString             `json:"name,omitempty"`
+	Parent            NullableResourceIdentifier `json:"parent,omitempty"`
+	SubscriptionId    NullableString             `json:"subscriptionId,omitempty"`
+	Provider          NullableString             `json:"provider,omitempty"`
+	Location          NullableAzureLocation      `json:"location,omitempty"`
+	ResourceGroupName NullableString             `json:"resourceGroupName,omitempty"`
 }
 
 // NewResourceIdentifierWithDefaults instantiates a new ResourceIdentifier object
@@ -59,142 +59,208 @@ func (o *ResourceIdentifier) SetResourceType(v ResourceType) {
 	o.ResourceType = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceIdentifier) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceIdentifier) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *ResourceIdentifier) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
 }
 
-// GetParent returns the Parent field value if set, zero value otherwise.
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *ResourceIdentifier) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *ResourceIdentifier) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetParent returns the Parent field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceIdentifier) GetParent() ResourceIdentifier {
-	if o == nil || IsNil(o.Parent) {
+	if o == nil || IsNil(o.Parent.Get()) {
 		var ret ResourceIdentifier
 		return ret
 	}
-	return *o.Parent
+	return *o.Parent.Get()
 }
 
 // GetParentOk returns a tuple with the Parent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceIdentifier) GetParentOk() (*ResourceIdentifier, bool) {
-	if o == nil || IsNil(o.Parent) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Parent, true
+	return o.Parent.Get(), o.Parent.IsSet()
 }
 
-// SetParent gets a reference to the given ResourceIdentifier and assigns it to the Parent field.
+// SetParent gets a reference to the given NullableResourceIdentifier and assigns it to the Parent field.
 func (o *ResourceIdentifier) SetParent(v ResourceIdentifier) {
-	o.Parent = &v
+	o.Parent.Set(&v)
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// SetParentNil sets the value for Parent to be an explicit nil
+func (o *ResourceIdentifier) SetParentNil() {
+	o.Parent.Set(nil)
+}
+
+// UnsetParent ensures that no value is present for Parent, not even an explicit nil
+func (o *ResourceIdentifier) UnsetParent() {
+	o.Parent.Unset()
+}
+
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceIdentifier) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceIdentifier) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *ResourceIdentifier) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
 }
 
-// GetProvider returns the Provider field value if set, zero value otherwise.
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *ResourceIdentifier) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *ResourceIdentifier) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
+}
+
+// GetProvider returns the Provider field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceIdentifier) GetProvider() string {
-	if o == nil || IsNil(o.Provider) {
+	if o == nil || IsNil(o.Provider.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Provider
+	return *o.Provider.Get()
 }
 
 // GetProviderOk returns a tuple with the Provider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceIdentifier) GetProviderOk() (*string, bool) {
-	if o == nil || IsNil(o.Provider) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Provider, true
+	return o.Provider.Get(), o.Provider.IsSet()
 }
 
-// SetProvider gets a reference to the given string and assigns it to the Provider field.
+// SetProvider gets a reference to the given NullableString and assigns it to the Provider field.
 func (o *ResourceIdentifier) SetProvider(v string) {
-	o.Provider = &v
+	o.Provider.Set(&v)
 }
 
-// GetLocation returns the Location field value if set, zero value otherwise.
+// SetProviderNil sets the value for Provider to be an explicit nil
+func (o *ResourceIdentifier) SetProviderNil() {
+	o.Provider.Set(nil)
+}
+
+// UnsetProvider ensures that no value is present for Provider, not even an explicit nil
+func (o *ResourceIdentifier) UnsetProvider() {
+	o.Provider.Unset()
+}
+
+// GetLocation returns the Location field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceIdentifier) GetLocation() AzureLocation {
-	if o == nil || IsNil(o.Location) {
+	if o == nil || IsNil(o.Location.Get()) {
 		var ret AzureLocation
 		return ret
 	}
-	return *o.Location
+	return *o.Location.Get()
 }
 
 // GetLocationOk returns a tuple with the Location field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceIdentifier) GetLocationOk() (*AzureLocation, bool) {
-	if o == nil || IsNil(o.Location) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Location, true
+	return o.Location.Get(), o.Location.IsSet()
 }
 
-// SetLocation gets a reference to the given AzureLocation and assigns it to the Location field.
+// SetLocation gets a reference to the given NullableAzureLocation and assigns it to the Location field.
 func (o *ResourceIdentifier) SetLocation(v AzureLocation) {
-	o.Location = &v
+	o.Location.Set(&v)
 }
 
-// GetResourceGroupName returns the ResourceGroupName field value if set, zero value otherwise.
+// SetLocationNil sets the value for Location to be an explicit nil
+func (o *ResourceIdentifier) SetLocationNil() {
+	o.Location.Set(nil)
+}
+
+// UnsetLocation ensures that no value is present for Location, not even an explicit nil
+func (o *ResourceIdentifier) UnsetLocation() {
+	o.Location.Unset()
+}
+
+// GetResourceGroupName returns the ResourceGroupName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceIdentifier) GetResourceGroupName() string {
-	if o == nil || IsNil(o.ResourceGroupName) {
+	if o == nil || IsNil(o.ResourceGroupName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResourceGroupName
+	return *o.ResourceGroupName.Get()
 }
 
 // GetResourceGroupNameOk returns a tuple with the ResourceGroupName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceIdentifier) GetResourceGroupNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceGroupName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceGroupName, true
+	return o.ResourceGroupName.Get(), o.ResourceGroupName.IsSet()
 }
 
-// SetResourceGroupName gets a reference to the given string and assigns it to the ResourceGroupName field.
+// SetResourceGroupName gets a reference to the given NullableString and assigns it to the ResourceGroupName field.
 func (o *ResourceIdentifier) SetResourceGroupName(v string) {
-	o.ResourceGroupName = &v
+	o.ResourceGroupName.Set(&v)
+}
+
+// SetResourceGroupNameNil sets the value for ResourceGroupName to be an explicit nil
+func (o *ResourceIdentifier) SetResourceGroupNameNil() {
+	o.ResourceGroupName.Set(nil)
+}
+
+// UnsetResourceGroupName ensures that no value is present for ResourceGroupName, not even an explicit nil
+func (o *ResourceIdentifier) UnsetResourceGroupName() {
+	o.ResourceGroupName.Unset()
 }
 
 func (o ResourceIdentifier) MarshalJSON() ([]byte, error) {
@@ -210,23 +276,23 @@ func (o ResourceIdentifier) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ResourceType) {
 		toSerialize["resourceType"] = o.ResourceType
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.Parent) {
-		toSerialize["parent"] = o.Parent
+	if o.Parent.IsSet() {
+		toSerialize["parent"] = o.Parent.Get()
 	}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
-	if !IsNil(o.Provider) {
-		toSerialize["provider"] = o.Provider
+	if o.Provider.IsSet() {
+		toSerialize["provider"] = o.Provider.Get()
 	}
-	if !IsNil(o.Location) {
-		toSerialize["location"] = o.Location
+	if o.Location.IsSet() {
+		toSerialize["location"] = o.Location.Get()
 	}
-	if !IsNil(o.ResourceGroupName) {
-		toSerialize["resourceGroupName"] = o.ResourceGroupName
+	if o.ResourceGroupName.IsSet() {
+		toSerialize["resourceGroupName"] = o.ResourceGroupName.Get()
 	}
 	return toSerialize, nil
 }

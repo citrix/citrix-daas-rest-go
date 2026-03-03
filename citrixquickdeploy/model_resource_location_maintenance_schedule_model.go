@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,8 +19,8 @@ var _ MappedNullable = &ResourceLocationMaintenanceScheduleModel{}
 
 // ResourceLocationMaintenanceScheduleModel struct for ResourceLocationMaintenanceScheduleModel
 type ResourceLocationMaintenanceScheduleModel struct {
-	StartTime string  `json:"startTime"`
-	TimeZone  *string `json:"timeZone,omitempty"`
+	StartTime string         `json:"startTime"`
+	TimeZone  NullableString `json:"timeZone,omitempty"`
 }
 
 // NewResourceLocationMaintenanceScheduleModelWithDefaults instantiates a new ResourceLocationMaintenanceScheduleModel object
@@ -55,27 +55,38 @@ func (o *ResourceLocationMaintenanceScheduleModel) SetStartTime(v string) {
 	o.StartTime = v
 }
 
-// GetTimeZone returns the TimeZone field value if set, zero value otherwise.
+// GetTimeZone returns the TimeZone field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationMaintenanceScheduleModel) GetTimeZone() string {
-	if o == nil || IsNil(o.TimeZone) {
+	if o == nil || IsNil(o.TimeZone.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TimeZone
+	return *o.TimeZone.Get()
 }
 
 // GetTimeZoneOk returns a tuple with the TimeZone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationMaintenanceScheduleModel) GetTimeZoneOk() (*string, bool) {
-	if o == nil || IsNil(o.TimeZone) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TimeZone, true
+	return o.TimeZone.Get(), o.TimeZone.IsSet()
 }
 
-// SetTimeZone gets a reference to the given string and assigns it to the TimeZone field.
+// SetTimeZone gets a reference to the given NullableString and assigns it to the TimeZone field.
 func (o *ResourceLocationMaintenanceScheduleModel) SetTimeZone(v string) {
-	o.TimeZone = &v
+	o.TimeZone.Set(&v)
+}
+
+// SetTimeZoneNil sets the value for TimeZone to be an explicit nil
+func (o *ResourceLocationMaintenanceScheduleModel) SetTimeZoneNil() {
+	o.TimeZone.Set(nil)
+}
+
+// UnsetTimeZone ensures that no value is present for TimeZone, not even an explicit nil
+func (o *ResourceLocationMaintenanceScheduleModel) UnsetTimeZone() {
+	o.TimeZone.Unset()
 }
 
 func (o ResourceLocationMaintenanceScheduleModel) MarshalJSON() ([]byte, error) {
@@ -89,8 +100,8 @@ func (o ResourceLocationMaintenanceScheduleModel) MarshalJSON() ([]byte, error) 
 func (o ResourceLocationMaintenanceScheduleModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["startTime"] = o.StartTime
-	if !IsNil(o.TimeZone) {
-		toSerialize["timeZone"] = o.TimeZone
+	if o.TimeZone.IsSet() {
+		toSerialize["timeZone"] = o.TimeZone.Get()
 	}
 	return toSerialize, nil
 }

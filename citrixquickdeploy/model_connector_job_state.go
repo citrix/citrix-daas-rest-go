@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -30,6 +30,7 @@ const (
 	CONNECTORJOBSTATE_DELETING          ConnectorJobState = "Deleting"
 	CONNECTORJOBSTATE_DELETE_FAILED     ConnectorJobState = "DeleteFailed"
 	CONNECTORJOBSTATE_CONNECTORLESS     ConnectorJobState = "Connectorless"
+	CONNECTORJOBSTATE_RESIZING          ConnectorJobState = "Resizing"
 )
 
 // All allowed values of ConnectorJobState enum
@@ -44,6 +45,7 @@ var AllowedConnectorJobStateEnumValues = []ConnectorJobState{
 	"Deleting",
 	"DeleteFailed",
 	"Connectorless",
+	"Resizing",
 }
 
 func (v *ConnectorJobState) UnmarshalJSON(src []byte) error {

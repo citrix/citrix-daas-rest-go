@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DefaultRegion** | Pointer to **string** | ID of the azure region to set as the default region | [optional] 
+**DefaultRegion** | Pointer to **NullableString** | ID of the azure region to set as the default region | [optional] 
 
 ## Methods
 
@@ -50,6 +50,16 @@ SetDefaultRegion sets DefaultRegion field to given value.
 
 HasDefaultRegion returns a boolean if a field has been set.
 
+### SetDefaultRegionNil
+
+`func (o *UpdateDeploymentRegionSettingsModel) SetDefaultRegionNil(b bool)`
+
+ SetDefaultRegionNil sets the value for DefaultRegion to be an explicit nil
+
+### UnsetDefaultRegion
+`func (o *UpdateDeploymentRegionSettingsModel) UnsetDefaultRegion()`
+
+UnsetDefaultRegion ensures that no value is present for DefaultRegion, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

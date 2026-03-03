@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -30,9 +30,9 @@ type AddRemotePcCatalog struct {
 	// List of Machines to add to the catalog and the users to assign them to.
 	MachineAssignments []AddCatalogMachineAssignment `json:"machineAssignments,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null.
-	CspCustomerId *string `json:"cspCustomerId,omitempty"`
+	CspCustomerId NullableString `json:"cspCustomerId,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null.
-	CspSiteId *string `json:"cspSiteId,omitempty"`
+	CspSiteId NullableString `json:"cspSiteId,omitempty"`
 }
 
 // NewAddRemotePcCatalogWithDefaults instantiates a new AddRemotePcCatalog object
@@ -114,9 +114,9 @@ func (o *AddRemotePcCatalog) SetType(v AddRemotePcType) {
 	o.Type = &v
 }
 
-// GetEnrollmentScopes returns the EnrollmentScopes field value if set, zero value otherwise.
+// GetEnrollmentScopes returns the EnrollmentScopes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddRemotePcCatalog) GetEnrollmentScopes() []RemotePcEnrollmentScope {
-	if o == nil || IsNil(o.EnrollmentScopes) {
+	if o == nil {
 		var ret []RemotePcEnrollmentScope
 		return ret
 	}
@@ -125,6 +125,7 @@ func (o *AddRemotePcCatalog) GetEnrollmentScopes() []RemotePcEnrollmentScope {
 
 // GetEnrollmentScopesOk returns a tuple with the EnrollmentScopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddRemotePcCatalog) GetEnrollmentScopesOk() ([]RemotePcEnrollmentScope, bool) {
 	if o == nil || IsNil(o.EnrollmentScopes) {
 		return nil, false
@@ -137,9 +138,9 @@ func (o *AddRemotePcCatalog) SetEnrollmentScopes(v []RemotePcEnrollmentScope) {
 	o.EnrollmentScopes = v
 }
 
-// GetMachineAssignments returns the MachineAssignments field value if set, zero value otherwise.
+// GetMachineAssignments returns the MachineAssignments field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddRemotePcCatalog) GetMachineAssignments() []AddCatalogMachineAssignment {
-	if o == nil || IsNil(o.MachineAssignments) {
+	if o == nil {
 		var ret []AddCatalogMachineAssignment
 		return ret
 	}
@@ -148,6 +149,7 @@ func (o *AddRemotePcCatalog) GetMachineAssignments() []AddCatalogMachineAssignme
 
 // GetMachineAssignmentsOk returns a tuple with the MachineAssignments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddRemotePcCatalog) GetMachineAssignmentsOk() ([]AddCatalogMachineAssignment, bool) {
 	if o == nil || IsNil(o.MachineAssignments) {
 		return nil, false
@@ -160,50 +162,72 @@ func (o *AddRemotePcCatalog) SetMachineAssignments(v []AddCatalogMachineAssignme
 	o.MachineAssignments = v
 }
 
-// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise.
+// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddRemotePcCatalog) GetCspCustomerId() string {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil || IsNil(o.CspCustomerId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomerId
+	return *o.CspCustomerId.Get()
 }
 
 // GetCspCustomerIdOk returns a tuple with the CspCustomerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddRemotePcCatalog) GetCspCustomerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomerId, true
+	return o.CspCustomerId.Get(), o.CspCustomerId.IsSet()
 }
 
-// SetCspCustomerId gets a reference to the given string and assigns it to the CspCustomerId field.
+// SetCspCustomerId gets a reference to the given NullableString and assigns it to the CspCustomerId field.
 func (o *AddRemotePcCatalog) SetCspCustomerId(v string) {
-	o.CspCustomerId = &v
+	o.CspCustomerId.Set(&v)
 }
 
-// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise.
+// SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+func (o *AddRemotePcCatalog) SetCspCustomerIdNil() {
+	o.CspCustomerId.Set(nil)
+}
+
+// UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
+func (o *AddRemotePcCatalog) UnsetCspCustomerId() {
+	o.CspCustomerId.Unset()
+}
+
+// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddRemotePcCatalog) GetCspSiteId() string {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil || IsNil(o.CspSiteId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspSiteId
+	return *o.CspSiteId.Get()
 }
 
 // GetCspSiteIdOk returns a tuple with the CspSiteId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddRemotePcCatalog) GetCspSiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspSiteId, true
+	return o.CspSiteId.Get(), o.CspSiteId.IsSet()
 }
 
-// SetCspSiteId gets a reference to the given string and assigns it to the CspSiteId field.
+// SetCspSiteId gets a reference to the given NullableString and assigns it to the CspSiteId field.
 func (o *AddRemotePcCatalog) SetCspSiteId(v string) {
-	o.CspSiteId = &v
+	o.CspSiteId.Set(&v)
+}
+
+// SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+func (o *AddRemotePcCatalog) SetCspSiteIdNil() {
+	o.CspSiteId.Set(nil)
+}
+
+// UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
+func (o *AddRemotePcCatalog) UnsetCspSiteId() {
+	o.CspSiteId.Unset()
 }
 
 func (o AddRemotePcCatalog) MarshalJSON() ([]byte, error) {
@@ -221,17 +245,17 @@ func (o AddRemotePcCatalog) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
-	if !IsNil(o.EnrollmentScopes) {
+	if o.EnrollmentScopes != nil {
 		toSerialize["enrollmentScopes"] = o.EnrollmentScopes
 	}
-	if !IsNil(o.MachineAssignments) {
+	if o.MachineAssignments != nil {
 		toSerialize["machineAssignments"] = o.MachineAssignments
 	}
-	if !IsNil(o.CspCustomerId) {
-		toSerialize["cspCustomerId"] = o.CspCustomerId
+	if o.CspCustomerId.IsSet() {
+		toSerialize["cspCustomerId"] = o.CspCustomerId.Get()
 	}
-	if !IsNil(o.CspSiteId) {
-		toSerialize["cspSiteId"] = o.CspSiteId
+	if o.CspSiteId.IsSet() {
+		toSerialize["cspSiteId"] = o.CspSiteId.Get()
 	}
 	return toSerialize, nil
 }

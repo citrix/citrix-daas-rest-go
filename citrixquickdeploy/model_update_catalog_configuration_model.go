@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,11 +20,11 @@ var _ MappedNullable = &UpdateCatalogConfigurationModel{}
 // UpdateCatalogConfigurationModel This model is considered as a whitelist for patchable properties in a DataStore catalog model.  All the properties in this model are nullable.
 type UpdateCatalogConfigurationModel struct {
 	// Flag that indicates whether user has been assigned to the catalog
-	AreUsersConfigured *bool `json:"areUsersConfigured,omitempty"`
+	AreUsersConfigured NullableBool `json:"areUsersConfigured,omitempty"`
 	// Indicates if apps or desktops have been configured for the catalog
-	AreAppsConfigured *bool `json:"areAppsConfigured,omitempty"`
+	AreAppsConfigured NullableBool `json:"areAppsConfigured,omitempty"`
 	// Region where the catalog is being deployed
-	Region *string `json:"region,omitempty"`
+	Region NullableString `json:"region,omitempty"`
 }
 
 // NewUpdateCatalogConfigurationModelWithDefaults instantiates a new UpdateCatalogConfigurationModel object
@@ -35,73 +35,106 @@ func NewUpdateCatalogConfigurationModelWithDefaults() *UpdateCatalogConfiguratio
 	return &this
 }
 
-// GetAreUsersConfigured returns the AreUsersConfigured field value if set, zero value otherwise.
+// GetAreUsersConfigured returns the AreUsersConfigured field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateCatalogConfigurationModel) GetAreUsersConfigured() bool {
-	if o == nil || IsNil(o.AreUsersConfigured) {
+	if o == nil || IsNil(o.AreUsersConfigured.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.AreUsersConfigured
+	return *o.AreUsersConfigured.Get()
 }
 
 // GetAreUsersConfiguredOk returns a tuple with the AreUsersConfigured field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateCatalogConfigurationModel) GetAreUsersConfiguredOk() (*bool, bool) {
-	if o == nil || IsNil(o.AreUsersConfigured) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AreUsersConfigured, true
+	return o.AreUsersConfigured.Get(), o.AreUsersConfigured.IsSet()
 }
 
-// SetAreUsersConfigured gets a reference to the given bool and assigns it to the AreUsersConfigured field.
+// SetAreUsersConfigured gets a reference to the given NullableBool and assigns it to the AreUsersConfigured field.
 func (o *UpdateCatalogConfigurationModel) SetAreUsersConfigured(v bool) {
-	o.AreUsersConfigured = &v
+	o.AreUsersConfigured.Set(&v)
 }
 
-// GetAreAppsConfigured returns the AreAppsConfigured field value if set, zero value otherwise.
+// SetAreUsersConfiguredNil sets the value for AreUsersConfigured to be an explicit nil
+func (o *UpdateCatalogConfigurationModel) SetAreUsersConfiguredNil() {
+	o.AreUsersConfigured.Set(nil)
+}
+
+// UnsetAreUsersConfigured ensures that no value is present for AreUsersConfigured, not even an explicit nil
+func (o *UpdateCatalogConfigurationModel) UnsetAreUsersConfigured() {
+	o.AreUsersConfigured.Unset()
+}
+
+// GetAreAppsConfigured returns the AreAppsConfigured field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateCatalogConfigurationModel) GetAreAppsConfigured() bool {
-	if o == nil || IsNil(o.AreAppsConfigured) {
+	if o == nil || IsNil(o.AreAppsConfigured.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.AreAppsConfigured
+	return *o.AreAppsConfigured.Get()
 }
 
 // GetAreAppsConfiguredOk returns a tuple with the AreAppsConfigured field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateCatalogConfigurationModel) GetAreAppsConfiguredOk() (*bool, bool) {
-	if o == nil || IsNil(o.AreAppsConfigured) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AreAppsConfigured, true
+	return o.AreAppsConfigured.Get(), o.AreAppsConfigured.IsSet()
 }
 
-// SetAreAppsConfigured gets a reference to the given bool and assigns it to the AreAppsConfigured field.
+// SetAreAppsConfigured gets a reference to the given NullableBool and assigns it to the AreAppsConfigured field.
 func (o *UpdateCatalogConfigurationModel) SetAreAppsConfigured(v bool) {
-	o.AreAppsConfigured = &v
+	o.AreAppsConfigured.Set(&v)
 }
 
-// GetRegion returns the Region field value if set, zero value otherwise.
+// SetAreAppsConfiguredNil sets the value for AreAppsConfigured to be an explicit nil
+func (o *UpdateCatalogConfigurationModel) SetAreAppsConfiguredNil() {
+	o.AreAppsConfigured.Set(nil)
+}
+
+// UnsetAreAppsConfigured ensures that no value is present for AreAppsConfigured, not even an explicit nil
+func (o *UpdateCatalogConfigurationModel) UnsetAreAppsConfigured() {
+	o.AreAppsConfigured.Unset()
+}
+
+// GetRegion returns the Region field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateCatalogConfigurationModel) GetRegion() string {
-	if o == nil || IsNil(o.Region) {
+	if o == nil || IsNil(o.Region.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Region
+	return *o.Region.Get()
 }
 
 // GetRegionOk returns a tuple with the Region field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateCatalogConfigurationModel) GetRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.Region) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Region, true
+	return o.Region.Get(), o.Region.IsSet()
 }
 
-// SetRegion gets a reference to the given string and assigns it to the Region field.
+// SetRegion gets a reference to the given NullableString and assigns it to the Region field.
 func (o *UpdateCatalogConfigurationModel) SetRegion(v string) {
-	o.Region = &v
+	o.Region.Set(&v)
+}
+
+// SetRegionNil sets the value for Region to be an explicit nil
+func (o *UpdateCatalogConfigurationModel) SetRegionNil() {
+	o.Region.Set(nil)
+}
+
+// UnsetRegion ensures that no value is present for Region, not even an explicit nil
+func (o *UpdateCatalogConfigurationModel) UnsetRegion() {
+	o.Region.Unset()
 }
 
 func (o UpdateCatalogConfigurationModel) MarshalJSON() ([]byte, error) {
@@ -114,14 +147,14 @@ func (o UpdateCatalogConfigurationModel) MarshalJSON() ([]byte, error) {
 
 func (o UpdateCatalogConfigurationModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AreUsersConfigured) {
-		toSerialize["areUsersConfigured"] = o.AreUsersConfigured
+	if o.AreUsersConfigured.IsSet() {
+		toSerialize["areUsersConfigured"] = o.AreUsersConfigured.Get()
 	}
-	if !IsNil(o.AreAppsConfigured) {
-		toSerialize["areAppsConfigured"] = o.AreAppsConfigured
+	if o.AreAppsConfigured.IsSet() {
+		toSerialize["areAppsConfigured"] = o.AreAppsConfigured.Get()
 	}
-	if !IsNil(o.Region) {
-		toSerialize["region"] = o.Region
+	if o.Region.IsSet() {
+		toSerialize["region"] = o.Region.Get()
 	}
 	return toSerialize, nil
 }

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,148 +20,16 @@ import (
 	"strings"
 )
 
-type MasterImageCMD interface {
-
-	/*
-		AddTemplateImage Add a new master image to the XenApp Essential customer's account, which is linked to a VHD image inside the customer's storage account.
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId Specific customer id
-		@param siteId The site ID of the customer
-		@return ApiAddTemplateImageRequest
-	*/
-	AddTemplateImage(ctx context.Context, customerId string, siteId string) ApiAddTemplateImageRequest
-
-	// AddTemplateImageExecute executes the request
-	//  @return string
-	AddTemplateImageExecute(r ApiAddTemplateImageRequest) (string, *http.Response, error)
-
-	/*
-		CancelCustomerImageUrl Cancel url of customer image
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId Specific customer id
-		@param siteId The site ID of the customer
-		@param imageId The master image to view details of
-		@return ApiCancelCustomerImageUrlRequest
-	*/
-	CancelCustomerImageUrl(ctx context.Context, customerId string, siteId string, imageId string) ApiCancelCustomerImageUrlRequest
-
-	// CancelCustomerImageUrlExecute executes the request
-	CancelCustomerImageUrlExecute(r ApiCancelCustomerImageUrlRequest) (*http.Response, error)
-
-	/*
-		CreateCustomerImageUrl Returns url of customer image
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId Specific customer id
-		@param siteId The site ID of the customer
-		@param imageId The master image to view details of
-		@return ApiCreateCustomerImageUrlRequest
-	*/
-	CreateCustomerImageUrl(ctx context.Context, customerId string, siteId string, imageId string) ApiCreateCustomerImageUrlRequest
-
-	// CreateCustomerImageUrlExecute executes the request
-	//  @return TemplateImageUrl
-	CreateCustomerImageUrlExecute(r ApiCreateCustomerImageUrlRequest) (*TemplateImageUrl, *http.Response, error)
-
-	/*
-		DeleteTemplateImage Delete the specified master image
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId Specific customer id
-		@param siteId The site ID of the customer
-		@param imageId The master image to update
-		@return ApiDeleteTemplateImageRequest
-	*/
-	DeleteTemplateImage(ctx context.Context, customerId string, siteId string, imageId string) ApiDeleteTemplateImageRequest
-
-	// DeleteTemplateImageExecute executes the request
-	DeleteTemplateImageExecute(r ApiDeleteTemplateImageRequest) (*http.Response, error)
-
-	/*
-		GetAzureSasUrlExpiryTime Returns the expiry time of the Azure SAS URL
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId Specific customer id
-		@param siteId The site ID of the customer
-		@param imageId The master image to view details of
-		@return ApiGetAzureSasUrlExpiryTimeRequest
-	*/
-	GetAzureSasUrlExpiryTime(ctx context.Context, customerId string, siteId string, imageId string) ApiGetAzureSasUrlExpiryTimeRequest
-
-	// GetAzureSasUrlExpiryTimeExecute executes the request
-	//  @return TemplateImageUrl
-	GetAzureSasUrlExpiryTimeExecute(r ApiGetAzureSasUrlExpiryTimeRequest) (*TemplateImageUrl, *http.Response, error)
-
-	/*
-		GetImages Returns all the master images the customer has linked to their account
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId Specific customer id
-		@param siteId The site ID of the customer
-		@return ApiGetImagesRequest
-	*/
-	GetImages(ctx context.Context, customerId string, siteId string) ApiGetImagesRequest
-
-	// GetImagesExecute executes the request
-	//  @return CustomerTemplateImageOverviewsModel
-	GetImagesExecute(r ApiGetImagesRequest) (*CustomerTemplateImageOverviewsModel, *http.Response, error)
-
-	/*
-		GetTemplateImage Returns details of the specified master image
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId Specific customer id
-		@param siteId The site ID of the customer
-		@param imageId The master image to view details of
-		@return ApiGetTemplateImageRequest
-	*/
-	GetTemplateImage(ctx context.Context, customerId string, siteId string, imageId string) ApiGetTemplateImageRequest
-
-	// GetTemplateImageExecute executes the request
-	//  @return TemplateImageDetails
-	GetTemplateImageExecute(r ApiGetTemplateImageRequest) (*TemplateImageDetails, *http.Response, error)
-
-	/*
-		ImportTemplateImage Add a new master image to the DaaS customer's account, which is linked to a VHD image inside the customer's storage account (Image import feature for DaaS)
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId Specific customer id
-		@param siteId The site ID of the customer
-		@return ApiImportTemplateImageRequest
-	*/
-	ImportTemplateImage(ctx context.Context, customerId string, siteId string) ApiImportTemplateImageRequest
-
-	// ImportTemplateImageExecute executes the request
-	//  @return TemplateImageOverview
-	ImportTemplateImageExecute(r ApiImportTemplateImageRequest) (*TemplateImageOverview, *http.Response, error)
-
-	/*
-		UpdateTemplateImage Updates template image configuration (name, notes, allowed ips)
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId Specific customer id
-		@param siteId
-		@param imageId The template image to update
-		@return ApiUpdateTemplateImageRequest
-	*/
-	UpdateTemplateImage(ctx context.Context, customerId string, siteId string, imageId string) ApiUpdateTemplateImageRequest
-
-	// UpdateTemplateImageExecute executes the request
-	UpdateTemplateImageExecute(r ApiUpdateTemplateImageRequest) (*http.Response, error)
-}
-
 // MasterImageCMDService MasterImageCMD service
 type MasterImageCMDService service
 
 type ApiAddTemplateImageRequest struct {
-	ctx                 context.Context
-	ApiService          MasterImageCMD
-	customerId          string
-	siteId              string
-	citrixTransactionId *string
-	body                *AddTemplateImageModel
+	ctx                   context.Context
+	ApiService            *MasterImageCMDService
+	customerId            string
+	siteId                string
+	citrixTransactionId   *string
+	addTemplateImageModel *AddTemplateImageModel
 }
 
 // The Transaction Id.
@@ -171,8 +39,8 @@ func (r ApiAddTemplateImageRequest) CitrixTransactionId(citrixTransactionId stri
 }
 
 // Configuration of the master image to add
-func (r ApiAddTemplateImageRequest) Body(body AddTemplateImageModel) ApiAddTemplateImageRequest {
-	r.body = &body
+func (r ApiAddTemplateImageRequest) AddTemplateImageModel(addTemplateImageModel AddTemplateImageModel) ApiAddTemplateImageRequest {
+	r.addTemplateImageModel = &addTemplateImageModel
 	return r
 }
 
@@ -242,7 +110,7 @@ func (a *MasterImageCMDService) AddTemplateImageExecute(r ApiAddTemplateImageReq
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.addTemplateImageModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -296,7 +164,7 @@ func (a *MasterImageCMDService) AddTemplateImageExecute(r ApiAddTemplateImageReq
 
 type ApiCancelCustomerImageUrlRequest struct {
 	ctx                 context.Context
-	ApiService          MasterImageCMD
+	ApiService          *MasterImageCMDService
 	customerId          string
 	siteId              string
 	imageId             string
@@ -418,12 +286,12 @@ func (a *MasterImageCMDService) CancelCustomerImageUrlExecute(r ApiCancelCustome
 
 type ApiCreateCustomerImageUrlRequest struct {
 	ctx                 context.Context
-	ApiService          MasterImageCMD
+	ApiService          *MasterImageCMDService
 	customerId          string
 	siteId              string
 	imageId             string
 	citrixTransactionId *string
-	body                *CustomerImgUrlModel
+	customerImgUrlModel *CustomerImgUrlModel
 }
 
 // The Transaction Id.
@@ -432,8 +300,8 @@ func (r ApiCreateCustomerImageUrlRequest) CitrixTransactionId(citrixTransactionI
 	return r
 }
 
-func (r ApiCreateCustomerImageUrlRequest) Body(body CustomerImgUrlModel) ApiCreateCustomerImageUrlRequest {
-	r.body = &body
+func (r ApiCreateCustomerImageUrlRequest) CustomerImgUrlModel(customerImgUrlModel CustomerImgUrlModel) ApiCreateCustomerImageUrlRequest {
+	r.customerImgUrlModel = &customerImgUrlModel
 	return r
 }
 
@@ -506,7 +374,7 @@ func (a *MasterImageCMDService) CreateCustomerImageUrlExecute(r ApiCreateCustome
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.customerImgUrlModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -560,7 +428,7 @@ func (a *MasterImageCMDService) CreateCustomerImageUrlExecute(r ApiCreateCustome
 
 type ApiDeleteTemplateImageRequest struct {
 	ctx                 context.Context
-	ApiService          MasterImageCMD
+	ApiService          *MasterImageCMDService
 	customerId          string
 	siteId              string
 	imageId             string
@@ -682,7 +550,7 @@ func (a *MasterImageCMDService) DeleteTemplateImageExecute(r ApiDeleteTemplateIm
 
 type ApiGetAzureSasUrlExpiryTimeRequest struct {
 	ctx                 context.Context
-	ApiService          MasterImageCMD
+	ApiService          *MasterImageCMDService
 	customerId          string
 	siteId              string
 	imageId             string
@@ -816,7 +684,7 @@ func (a *MasterImageCMDService) GetAzureSasUrlExpiryTimeExecute(r ApiGetAzureSas
 
 type ApiGetImagesRequest struct {
 	ctx                     context.Context
-	ApiService              MasterImageCMD
+	ApiService              *MasterImageCMDService
 	customerId              string
 	siteId                  string
 	cspCustomerId           *string
@@ -1004,7 +872,7 @@ func (a *MasterImageCMDService) GetImagesExecute(r ApiGetImagesRequest) (*Custom
 
 type ApiGetTemplateImageRequest struct {
 	ctx                 context.Context
-	ApiService          MasterImageCMD
+	ApiService          *MasterImageCMDService
 	customerId          string
 	siteId              string
 	imageId             string
@@ -1137,12 +1005,12 @@ func (a *MasterImageCMDService) GetTemplateImageExecute(r ApiGetTemplateImageReq
 }
 
 type ApiImportTemplateImageRequest struct {
-	ctx                 context.Context
-	ApiService          MasterImageCMD
-	customerId          string
-	siteId              string
-	citrixTransactionId *string
-	body                *ImportTemplateImageModel
+	ctx                      context.Context
+	ApiService               *MasterImageCMDService
+	customerId               string
+	siteId                   string
+	citrixTransactionId      *string
+	importTemplateImageModel *ImportTemplateImageModel
 }
 
 // The Transaction Id.
@@ -1152,8 +1020,8 @@ func (r ApiImportTemplateImageRequest) CitrixTransactionId(citrixTransactionId s
 }
 
 // Configuration of the master image to add
-func (r ApiImportTemplateImageRequest) Body(body ImportTemplateImageModel) ApiImportTemplateImageRequest {
-	r.body = &body
+func (r ApiImportTemplateImageRequest) ImportTemplateImageModel(importTemplateImageModel ImportTemplateImageModel) ApiImportTemplateImageRequest {
+	r.importTemplateImageModel = &importTemplateImageModel
 	return r
 }
 
@@ -1223,7 +1091,148 @@ func (a *MasterImageCMDService) ImportTemplateImageExecute(r ApiImportTemplateIm
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.importTemplateImageModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["CWSAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiImportTemplateImageWithoutVerificationRequest struct {
+	ctx                      context.Context
+	ApiService               *MasterImageCMDService
+	customerId               string
+	siteId                   string
+	citrixTransactionId      *string
+	importTemplateImageModel *ImportTemplateImageModel
+}
+
+// The Transaction Id.
+func (r ApiImportTemplateImageWithoutVerificationRequest) CitrixTransactionId(citrixTransactionId string) ApiImportTemplateImageWithoutVerificationRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Configuration of the master image to add
+func (r ApiImportTemplateImageWithoutVerificationRequest) ImportTemplateImageModel(importTemplateImageModel ImportTemplateImageModel) ApiImportTemplateImageWithoutVerificationRequest {
+	r.importTemplateImageModel = &importTemplateImageModel
+	return r
+}
+
+func (r ApiImportTemplateImageWithoutVerificationRequest) Execute() (*TemplateImageOverview, *http.Response, error) {
+	return r.ApiService.ImportTemplateImageWithoutVerificationExecute(r)
+}
+
+/*
+ImportTemplateImageWithoutVerification Add a new master image to the DaaS customer's account, which is linked to a VHD image inside the customer's storage account (Image import feature for DaaS)
+
+<b>Authorization</b> (Policy: RouteBasedMultiTenantKeyOnly)
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId Specific customer id
+	@param siteId The site ID of the customer
+	@return ApiImportTemplateImageWithoutVerificationRequest
+*/
+func (a *MasterImageCMDService) ImportTemplateImageWithoutVerification(ctx context.Context, customerId string, siteId string) ApiImportTemplateImageWithoutVerificationRequest {
+	return ApiImportTemplateImageWithoutVerificationRequest{
+		ApiService: a,
+		ctx:        ctx,
+		customerId: customerId,
+		siteId:     siteId,
+	}
+}
+
+// Execute executes the request
+//
+//	@return TemplateImageOverview
+func (a *MasterImageCMDService) ImportTemplateImageWithoutVerificationExecute(r ApiImportTemplateImageWithoutVerificationRequest) (*TemplateImageOverview, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TemplateImageOverview
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MasterImageCMDService.ImportTemplateImageWithoutVerification")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/{customerId}/{siteId}/images/$skipverificationimport"
+	localVarPath = strings.Replace(localVarPath, "{"+"customerId"+"}", url.PathEscape(parameterValueToString(r.customerId, "customerId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"siteId"+"}", url.PathEscape(parameterValueToString(r.siteId, "siteId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	// body params
+	localVarPostBody = r.importTemplateImageModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1276,13 +1285,13 @@ func (a *MasterImageCMDService) ImportTemplateImageExecute(r ApiImportTemplateIm
 }
 
 type ApiUpdateTemplateImageRequest struct {
-	ctx                 context.Context
-	ApiService          MasterImageCMD
-	customerId          string
-	siteId              string
-	imageId             string
-	citrixTransactionId *string
-	body                *UpdateTemplateImageModel
+	ctx                      context.Context
+	ApiService               *MasterImageCMDService
+	customerId               string
+	siteId                   string
+	imageId                  string
+	citrixTransactionId      *string
+	updateTemplateImageModel *UpdateTemplateImageModel
 }
 
 // The Transaction Id.
@@ -1292,8 +1301,8 @@ func (r ApiUpdateTemplateImageRequest) CitrixTransactionId(citrixTransactionId s
 }
 
 // The updated configuration of image
-func (r ApiUpdateTemplateImageRequest) Body(body UpdateTemplateImageModel) ApiUpdateTemplateImageRequest {
-	r.body = &body
+func (r ApiUpdateTemplateImageRequest) UpdateTemplateImageModel(updateTemplateImageModel UpdateTemplateImageModel) ApiUpdateTemplateImageRequest {
+	r.updateTemplateImageModel = &updateTemplateImageModel
 	return r
 }
 
@@ -1363,7 +1372,7 @@ func (a *MasterImageCMDService) UpdateTemplateImageExecute(r ApiUpdateTemplateIm
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.updateTemplateImageModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

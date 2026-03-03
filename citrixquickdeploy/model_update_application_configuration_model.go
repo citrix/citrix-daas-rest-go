@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -24,13 +24,13 @@ type UpdateApplicationConfigurationModel struct {
 	// Path to execute the application
 	ApplicationPath string `json:"applicationPath"`
 	// Working directory of the app at launch
-	WorkingDirectory *string `json:"workingDirectory,omitempty"`
+	WorkingDirectory NullableString `json:"workingDirectory,omitempty"`
 	// Application description that show up in Workspace
-	Description *string `json:"description,omitempty"`
+	Description NullableString `json:"description,omitempty"`
 	// Extra parameters to provide the application when it is launched
-	CommandLineParams *string `json:"commandLineParams,omitempty"`
+	CommandLineParams NullableString `json:"commandLineParams,omitempty"`
 	// The raw app icon represented as a base64 string
-	Base64Icon *string `json:"base64Icon,omitempty"`
+	Base64Icon NullableString `json:"base64Icon,omitempty"`
 }
 
 // NewUpdateApplicationConfigurationModelWithDefaults instantiates a new UpdateApplicationConfigurationModel object
@@ -89,96 +89,140 @@ func (o *UpdateApplicationConfigurationModel) SetApplicationPath(v string) {
 	o.ApplicationPath = v
 }
 
-// GetWorkingDirectory returns the WorkingDirectory field value if set, zero value otherwise.
+// GetWorkingDirectory returns the WorkingDirectory field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateApplicationConfigurationModel) GetWorkingDirectory() string {
-	if o == nil || IsNil(o.WorkingDirectory) {
+	if o == nil || IsNil(o.WorkingDirectory.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.WorkingDirectory
+	return *o.WorkingDirectory.Get()
 }
 
 // GetWorkingDirectoryOk returns a tuple with the WorkingDirectory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateApplicationConfigurationModel) GetWorkingDirectoryOk() (*string, bool) {
-	if o == nil || IsNil(o.WorkingDirectory) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkingDirectory, true
+	return o.WorkingDirectory.Get(), o.WorkingDirectory.IsSet()
 }
 
-// SetWorkingDirectory gets a reference to the given string and assigns it to the WorkingDirectory field.
+// SetWorkingDirectory gets a reference to the given NullableString and assigns it to the WorkingDirectory field.
 func (o *UpdateApplicationConfigurationModel) SetWorkingDirectory(v string) {
-	o.WorkingDirectory = &v
+	o.WorkingDirectory.Set(&v)
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
+// SetWorkingDirectoryNil sets the value for WorkingDirectory to be an explicit nil
+func (o *UpdateApplicationConfigurationModel) SetWorkingDirectoryNil() {
+	o.WorkingDirectory.Set(nil)
+}
+
+// UnsetWorkingDirectory ensures that no value is present for WorkingDirectory, not even an explicit nil
+func (o *UpdateApplicationConfigurationModel) UnsetWorkingDirectory() {
+	o.WorkingDirectory.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateApplicationConfigurationModel) GetDescription() string {
-	if o == nil || IsNil(o.Description) {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateApplicationConfigurationModel) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
-// SetDescription gets a reference to the given string and assigns it to the Description field.
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *UpdateApplicationConfigurationModel) SetDescription(v string) {
-	o.Description = &v
+	o.Description.Set(&v)
 }
 
-// GetCommandLineParams returns the CommandLineParams field value if set, zero value otherwise.
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *UpdateApplicationConfigurationModel) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *UpdateApplicationConfigurationModel) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetCommandLineParams returns the CommandLineParams field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateApplicationConfigurationModel) GetCommandLineParams() string {
-	if o == nil || IsNil(o.CommandLineParams) {
+	if o == nil || IsNil(o.CommandLineParams.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CommandLineParams
+	return *o.CommandLineParams.Get()
 }
 
 // GetCommandLineParamsOk returns a tuple with the CommandLineParams field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateApplicationConfigurationModel) GetCommandLineParamsOk() (*string, bool) {
-	if o == nil || IsNil(o.CommandLineParams) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CommandLineParams, true
+	return o.CommandLineParams.Get(), o.CommandLineParams.IsSet()
 }
 
-// SetCommandLineParams gets a reference to the given string and assigns it to the CommandLineParams field.
+// SetCommandLineParams gets a reference to the given NullableString and assigns it to the CommandLineParams field.
 func (o *UpdateApplicationConfigurationModel) SetCommandLineParams(v string) {
-	o.CommandLineParams = &v
+	o.CommandLineParams.Set(&v)
 }
 
-// GetBase64Icon returns the Base64Icon field value if set, zero value otherwise.
+// SetCommandLineParamsNil sets the value for CommandLineParams to be an explicit nil
+func (o *UpdateApplicationConfigurationModel) SetCommandLineParamsNil() {
+	o.CommandLineParams.Set(nil)
+}
+
+// UnsetCommandLineParams ensures that no value is present for CommandLineParams, not even an explicit nil
+func (o *UpdateApplicationConfigurationModel) UnsetCommandLineParams() {
+	o.CommandLineParams.Unset()
+}
+
+// GetBase64Icon returns the Base64Icon field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateApplicationConfigurationModel) GetBase64Icon() string {
-	if o == nil || IsNil(o.Base64Icon) {
+	if o == nil || IsNil(o.Base64Icon.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Base64Icon
+	return *o.Base64Icon.Get()
 }
 
 // GetBase64IconOk returns a tuple with the Base64Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateApplicationConfigurationModel) GetBase64IconOk() (*string, bool) {
-	if o == nil || IsNil(o.Base64Icon) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Base64Icon, true
+	return o.Base64Icon.Get(), o.Base64Icon.IsSet()
 }
 
-// SetBase64Icon gets a reference to the given string and assigns it to the Base64Icon field.
+// SetBase64Icon gets a reference to the given NullableString and assigns it to the Base64Icon field.
 func (o *UpdateApplicationConfigurationModel) SetBase64Icon(v string) {
-	o.Base64Icon = &v
+	o.Base64Icon.Set(&v)
+}
+
+// SetBase64IconNil sets the value for Base64Icon to be an explicit nil
+func (o *UpdateApplicationConfigurationModel) SetBase64IconNil() {
+	o.Base64Icon.Set(nil)
+}
+
+// UnsetBase64Icon ensures that no value is present for Base64Icon, not even an explicit nil
+func (o *UpdateApplicationConfigurationModel) UnsetBase64Icon() {
+	o.Base64Icon.Unset()
 }
 
 func (o UpdateApplicationConfigurationModel) MarshalJSON() ([]byte, error) {
@@ -193,17 +237,17 @@ func (o UpdateApplicationConfigurationModel) ToMap() (map[string]interface{}, er
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
 	toSerialize["applicationPath"] = o.ApplicationPath
-	if !IsNil(o.WorkingDirectory) {
-		toSerialize["workingDirectory"] = o.WorkingDirectory
+	if o.WorkingDirectory.IsSet() {
+		toSerialize["workingDirectory"] = o.WorkingDirectory.Get()
 	}
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.CommandLineParams) {
-		toSerialize["commandLineParams"] = o.CommandLineParams
+	if o.CommandLineParams.IsSet() {
+		toSerialize["commandLineParams"] = o.CommandLineParams.Get()
 	}
-	if !IsNil(o.Base64Icon) {
-		toSerialize["base64Icon"] = o.Base64Icon
+	if o.Base64Icon.IsSet() {
+		toSerialize["base64Icon"] = o.Base64Icon.Get()
 	}
 	return toSerialize, nil
 }

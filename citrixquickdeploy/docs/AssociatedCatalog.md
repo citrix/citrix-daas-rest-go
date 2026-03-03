@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CatalogId** | Pointer to **string** | ID of the associated catalog. | [optional] 
-**CatalogName** | Pointer to **string** | Name of the associated catalog. | [optional] 
+**CatalogId** | Pointer to **NullableString** | ID of the associated catalog. | [optional] 
+**CatalogName** | Pointer to **NullableString** | Name of the associated catalog. | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetCatalogId sets CatalogId field to given value.
 
 HasCatalogId returns a boolean if a field has been set.
 
+### SetCatalogIdNil
+
+`func (o *AssociatedCatalog) SetCatalogIdNil(b bool)`
+
+ SetCatalogIdNil sets the value for CatalogId to be an explicit nil
+
+### UnsetCatalogId
+`func (o *AssociatedCatalog) UnsetCatalogId()`
+
+UnsetCatalogId ensures that no value is present for CatalogId, not even an explicit nil
 ### GetCatalogName
 
 `func (o *AssociatedCatalog) GetCatalogName() string`
@@ -76,6 +86,16 @@ SetCatalogName sets CatalogName field to given value.
 
 HasCatalogName returns a boolean if a field has been set.
 
+### SetCatalogNameNil
+
+`func (o *AssociatedCatalog) SetCatalogNameNil(b bool)`
+
+ SetCatalogNameNil sets the value for CatalogName to be an explicit nil
+
+### UnsetCatalogName
+`func (o *AssociatedCatalog) UnsetCatalogName()`
+
+UnsetCatalogName ensures that no value is present for CatalogName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

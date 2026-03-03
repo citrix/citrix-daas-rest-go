@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,32 +21,34 @@ var _ MappedNullable = &AzureConsumptionUsageDetailForCsv{}
 // AzureConsumptionUsageDetailForCsv struct for AzureConsumptionUsageDetailForCsv
 type AzureConsumptionUsageDetailForCsv struct {
 	// ID of the catalog
-	CatalogId *string `json:"catalogId,omitempty"`
+	CatalogId NullableString `json:"catalogId,omitempty"`
 	// Subscription guid.
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionId NullableString `json:"subscriptionId,omitempty"`
+	// Subscription name.
+	SubscriptionName NullableString `json:"subscriptionName,omitempty"`
 	// The amount of cost before tax.
-	Cost *float64 `json:"cost,omitempty"`
+	Cost NullableFloat64 `json:"cost,omitempty"`
 	// Unique identifier of the Azure Resource Manager usage detail resource.
-	ResourceId *string `json:"resourceId,omitempty"`
+	ResourceId NullableString `json:"resourceId,omitempty"`
 	// Name of the resource's resource group.
-	ResourceGroup *string `json:"resourceGroup,omitempty"`
+	ResourceGroup NullableString `json:"resourceGroup,omitempty"`
 	// Location of the resource.
-	ResourceLocation *string `json:"resourceLocation,omitempty"`
+	ResourceLocation NullableString `json:"resourceLocation,omitempty"`
 	// The billing period start date.
-	BillingPeriodStartDate *time.Time `json:"billingPeriodStartDate,omitempty"`
+	BillingPeriodStartDate NullableTime `json:"billingPeriodStartDate,omitempty"`
 	// The billing period end date.
-	BillingPeriodEndDate *time.Time `json:"billingPeriodEndDate,omitempty"`
+	BillingPeriodEndDate NullableTime `json:"billingPeriodEndDate,omitempty"`
 	// The meter id (GUID). Not available for marketplace. For reserved instance this represents the primary meter for which the reservation was purchased. For the actual VM Size for which the reservation is purchased see productOrderName.
-	MeterId *string `json:"meterId,omitempty"`
+	MeterId NullableString `json:"meterId,omitempty"`
 	// The usage quantity.
-	Quantity *float64 `json:"quantity,omitempty"`
+	Quantity NullableFloat64 `json:"quantity,omitempty"`
 	// The unit price of the meter.
-	UnitPrice *float64 `json:"unitPrice,omitempty"`
+	UnitPrice NullableFloat64 `json:"unitPrice,omitempty"`
 	// The currency of the meter.
-	BillingCurrency *string `json:"billingCurrency,omitempty"`
+	BillingCurrency NullableString `json:"billingCurrency,omitempty"`
 	// The details about the meter. By default this is not populated, unless it's specified in $expand.
-	MeterDetails *AzureConsumptionMeterDetails `json:"meterDetails,omitempty"`
-	Tags         *string                       `json:"tags,omitempty"`
+	MeterDetails NullableAzureConsumptionMeterDetails `json:"meterDetails,omitempty"`
+	Tags         NullableString                       `json:"tags,omitempty"`
 }
 
 // NewAzureConsumptionUsageDetailForCsvWithDefaults instantiates a new AzureConsumptionUsageDetailForCsv object
@@ -57,326 +59,514 @@ func NewAzureConsumptionUsageDetailForCsvWithDefaults() *AzureConsumptionUsageDe
 	return &this
 }
 
-// GetCatalogId returns the CatalogId field value if set, zero value otherwise.
+// GetCatalogId returns the CatalogId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetCatalogId() string {
-	if o == nil || IsNil(o.CatalogId) {
+	if o == nil || IsNil(o.CatalogId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CatalogId
+	return *o.CatalogId.Get()
 }
 
 // GetCatalogIdOk returns a tuple with the CatalogId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetCatalogIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CatalogId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CatalogId, true
+	return o.CatalogId.Get(), o.CatalogId.IsSet()
 }
 
-// SetCatalogId gets a reference to the given string and assigns it to the CatalogId field.
+// SetCatalogId gets a reference to the given NullableString and assigns it to the CatalogId field.
 func (o *AzureConsumptionUsageDetailForCsv) SetCatalogId(v string) {
-	o.CatalogId = &v
+	o.CatalogId.Set(&v)
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// SetCatalogIdNil sets the value for CatalogId to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetCatalogIdNil() {
+	o.CatalogId.Set(nil)
+}
+
+// UnsetCatalogId ensures that no value is present for CatalogId, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetCatalogId() {
+	o.CatalogId.Unset()
+}
+
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *AzureConsumptionUsageDetailForCsv) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
 }
 
-// GetCost returns the Cost field value if set, zero value otherwise.
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
+}
+
+// GetSubscriptionName returns the SubscriptionName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AzureConsumptionUsageDetailForCsv) GetSubscriptionName() string {
+	if o == nil || IsNil(o.SubscriptionName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SubscriptionName.Get()
+}
+
+// GetSubscriptionNameOk returns a tuple with the SubscriptionName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AzureConsumptionUsageDetailForCsv) GetSubscriptionNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SubscriptionName.Get(), o.SubscriptionName.IsSet()
+}
+
+// SetSubscriptionName gets a reference to the given NullableString and assigns it to the SubscriptionName field.
+func (o *AzureConsumptionUsageDetailForCsv) SetSubscriptionName(v string) {
+	o.SubscriptionName.Set(&v)
+}
+
+// SetSubscriptionNameNil sets the value for SubscriptionName to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetSubscriptionNameNil() {
+	o.SubscriptionName.Set(nil)
+}
+
+// UnsetSubscriptionName ensures that no value is present for SubscriptionName, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetSubscriptionName() {
+	o.SubscriptionName.Unset()
+}
+
+// GetCost returns the Cost field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetCost() float64 {
-	if o == nil || IsNil(o.Cost) {
+	if o == nil || IsNil(o.Cost.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.Cost
+	return *o.Cost.Get()
 }
 
 // GetCostOk returns a tuple with the Cost field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetCostOk() (*float64, bool) {
-	if o == nil || IsNil(o.Cost) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Cost, true
+	return o.Cost.Get(), o.Cost.IsSet()
 }
 
-// SetCost gets a reference to the given float64 and assigns it to the Cost field.
+// SetCost gets a reference to the given NullableFloat64 and assigns it to the Cost field.
 func (o *AzureConsumptionUsageDetailForCsv) SetCost(v float64) {
-	o.Cost = &v
+	o.Cost.Set(&v)
 }
 
-// GetResourceId returns the ResourceId field value if set, zero value otherwise.
+// SetCostNil sets the value for Cost to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetCostNil() {
+	o.Cost.Set(nil)
+}
+
+// UnsetCost ensures that no value is present for Cost, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetCost() {
+	o.Cost.Unset()
+}
+
+// GetResourceId returns the ResourceId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetResourceId() string {
-	if o == nil || IsNil(o.ResourceId) {
+	if o == nil || IsNil(o.ResourceId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResourceId
+	return *o.ResourceId.Get()
 }
 
 // GetResourceIdOk returns a tuple with the ResourceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetResourceIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceId, true
+	return o.ResourceId.Get(), o.ResourceId.IsSet()
 }
 
-// SetResourceId gets a reference to the given string and assigns it to the ResourceId field.
+// SetResourceId gets a reference to the given NullableString and assigns it to the ResourceId field.
 func (o *AzureConsumptionUsageDetailForCsv) SetResourceId(v string) {
-	o.ResourceId = &v
+	o.ResourceId.Set(&v)
 }
 
-// GetResourceGroup returns the ResourceGroup field value if set, zero value otherwise.
+// SetResourceIdNil sets the value for ResourceId to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetResourceIdNil() {
+	o.ResourceId.Set(nil)
+}
+
+// UnsetResourceId ensures that no value is present for ResourceId, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetResourceId() {
+	o.ResourceId.Unset()
+}
+
+// GetResourceGroup returns the ResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetResourceGroup() string {
-	if o == nil || IsNil(o.ResourceGroup) {
+	if o == nil || IsNil(o.ResourceGroup.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResourceGroup
+	return *o.ResourceGroup.Get()
 }
 
 // GetResourceGroupOk returns a tuple with the ResourceGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetResourceGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceGroup, true
+	return o.ResourceGroup.Get(), o.ResourceGroup.IsSet()
 }
 
-// SetResourceGroup gets a reference to the given string and assigns it to the ResourceGroup field.
+// SetResourceGroup gets a reference to the given NullableString and assigns it to the ResourceGroup field.
 func (o *AzureConsumptionUsageDetailForCsv) SetResourceGroup(v string) {
-	o.ResourceGroup = &v
+	o.ResourceGroup.Set(&v)
 }
 
-// GetResourceLocation returns the ResourceLocation field value if set, zero value otherwise.
+// SetResourceGroupNil sets the value for ResourceGroup to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetResourceGroupNil() {
+	o.ResourceGroup.Set(nil)
+}
+
+// UnsetResourceGroup ensures that no value is present for ResourceGroup, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetResourceGroup() {
+	o.ResourceGroup.Unset()
+}
+
+// GetResourceLocation returns the ResourceLocation field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetResourceLocation() string {
-	if o == nil || IsNil(o.ResourceLocation) {
+	if o == nil || IsNil(o.ResourceLocation.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResourceLocation
+	return *o.ResourceLocation.Get()
 }
 
 // GetResourceLocationOk returns a tuple with the ResourceLocation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetResourceLocationOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceLocation) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceLocation, true
+	return o.ResourceLocation.Get(), o.ResourceLocation.IsSet()
 }
 
-// SetResourceLocation gets a reference to the given string and assigns it to the ResourceLocation field.
+// SetResourceLocation gets a reference to the given NullableString and assigns it to the ResourceLocation field.
 func (o *AzureConsumptionUsageDetailForCsv) SetResourceLocation(v string) {
-	o.ResourceLocation = &v
+	o.ResourceLocation.Set(&v)
 }
 
-// GetBillingPeriodStartDate returns the BillingPeriodStartDate field value if set, zero value otherwise.
+// SetResourceLocationNil sets the value for ResourceLocation to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetResourceLocationNil() {
+	o.ResourceLocation.Set(nil)
+}
+
+// UnsetResourceLocation ensures that no value is present for ResourceLocation, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetResourceLocation() {
+	o.ResourceLocation.Unset()
+}
+
+// GetBillingPeriodStartDate returns the BillingPeriodStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetBillingPeriodStartDate() time.Time {
-	if o == nil || IsNil(o.BillingPeriodStartDate) {
+	if o == nil || IsNil(o.BillingPeriodStartDate.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.BillingPeriodStartDate
+	return *o.BillingPeriodStartDate.Get()
 }
 
 // GetBillingPeriodStartDateOk returns a tuple with the BillingPeriodStartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetBillingPeriodStartDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.BillingPeriodStartDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BillingPeriodStartDate, true
+	return o.BillingPeriodStartDate.Get(), o.BillingPeriodStartDate.IsSet()
 }
 
-// SetBillingPeriodStartDate gets a reference to the given time.Time and assigns it to the BillingPeriodStartDate field.
+// SetBillingPeriodStartDate gets a reference to the given NullableTime and assigns it to the BillingPeriodStartDate field.
 func (o *AzureConsumptionUsageDetailForCsv) SetBillingPeriodStartDate(v time.Time) {
-	o.BillingPeriodStartDate = &v
+	o.BillingPeriodStartDate.Set(&v)
 }
 
-// GetBillingPeriodEndDate returns the BillingPeriodEndDate field value if set, zero value otherwise.
+// SetBillingPeriodStartDateNil sets the value for BillingPeriodStartDate to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetBillingPeriodStartDateNil() {
+	o.BillingPeriodStartDate.Set(nil)
+}
+
+// UnsetBillingPeriodStartDate ensures that no value is present for BillingPeriodStartDate, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetBillingPeriodStartDate() {
+	o.BillingPeriodStartDate.Unset()
+}
+
+// GetBillingPeriodEndDate returns the BillingPeriodEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetBillingPeriodEndDate() time.Time {
-	if o == nil || IsNil(o.BillingPeriodEndDate) {
+	if o == nil || IsNil(o.BillingPeriodEndDate.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.BillingPeriodEndDate
+	return *o.BillingPeriodEndDate.Get()
 }
 
 // GetBillingPeriodEndDateOk returns a tuple with the BillingPeriodEndDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetBillingPeriodEndDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.BillingPeriodEndDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BillingPeriodEndDate, true
+	return o.BillingPeriodEndDate.Get(), o.BillingPeriodEndDate.IsSet()
 }
 
-// SetBillingPeriodEndDate gets a reference to the given time.Time and assigns it to the BillingPeriodEndDate field.
+// SetBillingPeriodEndDate gets a reference to the given NullableTime and assigns it to the BillingPeriodEndDate field.
 func (o *AzureConsumptionUsageDetailForCsv) SetBillingPeriodEndDate(v time.Time) {
-	o.BillingPeriodEndDate = &v
+	o.BillingPeriodEndDate.Set(&v)
 }
 
-// GetMeterId returns the MeterId field value if set, zero value otherwise.
+// SetBillingPeriodEndDateNil sets the value for BillingPeriodEndDate to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetBillingPeriodEndDateNil() {
+	o.BillingPeriodEndDate.Set(nil)
+}
+
+// UnsetBillingPeriodEndDate ensures that no value is present for BillingPeriodEndDate, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetBillingPeriodEndDate() {
+	o.BillingPeriodEndDate.Unset()
+}
+
+// GetMeterId returns the MeterId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetMeterId() string {
-	if o == nil || IsNil(o.MeterId) {
+	if o == nil || IsNil(o.MeterId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MeterId
+	return *o.MeterId.Get()
 }
 
 // GetMeterIdOk returns a tuple with the MeterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetMeterIdOk() (*string, bool) {
-	if o == nil || IsNil(o.MeterId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MeterId, true
+	return o.MeterId.Get(), o.MeterId.IsSet()
 }
 
-// SetMeterId gets a reference to the given string and assigns it to the MeterId field.
+// SetMeterId gets a reference to the given NullableString and assigns it to the MeterId field.
 func (o *AzureConsumptionUsageDetailForCsv) SetMeterId(v string) {
-	o.MeterId = &v
+	o.MeterId.Set(&v)
 }
 
-// GetQuantity returns the Quantity field value if set, zero value otherwise.
+// SetMeterIdNil sets the value for MeterId to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetMeterIdNil() {
+	o.MeterId.Set(nil)
+}
+
+// UnsetMeterId ensures that no value is present for MeterId, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetMeterId() {
+	o.MeterId.Unset()
+}
+
+// GetQuantity returns the Quantity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetQuantity() float64 {
-	if o == nil || IsNil(o.Quantity) {
+	if o == nil || IsNil(o.Quantity.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.Quantity
+	return *o.Quantity.Get()
 }
 
 // GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetQuantityOk() (*float64, bool) {
-	if o == nil || IsNil(o.Quantity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Quantity, true
+	return o.Quantity.Get(), o.Quantity.IsSet()
 }
 
-// SetQuantity gets a reference to the given float64 and assigns it to the Quantity field.
+// SetQuantity gets a reference to the given NullableFloat64 and assigns it to the Quantity field.
 func (o *AzureConsumptionUsageDetailForCsv) SetQuantity(v float64) {
-	o.Quantity = &v
+	o.Quantity.Set(&v)
 }
 
-// GetUnitPrice returns the UnitPrice field value if set, zero value otherwise.
+// SetQuantityNil sets the value for Quantity to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetQuantityNil() {
+	o.Quantity.Set(nil)
+}
+
+// UnsetQuantity ensures that no value is present for Quantity, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetQuantity() {
+	o.Quantity.Unset()
+}
+
+// GetUnitPrice returns the UnitPrice field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetUnitPrice() float64 {
-	if o == nil || IsNil(o.UnitPrice) {
+	if o == nil || IsNil(o.UnitPrice.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.UnitPrice
+	return *o.UnitPrice.Get()
 }
 
 // GetUnitPriceOk returns a tuple with the UnitPrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetUnitPriceOk() (*float64, bool) {
-	if o == nil || IsNil(o.UnitPrice) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UnitPrice, true
+	return o.UnitPrice.Get(), o.UnitPrice.IsSet()
 }
 
-// SetUnitPrice gets a reference to the given float64 and assigns it to the UnitPrice field.
+// SetUnitPrice gets a reference to the given NullableFloat64 and assigns it to the UnitPrice field.
 func (o *AzureConsumptionUsageDetailForCsv) SetUnitPrice(v float64) {
-	o.UnitPrice = &v
+	o.UnitPrice.Set(&v)
 }
 
-// GetBillingCurrency returns the BillingCurrency field value if set, zero value otherwise.
+// SetUnitPriceNil sets the value for UnitPrice to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetUnitPriceNil() {
+	o.UnitPrice.Set(nil)
+}
+
+// UnsetUnitPrice ensures that no value is present for UnitPrice, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetUnitPrice() {
+	o.UnitPrice.Unset()
+}
+
+// GetBillingCurrency returns the BillingCurrency field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetBillingCurrency() string {
-	if o == nil || IsNil(o.BillingCurrency) {
+	if o == nil || IsNil(o.BillingCurrency.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.BillingCurrency
+	return *o.BillingCurrency.Get()
 }
 
 // GetBillingCurrencyOk returns a tuple with the BillingCurrency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetBillingCurrencyOk() (*string, bool) {
-	if o == nil || IsNil(o.BillingCurrency) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BillingCurrency, true
+	return o.BillingCurrency.Get(), o.BillingCurrency.IsSet()
 }
 
-// SetBillingCurrency gets a reference to the given string and assigns it to the BillingCurrency field.
+// SetBillingCurrency gets a reference to the given NullableString and assigns it to the BillingCurrency field.
 func (o *AzureConsumptionUsageDetailForCsv) SetBillingCurrency(v string) {
-	o.BillingCurrency = &v
+	o.BillingCurrency.Set(&v)
 }
 
-// GetMeterDetails returns the MeterDetails field value if set, zero value otherwise.
+// SetBillingCurrencyNil sets the value for BillingCurrency to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetBillingCurrencyNil() {
+	o.BillingCurrency.Set(nil)
+}
+
+// UnsetBillingCurrency ensures that no value is present for BillingCurrency, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetBillingCurrency() {
+	o.BillingCurrency.Unset()
+}
+
+// GetMeterDetails returns the MeterDetails field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetMeterDetails() AzureConsumptionMeterDetails {
-	if o == nil || IsNil(o.MeterDetails) {
+	if o == nil || IsNil(o.MeterDetails.Get()) {
 		var ret AzureConsumptionMeterDetails
 		return ret
 	}
-	return *o.MeterDetails
+	return *o.MeterDetails.Get()
 }
 
 // GetMeterDetailsOk returns a tuple with the MeterDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetMeterDetailsOk() (*AzureConsumptionMeterDetails, bool) {
-	if o == nil || IsNil(o.MeterDetails) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MeterDetails, true
+	return o.MeterDetails.Get(), o.MeterDetails.IsSet()
 }
 
-// SetMeterDetails gets a reference to the given AzureConsumptionMeterDetails and assigns it to the MeterDetails field.
+// SetMeterDetails gets a reference to the given NullableAzureConsumptionMeterDetails and assigns it to the MeterDetails field.
 func (o *AzureConsumptionUsageDetailForCsv) SetMeterDetails(v AzureConsumptionMeterDetails) {
-	o.MeterDetails = &v
+	o.MeterDetails.Set(&v)
 }
 
-// GetTags returns the Tags field value if set, zero value otherwise.
+// SetMeterDetailsNil sets the value for MeterDetails to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetMeterDetailsNil() {
+	o.MeterDetails.Set(nil)
+}
+
+// UnsetMeterDetails ensures that no value is present for MeterDetails, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetMeterDetails() {
+	o.MeterDetails.Unset()
+}
+
+// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionUsageDetailForCsv) GetTags() string {
-	if o == nil || IsNil(o.Tags) {
+	if o == nil || IsNil(o.Tags.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Tags
+	return *o.Tags.Get()
 }
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionUsageDetailForCsv) GetTagsOk() (*string, bool) {
-	if o == nil || IsNil(o.Tags) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Tags, true
+	return o.Tags.Get(), o.Tags.IsSet()
 }
 
-// SetTags gets a reference to the given string and assigns it to the Tags field.
+// SetTags gets a reference to the given NullableString and assigns it to the Tags field.
 func (o *AzureConsumptionUsageDetailForCsv) SetTags(v string) {
-	o.Tags = &v
+	o.Tags.Set(&v)
+}
+
+// SetTagsNil sets the value for Tags to be an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) SetTagsNil() {
+	o.Tags.Set(nil)
+}
+
+// UnsetTags ensures that no value is present for Tags, not even an explicit nil
+func (o *AzureConsumptionUsageDetailForCsv) UnsetTags() {
+	o.Tags.Unset()
 }
 
 func (o AzureConsumptionUsageDetailForCsv) MarshalJSON() ([]byte, error) {
@@ -389,47 +579,50 @@ func (o AzureConsumptionUsageDetailForCsv) MarshalJSON() ([]byte, error) {
 
 func (o AzureConsumptionUsageDetailForCsv) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CatalogId) {
-		toSerialize["catalogId"] = o.CatalogId
+	if o.CatalogId.IsSet() {
+		toSerialize["catalogId"] = o.CatalogId.Get()
 	}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
-	if !IsNil(o.Cost) {
-		toSerialize["cost"] = o.Cost
+	if o.SubscriptionName.IsSet() {
+		toSerialize["subscriptionName"] = o.SubscriptionName.Get()
 	}
-	if !IsNil(o.ResourceId) {
-		toSerialize["resourceId"] = o.ResourceId
+	if o.Cost.IsSet() {
+		toSerialize["cost"] = o.Cost.Get()
 	}
-	if !IsNil(o.ResourceGroup) {
-		toSerialize["resourceGroup"] = o.ResourceGroup
+	if o.ResourceId.IsSet() {
+		toSerialize["resourceId"] = o.ResourceId.Get()
 	}
-	if !IsNil(o.ResourceLocation) {
-		toSerialize["resourceLocation"] = o.ResourceLocation
+	if o.ResourceGroup.IsSet() {
+		toSerialize["resourceGroup"] = o.ResourceGroup.Get()
 	}
-	if !IsNil(o.BillingPeriodStartDate) {
-		toSerialize["billingPeriodStartDate"] = o.BillingPeriodStartDate
+	if o.ResourceLocation.IsSet() {
+		toSerialize["resourceLocation"] = o.ResourceLocation.Get()
 	}
-	if !IsNil(o.BillingPeriodEndDate) {
-		toSerialize["billingPeriodEndDate"] = o.BillingPeriodEndDate
+	if o.BillingPeriodStartDate.IsSet() {
+		toSerialize["billingPeriodStartDate"] = o.BillingPeriodStartDate.Get()
 	}
-	if !IsNil(o.MeterId) {
-		toSerialize["meterId"] = o.MeterId
+	if o.BillingPeriodEndDate.IsSet() {
+		toSerialize["billingPeriodEndDate"] = o.BillingPeriodEndDate.Get()
 	}
-	if !IsNil(o.Quantity) {
-		toSerialize["quantity"] = o.Quantity
+	if o.MeterId.IsSet() {
+		toSerialize["meterId"] = o.MeterId.Get()
 	}
-	if !IsNil(o.UnitPrice) {
-		toSerialize["unitPrice"] = o.UnitPrice
+	if o.Quantity.IsSet() {
+		toSerialize["quantity"] = o.Quantity.Get()
 	}
-	if !IsNil(o.BillingCurrency) {
-		toSerialize["billingCurrency"] = o.BillingCurrency
+	if o.UnitPrice.IsSet() {
+		toSerialize["unitPrice"] = o.UnitPrice.Get()
 	}
-	if !IsNil(o.MeterDetails) {
-		toSerialize["meterDetails"] = o.MeterDetails
+	if o.BillingCurrency.IsSet() {
+		toSerialize["billingCurrency"] = o.BillingCurrency.Get()
 	}
-	if !IsNil(o.Tags) {
-		toSerialize["tags"] = o.Tags
+	if o.MeterDetails.IsSet() {
+		toSerialize["meterDetails"] = o.MeterDetails.Get()
+	}
+	if o.Tags.IsSet() {
+		toSerialize["tags"] = o.Tags.Get()
 	}
 	return toSerialize, nil
 }

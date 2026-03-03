@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,11 +19,11 @@ var _ MappedNullable = &ObjectResult{}
 
 // ObjectResult struct for ObjectResult
 type ObjectResult struct {
-	Value        map[string]interface{}   `json:"value,omitempty"`
+	Value        interface{}              `json:"value,omitempty"`
 	Formatters   []map[string]interface{} `json:"formatters,omitempty"`
 	ContentTypes []string                 `json:"contentTypes,omitempty"`
-	DeclaredType *string                  `json:"declaredType,omitempty"`
-	StatusCode   *int32                   `json:"statusCode,omitempty"`
+	DeclaredType NullableString           `json:"declaredType,omitempty"`
+	StatusCode   NullableInt32            `json:"statusCode,omitempty"`
 }
 
 // NewObjectResultWithDefaults instantiates a new ObjectResult object
@@ -34,10 +34,10 @@ func NewObjectResultWithDefaults() *ObjectResult {
 	return &this
 }
 
-// GetValue returns the Value field value if set, zero value otherwise.
-func (o *ObjectResult) GetValue() map[string]interface{} {
-	if o == nil || IsNil(o.Value) {
-		var ret map[string]interface{}
+// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ObjectResult) GetValue() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
 	return o.Value
@@ -45,21 +45,22 @@ func (o *ObjectResult) GetValue() map[string]interface{} {
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ObjectResult) GetValueOk() (map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ObjectResult) GetValueOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.Value) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.Value, true
+	return &o.Value, true
 }
 
-// SetValue gets a reference to the given map[string]interface{} and assigns it to the Value field.
-func (o *ObjectResult) SetValue(v map[string]interface{}) {
+// SetValue gets a reference to the given interface{} and assigns it to the Value field.
+func (o *ObjectResult) SetValue(v interface{}) {
 	o.Value = v
 }
 
-// GetFormatters returns the Formatters field value if set, zero value otherwise.
+// GetFormatters returns the Formatters field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectResult) GetFormatters() []map[string]interface{} {
-	if o == nil || IsNil(o.Formatters) {
+	if o == nil {
 		var ret []map[string]interface{}
 		return ret
 	}
@@ -68,6 +69,7 @@ func (o *ObjectResult) GetFormatters() []map[string]interface{} {
 
 // GetFormattersOk returns a tuple with the Formatters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectResult) GetFormattersOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Formatters) {
 		return nil, false
@@ -80,9 +82,9 @@ func (o *ObjectResult) SetFormatters(v []map[string]interface{}) {
 	o.Formatters = v
 }
 
-// GetContentTypes returns the ContentTypes field value if set, zero value otherwise.
+// GetContentTypes returns the ContentTypes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectResult) GetContentTypes() []string {
-	if o == nil || IsNil(o.ContentTypes) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -91,6 +93,7 @@ func (o *ObjectResult) GetContentTypes() []string {
 
 // GetContentTypesOk returns a tuple with the ContentTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectResult) GetContentTypesOk() ([]string, bool) {
 	if o == nil || IsNil(o.ContentTypes) {
 		return nil, false
@@ -103,50 +106,72 @@ func (o *ObjectResult) SetContentTypes(v []string) {
 	o.ContentTypes = v
 }
 
-// GetDeclaredType returns the DeclaredType field value if set, zero value otherwise.
+// GetDeclaredType returns the DeclaredType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectResult) GetDeclaredType() string {
-	if o == nil || IsNil(o.DeclaredType) {
+	if o == nil || IsNil(o.DeclaredType.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DeclaredType
+	return *o.DeclaredType.Get()
 }
 
 // GetDeclaredTypeOk returns a tuple with the DeclaredType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectResult) GetDeclaredTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.DeclaredType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DeclaredType, true
+	return o.DeclaredType.Get(), o.DeclaredType.IsSet()
 }
 
-// SetDeclaredType gets a reference to the given string and assigns it to the DeclaredType field.
+// SetDeclaredType gets a reference to the given NullableString and assigns it to the DeclaredType field.
 func (o *ObjectResult) SetDeclaredType(v string) {
-	o.DeclaredType = &v
+	o.DeclaredType.Set(&v)
 }
 
-// GetStatusCode returns the StatusCode field value if set, zero value otherwise.
+// SetDeclaredTypeNil sets the value for DeclaredType to be an explicit nil
+func (o *ObjectResult) SetDeclaredTypeNil() {
+	o.DeclaredType.Set(nil)
+}
+
+// UnsetDeclaredType ensures that no value is present for DeclaredType, not even an explicit nil
+func (o *ObjectResult) UnsetDeclaredType() {
+	o.DeclaredType.Unset()
+}
+
+// GetStatusCode returns the StatusCode field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ObjectResult) GetStatusCode() int32 {
-	if o == nil || IsNil(o.StatusCode) {
+	if o == nil || IsNil(o.StatusCode.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.StatusCode
+	return *o.StatusCode.Get()
 }
 
 // GetStatusCodeOk returns a tuple with the StatusCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ObjectResult) GetStatusCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.StatusCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StatusCode, true
+	return o.StatusCode.Get(), o.StatusCode.IsSet()
 }
 
-// SetStatusCode gets a reference to the given int32 and assigns it to the StatusCode field.
+// SetStatusCode gets a reference to the given NullableInt32 and assigns it to the StatusCode field.
 func (o *ObjectResult) SetStatusCode(v int32) {
-	o.StatusCode = &v
+	o.StatusCode.Set(&v)
+}
+
+// SetStatusCodeNil sets the value for StatusCode to be an explicit nil
+func (o *ObjectResult) SetStatusCodeNil() {
+	o.StatusCode.Set(nil)
+}
+
+// UnsetStatusCode ensures that no value is present for StatusCode, not even an explicit nil
+func (o *ObjectResult) UnsetStatusCode() {
+	o.StatusCode.Unset()
 }
 
 func (o ObjectResult) MarshalJSON() ([]byte, error) {
@@ -159,20 +184,20 @@ func (o ObjectResult) MarshalJSON() ([]byte, error) {
 
 func (o ObjectResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Value) {
+	if o.Value != nil {
 		toSerialize["value"] = o.Value
 	}
-	if !IsNil(o.Formatters) {
+	if o.Formatters != nil {
 		toSerialize["formatters"] = o.Formatters
 	}
-	if !IsNil(o.ContentTypes) {
+	if o.ContentTypes != nil {
 		toSerialize["contentTypes"] = o.ContentTypes
 	}
-	if !IsNil(o.DeclaredType) {
-		toSerialize["declaredType"] = o.DeclaredType
+	if o.DeclaredType.IsSet() {
+		toSerialize["declaredType"] = o.DeclaredType.Get()
 	}
-	if !IsNil(o.StatusCode) {
-		toSerialize["statusCode"] = o.StatusCode
+	if o.StatusCode.IsSet() {
+		toSerialize["statusCode"] = o.StatusCode.Get()
 	}
 	return toSerialize, nil
 }

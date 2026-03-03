@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ResourceLocationId** | **string** |  | 
-**ResourceLocationName** | Pointer to **string** |  | [optional] 
+**ResourceLocationName** | Pointer to **NullableString** |  | [optional] 
 **Type** | [**ConnectivityType**](ConnectivityType.md) |  | 
-**NetscalerOnPremisesUrl** | Pointer to **string** |  | [optional] 
+**NetscalerOnPremisesUrl** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -73,6 +73,16 @@ SetResourceLocationName sets ResourceLocationName field to given value.
 
 HasResourceLocationName returns a boolean if a field has been set.
 
+### SetResourceLocationNameNil
+
+`func (o *ConnectivityModel) SetResourceLocationNameNil(b bool)`
+
+ SetResourceLocationNameNil sets the value for ResourceLocationName to be an explicit nil
+
+### UnsetResourceLocationName
+`func (o *ConnectivityModel) UnsetResourceLocationName()`
+
+UnsetResourceLocationName ensures that no value is present for ResourceLocationName, not even an explicit nil
 ### GetType
 
 `func (o *ConnectivityModel) GetType() ConnectivityType`
@@ -118,6 +128,16 @@ SetNetscalerOnPremisesUrl sets NetscalerOnPremisesUrl field to given value.
 
 HasNetscalerOnPremisesUrl returns a boolean if a field has been set.
 
+### SetNetscalerOnPremisesUrlNil
+
+`func (o *ConnectivityModel) SetNetscalerOnPremisesUrlNil(b bool)`
+
+ SetNetscalerOnPremisesUrlNil sets the value for NetscalerOnPremisesUrl to be an explicit nil
+
+### UnsetNetscalerOnPremisesUrl
+`func (o *ConnectivityModel) UnsetNetscalerOnPremisesUrl()`
+
+UnsetNetscalerOnPremisesUrl ensures that no value is present for NetscalerOnPremisesUrl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

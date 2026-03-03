@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,22 +20,22 @@ var _ MappedNullable = &AlertContext{}
 
 // AlertContext struct for AlertContext
 type AlertContext struct {
-	Authorization       *Authorization `json:"authorization,omitempty"`
-	Channels            *string        `json:"channels,omitempty"`
-	Claims              *string        `json:"claims,omitempty"`
-	Caller              *string        `json:"caller,omitempty"`
-	CorrelationId       *string        `json:"correlationId,omitempty"`
-	EventSource         *string        `json:"eventSource,omitempty"`
-	EventTimestamp      *time.Time     `json:"eventTimestamp,omitempty"`
-	HttpRequest         *string        `json:"httpRequest,omitempty"`
-	EventDataId         *string        `json:"eventDataId,omitempty"`
-	Level               *string        `json:"level,omitempty"`
-	OperationName       *string        `json:"operationName,omitempty"`
-	OperationId         *string        `json:"operationId,omitempty"`
-	Properties          *Properties    `json:"properties,omitempty"`
-	Status              *string        `json:"status,omitempty"`
-	SubStatus           *string        `json:"subStatus,omitempty"`
-	SubmissionTimestamp *time.Time     `json:"submissionTimestamp,omitempty"`
+	Authorization       NullableAuthorization `json:"authorization,omitempty"`
+	Channels            NullableString        `json:"channels,omitempty"`
+	Claims              NullableString        `json:"claims,omitempty"`
+	Caller              NullableString        `json:"caller,omitempty"`
+	CorrelationId       NullableString        `json:"correlationId,omitempty"`
+	EventSource         NullableString        `json:"eventSource,omitempty"`
+	EventTimestamp      *time.Time            `json:"eventTimestamp,omitempty"`
+	HttpRequest         NullableString        `json:"httpRequest,omitempty"`
+	EventDataId         NullableString        `json:"eventDataId,omitempty"`
+	Level               NullableString        `json:"level,omitempty"`
+	OperationName       NullableString        `json:"operationName,omitempty"`
+	OperationId         NullableString        `json:"operationId,omitempty"`
+	Properties          NullableProperties    `json:"properties,omitempty"`
+	Status              NullableString        `json:"status,omitempty"`
+	SubStatus           NullableString        `json:"subStatus,omitempty"`
+	SubmissionTimestamp *time.Time            `json:"submissionTimestamp,omitempty"`
 }
 
 // NewAlertContextWithDefaults instantiates a new AlertContext object
@@ -46,142 +46,208 @@ func NewAlertContextWithDefaults() *AlertContext {
 	return &this
 }
 
-// GetAuthorization returns the Authorization field value if set, zero value otherwise.
+// GetAuthorization returns the Authorization field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetAuthorization() Authorization {
-	if o == nil || IsNil(o.Authorization) {
+	if o == nil || IsNil(o.Authorization.Get()) {
 		var ret Authorization
 		return ret
 	}
-	return *o.Authorization
+	return *o.Authorization.Get()
 }
 
 // GetAuthorizationOk returns a tuple with the Authorization field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetAuthorizationOk() (*Authorization, bool) {
-	if o == nil || IsNil(o.Authorization) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Authorization, true
+	return o.Authorization.Get(), o.Authorization.IsSet()
 }
 
-// SetAuthorization gets a reference to the given Authorization and assigns it to the Authorization field.
+// SetAuthorization gets a reference to the given NullableAuthorization and assigns it to the Authorization field.
 func (o *AlertContext) SetAuthorization(v Authorization) {
-	o.Authorization = &v
+	o.Authorization.Set(&v)
 }
 
-// GetChannels returns the Channels field value if set, zero value otherwise.
+// SetAuthorizationNil sets the value for Authorization to be an explicit nil
+func (o *AlertContext) SetAuthorizationNil() {
+	o.Authorization.Set(nil)
+}
+
+// UnsetAuthorization ensures that no value is present for Authorization, not even an explicit nil
+func (o *AlertContext) UnsetAuthorization() {
+	o.Authorization.Unset()
+}
+
+// GetChannels returns the Channels field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetChannels() string {
-	if o == nil || IsNil(o.Channels) {
+	if o == nil || IsNil(o.Channels.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Channels
+	return *o.Channels.Get()
 }
 
 // GetChannelsOk returns a tuple with the Channels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetChannelsOk() (*string, bool) {
-	if o == nil || IsNil(o.Channels) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Channels, true
+	return o.Channels.Get(), o.Channels.IsSet()
 }
 
-// SetChannels gets a reference to the given string and assigns it to the Channels field.
+// SetChannels gets a reference to the given NullableString and assigns it to the Channels field.
 func (o *AlertContext) SetChannels(v string) {
-	o.Channels = &v
+	o.Channels.Set(&v)
 }
 
-// GetClaims returns the Claims field value if set, zero value otherwise.
+// SetChannelsNil sets the value for Channels to be an explicit nil
+func (o *AlertContext) SetChannelsNil() {
+	o.Channels.Set(nil)
+}
+
+// UnsetChannels ensures that no value is present for Channels, not even an explicit nil
+func (o *AlertContext) UnsetChannels() {
+	o.Channels.Unset()
+}
+
+// GetClaims returns the Claims field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetClaims() string {
-	if o == nil || IsNil(o.Claims) {
+	if o == nil || IsNil(o.Claims.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Claims
+	return *o.Claims.Get()
 }
 
 // GetClaimsOk returns a tuple with the Claims field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetClaimsOk() (*string, bool) {
-	if o == nil || IsNil(o.Claims) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Claims, true
+	return o.Claims.Get(), o.Claims.IsSet()
 }
 
-// SetClaims gets a reference to the given string and assigns it to the Claims field.
+// SetClaims gets a reference to the given NullableString and assigns it to the Claims field.
 func (o *AlertContext) SetClaims(v string) {
-	o.Claims = &v
+	o.Claims.Set(&v)
 }
 
-// GetCaller returns the Caller field value if set, zero value otherwise.
+// SetClaimsNil sets the value for Claims to be an explicit nil
+func (o *AlertContext) SetClaimsNil() {
+	o.Claims.Set(nil)
+}
+
+// UnsetClaims ensures that no value is present for Claims, not even an explicit nil
+func (o *AlertContext) UnsetClaims() {
+	o.Claims.Unset()
+}
+
+// GetCaller returns the Caller field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetCaller() string {
-	if o == nil || IsNil(o.Caller) {
+	if o == nil || IsNil(o.Caller.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Caller
+	return *o.Caller.Get()
 }
 
 // GetCallerOk returns a tuple with the Caller field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetCallerOk() (*string, bool) {
-	if o == nil || IsNil(o.Caller) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Caller, true
+	return o.Caller.Get(), o.Caller.IsSet()
 }
 
-// SetCaller gets a reference to the given string and assigns it to the Caller field.
+// SetCaller gets a reference to the given NullableString and assigns it to the Caller field.
 func (o *AlertContext) SetCaller(v string) {
-	o.Caller = &v
+	o.Caller.Set(&v)
 }
 
-// GetCorrelationId returns the CorrelationId field value if set, zero value otherwise.
+// SetCallerNil sets the value for Caller to be an explicit nil
+func (o *AlertContext) SetCallerNil() {
+	o.Caller.Set(nil)
+}
+
+// UnsetCaller ensures that no value is present for Caller, not even an explicit nil
+func (o *AlertContext) UnsetCaller() {
+	o.Caller.Unset()
+}
+
+// GetCorrelationId returns the CorrelationId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetCorrelationId() string {
-	if o == nil || IsNil(o.CorrelationId) {
+	if o == nil || IsNil(o.CorrelationId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CorrelationId
+	return *o.CorrelationId.Get()
 }
 
 // GetCorrelationIdOk returns a tuple with the CorrelationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetCorrelationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CorrelationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CorrelationId, true
+	return o.CorrelationId.Get(), o.CorrelationId.IsSet()
 }
 
-// SetCorrelationId gets a reference to the given string and assigns it to the CorrelationId field.
+// SetCorrelationId gets a reference to the given NullableString and assigns it to the CorrelationId field.
 func (o *AlertContext) SetCorrelationId(v string) {
-	o.CorrelationId = &v
+	o.CorrelationId.Set(&v)
 }
 
-// GetEventSource returns the EventSource field value if set, zero value otherwise.
+// SetCorrelationIdNil sets the value for CorrelationId to be an explicit nil
+func (o *AlertContext) SetCorrelationIdNil() {
+	o.CorrelationId.Set(nil)
+}
+
+// UnsetCorrelationId ensures that no value is present for CorrelationId, not even an explicit nil
+func (o *AlertContext) UnsetCorrelationId() {
+	o.CorrelationId.Unset()
+}
+
+// GetEventSource returns the EventSource field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetEventSource() string {
-	if o == nil || IsNil(o.EventSource) {
+	if o == nil || IsNil(o.EventSource.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.EventSource
+	return *o.EventSource.Get()
 }
 
 // GetEventSourceOk returns a tuple with the EventSource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetEventSourceOk() (*string, bool) {
-	if o == nil || IsNil(o.EventSource) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EventSource, true
+	return o.EventSource.Get(), o.EventSource.IsSet()
 }
 
-// SetEventSource gets a reference to the given string and assigns it to the EventSource field.
+// SetEventSource gets a reference to the given NullableString and assigns it to the EventSource field.
 func (o *AlertContext) SetEventSource(v string) {
-	o.EventSource = &v
+	o.EventSource.Set(&v)
+}
+
+// SetEventSourceNil sets the value for EventSource to be an explicit nil
+func (o *AlertContext) SetEventSourceNil() {
+	o.EventSource.Set(nil)
+}
+
+// UnsetEventSource ensures that no value is present for EventSource, not even an explicit nil
+func (o *AlertContext) UnsetEventSource() {
+	o.EventSource.Unset()
 }
 
 // GetEventTimestamp returns the EventTimestamp field value if set, zero value otherwise.
@@ -207,188 +273,276 @@ func (o *AlertContext) SetEventTimestamp(v time.Time) {
 	o.EventTimestamp = &v
 }
 
-// GetHttpRequest returns the HttpRequest field value if set, zero value otherwise.
+// GetHttpRequest returns the HttpRequest field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetHttpRequest() string {
-	if o == nil || IsNil(o.HttpRequest) {
+	if o == nil || IsNil(o.HttpRequest.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HttpRequest
+	return *o.HttpRequest.Get()
 }
 
 // GetHttpRequestOk returns a tuple with the HttpRequest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetHttpRequestOk() (*string, bool) {
-	if o == nil || IsNil(o.HttpRequest) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HttpRequest, true
+	return o.HttpRequest.Get(), o.HttpRequest.IsSet()
 }
 
-// SetHttpRequest gets a reference to the given string and assigns it to the HttpRequest field.
+// SetHttpRequest gets a reference to the given NullableString and assigns it to the HttpRequest field.
 func (o *AlertContext) SetHttpRequest(v string) {
-	o.HttpRequest = &v
+	o.HttpRequest.Set(&v)
 }
 
-// GetEventDataId returns the EventDataId field value if set, zero value otherwise.
+// SetHttpRequestNil sets the value for HttpRequest to be an explicit nil
+func (o *AlertContext) SetHttpRequestNil() {
+	o.HttpRequest.Set(nil)
+}
+
+// UnsetHttpRequest ensures that no value is present for HttpRequest, not even an explicit nil
+func (o *AlertContext) UnsetHttpRequest() {
+	o.HttpRequest.Unset()
+}
+
+// GetEventDataId returns the EventDataId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetEventDataId() string {
-	if o == nil || IsNil(o.EventDataId) {
+	if o == nil || IsNil(o.EventDataId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.EventDataId
+	return *o.EventDataId.Get()
 }
 
 // GetEventDataIdOk returns a tuple with the EventDataId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetEventDataIdOk() (*string, bool) {
-	if o == nil || IsNil(o.EventDataId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EventDataId, true
+	return o.EventDataId.Get(), o.EventDataId.IsSet()
 }
 
-// SetEventDataId gets a reference to the given string and assigns it to the EventDataId field.
+// SetEventDataId gets a reference to the given NullableString and assigns it to the EventDataId field.
 func (o *AlertContext) SetEventDataId(v string) {
-	o.EventDataId = &v
+	o.EventDataId.Set(&v)
 }
 
-// GetLevel returns the Level field value if set, zero value otherwise.
+// SetEventDataIdNil sets the value for EventDataId to be an explicit nil
+func (o *AlertContext) SetEventDataIdNil() {
+	o.EventDataId.Set(nil)
+}
+
+// UnsetEventDataId ensures that no value is present for EventDataId, not even an explicit nil
+func (o *AlertContext) UnsetEventDataId() {
+	o.EventDataId.Unset()
+}
+
+// GetLevel returns the Level field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetLevel() string {
-	if o == nil || IsNil(o.Level) {
+	if o == nil || IsNil(o.Level.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Level
+	return *o.Level.Get()
 }
 
 // GetLevelOk returns a tuple with the Level field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetLevelOk() (*string, bool) {
-	if o == nil || IsNil(o.Level) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Level, true
+	return o.Level.Get(), o.Level.IsSet()
 }
 
-// SetLevel gets a reference to the given string and assigns it to the Level field.
+// SetLevel gets a reference to the given NullableString and assigns it to the Level field.
 func (o *AlertContext) SetLevel(v string) {
-	o.Level = &v
+	o.Level.Set(&v)
 }
 
-// GetOperationName returns the OperationName field value if set, zero value otherwise.
+// SetLevelNil sets the value for Level to be an explicit nil
+func (o *AlertContext) SetLevelNil() {
+	o.Level.Set(nil)
+}
+
+// UnsetLevel ensures that no value is present for Level, not even an explicit nil
+func (o *AlertContext) UnsetLevel() {
+	o.Level.Unset()
+}
+
+// GetOperationName returns the OperationName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetOperationName() string {
-	if o == nil || IsNil(o.OperationName) {
+	if o == nil || IsNil(o.OperationName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OperationName
+	return *o.OperationName.Get()
 }
 
 // GetOperationNameOk returns a tuple with the OperationName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetOperationNameOk() (*string, bool) {
-	if o == nil || IsNil(o.OperationName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OperationName, true
+	return o.OperationName.Get(), o.OperationName.IsSet()
 }
 
-// SetOperationName gets a reference to the given string and assigns it to the OperationName field.
+// SetOperationName gets a reference to the given NullableString and assigns it to the OperationName field.
 func (o *AlertContext) SetOperationName(v string) {
-	o.OperationName = &v
+	o.OperationName.Set(&v)
 }
 
-// GetOperationId returns the OperationId field value if set, zero value otherwise.
+// SetOperationNameNil sets the value for OperationName to be an explicit nil
+func (o *AlertContext) SetOperationNameNil() {
+	o.OperationName.Set(nil)
+}
+
+// UnsetOperationName ensures that no value is present for OperationName, not even an explicit nil
+func (o *AlertContext) UnsetOperationName() {
+	o.OperationName.Unset()
+}
+
+// GetOperationId returns the OperationId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetOperationId() string {
-	if o == nil || IsNil(o.OperationId) {
+	if o == nil || IsNil(o.OperationId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OperationId
+	return *o.OperationId.Get()
 }
 
 // GetOperationIdOk returns a tuple with the OperationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetOperationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.OperationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OperationId, true
+	return o.OperationId.Get(), o.OperationId.IsSet()
 }
 
-// SetOperationId gets a reference to the given string and assigns it to the OperationId field.
+// SetOperationId gets a reference to the given NullableString and assigns it to the OperationId field.
 func (o *AlertContext) SetOperationId(v string) {
-	o.OperationId = &v
+	o.OperationId.Set(&v)
 }
 
-// GetProperties returns the Properties field value if set, zero value otherwise.
+// SetOperationIdNil sets the value for OperationId to be an explicit nil
+func (o *AlertContext) SetOperationIdNil() {
+	o.OperationId.Set(nil)
+}
+
+// UnsetOperationId ensures that no value is present for OperationId, not even an explicit nil
+func (o *AlertContext) UnsetOperationId() {
+	o.OperationId.Unset()
+}
+
+// GetProperties returns the Properties field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetProperties() Properties {
-	if o == nil || IsNil(o.Properties) {
+	if o == nil || IsNil(o.Properties.Get()) {
 		var ret Properties
 		return ret
 	}
-	return *o.Properties
+	return *o.Properties.Get()
 }
 
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetPropertiesOk() (*Properties, bool) {
-	if o == nil || IsNil(o.Properties) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Properties, true
+	return o.Properties.Get(), o.Properties.IsSet()
 }
 
-// SetProperties gets a reference to the given Properties and assigns it to the Properties field.
+// SetProperties gets a reference to the given NullableProperties and assigns it to the Properties field.
 func (o *AlertContext) SetProperties(v Properties) {
-	o.Properties = &v
+	o.Properties.Set(&v)
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// SetPropertiesNil sets the value for Properties to be an explicit nil
+func (o *AlertContext) SetPropertiesNil() {
+	o.Properties.Set(nil)
+}
+
+// UnsetProperties ensures that no value is present for Properties, not even an explicit nil
+func (o *AlertContext) UnsetProperties() {
+	o.Properties.Unset()
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetStatus() string {
-	if o == nil || IsNil(o.Status) {
+	if o == nil || IsNil(o.Status.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
-// SetStatus gets a reference to the given string and assigns it to the Status field.
+// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
 func (o *AlertContext) SetStatus(v string) {
-	o.Status = &v
+	o.Status.Set(&v)
 }
 
-// GetSubStatus returns the SubStatus field value if set, zero value otherwise.
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *AlertContext) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *AlertContext) UnsetStatus() {
+	o.Status.Unset()
+}
+
+// GetSubStatus returns the SubStatus field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AlertContext) GetSubStatus() string {
-	if o == nil || IsNil(o.SubStatus) {
+	if o == nil || IsNil(o.SubStatus.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubStatus
+	return *o.SubStatus.Get()
 }
 
 // GetSubStatusOk returns a tuple with the SubStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AlertContext) GetSubStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.SubStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubStatus, true
+	return o.SubStatus.Get(), o.SubStatus.IsSet()
 }
 
-// SetSubStatus gets a reference to the given string and assigns it to the SubStatus field.
+// SetSubStatus gets a reference to the given NullableString and assigns it to the SubStatus field.
 func (o *AlertContext) SetSubStatus(v string) {
-	o.SubStatus = &v
+	o.SubStatus.Set(&v)
+}
+
+// SetSubStatusNil sets the value for SubStatus to be an explicit nil
+func (o *AlertContext) SetSubStatusNil() {
+	o.SubStatus.Set(nil)
+}
+
+// UnsetSubStatus ensures that no value is present for SubStatus, not even an explicit nil
+func (o *AlertContext) UnsetSubStatus() {
+	o.SubStatus.Unset()
 }
 
 // GetSubmissionTimestamp returns the SubmissionTimestamp field value if set, zero value otherwise.
@@ -424,50 +578,50 @@ func (o AlertContext) MarshalJSON() ([]byte, error) {
 
 func (o AlertContext) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Authorization) {
-		toSerialize["authorization"] = o.Authorization
+	if o.Authorization.IsSet() {
+		toSerialize["authorization"] = o.Authorization.Get()
 	}
-	if !IsNil(o.Channels) {
-		toSerialize["channels"] = o.Channels
+	if o.Channels.IsSet() {
+		toSerialize["channels"] = o.Channels.Get()
 	}
-	if !IsNil(o.Claims) {
-		toSerialize["claims"] = o.Claims
+	if o.Claims.IsSet() {
+		toSerialize["claims"] = o.Claims.Get()
 	}
-	if !IsNil(o.Caller) {
-		toSerialize["caller"] = o.Caller
+	if o.Caller.IsSet() {
+		toSerialize["caller"] = o.Caller.Get()
 	}
-	if !IsNil(o.CorrelationId) {
-		toSerialize["correlationId"] = o.CorrelationId
+	if o.CorrelationId.IsSet() {
+		toSerialize["correlationId"] = o.CorrelationId.Get()
 	}
-	if !IsNil(o.EventSource) {
-		toSerialize["eventSource"] = o.EventSource
+	if o.EventSource.IsSet() {
+		toSerialize["eventSource"] = o.EventSource.Get()
 	}
 	if !IsNil(o.EventTimestamp) {
 		toSerialize["eventTimestamp"] = o.EventTimestamp
 	}
-	if !IsNil(o.HttpRequest) {
-		toSerialize["httpRequest"] = o.HttpRequest
+	if o.HttpRequest.IsSet() {
+		toSerialize["httpRequest"] = o.HttpRequest.Get()
 	}
-	if !IsNil(o.EventDataId) {
-		toSerialize["eventDataId"] = o.EventDataId
+	if o.EventDataId.IsSet() {
+		toSerialize["eventDataId"] = o.EventDataId.Get()
 	}
-	if !IsNil(o.Level) {
-		toSerialize["level"] = o.Level
+	if o.Level.IsSet() {
+		toSerialize["level"] = o.Level.Get()
 	}
-	if !IsNil(o.OperationName) {
-		toSerialize["operationName"] = o.OperationName
+	if o.OperationName.IsSet() {
+		toSerialize["operationName"] = o.OperationName.Get()
 	}
-	if !IsNil(o.OperationId) {
-		toSerialize["operationId"] = o.OperationId
+	if o.OperationId.IsSet() {
+		toSerialize["operationId"] = o.OperationId.Get()
 	}
-	if !IsNil(o.Properties) {
-		toSerialize["properties"] = o.Properties
+	if o.Properties.IsSet() {
+		toSerialize["properties"] = o.Properties.Get()
 	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
-	if !IsNil(o.SubStatus) {
-		toSerialize["subStatus"] = o.SubStatus
+	if o.SubStatus.IsSet() {
+		toSerialize["subStatus"] = o.SubStatus.Get()
 	}
 	if !IsNil(o.SubmissionTimestamp) {
 		toSerialize["submissionTimestamp"] = o.SubmissionTimestamp

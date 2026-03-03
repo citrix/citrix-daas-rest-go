@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SamName** | **string** | SAM Name of the machine that was registered | 
-**DnsName** | Pointer to **string** | DNS Name of the machine that was registered | [optional] 
+**DnsName** | Pointer to **NullableString** | DNS Name of the machine that was registered | [optional] 
 
 ## Methods
 
@@ -71,6 +71,16 @@ SetDnsName sets DnsName field to given value.
 
 HasDnsName returns a boolean if a field has been set.
 
+### SetDnsNameNil
+
+`func (o *AddCatalogVdaRegModel) SetDnsNameNil(b bool)`
+
+ SetDnsNameNil sets the value for DnsName to be an explicit nil
+
+### UnsetDnsName
+`func (o *AddCatalogVdaRegModel) UnsetDnsName()`
+
+UnsetDnsName ensures that no value is present for DnsName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

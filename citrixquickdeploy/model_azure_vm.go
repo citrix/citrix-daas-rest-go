@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,12 +19,13 @@ var _ MappedNullable = &AzureVM{}
 
 // AzureVM struct for AzureVM
 type AzureVM struct {
-	PowerState        *string              `json:"powerState,omitempty"`
-	MachineSid        *string              `json:"machineSid,omitempty"`
-	MachineUid        *int32               `json:"machineUid,omitempty"`
-	ResourceGroupName *string              `json:"resourceGroupName,omitempty"`
-	Name              *string              `json:"name,omitempty"`
-	ResourceType      *CatalogResourceType `json:"resourceType,omitempty"`
+	PowerState           NullableString       `json:"powerState,omitempty"`
+	MachineSid           NullableString       `json:"machineSid,omitempty"`
+	MachineUid           NullableInt32        `json:"machineUid,omitempty"`
+	ResourceGroupName    NullableString       `json:"resourceGroupName,omitempty"`
+	Name                 NullableString       `json:"name,omitempty"`
+	ResourceType         *CatalogResourceType `json:"resourceType,omitempty"`
+	NetworkInterfaceName NullableString       `json:"networkInterfaceName,omitempty"`
 }
 
 // NewAzureVMWithDefaults instantiates a new AzureVM object
@@ -35,119 +36,174 @@ func NewAzureVMWithDefaults() *AzureVM {
 	return &this
 }
 
-// GetPowerState returns the PowerState field value if set, zero value otherwise.
+// GetPowerState returns the PowerState field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVM) GetPowerState() string {
-	if o == nil || IsNil(o.PowerState) {
+	if o == nil || IsNil(o.PowerState.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PowerState
+	return *o.PowerState.Get()
 }
 
 // GetPowerStateOk returns a tuple with the PowerState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVM) GetPowerStateOk() (*string, bool) {
-	if o == nil || IsNil(o.PowerState) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PowerState, true
+	return o.PowerState.Get(), o.PowerState.IsSet()
 }
 
-// SetPowerState gets a reference to the given string and assigns it to the PowerState field.
+// SetPowerState gets a reference to the given NullableString and assigns it to the PowerState field.
 func (o *AzureVM) SetPowerState(v string) {
-	o.PowerState = &v
+	o.PowerState.Set(&v)
 }
 
-// GetMachineSid returns the MachineSid field value if set, zero value otherwise.
+// SetPowerStateNil sets the value for PowerState to be an explicit nil
+func (o *AzureVM) SetPowerStateNil() {
+	o.PowerState.Set(nil)
+}
+
+// UnsetPowerState ensures that no value is present for PowerState, not even an explicit nil
+func (o *AzureVM) UnsetPowerState() {
+	o.PowerState.Unset()
+}
+
+// GetMachineSid returns the MachineSid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVM) GetMachineSid() string {
-	if o == nil || IsNil(o.MachineSid) {
+	if o == nil || IsNil(o.MachineSid.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MachineSid
+	return *o.MachineSid.Get()
 }
 
 // GetMachineSidOk returns a tuple with the MachineSid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVM) GetMachineSidOk() (*string, bool) {
-	if o == nil || IsNil(o.MachineSid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MachineSid, true
+	return o.MachineSid.Get(), o.MachineSid.IsSet()
 }
 
-// SetMachineSid gets a reference to the given string and assigns it to the MachineSid field.
+// SetMachineSid gets a reference to the given NullableString and assigns it to the MachineSid field.
 func (o *AzureVM) SetMachineSid(v string) {
-	o.MachineSid = &v
+	o.MachineSid.Set(&v)
 }
 
-// GetMachineUid returns the MachineUid field value if set, zero value otherwise.
+// SetMachineSidNil sets the value for MachineSid to be an explicit nil
+func (o *AzureVM) SetMachineSidNil() {
+	o.MachineSid.Set(nil)
+}
+
+// UnsetMachineSid ensures that no value is present for MachineSid, not even an explicit nil
+func (o *AzureVM) UnsetMachineSid() {
+	o.MachineSid.Unset()
+}
+
+// GetMachineUid returns the MachineUid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVM) GetMachineUid() int32 {
-	if o == nil || IsNil(o.MachineUid) {
+	if o == nil || IsNil(o.MachineUid.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.MachineUid
+	return *o.MachineUid.Get()
 }
 
 // GetMachineUidOk returns a tuple with the MachineUid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVM) GetMachineUidOk() (*int32, bool) {
-	if o == nil || IsNil(o.MachineUid) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MachineUid, true
+	return o.MachineUid.Get(), o.MachineUid.IsSet()
 }
 
-// SetMachineUid gets a reference to the given int32 and assigns it to the MachineUid field.
+// SetMachineUid gets a reference to the given NullableInt32 and assigns it to the MachineUid field.
 func (o *AzureVM) SetMachineUid(v int32) {
-	o.MachineUid = &v
+	o.MachineUid.Set(&v)
 }
 
-// GetResourceGroupName returns the ResourceGroupName field value if set, zero value otherwise.
+// SetMachineUidNil sets the value for MachineUid to be an explicit nil
+func (o *AzureVM) SetMachineUidNil() {
+	o.MachineUid.Set(nil)
+}
+
+// UnsetMachineUid ensures that no value is present for MachineUid, not even an explicit nil
+func (o *AzureVM) UnsetMachineUid() {
+	o.MachineUid.Unset()
+}
+
+// GetResourceGroupName returns the ResourceGroupName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVM) GetResourceGroupName() string {
-	if o == nil || IsNil(o.ResourceGroupName) {
+	if o == nil || IsNil(o.ResourceGroupName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResourceGroupName
+	return *o.ResourceGroupName.Get()
 }
 
 // GetResourceGroupNameOk returns a tuple with the ResourceGroupName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVM) GetResourceGroupNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceGroupName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceGroupName, true
+	return o.ResourceGroupName.Get(), o.ResourceGroupName.IsSet()
 }
 
-// SetResourceGroupName gets a reference to the given string and assigns it to the ResourceGroupName field.
+// SetResourceGroupName gets a reference to the given NullableString and assigns it to the ResourceGroupName field.
 func (o *AzureVM) SetResourceGroupName(v string) {
-	o.ResourceGroupName = &v
+	o.ResourceGroupName.Set(&v)
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// SetResourceGroupNameNil sets the value for ResourceGroupName to be an explicit nil
+func (o *AzureVM) SetResourceGroupNameNil() {
+	o.ResourceGroupName.Set(nil)
+}
+
+// UnsetResourceGroupName ensures that no value is present for ResourceGroupName, not even an explicit nil
+func (o *AzureVM) UnsetResourceGroupName() {
+	o.ResourceGroupName.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVM) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVM) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *AzureVM) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *AzureVM) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *AzureVM) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetResourceType returns the ResourceType field value if set, zero value otherwise.
@@ -173,6 +229,40 @@ func (o *AzureVM) SetResourceType(v CatalogResourceType) {
 	o.ResourceType = &v
 }
 
+// GetNetworkInterfaceName returns the NetworkInterfaceName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AzureVM) GetNetworkInterfaceName() string {
+	if o == nil || IsNil(o.NetworkInterfaceName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.NetworkInterfaceName.Get()
+}
+
+// GetNetworkInterfaceNameOk returns a tuple with the NetworkInterfaceName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AzureVM) GetNetworkInterfaceNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NetworkInterfaceName.Get(), o.NetworkInterfaceName.IsSet()
+}
+
+// SetNetworkInterfaceName gets a reference to the given NullableString and assigns it to the NetworkInterfaceName field.
+func (o *AzureVM) SetNetworkInterfaceName(v string) {
+	o.NetworkInterfaceName.Set(&v)
+}
+
+// SetNetworkInterfaceNameNil sets the value for NetworkInterfaceName to be an explicit nil
+func (o *AzureVM) SetNetworkInterfaceNameNil() {
+	o.NetworkInterfaceName.Set(nil)
+}
+
+// UnsetNetworkInterfaceName ensures that no value is present for NetworkInterfaceName, not even an explicit nil
+func (o *AzureVM) UnsetNetworkInterfaceName() {
+	o.NetworkInterfaceName.Unset()
+}
+
 func (o AzureVM) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -183,23 +273,26 @@ func (o AzureVM) MarshalJSON() ([]byte, error) {
 
 func (o AzureVM) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PowerState) {
-		toSerialize["powerState"] = o.PowerState
+	if o.PowerState.IsSet() {
+		toSerialize["powerState"] = o.PowerState.Get()
 	}
-	if !IsNil(o.MachineSid) {
-		toSerialize["machineSid"] = o.MachineSid
+	if o.MachineSid.IsSet() {
+		toSerialize["machineSid"] = o.MachineSid.Get()
 	}
-	if !IsNil(o.MachineUid) {
-		toSerialize["machineUid"] = o.MachineUid
+	if o.MachineUid.IsSet() {
+		toSerialize["machineUid"] = o.MachineUid.Get()
 	}
-	if !IsNil(o.ResourceGroupName) {
-		toSerialize["resourceGroupName"] = o.ResourceGroupName
+	if o.ResourceGroupName.IsSet() {
+		toSerialize["resourceGroupName"] = o.ResourceGroupName.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	if !IsNil(o.ResourceType) {
 		toSerialize["resourceType"] = o.ResourceType
+	}
+	if o.NetworkInterfaceName.IsSet() {
+		toSerialize["networkInterfaceName"] = o.NetworkInterfaceName.Get()
 	}
 	return toSerialize, nil
 }

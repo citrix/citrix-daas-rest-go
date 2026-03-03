@@ -4,17 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientId** | **string** | ClientId of the Citrix SPN created within the tenant being on-boarded | 
-**ClientSecret** | **string** | ClientSecret of the Citrix SPN created within the tenant being on-boarded | 
 **SubscriptionId** | **string** | Id of the subscription being on-boarded | 
-**TenantId** | Pointer to **string** | Id of the tenant being on-boarded | [optional] 
-**PoolName** | Pointer to **string** | Name of the Azure pool where the subscription needs to be added | [optional] 
+**TenantId** | Pointer to **NullableString** | Id of the tenant being on-boarded | [optional] 
+**PoolName** | Pointer to **NullableString** | Name of the Azure pool where the subscription needs to be added | [optional] 
 
 ## Methods
 
 ### NewSubscriptionOnboardingModel
 
-`func NewSubscriptionOnboardingModel(clientId string, clientSecret string, subscriptionId string, ) *SubscriptionOnboardingModel`
+`func NewSubscriptionOnboardingModel(subscriptionId string, ) *SubscriptionOnboardingModel`
 
 NewSubscriptionOnboardingModel instantiates a new SubscriptionOnboardingModel object
 This constructor will assign default values to properties that have it defined,
@@ -28,46 +26,6 @@ will change when the set of required properties is changed
 NewSubscriptionOnboardingModelWithDefaults instantiates a new SubscriptionOnboardingModel object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetClientId
-
-`func (o *SubscriptionOnboardingModel) GetClientId() string`
-
-GetClientId returns the ClientId field if non-nil, zero value otherwise.
-
-### GetClientIdOk
-
-`func (o *SubscriptionOnboardingModel) GetClientIdOk() (*string, bool)`
-
-GetClientIdOk returns a tuple with the ClientId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetClientId
-
-`func (o *SubscriptionOnboardingModel) SetClientId(v string)`
-
-SetClientId sets ClientId field to given value.
-
-
-### GetClientSecret
-
-`func (o *SubscriptionOnboardingModel) GetClientSecret() string`
-
-GetClientSecret returns the ClientSecret field if non-nil, zero value otherwise.
-
-### GetClientSecretOk
-
-`func (o *SubscriptionOnboardingModel) GetClientSecretOk() (*string, bool)`
-
-GetClientSecretOk returns a tuple with the ClientSecret field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetClientSecret
-
-`func (o *SubscriptionOnboardingModel) SetClientSecret(v string)`
-
-SetClientSecret sets ClientSecret field to given value.
-
 
 ### GetSubscriptionId
 
@@ -114,6 +72,16 @@ SetTenantId sets TenantId field to given value.
 
 HasTenantId returns a boolean if a field has been set.
 
+### SetTenantIdNil
+
+`func (o *SubscriptionOnboardingModel) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *SubscriptionOnboardingModel) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetPoolName
 
 `func (o *SubscriptionOnboardingModel) GetPoolName() string`
@@ -139,6 +107,16 @@ SetPoolName sets PoolName field to given value.
 
 HasPoolName returns a boolean if a field has been set.
 
+### SetPoolNameNil
+
+`func (o *SubscriptionOnboardingModel) SetPoolNameNil(b bool)`
+
+ SetPoolNameNil sets the value for PoolName to be an explicit nil
+
+### UnsetPoolName
+`func (o *SubscriptionOnboardingModel) UnsetPoolName()`
+
+UnsetPoolName ensures that no value is present for PoolName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

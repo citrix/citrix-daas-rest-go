@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -24,21 +24,21 @@ type ImportTemplateImageModel struct {
 	// URI of the VHD file that will be imported
 	VhdUri string `json:"vhdUri"`
 	// URI of the VHD guest disk file that will be imported
-	VhdEncryptionUri *string `json:"vhdEncryptionUri,omitempty"`
+	VhdEncryptionUri NullableString `json:"vhdEncryptionUri,omitempty"`
 	// Customer notes about template image
-	Notes *string `json:"notes,omitempty"`
+	Notes NullableString `json:"notes,omitempty"`
 	// Type of operating system that will be imported
-	OsPlatform *SupportedOperatingSystemType `json:"osPlatform,omitempty"`
+	OsPlatform NullableSupportedOperatingSystemType `json:"osPlatform,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
-	CspCustomerId *string `json:"cspCustomerId,omitempty"`
+	CspCustomerId NullableString `json:"cspCustomerId,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
-	CspSiteId *string `json:"cspSiteId,omitempty"`
+	CspSiteId NullableString `json:"cspSiteId,omitempty"`
 	// The Id of the azure subscription where the image will be stored
-	AzureSubscriptionId *string `json:"azureSubscriptionId,omitempty"`
+	AzureSubscriptionId NullableString `json:"azureSubscriptionId,omitempty"`
 	// The region where the storage account will be created for the image to be imported.
-	Region *string `json:"region,omitempty"`
+	Region NullableString `json:"region,omitempty"`
 	// The HyperVGeneration that should be set to either V1 or V2
-	HyperVGen *string `json:"hyperVGen,omitempty"`
+	HyperVGen NullableString `json:"hyperVGen,omitempty"`
 	// The HyperVGeneration V2 supports vTPM TrustedLaunch
 	VtpmEnabled *bool `json:"vtpmEnabled,omitempty"`
 	// The Secure boot support enabled
@@ -46,7 +46,7 @@ type ImportTemplateImageModel struct {
 	// The customer managed encryption key enabled
 	CmekEnabled *bool `json:"cmekEnabled,omitempty"`
 	// The customer managed encryption ID
-	CmekID *string `json:"cmekID,omitempty"`
+	CmekID NullableString `json:"cmekID,omitempty"`
 }
 
 // NewImportTemplateImageModelWithDefaults instantiates a new ImportTemplateImageModel object
@@ -105,188 +105,276 @@ func (o *ImportTemplateImageModel) SetVhdUri(v string) {
 	o.VhdUri = v
 }
 
-// GetVhdEncryptionUri returns the VhdEncryptionUri field value if set, zero value otherwise.
+// GetVhdEncryptionUri returns the VhdEncryptionUri field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImportTemplateImageModel) GetVhdEncryptionUri() string {
-	if o == nil || IsNil(o.VhdEncryptionUri) {
+	if o == nil || IsNil(o.VhdEncryptionUri.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VhdEncryptionUri
+	return *o.VhdEncryptionUri.Get()
 }
 
 // GetVhdEncryptionUriOk returns a tuple with the VhdEncryptionUri field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImportTemplateImageModel) GetVhdEncryptionUriOk() (*string, bool) {
-	if o == nil || IsNil(o.VhdEncryptionUri) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VhdEncryptionUri, true
+	return o.VhdEncryptionUri.Get(), o.VhdEncryptionUri.IsSet()
 }
 
-// SetVhdEncryptionUri gets a reference to the given string and assigns it to the VhdEncryptionUri field.
+// SetVhdEncryptionUri gets a reference to the given NullableString and assigns it to the VhdEncryptionUri field.
 func (o *ImportTemplateImageModel) SetVhdEncryptionUri(v string) {
-	o.VhdEncryptionUri = &v
+	o.VhdEncryptionUri.Set(&v)
 }
 
-// GetNotes returns the Notes field value if set, zero value otherwise.
+// SetVhdEncryptionUriNil sets the value for VhdEncryptionUri to be an explicit nil
+func (o *ImportTemplateImageModel) SetVhdEncryptionUriNil() {
+	o.VhdEncryptionUri.Set(nil)
+}
+
+// UnsetVhdEncryptionUri ensures that no value is present for VhdEncryptionUri, not even an explicit nil
+func (o *ImportTemplateImageModel) UnsetVhdEncryptionUri() {
+	o.VhdEncryptionUri.Unset()
+}
+
+// GetNotes returns the Notes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImportTemplateImageModel) GetNotes() string {
-	if o == nil || IsNil(o.Notes) {
+	if o == nil || IsNil(o.Notes.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Notes
+	return *o.Notes.Get()
 }
 
 // GetNotesOk returns a tuple with the Notes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImportTemplateImageModel) GetNotesOk() (*string, bool) {
-	if o == nil || IsNil(o.Notes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Notes, true
+	return o.Notes.Get(), o.Notes.IsSet()
 }
 
-// SetNotes gets a reference to the given string and assigns it to the Notes field.
+// SetNotes gets a reference to the given NullableString and assigns it to the Notes field.
 func (o *ImportTemplateImageModel) SetNotes(v string) {
-	o.Notes = &v
+	o.Notes.Set(&v)
 }
 
-// GetOsPlatform returns the OsPlatform field value if set, zero value otherwise.
+// SetNotesNil sets the value for Notes to be an explicit nil
+func (o *ImportTemplateImageModel) SetNotesNil() {
+	o.Notes.Set(nil)
+}
+
+// UnsetNotes ensures that no value is present for Notes, not even an explicit nil
+func (o *ImportTemplateImageModel) UnsetNotes() {
+	o.Notes.Unset()
+}
+
+// GetOsPlatform returns the OsPlatform field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImportTemplateImageModel) GetOsPlatform() SupportedOperatingSystemType {
-	if o == nil || IsNil(o.OsPlatform) {
+	if o == nil || IsNil(o.OsPlatform.Get()) {
 		var ret SupportedOperatingSystemType
 		return ret
 	}
-	return *o.OsPlatform
+	return *o.OsPlatform.Get()
 }
 
 // GetOsPlatformOk returns a tuple with the OsPlatform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImportTemplateImageModel) GetOsPlatformOk() (*SupportedOperatingSystemType, bool) {
-	if o == nil || IsNil(o.OsPlatform) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OsPlatform, true
+	return o.OsPlatform.Get(), o.OsPlatform.IsSet()
 }
 
-// SetOsPlatform gets a reference to the given SupportedOperatingSystemType and assigns it to the OsPlatform field.
+// SetOsPlatform gets a reference to the given NullableSupportedOperatingSystemType and assigns it to the OsPlatform field.
 func (o *ImportTemplateImageModel) SetOsPlatform(v SupportedOperatingSystemType) {
-	o.OsPlatform = &v
+	o.OsPlatform.Set(&v)
 }
 
-// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise.
+// SetOsPlatformNil sets the value for OsPlatform to be an explicit nil
+func (o *ImportTemplateImageModel) SetOsPlatformNil() {
+	o.OsPlatform.Set(nil)
+}
+
+// UnsetOsPlatform ensures that no value is present for OsPlatform, not even an explicit nil
+func (o *ImportTemplateImageModel) UnsetOsPlatform() {
+	o.OsPlatform.Unset()
+}
+
+// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImportTemplateImageModel) GetCspCustomerId() string {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil || IsNil(o.CspCustomerId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomerId
+	return *o.CspCustomerId.Get()
 }
 
 // GetCspCustomerIdOk returns a tuple with the CspCustomerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImportTemplateImageModel) GetCspCustomerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomerId, true
+	return o.CspCustomerId.Get(), o.CspCustomerId.IsSet()
 }
 
-// SetCspCustomerId gets a reference to the given string and assigns it to the CspCustomerId field.
+// SetCspCustomerId gets a reference to the given NullableString and assigns it to the CspCustomerId field.
 func (o *ImportTemplateImageModel) SetCspCustomerId(v string) {
-	o.CspCustomerId = &v
+	o.CspCustomerId.Set(&v)
 }
 
-// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise.
+// SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+func (o *ImportTemplateImageModel) SetCspCustomerIdNil() {
+	o.CspCustomerId.Set(nil)
+}
+
+// UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
+func (o *ImportTemplateImageModel) UnsetCspCustomerId() {
+	o.CspCustomerId.Unset()
+}
+
+// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImportTemplateImageModel) GetCspSiteId() string {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil || IsNil(o.CspSiteId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspSiteId
+	return *o.CspSiteId.Get()
 }
 
 // GetCspSiteIdOk returns a tuple with the CspSiteId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImportTemplateImageModel) GetCspSiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspSiteId, true
+	return o.CspSiteId.Get(), o.CspSiteId.IsSet()
 }
 
-// SetCspSiteId gets a reference to the given string and assigns it to the CspSiteId field.
+// SetCspSiteId gets a reference to the given NullableString and assigns it to the CspSiteId field.
 func (o *ImportTemplateImageModel) SetCspSiteId(v string) {
-	o.CspSiteId = &v
+	o.CspSiteId.Set(&v)
 }
 
-// GetAzureSubscriptionId returns the AzureSubscriptionId field value if set, zero value otherwise.
+// SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+func (o *ImportTemplateImageModel) SetCspSiteIdNil() {
+	o.CspSiteId.Set(nil)
+}
+
+// UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
+func (o *ImportTemplateImageModel) UnsetCspSiteId() {
+	o.CspSiteId.Unset()
+}
+
+// GetAzureSubscriptionId returns the AzureSubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImportTemplateImageModel) GetAzureSubscriptionId() string {
-	if o == nil || IsNil(o.AzureSubscriptionId) {
+	if o == nil || IsNil(o.AzureSubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzureSubscriptionId
+	return *o.AzureSubscriptionId.Get()
 }
 
 // GetAzureSubscriptionIdOk returns a tuple with the AzureSubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImportTemplateImageModel) GetAzureSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AzureSubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureSubscriptionId, true
+	return o.AzureSubscriptionId.Get(), o.AzureSubscriptionId.IsSet()
 }
 
-// SetAzureSubscriptionId gets a reference to the given string and assigns it to the AzureSubscriptionId field.
+// SetAzureSubscriptionId gets a reference to the given NullableString and assigns it to the AzureSubscriptionId field.
 func (o *ImportTemplateImageModel) SetAzureSubscriptionId(v string) {
-	o.AzureSubscriptionId = &v
+	o.AzureSubscriptionId.Set(&v)
 }
 
-// GetRegion returns the Region field value if set, zero value otherwise.
+// SetAzureSubscriptionIdNil sets the value for AzureSubscriptionId to be an explicit nil
+func (o *ImportTemplateImageModel) SetAzureSubscriptionIdNil() {
+	o.AzureSubscriptionId.Set(nil)
+}
+
+// UnsetAzureSubscriptionId ensures that no value is present for AzureSubscriptionId, not even an explicit nil
+func (o *ImportTemplateImageModel) UnsetAzureSubscriptionId() {
+	o.AzureSubscriptionId.Unset()
+}
+
+// GetRegion returns the Region field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImportTemplateImageModel) GetRegion() string {
-	if o == nil || IsNil(o.Region) {
+	if o == nil || IsNil(o.Region.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Region
+	return *o.Region.Get()
 }
 
 // GetRegionOk returns a tuple with the Region field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImportTemplateImageModel) GetRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.Region) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Region, true
+	return o.Region.Get(), o.Region.IsSet()
 }
 
-// SetRegion gets a reference to the given string and assigns it to the Region field.
+// SetRegion gets a reference to the given NullableString and assigns it to the Region field.
 func (o *ImportTemplateImageModel) SetRegion(v string) {
-	o.Region = &v
+	o.Region.Set(&v)
 }
 
-// GetHyperVGen returns the HyperVGen field value if set, zero value otherwise.
+// SetRegionNil sets the value for Region to be an explicit nil
+func (o *ImportTemplateImageModel) SetRegionNil() {
+	o.Region.Set(nil)
+}
+
+// UnsetRegion ensures that no value is present for Region, not even an explicit nil
+func (o *ImportTemplateImageModel) UnsetRegion() {
+	o.Region.Unset()
+}
+
+// GetHyperVGen returns the HyperVGen field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImportTemplateImageModel) GetHyperVGen() string {
-	if o == nil || IsNil(o.HyperVGen) {
+	if o == nil || IsNil(o.HyperVGen.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HyperVGen
+	return *o.HyperVGen.Get()
 }
 
 // GetHyperVGenOk returns a tuple with the HyperVGen field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImportTemplateImageModel) GetHyperVGenOk() (*string, bool) {
-	if o == nil || IsNil(o.HyperVGen) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HyperVGen, true
+	return o.HyperVGen.Get(), o.HyperVGen.IsSet()
 }
 
-// SetHyperVGen gets a reference to the given string and assigns it to the HyperVGen field.
+// SetHyperVGen gets a reference to the given NullableString and assigns it to the HyperVGen field.
 func (o *ImportTemplateImageModel) SetHyperVGen(v string) {
-	o.HyperVGen = &v
+	o.HyperVGen.Set(&v)
+}
+
+// SetHyperVGenNil sets the value for HyperVGen to be an explicit nil
+func (o *ImportTemplateImageModel) SetHyperVGenNil() {
+	o.HyperVGen.Set(nil)
+}
+
+// UnsetHyperVGen ensures that no value is present for HyperVGen, not even an explicit nil
+func (o *ImportTemplateImageModel) UnsetHyperVGen() {
+	o.HyperVGen.Unset()
 }
 
 // GetVtpmEnabled returns the VtpmEnabled field value if set, zero value otherwise.
@@ -358,27 +446,38 @@ func (o *ImportTemplateImageModel) SetCmekEnabled(v bool) {
 	o.CmekEnabled = &v
 }
 
-// GetCmekID returns the CmekID field value if set, zero value otherwise.
+// GetCmekID returns the CmekID field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImportTemplateImageModel) GetCmekID() string {
-	if o == nil || IsNil(o.CmekID) {
+	if o == nil || IsNil(o.CmekID.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CmekID
+	return *o.CmekID.Get()
 }
 
 // GetCmekIDOk returns a tuple with the CmekID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImportTemplateImageModel) GetCmekIDOk() (*string, bool) {
-	if o == nil || IsNil(o.CmekID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CmekID, true
+	return o.CmekID.Get(), o.CmekID.IsSet()
 }
 
-// SetCmekID gets a reference to the given string and assigns it to the CmekID field.
+// SetCmekID gets a reference to the given NullableString and assigns it to the CmekID field.
 func (o *ImportTemplateImageModel) SetCmekID(v string) {
-	o.CmekID = &v
+	o.CmekID.Set(&v)
+}
+
+// SetCmekIDNil sets the value for CmekID to be an explicit nil
+func (o *ImportTemplateImageModel) SetCmekIDNil() {
+	o.CmekID.Set(nil)
+}
+
+// UnsetCmekID ensures that no value is present for CmekID, not even an explicit nil
+func (o *ImportTemplateImageModel) UnsetCmekID() {
+	o.CmekID.Unset()
 }
 
 func (o ImportTemplateImageModel) MarshalJSON() ([]byte, error) {
@@ -393,29 +492,29 @@ func (o ImportTemplateImageModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
 	toSerialize["vhdUri"] = o.VhdUri
-	if !IsNil(o.VhdEncryptionUri) {
-		toSerialize["vhdEncryptionUri"] = o.VhdEncryptionUri
+	if o.VhdEncryptionUri.IsSet() {
+		toSerialize["vhdEncryptionUri"] = o.VhdEncryptionUri.Get()
 	}
-	if !IsNil(o.Notes) {
-		toSerialize["notes"] = o.Notes
+	if o.Notes.IsSet() {
+		toSerialize["notes"] = o.Notes.Get()
 	}
-	if !IsNil(o.OsPlatform) {
-		toSerialize["osPlatform"] = o.OsPlatform
+	if o.OsPlatform.IsSet() {
+		toSerialize["osPlatform"] = o.OsPlatform.Get()
 	}
-	if !IsNil(o.CspCustomerId) {
-		toSerialize["cspCustomerId"] = o.CspCustomerId
+	if o.CspCustomerId.IsSet() {
+		toSerialize["cspCustomerId"] = o.CspCustomerId.Get()
 	}
-	if !IsNil(o.CspSiteId) {
-		toSerialize["cspSiteId"] = o.CspSiteId
+	if o.CspSiteId.IsSet() {
+		toSerialize["cspSiteId"] = o.CspSiteId.Get()
 	}
-	if !IsNil(o.AzureSubscriptionId) {
-		toSerialize["azureSubscriptionId"] = o.AzureSubscriptionId
+	if o.AzureSubscriptionId.IsSet() {
+		toSerialize["azureSubscriptionId"] = o.AzureSubscriptionId.Get()
 	}
-	if !IsNil(o.Region) {
-		toSerialize["region"] = o.Region
+	if o.Region.IsSet() {
+		toSerialize["region"] = o.Region.Get()
 	}
-	if !IsNil(o.HyperVGen) {
-		toSerialize["hyperVGen"] = o.HyperVGen
+	if o.HyperVGen.IsSet() {
+		toSerialize["hyperVGen"] = o.HyperVGen.Get()
 	}
 	if !IsNil(o.VtpmEnabled) {
 		toSerialize["vtpmEnabled"] = o.VtpmEnabled
@@ -426,8 +525,8 @@ func (o ImportTemplateImageModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CmekEnabled) {
 		toSerialize["cmekEnabled"] = o.CmekEnabled
 	}
-	if !IsNil(o.CmekID) {
-		toSerialize["cmekID"] = o.CmekID
+	if o.CmekID.IsSet() {
+		toSerialize["cmekID"] = o.CmekID.Get()
 	}
 	return toSerialize, nil
 }

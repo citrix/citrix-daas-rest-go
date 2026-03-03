@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -33,9 +33,9 @@ func NewDeploymentRegionsModelWithDefaults() *DeploymentRegionsModel {
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise.
+// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeploymentRegionsModel) GetItems() []DeploymentRegionModel {
-	if o == nil || IsNil(o.Items) {
+	if o == nil {
 		var ret []DeploymentRegionModel
 		return ret
 	}
@@ -44,6 +44,7 @@ func (o *DeploymentRegionsModel) GetItems() []DeploymentRegionModel {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeploymentRegionsModel) GetItemsOk() ([]DeploymentRegionModel, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
@@ -56,9 +57,9 @@ func (o *DeploymentRegionsModel) SetItems(v []DeploymentRegionModel) {
 	o.Items = v
 }
 
-// GetRegions returns the Regions field value if set, zero value otherwise.
+// GetRegions returns the Regions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeploymentRegionsModel) GetRegions() []DeploymentRegionModel {
-	if o == nil || IsNil(o.Regions) {
+	if o == nil {
 		var ret []DeploymentRegionModel
 		return ret
 	}
@@ -67,6 +68,7 @@ func (o *DeploymentRegionsModel) GetRegions() []DeploymentRegionModel {
 
 // GetRegionsOk returns a tuple with the Regions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeploymentRegionsModel) GetRegionsOk() ([]DeploymentRegionModel, bool) {
 	if o == nil || IsNil(o.Regions) {
 		return nil, false
@@ -89,10 +91,10 @@ func (o DeploymentRegionsModel) MarshalJSON() ([]byte, error) {
 
 func (o DeploymentRegionsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Items) {
+	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-	if !IsNil(o.Regions) {
+	if o.Regions != nil {
 		toSerialize["regions"] = o.Regions
 	}
 	return toSerialize, nil

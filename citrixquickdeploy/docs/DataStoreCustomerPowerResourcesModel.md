@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **NullableString** |  | [optional] 
 **Mode** | Pointer to [**PowerMode**](PowerMode.md) |  | [optional] 
 **Status** | Pointer to [**PowerResourcesJobStatus**](PowerResourcesJobStatus.md) |  | [optional] 
-**Error** | Pointer to **string** |  | [optional] 
+**Error** | Pointer to **NullableString** |  | [optional] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **StartedAt** | Pointer to **time.Time** |  | [optional] 
 **EndedAt** | Pointer to **time.Time** |  | [optional] 
@@ -56,6 +56,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *DataStoreCustomerPowerResourcesModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *DataStoreCustomerPowerResourcesModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetMode
 
 `func (o *DataStoreCustomerPowerResourcesModel) GetMode() PowerMode`
@@ -131,6 +141,16 @@ SetError sets Error field to given value.
 
 HasError returns a boolean if a field has been set.
 
+### SetErrorNil
+
+`func (o *DataStoreCustomerPowerResourcesModel) SetErrorNil(b bool)`
+
+ SetErrorNil sets the value for Error to be an explicit nil
+
+### UnsetError
+`func (o *DataStoreCustomerPowerResourcesModel) UnsetError()`
+
+UnsetError ensures that no value is present for Error, not even an explicit nil
 ### GetCreatedAt
 
 `func (o *DataStoreCustomerPowerResourcesModel) GetCreatedAt() time.Time`

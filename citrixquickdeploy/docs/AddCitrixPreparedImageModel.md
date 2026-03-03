@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of the citrix prepared image | 
-**Description** | Pointer to **string** | Description of the image | [optional] 
+**Description** | Pointer to **NullableString** | Description of the image | [optional] 
 **AzureSubscriptionId** | **string** | ID of the Azure Subscription containing the image | 
 **AzureResourceGroup** | **string** | Name of the resource group where the vhd&#39;s storage account is located | 
 **SessionSupport** | [**TemplateImageSessionSupport**](TemplateImageSessionSupport.md) | The type of sessions that are supported by the image&#39;s OS | 
 **StartMenuAppsXmlUri** | **string** | URI to the xml file containing the start menu&#39;s applications | 
 **VhdLocations** | Pointer to [**[]CitrixPreparedImageVhdLocation**](CitrixPreparedImageVhdLocation.md) | List of locations where the VHDs are stored | [optional] 
-**OsPlatform** | Pointer to [**SupportedOperatingSystemType**](SupportedOperatingSystemType.md) | Type of operating system that will be imported | [optional] 
-**HyperVGen** | Pointer to **string** | Type of operating system that will be imported | [optional] 
+**OsPlatform** | Pointer to [**NullableSupportedOperatingSystemType**](SupportedOperatingSystemType.md) | Type of operating system that will be imported | [optional] 
+**HyperVGen** | Pointer to **NullableString** | Type of operating system that will be imported | [optional] 
 **VtpmEnabled** | Pointer to **bool** | Is trusted launch enabled for V2 gen | [optional] 
 
 ## Methods
@@ -79,6 +79,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *AddCitrixPreparedImageModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *AddCitrixPreparedImageModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetAzureSubscriptionId
 
 `func (o *AddCitrixPreparedImageModel) GetAzureSubscriptionId() string`
@@ -184,6 +194,16 @@ SetVhdLocations sets VhdLocations field to given value.
 
 HasVhdLocations returns a boolean if a field has been set.
 
+### SetVhdLocationsNil
+
+`func (o *AddCitrixPreparedImageModel) SetVhdLocationsNil(b bool)`
+
+ SetVhdLocationsNil sets the value for VhdLocations to be an explicit nil
+
+### UnsetVhdLocations
+`func (o *AddCitrixPreparedImageModel) UnsetVhdLocations()`
+
+UnsetVhdLocations ensures that no value is present for VhdLocations, not even an explicit nil
 ### GetOsPlatform
 
 `func (o *AddCitrixPreparedImageModel) GetOsPlatform() SupportedOperatingSystemType`
@@ -209,6 +229,16 @@ SetOsPlatform sets OsPlatform field to given value.
 
 HasOsPlatform returns a boolean if a field has been set.
 
+### SetOsPlatformNil
+
+`func (o *AddCitrixPreparedImageModel) SetOsPlatformNil(b bool)`
+
+ SetOsPlatformNil sets the value for OsPlatform to be an explicit nil
+
+### UnsetOsPlatform
+`func (o *AddCitrixPreparedImageModel) UnsetOsPlatform()`
+
+UnsetOsPlatform ensures that no value is present for OsPlatform, not even an explicit nil
 ### GetHyperVGen
 
 `func (o *AddCitrixPreparedImageModel) GetHyperVGen() string`
@@ -234,6 +264,16 @@ SetHyperVGen sets HyperVGen field to given value.
 
 HasHyperVGen returns a boolean if a field has been set.
 
+### SetHyperVGenNil
+
+`func (o *AddCitrixPreparedImageModel) SetHyperVGenNil(b bool)`
+
+ SetHyperVGenNil sets the value for HyperVGen to be an explicit nil
+
+### UnsetHyperVGen
+`func (o *AddCitrixPreparedImageModel) UnsetHyperVGen()`
+
+UnsetHyperVGen ensures that no value is present for HyperVGen, not even an explicit nil
 ### GetVtpmEnabled
 
 `func (o *AddCitrixPreparedImageModel) GetVtpmEnabled() bool`

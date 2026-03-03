@@ -4,30 +4,30 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Authorization** | Pointer to [**SenderAuthorization**](SenderAuthorization.md) |  | [optional] 
+**Authorization** | Pointer to [**NullableSenderAuthorization**](SenderAuthorization.md) |  | [optional] [readonly] 
 **Claims** | Pointer to **map[string]string** |  | [optional] [readonly] 
-**Caller** | Pointer to **string** |  | [optional] [readonly] 
-**Description** | Pointer to **string** |  | [optional] [readonly] 
-**Id** | Pointer to **string** |  | [optional] [readonly] 
-**EventDataId** | Pointer to **string** |  | [optional] [readonly] 
-**CorrelationId** | Pointer to **string** |  | [optional] [readonly] 
-**EventName** | Pointer to [**MonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] 
-**Category** | Pointer to [**MonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] 
-**HttpRequest** | Pointer to [**EventDataHttpRequestInfo**](EventDataHttpRequestInfo.md) |  | [optional] 
-**Level** | Pointer to [**MonitorEventLevel**](MonitorEventLevel.md) |  | [optional] 
-**ResourceGroupName** | Pointer to **string** |  | [optional] [readonly] 
-**ResourceProviderName** | Pointer to [**MonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] 
-**ResourceId** | Pointer to [**ResourceIdentifier**](ResourceIdentifier.md) |  | [optional] 
-**ResourceType** | Pointer to [**MonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] 
-**OperationId** | Pointer to **string** |  | [optional] [readonly] 
-**OperationName** | Pointer to [**MonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] 
+**Caller** | Pointer to **NullableString** |  | [optional] [readonly] 
+**Description** | Pointer to **NullableString** |  | [optional] [readonly] 
+**Id** | Pointer to **NullableString** |  | [optional] [readonly] 
+**EventDataId** | Pointer to **NullableString** |  | [optional] [readonly] 
+**CorrelationId** | Pointer to **NullableString** |  | [optional] [readonly] 
+**EventName** | Pointer to [**NullableMonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] [readonly] 
+**Category** | Pointer to [**NullableMonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] [readonly] 
+**HttpRequest** | Pointer to [**NullableEventDataHttpRequestInfo**](EventDataHttpRequestInfo.md) |  | [optional] [readonly] 
+**Level** | Pointer to [**NullableMonitorEventLevel**](MonitorEventLevel.md) |  | [optional] [readonly] 
+**ResourceGroupName** | Pointer to **NullableString** |  | [optional] [readonly] 
+**ResourceProviderName** | Pointer to [**NullableMonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] [readonly] 
+**ResourceId** | Pointer to [**NullableResourceIdentifier**](ResourceIdentifier.md) |  | [optional] [readonly] 
+**ResourceType** | Pointer to [**NullableMonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] [readonly] 
+**OperationId** | Pointer to **NullableString** |  | [optional] [readonly] 
+**OperationName** | Pointer to [**NullableMonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] [readonly] 
 **Properties** | Pointer to **map[string]string** |  | [optional] [readonly] 
-**Status** | Pointer to [**MonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] 
-**SubStatus** | Pointer to [**MonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] 
-**EventTimestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
-**SubmissionTimestamp** | Pointer to **time.Time** |  | [optional] [readonly] 
-**SubscriptionId** | Pointer to **string** |  | [optional] [readonly] 
-**TenantId** | Pointer to **string** |  | [optional] [readonly] 
+**Status** | Pointer to [**NullableMonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] [readonly] 
+**SubStatus** | Pointer to [**NullableMonitorLocalizableString**](MonitorLocalizableString.md) |  | [optional] [readonly] 
+**EventTimestamp** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**SubmissionTimestamp** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**SubscriptionId** | Pointer to **NullableString** |  | [optional] [readonly] 
+**TenantId** | Pointer to **NullableString** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -73,6 +73,16 @@ SetAuthorization sets Authorization field to given value.
 
 HasAuthorization returns a boolean if a field has been set.
 
+### SetAuthorizationNil
+
+`func (o *EventDataInfo) SetAuthorizationNil(b bool)`
+
+ SetAuthorizationNil sets the value for Authorization to be an explicit nil
+
+### UnsetAuthorization
+`func (o *EventDataInfo) UnsetAuthorization()`
+
+UnsetAuthorization ensures that no value is present for Authorization, not even an explicit nil
 ### GetClaims
 
 `func (o *EventDataInfo) GetClaims() map[string]string`
@@ -98,6 +108,16 @@ SetClaims sets Claims field to given value.
 
 HasClaims returns a boolean if a field has been set.
 
+### SetClaimsNil
+
+`func (o *EventDataInfo) SetClaimsNil(b bool)`
+
+ SetClaimsNil sets the value for Claims to be an explicit nil
+
+### UnsetClaims
+`func (o *EventDataInfo) UnsetClaims()`
+
+UnsetClaims ensures that no value is present for Claims, not even an explicit nil
 ### GetCaller
 
 `func (o *EventDataInfo) GetCaller() string`
@@ -123,6 +143,16 @@ SetCaller sets Caller field to given value.
 
 HasCaller returns a boolean if a field has been set.
 
+### SetCallerNil
+
+`func (o *EventDataInfo) SetCallerNil(b bool)`
+
+ SetCallerNil sets the value for Caller to be an explicit nil
+
+### UnsetCaller
+`func (o *EventDataInfo) UnsetCaller()`
+
+UnsetCaller ensures that no value is present for Caller, not even an explicit nil
 ### GetDescription
 
 `func (o *EventDataInfo) GetDescription() string`
@@ -148,6 +178,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *EventDataInfo) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *EventDataInfo) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetId
 
 `func (o *EventDataInfo) GetId() string`
@@ -173,6 +213,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *EventDataInfo) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *EventDataInfo) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetEventDataId
 
 `func (o *EventDataInfo) GetEventDataId() string`
@@ -198,6 +248,16 @@ SetEventDataId sets EventDataId field to given value.
 
 HasEventDataId returns a boolean if a field has been set.
 
+### SetEventDataIdNil
+
+`func (o *EventDataInfo) SetEventDataIdNil(b bool)`
+
+ SetEventDataIdNil sets the value for EventDataId to be an explicit nil
+
+### UnsetEventDataId
+`func (o *EventDataInfo) UnsetEventDataId()`
+
+UnsetEventDataId ensures that no value is present for EventDataId, not even an explicit nil
 ### GetCorrelationId
 
 `func (o *EventDataInfo) GetCorrelationId() string`
@@ -223,6 +283,16 @@ SetCorrelationId sets CorrelationId field to given value.
 
 HasCorrelationId returns a boolean if a field has been set.
 
+### SetCorrelationIdNil
+
+`func (o *EventDataInfo) SetCorrelationIdNil(b bool)`
+
+ SetCorrelationIdNil sets the value for CorrelationId to be an explicit nil
+
+### UnsetCorrelationId
+`func (o *EventDataInfo) UnsetCorrelationId()`
+
+UnsetCorrelationId ensures that no value is present for CorrelationId, not even an explicit nil
 ### GetEventName
 
 `func (o *EventDataInfo) GetEventName() MonitorLocalizableString`
@@ -248,6 +318,16 @@ SetEventName sets EventName field to given value.
 
 HasEventName returns a boolean if a field has been set.
 
+### SetEventNameNil
+
+`func (o *EventDataInfo) SetEventNameNil(b bool)`
+
+ SetEventNameNil sets the value for EventName to be an explicit nil
+
+### UnsetEventName
+`func (o *EventDataInfo) UnsetEventName()`
+
+UnsetEventName ensures that no value is present for EventName, not even an explicit nil
 ### GetCategory
 
 `func (o *EventDataInfo) GetCategory() MonitorLocalizableString`
@@ -273,6 +353,16 @@ SetCategory sets Category field to given value.
 
 HasCategory returns a boolean if a field has been set.
 
+### SetCategoryNil
+
+`func (o *EventDataInfo) SetCategoryNil(b bool)`
+
+ SetCategoryNil sets the value for Category to be an explicit nil
+
+### UnsetCategory
+`func (o *EventDataInfo) UnsetCategory()`
+
+UnsetCategory ensures that no value is present for Category, not even an explicit nil
 ### GetHttpRequest
 
 `func (o *EventDataInfo) GetHttpRequest() EventDataHttpRequestInfo`
@@ -298,6 +388,16 @@ SetHttpRequest sets HttpRequest field to given value.
 
 HasHttpRequest returns a boolean if a field has been set.
 
+### SetHttpRequestNil
+
+`func (o *EventDataInfo) SetHttpRequestNil(b bool)`
+
+ SetHttpRequestNil sets the value for HttpRequest to be an explicit nil
+
+### UnsetHttpRequest
+`func (o *EventDataInfo) UnsetHttpRequest()`
+
+UnsetHttpRequest ensures that no value is present for HttpRequest, not even an explicit nil
 ### GetLevel
 
 `func (o *EventDataInfo) GetLevel() MonitorEventLevel`
@@ -323,6 +423,16 @@ SetLevel sets Level field to given value.
 
 HasLevel returns a boolean if a field has been set.
 
+### SetLevelNil
+
+`func (o *EventDataInfo) SetLevelNil(b bool)`
+
+ SetLevelNil sets the value for Level to be an explicit nil
+
+### UnsetLevel
+`func (o *EventDataInfo) UnsetLevel()`
+
+UnsetLevel ensures that no value is present for Level, not even an explicit nil
 ### GetResourceGroupName
 
 `func (o *EventDataInfo) GetResourceGroupName() string`
@@ -348,6 +458,16 @@ SetResourceGroupName sets ResourceGroupName field to given value.
 
 HasResourceGroupName returns a boolean if a field has been set.
 
+### SetResourceGroupNameNil
+
+`func (o *EventDataInfo) SetResourceGroupNameNil(b bool)`
+
+ SetResourceGroupNameNil sets the value for ResourceGroupName to be an explicit nil
+
+### UnsetResourceGroupName
+`func (o *EventDataInfo) UnsetResourceGroupName()`
+
+UnsetResourceGroupName ensures that no value is present for ResourceGroupName, not even an explicit nil
 ### GetResourceProviderName
 
 `func (o *EventDataInfo) GetResourceProviderName() MonitorLocalizableString`
@@ -373,6 +493,16 @@ SetResourceProviderName sets ResourceProviderName field to given value.
 
 HasResourceProviderName returns a boolean if a field has been set.
 
+### SetResourceProviderNameNil
+
+`func (o *EventDataInfo) SetResourceProviderNameNil(b bool)`
+
+ SetResourceProviderNameNil sets the value for ResourceProviderName to be an explicit nil
+
+### UnsetResourceProviderName
+`func (o *EventDataInfo) UnsetResourceProviderName()`
+
+UnsetResourceProviderName ensures that no value is present for ResourceProviderName, not even an explicit nil
 ### GetResourceId
 
 `func (o *EventDataInfo) GetResourceId() ResourceIdentifier`
@@ -398,6 +528,16 @@ SetResourceId sets ResourceId field to given value.
 
 HasResourceId returns a boolean if a field has been set.
 
+### SetResourceIdNil
+
+`func (o *EventDataInfo) SetResourceIdNil(b bool)`
+
+ SetResourceIdNil sets the value for ResourceId to be an explicit nil
+
+### UnsetResourceId
+`func (o *EventDataInfo) UnsetResourceId()`
+
+UnsetResourceId ensures that no value is present for ResourceId, not even an explicit nil
 ### GetResourceType
 
 `func (o *EventDataInfo) GetResourceType() MonitorLocalizableString`
@@ -423,6 +563,16 @@ SetResourceType sets ResourceType field to given value.
 
 HasResourceType returns a boolean if a field has been set.
 
+### SetResourceTypeNil
+
+`func (o *EventDataInfo) SetResourceTypeNil(b bool)`
+
+ SetResourceTypeNil sets the value for ResourceType to be an explicit nil
+
+### UnsetResourceType
+`func (o *EventDataInfo) UnsetResourceType()`
+
+UnsetResourceType ensures that no value is present for ResourceType, not even an explicit nil
 ### GetOperationId
 
 `func (o *EventDataInfo) GetOperationId() string`
@@ -448,6 +598,16 @@ SetOperationId sets OperationId field to given value.
 
 HasOperationId returns a boolean if a field has been set.
 
+### SetOperationIdNil
+
+`func (o *EventDataInfo) SetOperationIdNil(b bool)`
+
+ SetOperationIdNil sets the value for OperationId to be an explicit nil
+
+### UnsetOperationId
+`func (o *EventDataInfo) UnsetOperationId()`
+
+UnsetOperationId ensures that no value is present for OperationId, not even an explicit nil
 ### GetOperationName
 
 `func (o *EventDataInfo) GetOperationName() MonitorLocalizableString`
@@ -473,6 +633,16 @@ SetOperationName sets OperationName field to given value.
 
 HasOperationName returns a boolean if a field has been set.
 
+### SetOperationNameNil
+
+`func (o *EventDataInfo) SetOperationNameNil(b bool)`
+
+ SetOperationNameNil sets the value for OperationName to be an explicit nil
+
+### UnsetOperationName
+`func (o *EventDataInfo) UnsetOperationName()`
+
+UnsetOperationName ensures that no value is present for OperationName, not even an explicit nil
 ### GetProperties
 
 `func (o *EventDataInfo) GetProperties() map[string]string`
@@ -498,6 +668,16 @@ SetProperties sets Properties field to given value.
 
 HasProperties returns a boolean if a field has been set.
 
+### SetPropertiesNil
+
+`func (o *EventDataInfo) SetPropertiesNil(b bool)`
+
+ SetPropertiesNil sets the value for Properties to be an explicit nil
+
+### UnsetProperties
+`func (o *EventDataInfo) UnsetProperties()`
+
+UnsetProperties ensures that no value is present for Properties, not even an explicit nil
 ### GetStatus
 
 `func (o *EventDataInfo) GetStatus() MonitorLocalizableString`
@@ -523,6 +703,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *EventDataInfo) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *EventDataInfo) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetSubStatus
 
 `func (o *EventDataInfo) GetSubStatus() MonitorLocalizableString`
@@ -548,6 +738,16 @@ SetSubStatus sets SubStatus field to given value.
 
 HasSubStatus returns a boolean if a field has been set.
 
+### SetSubStatusNil
+
+`func (o *EventDataInfo) SetSubStatusNil(b bool)`
+
+ SetSubStatusNil sets the value for SubStatus to be an explicit nil
+
+### UnsetSubStatus
+`func (o *EventDataInfo) UnsetSubStatus()`
+
+UnsetSubStatus ensures that no value is present for SubStatus, not even an explicit nil
 ### GetEventTimestamp
 
 `func (o *EventDataInfo) GetEventTimestamp() time.Time`
@@ -573,6 +773,16 @@ SetEventTimestamp sets EventTimestamp field to given value.
 
 HasEventTimestamp returns a boolean if a field has been set.
 
+### SetEventTimestampNil
+
+`func (o *EventDataInfo) SetEventTimestampNil(b bool)`
+
+ SetEventTimestampNil sets the value for EventTimestamp to be an explicit nil
+
+### UnsetEventTimestamp
+`func (o *EventDataInfo) UnsetEventTimestamp()`
+
+UnsetEventTimestamp ensures that no value is present for EventTimestamp, not even an explicit nil
 ### GetSubmissionTimestamp
 
 `func (o *EventDataInfo) GetSubmissionTimestamp() time.Time`
@@ -598,6 +808,16 @@ SetSubmissionTimestamp sets SubmissionTimestamp field to given value.
 
 HasSubmissionTimestamp returns a boolean if a field has been set.
 
+### SetSubmissionTimestampNil
+
+`func (o *EventDataInfo) SetSubmissionTimestampNil(b bool)`
+
+ SetSubmissionTimestampNil sets the value for SubmissionTimestamp to be an explicit nil
+
+### UnsetSubmissionTimestamp
+`func (o *EventDataInfo) UnsetSubmissionTimestamp()`
+
+UnsetSubmissionTimestamp ensures that no value is present for SubmissionTimestamp, not even an explicit nil
 ### GetSubscriptionId
 
 `func (o *EventDataInfo) GetSubscriptionId() string`
@@ -623,6 +843,16 @@ SetSubscriptionId sets SubscriptionId field to given value.
 
 HasSubscriptionId returns a boolean if a field has been set.
 
+### SetSubscriptionIdNil
+
+`func (o *EventDataInfo) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *EventDataInfo) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
 ### GetTenantId
 
 `func (o *EventDataInfo) GetTenantId() string`
@@ -648,6 +878,16 @@ SetTenantId sets TenantId field to given value.
 
 HasTenantId returns a boolean if a field has been set.
 
+### SetTenantIdNil
+
+`func (o *EventDataInfo) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *EventDataInfo) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

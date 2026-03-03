@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,9 +20,9 @@ var _ MappedNullable = &RemoteBrowserIsolationStatusModel{}
 // RemoteBrowserIsolationStatusModel struct for RemoteBrowserIsolationStatusModel
 type RemoteBrowserIsolationStatusModel struct {
 	// Current state of the job
-	Status *RemoteBrowserIsolationStatusModelJobState `json:"status,omitempty"`
+	Status NullableRemoteBrowserIsolationStatusModelJobState `json:"status,omitempty"`
 	// Error occurred in the job
-	ErrorDetails *string `json:"errorDetails,omitempty"`
+	ErrorDetails NullableString `json:"errorDetails,omitempty"`
 	// Indicate if the subscription is in-used by Remote Browser Isolation
 	InUsedByRemoteBrowserIsolation *bool `json:"inUsedByRemoteBrowserIsolation,omitempty"`
 }
@@ -35,50 +35,72 @@ func NewRemoteBrowserIsolationStatusModelWithDefaults() *RemoteBrowserIsolationS
 	return &this
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationStatusModel) GetStatus() RemoteBrowserIsolationStatusModelJobState {
-	if o == nil || IsNil(o.Status) {
+	if o == nil || IsNil(o.Status.Get()) {
 		var ret RemoteBrowserIsolationStatusModelJobState
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationStatusModel) GetStatusOk() (*RemoteBrowserIsolationStatusModelJobState, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
-// SetStatus gets a reference to the given RemoteBrowserIsolationStatusModelJobState and assigns it to the Status field.
+// SetStatus gets a reference to the given NullableRemoteBrowserIsolationStatusModelJobState and assigns it to the Status field.
 func (o *RemoteBrowserIsolationStatusModel) SetStatus(v RemoteBrowserIsolationStatusModelJobState) {
-	o.Status = &v
+	o.Status.Set(&v)
 }
 
-// GetErrorDetails returns the ErrorDetails field value if set, zero value otherwise.
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *RemoteBrowserIsolationStatusModel) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *RemoteBrowserIsolationStatusModel) UnsetStatus() {
+	o.Status.Unset()
+}
+
+// GetErrorDetails returns the ErrorDetails field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationStatusModel) GetErrorDetails() string {
-	if o == nil || IsNil(o.ErrorDetails) {
+	if o == nil || IsNil(o.ErrorDetails.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ErrorDetails
+	return *o.ErrorDetails.Get()
 }
 
 // GetErrorDetailsOk returns a tuple with the ErrorDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationStatusModel) GetErrorDetailsOk() (*string, bool) {
-	if o == nil || IsNil(o.ErrorDetails) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ErrorDetails, true
+	return o.ErrorDetails.Get(), o.ErrorDetails.IsSet()
 }
 
-// SetErrorDetails gets a reference to the given string and assigns it to the ErrorDetails field.
+// SetErrorDetails gets a reference to the given NullableString and assigns it to the ErrorDetails field.
 func (o *RemoteBrowserIsolationStatusModel) SetErrorDetails(v string) {
-	o.ErrorDetails = &v
+	o.ErrorDetails.Set(&v)
+}
+
+// SetErrorDetailsNil sets the value for ErrorDetails to be an explicit nil
+func (o *RemoteBrowserIsolationStatusModel) SetErrorDetailsNil() {
+	o.ErrorDetails.Set(nil)
+}
+
+// UnsetErrorDetails ensures that no value is present for ErrorDetails, not even an explicit nil
+func (o *RemoteBrowserIsolationStatusModel) UnsetErrorDetails() {
+	o.ErrorDetails.Unset()
 }
 
 // GetInUsedByRemoteBrowserIsolation returns the InUsedByRemoteBrowserIsolation field value if set, zero value otherwise.
@@ -114,11 +136,11 @@ func (o RemoteBrowserIsolationStatusModel) MarshalJSON() ([]byte, error) {
 
 func (o RemoteBrowserIsolationStatusModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
-	if !IsNil(o.ErrorDetails) {
-		toSerialize["errorDetails"] = o.ErrorDetails
+	if o.ErrorDetails.IsSet() {
+		toSerialize["errorDetails"] = o.ErrorDetails.Get()
 	}
 	if !IsNil(o.InUsedByRemoteBrowserIsolation) {
 		toSerialize["inUsedByRemoteBrowserIsolation"] = o.InUsedByRemoteBrowserIsolation

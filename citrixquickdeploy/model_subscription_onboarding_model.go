@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,16 +19,12 @@ var _ MappedNullable = &SubscriptionOnboardingModel{}
 
 // SubscriptionOnboardingModel struct for SubscriptionOnboardingModel
 type SubscriptionOnboardingModel struct {
-	// ClientId of the Citrix SPN created within the tenant being on-boarded
-	ClientId string `json:"clientId"`
-	// ClientSecret of the Citrix SPN created within the tenant being on-boarded
-	ClientSecret string `json:"clientSecret"`
 	// Id of the subscription being on-boarded
 	SubscriptionId string `json:"subscriptionId"`
 	// Id of the tenant being on-boarded
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantId NullableString `json:"tenantId,omitempty"`
 	// Name of the Azure pool where the subscription needs to be added
-	PoolName *string `json:"poolName,omitempty"`
+	PoolName NullableString `json:"poolName,omitempty"`
 }
 
 // NewSubscriptionOnboardingModelWithDefaults instantiates a new SubscriptionOnboardingModel object
@@ -37,54 +33,6 @@ type SubscriptionOnboardingModel struct {
 func NewSubscriptionOnboardingModelWithDefaults() *SubscriptionOnboardingModel {
 	this := SubscriptionOnboardingModel{}
 	return &this
-}
-
-// GetClientId returns the ClientId field value
-func (o *SubscriptionOnboardingModel) GetClientId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ClientId
-}
-
-// GetClientIdOk returns a tuple with the ClientId field value
-// and a boolean to check if the value has been set.
-func (o *SubscriptionOnboardingModel) GetClientIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ClientId, true
-}
-
-// SetClientId sets field value
-func (o *SubscriptionOnboardingModel) SetClientId(v string) {
-	o.ClientId = v
-}
-
-// GetClientSecret returns the ClientSecret field value
-func (o *SubscriptionOnboardingModel) GetClientSecret() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ClientSecret
-}
-
-// GetClientSecretOk returns a tuple with the ClientSecret field value
-// and a boolean to check if the value has been set.
-func (o *SubscriptionOnboardingModel) GetClientSecretOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ClientSecret, true
-}
-
-// SetClientSecret sets field value
-func (o *SubscriptionOnboardingModel) SetClientSecret(v string) {
-	o.ClientSecret = v
 }
 
 // GetSubscriptionId returns the SubscriptionId field value
@@ -111,50 +59,72 @@ func (o *SubscriptionOnboardingModel) SetSubscriptionId(v string) {
 	o.SubscriptionId = v
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SubscriptionOnboardingModel) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil || IsNil(o.TenantId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+	return *o.TenantId.Get()
 }
 
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SubscriptionOnboardingModel) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return o.TenantId.Get(), o.TenantId.IsSet()
 }
 
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
 func (o *SubscriptionOnboardingModel) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId.Set(&v)
 }
 
-// GetPoolName returns the PoolName field value if set, zero value otherwise.
+// SetTenantIdNil sets the value for TenantId to be an explicit nil
+func (o *SubscriptionOnboardingModel) SetTenantIdNil() {
+	o.TenantId.Set(nil)
+}
+
+// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+func (o *SubscriptionOnboardingModel) UnsetTenantId() {
+	o.TenantId.Unset()
+}
+
+// GetPoolName returns the PoolName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SubscriptionOnboardingModel) GetPoolName() string {
-	if o == nil || IsNil(o.PoolName) {
+	if o == nil || IsNil(o.PoolName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PoolName
+	return *o.PoolName.Get()
 }
 
 // GetPoolNameOk returns a tuple with the PoolName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SubscriptionOnboardingModel) GetPoolNameOk() (*string, bool) {
-	if o == nil || IsNil(o.PoolName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PoolName, true
+	return o.PoolName.Get(), o.PoolName.IsSet()
 }
 
-// SetPoolName gets a reference to the given string and assigns it to the PoolName field.
+// SetPoolName gets a reference to the given NullableString and assigns it to the PoolName field.
 func (o *SubscriptionOnboardingModel) SetPoolName(v string) {
-	o.PoolName = &v
+	o.PoolName.Set(&v)
+}
+
+// SetPoolNameNil sets the value for PoolName to be an explicit nil
+func (o *SubscriptionOnboardingModel) SetPoolNameNil() {
+	o.PoolName.Set(nil)
+}
+
+// UnsetPoolName ensures that no value is present for PoolName, not even an explicit nil
+func (o *SubscriptionOnboardingModel) UnsetPoolName() {
+	o.PoolName.Unset()
 }
 
 func (o SubscriptionOnboardingModel) MarshalJSON() ([]byte, error) {
@@ -167,14 +137,12 @@ func (o SubscriptionOnboardingModel) MarshalJSON() ([]byte, error) {
 
 func (o SubscriptionOnboardingModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["clientId"] = o.ClientId
-	toSerialize["clientSecret"] = o.ClientSecret
 	toSerialize["subscriptionId"] = o.SubscriptionId
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
+	if o.TenantId.IsSet() {
+		toSerialize["tenantId"] = o.TenantId.Get()
 	}
-	if !IsNil(o.PoolName) {
-		toSerialize["poolName"] = o.PoolName
+	if o.PoolName.IsSet() {
+		toSerialize["poolName"] = o.PoolName.Get()
 	}
 	return toSerialize, nil
 }

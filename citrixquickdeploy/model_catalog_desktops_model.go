@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -55,9 +55,9 @@ func (o *CatalogDesktopsModel) SetItems(v []PublishedDesktop) {
 	o.Items = v
 }
 
-// GetDesktops returns the Desktops field value if set, zero value otherwise.
+// GetDesktops returns the Desktops field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogDesktopsModel) GetDesktops() []PublishedDesktop {
-	if o == nil || IsNil(o.Desktops) {
+	if o == nil {
 		var ret []PublishedDesktop
 		return ret
 	}
@@ -66,6 +66,7 @@ func (o *CatalogDesktopsModel) GetDesktops() []PublishedDesktop {
 
 // GetDesktopsOk returns a tuple with the Desktops field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogDesktopsModel) GetDesktopsOk() ([]PublishedDesktop, bool) {
 	if o == nil || IsNil(o.Desktops) {
 		return nil, false
@@ -89,7 +90,7 @@ func (o CatalogDesktopsModel) MarshalJSON() ([]byte, error) {
 func (o CatalogDesktopsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["items"] = o.Items
-	if !IsNil(o.Desktops) {
+	if o.Desktops != nil {
 		toSerialize["desktops"] = o.Desktops
 	}
 	return toSerialize, nil

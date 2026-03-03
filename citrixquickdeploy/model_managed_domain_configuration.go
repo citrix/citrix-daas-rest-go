@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,7 +19,7 @@ var _ MappedNullable = &ManagedDomainConfiguration{}
 
 // ManagedDomainConfiguration struct for ManagedDomainConfiguration
 type ManagedDomainConfiguration struct {
-	DomainName  *string             `json:"domainName,omitempty"`
+	DomainName  NullableString      `json:"domainName,omitempty"`
 	DomainUsers []ManagedDomainUser `json:"domainUsers,omitempty"`
 }
 
@@ -31,32 +31,43 @@ func NewManagedDomainConfigurationWithDefaults() *ManagedDomainConfiguration {
 	return &this
 }
 
-// GetDomainName returns the DomainName field value if set, zero value otherwise.
+// GetDomainName returns the DomainName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedDomainConfiguration) GetDomainName() string {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil || IsNil(o.DomainName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DomainName
+	return *o.DomainName.Get()
 }
 
 // GetDomainNameOk returns a tuple with the DomainName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedDomainConfiguration) GetDomainNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainName, true
+	return o.DomainName.Get(), o.DomainName.IsSet()
 }
 
-// SetDomainName gets a reference to the given string and assigns it to the DomainName field.
+// SetDomainName gets a reference to the given NullableString and assigns it to the DomainName field.
 func (o *ManagedDomainConfiguration) SetDomainName(v string) {
-	o.DomainName = &v
+	o.DomainName.Set(&v)
 }
 
-// GetDomainUsers returns the DomainUsers field value if set, zero value otherwise.
+// SetDomainNameNil sets the value for DomainName to be an explicit nil
+func (o *ManagedDomainConfiguration) SetDomainNameNil() {
+	o.DomainName.Set(nil)
+}
+
+// UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
+func (o *ManagedDomainConfiguration) UnsetDomainName() {
+	o.DomainName.Unset()
+}
+
+// GetDomainUsers returns the DomainUsers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedDomainConfiguration) GetDomainUsers() []ManagedDomainUser {
-	if o == nil || IsNil(o.DomainUsers) {
+	if o == nil {
 		var ret []ManagedDomainUser
 		return ret
 	}
@@ -65,6 +76,7 @@ func (o *ManagedDomainConfiguration) GetDomainUsers() []ManagedDomainUser {
 
 // GetDomainUsersOk returns a tuple with the DomainUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedDomainConfiguration) GetDomainUsersOk() ([]ManagedDomainUser, bool) {
 	if o == nil || IsNil(o.DomainUsers) {
 		return nil, false
@@ -87,10 +99,10 @@ func (o ManagedDomainConfiguration) MarshalJSON() ([]byte, error) {
 
 func (o ManagedDomainConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.DomainName) {
-		toSerialize["domainName"] = o.DomainName
+	if o.DomainName.IsSet() {
+		toSerialize["domainName"] = o.DomainName.Get()
 	}
-	if !IsNil(o.DomainUsers) {
+	if o.DomainUsers != nil {
 		toSerialize["domainUsers"] = o.DomainUsers
 	}
 	return toSerialize, nil

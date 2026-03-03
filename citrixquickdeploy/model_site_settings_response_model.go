@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,31 +19,35 @@ var _ MappedNullable = &SiteSettingsResponseModel{}
 
 // SiteSettingsResponseModel The site settings response model.
 type SiteSettingsResponseModel struct {
-	UseVerticalScalingForRdsLaunches            *bool `json:"useVerticalScalingForRdsLaunches,omitempty"`
-	DnsResolutionEnabled                        *bool `json:"dnsResolutionEnabled,omitempty"`
-	TrustRequestsSentToTheXmlServicePortEnabled *bool `json:"trustRequestsSentToTheXmlServicePortEnabled,omitempty"`
+	UseVerticalScalingForRdsLaunches            NullableBool `json:"useVerticalScalingForRdsLaunches,omitempty"`
+	DnsResolutionEnabled                        NullableBool `json:"dnsResolutionEnabled,omitempty"`
+	TrustRequestsSentToTheXmlServicePortEnabled NullableBool `json:"trustRequestsSentToTheXmlServicePortEnabled,omitempty"`
 	// The policy set in web UI is enabled or not
-	WebUiPolicySetEnabled *bool `json:"webUiPolicySetEnabled,omitempty"`
+	WebUiPolicySetEnabled NullableBool `json:"webUiPolicySetEnabled,omitempty"`
 	// The max number of minutes that console can be inactive.
-	ConsoleInactivityTimeoutMinutes *int32 `json:"consoleInactivityTimeoutMinutes,omitempty"`
+	ConsoleInactivityTimeoutMinutes NullableInt32 `json:"consoleInactivityTimeoutMinutes,omitempty"`
 	// Applicable only for On-Premise.    Determine the supported authentication methods.
-	SupportedAuthenticators *Authenticator `json:"supportedAuthenticators,omitempty"`
+	SupportedAuthenticators NullableAuthenticator `json:"supportedAuthenticators,omitempty"`
 	// Applicable only for On-Premise.    Indicate whether to display security banner on the login page.
-	ShowSecurityBannerOnLoginPage *bool `json:"showSecurityBannerOnLoginPage,omitempty"`
+	ShowSecurityBannerOnLoginPage NullableBool `json:"showSecurityBannerOnLoginPage,omitempty"`
 	// Applicable only for On-Premise.    The custom security banner on the login page, max length is 5000.
-	SecurityBannerOnLoginPage *string `json:"securityBannerOnLoginPage,omitempty"`
+	SecurityBannerOnLoginPage NullableString `json:"securityBannerOnLoginPage,omitempty"`
 	// Applicable only for On-Premise.    Indicate whether to display the DDC used for the current Studio session on the login page.
-	ShowConnectedControllerOnLoginPage *bool `json:"showConnectedControllerOnLoginPage,omitempty"`
+	ShowConnectedControllerOnLoginPage NullableBool `json:"showConnectedControllerOnLoginPage,omitempty"`
 	// Application only for On-Premise.    List of origins allowed to make cross-origin requests for Integrated Windows Authentication.
 	AllowedCorsOriginsForIwa []string `json:"allowedCorsOriginsForIwa,omitempty"`
 	// Applicable only for On-Premise    Multiple sites configuration
 	MultiSites []MultiSiteModel `json:"multiSites,omitempty"`
 	// The default domain to be used in the login page.
-	DefaultDomain *string `json:"defaultDomain,omitempty"`
+	DefaultDomain NullableString `json:"defaultDomain,omitempty"`
 	// XML service configurations of enabling listening for https/http requests. Only applicable for On-Premise deployments.
 	XmlServicesSslConfigurations []NameValueStringPairModel `json:"xmlServicesSslConfigurations,omitempty"`
 	// Indicate whether Citrix Cloud Services are allowed to access the DaaS.
-	MultiTenantServicesAccess *MultiTenantServicesAccessModel `json:"multiTenantServicesAccess,omitempty"`
+	MultiTenantServicesAccess NullableMultiTenantServicesAccessModel `json:"multiTenantServicesAccess,omitempty"`
+	// The AOT setting
+	AotSetting NullableAotSettingResponseModel `json:"aotSetting,omitempty"`
+	// The Entra ID settings.
+	EntraIdSetting NullableEntraIdSettingModel `json:"entraIdSetting,omitempty"`
 }
 
 // NewSiteSettingsResponseModelWithDefaults instantiates a new SiteSettingsResponseModel object
@@ -54,216 +58,315 @@ func NewSiteSettingsResponseModelWithDefaults() *SiteSettingsResponseModel {
 	return &this
 }
 
-// GetUseVerticalScalingForRdsLaunches returns the UseVerticalScalingForRdsLaunches field value if set, zero value otherwise.
+// GetUseVerticalScalingForRdsLaunches returns the UseVerticalScalingForRdsLaunches field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetUseVerticalScalingForRdsLaunches() bool {
-	if o == nil || IsNil(o.UseVerticalScalingForRdsLaunches) {
+	if o == nil || IsNil(o.UseVerticalScalingForRdsLaunches.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.UseVerticalScalingForRdsLaunches
+	return *o.UseVerticalScalingForRdsLaunches.Get()
 }
 
 // GetUseVerticalScalingForRdsLaunchesOk returns a tuple with the UseVerticalScalingForRdsLaunches field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetUseVerticalScalingForRdsLaunchesOk() (*bool, bool) {
-	if o == nil || IsNil(o.UseVerticalScalingForRdsLaunches) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UseVerticalScalingForRdsLaunches, true
+	return o.UseVerticalScalingForRdsLaunches.Get(), o.UseVerticalScalingForRdsLaunches.IsSet()
 }
 
-// SetUseVerticalScalingForRdsLaunches gets a reference to the given bool and assigns it to the UseVerticalScalingForRdsLaunches field.
+// SetUseVerticalScalingForRdsLaunches gets a reference to the given NullableBool and assigns it to the UseVerticalScalingForRdsLaunches field.
 func (o *SiteSettingsResponseModel) SetUseVerticalScalingForRdsLaunches(v bool) {
-	o.UseVerticalScalingForRdsLaunches = &v
+	o.UseVerticalScalingForRdsLaunches.Set(&v)
 }
 
-// GetDnsResolutionEnabled returns the DnsResolutionEnabled field value if set, zero value otherwise.
+// SetUseVerticalScalingForRdsLaunchesNil sets the value for UseVerticalScalingForRdsLaunches to be an explicit nil
+func (o *SiteSettingsResponseModel) SetUseVerticalScalingForRdsLaunchesNil() {
+	o.UseVerticalScalingForRdsLaunches.Set(nil)
+}
+
+// UnsetUseVerticalScalingForRdsLaunches ensures that no value is present for UseVerticalScalingForRdsLaunches, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetUseVerticalScalingForRdsLaunches() {
+	o.UseVerticalScalingForRdsLaunches.Unset()
+}
+
+// GetDnsResolutionEnabled returns the DnsResolutionEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetDnsResolutionEnabled() bool {
-	if o == nil || IsNil(o.DnsResolutionEnabled) {
+	if o == nil || IsNil(o.DnsResolutionEnabled.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.DnsResolutionEnabled
+	return *o.DnsResolutionEnabled.Get()
 }
 
 // GetDnsResolutionEnabledOk returns a tuple with the DnsResolutionEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetDnsResolutionEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.DnsResolutionEnabled) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DnsResolutionEnabled, true
+	return o.DnsResolutionEnabled.Get(), o.DnsResolutionEnabled.IsSet()
 }
 
-// SetDnsResolutionEnabled gets a reference to the given bool and assigns it to the DnsResolutionEnabled field.
+// SetDnsResolutionEnabled gets a reference to the given NullableBool and assigns it to the DnsResolutionEnabled field.
 func (o *SiteSettingsResponseModel) SetDnsResolutionEnabled(v bool) {
-	o.DnsResolutionEnabled = &v
+	o.DnsResolutionEnabled.Set(&v)
 }
 
-// GetTrustRequestsSentToTheXmlServicePortEnabled returns the TrustRequestsSentToTheXmlServicePortEnabled field value if set, zero value otherwise.
+// SetDnsResolutionEnabledNil sets the value for DnsResolutionEnabled to be an explicit nil
+func (o *SiteSettingsResponseModel) SetDnsResolutionEnabledNil() {
+	o.DnsResolutionEnabled.Set(nil)
+}
+
+// UnsetDnsResolutionEnabled ensures that no value is present for DnsResolutionEnabled, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetDnsResolutionEnabled() {
+	o.DnsResolutionEnabled.Unset()
+}
+
+// GetTrustRequestsSentToTheXmlServicePortEnabled returns the TrustRequestsSentToTheXmlServicePortEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetTrustRequestsSentToTheXmlServicePortEnabled() bool {
-	if o == nil || IsNil(o.TrustRequestsSentToTheXmlServicePortEnabled) {
+	if o == nil || IsNil(o.TrustRequestsSentToTheXmlServicePortEnabled.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.TrustRequestsSentToTheXmlServicePortEnabled
+	return *o.TrustRequestsSentToTheXmlServicePortEnabled.Get()
 }
 
 // GetTrustRequestsSentToTheXmlServicePortEnabledOk returns a tuple with the TrustRequestsSentToTheXmlServicePortEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetTrustRequestsSentToTheXmlServicePortEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.TrustRequestsSentToTheXmlServicePortEnabled) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TrustRequestsSentToTheXmlServicePortEnabled, true
+	return o.TrustRequestsSentToTheXmlServicePortEnabled.Get(), o.TrustRequestsSentToTheXmlServicePortEnabled.IsSet()
 }
 
-// SetTrustRequestsSentToTheXmlServicePortEnabled gets a reference to the given bool and assigns it to the TrustRequestsSentToTheXmlServicePortEnabled field.
+// SetTrustRequestsSentToTheXmlServicePortEnabled gets a reference to the given NullableBool and assigns it to the TrustRequestsSentToTheXmlServicePortEnabled field.
 func (o *SiteSettingsResponseModel) SetTrustRequestsSentToTheXmlServicePortEnabled(v bool) {
-	o.TrustRequestsSentToTheXmlServicePortEnabled = &v
+	o.TrustRequestsSentToTheXmlServicePortEnabled.Set(&v)
 }
 
-// GetWebUiPolicySetEnabled returns the WebUiPolicySetEnabled field value if set, zero value otherwise.
+// SetTrustRequestsSentToTheXmlServicePortEnabledNil sets the value for TrustRequestsSentToTheXmlServicePortEnabled to be an explicit nil
+func (o *SiteSettingsResponseModel) SetTrustRequestsSentToTheXmlServicePortEnabledNil() {
+	o.TrustRequestsSentToTheXmlServicePortEnabled.Set(nil)
+}
+
+// UnsetTrustRequestsSentToTheXmlServicePortEnabled ensures that no value is present for TrustRequestsSentToTheXmlServicePortEnabled, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetTrustRequestsSentToTheXmlServicePortEnabled() {
+	o.TrustRequestsSentToTheXmlServicePortEnabled.Unset()
+}
+
+// GetWebUiPolicySetEnabled returns the WebUiPolicySetEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetWebUiPolicySetEnabled() bool {
-	if o == nil || IsNil(o.WebUiPolicySetEnabled) {
+	if o == nil || IsNil(o.WebUiPolicySetEnabled.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.WebUiPolicySetEnabled
+	return *o.WebUiPolicySetEnabled.Get()
 }
 
 // GetWebUiPolicySetEnabledOk returns a tuple with the WebUiPolicySetEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetWebUiPolicySetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.WebUiPolicySetEnabled) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WebUiPolicySetEnabled, true
+	return o.WebUiPolicySetEnabled.Get(), o.WebUiPolicySetEnabled.IsSet()
 }
 
-// SetWebUiPolicySetEnabled gets a reference to the given bool and assigns it to the WebUiPolicySetEnabled field.
+// SetWebUiPolicySetEnabled gets a reference to the given NullableBool and assigns it to the WebUiPolicySetEnabled field.
 func (o *SiteSettingsResponseModel) SetWebUiPolicySetEnabled(v bool) {
-	o.WebUiPolicySetEnabled = &v
+	o.WebUiPolicySetEnabled.Set(&v)
 }
 
-// GetConsoleInactivityTimeoutMinutes returns the ConsoleInactivityTimeoutMinutes field value if set, zero value otherwise.
+// SetWebUiPolicySetEnabledNil sets the value for WebUiPolicySetEnabled to be an explicit nil
+func (o *SiteSettingsResponseModel) SetWebUiPolicySetEnabledNil() {
+	o.WebUiPolicySetEnabled.Set(nil)
+}
+
+// UnsetWebUiPolicySetEnabled ensures that no value is present for WebUiPolicySetEnabled, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetWebUiPolicySetEnabled() {
+	o.WebUiPolicySetEnabled.Unset()
+}
+
+// GetConsoleInactivityTimeoutMinutes returns the ConsoleInactivityTimeoutMinutes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetConsoleInactivityTimeoutMinutes() int32 {
-	if o == nil || IsNil(o.ConsoleInactivityTimeoutMinutes) {
+	if o == nil || IsNil(o.ConsoleInactivityTimeoutMinutes.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.ConsoleInactivityTimeoutMinutes
+	return *o.ConsoleInactivityTimeoutMinutes.Get()
 }
 
 // GetConsoleInactivityTimeoutMinutesOk returns a tuple with the ConsoleInactivityTimeoutMinutes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetConsoleInactivityTimeoutMinutesOk() (*int32, bool) {
-	if o == nil || IsNil(o.ConsoleInactivityTimeoutMinutes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConsoleInactivityTimeoutMinutes, true
+	return o.ConsoleInactivityTimeoutMinutes.Get(), o.ConsoleInactivityTimeoutMinutes.IsSet()
 }
 
-// SetConsoleInactivityTimeoutMinutes gets a reference to the given int32 and assigns it to the ConsoleInactivityTimeoutMinutes field.
+// SetConsoleInactivityTimeoutMinutes gets a reference to the given NullableInt32 and assigns it to the ConsoleInactivityTimeoutMinutes field.
 func (o *SiteSettingsResponseModel) SetConsoleInactivityTimeoutMinutes(v int32) {
-	o.ConsoleInactivityTimeoutMinutes = &v
+	o.ConsoleInactivityTimeoutMinutes.Set(&v)
 }
 
-// GetSupportedAuthenticators returns the SupportedAuthenticators field value if set, zero value otherwise.
+// SetConsoleInactivityTimeoutMinutesNil sets the value for ConsoleInactivityTimeoutMinutes to be an explicit nil
+func (o *SiteSettingsResponseModel) SetConsoleInactivityTimeoutMinutesNil() {
+	o.ConsoleInactivityTimeoutMinutes.Set(nil)
+}
+
+// UnsetConsoleInactivityTimeoutMinutes ensures that no value is present for ConsoleInactivityTimeoutMinutes, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetConsoleInactivityTimeoutMinutes() {
+	o.ConsoleInactivityTimeoutMinutes.Unset()
+}
+
+// GetSupportedAuthenticators returns the SupportedAuthenticators field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetSupportedAuthenticators() Authenticator {
-	if o == nil || IsNil(o.SupportedAuthenticators) {
+	if o == nil || IsNil(o.SupportedAuthenticators.Get()) {
 		var ret Authenticator
 		return ret
 	}
-	return *o.SupportedAuthenticators
+	return *o.SupportedAuthenticators.Get()
 }
 
 // GetSupportedAuthenticatorsOk returns a tuple with the SupportedAuthenticators field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetSupportedAuthenticatorsOk() (*Authenticator, bool) {
-	if o == nil || IsNil(o.SupportedAuthenticators) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SupportedAuthenticators, true
+	return o.SupportedAuthenticators.Get(), o.SupportedAuthenticators.IsSet()
 }
 
-// SetSupportedAuthenticators gets a reference to the given Authenticator and assigns it to the SupportedAuthenticators field.
+// SetSupportedAuthenticators gets a reference to the given NullableAuthenticator and assigns it to the SupportedAuthenticators field.
 func (o *SiteSettingsResponseModel) SetSupportedAuthenticators(v Authenticator) {
-	o.SupportedAuthenticators = &v
+	o.SupportedAuthenticators.Set(&v)
 }
 
-// GetShowSecurityBannerOnLoginPage returns the ShowSecurityBannerOnLoginPage field value if set, zero value otherwise.
+// SetSupportedAuthenticatorsNil sets the value for SupportedAuthenticators to be an explicit nil
+func (o *SiteSettingsResponseModel) SetSupportedAuthenticatorsNil() {
+	o.SupportedAuthenticators.Set(nil)
+}
+
+// UnsetSupportedAuthenticators ensures that no value is present for SupportedAuthenticators, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetSupportedAuthenticators() {
+	o.SupportedAuthenticators.Unset()
+}
+
+// GetShowSecurityBannerOnLoginPage returns the ShowSecurityBannerOnLoginPage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetShowSecurityBannerOnLoginPage() bool {
-	if o == nil || IsNil(o.ShowSecurityBannerOnLoginPage) {
+	if o == nil || IsNil(o.ShowSecurityBannerOnLoginPage.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.ShowSecurityBannerOnLoginPage
+	return *o.ShowSecurityBannerOnLoginPage.Get()
 }
 
 // GetShowSecurityBannerOnLoginPageOk returns a tuple with the ShowSecurityBannerOnLoginPage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetShowSecurityBannerOnLoginPageOk() (*bool, bool) {
-	if o == nil || IsNil(o.ShowSecurityBannerOnLoginPage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ShowSecurityBannerOnLoginPage, true
+	return o.ShowSecurityBannerOnLoginPage.Get(), o.ShowSecurityBannerOnLoginPage.IsSet()
 }
 
-// SetShowSecurityBannerOnLoginPage gets a reference to the given bool and assigns it to the ShowSecurityBannerOnLoginPage field.
+// SetShowSecurityBannerOnLoginPage gets a reference to the given NullableBool and assigns it to the ShowSecurityBannerOnLoginPage field.
 func (o *SiteSettingsResponseModel) SetShowSecurityBannerOnLoginPage(v bool) {
-	o.ShowSecurityBannerOnLoginPage = &v
+	o.ShowSecurityBannerOnLoginPage.Set(&v)
 }
 
-// GetSecurityBannerOnLoginPage returns the SecurityBannerOnLoginPage field value if set, zero value otherwise.
+// SetShowSecurityBannerOnLoginPageNil sets the value for ShowSecurityBannerOnLoginPage to be an explicit nil
+func (o *SiteSettingsResponseModel) SetShowSecurityBannerOnLoginPageNil() {
+	o.ShowSecurityBannerOnLoginPage.Set(nil)
+}
+
+// UnsetShowSecurityBannerOnLoginPage ensures that no value is present for ShowSecurityBannerOnLoginPage, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetShowSecurityBannerOnLoginPage() {
+	o.ShowSecurityBannerOnLoginPage.Unset()
+}
+
+// GetSecurityBannerOnLoginPage returns the SecurityBannerOnLoginPage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetSecurityBannerOnLoginPage() string {
-	if o == nil || IsNil(o.SecurityBannerOnLoginPage) {
+	if o == nil || IsNil(o.SecurityBannerOnLoginPage.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SecurityBannerOnLoginPage
+	return *o.SecurityBannerOnLoginPage.Get()
 }
 
 // GetSecurityBannerOnLoginPageOk returns a tuple with the SecurityBannerOnLoginPage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetSecurityBannerOnLoginPageOk() (*string, bool) {
-	if o == nil || IsNil(o.SecurityBannerOnLoginPage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SecurityBannerOnLoginPage, true
+	return o.SecurityBannerOnLoginPage.Get(), o.SecurityBannerOnLoginPage.IsSet()
 }
 
-// SetSecurityBannerOnLoginPage gets a reference to the given string and assigns it to the SecurityBannerOnLoginPage field.
+// SetSecurityBannerOnLoginPage gets a reference to the given NullableString and assigns it to the SecurityBannerOnLoginPage field.
 func (o *SiteSettingsResponseModel) SetSecurityBannerOnLoginPage(v string) {
-	o.SecurityBannerOnLoginPage = &v
+	o.SecurityBannerOnLoginPage.Set(&v)
 }
 
-// GetShowConnectedControllerOnLoginPage returns the ShowConnectedControllerOnLoginPage field value if set, zero value otherwise.
+// SetSecurityBannerOnLoginPageNil sets the value for SecurityBannerOnLoginPage to be an explicit nil
+func (o *SiteSettingsResponseModel) SetSecurityBannerOnLoginPageNil() {
+	o.SecurityBannerOnLoginPage.Set(nil)
+}
+
+// UnsetSecurityBannerOnLoginPage ensures that no value is present for SecurityBannerOnLoginPage, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetSecurityBannerOnLoginPage() {
+	o.SecurityBannerOnLoginPage.Unset()
+}
+
+// GetShowConnectedControllerOnLoginPage returns the ShowConnectedControllerOnLoginPage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetShowConnectedControllerOnLoginPage() bool {
-	if o == nil || IsNil(o.ShowConnectedControllerOnLoginPage) {
+	if o == nil || IsNil(o.ShowConnectedControllerOnLoginPage.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.ShowConnectedControllerOnLoginPage
+	return *o.ShowConnectedControllerOnLoginPage.Get()
 }
 
 // GetShowConnectedControllerOnLoginPageOk returns a tuple with the ShowConnectedControllerOnLoginPage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetShowConnectedControllerOnLoginPageOk() (*bool, bool) {
-	if o == nil || IsNil(o.ShowConnectedControllerOnLoginPage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ShowConnectedControllerOnLoginPage, true
+	return o.ShowConnectedControllerOnLoginPage.Get(), o.ShowConnectedControllerOnLoginPage.IsSet()
 }
 
-// SetShowConnectedControllerOnLoginPage gets a reference to the given bool and assigns it to the ShowConnectedControllerOnLoginPage field.
+// SetShowConnectedControllerOnLoginPage gets a reference to the given NullableBool and assigns it to the ShowConnectedControllerOnLoginPage field.
 func (o *SiteSettingsResponseModel) SetShowConnectedControllerOnLoginPage(v bool) {
-	o.ShowConnectedControllerOnLoginPage = &v
+	o.ShowConnectedControllerOnLoginPage.Set(&v)
 }
 
-// GetAllowedCorsOriginsForIwa returns the AllowedCorsOriginsForIwa field value if set, zero value otherwise.
+// SetShowConnectedControllerOnLoginPageNil sets the value for ShowConnectedControllerOnLoginPage to be an explicit nil
+func (o *SiteSettingsResponseModel) SetShowConnectedControllerOnLoginPageNil() {
+	o.ShowConnectedControllerOnLoginPage.Set(nil)
+}
+
+// UnsetShowConnectedControllerOnLoginPage ensures that no value is present for ShowConnectedControllerOnLoginPage, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetShowConnectedControllerOnLoginPage() {
+	o.ShowConnectedControllerOnLoginPage.Unset()
+}
+
+// GetAllowedCorsOriginsForIwa returns the AllowedCorsOriginsForIwa field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetAllowedCorsOriginsForIwa() []string {
-	if o == nil || IsNil(o.AllowedCorsOriginsForIwa) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -272,6 +375,7 @@ func (o *SiteSettingsResponseModel) GetAllowedCorsOriginsForIwa() []string {
 
 // GetAllowedCorsOriginsForIwaOk returns a tuple with the AllowedCorsOriginsForIwa field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetAllowedCorsOriginsForIwaOk() ([]string, bool) {
 	if o == nil || IsNil(o.AllowedCorsOriginsForIwa) {
 		return nil, false
@@ -284,9 +388,9 @@ func (o *SiteSettingsResponseModel) SetAllowedCorsOriginsForIwa(v []string) {
 	o.AllowedCorsOriginsForIwa = v
 }
 
-// GetMultiSites returns the MultiSites field value if set, zero value otherwise.
+// GetMultiSites returns the MultiSites field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetMultiSites() []MultiSiteModel {
-	if o == nil || IsNil(o.MultiSites) {
+	if o == nil {
 		var ret []MultiSiteModel
 		return ret
 	}
@@ -295,6 +399,7 @@ func (o *SiteSettingsResponseModel) GetMultiSites() []MultiSiteModel {
 
 // GetMultiSitesOk returns a tuple with the MultiSites field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetMultiSitesOk() ([]MultiSiteModel, bool) {
 	if o == nil || IsNil(o.MultiSites) {
 		return nil, false
@@ -307,32 +412,43 @@ func (o *SiteSettingsResponseModel) SetMultiSites(v []MultiSiteModel) {
 	o.MultiSites = v
 }
 
-// GetDefaultDomain returns the DefaultDomain field value if set, zero value otherwise.
+// GetDefaultDomain returns the DefaultDomain field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetDefaultDomain() string {
-	if o == nil || IsNil(o.DefaultDomain) {
+	if o == nil || IsNil(o.DefaultDomain.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DefaultDomain
+	return *o.DefaultDomain.Get()
 }
 
 // GetDefaultDomainOk returns a tuple with the DefaultDomain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetDefaultDomainOk() (*string, bool) {
-	if o == nil || IsNil(o.DefaultDomain) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DefaultDomain, true
+	return o.DefaultDomain.Get(), o.DefaultDomain.IsSet()
 }
 
-// SetDefaultDomain gets a reference to the given string and assigns it to the DefaultDomain field.
+// SetDefaultDomain gets a reference to the given NullableString and assigns it to the DefaultDomain field.
 func (o *SiteSettingsResponseModel) SetDefaultDomain(v string) {
-	o.DefaultDomain = &v
+	o.DefaultDomain.Set(&v)
 }
 
-// GetXmlServicesSslConfigurations returns the XmlServicesSslConfigurations field value if set, zero value otherwise.
+// SetDefaultDomainNil sets the value for DefaultDomain to be an explicit nil
+func (o *SiteSettingsResponseModel) SetDefaultDomainNil() {
+	o.DefaultDomain.Set(nil)
+}
+
+// UnsetDefaultDomain ensures that no value is present for DefaultDomain, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetDefaultDomain() {
+	o.DefaultDomain.Unset()
+}
+
+// GetXmlServicesSslConfigurations returns the XmlServicesSslConfigurations field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetXmlServicesSslConfigurations() []NameValueStringPairModel {
-	if o == nil || IsNil(o.XmlServicesSslConfigurations) {
+	if o == nil {
 		var ret []NameValueStringPairModel
 		return ret
 	}
@@ -341,6 +457,7 @@ func (o *SiteSettingsResponseModel) GetXmlServicesSslConfigurations() []NameValu
 
 // GetXmlServicesSslConfigurationsOk returns a tuple with the XmlServicesSslConfigurations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetXmlServicesSslConfigurationsOk() ([]NameValueStringPairModel, bool) {
 	if o == nil || IsNil(o.XmlServicesSslConfigurations) {
 		return nil, false
@@ -353,27 +470,106 @@ func (o *SiteSettingsResponseModel) SetXmlServicesSslConfigurations(v []NameValu
 	o.XmlServicesSslConfigurations = v
 }
 
-// GetMultiTenantServicesAccess returns the MultiTenantServicesAccess field value if set, zero value otherwise.
+// GetMultiTenantServicesAccess returns the MultiTenantServicesAccess field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetMultiTenantServicesAccess() MultiTenantServicesAccessModel {
-	if o == nil || IsNil(o.MultiTenantServicesAccess) {
+	if o == nil || IsNil(o.MultiTenantServicesAccess.Get()) {
 		var ret MultiTenantServicesAccessModel
 		return ret
 	}
-	return *o.MultiTenantServicesAccess
+	return *o.MultiTenantServicesAccess.Get()
 }
 
 // GetMultiTenantServicesAccessOk returns a tuple with the MultiTenantServicesAccess field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SiteSettingsResponseModel) GetMultiTenantServicesAccessOk() (*MultiTenantServicesAccessModel, bool) {
-	if o == nil || IsNil(o.MultiTenantServicesAccess) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MultiTenantServicesAccess, true
+	return o.MultiTenantServicesAccess.Get(), o.MultiTenantServicesAccess.IsSet()
 }
 
-// SetMultiTenantServicesAccess gets a reference to the given MultiTenantServicesAccessModel and assigns it to the MultiTenantServicesAccess field.
+// SetMultiTenantServicesAccess gets a reference to the given NullableMultiTenantServicesAccessModel and assigns it to the MultiTenantServicesAccess field.
 func (o *SiteSettingsResponseModel) SetMultiTenantServicesAccess(v MultiTenantServicesAccessModel) {
-	o.MultiTenantServicesAccess = &v
+	o.MultiTenantServicesAccess.Set(&v)
+}
+
+// SetMultiTenantServicesAccessNil sets the value for MultiTenantServicesAccess to be an explicit nil
+func (o *SiteSettingsResponseModel) SetMultiTenantServicesAccessNil() {
+	o.MultiTenantServicesAccess.Set(nil)
+}
+
+// UnsetMultiTenantServicesAccess ensures that no value is present for MultiTenantServicesAccess, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetMultiTenantServicesAccess() {
+	o.MultiTenantServicesAccess.Unset()
+}
+
+// GetAotSetting returns the AotSetting field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SiteSettingsResponseModel) GetAotSetting() AotSettingResponseModel {
+	if o == nil || IsNil(o.AotSetting.Get()) {
+		var ret AotSettingResponseModel
+		return ret
+	}
+	return *o.AotSetting.Get()
+}
+
+// GetAotSettingOk returns a tuple with the AotSetting field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SiteSettingsResponseModel) GetAotSettingOk() (*AotSettingResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AotSetting.Get(), o.AotSetting.IsSet()
+}
+
+// SetAotSetting gets a reference to the given NullableAotSettingResponseModel and assigns it to the AotSetting field.
+func (o *SiteSettingsResponseModel) SetAotSetting(v AotSettingResponseModel) {
+	o.AotSetting.Set(&v)
+}
+
+// SetAotSettingNil sets the value for AotSetting to be an explicit nil
+func (o *SiteSettingsResponseModel) SetAotSettingNil() {
+	o.AotSetting.Set(nil)
+}
+
+// UnsetAotSetting ensures that no value is present for AotSetting, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetAotSetting() {
+	o.AotSetting.Unset()
+}
+
+// GetEntraIdSetting returns the EntraIdSetting field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SiteSettingsResponseModel) GetEntraIdSetting() EntraIdSettingModel {
+	if o == nil || IsNil(o.EntraIdSetting.Get()) {
+		var ret EntraIdSettingModel
+		return ret
+	}
+	return *o.EntraIdSetting.Get()
+}
+
+// GetEntraIdSettingOk returns a tuple with the EntraIdSetting field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SiteSettingsResponseModel) GetEntraIdSettingOk() (*EntraIdSettingModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EntraIdSetting.Get(), o.EntraIdSetting.IsSet()
+}
+
+// SetEntraIdSetting gets a reference to the given NullableEntraIdSettingModel and assigns it to the EntraIdSetting field.
+func (o *SiteSettingsResponseModel) SetEntraIdSetting(v EntraIdSettingModel) {
+	o.EntraIdSetting.Set(&v)
+}
+
+// SetEntraIdSettingNil sets the value for EntraIdSetting to be an explicit nil
+func (o *SiteSettingsResponseModel) SetEntraIdSettingNil() {
+	o.EntraIdSetting.Set(nil)
+}
+
+// UnsetEntraIdSetting ensures that no value is present for EntraIdSetting, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetEntraIdSetting() {
+	o.EntraIdSetting.Unset()
 }
 
 func (o SiteSettingsResponseModel) MarshalJSON() ([]byte, error) {
@@ -386,47 +582,53 @@ func (o SiteSettingsResponseModel) MarshalJSON() ([]byte, error) {
 
 func (o SiteSettingsResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.UseVerticalScalingForRdsLaunches) {
-		toSerialize["useVerticalScalingForRdsLaunches"] = o.UseVerticalScalingForRdsLaunches
+	if o.UseVerticalScalingForRdsLaunches.IsSet() {
+		toSerialize["useVerticalScalingForRdsLaunches"] = o.UseVerticalScalingForRdsLaunches.Get()
 	}
-	if !IsNil(o.DnsResolutionEnabled) {
-		toSerialize["dnsResolutionEnabled"] = o.DnsResolutionEnabled
+	if o.DnsResolutionEnabled.IsSet() {
+		toSerialize["dnsResolutionEnabled"] = o.DnsResolutionEnabled.Get()
 	}
-	if !IsNil(o.TrustRequestsSentToTheXmlServicePortEnabled) {
-		toSerialize["trustRequestsSentToTheXmlServicePortEnabled"] = o.TrustRequestsSentToTheXmlServicePortEnabled
+	if o.TrustRequestsSentToTheXmlServicePortEnabled.IsSet() {
+		toSerialize["trustRequestsSentToTheXmlServicePortEnabled"] = o.TrustRequestsSentToTheXmlServicePortEnabled.Get()
 	}
-	if !IsNil(o.WebUiPolicySetEnabled) {
-		toSerialize["webUiPolicySetEnabled"] = o.WebUiPolicySetEnabled
+	if o.WebUiPolicySetEnabled.IsSet() {
+		toSerialize["webUiPolicySetEnabled"] = o.WebUiPolicySetEnabled.Get()
 	}
-	if !IsNil(o.ConsoleInactivityTimeoutMinutes) {
-		toSerialize["consoleInactivityTimeoutMinutes"] = o.ConsoleInactivityTimeoutMinutes
+	if o.ConsoleInactivityTimeoutMinutes.IsSet() {
+		toSerialize["consoleInactivityTimeoutMinutes"] = o.ConsoleInactivityTimeoutMinutes.Get()
 	}
-	if !IsNil(o.SupportedAuthenticators) {
-		toSerialize["supportedAuthenticators"] = o.SupportedAuthenticators
+	if o.SupportedAuthenticators.IsSet() {
+		toSerialize["supportedAuthenticators"] = o.SupportedAuthenticators.Get()
 	}
-	if !IsNil(o.ShowSecurityBannerOnLoginPage) {
-		toSerialize["showSecurityBannerOnLoginPage"] = o.ShowSecurityBannerOnLoginPage
+	if o.ShowSecurityBannerOnLoginPage.IsSet() {
+		toSerialize["showSecurityBannerOnLoginPage"] = o.ShowSecurityBannerOnLoginPage.Get()
 	}
-	if !IsNil(o.SecurityBannerOnLoginPage) {
-		toSerialize["securityBannerOnLoginPage"] = o.SecurityBannerOnLoginPage
+	if o.SecurityBannerOnLoginPage.IsSet() {
+		toSerialize["securityBannerOnLoginPage"] = o.SecurityBannerOnLoginPage.Get()
 	}
-	if !IsNil(o.ShowConnectedControllerOnLoginPage) {
-		toSerialize["showConnectedControllerOnLoginPage"] = o.ShowConnectedControllerOnLoginPage
+	if o.ShowConnectedControllerOnLoginPage.IsSet() {
+		toSerialize["showConnectedControllerOnLoginPage"] = o.ShowConnectedControllerOnLoginPage.Get()
 	}
-	if !IsNil(o.AllowedCorsOriginsForIwa) {
+	if o.AllowedCorsOriginsForIwa != nil {
 		toSerialize["allowedCorsOriginsForIwa"] = o.AllowedCorsOriginsForIwa
 	}
-	if !IsNil(o.MultiSites) {
+	if o.MultiSites != nil {
 		toSerialize["multiSites"] = o.MultiSites
 	}
-	if !IsNil(o.DefaultDomain) {
-		toSerialize["defaultDomain"] = o.DefaultDomain
+	if o.DefaultDomain.IsSet() {
+		toSerialize["defaultDomain"] = o.DefaultDomain.Get()
 	}
-	if !IsNil(o.XmlServicesSslConfigurations) {
+	if o.XmlServicesSslConfigurations != nil {
 		toSerialize["xmlServicesSslConfigurations"] = o.XmlServicesSslConfigurations
 	}
-	if !IsNil(o.MultiTenantServicesAccess) {
-		toSerialize["multiTenantServicesAccess"] = o.MultiTenantServicesAccess
+	if o.MultiTenantServicesAccess.IsSet() {
+		toSerialize["multiTenantServicesAccess"] = o.MultiTenantServicesAccess.Get()
+	}
+	if o.AotSetting.IsSet() {
+		toSerialize["aotSetting"] = o.AotSetting.Get()
+	}
+	if o.EntraIdSetting.IsSet() {
+		toSerialize["entraIdSetting"] = o.EntraIdSetting.Get()
 	}
 	return toSerialize, nil
 }

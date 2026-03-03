@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,19 +20,19 @@ var _ MappedNullable = &AddRemoteBrowserIsolationWebAppModel{}
 // AddRemoteBrowserIsolationWebAppModel struct for AddRemoteBrowserIsolationWebAppModel
 type AddRemoteBrowserIsolationWebAppModel struct {
 	// The friendly name displayed to the admin in the UI
-	FriendlyName *string `json:"friendlyName,omitempty"`
+	FriendlyName NullableString `json:"friendlyName,omitempty"`
 	// The target URL of the published app
-	DestinationUrl *string `json:"destinationUrl,omitempty"`
+	DestinationUrl NullableString `json:"destinationUrl,omitempty"`
 	// Which web browser was used for the launch
-	WebBrowser *string `json:"webBrowser,omitempty"`
+	WebBrowser NullableString `json:"webBrowser,omitempty"`
 	// Indicates that an app uses shared passcode
 	PasscodeBased *bool `json:"passcodeBased,omitempty"`
 	// Indicates that an app requires user authentication
 	Authenticated *bool `json:"authenticated,omitempty"`
 	// The password of an app
-	Password *string `json:"password,omitempty"`
+	Password NullableString `json:"password,omitempty"`
 	// The hash of the Secure Browser app icon
-	IconHash *string `json:"iconHash,omitempty"`
+	IconHash NullableString `json:"iconHash,omitempty"`
 }
 
 // NewAddRemoteBrowserIsolationWebAppModelWithDefaults instantiates a new AddRemoteBrowserIsolationWebAppModel object
@@ -41,77 +41,110 @@ type AddRemoteBrowserIsolationWebAppModel struct {
 func NewAddRemoteBrowserIsolationWebAppModelWithDefaults() *AddRemoteBrowserIsolationWebAppModel {
 	this := AddRemoteBrowserIsolationWebAppModel{}
 	var webBrowser string = "ChromeLnx"
-	this.WebBrowser = &webBrowser
+	this.WebBrowser = *NewNullableString(&webBrowser)
 	return &this
 }
 
-// GetFriendlyName returns the FriendlyName field value if set, zero value otherwise.
+// GetFriendlyName returns the FriendlyName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddRemoteBrowserIsolationWebAppModel) GetFriendlyName() string {
-	if o == nil || IsNil(o.FriendlyName) {
+	if o == nil || IsNil(o.FriendlyName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.FriendlyName
+	return *o.FriendlyName.Get()
 }
 
 // GetFriendlyNameOk returns a tuple with the FriendlyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddRemoteBrowserIsolationWebAppModel) GetFriendlyNameOk() (*string, bool) {
-	if o == nil || IsNil(o.FriendlyName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FriendlyName, true
+	return o.FriendlyName.Get(), o.FriendlyName.IsSet()
 }
 
-// SetFriendlyName gets a reference to the given string and assigns it to the FriendlyName field.
+// SetFriendlyName gets a reference to the given NullableString and assigns it to the FriendlyName field.
 func (o *AddRemoteBrowserIsolationWebAppModel) SetFriendlyName(v string) {
-	o.FriendlyName = &v
+	o.FriendlyName.Set(&v)
 }
 
-// GetDestinationUrl returns the DestinationUrl field value if set, zero value otherwise.
+// SetFriendlyNameNil sets the value for FriendlyName to be an explicit nil
+func (o *AddRemoteBrowserIsolationWebAppModel) SetFriendlyNameNil() {
+	o.FriendlyName.Set(nil)
+}
+
+// UnsetFriendlyName ensures that no value is present for FriendlyName, not even an explicit nil
+func (o *AddRemoteBrowserIsolationWebAppModel) UnsetFriendlyName() {
+	o.FriendlyName.Unset()
+}
+
+// GetDestinationUrl returns the DestinationUrl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddRemoteBrowserIsolationWebAppModel) GetDestinationUrl() string {
-	if o == nil || IsNil(o.DestinationUrl) {
+	if o == nil || IsNil(o.DestinationUrl.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DestinationUrl
+	return *o.DestinationUrl.Get()
 }
 
 // GetDestinationUrlOk returns a tuple with the DestinationUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddRemoteBrowserIsolationWebAppModel) GetDestinationUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.DestinationUrl) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DestinationUrl, true
+	return o.DestinationUrl.Get(), o.DestinationUrl.IsSet()
 }
 
-// SetDestinationUrl gets a reference to the given string and assigns it to the DestinationUrl field.
+// SetDestinationUrl gets a reference to the given NullableString and assigns it to the DestinationUrl field.
 func (o *AddRemoteBrowserIsolationWebAppModel) SetDestinationUrl(v string) {
-	o.DestinationUrl = &v
+	o.DestinationUrl.Set(&v)
 }
 
-// GetWebBrowser returns the WebBrowser field value if set, zero value otherwise.
+// SetDestinationUrlNil sets the value for DestinationUrl to be an explicit nil
+func (o *AddRemoteBrowserIsolationWebAppModel) SetDestinationUrlNil() {
+	o.DestinationUrl.Set(nil)
+}
+
+// UnsetDestinationUrl ensures that no value is present for DestinationUrl, not even an explicit nil
+func (o *AddRemoteBrowserIsolationWebAppModel) UnsetDestinationUrl() {
+	o.DestinationUrl.Unset()
+}
+
+// GetWebBrowser returns the WebBrowser field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddRemoteBrowserIsolationWebAppModel) GetWebBrowser() string {
-	if o == nil || IsNil(o.WebBrowser) {
+	if o == nil || IsNil(o.WebBrowser.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.WebBrowser
+	return *o.WebBrowser.Get()
 }
 
 // GetWebBrowserOk returns a tuple with the WebBrowser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddRemoteBrowserIsolationWebAppModel) GetWebBrowserOk() (*string, bool) {
-	if o == nil || IsNil(o.WebBrowser) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WebBrowser, true
+	return o.WebBrowser.Get(), o.WebBrowser.IsSet()
 }
 
-// SetWebBrowser gets a reference to the given string and assigns it to the WebBrowser field.
+// SetWebBrowser gets a reference to the given NullableString and assigns it to the WebBrowser field.
 func (o *AddRemoteBrowserIsolationWebAppModel) SetWebBrowser(v string) {
-	o.WebBrowser = &v
+	o.WebBrowser.Set(&v)
+}
+
+// SetWebBrowserNil sets the value for WebBrowser to be an explicit nil
+func (o *AddRemoteBrowserIsolationWebAppModel) SetWebBrowserNil() {
+	o.WebBrowser.Set(nil)
+}
+
+// UnsetWebBrowser ensures that no value is present for WebBrowser, not even an explicit nil
+func (o *AddRemoteBrowserIsolationWebAppModel) UnsetWebBrowser() {
+	o.WebBrowser.Unset()
 }
 
 // GetPasscodeBased returns the PasscodeBased field value if set, zero value otherwise.
@@ -160,50 +193,72 @@ func (o *AddRemoteBrowserIsolationWebAppModel) SetAuthenticated(v bool) {
 	o.Authenticated = &v
 }
 
-// GetPassword returns the Password field value if set, zero value otherwise.
+// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddRemoteBrowserIsolationWebAppModel) GetPassword() string {
-	if o == nil || IsNil(o.Password) {
+	if o == nil || IsNil(o.Password.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Password
+	return *o.Password.Get()
 }
 
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddRemoteBrowserIsolationWebAppModel) GetPasswordOk() (*string, bool) {
-	if o == nil || IsNil(o.Password) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Password, true
+	return o.Password.Get(), o.Password.IsSet()
 }
 
-// SetPassword gets a reference to the given string and assigns it to the Password field.
+// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
 func (o *AddRemoteBrowserIsolationWebAppModel) SetPassword(v string) {
-	o.Password = &v
+	o.Password.Set(&v)
 }
 
-// GetIconHash returns the IconHash field value if set, zero value otherwise.
+// SetPasswordNil sets the value for Password to be an explicit nil
+func (o *AddRemoteBrowserIsolationWebAppModel) SetPasswordNil() {
+	o.Password.Set(nil)
+}
+
+// UnsetPassword ensures that no value is present for Password, not even an explicit nil
+func (o *AddRemoteBrowserIsolationWebAppModel) UnsetPassword() {
+	o.Password.Unset()
+}
+
+// GetIconHash returns the IconHash field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddRemoteBrowserIsolationWebAppModel) GetIconHash() string {
-	if o == nil || IsNil(o.IconHash) {
+	if o == nil || IsNil(o.IconHash.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.IconHash
+	return *o.IconHash.Get()
 }
 
 // GetIconHashOk returns a tuple with the IconHash field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddRemoteBrowserIsolationWebAppModel) GetIconHashOk() (*string, bool) {
-	if o == nil || IsNil(o.IconHash) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IconHash, true
+	return o.IconHash.Get(), o.IconHash.IsSet()
 }
 
-// SetIconHash gets a reference to the given string and assigns it to the IconHash field.
+// SetIconHash gets a reference to the given NullableString and assigns it to the IconHash field.
 func (o *AddRemoteBrowserIsolationWebAppModel) SetIconHash(v string) {
-	o.IconHash = &v
+	o.IconHash.Set(&v)
+}
+
+// SetIconHashNil sets the value for IconHash to be an explicit nil
+func (o *AddRemoteBrowserIsolationWebAppModel) SetIconHashNil() {
+	o.IconHash.Set(nil)
+}
+
+// UnsetIconHash ensures that no value is present for IconHash, not even an explicit nil
+func (o *AddRemoteBrowserIsolationWebAppModel) UnsetIconHash() {
+	o.IconHash.Unset()
 }
 
 func (o AddRemoteBrowserIsolationWebAppModel) MarshalJSON() ([]byte, error) {
@@ -216,14 +271,14 @@ func (o AddRemoteBrowserIsolationWebAppModel) MarshalJSON() ([]byte, error) {
 
 func (o AddRemoteBrowserIsolationWebAppModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.FriendlyName) {
-		toSerialize["friendlyName"] = o.FriendlyName
+	if o.FriendlyName.IsSet() {
+		toSerialize["friendlyName"] = o.FriendlyName.Get()
 	}
-	if !IsNil(o.DestinationUrl) {
-		toSerialize["destinationUrl"] = o.DestinationUrl
+	if o.DestinationUrl.IsSet() {
+		toSerialize["destinationUrl"] = o.DestinationUrl.Get()
 	}
-	if !IsNil(o.WebBrowser) {
-		toSerialize["webBrowser"] = o.WebBrowser
+	if o.WebBrowser.IsSet() {
+		toSerialize["webBrowser"] = o.WebBrowser.Get()
 	}
 	if !IsNil(o.PasscodeBased) {
 		toSerialize["passcodeBased"] = o.PasscodeBased
@@ -231,11 +286,11 @@ func (o AddRemoteBrowserIsolationWebAppModel) ToMap() (map[string]interface{}, e
 	if !IsNil(o.Authenticated) {
 		toSerialize["authenticated"] = o.Authenticated
 	}
-	if !IsNil(o.Password) {
-		toSerialize["password"] = o.Password
+	if o.Password.IsSet() {
+		toSerialize["password"] = o.Password.Get()
 	}
-	if !IsNil(o.IconHash) {
-		toSerialize["iconHash"] = o.IconHash
+	if o.IconHash.IsSet() {
+		toSerialize["iconHash"] = o.IconHash.Get()
 	}
 	return toSerialize, nil
 }

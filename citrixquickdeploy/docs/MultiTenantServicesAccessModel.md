@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**XaCatalogService** | Pointer to **bool** | Indicate whether Citrix DaaS Standard for Azure is allowed. | [optional] 
-**XdQuickCreateService** | Pointer to **bool** | Indicate whether Citrix DaaS for Amazon WorkSpaces Core is allowed. | [optional] 
-**XdCloudPcRegistrationService** | Pointer to **bool** | Indicate whether Citrix HDX Plus for Windows 365 is allowed. | [optional] 
-**Itsm** | Pointer to **bool** | Indicate whether Citrix ITSM Adapter service is allowed. | [optional] 
+**XaCatalogService** | Pointer to **NullableBool** | Indicate whether Citrix DaaS Standard for Azure is allowed. | [optional] 
+**XdQuickCreateService** | Pointer to **NullableBool** | Indicate whether Citrix DaaS for Amazon WorkSpaces Core is allowed. | [optional] 
+**XdCloudPcRegistrationService** | Pointer to **NullableBool** | Indicate whether Citrix HDX Plus for Windows 365 is allowed. | [optional] 
+**Itsm** | Pointer to **NullableBool** | Indicate whether Citrix ITSM Adapter service is allowed. | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetXaCatalogService sets XaCatalogService field to given value.
 
 HasXaCatalogService returns a boolean if a field has been set.
 
+### SetXaCatalogServiceNil
+
+`func (o *MultiTenantServicesAccessModel) SetXaCatalogServiceNil(b bool)`
+
+ SetXaCatalogServiceNil sets the value for XaCatalogService to be an explicit nil
+
+### UnsetXaCatalogService
+`func (o *MultiTenantServicesAccessModel) UnsetXaCatalogService()`
+
+UnsetXaCatalogService ensures that no value is present for XaCatalogService, not even an explicit nil
 ### GetXdQuickCreateService
 
 `func (o *MultiTenantServicesAccessModel) GetXdQuickCreateService() bool`
@@ -78,6 +88,16 @@ SetXdQuickCreateService sets XdQuickCreateService field to given value.
 
 HasXdQuickCreateService returns a boolean if a field has been set.
 
+### SetXdQuickCreateServiceNil
+
+`func (o *MultiTenantServicesAccessModel) SetXdQuickCreateServiceNil(b bool)`
+
+ SetXdQuickCreateServiceNil sets the value for XdQuickCreateService to be an explicit nil
+
+### UnsetXdQuickCreateService
+`func (o *MultiTenantServicesAccessModel) UnsetXdQuickCreateService()`
+
+UnsetXdQuickCreateService ensures that no value is present for XdQuickCreateService, not even an explicit nil
 ### GetXdCloudPcRegistrationService
 
 `func (o *MultiTenantServicesAccessModel) GetXdCloudPcRegistrationService() bool`
@@ -103,6 +123,16 @@ SetXdCloudPcRegistrationService sets XdCloudPcRegistrationService field to given
 
 HasXdCloudPcRegistrationService returns a boolean if a field has been set.
 
+### SetXdCloudPcRegistrationServiceNil
+
+`func (o *MultiTenantServicesAccessModel) SetXdCloudPcRegistrationServiceNil(b bool)`
+
+ SetXdCloudPcRegistrationServiceNil sets the value for XdCloudPcRegistrationService to be an explicit nil
+
+### UnsetXdCloudPcRegistrationService
+`func (o *MultiTenantServicesAccessModel) UnsetXdCloudPcRegistrationService()`
+
+UnsetXdCloudPcRegistrationService ensures that no value is present for XdCloudPcRegistrationService, not even an explicit nil
 ### GetItsm
 
 `func (o *MultiTenantServicesAccessModel) GetItsm() bool`
@@ -128,6 +158,16 @@ SetItsm sets Itsm field to given value.
 
 HasItsm returns a boolean if a field has been set.
 
+### SetItsmNil
+
+`func (o *MultiTenantServicesAccessModel) SetItsmNil(b bool)`
+
+ SetItsmNil sets the value for Itsm to be an explicit nil
+
+### UnsetItsm
+`func (o *MultiTenantServicesAccessModel) UnsetItsm()`
+
+UnsetItsm ensures that no value is present for Itsm, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

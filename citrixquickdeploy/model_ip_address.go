@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -27,7 +27,8 @@ type IPAddress struct {
 	IsIPv6Teredo       *bool          `json:"isIPv6Teredo,omitempty"`
 	IsIPv6UniqueLocal  *bool          `json:"isIPv6UniqueLocal,omitempty"`
 	IsIPv4MappedToIPv6 *bool          `json:"isIPv4MappedToIPv6,omitempty"`
-	Address            *int64         `json:"address,omitempty"`
+	// Deprecated
+	Address *int64 `json:"address,omitempty"`
 }
 
 // NewIPAddressWithDefaults instantiates a new IPAddress object
@@ -223,6 +224,7 @@ func (o *IPAddress) SetIsIPv4MappedToIPv6(v bool) {
 }
 
 // GetAddress returns the Address field value if set, zero value otherwise.
+// Deprecated
 func (o *IPAddress) GetAddress() int64 {
 	if o == nil || IsNil(o.Address) {
 		var ret int64
@@ -233,6 +235,7 @@ func (o *IPAddress) GetAddress() int64 {
 
 // GetAddressOk returns a tuple with the Address field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *IPAddress) GetAddressOk() (*int64, bool) {
 	if o == nil || IsNil(o.Address) {
 		return nil, false
@@ -241,6 +244,7 @@ func (o *IPAddress) GetAddressOk() (*int64, bool) {
 }
 
 // SetAddress gets a reference to the given int64 and assigns it to the Address field.
+// Deprecated
 func (o *IPAddress) SetAddress(v int64) {
 	o.Address = &v
 }

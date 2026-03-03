@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**State** | Pointer to [**CatalogJobState**](CatalogJobState.md) | Current state of the Capacity job | [optional] 
-**SubState** | Pointer to [**CatalogJobSubState**](CatalogJobSubState.md) | Current sub state of the Capacity job | [optional] 
-**Status** | Pointer to **string** | Status message related to the job | [optional] 
-**Error** | Pointer to **string** | Error that occured in job processing | [optional] 
-**TransactionId** | Pointer to **string** | Transaction Id for the CapacityUpdate | [optional] 
+**State** | Pointer to [**NullableCatalogJobState**](CatalogJobState.md) | Current state of the Capacity job | [optional] 
+**SubState** | Pointer to [**NullableCatalogJobSubState**](CatalogJobSubState.md) | Current sub state of the Capacity job | [optional] 
+**Status** | Pointer to **NullableString** | Status message related to the job | [optional] 
+**Error** | Pointer to **NullableString** | Error that occured in job processing | [optional] 
+**TransactionId** | Pointer to **NullableString** | Transaction Id for the CapacityUpdate | [optional] 
 
 ## Methods
 
@@ -54,6 +54,16 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
+### SetStateNil
+
+`func (o *CapacityJobOverview) SetStateNil(b bool)`
+
+ SetStateNil sets the value for State to be an explicit nil
+
+### UnsetState
+`func (o *CapacityJobOverview) UnsetState()`
+
+UnsetState ensures that no value is present for State, not even an explicit nil
 ### GetSubState
 
 `func (o *CapacityJobOverview) GetSubState() CatalogJobSubState`
@@ -79,6 +89,16 @@ SetSubState sets SubState field to given value.
 
 HasSubState returns a boolean if a field has been set.
 
+### SetSubStateNil
+
+`func (o *CapacityJobOverview) SetSubStateNil(b bool)`
+
+ SetSubStateNil sets the value for SubState to be an explicit nil
+
+### UnsetSubState
+`func (o *CapacityJobOverview) UnsetSubState()`
+
+UnsetSubState ensures that no value is present for SubState, not even an explicit nil
 ### GetStatus
 
 `func (o *CapacityJobOverview) GetStatus() string`
@@ -104,6 +124,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *CapacityJobOverview) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *CapacityJobOverview) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetError
 
 `func (o *CapacityJobOverview) GetError() string`
@@ -129,6 +159,16 @@ SetError sets Error field to given value.
 
 HasError returns a boolean if a field has been set.
 
+### SetErrorNil
+
+`func (o *CapacityJobOverview) SetErrorNil(b bool)`
+
+ SetErrorNil sets the value for Error to be an explicit nil
+
+### UnsetError
+`func (o *CapacityJobOverview) UnsetError()`
+
+UnsetError ensures that no value is present for Error, not even an explicit nil
 ### GetTransactionId
 
 `func (o *CapacityJobOverview) GetTransactionId() string`
@@ -154,6 +194,16 @@ SetTransactionId sets TransactionId field to given value.
 
 HasTransactionId returns a boolean if a field has been set.
 
+### SetTransactionIdNil
+
+`func (o *CapacityJobOverview) SetTransactionIdNil(b bool)`
+
+ SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+
+### UnsetTransactionId
+`func (o *CapacityJobOverview) UnsetTransactionId()`
+
+UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

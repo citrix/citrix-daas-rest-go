@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DirectoryId** | **string** |  | 
 **DirectoryName** | **string** |  | 
-**AzurePoolName** | Pointer to **string** |  | [optional] 
+**AzurePoolName** | Pointer to **NullableString** |  | [optional] 
 **CustomerDeleted** | Pointer to **bool** |  | [optional] 
 **Subscriptions** | Pointer to [**[]ManagedCapacitySubscription**](ManagedCapacitySubscription.md) |  | [optional] 
-**AssignedCustomer** | Pointer to [**ManagedCapacityAssignedCustomer**](ManagedCapacityAssignedCustomer.md) |  | [optional] 
+**AssignedCustomer** | Pointer to [**NullableManagedCapacityAssignedCustomer**](ManagedCapacityAssignedCustomer.md) |  | [optional] 
 
 ## Methods
 
@@ -95,6 +95,16 @@ SetAzurePoolName sets AzurePoolName field to given value.
 
 HasAzurePoolName returns a boolean if a field has been set.
 
+### SetAzurePoolNameNil
+
+`func (o *ManagedCapacityDirectory) SetAzurePoolNameNil(b bool)`
+
+ SetAzurePoolNameNil sets the value for AzurePoolName to be an explicit nil
+
+### UnsetAzurePoolName
+`func (o *ManagedCapacityDirectory) UnsetAzurePoolName()`
+
+UnsetAzurePoolName ensures that no value is present for AzurePoolName, not even an explicit nil
 ### GetCustomerDeleted
 
 `func (o *ManagedCapacityDirectory) GetCustomerDeleted() bool`
@@ -145,6 +155,16 @@ SetSubscriptions sets Subscriptions field to given value.
 
 HasSubscriptions returns a boolean if a field has been set.
 
+### SetSubscriptionsNil
+
+`func (o *ManagedCapacityDirectory) SetSubscriptionsNil(b bool)`
+
+ SetSubscriptionsNil sets the value for Subscriptions to be an explicit nil
+
+### UnsetSubscriptions
+`func (o *ManagedCapacityDirectory) UnsetSubscriptions()`
+
+UnsetSubscriptions ensures that no value is present for Subscriptions, not even an explicit nil
 ### GetAssignedCustomer
 
 `func (o *ManagedCapacityDirectory) GetAssignedCustomer() ManagedCapacityAssignedCustomer`
@@ -170,6 +190,16 @@ SetAssignedCustomer sets AssignedCustomer field to given value.
 
 HasAssignedCustomer returns a boolean if a field has been set.
 
+### SetAssignedCustomerNil
+
+`func (o *ManagedCapacityDirectory) SetAssignedCustomerNil(b bool)`
+
+ SetAssignedCustomerNil sets the value for AssignedCustomer to be an explicit nil
+
+### UnsetAssignedCustomer
+`func (o *ManagedCapacityDirectory) UnsetAssignedCustomer()`
+
+UnsetAssignedCustomer ensures that no value is present for AssignedCustomer, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

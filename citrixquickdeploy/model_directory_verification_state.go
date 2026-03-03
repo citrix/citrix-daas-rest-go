@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,15 +20,15 @@ var _ MappedNullable = &DirectoryVerificationState{}
 // DirectoryVerificationState struct for DirectoryVerificationState
 type DirectoryVerificationState struct {
 	// ID of the directory
-	DirectoryId *string `json:"directoryId,omitempty"`
+	DirectoryId NullableString `json:"directoryId,omitempty"`
 	// Name of the directory
-	DirectoryName *string `json:"directoryName,omitempty"`
+	DirectoryName NullableString `json:"directoryName,omitempty"`
 	// Indicates if the directory is assigned to the pool or a customer
 	DirectoryAssignment *DirectoryAssignmentType `json:"directoryAssignment,omitempty"`
 	// ID of the assigned customer
-	AssignedCustomerId *string `json:"assignedCustomerId,omitempty"`
+	AssignedCustomerId NullableString `json:"assignedCustomerId,omitempty"`
 	// ID of the assigned customer's site
-	AssignedCustomerSiteId *string `json:"assignedCustomerSiteId,omitempty"`
+	AssignedCustomerSiteId NullableString `json:"assignedCustomerSiteId,omitempty"`
 	// Indicates if the Directory is invalid because it does not have any associated subscriptions
 	HasAssociatedSubscriptions *bool `json:"hasAssociatedSubscriptions,omitempty"`
 	// List of subscriptions that have unexpected users
@@ -46,50 +46,72 @@ func NewDirectoryVerificationStateWithDefaults() *DirectoryVerificationState {
 	return &this
 }
 
-// GetDirectoryId returns the DirectoryId field value if set, zero value otherwise.
+// GetDirectoryId returns the DirectoryId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DirectoryVerificationState) GetDirectoryId() string {
-	if o == nil || IsNil(o.DirectoryId) {
+	if o == nil || IsNil(o.DirectoryId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DirectoryId
+	return *o.DirectoryId.Get()
 }
 
 // GetDirectoryIdOk returns a tuple with the DirectoryId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DirectoryVerificationState) GetDirectoryIdOk() (*string, bool) {
-	if o == nil || IsNil(o.DirectoryId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DirectoryId, true
+	return o.DirectoryId.Get(), o.DirectoryId.IsSet()
 }
 
-// SetDirectoryId gets a reference to the given string and assigns it to the DirectoryId field.
+// SetDirectoryId gets a reference to the given NullableString and assigns it to the DirectoryId field.
 func (o *DirectoryVerificationState) SetDirectoryId(v string) {
-	o.DirectoryId = &v
+	o.DirectoryId.Set(&v)
 }
 
-// GetDirectoryName returns the DirectoryName field value if set, zero value otherwise.
+// SetDirectoryIdNil sets the value for DirectoryId to be an explicit nil
+func (o *DirectoryVerificationState) SetDirectoryIdNil() {
+	o.DirectoryId.Set(nil)
+}
+
+// UnsetDirectoryId ensures that no value is present for DirectoryId, not even an explicit nil
+func (o *DirectoryVerificationState) UnsetDirectoryId() {
+	o.DirectoryId.Unset()
+}
+
+// GetDirectoryName returns the DirectoryName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DirectoryVerificationState) GetDirectoryName() string {
-	if o == nil || IsNil(o.DirectoryName) {
+	if o == nil || IsNil(o.DirectoryName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DirectoryName
+	return *o.DirectoryName.Get()
 }
 
 // GetDirectoryNameOk returns a tuple with the DirectoryName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DirectoryVerificationState) GetDirectoryNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DirectoryName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DirectoryName, true
+	return o.DirectoryName.Get(), o.DirectoryName.IsSet()
 }
 
-// SetDirectoryName gets a reference to the given string and assigns it to the DirectoryName field.
+// SetDirectoryName gets a reference to the given NullableString and assigns it to the DirectoryName field.
 func (o *DirectoryVerificationState) SetDirectoryName(v string) {
-	o.DirectoryName = &v
+	o.DirectoryName.Set(&v)
+}
+
+// SetDirectoryNameNil sets the value for DirectoryName to be an explicit nil
+func (o *DirectoryVerificationState) SetDirectoryNameNil() {
+	o.DirectoryName.Set(nil)
+}
+
+// UnsetDirectoryName ensures that no value is present for DirectoryName, not even an explicit nil
+func (o *DirectoryVerificationState) UnsetDirectoryName() {
+	o.DirectoryName.Unset()
 }
 
 // GetDirectoryAssignment returns the DirectoryAssignment field value if set, zero value otherwise.
@@ -115,50 +137,72 @@ func (o *DirectoryVerificationState) SetDirectoryAssignment(v DirectoryAssignmen
 	o.DirectoryAssignment = &v
 }
 
-// GetAssignedCustomerId returns the AssignedCustomerId field value if set, zero value otherwise.
+// GetAssignedCustomerId returns the AssignedCustomerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DirectoryVerificationState) GetAssignedCustomerId() string {
-	if o == nil || IsNil(o.AssignedCustomerId) {
+	if o == nil || IsNil(o.AssignedCustomerId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AssignedCustomerId
+	return *o.AssignedCustomerId.Get()
 }
 
 // GetAssignedCustomerIdOk returns a tuple with the AssignedCustomerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DirectoryVerificationState) GetAssignedCustomerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AssignedCustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AssignedCustomerId, true
+	return o.AssignedCustomerId.Get(), o.AssignedCustomerId.IsSet()
 }
 
-// SetAssignedCustomerId gets a reference to the given string and assigns it to the AssignedCustomerId field.
+// SetAssignedCustomerId gets a reference to the given NullableString and assigns it to the AssignedCustomerId field.
 func (o *DirectoryVerificationState) SetAssignedCustomerId(v string) {
-	o.AssignedCustomerId = &v
+	o.AssignedCustomerId.Set(&v)
 }
 
-// GetAssignedCustomerSiteId returns the AssignedCustomerSiteId field value if set, zero value otherwise.
+// SetAssignedCustomerIdNil sets the value for AssignedCustomerId to be an explicit nil
+func (o *DirectoryVerificationState) SetAssignedCustomerIdNil() {
+	o.AssignedCustomerId.Set(nil)
+}
+
+// UnsetAssignedCustomerId ensures that no value is present for AssignedCustomerId, not even an explicit nil
+func (o *DirectoryVerificationState) UnsetAssignedCustomerId() {
+	o.AssignedCustomerId.Unset()
+}
+
+// GetAssignedCustomerSiteId returns the AssignedCustomerSiteId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DirectoryVerificationState) GetAssignedCustomerSiteId() string {
-	if o == nil || IsNil(o.AssignedCustomerSiteId) {
+	if o == nil || IsNil(o.AssignedCustomerSiteId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AssignedCustomerSiteId
+	return *o.AssignedCustomerSiteId.Get()
 }
 
 // GetAssignedCustomerSiteIdOk returns a tuple with the AssignedCustomerSiteId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DirectoryVerificationState) GetAssignedCustomerSiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AssignedCustomerSiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AssignedCustomerSiteId, true
+	return o.AssignedCustomerSiteId.Get(), o.AssignedCustomerSiteId.IsSet()
 }
 
-// SetAssignedCustomerSiteId gets a reference to the given string and assigns it to the AssignedCustomerSiteId field.
+// SetAssignedCustomerSiteId gets a reference to the given NullableString and assigns it to the AssignedCustomerSiteId field.
 func (o *DirectoryVerificationState) SetAssignedCustomerSiteId(v string) {
-	o.AssignedCustomerSiteId = &v
+	o.AssignedCustomerSiteId.Set(&v)
+}
+
+// SetAssignedCustomerSiteIdNil sets the value for AssignedCustomerSiteId to be an explicit nil
+func (o *DirectoryVerificationState) SetAssignedCustomerSiteIdNil() {
+	o.AssignedCustomerSiteId.Set(nil)
+}
+
+// UnsetAssignedCustomerSiteId ensures that no value is present for AssignedCustomerSiteId, not even an explicit nil
+func (o *DirectoryVerificationState) UnsetAssignedCustomerSiteId() {
+	o.AssignedCustomerSiteId.Unset()
 }
 
 // GetHasAssociatedSubscriptions returns the HasAssociatedSubscriptions field value if set, zero value otherwise.
@@ -184,9 +228,9 @@ func (o *DirectoryVerificationState) SetHasAssociatedSubscriptions(v bool) {
 	o.HasAssociatedSubscriptions = &v
 }
 
-// GetSubscriptions returns the Subscriptions field value if set, zero value otherwise.
+// GetSubscriptions returns the Subscriptions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DirectoryVerificationState) GetSubscriptions() []SubscriptionVerificationState {
-	if o == nil || IsNil(o.Subscriptions) {
+	if o == nil {
 		var ret []SubscriptionVerificationState
 		return ret
 	}
@@ -195,6 +239,7 @@ func (o *DirectoryVerificationState) GetSubscriptions() []SubscriptionVerificati
 
 // GetSubscriptionsOk returns a tuple with the Subscriptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DirectoryVerificationState) GetSubscriptionsOk() ([]SubscriptionVerificationState, bool) {
 	if o == nil || IsNil(o.Subscriptions) {
 		return nil, false
@@ -207,9 +252,9 @@ func (o *DirectoryVerificationState) SetSubscriptions(v []SubscriptionVerificati
 	o.Subscriptions = v
 }
 
-// GetUnexpectedAssignments returns the UnexpectedAssignments field value if set, zero value otherwise.
+// GetUnexpectedAssignments returns the UnexpectedAssignments field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DirectoryVerificationState) GetUnexpectedAssignments() []AzureAssignment {
-	if o == nil || IsNil(o.UnexpectedAssignments) {
+	if o == nil {
 		var ret []AzureAssignment
 		return ret
 	}
@@ -218,6 +263,7 @@ func (o *DirectoryVerificationState) GetUnexpectedAssignments() []AzureAssignmen
 
 // GetUnexpectedAssignmentsOk returns a tuple with the UnexpectedAssignments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DirectoryVerificationState) GetUnexpectedAssignmentsOk() ([]AzureAssignment, bool) {
 	if o == nil || IsNil(o.UnexpectedAssignments) {
 		return nil, false
@@ -263,28 +309,28 @@ func (o DirectoryVerificationState) MarshalJSON() ([]byte, error) {
 
 func (o DirectoryVerificationState) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.DirectoryId) {
-		toSerialize["directoryId"] = o.DirectoryId
+	if o.DirectoryId.IsSet() {
+		toSerialize["directoryId"] = o.DirectoryId.Get()
 	}
-	if !IsNil(o.DirectoryName) {
-		toSerialize["directoryName"] = o.DirectoryName
+	if o.DirectoryName.IsSet() {
+		toSerialize["directoryName"] = o.DirectoryName.Get()
 	}
 	if !IsNil(o.DirectoryAssignment) {
 		toSerialize["directoryAssignment"] = o.DirectoryAssignment
 	}
-	if !IsNil(o.AssignedCustomerId) {
-		toSerialize["assignedCustomerId"] = o.AssignedCustomerId
+	if o.AssignedCustomerId.IsSet() {
+		toSerialize["assignedCustomerId"] = o.AssignedCustomerId.Get()
 	}
-	if !IsNil(o.AssignedCustomerSiteId) {
-		toSerialize["assignedCustomerSiteId"] = o.AssignedCustomerSiteId
+	if o.AssignedCustomerSiteId.IsSet() {
+		toSerialize["assignedCustomerSiteId"] = o.AssignedCustomerSiteId.Get()
 	}
 	if !IsNil(o.HasAssociatedSubscriptions) {
 		toSerialize["hasAssociatedSubscriptions"] = o.HasAssociatedSubscriptions
 	}
-	if !IsNil(o.Subscriptions) {
+	if o.Subscriptions != nil {
 		toSerialize["subscriptions"] = o.Subscriptions
 	}
-	if !IsNil(o.UnexpectedAssignments) {
+	if o.UnexpectedAssignments != nil {
 		toSerialize["unexpectedAssignments"] = o.UnexpectedAssignments
 	}
 	if !IsNil(o.HasUnexpectedAssignments) {

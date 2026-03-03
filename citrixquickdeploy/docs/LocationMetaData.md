@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RegionType** | Pointer to **string** | The type of the region. | [optional] [readonly] 
-**RegionCategory** | Pointer to **string** | The category of the region. | [optional] [readonly] 
-**GeographyGroup** | Pointer to **string** | The geography group of the location. | [optional] [readonly] 
-**Longitude** | Pointer to **string** | The longitude of the location. | [optional] [readonly] 
-**Latitude** | Pointer to **string** | The latitude of the location. | [optional] [readonly] 
-**PhysicalLocation** | Pointer to **string** | The physical location of the Azure location. | [optional] [readonly] 
+**RegionType** | Pointer to **NullableString** | The type of the region. | [optional] [readonly] 
+**RegionCategory** | Pointer to **NullableString** | The category of the region. | [optional] [readonly] 
+**GeographyGroup** | Pointer to **NullableString** | The geography group of the location. | [optional] [readonly] 
+**Longitude** | Pointer to **NullableString** | The longitude of the location. | [optional] [readonly] 
+**Latitude** | Pointer to **NullableString** | The latitude of the location. | [optional] [readonly] 
+**PhysicalLocation** | Pointer to **NullableString** | The physical location of the Azure location. | [optional] [readonly] 
 **PairedRegions** | Pointer to [**[]PairedRegion**](PairedRegion.md) | The regions paired to this region. | [optional] [readonly] 
-**HomeLocation** | Pointer to **string** | The home location of an edge zone. | [optional] [readonly] 
+**HomeLocation** | Pointer to **NullableString** | The home location of an edge zone. | [optional] [readonly] 
 
 ## Methods
 
@@ -57,6 +57,16 @@ SetRegionType sets RegionType field to given value.
 
 HasRegionType returns a boolean if a field has been set.
 
+### SetRegionTypeNil
+
+`func (o *LocationMetaData) SetRegionTypeNil(b bool)`
+
+ SetRegionTypeNil sets the value for RegionType to be an explicit nil
+
+### UnsetRegionType
+`func (o *LocationMetaData) UnsetRegionType()`
+
+UnsetRegionType ensures that no value is present for RegionType, not even an explicit nil
 ### GetRegionCategory
 
 `func (o *LocationMetaData) GetRegionCategory() string`
@@ -82,6 +92,16 @@ SetRegionCategory sets RegionCategory field to given value.
 
 HasRegionCategory returns a boolean if a field has been set.
 
+### SetRegionCategoryNil
+
+`func (o *LocationMetaData) SetRegionCategoryNil(b bool)`
+
+ SetRegionCategoryNil sets the value for RegionCategory to be an explicit nil
+
+### UnsetRegionCategory
+`func (o *LocationMetaData) UnsetRegionCategory()`
+
+UnsetRegionCategory ensures that no value is present for RegionCategory, not even an explicit nil
 ### GetGeographyGroup
 
 `func (o *LocationMetaData) GetGeographyGroup() string`
@@ -107,6 +127,16 @@ SetGeographyGroup sets GeographyGroup field to given value.
 
 HasGeographyGroup returns a boolean if a field has been set.
 
+### SetGeographyGroupNil
+
+`func (o *LocationMetaData) SetGeographyGroupNil(b bool)`
+
+ SetGeographyGroupNil sets the value for GeographyGroup to be an explicit nil
+
+### UnsetGeographyGroup
+`func (o *LocationMetaData) UnsetGeographyGroup()`
+
+UnsetGeographyGroup ensures that no value is present for GeographyGroup, not even an explicit nil
 ### GetLongitude
 
 `func (o *LocationMetaData) GetLongitude() string`
@@ -132,6 +162,16 @@ SetLongitude sets Longitude field to given value.
 
 HasLongitude returns a boolean if a field has been set.
 
+### SetLongitudeNil
+
+`func (o *LocationMetaData) SetLongitudeNil(b bool)`
+
+ SetLongitudeNil sets the value for Longitude to be an explicit nil
+
+### UnsetLongitude
+`func (o *LocationMetaData) UnsetLongitude()`
+
+UnsetLongitude ensures that no value is present for Longitude, not even an explicit nil
 ### GetLatitude
 
 `func (o *LocationMetaData) GetLatitude() string`
@@ -157,6 +197,16 @@ SetLatitude sets Latitude field to given value.
 
 HasLatitude returns a boolean if a field has been set.
 
+### SetLatitudeNil
+
+`func (o *LocationMetaData) SetLatitudeNil(b bool)`
+
+ SetLatitudeNil sets the value for Latitude to be an explicit nil
+
+### UnsetLatitude
+`func (o *LocationMetaData) UnsetLatitude()`
+
+UnsetLatitude ensures that no value is present for Latitude, not even an explicit nil
 ### GetPhysicalLocation
 
 `func (o *LocationMetaData) GetPhysicalLocation() string`
@@ -182,6 +232,16 @@ SetPhysicalLocation sets PhysicalLocation field to given value.
 
 HasPhysicalLocation returns a boolean if a field has been set.
 
+### SetPhysicalLocationNil
+
+`func (o *LocationMetaData) SetPhysicalLocationNil(b bool)`
+
+ SetPhysicalLocationNil sets the value for PhysicalLocation to be an explicit nil
+
+### UnsetPhysicalLocation
+`func (o *LocationMetaData) UnsetPhysicalLocation()`
+
+UnsetPhysicalLocation ensures that no value is present for PhysicalLocation, not even an explicit nil
 ### GetPairedRegions
 
 `func (o *LocationMetaData) GetPairedRegions() []PairedRegion`
@@ -207,6 +267,16 @@ SetPairedRegions sets PairedRegions field to given value.
 
 HasPairedRegions returns a boolean if a field has been set.
 
+### SetPairedRegionsNil
+
+`func (o *LocationMetaData) SetPairedRegionsNil(b bool)`
+
+ SetPairedRegionsNil sets the value for PairedRegions to be an explicit nil
+
+### UnsetPairedRegions
+`func (o *LocationMetaData) UnsetPairedRegions()`
+
+UnsetPairedRegions ensures that no value is present for PairedRegions, not even an explicit nil
 ### GetHomeLocation
 
 `func (o *LocationMetaData) GetHomeLocation() string`
@@ -232,6 +302,16 @@ SetHomeLocation sets HomeLocation field to given value.
 
 HasHomeLocation returns a boolean if a field has been set.
 
+### SetHomeLocationNil
+
+`func (o *LocationMetaData) SetHomeLocationNil(b bool)`
+
+ SetHomeLocationNil sets the value for HomeLocation to be an explicit nil
+
+### UnsetHomeLocation
+`func (o *LocationMetaData) UnsetHomeLocation()`
+
+UnsetHomeLocation ensures that no value is present for HomeLocation, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

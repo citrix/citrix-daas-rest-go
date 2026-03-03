@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the route | 
 **AddressPrefix** | **string** | The destination CIDR to which the route applies. | 
 **NextHopType** | **string** | The type of hop the packet should be sent to. | 
-**NextHopIpAddress** | Pointer to **string** | The IP address packets should be forwarded to | [optional] 
+**NextHopIpAddress** | Pointer to **NullableString** | The IP address packets should be forwarded to | [optional] 
 **Enabled** | Pointer to **bool** | Specifies if the route is enabled | [optional] 
 
 ## Methods
@@ -135,6 +135,16 @@ SetNextHopIpAddress sets NextHopIpAddress field to given value.
 
 HasNextHopIpAddress returns a boolean if a field has been set.
 
+### SetNextHopIpAddressNil
+
+`func (o *RouteOverview) SetNextHopIpAddressNil(b bool)`
+
+ SetNextHopIpAddressNil sets the value for NextHopIpAddress to be an explicit nil
+
+### UnsetNextHopIpAddress
+`func (o *RouteOverview) UnsetNextHopIpAddress()`
+
+UnsetNextHopIpAddress ensures that no value is present for NextHopIpAddress, not even an explicit nil
 ### GetEnabled
 
 `func (o *RouteOverview) GetEnabled() bool`

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -22,9 +22,9 @@ type DeleteVdaModel struct {
 	// List of machine Uids to delete
 	MachineUids []int32 `json:"machineUids,omitempty"`
 	// Service account to perform delete with
-	ServiceAccount *string `json:"serviceAccount,omitempty"`
+	ServiceAccount NullableString `json:"serviceAccount,omitempty"`
 	// Customer's domain password
-	ServiceAccountPassword *string `json:"serviceAccountPassword,omitempty"`
+	ServiceAccountPassword NullableString `json:"serviceAccountPassword,omitempty"`
 }
 
 // NewDeleteVdaModelWithDefaults instantiates a new DeleteVdaModel object
@@ -35,9 +35,9 @@ func NewDeleteVdaModelWithDefaults() *DeleteVdaModel {
 	return &this
 }
 
-// GetMachineUids returns the MachineUids field value if set, zero value otherwise.
+// GetMachineUids returns the MachineUids field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeleteVdaModel) GetMachineUids() []int32 {
-	if o == nil || IsNil(o.MachineUids) {
+	if o == nil {
 		var ret []int32
 		return ret
 	}
@@ -46,6 +46,7 @@ func (o *DeleteVdaModel) GetMachineUids() []int32 {
 
 // GetMachineUidsOk returns a tuple with the MachineUids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeleteVdaModel) GetMachineUidsOk() ([]int32, bool) {
 	if o == nil || IsNil(o.MachineUids) {
 		return nil, false
@@ -58,50 +59,72 @@ func (o *DeleteVdaModel) SetMachineUids(v []int32) {
 	o.MachineUids = v
 }
 
-// GetServiceAccount returns the ServiceAccount field value if set, zero value otherwise.
+// GetServiceAccount returns the ServiceAccount field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeleteVdaModel) GetServiceAccount() string {
-	if o == nil || IsNil(o.ServiceAccount) {
+	if o == nil || IsNil(o.ServiceAccount.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ServiceAccount
+	return *o.ServiceAccount.Get()
 }
 
 // GetServiceAccountOk returns a tuple with the ServiceAccount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeleteVdaModel) GetServiceAccountOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceAccount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceAccount, true
+	return o.ServiceAccount.Get(), o.ServiceAccount.IsSet()
 }
 
-// SetServiceAccount gets a reference to the given string and assigns it to the ServiceAccount field.
+// SetServiceAccount gets a reference to the given NullableString and assigns it to the ServiceAccount field.
 func (o *DeleteVdaModel) SetServiceAccount(v string) {
-	o.ServiceAccount = &v
+	o.ServiceAccount.Set(&v)
 }
 
-// GetServiceAccountPassword returns the ServiceAccountPassword field value if set, zero value otherwise.
+// SetServiceAccountNil sets the value for ServiceAccount to be an explicit nil
+func (o *DeleteVdaModel) SetServiceAccountNil() {
+	o.ServiceAccount.Set(nil)
+}
+
+// UnsetServiceAccount ensures that no value is present for ServiceAccount, not even an explicit nil
+func (o *DeleteVdaModel) UnsetServiceAccount() {
+	o.ServiceAccount.Unset()
+}
+
+// GetServiceAccountPassword returns the ServiceAccountPassword field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeleteVdaModel) GetServiceAccountPassword() string {
-	if o == nil || IsNil(o.ServiceAccountPassword) {
+	if o == nil || IsNil(o.ServiceAccountPassword.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ServiceAccountPassword
+	return *o.ServiceAccountPassword.Get()
 }
 
 // GetServiceAccountPasswordOk returns a tuple with the ServiceAccountPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DeleteVdaModel) GetServiceAccountPasswordOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceAccountPassword) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceAccountPassword, true
+	return o.ServiceAccountPassword.Get(), o.ServiceAccountPassword.IsSet()
 }
 
-// SetServiceAccountPassword gets a reference to the given string and assigns it to the ServiceAccountPassword field.
+// SetServiceAccountPassword gets a reference to the given NullableString and assigns it to the ServiceAccountPassword field.
 func (o *DeleteVdaModel) SetServiceAccountPassword(v string) {
-	o.ServiceAccountPassword = &v
+	o.ServiceAccountPassword.Set(&v)
+}
+
+// SetServiceAccountPasswordNil sets the value for ServiceAccountPassword to be an explicit nil
+func (o *DeleteVdaModel) SetServiceAccountPasswordNil() {
+	o.ServiceAccountPassword.Set(nil)
+}
+
+// UnsetServiceAccountPassword ensures that no value is present for ServiceAccountPassword, not even an explicit nil
+func (o *DeleteVdaModel) UnsetServiceAccountPassword() {
+	o.ServiceAccountPassword.Unset()
 }
 
 func (o DeleteVdaModel) MarshalJSON() ([]byte, error) {
@@ -114,14 +137,14 @@ func (o DeleteVdaModel) MarshalJSON() ([]byte, error) {
 
 func (o DeleteVdaModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.MachineUids) {
+	if o.MachineUids != nil {
 		toSerialize["machineUids"] = o.MachineUids
 	}
-	if !IsNil(o.ServiceAccount) {
-		toSerialize["serviceAccount"] = o.ServiceAccount
+	if o.ServiceAccount.IsSet() {
+		toSerialize["serviceAccount"] = o.ServiceAccount.Get()
 	}
-	if !IsNil(o.ServiceAccountPassword) {
-		toSerialize["serviceAccountPassword"] = o.ServiceAccountPassword
+	if o.ServiceAccountPassword.IsSet() {
+		toSerialize["serviceAccountPassword"] = o.ServiceAccountPassword.Get()
 	}
 	return toSerialize, nil
 }

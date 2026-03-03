@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StorageAccount** | **string** | Name of the Storage Account | 
-**Items** | [**[]AzureStorageFile**](AzureStorageFile.md) | Files within the account | 
+**Items** | [**[]AzureStorageFile**](AzureStorageFile.md) | Files within the account | [readonly] 
 **Files** | Pointer to [**[]AzureStorageFile**](AzureStorageFile.md) | Alias of Items property for backward compatibility | [optional] 
 
 ## Methods
@@ -92,6 +92,16 @@ SetFiles sets Files field to given value.
 
 HasFiles returns a boolean if a field has been set.
 
+### SetFilesNil
+
+`func (o *AzureStorageAccountFilesModel) SetFilesNil(b bool)`
+
+ SetFilesNil sets the value for Files to be an explicit nil
+
+### UnsetFiles
+`func (o *AzureStorageAccountFilesModel) UnsetFiles()`
+
+UnsetFiles ensures that no value is present for Files, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

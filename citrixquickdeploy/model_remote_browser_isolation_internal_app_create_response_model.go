@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,7 +19,7 @@ var _ MappedNullable = &RemoteBrowserIsolationInternalAppCreateResponseModel{}
 
 // RemoteBrowserIsolationInternalAppCreateResponseModel struct for RemoteBrowserIsolationInternalAppCreateResponseModel
 type RemoteBrowserIsolationInternalAppCreateResponseModel struct {
-	ApplicationId *string `json:"applicationId,omitempty"`
+	ApplicationId NullableString `json:"applicationId,omitempty"`
 }
 
 // NewRemoteBrowserIsolationInternalAppCreateResponseModelWithDefaults instantiates a new RemoteBrowserIsolationInternalAppCreateResponseModel object
@@ -30,27 +30,38 @@ func NewRemoteBrowserIsolationInternalAppCreateResponseModelWithDefaults() *Remo
 	return &this
 }
 
-// GetApplicationId returns the ApplicationId field value if set, zero value otherwise.
+// GetApplicationId returns the ApplicationId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RemoteBrowserIsolationInternalAppCreateResponseModel) GetApplicationId() string {
-	if o == nil || IsNil(o.ApplicationId) {
+	if o == nil || IsNil(o.ApplicationId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ApplicationId
+	return *o.ApplicationId.Get()
 }
 
 // GetApplicationIdOk returns a tuple with the ApplicationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RemoteBrowserIsolationInternalAppCreateResponseModel) GetApplicationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ApplicationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ApplicationId, true
+	return o.ApplicationId.Get(), o.ApplicationId.IsSet()
 }
 
-// SetApplicationId gets a reference to the given string and assigns it to the ApplicationId field.
+// SetApplicationId gets a reference to the given NullableString and assigns it to the ApplicationId field.
 func (o *RemoteBrowserIsolationInternalAppCreateResponseModel) SetApplicationId(v string) {
-	o.ApplicationId = &v
+	o.ApplicationId.Set(&v)
+}
+
+// SetApplicationIdNil sets the value for ApplicationId to be an explicit nil
+func (o *RemoteBrowserIsolationInternalAppCreateResponseModel) SetApplicationIdNil() {
+	o.ApplicationId.Set(nil)
+}
+
+// UnsetApplicationId ensures that no value is present for ApplicationId, not even an explicit nil
+func (o *RemoteBrowserIsolationInternalAppCreateResponseModel) UnsetApplicationId() {
+	o.ApplicationId.Unset()
 }
 
 func (o RemoteBrowserIsolationInternalAppCreateResponseModel) MarshalJSON() ([]byte, error) {
@@ -63,8 +74,8 @@ func (o RemoteBrowserIsolationInternalAppCreateResponseModel) MarshalJSON() ([]b
 
 func (o RemoteBrowserIsolationInternalAppCreateResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ApplicationId) {
-		toSerialize["applicationId"] = o.ApplicationId
+	if o.ApplicationId.IsSet() {
+		toSerialize["applicationId"] = o.ApplicationId.Get()
 	}
 	return toSerialize, nil
 }

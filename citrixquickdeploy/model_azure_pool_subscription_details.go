@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,13 +20,15 @@ var _ MappedNullable = &AzurePoolSubscriptionDetails{}
 // AzurePoolSubscriptionDetails struct for AzurePoolSubscriptionDetails
 type AzurePoolSubscriptionDetails struct {
 	// Id of the tenant being onboarded
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantId NullableString `json:"tenantId,omitempty"`
 	// Id of the subscription being onboarded
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionId NullableString `json:"subscriptionId,omitempty"`
+	// Indicates if this subscriptions uses the new unified/MT Entra ID
+	MultitenantEntraId *bool `json:"multitenantEntraId,omitempty"`
 	// Current state of subscription onboarding process
 	State *DirectoryState `json:"state,omitempty"`
 	// Failure details if any
-	ErrorDetails *string `json:"errorDetails,omitempty"`
+	ErrorDetails NullableString `json:"errorDetails,omitempty"`
 }
 
 // NewAzurePoolSubscriptionDetailsWithDefaults instantiates a new AzurePoolSubscriptionDetails object
@@ -37,50 +39,95 @@ func NewAzurePoolSubscriptionDetailsWithDefaults() *AzurePoolSubscriptionDetails
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzurePoolSubscriptionDetails) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil || IsNil(o.TenantId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+	return *o.TenantId.Get()
 }
 
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzurePoolSubscriptionDetails) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return o.TenantId.Get(), o.TenantId.IsSet()
 }
 
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
 func (o *AzurePoolSubscriptionDetails) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId.Set(&v)
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// SetTenantIdNil sets the value for TenantId to be an explicit nil
+func (o *AzurePoolSubscriptionDetails) SetTenantIdNil() {
+	o.TenantId.Set(nil)
+}
+
+// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+func (o *AzurePoolSubscriptionDetails) UnsetTenantId() {
+	o.TenantId.Unset()
+}
+
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzurePoolSubscriptionDetails) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzurePoolSubscriptionDetails) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *AzurePoolSubscriptionDetails) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
+}
+
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *AzurePoolSubscriptionDetails) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *AzurePoolSubscriptionDetails) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
+}
+
+// GetMultitenantEntraId returns the MultitenantEntraId field value if set, zero value otherwise.
+func (o *AzurePoolSubscriptionDetails) GetMultitenantEntraId() bool {
+	if o == nil || IsNil(o.MultitenantEntraId) {
+		var ret bool
+		return ret
+	}
+	return *o.MultitenantEntraId
+}
+
+// GetMultitenantEntraIdOk returns a tuple with the MultitenantEntraId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AzurePoolSubscriptionDetails) GetMultitenantEntraIdOk() (*bool, bool) {
+	if o == nil || IsNil(o.MultitenantEntraId) {
+		return nil, false
+	}
+	return o.MultitenantEntraId, true
+}
+
+// SetMultitenantEntraId gets a reference to the given bool and assigns it to the MultitenantEntraId field.
+func (o *AzurePoolSubscriptionDetails) SetMultitenantEntraId(v bool) {
+	o.MultitenantEntraId = &v
 }
 
 // GetState returns the State field value if set, zero value otherwise.
@@ -106,27 +153,38 @@ func (o *AzurePoolSubscriptionDetails) SetState(v DirectoryState) {
 	o.State = &v
 }
 
-// GetErrorDetails returns the ErrorDetails field value if set, zero value otherwise.
+// GetErrorDetails returns the ErrorDetails field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzurePoolSubscriptionDetails) GetErrorDetails() string {
-	if o == nil || IsNil(o.ErrorDetails) {
+	if o == nil || IsNil(o.ErrorDetails.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ErrorDetails
+	return *o.ErrorDetails.Get()
 }
 
 // GetErrorDetailsOk returns a tuple with the ErrorDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzurePoolSubscriptionDetails) GetErrorDetailsOk() (*string, bool) {
-	if o == nil || IsNil(o.ErrorDetails) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ErrorDetails, true
+	return o.ErrorDetails.Get(), o.ErrorDetails.IsSet()
 }
 
-// SetErrorDetails gets a reference to the given string and assigns it to the ErrorDetails field.
+// SetErrorDetails gets a reference to the given NullableString and assigns it to the ErrorDetails field.
 func (o *AzurePoolSubscriptionDetails) SetErrorDetails(v string) {
-	o.ErrorDetails = &v
+	o.ErrorDetails.Set(&v)
+}
+
+// SetErrorDetailsNil sets the value for ErrorDetails to be an explicit nil
+func (o *AzurePoolSubscriptionDetails) SetErrorDetailsNil() {
+	o.ErrorDetails.Set(nil)
+}
+
+// UnsetErrorDetails ensures that no value is present for ErrorDetails, not even an explicit nil
+func (o *AzurePoolSubscriptionDetails) UnsetErrorDetails() {
+	o.ErrorDetails.Unset()
 }
 
 func (o AzurePoolSubscriptionDetails) MarshalJSON() ([]byte, error) {
@@ -139,17 +197,20 @@ func (o AzurePoolSubscriptionDetails) MarshalJSON() ([]byte, error) {
 
 func (o AzurePoolSubscriptionDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
+	if o.TenantId.IsSet() {
+		toSerialize["tenantId"] = o.TenantId.Get()
 	}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
+	}
+	if !IsNil(o.MultitenantEntraId) {
+		toSerialize["multitenantEntraId"] = o.MultitenantEntraId
 	}
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
 	}
-	if !IsNil(o.ErrorDetails) {
-		toSerialize["errorDetails"] = o.ErrorDetails
+	if o.ErrorDetails.IsSet() {
+		toSerialize["errorDetails"] = o.ErrorDetails.Get()
 	}
 	return toSerialize, nil
 }

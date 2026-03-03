@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResponseBody** | Pointer to **string** |  | [optional] 
-**StatusCode** | Pointer to **string** |  | [optional] 
-**ServiceRequestId** | Pointer to **string** |  | [optional] 
+**ResponseBody** | Pointer to **NullableString** |  | [optional] 
+**StatusCode** | Pointer to **NullableString** |  | [optional] 
+**ServiceRequestId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetResponseBody sets ResponseBody field to given value.
 
 HasResponseBody returns a boolean if a field has been set.
 
+### SetResponseBodyNil
+
+`func (o *Properties) SetResponseBodyNil(b bool)`
+
+ SetResponseBodyNil sets the value for ResponseBody to be an explicit nil
+
+### UnsetResponseBody
+`func (o *Properties) UnsetResponseBody()`
+
+UnsetResponseBody ensures that no value is present for ResponseBody, not even an explicit nil
 ### GetStatusCode
 
 `func (o *Properties) GetStatusCode() string`
@@ -77,6 +87,16 @@ SetStatusCode sets StatusCode field to given value.
 
 HasStatusCode returns a boolean if a field has been set.
 
+### SetStatusCodeNil
+
+`func (o *Properties) SetStatusCodeNil(b bool)`
+
+ SetStatusCodeNil sets the value for StatusCode to be an explicit nil
+
+### UnsetStatusCode
+`func (o *Properties) UnsetStatusCode()`
+
+UnsetStatusCode ensures that no value is present for StatusCode, not even an explicit nil
 ### GetServiceRequestId
 
 `func (o *Properties) GetServiceRequestId() string`
@@ -102,6 +122,16 @@ SetServiceRequestId sets ServiceRequestId field to given value.
 
 HasServiceRequestId returns a boolean if a field has been set.
 
+### SetServiceRequestIdNil
+
+`func (o *Properties) SetServiceRequestIdNil(b bool)`
+
+ SetServiceRequestIdNil sets the value for ServiceRequestId to be an explicit nil
+
+### UnsetServiceRequestId
+`func (o *Properties) UnsetServiceRequestId()`
+
+UnsetServiceRequestId ensures that no value is present for ServiceRequestId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

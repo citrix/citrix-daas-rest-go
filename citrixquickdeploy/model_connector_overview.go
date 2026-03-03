@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,17 +21,17 @@ var _ MappedNullable = &ConnectorOverview{}
 // ConnectorOverview struct for ConnectorOverview
 type ConnectorOverview struct {
 	// Name of the Edge Server VM
-	ConnectorName *string `json:"connectorName,omitempty"`
+	ConnectorName NullableString `json:"connectorName,omitempty"`
 	// Resource group of the Edge Server VM
-	AzureResourceGroup *string `json:"azureResourceGroup,omitempty"`
+	AzureResourceGroup NullableString `json:"azureResourceGroup,omitempty"`
 	// The current state of the connector install job
 	State ConnectorJobState `json:"state"`
 	// Any status message that needs to be shown to the user
-	Status *string `json:"status,omitempty"`
+	Status NullableString `json:"status,omitempty"`
 	// Last time the status was modified
 	LastStatusModified *time.Time `json:"lastStatusModified,omitempty"`
 	// Error message in case of failures
-	Error *string `json:"error,omitempty"`
+	Error NullableString `json:"error,omitempty"`
 	// The completion percentage of the current job
 	CompletionPercentage *int32 `json:"completionPercentage,omitempty"`
 	// Whether the connector is currently being rebooted or not.
@@ -46,50 +46,72 @@ func NewConnectorOverviewWithDefaults() *ConnectorOverview {
 	return &this
 }
 
-// GetConnectorName returns the ConnectorName field value if set, zero value otherwise.
+// GetConnectorName returns the ConnectorName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorOverview) GetConnectorName() string {
-	if o == nil || IsNil(o.ConnectorName) {
+	if o == nil || IsNil(o.ConnectorName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ConnectorName
+	return *o.ConnectorName.Get()
 }
 
 // GetConnectorNameOk returns a tuple with the ConnectorName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorOverview) GetConnectorNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ConnectorName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConnectorName, true
+	return o.ConnectorName.Get(), o.ConnectorName.IsSet()
 }
 
-// SetConnectorName gets a reference to the given string and assigns it to the ConnectorName field.
+// SetConnectorName gets a reference to the given NullableString and assigns it to the ConnectorName field.
 func (o *ConnectorOverview) SetConnectorName(v string) {
-	o.ConnectorName = &v
+	o.ConnectorName.Set(&v)
 }
 
-// GetAzureResourceGroup returns the AzureResourceGroup field value if set, zero value otherwise.
+// SetConnectorNameNil sets the value for ConnectorName to be an explicit nil
+func (o *ConnectorOverview) SetConnectorNameNil() {
+	o.ConnectorName.Set(nil)
+}
+
+// UnsetConnectorName ensures that no value is present for ConnectorName, not even an explicit nil
+func (o *ConnectorOverview) UnsetConnectorName() {
+	o.ConnectorName.Unset()
+}
+
+// GetAzureResourceGroup returns the AzureResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorOverview) GetAzureResourceGroup() string {
-	if o == nil || IsNil(o.AzureResourceGroup) {
+	if o == nil || IsNil(o.AzureResourceGroup.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzureResourceGroup
+	return *o.AzureResourceGroup.Get()
 }
 
 // GetAzureResourceGroupOk returns a tuple with the AzureResourceGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorOverview) GetAzureResourceGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.AzureResourceGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureResourceGroup, true
+	return o.AzureResourceGroup.Get(), o.AzureResourceGroup.IsSet()
 }
 
-// SetAzureResourceGroup gets a reference to the given string and assigns it to the AzureResourceGroup field.
+// SetAzureResourceGroup gets a reference to the given NullableString and assigns it to the AzureResourceGroup field.
 func (o *ConnectorOverview) SetAzureResourceGroup(v string) {
-	o.AzureResourceGroup = &v
+	o.AzureResourceGroup.Set(&v)
+}
+
+// SetAzureResourceGroupNil sets the value for AzureResourceGroup to be an explicit nil
+func (o *ConnectorOverview) SetAzureResourceGroupNil() {
+	o.AzureResourceGroup.Set(nil)
+}
+
+// UnsetAzureResourceGroup ensures that no value is present for AzureResourceGroup, not even an explicit nil
+func (o *ConnectorOverview) UnsetAzureResourceGroup() {
+	o.AzureResourceGroup.Unset()
 }
 
 // GetState returns the State field value
@@ -116,27 +138,38 @@ func (o *ConnectorOverview) SetState(v ConnectorJobState) {
 	o.State = v
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorOverview) GetStatus() string {
-	if o == nil || IsNil(o.Status) {
+	if o == nil || IsNil(o.Status.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorOverview) GetStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
-// SetStatus gets a reference to the given string and assigns it to the Status field.
+// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
 func (o *ConnectorOverview) SetStatus(v string) {
-	o.Status = &v
+	o.Status.Set(&v)
+}
+
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *ConnectorOverview) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *ConnectorOverview) UnsetStatus() {
+	o.Status.Unset()
 }
 
 // GetLastStatusModified returns the LastStatusModified field value if set, zero value otherwise.
@@ -162,27 +195,38 @@ func (o *ConnectorOverview) SetLastStatusModified(v time.Time) {
 	o.LastStatusModified = &v
 }
 
-// GetError returns the Error field value if set, zero value otherwise.
+// GetError returns the Error field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorOverview) GetError() string {
-	if o == nil || IsNil(o.Error) {
+	if o == nil || IsNil(o.Error.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Error
+	return *o.Error.Get()
 }
 
 // GetErrorOk returns a tuple with the Error field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorOverview) GetErrorOk() (*string, bool) {
-	if o == nil || IsNil(o.Error) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Error, true
+	return o.Error.Get(), o.Error.IsSet()
 }
 
-// SetError gets a reference to the given string and assigns it to the Error field.
+// SetError gets a reference to the given NullableString and assigns it to the Error field.
 func (o *ConnectorOverview) SetError(v string) {
-	o.Error = &v
+	o.Error.Set(&v)
+}
+
+// SetErrorNil sets the value for Error to be an explicit nil
+func (o *ConnectorOverview) SetErrorNil() {
+	o.Error.Set(nil)
+}
+
+// UnsetError ensures that no value is present for Error, not even an explicit nil
+func (o *ConnectorOverview) UnsetError() {
+	o.Error.Unset()
 }
 
 // GetCompletionPercentage returns the CompletionPercentage field value if set, zero value otherwise.
@@ -241,21 +285,21 @@ func (o ConnectorOverview) MarshalJSON() ([]byte, error) {
 
 func (o ConnectorOverview) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ConnectorName) {
-		toSerialize["connectorName"] = o.ConnectorName
+	if o.ConnectorName.IsSet() {
+		toSerialize["connectorName"] = o.ConnectorName.Get()
 	}
-	if !IsNil(o.AzureResourceGroup) {
-		toSerialize["azureResourceGroup"] = o.AzureResourceGroup
+	if o.AzureResourceGroup.IsSet() {
+		toSerialize["azureResourceGroup"] = o.AzureResourceGroup.Get()
 	}
 	toSerialize["state"] = o.State
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
 	if !IsNil(o.LastStatusModified) {
 		toSerialize["lastStatusModified"] = o.LastStatusModified
 	}
-	if !IsNil(o.Error) {
-		toSerialize["error"] = o.Error
+	if o.Error.IsSet() {
+		toSerialize["error"] = o.Error.Get()
 	}
 	if !IsNil(o.CompletionPercentage) {
 		toSerialize["completionPercentage"] = o.CompletionPercentage

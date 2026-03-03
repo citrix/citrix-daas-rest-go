@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,21 +20,21 @@ var _ MappedNullable = &LocationMetaData{}
 // LocationMetaData struct for LocationMetaData
 type LocationMetaData struct {
 	// The type of the region.
-	RegionType *string `json:"regionType,omitempty"`
+	RegionType NullableString `json:"regionType,omitempty"`
 	// The category of the region.
-	RegionCategory *string `json:"regionCategory,omitempty"`
+	RegionCategory NullableString `json:"regionCategory,omitempty"`
 	// The geography group of the location.
-	GeographyGroup *string `json:"geographyGroup,omitempty"`
+	GeographyGroup NullableString `json:"geographyGroup,omitempty"`
 	// The longitude of the location.
-	Longitude *string `json:"longitude,omitempty"`
+	Longitude NullableString `json:"longitude,omitempty"`
 	// The latitude of the location.
-	Latitude *string `json:"latitude,omitempty"`
+	Latitude NullableString `json:"latitude,omitempty"`
 	// The physical location of the Azure location.
-	PhysicalLocation *string `json:"physicalLocation,omitempty"`
+	PhysicalLocation NullableString `json:"physicalLocation,omitempty"`
 	// The regions paired to this region.
 	PairedRegions []PairedRegion `json:"pairedRegions,omitempty"`
 	// The home location of an edge zone.
-	HomeLocation *string `json:"homeLocation,omitempty"`
+	HomeLocation NullableString `json:"homeLocation,omitempty"`
 }
 
 // NewLocationMetaDataWithDefaults instantiates a new LocationMetaData object
@@ -45,147 +45,213 @@ func NewLocationMetaDataWithDefaults() *LocationMetaData {
 	return &this
 }
 
-// GetRegionType returns the RegionType field value if set, zero value otherwise.
+// GetRegionType returns the RegionType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LocationMetaData) GetRegionType() string {
-	if o == nil || IsNil(o.RegionType) {
+	if o == nil || IsNil(o.RegionType.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.RegionType
+	return *o.RegionType.Get()
 }
 
 // GetRegionTypeOk returns a tuple with the RegionType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LocationMetaData) GetRegionTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.RegionType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RegionType, true
+	return o.RegionType.Get(), o.RegionType.IsSet()
 }
 
-// SetRegionType gets a reference to the given string and assigns it to the RegionType field.
+// SetRegionType gets a reference to the given NullableString and assigns it to the RegionType field.
 func (o *LocationMetaData) SetRegionType(v string) {
-	o.RegionType = &v
+	o.RegionType.Set(&v)
 }
 
-// GetRegionCategory returns the RegionCategory field value if set, zero value otherwise.
+// SetRegionTypeNil sets the value for RegionType to be an explicit nil
+func (o *LocationMetaData) SetRegionTypeNil() {
+	o.RegionType.Set(nil)
+}
+
+// UnsetRegionType ensures that no value is present for RegionType, not even an explicit nil
+func (o *LocationMetaData) UnsetRegionType() {
+	o.RegionType.Unset()
+}
+
+// GetRegionCategory returns the RegionCategory field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LocationMetaData) GetRegionCategory() string {
-	if o == nil || IsNil(o.RegionCategory) {
+	if o == nil || IsNil(o.RegionCategory.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.RegionCategory
+	return *o.RegionCategory.Get()
 }
 
 // GetRegionCategoryOk returns a tuple with the RegionCategory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LocationMetaData) GetRegionCategoryOk() (*string, bool) {
-	if o == nil || IsNil(o.RegionCategory) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RegionCategory, true
+	return o.RegionCategory.Get(), o.RegionCategory.IsSet()
 }
 
-// SetRegionCategory gets a reference to the given string and assigns it to the RegionCategory field.
+// SetRegionCategory gets a reference to the given NullableString and assigns it to the RegionCategory field.
 func (o *LocationMetaData) SetRegionCategory(v string) {
-	o.RegionCategory = &v
+	o.RegionCategory.Set(&v)
 }
 
-// GetGeographyGroup returns the GeographyGroup field value if set, zero value otherwise.
+// SetRegionCategoryNil sets the value for RegionCategory to be an explicit nil
+func (o *LocationMetaData) SetRegionCategoryNil() {
+	o.RegionCategory.Set(nil)
+}
+
+// UnsetRegionCategory ensures that no value is present for RegionCategory, not even an explicit nil
+func (o *LocationMetaData) UnsetRegionCategory() {
+	o.RegionCategory.Unset()
+}
+
+// GetGeographyGroup returns the GeographyGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LocationMetaData) GetGeographyGroup() string {
-	if o == nil || IsNil(o.GeographyGroup) {
+	if o == nil || IsNil(o.GeographyGroup.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.GeographyGroup
+	return *o.GeographyGroup.Get()
 }
 
 // GetGeographyGroupOk returns a tuple with the GeographyGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LocationMetaData) GetGeographyGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.GeographyGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeographyGroup, true
+	return o.GeographyGroup.Get(), o.GeographyGroup.IsSet()
 }
 
-// SetGeographyGroup gets a reference to the given string and assigns it to the GeographyGroup field.
+// SetGeographyGroup gets a reference to the given NullableString and assigns it to the GeographyGroup field.
 func (o *LocationMetaData) SetGeographyGroup(v string) {
-	o.GeographyGroup = &v
+	o.GeographyGroup.Set(&v)
 }
 
-// GetLongitude returns the Longitude field value if set, zero value otherwise.
+// SetGeographyGroupNil sets the value for GeographyGroup to be an explicit nil
+func (o *LocationMetaData) SetGeographyGroupNil() {
+	o.GeographyGroup.Set(nil)
+}
+
+// UnsetGeographyGroup ensures that no value is present for GeographyGroup, not even an explicit nil
+func (o *LocationMetaData) UnsetGeographyGroup() {
+	o.GeographyGroup.Unset()
+}
+
+// GetLongitude returns the Longitude field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LocationMetaData) GetLongitude() string {
-	if o == nil || IsNil(o.Longitude) {
+	if o == nil || IsNil(o.Longitude.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Longitude
+	return *o.Longitude.Get()
 }
 
 // GetLongitudeOk returns a tuple with the Longitude field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LocationMetaData) GetLongitudeOk() (*string, bool) {
-	if o == nil || IsNil(o.Longitude) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Longitude, true
+	return o.Longitude.Get(), o.Longitude.IsSet()
 }
 
-// SetLongitude gets a reference to the given string and assigns it to the Longitude field.
+// SetLongitude gets a reference to the given NullableString and assigns it to the Longitude field.
 func (o *LocationMetaData) SetLongitude(v string) {
-	o.Longitude = &v
+	o.Longitude.Set(&v)
 }
 
-// GetLatitude returns the Latitude field value if set, zero value otherwise.
+// SetLongitudeNil sets the value for Longitude to be an explicit nil
+func (o *LocationMetaData) SetLongitudeNil() {
+	o.Longitude.Set(nil)
+}
+
+// UnsetLongitude ensures that no value is present for Longitude, not even an explicit nil
+func (o *LocationMetaData) UnsetLongitude() {
+	o.Longitude.Unset()
+}
+
+// GetLatitude returns the Latitude field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LocationMetaData) GetLatitude() string {
-	if o == nil || IsNil(o.Latitude) {
+	if o == nil || IsNil(o.Latitude.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Latitude
+	return *o.Latitude.Get()
 }
 
 // GetLatitudeOk returns a tuple with the Latitude field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LocationMetaData) GetLatitudeOk() (*string, bool) {
-	if o == nil || IsNil(o.Latitude) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Latitude, true
+	return o.Latitude.Get(), o.Latitude.IsSet()
 }
 
-// SetLatitude gets a reference to the given string and assigns it to the Latitude field.
+// SetLatitude gets a reference to the given NullableString and assigns it to the Latitude field.
 func (o *LocationMetaData) SetLatitude(v string) {
-	o.Latitude = &v
+	o.Latitude.Set(&v)
 }
 
-// GetPhysicalLocation returns the PhysicalLocation field value if set, zero value otherwise.
+// SetLatitudeNil sets the value for Latitude to be an explicit nil
+func (o *LocationMetaData) SetLatitudeNil() {
+	o.Latitude.Set(nil)
+}
+
+// UnsetLatitude ensures that no value is present for Latitude, not even an explicit nil
+func (o *LocationMetaData) UnsetLatitude() {
+	o.Latitude.Unset()
+}
+
+// GetPhysicalLocation returns the PhysicalLocation field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LocationMetaData) GetPhysicalLocation() string {
-	if o == nil || IsNil(o.PhysicalLocation) {
+	if o == nil || IsNil(o.PhysicalLocation.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PhysicalLocation
+	return *o.PhysicalLocation.Get()
 }
 
 // GetPhysicalLocationOk returns a tuple with the PhysicalLocation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LocationMetaData) GetPhysicalLocationOk() (*string, bool) {
-	if o == nil || IsNil(o.PhysicalLocation) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PhysicalLocation, true
+	return o.PhysicalLocation.Get(), o.PhysicalLocation.IsSet()
 }
 
-// SetPhysicalLocation gets a reference to the given string and assigns it to the PhysicalLocation field.
+// SetPhysicalLocation gets a reference to the given NullableString and assigns it to the PhysicalLocation field.
 func (o *LocationMetaData) SetPhysicalLocation(v string) {
-	o.PhysicalLocation = &v
+	o.PhysicalLocation.Set(&v)
 }
 
-// GetPairedRegions returns the PairedRegions field value if set, zero value otherwise.
+// SetPhysicalLocationNil sets the value for PhysicalLocation to be an explicit nil
+func (o *LocationMetaData) SetPhysicalLocationNil() {
+	o.PhysicalLocation.Set(nil)
+}
+
+// UnsetPhysicalLocation ensures that no value is present for PhysicalLocation, not even an explicit nil
+func (o *LocationMetaData) UnsetPhysicalLocation() {
+	o.PhysicalLocation.Unset()
+}
+
+// GetPairedRegions returns the PairedRegions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LocationMetaData) GetPairedRegions() []PairedRegion {
-	if o == nil || IsNil(o.PairedRegions) {
+	if o == nil {
 		var ret []PairedRegion
 		return ret
 	}
@@ -194,6 +260,7 @@ func (o *LocationMetaData) GetPairedRegions() []PairedRegion {
 
 // GetPairedRegionsOk returns a tuple with the PairedRegions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LocationMetaData) GetPairedRegionsOk() ([]PairedRegion, bool) {
 	if o == nil || IsNil(o.PairedRegions) {
 		return nil, false
@@ -206,27 +273,38 @@ func (o *LocationMetaData) SetPairedRegions(v []PairedRegion) {
 	o.PairedRegions = v
 }
 
-// GetHomeLocation returns the HomeLocation field value if set, zero value otherwise.
+// GetHomeLocation returns the HomeLocation field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LocationMetaData) GetHomeLocation() string {
-	if o == nil || IsNil(o.HomeLocation) {
+	if o == nil || IsNil(o.HomeLocation.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HomeLocation
+	return *o.HomeLocation.Get()
 }
 
 // GetHomeLocationOk returns a tuple with the HomeLocation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LocationMetaData) GetHomeLocationOk() (*string, bool) {
-	if o == nil || IsNil(o.HomeLocation) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HomeLocation, true
+	return o.HomeLocation.Get(), o.HomeLocation.IsSet()
 }
 
-// SetHomeLocation gets a reference to the given string and assigns it to the HomeLocation field.
+// SetHomeLocation gets a reference to the given NullableString and assigns it to the HomeLocation field.
 func (o *LocationMetaData) SetHomeLocation(v string) {
-	o.HomeLocation = &v
+	o.HomeLocation.Set(&v)
+}
+
+// SetHomeLocationNil sets the value for HomeLocation to be an explicit nil
+func (o *LocationMetaData) SetHomeLocationNil() {
+	o.HomeLocation.Set(nil)
+}
+
+// UnsetHomeLocation ensures that no value is present for HomeLocation, not even an explicit nil
+func (o *LocationMetaData) UnsetHomeLocation() {
+	o.HomeLocation.Unset()
 }
 
 func (o LocationMetaData) MarshalJSON() ([]byte, error) {
@@ -239,29 +317,29 @@ func (o LocationMetaData) MarshalJSON() ([]byte, error) {
 
 func (o LocationMetaData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.RegionType) {
-		toSerialize["regionType"] = o.RegionType
+	if o.RegionType.IsSet() {
+		toSerialize["regionType"] = o.RegionType.Get()
 	}
-	if !IsNil(o.RegionCategory) {
-		toSerialize["regionCategory"] = o.RegionCategory
+	if o.RegionCategory.IsSet() {
+		toSerialize["regionCategory"] = o.RegionCategory.Get()
 	}
-	if !IsNil(o.GeographyGroup) {
-		toSerialize["geographyGroup"] = o.GeographyGroup
+	if o.GeographyGroup.IsSet() {
+		toSerialize["geographyGroup"] = o.GeographyGroup.Get()
 	}
-	if !IsNil(o.Longitude) {
-		toSerialize["longitude"] = o.Longitude
+	if o.Longitude.IsSet() {
+		toSerialize["longitude"] = o.Longitude.Get()
 	}
-	if !IsNil(o.Latitude) {
-		toSerialize["latitude"] = o.Latitude
+	if o.Latitude.IsSet() {
+		toSerialize["latitude"] = o.Latitude.Get()
 	}
-	if !IsNil(o.PhysicalLocation) {
-		toSerialize["physicalLocation"] = o.PhysicalLocation
+	if o.PhysicalLocation.IsSet() {
+		toSerialize["physicalLocation"] = o.PhysicalLocation.Get()
 	}
-	if !IsNil(o.PairedRegions) {
+	if o.PairedRegions != nil {
 		toSerialize["pairedRegions"] = o.PairedRegions
 	}
-	if !IsNil(o.HomeLocation) {
-		toSerialize["homeLocation"] = o.HomeLocation
+	if o.HomeLocation.IsSet() {
+		toSerialize["homeLocation"] = o.HomeLocation.Get()
 	}
 	return toSerialize, nil
 }

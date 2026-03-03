@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | The ID of the image | [optional] 
-**SbSessionVdaVersion** | Pointer to **string** | Shows version of sbsession | [optional] 
-**CommandLineExecutable** | Pointer to **string** | The init session path | [optional] 
-**CommandLineArguments** | Pointer to **string** | The init session arguments | [optional] 
-**WorkingDirectory** | Pointer to **string** | The init session working directory | [optional] 
-**LinuxVdaVersion** | Pointer to **string** | Shows version of image Virtual Desktop Agent | [optional] 
-**OsVersion** | Pointer to **string** | Shows version of image OS | [optional] 
-**VhdLocation** | Pointer to **string** | Url of the image which was provided by secure browser | [optional] 
-**VhdSasLink** | Pointer to **string** | Url of the image with Sas token which was provided by secure browser | [optional] 
-**TicketRequestAddress** | Pointer to **string** | Address of secure browser ticket request | [optional] 
-**PolicyContent** | Pointer to **string** | The Group Policy content in base64 format | [optional] 
-**VdaUpdateDelay** | Pointer to **int32** | Approximate maximum duration over which the reboot cycle runs, in minutes.  Value of 0 causes all machines to reboot immediately.  Defaults to -1: a \&quot;natural reboot\&quot; cycle allowing machines that are in-use to  continue working and be restarted only after they become idle. | [optional] 
+**Id** | Pointer to **NullableString** | The ID of the image | [optional] 
+**SbSessionVdaVersion** | Pointer to **NullableString** | Shows version of sbsession | [optional] 
+**CommandLineExecutable** | Pointer to **NullableString** | The init session path | [optional] 
+**CommandLineArguments** | Pointer to **NullableString** | The init session arguments | [optional] 
+**WorkingDirectory** | Pointer to **NullableString** | The init session working directory | [optional] 
+**LinuxVdaVersion** | Pointer to **NullableString** | Shows version of image Virtual Desktop Agent | [optional] 
+**OsVersion** | Pointer to **NullableString** | Shows version of image OS | [optional] 
+**VhdLocation** | Pointer to **NullableString** | Url of the image which was provided by secure browser | [optional] 
+**VhdSasLink** | Pointer to **NullableString** | Url of the image with Sas token which was provided by secure browser | [optional] 
+**TicketRequestAddress** | Pointer to **NullableString** | Address of secure browser ticket request | [optional] 
+**PolicyContent** | Pointer to **NullableString** | The Group Policy content in base64 format | [optional] 
+**VdaUpdateDelay** | Pointer to **NullableInt32** | Approximate maximum duration over which the reboot cycle runs, in minutes.  Value of 0 causes all machines to reboot immediately.  Defaults to -1: a \&quot;natural reboot\&quot; cycle allowing machines that are in-use to  continue working and be restarted only after they become idle. | [optional] 
 
 ## Methods
 
@@ -61,6 +61,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *RemoteBrowserIsolationImageModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *RemoteBrowserIsolationImageModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetSbSessionVdaVersion
 
 `func (o *RemoteBrowserIsolationImageModel) GetSbSessionVdaVersion() string`
@@ -86,6 +96,16 @@ SetSbSessionVdaVersion sets SbSessionVdaVersion field to given value.
 
 HasSbSessionVdaVersion returns a boolean if a field has been set.
 
+### SetSbSessionVdaVersionNil
+
+`func (o *RemoteBrowserIsolationImageModel) SetSbSessionVdaVersionNil(b bool)`
+
+ SetSbSessionVdaVersionNil sets the value for SbSessionVdaVersion to be an explicit nil
+
+### UnsetSbSessionVdaVersion
+`func (o *RemoteBrowserIsolationImageModel) UnsetSbSessionVdaVersion()`
+
+UnsetSbSessionVdaVersion ensures that no value is present for SbSessionVdaVersion, not even an explicit nil
 ### GetCommandLineExecutable
 
 `func (o *RemoteBrowserIsolationImageModel) GetCommandLineExecutable() string`
@@ -111,6 +131,16 @@ SetCommandLineExecutable sets CommandLineExecutable field to given value.
 
 HasCommandLineExecutable returns a boolean if a field has been set.
 
+### SetCommandLineExecutableNil
+
+`func (o *RemoteBrowserIsolationImageModel) SetCommandLineExecutableNil(b bool)`
+
+ SetCommandLineExecutableNil sets the value for CommandLineExecutable to be an explicit nil
+
+### UnsetCommandLineExecutable
+`func (o *RemoteBrowserIsolationImageModel) UnsetCommandLineExecutable()`
+
+UnsetCommandLineExecutable ensures that no value is present for CommandLineExecutable, not even an explicit nil
 ### GetCommandLineArguments
 
 `func (o *RemoteBrowserIsolationImageModel) GetCommandLineArguments() string`
@@ -136,6 +166,16 @@ SetCommandLineArguments sets CommandLineArguments field to given value.
 
 HasCommandLineArguments returns a boolean if a field has been set.
 
+### SetCommandLineArgumentsNil
+
+`func (o *RemoteBrowserIsolationImageModel) SetCommandLineArgumentsNil(b bool)`
+
+ SetCommandLineArgumentsNil sets the value for CommandLineArguments to be an explicit nil
+
+### UnsetCommandLineArguments
+`func (o *RemoteBrowserIsolationImageModel) UnsetCommandLineArguments()`
+
+UnsetCommandLineArguments ensures that no value is present for CommandLineArguments, not even an explicit nil
 ### GetWorkingDirectory
 
 `func (o *RemoteBrowserIsolationImageModel) GetWorkingDirectory() string`
@@ -161,6 +201,16 @@ SetWorkingDirectory sets WorkingDirectory field to given value.
 
 HasWorkingDirectory returns a boolean if a field has been set.
 
+### SetWorkingDirectoryNil
+
+`func (o *RemoteBrowserIsolationImageModel) SetWorkingDirectoryNil(b bool)`
+
+ SetWorkingDirectoryNil sets the value for WorkingDirectory to be an explicit nil
+
+### UnsetWorkingDirectory
+`func (o *RemoteBrowserIsolationImageModel) UnsetWorkingDirectory()`
+
+UnsetWorkingDirectory ensures that no value is present for WorkingDirectory, not even an explicit nil
 ### GetLinuxVdaVersion
 
 `func (o *RemoteBrowserIsolationImageModel) GetLinuxVdaVersion() string`
@@ -186,6 +236,16 @@ SetLinuxVdaVersion sets LinuxVdaVersion field to given value.
 
 HasLinuxVdaVersion returns a boolean if a field has been set.
 
+### SetLinuxVdaVersionNil
+
+`func (o *RemoteBrowserIsolationImageModel) SetLinuxVdaVersionNil(b bool)`
+
+ SetLinuxVdaVersionNil sets the value for LinuxVdaVersion to be an explicit nil
+
+### UnsetLinuxVdaVersion
+`func (o *RemoteBrowserIsolationImageModel) UnsetLinuxVdaVersion()`
+
+UnsetLinuxVdaVersion ensures that no value is present for LinuxVdaVersion, not even an explicit nil
 ### GetOsVersion
 
 `func (o *RemoteBrowserIsolationImageModel) GetOsVersion() string`
@@ -211,6 +271,16 @@ SetOsVersion sets OsVersion field to given value.
 
 HasOsVersion returns a boolean if a field has been set.
 
+### SetOsVersionNil
+
+`func (o *RemoteBrowserIsolationImageModel) SetOsVersionNil(b bool)`
+
+ SetOsVersionNil sets the value for OsVersion to be an explicit nil
+
+### UnsetOsVersion
+`func (o *RemoteBrowserIsolationImageModel) UnsetOsVersion()`
+
+UnsetOsVersion ensures that no value is present for OsVersion, not even an explicit nil
 ### GetVhdLocation
 
 `func (o *RemoteBrowserIsolationImageModel) GetVhdLocation() string`
@@ -236,6 +306,16 @@ SetVhdLocation sets VhdLocation field to given value.
 
 HasVhdLocation returns a boolean if a field has been set.
 
+### SetVhdLocationNil
+
+`func (o *RemoteBrowserIsolationImageModel) SetVhdLocationNil(b bool)`
+
+ SetVhdLocationNil sets the value for VhdLocation to be an explicit nil
+
+### UnsetVhdLocation
+`func (o *RemoteBrowserIsolationImageModel) UnsetVhdLocation()`
+
+UnsetVhdLocation ensures that no value is present for VhdLocation, not even an explicit nil
 ### GetVhdSasLink
 
 `func (o *RemoteBrowserIsolationImageModel) GetVhdSasLink() string`
@@ -261,6 +341,16 @@ SetVhdSasLink sets VhdSasLink field to given value.
 
 HasVhdSasLink returns a boolean if a field has been set.
 
+### SetVhdSasLinkNil
+
+`func (o *RemoteBrowserIsolationImageModel) SetVhdSasLinkNil(b bool)`
+
+ SetVhdSasLinkNil sets the value for VhdSasLink to be an explicit nil
+
+### UnsetVhdSasLink
+`func (o *RemoteBrowserIsolationImageModel) UnsetVhdSasLink()`
+
+UnsetVhdSasLink ensures that no value is present for VhdSasLink, not even an explicit nil
 ### GetTicketRequestAddress
 
 `func (o *RemoteBrowserIsolationImageModel) GetTicketRequestAddress() string`
@@ -286,6 +376,16 @@ SetTicketRequestAddress sets TicketRequestAddress field to given value.
 
 HasTicketRequestAddress returns a boolean if a field has been set.
 
+### SetTicketRequestAddressNil
+
+`func (o *RemoteBrowserIsolationImageModel) SetTicketRequestAddressNil(b bool)`
+
+ SetTicketRequestAddressNil sets the value for TicketRequestAddress to be an explicit nil
+
+### UnsetTicketRequestAddress
+`func (o *RemoteBrowserIsolationImageModel) UnsetTicketRequestAddress()`
+
+UnsetTicketRequestAddress ensures that no value is present for TicketRequestAddress, not even an explicit nil
 ### GetPolicyContent
 
 `func (o *RemoteBrowserIsolationImageModel) GetPolicyContent() string`
@@ -311,6 +411,16 @@ SetPolicyContent sets PolicyContent field to given value.
 
 HasPolicyContent returns a boolean if a field has been set.
 
+### SetPolicyContentNil
+
+`func (o *RemoteBrowserIsolationImageModel) SetPolicyContentNil(b bool)`
+
+ SetPolicyContentNil sets the value for PolicyContent to be an explicit nil
+
+### UnsetPolicyContent
+`func (o *RemoteBrowserIsolationImageModel) UnsetPolicyContent()`
+
+UnsetPolicyContent ensures that no value is present for PolicyContent, not even an explicit nil
 ### GetVdaUpdateDelay
 
 `func (o *RemoteBrowserIsolationImageModel) GetVdaUpdateDelay() int32`
@@ -336,6 +446,16 @@ SetVdaUpdateDelay sets VdaUpdateDelay field to given value.
 
 HasVdaUpdateDelay returns a boolean if a field has been set.
 
+### SetVdaUpdateDelayNil
+
+`func (o *RemoteBrowserIsolationImageModel) SetVdaUpdateDelayNil(b bool)`
+
+ SetVdaUpdateDelayNil sets the value for VdaUpdateDelay to be an explicit nil
+
+### UnsetVdaUpdateDelay
+`func (o *RemoteBrowserIsolationImageModel) UnsetVdaUpdateDelay()`
+
+UnsetVdaUpdateDelay ensures that no value is present for VdaUpdateDelay, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

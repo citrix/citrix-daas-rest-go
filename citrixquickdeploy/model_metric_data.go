@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,12 +20,12 @@ var _ MappedNullable = &MetricData{}
 
 // MetricData struct for MetricData
 type MetricData struct {
-	TimeStamp *time.Time `json:"timeStamp,omitempty"`
-	Average   *float64   `json:"average,omitempty"`
-	Minimum   *float64   `json:"minimum,omitempty"`
-	Maximum   *float64   `json:"maximum,omitempty"`
-	Total     *float64   `json:"total,omitempty"`
-	Count     *int64     `json:"count,omitempty"`
+	TimeStamp *time.Time      `json:"timeStamp,omitempty"`
+	Average   NullableFloat64 `json:"average,omitempty"`
+	Minimum   NullableFloat64 `json:"minimum,omitempty"`
+	Maximum   NullableFloat64 `json:"maximum,omitempty"`
+	Total     NullableFloat64 `json:"total,omitempty"`
+	Count     NullableInt64   `json:"count,omitempty"`
 }
 
 // NewMetricDataWithDefaults instantiates a new MetricData object
@@ -59,119 +59,174 @@ func (o *MetricData) SetTimeStamp(v time.Time) {
 	o.TimeStamp = &v
 }
 
-// GetAverage returns the Average field value if set, zero value otherwise.
+// GetAverage returns the Average field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MetricData) GetAverage() float64 {
-	if o == nil || IsNil(o.Average) {
+	if o == nil || IsNil(o.Average.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.Average
+	return *o.Average.Get()
 }
 
 // GetAverageOk returns a tuple with the Average field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MetricData) GetAverageOk() (*float64, bool) {
-	if o == nil || IsNil(o.Average) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Average, true
+	return o.Average.Get(), o.Average.IsSet()
 }
 
-// SetAverage gets a reference to the given float64 and assigns it to the Average field.
+// SetAverage gets a reference to the given NullableFloat64 and assigns it to the Average field.
 func (o *MetricData) SetAverage(v float64) {
-	o.Average = &v
+	o.Average.Set(&v)
 }
 
-// GetMinimum returns the Minimum field value if set, zero value otherwise.
+// SetAverageNil sets the value for Average to be an explicit nil
+func (o *MetricData) SetAverageNil() {
+	o.Average.Set(nil)
+}
+
+// UnsetAverage ensures that no value is present for Average, not even an explicit nil
+func (o *MetricData) UnsetAverage() {
+	o.Average.Unset()
+}
+
+// GetMinimum returns the Minimum field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MetricData) GetMinimum() float64 {
-	if o == nil || IsNil(o.Minimum) {
+	if o == nil || IsNil(o.Minimum.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.Minimum
+	return *o.Minimum.Get()
 }
 
 // GetMinimumOk returns a tuple with the Minimum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MetricData) GetMinimumOk() (*float64, bool) {
-	if o == nil || IsNil(o.Minimum) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Minimum, true
+	return o.Minimum.Get(), o.Minimum.IsSet()
 }
 
-// SetMinimum gets a reference to the given float64 and assigns it to the Minimum field.
+// SetMinimum gets a reference to the given NullableFloat64 and assigns it to the Minimum field.
 func (o *MetricData) SetMinimum(v float64) {
-	o.Minimum = &v
+	o.Minimum.Set(&v)
 }
 
-// GetMaximum returns the Maximum field value if set, zero value otherwise.
+// SetMinimumNil sets the value for Minimum to be an explicit nil
+func (o *MetricData) SetMinimumNil() {
+	o.Minimum.Set(nil)
+}
+
+// UnsetMinimum ensures that no value is present for Minimum, not even an explicit nil
+func (o *MetricData) UnsetMinimum() {
+	o.Minimum.Unset()
+}
+
+// GetMaximum returns the Maximum field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MetricData) GetMaximum() float64 {
-	if o == nil || IsNil(o.Maximum) {
+	if o == nil || IsNil(o.Maximum.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.Maximum
+	return *o.Maximum.Get()
 }
 
 // GetMaximumOk returns a tuple with the Maximum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MetricData) GetMaximumOk() (*float64, bool) {
-	if o == nil || IsNil(o.Maximum) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Maximum, true
+	return o.Maximum.Get(), o.Maximum.IsSet()
 }
 
-// SetMaximum gets a reference to the given float64 and assigns it to the Maximum field.
+// SetMaximum gets a reference to the given NullableFloat64 and assigns it to the Maximum field.
 func (o *MetricData) SetMaximum(v float64) {
-	o.Maximum = &v
+	o.Maximum.Set(&v)
 }
 
-// GetTotal returns the Total field value if set, zero value otherwise.
+// SetMaximumNil sets the value for Maximum to be an explicit nil
+func (o *MetricData) SetMaximumNil() {
+	o.Maximum.Set(nil)
+}
+
+// UnsetMaximum ensures that no value is present for Maximum, not even an explicit nil
+func (o *MetricData) UnsetMaximum() {
+	o.Maximum.Unset()
+}
+
+// GetTotal returns the Total field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MetricData) GetTotal() float64 {
-	if o == nil || IsNil(o.Total) {
+	if o == nil || IsNil(o.Total.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.Total
+	return *o.Total.Get()
 }
 
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MetricData) GetTotalOk() (*float64, bool) {
-	if o == nil || IsNil(o.Total) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Total, true
+	return o.Total.Get(), o.Total.IsSet()
 }
 
-// SetTotal gets a reference to the given float64 and assigns it to the Total field.
+// SetTotal gets a reference to the given NullableFloat64 and assigns it to the Total field.
 func (o *MetricData) SetTotal(v float64) {
-	o.Total = &v
+	o.Total.Set(&v)
 }
 
-// GetCount returns the Count field value if set, zero value otherwise.
+// SetTotalNil sets the value for Total to be an explicit nil
+func (o *MetricData) SetTotalNil() {
+	o.Total.Set(nil)
+}
+
+// UnsetTotal ensures that no value is present for Total, not even an explicit nil
+func (o *MetricData) UnsetTotal() {
+	o.Total.Unset()
+}
+
+// GetCount returns the Count field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MetricData) GetCount() int64 {
-	if o == nil || IsNil(o.Count) {
+	if o == nil || IsNil(o.Count.Get()) {
 		var ret int64
 		return ret
 	}
-	return *o.Count
+	return *o.Count.Get()
 }
 
 // GetCountOk returns a tuple with the Count field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MetricData) GetCountOk() (*int64, bool) {
-	if o == nil || IsNil(o.Count) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Count, true
+	return o.Count.Get(), o.Count.IsSet()
 }
 
-// SetCount gets a reference to the given int64 and assigns it to the Count field.
+// SetCount gets a reference to the given NullableInt64 and assigns it to the Count field.
 func (o *MetricData) SetCount(v int64) {
-	o.Count = &v
+	o.Count.Set(&v)
+}
+
+// SetCountNil sets the value for Count to be an explicit nil
+func (o *MetricData) SetCountNil() {
+	o.Count.Set(nil)
+}
+
+// UnsetCount ensures that no value is present for Count, not even an explicit nil
+func (o *MetricData) UnsetCount() {
+	o.Count.Unset()
 }
 
 func (o MetricData) MarshalJSON() ([]byte, error) {
@@ -187,20 +242,20 @@ func (o MetricData) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TimeStamp) {
 		toSerialize["timeStamp"] = o.TimeStamp
 	}
-	if !IsNil(o.Average) {
-		toSerialize["average"] = o.Average
+	if o.Average.IsSet() {
+		toSerialize["average"] = o.Average.Get()
 	}
-	if !IsNil(o.Minimum) {
-		toSerialize["minimum"] = o.Minimum
+	if o.Minimum.IsSet() {
+		toSerialize["minimum"] = o.Minimum.Get()
 	}
-	if !IsNil(o.Maximum) {
-		toSerialize["maximum"] = o.Maximum
+	if o.Maximum.IsSet() {
+		toSerialize["maximum"] = o.Maximum.Get()
 	}
-	if !IsNil(o.Total) {
-		toSerialize["total"] = o.Total
+	if o.Total.IsSet() {
+		toSerialize["total"] = o.Total.Get()
 	}
-	if !IsNil(o.Count) {
-		toSerialize["count"] = o.Count
+	if o.Count.IsSet() {
+		toSerialize["count"] = o.Count.Get()
 	}
 	return toSerialize, nil
 }

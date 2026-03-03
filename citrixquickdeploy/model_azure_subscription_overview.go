@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -27,11 +27,11 @@ type AzureSubscriptionOverview struct {
 	// Number of SimpleUI Advanced Catalogs that may have their resources stored in this subscription
 	LinkedAdvancedCatalogs *int32 `json:"linkedAdvancedCatalogs,omitempty"`
 	// The Azure Active Directory information for the directory tied to this subscription
-	Directory           *string  `json:"directory,omitempty"`
-	DirectoryDomainName *string  `json:"directoryDomainName,omitempty"`
-	LinkedCatalogsIds   []string `json:"linkedCatalogsIds,omitempty"`
-	LinkedImagesIds     []string `json:"linkedImagesIds,omitempty"`
-	Warnings            []string `json:"warnings,omitempty"`
+	Directory           NullableString `json:"directory,omitempty"`
+	DirectoryDomainName NullableString `json:"directoryDomainName,omitempty"`
+	LinkedCatalogsIds   []string       `json:"linkedCatalogsIds,omitempty"`
+	LinkedImagesIds     []string       `json:"linkedImagesIds,omitempty"`
+	Warnings            []string       `json:"warnings,omitempty"`
 	// Number of VMs that have been created in the catalogs that are associated with this subscription.
 	CatalogVMs *int32 `json:"catalogVMs,omitempty"`
 	// Id of the customers subscription
@@ -45,23 +45,23 @@ type AzureSubscriptionOverview struct {
 	// Indicates whether subscription is managed by Citrix or not
 	CitrixManaged *bool `json:"citrixManaged,omitempty"`
 	// Which Citrix Managed subscription is this? For the first Citrix Managedsubscription this is set to null
-	CitrixManagedIndex *int32 `json:"citrixManagedIndex,omitempty"`
+	CitrixManagedIndex NullableInt32 `json:"citrixManagedIndex,omitempty"`
 	// Indicates if this subscription should not be used
 	Disabled *bool `json:"disabled,omitempty"`
 	// Indicates that partner-tenant relationship exists if not null
-	CspCustomer *string `json:"cspCustomer,omitempty"`
+	CspCustomer NullableString `json:"cspCustomer,omitempty"`
 	// ID of the Azure App User provided to manage the subscription
-	AzureAppId *string `json:"azureAppId,omitempty"`
+	AzureAppId NullableString `json:"azureAppId,omitempty"`
 	// An obfuscated form of the client secret that only shows the first few characters
-	ObfuscatedAzureAppSecret *string `json:"obfuscatedAzureAppSecret,omitempty"`
+	ObfuscatedAzureAppSecret NullableString `json:"obfuscatedAzureAppSecret,omitempty"`
 	// The expiration date of the user provided secret, if one was used
-	SecretExpirationDate *time.Time `json:"secretExpirationDate,omitempty"`
+	SecretExpirationDate NullableTime `json:"secretExpirationDate,omitempty"`
 	// Id of the directory that the user provided to manage the subscription
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantId NullableString `json:"tenantId,omitempty"`
 	// Details of job to update the azure app credentials
-	UpdateJob *DataStoreAzureSubscriptionUpdateCredentialsJobModel `json:"updateJob,omitempty"`
+	UpdateJob NullableDataStoreAzureSubscriptionUpdateCredentialsJobModel `json:"updateJob,omitempty"`
 	// The details of consent obtained for use of managed subscription
-	UserConsentDetails *DataStoreManagedSubscriptionConsentModel `json:"userConsentDetails,omitempty"`
+	UserConsentDetails NullableDataStoreManagedSubscriptionConsentModel `json:"userConsentDetails,omitempty"`
 }
 
 // NewAzureSubscriptionOverviewWithDefaults instantiates a new AzureSubscriptionOverview object
@@ -141,55 +141,77 @@ func (o *AzureSubscriptionOverview) SetLinkedAdvancedCatalogs(v int32) {
 	o.LinkedAdvancedCatalogs = &v
 }
 
-// GetDirectory returns the Directory field value if set, zero value otherwise.
+// GetDirectory returns the Directory field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionOverview) GetDirectory() string {
-	if o == nil || IsNil(o.Directory) {
+	if o == nil || IsNil(o.Directory.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Directory
+	return *o.Directory.Get()
 }
 
 // GetDirectoryOk returns a tuple with the Directory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionOverview) GetDirectoryOk() (*string, bool) {
-	if o == nil || IsNil(o.Directory) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Directory, true
+	return o.Directory.Get(), o.Directory.IsSet()
 }
 
-// SetDirectory gets a reference to the given string and assigns it to the Directory field.
+// SetDirectory gets a reference to the given NullableString and assigns it to the Directory field.
 func (o *AzureSubscriptionOverview) SetDirectory(v string) {
-	o.Directory = &v
+	o.Directory.Set(&v)
 }
 
-// GetDirectoryDomainName returns the DirectoryDomainName field value if set, zero value otherwise.
+// SetDirectoryNil sets the value for Directory to be an explicit nil
+func (o *AzureSubscriptionOverview) SetDirectoryNil() {
+	o.Directory.Set(nil)
+}
+
+// UnsetDirectory ensures that no value is present for Directory, not even an explicit nil
+func (o *AzureSubscriptionOverview) UnsetDirectory() {
+	o.Directory.Unset()
+}
+
+// GetDirectoryDomainName returns the DirectoryDomainName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionOverview) GetDirectoryDomainName() string {
-	if o == nil || IsNil(o.DirectoryDomainName) {
+	if o == nil || IsNil(o.DirectoryDomainName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DirectoryDomainName
+	return *o.DirectoryDomainName.Get()
 }
 
 // GetDirectoryDomainNameOk returns a tuple with the DirectoryDomainName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionOverview) GetDirectoryDomainNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DirectoryDomainName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DirectoryDomainName, true
+	return o.DirectoryDomainName.Get(), o.DirectoryDomainName.IsSet()
 }
 
-// SetDirectoryDomainName gets a reference to the given string and assigns it to the DirectoryDomainName field.
+// SetDirectoryDomainName gets a reference to the given NullableString and assigns it to the DirectoryDomainName field.
 func (o *AzureSubscriptionOverview) SetDirectoryDomainName(v string) {
-	o.DirectoryDomainName = &v
+	o.DirectoryDomainName.Set(&v)
 }
 
-// GetLinkedCatalogsIds returns the LinkedCatalogsIds field value if set, zero value otherwise.
+// SetDirectoryDomainNameNil sets the value for DirectoryDomainName to be an explicit nil
+func (o *AzureSubscriptionOverview) SetDirectoryDomainNameNil() {
+	o.DirectoryDomainName.Set(nil)
+}
+
+// UnsetDirectoryDomainName ensures that no value is present for DirectoryDomainName, not even an explicit nil
+func (o *AzureSubscriptionOverview) UnsetDirectoryDomainName() {
+	o.DirectoryDomainName.Unset()
+}
+
+// GetLinkedCatalogsIds returns the LinkedCatalogsIds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionOverview) GetLinkedCatalogsIds() []string {
-	if o == nil || IsNil(o.LinkedCatalogsIds) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -198,6 +220,7 @@ func (o *AzureSubscriptionOverview) GetLinkedCatalogsIds() []string {
 
 // GetLinkedCatalogsIdsOk returns a tuple with the LinkedCatalogsIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionOverview) GetLinkedCatalogsIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.LinkedCatalogsIds) {
 		return nil, false
@@ -210,9 +233,9 @@ func (o *AzureSubscriptionOverview) SetLinkedCatalogsIds(v []string) {
 	o.LinkedCatalogsIds = v
 }
 
-// GetLinkedImagesIds returns the LinkedImagesIds field value if set, zero value otherwise.
+// GetLinkedImagesIds returns the LinkedImagesIds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionOverview) GetLinkedImagesIds() []string {
-	if o == nil || IsNil(o.LinkedImagesIds) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -221,6 +244,7 @@ func (o *AzureSubscriptionOverview) GetLinkedImagesIds() []string {
 
 // GetLinkedImagesIdsOk returns a tuple with the LinkedImagesIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionOverview) GetLinkedImagesIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.LinkedImagesIds) {
 		return nil, false
@@ -233,9 +257,9 @@ func (o *AzureSubscriptionOverview) SetLinkedImagesIds(v []string) {
 	o.LinkedImagesIds = v
 }
 
-// GetWarnings returns the Warnings field value if set, zero value otherwise.
+// GetWarnings returns the Warnings field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionOverview) GetWarnings() []string {
-	if o == nil || IsNil(o.Warnings) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -244,6 +268,7 @@ func (o *AzureSubscriptionOverview) GetWarnings() []string {
 
 // GetWarningsOk returns a tuple with the Warnings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionOverview) GetWarningsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Warnings) {
 		return nil, false
@@ -396,27 +421,38 @@ func (o *AzureSubscriptionOverview) SetCitrixManaged(v bool) {
 	o.CitrixManaged = &v
 }
 
-// GetCitrixManagedIndex returns the CitrixManagedIndex field value if set, zero value otherwise.
+// GetCitrixManagedIndex returns the CitrixManagedIndex field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionOverview) GetCitrixManagedIndex() int32 {
-	if o == nil || IsNil(o.CitrixManagedIndex) {
+	if o == nil || IsNil(o.CitrixManagedIndex.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.CitrixManagedIndex
+	return *o.CitrixManagedIndex.Get()
 }
 
 // GetCitrixManagedIndexOk returns a tuple with the CitrixManagedIndex field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionOverview) GetCitrixManagedIndexOk() (*int32, bool) {
-	if o == nil || IsNil(o.CitrixManagedIndex) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CitrixManagedIndex, true
+	return o.CitrixManagedIndex.Get(), o.CitrixManagedIndex.IsSet()
 }
 
-// SetCitrixManagedIndex gets a reference to the given int32 and assigns it to the CitrixManagedIndex field.
+// SetCitrixManagedIndex gets a reference to the given NullableInt32 and assigns it to the CitrixManagedIndex field.
 func (o *AzureSubscriptionOverview) SetCitrixManagedIndex(v int32) {
-	o.CitrixManagedIndex = &v
+	o.CitrixManagedIndex.Set(&v)
+}
+
+// SetCitrixManagedIndexNil sets the value for CitrixManagedIndex to be an explicit nil
+func (o *AzureSubscriptionOverview) SetCitrixManagedIndexNil() {
+	o.CitrixManagedIndex.Set(nil)
+}
+
+// UnsetCitrixManagedIndex ensures that no value is present for CitrixManagedIndex, not even an explicit nil
+func (o *AzureSubscriptionOverview) UnsetCitrixManagedIndex() {
+	o.CitrixManagedIndex.Unset()
 }
 
 // GetDisabled returns the Disabled field value if set, zero value otherwise.
@@ -442,165 +478,242 @@ func (o *AzureSubscriptionOverview) SetDisabled(v bool) {
 	o.Disabled = &v
 }
 
-// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise.
+// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionOverview) GetCspCustomer() string {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil || IsNil(o.CspCustomer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomer
+	return *o.CspCustomer.Get()
 }
 
 // GetCspCustomerOk returns a tuple with the CspCustomer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionOverview) GetCspCustomerOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomer, true
+	return o.CspCustomer.Get(), o.CspCustomer.IsSet()
 }
 
-// SetCspCustomer gets a reference to the given string and assigns it to the CspCustomer field.
+// SetCspCustomer gets a reference to the given NullableString and assigns it to the CspCustomer field.
 func (o *AzureSubscriptionOverview) SetCspCustomer(v string) {
-	o.CspCustomer = &v
+	o.CspCustomer.Set(&v)
 }
 
-// GetAzureAppId returns the AzureAppId field value if set, zero value otherwise.
+// SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+func (o *AzureSubscriptionOverview) SetCspCustomerNil() {
+	o.CspCustomer.Set(nil)
+}
+
+// UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
+func (o *AzureSubscriptionOverview) UnsetCspCustomer() {
+	o.CspCustomer.Unset()
+}
+
+// GetAzureAppId returns the AzureAppId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionOverview) GetAzureAppId() string {
-	if o == nil || IsNil(o.AzureAppId) {
+	if o == nil || IsNil(o.AzureAppId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzureAppId
+	return *o.AzureAppId.Get()
 }
 
 // GetAzureAppIdOk returns a tuple with the AzureAppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionOverview) GetAzureAppIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AzureAppId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureAppId, true
+	return o.AzureAppId.Get(), o.AzureAppId.IsSet()
 }
 
-// SetAzureAppId gets a reference to the given string and assigns it to the AzureAppId field.
+// SetAzureAppId gets a reference to the given NullableString and assigns it to the AzureAppId field.
 func (o *AzureSubscriptionOverview) SetAzureAppId(v string) {
-	o.AzureAppId = &v
+	o.AzureAppId.Set(&v)
 }
 
-// GetObfuscatedAzureAppSecret returns the ObfuscatedAzureAppSecret field value if set, zero value otherwise.
+// SetAzureAppIdNil sets the value for AzureAppId to be an explicit nil
+func (o *AzureSubscriptionOverview) SetAzureAppIdNil() {
+	o.AzureAppId.Set(nil)
+}
+
+// UnsetAzureAppId ensures that no value is present for AzureAppId, not even an explicit nil
+func (o *AzureSubscriptionOverview) UnsetAzureAppId() {
+	o.AzureAppId.Unset()
+}
+
+// GetObfuscatedAzureAppSecret returns the ObfuscatedAzureAppSecret field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionOverview) GetObfuscatedAzureAppSecret() string {
-	if o == nil || IsNil(o.ObfuscatedAzureAppSecret) {
+	if o == nil || IsNil(o.ObfuscatedAzureAppSecret.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ObfuscatedAzureAppSecret
+	return *o.ObfuscatedAzureAppSecret.Get()
 }
 
 // GetObfuscatedAzureAppSecretOk returns a tuple with the ObfuscatedAzureAppSecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionOverview) GetObfuscatedAzureAppSecretOk() (*string, bool) {
-	if o == nil || IsNil(o.ObfuscatedAzureAppSecret) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ObfuscatedAzureAppSecret, true
+	return o.ObfuscatedAzureAppSecret.Get(), o.ObfuscatedAzureAppSecret.IsSet()
 }
 
-// SetObfuscatedAzureAppSecret gets a reference to the given string and assigns it to the ObfuscatedAzureAppSecret field.
+// SetObfuscatedAzureAppSecret gets a reference to the given NullableString and assigns it to the ObfuscatedAzureAppSecret field.
 func (o *AzureSubscriptionOverview) SetObfuscatedAzureAppSecret(v string) {
-	o.ObfuscatedAzureAppSecret = &v
+	o.ObfuscatedAzureAppSecret.Set(&v)
 }
 
-// GetSecretExpirationDate returns the SecretExpirationDate field value if set, zero value otherwise.
+// SetObfuscatedAzureAppSecretNil sets the value for ObfuscatedAzureAppSecret to be an explicit nil
+func (o *AzureSubscriptionOverview) SetObfuscatedAzureAppSecretNil() {
+	o.ObfuscatedAzureAppSecret.Set(nil)
+}
+
+// UnsetObfuscatedAzureAppSecret ensures that no value is present for ObfuscatedAzureAppSecret, not even an explicit nil
+func (o *AzureSubscriptionOverview) UnsetObfuscatedAzureAppSecret() {
+	o.ObfuscatedAzureAppSecret.Unset()
+}
+
+// GetSecretExpirationDate returns the SecretExpirationDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionOverview) GetSecretExpirationDate() time.Time {
-	if o == nil || IsNil(o.SecretExpirationDate) {
+	if o == nil || IsNil(o.SecretExpirationDate.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.SecretExpirationDate
+	return *o.SecretExpirationDate.Get()
 }
 
 // GetSecretExpirationDateOk returns a tuple with the SecretExpirationDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionOverview) GetSecretExpirationDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.SecretExpirationDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SecretExpirationDate, true
+	return o.SecretExpirationDate.Get(), o.SecretExpirationDate.IsSet()
 }
 
-// SetSecretExpirationDate gets a reference to the given time.Time and assigns it to the SecretExpirationDate field.
+// SetSecretExpirationDate gets a reference to the given NullableTime and assigns it to the SecretExpirationDate field.
 func (o *AzureSubscriptionOverview) SetSecretExpirationDate(v time.Time) {
-	o.SecretExpirationDate = &v
+	o.SecretExpirationDate.Set(&v)
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// SetSecretExpirationDateNil sets the value for SecretExpirationDate to be an explicit nil
+func (o *AzureSubscriptionOverview) SetSecretExpirationDateNil() {
+	o.SecretExpirationDate.Set(nil)
+}
+
+// UnsetSecretExpirationDate ensures that no value is present for SecretExpirationDate, not even an explicit nil
+func (o *AzureSubscriptionOverview) UnsetSecretExpirationDate() {
+	o.SecretExpirationDate.Unset()
+}
+
+// GetTenantId returns the TenantId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionOverview) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil || IsNil(o.TenantId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+	return *o.TenantId.Get()
 }
 
 // GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionOverview) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return o.TenantId.Get(), o.TenantId.IsSet()
 }
 
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId gets a reference to the given NullableString and assigns it to the TenantId field.
 func (o *AzureSubscriptionOverview) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId.Set(&v)
 }
 
-// GetUpdateJob returns the UpdateJob field value if set, zero value otherwise.
+// SetTenantIdNil sets the value for TenantId to be an explicit nil
+func (o *AzureSubscriptionOverview) SetTenantIdNil() {
+	o.TenantId.Set(nil)
+}
+
+// UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
+func (o *AzureSubscriptionOverview) UnsetTenantId() {
+	o.TenantId.Unset()
+}
+
+// GetUpdateJob returns the UpdateJob field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionOverview) GetUpdateJob() DataStoreAzureSubscriptionUpdateCredentialsJobModel {
-	if o == nil || IsNil(o.UpdateJob) {
+	if o == nil || IsNil(o.UpdateJob.Get()) {
 		var ret DataStoreAzureSubscriptionUpdateCredentialsJobModel
 		return ret
 	}
-	return *o.UpdateJob
+	return *o.UpdateJob.Get()
 }
 
 // GetUpdateJobOk returns a tuple with the UpdateJob field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionOverview) GetUpdateJobOk() (*DataStoreAzureSubscriptionUpdateCredentialsJobModel, bool) {
-	if o == nil || IsNil(o.UpdateJob) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UpdateJob, true
+	return o.UpdateJob.Get(), o.UpdateJob.IsSet()
 }
 
-// SetUpdateJob gets a reference to the given DataStoreAzureSubscriptionUpdateCredentialsJobModel and assigns it to the UpdateJob field.
+// SetUpdateJob gets a reference to the given NullableDataStoreAzureSubscriptionUpdateCredentialsJobModel and assigns it to the UpdateJob field.
 func (o *AzureSubscriptionOverview) SetUpdateJob(v DataStoreAzureSubscriptionUpdateCredentialsJobModel) {
-	o.UpdateJob = &v
+	o.UpdateJob.Set(&v)
 }
 
-// GetUserConsentDetails returns the UserConsentDetails field value if set, zero value otherwise.
+// SetUpdateJobNil sets the value for UpdateJob to be an explicit nil
+func (o *AzureSubscriptionOverview) SetUpdateJobNil() {
+	o.UpdateJob.Set(nil)
+}
+
+// UnsetUpdateJob ensures that no value is present for UpdateJob, not even an explicit nil
+func (o *AzureSubscriptionOverview) UnsetUpdateJob() {
+	o.UpdateJob.Unset()
+}
+
+// GetUserConsentDetails returns the UserConsentDetails field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureSubscriptionOverview) GetUserConsentDetails() DataStoreManagedSubscriptionConsentModel {
-	if o == nil || IsNil(o.UserConsentDetails) {
+	if o == nil || IsNil(o.UserConsentDetails.Get()) {
 		var ret DataStoreManagedSubscriptionConsentModel
 		return ret
 	}
-	return *o.UserConsentDetails
+	return *o.UserConsentDetails.Get()
 }
 
 // GetUserConsentDetailsOk returns a tuple with the UserConsentDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureSubscriptionOverview) GetUserConsentDetailsOk() (*DataStoreManagedSubscriptionConsentModel, bool) {
-	if o == nil || IsNil(o.UserConsentDetails) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UserConsentDetails, true
+	return o.UserConsentDetails.Get(), o.UserConsentDetails.IsSet()
 }
 
-// SetUserConsentDetails gets a reference to the given DataStoreManagedSubscriptionConsentModel and assigns it to the UserConsentDetails field.
+// SetUserConsentDetails gets a reference to the given NullableDataStoreManagedSubscriptionConsentModel and assigns it to the UserConsentDetails field.
 func (o *AzureSubscriptionOverview) SetUserConsentDetails(v DataStoreManagedSubscriptionConsentModel) {
-	o.UserConsentDetails = &v
+	o.UserConsentDetails.Set(&v)
+}
+
+// SetUserConsentDetailsNil sets the value for UserConsentDetails to be an explicit nil
+func (o *AzureSubscriptionOverview) SetUserConsentDetailsNil() {
+	o.UserConsentDetails.Set(nil)
+}
+
+// UnsetUserConsentDetails ensures that no value is present for UserConsentDetails, not even an explicit nil
+func (o *AzureSubscriptionOverview) UnsetUserConsentDetails() {
+	o.UserConsentDetails.Unset()
 }
 
 func (o AzureSubscriptionOverview) MarshalJSON() ([]byte, error) {
@@ -622,19 +735,19 @@ func (o AzureSubscriptionOverview) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.LinkedAdvancedCatalogs) {
 		toSerialize["linkedAdvancedCatalogs"] = o.LinkedAdvancedCatalogs
 	}
-	if !IsNil(o.Directory) {
-		toSerialize["directory"] = o.Directory
+	if o.Directory.IsSet() {
+		toSerialize["directory"] = o.Directory.Get()
 	}
-	if !IsNil(o.DirectoryDomainName) {
-		toSerialize["directoryDomainName"] = o.DirectoryDomainName
+	if o.DirectoryDomainName.IsSet() {
+		toSerialize["directoryDomainName"] = o.DirectoryDomainName.Get()
 	}
-	if !IsNil(o.LinkedCatalogsIds) {
+	if o.LinkedCatalogsIds != nil {
 		toSerialize["linkedCatalogsIds"] = o.LinkedCatalogsIds
 	}
-	if !IsNil(o.LinkedImagesIds) {
+	if o.LinkedImagesIds != nil {
 		toSerialize["linkedImagesIds"] = o.LinkedImagesIds
 	}
-	if !IsNil(o.Warnings) {
+	if o.Warnings != nil {
 		toSerialize["warnings"] = o.Warnings
 	}
 	if !IsNil(o.CatalogVMs) {
@@ -651,32 +764,32 @@ func (o AzureSubscriptionOverview) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CitrixManaged) {
 		toSerialize["citrixManaged"] = o.CitrixManaged
 	}
-	if !IsNil(o.CitrixManagedIndex) {
-		toSerialize["citrixManagedIndex"] = o.CitrixManagedIndex
+	if o.CitrixManagedIndex.IsSet() {
+		toSerialize["citrixManagedIndex"] = o.CitrixManagedIndex.Get()
 	}
 	if !IsNil(o.Disabled) {
 		toSerialize["disabled"] = o.Disabled
 	}
-	if !IsNil(o.CspCustomer) {
-		toSerialize["cspCustomer"] = o.CspCustomer
+	if o.CspCustomer.IsSet() {
+		toSerialize["cspCustomer"] = o.CspCustomer.Get()
 	}
-	if !IsNil(o.AzureAppId) {
-		toSerialize["azureAppId"] = o.AzureAppId
+	if o.AzureAppId.IsSet() {
+		toSerialize["azureAppId"] = o.AzureAppId.Get()
 	}
-	if !IsNil(o.ObfuscatedAzureAppSecret) {
-		toSerialize["obfuscatedAzureAppSecret"] = o.ObfuscatedAzureAppSecret
+	if o.ObfuscatedAzureAppSecret.IsSet() {
+		toSerialize["obfuscatedAzureAppSecret"] = o.ObfuscatedAzureAppSecret.Get()
 	}
-	if !IsNil(o.SecretExpirationDate) {
-		toSerialize["secretExpirationDate"] = o.SecretExpirationDate
+	if o.SecretExpirationDate.IsSet() {
+		toSerialize["secretExpirationDate"] = o.SecretExpirationDate.Get()
 	}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
+	if o.TenantId.IsSet() {
+		toSerialize["tenantId"] = o.TenantId.Get()
 	}
-	if !IsNil(o.UpdateJob) {
-		toSerialize["updateJob"] = o.UpdateJob
+	if o.UpdateJob.IsSet() {
+		toSerialize["updateJob"] = o.UpdateJob.Get()
 	}
-	if !IsNil(o.UserConsentDetails) {
-		toSerialize["userConsentDetails"] = o.UserConsentDetails
+	if o.UserConsentDetails.IsSet() {
+		toSerialize["userConsentDetails"] = o.UserConsentDetails.Get()
 	}
 	return toSerialize, nil
 }

@@ -50,6 +50,16 @@ SetConnectorIds sets ConnectorIds field to given value.
 
 HasConnectorIds returns a boolean if a field has been set.
 
+### SetConnectorIdsNil
+
+`func (o *RestartConnectorModel) SetConnectorIdsNil(b bool)`
+
+ SetConnectorIdsNil sets the value for ConnectorIds to be an explicit nil
+
+### UnsetConnectorIds
+`func (o *RestartConnectorModel) UnsetConnectorIds()`
+
+UnsetConnectorIds ensures that no value is present for ConnectorIds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

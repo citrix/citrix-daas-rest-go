@@ -4,24 +4,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DnsName** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
+**DnsName** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **MachineUid** | Pointer to **int32** |  | [optional] [readonly] 
-**Sid** | Pointer to **string** |  | [optional] [readonly] 
+**Sid** | Pointer to **NullableString** |  | [optional] [readonly] 
 **CatalogUid** | Pointer to **int32** |  | [optional] [readonly] 
-**RegistrationState** | Pointer to **string** |  | [optional] [readonly] 
-**SummaryState** | Pointer to **string** |  | [optional] [readonly] 
-**Powerstate** | Pointer to **string** |  | [optional] [readonly] 
+**RegistrationState** | Pointer to **NullableString** |  | [optional] [readonly] 
+**SummaryState** | Pointer to **NullableString** |  | [optional] [readonly] 
+**Powerstate** | Pointer to **NullableString** |  | [optional] [readonly] 
 **SessionCount** | Pointer to **int32** |  | [optional] [readonly] 
 **InMaintenanceMode** | Pointer to **bool** |  | [optional] [readonly] 
-**LastDeregistrationTime** | Pointer to **time.Time** |  | [optional] [readonly] 
-**LastDeregistrationReason** | Pointer to **string** |  | [optional] [readonly] 
-**VdaResourceGroup** | Pointer to **string** |  | [optional] 
-**AllocationType** | Pointer to [**CatalogAllocationType**](CatalogAllocationType.md) |  | [optional] 
+**LastDeregistrationTime** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastDeregistrationReason** | Pointer to **NullableString** |  | [optional] [readonly] 
+**VdaResourceGroup** | Pointer to **NullableString** |  | [optional] 
+**AllocationType** | Pointer to [**CatalogAllocationType**](CatalogAllocationType.md) |  | [optional] [readonly] 
 **AssociatedUsers** | Pointer to **[]string** |  | [optional] [readonly] 
-**RestoreStatus** | Pointer to [**RestoreStatusModel**](RestoreStatusModel.md) |  | [optional] 
-**IpAddress** | Pointer to **string** |  | [optional] 
-**ImageOutOfDate** | Pointer to **bool** |  | [optional] [readonly] 
+**RestoreStatus** | Pointer to [**NullableRestoreStatusModel**](RestoreStatusModel.md) |  | [optional] [readonly] 
+**IpAddress** | Pointer to **NullableString** |  | [optional] 
+**ImageOutOfDate** | Pointer to **NullableBool** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -67,6 +67,16 @@ SetDnsName sets DnsName field to given value.
 
 HasDnsName returns a boolean if a field has been set.
 
+### SetDnsNameNil
+
+`func (o *VdaModel) SetDnsNameNil(b bool)`
+
+ SetDnsNameNil sets the value for DnsName to be an explicit nil
+
+### UnsetDnsName
+`func (o *VdaModel) UnsetDnsName()`
+
+UnsetDnsName ensures that no value is present for DnsName, not even an explicit nil
 ### GetName
 
 `func (o *VdaModel) GetName() string`
@@ -92,6 +102,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *VdaModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *VdaModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetMachineUid
 
 `func (o *VdaModel) GetMachineUid() int32`
@@ -142,6 +162,16 @@ SetSid sets Sid field to given value.
 
 HasSid returns a boolean if a field has been set.
 
+### SetSidNil
+
+`func (o *VdaModel) SetSidNil(b bool)`
+
+ SetSidNil sets the value for Sid to be an explicit nil
+
+### UnsetSid
+`func (o *VdaModel) UnsetSid()`
+
+UnsetSid ensures that no value is present for Sid, not even an explicit nil
 ### GetCatalogUid
 
 `func (o *VdaModel) GetCatalogUid() int32`
@@ -192,6 +222,16 @@ SetRegistrationState sets RegistrationState field to given value.
 
 HasRegistrationState returns a boolean if a field has been set.
 
+### SetRegistrationStateNil
+
+`func (o *VdaModel) SetRegistrationStateNil(b bool)`
+
+ SetRegistrationStateNil sets the value for RegistrationState to be an explicit nil
+
+### UnsetRegistrationState
+`func (o *VdaModel) UnsetRegistrationState()`
+
+UnsetRegistrationState ensures that no value is present for RegistrationState, not even an explicit nil
 ### GetSummaryState
 
 `func (o *VdaModel) GetSummaryState() string`
@@ -217,6 +257,16 @@ SetSummaryState sets SummaryState field to given value.
 
 HasSummaryState returns a boolean if a field has been set.
 
+### SetSummaryStateNil
+
+`func (o *VdaModel) SetSummaryStateNil(b bool)`
+
+ SetSummaryStateNil sets the value for SummaryState to be an explicit nil
+
+### UnsetSummaryState
+`func (o *VdaModel) UnsetSummaryState()`
+
+UnsetSummaryState ensures that no value is present for SummaryState, not even an explicit nil
 ### GetPowerstate
 
 `func (o *VdaModel) GetPowerstate() string`
@@ -242,6 +292,16 @@ SetPowerstate sets Powerstate field to given value.
 
 HasPowerstate returns a boolean if a field has been set.
 
+### SetPowerstateNil
+
+`func (o *VdaModel) SetPowerstateNil(b bool)`
+
+ SetPowerstateNil sets the value for Powerstate to be an explicit nil
+
+### UnsetPowerstate
+`func (o *VdaModel) UnsetPowerstate()`
+
+UnsetPowerstate ensures that no value is present for Powerstate, not even an explicit nil
 ### GetSessionCount
 
 `func (o *VdaModel) GetSessionCount() int32`
@@ -317,6 +377,16 @@ SetLastDeregistrationTime sets LastDeregistrationTime field to given value.
 
 HasLastDeregistrationTime returns a boolean if a field has been set.
 
+### SetLastDeregistrationTimeNil
+
+`func (o *VdaModel) SetLastDeregistrationTimeNil(b bool)`
+
+ SetLastDeregistrationTimeNil sets the value for LastDeregistrationTime to be an explicit nil
+
+### UnsetLastDeregistrationTime
+`func (o *VdaModel) UnsetLastDeregistrationTime()`
+
+UnsetLastDeregistrationTime ensures that no value is present for LastDeregistrationTime, not even an explicit nil
 ### GetLastDeregistrationReason
 
 `func (o *VdaModel) GetLastDeregistrationReason() string`
@@ -342,6 +412,16 @@ SetLastDeregistrationReason sets LastDeregistrationReason field to given value.
 
 HasLastDeregistrationReason returns a boolean if a field has been set.
 
+### SetLastDeregistrationReasonNil
+
+`func (o *VdaModel) SetLastDeregistrationReasonNil(b bool)`
+
+ SetLastDeregistrationReasonNil sets the value for LastDeregistrationReason to be an explicit nil
+
+### UnsetLastDeregistrationReason
+`func (o *VdaModel) UnsetLastDeregistrationReason()`
+
+UnsetLastDeregistrationReason ensures that no value is present for LastDeregistrationReason, not even an explicit nil
 ### GetVdaResourceGroup
 
 `func (o *VdaModel) GetVdaResourceGroup() string`
@@ -367,6 +447,16 @@ SetVdaResourceGroup sets VdaResourceGroup field to given value.
 
 HasVdaResourceGroup returns a boolean if a field has been set.
 
+### SetVdaResourceGroupNil
+
+`func (o *VdaModel) SetVdaResourceGroupNil(b bool)`
+
+ SetVdaResourceGroupNil sets the value for VdaResourceGroup to be an explicit nil
+
+### UnsetVdaResourceGroup
+`func (o *VdaModel) UnsetVdaResourceGroup()`
+
+UnsetVdaResourceGroup ensures that no value is present for VdaResourceGroup, not even an explicit nil
 ### GetAllocationType
 
 `func (o *VdaModel) GetAllocationType() CatalogAllocationType`
@@ -417,6 +507,16 @@ SetAssociatedUsers sets AssociatedUsers field to given value.
 
 HasAssociatedUsers returns a boolean if a field has been set.
 
+### SetAssociatedUsersNil
+
+`func (o *VdaModel) SetAssociatedUsersNil(b bool)`
+
+ SetAssociatedUsersNil sets the value for AssociatedUsers to be an explicit nil
+
+### UnsetAssociatedUsers
+`func (o *VdaModel) UnsetAssociatedUsers()`
+
+UnsetAssociatedUsers ensures that no value is present for AssociatedUsers, not even an explicit nil
 ### GetRestoreStatus
 
 `func (o *VdaModel) GetRestoreStatus() RestoreStatusModel`
@@ -442,6 +542,16 @@ SetRestoreStatus sets RestoreStatus field to given value.
 
 HasRestoreStatus returns a boolean if a field has been set.
 
+### SetRestoreStatusNil
+
+`func (o *VdaModel) SetRestoreStatusNil(b bool)`
+
+ SetRestoreStatusNil sets the value for RestoreStatus to be an explicit nil
+
+### UnsetRestoreStatus
+`func (o *VdaModel) UnsetRestoreStatus()`
+
+UnsetRestoreStatus ensures that no value is present for RestoreStatus, not even an explicit nil
 ### GetIpAddress
 
 `func (o *VdaModel) GetIpAddress() string`
@@ -467,6 +577,16 @@ SetIpAddress sets IpAddress field to given value.
 
 HasIpAddress returns a boolean if a field has been set.
 
+### SetIpAddressNil
+
+`func (o *VdaModel) SetIpAddressNil(b bool)`
+
+ SetIpAddressNil sets the value for IpAddress to be an explicit nil
+
+### UnsetIpAddress
+`func (o *VdaModel) UnsetIpAddress()`
+
+UnsetIpAddress ensures that no value is present for IpAddress, not even an explicit nil
 ### GetImageOutOfDate
 
 `func (o *VdaModel) GetImageOutOfDate() bool`
@@ -492,6 +612,16 @@ SetImageOutOfDate sets ImageOutOfDate field to given value.
 
 HasImageOutOfDate returns a boolean if a field has been set.
 
+### SetImageOutOfDateNil
+
+`func (o *VdaModel) SetImageOutOfDateNil(b bool)`
+
+ SetImageOutOfDateNil sets the value for ImageOutOfDate to be an explicit nil
+
+### UnsetImageOutOfDate
+`func (o *VdaModel) UnsetImageOutOfDate()`
+
+UnsetImageOutOfDate ensures that no value is present for ImageOutOfDate, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

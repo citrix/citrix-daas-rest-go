@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 **SubscriptionId** | **string** | ID of the Azure Subscription where VNet is configured | 
 **ResourceGroup** | **string** | Name of the Resource Group the VNet is associated with | 
 **Name** | **string** | Name of the VNet | 
-**Location** | Pointer to **string** | Azure region where the VNet is located | [optional] 
+**Location** | Pointer to **NullableString** | Azure region where the VNet is located | [optional] 
+**ResourceId** | Pointer to **NullableString** | Azure resource ID of the VNet | [optional] 
 **Subnets** | Pointer to [**[]AzureSubnet**](AzureSubnet.md) | Subnets that have been configured for this VNet | [optional] 
 **DnsServers** | Pointer to **[]string** |  | [optional] 
 
@@ -115,6 +116,51 @@ SetLocation sets Location field to given value.
 
 HasLocation returns a boolean if a field has been set.
 
+### SetLocationNil
+
+`func (o *AzureVNet) SetLocationNil(b bool)`
+
+ SetLocationNil sets the value for Location to be an explicit nil
+
+### UnsetLocation
+`func (o *AzureVNet) UnsetLocation()`
+
+UnsetLocation ensures that no value is present for Location, not even an explicit nil
+### GetResourceId
+
+`func (o *AzureVNet) GetResourceId() string`
+
+GetResourceId returns the ResourceId field if non-nil, zero value otherwise.
+
+### GetResourceIdOk
+
+`func (o *AzureVNet) GetResourceIdOk() (*string, bool)`
+
+GetResourceIdOk returns a tuple with the ResourceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceId
+
+`func (o *AzureVNet) SetResourceId(v string)`
+
+SetResourceId sets ResourceId field to given value.
+
+### HasResourceId
+
+`func (o *AzureVNet) HasResourceId() bool`
+
+HasResourceId returns a boolean if a field has been set.
+
+### SetResourceIdNil
+
+`func (o *AzureVNet) SetResourceIdNil(b bool)`
+
+ SetResourceIdNil sets the value for ResourceId to be an explicit nil
+
+### UnsetResourceId
+`func (o *AzureVNet) UnsetResourceId()`
+
+UnsetResourceId ensures that no value is present for ResourceId, not even an explicit nil
 ### GetSubnets
 
 `func (o *AzureVNet) GetSubnets() []AzureSubnet`
@@ -140,6 +186,16 @@ SetSubnets sets Subnets field to given value.
 
 HasSubnets returns a boolean if a field has been set.
 
+### SetSubnetsNil
+
+`func (o *AzureVNet) SetSubnetsNil(b bool)`
+
+ SetSubnetsNil sets the value for Subnets to be an explicit nil
+
+### UnsetSubnets
+`func (o *AzureVNet) UnsetSubnets()`
+
+UnsetSubnets ensures that no value is present for Subnets, not even an explicit nil
 ### GetDnsServers
 
 `func (o *AzureVNet) GetDnsServers() []string`
@@ -165,6 +221,16 @@ SetDnsServers sets DnsServers field to given value.
 
 HasDnsServers returns a boolean if a field has been set.
 
+### SetDnsServersNil
+
+`func (o *AzureVNet) SetDnsServersNil(b bool)`
+
+ SetDnsServersNil sets the value for DnsServers to be an explicit nil
+
+### UnsetDnsServers
+`func (o *AzureVNet) UnsetDnsServers()`
+
+UnsetDnsServers ensures that no value is present for DnsServers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

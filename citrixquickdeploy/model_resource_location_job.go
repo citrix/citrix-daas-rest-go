@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -23,23 +23,23 @@ type ResourceLocationJob struct {
 	// The type of job
 	JobType *ResourceLocationJobType `json:"jobType,omitempty"`
 	// The state of the job
-	State *ResourceLocationJobState `json:"state,omitempty"`
+	State NullableResourceLocationJobState `json:"state,omitempty"`
 	// Status of the job
-	Status *ResourceLocationJobStatus `json:"status,omitempty"`
+	Status NullableResourceLocationJobStatus `json:"status,omitempty"`
 	// Error associated with the job failure
-	StatusMessage *string `json:"statusMessage,omitempty"`
+	StatusMessage NullableString `json:"statusMessage,omitempty"`
 	// Time at which the job was completed at
-	EndedAt *time.Time `json:"endedAt,omitempty"`
+	EndedAt NullableTime `json:"endedAt,omitempty"`
 	// ID of the transaction performing the job
-	TransactionId *string `json:"transactionId,omitempty"`
+	TransactionId NullableString `json:"transactionId,omitempty"`
 	// Quantity of items requested in the job
-	Quantity *int32 `json:"quantity,omitempty"`
+	Quantity NullableInt32 `json:"quantity,omitempty"`
 	// Quantity of items that failed the job
-	QuantityFailed *int32 `json:"quantityFailed,omitempty"`
+	QuantityFailed NullableInt32 `json:"quantityFailed,omitempty"`
 	// The datetime when the job started
-	StartedAt *time.Time `json:"startedAt,omitempty"`
+	StartedAt NullableTime `json:"startedAt,omitempty"`
 	// Estimated total time for the job to finish
-	EstimatedTimeInMinute *int32 `json:"estimatedTimeInMinute,omitempty"`
+	EstimatedTimeInMinute NullableInt32 `json:"estimatedTimeInMinute,omitempty"`
 }
 
 // NewResourceLocationJobWithDefaults instantiates a new ResourceLocationJob object
@@ -73,211 +73,310 @@ func (o *ResourceLocationJob) SetJobType(v ResourceLocationJobType) {
 	o.JobType = &v
 }
 
-// GetState returns the State field value if set, zero value otherwise.
+// GetState returns the State field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationJob) GetState() ResourceLocationJobState {
-	if o == nil || IsNil(o.State) {
+	if o == nil || IsNil(o.State.Get()) {
 		var ret ResourceLocationJobState
 		return ret
 	}
-	return *o.State
+	return *o.State.Get()
 }
 
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationJob) GetStateOk() (*ResourceLocationJobState, bool) {
-	if o == nil || IsNil(o.State) {
+	if o == nil {
 		return nil, false
 	}
-	return o.State, true
+	return o.State.Get(), o.State.IsSet()
 }
 
-// SetState gets a reference to the given ResourceLocationJobState and assigns it to the State field.
+// SetState gets a reference to the given NullableResourceLocationJobState and assigns it to the State field.
 func (o *ResourceLocationJob) SetState(v ResourceLocationJobState) {
-	o.State = &v
+	o.State.Set(&v)
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// SetStateNil sets the value for State to be an explicit nil
+func (o *ResourceLocationJob) SetStateNil() {
+	o.State.Set(nil)
+}
+
+// UnsetState ensures that no value is present for State, not even an explicit nil
+func (o *ResourceLocationJob) UnsetState() {
+	o.State.Unset()
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationJob) GetStatus() ResourceLocationJobStatus {
-	if o == nil || IsNil(o.Status) {
+	if o == nil || IsNil(o.Status.Get()) {
 		var ret ResourceLocationJobStatus
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationJob) GetStatusOk() (*ResourceLocationJobStatus, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
-// SetStatus gets a reference to the given ResourceLocationJobStatus and assigns it to the Status field.
+// SetStatus gets a reference to the given NullableResourceLocationJobStatus and assigns it to the Status field.
 func (o *ResourceLocationJob) SetStatus(v ResourceLocationJobStatus) {
-	o.Status = &v
+	o.Status.Set(&v)
 }
 
-// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise.
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *ResourceLocationJob) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *ResourceLocationJob) UnsetStatus() {
+	o.Status.Unset()
+}
+
+// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationJob) GetStatusMessage() string {
-	if o == nil || IsNil(o.StatusMessage) {
+	if o == nil || IsNil(o.StatusMessage.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.StatusMessage
+	return *o.StatusMessage.Get()
 }
 
 // GetStatusMessageOk returns a tuple with the StatusMessage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationJob) GetStatusMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.StatusMessage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StatusMessage, true
+	return o.StatusMessage.Get(), o.StatusMessage.IsSet()
 }
 
-// SetStatusMessage gets a reference to the given string and assigns it to the StatusMessage field.
+// SetStatusMessage gets a reference to the given NullableString and assigns it to the StatusMessage field.
 func (o *ResourceLocationJob) SetStatusMessage(v string) {
-	o.StatusMessage = &v
+	o.StatusMessage.Set(&v)
 }
 
-// GetEndedAt returns the EndedAt field value if set, zero value otherwise.
+// SetStatusMessageNil sets the value for StatusMessage to be an explicit nil
+func (o *ResourceLocationJob) SetStatusMessageNil() {
+	o.StatusMessage.Set(nil)
+}
+
+// UnsetStatusMessage ensures that no value is present for StatusMessage, not even an explicit nil
+func (o *ResourceLocationJob) UnsetStatusMessage() {
+	o.StatusMessage.Unset()
+}
+
+// GetEndedAt returns the EndedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationJob) GetEndedAt() time.Time {
-	if o == nil || IsNil(o.EndedAt) {
+	if o == nil || IsNil(o.EndedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndedAt
+	return *o.EndedAt.Get()
 }
 
 // GetEndedAtOk returns a tuple with the EndedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationJob) GetEndedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.EndedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EndedAt, true
+	return o.EndedAt.Get(), o.EndedAt.IsSet()
 }
 
-// SetEndedAt gets a reference to the given time.Time and assigns it to the EndedAt field.
+// SetEndedAt gets a reference to the given NullableTime and assigns it to the EndedAt field.
 func (o *ResourceLocationJob) SetEndedAt(v time.Time) {
-	o.EndedAt = &v
+	o.EndedAt.Set(&v)
 }
 
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+// SetEndedAtNil sets the value for EndedAt to be an explicit nil
+func (o *ResourceLocationJob) SetEndedAtNil() {
+	o.EndedAt.Set(nil)
+}
+
+// UnsetEndedAt ensures that no value is present for EndedAt, not even an explicit nil
+func (o *ResourceLocationJob) UnsetEndedAt() {
+	o.EndedAt.Unset()
+}
+
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationJob) GetTransactionId() string {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil || IsNil(o.TransactionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TransactionId
+	return *o.TransactionId.Get()
 }
 
 // GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationJob) GetTransactionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TransactionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TransactionId, true
+	return o.TransactionId.Get(), o.TransactionId.IsSet()
 }
 
-// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
 func (o *ResourceLocationJob) SetTransactionId(v string) {
-	o.TransactionId = &v
+	o.TransactionId.Set(&v)
 }
 
-// GetQuantity returns the Quantity field value if set, zero value otherwise.
+// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+func (o *ResourceLocationJob) SetTransactionIdNil() {
+	o.TransactionId.Set(nil)
+}
+
+// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
+func (o *ResourceLocationJob) UnsetTransactionId() {
+	o.TransactionId.Unset()
+}
+
+// GetQuantity returns the Quantity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationJob) GetQuantity() int32 {
-	if o == nil || IsNil(o.Quantity) {
+	if o == nil || IsNil(o.Quantity.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.Quantity
+	return *o.Quantity.Get()
 }
 
 // GetQuantityOk returns a tuple with the Quantity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationJob) GetQuantityOk() (*int32, bool) {
-	if o == nil || IsNil(o.Quantity) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Quantity, true
+	return o.Quantity.Get(), o.Quantity.IsSet()
 }
 
-// SetQuantity gets a reference to the given int32 and assigns it to the Quantity field.
+// SetQuantity gets a reference to the given NullableInt32 and assigns it to the Quantity field.
 func (o *ResourceLocationJob) SetQuantity(v int32) {
-	o.Quantity = &v
+	o.Quantity.Set(&v)
 }
 
-// GetQuantityFailed returns the QuantityFailed field value if set, zero value otherwise.
+// SetQuantityNil sets the value for Quantity to be an explicit nil
+func (o *ResourceLocationJob) SetQuantityNil() {
+	o.Quantity.Set(nil)
+}
+
+// UnsetQuantity ensures that no value is present for Quantity, not even an explicit nil
+func (o *ResourceLocationJob) UnsetQuantity() {
+	o.Quantity.Unset()
+}
+
+// GetQuantityFailed returns the QuantityFailed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationJob) GetQuantityFailed() int32 {
-	if o == nil || IsNil(o.QuantityFailed) {
+	if o == nil || IsNil(o.QuantityFailed.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.QuantityFailed
+	return *o.QuantityFailed.Get()
 }
 
 // GetQuantityFailedOk returns a tuple with the QuantityFailed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationJob) GetQuantityFailedOk() (*int32, bool) {
-	if o == nil || IsNil(o.QuantityFailed) {
+	if o == nil {
 		return nil, false
 	}
-	return o.QuantityFailed, true
+	return o.QuantityFailed.Get(), o.QuantityFailed.IsSet()
 }
 
-// SetQuantityFailed gets a reference to the given int32 and assigns it to the QuantityFailed field.
+// SetQuantityFailed gets a reference to the given NullableInt32 and assigns it to the QuantityFailed field.
 func (o *ResourceLocationJob) SetQuantityFailed(v int32) {
-	o.QuantityFailed = &v
+	o.QuantityFailed.Set(&v)
 }
 
-// GetStartedAt returns the StartedAt field value if set, zero value otherwise.
+// SetQuantityFailedNil sets the value for QuantityFailed to be an explicit nil
+func (o *ResourceLocationJob) SetQuantityFailedNil() {
+	o.QuantityFailed.Set(nil)
+}
+
+// UnsetQuantityFailed ensures that no value is present for QuantityFailed, not even an explicit nil
+func (o *ResourceLocationJob) UnsetQuantityFailed() {
+	o.QuantityFailed.Unset()
+}
+
+// GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationJob) GetStartedAt() time.Time {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil || IsNil(o.StartedAt.Get()) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartedAt
+	return *o.StartedAt.Get()
 }
 
 // GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationJob) GetStartedAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.StartedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StartedAt, true
+	return o.StartedAt.Get(), o.StartedAt.IsSet()
 }
 
-// SetStartedAt gets a reference to the given time.Time and assigns it to the StartedAt field.
+// SetStartedAt gets a reference to the given NullableTime and assigns it to the StartedAt field.
 func (o *ResourceLocationJob) SetStartedAt(v time.Time) {
-	o.StartedAt = &v
+	o.StartedAt.Set(&v)
 }
 
-// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise.
+// SetStartedAtNil sets the value for StartedAt to be an explicit nil
+func (o *ResourceLocationJob) SetStartedAtNil() {
+	o.StartedAt.Set(nil)
+}
+
+// UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
+func (o *ResourceLocationJob) UnsetStartedAt() {
+	o.StartedAt.Unset()
+}
+
+// GetEstimatedTimeInMinute returns the EstimatedTimeInMinute field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationJob) GetEstimatedTimeInMinute() int32 {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil || IsNil(o.EstimatedTimeInMinute.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.EstimatedTimeInMinute
+	return *o.EstimatedTimeInMinute.Get()
 }
 
 // GetEstimatedTimeInMinuteOk returns a tuple with the EstimatedTimeInMinute field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationJob) GetEstimatedTimeInMinuteOk() (*int32, bool) {
-	if o == nil || IsNil(o.EstimatedTimeInMinute) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EstimatedTimeInMinute, true
+	return o.EstimatedTimeInMinute.Get(), o.EstimatedTimeInMinute.IsSet()
 }
 
-// SetEstimatedTimeInMinute gets a reference to the given int32 and assigns it to the EstimatedTimeInMinute field.
+// SetEstimatedTimeInMinute gets a reference to the given NullableInt32 and assigns it to the EstimatedTimeInMinute field.
 func (o *ResourceLocationJob) SetEstimatedTimeInMinute(v int32) {
-	o.EstimatedTimeInMinute = &v
+	o.EstimatedTimeInMinute.Set(&v)
+}
+
+// SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+func (o *ResourceLocationJob) SetEstimatedTimeInMinuteNil() {
+	o.EstimatedTimeInMinute.Set(nil)
+}
+
+// UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
+func (o *ResourceLocationJob) UnsetEstimatedTimeInMinute() {
+	o.EstimatedTimeInMinute.Unset()
 }
 
 func (o ResourceLocationJob) MarshalJSON() ([]byte, error) {
@@ -293,32 +392,32 @@ func (o ResourceLocationJob) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.JobType) {
 		toSerialize["jobType"] = o.JobType
 	}
-	if !IsNil(o.State) {
-		toSerialize["state"] = o.State
+	if o.State.IsSet() {
+		toSerialize["state"] = o.State.Get()
 	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
-	if !IsNil(o.StatusMessage) {
-		toSerialize["statusMessage"] = o.StatusMessage
+	if o.StatusMessage.IsSet() {
+		toSerialize["statusMessage"] = o.StatusMessage.Get()
 	}
-	if !IsNil(o.EndedAt) {
-		toSerialize["endedAt"] = o.EndedAt
+	if o.EndedAt.IsSet() {
+		toSerialize["endedAt"] = o.EndedAt.Get()
 	}
-	if !IsNil(o.TransactionId) {
-		toSerialize["transactionId"] = o.TransactionId
+	if o.TransactionId.IsSet() {
+		toSerialize["transactionId"] = o.TransactionId.Get()
 	}
-	if !IsNil(o.Quantity) {
-		toSerialize["quantity"] = o.Quantity
+	if o.Quantity.IsSet() {
+		toSerialize["quantity"] = o.Quantity.Get()
 	}
-	if !IsNil(o.QuantityFailed) {
-		toSerialize["quantityFailed"] = o.QuantityFailed
+	if o.QuantityFailed.IsSet() {
+		toSerialize["quantityFailed"] = o.QuantityFailed.Get()
 	}
-	if !IsNil(o.StartedAt) {
-		toSerialize["startedAt"] = o.StartedAt
+	if o.StartedAt.IsSet() {
+		toSerialize["startedAt"] = o.StartedAt.Get()
 	}
-	if !IsNil(o.EstimatedTimeInMinute) {
-		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute
+	if o.EstimatedTimeInMinute.IsSet() {
+		toSerialize["estimatedTimeInMinute"] = o.EstimatedTimeInMinute.Get()
 	}
 	return toSerialize, nil
 }

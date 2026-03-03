@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &SubscriptionOnboardingStatusModel{}
 // SubscriptionOnboardingStatusModel struct for SubscriptionOnboardingStatusModel
 type SubscriptionOnboardingStatusModel struct {
 	// Application Id of the cloud aware app service principal added to the subscription
-	CloudAwareAppId *string `json:"cloudAwareAppId,omitempty"`
+	CloudAwareAppId NullableString `json:"cloudAwareAppId,omitempty"`
 	// Subscription details
 	AzurePoolSubscriptionDetailsList []AzurePoolSubscriptionDetails `json:"azurePoolSubscriptionDetailsList,omitempty"`
 }
@@ -33,32 +33,43 @@ func NewSubscriptionOnboardingStatusModelWithDefaults() *SubscriptionOnboardingS
 	return &this
 }
 
-// GetCloudAwareAppId returns the CloudAwareAppId field value if set, zero value otherwise.
+// GetCloudAwareAppId returns the CloudAwareAppId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SubscriptionOnboardingStatusModel) GetCloudAwareAppId() string {
-	if o == nil || IsNil(o.CloudAwareAppId) {
+	if o == nil || IsNil(o.CloudAwareAppId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CloudAwareAppId
+	return *o.CloudAwareAppId.Get()
 }
 
 // GetCloudAwareAppIdOk returns a tuple with the CloudAwareAppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SubscriptionOnboardingStatusModel) GetCloudAwareAppIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CloudAwareAppId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CloudAwareAppId, true
+	return o.CloudAwareAppId.Get(), o.CloudAwareAppId.IsSet()
 }
 
-// SetCloudAwareAppId gets a reference to the given string and assigns it to the CloudAwareAppId field.
+// SetCloudAwareAppId gets a reference to the given NullableString and assigns it to the CloudAwareAppId field.
 func (o *SubscriptionOnboardingStatusModel) SetCloudAwareAppId(v string) {
-	o.CloudAwareAppId = &v
+	o.CloudAwareAppId.Set(&v)
 }
 
-// GetAzurePoolSubscriptionDetailsList returns the AzurePoolSubscriptionDetailsList field value if set, zero value otherwise.
+// SetCloudAwareAppIdNil sets the value for CloudAwareAppId to be an explicit nil
+func (o *SubscriptionOnboardingStatusModel) SetCloudAwareAppIdNil() {
+	o.CloudAwareAppId.Set(nil)
+}
+
+// UnsetCloudAwareAppId ensures that no value is present for CloudAwareAppId, not even an explicit nil
+func (o *SubscriptionOnboardingStatusModel) UnsetCloudAwareAppId() {
+	o.CloudAwareAppId.Unset()
+}
+
+// GetAzurePoolSubscriptionDetailsList returns the AzurePoolSubscriptionDetailsList field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SubscriptionOnboardingStatusModel) GetAzurePoolSubscriptionDetailsList() []AzurePoolSubscriptionDetails {
-	if o == nil || IsNil(o.AzurePoolSubscriptionDetailsList) {
+	if o == nil {
 		var ret []AzurePoolSubscriptionDetails
 		return ret
 	}
@@ -67,6 +78,7 @@ func (o *SubscriptionOnboardingStatusModel) GetAzurePoolSubscriptionDetailsList(
 
 // GetAzurePoolSubscriptionDetailsListOk returns a tuple with the AzurePoolSubscriptionDetailsList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SubscriptionOnboardingStatusModel) GetAzurePoolSubscriptionDetailsListOk() ([]AzurePoolSubscriptionDetails, bool) {
 	if o == nil || IsNil(o.AzurePoolSubscriptionDetailsList) {
 		return nil, false
@@ -89,10 +101,10 @@ func (o SubscriptionOnboardingStatusModel) MarshalJSON() ([]byte, error) {
 
 func (o SubscriptionOnboardingStatusModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CloudAwareAppId) {
-		toSerialize["cloudAwareAppId"] = o.CloudAwareAppId
+	if o.CloudAwareAppId.IsSet() {
+		toSerialize["cloudAwareAppId"] = o.CloudAwareAppId.Get()
 	}
-	if !IsNil(o.AzurePoolSubscriptionDetailsList) {
+	if o.AzurePoolSubscriptionDetailsList != nil {
 		toSerialize["azurePoolSubscriptionDetailsList"] = o.AzurePoolSubscriptionDetailsList
 	}
 	return toSerialize, nil

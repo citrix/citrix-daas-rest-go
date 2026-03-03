@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **UsePremiumStorage** | Pointer to **bool** | Indicates if Premium Storage will be used | [optional] 
-**StorageType** | Pointer to [**CatalogCapacityStorageType**](CatalogCapacityStorageType.md) | Indicates type of Storage that will be used | [optional] 
+**StorageType** | Pointer to [**NullableCatalogCapacityStorageType**](CatalogCapacityStorageType.md) | Indicates type of Storage that will be used | [optional] 
 **UseAzureHUB** | Pointer to **bool** | Indicates if the catalog VMs should be deployed with Azure HUB license | [optional] 
 **MaxUsersPerVM** | Pointer to **int32** | Number of concurrent users per VM | [optional] 
-**InstanceTypeId** | Pointer to **string** | Type of VM to create | [optional] 
-**InstanceName** | Pointer to **string** | Name of the Azure VM Instance to use for the catalog | [optional] 
+**InstanceTypeId** | Pointer to **NullableString** | Type of VM to create | [optional] 
+**InstanceName** | Pointer to **NullableString** | Name of the Azure VM Instance to use for the catalog | [optional] 
 **BackupVmConfiguration** | Pointer to [**[]BackupVmConfiguration**](BackupVmConfiguration.md) | List of backup VM configurations | [optional] 
 **UseManagedDisks** | Pointer to **bool** | Use managed disks for VMs in the catalog | [optional] 
 
@@ -82,6 +82,16 @@ SetStorageType sets StorageType field to given value.
 
 HasStorageType returns a boolean if a field has been set.
 
+### SetStorageTypeNil
+
+`func (o *CatalogComputeWorkerModel) SetStorageTypeNil(b bool)`
+
+ SetStorageTypeNil sets the value for StorageType to be an explicit nil
+
+### UnsetStorageType
+`func (o *CatalogComputeWorkerModel) UnsetStorageType()`
+
+UnsetStorageType ensures that no value is present for StorageType, not even an explicit nil
 ### GetUseAzureHUB
 
 `func (o *CatalogComputeWorkerModel) GetUseAzureHUB() bool`
@@ -157,6 +167,16 @@ SetInstanceTypeId sets InstanceTypeId field to given value.
 
 HasInstanceTypeId returns a boolean if a field has been set.
 
+### SetInstanceTypeIdNil
+
+`func (o *CatalogComputeWorkerModel) SetInstanceTypeIdNil(b bool)`
+
+ SetInstanceTypeIdNil sets the value for InstanceTypeId to be an explicit nil
+
+### UnsetInstanceTypeId
+`func (o *CatalogComputeWorkerModel) UnsetInstanceTypeId()`
+
+UnsetInstanceTypeId ensures that no value is present for InstanceTypeId, not even an explicit nil
 ### GetInstanceName
 
 `func (o *CatalogComputeWorkerModel) GetInstanceName() string`
@@ -182,6 +202,16 @@ SetInstanceName sets InstanceName field to given value.
 
 HasInstanceName returns a boolean if a field has been set.
 
+### SetInstanceNameNil
+
+`func (o *CatalogComputeWorkerModel) SetInstanceNameNil(b bool)`
+
+ SetInstanceNameNil sets the value for InstanceName to be an explicit nil
+
+### UnsetInstanceName
+`func (o *CatalogComputeWorkerModel) UnsetInstanceName()`
+
+UnsetInstanceName ensures that no value is present for InstanceName, not even an explicit nil
 ### GetBackupVmConfiguration
 
 `func (o *CatalogComputeWorkerModel) GetBackupVmConfiguration() []BackupVmConfiguration`
@@ -207,6 +237,16 @@ SetBackupVmConfiguration sets BackupVmConfiguration field to given value.
 
 HasBackupVmConfiguration returns a boolean if a field has been set.
 
+### SetBackupVmConfigurationNil
+
+`func (o *CatalogComputeWorkerModel) SetBackupVmConfigurationNil(b bool)`
+
+ SetBackupVmConfigurationNil sets the value for BackupVmConfiguration to be an explicit nil
+
+### UnsetBackupVmConfiguration
+`func (o *CatalogComputeWorkerModel) UnsetBackupVmConfiguration()`
+
+UnsetBackupVmConfiguration ensures that no value is present for BackupVmConfiguration, not even an explicit nil
 ### GetUseManagedDisks
 
 `func (o *CatalogComputeWorkerModel) GetUseManagedDisks() bool`

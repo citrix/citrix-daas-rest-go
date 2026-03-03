@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,19 +19,19 @@ var _ MappedNullable = &Location{}
 
 // Location struct for Location
 type Location struct {
-	Id *string `json:"id,omitempty"`
+	Id NullableString `json:"id,omitempty"`
 	// The subscription ID.
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionId NullableString `json:"subscriptionId,omitempty"`
 	// The location name.
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	// The location type.
-	Type *LocationType `json:"type,omitempty"`
+	Type NullableLocationType `json:"type,omitempty"`
 	// The display name of the location.
-	DisplayName *string `json:"displayName,omitempty"`
+	DisplayName NullableString `json:"displayName,omitempty"`
 	// The display name of the location and its region.
-	RegionalDisplayName *string `json:"regionalDisplayName,omitempty"`
+	RegionalDisplayName NullableString `json:"regionalDisplayName,omitempty"`
 	// Metadata of the location, such as lat/long, paired region, and others.
-	Metadata *LocationMetaData `json:"metadata,omitempty"`
+	Metadata NullableLocationMetaData `json:"metadata,omitempty"`
 }
 
 // NewLocationWithDefaults instantiates a new Location object
@@ -42,165 +42,242 @@ func NewLocationWithDefaults() *Location {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Location) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Location) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *Location) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *Location) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *Location) UnsetId() {
+	o.Id.Unset()
+}
+
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Location) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Location) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *Location) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *Location) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *Location) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Location) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Location) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *Location) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *Location) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *Location) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Location) GetType() LocationType {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret LocationType
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Location) GetTypeOk() (*LocationType, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
-// SetType gets a reference to the given LocationType and assigns it to the Type field.
+// SetType gets a reference to the given NullableLocationType and assigns it to the Type field.
 func (o *Location) SetType(v LocationType) {
-	o.Type = &v
+	o.Type.Set(&v)
 }
 
-// GetDisplayName returns the DisplayName field value if set, zero value otherwise.
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *Location) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *Location) UnsetType() {
+	o.Type.Unset()
+}
+
+// GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Location) GetDisplayName() string {
-	if o == nil || IsNil(o.DisplayName) {
+	if o == nil || IsNil(o.DisplayName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayName
+	return *o.DisplayName.Get()
 }
 
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Location) GetDisplayNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DisplayName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DisplayName, true
+	return o.DisplayName.Get(), o.DisplayName.IsSet()
 }
 
-// SetDisplayName gets a reference to the given string and assigns it to the DisplayName field.
+// SetDisplayName gets a reference to the given NullableString and assigns it to the DisplayName field.
 func (o *Location) SetDisplayName(v string) {
-	o.DisplayName = &v
+	o.DisplayName.Set(&v)
 }
 
-// GetRegionalDisplayName returns the RegionalDisplayName field value if set, zero value otherwise.
+// SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+func (o *Location) SetDisplayNameNil() {
+	o.DisplayName.Set(nil)
+}
+
+// UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
+func (o *Location) UnsetDisplayName() {
+	o.DisplayName.Unset()
+}
+
+// GetRegionalDisplayName returns the RegionalDisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Location) GetRegionalDisplayName() string {
-	if o == nil || IsNil(o.RegionalDisplayName) {
+	if o == nil || IsNil(o.RegionalDisplayName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.RegionalDisplayName
+	return *o.RegionalDisplayName.Get()
 }
 
 // GetRegionalDisplayNameOk returns a tuple with the RegionalDisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Location) GetRegionalDisplayNameOk() (*string, bool) {
-	if o == nil || IsNil(o.RegionalDisplayName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RegionalDisplayName, true
+	return o.RegionalDisplayName.Get(), o.RegionalDisplayName.IsSet()
 }
 
-// SetRegionalDisplayName gets a reference to the given string and assigns it to the RegionalDisplayName field.
+// SetRegionalDisplayName gets a reference to the given NullableString and assigns it to the RegionalDisplayName field.
 func (o *Location) SetRegionalDisplayName(v string) {
-	o.RegionalDisplayName = &v
+	o.RegionalDisplayName.Set(&v)
 }
 
-// GetMetadata returns the Metadata field value if set, zero value otherwise.
+// SetRegionalDisplayNameNil sets the value for RegionalDisplayName to be an explicit nil
+func (o *Location) SetRegionalDisplayNameNil() {
+	o.RegionalDisplayName.Set(nil)
+}
+
+// UnsetRegionalDisplayName ensures that no value is present for RegionalDisplayName, not even an explicit nil
+func (o *Location) UnsetRegionalDisplayName() {
+	o.RegionalDisplayName.Unset()
+}
+
+// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Location) GetMetadata() LocationMetaData {
-	if o == nil || IsNil(o.Metadata) {
+	if o == nil || IsNil(o.Metadata.Get()) {
 		var ret LocationMetaData
 		return ret
 	}
-	return *o.Metadata
+	return *o.Metadata.Get()
 }
 
 // GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Location) GetMetadataOk() (*LocationMetaData, bool) {
-	if o == nil || IsNil(o.Metadata) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Metadata, true
+	return o.Metadata.Get(), o.Metadata.IsSet()
 }
 
-// SetMetadata gets a reference to the given LocationMetaData and assigns it to the Metadata field.
+// SetMetadata gets a reference to the given NullableLocationMetaData and assigns it to the Metadata field.
 func (o *Location) SetMetadata(v LocationMetaData) {
-	o.Metadata = &v
+	o.Metadata.Set(&v)
+}
+
+// SetMetadataNil sets the value for Metadata to be an explicit nil
+func (o *Location) SetMetadataNil() {
+	o.Metadata.Set(nil)
+}
+
+// UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+func (o *Location) UnsetMetadata() {
+	o.Metadata.Unset()
 }
 
 func (o Location) MarshalJSON() ([]byte, error) {
@@ -213,26 +290,26 @@ func (o Location) MarshalJSON() ([]byte, error) {
 
 func (o Location) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
-	if !IsNil(o.DisplayName) {
-		toSerialize["displayName"] = o.DisplayName
+	if o.DisplayName.IsSet() {
+		toSerialize["displayName"] = o.DisplayName.Get()
 	}
-	if !IsNil(o.RegionalDisplayName) {
-		toSerialize["regionalDisplayName"] = o.RegionalDisplayName
+	if o.RegionalDisplayName.IsSet() {
+		toSerialize["regionalDisplayName"] = o.RegionalDisplayName.Get()
 	}
-	if !IsNil(o.Metadata) {
-		toSerialize["metadata"] = o.Metadata
+	if o.Metadata.IsSet() {
+		toSerialize["metadata"] = o.Metadata.Get()
 	}
 	return toSerialize, nil
 }

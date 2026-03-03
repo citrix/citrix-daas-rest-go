@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientRequestId** | Pointer to **string** |  | [optional] [readonly] 
-**ClientIPAddress** | Pointer to [**IPAddress**](IPAddress.md) |  | [optional] 
-**Method** | Pointer to **string** |  | [optional] [readonly] 
-**Uri** | Pointer to **string** |  | [optional] [readonly] 
+**ClientRequestId** | Pointer to **NullableString** |  | [optional] [readonly] 
+**ClientIPAddress** | Pointer to [**NullableIPAddress**](IPAddress.md) |  | [optional] [readonly] 
+**Method** | Pointer to **NullableString** |  | [optional] [readonly] 
+**Uri** | Pointer to **NullableString** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetClientRequestId sets ClientRequestId field to given value.
 
 HasClientRequestId returns a boolean if a field has been set.
 
+### SetClientRequestIdNil
+
+`func (o *EventDataHttpRequestInfo) SetClientRequestIdNil(b bool)`
+
+ SetClientRequestIdNil sets the value for ClientRequestId to be an explicit nil
+
+### UnsetClientRequestId
+`func (o *EventDataHttpRequestInfo) UnsetClientRequestId()`
+
+UnsetClientRequestId ensures that no value is present for ClientRequestId, not even an explicit nil
 ### GetClientIPAddress
 
 `func (o *EventDataHttpRequestInfo) GetClientIPAddress() IPAddress`
@@ -78,6 +88,16 @@ SetClientIPAddress sets ClientIPAddress field to given value.
 
 HasClientIPAddress returns a boolean if a field has been set.
 
+### SetClientIPAddressNil
+
+`func (o *EventDataHttpRequestInfo) SetClientIPAddressNil(b bool)`
+
+ SetClientIPAddressNil sets the value for ClientIPAddress to be an explicit nil
+
+### UnsetClientIPAddress
+`func (o *EventDataHttpRequestInfo) UnsetClientIPAddress()`
+
+UnsetClientIPAddress ensures that no value is present for ClientIPAddress, not even an explicit nil
 ### GetMethod
 
 `func (o *EventDataHttpRequestInfo) GetMethod() string`
@@ -103,6 +123,16 @@ SetMethod sets Method field to given value.
 
 HasMethod returns a boolean if a field has been set.
 
+### SetMethodNil
+
+`func (o *EventDataHttpRequestInfo) SetMethodNil(b bool)`
+
+ SetMethodNil sets the value for Method to be an explicit nil
+
+### UnsetMethod
+`func (o *EventDataHttpRequestInfo) UnsetMethod()`
+
+UnsetMethod ensures that no value is present for Method, not even an explicit nil
 ### GetUri
 
 `func (o *EventDataHttpRequestInfo) GetUri() string`
@@ -128,6 +158,16 @@ SetUri sets Uri field to given value.
 
 HasUri returns a boolean if a field has been set.
 
+### SetUriNil
+
+`func (o *EventDataHttpRequestInfo) SetUriNil(b bool)`
+
+ SetUriNil sets the value for Uri to be an explicit nil
+
+### UnsetUri
+`func (o *EventDataHttpRequestInfo) UnsetUri()`
+
+UnsetUri ensures that no value is present for Uri, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

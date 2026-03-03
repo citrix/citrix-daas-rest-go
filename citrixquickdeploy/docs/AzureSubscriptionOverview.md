@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **LinkedImages** | Pointer to **int32** | Number of Images that are stored within this subscription | [optional] 
 **LinkedCatalogs** | Pointer to **int32** | Number of Catalogs that have their resources stored in this subscription | [optional] 
 **LinkedAdvancedCatalogs** | Pointer to **int32** | Number of SimpleUI Advanced Catalogs that may have their resources stored in this subscription | [optional] [readonly] 
-**Directory** | Pointer to **string** | The Azure Active Directory information for the directory tied to this subscription | [optional] [readonly] 
-**DirectoryDomainName** | Pointer to **string** |  | [optional] [readonly] 
+**Directory** | Pointer to **NullableString** | The Azure Active Directory information for the directory tied to this subscription | [optional] [readonly] 
+**DirectoryDomainName** | Pointer to **NullableString** |  | [optional] [readonly] 
 **LinkedCatalogsIds** | Pointer to **[]string** |  | [optional] [readonly] 
 **LinkedImagesIds** | Pointer to **[]string** |  | [optional] [readonly] 
 **Warnings** | Pointer to **[]string** |  | [optional] [readonly] 
@@ -18,15 +18,15 @@ Name | Type | Description | Notes
 **IsLinked** | Pointer to **bool** | Indicates if this subscription is linked and we have the ability to manage resources within it | [optional] 
 **IsValid** | Pointer to **bool** | Indicates whether catalog service can access the subscription or not | [optional] 
 **CitrixManaged** | Pointer to **bool** | Indicates whether subscription is managed by Citrix or not | [optional] 
-**CitrixManagedIndex** | Pointer to **int32** | Which Citrix Managed subscription is this? For the first Citrix Managedsubscription this is set to null | [optional] 
+**CitrixManagedIndex** | Pointer to **NullableInt32** | Which Citrix Managed subscription is this? For the first Citrix Managedsubscription this is set to null | [optional] 
 **Disabled** | Pointer to **bool** | Indicates if this subscription should not be used | [optional] 
-**CspCustomer** | Pointer to **string** | Indicates that partner-tenant relationship exists if not null | [optional] 
-**AzureAppId** | Pointer to **string** | ID of the Azure App User provided to manage the subscription | [optional] 
-**ObfuscatedAzureAppSecret** | Pointer to **string** | An obfuscated form of the client secret that only shows the first few characters | [optional] 
-**SecretExpirationDate** | Pointer to **time.Time** | The expiration date of the user provided secret, if one was used | [optional] 
-**TenantId** | Pointer to **string** | Id of the directory that the user provided to manage the subscription | [optional] 
-**UpdateJob** | Pointer to [**DataStoreAzureSubscriptionUpdateCredentialsJobModel**](DataStoreAzureSubscriptionUpdateCredentialsJobModel.md) | Details of job to update the azure app credentials | [optional] 
-**UserConsentDetails** | Pointer to [**DataStoreManagedSubscriptionConsentModel**](DataStoreManagedSubscriptionConsentModel.md) | The details of consent obtained for use of managed subscription | [optional] 
+**CspCustomer** | Pointer to **NullableString** | Indicates that partner-tenant relationship exists if not null | [optional] 
+**AzureAppId** | Pointer to **NullableString** | ID of the Azure App User provided to manage the subscription | [optional] 
+**ObfuscatedAzureAppSecret** | Pointer to **NullableString** | An obfuscated form of the client secret that only shows the first few characters | [optional] 
+**SecretExpirationDate** | Pointer to **NullableTime** | The expiration date of the user provided secret, if one was used | [optional] 
+**TenantId** | Pointer to **NullableString** | Id of the directory that the user provided to manage the subscription | [optional] 
+**UpdateJob** | Pointer to [**NullableDataStoreAzureSubscriptionUpdateCredentialsJobModel**](DataStoreAzureSubscriptionUpdateCredentialsJobModel.md) | Details of job to update the azure app credentials | [optional] 
+**UserConsentDetails** | Pointer to [**NullableDataStoreManagedSubscriptionConsentModel**](DataStoreManagedSubscriptionConsentModel.md) | The details of consent obtained for use of managed subscription | [optional] 
 
 ## Methods
 
@@ -147,6 +147,16 @@ SetDirectory sets Directory field to given value.
 
 HasDirectory returns a boolean if a field has been set.
 
+### SetDirectoryNil
+
+`func (o *AzureSubscriptionOverview) SetDirectoryNil(b bool)`
+
+ SetDirectoryNil sets the value for Directory to be an explicit nil
+
+### UnsetDirectory
+`func (o *AzureSubscriptionOverview) UnsetDirectory()`
+
+UnsetDirectory ensures that no value is present for Directory, not even an explicit nil
 ### GetDirectoryDomainName
 
 `func (o *AzureSubscriptionOverview) GetDirectoryDomainName() string`
@@ -172,6 +182,16 @@ SetDirectoryDomainName sets DirectoryDomainName field to given value.
 
 HasDirectoryDomainName returns a boolean if a field has been set.
 
+### SetDirectoryDomainNameNil
+
+`func (o *AzureSubscriptionOverview) SetDirectoryDomainNameNil(b bool)`
+
+ SetDirectoryDomainNameNil sets the value for DirectoryDomainName to be an explicit nil
+
+### UnsetDirectoryDomainName
+`func (o *AzureSubscriptionOverview) UnsetDirectoryDomainName()`
+
+UnsetDirectoryDomainName ensures that no value is present for DirectoryDomainName, not even an explicit nil
 ### GetLinkedCatalogsIds
 
 `func (o *AzureSubscriptionOverview) GetLinkedCatalogsIds() []string`
@@ -197,6 +217,16 @@ SetLinkedCatalogsIds sets LinkedCatalogsIds field to given value.
 
 HasLinkedCatalogsIds returns a boolean if a field has been set.
 
+### SetLinkedCatalogsIdsNil
+
+`func (o *AzureSubscriptionOverview) SetLinkedCatalogsIdsNil(b bool)`
+
+ SetLinkedCatalogsIdsNil sets the value for LinkedCatalogsIds to be an explicit nil
+
+### UnsetLinkedCatalogsIds
+`func (o *AzureSubscriptionOverview) UnsetLinkedCatalogsIds()`
+
+UnsetLinkedCatalogsIds ensures that no value is present for LinkedCatalogsIds, not even an explicit nil
 ### GetLinkedImagesIds
 
 `func (o *AzureSubscriptionOverview) GetLinkedImagesIds() []string`
@@ -222,6 +252,16 @@ SetLinkedImagesIds sets LinkedImagesIds field to given value.
 
 HasLinkedImagesIds returns a boolean if a field has been set.
 
+### SetLinkedImagesIdsNil
+
+`func (o *AzureSubscriptionOverview) SetLinkedImagesIdsNil(b bool)`
+
+ SetLinkedImagesIdsNil sets the value for LinkedImagesIds to be an explicit nil
+
+### UnsetLinkedImagesIds
+`func (o *AzureSubscriptionOverview) UnsetLinkedImagesIds()`
+
+UnsetLinkedImagesIds ensures that no value is present for LinkedImagesIds, not even an explicit nil
 ### GetWarnings
 
 `func (o *AzureSubscriptionOverview) GetWarnings() []string`
@@ -247,6 +287,16 @@ SetWarnings sets Warnings field to given value.
 
 HasWarnings returns a boolean if a field has been set.
 
+### SetWarningsNil
+
+`func (o *AzureSubscriptionOverview) SetWarningsNil(b bool)`
+
+ SetWarningsNil sets the value for Warnings to be an explicit nil
+
+### UnsetWarnings
+`func (o *AzureSubscriptionOverview) UnsetWarnings()`
+
+UnsetWarnings ensures that no value is present for Warnings, not even an explicit nil
 ### GetCatalogVMs
 
 `func (o *AzureSubscriptionOverview) GetCatalogVMs() int32`
@@ -412,6 +462,16 @@ SetCitrixManagedIndex sets CitrixManagedIndex field to given value.
 
 HasCitrixManagedIndex returns a boolean if a field has been set.
 
+### SetCitrixManagedIndexNil
+
+`func (o *AzureSubscriptionOverview) SetCitrixManagedIndexNil(b bool)`
+
+ SetCitrixManagedIndexNil sets the value for CitrixManagedIndex to be an explicit nil
+
+### UnsetCitrixManagedIndex
+`func (o *AzureSubscriptionOverview) UnsetCitrixManagedIndex()`
+
+UnsetCitrixManagedIndex ensures that no value is present for CitrixManagedIndex, not even an explicit nil
 ### GetDisabled
 
 `func (o *AzureSubscriptionOverview) GetDisabled() bool`
@@ -462,6 +522,16 @@ SetCspCustomer sets CspCustomer field to given value.
 
 HasCspCustomer returns a boolean if a field has been set.
 
+### SetCspCustomerNil
+
+`func (o *AzureSubscriptionOverview) SetCspCustomerNil(b bool)`
+
+ SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+
+### UnsetCspCustomer
+`func (o *AzureSubscriptionOverview) UnsetCspCustomer()`
+
+UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
 ### GetAzureAppId
 
 `func (o *AzureSubscriptionOverview) GetAzureAppId() string`
@@ -487,6 +557,16 @@ SetAzureAppId sets AzureAppId field to given value.
 
 HasAzureAppId returns a boolean if a field has been set.
 
+### SetAzureAppIdNil
+
+`func (o *AzureSubscriptionOverview) SetAzureAppIdNil(b bool)`
+
+ SetAzureAppIdNil sets the value for AzureAppId to be an explicit nil
+
+### UnsetAzureAppId
+`func (o *AzureSubscriptionOverview) UnsetAzureAppId()`
+
+UnsetAzureAppId ensures that no value is present for AzureAppId, not even an explicit nil
 ### GetObfuscatedAzureAppSecret
 
 `func (o *AzureSubscriptionOverview) GetObfuscatedAzureAppSecret() string`
@@ -512,6 +592,16 @@ SetObfuscatedAzureAppSecret sets ObfuscatedAzureAppSecret field to given value.
 
 HasObfuscatedAzureAppSecret returns a boolean if a field has been set.
 
+### SetObfuscatedAzureAppSecretNil
+
+`func (o *AzureSubscriptionOverview) SetObfuscatedAzureAppSecretNil(b bool)`
+
+ SetObfuscatedAzureAppSecretNil sets the value for ObfuscatedAzureAppSecret to be an explicit nil
+
+### UnsetObfuscatedAzureAppSecret
+`func (o *AzureSubscriptionOverview) UnsetObfuscatedAzureAppSecret()`
+
+UnsetObfuscatedAzureAppSecret ensures that no value is present for ObfuscatedAzureAppSecret, not even an explicit nil
 ### GetSecretExpirationDate
 
 `func (o *AzureSubscriptionOverview) GetSecretExpirationDate() time.Time`
@@ -537,6 +627,16 @@ SetSecretExpirationDate sets SecretExpirationDate field to given value.
 
 HasSecretExpirationDate returns a boolean if a field has been set.
 
+### SetSecretExpirationDateNil
+
+`func (o *AzureSubscriptionOverview) SetSecretExpirationDateNil(b bool)`
+
+ SetSecretExpirationDateNil sets the value for SecretExpirationDate to be an explicit nil
+
+### UnsetSecretExpirationDate
+`func (o *AzureSubscriptionOverview) UnsetSecretExpirationDate()`
+
+UnsetSecretExpirationDate ensures that no value is present for SecretExpirationDate, not even an explicit nil
 ### GetTenantId
 
 `func (o *AzureSubscriptionOverview) GetTenantId() string`
@@ -562,6 +662,16 @@ SetTenantId sets TenantId field to given value.
 
 HasTenantId returns a boolean if a field has been set.
 
+### SetTenantIdNil
+
+`func (o *AzureSubscriptionOverview) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *AzureSubscriptionOverview) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetUpdateJob
 
 `func (o *AzureSubscriptionOverview) GetUpdateJob() DataStoreAzureSubscriptionUpdateCredentialsJobModel`
@@ -587,6 +697,16 @@ SetUpdateJob sets UpdateJob field to given value.
 
 HasUpdateJob returns a boolean if a field has been set.
 
+### SetUpdateJobNil
+
+`func (o *AzureSubscriptionOverview) SetUpdateJobNil(b bool)`
+
+ SetUpdateJobNil sets the value for UpdateJob to be an explicit nil
+
+### UnsetUpdateJob
+`func (o *AzureSubscriptionOverview) UnsetUpdateJob()`
+
+UnsetUpdateJob ensures that no value is present for UpdateJob, not even an explicit nil
 ### GetUserConsentDetails
 
 `func (o *AzureSubscriptionOverview) GetUserConsentDetails() DataStoreManagedSubscriptionConsentModel`
@@ -612,6 +732,16 @@ SetUserConsentDetails sets UserConsentDetails field to given value.
 
 HasUserConsentDetails returns a boolean if a field has been set.
 
+### SetUserConsentDetailsNil
+
+`func (o *AzureSubscriptionOverview) SetUserConsentDetailsNil(b bool)`
+
+ SetUserConsentDetailsNil sets the value for UserConsentDetails to be an explicit nil
+
+### UnsetUserConsentDetails
+`func (o *AzureSubscriptionOverview) UnsetUserConsentDetails()`
+
+UnsetUserConsentDetails ensures that no value is present for UserConsentDetails, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,8 +19,8 @@ var _ MappedNullable = &Data{}
 
 // Data struct for Data
 type Data struct {
-	Essentials   *Essentials   `json:"essentials,omitempty"`
-	AlertContext *AlertContext `json:"alertContext,omitempty"`
+	Essentials   NullableEssentials   `json:"essentials,omitempty"`
+	AlertContext NullableAlertContext `json:"alertContext,omitempty"`
 }
 
 // NewDataWithDefaults instantiates a new Data object
@@ -31,50 +31,72 @@ func NewDataWithDefaults() *Data {
 	return &this
 }
 
-// GetEssentials returns the Essentials field value if set, zero value otherwise.
+// GetEssentials returns the Essentials field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Data) GetEssentials() Essentials {
-	if o == nil || IsNil(o.Essentials) {
+	if o == nil || IsNil(o.Essentials.Get()) {
 		var ret Essentials
 		return ret
 	}
-	return *o.Essentials
+	return *o.Essentials.Get()
 }
 
 // GetEssentialsOk returns a tuple with the Essentials field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Data) GetEssentialsOk() (*Essentials, bool) {
-	if o == nil || IsNil(o.Essentials) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Essentials, true
+	return o.Essentials.Get(), o.Essentials.IsSet()
 }
 
-// SetEssentials gets a reference to the given Essentials and assigns it to the Essentials field.
+// SetEssentials gets a reference to the given NullableEssentials and assigns it to the Essentials field.
 func (o *Data) SetEssentials(v Essentials) {
-	o.Essentials = &v
+	o.Essentials.Set(&v)
 }
 
-// GetAlertContext returns the AlertContext field value if set, zero value otherwise.
+// SetEssentialsNil sets the value for Essentials to be an explicit nil
+func (o *Data) SetEssentialsNil() {
+	o.Essentials.Set(nil)
+}
+
+// UnsetEssentials ensures that no value is present for Essentials, not even an explicit nil
+func (o *Data) UnsetEssentials() {
+	o.Essentials.Unset()
+}
+
+// GetAlertContext returns the AlertContext field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Data) GetAlertContext() AlertContext {
-	if o == nil || IsNil(o.AlertContext) {
+	if o == nil || IsNil(o.AlertContext.Get()) {
 		var ret AlertContext
 		return ret
 	}
-	return *o.AlertContext
+	return *o.AlertContext.Get()
 }
 
 // GetAlertContextOk returns a tuple with the AlertContext field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Data) GetAlertContextOk() (*AlertContext, bool) {
-	if o == nil || IsNil(o.AlertContext) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AlertContext, true
+	return o.AlertContext.Get(), o.AlertContext.IsSet()
 }
 
-// SetAlertContext gets a reference to the given AlertContext and assigns it to the AlertContext field.
+// SetAlertContext gets a reference to the given NullableAlertContext and assigns it to the AlertContext field.
 func (o *Data) SetAlertContext(v AlertContext) {
-	o.AlertContext = &v
+	o.AlertContext.Set(&v)
+}
+
+// SetAlertContextNil sets the value for AlertContext to be an explicit nil
+func (o *Data) SetAlertContextNil() {
+	o.AlertContext.Set(nil)
+}
+
+// UnsetAlertContext ensures that no value is present for AlertContext, not even an explicit nil
+func (o *Data) UnsetAlertContext() {
+	o.AlertContext.Unset()
 }
 
 func (o Data) MarshalJSON() ([]byte, error) {
@@ -87,11 +109,11 @@ func (o Data) MarshalJSON() ([]byte, error) {
 
 func (o Data) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Essentials) {
-		toSerialize["essentials"] = o.Essentials
+	if o.Essentials.IsSet() {
+		toSerialize["essentials"] = o.Essentials.Get()
 	}
-	if !IsNil(o.AlertContext) {
-		toSerialize["alertContext"] = o.AlertContext
+	if o.AlertContext.IsSet() {
+		toSerialize["alertContext"] = o.AlertContext.Get()
 	}
 	return toSerialize, nil
 }

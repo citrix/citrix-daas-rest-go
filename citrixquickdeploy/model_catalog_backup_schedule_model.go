@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,8 +19,8 @@ var _ MappedNullable = &CatalogBackupScheduleModel{}
 
 // CatalogBackupScheduleModel struct for CatalogBackupScheduleModel
 type CatalogBackupScheduleModel struct {
-	Daily  *CatalogBackupScheduleTime        `json:"daily,omitempty"`
-	Weekly *CatalogBackupScheduleTimeAndDate `json:"weekly,omitempty"`
+	Daily  NullableCatalogBackupScheduleTime        `json:"daily,omitempty"`
+	Weekly NullableCatalogBackupScheduleTimeAndDate `json:"weekly,omitempty"`
 }
 
 // NewCatalogBackupScheduleModelWithDefaults instantiates a new CatalogBackupScheduleModel object
@@ -31,50 +31,72 @@ func NewCatalogBackupScheduleModelWithDefaults() *CatalogBackupScheduleModel {
 	return &this
 }
 
-// GetDaily returns the Daily field value if set, zero value otherwise.
+// GetDaily returns the Daily field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogBackupScheduleModel) GetDaily() CatalogBackupScheduleTime {
-	if o == nil || IsNil(o.Daily) {
+	if o == nil || IsNil(o.Daily.Get()) {
 		var ret CatalogBackupScheduleTime
 		return ret
 	}
-	return *o.Daily
+	return *o.Daily.Get()
 }
 
 // GetDailyOk returns a tuple with the Daily field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogBackupScheduleModel) GetDailyOk() (*CatalogBackupScheduleTime, bool) {
-	if o == nil || IsNil(o.Daily) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Daily, true
+	return o.Daily.Get(), o.Daily.IsSet()
 }
 
-// SetDaily gets a reference to the given CatalogBackupScheduleTime and assigns it to the Daily field.
+// SetDaily gets a reference to the given NullableCatalogBackupScheduleTime and assigns it to the Daily field.
 func (o *CatalogBackupScheduleModel) SetDaily(v CatalogBackupScheduleTime) {
-	o.Daily = &v
+	o.Daily.Set(&v)
 }
 
-// GetWeekly returns the Weekly field value if set, zero value otherwise.
+// SetDailyNil sets the value for Daily to be an explicit nil
+func (o *CatalogBackupScheduleModel) SetDailyNil() {
+	o.Daily.Set(nil)
+}
+
+// UnsetDaily ensures that no value is present for Daily, not even an explicit nil
+func (o *CatalogBackupScheduleModel) UnsetDaily() {
+	o.Daily.Unset()
+}
+
+// GetWeekly returns the Weekly field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogBackupScheduleModel) GetWeekly() CatalogBackupScheduleTimeAndDate {
-	if o == nil || IsNil(o.Weekly) {
+	if o == nil || IsNil(o.Weekly.Get()) {
 		var ret CatalogBackupScheduleTimeAndDate
 		return ret
 	}
-	return *o.Weekly
+	return *o.Weekly.Get()
 }
 
 // GetWeeklyOk returns a tuple with the Weekly field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogBackupScheduleModel) GetWeeklyOk() (*CatalogBackupScheduleTimeAndDate, bool) {
-	if o == nil || IsNil(o.Weekly) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Weekly, true
+	return o.Weekly.Get(), o.Weekly.IsSet()
 }
 
-// SetWeekly gets a reference to the given CatalogBackupScheduleTimeAndDate and assigns it to the Weekly field.
+// SetWeekly gets a reference to the given NullableCatalogBackupScheduleTimeAndDate and assigns it to the Weekly field.
 func (o *CatalogBackupScheduleModel) SetWeekly(v CatalogBackupScheduleTimeAndDate) {
-	o.Weekly = &v
+	o.Weekly.Set(&v)
+}
+
+// SetWeeklyNil sets the value for Weekly to be an explicit nil
+func (o *CatalogBackupScheduleModel) SetWeeklyNil() {
+	o.Weekly.Set(nil)
+}
+
+// UnsetWeekly ensures that no value is present for Weekly, not even an explicit nil
+func (o *CatalogBackupScheduleModel) UnsetWeekly() {
+	o.Weekly.Unset()
 }
 
 func (o CatalogBackupScheduleModel) MarshalJSON() ([]byte, error) {
@@ -87,11 +109,11 @@ func (o CatalogBackupScheduleModel) MarshalJSON() ([]byte, error) {
 
 func (o CatalogBackupScheduleModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Daily) {
-		toSerialize["daily"] = o.Daily
+	if o.Daily.IsSet() {
+		toSerialize["daily"] = o.Daily.Get()
 	}
-	if !IsNil(o.Weekly) {
-		toSerialize["weekly"] = o.Weekly
+	if o.Weekly.IsSet() {
+		toSerialize["weekly"] = o.Weekly.Get()
 	}
 	return toSerialize, nil
 }

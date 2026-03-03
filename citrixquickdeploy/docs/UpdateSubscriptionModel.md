@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConsentedBy** | Pointer to **string** | The name of the user that consented to using managed subscription | [optional] 
-**ClientId** | Pointer to **string** | ID of the Azure AD App to use with this subscription | [optional] 
-**ClientSecret** | Pointer to **string** | Client Secret of the Azure App | [optional] 
-**SecretExpirationDate** | Pointer to **time.Time** | The expiration date of the user provided secret, if one was used | [optional] 
-**TenantId** | Pointer to **string** | ID of the Auzre tenant the subscription and app belong to | [optional] 
-**CspCustomer** | Pointer to **string** | The identifier string containing the CSP customer ID and site ID. | [optional] 
+**ConsentedBy** | Pointer to **NullableString** | The name of the user that consented to using managed subscription | [optional] 
+**ClientId** | Pointer to **NullableString** | ID of the Azure AD App to use with this subscription | [optional] 
+**ClientSecret** | Pointer to **NullableString** | Client Secret of the Azure App | [optional] 
+**SecretExpirationDate** | Pointer to **NullableTime** | The expiration date of the user provided secret, if one was used | [optional] 
+**TenantId** | Pointer to **NullableString** | ID of the Auzre tenant the subscription and app belong to | [optional] 
+**CspCustomer** | Pointer to **NullableString** | The identifier string containing the CSP customer ID and site ID. | [optional] 
 
 ## Methods
 
@@ -55,6 +55,16 @@ SetConsentedBy sets ConsentedBy field to given value.
 
 HasConsentedBy returns a boolean if a field has been set.
 
+### SetConsentedByNil
+
+`func (o *UpdateSubscriptionModel) SetConsentedByNil(b bool)`
+
+ SetConsentedByNil sets the value for ConsentedBy to be an explicit nil
+
+### UnsetConsentedBy
+`func (o *UpdateSubscriptionModel) UnsetConsentedBy()`
+
+UnsetConsentedBy ensures that no value is present for ConsentedBy, not even an explicit nil
 ### GetClientId
 
 `func (o *UpdateSubscriptionModel) GetClientId() string`
@@ -80,6 +90,16 @@ SetClientId sets ClientId field to given value.
 
 HasClientId returns a boolean if a field has been set.
 
+### SetClientIdNil
+
+`func (o *UpdateSubscriptionModel) SetClientIdNil(b bool)`
+
+ SetClientIdNil sets the value for ClientId to be an explicit nil
+
+### UnsetClientId
+`func (o *UpdateSubscriptionModel) UnsetClientId()`
+
+UnsetClientId ensures that no value is present for ClientId, not even an explicit nil
 ### GetClientSecret
 
 `func (o *UpdateSubscriptionModel) GetClientSecret() string`
@@ -105,6 +125,16 @@ SetClientSecret sets ClientSecret field to given value.
 
 HasClientSecret returns a boolean if a field has been set.
 
+### SetClientSecretNil
+
+`func (o *UpdateSubscriptionModel) SetClientSecretNil(b bool)`
+
+ SetClientSecretNil sets the value for ClientSecret to be an explicit nil
+
+### UnsetClientSecret
+`func (o *UpdateSubscriptionModel) UnsetClientSecret()`
+
+UnsetClientSecret ensures that no value is present for ClientSecret, not even an explicit nil
 ### GetSecretExpirationDate
 
 `func (o *UpdateSubscriptionModel) GetSecretExpirationDate() time.Time`
@@ -130,6 +160,16 @@ SetSecretExpirationDate sets SecretExpirationDate field to given value.
 
 HasSecretExpirationDate returns a boolean if a field has been set.
 
+### SetSecretExpirationDateNil
+
+`func (o *UpdateSubscriptionModel) SetSecretExpirationDateNil(b bool)`
+
+ SetSecretExpirationDateNil sets the value for SecretExpirationDate to be an explicit nil
+
+### UnsetSecretExpirationDate
+`func (o *UpdateSubscriptionModel) UnsetSecretExpirationDate()`
+
+UnsetSecretExpirationDate ensures that no value is present for SecretExpirationDate, not even an explicit nil
 ### GetTenantId
 
 `func (o *UpdateSubscriptionModel) GetTenantId() string`
@@ -155,6 +195,16 @@ SetTenantId sets TenantId field to given value.
 
 HasTenantId returns a boolean if a field has been set.
 
+### SetTenantIdNil
+
+`func (o *UpdateSubscriptionModel) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *UpdateSubscriptionModel) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetCspCustomer
 
 `func (o *UpdateSubscriptionModel) GetCspCustomer() string`
@@ -180,6 +230,16 @@ SetCspCustomer sets CspCustomer field to given value.
 
 HasCspCustomer returns a boolean if a field has been set.
 
+### SetCspCustomerNil
+
+`func (o *UpdateSubscriptionModel) SetCspCustomerNil(b bool)`
+
+ SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+
+### UnsetCspCustomer
+`func (o *UpdateSubscriptionModel) UnsetCspCustomer()`
+
+UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

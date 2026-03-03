@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,21 +20,21 @@ var _ MappedNullable = &CustomerDetailsModel{}
 // CustomerDetailsModel struct for CustomerDetailsModel
 type CustomerDetailsModel struct {
 	// ID of the customer
-	CustomerId *string `json:"customerId,omitempty"`
+	CustomerId NullableString `json:"customerId,omitempty"`
 	// ID of the customer's site
-	SiteId *string `json:"siteId,omitempty"`
+	SiteId NullableString `json:"siteId,omitempty"`
 	// List of catalogs configured by the user
 	Catalogs []CatalogConfiguration `json:"catalogs,omitempty"`
 	// List of Images configured by the user
-	Images []map[string]map[string]interface{} `json:"images,omitempty"`
+	Images []map[string]interface{} `json:"images,omitempty"`
 	// List of domains configured by the user
-	Domains []map[string]map[string]interface{} `json:"domains,omitempty"`
+	Domains []map[string]interface{} `json:"domains,omitempty"`
 	// List of Resource Locations configured for the user
-	ResourceLocations []map[string]map[string]interface{} `json:"resourceLocations,omitempty"`
+	ResourceLocations []map[string]interface{} `json:"resourceLocations,omitempty"`
 	// List of directories configured by the user
-	Directories []map[string]map[string]interface{} `json:"directories,omitempty"`
+	Directories []map[string]interface{} `json:"directories,omitempty"`
 	// List of onprem connections configured by the user
-	OnpremConnections []map[string]map[string]interface{} `json:"onpremConnections,omitempty"`
+	OnpremConnections []map[string]interface{} `json:"onpremConnections,omitempty"`
 }
 
 // NewCustomerDetailsModelWithDefaults instantiates a new CustomerDetailsModel object
@@ -45,55 +45,77 @@ func NewCustomerDetailsModelWithDefaults() *CustomerDetailsModel {
 	return &this
 }
 
-// GetCustomerId returns the CustomerId field value if set, zero value otherwise.
+// GetCustomerId returns the CustomerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CustomerDetailsModel) GetCustomerId() string {
-	if o == nil || IsNil(o.CustomerId) {
+	if o == nil || IsNil(o.CustomerId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CustomerId
+	return *o.CustomerId.Get()
 }
 
 // GetCustomerIdOk returns a tuple with the CustomerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomerDetailsModel) GetCustomerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CustomerId, true
+	return o.CustomerId.Get(), o.CustomerId.IsSet()
 }
 
-// SetCustomerId gets a reference to the given string and assigns it to the CustomerId field.
+// SetCustomerId gets a reference to the given NullableString and assigns it to the CustomerId field.
 func (o *CustomerDetailsModel) SetCustomerId(v string) {
-	o.CustomerId = &v
+	o.CustomerId.Set(&v)
 }
 
-// GetSiteId returns the SiteId field value if set, zero value otherwise.
+// SetCustomerIdNil sets the value for CustomerId to be an explicit nil
+func (o *CustomerDetailsModel) SetCustomerIdNil() {
+	o.CustomerId.Set(nil)
+}
+
+// UnsetCustomerId ensures that no value is present for CustomerId, not even an explicit nil
+func (o *CustomerDetailsModel) UnsetCustomerId() {
+	o.CustomerId.Unset()
+}
+
+// GetSiteId returns the SiteId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CustomerDetailsModel) GetSiteId() string {
-	if o == nil || IsNil(o.SiteId) {
+	if o == nil || IsNil(o.SiteId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SiteId
+	return *o.SiteId.Get()
 }
 
 // GetSiteIdOk returns a tuple with the SiteId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomerDetailsModel) GetSiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SiteId, true
+	return o.SiteId.Get(), o.SiteId.IsSet()
 }
 
-// SetSiteId gets a reference to the given string and assigns it to the SiteId field.
+// SetSiteId gets a reference to the given NullableString and assigns it to the SiteId field.
 func (o *CustomerDetailsModel) SetSiteId(v string) {
-	o.SiteId = &v
+	o.SiteId.Set(&v)
 }
 
-// GetCatalogs returns the Catalogs field value if set, zero value otherwise.
+// SetSiteIdNil sets the value for SiteId to be an explicit nil
+func (o *CustomerDetailsModel) SetSiteIdNil() {
+	o.SiteId.Set(nil)
+}
+
+// UnsetSiteId ensures that no value is present for SiteId, not even an explicit nil
+func (o *CustomerDetailsModel) UnsetSiteId() {
+	o.SiteId.Unset()
+}
+
+// GetCatalogs returns the Catalogs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CustomerDetailsModel) GetCatalogs() []CatalogConfiguration {
-	if o == nil || IsNil(o.Catalogs) {
+	if o == nil {
 		var ret []CatalogConfiguration
 		return ret
 	}
@@ -102,6 +124,7 @@ func (o *CustomerDetailsModel) GetCatalogs() []CatalogConfiguration {
 
 // GetCatalogsOk returns a tuple with the Catalogs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomerDetailsModel) GetCatalogsOk() ([]CatalogConfiguration, bool) {
 	if o == nil || IsNil(o.Catalogs) {
 		return nil, false
@@ -114,10 +137,10 @@ func (o *CustomerDetailsModel) SetCatalogs(v []CatalogConfiguration) {
 	o.Catalogs = v
 }
 
-// GetImages returns the Images field value if set, zero value otherwise.
-func (o *CustomerDetailsModel) GetImages() []map[string]map[string]interface{} {
-	if o == nil || IsNil(o.Images) {
-		var ret []map[string]map[string]interface{}
+// GetImages returns the Images field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CustomerDetailsModel) GetImages() []map[string]interface{} {
+	if o == nil {
+		var ret []map[string]interface{}
 		return ret
 	}
 	return o.Images
@@ -125,22 +148,23 @@ func (o *CustomerDetailsModel) GetImages() []map[string]map[string]interface{} {
 
 // GetImagesOk returns a tuple with the Images field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CustomerDetailsModel) GetImagesOk() ([]map[string]map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CustomerDetailsModel) GetImagesOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Images) {
 		return nil, false
 	}
 	return o.Images, true
 }
 
-// SetImages gets a reference to the given []map[string]map[string]interface{} and assigns it to the Images field.
-func (o *CustomerDetailsModel) SetImages(v []map[string]map[string]interface{}) {
+// SetImages gets a reference to the given []map[string]interface{} and assigns it to the Images field.
+func (o *CustomerDetailsModel) SetImages(v []map[string]interface{}) {
 	o.Images = v
 }
 
-// GetDomains returns the Domains field value if set, zero value otherwise.
-func (o *CustomerDetailsModel) GetDomains() []map[string]map[string]interface{} {
-	if o == nil || IsNil(o.Domains) {
-		var ret []map[string]map[string]interface{}
+// GetDomains returns the Domains field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CustomerDetailsModel) GetDomains() []map[string]interface{} {
+	if o == nil {
+		var ret []map[string]interface{}
 		return ret
 	}
 	return o.Domains
@@ -148,22 +172,23 @@ func (o *CustomerDetailsModel) GetDomains() []map[string]map[string]interface{} 
 
 // GetDomainsOk returns a tuple with the Domains field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CustomerDetailsModel) GetDomainsOk() ([]map[string]map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CustomerDetailsModel) GetDomainsOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Domains) {
 		return nil, false
 	}
 	return o.Domains, true
 }
 
-// SetDomains gets a reference to the given []map[string]map[string]interface{} and assigns it to the Domains field.
-func (o *CustomerDetailsModel) SetDomains(v []map[string]map[string]interface{}) {
+// SetDomains gets a reference to the given []map[string]interface{} and assigns it to the Domains field.
+func (o *CustomerDetailsModel) SetDomains(v []map[string]interface{}) {
 	o.Domains = v
 }
 
-// GetResourceLocations returns the ResourceLocations field value if set, zero value otherwise.
-func (o *CustomerDetailsModel) GetResourceLocations() []map[string]map[string]interface{} {
-	if o == nil || IsNil(o.ResourceLocations) {
-		var ret []map[string]map[string]interface{}
+// GetResourceLocations returns the ResourceLocations field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CustomerDetailsModel) GetResourceLocations() []map[string]interface{} {
+	if o == nil {
+		var ret []map[string]interface{}
 		return ret
 	}
 	return o.ResourceLocations
@@ -171,22 +196,23 @@ func (o *CustomerDetailsModel) GetResourceLocations() []map[string]map[string]in
 
 // GetResourceLocationsOk returns a tuple with the ResourceLocations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CustomerDetailsModel) GetResourceLocationsOk() ([]map[string]map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CustomerDetailsModel) GetResourceLocationsOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ResourceLocations) {
 		return nil, false
 	}
 	return o.ResourceLocations, true
 }
 
-// SetResourceLocations gets a reference to the given []map[string]map[string]interface{} and assigns it to the ResourceLocations field.
-func (o *CustomerDetailsModel) SetResourceLocations(v []map[string]map[string]interface{}) {
+// SetResourceLocations gets a reference to the given []map[string]interface{} and assigns it to the ResourceLocations field.
+func (o *CustomerDetailsModel) SetResourceLocations(v []map[string]interface{}) {
 	o.ResourceLocations = v
 }
 
-// GetDirectories returns the Directories field value if set, zero value otherwise.
-func (o *CustomerDetailsModel) GetDirectories() []map[string]map[string]interface{} {
-	if o == nil || IsNil(o.Directories) {
-		var ret []map[string]map[string]interface{}
+// GetDirectories returns the Directories field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CustomerDetailsModel) GetDirectories() []map[string]interface{} {
+	if o == nil {
+		var ret []map[string]interface{}
 		return ret
 	}
 	return o.Directories
@@ -194,22 +220,23 @@ func (o *CustomerDetailsModel) GetDirectories() []map[string]map[string]interfac
 
 // GetDirectoriesOk returns a tuple with the Directories field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CustomerDetailsModel) GetDirectoriesOk() ([]map[string]map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CustomerDetailsModel) GetDirectoriesOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Directories) {
 		return nil, false
 	}
 	return o.Directories, true
 }
 
-// SetDirectories gets a reference to the given []map[string]map[string]interface{} and assigns it to the Directories field.
-func (o *CustomerDetailsModel) SetDirectories(v []map[string]map[string]interface{}) {
+// SetDirectories gets a reference to the given []map[string]interface{} and assigns it to the Directories field.
+func (o *CustomerDetailsModel) SetDirectories(v []map[string]interface{}) {
 	o.Directories = v
 }
 
-// GetOnpremConnections returns the OnpremConnections field value if set, zero value otherwise.
-func (o *CustomerDetailsModel) GetOnpremConnections() []map[string]map[string]interface{} {
-	if o == nil || IsNil(o.OnpremConnections) {
-		var ret []map[string]map[string]interface{}
+// GetOnpremConnections returns the OnpremConnections field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CustomerDetailsModel) GetOnpremConnections() []map[string]interface{} {
+	if o == nil {
+		var ret []map[string]interface{}
 		return ret
 	}
 	return o.OnpremConnections
@@ -217,15 +244,16 @@ func (o *CustomerDetailsModel) GetOnpremConnections() []map[string]map[string]in
 
 // GetOnpremConnectionsOk returns a tuple with the OnpremConnections field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CustomerDetailsModel) GetOnpremConnectionsOk() ([]map[string]map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CustomerDetailsModel) GetOnpremConnectionsOk() ([]map[string]interface{}, bool) {
 	if o == nil || IsNil(o.OnpremConnections) {
 		return nil, false
 	}
 	return o.OnpremConnections, true
 }
 
-// SetOnpremConnections gets a reference to the given []map[string]map[string]interface{} and assigns it to the OnpremConnections field.
-func (o *CustomerDetailsModel) SetOnpremConnections(v []map[string]map[string]interface{}) {
+// SetOnpremConnections gets a reference to the given []map[string]interface{} and assigns it to the OnpremConnections field.
+func (o *CustomerDetailsModel) SetOnpremConnections(v []map[string]interface{}) {
 	o.OnpremConnections = v
 }
 
@@ -239,28 +267,28 @@ func (o CustomerDetailsModel) MarshalJSON() ([]byte, error) {
 
 func (o CustomerDetailsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CustomerId) {
-		toSerialize["customerId"] = o.CustomerId
+	if o.CustomerId.IsSet() {
+		toSerialize["customerId"] = o.CustomerId.Get()
 	}
-	if !IsNil(o.SiteId) {
-		toSerialize["siteId"] = o.SiteId
+	if o.SiteId.IsSet() {
+		toSerialize["siteId"] = o.SiteId.Get()
 	}
-	if !IsNil(o.Catalogs) {
+	if o.Catalogs != nil {
 		toSerialize["catalogs"] = o.Catalogs
 	}
-	if !IsNil(o.Images) {
+	if o.Images != nil {
 		toSerialize["images"] = o.Images
 	}
-	if !IsNil(o.Domains) {
+	if o.Domains != nil {
 		toSerialize["domains"] = o.Domains
 	}
-	if !IsNil(o.ResourceLocations) {
+	if o.ResourceLocations != nil {
 		toSerialize["resourceLocations"] = o.ResourceLocations
 	}
-	if !IsNil(o.Directories) {
+	if o.Directories != nil {
 		toSerialize["directories"] = o.Directories
 	}
-	if !IsNil(o.OnpremConnections) {
+	if o.OnpremConnections != nil {
 		toSerialize["onpremConnections"] = o.OnpremConnections
 	}
 	return toSerialize, nil

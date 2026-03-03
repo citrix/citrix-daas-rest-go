@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -31,9 +31,9 @@ func NewAddDeploymentRegionsModelWithDefaults() *AddDeploymentRegionsModel {
 	return &this
 }
 
-// GetRegions returns the Regions field value if set, zero value otherwise.
+// GetRegions returns the Regions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddDeploymentRegionsModel) GetRegions() []string {
-	if o == nil || IsNil(o.Regions) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -42,6 +42,7 @@ func (o *AddDeploymentRegionsModel) GetRegions() []string {
 
 // GetRegionsOk returns a tuple with the Regions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddDeploymentRegionsModel) GetRegionsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Regions) {
 		return nil, false
@@ -64,7 +65,7 @@ func (o AddDeploymentRegionsModel) MarshalJSON() ([]byte, error) {
 
 func (o AddDeploymentRegionsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Regions) {
+	if o.Regions != nil {
 		toSerialize["regions"] = o.Regions
 	}
 	return toSerialize, nil

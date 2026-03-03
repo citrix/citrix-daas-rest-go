@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,9 +20,9 @@ var _ MappedNullable = &UpdateTemplateImageModel{}
 // UpdateTemplateImageModel struct for UpdateTemplateImageModel
 type UpdateTemplateImageModel struct {
 	// Updated name of the template
-	NewName *string `json:"newName,omitempty"`
+	NewName NullableString `json:"newName,omitempty"`
 	// Customer notes about template image
-	NewNotes *string `json:"newNotes,omitempty"`
+	NewNotes NullableString `json:"newNotes,omitempty"`
 	// Ip Addresses allowed to RDP flag
 	UpdateAllowedIPs *bool `json:"updateAllowedIPs,omitempty"`
 	// Ip Addresses allowed to RDP
@@ -37,50 +37,72 @@ func NewUpdateTemplateImageModelWithDefaults() *UpdateTemplateImageModel {
 	return &this
 }
 
-// GetNewName returns the NewName field value if set, zero value otherwise.
+// GetNewName returns the NewName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateTemplateImageModel) GetNewName() string {
-	if o == nil || IsNil(o.NewName) {
+	if o == nil || IsNil(o.NewName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.NewName
+	return *o.NewName.Get()
 }
 
 // GetNewNameOk returns a tuple with the NewName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateTemplateImageModel) GetNewNameOk() (*string, bool) {
-	if o == nil || IsNil(o.NewName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewName, true
+	return o.NewName.Get(), o.NewName.IsSet()
 }
 
-// SetNewName gets a reference to the given string and assigns it to the NewName field.
+// SetNewName gets a reference to the given NullableString and assigns it to the NewName field.
 func (o *UpdateTemplateImageModel) SetNewName(v string) {
-	o.NewName = &v
+	o.NewName.Set(&v)
 }
 
-// GetNewNotes returns the NewNotes field value if set, zero value otherwise.
+// SetNewNameNil sets the value for NewName to be an explicit nil
+func (o *UpdateTemplateImageModel) SetNewNameNil() {
+	o.NewName.Set(nil)
+}
+
+// UnsetNewName ensures that no value is present for NewName, not even an explicit nil
+func (o *UpdateTemplateImageModel) UnsetNewName() {
+	o.NewName.Unset()
+}
+
+// GetNewNotes returns the NewNotes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateTemplateImageModel) GetNewNotes() string {
-	if o == nil || IsNil(o.NewNotes) {
+	if o == nil || IsNil(o.NewNotes.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.NewNotes
+	return *o.NewNotes.Get()
 }
 
 // GetNewNotesOk returns a tuple with the NewNotes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateTemplateImageModel) GetNewNotesOk() (*string, bool) {
-	if o == nil || IsNil(o.NewNotes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewNotes, true
+	return o.NewNotes.Get(), o.NewNotes.IsSet()
 }
 
-// SetNewNotes gets a reference to the given string and assigns it to the NewNotes field.
+// SetNewNotes gets a reference to the given NullableString and assigns it to the NewNotes field.
 func (o *UpdateTemplateImageModel) SetNewNotes(v string) {
-	o.NewNotes = &v
+	o.NewNotes.Set(&v)
+}
+
+// SetNewNotesNil sets the value for NewNotes to be an explicit nil
+func (o *UpdateTemplateImageModel) SetNewNotesNil() {
+	o.NewNotes.Set(nil)
+}
+
+// UnsetNewNotes ensures that no value is present for NewNotes, not even an explicit nil
+func (o *UpdateTemplateImageModel) UnsetNewNotes() {
+	o.NewNotes.Unset()
 }
 
 // GetUpdateAllowedIPs returns the UpdateAllowedIPs field value if set, zero value otherwise.
@@ -106,9 +128,9 @@ func (o *UpdateTemplateImageModel) SetUpdateAllowedIPs(v bool) {
 	o.UpdateAllowedIPs = &v
 }
 
-// GetAllowedIPs returns the AllowedIPs field value if set, zero value otherwise.
+// GetAllowedIPs returns the AllowedIPs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateTemplateImageModel) GetAllowedIPs() []string {
-	if o == nil || IsNil(o.AllowedIPs) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -117,6 +139,7 @@ func (o *UpdateTemplateImageModel) GetAllowedIPs() []string {
 
 // GetAllowedIPsOk returns a tuple with the AllowedIPs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateTemplateImageModel) GetAllowedIPsOk() ([]string, bool) {
 	if o == nil || IsNil(o.AllowedIPs) {
 		return nil, false
@@ -139,16 +162,16 @@ func (o UpdateTemplateImageModel) MarshalJSON() ([]byte, error) {
 
 func (o UpdateTemplateImageModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.NewName) {
-		toSerialize["newName"] = o.NewName
+	if o.NewName.IsSet() {
+		toSerialize["newName"] = o.NewName.Get()
 	}
-	if !IsNil(o.NewNotes) {
-		toSerialize["newNotes"] = o.NewNotes
+	if o.NewNotes.IsSet() {
+		toSerialize["newNotes"] = o.NewNotes.Get()
 	}
 	if !IsNil(o.UpdateAllowedIPs) {
 		toSerialize["updateAllowedIPs"] = o.UpdateAllowedIPs
 	}
-	if !IsNil(o.AllowedIPs) {
+	if o.AllowedIPs != nil {
 		toSerialize["allowedIPs"] = o.AllowedIPs
 	}
 	return toSerialize, nil

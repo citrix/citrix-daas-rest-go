@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,29 +20,29 @@ var _ MappedNullable = &ResourceLocationDetails{}
 // ResourceLocationDetails struct for ResourceLocationDetails
 type ResourceLocationDetails struct {
 	// ID of the Resource Location
-	LocationId *string `json:"locationId,omitempty"`
+	LocationId NullableString `json:"locationId,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
-	CspCustomer *string `json:"cspCustomer,omitempty"`
+	CspCustomer NullableString `json:"cspCustomer,omitempty"`
 	// Name of the Resource Location
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	// State of the Resource Location
 	State *ResourceLocationState `json:"state,omitempty"`
 	// Region where resources associated with the RL is located
-	Region *string `json:"region,omitempty"`
+	Region NullableString `json:"region,omitempty"`
 	// Id of the Region where resources associated with the RL is located
-	RegionId *string `json:"regionId,omitempty"`
+	RegionId NullableString `json:"regionId,omitempty"`
 	// Indicates if this RL is associated with Citrix Managed resources
 	IsCitrixManaged *bool `json:"isCitrixManaged,omitempty"`
 	// Indicates if the RL is used by non-domain joined catalogs
 	IsForNonDomainJoinedVms *bool `json:"isForNonDomainJoinedVms,omitempty"`
 	// Domain name of the AD domain catalogs in this RL are associated with
-	DomainName *string `json:"domainName,omitempty"`
+	DomainName NullableString `json:"domainName,omitempty"`
 	// ID of the Azure subscription associated with the Resource Location
-	AzureSubscriptionId *string `json:"azureSubscriptionId,omitempty"`
+	AzureSubscriptionId NullableString `json:"azureSubscriptionId,omitempty"`
 	// Name of the Azure Virtual Network the RL is associated with
-	AzureVnet *string `json:"azureVnet,omitempty"`
+	AzureVnet NullableString `json:"azureVnet,omitempty"`
 	// Name of the on-prem connection associated with
-	OnPremConnection *string `json:"onPremConnection,omitempty"`
+	OnPremConnection NullableString `json:"onPremConnection,omitempty"`
 	// List of connectors configured for the RL
 	Connectors []ConnectorDetails `json:"connectors,omitempty"`
 	// List of jobs performed by the Resource Location.
@@ -50,19 +50,23 @@ type ResourceLocationDetails struct {
 	// List of catalogs that are associate with the Resource Location.
 	AssociatedCatalogs []AssociatedCatalog `json:"associatedCatalogs,omitempty"`
 	// The most recently used resource group for connectors of a BYOA RL
-	ConnectorResourceGroup *string `json:"connectorResourceGroup,omitempty"`
+	ConnectorResourceGroup NullableString `json:"connectorResourceGroup,omitempty"`
 	// The resource group containing the vnet the RL is associated with
-	VnetResourceGroup *string `json:"vnetResourceGroup,omitempty"`
+	VnetResourceGroup NullableString `json:"vnetResourceGroup,omitempty"`
+	// The subnet names within the VNet
+	SubnetNames []string `json:"subnetNames,omitempty"`
+	// The full Azure resource IDs of the managed subnets
+	ManagedSubnetIds []string `json:"managedSubnetIds,omitempty"`
 	// The most recently used OU for the connectors of a BYOA RL
-	OrganizationalUnit *string `json:"organizationalUnit,omitempty"`
+	OrganizationalUnit NullableString `json:"organizationalUnit,omitempty"`
 	// Indicates if the Resource Location is for Secure Browser
-	IsSecureBrowser *bool `json:"isSecureBrowser,omitempty"`
+	IsSecureBrowser NullableBool `json:"isSecureBrowser,omitempty"`
 	// Indicates if the Resource Location is for connectorless catalogs
 	IsForConnectorlessCatalogs *bool `json:"isForConnectorlessCatalogs,omitempty"`
 	// Indicates if connectorless Resource Location can add connectors
 	IsSupportingAddingConnectors *bool `json:"isSupportingAddingConnectors,omitempty"`
 	// Overview model of the NatGateway
-	NatGateway *NatGatewayModelOverview `json:"natGateway,omitempty"`
+	NatGateway NullableNatGatewayModelOverview `json:"natGateway,omitempty"`
 }
 
 // NewResourceLocationDetailsWithDefaults instantiates a new ResourceLocationDetails object
@@ -73,73 +77,106 @@ func NewResourceLocationDetailsWithDefaults() *ResourceLocationDetails {
 	return &this
 }
 
-// GetLocationId returns the LocationId field value if set, zero value otherwise.
+// GetLocationId returns the LocationId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetLocationId() string {
-	if o == nil || IsNil(o.LocationId) {
+	if o == nil || IsNil(o.LocationId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LocationId
+	return *o.LocationId.Get()
 }
 
 // GetLocationIdOk returns a tuple with the LocationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetLocationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.LocationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LocationId, true
+	return o.LocationId.Get(), o.LocationId.IsSet()
 }
 
-// SetLocationId gets a reference to the given string and assigns it to the LocationId field.
+// SetLocationId gets a reference to the given NullableString and assigns it to the LocationId field.
 func (o *ResourceLocationDetails) SetLocationId(v string) {
-	o.LocationId = &v
+	o.LocationId.Set(&v)
 }
 
-// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise.
+// SetLocationIdNil sets the value for LocationId to be an explicit nil
+func (o *ResourceLocationDetails) SetLocationIdNil() {
+	o.LocationId.Set(nil)
+}
+
+// UnsetLocationId ensures that no value is present for LocationId, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetLocationId() {
+	o.LocationId.Unset()
+}
+
+// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetCspCustomer() string {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil || IsNil(o.CspCustomer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomer
+	return *o.CspCustomer.Get()
 }
 
 // GetCspCustomerOk returns a tuple with the CspCustomer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetCspCustomerOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomer, true
+	return o.CspCustomer.Get(), o.CspCustomer.IsSet()
 }
 
-// SetCspCustomer gets a reference to the given string and assigns it to the CspCustomer field.
+// SetCspCustomer gets a reference to the given NullableString and assigns it to the CspCustomer field.
 func (o *ResourceLocationDetails) SetCspCustomer(v string) {
-	o.CspCustomer = &v
+	o.CspCustomer.Set(&v)
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+func (o *ResourceLocationDetails) SetCspCustomerNil() {
+	o.CspCustomer.Set(nil)
+}
+
+// UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetCspCustomer() {
+	o.CspCustomer.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *ResourceLocationDetails) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *ResourceLocationDetails) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetState returns the State field value if set, zero value otherwise.
@@ -165,50 +202,72 @@ func (o *ResourceLocationDetails) SetState(v ResourceLocationState) {
 	o.State = &v
 }
 
-// GetRegion returns the Region field value if set, zero value otherwise.
+// GetRegion returns the Region field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetRegion() string {
-	if o == nil || IsNil(o.Region) {
+	if o == nil || IsNil(o.Region.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Region
+	return *o.Region.Get()
 }
 
 // GetRegionOk returns a tuple with the Region field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.Region) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Region, true
+	return o.Region.Get(), o.Region.IsSet()
 }
 
-// SetRegion gets a reference to the given string and assigns it to the Region field.
+// SetRegion gets a reference to the given NullableString and assigns it to the Region field.
 func (o *ResourceLocationDetails) SetRegion(v string) {
-	o.Region = &v
+	o.Region.Set(&v)
 }
 
-// GetRegionId returns the RegionId field value if set, zero value otherwise.
+// SetRegionNil sets the value for Region to be an explicit nil
+func (o *ResourceLocationDetails) SetRegionNil() {
+	o.Region.Set(nil)
+}
+
+// UnsetRegion ensures that no value is present for Region, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetRegion() {
+	o.Region.Unset()
+}
+
+// GetRegionId returns the RegionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetRegionId() string {
-	if o == nil || IsNil(o.RegionId) {
+	if o == nil || IsNil(o.RegionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.RegionId
+	return *o.RegionId.Get()
 }
 
 // GetRegionIdOk returns a tuple with the RegionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetRegionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RegionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RegionId, true
+	return o.RegionId.Get(), o.RegionId.IsSet()
 }
 
-// SetRegionId gets a reference to the given string and assigns it to the RegionId field.
+// SetRegionId gets a reference to the given NullableString and assigns it to the RegionId field.
 func (o *ResourceLocationDetails) SetRegionId(v string) {
-	o.RegionId = &v
+	o.RegionId.Set(&v)
+}
+
+// SetRegionIdNil sets the value for RegionId to be an explicit nil
+func (o *ResourceLocationDetails) SetRegionIdNil() {
+	o.RegionId.Set(nil)
+}
+
+// UnsetRegionId ensures that no value is present for RegionId, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetRegionId() {
+	o.RegionId.Unset()
 }
 
 // GetIsCitrixManaged returns the IsCitrixManaged field value if set, zero value otherwise.
@@ -257,101 +316,145 @@ func (o *ResourceLocationDetails) SetIsForNonDomainJoinedVms(v bool) {
 	o.IsForNonDomainJoinedVms = &v
 }
 
-// GetDomainName returns the DomainName field value if set, zero value otherwise.
+// GetDomainName returns the DomainName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetDomainName() string {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil || IsNil(o.DomainName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DomainName
+	return *o.DomainName.Get()
 }
 
 // GetDomainNameOk returns a tuple with the DomainName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetDomainNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainName, true
+	return o.DomainName.Get(), o.DomainName.IsSet()
 }
 
-// SetDomainName gets a reference to the given string and assigns it to the DomainName field.
+// SetDomainName gets a reference to the given NullableString and assigns it to the DomainName field.
 func (o *ResourceLocationDetails) SetDomainName(v string) {
-	o.DomainName = &v
+	o.DomainName.Set(&v)
 }
 
-// GetAzureSubscriptionId returns the AzureSubscriptionId field value if set, zero value otherwise.
+// SetDomainNameNil sets the value for DomainName to be an explicit nil
+func (o *ResourceLocationDetails) SetDomainNameNil() {
+	o.DomainName.Set(nil)
+}
+
+// UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetDomainName() {
+	o.DomainName.Unset()
+}
+
+// GetAzureSubscriptionId returns the AzureSubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetAzureSubscriptionId() string {
-	if o == nil || IsNil(o.AzureSubscriptionId) {
+	if o == nil || IsNil(o.AzureSubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzureSubscriptionId
+	return *o.AzureSubscriptionId.Get()
 }
 
 // GetAzureSubscriptionIdOk returns a tuple with the AzureSubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetAzureSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AzureSubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureSubscriptionId, true
+	return o.AzureSubscriptionId.Get(), o.AzureSubscriptionId.IsSet()
 }
 
-// SetAzureSubscriptionId gets a reference to the given string and assigns it to the AzureSubscriptionId field.
+// SetAzureSubscriptionId gets a reference to the given NullableString and assigns it to the AzureSubscriptionId field.
 func (o *ResourceLocationDetails) SetAzureSubscriptionId(v string) {
-	o.AzureSubscriptionId = &v
+	o.AzureSubscriptionId.Set(&v)
 }
 
-// GetAzureVnet returns the AzureVnet field value if set, zero value otherwise.
+// SetAzureSubscriptionIdNil sets the value for AzureSubscriptionId to be an explicit nil
+func (o *ResourceLocationDetails) SetAzureSubscriptionIdNil() {
+	o.AzureSubscriptionId.Set(nil)
+}
+
+// UnsetAzureSubscriptionId ensures that no value is present for AzureSubscriptionId, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetAzureSubscriptionId() {
+	o.AzureSubscriptionId.Unset()
+}
+
+// GetAzureVnet returns the AzureVnet field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetAzureVnet() string {
-	if o == nil || IsNil(o.AzureVnet) {
+	if o == nil || IsNil(o.AzureVnet.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzureVnet
+	return *o.AzureVnet.Get()
 }
 
 // GetAzureVnetOk returns a tuple with the AzureVnet field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetAzureVnetOk() (*string, bool) {
-	if o == nil || IsNil(o.AzureVnet) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureVnet, true
+	return o.AzureVnet.Get(), o.AzureVnet.IsSet()
 }
 
-// SetAzureVnet gets a reference to the given string and assigns it to the AzureVnet field.
+// SetAzureVnet gets a reference to the given NullableString and assigns it to the AzureVnet field.
 func (o *ResourceLocationDetails) SetAzureVnet(v string) {
-	o.AzureVnet = &v
+	o.AzureVnet.Set(&v)
 }
 
-// GetOnPremConnection returns the OnPremConnection field value if set, zero value otherwise.
+// SetAzureVnetNil sets the value for AzureVnet to be an explicit nil
+func (o *ResourceLocationDetails) SetAzureVnetNil() {
+	o.AzureVnet.Set(nil)
+}
+
+// UnsetAzureVnet ensures that no value is present for AzureVnet, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetAzureVnet() {
+	o.AzureVnet.Unset()
+}
+
+// GetOnPremConnection returns the OnPremConnection field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetOnPremConnection() string {
-	if o == nil || IsNil(o.OnPremConnection) {
+	if o == nil || IsNil(o.OnPremConnection.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OnPremConnection
+	return *o.OnPremConnection.Get()
 }
 
 // GetOnPremConnectionOk returns a tuple with the OnPremConnection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetOnPremConnectionOk() (*string, bool) {
-	if o == nil || IsNil(o.OnPremConnection) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OnPremConnection, true
+	return o.OnPremConnection.Get(), o.OnPremConnection.IsSet()
 }
 
-// SetOnPremConnection gets a reference to the given string and assigns it to the OnPremConnection field.
+// SetOnPremConnection gets a reference to the given NullableString and assigns it to the OnPremConnection field.
 func (o *ResourceLocationDetails) SetOnPremConnection(v string) {
-	o.OnPremConnection = &v
+	o.OnPremConnection.Set(&v)
 }
 
-// GetConnectors returns the Connectors field value if set, zero value otherwise.
+// SetOnPremConnectionNil sets the value for OnPremConnection to be an explicit nil
+func (o *ResourceLocationDetails) SetOnPremConnectionNil() {
+	o.OnPremConnection.Set(nil)
+}
+
+// UnsetOnPremConnection ensures that no value is present for OnPremConnection, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetOnPremConnection() {
+	o.OnPremConnection.Unset()
+}
+
+// GetConnectors returns the Connectors field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetConnectors() []ConnectorDetails {
-	if o == nil || IsNil(o.Connectors) {
+	if o == nil {
 		var ret []ConnectorDetails
 		return ret
 	}
@@ -360,6 +463,7 @@ func (o *ResourceLocationDetails) GetConnectors() []ConnectorDetails {
 
 // GetConnectorsOk returns a tuple with the Connectors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetConnectorsOk() ([]ConnectorDetails, bool) {
 	if o == nil || IsNil(o.Connectors) {
 		return nil, false
@@ -372,9 +476,9 @@ func (o *ResourceLocationDetails) SetConnectors(v []ConnectorDetails) {
 	o.Connectors = v
 }
 
-// GetJobs returns the Jobs field value if set, zero value otherwise.
+// GetJobs returns the Jobs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetJobs() []ResourceLocationJob {
-	if o == nil || IsNil(o.Jobs) {
+	if o == nil {
 		var ret []ResourceLocationJob
 		return ret
 	}
@@ -383,6 +487,7 @@ func (o *ResourceLocationDetails) GetJobs() []ResourceLocationJob {
 
 // GetJobsOk returns a tuple with the Jobs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetJobsOk() ([]ResourceLocationJob, bool) {
 	if o == nil || IsNil(o.Jobs) {
 		return nil, false
@@ -395,9 +500,9 @@ func (o *ResourceLocationDetails) SetJobs(v []ResourceLocationJob) {
 	o.Jobs = v
 }
 
-// GetAssociatedCatalogs returns the AssociatedCatalogs field value if set, zero value otherwise.
+// GetAssociatedCatalogs returns the AssociatedCatalogs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetAssociatedCatalogs() []AssociatedCatalog {
-	if o == nil || IsNil(o.AssociatedCatalogs) {
+	if o == nil {
 		var ret []AssociatedCatalog
 		return ret
 	}
@@ -406,6 +511,7 @@ func (o *ResourceLocationDetails) GetAssociatedCatalogs() []AssociatedCatalog {
 
 // GetAssociatedCatalogsOk returns a tuple with the AssociatedCatalogs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetAssociatedCatalogsOk() ([]AssociatedCatalog, bool) {
 	if o == nil || IsNil(o.AssociatedCatalogs) {
 		return nil, false
@@ -418,96 +524,188 @@ func (o *ResourceLocationDetails) SetAssociatedCatalogs(v []AssociatedCatalog) {
 	o.AssociatedCatalogs = v
 }
 
-// GetConnectorResourceGroup returns the ConnectorResourceGroup field value if set, zero value otherwise.
+// GetConnectorResourceGroup returns the ConnectorResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetConnectorResourceGroup() string {
-	if o == nil || IsNil(o.ConnectorResourceGroup) {
+	if o == nil || IsNil(o.ConnectorResourceGroup.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ConnectorResourceGroup
+	return *o.ConnectorResourceGroup.Get()
 }
 
 // GetConnectorResourceGroupOk returns a tuple with the ConnectorResourceGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetConnectorResourceGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.ConnectorResourceGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConnectorResourceGroup, true
+	return o.ConnectorResourceGroup.Get(), o.ConnectorResourceGroup.IsSet()
 }
 
-// SetConnectorResourceGroup gets a reference to the given string and assigns it to the ConnectorResourceGroup field.
+// SetConnectorResourceGroup gets a reference to the given NullableString and assigns it to the ConnectorResourceGroup field.
 func (o *ResourceLocationDetails) SetConnectorResourceGroup(v string) {
-	o.ConnectorResourceGroup = &v
+	o.ConnectorResourceGroup.Set(&v)
 }
 
-// GetVnetResourceGroup returns the VnetResourceGroup field value if set, zero value otherwise.
+// SetConnectorResourceGroupNil sets the value for ConnectorResourceGroup to be an explicit nil
+func (o *ResourceLocationDetails) SetConnectorResourceGroupNil() {
+	o.ConnectorResourceGroup.Set(nil)
+}
+
+// UnsetConnectorResourceGroup ensures that no value is present for ConnectorResourceGroup, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetConnectorResourceGroup() {
+	o.ConnectorResourceGroup.Unset()
+}
+
+// GetVnetResourceGroup returns the VnetResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetVnetResourceGroup() string {
-	if o == nil || IsNil(o.VnetResourceGroup) {
+	if o == nil || IsNil(o.VnetResourceGroup.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VnetResourceGroup
+	return *o.VnetResourceGroup.Get()
 }
 
 // GetVnetResourceGroupOk returns a tuple with the VnetResourceGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetVnetResourceGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.VnetResourceGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VnetResourceGroup, true
+	return o.VnetResourceGroup.Get(), o.VnetResourceGroup.IsSet()
 }
 
-// SetVnetResourceGroup gets a reference to the given string and assigns it to the VnetResourceGroup field.
+// SetVnetResourceGroup gets a reference to the given NullableString and assigns it to the VnetResourceGroup field.
 func (o *ResourceLocationDetails) SetVnetResourceGroup(v string) {
-	o.VnetResourceGroup = &v
+	o.VnetResourceGroup.Set(&v)
 }
 
-// GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise.
+// SetVnetResourceGroupNil sets the value for VnetResourceGroup to be an explicit nil
+func (o *ResourceLocationDetails) SetVnetResourceGroupNil() {
+	o.VnetResourceGroup.Set(nil)
+}
+
+// UnsetVnetResourceGroup ensures that no value is present for VnetResourceGroup, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetVnetResourceGroup() {
+	o.VnetResourceGroup.Unset()
+}
+
+// GetSubnetNames returns the SubnetNames field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ResourceLocationDetails) GetSubnetNames() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.SubnetNames
+}
+
+// GetSubnetNamesOk returns a tuple with the SubnetNames field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ResourceLocationDetails) GetSubnetNamesOk() ([]string, bool) {
+	if o == nil || IsNil(o.SubnetNames) {
+		return nil, false
+	}
+	return o.SubnetNames, true
+}
+
+// SetSubnetNames gets a reference to the given []string and assigns it to the SubnetNames field.
+func (o *ResourceLocationDetails) SetSubnetNames(v []string) {
+	o.SubnetNames = v
+}
+
+// GetManagedSubnetIds returns the ManagedSubnetIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ResourceLocationDetails) GetManagedSubnetIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ManagedSubnetIds
+}
+
+// GetManagedSubnetIdsOk returns a tuple with the ManagedSubnetIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ResourceLocationDetails) GetManagedSubnetIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ManagedSubnetIds) {
+		return nil, false
+	}
+	return o.ManagedSubnetIds, true
+}
+
+// SetManagedSubnetIds gets a reference to the given []string and assigns it to the ManagedSubnetIds field.
+func (o *ResourceLocationDetails) SetManagedSubnetIds(v []string) {
+	o.ManagedSubnetIds = v
+}
+
+// GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetOrganizationalUnit() string {
-	if o == nil || IsNil(o.OrganizationalUnit) {
+	if o == nil || IsNil(o.OrganizationalUnit.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OrganizationalUnit
+	return *o.OrganizationalUnit.Get()
 }
 
 // GetOrganizationalUnitOk returns a tuple with the OrganizationalUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetOrganizationalUnitOk() (*string, bool) {
-	if o == nil || IsNil(o.OrganizationalUnit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrganizationalUnit, true
+	return o.OrganizationalUnit.Get(), o.OrganizationalUnit.IsSet()
 }
 
-// SetOrganizationalUnit gets a reference to the given string and assigns it to the OrganizationalUnit field.
+// SetOrganizationalUnit gets a reference to the given NullableString and assigns it to the OrganizationalUnit field.
 func (o *ResourceLocationDetails) SetOrganizationalUnit(v string) {
-	o.OrganizationalUnit = &v
+	o.OrganizationalUnit.Set(&v)
 }
 
-// GetIsSecureBrowser returns the IsSecureBrowser field value if set, zero value otherwise.
+// SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
+func (o *ResourceLocationDetails) SetOrganizationalUnitNil() {
+	o.OrganizationalUnit.Set(nil)
+}
+
+// UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetOrganizationalUnit() {
+	o.OrganizationalUnit.Unset()
+}
+
+// GetIsSecureBrowser returns the IsSecureBrowser field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetIsSecureBrowser() bool {
-	if o == nil || IsNil(o.IsSecureBrowser) {
+	if o == nil || IsNil(o.IsSecureBrowser.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.IsSecureBrowser
+	return *o.IsSecureBrowser.Get()
 }
 
 // GetIsSecureBrowserOk returns a tuple with the IsSecureBrowser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetIsSecureBrowserOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsSecureBrowser) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsSecureBrowser, true
+	return o.IsSecureBrowser.Get(), o.IsSecureBrowser.IsSet()
 }
 
-// SetIsSecureBrowser gets a reference to the given bool and assigns it to the IsSecureBrowser field.
+// SetIsSecureBrowser gets a reference to the given NullableBool and assigns it to the IsSecureBrowser field.
 func (o *ResourceLocationDetails) SetIsSecureBrowser(v bool) {
-	o.IsSecureBrowser = &v
+	o.IsSecureBrowser.Set(&v)
+}
+
+// SetIsSecureBrowserNil sets the value for IsSecureBrowser to be an explicit nil
+func (o *ResourceLocationDetails) SetIsSecureBrowserNil() {
+	o.IsSecureBrowser.Set(nil)
+}
+
+// UnsetIsSecureBrowser ensures that no value is present for IsSecureBrowser, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetIsSecureBrowser() {
+	o.IsSecureBrowser.Unset()
 }
 
 // GetIsForConnectorlessCatalogs returns the IsForConnectorlessCatalogs field value if set, zero value otherwise.
@@ -556,27 +754,38 @@ func (o *ResourceLocationDetails) SetIsSupportingAddingConnectors(v bool) {
 	o.IsSupportingAddingConnectors = &v
 }
 
-// GetNatGateway returns the NatGateway field value if set, zero value otherwise.
+// GetNatGateway returns the NatGateway field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetNatGateway() NatGatewayModelOverview {
-	if o == nil || IsNil(o.NatGateway) {
+	if o == nil || IsNil(o.NatGateway.Get()) {
 		var ret NatGatewayModelOverview
 		return ret
 	}
-	return *o.NatGateway
+	return *o.NatGateway.Get()
 }
 
 // GetNatGatewayOk returns a tuple with the NatGateway field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceLocationDetails) GetNatGatewayOk() (*NatGatewayModelOverview, bool) {
-	if o == nil || IsNil(o.NatGateway) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NatGateway, true
+	return o.NatGateway.Get(), o.NatGateway.IsSet()
 }
 
-// SetNatGateway gets a reference to the given NatGatewayModelOverview and assigns it to the NatGateway field.
+// SetNatGateway gets a reference to the given NullableNatGatewayModelOverview and assigns it to the NatGateway field.
 func (o *ResourceLocationDetails) SetNatGateway(v NatGatewayModelOverview) {
-	o.NatGateway = &v
+	o.NatGateway.Set(&v)
+}
+
+// SetNatGatewayNil sets the value for NatGateway to be an explicit nil
+func (o *ResourceLocationDetails) SetNatGatewayNil() {
+	o.NatGateway.Set(nil)
+}
+
+// UnsetNatGateway ensures that no value is present for NatGateway, not even an explicit nil
+func (o *ResourceLocationDetails) UnsetNatGateway() {
+	o.NatGateway.Unset()
 }
 
 func (o ResourceLocationDetails) MarshalJSON() ([]byte, error) {
@@ -589,23 +798,23 @@ func (o ResourceLocationDetails) MarshalJSON() ([]byte, error) {
 
 func (o ResourceLocationDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.LocationId) {
-		toSerialize["locationId"] = o.LocationId
+	if o.LocationId.IsSet() {
+		toSerialize["locationId"] = o.LocationId.Get()
 	}
-	if !IsNil(o.CspCustomer) {
-		toSerialize["cspCustomer"] = o.CspCustomer
+	if o.CspCustomer.IsSet() {
+		toSerialize["cspCustomer"] = o.CspCustomer.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
 	}
-	if !IsNil(o.Region) {
-		toSerialize["region"] = o.Region
+	if o.Region.IsSet() {
+		toSerialize["region"] = o.Region.Get()
 	}
-	if !IsNil(o.RegionId) {
-		toSerialize["regionId"] = o.RegionId
+	if o.RegionId.IsSet() {
+		toSerialize["regionId"] = o.RegionId.Get()
 	}
 	if !IsNil(o.IsCitrixManaged) {
 		toSerialize["isCitrixManaged"] = o.IsCitrixManaged
@@ -613,38 +822,44 @@ func (o ResourceLocationDetails) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsForNonDomainJoinedVms) {
 		toSerialize["isForNonDomainJoinedVms"] = o.IsForNonDomainJoinedVms
 	}
-	if !IsNil(o.DomainName) {
-		toSerialize["domainName"] = o.DomainName
+	if o.DomainName.IsSet() {
+		toSerialize["domainName"] = o.DomainName.Get()
 	}
-	if !IsNil(o.AzureSubscriptionId) {
-		toSerialize["azureSubscriptionId"] = o.AzureSubscriptionId
+	if o.AzureSubscriptionId.IsSet() {
+		toSerialize["azureSubscriptionId"] = o.AzureSubscriptionId.Get()
 	}
-	if !IsNil(o.AzureVnet) {
-		toSerialize["azureVnet"] = o.AzureVnet
+	if o.AzureVnet.IsSet() {
+		toSerialize["azureVnet"] = o.AzureVnet.Get()
 	}
-	if !IsNil(o.OnPremConnection) {
-		toSerialize["onPremConnection"] = o.OnPremConnection
+	if o.OnPremConnection.IsSet() {
+		toSerialize["onPremConnection"] = o.OnPremConnection.Get()
 	}
-	if !IsNil(o.Connectors) {
+	if o.Connectors != nil {
 		toSerialize["connectors"] = o.Connectors
 	}
-	if !IsNil(o.Jobs) {
+	if o.Jobs != nil {
 		toSerialize["jobs"] = o.Jobs
 	}
-	if !IsNil(o.AssociatedCatalogs) {
+	if o.AssociatedCatalogs != nil {
 		toSerialize["associatedCatalogs"] = o.AssociatedCatalogs
 	}
-	if !IsNil(o.ConnectorResourceGroup) {
-		toSerialize["connectorResourceGroup"] = o.ConnectorResourceGroup
+	if o.ConnectorResourceGroup.IsSet() {
+		toSerialize["connectorResourceGroup"] = o.ConnectorResourceGroup.Get()
 	}
-	if !IsNil(o.VnetResourceGroup) {
-		toSerialize["vnetResourceGroup"] = o.VnetResourceGroup
+	if o.VnetResourceGroup.IsSet() {
+		toSerialize["vnetResourceGroup"] = o.VnetResourceGroup.Get()
 	}
-	if !IsNil(o.OrganizationalUnit) {
-		toSerialize["organizationalUnit"] = o.OrganizationalUnit
+	if o.SubnetNames != nil {
+		toSerialize["subnetNames"] = o.SubnetNames
 	}
-	if !IsNil(o.IsSecureBrowser) {
-		toSerialize["isSecureBrowser"] = o.IsSecureBrowser
+	if o.ManagedSubnetIds != nil {
+		toSerialize["managedSubnetIds"] = o.ManagedSubnetIds
+	}
+	if o.OrganizationalUnit.IsSet() {
+		toSerialize["organizationalUnit"] = o.OrganizationalUnit.Get()
+	}
+	if o.IsSecureBrowser.IsSet() {
+		toSerialize["isSecureBrowser"] = o.IsSecureBrowser.Get()
 	}
 	if !IsNil(o.IsForConnectorlessCatalogs) {
 		toSerialize["isForConnectorlessCatalogs"] = o.IsForConnectorlessCatalogs
@@ -652,8 +867,8 @@ func (o ResourceLocationDetails) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsSupportingAddingConnectors) {
 		toSerialize["isSupportingAddingConnectors"] = o.IsSupportingAddingConnectors
 	}
-	if !IsNil(o.NatGateway) {
-		toSerialize["natGateway"] = o.NatGateway
+	if o.NatGateway.IsSet() {
+		toSerialize["natGateway"] = o.NatGateway.Get()
 	}
 	return toSerialize, nil
 }

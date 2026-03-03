@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to [**RemoteBrowserIsolationStatusModelJobState**](RemoteBrowserIsolationStatusModelJobState.md) | Current state of the job | [optional] 
-**ErrorDetails** | Pointer to **string** | Error occurred in the job | [optional] 
+**Status** | Pointer to [**NullableRemoteBrowserIsolationStatusModelJobState**](RemoteBrowserIsolationStatusModelJobState.md) | Current state of the job | [optional] 
+**ErrorDetails** | Pointer to **NullableString** | Error occurred in the job | [optional] 
 **InUsedByRemoteBrowserIsolation** | Pointer to **bool** | Indicate if the subscription is in-used by Remote Browser Isolation | [optional] 
 
 ## Methods
@@ -52,6 +52,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *RemoteBrowserIsolationStatusModel) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *RemoteBrowserIsolationStatusModel) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetErrorDetails
 
 `func (o *RemoteBrowserIsolationStatusModel) GetErrorDetails() string`
@@ -77,6 +87,16 @@ SetErrorDetails sets ErrorDetails field to given value.
 
 HasErrorDetails returns a boolean if a field has been set.
 
+### SetErrorDetailsNil
+
+`func (o *RemoteBrowserIsolationStatusModel) SetErrorDetailsNil(b bool)`
+
+ SetErrorDetailsNil sets the value for ErrorDetails to be an explicit nil
+
+### UnsetErrorDetails
+`func (o *RemoteBrowserIsolationStatusModel) UnsetErrorDetails()`
+
+UnsetErrorDetails ensures that no value is present for ErrorDetails, not even an explicit nil
 ### GetInUsedByRemoteBrowserIsolation
 
 `func (o *RemoteBrowserIsolationStatusModel) GetInUsedByRemoteBrowserIsolation() bool`

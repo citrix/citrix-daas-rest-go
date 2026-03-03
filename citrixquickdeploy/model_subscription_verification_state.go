@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &SubscriptionVerificationState{}
 // SubscriptionVerificationState struct for SubscriptionVerificationState
 type SubscriptionVerificationState struct {
 	// ID of the subscription
-	SubscriptionId *string `json:"subscriptionId,omitempty"`
+	SubscriptionId NullableString `json:"subscriptionId,omitempty"`
 	// List of assignments in the subscription that are not expected
 	UnexpectedAssignments    []AzureAssignment `json:"unexpectedAssignments,omitempty"`
 	HasUnexpectedAssignments *bool             `json:"hasUnexpectedAssignments,omitempty"`
@@ -34,32 +34,43 @@ func NewSubscriptionVerificationStateWithDefaults() *SubscriptionVerificationSta
 	return &this
 }
 
-// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise.
+// GetSubscriptionId returns the SubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SubscriptionVerificationState) GetSubscriptionId() string {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil || IsNil(o.SubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SubscriptionId
+	return *o.SubscriptionId.Get()
 }
 
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SubscriptionVerificationState) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SubscriptionId, true
+	return o.SubscriptionId.Get(), o.SubscriptionId.IsSet()
 }
 
-// SetSubscriptionId gets a reference to the given string and assigns it to the SubscriptionId field.
+// SetSubscriptionId gets a reference to the given NullableString and assigns it to the SubscriptionId field.
 func (o *SubscriptionVerificationState) SetSubscriptionId(v string) {
-	o.SubscriptionId = &v
+	o.SubscriptionId.Set(&v)
 }
 
-// GetUnexpectedAssignments returns the UnexpectedAssignments field value if set, zero value otherwise.
+// SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+func (o *SubscriptionVerificationState) SetSubscriptionIdNil() {
+	o.SubscriptionId.Set(nil)
+}
+
+// UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+func (o *SubscriptionVerificationState) UnsetSubscriptionId() {
+	o.SubscriptionId.Unset()
+}
+
+// GetUnexpectedAssignments returns the UnexpectedAssignments field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SubscriptionVerificationState) GetUnexpectedAssignments() []AzureAssignment {
-	if o == nil || IsNil(o.UnexpectedAssignments) {
+	if o == nil {
 		var ret []AzureAssignment
 		return ret
 	}
@@ -68,6 +79,7 @@ func (o *SubscriptionVerificationState) GetUnexpectedAssignments() []AzureAssign
 
 // GetUnexpectedAssignmentsOk returns a tuple with the UnexpectedAssignments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SubscriptionVerificationState) GetUnexpectedAssignmentsOk() ([]AzureAssignment, bool) {
 	if o == nil || IsNil(o.UnexpectedAssignments) {
 		return nil, false
@@ -113,10 +125,10 @@ func (o SubscriptionVerificationState) MarshalJSON() ([]byte, error) {
 
 func (o SubscriptionVerificationState) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.SubscriptionId) {
-		toSerialize["subscriptionId"] = o.SubscriptionId
+	if o.SubscriptionId.IsSet() {
+		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
-	if !IsNil(o.UnexpectedAssignments) {
+	if o.UnexpectedAssignments != nil {
 		toSerialize["unexpectedAssignments"] = o.UnexpectedAssignments
 	}
 	if !IsNil(o.HasUnexpectedAssignments) {

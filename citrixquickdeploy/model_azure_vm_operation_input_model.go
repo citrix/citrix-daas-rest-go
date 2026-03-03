@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,8 +19,8 @@ var _ MappedNullable = &AzureVmOperationInputModel{}
 
 // AzureVmOperationInputModel struct for AzureVmOperationInputModel
 type AzureVmOperationInputModel struct {
-	VmConfig    *AzureVMBase      `json:"vmConfig,omitempty"`
-	VmOperation *AzureVmOperation `json:"vmOperation,omitempty"`
+	VmConfig    NullableAzureVMBase `json:"vmConfig,omitempty"`
+	VmOperation *AzureVmOperation   `json:"vmOperation,omitempty"`
 }
 
 // NewAzureVmOperationInputModelWithDefaults instantiates a new AzureVmOperationInputModel object
@@ -31,27 +31,38 @@ func NewAzureVmOperationInputModelWithDefaults() *AzureVmOperationInputModel {
 	return &this
 }
 
-// GetVmConfig returns the VmConfig field value if set, zero value otherwise.
+// GetVmConfig returns the VmConfig field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureVmOperationInputModel) GetVmConfig() AzureVMBase {
-	if o == nil || IsNil(o.VmConfig) {
+	if o == nil || IsNil(o.VmConfig.Get()) {
 		var ret AzureVMBase
 		return ret
 	}
-	return *o.VmConfig
+	return *o.VmConfig.Get()
 }
 
 // GetVmConfigOk returns a tuple with the VmConfig field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureVmOperationInputModel) GetVmConfigOk() (*AzureVMBase, bool) {
-	if o == nil || IsNil(o.VmConfig) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VmConfig, true
+	return o.VmConfig.Get(), o.VmConfig.IsSet()
 }
 
-// SetVmConfig gets a reference to the given AzureVMBase and assigns it to the VmConfig field.
+// SetVmConfig gets a reference to the given NullableAzureVMBase and assigns it to the VmConfig field.
 func (o *AzureVmOperationInputModel) SetVmConfig(v AzureVMBase) {
-	o.VmConfig = &v
+	o.VmConfig.Set(&v)
+}
+
+// SetVmConfigNil sets the value for VmConfig to be an explicit nil
+func (o *AzureVmOperationInputModel) SetVmConfigNil() {
+	o.VmConfig.Set(nil)
+}
+
+// UnsetVmConfig ensures that no value is present for VmConfig, not even an explicit nil
+func (o *AzureVmOperationInputModel) UnsetVmConfig() {
+	o.VmConfig.Unset()
 }
 
 // GetVmOperation returns the VmOperation field value if set, zero value otherwise.
@@ -87,8 +98,8 @@ func (o AzureVmOperationInputModel) MarshalJSON() ([]byte, error) {
 
 func (o AzureVmOperationInputModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.VmConfig) {
-		toSerialize["vmConfig"] = o.VmConfig
+	if o.VmConfig.IsSet() {
+		toSerialize["vmConfig"] = o.VmConfig.Get()
 	}
 	if !IsNil(o.VmOperation) {
 		toSerialize["vmOperation"] = o.VmOperation

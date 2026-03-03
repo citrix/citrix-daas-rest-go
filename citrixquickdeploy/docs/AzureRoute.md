@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AddressPrefix** | **string** | The destination CIDR to which the route applies. | 
 **NextHopType** | **string** | The type of hop the packet should be sent to. | 
-**NextHopIpAddress** | Pointer to **string** | The IP address packets should be forwarded to | [optional] 
+**NextHopIpAddress** | Pointer to **NullableString** | The IP address packets should be forwarded to | [optional] 
 **Name** | **string** | Name of the route | 
 **Enabled** | Pointer to **bool** | Specifying if the route should be applied | [optional] 
 
@@ -94,6 +94,16 @@ SetNextHopIpAddress sets NextHopIpAddress field to given value.
 
 HasNextHopIpAddress returns a boolean if a field has been set.
 
+### SetNextHopIpAddressNil
+
+`func (o *AzureRoute) SetNextHopIpAddressNil(b bool)`
+
+ SetNextHopIpAddressNil sets the value for NextHopIpAddress to be an explicit nil
+
+### UnsetNextHopIpAddress
+`func (o *AzureRoute) UnsetNextHopIpAddress()`
+
+UnsetNextHopIpAddress ensures that no value is present for NextHopIpAddress, not even an explicit nil
 ### GetName
 
 `func (o *AzureRoute) GetName() string`

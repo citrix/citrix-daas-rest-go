@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,22 +20,22 @@ var _ MappedNullable = &UpdateMachineRequestModel{}
 // UpdateMachineRequestModel Update a machine.
 type UpdateMachineRequestModel struct {
 	// The client name to which this machine will be assigned.  Machines can be assigned to    multiple users, a single client IP address, or a single client name, but only to one    of these categories at a time.
-	AssignedClientName *string `json:"assignedClientName,omitempty"`
+	AssignedClientName NullableString `json:"assignedClientName,omitempty"`
 	// The client IP address to which this machine will be assigned.  Machines can be assigned    to multiple users, a single client IP address, or a single client name, but only to    one of these categories at a time.
-	AssignedIPAddress *string `json:"assignedIPAddress,omitempty"`
+	AssignedIPAddress NullableString `json:"assignedIPAddress,omitempty"`
 	// The user(s) to whom this machine will be assigned.  Machines can be assigned    to multiple users, a single client IP address, or a single client name, but only to    one of these categories at a time.
 	AssignedUsers []string `json:"assignedUsers,omitempty"`
 	// The unique ID by which the hypervisor recognizes the machine.    Omit this for machines that are not power-managed.
-	HostedMachineId *string `json:"hostedMachineId,omitempty"`
+	HostedMachineId NullableString `json:"hostedMachineId,omitempty"`
 	// Hypervisor connection to use for power management of the machine.
-	HypervisorConnection *string `json:"hypervisorConnection,omitempty"`
+	HypervisorConnection NullableString `json:"hypervisorConnection,omitempty"`
 	// Specifies whether the machine is initially in maintenance mode.  A machine in maintenance mode is    not available for new sessions, and for managed machines all automatic power management is disabled.    If `null`, will not be changed.
-	InMaintenanceMode *bool `json:"inMaintenanceMode,omitempty"`
+	InMaintenanceMode NullableBool `json:"inMaintenanceMode,omitempty"`
 	// Customized name of the machine that is displayed in StoreFront, if the machine has been published.    It can be set only for private desktops.    If `null`, will not be changed.    If empty string (`\"\"`), the machine will be unassigned from any published name.
-	PublishedName *string `json:"publishedName,omitempty"`
+	PublishedName NullableString `json:"publishedName,omitempty"`
 	// Specifies the image data of the icon used to display the published    desktop to the user, and of assigned desktop(s) in the case    where SharingKind    is equal to Private.
-	Icon *string `json:"icon,omitempty"`
-	// The metadata of machine. Set the value of the NameValueStringPairModel is null or empty will be remove this metadata.    Not existing Name and Value NameValueStringPairModel object will be added.    The same Name but different value object will be updated.
+	Icon NullableString `json:"icon,omitempty"`
+	// The metadata of machine. Set the value of the NameValueStringPairModel is null or empty will remove this metadata.    Not existing Name and Value NameValueStringPairModel object will be added.    The same Name but different value object will be updated.
 	Metadata []NameValueStringPairModel `json:"metadata,omitempty"`
 }
 
@@ -47,55 +47,77 @@ func NewUpdateMachineRequestModelWithDefaults() *UpdateMachineRequestModel {
 	return &this
 }
 
-// GetAssignedClientName returns the AssignedClientName field value if set, zero value otherwise.
+// GetAssignedClientName returns the AssignedClientName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateMachineRequestModel) GetAssignedClientName() string {
-	if o == nil || IsNil(o.AssignedClientName) {
+	if o == nil || IsNil(o.AssignedClientName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AssignedClientName
+	return *o.AssignedClientName.Get()
 }
 
 // GetAssignedClientNameOk returns a tuple with the AssignedClientName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateMachineRequestModel) GetAssignedClientNameOk() (*string, bool) {
-	if o == nil || IsNil(o.AssignedClientName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AssignedClientName, true
+	return o.AssignedClientName.Get(), o.AssignedClientName.IsSet()
 }
 
-// SetAssignedClientName gets a reference to the given string and assigns it to the AssignedClientName field.
+// SetAssignedClientName gets a reference to the given NullableString and assigns it to the AssignedClientName field.
 func (o *UpdateMachineRequestModel) SetAssignedClientName(v string) {
-	o.AssignedClientName = &v
+	o.AssignedClientName.Set(&v)
 }
 
-// GetAssignedIPAddress returns the AssignedIPAddress field value if set, zero value otherwise.
+// SetAssignedClientNameNil sets the value for AssignedClientName to be an explicit nil
+func (o *UpdateMachineRequestModel) SetAssignedClientNameNil() {
+	o.AssignedClientName.Set(nil)
+}
+
+// UnsetAssignedClientName ensures that no value is present for AssignedClientName, not even an explicit nil
+func (o *UpdateMachineRequestModel) UnsetAssignedClientName() {
+	o.AssignedClientName.Unset()
+}
+
+// GetAssignedIPAddress returns the AssignedIPAddress field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateMachineRequestModel) GetAssignedIPAddress() string {
-	if o == nil || IsNil(o.AssignedIPAddress) {
+	if o == nil || IsNil(o.AssignedIPAddress.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AssignedIPAddress
+	return *o.AssignedIPAddress.Get()
 }
 
 // GetAssignedIPAddressOk returns a tuple with the AssignedIPAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateMachineRequestModel) GetAssignedIPAddressOk() (*string, bool) {
-	if o == nil || IsNil(o.AssignedIPAddress) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AssignedIPAddress, true
+	return o.AssignedIPAddress.Get(), o.AssignedIPAddress.IsSet()
 }
 
-// SetAssignedIPAddress gets a reference to the given string and assigns it to the AssignedIPAddress field.
+// SetAssignedIPAddress gets a reference to the given NullableString and assigns it to the AssignedIPAddress field.
 func (o *UpdateMachineRequestModel) SetAssignedIPAddress(v string) {
-	o.AssignedIPAddress = &v
+	o.AssignedIPAddress.Set(&v)
 }
 
-// GetAssignedUsers returns the AssignedUsers field value if set, zero value otherwise.
+// SetAssignedIPAddressNil sets the value for AssignedIPAddress to be an explicit nil
+func (o *UpdateMachineRequestModel) SetAssignedIPAddressNil() {
+	o.AssignedIPAddress.Set(nil)
+}
+
+// UnsetAssignedIPAddress ensures that no value is present for AssignedIPAddress, not even an explicit nil
+func (o *UpdateMachineRequestModel) UnsetAssignedIPAddress() {
+	o.AssignedIPAddress.Unset()
+}
+
+// GetAssignedUsers returns the AssignedUsers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateMachineRequestModel) GetAssignedUsers() []string {
-	if o == nil || IsNil(o.AssignedUsers) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -104,6 +126,7 @@ func (o *UpdateMachineRequestModel) GetAssignedUsers() []string {
 
 // GetAssignedUsersOk returns a tuple with the AssignedUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateMachineRequestModel) GetAssignedUsersOk() ([]string, bool) {
 	if o == nil || IsNil(o.AssignedUsers) {
 		return nil, false
@@ -116,124 +139,179 @@ func (o *UpdateMachineRequestModel) SetAssignedUsers(v []string) {
 	o.AssignedUsers = v
 }
 
-// GetHostedMachineId returns the HostedMachineId field value if set, zero value otherwise.
+// GetHostedMachineId returns the HostedMachineId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateMachineRequestModel) GetHostedMachineId() string {
-	if o == nil || IsNil(o.HostedMachineId) {
+	if o == nil || IsNil(o.HostedMachineId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HostedMachineId
+	return *o.HostedMachineId.Get()
 }
 
 // GetHostedMachineIdOk returns a tuple with the HostedMachineId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateMachineRequestModel) GetHostedMachineIdOk() (*string, bool) {
-	if o == nil || IsNil(o.HostedMachineId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HostedMachineId, true
+	return o.HostedMachineId.Get(), o.HostedMachineId.IsSet()
 }
 
-// SetHostedMachineId gets a reference to the given string and assigns it to the HostedMachineId field.
+// SetHostedMachineId gets a reference to the given NullableString and assigns it to the HostedMachineId field.
 func (o *UpdateMachineRequestModel) SetHostedMachineId(v string) {
-	o.HostedMachineId = &v
+	o.HostedMachineId.Set(&v)
 }
 
-// GetHypervisorConnection returns the HypervisorConnection field value if set, zero value otherwise.
+// SetHostedMachineIdNil sets the value for HostedMachineId to be an explicit nil
+func (o *UpdateMachineRequestModel) SetHostedMachineIdNil() {
+	o.HostedMachineId.Set(nil)
+}
+
+// UnsetHostedMachineId ensures that no value is present for HostedMachineId, not even an explicit nil
+func (o *UpdateMachineRequestModel) UnsetHostedMachineId() {
+	o.HostedMachineId.Unset()
+}
+
+// GetHypervisorConnection returns the HypervisorConnection field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateMachineRequestModel) GetHypervisorConnection() string {
-	if o == nil || IsNil(o.HypervisorConnection) {
+	if o == nil || IsNil(o.HypervisorConnection.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HypervisorConnection
+	return *o.HypervisorConnection.Get()
 }
 
 // GetHypervisorConnectionOk returns a tuple with the HypervisorConnection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateMachineRequestModel) GetHypervisorConnectionOk() (*string, bool) {
-	if o == nil || IsNil(o.HypervisorConnection) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HypervisorConnection, true
+	return o.HypervisorConnection.Get(), o.HypervisorConnection.IsSet()
 }
 
-// SetHypervisorConnection gets a reference to the given string and assigns it to the HypervisorConnection field.
+// SetHypervisorConnection gets a reference to the given NullableString and assigns it to the HypervisorConnection field.
 func (o *UpdateMachineRequestModel) SetHypervisorConnection(v string) {
-	o.HypervisorConnection = &v
+	o.HypervisorConnection.Set(&v)
 }
 
-// GetInMaintenanceMode returns the InMaintenanceMode field value if set, zero value otherwise.
+// SetHypervisorConnectionNil sets the value for HypervisorConnection to be an explicit nil
+func (o *UpdateMachineRequestModel) SetHypervisorConnectionNil() {
+	o.HypervisorConnection.Set(nil)
+}
+
+// UnsetHypervisorConnection ensures that no value is present for HypervisorConnection, not even an explicit nil
+func (o *UpdateMachineRequestModel) UnsetHypervisorConnection() {
+	o.HypervisorConnection.Unset()
+}
+
+// GetInMaintenanceMode returns the InMaintenanceMode field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateMachineRequestModel) GetInMaintenanceMode() bool {
-	if o == nil || IsNil(o.InMaintenanceMode) {
+	if o == nil || IsNil(o.InMaintenanceMode.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.InMaintenanceMode
+	return *o.InMaintenanceMode.Get()
 }
 
 // GetInMaintenanceModeOk returns a tuple with the InMaintenanceMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateMachineRequestModel) GetInMaintenanceModeOk() (*bool, bool) {
-	if o == nil || IsNil(o.InMaintenanceMode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.InMaintenanceMode, true
+	return o.InMaintenanceMode.Get(), o.InMaintenanceMode.IsSet()
 }
 
-// SetInMaintenanceMode gets a reference to the given bool and assigns it to the InMaintenanceMode field.
+// SetInMaintenanceMode gets a reference to the given NullableBool and assigns it to the InMaintenanceMode field.
 func (o *UpdateMachineRequestModel) SetInMaintenanceMode(v bool) {
-	o.InMaintenanceMode = &v
+	o.InMaintenanceMode.Set(&v)
 }
 
-// GetPublishedName returns the PublishedName field value if set, zero value otherwise.
+// SetInMaintenanceModeNil sets the value for InMaintenanceMode to be an explicit nil
+func (o *UpdateMachineRequestModel) SetInMaintenanceModeNil() {
+	o.InMaintenanceMode.Set(nil)
+}
+
+// UnsetInMaintenanceMode ensures that no value is present for InMaintenanceMode, not even an explicit nil
+func (o *UpdateMachineRequestModel) UnsetInMaintenanceMode() {
+	o.InMaintenanceMode.Unset()
+}
+
+// GetPublishedName returns the PublishedName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateMachineRequestModel) GetPublishedName() string {
-	if o == nil || IsNil(o.PublishedName) {
+	if o == nil || IsNil(o.PublishedName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PublishedName
+	return *o.PublishedName.Get()
 }
 
 // GetPublishedNameOk returns a tuple with the PublishedName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateMachineRequestModel) GetPublishedNameOk() (*string, bool) {
-	if o == nil || IsNil(o.PublishedName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PublishedName, true
+	return o.PublishedName.Get(), o.PublishedName.IsSet()
 }
 
-// SetPublishedName gets a reference to the given string and assigns it to the PublishedName field.
+// SetPublishedName gets a reference to the given NullableString and assigns it to the PublishedName field.
 func (o *UpdateMachineRequestModel) SetPublishedName(v string) {
-	o.PublishedName = &v
+	o.PublishedName.Set(&v)
 }
 
-// GetIcon returns the Icon field value if set, zero value otherwise.
+// SetPublishedNameNil sets the value for PublishedName to be an explicit nil
+func (o *UpdateMachineRequestModel) SetPublishedNameNil() {
+	o.PublishedName.Set(nil)
+}
+
+// UnsetPublishedName ensures that no value is present for PublishedName, not even an explicit nil
+func (o *UpdateMachineRequestModel) UnsetPublishedName() {
+	o.PublishedName.Unset()
+}
+
+// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateMachineRequestModel) GetIcon() string {
-	if o == nil || IsNil(o.Icon) {
+	if o == nil || IsNil(o.Icon.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Icon
+	return *o.Icon.Get()
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateMachineRequestModel) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Icon, true
+	return o.Icon.Get(), o.Icon.IsSet()
 }
 
-// SetIcon gets a reference to the given string and assigns it to the Icon field.
+// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
 func (o *UpdateMachineRequestModel) SetIcon(v string) {
-	o.Icon = &v
+	o.Icon.Set(&v)
 }
 
-// GetMetadata returns the Metadata field value if set, zero value otherwise.
+// SetIconNil sets the value for Icon to be an explicit nil
+func (o *UpdateMachineRequestModel) SetIconNil() {
+	o.Icon.Set(nil)
+}
+
+// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
+func (o *UpdateMachineRequestModel) UnsetIcon() {
+	o.Icon.Unset()
+}
+
+// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateMachineRequestModel) GetMetadata() []NameValueStringPairModel {
-	if o == nil || IsNil(o.Metadata) {
+	if o == nil {
 		var ret []NameValueStringPairModel
 		return ret
 	}
@@ -242,6 +320,7 @@ func (o *UpdateMachineRequestModel) GetMetadata() []NameValueStringPairModel {
 
 // GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateMachineRequestModel) GetMetadataOk() ([]NameValueStringPairModel, bool) {
 	if o == nil || IsNil(o.Metadata) {
 		return nil, false
@@ -264,31 +343,31 @@ func (o UpdateMachineRequestModel) MarshalJSON() ([]byte, error) {
 
 func (o UpdateMachineRequestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AssignedClientName) {
-		toSerialize["assignedClientName"] = o.AssignedClientName
+	if o.AssignedClientName.IsSet() {
+		toSerialize["assignedClientName"] = o.AssignedClientName.Get()
 	}
-	if !IsNil(o.AssignedIPAddress) {
-		toSerialize["assignedIPAddress"] = o.AssignedIPAddress
+	if o.AssignedIPAddress.IsSet() {
+		toSerialize["assignedIPAddress"] = o.AssignedIPAddress.Get()
 	}
-	if !IsNil(o.AssignedUsers) {
+	if o.AssignedUsers != nil {
 		toSerialize["assignedUsers"] = o.AssignedUsers
 	}
-	if !IsNil(o.HostedMachineId) {
-		toSerialize["hostedMachineId"] = o.HostedMachineId
+	if o.HostedMachineId.IsSet() {
+		toSerialize["hostedMachineId"] = o.HostedMachineId.Get()
 	}
-	if !IsNil(o.HypervisorConnection) {
-		toSerialize["hypervisorConnection"] = o.HypervisorConnection
+	if o.HypervisorConnection.IsSet() {
+		toSerialize["hypervisorConnection"] = o.HypervisorConnection.Get()
 	}
-	if !IsNil(o.InMaintenanceMode) {
-		toSerialize["inMaintenanceMode"] = o.InMaintenanceMode
+	if o.InMaintenanceMode.IsSet() {
+		toSerialize["inMaintenanceMode"] = o.InMaintenanceMode.Get()
 	}
-	if !IsNil(o.PublishedName) {
-		toSerialize["publishedName"] = o.PublishedName
+	if o.PublishedName.IsSet() {
+		toSerialize["publishedName"] = o.PublishedName.Get()
 	}
-	if !IsNil(o.Icon) {
-		toSerialize["icon"] = o.Icon
+	if o.Icon.IsSet() {
+		toSerialize["icon"] = o.Icon.Get()
 	}
-	if !IsNil(o.Metadata) {
+	if o.Metadata != nil {
 		toSerialize["metadata"] = o.Metadata
 	}
 	return toSerialize, nil

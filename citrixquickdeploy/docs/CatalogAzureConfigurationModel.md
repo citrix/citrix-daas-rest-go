@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **AzureResourceGroup** | **string** | Name of the resource group where all objects are going to be located in | 
 **AzureVNet** | **string** | Name of the VNet all machines will be connected to | 
 **AzureSubnet** | **string** | Address range of the machines in the catalog | 
-**AzureVNetRegion** | Pointer to **string** | Region of the Azure VNet | [optional] 
+**AzureVNetRegion** | Pointer to **NullableString** | Region of the Azure VNet | [optional] 
 
 ## Methods
 
@@ -134,6 +134,16 @@ SetAzureVNetRegion sets AzureVNetRegion field to given value.
 
 HasAzureVNetRegion returns a boolean if a field has been set.
 
+### SetAzureVNetRegionNil
+
+`func (o *CatalogAzureConfigurationModel) SetAzureVNetRegionNil(b bool)`
+
+ SetAzureVNetRegionNil sets the value for AzureVNetRegion to be an explicit nil
+
+### UnsetAzureVNetRegion
+`func (o *CatalogAzureConfigurationModel) UnsetAzureVNetRegion()`
+
+UnsetAzureVNetRegion ensures that no value is present for AzureVNetRegion, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

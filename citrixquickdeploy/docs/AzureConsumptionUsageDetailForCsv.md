@@ -4,20 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CatalogId** | Pointer to **string** | ID of the catalog | [optional] 
-**SubscriptionId** | Pointer to **string** | Subscription guid. | [optional] 
-**Cost** | Pointer to **float64** | The amount of cost before tax. | [optional] [readonly] 
-**ResourceId** | Pointer to **string** | Unique identifier of the Azure Resource Manager usage detail resource. | [optional] [readonly] 
-**ResourceGroup** | Pointer to **string** | Name of the resource&#39;s resource group. | [optional] [readonly] 
-**ResourceLocation** | Pointer to **string** | Location of the resource. | [optional] [readonly] 
-**BillingPeriodStartDate** | Pointer to **time.Time** | The billing period start date. | [optional] [readonly] 
-**BillingPeriodEndDate** | Pointer to **time.Time** | The billing period end date. | [optional] [readonly] 
-**MeterId** | Pointer to **string** | The meter id (GUID). Not available for marketplace. For reserved instance this represents the primary meter for which the reservation was purchased. For the actual VM Size for which the reservation is purchased see productOrderName. | [optional] [readonly] 
-**Quantity** | Pointer to **float64** | The usage quantity. | [optional] [readonly] 
-**UnitPrice** | Pointer to **float64** | The unit price of the meter. | [optional] [readonly] 
-**BillingCurrency** | Pointer to **string** | The currency of the meter. | [optional] [readonly] 
-**MeterDetails** | Pointer to [**AzureConsumptionMeterDetails**](AzureConsumptionMeterDetails.md) | The details about the meter. By default this is not populated, unless it&#39;s specified in $expand. | [optional] 
-**Tags** | Pointer to **string** |  | [optional] 
+**CatalogId** | Pointer to **NullableString** | ID of the catalog | [optional] 
+**SubscriptionId** | Pointer to **NullableString** | Subscription guid. | [optional] 
+**SubscriptionName** | Pointer to **NullableString** | Subscription name. | [optional] 
+**Cost** | Pointer to **NullableFloat64** | The amount of cost before tax. | [optional] [readonly] 
+**ResourceId** | Pointer to **NullableString** | Unique identifier of the Azure Resource Manager usage detail resource. | [optional] [readonly] 
+**ResourceGroup** | Pointer to **NullableString** | Name of the resource&#39;s resource group. | [optional] [readonly] 
+**ResourceLocation** | Pointer to **NullableString** | Location of the resource. | [optional] [readonly] 
+**BillingPeriodStartDate** | Pointer to **NullableTime** | The billing period start date. | [optional] [readonly] 
+**BillingPeriodEndDate** | Pointer to **NullableTime** | The billing period end date. | [optional] [readonly] 
+**MeterId** | Pointer to **NullableString** | The meter id (GUID). Not available for marketplace. For reserved instance this represents the primary meter for which the reservation was purchased. For the actual VM Size for which the reservation is purchased see productOrderName. | [optional] [readonly] 
+**Quantity** | Pointer to **NullableFloat64** | The usage quantity. | [optional] [readonly] 
+**UnitPrice** | Pointer to **NullableFloat64** | The unit price of the meter. | [optional] [readonly] 
+**BillingCurrency** | Pointer to **NullableString** | The currency of the meter. | [optional] [readonly] 
+**MeterDetails** | Pointer to [**NullableAzureConsumptionMeterDetails**](AzureConsumptionMeterDetails.md) | The details about the meter. By default this is not populated, unless it&#39;s specified in $expand. | [optional] [readonly] 
+**Tags** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -63,6 +64,16 @@ SetCatalogId sets CatalogId field to given value.
 
 HasCatalogId returns a boolean if a field has been set.
 
+### SetCatalogIdNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetCatalogIdNil(b bool)`
+
+ SetCatalogIdNil sets the value for CatalogId to be an explicit nil
+
+### UnsetCatalogId
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetCatalogId()`
+
+UnsetCatalogId ensures that no value is present for CatalogId, not even an explicit nil
 ### GetSubscriptionId
 
 `func (o *AzureConsumptionUsageDetailForCsv) GetSubscriptionId() string`
@@ -88,6 +99,51 @@ SetSubscriptionId sets SubscriptionId field to given value.
 
 HasSubscriptionId returns a boolean if a field has been set.
 
+### SetSubscriptionIdNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
+### GetSubscriptionName
+
+`func (o *AzureConsumptionUsageDetailForCsv) GetSubscriptionName() string`
+
+GetSubscriptionName returns the SubscriptionName field if non-nil, zero value otherwise.
+
+### GetSubscriptionNameOk
+
+`func (o *AzureConsumptionUsageDetailForCsv) GetSubscriptionNameOk() (*string, bool)`
+
+GetSubscriptionNameOk returns a tuple with the SubscriptionName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionName
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetSubscriptionName(v string)`
+
+SetSubscriptionName sets SubscriptionName field to given value.
+
+### HasSubscriptionName
+
+`func (o *AzureConsumptionUsageDetailForCsv) HasSubscriptionName() bool`
+
+HasSubscriptionName returns a boolean if a field has been set.
+
+### SetSubscriptionNameNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetSubscriptionNameNil(b bool)`
+
+ SetSubscriptionNameNil sets the value for SubscriptionName to be an explicit nil
+
+### UnsetSubscriptionName
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetSubscriptionName()`
+
+UnsetSubscriptionName ensures that no value is present for SubscriptionName, not even an explicit nil
 ### GetCost
 
 `func (o *AzureConsumptionUsageDetailForCsv) GetCost() float64`
@@ -113,6 +169,16 @@ SetCost sets Cost field to given value.
 
 HasCost returns a boolean if a field has been set.
 
+### SetCostNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetCostNil(b bool)`
+
+ SetCostNil sets the value for Cost to be an explicit nil
+
+### UnsetCost
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetCost()`
+
+UnsetCost ensures that no value is present for Cost, not even an explicit nil
 ### GetResourceId
 
 `func (o *AzureConsumptionUsageDetailForCsv) GetResourceId() string`
@@ -138,6 +204,16 @@ SetResourceId sets ResourceId field to given value.
 
 HasResourceId returns a boolean if a field has been set.
 
+### SetResourceIdNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetResourceIdNil(b bool)`
+
+ SetResourceIdNil sets the value for ResourceId to be an explicit nil
+
+### UnsetResourceId
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetResourceId()`
+
+UnsetResourceId ensures that no value is present for ResourceId, not even an explicit nil
 ### GetResourceGroup
 
 `func (o *AzureConsumptionUsageDetailForCsv) GetResourceGroup() string`
@@ -163,6 +239,16 @@ SetResourceGroup sets ResourceGroup field to given value.
 
 HasResourceGroup returns a boolean if a field has been set.
 
+### SetResourceGroupNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetResourceGroupNil(b bool)`
+
+ SetResourceGroupNil sets the value for ResourceGroup to be an explicit nil
+
+### UnsetResourceGroup
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetResourceGroup()`
+
+UnsetResourceGroup ensures that no value is present for ResourceGroup, not even an explicit nil
 ### GetResourceLocation
 
 `func (o *AzureConsumptionUsageDetailForCsv) GetResourceLocation() string`
@@ -188,6 +274,16 @@ SetResourceLocation sets ResourceLocation field to given value.
 
 HasResourceLocation returns a boolean if a field has been set.
 
+### SetResourceLocationNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetResourceLocationNil(b bool)`
+
+ SetResourceLocationNil sets the value for ResourceLocation to be an explicit nil
+
+### UnsetResourceLocation
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetResourceLocation()`
+
+UnsetResourceLocation ensures that no value is present for ResourceLocation, not even an explicit nil
 ### GetBillingPeriodStartDate
 
 `func (o *AzureConsumptionUsageDetailForCsv) GetBillingPeriodStartDate() time.Time`
@@ -213,6 +309,16 @@ SetBillingPeriodStartDate sets BillingPeriodStartDate field to given value.
 
 HasBillingPeriodStartDate returns a boolean if a field has been set.
 
+### SetBillingPeriodStartDateNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetBillingPeriodStartDateNil(b bool)`
+
+ SetBillingPeriodStartDateNil sets the value for BillingPeriodStartDate to be an explicit nil
+
+### UnsetBillingPeriodStartDate
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetBillingPeriodStartDate()`
+
+UnsetBillingPeriodStartDate ensures that no value is present for BillingPeriodStartDate, not even an explicit nil
 ### GetBillingPeriodEndDate
 
 `func (o *AzureConsumptionUsageDetailForCsv) GetBillingPeriodEndDate() time.Time`
@@ -238,6 +344,16 @@ SetBillingPeriodEndDate sets BillingPeriodEndDate field to given value.
 
 HasBillingPeriodEndDate returns a boolean if a field has been set.
 
+### SetBillingPeriodEndDateNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetBillingPeriodEndDateNil(b bool)`
+
+ SetBillingPeriodEndDateNil sets the value for BillingPeriodEndDate to be an explicit nil
+
+### UnsetBillingPeriodEndDate
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetBillingPeriodEndDate()`
+
+UnsetBillingPeriodEndDate ensures that no value is present for BillingPeriodEndDate, not even an explicit nil
 ### GetMeterId
 
 `func (o *AzureConsumptionUsageDetailForCsv) GetMeterId() string`
@@ -263,6 +379,16 @@ SetMeterId sets MeterId field to given value.
 
 HasMeterId returns a boolean if a field has been set.
 
+### SetMeterIdNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetMeterIdNil(b bool)`
+
+ SetMeterIdNil sets the value for MeterId to be an explicit nil
+
+### UnsetMeterId
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetMeterId()`
+
+UnsetMeterId ensures that no value is present for MeterId, not even an explicit nil
 ### GetQuantity
 
 `func (o *AzureConsumptionUsageDetailForCsv) GetQuantity() float64`
@@ -288,6 +414,16 @@ SetQuantity sets Quantity field to given value.
 
 HasQuantity returns a boolean if a field has been set.
 
+### SetQuantityNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetQuantityNil(b bool)`
+
+ SetQuantityNil sets the value for Quantity to be an explicit nil
+
+### UnsetQuantity
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetQuantity()`
+
+UnsetQuantity ensures that no value is present for Quantity, not even an explicit nil
 ### GetUnitPrice
 
 `func (o *AzureConsumptionUsageDetailForCsv) GetUnitPrice() float64`
@@ -313,6 +449,16 @@ SetUnitPrice sets UnitPrice field to given value.
 
 HasUnitPrice returns a boolean if a field has been set.
 
+### SetUnitPriceNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetUnitPriceNil(b bool)`
+
+ SetUnitPriceNil sets the value for UnitPrice to be an explicit nil
+
+### UnsetUnitPrice
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetUnitPrice()`
+
+UnsetUnitPrice ensures that no value is present for UnitPrice, not even an explicit nil
 ### GetBillingCurrency
 
 `func (o *AzureConsumptionUsageDetailForCsv) GetBillingCurrency() string`
@@ -338,6 +484,16 @@ SetBillingCurrency sets BillingCurrency field to given value.
 
 HasBillingCurrency returns a boolean if a field has been set.
 
+### SetBillingCurrencyNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetBillingCurrencyNil(b bool)`
+
+ SetBillingCurrencyNil sets the value for BillingCurrency to be an explicit nil
+
+### UnsetBillingCurrency
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetBillingCurrency()`
+
+UnsetBillingCurrency ensures that no value is present for BillingCurrency, not even an explicit nil
 ### GetMeterDetails
 
 `func (o *AzureConsumptionUsageDetailForCsv) GetMeterDetails() AzureConsumptionMeterDetails`
@@ -363,6 +519,16 @@ SetMeterDetails sets MeterDetails field to given value.
 
 HasMeterDetails returns a boolean if a field has been set.
 
+### SetMeterDetailsNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetMeterDetailsNil(b bool)`
+
+ SetMeterDetailsNil sets the value for MeterDetails to be an explicit nil
+
+### UnsetMeterDetails
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetMeterDetails()`
+
+UnsetMeterDetails ensures that no value is present for MeterDetails, not even an explicit nil
 ### GetTags
 
 `func (o *AzureConsumptionUsageDetailForCsv) GetTags() string`
@@ -388,6 +554,16 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
+### SetTagsNil
+
+`func (o *AzureConsumptionUsageDetailForCsv) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *AzureConsumptionUsageDetailForCsv) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

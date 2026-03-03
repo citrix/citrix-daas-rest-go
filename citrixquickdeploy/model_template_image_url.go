@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &TemplateImageUrl{}
 // TemplateImageUrl struct for TemplateImageUrl
 type TemplateImageUrl struct {
 	// URL of the image
-	Url *string `json:"url,omitempty"`
+	Url NullableString `json:"url,omitempty"`
 	// Time for which the Url would be valid
 	AzureSasUrlExpiryTime time.Time `json:"azureSasUrlExpiryTime"`
 }
@@ -34,27 +34,38 @@ func NewTemplateImageUrlWithDefaults() *TemplateImageUrl {
 	return &this
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise.
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TemplateImageUrl) GetUrl() string {
-	if o == nil || IsNil(o.Url) {
+	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Url
+	return *o.Url.Get()
 }
 
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TemplateImageUrl) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Url, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
-// SetUrl gets a reference to the given string and assigns it to the Url field.
+// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
 func (o *TemplateImageUrl) SetUrl(v string) {
-	o.Url = &v
+	o.Url.Set(&v)
+}
+
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *TemplateImageUrl) SetUrlNil() {
+	o.Url.Set(nil)
+}
+
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *TemplateImageUrl) UnsetUrl() {
+	o.Url.Unset()
 }
 
 // GetAzureSasUrlExpiryTime returns the AzureSasUrlExpiryTime field value
@@ -91,8 +102,8 @@ func (o TemplateImageUrl) MarshalJSON() ([]byte, error) {
 
 func (o TemplateImageUrl) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Url) {
-		toSerialize["url"] = o.Url
+	if o.Url.IsSet() {
+		toSerialize["url"] = o.Url.Get()
 	}
 	toSerialize["azureSasUrlExpiryTime"] = o.AzureSasUrlExpiryTime
 	return toSerialize, nil

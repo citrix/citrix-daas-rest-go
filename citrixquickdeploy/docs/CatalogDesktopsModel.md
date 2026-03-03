@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]PublishedDesktop**](PublishedDesktop.md) |  | 
+**Items** | [**[]PublishedDesktop**](PublishedDesktop.md) |  | [readonly] 
 **Desktops** | Pointer to [**[]PublishedDesktop**](PublishedDesktop.md) |  | [optional] 
 
 ## Methods
@@ -71,6 +71,16 @@ SetDesktops sets Desktops field to given value.
 
 HasDesktops returns a boolean if a field has been set.
 
+### SetDesktopsNil
+
+`func (o *CatalogDesktopsModel) SetDesktopsNil(b bool)`
+
+ SetDesktopsNil sets the value for Desktops to be an explicit nil
+
+### UnsetDesktops
+`func (o *CatalogDesktopsModel) UnsetDesktops()`
+
+UnsetDesktops ensures that no value is present for Desktops, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

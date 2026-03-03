@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -22,15 +22,15 @@ type CatalogComputeWorkerModel struct {
 	// Indicates if Premium Storage will be used
 	UsePremiumStorage *bool `json:"usePremiumStorage,omitempty"`
 	// Indicates type of Storage that will be used
-	StorageType *CatalogCapacityStorageType `json:"storageType,omitempty"`
+	StorageType NullableCatalogCapacityStorageType `json:"storageType,omitempty"`
 	// Indicates if the catalog VMs should be deployed with Azure HUB license
 	UseAzureHUB *bool `json:"useAzureHUB,omitempty"`
 	// Number of concurrent users per VM
 	MaxUsersPerVM *int32 `json:"maxUsersPerVM,omitempty"`
 	// Type of VM to create
-	InstanceTypeId *string `json:"instanceTypeId,omitempty"`
+	InstanceTypeId NullableString `json:"instanceTypeId,omitempty"`
 	// Name of the Azure VM Instance to use for the catalog
-	InstanceName *string `json:"instanceName,omitempty"`
+	InstanceName NullableString `json:"instanceName,omitempty"`
 	// List of backup VM configurations
 	BackupVmConfiguration []BackupVmConfiguration `json:"backupVmConfiguration,omitempty"`
 	// Use managed disks for VMs in the catalog
@@ -68,27 +68,38 @@ func (o *CatalogComputeWorkerModel) SetUsePremiumStorage(v bool) {
 	o.UsePremiumStorage = &v
 }
 
-// GetStorageType returns the StorageType field value if set, zero value otherwise.
+// GetStorageType returns the StorageType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogComputeWorkerModel) GetStorageType() CatalogCapacityStorageType {
-	if o == nil || IsNil(o.StorageType) {
+	if o == nil || IsNil(o.StorageType.Get()) {
 		var ret CatalogCapacityStorageType
 		return ret
 	}
-	return *o.StorageType
+	return *o.StorageType.Get()
 }
 
 // GetStorageTypeOk returns a tuple with the StorageType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogComputeWorkerModel) GetStorageTypeOk() (*CatalogCapacityStorageType, bool) {
-	if o == nil || IsNil(o.StorageType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StorageType, true
+	return o.StorageType.Get(), o.StorageType.IsSet()
 }
 
-// SetStorageType gets a reference to the given CatalogCapacityStorageType and assigns it to the StorageType field.
+// SetStorageType gets a reference to the given NullableCatalogCapacityStorageType and assigns it to the StorageType field.
 func (o *CatalogComputeWorkerModel) SetStorageType(v CatalogCapacityStorageType) {
-	o.StorageType = &v
+	o.StorageType.Set(&v)
+}
+
+// SetStorageTypeNil sets the value for StorageType to be an explicit nil
+func (o *CatalogComputeWorkerModel) SetStorageTypeNil() {
+	o.StorageType.Set(nil)
+}
+
+// UnsetStorageType ensures that no value is present for StorageType, not even an explicit nil
+func (o *CatalogComputeWorkerModel) UnsetStorageType() {
+	o.StorageType.Unset()
 }
 
 // GetUseAzureHUB returns the UseAzureHUB field value if set, zero value otherwise.
@@ -137,55 +148,77 @@ func (o *CatalogComputeWorkerModel) SetMaxUsersPerVM(v int32) {
 	o.MaxUsersPerVM = &v
 }
 
-// GetInstanceTypeId returns the InstanceTypeId field value if set, zero value otherwise.
+// GetInstanceTypeId returns the InstanceTypeId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogComputeWorkerModel) GetInstanceTypeId() string {
-	if o == nil || IsNil(o.InstanceTypeId) {
+	if o == nil || IsNil(o.InstanceTypeId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.InstanceTypeId
+	return *o.InstanceTypeId.Get()
 }
 
 // GetInstanceTypeIdOk returns a tuple with the InstanceTypeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogComputeWorkerModel) GetInstanceTypeIdOk() (*string, bool) {
-	if o == nil || IsNil(o.InstanceTypeId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.InstanceTypeId, true
+	return o.InstanceTypeId.Get(), o.InstanceTypeId.IsSet()
 }
 
-// SetInstanceTypeId gets a reference to the given string and assigns it to the InstanceTypeId field.
+// SetInstanceTypeId gets a reference to the given NullableString and assigns it to the InstanceTypeId field.
 func (o *CatalogComputeWorkerModel) SetInstanceTypeId(v string) {
-	o.InstanceTypeId = &v
+	o.InstanceTypeId.Set(&v)
 }
 
-// GetInstanceName returns the InstanceName field value if set, zero value otherwise.
+// SetInstanceTypeIdNil sets the value for InstanceTypeId to be an explicit nil
+func (o *CatalogComputeWorkerModel) SetInstanceTypeIdNil() {
+	o.InstanceTypeId.Set(nil)
+}
+
+// UnsetInstanceTypeId ensures that no value is present for InstanceTypeId, not even an explicit nil
+func (o *CatalogComputeWorkerModel) UnsetInstanceTypeId() {
+	o.InstanceTypeId.Unset()
+}
+
+// GetInstanceName returns the InstanceName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogComputeWorkerModel) GetInstanceName() string {
-	if o == nil || IsNil(o.InstanceName) {
+	if o == nil || IsNil(o.InstanceName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.InstanceName
+	return *o.InstanceName.Get()
 }
 
 // GetInstanceNameOk returns a tuple with the InstanceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogComputeWorkerModel) GetInstanceNameOk() (*string, bool) {
-	if o == nil || IsNil(o.InstanceName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.InstanceName, true
+	return o.InstanceName.Get(), o.InstanceName.IsSet()
 }
 
-// SetInstanceName gets a reference to the given string and assigns it to the InstanceName field.
+// SetInstanceName gets a reference to the given NullableString and assigns it to the InstanceName field.
 func (o *CatalogComputeWorkerModel) SetInstanceName(v string) {
-	o.InstanceName = &v
+	o.InstanceName.Set(&v)
 }
 
-// GetBackupVmConfiguration returns the BackupVmConfiguration field value if set, zero value otherwise.
+// SetInstanceNameNil sets the value for InstanceName to be an explicit nil
+func (o *CatalogComputeWorkerModel) SetInstanceNameNil() {
+	o.InstanceName.Set(nil)
+}
+
+// UnsetInstanceName ensures that no value is present for InstanceName, not even an explicit nil
+func (o *CatalogComputeWorkerModel) UnsetInstanceName() {
+	o.InstanceName.Unset()
+}
+
+// GetBackupVmConfiguration returns the BackupVmConfiguration field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogComputeWorkerModel) GetBackupVmConfiguration() []BackupVmConfiguration {
-	if o == nil || IsNil(o.BackupVmConfiguration) {
+	if o == nil {
 		var ret []BackupVmConfiguration
 		return ret
 	}
@@ -194,6 +227,7 @@ func (o *CatalogComputeWorkerModel) GetBackupVmConfiguration() []BackupVmConfigu
 
 // GetBackupVmConfigurationOk returns a tuple with the BackupVmConfiguration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogComputeWorkerModel) GetBackupVmConfigurationOk() ([]BackupVmConfiguration, bool) {
 	if o == nil || IsNil(o.BackupVmConfiguration) {
 		return nil, false
@@ -242,8 +276,8 @@ func (o CatalogComputeWorkerModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.UsePremiumStorage) {
 		toSerialize["usePremiumStorage"] = o.UsePremiumStorage
 	}
-	if !IsNil(o.StorageType) {
-		toSerialize["storageType"] = o.StorageType
+	if o.StorageType.IsSet() {
+		toSerialize["storageType"] = o.StorageType.Get()
 	}
 	if !IsNil(o.UseAzureHUB) {
 		toSerialize["useAzureHUB"] = o.UseAzureHUB
@@ -251,13 +285,13 @@ func (o CatalogComputeWorkerModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MaxUsersPerVM) {
 		toSerialize["maxUsersPerVM"] = o.MaxUsersPerVM
 	}
-	if !IsNil(o.InstanceTypeId) {
-		toSerialize["instanceTypeId"] = o.InstanceTypeId
+	if o.InstanceTypeId.IsSet() {
+		toSerialize["instanceTypeId"] = o.InstanceTypeId.Get()
 	}
-	if !IsNil(o.InstanceName) {
-		toSerialize["instanceName"] = o.InstanceName
+	if o.InstanceName.IsSet() {
+		toSerialize["instanceName"] = o.InstanceName.Get()
 	}
-	if !IsNil(o.BackupVmConfiguration) {
+	if o.BackupVmConfiguration != nil {
 		toSerialize["backupVmConfiguration"] = o.BackupVmConfiguration
 	}
 	if !IsNil(o.UseManagedDisks) {

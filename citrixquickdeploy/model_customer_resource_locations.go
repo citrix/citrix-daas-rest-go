@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -32,9 +32,9 @@ func NewCustomerResourceLocationsWithDefaults() *CustomerResourceLocations {
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise.
+// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CustomerResourceLocations) GetItems() []ResourceLocationDetails {
-	if o == nil || IsNil(o.Items) {
+	if o == nil {
 		var ret []ResourceLocationDetails
 		return ret
 	}
@@ -43,6 +43,7 @@ func (o *CustomerResourceLocations) GetItems() []ResourceLocationDetails {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomerResourceLocations) GetItemsOk() ([]ResourceLocationDetails, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
@@ -88,7 +89,7 @@ func (o CustomerResourceLocations) MarshalJSON() ([]byte, error) {
 
 func (o CustomerResourceLocations) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Items) {
+	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
 	if !IsNil(o.StaleData) {

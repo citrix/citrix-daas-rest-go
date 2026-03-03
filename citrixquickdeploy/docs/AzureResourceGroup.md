@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **SubscriptionId** | **string** | ID of the subscription the Resource Group is associated with | 
 **Name** | **string** | Name of the Resource Group | 
 **Location** | **string** | Region where resources within this group are located | 
-**Id** | Pointer to **string** |  | [optional] [readonly] 
+**Id** | Pointer to **NullableString** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -113,6 +113,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *AzureResourceGroup) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *AzureResourceGroup) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

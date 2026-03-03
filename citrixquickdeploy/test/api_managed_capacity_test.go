@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Testing ManagedCapacityCMDService
 
@@ -62,6 +62,21 @@ func Test_citrixquickdeploy_ManagedCapacityCMDService(t *testing.T) {
 		var siteId string
 
 		resp, httpRes, err := apiClient.ManagedCapacityCMD.GetDeploymentRegions(context.Background(), customerId, siteId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ManagedCapacityCMDService GetEstimatedCreditsForPersona", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var siteId string
+
+		resp, httpRes, err := apiClient.ManagedCapacityCMD.GetEstimatedCreditsForPersona(context.Background(), customerId, siteId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

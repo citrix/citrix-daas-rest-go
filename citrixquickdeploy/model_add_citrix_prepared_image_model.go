@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -22,7 +22,7 @@ type AddCitrixPreparedImageModel struct {
 	// Name of the citrix prepared image
 	Name string `json:"name"`
 	// Description of the image
-	Description *string `json:"description,omitempty"`
+	Description NullableString `json:"description,omitempty"`
 	// ID of the Azure Subscription containing the image
 	AzureSubscriptionId string `json:"azureSubscriptionId"`
 	// Name of the resource group where the vhd's storage account is located
@@ -34,9 +34,9 @@ type AddCitrixPreparedImageModel struct {
 	// List of locations where the VHDs are stored
 	VhdLocations []CitrixPreparedImageVhdLocation `json:"vhdLocations,omitempty"`
 	// Type of operating system that will be imported
-	OsPlatform *SupportedOperatingSystemType `json:"osPlatform,omitempty"`
+	OsPlatform NullableSupportedOperatingSystemType `json:"osPlatform,omitempty"`
 	// Type of operating system that will be imported
-	HyperVGen *string `json:"hyperVGen,omitempty"`
+	HyperVGen NullableString `json:"hyperVGen,omitempty"`
 	// Is trusted launch enabled for V2 gen
 	VtpmEnabled *bool `json:"vtpmEnabled,omitempty"`
 }
@@ -73,27 +73,38 @@ func (o *AddCitrixPreparedImageModel) SetName(v string) {
 	o.Name = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCitrixPreparedImageModel) GetDescription() string {
-	if o == nil || IsNil(o.Description) {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCitrixPreparedImageModel) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
-// SetDescription gets a reference to the given string and assigns it to the Description field.
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *AddCitrixPreparedImageModel) SetDescription(v string) {
-	o.Description = &v
+	o.Description.Set(&v)
+}
+
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *AddCitrixPreparedImageModel) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *AddCitrixPreparedImageModel) UnsetDescription() {
+	o.Description.Unset()
 }
 
 // GetAzureSubscriptionId returns the AzureSubscriptionId field value
@@ -192,9 +203,9 @@ func (o *AddCitrixPreparedImageModel) SetStartMenuAppsXmlUri(v string) {
 	o.StartMenuAppsXmlUri = v
 }
 
-// GetVhdLocations returns the VhdLocations field value if set, zero value otherwise.
+// GetVhdLocations returns the VhdLocations field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCitrixPreparedImageModel) GetVhdLocations() []CitrixPreparedImageVhdLocation {
-	if o == nil || IsNil(o.VhdLocations) {
+	if o == nil {
 		var ret []CitrixPreparedImageVhdLocation
 		return ret
 	}
@@ -203,6 +214,7 @@ func (o *AddCitrixPreparedImageModel) GetVhdLocations() []CitrixPreparedImageVhd
 
 // GetVhdLocationsOk returns a tuple with the VhdLocations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCitrixPreparedImageModel) GetVhdLocationsOk() ([]CitrixPreparedImageVhdLocation, bool) {
 	if o == nil || IsNil(o.VhdLocations) {
 		return nil, false
@@ -215,50 +227,72 @@ func (o *AddCitrixPreparedImageModel) SetVhdLocations(v []CitrixPreparedImageVhd
 	o.VhdLocations = v
 }
 
-// GetOsPlatform returns the OsPlatform field value if set, zero value otherwise.
+// GetOsPlatform returns the OsPlatform field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCitrixPreparedImageModel) GetOsPlatform() SupportedOperatingSystemType {
-	if o == nil || IsNil(o.OsPlatform) {
+	if o == nil || IsNil(o.OsPlatform.Get()) {
 		var ret SupportedOperatingSystemType
 		return ret
 	}
-	return *o.OsPlatform
+	return *o.OsPlatform.Get()
 }
 
 // GetOsPlatformOk returns a tuple with the OsPlatform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCitrixPreparedImageModel) GetOsPlatformOk() (*SupportedOperatingSystemType, bool) {
-	if o == nil || IsNil(o.OsPlatform) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OsPlatform, true
+	return o.OsPlatform.Get(), o.OsPlatform.IsSet()
 }
 
-// SetOsPlatform gets a reference to the given SupportedOperatingSystemType and assigns it to the OsPlatform field.
+// SetOsPlatform gets a reference to the given NullableSupportedOperatingSystemType and assigns it to the OsPlatform field.
 func (o *AddCitrixPreparedImageModel) SetOsPlatform(v SupportedOperatingSystemType) {
-	o.OsPlatform = &v
+	o.OsPlatform.Set(&v)
 }
 
-// GetHyperVGen returns the HyperVGen field value if set, zero value otherwise.
+// SetOsPlatformNil sets the value for OsPlatform to be an explicit nil
+func (o *AddCitrixPreparedImageModel) SetOsPlatformNil() {
+	o.OsPlatform.Set(nil)
+}
+
+// UnsetOsPlatform ensures that no value is present for OsPlatform, not even an explicit nil
+func (o *AddCitrixPreparedImageModel) UnsetOsPlatform() {
+	o.OsPlatform.Unset()
+}
+
+// GetHyperVGen returns the HyperVGen field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCitrixPreparedImageModel) GetHyperVGen() string {
-	if o == nil || IsNil(o.HyperVGen) {
+	if o == nil || IsNil(o.HyperVGen.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HyperVGen
+	return *o.HyperVGen.Get()
 }
 
 // GetHyperVGenOk returns a tuple with the HyperVGen field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCitrixPreparedImageModel) GetHyperVGenOk() (*string, bool) {
-	if o == nil || IsNil(o.HyperVGen) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HyperVGen, true
+	return o.HyperVGen.Get(), o.HyperVGen.IsSet()
 }
 
-// SetHyperVGen gets a reference to the given string and assigns it to the HyperVGen field.
+// SetHyperVGen gets a reference to the given NullableString and assigns it to the HyperVGen field.
 func (o *AddCitrixPreparedImageModel) SetHyperVGen(v string) {
-	o.HyperVGen = &v
+	o.HyperVGen.Set(&v)
+}
+
+// SetHyperVGenNil sets the value for HyperVGen to be an explicit nil
+func (o *AddCitrixPreparedImageModel) SetHyperVGenNil() {
+	o.HyperVGen.Set(nil)
+}
+
+// UnsetHyperVGen ensures that no value is present for HyperVGen, not even an explicit nil
+func (o *AddCitrixPreparedImageModel) UnsetHyperVGen() {
+	o.HyperVGen.Unset()
 }
 
 // GetVtpmEnabled returns the VtpmEnabled field value if set, zero value otherwise.
@@ -295,21 +329,21 @@ func (o AddCitrixPreparedImageModel) MarshalJSON() ([]byte, error) {
 func (o AddCitrixPreparedImageModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
 	toSerialize["azureSubscriptionId"] = o.AzureSubscriptionId
 	toSerialize["azureResourceGroup"] = o.AzureResourceGroup
 	toSerialize["sessionSupport"] = o.SessionSupport
 	toSerialize["startMenuAppsXmlUri"] = o.StartMenuAppsXmlUri
-	if !IsNil(o.VhdLocations) {
+	if o.VhdLocations != nil {
 		toSerialize["vhdLocations"] = o.VhdLocations
 	}
-	if !IsNil(o.OsPlatform) {
-		toSerialize["osPlatform"] = o.OsPlatform
+	if o.OsPlatform.IsSet() {
+		toSerialize["osPlatform"] = o.OsPlatform.Get()
 	}
-	if !IsNil(o.HyperVGen) {
-		toSerialize["hyperVGen"] = o.HyperVGen
+	if o.HyperVGen.IsSet() {
+		toSerialize["hyperVGen"] = o.HyperVGen.Get()
 	}
 	if !IsNil(o.VtpmEnabled) {
 		toSerialize["vtpmEnabled"] = o.VtpmEnabled

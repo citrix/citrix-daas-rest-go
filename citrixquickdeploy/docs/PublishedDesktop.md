@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **State** | [**AppsAndDesktopsProvisionState**](AppsAndDesktopsProvisionState.md) | Current state in publishing the desktop | 
-**Status** | Pointer to **string** | Status message related to desktop state | [optional] 
+**Status** | Pointer to **NullableString** | Status message related to desktop state | [optional] 
 **Id** | **string** | Unique identifier of desktop, generally a GUID | 
 **Name** | **string** | Display name of desktop | 
-**Description** | Pointer to **string** | Description | [optional] 
+**Description** | Pointer to **NullableString** | Description | [optional] 
 
 ## Methods
 
@@ -74,6 +74,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *PublishedDesktop) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *PublishedDesktop) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetId
 
 `func (o *PublishedDesktop) GetId() string`
@@ -139,6 +149,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *PublishedDesktop) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *PublishedDesktop) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

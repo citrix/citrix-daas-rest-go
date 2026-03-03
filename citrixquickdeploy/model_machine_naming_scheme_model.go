@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -19,8 +19,8 @@ var _ MappedNullable = &MachineNamingSchemeModel{}
 
 // MachineNamingSchemeModel struct for MachineNamingSchemeModel
 type MachineNamingSchemeModel struct {
-	NamingScheme        *string `json:"namingScheme,omitempty"`
-	IsSchemeTypeNumeric *bool   `json:"isSchemeTypeNumeric,omitempty"`
+	NamingScheme        NullableString `json:"namingScheme,omitempty"`
+	IsSchemeTypeNumeric *bool          `json:"isSchemeTypeNumeric,omitempty"`
 }
 
 // NewMachineNamingSchemeModelWithDefaults instantiates a new MachineNamingSchemeModel object
@@ -31,27 +31,38 @@ func NewMachineNamingSchemeModelWithDefaults() *MachineNamingSchemeModel {
 	return &this
 }
 
-// GetNamingScheme returns the NamingScheme field value if set, zero value otherwise.
+// GetNamingScheme returns the NamingScheme field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MachineNamingSchemeModel) GetNamingScheme() string {
-	if o == nil || IsNil(o.NamingScheme) {
+	if o == nil || IsNil(o.NamingScheme.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.NamingScheme
+	return *o.NamingScheme.Get()
 }
 
 // GetNamingSchemeOk returns a tuple with the NamingScheme field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MachineNamingSchemeModel) GetNamingSchemeOk() (*string, bool) {
-	if o == nil || IsNil(o.NamingScheme) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NamingScheme, true
+	return o.NamingScheme.Get(), o.NamingScheme.IsSet()
 }
 
-// SetNamingScheme gets a reference to the given string and assigns it to the NamingScheme field.
+// SetNamingScheme gets a reference to the given NullableString and assigns it to the NamingScheme field.
 func (o *MachineNamingSchemeModel) SetNamingScheme(v string) {
-	o.NamingScheme = &v
+	o.NamingScheme.Set(&v)
+}
+
+// SetNamingSchemeNil sets the value for NamingScheme to be an explicit nil
+func (o *MachineNamingSchemeModel) SetNamingSchemeNil() {
+	o.NamingScheme.Set(nil)
+}
+
+// UnsetNamingScheme ensures that no value is present for NamingScheme, not even an explicit nil
+func (o *MachineNamingSchemeModel) UnsetNamingScheme() {
+	o.NamingScheme.Unset()
 }
 
 // GetIsSchemeTypeNumeric returns the IsSchemeTypeNumeric field value if set, zero value otherwise.
@@ -87,8 +98,8 @@ func (o MachineNamingSchemeModel) MarshalJSON() ([]byte, error) {
 
 func (o MachineNamingSchemeModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.NamingScheme) {
-		toSerialize["namingScheme"] = o.NamingScheme
+	if o.NamingScheme.IsSet() {
+		toSerialize["namingScheme"] = o.NamingScheme.Get()
 	}
 	if !IsNil(o.IsSchemeTypeNumeric) {
 		toSerialize["isSchemeTypeNumeric"] = o.IsSchemeTypeNumeric

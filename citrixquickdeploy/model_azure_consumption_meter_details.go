@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,17 +20,17 @@ var _ MappedNullable = &AzureConsumptionMeterDetails{}
 // AzureConsumptionMeterDetails struct for AzureConsumptionMeterDetails
 type AzureConsumptionMeterDetails struct {
 	// The name of the meter, within the given meter category.
-	MeterName *string `json:"meterName,omitempty"`
+	MeterName NullableString `json:"meterName,omitempty"`
 	// The category of the meter, for example, 'Cloud services', 'Networking', etc..
-	MeterCategory *string `json:"meterCategory,omitempty"`
+	MeterCategory NullableString `json:"meterCategory,omitempty"`
 	// The subcategory of the meter, for example, 'A6 Cloud services', 'ExpressRoute (IXP)', etc..
-	MeterSubCategory *string `json:"meterSubCategory,omitempty"`
+	MeterSubCategory NullableString `json:"meterSubCategory,omitempty"`
 	// The unit in which the meter consumption is charged, for example, 'Hours', 'GB', etc.
-	Unit *string `json:"unit,omitempty"`
+	Unit NullableString `json:"unit,omitempty"`
 	// The unit in which the meter consumption is charged, for example, 'Hours', 'GB', etc.
-	UnitOfMeasure *string `json:"unitOfMeasure,omitempty"`
+	UnitOfMeasure NullableString `json:"unitOfMeasure,omitempty"`
 	// The location in which the Azure service is available.
-	MeterLocation *string `json:"meterLocation,omitempty"`
+	MeterLocation NullableString `json:"meterLocation,omitempty"`
 }
 
 // NewAzureConsumptionMeterDetailsWithDefaults instantiates a new AzureConsumptionMeterDetails object
@@ -41,142 +41,208 @@ func NewAzureConsumptionMeterDetailsWithDefaults() *AzureConsumptionMeterDetails
 	return &this
 }
 
-// GetMeterName returns the MeterName field value if set, zero value otherwise.
+// GetMeterName returns the MeterName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionMeterDetails) GetMeterName() string {
-	if o == nil || IsNil(o.MeterName) {
+	if o == nil || IsNil(o.MeterName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MeterName
+	return *o.MeterName.Get()
 }
 
 // GetMeterNameOk returns a tuple with the MeterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionMeterDetails) GetMeterNameOk() (*string, bool) {
-	if o == nil || IsNil(o.MeterName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MeterName, true
+	return o.MeterName.Get(), o.MeterName.IsSet()
 }
 
-// SetMeterName gets a reference to the given string and assigns it to the MeterName field.
+// SetMeterName gets a reference to the given NullableString and assigns it to the MeterName field.
 func (o *AzureConsumptionMeterDetails) SetMeterName(v string) {
-	o.MeterName = &v
+	o.MeterName.Set(&v)
 }
 
-// GetMeterCategory returns the MeterCategory field value if set, zero value otherwise.
+// SetMeterNameNil sets the value for MeterName to be an explicit nil
+func (o *AzureConsumptionMeterDetails) SetMeterNameNil() {
+	o.MeterName.Set(nil)
+}
+
+// UnsetMeterName ensures that no value is present for MeterName, not even an explicit nil
+func (o *AzureConsumptionMeterDetails) UnsetMeterName() {
+	o.MeterName.Unset()
+}
+
+// GetMeterCategory returns the MeterCategory field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionMeterDetails) GetMeterCategory() string {
-	if o == nil || IsNil(o.MeterCategory) {
+	if o == nil || IsNil(o.MeterCategory.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MeterCategory
+	return *o.MeterCategory.Get()
 }
 
 // GetMeterCategoryOk returns a tuple with the MeterCategory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionMeterDetails) GetMeterCategoryOk() (*string, bool) {
-	if o == nil || IsNil(o.MeterCategory) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MeterCategory, true
+	return o.MeterCategory.Get(), o.MeterCategory.IsSet()
 }
 
-// SetMeterCategory gets a reference to the given string and assigns it to the MeterCategory field.
+// SetMeterCategory gets a reference to the given NullableString and assigns it to the MeterCategory field.
 func (o *AzureConsumptionMeterDetails) SetMeterCategory(v string) {
-	o.MeterCategory = &v
+	o.MeterCategory.Set(&v)
 }
 
-// GetMeterSubCategory returns the MeterSubCategory field value if set, zero value otherwise.
+// SetMeterCategoryNil sets the value for MeterCategory to be an explicit nil
+func (o *AzureConsumptionMeterDetails) SetMeterCategoryNil() {
+	o.MeterCategory.Set(nil)
+}
+
+// UnsetMeterCategory ensures that no value is present for MeterCategory, not even an explicit nil
+func (o *AzureConsumptionMeterDetails) UnsetMeterCategory() {
+	o.MeterCategory.Unset()
+}
+
+// GetMeterSubCategory returns the MeterSubCategory field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionMeterDetails) GetMeterSubCategory() string {
-	if o == nil || IsNil(o.MeterSubCategory) {
+	if o == nil || IsNil(o.MeterSubCategory.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MeterSubCategory
+	return *o.MeterSubCategory.Get()
 }
 
 // GetMeterSubCategoryOk returns a tuple with the MeterSubCategory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionMeterDetails) GetMeterSubCategoryOk() (*string, bool) {
-	if o == nil || IsNil(o.MeterSubCategory) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MeterSubCategory, true
+	return o.MeterSubCategory.Get(), o.MeterSubCategory.IsSet()
 }
 
-// SetMeterSubCategory gets a reference to the given string and assigns it to the MeterSubCategory field.
+// SetMeterSubCategory gets a reference to the given NullableString and assigns it to the MeterSubCategory field.
 func (o *AzureConsumptionMeterDetails) SetMeterSubCategory(v string) {
-	o.MeterSubCategory = &v
+	o.MeterSubCategory.Set(&v)
 }
 
-// GetUnit returns the Unit field value if set, zero value otherwise.
+// SetMeterSubCategoryNil sets the value for MeterSubCategory to be an explicit nil
+func (o *AzureConsumptionMeterDetails) SetMeterSubCategoryNil() {
+	o.MeterSubCategory.Set(nil)
+}
+
+// UnsetMeterSubCategory ensures that no value is present for MeterSubCategory, not even an explicit nil
+func (o *AzureConsumptionMeterDetails) UnsetMeterSubCategory() {
+	o.MeterSubCategory.Unset()
+}
+
+// GetUnit returns the Unit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionMeterDetails) GetUnit() string {
-	if o == nil || IsNil(o.Unit) {
+	if o == nil || IsNil(o.Unit.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Unit
+	return *o.Unit.Get()
 }
 
 // GetUnitOk returns a tuple with the Unit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionMeterDetails) GetUnitOk() (*string, bool) {
-	if o == nil || IsNil(o.Unit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Unit, true
+	return o.Unit.Get(), o.Unit.IsSet()
 }
 
-// SetUnit gets a reference to the given string and assigns it to the Unit field.
+// SetUnit gets a reference to the given NullableString and assigns it to the Unit field.
 func (o *AzureConsumptionMeterDetails) SetUnit(v string) {
-	o.Unit = &v
+	o.Unit.Set(&v)
 }
 
-// GetUnitOfMeasure returns the UnitOfMeasure field value if set, zero value otherwise.
+// SetUnitNil sets the value for Unit to be an explicit nil
+func (o *AzureConsumptionMeterDetails) SetUnitNil() {
+	o.Unit.Set(nil)
+}
+
+// UnsetUnit ensures that no value is present for Unit, not even an explicit nil
+func (o *AzureConsumptionMeterDetails) UnsetUnit() {
+	o.Unit.Unset()
+}
+
+// GetUnitOfMeasure returns the UnitOfMeasure field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionMeterDetails) GetUnitOfMeasure() string {
-	if o == nil || IsNil(o.UnitOfMeasure) {
+	if o == nil || IsNil(o.UnitOfMeasure.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.UnitOfMeasure
+	return *o.UnitOfMeasure.Get()
 }
 
 // GetUnitOfMeasureOk returns a tuple with the UnitOfMeasure field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionMeterDetails) GetUnitOfMeasureOk() (*string, bool) {
-	if o == nil || IsNil(o.UnitOfMeasure) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UnitOfMeasure, true
+	return o.UnitOfMeasure.Get(), o.UnitOfMeasure.IsSet()
 }
 
-// SetUnitOfMeasure gets a reference to the given string and assigns it to the UnitOfMeasure field.
+// SetUnitOfMeasure gets a reference to the given NullableString and assigns it to the UnitOfMeasure field.
 func (o *AzureConsumptionMeterDetails) SetUnitOfMeasure(v string) {
-	o.UnitOfMeasure = &v
+	o.UnitOfMeasure.Set(&v)
 }
 
-// GetMeterLocation returns the MeterLocation field value if set, zero value otherwise.
+// SetUnitOfMeasureNil sets the value for UnitOfMeasure to be an explicit nil
+func (o *AzureConsumptionMeterDetails) SetUnitOfMeasureNil() {
+	o.UnitOfMeasure.Set(nil)
+}
+
+// UnsetUnitOfMeasure ensures that no value is present for UnitOfMeasure, not even an explicit nil
+func (o *AzureConsumptionMeterDetails) UnsetUnitOfMeasure() {
+	o.UnitOfMeasure.Unset()
+}
+
+// GetMeterLocation returns the MeterLocation field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AzureConsumptionMeterDetails) GetMeterLocation() string {
-	if o == nil || IsNil(o.MeterLocation) {
+	if o == nil || IsNil(o.MeterLocation.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MeterLocation
+	return *o.MeterLocation.Get()
 }
 
 // GetMeterLocationOk returns a tuple with the MeterLocation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AzureConsumptionMeterDetails) GetMeterLocationOk() (*string, bool) {
-	if o == nil || IsNil(o.MeterLocation) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MeterLocation, true
+	return o.MeterLocation.Get(), o.MeterLocation.IsSet()
 }
 
-// SetMeterLocation gets a reference to the given string and assigns it to the MeterLocation field.
+// SetMeterLocation gets a reference to the given NullableString and assigns it to the MeterLocation field.
 func (o *AzureConsumptionMeterDetails) SetMeterLocation(v string) {
-	o.MeterLocation = &v
+	o.MeterLocation.Set(&v)
+}
+
+// SetMeterLocationNil sets the value for MeterLocation to be an explicit nil
+func (o *AzureConsumptionMeterDetails) SetMeterLocationNil() {
+	o.MeterLocation.Set(nil)
+}
+
+// UnsetMeterLocation ensures that no value is present for MeterLocation, not even an explicit nil
+func (o *AzureConsumptionMeterDetails) UnsetMeterLocation() {
+	o.MeterLocation.Unset()
 }
 
 func (o AzureConsumptionMeterDetails) MarshalJSON() ([]byte, error) {
@@ -189,23 +255,23 @@ func (o AzureConsumptionMeterDetails) MarshalJSON() ([]byte, error) {
 
 func (o AzureConsumptionMeterDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.MeterName) {
-		toSerialize["meterName"] = o.MeterName
+	if o.MeterName.IsSet() {
+		toSerialize["meterName"] = o.MeterName.Get()
 	}
-	if !IsNil(o.MeterCategory) {
-		toSerialize["meterCategory"] = o.MeterCategory
+	if o.MeterCategory.IsSet() {
+		toSerialize["meterCategory"] = o.MeterCategory.Get()
 	}
-	if !IsNil(o.MeterSubCategory) {
-		toSerialize["meterSubCategory"] = o.MeterSubCategory
+	if o.MeterSubCategory.IsSet() {
+		toSerialize["meterSubCategory"] = o.MeterSubCategory.Get()
 	}
-	if !IsNil(o.Unit) {
-		toSerialize["unit"] = o.Unit
+	if o.Unit.IsSet() {
+		toSerialize["unit"] = o.Unit.Get()
 	}
-	if !IsNil(o.UnitOfMeasure) {
-		toSerialize["unitOfMeasure"] = o.UnitOfMeasure
+	if o.UnitOfMeasure.IsSet() {
+		toSerialize["unitOfMeasure"] = o.UnitOfMeasure.Get()
 	}
-	if !IsNil(o.MeterLocation) {
-		toSerialize["meterLocation"] = o.MeterLocation
+	if o.MeterLocation.IsSet() {
+		toSerialize["meterLocation"] = o.MeterLocation.Get()
 	}
 	return toSerialize, nil
 }

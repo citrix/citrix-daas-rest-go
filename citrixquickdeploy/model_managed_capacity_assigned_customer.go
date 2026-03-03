@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -25,10 +25,10 @@ type ManagedCapacityAssignedCustomer struct {
 	VirtualSiteId       string          `json:"virtualSiteId"`
 	Edition             string          `json:"edition"`
 	State               CommissionState `json:"state"`
-	TenantCustomerId    *string         `json:"tenantCustomerId,omitempty"`
-	TenantVirtualSiteId *string         `json:"tenantVirtualSiteId,omitempty"`
-	TenantOrgId         *string         `json:"tenantOrgId,omitempty"`
-	TenantName          *string         `json:"tenantName,omitempty"`
+	TenantCustomerId    NullableString  `json:"tenantCustomerId,omitempty"`
+	TenantVirtualSiteId NullableString  `json:"tenantVirtualSiteId,omitempty"`
+	TenantOrgId         NullableString  `json:"tenantOrgId,omitempty"`
+	TenantName          NullableString  `json:"tenantName,omitempty"`
 }
 
 // NewManagedCapacityAssignedCustomerWithDefaults instantiates a new ManagedCapacityAssignedCustomer object
@@ -183,96 +183,140 @@ func (o *ManagedCapacityAssignedCustomer) SetState(v CommissionState) {
 	o.State = v
 }
 
-// GetTenantCustomerId returns the TenantCustomerId field value if set, zero value otherwise.
+// GetTenantCustomerId returns the TenantCustomerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedCapacityAssignedCustomer) GetTenantCustomerId() string {
-	if o == nil || IsNil(o.TenantCustomerId) {
+	if o == nil || IsNil(o.TenantCustomerId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TenantCustomerId
+	return *o.TenantCustomerId.Get()
 }
 
 // GetTenantCustomerIdOk returns a tuple with the TenantCustomerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedCapacityAssignedCustomer) GetTenantCustomerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantCustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantCustomerId, true
+	return o.TenantCustomerId.Get(), o.TenantCustomerId.IsSet()
 }
 
-// SetTenantCustomerId gets a reference to the given string and assigns it to the TenantCustomerId field.
+// SetTenantCustomerId gets a reference to the given NullableString and assigns it to the TenantCustomerId field.
 func (o *ManagedCapacityAssignedCustomer) SetTenantCustomerId(v string) {
-	o.TenantCustomerId = &v
+	o.TenantCustomerId.Set(&v)
 }
 
-// GetTenantVirtualSiteId returns the TenantVirtualSiteId field value if set, zero value otherwise.
+// SetTenantCustomerIdNil sets the value for TenantCustomerId to be an explicit nil
+func (o *ManagedCapacityAssignedCustomer) SetTenantCustomerIdNil() {
+	o.TenantCustomerId.Set(nil)
+}
+
+// UnsetTenantCustomerId ensures that no value is present for TenantCustomerId, not even an explicit nil
+func (o *ManagedCapacityAssignedCustomer) UnsetTenantCustomerId() {
+	o.TenantCustomerId.Unset()
+}
+
+// GetTenantVirtualSiteId returns the TenantVirtualSiteId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedCapacityAssignedCustomer) GetTenantVirtualSiteId() string {
-	if o == nil || IsNil(o.TenantVirtualSiteId) {
+	if o == nil || IsNil(o.TenantVirtualSiteId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TenantVirtualSiteId
+	return *o.TenantVirtualSiteId.Get()
 }
 
 // GetTenantVirtualSiteIdOk returns a tuple with the TenantVirtualSiteId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedCapacityAssignedCustomer) GetTenantVirtualSiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantVirtualSiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantVirtualSiteId, true
+	return o.TenantVirtualSiteId.Get(), o.TenantVirtualSiteId.IsSet()
 }
 
-// SetTenantVirtualSiteId gets a reference to the given string and assigns it to the TenantVirtualSiteId field.
+// SetTenantVirtualSiteId gets a reference to the given NullableString and assigns it to the TenantVirtualSiteId field.
 func (o *ManagedCapacityAssignedCustomer) SetTenantVirtualSiteId(v string) {
-	o.TenantVirtualSiteId = &v
+	o.TenantVirtualSiteId.Set(&v)
 }
 
-// GetTenantOrgId returns the TenantOrgId field value if set, zero value otherwise.
+// SetTenantVirtualSiteIdNil sets the value for TenantVirtualSiteId to be an explicit nil
+func (o *ManagedCapacityAssignedCustomer) SetTenantVirtualSiteIdNil() {
+	o.TenantVirtualSiteId.Set(nil)
+}
+
+// UnsetTenantVirtualSiteId ensures that no value is present for TenantVirtualSiteId, not even an explicit nil
+func (o *ManagedCapacityAssignedCustomer) UnsetTenantVirtualSiteId() {
+	o.TenantVirtualSiteId.Unset()
+}
+
+// GetTenantOrgId returns the TenantOrgId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedCapacityAssignedCustomer) GetTenantOrgId() string {
-	if o == nil || IsNil(o.TenantOrgId) {
+	if o == nil || IsNil(o.TenantOrgId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TenantOrgId
+	return *o.TenantOrgId.Get()
 }
 
 // GetTenantOrgIdOk returns a tuple with the TenantOrgId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedCapacityAssignedCustomer) GetTenantOrgIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantOrgId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantOrgId, true
+	return o.TenantOrgId.Get(), o.TenantOrgId.IsSet()
 }
 
-// SetTenantOrgId gets a reference to the given string and assigns it to the TenantOrgId field.
+// SetTenantOrgId gets a reference to the given NullableString and assigns it to the TenantOrgId field.
 func (o *ManagedCapacityAssignedCustomer) SetTenantOrgId(v string) {
-	o.TenantOrgId = &v
+	o.TenantOrgId.Set(&v)
 }
 
-// GetTenantName returns the TenantName field value if set, zero value otherwise.
+// SetTenantOrgIdNil sets the value for TenantOrgId to be an explicit nil
+func (o *ManagedCapacityAssignedCustomer) SetTenantOrgIdNil() {
+	o.TenantOrgId.Set(nil)
+}
+
+// UnsetTenantOrgId ensures that no value is present for TenantOrgId, not even an explicit nil
+func (o *ManagedCapacityAssignedCustomer) UnsetTenantOrgId() {
+	o.TenantOrgId.Unset()
+}
+
+// GetTenantName returns the TenantName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagedCapacityAssignedCustomer) GetTenantName() string {
-	if o == nil || IsNil(o.TenantName) {
+	if o == nil || IsNil(o.TenantName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TenantName
+	return *o.TenantName.Get()
 }
 
 // GetTenantNameOk returns a tuple with the TenantName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagedCapacityAssignedCustomer) GetTenantNameOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantName, true
+	return o.TenantName.Get(), o.TenantName.IsSet()
 }
 
-// SetTenantName gets a reference to the given string and assigns it to the TenantName field.
+// SetTenantName gets a reference to the given NullableString and assigns it to the TenantName field.
 func (o *ManagedCapacityAssignedCustomer) SetTenantName(v string) {
-	o.TenantName = &v
+	o.TenantName.Set(&v)
+}
+
+// SetTenantNameNil sets the value for TenantName to be an explicit nil
+func (o *ManagedCapacityAssignedCustomer) SetTenantNameNil() {
+	o.TenantName.Set(nil)
+}
+
+// UnsetTenantName ensures that no value is present for TenantName, not even an explicit nil
+func (o *ManagedCapacityAssignedCustomer) UnsetTenantName() {
+	o.TenantName.Unset()
 }
 
 func (o ManagedCapacityAssignedCustomer) MarshalJSON() ([]byte, error) {
@@ -291,17 +335,17 @@ func (o ManagedCapacityAssignedCustomer) ToMap() (map[string]interface{}, error)
 	toSerialize["virtualSiteId"] = o.VirtualSiteId
 	toSerialize["edition"] = o.Edition
 	toSerialize["state"] = o.State
-	if !IsNil(o.TenantCustomerId) {
-		toSerialize["tenantCustomerId"] = o.TenantCustomerId
+	if o.TenantCustomerId.IsSet() {
+		toSerialize["tenantCustomerId"] = o.TenantCustomerId.Get()
 	}
-	if !IsNil(o.TenantVirtualSiteId) {
-		toSerialize["tenantVirtualSiteId"] = o.TenantVirtualSiteId
+	if o.TenantVirtualSiteId.IsSet() {
+		toSerialize["tenantVirtualSiteId"] = o.TenantVirtualSiteId.Get()
 	}
-	if !IsNil(o.TenantOrgId) {
-		toSerialize["tenantOrgId"] = o.TenantOrgId
+	if o.TenantOrgId.IsSet() {
+		toSerialize["tenantOrgId"] = o.TenantOrgId.Get()
 	}
-	if !IsNil(o.TenantName) {
-		toSerialize["tenantName"] = o.TenantName
+	if o.TenantName.IsSet() {
+		toSerialize["tenantName"] = o.TenantName.Get()
 	}
 	return toSerialize, nil
 }

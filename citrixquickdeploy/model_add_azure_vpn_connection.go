@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,11 +20,11 @@ var _ MappedNullable = &AddAzureVpnConnection{}
 // AddAzureVpnConnection struct for AddAzureVpnConnection
 type AddAzureVpnConnection struct {
 	// Tenant customer the connection is associated with
-	CspCustomer *string `json:"cspCustomer,omitempty"`
+	CspCustomer NullableString `json:"cspCustomer,omitempty"`
 	// Sku type to provision
-	GatewaySku *string `json:"gatewaySku,omitempty"`
+	GatewaySku NullableString `json:"gatewaySku,omitempty"`
 	// Generation of VPN gateway
-	GatewayGeneration *string `json:"gatewayGeneration,omitempty"`
+	GatewayGeneration NullableString `json:"gatewayGeneration,omitempty"`
 	// Name to assign the connection
 	Name string `json:"name" validate:"regexp=^[\\\\p{L}0-9-_.\\\\(\\\\)]*$"`
 	// Name of the azure region where the connection will be created
@@ -40,9 +40,9 @@ type AddAzureVpnConnection struct {
 	// List of addresses that will be accessible behind the gateway
 	LocalAddresses []ConnectionSubnet `json:"localAddresses,omitempty"`
 	// Pre-shared key that will be used to configure the IPSec tunnel
-	SharedKey *string `json:"sharedKey,omitempty"`
+	SharedKey NullableString `json:"sharedKey,omitempty"`
 	// ID of the Managed Azure Subscription to create the connection in.
-	ManagedSubscriptionId *string `json:"managedSubscriptionId,omitempty"`
+	ManagedSubscriptionId NullableString `json:"managedSubscriptionId,omitempty"`
 	// Routes to be added to the vnet
 	Routes []AzureRoute `json:"routes,omitempty"`
 }
@@ -55,73 +55,106 @@ func NewAddAzureVpnConnectionWithDefaults() *AddAzureVpnConnection {
 	return &this
 }
 
-// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise.
+// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddAzureVpnConnection) GetCspCustomer() string {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil || IsNil(o.CspCustomer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomer
+	return *o.CspCustomer.Get()
 }
 
 // GetCspCustomerOk returns a tuple with the CspCustomer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddAzureVpnConnection) GetCspCustomerOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomer, true
+	return o.CspCustomer.Get(), o.CspCustomer.IsSet()
 }
 
-// SetCspCustomer gets a reference to the given string and assigns it to the CspCustomer field.
+// SetCspCustomer gets a reference to the given NullableString and assigns it to the CspCustomer field.
 func (o *AddAzureVpnConnection) SetCspCustomer(v string) {
-	o.CspCustomer = &v
+	o.CspCustomer.Set(&v)
 }
 
-// GetGatewaySku returns the GatewaySku field value if set, zero value otherwise.
+// SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+func (o *AddAzureVpnConnection) SetCspCustomerNil() {
+	o.CspCustomer.Set(nil)
+}
+
+// UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
+func (o *AddAzureVpnConnection) UnsetCspCustomer() {
+	o.CspCustomer.Unset()
+}
+
+// GetGatewaySku returns the GatewaySku field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddAzureVpnConnection) GetGatewaySku() string {
-	if o == nil || IsNil(o.GatewaySku) {
+	if o == nil || IsNil(o.GatewaySku.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.GatewaySku
+	return *o.GatewaySku.Get()
 }
 
 // GetGatewaySkuOk returns a tuple with the GatewaySku field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddAzureVpnConnection) GetGatewaySkuOk() (*string, bool) {
-	if o == nil || IsNil(o.GatewaySku) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GatewaySku, true
+	return o.GatewaySku.Get(), o.GatewaySku.IsSet()
 }
 
-// SetGatewaySku gets a reference to the given string and assigns it to the GatewaySku field.
+// SetGatewaySku gets a reference to the given NullableString and assigns it to the GatewaySku field.
 func (o *AddAzureVpnConnection) SetGatewaySku(v string) {
-	o.GatewaySku = &v
+	o.GatewaySku.Set(&v)
 }
 
-// GetGatewayGeneration returns the GatewayGeneration field value if set, zero value otherwise.
+// SetGatewaySkuNil sets the value for GatewaySku to be an explicit nil
+func (o *AddAzureVpnConnection) SetGatewaySkuNil() {
+	o.GatewaySku.Set(nil)
+}
+
+// UnsetGatewaySku ensures that no value is present for GatewaySku, not even an explicit nil
+func (o *AddAzureVpnConnection) UnsetGatewaySku() {
+	o.GatewaySku.Unset()
+}
+
+// GetGatewayGeneration returns the GatewayGeneration field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddAzureVpnConnection) GetGatewayGeneration() string {
-	if o == nil || IsNil(o.GatewayGeneration) {
+	if o == nil || IsNil(o.GatewayGeneration.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.GatewayGeneration
+	return *o.GatewayGeneration.Get()
 }
 
 // GetGatewayGenerationOk returns a tuple with the GatewayGeneration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddAzureVpnConnection) GetGatewayGenerationOk() (*string, bool) {
-	if o == nil || IsNil(o.GatewayGeneration) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GatewayGeneration, true
+	return o.GatewayGeneration.Get(), o.GatewayGeneration.IsSet()
 }
 
-// SetGatewayGeneration gets a reference to the given string and assigns it to the GatewayGeneration field.
+// SetGatewayGeneration gets a reference to the given NullableString and assigns it to the GatewayGeneration field.
 func (o *AddAzureVpnConnection) SetGatewayGeneration(v string) {
-	o.GatewayGeneration = &v
+	o.GatewayGeneration.Set(&v)
+}
+
+// SetGatewayGenerationNil sets the value for GatewayGeneration to be an explicit nil
+func (o *AddAzureVpnConnection) SetGatewayGenerationNil() {
+	o.GatewayGeneration.Set(nil)
+}
+
+// UnsetGatewayGeneration ensures that no value is present for GatewayGeneration, not even an explicit nil
+func (o *AddAzureVpnConnection) UnsetGatewayGeneration() {
+	o.GatewayGeneration.Unset()
 }
 
 // GetName returns the Name field value
@@ -244,9 +277,9 @@ func (o *AddAzureVpnConnection) SetGatewayIP(v string) {
 	o.GatewayIP = v
 }
 
-// GetDnsServers returns the DnsServers field value if set, zero value otherwise.
+// GetDnsServers returns the DnsServers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddAzureVpnConnection) GetDnsServers() []string {
-	if o == nil || IsNil(o.DnsServers) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -255,6 +288,7 @@ func (o *AddAzureVpnConnection) GetDnsServers() []string {
 
 // GetDnsServersOk returns a tuple with the DnsServers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddAzureVpnConnection) GetDnsServersOk() ([]string, bool) {
 	if o == nil || IsNil(o.DnsServers) {
 		return nil, false
@@ -267,9 +301,9 @@ func (o *AddAzureVpnConnection) SetDnsServers(v []string) {
 	o.DnsServers = v
 }
 
-// GetLocalAddresses returns the LocalAddresses field value if set, zero value otherwise.
+// GetLocalAddresses returns the LocalAddresses field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddAzureVpnConnection) GetLocalAddresses() []ConnectionSubnet {
-	if o == nil || IsNil(o.LocalAddresses) {
+	if o == nil {
 		var ret []ConnectionSubnet
 		return ret
 	}
@@ -278,6 +312,7 @@ func (o *AddAzureVpnConnection) GetLocalAddresses() []ConnectionSubnet {
 
 // GetLocalAddressesOk returns a tuple with the LocalAddresses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddAzureVpnConnection) GetLocalAddressesOk() ([]ConnectionSubnet, bool) {
 	if o == nil || IsNil(o.LocalAddresses) {
 		return nil, false
@@ -290,55 +325,77 @@ func (o *AddAzureVpnConnection) SetLocalAddresses(v []ConnectionSubnet) {
 	o.LocalAddresses = v
 }
 
-// GetSharedKey returns the SharedKey field value if set, zero value otherwise.
+// GetSharedKey returns the SharedKey field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddAzureVpnConnection) GetSharedKey() string {
-	if o == nil || IsNil(o.SharedKey) {
+	if o == nil || IsNil(o.SharedKey.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SharedKey
+	return *o.SharedKey.Get()
 }
 
 // GetSharedKeyOk returns a tuple with the SharedKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddAzureVpnConnection) GetSharedKeyOk() (*string, bool) {
-	if o == nil || IsNil(o.SharedKey) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SharedKey, true
+	return o.SharedKey.Get(), o.SharedKey.IsSet()
 }
 
-// SetSharedKey gets a reference to the given string and assigns it to the SharedKey field.
+// SetSharedKey gets a reference to the given NullableString and assigns it to the SharedKey field.
 func (o *AddAzureVpnConnection) SetSharedKey(v string) {
-	o.SharedKey = &v
+	o.SharedKey.Set(&v)
 }
 
-// GetManagedSubscriptionId returns the ManagedSubscriptionId field value if set, zero value otherwise.
+// SetSharedKeyNil sets the value for SharedKey to be an explicit nil
+func (o *AddAzureVpnConnection) SetSharedKeyNil() {
+	o.SharedKey.Set(nil)
+}
+
+// UnsetSharedKey ensures that no value is present for SharedKey, not even an explicit nil
+func (o *AddAzureVpnConnection) UnsetSharedKey() {
+	o.SharedKey.Unset()
+}
+
+// GetManagedSubscriptionId returns the ManagedSubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddAzureVpnConnection) GetManagedSubscriptionId() string {
-	if o == nil || IsNil(o.ManagedSubscriptionId) {
+	if o == nil || IsNil(o.ManagedSubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ManagedSubscriptionId
+	return *o.ManagedSubscriptionId.Get()
 }
 
 // GetManagedSubscriptionIdOk returns a tuple with the ManagedSubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddAzureVpnConnection) GetManagedSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ManagedSubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ManagedSubscriptionId, true
+	return o.ManagedSubscriptionId.Get(), o.ManagedSubscriptionId.IsSet()
 }
 
-// SetManagedSubscriptionId gets a reference to the given string and assigns it to the ManagedSubscriptionId field.
+// SetManagedSubscriptionId gets a reference to the given NullableString and assigns it to the ManagedSubscriptionId field.
 func (o *AddAzureVpnConnection) SetManagedSubscriptionId(v string) {
-	o.ManagedSubscriptionId = &v
+	o.ManagedSubscriptionId.Set(&v)
 }
 
-// GetRoutes returns the Routes field value if set, zero value otherwise.
+// SetManagedSubscriptionIdNil sets the value for ManagedSubscriptionId to be an explicit nil
+func (o *AddAzureVpnConnection) SetManagedSubscriptionIdNil() {
+	o.ManagedSubscriptionId.Set(nil)
+}
+
+// UnsetManagedSubscriptionId ensures that no value is present for ManagedSubscriptionId, not even an explicit nil
+func (o *AddAzureVpnConnection) UnsetManagedSubscriptionId() {
+	o.ManagedSubscriptionId.Unset()
+}
+
+// GetRoutes returns the Routes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddAzureVpnConnection) GetRoutes() []AzureRoute {
-	if o == nil || IsNil(o.Routes) {
+	if o == nil {
 		var ret []AzureRoute
 		return ret
 	}
@@ -347,6 +404,7 @@ func (o *AddAzureVpnConnection) GetRoutes() []AzureRoute {
 
 // GetRoutesOk returns a tuple with the Routes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddAzureVpnConnection) GetRoutesOk() ([]AzureRoute, bool) {
 	if o == nil || IsNil(o.Routes) {
 		return nil, false
@@ -369,33 +427,33 @@ func (o AddAzureVpnConnection) MarshalJSON() ([]byte, error) {
 
 func (o AddAzureVpnConnection) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CspCustomer) {
-		toSerialize["cspCustomer"] = o.CspCustomer
+	if o.CspCustomer.IsSet() {
+		toSerialize["cspCustomer"] = o.CspCustomer.Get()
 	}
-	if !IsNil(o.GatewaySku) {
-		toSerialize["gatewaySku"] = o.GatewaySku
+	if o.GatewaySku.IsSet() {
+		toSerialize["gatewaySku"] = o.GatewaySku.Get()
 	}
-	if !IsNil(o.GatewayGeneration) {
-		toSerialize["gatewayGeneration"] = o.GatewayGeneration
+	if o.GatewayGeneration.IsSet() {
+		toSerialize["gatewayGeneration"] = o.GatewayGeneration.Get()
 	}
 	toSerialize["name"] = o.Name
 	toSerialize["region"] = o.Region
 	toSerialize["vdaSubnet"] = o.VdaSubnet
 	toSerialize["gatewaySubnet"] = o.GatewaySubnet
 	toSerialize["gatewayIP"] = o.GatewayIP
-	if !IsNil(o.DnsServers) {
+	if o.DnsServers != nil {
 		toSerialize["dnsServers"] = o.DnsServers
 	}
-	if !IsNil(o.LocalAddresses) {
+	if o.LocalAddresses != nil {
 		toSerialize["localAddresses"] = o.LocalAddresses
 	}
-	if !IsNil(o.SharedKey) {
-		toSerialize["sharedKey"] = o.SharedKey
+	if o.SharedKey.IsSet() {
+		toSerialize["sharedKey"] = o.SharedKey.Get()
 	}
-	if !IsNil(o.ManagedSubscriptionId) {
-		toSerialize["managedSubscriptionId"] = o.ManagedSubscriptionId
+	if o.ManagedSubscriptionId.IsSet() {
+		toSerialize["managedSubscriptionId"] = o.ManagedSubscriptionId.Get()
 	}
-	if !IsNil(o.Routes) {
+	if o.Routes != nil {
 		toSerialize["routes"] = o.Routes
 	}
 	return toSerialize, nil

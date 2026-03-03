@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ## PublishApplications
 
-> CatalogApplicationsModel PublishApplications(ctx, customerId, siteId, catalogId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+> CatalogApplicationsModel PublishApplications(ctx, customerId, siteId, catalogId).CitrixTransactionId(citrixTransactionId).AddCatalogApplicationsModel(addCatalogApplicationsModel).Execute()
 
 Publish the specified apps to the catalog
 
@@ -111,11 +111,11 @@ func main() {
     siteId := "siteId_example" // string | The site ID of the customer
     catalogId := "catalogId_example" // string | ID of the catalog
     citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := *openapiclient.NewAddCatalogApplicationsModel([]openapiclient.AddCatalogApplicationModel{*openapiclient.NewAddCatalogApplicationModel("Name_example", "Path_example")}) // AddCatalogApplicationsModel | List of applications to add (optional)
+    addCatalogApplicationsModel := *openapiclient.NewAddCatalogApplicationsModel([]openapiclient.AddCatalogApplicationModel{*openapiclient.NewAddCatalogApplicationModel("Name_example", "Path_example")}) // AddCatalogApplicationsModel | List of applications to add (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CatalogApplicationsCMD.PublishApplications(context.Background(), customerId, siteId, catalogId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+    resp, r, err := apiClient.CatalogApplicationsCMD.PublishApplications(context.Background(), customerId, siteId, catalogId).CitrixTransactionId(citrixTransactionId).AddCatalogApplicationsModel(addCatalogApplicationsModel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CatalogApplicationsCMD.PublishApplications``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 
  **citrixTransactionId** | **string** | The Transaction Id. | 
- **body** | [**AddCatalogApplicationsModel**](AddCatalogApplicationsModel.md) | List of applications to add | 
+ **addCatalogApplicationsModel** | [**AddCatalogApplicationsModel**](AddCatalogApplicationsModel.md) | List of applications to add | 
 
 ### Return type
 
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 
 ## UpdateApplication
 
-> UpdateApplication(ctx, customerId, siteId, catalogId, appId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+> UpdateApplication(ctx, customerId, siteId, catalogId, appId).CitrixTransactionId(citrixTransactionId).UpdateApplicationConfigurationModel(updateApplicationConfigurationModel).Execute()
 
 Update the configuration of a published app
 
@@ -343,11 +343,11 @@ func main() {
     catalogId := "catalogId_example" // string | ID of the catalog
     appId := "appId_example" // string | Identifier of the application
     citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := *openapiclient.NewUpdateApplicationConfigurationModel("Name_example", "ApplicationPath_example") // UpdateApplicationConfigurationModel | New configuration of the application (optional)
+    updateApplicationConfigurationModel := *openapiclient.NewUpdateApplicationConfigurationModel("Name_example", "ApplicationPath_example") // UpdateApplicationConfigurationModel | New configuration of the application (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CatalogApplicationsCMD.UpdateApplication(context.Background(), customerId, siteId, catalogId, appId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+    r, err := apiClient.CatalogApplicationsCMD.UpdateApplication(context.Background(), customerId, siteId, catalogId, appId).CitrixTransactionId(citrixTransactionId).UpdateApplicationConfigurationModel(updateApplicationConfigurationModel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CatalogApplicationsCMD.UpdateApplication``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 
  **citrixTransactionId** | **string** | The Transaction Id. | 
- **body** | [**UpdateApplicationConfigurationModel**](UpdateApplicationConfigurationModel.md) | New configuration of the application | 
+ **updateApplicationConfigurationModel** | [**UpdateApplicationConfigurationModel**](UpdateApplicationConfigurationModel.md) | New configuration of the application | 
 
 ### Return type
 

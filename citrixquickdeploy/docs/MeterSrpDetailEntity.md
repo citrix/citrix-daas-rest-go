@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MeterId** | Pointer to **string** | The Meter Id | [optional] 
-**Name** | Pointer to **string** | Meter Name | [optional] 
+**MeterId** | Pointer to **NullableString** | The Meter Id | [optional] 
+**Name** | Pointer to **NullableString** | Meter Name | [optional] 
 **SrpPrice** | Pointer to **float64** | The Meter Price | [optional] 
-**Category** | Pointer to **string** | Meter Category | [optional] 
-**CloudProviderName** | Pointer to **string** | Cloud Provider Name | [optional] 
-**UnitOfMeasure** | Pointer to **string** | Unit of measure | [optional] 
+**Category** | Pointer to **NullableString** | Meter Category | [optional] 
+**CloudProviderName** | Pointer to **NullableString** | Cloud Provider Name | [optional] 
+**UnitOfMeasure** | Pointer to **NullableString** | Unit of measure | [optional] 
 **IncludedUnits** | Pointer to **float64** | Include units | [optional] 
-**Region** | Pointer to **string** | Region | [optional] 
+**Region** | Pointer to **NullableString** | Region | [optional] 
 **EffectiveDate** | Pointer to **time.Time** | The effective date of the price. | [optional] 
 **ExpiredDate** | Pointer to **time.Time** | The expiration date of the price. | [optional] 
 **CreateTime** | Pointer to **time.Time** | The Time when this meter price inputted. | [optional] 
@@ -60,6 +60,16 @@ SetMeterId sets MeterId field to given value.
 
 HasMeterId returns a boolean if a field has been set.
 
+### SetMeterIdNil
+
+`func (o *MeterSrpDetailEntity) SetMeterIdNil(b bool)`
+
+ SetMeterIdNil sets the value for MeterId to be an explicit nil
+
+### UnsetMeterId
+`func (o *MeterSrpDetailEntity) UnsetMeterId()`
+
+UnsetMeterId ensures that no value is present for MeterId, not even an explicit nil
 ### GetName
 
 `func (o *MeterSrpDetailEntity) GetName() string`
@@ -85,6 +95,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *MeterSrpDetailEntity) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *MeterSrpDetailEntity) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetSrpPrice
 
 `func (o *MeterSrpDetailEntity) GetSrpPrice() float64`
@@ -135,6 +155,16 @@ SetCategory sets Category field to given value.
 
 HasCategory returns a boolean if a field has been set.
 
+### SetCategoryNil
+
+`func (o *MeterSrpDetailEntity) SetCategoryNil(b bool)`
+
+ SetCategoryNil sets the value for Category to be an explicit nil
+
+### UnsetCategory
+`func (o *MeterSrpDetailEntity) UnsetCategory()`
+
+UnsetCategory ensures that no value is present for Category, not even an explicit nil
 ### GetCloudProviderName
 
 `func (o *MeterSrpDetailEntity) GetCloudProviderName() string`
@@ -160,6 +190,16 @@ SetCloudProviderName sets CloudProviderName field to given value.
 
 HasCloudProviderName returns a boolean if a field has been set.
 
+### SetCloudProviderNameNil
+
+`func (o *MeterSrpDetailEntity) SetCloudProviderNameNil(b bool)`
+
+ SetCloudProviderNameNil sets the value for CloudProviderName to be an explicit nil
+
+### UnsetCloudProviderName
+`func (o *MeterSrpDetailEntity) UnsetCloudProviderName()`
+
+UnsetCloudProviderName ensures that no value is present for CloudProviderName, not even an explicit nil
 ### GetUnitOfMeasure
 
 `func (o *MeterSrpDetailEntity) GetUnitOfMeasure() string`
@@ -185,6 +225,16 @@ SetUnitOfMeasure sets UnitOfMeasure field to given value.
 
 HasUnitOfMeasure returns a boolean if a field has been set.
 
+### SetUnitOfMeasureNil
+
+`func (o *MeterSrpDetailEntity) SetUnitOfMeasureNil(b bool)`
+
+ SetUnitOfMeasureNil sets the value for UnitOfMeasure to be an explicit nil
+
+### UnsetUnitOfMeasure
+`func (o *MeterSrpDetailEntity) UnsetUnitOfMeasure()`
+
+UnsetUnitOfMeasure ensures that no value is present for UnitOfMeasure, not even an explicit nil
 ### GetIncludedUnits
 
 `func (o *MeterSrpDetailEntity) GetIncludedUnits() float64`
@@ -235,6 +285,16 @@ SetRegion sets Region field to given value.
 
 HasRegion returns a boolean if a field has been set.
 
+### SetRegionNil
+
+`func (o *MeterSrpDetailEntity) SetRegionNil(b bool)`
+
+ SetRegionNil sets the value for Region to be an explicit nil
+
+### UnsetRegion
+`func (o *MeterSrpDetailEntity) UnsetRegion()`
+
+UnsetRegion ensures that no value is present for Region, not even an explicit nil
 ### GetEffectiveDate
 
 `func (o *MeterSrpDetailEntity) GetEffectiveDate() time.Time`

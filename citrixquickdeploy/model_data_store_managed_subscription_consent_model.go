@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &DataStoreManagedSubscriptionConsentModel{}
 // DataStoreManagedSubscriptionConsentModel struct for DataStoreManagedSubscriptionConsentModel
 type DataStoreManagedSubscriptionConsentModel struct {
 	// The name of the user that consented
-	ConsentedBy *string `json:"consentedBy,omitempty"`
+	ConsentedBy NullableString `json:"consentedBy,omitempty"`
 	// The date time when the consent was given
 	ConsentedAt *time.Time `json:"consentedAt,omitempty"`
 }
@@ -34,27 +34,38 @@ func NewDataStoreManagedSubscriptionConsentModelWithDefaults() *DataStoreManaged
 	return &this
 }
 
-// GetConsentedBy returns the ConsentedBy field value if set, zero value otherwise.
+// GetConsentedBy returns the ConsentedBy field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreManagedSubscriptionConsentModel) GetConsentedBy() string {
-	if o == nil || IsNil(o.ConsentedBy) {
+	if o == nil || IsNil(o.ConsentedBy.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ConsentedBy
+	return *o.ConsentedBy.Get()
 }
 
 // GetConsentedByOk returns a tuple with the ConsentedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreManagedSubscriptionConsentModel) GetConsentedByOk() (*string, bool) {
-	if o == nil || IsNil(o.ConsentedBy) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConsentedBy, true
+	return o.ConsentedBy.Get(), o.ConsentedBy.IsSet()
 }
 
-// SetConsentedBy gets a reference to the given string and assigns it to the ConsentedBy field.
+// SetConsentedBy gets a reference to the given NullableString and assigns it to the ConsentedBy field.
 func (o *DataStoreManagedSubscriptionConsentModel) SetConsentedBy(v string) {
-	o.ConsentedBy = &v
+	o.ConsentedBy.Set(&v)
+}
+
+// SetConsentedByNil sets the value for ConsentedBy to be an explicit nil
+func (o *DataStoreManagedSubscriptionConsentModel) SetConsentedByNil() {
+	o.ConsentedBy.Set(nil)
+}
+
+// UnsetConsentedBy ensures that no value is present for ConsentedBy, not even an explicit nil
+func (o *DataStoreManagedSubscriptionConsentModel) UnsetConsentedBy() {
+	o.ConsentedBy.Unset()
 }
 
 // GetConsentedAt returns the ConsentedAt field value if set, zero value otherwise.
@@ -90,8 +101,8 @@ func (o DataStoreManagedSubscriptionConsentModel) MarshalJSON() ([]byte, error) 
 
 func (o DataStoreManagedSubscriptionConsentModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ConsentedBy) {
-		toSerialize["consentedBy"] = o.ConsentedBy
+	if o.ConsentedBy.IsSet() {
+		toSerialize["consentedBy"] = o.ConsentedBy.Get()
 	}
 	if !IsNil(o.ConsentedAt) {
 		toSerialize["consentedAt"] = o.ConsentedAt

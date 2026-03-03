@@ -50,6 +50,16 @@ SetAzureAppClients sets AzureAppClients field to given value.
 
 HasAzureAppClients returns a boolean if a field has been set.
 
+### SetAzureAppClientsNil
+
+`func (o *AzureApps) SetAzureAppClientsNil(b bool)`
+
+ SetAzureAppClientsNil sets the value for AzureAppClients to be an explicit nil
+
+### UnsetAzureAppClients
+`func (o *AzureApps) UnsetAzureAppClients()`
+
+UnsetAzureAppClients ensures that no value is present for AzureAppClients, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | The virtual site id of the customer | 
-**DisplayName** | Pointer to **string** | The display name of the virtual site | [optional] 
+**Id** | **string** | The virtual site id of the customer | [readonly] 
+**DisplayName** | Pointer to **NullableString** | The display name of the virtual site | [optional] 
 
 ## Methods
 
@@ -71,6 +71,16 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
+### SetDisplayNameNil
+
+`func (o *SiteModel) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *SiteModel) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

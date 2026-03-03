@@ -9,24 +9,25 @@ Name | Type | Description | Notes
 **MaxInstances** | Pointer to **int32** | Number of VMs that will be provisioned for  this catalog | [optional] 
 **PendingMaxInstances** | Pointer to **int32** | Number of VMs the admin would like the catalog changed to | [optional] 
 **Weekdays** | Pointer to **map[string]bool** | Days of the week that are included in peak days | [optional] 
-**WeekdaysString** | Pointer to **string** | Days of the week that are included in peak days | [optional] 
+**WeekdaysString** | Pointer to **NullableString** | Days of the week that are included in peak days | [optional] 
 **PeakStartTime** | Pointer to **int32** | Hour of day when peak usage begins | [optional] 
 **PeakEndTime** | Pointer to **int32** | Hour of day when peak usage ends | [optional] 
-**PeakTimeZone** | Pointer to **string** | Display of the peak usage timezone | [optional] 
-**PeakTimeZoneId** | Pointer to **string** | ID of the peak usage Timezone | [optional] 
+**PeakTimeZone** | Pointer to **NullableString** | Display of the peak usage timezone | [optional] 
+**PeakTimeZoneId** | Pointer to **NullableString** | ID of the peak usage Timezone | [optional] 
 **PeakMinInstances** | Pointer to **int32** | Min number of insances that should be running durring peak hours | [optional] 
-**BufferCapacity** | Pointer to **int32** | Percentage of buffer capacity during peak hours | [optional] 
-**OffPeakBufferCapacity** | Pointer to **int32** | Percentage of buffer capacity during off-peak hours | [optional] 
-**ServiceAccount** | Pointer to **string** | The service account to use for modifying max instances | [optional] 
-**ServiceAccountPassword** | Pointer to **string** | Password of the service account used to modify max instances | [optional] 
+**BufferCapacity** | Pointer to **NullableInt32** | Percentage of buffer capacity during peak hours | [optional] 
+**OffPeakBufferCapacity** | Pointer to **NullableInt32** | Percentage of buffer capacity during off-peak hours | [optional] 
+**ServiceAccount** | Pointer to **NullableString** | The service account to use for modifying max instances | [optional] 
+**ServiceAccountPassword** | Pointer to **NullableString** | Password of the service account used to modify max instances | [optional] 
 **IsSmartScaleDisabled** | Pointer to **bool** | Indicates if the smart scale settings are enabled or disabled | [optional] 
 **PeakDisconnectedSessionTimeout** | Pointer to **int32** | During Peak Hours, the time before an action is taken on disconnected session | [optional] 
-**PeakDisconnectedSessionAction** | Pointer to [**SessionChangeHostingAction**](SessionChangeHostingAction.md) | During peak hours, the action to be taken on disconnected session | [optional] 
+**PeakDisconnectedSessionAction** | Pointer to [**NullableSessionChangeHostingAction**](SessionChangeHostingAction.md) | During peak hours, the action to be taken on disconnected session | [optional] 
 **OffPeakDisconnectedSessionTimeout** | Pointer to **int32** | During Off Peak Hours, the time before an action is taken on disconnected session | [optional] 
-**OffPeakDisconnectedSessionAction** | Pointer to [**SessionChangeHostingAction**](SessionChangeHostingAction.md) | During off peak hours, the action to be taken on disconnected session | [optional] 
-**PeakExtendedDisconnectTimeoutMinutes** | Pointer to **int32** | The number of minutes before the second action (Shutdown) should be performed after a user session disconnects during peak hours. Used when peak disconnection action is Suspend | [optional] 
-**OffPeakExtendedDisconnectTimeoutMinutes** | Pointer to **int32** | The number of minutes before the second action (Shutdown) should be performed after a user session disconnects outside peak hours. Used when off peak disconnect action is Suspend | [optional] 
+**OffPeakDisconnectedSessionAction** | Pointer to [**NullableSessionChangeHostingAction**](SessionChangeHostingAction.md) | During off peak hours, the action to be taken on disconnected session | [optional] 
+**PeakExtendedDisconnectTimeoutMinutes** | Pointer to **NullableInt32** | The number of minutes before the second action (Shutdown) should be performed after a user session disconnects during peak hours. Used when peak disconnection action is Suspend | [optional] 
+**OffPeakExtendedDisconnectTimeoutMinutes** | Pointer to **NullableInt32** | The number of minutes before the second action (Shutdown) should be performed after a user session disconnects outside peak hours. Used when off peak disconnect action is Suspend | [optional] 
 **PowerOffDelay** | Pointer to **int32** | Amount of time to delay powering off machines with no active sessions | [optional] 
+**AdditionalUsers** | Pointer to **int32** | Number of users to add to a catalog. This field will determine the number of machines to be added to a catalog. PendingMaxInstances will be overridden if specified. For Citrix Managed catalogs only. | [optional] 
 
 ## Methods
 
@@ -172,6 +173,16 @@ SetWeekdays sets Weekdays field to given value.
 
 HasWeekdays returns a boolean if a field has been set.
 
+### SetWeekdaysNil
+
+`func (o *CatalogScaleSettingsModel) SetWeekdaysNil(b bool)`
+
+ SetWeekdaysNil sets the value for Weekdays to be an explicit nil
+
+### UnsetWeekdays
+`func (o *CatalogScaleSettingsModel) UnsetWeekdays()`
+
+UnsetWeekdays ensures that no value is present for Weekdays, not even an explicit nil
 ### GetWeekdaysString
 
 `func (o *CatalogScaleSettingsModel) GetWeekdaysString() string`
@@ -197,6 +208,16 @@ SetWeekdaysString sets WeekdaysString field to given value.
 
 HasWeekdaysString returns a boolean if a field has been set.
 
+### SetWeekdaysStringNil
+
+`func (o *CatalogScaleSettingsModel) SetWeekdaysStringNil(b bool)`
+
+ SetWeekdaysStringNil sets the value for WeekdaysString to be an explicit nil
+
+### UnsetWeekdaysString
+`func (o *CatalogScaleSettingsModel) UnsetWeekdaysString()`
+
+UnsetWeekdaysString ensures that no value is present for WeekdaysString, not even an explicit nil
 ### GetPeakStartTime
 
 `func (o *CatalogScaleSettingsModel) GetPeakStartTime() int32`
@@ -272,6 +293,16 @@ SetPeakTimeZone sets PeakTimeZone field to given value.
 
 HasPeakTimeZone returns a boolean if a field has been set.
 
+### SetPeakTimeZoneNil
+
+`func (o *CatalogScaleSettingsModel) SetPeakTimeZoneNil(b bool)`
+
+ SetPeakTimeZoneNil sets the value for PeakTimeZone to be an explicit nil
+
+### UnsetPeakTimeZone
+`func (o *CatalogScaleSettingsModel) UnsetPeakTimeZone()`
+
+UnsetPeakTimeZone ensures that no value is present for PeakTimeZone, not even an explicit nil
 ### GetPeakTimeZoneId
 
 `func (o *CatalogScaleSettingsModel) GetPeakTimeZoneId() string`
@@ -297,6 +328,16 @@ SetPeakTimeZoneId sets PeakTimeZoneId field to given value.
 
 HasPeakTimeZoneId returns a boolean if a field has been set.
 
+### SetPeakTimeZoneIdNil
+
+`func (o *CatalogScaleSettingsModel) SetPeakTimeZoneIdNil(b bool)`
+
+ SetPeakTimeZoneIdNil sets the value for PeakTimeZoneId to be an explicit nil
+
+### UnsetPeakTimeZoneId
+`func (o *CatalogScaleSettingsModel) UnsetPeakTimeZoneId()`
+
+UnsetPeakTimeZoneId ensures that no value is present for PeakTimeZoneId, not even an explicit nil
 ### GetPeakMinInstances
 
 `func (o *CatalogScaleSettingsModel) GetPeakMinInstances() int32`
@@ -347,6 +388,16 @@ SetBufferCapacity sets BufferCapacity field to given value.
 
 HasBufferCapacity returns a boolean if a field has been set.
 
+### SetBufferCapacityNil
+
+`func (o *CatalogScaleSettingsModel) SetBufferCapacityNil(b bool)`
+
+ SetBufferCapacityNil sets the value for BufferCapacity to be an explicit nil
+
+### UnsetBufferCapacity
+`func (o *CatalogScaleSettingsModel) UnsetBufferCapacity()`
+
+UnsetBufferCapacity ensures that no value is present for BufferCapacity, not even an explicit nil
 ### GetOffPeakBufferCapacity
 
 `func (o *CatalogScaleSettingsModel) GetOffPeakBufferCapacity() int32`
@@ -372,6 +423,16 @@ SetOffPeakBufferCapacity sets OffPeakBufferCapacity field to given value.
 
 HasOffPeakBufferCapacity returns a boolean if a field has been set.
 
+### SetOffPeakBufferCapacityNil
+
+`func (o *CatalogScaleSettingsModel) SetOffPeakBufferCapacityNil(b bool)`
+
+ SetOffPeakBufferCapacityNil sets the value for OffPeakBufferCapacity to be an explicit nil
+
+### UnsetOffPeakBufferCapacity
+`func (o *CatalogScaleSettingsModel) UnsetOffPeakBufferCapacity()`
+
+UnsetOffPeakBufferCapacity ensures that no value is present for OffPeakBufferCapacity, not even an explicit nil
 ### GetServiceAccount
 
 `func (o *CatalogScaleSettingsModel) GetServiceAccount() string`
@@ -397,6 +458,16 @@ SetServiceAccount sets ServiceAccount field to given value.
 
 HasServiceAccount returns a boolean if a field has been set.
 
+### SetServiceAccountNil
+
+`func (o *CatalogScaleSettingsModel) SetServiceAccountNil(b bool)`
+
+ SetServiceAccountNil sets the value for ServiceAccount to be an explicit nil
+
+### UnsetServiceAccount
+`func (o *CatalogScaleSettingsModel) UnsetServiceAccount()`
+
+UnsetServiceAccount ensures that no value is present for ServiceAccount, not even an explicit nil
 ### GetServiceAccountPassword
 
 `func (o *CatalogScaleSettingsModel) GetServiceAccountPassword() string`
@@ -422,6 +493,16 @@ SetServiceAccountPassword sets ServiceAccountPassword field to given value.
 
 HasServiceAccountPassword returns a boolean if a field has been set.
 
+### SetServiceAccountPasswordNil
+
+`func (o *CatalogScaleSettingsModel) SetServiceAccountPasswordNil(b bool)`
+
+ SetServiceAccountPasswordNil sets the value for ServiceAccountPassword to be an explicit nil
+
+### UnsetServiceAccountPassword
+`func (o *CatalogScaleSettingsModel) UnsetServiceAccountPassword()`
+
+UnsetServiceAccountPassword ensures that no value is present for ServiceAccountPassword, not even an explicit nil
 ### GetIsSmartScaleDisabled
 
 `func (o *CatalogScaleSettingsModel) GetIsSmartScaleDisabled() bool`
@@ -497,6 +578,16 @@ SetPeakDisconnectedSessionAction sets PeakDisconnectedSessionAction field to giv
 
 HasPeakDisconnectedSessionAction returns a boolean if a field has been set.
 
+### SetPeakDisconnectedSessionActionNil
+
+`func (o *CatalogScaleSettingsModel) SetPeakDisconnectedSessionActionNil(b bool)`
+
+ SetPeakDisconnectedSessionActionNil sets the value for PeakDisconnectedSessionAction to be an explicit nil
+
+### UnsetPeakDisconnectedSessionAction
+`func (o *CatalogScaleSettingsModel) UnsetPeakDisconnectedSessionAction()`
+
+UnsetPeakDisconnectedSessionAction ensures that no value is present for PeakDisconnectedSessionAction, not even an explicit nil
 ### GetOffPeakDisconnectedSessionTimeout
 
 `func (o *CatalogScaleSettingsModel) GetOffPeakDisconnectedSessionTimeout() int32`
@@ -547,6 +638,16 @@ SetOffPeakDisconnectedSessionAction sets OffPeakDisconnectedSessionAction field 
 
 HasOffPeakDisconnectedSessionAction returns a boolean if a field has been set.
 
+### SetOffPeakDisconnectedSessionActionNil
+
+`func (o *CatalogScaleSettingsModel) SetOffPeakDisconnectedSessionActionNil(b bool)`
+
+ SetOffPeakDisconnectedSessionActionNil sets the value for OffPeakDisconnectedSessionAction to be an explicit nil
+
+### UnsetOffPeakDisconnectedSessionAction
+`func (o *CatalogScaleSettingsModel) UnsetOffPeakDisconnectedSessionAction()`
+
+UnsetOffPeakDisconnectedSessionAction ensures that no value is present for OffPeakDisconnectedSessionAction, not even an explicit nil
 ### GetPeakExtendedDisconnectTimeoutMinutes
 
 `func (o *CatalogScaleSettingsModel) GetPeakExtendedDisconnectTimeoutMinutes() int32`
@@ -572,6 +673,16 @@ SetPeakExtendedDisconnectTimeoutMinutes sets PeakExtendedDisconnectTimeoutMinute
 
 HasPeakExtendedDisconnectTimeoutMinutes returns a boolean if a field has been set.
 
+### SetPeakExtendedDisconnectTimeoutMinutesNil
+
+`func (o *CatalogScaleSettingsModel) SetPeakExtendedDisconnectTimeoutMinutesNil(b bool)`
+
+ SetPeakExtendedDisconnectTimeoutMinutesNil sets the value for PeakExtendedDisconnectTimeoutMinutes to be an explicit nil
+
+### UnsetPeakExtendedDisconnectTimeoutMinutes
+`func (o *CatalogScaleSettingsModel) UnsetPeakExtendedDisconnectTimeoutMinutes()`
+
+UnsetPeakExtendedDisconnectTimeoutMinutes ensures that no value is present for PeakExtendedDisconnectTimeoutMinutes, not even an explicit nil
 ### GetOffPeakExtendedDisconnectTimeoutMinutes
 
 `func (o *CatalogScaleSettingsModel) GetOffPeakExtendedDisconnectTimeoutMinutes() int32`
@@ -597,6 +708,16 @@ SetOffPeakExtendedDisconnectTimeoutMinutes sets OffPeakExtendedDisconnectTimeout
 
 HasOffPeakExtendedDisconnectTimeoutMinutes returns a boolean if a field has been set.
 
+### SetOffPeakExtendedDisconnectTimeoutMinutesNil
+
+`func (o *CatalogScaleSettingsModel) SetOffPeakExtendedDisconnectTimeoutMinutesNil(b bool)`
+
+ SetOffPeakExtendedDisconnectTimeoutMinutesNil sets the value for OffPeakExtendedDisconnectTimeoutMinutes to be an explicit nil
+
+### UnsetOffPeakExtendedDisconnectTimeoutMinutes
+`func (o *CatalogScaleSettingsModel) UnsetOffPeakExtendedDisconnectTimeoutMinutes()`
+
+UnsetOffPeakExtendedDisconnectTimeoutMinutes ensures that no value is present for OffPeakExtendedDisconnectTimeoutMinutes, not even an explicit nil
 ### GetPowerOffDelay
 
 `func (o *CatalogScaleSettingsModel) GetPowerOffDelay() int32`
@@ -621,6 +742,31 @@ SetPowerOffDelay sets PowerOffDelay field to given value.
 `func (o *CatalogScaleSettingsModel) HasPowerOffDelay() bool`
 
 HasPowerOffDelay returns a boolean if a field has been set.
+
+### GetAdditionalUsers
+
+`func (o *CatalogScaleSettingsModel) GetAdditionalUsers() int32`
+
+GetAdditionalUsers returns the AdditionalUsers field if non-nil, zero value otherwise.
+
+### GetAdditionalUsersOk
+
+`func (o *CatalogScaleSettingsModel) GetAdditionalUsersOk() (*int32, bool)`
+
+GetAdditionalUsersOk returns a tuple with the AdditionalUsers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdditionalUsers
+
+`func (o *CatalogScaleSettingsModel) SetAdditionalUsers(v int32)`
+
+SetAdditionalUsers sets AdditionalUsers field to given value.
+
+### HasAdditionalUsers
+
+`func (o *CatalogScaleSettingsModel) HasAdditionalUsers() bool`
+
+HasAdditionalUsers returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

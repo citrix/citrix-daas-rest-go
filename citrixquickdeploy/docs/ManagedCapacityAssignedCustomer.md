@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **VirtualSiteId** | **string** |  | 
 **Edition** | **string** |  | 
 **State** | [**CommissionState**](CommissionState.md) |  | 
-**TenantCustomerId** | Pointer to **string** |  | [optional] 
-**TenantVirtualSiteId** | Pointer to **string** |  | [optional] 
-**TenantOrgId** | Pointer to **string** |  | [optional] 
-**TenantName** | Pointer to **string** |  | [optional] 
+**TenantCustomerId** | Pointer to **NullableString** |  | [optional] 
+**TenantVirtualSiteId** | Pointer to **NullableString** |  | [optional] 
+**TenantOrgId** | Pointer to **NullableString** |  | [optional] 
+**TenantName** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -179,6 +179,16 @@ SetTenantCustomerId sets TenantCustomerId field to given value.
 
 HasTenantCustomerId returns a boolean if a field has been set.
 
+### SetTenantCustomerIdNil
+
+`func (o *ManagedCapacityAssignedCustomer) SetTenantCustomerIdNil(b bool)`
+
+ SetTenantCustomerIdNil sets the value for TenantCustomerId to be an explicit nil
+
+### UnsetTenantCustomerId
+`func (o *ManagedCapacityAssignedCustomer) UnsetTenantCustomerId()`
+
+UnsetTenantCustomerId ensures that no value is present for TenantCustomerId, not even an explicit nil
 ### GetTenantVirtualSiteId
 
 `func (o *ManagedCapacityAssignedCustomer) GetTenantVirtualSiteId() string`
@@ -204,6 +214,16 @@ SetTenantVirtualSiteId sets TenantVirtualSiteId field to given value.
 
 HasTenantVirtualSiteId returns a boolean if a field has been set.
 
+### SetTenantVirtualSiteIdNil
+
+`func (o *ManagedCapacityAssignedCustomer) SetTenantVirtualSiteIdNil(b bool)`
+
+ SetTenantVirtualSiteIdNil sets the value for TenantVirtualSiteId to be an explicit nil
+
+### UnsetTenantVirtualSiteId
+`func (o *ManagedCapacityAssignedCustomer) UnsetTenantVirtualSiteId()`
+
+UnsetTenantVirtualSiteId ensures that no value is present for TenantVirtualSiteId, not even an explicit nil
 ### GetTenantOrgId
 
 `func (o *ManagedCapacityAssignedCustomer) GetTenantOrgId() string`
@@ -229,6 +249,16 @@ SetTenantOrgId sets TenantOrgId field to given value.
 
 HasTenantOrgId returns a boolean if a field has been set.
 
+### SetTenantOrgIdNil
+
+`func (o *ManagedCapacityAssignedCustomer) SetTenantOrgIdNil(b bool)`
+
+ SetTenantOrgIdNil sets the value for TenantOrgId to be an explicit nil
+
+### UnsetTenantOrgId
+`func (o *ManagedCapacityAssignedCustomer) UnsetTenantOrgId()`
+
+UnsetTenantOrgId ensures that no value is present for TenantOrgId, not even an explicit nil
 ### GetTenantName
 
 `func (o *ManagedCapacityAssignedCustomer) GetTenantName() string`
@@ -254,6 +284,16 @@ SetTenantName sets TenantName field to given value.
 
 HasTenantName returns a boolean if a field has been set.
 
+### SetTenantNameNil
+
+`func (o *ManagedCapacityAssignedCustomer) SetTenantNameNil(b bool)`
+
+ SetTenantNameNil sets the value for TenantName to be an explicit nil
+
+### UnsetTenantName
+`func (o *ManagedCapacityAssignedCustomer) UnsetTenantName()`
+
+UnsetTenantName ensures that no value is present for TenantName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

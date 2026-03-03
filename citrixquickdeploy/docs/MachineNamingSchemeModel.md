@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NamingScheme** | Pointer to **string** |  | [optional] 
+**NamingScheme** | Pointer to **NullableString** |  | [optional] 
 **IsSchemeTypeNumeric** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetNamingScheme sets NamingScheme field to given value.
 
 HasNamingScheme returns a boolean if a field has been set.
 
+### SetNamingSchemeNil
+
+`func (o *MachineNamingSchemeModel) SetNamingSchemeNil(b bool)`
+
+ SetNamingSchemeNil sets the value for NamingScheme to be an explicit nil
+
+### UnsetNamingScheme
+`func (o *MachineNamingSchemeModel) UnsetNamingScheme()`
+
+UnsetNamingScheme ensures that no value is present for NamingScheme, not even an explicit nil
 ### GetIsSchemeTypeNumeric
 
 `func (o *MachineNamingSchemeModel) GetIsSchemeTypeNumeric() bool`

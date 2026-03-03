@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PortNumber** | Pointer to **string** | Port Number | [optional] 
-**Priority** | Pointer to **int32** |  | [optional] 
-**Source** | Pointer to **string** |  | [optional] 
-**Destination** | Pointer to **string** |  | [optional] 
-**Protocol** | Pointer to **string** |  | [optional] 
-**Action** | Pointer to **string** |  | [optional] 
-**Direction** | Pointer to **string** |  | [optional] 
+**PortNumber** | Pointer to **NullableString** | Port Number | [optional] 
+**Priority** | Pointer to **NullableInt32** |  | [optional] 
+**Source** | Pointer to **NullableString** |  | [optional] 
+**Destination** | Pointer to **NullableString** |  | [optional] 
+**Protocol** | Pointer to **NullableString** |  | [optional] 
+**Action** | Pointer to **NullableString** |  | [optional] 
+**Direction** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -56,6 +56,16 @@ SetPortNumber sets PortNumber field to given value.
 
 HasPortNumber returns a boolean if a field has been set.
 
+### SetPortNumberNil
+
+`func (o *NetworkSecurityGroupPort) SetPortNumberNil(b bool)`
+
+ SetPortNumberNil sets the value for PortNumber to be an explicit nil
+
+### UnsetPortNumber
+`func (o *NetworkSecurityGroupPort) UnsetPortNumber()`
+
+UnsetPortNumber ensures that no value is present for PortNumber, not even an explicit nil
 ### GetPriority
 
 `func (o *NetworkSecurityGroupPort) GetPriority() int32`
@@ -81,6 +91,16 @@ SetPriority sets Priority field to given value.
 
 HasPriority returns a boolean if a field has been set.
 
+### SetPriorityNil
+
+`func (o *NetworkSecurityGroupPort) SetPriorityNil(b bool)`
+
+ SetPriorityNil sets the value for Priority to be an explicit nil
+
+### UnsetPriority
+`func (o *NetworkSecurityGroupPort) UnsetPriority()`
+
+UnsetPriority ensures that no value is present for Priority, not even an explicit nil
 ### GetSource
 
 `func (o *NetworkSecurityGroupPort) GetSource() string`
@@ -106,6 +126,16 @@ SetSource sets Source field to given value.
 
 HasSource returns a boolean if a field has been set.
 
+### SetSourceNil
+
+`func (o *NetworkSecurityGroupPort) SetSourceNil(b bool)`
+
+ SetSourceNil sets the value for Source to be an explicit nil
+
+### UnsetSource
+`func (o *NetworkSecurityGroupPort) UnsetSource()`
+
+UnsetSource ensures that no value is present for Source, not even an explicit nil
 ### GetDestination
 
 `func (o *NetworkSecurityGroupPort) GetDestination() string`
@@ -131,6 +161,16 @@ SetDestination sets Destination field to given value.
 
 HasDestination returns a boolean if a field has been set.
 
+### SetDestinationNil
+
+`func (o *NetworkSecurityGroupPort) SetDestinationNil(b bool)`
+
+ SetDestinationNil sets the value for Destination to be an explicit nil
+
+### UnsetDestination
+`func (o *NetworkSecurityGroupPort) UnsetDestination()`
+
+UnsetDestination ensures that no value is present for Destination, not even an explicit nil
 ### GetProtocol
 
 `func (o *NetworkSecurityGroupPort) GetProtocol() string`
@@ -156,6 +196,16 @@ SetProtocol sets Protocol field to given value.
 
 HasProtocol returns a boolean if a field has been set.
 
+### SetProtocolNil
+
+`func (o *NetworkSecurityGroupPort) SetProtocolNil(b bool)`
+
+ SetProtocolNil sets the value for Protocol to be an explicit nil
+
+### UnsetProtocol
+`func (o *NetworkSecurityGroupPort) UnsetProtocol()`
+
+UnsetProtocol ensures that no value is present for Protocol, not even an explicit nil
 ### GetAction
 
 `func (o *NetworkSecurityGroupPort) GetAction() string`
@@ -181,6 +231,16 @@ SetAction sets Action field to given value.
 
 HasAction returns a boolean if a field has been set.
 
+### SetActionNil
+
+`func (o *NetworkSecurityGroupPort) SetActionNil(b bool)`
+
+ SetActionNil sets the value for Action to be an explicit nil
+
+### UnsetAction
+`func (o *NetworkSecurityGroupPort) UnsetAction()`
+
+UnsetAction ensures that no value is present for Action, not even an explicit nil
 ### GetDirection
 
 `func (o *NetworkSecurityGroupPort) GetDirection() string`
@@ -206,6 +266,16 @@ SetDirection sets Direction field to given value.
 
 HasDirection returns a boolean if a field has been set.
 
+### SetDirectionNil
+
+`func (o *NetworkSecurityGroupPort) SetDirectionNil(b bool)`
+
+ SetDirectionNil sets the value for Direction to be an explicit nil
+
+### UnsetDirection
+`func (o *NetworkSecurityGroupPort) UnsetDirection()`
+
+UnsetDirection ensures that no value is present for Direction, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

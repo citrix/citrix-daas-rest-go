@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Description** | **string** |  | 
 **OperationType** | [**CatalogOperationType**](CatalogOperationType.md) |  | 
-**Parameters** | **map[string]map[string]interface{}** |  | 
+**Parameters** | **map[string]interface{}** |  | 
 **SupportsXae** | Pointer to **bool** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewCatalogOperationItemConfigurationModel
 
-`func NewCatalogOperationItemConfigurationModel(name string, description string, operationType CatalogOperationType, parameters map[string]map[string]interface{}, ) *CatalogOperationItemConfigurationModel`
+`func NewCatalogOperationItemConfigurationModel(name string, description string, operationType CatalogOperationType, parameters map[string]interface{}, ) *CatalogOperationItemConfigurationModel`
 
 NewCatalogOperationItemConfigurationModel instantiates a new CatalogOperationItemConfigurationModel object
 This constructor will assign default values to properties that have it defined,
@@ -91,20 +91,20 @@ SetOperationType sets OperationType field to given value.
 
 ### GetParameters
 
-`func (o *CatalogOperationItemConfigurationModel) GetParameters() map[string]map[string]interface{}`
+`func (o *CatalogOperationItemConfigurationModel) GetParameters() map[string]interface{}`
 
 GetParameters returns the Parameters field if non-nil, zero value otherwise.
 
 ### GetParametersOk
 
-`func (o *CatalogOperationItemConfigurationModel) GetParametersOk() (*map[string]map[string]interface{}, bool)`
+`func (o *CatalogOperationItemConfigurationModel) GetParametersOk() (*map[string]interface{}, bool)`
 
 GetParametersOk returns a tuple with the Parameters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParameters
 
-`func (o *CatalogOperationItemConfigurationModel) SetParameters(v map[string]map[string]interface{})`
+`func (o *CatalogOperationItemConfigurationModel) SetParameters(v map[string]interface{})`
 
 SetParameters sets Parameters field to given value.
 

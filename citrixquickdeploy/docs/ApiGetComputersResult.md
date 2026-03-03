@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountName** | Pointer to **string** |  | [optional] 
-**SecurityId** | Pointer to **string** |  | [optional] 
-**DnsHostName** | Pointer to **string** |  | [optional] 
+**AccountName** | Pointer to **NullableString** |  | [optional] 
+**SecurityId** | Pointer to **NullableString** |  | [optional] 
+**DnsHostName** | Pointer to **NullableString** |  | [optional] 
 **ServicePrincipalNames** | Pointer to **[]string** |  | [optional] 
 **IsEnabled** | Pointer to **bool** |  | [optional] 
 **IsAccountLocked** | Pointer to **bool** |  | [optional] 
 **ComputerGroupList** | Pointer to **[]string** |  | [optional] 
-**UserCertificate** | Pointer to **string** |  | [optional] 
-**DomainName** | Pointer to **string** |  | [optional] 
-**ForestName** | Pointer to **string** |  | [optional] 
+**UserCertificate** | Pointer to **NullableString** |  | [optional] 
+**DomainName** | Pointer to **NullableString** |  | [optional] 
+**ForestName** | Pointer to **NullableString** |  | [optional] 
 **Guid** | Pointer to **string** |  | [optional] 
-**DistinguishedName** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**CanonicalName** | Pointer to **string** |  | [optional] 
+**DistinguishedName** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**CanonicalName** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -63,6 +63,16 @@ SetAccountName sets AccountName field to given value.
 
 HasAccountName returns a boolean if a field has been set.
 
+### SetAccountNameNil
+
+`func (o *ApiGetComputersResult) SetAccountNameNil(b bool)`
+
+ SetAccountNameNil sets the value for AccountName to be an explicit nil
+
+### UnsetAccountName
+`func (o *ApiGetComputersResult) UnsetAccountName()`
+
+UnsetAccountName ensures that no value is present for AccountName, not even an explicit nil
 ### GetSecurityId
 
 `func (o *ApiGetComputersResult) GetSecurityId() string`
@@ -88,6 +98,16 @@ SetSecurityId sets SecurityId field to given value.
 
 HasSecurityId returns a boolean if a field has been set.
 
+### SetSecurityIdNil
+
+`func (o *ApiGetComputersResult) SetSecurityIdNil(b bool)`
+
+ SetSecurityIdNil sets the value for SecurityId to be an explicit nil
+
+### UnsetSecurityId
+`func (o *ApiGetComputersResult) UnsetSecurityId()`
+
+UnsetSecurityId ensures that no value is present for SecurityId, not even an explicit nil
 ### GetDnsHostName
 
 `func (o *ApiGetComputersResult) GetDnsHostName() string`
@@ -113,6 +133,16 @@ SetDnsHostName sets DnsHostName field to given value.
 
 HasDnsHostName returns a boolean if a field has been set.
 
+### SetDnsHostNameNil
+
+`func (o *ApiGetComputersResult) SetDnsHostNameNil(b bool)`
+
+ SetDnsHostNameNil sets the value for DnsHostName to be an explicit nil
+
+### UnsetDnsHostName
+`func (o *ApiGetComputersResult) UnsetDnsHostName()`
+
+UnsetDnsHostName ensures that no value is present for DnsHostName, not even an explicit nil
 ### GetServicePrincipalNames
 
 `func (o *ApiGetComputersResult) GetServicePrincipalNames() []string`
@@ -138,6 +168,16 @@ SetServicePrincipalNames sets ServicePrincipalNames field to given value.
 
 HasServicePrincipalNames returns a boolean if a field has been set.
 
+### SetServicePrincipalNamesNil
+
+`func (o *ApiGetComputersResult) SetServicePrincipalNamesNil(b bool)`
+
+ SetServicePrincipalNamesNil sets the value for ServicePrincipalNames to be an explicit nil
+
+### UnsetServicePrincipalNames
+`func (o *ApiGetComputersResult) UnsetServicePrincipalNames()`
+
+UnsetServicePrincipalNames ensures that no value is present for ServicePrincipalNames, not even an explicit nil
 ### GetIsEnabled
 
 `func (o *ApiGetComputersResult) GetIsEnabled() bool`
@@ -213,6 +253,16 @@ SetComputerGroupList sets ComputerGroupList field to given value.
 
 HasComputerGroupList returns a boolean if a field has been set.
 
+### SetComputerGroupListNil
+
+`func (o *ApiGetComputersResult) SetComputerGroupListNil(b bool)`
+
+ SetComputerGroupListNil sets the value for ComputerGroupList to be an explicit nil
+
+### UnsetComputerGroupList
+`func (o *ApiGetComputersResult) UnsetComputerGroupList()`
+
+UnsetComputerGroupList ensures that no value is present for ComputerGroupList, not even an explicit nil
 ### GetUserCertificate
 
 `func (o *ApiGetComputersResult) GetUserCertificate() string`
@@ -238,6 +288,16 @@ SetUserCertificate sets UserCertificate field to given value.
 
 HasUserCertificate returns a boolean if a field has been set.
 
+### SetUserCertificateNil
+
+`func (o *ApiGetComputersResult) SetUserCertificateNil(b bool)`
+
+ SetUserCertificateNil sets the value for UserCertificate to be an explicit nil
+
+### UnsetUserCertificate
+`func (o *ApiGetComputersResult) UnsetUserCertificate()`
+
+UnsetUserCertificate ensures that no value is present for UserCertificate, not even an explicit nil
 ### GetDomainName
 
 `func (o *ApiGetComputersResult) GetDomainName() string`
@@ -263,6 +323,16 @@ SetDomainName sets DomainName field to given value.
 
 HasDomainName returns a boolean if a field has been set.
 
+### SetDomainNameNil
+
+`func (o *ApiGetComputersResult) SetDomainNameNil(b bool)`
+
+ SetDomainNameNil sets the value for DomainName to be an explicit nil
+
+### UnsetDomainName
+`func (o *ApiGetComputersResult) UnsetDomainName()`
+
+UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
 ### GetForestName
 
 `func (o *ApiGetComputersResult) GetForestName() string`
@@ -288,6 +358,16 @@ SetForestName sets ForestName field to given value.
 
 HasForestName returns a boolean if a field has been set.
 
+### SetForestNameNil
+
+`func (o *ApiGetComputersResult) SetForestNameNil(b bool)`
+
+ SetForestNameNil sets the value for ForestName to be an explicit nil
+
+### UnsetForestName
+`func (o *ApiGetComputersResult) UnsetForestName()`
+
+UnsetForestName ensures that no value is present for ForestName, not even an explicit nil
 ### GetGuid
 
 `func (o *ApiGetComputersResult) GetGuid() string`
@@ -338,6 +418,16 @@ SetDistinguishedName sets DistinguishedName field to given value.
 
 HasDistinguishedName returns a boolean if a field has been set.
 
+### SetDistinguishedNameNil
+
+`func (o *ApiGetComputersResult) SetDistinguishedNameNil(b bool)`
+
+ SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
+
+### UnsetDistinguishedName
+`func (o *ApiGetComputersResult) UnsetDistinguishedName()`
+
+UnsetDistinguishedName ensures that no value is present for DistinguishedName, not even an explicit nil
 ### GetName
 
 `func (o *ApiGetComputersResult) GetName() string`
@@ -363,6 +453,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ApiGetComputersResult) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ApiGetComputersResult) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetCanonicalName
 
 `func (o *ApiGetComputersResult) GetCanonicalName() string`
@@ -388,6 +488,16 @@ SetCanonicalName sets CanonicalName field to given value.
 
 HasCanonicalName returns a boolean if a field has been set.
 
+### SetCanonicalNameNil
+
+`func (o *ApiGetComputersResult) SetCanonicalNameNil(b bool)`
+
+ SetCanonicalNameNil sets the value for CanonicalName to be an explicit nil
+
+### UnsetCanonicalName
+`func (o *ApiGetComputersResult) UnsetCanonicalName()`
+
+UnsetCanonicalName ensures that no value is present for CanonicalName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -22,7 +22,7 @@ type AddCatalogVdaRegModel struct {
 	// SAM Name of the machine that was registered
 	SamName string `json:"samName"`
 	// DNS Name of the machine that was registered
-	DnsName *string `json:"dnsName,omitempty"`
+	DnsName NullableString `json:"dnsName,omitempty"`
 }
 
 // NewAddCatalogVdaRegModelWithDefaults instantiates a new AddCatalogVdaRegModel object
@@ -57,27 +57,38 @@ func (o *AddCatalogVdaRegModel) SetSamName(v string) {
 	o.SamName = v
 }
 
-// GetDnsName returns the DnsName field value if set, zero value otherwise.
+// GetDnsName returns the DnsName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddCatalogVdaRegModel) GetDnsName() string {
-	if o == nil || IsNil(o.DnsName) {
+	if o == nil || IsNil(o.DnsName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DnsName
+	return *o.DnsName.Get()
 }
 
 // GetDnsNameOk returns a tuple with the DnsName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCatalogVdaRegModel) GetDnsNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DnsName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DnsName, true
+	return o.DnsName.Get(), o.DnsName.IsSet()
 }
 
-// SetDnsName gets a reference to the given string and assigns it to the DnsName field.
+// SetDnsName gets a reference to the given NullableString and assigns it to the DnsName field.
 func (o *AddCatalogVdaRegModel) SetDnsName(v string) {
-	o.DnsName = &v
+	o.DnsName.Set(&v)
+}
+
+// SetDnsNameNil sets the value for DnsName to be an explicit nil
+func (o *AddCatalogVdaRegModel) SetDnsNameNil() {
+	o.DnsName.Set(nil)
+}
+
+// UnsetDnsName ensures that no value is present for DnsName, not even an explicit nil
+func (o *AddCatalogVdaRegModel) UnsetDnsName() {
+	o.DnsName.Unset()
 }
 
 func (o AddCatalogVdaRegModel) MarshalJSON() ([]byte, error) {
@@ -91,8 +102,8 @@ func (o AddCatalogVdaRegModel) MarshalJSON() ([]byte, error) {
 func (o AddCatalogVdaRegModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["samName"] = o.SamName
-	if !IsNil(o.DnsName) {
-		toSerialize["dnsName"] = o.DnsName
+	if o.DnsName.IsSet() {
+		toSerialize["dnsName"] = o.DnsName.Get()
 	}
 	return toSerialize, nil
 }

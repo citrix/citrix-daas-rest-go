@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -31,9 +31,9 @@ func NewVNetResourceDetailsWithDefaults() *VNetResourceDetails {
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise.
+// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VNetResourceDetails) GetItems() []VNetResourceLocations {
-	if o == nil || IsNil(o.Items) {
+	if o == nil {
 		var ret []VNetResourceLocations
 		return ret
 	}
@@ -42,6 +42,7 @@ func (o *VNetResourceDetails) GetItems() []VNetResourceLocations {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VNetResourceDetails) GetItemsOk() ([]VNetResourceLocations, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
@@ -64,7 +65,7 @@ func (o VNetResourceDetails) MarshalJSON() ([]byte, error) {
 
 func (o VNetResourceDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Items) {
+	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
 	return toSerialize, nil

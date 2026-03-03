@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,9 +20,9 @@ var _ MappedNullable = &ConnectivityModel{}
 // ConnectivityModel struct for ConnectivityModel
 type ConnectivityModel struct {
 	ResourceLocationId     string           `json:"resourceLocationId"`
-	ResourceLocationName   *string          `json:"resourceLocationName,omitempty"`
+	ResourceLocationName   NullableString   `json:"resourceLocationName,omitempty"`
 	Type                   ConnectivityType `json:"type"`
-	NetscalerOnPremisesUrl *string          `json:"netscalerOnPremisesUrl,omitempty"`
+	NetscalerOnPremisesUrl NullableString   `json:"netscalerOnPremisesUrl,omitempty"`
 }
 
 // NewConnectivityModelWithDefaults instantiates a new ConnectivityModel object
@@ -57,27 +57,38 @@ func (o *ConnectivityModel) SetResourceLocationId(v string) {
 	o.ResourceLocationId = v
 }
 
-// GetResourceLocationName returns the ResourceLocationName field value if set, zero value otherwise.
+// GetResourceLocationName returns the ResourceLocationName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectivityModel) GetResourceLocationName() string {
-	if o == nil || IsNil(o.ResourceLocationName) {
+	if o == nil || IsNil(o.ResourceLocationName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ResourceLocationName
+	return *o.ResourceLocationName.Get()
 }
 
 // GetResourceLocationNameOk returns a tuple with the ResourceLocationName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectivityModel) GetResourceLocationNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ResourceLocationName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResourceLocationName, true
+	return o.ResourceLocationName.Get(), o.ResourceLocationName.IsSet()
 }
 
-// SetResourceLocationName gets a reference to the given string and assigns it to the ResourceLocationName field.
+// SetResourceLocationName gets a reference to the given NullableString and assigns it to the ResourceLocationName field.
 func (o *ConnectivityModel) SetResourceLocationName(v string) {
-	o.ResourceLocationName = &v
+	o.ResourceLocationName.Set(&v)
+}
+
+// SetResourceLocationNameNil sets the value for ResourceLocationName to be an explicit nil
+func (o *ConnectivityModel) SetResourceLocationNameNil() {
+	o.ResourceLocationName.Set(nil)
+}
+
+// UnsetResourceLocationName ensures that no value is present for ResourceLocationName, not even an explicit nil
+func (o *ConnectivityModel) UnsetResourceLocationName() {
+	o.ResourceLocationName.Unset()
 }
 
 // GetType returns the Type field value
@@ -104,27 +115,38 @@ func (o *ConnectivityModel) SetType(v ConnectivityType) {
 	o.Type = v
 }
 
-// GetNetscalerOnPremisesUrl returns the NetscalerOnPremisesUrl field value if set, zero value otherwise.
+// GetNetscalerOnPremisesUrl returns the NetscalerOnPremisesUrl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectivityModel) GetNetscalerOnPremisesUrl() string {
-	if o == nil || IsNil(o.NetscalerOnPremisesUrl) {
+	if o == nil || IsNil(o.NetscalerOnPremisesUrl.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.NetscalerOnPremisesUrl
+	return *o.NetscalerOnPremisesUrl.Get()
 }
 
 // GetNetscalerOnPremisesUrlOk returns a tuple with the NetscalerOnPremisesUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectivityModel) GetNetscalerOnPremisesUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.NetscalerOnPremisesUrl) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NetscalerOnPremisesUrl, true
+	return o.NetscalerOnPremisesUrl.Get(), o.NetscalerOnPremisesUrl.IsSet()
 }
 
-// SetNetscalerOnPremisesUrl gets a reference to the given string and assigns it to the NetscalerOnPremisesUrl field.
+// SetNetscalerOnPremisesUrl gets a reference to the given NullableString and assigns it to the NetscalerOnPremisesUrl field.
 func (o *ConnectivityModel) SetNetscalerOnPremisesUrl(v string) {
-	o.NetscalerOnPremisesUrl = &v
+	o.NetscalerOnPremisesUrl.Set(&v)
+}
+
+// SetNetscalerOnPremisesUrlNil sets the value for NetscalerOnPremisesUrl to be an explicit nil
+func (o *ConnectivityModel) SetNetscalerOnPremisesUrlNil() {
+	o.NetscalerOnPremisesUrl.Set(nil)
+}
+
+// UnsetNetscalerOnPremisesUrl ensures that no value is present for NetscalerOnPremisesUrl, not even an explicit nil
+func (o *ConnectivityModel) UnsetNetscalerOnPremisesUrl() {
+	o.NetscalerOnPremisesUrl.Unset()
 }
 
 func (o ConnectivityModel) MarshalJSON() ([]byte, error) {
@@ -138,12 +160,12 @@ func (o ConnectivityModel) MarshalJSON() ([]byte, error) {
 func (o ConnectivityModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["resourceLocationId"] = o.ResourceLocationId
-	if !IsNil(o.ResourceLocationName) {
-		toSerialize["resourceLocationName"] = o.ResourceLocationName
+	if o.ResourceLocationName.IsSet() {
+		toSerialize["resourceLocationName"] = o.ResourceLocationName.Get()
 	}
 	toSerialize["type"] = o.Type
-	if !IsNil(o.NetscalerOnPremisesUrl) {
-		toSerialize["netscalerOnPremisesUrl"] = o.NetscalerOnPremisesUrl
+	if o.NetscalerOnPremisesUrl.IsSet() {
+		toSerialize["netscalerOnPremisesUrl"] = o.NetscalerOnPremisesUrl.Get()
 	}
 	return toSerialize, nil
 }

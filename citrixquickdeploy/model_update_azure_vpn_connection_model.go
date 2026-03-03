@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,13 +20,13 @@ var _ MappedNullable = &UpdateAzureVpnConnectionModel{}
 // UpdateAzureVpnConnectionModel struct for UpdateAzureVpnConnectionModel
 type UpdateAzureVpnConnectionModel struct {
 	// Sku type for the virtual network gateway
-	GatewaySku *string `json:"gatewaySku,omitempty"`
+	GatewaySku NullableString `json:"gatewaySku,omitempty"`
 	// IP address of the gateway to connect to
-	GatewayIP *string `json:"gatewayIP,omitempty"`
+	GatewayIP NullableString `json:"gatewayIP,omitempty"`
 	// List of addresses that will be accessible behind the gateway
 	LocalAddresses []ConnectionSubnet `json:"localAddresses,omitempty"`
 	// Pre-shared key that will be used to configure the IPSec tunnel
-	SharedKey *string `json:"sharedKey,omitempty"`
+	SharedKey NullableString `json:"sharedKey,omitempty"`
 	// List of DNS Servers
 	DnsServers []string `json:"dnsServers,omitempty"`
 }
@@ -39,55 +39,77 @@ func NewUpdateAzureVpnConnectionModelWithDefaults() *UpdateAzureVpnConnectionMod
 	return &this
 }
 
-// GetGatewaySku returns the GatewaySku field value if set, zero value otherwise.
+// GetGatewaySku returns the GatewaySku field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateAzureVpnConnectionModel) GetGatewaySku() string {
-	if o == nil || IsNil(o.GatewaySku) {
+	if o == nil || IsNil(o.GatewaySku.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.GatewaySku
+	return *o.GatewaySku.Get()
 }
 
 // GetGatewaySkuOk returns a tuple with the GatewaySku field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateAzureVpnConnectionModel) GetGatewaySkuOk() (*string, bool) {
-	if o == nil || IsNil(o.GatewaySku) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GatewaySku, true
+	return o.GatewaySku.Get(), o.GatewaySku.IsSet()
 }
 
-// SetGatewaySku gets a reference to the given string and assigns it to the GatewaySku field.
+// SetGatewaySku gets a reference to the given NullableString and assigns it to the GatewaySku field.
 func (o *UpdateAzureVpnConnectionModel) SetGatewaySku(v string) {
-	o.GatewaySku = &v
+	o.GatewaySku.Set(&v)
 }
 
-// GetGatewayIP returns the GatewayIP field value if set, zero value otherwise.
+// SetGatewaySkuNil sets the value for GatewaySku to be an explicit nil
+func (o *UpdateAzureVpnConnectionModel) SetGatewaySkuNil() {
+	o.GatewaySku.Set(nil)
+}
+
+// UnsetGatewaySku ensures that no value is present for GatewaySku, not even an explicit nil
+func (o *UpdateAzureVpnConnectionModel) UnsetGatewaySku() {
+	o.GatewaySku.Unset()
+}
+
+// GetGatewayIP returns the GatewayIP field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateAzureVpnConnectionModel) GetGatewayIP() string {
-	if o == nil || IsNil(o.GatewayIP) {
+	if o == nil || IsNil(o.GatewayIP.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.GatewayIP
+	return *o.GatewayIP.Get()
 }
 
 // GetGatewayIPOk returns a tuple with the GatewayIP field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateAzureVpnConnectionModel) GetGatewayIPOk() (*string, bool) {
-	if o == nil || IsNil(o.GatewayIP) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GatewayIP, true
+	return o.GatewayIP.Get(), o.GatewayIP.IsSet()
 }
 
-// SetGatewayIP gets a reference to the given string and assigns it to the GatewayIP field.
+// SetGatewayIP gets a reference to the given NullableString and assigns it to the GatewayIP field.
 func (o *UpdateAzureVpnConnectionModel) SetGatewayIP(v string) {
-	o.GatewayIP = &v
+	o.GatewayIP.Set(&v)
 }
 
-// GetLocalAddresses returns the LocalAddresses field value if set, zero value otherwise.
+// SetGatewayIPNil sets the value for GatewayIP to be an explicit nil
+func (o *UpdateAzureVpnConnectionModel) SetGatewayIPNil() {
+	o.GatewayIP.Set(nil)
+}
+
+// UnsetGatewayIP ensures that no value is present for GatewayIP, not even an explicit nil
+func (o *UpdateAzureVpnConnectionModel) UnsetGatewayIP() {
+	o.GatewayIP.Unset()
+}
+
+// GetLocalAddresses returns the LocalAddresses field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateAzureVpnConnectionModel) GetLocalAddresses() []ConnectionSubnet {
-	if o == nil || IsNil(o.LocalAddresses) {
+	if o == nil {
 		var ret []ConnectionSubnet
 		return ret
 	}
@@ -96,6 +118,7 @@ func (o *UpdateAzureVpnConnectionModel) GetLocalAddresses() []ConnectionSubnet {
 
 // GetLocalAddressesOk returns a tuple with the LocalAddresses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateAzureVpnConnectionModel) GetLocalAddressesOk() ([]ConnectionSubnet, bool) {
 	if o == nil || IsNil(o.LocalAddresses) {
 		return nil, false
@@ -108,32 +131,43 @@ func (o *UpdateAzureVpnConnectionModel) SetLocalAddresses(v []ConnectionSubnet) 
 	o.LocalAddresses = v
 }
 
-// GetSharedKey returns the SharedKey field value if set, zero value otherwise.
+// GetSharedKey returns the SharedKey field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateAzureVpnConnectionModel) GetSharedKey() string {
-	if o == nil || IsNil(o.SharedKey) {
+	if o == nil || IsNil(o.SharedKey.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.SharedKey
+	return *o.SharedKey.Get()
 }
 
 // GetSharedKeyOk returns a tuple with the SharedKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateAzureVpnConnectionModel) GetSharedKeyOk() (*string, bool) {
-	if o == nil || IsNil(o.SharedKey) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SharedKey, true
+	return o.SharedKey.Get(), o.SharedKey.IsSet()
 }
 
-// SetSharedKey gets a reference to the given string and assigns it to the SharedKey field.
+// SetSharedKey gets a reference to the given NullableString and assigns it to the SharedKey field.
 func (o *UpdateAzureVpnConnectionModel) SetSharedKey(v string) {
-	o.SharedKey = &v
+	o.SharedKey.Set(&v)
 }
 
-// GetDnsServers returns the DnsServers field value if set, zero value otherwise.
+// SetSharedKeyNil sets the value for SharedKey to be an explicit nil
+func (o *UpdateAzureVpnConnectionModel) SetSharedKeyNil() {
+	o.SharedKey.Set(nil)
+}
+
+// UnsetSharedKey ensures that no value is present for SharedKey, not even an explicit nil
+func (o *UpdateAzureVpnConnectionModel) UnsetSharedKey() {
+	o.SharedKey.Unset()
+}
+
+// GetDnsServers returns the DnsServers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateAzureVpnConnectionModel) GetDnsServers() []string {
-	if o == nil || IsNil(o.DnsServers) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -142,6 +176,7 @@ func (o *UpdateAzureVpnConnectionModel) GetDnsServers() []string {
 
 // GetDnsServersOk returns a tuple with the DnsServers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateAzureVpnConnectionModel) GetDnsServersOk() ([]string, bool) {
 	if o == nil || IsNil(o.DnsServers) {
 		return nil, false
@@ -164,19 +199,19 @@ func (o UpdateAzureVpnConnectionModel) MarshalJSON() ([]byte, error) {
 
 func (o UpdateAzureVpnConnectionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.GatewaySku) {
-		toSerialize["gatewaySku"] = o.GatewaySku
+	if o.GatewaySku.IsSet() {
+		toSerialize["gatewaySku"] = o.GatewaySku.Get()
 	}
-	if !IsNil(o.GatewayIP) {
-		toSerialize["gatewayIP"] = o.GatewayIP
+	if o.GatewayIP.IsSet() {
+		toSerialize["gatewayIP"] = o.GatewayIP.Get()
 	}
-	if !IsNil(o.LocalAddresses) {
+	if o.LocalAddresses != nil {
 		toSerialize["localAddresses"] = o.LocalAddresses
 	}
-	if !IsNil(o.SharedKey) {
-		toSerialize["sharedKey"] = o.SharedKey
+	if o.SharedKey.IsSet() {
+		toSerialize["sharedKey"] = o.SharedKey.Get()
 	}
-	if !IsNil(o.DnsServers) {
+	if o.DnsServers != nil {
 		toSerialize["dnsServers"] = o.DnsServers
 	}
 	return toSerialize, nil

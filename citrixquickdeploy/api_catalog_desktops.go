@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,89 +20,12 @@ import (
 	"strings"
 )
 
-type CatalogDesktopsCMD interface {
-
-	/*
-		GetCatalogDesktops Get the list of desktops that have been published for the specified catalog
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId ID of the customer
-		@param siteId The site ID of the customer
-		@param catalogId ID of the catalog
-		@return ApiGetCatalogDesktopsRequest
-	*/
-	GetCatalogDesktops(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetCatalogDesktopsRequest
-
-	// GetCatalogDesktopsExecute executes the request
-	//  @return CatalogDesktopsModel
-	GetCatalogDesktopsExecute(r ApiGetCatalogDesktopsRequest) (*CatalogDesktopsModel, *http.Response, error)
-
-	/*
-		PublishDesktops Publish the specified desktops to the catalog
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId ID of the customer
-		@param siteId The site ID of the customer
-		@param catalogId ID of the catalog
-		@return ApiPublishDesktopsRequest
-	*/
-	PublishDesktops(ctx context.Context, customerId string, siteId string, catalogId string) ApiPublishDesktopsRequest
-
-	// PublishDesktopsExecute executes the request
-	//  @return CatalogDesktopsModel
-	PublishDesktopsExecute(r ApiPublishDesktopsRequest) (*CatalogDesktopsModel, *http.Response, error)
-
-	/*
-		UnpublishDesktop Remove a desktop from the published list
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId ID of the customer
-		@param siteId
-		@param catalogId ID of the catalog
-		@param desktopId Identifier of the desktop
-		@return ApiUnpublishDesktopRequest
-	*/
-	UnpublishDesktop(ctx context.Context, customerId string, siteId string, catalogId string, desktopId string) ApiUnpublishDesktopRequest
-
-	// UnpublishDesktopExecute executes the request
-	UnpublishDesktopExecute(r ApiUnpublishDesktopRequest) (*http.Response, error)
-
-	/*
-		UnpublishDesktops Remove a list of desktops from a catalog
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId ID of the customer
-		@param siteId The site ID of the customer
-		@param catalogId ID of the catalog
-		@return ApiUnpublishDesktopsRequest
-	*/
-	UnpublishDesktops(ctx context.Context, customerId string, siteId string, catalogId string) ApiUnpublishDesktopsRequest
-
-	// UnpublishDesktopsExecute executes the request
-	UnpublishDesktopsExecute(r ApiUnpublishDesktopsRequest) (*http.Response, error)
-
-	/*
-		UpdateDesktop Update the configuration of a published desktop
-
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param customerId ID of the customer
-		@param siteId The site ID of the customer
-		@param catalogId ID of the catalog
-		@param desktopId Identifier of the desktop
-		@return ApiUpdateDesktopRequest
-	*/
-	UpdateDesktop(ctx context.Context, customerId string, siteId string, catalogId string, desktopId string) ApiUpdateDesktopRequest
-
-	// UpdateDesktopExecute executes the request
-	UpdateDesktopExecute(r ApiUpdateDesktopRequest) (*http.Response, error)
-}
-
 // CatalogDesktopsCMDService CatalogDesktopsCMD service
 type CatalogDesktopsCMDService service
 
 type ApiGetCatalogDesktopsRequest struct {
 	ctx                 context.Context
-	ApiService          CatalogDesktopsCMD
+	ApiService          *CatalogDesktopsCMDService
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -235,13 +158,13 @@ func (a *CatalogDesktopsCMDService) GetCatalogDesktopsExecute(r ApiGetCatalogDes
 }
 
 type ApiPublishDesktopsRequest struct {
-	ctx                 context.Context
-	ApiService          CatalogDesktopsCMD
-	customerId          string
-	siteId              string
-	catalogId           string
-	citrixTransactionId *string
-	body                *AddCatalogDesktopsModel
+	ctx                     context.Context
+	ApiService              *CatalogDesktopsCMDService
+	customerId              string
+	siteId                  string
+	catalogId               string
+	citrixTransactionId     *string
+	addCatalogDesktopsModel *AddCatalogDesktopsModel
 }
 
 // The Transaction Id.
@@ -251,8 +174,8 @@ func (r ApiPublishDesktopsRequest) CitrixTransactionId(citrixTransactionId strin
 }
 
 // List of desktops to add
-func (r ApiPublishDesktopsRequest) Body(body AddCatalogDesktopsModel) ApiPublishDesktopsRequest {
-	r.body = &body
+func (r ApiPublishDesktopsRequest) AddCatalogDesktopsModel(addCatalogDesktopsModel AddCatalogDesktopsModel) ApiPublishDesktopsRequest {
+	r.addCatalogDesktopsModel = &addCatalogDesktopsModel
 	return r
 }
 
@@ -325,7 +248,7 @@ func (a *CatalogDesktopsCMDService) PublishDesktopsExecute(r ApiPublishDesktopsR
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.addCatalogDesktopsModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -379,7 +302,7 @@ func (a *CatalogDesktopsCMDService) PublishDesktopsExecute(r ApiPublishDesktopsR
 
 type ApiUnpublishDesktopRequest struct {
 	ctx                 context.Context
-	ApiService          CatalogDesktopsCMD
+	ApiService          *CatalogDesktopsCMDService
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -505,7 +428,7 @@ func (a *CatalogDesktopsCMDService) UnpublishDesktopExecute(r ApiUnpublishDeskto
 
 type ApiUnpublishDesktopsRequest struct {
 	ctx                 context.Context
-	ApiService          CatalogDesktopsCMD
+	ApiService          *CatalogDesktopsCMDService
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -644,14 +567,14 @@ func (a *CatalogDesktopsCMDService) UnpublishDesktopsExecute(r ApiUnpublishDeskt
 }
 
 type ApiUpdateDesktopRequest struct {
-	ctx                 context.Context
-	ApiService          CatalogDesktopsCMD
-	customerId          string
-	siteId              string
-	catalogId           string
-	desktopId           string
-	citrixTransactionId *string
-	body                *UpdateDesktopConfigurationModel
+	ctx                             context.Context
+	ApiService                      *CatalogDesktopsCMDService
+	customerId                      string
+	siteId                          string
+	catalogId                       string
+	desktopId                       string
+	citrixTransactionId             *string
+	updateDesktopConfigurationModel *UpdateDesktopConfigurationModel
 }
 
 // The Transaction Id.
@@ -661,8 +584,8 @@ func (r ApiUpdateDesktopRequest) CitrixTransactionId(citrixTransactionId string)
 }
 
 // New configuration of the application
-func (r ApiUpdateDesktopRequest) Body(body UpdateDesktopConfigurationModel) ApiUpdateDesktopRequest {
-	r.body = &body
+func (r ApiUpdateDesktopRequest) UpdateDesktopConfigurationModel(updateDesktopConfigurationModel UpdateDesktopConfigurationModel) ApiUpdateDesktopRequest {
+	r.updateDesktopConfigurationModel = &updateDesktopConfigurationModel
 	return r
 }
 
@@ -735,7 +658,7 @@ func (a *CatalogDesktopsCMDService) UpdateDesktopExecute(r ApiUpdateDesktopReque
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.updateDesktopConfigurationModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

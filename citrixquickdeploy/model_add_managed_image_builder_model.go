@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -24,19 +24,19 @@ type AddManagedImageBuilderModel struct {
 	// ID of the image we will be building off of
 	ImageId string `json:"imageId"`
 	// ID of the managed subscription that the image will be placed in.
-	ManagedSubscriptionId *string `json:"managedSubscriptionId,omitempty"`
+	ManagedSubscriptionId NullableString `json:"managedSubscriptionId,omitempty"`
 	// Indicates if the builder vm will be domain joined
 	IsDomainJoined *bool `json:"isDomainJoined,omitempty"`
 	// Azure region to deploy image builder vm that does not have on-prem connectivity
-	AzureRegion *string `json:"azureRegion,omitempty"`
+	AzureRegion NullableString `json:"azureRegion,omitempty"`
 	// ID of the vnet peering the image builder vm will be associated with
-	VnetPeeringId *string `json:"vnetPeeringId,omitempty"`
+	VnetPeeringId NullableString `json:"vnetPeeringId,omitempty"`
 	// ID of the Azure VPN the image builder will be associated with
-	AzureVpnId *string `json:"azureVpnId,omitempty"`
+	AzureVpnId NullableString `json:"azureVpnId,omitempty"`
 	// Name of the Domain the Image Builder will join
-	DomainName *string `json:"domainName,omitempty" validate:"regexp=^[\\\\p{L}0-9-_.]*$"`
+	DomainName NullableString `json:"domainName,omitempty" validate:"regexp=^[\\\\p{L}0-9-_.]*$"`
 	// The OU to associate the Image Builder VM with
-	OrganizationalUnit *string `json:"organizationalUnit,omitempty"`
+	OrganizationalUnit NullableString `json:"organizationalUnit,omitempty"`
 	// The type of VM Instance type
 	VmType string `json:"vmType"`
 	// The service account used to join the Image Builder VM to the domain or local account that will be created for non-domain joined images
@@ -44,13 +44,13 @@ type AddManagedImageBuilderModel struct {
 	// The service account password
 	ServiceAccountPassword string `json:"serviceAccountPassword"`
 	// Customer notes about template image
-	Notes *string `json:"notes,omitempty"`
+	Notes NullableString `json:"notes,omitempty"`
 	// Ip Addresses allowed to RDP
 	AllowedIPs []string `json:"allowedIPs,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
-	CspCustomerId *string `json:"cspCustomerId,omitempty"`
+	CspCustomerId NullableString `json:"cspCustomerId,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
-	CspSiteId *string `json:"cspSiteId,omitempty"`
+	CspSiteId NullableString `json:"cspSiteId,omitempty"`
 }
 
 // NewAddManagedImageBuilderModelWithDefaults instantiates a new AddManagedImageBuilderModel object
@@ -109,27 +109,38 @@ func (o *AddManagedImageBuilderModel) SetImageId(v string) {
 	o.ImageId = v
 }
 
-// GetManagedSubscriptionId returns the ManagedSubscriptionId field value if set, zero value otherwise.
+// GetManagedSubscriptionId returns the ManagedSubscriptionId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddManagedImageBuilderModel) GetManagedSubscriptionId() string {
-	if o == nil || IsNil(o.ManagedSubscriptionId) {
+	if o == nil || IsNil(o.ManagedSubscriptionId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ManagedSubscriptionId
+	return *o.ManagedSubscriptionId.Get()
 }
 
 // GetManagedSubscriptionIdOk returns a tuple with the ManagedSubscriptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddManagedImageBuilderModel) GetManagedSubscriptionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ManagedSubscriptionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ManagedSubscriptionId, true
+	return o.ManagedSubscriptionId.Get(), o.ManagedSubscriptionId.IsSet()
 }
 
-// SetManagedSubscriptionId gets a reference to the given string and assigns it to the ManagedSubscriptionId field.
+// SetManagedSubscriptionId gets a reference to the given NullableString and assigns it to the ManagedSubscriptionId field.
 func (o *AddManagedImageBuilderModel) SetManagedSubscriptionId(v string) {
-	o.ManagedSubscriptionId = &v
+	o.ManagedSubscriptionId.Set(&v)
+}
+
+// SetManagedSubscriptionIdNil sets the value for ManagedSubscriptionId to be an explicit nil
+func (o *AddManagedImageBuilderModel) SetManagedSubscriptionIdNil() {
+	o.ManagedSubscriptionId.Set(nil)
+}
+
+// UnsetManagedSubscriptionId ensures that no value is present for ManagedSubscriptionId, not even an explicit nil
+func (o *AddManagedImageBuilderModel) UnsetManagedSubscriptionId() {
+	o.ManagedSubscriptionId.Unset()
 }
 
 // GetIsDomainJoined returns the IsDomainJoined field value if set, zero value otherwise.
@@ -155,119 +166,174 @@ func (o *AddManagedImageBuilderModel) SetIsDomainJoined(v bool) {
 	o.IsDomainJoined = &v
 }
 
-// GetAzureRegion returns the AzureRegion field value if set, zero value otherwise.
+// GetAzureRegion returns the AzureRegion field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddManagedImageBuilderModel) GetAzureRegion() string {
-	if o == nil || IsNil(o.AzureRegion) {
+	if o == nil || IsNil(o.AzureRegion.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzureRegion
+	return *o.AzureRegion.Get()
 }
 
 // GetAzureRegionOk returns a tuple with the AzureRegion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddManagedImageBuilderModel) GetAzureRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.AzureRegion) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureRegion, true
+	return o.AzureRegion.Get(), o.AzureRegion.IsSet()
 }
 
-// SetAzureRegion gets a reference to the given string and assigns it to the AzureRegion field.
+// SetAzureRegion gets a reference to the given NullableString and assigns it to the AzureRegion field.
 func (o *AddManagedImageBuilderModel) SetAzureRegion(v string) {
-	o.AzureRegion = &v
+	o.AzureRegion.Set(&v)
 }
 
-// GetVnetPeeringId returns the VnetPeeringId field value if set, zero value otherwise.
+// SetAzureRegionNil sets the value for AzureRegion to be an explicit nil
+func (o *AddManagedImageBuilderModel) SetAzureRegionNil() {
+	o.AzureRegion.Set(nil)
+}
+
+// UnsetAzureRegion ensures that no value is present for AzureRegion, not even an explicit nil
+func (o *AddManagedImageBuilderModel) UnsetAzureRegion() {
+	o.AzureRegion.Unset()
+}
+
+// GetVnetPeeringId returns the VnetPeeringId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddManagedImageBuilderModel) GetVnetPeeringId() string {
-	if o == nil || IsNil(o.VnetPeeringId) {
+	if o == nil || IsNil(o.VnetPeeringId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VnetPeeringId
+	return *o.VnetPeeringId.Get()
 }
 
 // GetVnetPeeringIdOk returns a tuple with the VnetPeeringId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddManagedImageBuilderModel) GetVnetPeeringIdOk() (*string, bool) {
-	if o == nil || IsNil(o.VnetPeeringId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VnetPeeringId, true
+	return o.VnetPeeringId.Get(), o.VnetPeeringId.IsSet()
 }
 
-// SetVnetPeeringId gets a reference to the given string and assigns it to the VnetPeeringId field.
+// SetVnetPeeringId gets a reference to the given NullableString and assigns it to the VnetPeeringId field.
 func (o *AddManagedImageBuilderModel) SetVnetPeeringId(v string) {
-	o.VnetPeeringId = &v
+	o.VnetPeeringId.Set(&v)
 }
 
-// GetAzureVpnId returns the AzureVpnId field value if set, zero value otherwise.
+// SetVnetPeeringIdNil sets the value for VnetPeeringId to be an explicit nil
+func (o *AddManagedImageBuilderModel) SetVnetPeeringIdNil() {
+	o.VnetPeeringId.Set(nil)
+}
+
+// UnsetVnetPeeringId ensures that no value is present for VnetPeeringId, not even an explicit nil
+func (o *AddManagedImageBuilderModel) UnsetVnetPeeringId() {
+	o.VnetPeeringId.Unset()
+}
+
+// GetAzureVpnId returns the AzureVpnId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddManagedImageBuilderModel) GetAzureVpnId() string {
-	if o == nil || IsNil(o.AzureVpnId) {
+	if o == nil || IsNil(o.AzureVpnId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzureVpnId
+	return *o.AzureVpnId.Get()
 }
 
 // GetAzureVpnIdOk returns a tuple with the AzureVpnId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddManagedImageBuilderModel) GetAzureVpnIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AzureVpnId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureVpnId, true
+	return o.AzureVpnId.Get(), o.AzureVpnId.IsSet()
 }
 
-// SetAzureVpnId gets a reference to the given string and assigns it to the AzureVpnId field.
+// SetAzureVpnId gets a reference to the given NullableString and assigns it to the AzureVpnId field.
 func (o *AddManagedImageBuilderModel) SetAzureVpnId(v string) {
-	o.AzureVpnId = &v
+	o.AzureVpnId.Set(&v)
 }
 
-// GetDomainName returns the DomainName field value if set, zero value otherwise.
+// SetAzureVpnIdNil sets the value for AzureVpnId to be an explicit nil
+func (o *AddManagedImageBuilderModel) SetAzureVpnIdNil() {
+	o.AzureVpnId.Set(nil)
+}
+
+// UnsetAzureVpnId ensures that no value is present for AzureVpnId, not even an explicit nil
+func (o *AddManagedImageBuilderModel) UnsetAzureVpnId() {
+	o.AzureVpnId.Unset()
+}
+
+// GetDomainName returns the DomainName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddManagedImageBuilderModel) GetDomainName() string {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil || IsNil(o.DomainName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DomainName
+	return *o.DomainName.Get()
 }
 
 // GetDomainNameOk returns a tuple with the DomainName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddManagedImageBuilderModel) GetDomainNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainName, true
+	return o.DomainName.Get(), o.DomainName.IsSet()
 }
 
-// SetDomainName gets a reference to the given string and assigns it to the DomainName field.
+// SetDomainName gets a reference to the given NullableString and assigns it to the DomainName field.
 func (o *AddManagedImageBuilderModel) SetDomainName(v string) {
-	o.DomainName = &v
+	o.DomainName.Set(&v)
 }
 
-// GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise.
+// SetDomainNameNil sets the value for DomainName to be an explicit nil
+func (o *AddManagedImageBuilderModel) SetDomainNameNil() {
+	o.DomainName.Set(nil)
+}
+
+// UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
+func (o *AddManagedImageBuilderModel) UnsetDomainName() {
+	o.DomainName.Unset()
+}
+
+// GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddManagedImageBuilderModel) GetOrganizationalUnit() string {
-	if o == nil || IsNil(o.OrganizationalUnit) {
+	if o == nil || IsNil(o.OrganizationalUnit.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OrganizationalUnit
+	return *o.OrganizationalUnit.Get()
 }
 
 // GetOrganizationalUnitOk returns a tuple with the OrganizationalUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddManagedImageBuilderModel) GetOrganizationalUnitOk() (*string, bool) {
-	if o == nil || IsNil(o.OrganizationalUnit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrganizationalUnit, true
+	return o.OrganizationalUnit.Get(), o.OrganizationalUnit.IsSet()
 }
 
-// SetOrganizationalUnit gets a reference to the given string and assigns it to the OrganizationalUnit field.
+// SetOrganizationalUnit gets a reference to the given NullableString and assigns it to the OrganizationalUnit field.
 func (o *AddManagedImageBuilderModel) SetOrganizationalUnit(v string) {
-	o.OrganizationalUnit = &v
+	o.OrganizationalUnit.Set(&v)
+}
+
+// SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
+func (o *AddManagedImageBuilderModel) SetOrganizationalUnitNil() {
+	o.OrganizationalUnit.Set(nil)
+}
+
+// UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
+func (o *AddManagedImageBuilderModel) UnsetOrganizationalUnit() {
+	o.OrganizationalUnit.Unset()
 }
 
 // GetVmType returns the VmType field value
@@ -342,32 +408,43 @@ func (o *AddManagedImageBuilderModel) SetServiceAccountPassword(v string) {
 	o.ServiceAccountPassword = v
 }
 
-// GetNotes returns the Notes field value if set, zero value otherwise.
+// GetNotes returns the Notes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddManagedImageBuilderModel) GetNotes() string {
-	if o == nil || IsNil(o.Notes) {
+	if o == nil || IsNil(o.Notes.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Notes
+	return *o.Notes.Get()
 }
 
 // GetNotesOk returns a tuple with the Notes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddManagedImageBuilderModel) GetNotesOk() (*string, bool) {
-	if o == nil || IsNil(o.Notes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Notes, true
+	return o.Notes.Get(), o.Notes.IsSet()
 }
 
-// SetNotes gets a reference to the given string and assigns it to the Notes field.
+// SetNotes gets a reference to the given NullableString and assigns it to the Notes field.
 func (o *AddManagedImageBuilderModel) SetNotes(v string) {
-	o.Notes = &v
+	o.Notes.Set(&v)
 }
 
-// GetAllowedIPs returns the AllowedIPs field value if set, zero value otherwise.
+// SetNotesNil sets the value for Notes to be an explicit nil
+func (o *AddManagedImageBuilderModel) SetNotesNil() {
+	o.Notes.Set(nil)
+}
+
+// UnsetNotes ensures that no value is present for Notes, not even an explicit nil
+func (o *AddManagedImageBuilderModel) UnsetNotes() {
+	o.Notes.Unset()
+}
+
+// GetAllowedIPs returns the AllowedIPs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddManagedImageBuilderModel) GetAllowedIPs() []string {
-	if o == nil || IsNil(o.AllowedIPs) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -376,6 +453,7 @@ func (o *AddManagedImageBuilderModel) GetAllowedIPs() []string {
 
 // GetAllowedIPsOk returns a tuple with the AllowedIPs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddManagedImageBuilderModel) GetAllowedIPsOk() ([]string, bool) {
 	if o == nil || IsNil(o.AllowedIPs) {
 		return nil, false
@@ -388,50 +466,72 @@ func (o *AddManagedImageBuilderModel) SetAllowedIPs(v []string) {
 	o.AllowedIPs = v
 }
 
-// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise.
+// GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddManagedImageBuilderModel) GetCspCustomerId() string {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil || IsNil(o.CspCustomerId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomerId
+	return *o.CspCustomerId.Get()
 }
 
 // GetCspCustomerIdOk returns a tuple with the CspCustomerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddManagedImageBuilderModel) GetCspCustomerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomerId, true
+	return o.CspCustomerId.Get(), o.CspCustomerId.IsSet()
 }
 
-// SetCspCustomerId gets a reference to the given string and assigns it to the CspCustomerId field.
+// SetCspCustomerId gets a reference to the given NullableString and assigns it to the CspCustomerId field.
 func (o *AddManagedImageBuilderModel) SetCspCustomerId(v string) {
-	o.CspCustomerId = &v
+	o.CspCustomerId.Set(&v)
 }
 
-// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise.
+// SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+func (o *AddManagedImageBuilderModel) SetCspCustomerIdNil() {
+	o.CspCustomerId.Set(nil)
+}
+
+// UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
+func (o *AddManagedImageBuilderModel) UnsetCspCustomerId() {
+	o.CspCustomerId.Unset()
+}
+
+// GetCspSiteId returns the CspSiteId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddManagedImageBuilderModel) GetCspSiteId() string {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil || IsNil(o.CspSiteId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspSiteId
+	return *o.CspSiteId.Get()
 }
 
 // GetCspSiteIdOk returns a tuple with the CspSiteId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddManagedImageBuilderModel) GetCspSiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CspSiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspSiteId, true
+	return o.CspSiteId.Get(), o.CspSiteId.IsSet()
 }
 
-// SetCspSiteId gets a reference to the given string and assigns it to the CspSiteId field.
+// SetCspSiteId gets a reference to the given NullableString and assigns it to the CspSiteId field.
 func (o *AddManagedImageBuilderModel) SetCspSiteId(v string) {
-	o.CspSiteId = &v
+	o.CspSiteId.Set(&v)
+}
+
+// SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+func (o *AddManagedImageBuilderModel) SetCspSiteIdNil() {
+	o.CspSiteId.Set(nil)
+}
+
+// UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
+func (o *AddManagedImageBuilderModel) UnsetCspSiteId() {
+	o.CspSiteId.Unset()
 }
 
 func (o AddManagedImageBuilderModel) MarshalJSON() ([]byte, error) {
@@ -446,41 +546,41 @@ func (o AddManagedImageBuilderModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
 	toSerialize["imageId"] = o.ImageId
-	if !IsNil(o.ManagedSubscriptionId) {
-		toSerialize["managedSubscriptionId"] = o.ManagedSubscriptionId
+	if o.ManagedSubscriptionId.IsSet() {
+		toSerialize["managedSubscriptionId"] = o.ManagedSubscriptionId.Get()
 	}
 	if !IsNil(o.IsDomainJoined) {
 		toSerialize["isDomainJoined"] = o.IsDomainJoined
 	}
-	if !IsNil(o.AzureRegion) {
-		toSerialize["azureRegion"] = o.AzureRegion
+	if o.AzureRegion.IsSet() {
+		toSerialize["azureRegion"] = o.AzureRegion.Get()
 	}
-	if !IsNil(o.VnetPeeringId) {
-		toSerialize["vnetPeeringId"] = o.VnetPeeringId
+	if o.VnetPeeringId.IsSet() {
+		toSerialize["vnetPeeringId"] = o.VnetPeeringId.Get()
 	}
-	if !IsNil(o.AzureVpnId) {
-		toSerialize["azureVpnId"] = o.AzureVpnId
+	if o.AzureVpnId.IsSet() {
+		toSerialize["azureVpnId"] = o.AzureVpnId.Get()
 	}
-	if !IsNil(o.DomainName) {
-		toSerialize["domainName"] = o.DomainName
+	if o.DomainName.IsSet() {
+		toSerialize["domainName"] = o.DomainName.Get()
 	}
-	if !IsNil(o.OrganizationalUnit) {
-		toSerialize["organizationalUnit"] = o.OrganizationalUnit
+	if o.OrganizationalUnit.IsSet() {
+		toSerialize["organizationalUnit"] = o.OrganizationalUnit.Get()
 	}
 	toSerialize["vmType"] = o.VmType
 	toSerialize["serviceAccountName"] = o.ServiceAccountName
 	toSerialize["serviceAccountPassword"] = o.ServiceAccountPassword
-	if !IsNil(o.Notes) {
-		toSerialize["notes"] = o.Notes
+	if o.Notes.IsSet() {
+		toSerialize["notes"] = o.Notes.Get()
 	}
-	if !IsNil(o.AllowedIPs) {
+	if o.AllowedIPs != nil {
 		toSerialize["allowedIPs"] = o.AllowedIPs
 	}
-	if !IsNil(o.CspCustomerId) {
-		toSerialize["cspCustomerId"] = o.CspCustomerId
+	if o.CspCustomerId.IsSet() {
+		toSerialize["cspCustomerId"] = o.CspCustomerId.Get()
 	}
-	if !IsNil(o.CspSiteId) {
-		toSerialize["cspSiteId"] = o.CspSiteId
+	if o.CspSiteId.IsSet() {
+		toSerialize["cspSiteId"] = o.CspSiteId.Get()
 	}
 	return toSerialize, nil
 }

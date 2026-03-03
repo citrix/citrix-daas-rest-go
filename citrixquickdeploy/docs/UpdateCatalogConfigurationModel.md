@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AreUsersConfigured** | Pointer to **bool** | Flag that indicates whether user has been assigned to the catalog | [optional] 
-**AreAppsConfigured** | Pointer to **bool** | Indicates if apps or desktops have been configured for the catalog | [optional] 
-**Region** | Pointer to **string** | Region where the catalog is being deployed | [optional] 
+**AreUsersConfigured** | Pointer to **NullableBool** | Flag that indicates whether user has been assigned to the catalog | [optional] 
+**AreAppsConfigured** | Pointer to **NullableBool** | Indicates if apps or desktops have been configured for the catalog | [optional] 
+**Region** | Pointer to **NullableString** | Region where the catalog is being deployed | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetAreUsersConfigured sets AreUsersConfigured field to given value.
 
 HasAreUsersConfigured returns a boolean if a field has been set.
 
+### SetAreUsersConfiguredNil
+
+`func (o *UpdateCatalogConfigurationModel) SetAreUsersConfiguredNil(b bool)`
+
+ SetAreUsersConfiguredNil sets the value for AreUsersConfigured to be an explicit nil
+
+### UnsetAreUsersConfigured
+`func (o *UpdateCatalogConfigurationModel) UnsetAreUsersConfigured()`
+
+UnsetAreUsersConfigured ensures that no value is present for AreUsersConfigured, not even an explicit nil
 ### GetAreAppsConfigured
 
 `func (o *UpdateCatalogConfigurationModel) GetAreAppsConfigured() bool`
@@ -77,6 +87,16 @@ SetAreAppsConfigured sets AreAppsConfigured field to given value.
 
 HasAreAppsConfigured returns a boolean if a field has been set.
 
+### SetAreAppsConfiguredNil
+
+`func (o *UpdateCatalogConfigurationModel) SetAreAppsConfiguredNil(b bool)`
+
+ SetAreAppsConfiguredNil sets the value for AreAppsConfigured to be an explicit nil
+
+### UnsetAreAppsConfigured
+`func (o *UpdateCatalogConfigurationModel) UnsetAreAppsConfigured()`
+
+UnsetAreAppsConfigured ensures that no value is present for AreAppsConfigured, not even an explicit nil
 ### GetRegion
 
 `func (o *UpdateCatalogConfigurationModel) GetRegion() string`
@@ -102,6 +122,16 @@ SetRegion sets Region field to given value.
 
 HasRegion returns a boolean if a field has been set.
 
+### SetRegionNil
+
+`func (o *UpdateCatalogConfigurationModel) SetRegionNil(b bool)`
+
+ SetRegionNil sets the value for Region to be an explicit nil
+
+### UnsetRegion
+`func (o *UpdateCatalogConfigurationModel) UnsetRegion()`
+
+UnsetRegion ensures that no value is present for Region, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

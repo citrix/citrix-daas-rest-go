@@ -4,31 +4,31 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**State** | Pointer to [**AzureVpnConnectionState**](AzureVpnConnectionState.md) | State of the vpn connection | [optional] 
-**CspCustomer** | Pointer to **string** | Tenant customer the connection is associated with | [optional] 
-**Region** | Pointer to **string** | Name of the azure region where the connection will be created | [optional] 
-**VdaSubnet** | Pointer to [**ConnectionSubnet**](ConnectionSubnet.md) | Details of the vda subnet | [optional] 
-**GatewaySubnet** | Pointer to [**ConnectionSubnet**](ConnectionSubnet.md) | Details of the subnet the gateway uses to communicate | [optional] 
-**LocalGatewayIP** | Pointer to **string** | IP address of the on-prem gateway | [optional] 
+**State** | Pointer to [**NullableAzureVpnConnectionState**](AzureVpnConnectionState.md) | State of the vpn connection | [optional] 
+**CspCustomer** | Pointer to **NullableString** | Tenant customer the connection is associated with | [optional] 
+**Region** | Pointer to **NullableString** | Name of the azure region where the connection will be created | [optional] 
+**VdaSubnet** | Pointer to [**NullableConnectionSubnet**](ConnectionSubnet.md) | Details of the vda subnet | [optional] 
+**GatewaySubnet** | Pointer to [**NullableConnectionSubnet**](ConnectionSubnet.md) | Details of the subnet the gateway uses to communicate | [optional] 
+**LocalGatewayIP** | Pointer to **NullableString** | IP address of the on-prem gateway | [optional] 
 **DnsServers** | Pointer to **[]string** | List of DNS Servers | [optional] 
 **LocalAddresses** | Pointer to [**[]ConnectionSubnet**](ConnectionSubnet.md) | List of addresses that will be accessible behind the gateway | [optional] 
-**ConnectionStatus** | Pointer to **string** | Status of the VPN connection | [optional] 
+**ConnectionStatus** | Pointer to **NullableString** | Status of the VPN connection | [optional] 
 **GatewayIps** | Pointer to **[]string** | IP address of the gateway for this connection | [optional] 
-**NumberAddressesInUse** | Pointer to **int32** | Number of addresses in use on the VDA subnet | [optional] 
-**SubscriptionId** | Pointer to **string** | ID of the Managed Subscription the Connection is associated with. | [optional] 
-**SharedKey** | Pointer to **string** | The pre shared key that was used for the connection (obfuscated) | [optional] 
-**GatewaySku** | Pointer to **string** | The SKU type of the gateway | [optional] 
+**NumberAddressesInUse** | Pointer to **NullableInt32** | Number of addresses in use on the VDA subnet | [optional] 
+**SubscriptionId** | Pointer to **NullableString** | ID of the Managed Subscription the Connection is associated with. | [optional] 
+**SharedKey** | Pointer to **NullableString** | The pre shared key that was used for the connection (obfuscated) | [optional] 
+**GatewaySku** | Pointer to **NullableString** | The SKU type of the gateway | [optional] 
 **ActiveActive** | Pointer to **bool** | Specifies if connection is active-standby or active-active | [optional] 
-**TransactionId** | Pointer to **string** | The transaction ID associated with the vpn connection | [optional] 
-**Error** | Pointer to **string** | Error that occurred while creating vpn connection | [optional] 
+**TransactionId** | Pointer to **NullableString** | The transaction ID associated with the vpn connection | [optional] 
+**Error** | Pointer to **NullableString** | Error that occurred while creating vpn connection | [optional] 
 **Catalogs** | Pointer to **[]string** | List of associated catalogs | [optional] 
 **Images** | Pointer to **[]string** | List of associated images | [optional] 
 **Bastions** | Pointer to **[]string** | List of associated bastions | [optional] 
-**Id** | Pointer to **string** | ID of the connection | [optional] 
+**Id** | Pointer to **NullableString** | ID of the connection | [optional] 
 **Type** | Pointer to [**OnPremConnectionType**](OnPremConnectionType.md) | The type of connection | [optional] 
-**Name** | Pointer to **string** | Name of the connection | [optional] 
-**StartedAt** | Pointer to **time.Time** | The datetime when the job started | [optional] 
-**EstimatedTimeInMinute** | Pointer to **int32** | Estimated total time for the job to finish | [optional] 
+**Name** | Pointer to **NullableString** | Name of the connection | [optional] 
+**StartedAt** | Pointer to **NullableTime** | The datetime when the job started | [optional] 
+**EstimatedTimeInMinute** | Pointer to **NullableInt32** | Estimated total time for the job to finish | [optional] 
 
 ## Methods
 
@@ -74,6 +74,16 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
+### SetStateNil
+
+`func (o *AzureVpnConnectionModel) SetStateNil(b bool)`
+
+ SetStateNil sets the value for State to be an explicit nil
+
+### UnsetState
+`func (o *AzureVpnConnectionModel) UnsetState()`
+
+UnsetState ensures that no value is present for State, not even an explicit nil
 ### GetCspCustomer
 
 `func (o *AzureVpnConnectionModel) GetCspCustomer() string`
@@ -99,6 +109,16 @@ SetCspCustomer sets CspCustomer field to given value.
 
 HasCspCustomer returns a boolean if a field has been set.
 
+### SetCspCustomerNil
+
+`func (o *AzureVpnConnectionModel) SetCspCustomerNil(b bool)`
+
+ SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+
+### UnsetCspCustomer
+`func (o *AzureVpnConnectionModel) UnsetCspCustomer()`
+
+UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
 ### GetRegion
 
 `func (o *AzureVpnConnectionModel) GetRegion() string`
@@ -124,6 +144,16 @@ SetRegion sets Region field to given value.
 
 HasRegion returns a boolean if a field has been set.
 
+### SetRegionNil
+
+`func (o *AzureVpnConnectionModel) SetRegionNil(b bool)`
+
+ SetRegionNil sets the value for Region to be an explicit nil
+
+### UnsetRegion
+`func (o *AzureVpnConnectionModel) UnsetRegion()`
+
+UnsetRegion ensures that no value is present for Region, not even an explicit nil
 ### GetVdaSubnet
 
 `func (o *AzureVpnConnectionModel) GetVdaSubnet() ConnectionSubnet`
@@ -149,6 +179,16 @@ SetVdaSubnet sets VdaSubnet field to given value.
 
 HasVdaSubnet returns a boolean if a field has been set.
 
+### SetVdaSubnetNil
+
+`func (o *AzureVpnConnectionModel) SetVdaSubnetNil(b bool)`
+
+ SetVdaSubnetNil sets the value for VdaSubnet to be an explicit nil
+
+### UnsetVdaSubnet
+`func (o *AzureVpnConnectionModel) UnsetVdaSubnet()`
+
+UnsetVdaSubnet ensures that no value is present for VdaSubnet, not even an explicit nil
 ### GetGatewaySubnet
 
 `func (o *AzureVpnConnectionModel) GetGatewaySubnet() ConnectionSubnet`
@@ -174,6 +214,16 @@ SetGatewaySubnet sets GatewaySubnet field to given value.
 
 HasGatewaySubnet returns a boolean if a field has been set.
 
+### SetGatewaySubnetNil
+
+`func (o *AzureVpnConnectionModel) SetGatewaySubnetNil(b bool)`
+
+ SetGatewaySubnetNil sets the value for GatewaySubnet to be an explicit nil
+
+### UnsetGatewaySubnet
+`func (o *AzureVpnConnectionModel) UnsetGatewaySubnet()`
+
+UnsetGatewaySubnet ensures that no value is present for GatewaySubnet, not even an explicit nil
 ### GetLocalGatewayIP
 
 `func (o *AzureVpnConnectionModel) GetLocalGatewayIP() string`
@@ -199,6 +249,16 @@ SetLocalGatewayIP sets LocalGatewayIP field to given value.
 
 HasLocalGatewayIP returns a boolean if a field has been set.
 
+### SetLocalGatewayIPNil
+
+`func (o *AzureVpnConnectionModel) SetLocalGatewayIPNil(b bool)`
+
+ SetLocalGatewayIPNil sets the value for LocalGatewayIP to be an explicit nil
+
+### UnsetLocalGatewayIP
+`func (o *AzureVpnConnectionModel) UnsetLocalGatewayIP()`
+
+UnsetLocalGatewayIP ensures that no value is present for LocalGatewayIP, not even an explicit nil
 ### GetDnsServers
 
 `func (o *AzureVpnConnectionModel) GetDnsServers() []string`
@@ -224,6 +284,16 @@ SetDnsServers sets DnsServers field to given value.
 
 HasDnsServers returns a boolean if a field has been set.
 
+### SetDnsServersNil
+
+`func (o *AzureVpnConnectionModel) SetDnsServersNil(b bool)`
+
+ SetDnsServersNil sets the value for DnsServers to be an explicit nil
+
+### UnsetDnsServers
+`func (o *AzureVpnConnectionModel) UnsetDnsServers()`
+
+UnsetDnsServers ensures that no value is present for DnsServers, not even an explicit nil
 ### GetLocalAddresses
 
 `func (o *AzureVpnConnectionModel) GetLocalAddresses() []ConnectionSubnet`
@@ -249,6 +319,16 @@ SetLocalAddresses sets LocalAddresses field to given value.
 
 HasLocalAddresses returns a boolean if a field has been set.
 
+### SetLocalAddressesNil
+
+`func (o *AzureVpnConnectionModel) SetLocalAddressesNil(b bool)`
+
+ SetLocalAddressesNil sets the value for LocalAddresses to be an explicit nil
+
+### UnsetLocalAddresses
+`func (o *AzureVpnConnectionModel) UnsetLocalAddresses()`
+
+UnsetLocalAddresses ensures that no value is present for LocalAddresses, not even an explicit nil
 ### GetConnectionStatus
 
 `func (o *AzureVpnConnectionModel) GetConnectionStatus() string`
@@ -274,6 +354,16 @@ SetConnectionStatus sets ConnectionStatus field to given value.
 
 HasConnectionStatus returns a boolean if a field has been set.
 
+### SetConnectionStatusNil
+
+`func (o *AzureVpnConnectionModel) SetConnectionStatusNil(b bool)`
+
+ SetConnectionStatusNil sets the value for ConnectionStatus to be an explicit nil
+
+### UnsetConnectionStatus
+`func (o *AzureVpnConnectionModel) UnsetConnectionStatus()`
+
+UnsetConnectionStatus ensures that no value is present for ConnectionStatus, not even an explicit nil
 ### GetGatewayIps
 
 `func (o *AzureVpnConnectionModel) GetGatewayIps() []string`
@@ -299,6 +389,16 @@ SetGatewayIps sets GatewayIps field to given value.
 
 HasGatewayIps returns a boolean if a field has been set.
 
+### SetGatewayIpsNil
+
+`func (o *AzureVpnConnectionModel) SetGatewayIpsNil(b bool)`
+
+ SetGatewayIpsNil sets the value for GatewayIps to be an explicit nil
+
+### UnsetGatewayIps
+`func (o *AzureVpnConnectionModel) UnsetGatewayIps()`
+
+UnsetGatewayIps ensures that no value is present for GatewayIps, not even an explicit nil
 ### GetNumberAddressesInUse
 
 `func (o *AzureVpnConnectionModel) GetNumberAddressesInUse() int32`
@@ -324,6 +424,16 @@ SetNumberAddressesInUse sets NumberAddressesInUse field to given value.
 
 HasNumberAddressesInUse returns a boolean if a field has been set.
 
+### SetNumberAddressesInUseNil
+
+`func (o *AzureVpnConnectionModel) SetNumberAddressesInUseNil(b bool)`
+
+ SetNumberAddressesInUseNil sets the value for NumberAddressesInUse to be an explicit nil
+
+### UnsetNumberAddressesInUse
+`func (o *AzureVpnConnectionModel) UnsetNumberAddressesInUse()`
+
+UnsetNumberAddressesInUse ensures that no value is present for NumberAddressesInUse, not even an explicit nil
 ### GetSubscriptionId
 
 `func (o *AzureVpnConnectionModel) GetSubscriptionId() string`
@@ -349,6 +459,16 @@ SetSubscriptionId sets SubscriptionId field to given value.
 
 HasSubscriptionId returns a boolean if a field has been set.
 
+### SetSubscriptionIdNil
+
+`func (o *AzureVpnConnectionModel) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *AzureVpnConnectionModel) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
 ### GetSharedKey
 
 `func (o *AzureVpnConnectionModel) GetSharedKey() string`
@@ -374,6 +494,16 @@ SetSharedKey sets SharedKey field to given value.
 
 HasSharedKey returns a boolean if a field has been set.
 
+### SetSharedKeyNil
+
+`func (o *AzureVpnConnectionModel) SetSharedKeyNil(b bool)`
+
+ SetSharedKeyNil sets the value for SharedKey to be an explicit nil
+
+### UnsetSharedKey
+`func (o *AzureVpnConnectionModel) UnsetSharedKey()`
+
+UnsetSharedKey ensures that no value is present for SharedKey, not even an explicit nil
 ### GetGatewaySku
 
 `func (o *AzureVpnConnectionModel) GetGatewaySku() string`
@@ -399,6 +529,16 @@ SetGatewaySku sets GatewaySku field to given value.
 
 HasGatewaySku returns a boolean if a field has been set.
 
+### SetGatewaySkuNil
+
+`func (o *AzureVpnConnectionModel) SetGatewaySkuNil(b bool)`
+
+ SetGatewaySkuNil sets the value for GatewaySku to be an explicit nil
+
+### UnsetGatewaySku
+`func (o *AzureVpnConnectionModel) UnsetGatewaySku()`
+
+UnsetGatewaySku ensures that no value is present for GatewaySku, not even an explicit nil
 ### GetActiveActive
 
 `func (o *AzureVpnConnectionModel) GetActiveActive() bool`
@@ -449,6 +589,16 @@ SetTransactionId sets TransactionId field to given value.
 
 HasTransactionId returns a boolean if a field has been set.
 
+### SetTransactionIdNil
+
+`func (o *AzureVpnConnectionModel) SetTransactionIdNil(b bool)`
+
+ SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+
+### UnsetTransactionId
+`func (o *AzureVpnConnectionModel) UnsetTransactionId()`
+
+UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
 ### GetError
 
 `func (o *AzureVpnConnectionModel) GetError() string`
@@ -474,6 +624,16 @@ SetError sets Error field to given value.
 
 HasError returns a boolean if a field has been set.
 
+### SetErrorNil
+
+`func (o *AzureVpnConnectionModel) SetErrorNil(b bool)`
+
+ SetErrorNil sets the value for Error to be an explicit nil
+
+### UnsetError
+`func (o *AzureVpnConnectionModel) UnsetError()`
+
+UnsetError ensures that no value is present for Error, not even an explicit nil
 ### GetCatalogs
 
 `func (o *AzureVpnConnectionModel) GetCatalogs() []string`
@@ -499,6 +659,16 @@ SetCatalogs sets Catalogs field to given value.
 
 HasCatalogs returns a boolean if a field has been set.
 
+### SetCatalogsNil
+
+`func (o *AzureVpnConnectionModel) SetCatalogsNil(b bool)`
+
+ SetCatalogsNil sets the value for Catalogs to be an explicit nil
+
+### UnsetCatalogs
+`func (o *AzureVpnConnectionModel) UnsetCatalogs()`
+
+UnsetCatalogs ensures that no value is present for Catalogs, not even an explicit nil
 ### GetImages
 
 `func (o *AzureVpnConnectionModel) GetImages() []string`
@@ -524,6 +694,16 @@ SetImages sets Images field to given value.
 
 HasImages returns a boolean if a field has been set.
 
+### SetImagesNil
+
+`func (o *AzureVpnConnectionModel) SetImagesNil(b bool)`
+
+ SetImagesNil sets the value for Images to be an explicit nil
+
+### UnsetImages
+`func (o *AzureVpnConnectionModel) UnsetImages()`
+
+UnsetImages ensures that no value is present for Images, not even an explicit nil
 ### GetBastions
 
 `func (o *AzureVpnConnectionModel) GetBastions() []string`
@@ -549,6 +729,16 @@ SetBastions sets Bastions field to given value.
 
 HasBastions returns a boolean if a field has been set.
 
+### SetBastionsNil
+
+`func (o *AzureVpnConnectionModel) SetBastionsNil(b bool)`
+
+ SetBastionsNil sets the value for Bastions to be an explicit nil
+
+### UnsetBastions
+`func (o *AzureVpnConnectionModel) UnsetBastions()`
+
+UnsetBastions ensures that no value is present for Bastions, not even an explicit nil
 ### GetId
 
 `func (o *AzureVpnConnectionModel) GetId() string`
@@ -574,6 +764,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *AzureVpnConnectionModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *AzureVpnConnectionModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetType
 
 `func (o *AzureVpnConnectionModel) GetType() OnPremConnectionType`
@@ -624,6 +824,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *AzureVpnConnectionModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *AzureVpnConnectionModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetStartedAt
 
 `func (o *AzureVpnConnectionModel) GetStartedAt() time.Time`
@@ -649,6 +859,16 @@ SetStartedAt sets StartedAt field to given value.
 
 HasStartedAt returns a boolean if a field has been set.
 
+### SetStartedAtNil
+
+`func (o *AzureVpnConnectionModel) SetStartedAtNil(b bool)`
+
+ SetStartedAtNil sets the value for StartedAt to be an explicit nil
+
+### UnsetStartedAt
+`func (o *AzureVpnConnectionModel) UnsetStartedAt()`
+
+UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
 ### GetEstimatedTimeInMinute
 
 `func (o *AzureVpnConnectionModel) GetEstimatedTimeInMinute() int32`
@@ -674,6 +894,16 @@ SetEstimatedTimeInMinute sets EstimatedTimeInMinute field to given value.
 
 HasEstimatedTimeInMinute returns a boolean if a field has been set.
 
+### SetEstimatedTimeInMinuteNil
+
+`func (o *AzureVpnConnectionModel) SetEstimatedTimeInMinuteNil(b bool)`
+
+ SetEstimatedTimeInMinuteNil sets the value for EstimatedTimeInMinute to be an explicit nil
+
+### UnsetEstimatedTimeInMinute
+`func (o *AzureVpnConnectionModel) UnsetEstimatedTimeInMinute()`
+
+UnsetEstimatedTimeInMinute ensures that no value is present for EstimatedTimeInMinute, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,18 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of the image | 
 **VhdUri** | **string** | URI of the VHD file that will be imported | 
-**VhdEncryptionUri** | Pointer to **string** | URI of the VHD guest disk file that will be imported | [optional] 
-**Notes** | Pointer to **string** | Customer notes about template image | [optional] 
-**OsPlatform** | Pointer to [**SupportedOperatingSystemType**](SupportedOperatingSystemType.md) | Type of operating system that will be imported | [optional] 
-**CspCustomerId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
-**CspSiteId** | Pointer to **string** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
-**AzureSubscriptionId** | Pointer to **string** | The Id of the azure subscription where the image will be stored | [optional] 
-**Region** | Pointer to **string** | The region where the storage account will be created for the image to be imported. | [optional] 
-**HyperVGen** | Pointer to **string** | The HyperVGeneration that should be set to either V1 or V2 | [optional] 
+**VhdEncryptionUri** | Pointer to **NullableString** | URI of the VHD guest disk file that will be imported | [optional] 
+**Notes** | Pointer to **NullableString** | Customer notes about template image | [optional] 
+**OsPlatform** | Pointer to [**NullableSupportedOperatingSystemType**](SupportedOperatingSystemType.md) | Type of operating system that will be imported | [optional] 
+**CspCustomerId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**CspSiteId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
+**AzureSubscriptionId** | Pointer to **NullableString** | The Id of the azure subscription where the image will be stored | [optional] 
+**Region** | Pointer to **NullableString** | The region where the storage account will be created for the image to be imported. | [optional] 
+**HyperVGen** | Pointer to **NullableString** | The HyperVGeneration that should be set to either V1 or V2 | [optional] 
 **VtpmEnabled** | Pointer to **bool** | The HyperVGeneration V2 supports vTPM TrustedLaunch | [optional] 
 **SecureBootEnabled** | Pointer to **bool** | The Secure boot support enabled | [optional] 
 **CmekEnabled** | Pointer to **bool** | The customer managed encryption key enabled | [optional] 
-**CmekID** | Pointer to **string** | The customer managed encryption ID | [optional] 
+**CmekID** | Pointer to **NullableString** | The customer managed encryption ID | [optional] 
 
 ## Methods
 
@@ -103,6 +103,16 @@ SetVhdEncryptionUri sets VhdEncryptionUri field to given value.
 
 HasVhdEncryptionUri returns a boolean if a field has been set.
 
+### SetVhdEncryptionUriNil
+
+`func (o *ImportTemplateImageModel) SetVhdEncryptionUriNil(b bool)`
+
+ SetVhdEncryptionUriNil sets the value for VhdEncryptionUri to be an explicit nil
+
+### UnsetVhdEncryptionUri
+`func (o *ImportTemplateImageModel) UnsetVhdEncryptionUri()`
+
+UnsetVhdEncryptionUri ensures that no value is present for VhdEncryptionUri, not even an explicit nil
 ### GetNotes
 
 `func (o *ImportTemplateImageModel) GetNotes() string`
@@ -128,6 +138,16 @@ SetNotes sets Notes field to given value.
 
 HasNotes returns a boolean if a field has been set.
 
+### SetNotesNil
+
+`func (o *ImportTemplateImageModel) SetNotesNil(b bool)`
+
+ SetNotesNil sets the value for Notes to be an explicit nil
+
+### UnsetNotes
+`func (o *ImportTemplateImageModel) UnsetNotes()`
+
+UnsetNotes ensures that no value is present for Notes, not even an explicit nil
 ### GetOsPlatform
 
 `func (o *ImportTemplateImageModel) GetOsPlatform() SupportedOperatingSystemType`
@@ -153,6 +173,16 @@ SetOsPlatform sets OsPlatform field to given value.
 
 HasOsPlatform returns a boolean if a field has been set.
 
+### SetOsPlatformNil
+
+`func (o *ImportTemplateImageModel) SetOsPlatformNil(b bool)`
+
+ SetOsPlatformNil sets the value for OsPlatform to be an explicit nil
+
+### UnsetOsPlatform
+`func (o *ImportTemplateImageModel) UnsetOsPlatform()`
+
+UnsetOsPlatform ensures that no value is present for OsPlatform, not even an explicit nil
 ### GetCspCustomerId
 
 `func (o *ImportTemplateImageModel) GetCspCustomerId() string`
@@ -178,6 +208,16 @@ SetCspCustomerId sets CspCustomerId field to given value.
 
 HasCspCustomerId returns a boolean if a field has been set.
 
+### SetCspCustomerIdNil
+
+`func (o *ImportTemplateImageModel) SetCspCustomerIdNil(b bool)`
+
+ SetCspCustomerIdNil sets the value for CspCustomerId to be an explicit nil
+
+### UnsetCspCustomerId
+`func (o *ImportTemplateImageModel) UnsetCspCustomerId()`
+
+UnsetCspCustomerId ensures that no value is present for CspCustomerId, not even an explicit nil
 ### GetCspSiteId
 
 `func (o *ImportTemplateImageModel) GetCspSiteId() string`
@@ -203,6 +243,16 @@ SetCspSiteId sets CspSiteId field to given value.
 
 HasCspSiteId returns a boolean if a field has been set.
 
+### SetCspSiteIdNil
+
+`func (o *ImportTemplateImageModel) SetCspSiteIdNil(b bool)`
+
+ SetCspSiteIdNil sets the value for CspSiteId to be an explicit nil
+
+### UnsetCspSiteId
+`func (o *ImportTemplateImageModel) UnsetCspSiteId()`
+
+UnsetCspSiteId ensures that no value is present for CspSiteId, not even an explicit nil
 ### GetAzureSubscriptionId
 
 `func (o *ImportTemplateImageModel) GetAzureSubscriptionId() string`
@@ -228,6 +278,16 @@ SetAzureSubscriptionId sets AzureSubscriptionId field to given value.
 
 HasAzureSubscriptionId returns a boolean if a field has been set.
 
+### SetAzureSubscriptionIdNil
+
+`func (o *ImportTemplateImageModel) SetAzureSubscriptionIdNil(b bool)`
+
+ SetAzureSubscriptionIdNil sets the value for AzureSubscriptionId to be an explicit nil
+
+### UnsetAzureSubscriptionId
+`func (o *ImportTemplateImageModel) UnsetAzureSubscriptionId()`
+
+UnsetAzureSubscriptionId ensures that no value is present for AzureSubscriptionId, not even an explicit nil
 ### GetRegion
 
 `func (o *ImportTemplateImageModel) GetRegion() string`
@@ -253,6 +313,16 @@ SetRegion sets Region field to given value.
 
 HasRegion returns a boolean if a field has been set.
 
+### SetRegionNil
+
+`func (o *ImportTemplateImageModel) SetRegionNil(b bool)`
+
+ SetRegionNil sets the value for Region to be an explicit nil
+
+### UnsetRegion
+`func (o *ImportTemplateImageModel) UnsetRegion()`
+
+UnsetRegion ensures that no value is present for Region, not even an explicit nil
 ### GetHyperVGen
 
 `func (o *ImportTemplateImageModel) GetHyperVGen() string`
@@ -278,6 +348,16 @@ SetHyperVGen sets HyperVGen field to given value.
 
 HasHyperVGen returns a boolean if a field has been set.
 
+### SetHyperVGenNil
+
+`func (o *ImportTemplateImageModel) SetHyperVGenNil(b bool)`
+
+ SetHyperVGenNil sets the value for HyperVGen to be an explicit nil
+
+### UnsetHyperVGen
+`func (o *ImportTemplateImageModel) UnsetHyperVGen()`
+
+UnsetHyperVGen ensures that no value is present for HyperVGen, not even an explicit nil
 ### GetVtpmEnabled
 
 `func (o *ImportTemplateImageModel) GetVtpmEnabled() bool`
@@ -378,6 +458,16 @@ SetCmekID sets CmekID field to given value.
 
 HasCmekID returns a boolean if a field has been set.
 
+### SetCmekIDNil
+
+`func (o *ImportTemplateImageModel) SetCmekIDNil(b bool)`
+
+ SetCmekIDNil sets the value for CmekID to be an explicit nil
+
+### UnsetCmekID
+`func (o *ImportTemplateImageModel) UnsetCmekID()`
+
+UnsetCmekID ensures that no value is present for CmekID, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

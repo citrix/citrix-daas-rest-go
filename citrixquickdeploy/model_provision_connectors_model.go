@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -22,19 +22,19 @@ type ProvisionConnectorsModel struct {
 	// Number of connectors to provision
 	Quantity *int32 `json:"quantity,omitempty"`
 	// The OU the new connectors should be added to
-	OrganizationalUnit *string `json:"organizationalUnit,omitempty"`
+	OrganizationalUnit NullableString `json:"organizationalUnit,omitempty"`
 	// Service account to join the connector to the Resource Location's domain
-	ServiceAccount *string `json:"serviceAccount,omitempty"`
+	ServiceAccount NullableString `json:"serviceAccount,omitempty"`
 	// Password for the service account
-	ServiceAccountPassword *string `json:"serviceAccountPassword,omitempty"`
+	ServiceAccountPassword NullableString `json:"serviceAccountPassword,omitempty"`
 	// Azure Resource Group where the connectors should be deployed
-	AzureResourceGroup *string `json:"azureResourceGroup,omitempty"`
+	AzureResourceGroup NullableString `json:"azureResourceGroup,omitempty"`
 	// Indicates if the connector should be provisioned with Azure HUB enabled
 	UseAzureHub *bool `json:"useAzureHub,omitempty"`
 	// The ID of the vm size
-	VmSize *string `json:"vmSize,omitempty"`
+	VmSize NullableString `json:"vmSize,omitempty"`
 	// The domain the connectors will be joined to. Used when adding connectors to connectorless RL
-	DomainName *string `json:"domainName,omitempty"`
+	DomainName NullableString `json:"domainName,omitempty"`
 	// The number of existing connectors in the Resource Location.  Used to determine which Zone(s) the new connectors will be provisioned in.
 	ExistingConnectorsCount *int32 `json:"existingConnectorsCount,omitempty"`
 }
@@ -70,96 +70,140 @@ func (o *ProvisionConnectorsModel) SetQuantity(v int32) {
 	o.Quantity = &v
 }
 
-// GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise.
+// GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProvisionConnectorsModel) GetOrganizationalUnit() string {
-	if o == nil || IsNil(o.OrganizationalUnit) {
+	if o == nil || IsNil(o.OrganizationalUnit.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OrganizationalUnit
+	return *o.OrganizationalUnit.Get()
 }
 
 // GetOrganizationalUnitOk returns a tuple with the OrganizationalUnit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProvisionConnectorsModel) GetOrganizationalUnitOk() (*string, bool) {
-	if o == nil || IsNil(o.OrganizationalUnit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrganizationalUnit, true
+	return o.OrganizationalUnit.Get(), o.OrganizationalUnit.IsSet()
 }
 
-// SetOrganizationalUnit gets a reference to the given string and assigns it to the OrganizationalUnit field.
+// SetOrganizationalUnit gets a reference to the given NullableString and assigns it to the OrganizationalUnit field.
 func (o *ProvisionConnectorsModel) SetOrganizationalUnit(v string) {
-	o.OrganizationalUnit = &v
+	o.OrganizationalUnit.Set(&v)
 }
 
-// GetServiceAccount returns the ServiceAccount field value if set, zero value otherwise.
+// SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
+func (o *ProvisionConnectorsModel) SetOrganizationalUnitNil() {
+	o.OrganizationalUnit.Set(nil)
+}
+
+// UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
+func (o *ProvisionConnectorsModel) UnsetOrganizationalUnit() {
+	o.OrganizationalUnit.Unset()
+}
+
+// GetServiceAccount returns the ServiceAccount field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProvisionConnectorsModel) GetServiceAccount() string {
-	if o == nil || IsNil(o.ServiceAccount) {
+	if o == nil || IsNil(o.ServiceAccount.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ServiceAccount
+	return *o.ServiceAccount.Get()
 }
 
 // GetServiceAccountOk returns a tuple with the ServiceAccount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProvisionConnectorsModel) GetServiceAccountOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceAccount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceAccount, true
+	return o.ServiceAccount.Get(), o.ServiceAccount.IsSet()
 }
 
-// SetServiceAccount gets a reference to the given string and assigns it to the ServiceAccount field.
+// SetServiceAccount gets a reference to the given NullableString and assigns it to the ServiceAccount field.
 func (o *ProvisionConnectorsModel) SetServiceAccount(v string) {
-	o.ServiceAccount = &v
+	o.ServiceAccount.Set(&v)
 }
 
-// GetServiceAccountPassword returns the ServiceAccountPassword field value if set, zero value otherwise.
+// SetServiceAccountNil sets the value for ServiceAccount to be an explicit nil
+func (o *ProvisionConnectorsModel) SetServiceAccountNil() {
+	o.ServiceAccount.Set(nil)
+}
+
+// UnsetServiceAccount ensures that no value is present for ServiceAccount, not even an explicit nil
+func (o *ProvisionConnectorsModel) UnsetServiceAccount() {
+	o.ServiceAccount.Unset()
+}
+
+// GetServiceAccountPassword returns the ServiceAccountPassword field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProvisionConnectorsModel) GetServiceAccountPassword() string {
-	if o == nil || IsNil(o.ServiceAccountPassword) {
+	if o == nil || IsNil(o.ServiceAccountPassword.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ServiceAccountPassword
+	return *o.ServiceAccountPassword.Get()
 }
 
 // GetServiceAccountPasswordOk returns a tuple with the ServiceAccountPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProvisionConnectorsModel) GetServiceAccountPasswordOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceAccountPassword) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceAccountPassword, true
+	return o.ServiceAccountPassword.Get(), o.ServiceAccountPassword.IsSet()
 }
 
-// SetServiceAccountPassword gets a reference to the given string and assigns it to the ServiceAccountPassword field.
+// SetServiceAccountPassword gets a reference to the given NullableString and assigns it to the ServiceAccountPassword field.
 func (o *ProvisionConnectorsModel) SetServiceAccountPassword(v string) {
-	o.ServiceAccountPassword = &v
+	o.ServiceAccountPassword.Set(&v)
 }
 
-// GetAzureResourceGroup returns the AzureResourceGroup field value if set, zero value otherwise.
+// SetServiceAccountPasswordNil sets the value for ServiceAccountPassword to be an explicit nil
+func (o *ProvisionConnectorsModel) SetServiceAccountPasswordNil() {
+	o.ServiceAccountPassword.Set(nil)
+}
+
+// UnsetServiceAccountPassword ensures that no value is present for ServiceAccountPassword, not even an explicit nil
+func (o *ProvisionConnectorsModel) UnsetServiceAccountPassword() {
+	o.ServiceAccountPassword.Unset()
+}
+
+// GetAzureResourceGroup returns the AzureResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProvisionConnectorsModel) GetAzureResourceGroup() string {
-	if o == nil || IsNil(o.AzureResourceGroup) {
+	if o == nil || IsNil(o.AzureResourceGroup.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AzureResourceGroup
+	return *o.AzureResourceGroup.Get()
 }
 
 // GetAzureResourceGroupOk returns a tuple with the AzureResourceGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProvisionConnectorsModel) GetAzureResourceGroupOk() (*string, bool) {
-	if o == nil || IsNil(o.AzureResourceGroup) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AzureResourceGroup, true
+	return o.AzureResourceGroup.Get(), o.AzureResourceGroup.IsSet()
 }
 
-// SetAzureResourceGroup gets a reference to the given string and assigns it to the AzureResourceGroup field.
+// SetAzureResourceGroup gets a reference to the given NullableString and assigns it to the AzureResourceGroup field.
 func (o *ProvisionConnectorsModel) SetAzureResourceGroup(v string) {
-	o.AzureResourceGroup = &v
+	o.AzureResourceGroup.Set(&v)
+}
+
+// SetAzureResourceGroupNil sets the value for AzureResourceGroup to be an explicit nil
+func (o *ProvisionConnectorsModel) SetAzureResourceGroupNil() {
+	o.AzureResourceGroup.Set(nil)
+}
+
+// UnsetAzureResourceGroup ensures that no value is present for AzureResourceGroup, not even an explicit nil
+func (o *ProvisionConnectorsModel) UnsetAzureResourceGroup() {
+	o.AzureResourceGroup.Unset()
 }
 
 // GetUseAzureHub returns the UseAzureHub field value if set, zero value otherwise.
@@ -185,50 +229,72 @@ func (o *ProvisionConnectorsModel) SetUseAzureHub(v bool) {
 	o.UseAzureHub = &v
 }
 
-// GetVmSize returns the VmSize field value if set, zero value otherwise.
+// GetVmSize returns the VmSize field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProvisionConnectorsModel) GetVmSize() string {
-	if o == nil || IsNil(o.VmSize) {
+	if o == nil || IsNil(o.VmSize.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VmSize
+	return *o.VmSize.Get()
 }
 
 // GetVmSizeOk returns a tuple with the VmSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProvisionConnectorsModel) GetVmSizeOk() (*string, bool) {
-	if o == nil || IsNil(o.VmSize) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VmSize, true
+	return o.VmSize.Get(), o.VmSize.IsSet()
 }
 
-// SetVmSize gets a reference to the given string and assigns it to the VmSize field.
+// SetVmSize gets a reference to the given NullableString and assigns it to the VmSize field.
 func (o *ProvisionConnectorsModel) SetVmSize(v string) {
-	o.VmSize = &v
+	o.VmSize.Set(&v)
 }
 
-// GetDomainName returns the DomainName field value if set, zero value otherwise.
+// SetVmSizeNil sets the value for VmSize to be an explicit nil
+func (o *ProvisionConnectorsModel) SetVmSizeNil() {
+	o.VmSize.Set(nil)
+}
+
+// UnsetVmSize ensures that no value is present for VmSize, not even an explicit nil
+func (o *ProvisionConnectorsModel) UnsetVmSize() {
+	o.VmSize.Unset()
+}
+
+// GetDomainName returns the DomainName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProvisionConnectorsModel) GetDomainName() string {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil || IsNil(o.DomainName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DomainName
+	return *o.DomainName.Get()
 }
 
 // GetDomainNameOk returns a tuple with the DomainName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProvisionConnectorsModel) GetDomainNameOk() (*string, bool) {
-	if o == nil || IsNil(o.DomainName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainName, true
+	return o.DomainName.Get(), o.DomainName.IsSet()
 }
 
-// SetDomainName gets a reference to the given string and assigns it to the DomainName field.
+// SetDomainName gets a reference to the given NullableString and assigns it to the DomainName field.
 func (o *ProvisionConnectorsModel) SetDomainName(v string) {
-	o.DomainName = &v
+	o.DomainName.Set(&v)
+}
+
+// SetDomainNameNil sets the value for DomainName to be an explicit nil
+func (o *ProvisionConnectorsModel) SetDomainNameNil() {
+	o.DomainName.Set(nil)
+}
+
+// UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
+func (o *ProvisionConnectorsModel) UnsetDomainName() {
+	o.DomainName.Unset()
 }
 
 // GetExistingConnectorsCount returns the ExistingConnectorsCount field value if set, zero value otherwise.
@@ -267,26 +333,26 @@ func (o ProvisionConnectorsModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Quantity) {
 		toSerialize["quantity"] = o.Quantity
 	}
-	if !IsNil(o.OrganizationalUnit) {
-		toSerialize["organizationalUnit"] = o.OrganizationalUnit
+	if o.OrganizationalUnit.IsSet() {
+		toSerialize["organizationalUnit"] = o.OrganizationalUnit.Get()
 	}
-	if !IsNil(o.ServiceAccount) {
-		toSerialize["serviceAccount"] = o.ServiceAccount
+	if o.ServiceAccount.IsSet() {
+		toSerialize["serviceAccount"] = o.ServiceAccount.Get()
 	}
-	if !IsNil(o.ServiceAccountPassword) {
-		toSerialize["serviceAccountPassword"] = o.ServiceAccountPassword
+	if o.ServiceAccountPassword.IsSet() {
+		toSerialize["serviceAccountPassword"] = o.ServiceAccountPassword.Get()
 	}
-	if !IsNil(o.AzureResourceGroup) {
-		toSerialize["azureResourceGroup"] = o.AzureResourceGroup
+	if o.AzureResourceGroup.IsSet() {
+		toSerialize["azureResourceGroup"] = o.AzureResourceGroup.Get()
 	}
 	if !IsNil(o.UseAzureHub) {
 		toSerialize["useAzureHub"] = o.UseAzureHub
 	}
-	if !IsNil(o.VmSize) {
-		toSerialize["vmSize"] = o.VmSize
+	if o.VmSize.IsSet() {
+		toSerialize["vmSize"] = o.VmSize.Get()
 	}
-	if !IsNil(o.DomainName) {
-		toSerialize["domainName"] = o.DomainName
+	if o.DomainName.IsSet() {
+		toSerialize["domainName"] = o.DomainName.Get()
 	}
 	if !IsNil(o.ExistingConnectorsCount) {
 		toSerialize["existingConnectorsCount"] = o.ExistingConnectorsCount

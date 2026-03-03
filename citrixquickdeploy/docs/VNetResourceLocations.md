@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SubscriptionId** | Pointer to **string** | The id of the subscription | [optional] 
+**SubscriptionId** | Pointer to **NullableString** | The id of the subscription | [optional] 
 **ResourceLocations** | Pointer to [**[]VNetResourceLocation**](VNetResourceLocation.md) | The list of resource locations associated with the subscription | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetSubscriptionId sets SubscriptionId field to given value.
 
 HasSubscriptionId returns a boolean if a field has been set.
 
+### SetSubscriptionIdNil
+
+`func (o *VNetResourceLocations) SetSubscriptionIdNil(b bool)`
+
+ SetSubscriptionIdNil sets the value for SubscriptionId to be an explicit nil
+
+### UnsetSubscriptionId
+`func (o *VNetResourceLocations) UnsetSubscriptionId()`
+
+UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
 ### GetResourceLocations
 
 `func (o *VNetResourceLocations) GetResourceLocations() []VNetResourceLocation`
@@ -76,6 +86,16 @@ SetResourceLocations sets ResourceLocations field to given value.
 
 HasResourceLocations returns a boolean if a field has been set.
 
+### SetResourceLocationsNil
+
+`func (o *VNetResourceLocations) SetResourceLocationsNil(b bool)`
+
+ SetResourceLocationsNil sets the value for ResourceLocations to be an explicit nil
+
+### UnsetResourceLocations
+`func (o *VNetResourceLocations) UnsetResourceLocations()`
+
+UnsetResourceLocations ensures that no value is present for ResourceLocations, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FileName** | Pointer to **string** |  | [optional] 
-**IconFileBytes** | Pointer to **string** | The bytes of the file that contains the icon to be extracted | [optional] 
+**FileName** | Pointer to **NullableString** |  | [optional] 
+**IconFileBytes** | Pointer to **NullableString** | The bytes of the file that contains the icon to be extracted | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetFileName sets FileName field to given value.
 
 HasFileName returns a boolean if a field has been set.
 
+### SetFileNameNil
+
+`func (o *ExtractIconModel) SetFileNameNil(b bool)`
+
+ SetFileNameNil sets the value for FileName to be an explicit nil
+
+### UnsetFileName
+`func (o *ExtractIconModel) UnsetFileName()`
+
+UnsetFileName ensures that no value is present for FileName, not even an explicit nil
 ### GetIconFileBytes
 
 `func (o *ExtractIconModel) GetIconFileBytes() string`
@@ -76,6 +86,16 @@ SetIconFileBytes sets IconFileBytes field to given value.
 
 HasIconFileBytes returns a boolean if a field has been set.
 
+### SetIconFileBytesNil
+
+`func (o *ExtractIconModel) SetIconFileBytesNil(b bool)`
+
+ SetIconFileBytesNil sets the value for IconFileBytes to be an explicit nil
+
+### UnsetIconFileBytes
+`func (o *ExtractIconModel) UnsetIconFileBytes()`
+
+UnsetIconFileBytes ensures that no value is present for IconFileBytes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

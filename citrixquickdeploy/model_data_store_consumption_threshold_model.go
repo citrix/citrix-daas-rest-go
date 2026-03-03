@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,13 +20,13 @@ var _ MappedNullable = &DataStoreConsumptionThresholdModel{}
 // DataStoreConsumptionThresholdModel struct for DataStoreConsumptionThresholdModel
 type DataStoreConsumptionThresholdModel struct {
 	// Threshold for monthly consumption commitment (in unit)
-	MonthlyConsumptionCommitmentThreshold *int32 `json:"monthlyConsumptionCommitmentThreshold,omitempty"`
+	MonthlyConsumptionCommitmentThreshold NullableInt32 `json:"monthlyConsumptionCommitmentThreshold,omitempty"`
 	// Indicator for whether monthly consumption threshold alert has been enabled
-	MonthlyConsumptionAlertEnabled *bool `json:"monthlyConsumptionAlertEnabled,omitempty"`
+	MonthlyConsumptionAlertEnabled NullableBool `json:"monthlyConsumptionAlertEnabled,omitempty"`
 	// Threshold for term consumption commitment (in percentage)
-	TermConsumptionCommitmentThreshold *float64 `json:"termConsumptionCommitmentThreshold,omitempty"`
+	TermConsumptionCommitmentThreshold NullableFloat64 `json:"termConsumptionCommitmentThreshold,omitempty"`
 	// Indicator for whether term consumption threshold alert has been enabled
-	TermConsumptionAlertEnabled *bool `json:"termConsumptionAlertEnabled,omitempty"`
+	TermConsumptionAlertEnabled NullableBool `json:"termConsumptionAlertEnabled,omitempty"`
 }
 
 // NewDataStoreConsumptionThresholdModelWithDefaults instantiates a new DataStoreConsumptionThresholdModel object
@@ -37,96 +37,140 @@ func NewDataStoreConsumptionThresholdModelWithDefaults() *DataStoreConsumptionTh
 	return &this
 }
 
-// GetMonthlyConsumptionCommitmentThreshold returns the MonthlyConsumptionCommitmentThreshold field value if set, zero value otherwise.
+// GetMonthlyConsumptionCommitmentThreshold returns the MonthlyConsumptionCommitmentThreshold field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreConsumptionThresholdModel) GetMonthlyConsumptionCommitmentThreshold() int32 {
-	if o == nil || IsNil(o.MonthlyConsumptionCommitmentThreshold) {
+	if o == nil || IsNil(o.MonthlyConsumptionCommitmentThreshold.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.MonthlyConsumptionCommitmentThreshold
+	return *o.MonthlyConsumptionCommitmentThreshold.Get()
 }
 
 // GetMonthlyConsumptionCommitmentThresholdOk returns a tuple with the MonthlyConsumptionCommitmentThreshold field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreConsumptionThresholdModel) GetMonthlyConsumptionCommitmentThresholdOk() (*int32, bool) {
-	if o == nil || IsNil(o.MonthlyConsumptionCommitmentThreshold) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MonthlyConsumptionCommitmentThreshold, true
+	return o.MonthlyConsumptionCommitmentThreshold.Get(), o.MonthlyConsumptionCommitmentThreshold.IsSet()
 }
 
-// SetMonthlyConsumptionCommitmentThreshold gets a reference to the given int32 and assigns it to the MonthlyConsumptionCommitmentThreshold field.
+// SetMonthlyConsumptionCommitmentThreshold gets a reference to the given NullableInt32 and assigns it to the MonthlyConsumptionCommitmentThreshold field.
 func (o *DataStoreConsumptionThresholdModel) SetMonthlyConsumptionCommitmentThreshold(v int32) {
-	o.MonthlyConsumptionCommitmentThreshold = &v
+	o.MonthlyConsumptionCommitmentThreshold.Set(&v)
 }
 
-// GetMonthlyConsumptionAlertEnabled returns the MonthlyConsumptionAlertEnabled field value if set, zero value otherwise.
+// SetMonthlyConsumptionCommitmentThresholdNil sets the value for MonthlyConsumptionCommitmentThreshold to be an explicit nil
+func (o *DataStoreConsumptionThresholdModel) SetMonthlyConsumptionCommitmentThresholdNil() {
+	o.MonthlyConsumptionCommitmentThreshold.Set(nil)
+}
+
+// UnsetMonthlyConsumptionCommitmentThreshold ensures that no value is present for MonthlyConsumptionCommitmentThreshold, not even an explicit nil
+func (o *DataStoreConsumptionThresholdModel) UnsetMonthlyConsumptionCommitmentThreshold() {
+	o.MonthlyConsumptionCommitmentThreshold.Unset()
+}
+
+// GetMonthlyConsumptionAlertEnabled returns the MonthlyConsumptionAlertEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreConsumptionThresholdModel) GetMonthlyConsumptionAlertEnabled() bool {
-	if o == nil || IsNil(o.MonthlyConsumptionAlertEnabled) {
+	if o == nil || IsNil(o.MonthlyConsumptionAlertEnabled.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.MonthlyConsumptionAlertEnabled
+	return *o.MonthlyConsumptionAlertEnabled.Get()
 }
 
 // GetMonthlyConsumptionAlertEnabledOk returns a tuple with the MonthlyConsumptionAlertEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreConsumptionThresholdModel) GetMonthlyConsumptionAlertEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.MonthlyConsumptionAlertEnabled) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MonthlyConsumptionAlertEnabled, true
+	return o.MonthlyConsumptionAlertEnabled.Get(), o.MonthlyConsumptionAlertEnabled.IsSet()
 }
 
-// SetMonthlyConsumptionAlertEnabled gets a reference to the given bool and assigns it to the MonthlyConsumptionAlertEnabled field.
+// SetMonthlyConsumptionAlertEnabled gets a reference to the given NullableBool and assigns it to the MonthlyConsumptionAlertEnabled field.
 func (o *DataStoreConsumptionThresholdModel) SetMonthlyConsumptionAlertEnabled(v bool) {
-	o.MonthlyConsumptionAlertEnabled = &v
+	o.MonthlyConsumptionAlertEnabled.Set(&v)
 }
 
-// GetTermConsumptionCommitmentThreshold returns the TermConsumptionCommitmentThreshold field value if set, zero value otherwise.
+// SetMonthlyConsumptionAlertEnabledNil sets the value for MonthlyConsumptionAlertEnabled to be an explicit nil
+func (o *DataStoreConsumptionThresholdModel) SetMonthlyConsumptionAlertEnabledNil() {
+	o.MonthlyConsumptionAlertEnabled.Set(nil)
+}
+
+// UnsetMonthlyConsumptionAlertEnabled ensures that no value is present for MonthlyConsumptionAlertEnabled, not even an explicit nil
+func (o *DataStoreConsumptionThresholdModel) UnsetMonthlyConsumptionAlertEnabled() {
+	o.MonthlyConsumptionAlertEnabled.Unset()
+}
+
+// GetTermConsumptionCommitmentThreshold returns the TermConsumptionCommitmentThreshold field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreConsumptionThresholdModel) GetTermConsumptionCommitmentThreshold() float64 {
-	if o == nil || IsNil(o.TermConsumptionCommitmentThreshold) {
+	if o == nil || IsNil(o.TermConsumptionCommitmentThreshold.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.TermConsumptionCommitmentThreshold
+	return *o.TermConsumptionCommitmentThreshold.Get()
 }
 
 // GetTermConsumptionCommitmentThresholdOk returns a tuple with the TermConsumptionCommitmentThreshold field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreConsumptionThresholdModel) GetTermConsumptionCommitmentThresholdOk() (*float64, bool) {
-	if o == nil || IsNil(o.TermConsumptionCommitmentThreshold) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TermConsumptionCommitmentThreshold, true
+	return o.TermConsumptionCommitmentThreshold.Get(), o.TermConsumptionCommitmentThreshold.IsSet()
 }
 
-// SetTermConsumptionCommitmentThreshold gets a reference to the given float64 and assigns it to the TermConsumptionCommitmentThreshold field.
+// SetTermConsumptionCommitmentThreshold gets a reference to the given NullableFloat64 and assigns it to the TermConsumptionCommitmentThreshold field.
 func (o *DataStoreConsumptionThresholdModel) SetTermConsumptionCommitmentThreshold(v float64) {
-	o.TermConsumptionCommitmentThreshold = &v
+	o.TermConsumptionCommitmentThreshold.Set(&v)
 }
 
-// GetTermConsumptionAlertEnabled returns the TermConsumptionAlertEnabled field value if set, zero value otherwise.
+// SetTermConsumptionCommitmentThresholdNil sets the value for TermConsumptionCommitmentThreshold to be an explicit nil
+func (o *DataStoreConsumptionThresholdModel) SetTermConsumptionCommitmentThresholdNil() {
+	o.TermConsumptionCommitmentThreshold.Set(nil)
+}
+
+// UnsetTermConsumptionCommitmentThreshold ensures that no value is present for TermConsumptionCommitmentThreshold, not even an explicit nil
+func (o *DataStoreConsumptionThresholdModel) UnsetTermConsumptionCommitmentThreshold() {
+	o.TermConsumptionCommitmentThreshold.Unset()
+}
+
+// GetTermConsumptionAlertEnabled returns the TermConsumptionAlertEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataStoreConsumptionThresholdModel) GetTermConsumptionAlertEnabled() bool {
-	if o == nil || IsNil(o.TermConsumptionAlertEnabled) {
+	if o == nil || IsNil(o.TermConsumptionAlertEnabled.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.TermConsumptionAlertEnabled
+	return *o.TermConsumptionAlertEnabled.Get()
 }
 
 // GetTermConsumptionAlertEnabledOk returns a tuple with the TermConsumptionAlertEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataStoreConsumptionThresholdModel) GetTermConsumptionAlertEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.TermConsumptionAlertEnabled) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TermConsumptionAlertEnabled, true
+	return o.TermConsumptionAlertEnabled.Get(), o.TermConsumptionAlertEnabled.IsSet()
 }
 
-// SetTermConsumptionAlertEnabled gets a reference to the given bool and assigns it to the TermConsumptionAlertEnabled field.
+// SetTermConsumptionAlertEnabled gets a reference to the given NullableBool and assigns it to the TermConsumptionAlertEnabled field.
 func (o *DataStoreConsumptionThresholdModel) SetTermConsumptionAlertEnabled(v bool) {
-	o.TermConsumptionAlertEnabled = &v
+	o.TermConsumptionAlertEnabled.Set(&v)
+}
+
+// SetTermConsumptionAlertEnabledNil sets the value for TermConsumptionAlertEnabled to be an explicit nil
+func (o *DataStoreConsumptionThresholdModel) SetTermConsumptionAlertEnabledNil() {
+	o.TermConsumptionAlertEnabled.Set(nil)
+}
+
+// UnsetTermConsumptionAlertEnabled ensures that no value is present for TermConsumptionAlertEnabled, not even an explicit nil
+func (o *DataStoreConsumptionThresholdModel) UnsetTermConsumptionAlertEnabled() {
+	o.TermConsumptionAlertEnabled.Unset()
 }
 
 func (o DataStoreConsumptionThresholdModel) MarshalJSON() ([]byte, error) {
@@ -139,17 +183,17 @@ func (o DataStoreConsumptionThresholdModel) MarshalJSON() ([]byte, error) {
 
 func (o DataStoreConsumptionThresholdModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.MonthlyConsumptionCommitmentThreshold) {
-		toSerialize["monthlyConsumptionCommitmentThreshold"] = o.MonthlyConsumptionCommitmentThreshold
+	if o.MonthlyConsumptionCommitmentThreshold.IsSet() {
+		toSerialize["monthlyConsumptionCommitmentThreshold"] = o.MonthlyConsumptionCommitmentThreshold.Get()
 	}
-	if !IsNil(o.MonthlyConsumptionAlertEnabled) {
-		toSerialize["monthlyConsumptionAlertEnabled"] = o.MonthlyConsumptionAlertEnabled
+	if o.MonthlyConsumptionAlertEnabled.IsSet() {
+		toSerialize["monthlyConsumptionAlertEnabled"] = o.MonthlyConsumptionAlertEnabled.Get()
 	}
-	if !IsNil(o.TermConsumptionCommitmentThreshold) {
-		toSerialize["termConsumptionCommitmentThreshold"] = o.TermConsumptionCommitmentThreshold
+	if o.TermConsumptionCommitmentThreshold.IsSet() {
+		toSerialize["termConsumptionCommitmentThreshold"] = o.TermConsumptionCommitmentThreshold.Get()
 	}
-	if !IsNil(o.TermConsumptionAlertEnabled) {
-		toSerialize["termConsumptionAlertEnabled"] = o.TermConsumptionAlertEnabled
+	if o.TermConsumptionAlertEnabled.IsSet() {
+		toSerialize["termConsumptionAlertEnabled"] = o.TermConsumptionAlertEnabled.Get()
 	}
 	return toSerialize, nil
 }

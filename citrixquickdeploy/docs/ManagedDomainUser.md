@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Username** | Pointer to **string** |  | [optional] 
-**FirstName** | Pointer to **string** |  | [optional] [readonly] 
-**LastName** | Pointer to **string** |  | [optional] [readonly] 
+**Username** | Pointer to **NullableString** |  | [optional] 
+**FirstName** | Pointer to **NullableString** |  | [optional] [readonly] 
+**LastName** | Pointer to **NullableString** |  | [optional] [readonly] 
 **IsAssigned** | Pointer to **bool** |  | [optional] 
 **IsExternal** | Pointer to **bool** |  | [optional] 
 **CustomUser** | Pointer to **bool** |  | [optional] [readonly] 
@@ -56,6 +56,16 @@ SetUsername sets Username field to given value.
 
 HasUsername returns a boolean if a field has been set.
 
+### SetUsernameNil
+
+`func (o *ManagedDomainUser) SetUsernameNil(b bool)`
+
+ SetUsernameNil sets the value for Username to be an explicit nil
+
+### UnsetUsername
+`func (o *ManagedDomainUser) UnsetUsername()`
+
+UnsetUsername ensures that no value is present for Username, not even an explicit nil
 ### GetFirstName
 
 `func (o *ManagedDomainUser) GetFirstName() string`
@@ -81,6 +91,16 @@ SetFirstName sets FirstName field to given value.
 
 HasFirstName returns a boolean if a field has been set.
 
+### SetFirstNameNil
+
+`func (o *ManagedDomainUser) SetFirstNameNil(b bool)`
+
+ SetFirstNameNil sets the value for FirstName to be an explicit nil
+
+### UnsetFirstName
+`func (o *ManagedDomainUser) UnsetFirstName()`
+
+UnsetFirstName ensures that no value is present for FirstName, not even an explicit nil
 ### GetLastName
 
 `func (o *ManagedDomainUser) GetLastName() string`
@@ -106,6 +126,16 @@ SetLastName sets LastName field to given value.
 
 HasLastName returns a boolean if a field has been set.
 
+### SetLastNameNil
+
+`func (o *ManagedDomainUser) SetLastNameNil(b bool)`
+
+ SetLastNameNil sets the value for LastName to be an explicit nil
+
+### UnsetLastName
+`func (o *ManagedDomainUser) UnsetLastName()`
+
+UnsetLastName ensures that no value is present for LastName, not even an explicit nil
 ### GetIsAssigned
 
 `func (o *ManagedDomainUser) GetIsAssigned() bool`

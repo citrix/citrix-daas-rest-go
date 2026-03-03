@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 148.0.26750.34636
+Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
 
 Catalog Service
 
@@ -20,13 +20,15 @@ var _ MappedNullable = &CatalogDomainModel{}
 // CatalogDomainModel struct for CatalogDomainModel
 type CatalogDomainModel struct {
 	// Domain the VMs will join
-	DomainName string `json:"domainName" validate:"regexp=^[\\\\p{L}0-9-_.]*$"`
+	DomainName NullableString `json:"domainName,omitempty" validate:"regexp=^[\\\\p{L}0-9-_.]*$"`
 	// OU of the domain
-	DomainOu *string `json:"domainOu,omitempty"`
+	DomainOu NullableString `json:"domainOu,omitempty"`
 	// Name of the service account that will be used to join the domain
-	ServiceAccountName *string `json:"serviceAccountName,omitempty" validate:"regexp=^[^\\/\\\\[\\\\]:;\\\\\\\\|=\\\\^,+*?<>]*$"`
-	IsSecureBrowser    *bool   `json:"isSecureBrowser,omitempty"`
-	CspCustomer        *string `json:"cspCustomer,omitempty"`
+	ServiceAccountName NullableString `json:"serviceAccountName,omitempty" validate:"regexp=^[^\\/\\\\[\\\\]:;\\\\\\\\|=\\\\^,+*?<>]*$"`
+	// Service account to associate to the IdentityPool.  Used for Pure Entra ID joined catalogs.
+	ServiceAccountUid NullableString `json:"serviceAccountUid,omitempty"`
+	IsSecureBrowser   *bool          `json:"isSecureBrowser,omitempty"`
+	CspCustomer       NullableString `json:"cspCustomer,omitempty"`
 }
 
 // NewCatalogDomainModelWithDefaults instantiates a new CatalogDomainModel object
@@ -37,74 +39,140 @@ func NewCatalogDomainModelWithDefaults() *CatalogDomainModel {
 	return &this
 }
 
-// GetDomainName returns the DomainName field value
+// GetDomainName returns the DomainName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogDomainModel) GetDomainName() string {
-	if o == nil {
+	if o == nil || IsNil(o.DomainName.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.DomainName
+	return *o.DomainName.Get()
 }
 
-// GetDomainNameOk returns a tuple with the DomainName field value
+// GetDomainNameOk returns a tuple with the DomainName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogDomainModel) GetDomainNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.DomainName, true
+	return o.DomainName.Get(), o.DomainName.IsSet()
 }
 
-// SetDomainName sets field value
+// SetDomainName gets a reference to the given NullableString and assigns it to the DomainName field.
 func (o *CatalogDomainModel) SetDomainName(v string) {
-	o.DomainName = v
+	o.DomainName.Set(&v)
 }
 
-// GetDomainOu returns the DomainOu field value if set, zero value otherwise.
+// SetDomainNameNil sets the value for DomainName to be an explicit nil
+func (o *CatalogDomainModel) SetDomainNameNil() {
+	o.DomainName.Set(nil)
+}
+
+// UnsetDomainName ensures that no value is present for DomainName, not even an explicit nil
+func (o *CatalogDomainModel) UnsetDomainName() {
+	o.DomainName.Unset()
+}
+
+// GetDomainOu returns the DomainOu field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogDomainModel) GetDomainOu() string {
-	if o == nil || IsNil(o.DomainOu) {
+	if o == nil || IsNil(o.DomainOu.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DomainOu
+	return *o.DomainOu.Get()
 }
 
 // GetDomainOuOk returns a tuple with the DomainOu field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogDomainModel) GetDomainOuOk() (*string, bool) {
-	if o == nil || IsNil(o.DomainOu) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DomainOu, true
+	return o.DomainOu.Get(), o.DomainOu.IsSet()
 }
 
-// SetDomainOu gets a reference to the given string and assigns it to the DomainOu field.
+// SetDomainOu gets a reference to the given NullableString and assigns it to the DomainOu field.
 func (o *CatalogDomainModel) SetDomainOu(v string) {
-	o.DomainOu = &v
+	o.DomainOu.Set(&v)
 }
 
-// GetServiceAccountName returns the ServiceAccountName field value if set, zero value otherwise.
+// SetDomainOuNil sets the value for DomainOu to be an explicit nil
+func (o *CatalogDomainModel) SetDomainOuNil() {
+	o.DomainOu.Set(nil)
+}
+
+// UnsetDomainOu ensures that no value is present for DomainOu, not even an explicit nil
+func (o *CatalogDomainModel) UnsetDomainOu() {
+	o.DomainOu.Unset()
+}
+
+// GetServiceAccountName returns the ServiceAccountName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogDomainModel) GetServiceAccountName() string {
-	if o == nil || IsNil(o.ServiceAccountName) {
+	if o == nil || IsNil(o.ServiceAccountName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ServiceAccountName
+	return *o.ServiceAccountName.Get()
 }
 
 // GetServiceAccountNameOk returns a tuple with the ServiceAccountName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogDomainModel) GetServiceAccountNameOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceAccountName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServiceAccountName, true
+	return o.ServiceAccountName.Get(), o.ServiceAccountName.IsSet()
 }
 
-// SetServiceAccountName gets a reference to the given string and assigns it to the ServiceAccountName field.
+// SetServiceAccountName gets a reference to the given NullableString and assigns it to the ServiceAccountName field.
 func (o *CatalogDomainModel) SetServiceAccountName(v string) {
-	o.ServiceAccountName = &v
+	o.ServiceAccountName.Set(&v)
+}
+
+// SetServiceAccountNameNil sets the value for ServiceAccountName to be an explicit nil
+func (o *CatalogDomainModel) SetServiceAccountNameNil() {
+	o.ServiceAccountName.Set(nil)
+}
+
+// UnsetServiceAccountName ensures that no value is present for ServiceAccountName, not even an explicit nil
+func (o *CatalogDomainModel) UnsetServiceAccountName() {
+	o.ServiceAccountName.Unset()
+}
+
+// GetServiceAccountUid returns the ServiceAccountUid field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CatalogDomainModel) GetServiceAccountUid() string {
+	if o == nil || IsNil(o.ServiceAccountUid.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ServiceAccountUid.Get()
+}
+
+// GetServiceAccountUidOk returns a tuple with the ServiceAccountUid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CatalogDomainModel) GetServiceAccountUidOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ServiceAccountUid.Get(), o.ServiceAccountUid.IsSet()
+}
+
+// SetServiceAccountUid gets a reference to the given NullableString and assigns it to the ServiceAccountUid field.
+func (o *CatalogDomainModel) SetServiceAccountUid(v string) {
+	o.ServiceAccountUid.Set(&v)
+}
+
+// SetServiceAccountUidNil sets the value for ServiceAccountUid to be an explicit nil
+func (o *CatalogDomainModel) SetServiceAccountUidNil() {
+	o.ServiceAccountUid.Set(nil)
+}
+
+// UnsetServiceAccountUid ensures that no value is present for ServiceAccountUid, not even an explicit nil
+func (o *CatalogDomainModel) UnsetServiceAccountUid() {
+	o.ServiceAccountUid.Unset()
 }
 
 // GetIsSecureBrowser returns the IsSecureBrowser field value if set, zero value otherwise.
@@ -130,27 +198,38 @@ func (o *CatalogDomainModel) SetIsSecureBrowser(v bool) {
 	o.IsSecureBrowser = &v
 }
 
-// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise.
+// GetCspCustomer returns the CspCustomer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogDomainModel) GetCspCustomer() string {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil || IsNil(o.CspCustomer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CspCustomer
+	return *o.CspCustomer.Get()
 }
 
 // GetCspCustomerOk returns a tuple with the CspCustomer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CatalogDomainModel) GetCspCustomerOk() (*string, bool) {
-	if o == nil || IsNil(o.CspCustomer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CspCustomer, true
+	return o.CspCustomer.Get(), o.CspCustomer.IsSet()
 }
 
-// SetCspCustomer gets a reference to the given string and assigns it to the CspCustomer field.
+// SetCspCustomer gets a reference to the given NullableString and assigns it to the CspCustomer field.
 func (o *CatalogDomainModel) SetCspCustomer(v string) {
-	o.CspCustomer = &v
+	o.CspCustomer.Set(&v)
+}
+
+// SetCspCustomerNil sets the value for CspCustomer to be an explicit nil
+func (o *CatalogDomainModel) SetCspCustomerNil() {
+	o.CspCustomer.Set(nil)
+}
+
+// UnsetCspCustomer ensures that no value is present for CspCustomer, not even an explicit nil
+func (o *CatalogDomainModel) UnsetCspCustomer() {
+	o.CspCustomer.Unset()
 }
 
 func (o CatalogDomainModel) MarshalJSON() ([]byte, error) {
@@ -163,18 +242,23 @@ func (o CatalogDomainModel) MarshalJSON() ([]byte, error) {
 
 func (o CatalogDomainModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["domainName"] = o.DomainName
-	if !IsNil(o.DomainOu) {
-		toSerialize["domainOu"] = o.DomainOu
+	if o.DomainName.IsSet() {
+		toSerialize["domainName"] = o.DomainName.Get()
 	}
-	if !IsNil(o.ServiceAccountName) {
-		toSerialize["serviceAccountName"] = o.ServiceAccountName
+	if o.DomainOu.IsSet() {
+		toSerialize["domainOu"] = o.DomainOu.Get()
+	}
+	if o.ServiceAccountName.IsSet() {
+		toSerialize["serviceAccountName"] = o.ServiceAccountName.Get()
+	}
+	if o.ServiceAccountUid.IsSet() {
+		toSerialize["serviceAccountUid"] = o.ServiceAccountUid.Get()
 	}
 	if !IsNil(o.IsSecureBrowser) {
 		toSerialize["isSecureBrowser"] = o.IsSecureBrowser
 	}
-	if !IsNil(o.CspCustomer) {
-		toSerialize["cspCustomer"] = o.CspCustomer
+	if o.CspCustomer.IsSet() {
+		toSerialize["cspCustomer"] = o.CspCustomer.Get()
 	}
 	return toSerialize, nil
 }
