@@ -277,6 +277,7 @@ Class | Method | HTTP request | Description
  - [UpdateAccount](docs/UpdateAccount.md)
  - [UpdateAccountName](docs/UpdateAccountName.md)
  - [UpdateAccountOperationType](docs/UpdateAccountOperationType.md)
+ - [UpdateAwsEdcAccountByolFeature](docs/UpdateAwsEdcAccountByolFeature.md)
  - [UpdateAwsEdcAccountCredentials](docs/UpdateAwsEdcAccountCredentials.md)
  - [UpdateAwsEdcDeploymentMachine](docs/UpdateAwsEdcDeploymentMachine.md)
  - [UpdateAwsEdcDeploymentProperties](docs/UpdateAwsEdcDeploymentProperties.md)

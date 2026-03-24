@@ -20,14 +20,16 @@ type UpdateAccountOperationType string
 
 // List of UpdateAccountOperationType
 const (
-	UPDATEACCOUNTOPERATIONTYPE_RENAME_ACCOUNT                     UpdateAccountOperationType = "RenameAccount"
-	UPDATEACCOUNTOPERATIONTYPE_UPDATE_AWS_EDC_ACCOUNT_CREDENTIALS UpdateAccountOperationType = "UpdateAwsEdcAccountCredentials"
+	UPDATEACCOUNTOPERATIONTYPE_RENAME_ACCOUNT                      UpdateAccountOperationType = "RenameAccount"
+	UPDATEACCOUNTOPERATIONTYPE_UPDATE_AWS_EDC_ACCOUNT_CREDENTIALS  UpdateAccountOperationType = "UpdateAwsEdcAccountCredentials"
+	UPDATEACCOUNTOPERATIONTYPE_UPDATE_AWS_EDC_ACCOUNT_BYOL_FEATURE UpdateAccountOperationType = "UpdateAwsEdcAccountByolFeature"
 )
 
 // All allowed values of UpdateAccountOperationType enum
 var AllowedUpdateAccountOperationTypeEnumValues = []UpdateAccountOperationType{
 	"RenameAccount",
 	"UpdateAwsEdcAccountCredentials",
+	"UpdateAwsEdcAccountByolFeature",
 }
 
 func (v *UpdateAccountOperationType) UnmarshalJSON(src []byte) error {
