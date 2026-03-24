@@ -19,6 +19,7 @@ import (
 type UpdateCustomerAccountAsyncRequest struct {
 	UpdateAccount                  *UpdateAccount
 	UpdateAccountName              *UpdateAccountName
+	UpdateAwsEdcAccountByolFeature *UpdateAwsEdcAccountByolFeature
 	UpdateAwsEdcAccountCredentials *UpdateAwsEdcAccountCredentials
 }
 
@@ -33,6 +34,13 @@ func UpdateAccountAsUpdateCustomerAccountAsyncRequest(v *UpdateAccount) UpdateCu
 func UpdateAccountNameAsUpdateCustomerAccountAsyncRequest(v *UpdateAccountName) UpdateCustomerAccountAsyncRequest {
 	return UpdateCustomerAccountAsyncRequest{
 		UpdateAccountName: v,
+	}
+}
+
+// UpdateAwsEdcAccountByolFeatureAsUpdateCustomerAccountAsyncRequest is a convenience function that returns UpdateAwsEdcAccountByolFeature wrapped in UpdateCustomerAccountAsyncRequest
+func UpdateAwsEdcAccountByolFeatureAsUpdateCustomerAccountAsyncRequest(v *UpdateAwsEdcAccountByolFeature) UpdateCustomerAccountAsyncRequest {
+	return UpdateCustomerAccountAsyncRequest{
+		UpdateAwsEdcAccountByolFeature: v,
 	}
 }
 
@@ -62,6 +70,18 @@ func (dst *UpdateCustomerAccountAsyncRequest) UnmarshalJSON(data []byte) error {
 		} else {
 			dst.UpdateAccountName = nil
 			return fmt.Errorf("failed to unmarshal UpdateCustomerAccountAsyncRequest as UpdateAccountName: %s", err.Error())
+		}
+	}
+
+	// check if the discriminator value is 'UpdateAwsEdcAccountByolFeature'
+	if jsonDict["accountOperationType"] == "UpdateAwsEdcAccountByolFeature" {
+		// try to unmarshal JSON data into UpdateAwsEdcAccountByolFeature
+		err = json.Unmarshal(data, &dst.UpdateAwsEdcAccountByolFeature)
+		if err == nil {
+			return nil // data stored in dst.UpdateAwsEdcAccountByolFeature, return on the first match
+		} else {
+			dst.UpdateAwsEdcAccountByolFeature = nil
+			return fmt.Errorf("failed to unmarshal UpdateCustomerAccountAsyncRequest as UpdateAwsEdcAccountByolFeature: %s", err.Error())
 		}
 	}
 
@@ -114,6 +134,10 @@ func (src UpdateCustomerAccountAsyncRequest) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.UpdateAccountName)
 	}
 
+	if src.UpdateAwsEdcAccountByolFeature != nil {
+		return json.Marshal(&src.UpdateAwsEdcAccountByolFeature)
+	}
+
 	if src.UpdateAwsEdcAccountCredentials != nil {
 		return json.Marshal(&src.UpdateAwsEdcAccountCredentials)
 	}
@@ -134,6 +158,10 @@ func (obj *UpdateCustomerAccountAsyncRequest) GetActualInstance() interface{} {
 		return obj.UpdateAccountName
 	}
 
+	if obj.UpdateAwsEdcAccountByolFeature != nil {
+		return obj.UpdateAwsEdcAccountByolFeature
+	}
+
 	if obj.UpdateAwsEdcAccountCredentials != nil {
 		return obj.UpdateAwsEdcAccountCredentials
 	}
@@ -150,6 +178,10 @@ func (obj UpdateCustomerAccountAsyncRequest) GetActualInstanceValue() interface{
 
 	if obj.UpdateAccountName != nil {
 		return *obj.UpdateAccountName
+	}
+
+	if obj.UpdateAwsEdcAccountByolFeature != nil {
+		return *obj.UpdateAwsEdcAccountByolFeature
 	}
 
 	if obj.UpdateAwsEdcAccountCredentials != nil {

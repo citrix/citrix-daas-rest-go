@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **AwsAccessKeyId** | Pointer to **NullableString** | The ID of Access Key associated with the account | [optional] 
 **AwsSecretAccessKey** | Pointer to **NullableString** | The secret associated with access key for the account | [optional] 
 **AwsRoleArn** | Pointer to **NullableString** | The ARN of the role to assume | [optional] 
+**Enablebyolflagwithverification** | Pointer to **NullableBool** | Whether BYOL is enabled for the account | [optional] 
 
 ## Methods
 
@@ -189,6 +190,41 @@ HasAwsRoleArn returns a boolean if a field has been set.
 `func (o *UpdateCustomerAccountAsyncRequest) UnsetAwsRoleArn()`
 
 UnsetAwsRoleArn ensures that no value is present for AwsRoleArn, not even an explicit nil
+### GetEnablebyolflagwithverification
+
+`func (o *UpdateCustomerAccountAsyncRequest) GetEnablebyolflagwithverification() bool`
+
+GetEnablebyolflagwithverification returns the Enablebyolflagwithverification field if non-nil, zero value otherwise.
+
+### GetEnablebyolflagwithverificationOk
+
+`func (o *UpdateCustomerAccountAsyncRequest) GetEnablebyolflagwithverificationOk() (*bool, bool)`
+
+GetEnablebyolflagwithverificationOk returns a tuple with the Enablebyolflagwithverification field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnablebyolflagwithverification
+
+`func (o *UpdateCustomerAccountAsyncRequest) SetEnablebyolflagwithverification(v bool)`
+
+SetEnablebyolflagwithverification sets Enablebyolflagwithverification field to given value.
+
+### HasEnablebyolflagwithverification
+
+`func (o *UpdateCustomerAccountAsyncRequest) HasEnablebyolflagwithverification() bool`
+
+HasEnablebyolflagwithverification returns a boolean if a field has been set.
+
+### SetEnablebyolflagwithverificationNil
+
+`func (o *UpdateCustomerAccountAsyncRequest) SetEnablebyolflagwithverificationNil(b bool)`
+
+ SetEnablebyolflagwithverificationNil sets the value for Enablebyolflagwithverification to be an explicit nil
+
+### UnsetEnablebyolflagwithverification
+`func (o *UpdateCustomerAccountAsyncRequest) UnsetEnablebyolflagwithverification()`
+
+UnsetEnablebyolflagwithverification ensures that no value is present for Enablebyolflagwithverification, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

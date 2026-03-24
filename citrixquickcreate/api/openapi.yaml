@@ -10460,6 +10460,7 @@ components:
         mapping:
           RenameAccount: '#/components/schemas/UpdateAccountName'
           UpdateAwsEdcAccountCredentials: '#/components/schemas/UpdateAwsEdcAccountCredentials'
+          UpdateAwsEdcAccountByolFeature: '#/components/schemas/UpdateAwsEdcAccountByolFeature'
         propertyName: accountOperationType
       properties:
         accountOperationType:
@@ -10483,6 +10484,7 @@ components:
       enum:
       - RenameAccount
       - UpdateAwsEdcAccountCredentials
+      - UpdateAwsEdcAccountByolFeature
       type: string
     UpdateAwsEdcAccountCredentials:
       additionalProperties: false
@@ -10507,6 +10509,16 @@ components:
           nullable: true
           pattern: "^arn:aws(-us-gov)?:iam::[0-9]{12}:role\\/[a-zA-Z0-9+=,.@\\-_]{1,64}$"
           type: string
+      type: object
+    UpdateAwsEdcAccountByolFeature:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/UpdateAccount'
+      properties:
+        enablebyolflagwithverification:
+          description: Whether BYOL is enabled for the account
+          nullable: true
+          type: boolean
       type: object
     UpdateAwsEdcDeploymentMachine:
       additionalProperties: false
@@ -10778,6 +10790,7 @@ components:
       - $ref: '#/components/schemas/UpdateAccount'
       - $ref: '#/components/schemas/UpdateAccountName'
       - $ref: '#/components/schemas/UpdateAwsEdcAccountCredentials'
+      - $ref: '#/components/schemas/UpdateAwsEdcAccountByolFeature'
     GetTaskAsync_200_response:
       description: Base class for Tasks
       oneOf:
