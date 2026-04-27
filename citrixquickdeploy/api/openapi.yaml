@@ -1,10 +1,10 @@
 openapi: 3.0.4
 info:
   description: Catalog Service
-  title: Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+  title: Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
   version: v1
 servers:
-- url: https://localhost
+- url: https://catalogs.apps.cloud.com
 security:
 - CWSAuth: []
 paths:
@@ -204,6 +204,640 @@ paths:
                 followed.
               explode: false
               style: simple
+      tags:
+      - AzureSubscriptions
+  /{customerId}/{siteId}/subscriptions/{subscriptionId}/virtualwans:
+    get:
+      operationId: GetVirtualWans
+      parameters:
+      - description: Specific customer id
+        explode: false
+        in: path
+        name: customerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of the customer's site
+        explode: false
+        in: path
+        name: siteId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of the Azure Subscription
+        explode: false
+        in: path
+        name: subscriptionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The Transaction Id.
+        explode: false
+        in: header
+        name: Citrix-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Access Token.
+        explode: false
+        in: header
+        name: X-AZURE-ACCESS-TOKEN
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Graph Access Token.
+        explode: false
+        in: header
+        name: X-AZURE-GRAPH-ACCESS-TOKEN
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Tenant Id.
+        explode: false
+        in: header
+        name: X-AZURE-TENANT-ID
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Application Key.
+        explode: false
+        in: header
+        name: X-AZURE-APP-CLIENT-ID
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Application Secret.
+        explode: false
+        in: header
+        name: X-AZURE-APP-CLIENT-SECRET
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AzureVirtualWanModel'
+                type: array
+          description: OK
+        "500":
+          description: Internal Server Error
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "404":
+          description: Not Found
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "401":
+          description: Unauthorized
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "403":
+          description: Forbidden
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+      summary: Returns the Virtual WANs available in the specified Azure subscription.
+      tags:
+      - AzureSubscriptions
+  /{customerId}/{siteId}/subscriptions/{subscriptionId}/virtualhubs:
+    get:
+      operationId: GetVirtualHubs
+      parameters:
+      - description: Specific customer id
+        explode: false
+        in: path
+        name: customerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of the customer's site
+        explode: false
+        in: path
+        name: siteId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of the Azure Subscription
+        explode: false
+        in: path
+        name: subscriptionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Optional resource group name to filter results
+        explode: true
+        in: query
+        name: resourceGroup
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The Transaction Id.
+        explode: false
+        in: header
+        name: Citrix-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Access Token.
+        explode: false
+        in: header
+        name: X-AZURE-ACCESS-TOKEN
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Graph Access Token.
+        explode: false
+        in: header
+        name: X-AZURE-GRAPH-ACCESS-TOKEN
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Tenant Id.
+        explode: false
+        in: header
+        name: X-AZURE-TENANT-ID
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Application Key.
+        explode: false
+        in: header
+        name: X-AZURE-APP-CLIENT-ID
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Application Secret.
+        explode: false
+        in: header
+        name: X-AZURE-APP-CLIENT-SECRET
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AzureVirtualHub'
+                type: array
+          description: OK
+        "500":
+          description: Internal Server Error
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "404":
+          description: Not Found
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "401":
+          description: Unauthorized
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "403":
+          description: Forbidden
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+      summary: "Returns the Virtual Hubs available in the specified Azure subscription,\
+        \ optionally filtered by resource group."
+      tags:
+      - AzureSubscriptions
+  /{customerId}/{siteId}/subscriptions/{subscriptionId}/virtualhubs/{resourceGroup}/{virtualHubName}/vnets:
+    get:
+      operationId: GetVirtualHubVnetConnections
+      parameters:
+      - description: Specific customer id
+        explode: false
+        in: path
+        name: customerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of the customer's site
+        explode: false
+        in: path
+        name: siteId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of the Azure Subscription
+        explode: false
+        in: path
+        name: subscriptionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Name of the Resource Group where the Virtual Hub is located
+        explode: false
+        in: path
+        name: resourceGroup
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Name of the Virtual Hub
+        explode: false
+        in: path
+        name: virtualHubName
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The Transaction Id.
+        explode: false
+        in: header
+        name: Citrix-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Access Token.
+        explode: false
+        in: header
+        name: X-AZURE-ACCESS-TOKEN
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Graph Access Token.
+        explode: false
+        in: header
+        name: X-AZURE-GRAPH-ACCESS-TOKEN
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Tenant Id.
+        explode: false
+        in: header
+        name: X-AZURE-TENANT-ID
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Application Key.
+        explode: false
+        in: header
+        name: X-AZURE-APP-CLIENT-ID
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Azure Application Secret.
+        explode: false
+        in: header
+        name: X-AZURE-APP-CLIENT-SECRET
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AzureVirtualHubVnetConnection'
+                type: array
+          description: OK
+        "500":
+          description: Internal Server Error
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "404":
+          description: Not Found
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "401":
+          description: Unauthorized
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "403":
+          description: Forbidden
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+      summary: Returns the VNet connections attached to the specified Virtual Hub.
       tags:
       - AzureSubscriptions
   /{customerId}/{siteId}/catalogs:
@@ -4169,195 +4803,6 @@ paths:
       summary: Update the configuration of a published desktop
       tags:
       - Catalog Desktops
-  /{customerId}/catalogs/{catalogId}/vmresources/{machineName}/$runscriptWithModel:
-    post:
-      operationId: RunScriptOnVm
-      parameters:
-      - description: ID of the customer
-        explode: false
-        in: path
-        name: customerId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ID of the catalog
-        explode: false
-        in: path
-        name: catalogId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Name of the VDA
-        explode: false
-        in: path
-        name: machineName
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: The Transaction Id.
-        explode: false
-        in: header
-        name: Citrix-TransactionId
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json-patch+json:
-            schema:
-              allOf:
-              - $ref: '#/components/schemas/RunScriptOnVmModel'
-              description: Model containing details required to run a script on a
-                VM resource.
-          application/json:
-            schema:
-              allOf:
-              - $ref: '#/components/schemas/RunScriptOnVmModel'
-              description: Model containing details required to run a script on a
-                VM resource.
-          text/json:
-            schema:
-              allOf:
-              - $ref: '#/components/schemas/RunScriptOnVmModel'
-              description: Model containing details required to run a script on a
-                VM resource.
-          application/*+json:
-            schema:
-              allOf:
-              - $ref: '#/components/schemas/RunScriptOnVmModel'
-              description: Model containing details required to run a script on a
-                VM resource.
-        description: The model containing the details required to run script on the
-          specific VM resource
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                type: boolean
-          description: OK
-        "500":
-          description: Internal Server Error
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "400":
-          description: Bad Request
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "404":
-          description: Not Found
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "401":
-          description: Unauthorized
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "403":
-          description: Forbidden
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-      summary: Run a troubleshoot script on a VDA
-      tags:
-      - Catalog
   /{customerId}/{siteId}/catalogs/{catalogId}/vmresources/{machineName}/$runscriptWithModel:
     post:
       operationId: RunScriptOnVm
@@ -4555,174 +5000,6 @@ paths:
       summary: Run a troubleshoot script on a VDA
       tags:
       - Catalog
-  /{customerId}/catalogs/{catalogId}/scripts:
-    get:
-      operationId: GetScriptsAndParameters
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: customerId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: catalogId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ""
-        explode: true
-        in: query
-        name: vmType
-        required: false
-        schema:
-          allOf:
-          - $ref: '#/components/schemas/CatalogResourceType'
-        style: form
-      - description: ""
-        explode: true
-        in: query
-        name: operationType
-        required: false
-        schema:
-          allOf:
-          - $ref: '#/components/schemas/ScriptOperationType'
-        style: form
-      - description: The Transaction Id.
-        explode: false
-        in: header
-        name: Citrix-TransactionId
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-        "500":
-          description: Internal Server Error
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "400":
-          description: Bad Request
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "404":
-          description: Not Found
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "401":
-          description: Unauthorized
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "403":
-          description: Forbidden
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-      summary: Gets available scripts and corresponding default parameters for available
-        operations
-      tags:
-      - Catalog
   /{customerId}/{siteId}/catalogs/{catalogId}/scripts:
     get:
       operationId: GetScriptsAndParameters
@@ -4898,160 +5175,6 @@ paths:
         operations
       tags:
       - Catalog
-  /{customerId}/catalogs/{catalogId}/jobs/troubleshoot/failedConnectorInstalls:
-    get:
-      operationId: GetTroubleshootScriptsOnlyForFailedConnectorInstalls
-      parameters:
-      - description: ID of the customer
-        explode: false
-        in: path
-        name: customerId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ID of the catalog
-        explode: false
-        in: path
-        name: catalogId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: The Transaction Id.
-        explode: false
-        in: header
-        name: Citrix-TransactionId
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TroubleshootScriptsOverviewsModel'
-          description: OK
-        "500":
-          description: Internal Server Error
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "400":
-          description: Bad Request
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "404":
-          description: Not Found
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "401":
-          description: Unauthorized
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "403":
-          description: Forbidden
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-      summary: Get the statuses of all the troubleshoot scripts assocaited with catalog
-        connectors
-      tags:
-      - Catalog
   /{customerId}/{siteId}/catalogs/{catalogId}/jobs/troubleshoot/failedConnectorInstalls:
     get:
       operationId: GetTroubleshootScriptsOnlyForFailedConnectorInstalls
@@ -5212,168 +5335,6 @@ paths:
               style: simple
       summary: Get the statuses of all the troubleshoot scripts associated with catalog
         connectors
-      tags:
-      - Catalog
-  /{customerId}/catalogs/{catalogId}/jobs/troubleshoot/{machineName}:
-    get:
-      operationId: GetAllTroubleshootScripts
-      parameters:
-      - description: ID of the customer
-        explode: false
-        in: path
-        name: customerId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ID of the catalog
-        explode: false
-        in: path
-        name: catalogId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Name of the machine
-        explode: false
-        in: path
-        name: machineName
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: The Transaction Id.
-        explode: false
-        in: header
-        name: Citrix-TransactionId
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TroubleshootScriptsOverviewsModel'
-          description: OK
-        "500":
-          description: Internal Server Error
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "400":
-          description: Bad Request
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "404":
-          description: Not Found
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "401":
-          description: Unauthorized
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "403":
-          description: Forbidden
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-      summary: Get the statuses of all the troubleshoot scripts assocaited with a
-        vda
       tags:
       - Catalog
   /{customerId}/{siteId}/catalogs/{catalogId}/jobs/troubleshoot/{machineName}:
@@ -5544,175 +5505,6 @@ paths:
               style: simple
       summary: Get the statuses of all the troubleshoot scripts associated with a
         vda
-      tags:
-      - Catalog
-  /{customerId}/catalogs/{catalogId}/jobs/troubleshoot/{machineName}/{troubleshootId}:
-    get:
-      operationId: GetTroubleshootScriptStatus
-      parameters:
-      - description: ID of the customer
-        explode: false
-        in: path
-        name: customerId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ID of the catalog
-        explode: false
-        in: path
-        name: catalogId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Name of the machine
-        explode: false
-        in: path
-        name: machineName
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Id of the troubleshoot script
-        explode: false
-        in: path
-        name: troubleshootId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: The Transaction Id.
-        explode: false
-        in: header
-        name: Citrix-TransactionId
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TroubleshootScriptOverview'
-          description: OK
-        "500":
-          description: Internal Server Error
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "400":
-          description: Bad Request
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "404":
-          description: Not Found
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "401":
-          description: Unauthorized
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-        "403":
-          description: Forbidden
-          headers:
-            citrix-transactionid:
-              description: Globally-unique identifier (usually a GUID) that allows
-                the flow of a call to be traced through all components within the
-                system.
-              explode: false
-              style: simple
-            content-type:
-              description: Tells the type of the content in the request body.
-              explode: false
-              style: simple
-            cache-control:
-              description: Holds directives for caching response.
-              explode: false
-              style: simple
-            x-content-type-options:
-              description: Marker used by the server to indicate that the MIME types
-                advertised in the Content-Type headers should not be changed and be
-                followed.
-              explode: false
-              style: simple
-      summary: Get the status of the troubleshoot script
       tags:
       - Catalog
   /{customerId}/{siteId}/catalogs/{catalogId}/jobs/troubleshoot/{machineName}/{troubleshootId}:
@@ -6576,6 +6368,354 @@ paths:
       summary: Get the On-Prem connections configured for the customer
       tags:
       - ManagedCapacity
+  /{customerId}/{siteId}/managedCapacity/onPremConnections/{onPremConnectionId}/serviceEndpoints:
+    get:
+      description: "<b>Authorization</b> (Policy: RouteBasedMultiTenantKeyOnly)"
+      operationId: GetServiceEndpointsForOnPremConnection
+      parameters:
+      - explode: false
+        in: path
+        name: customerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: siteId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: onPremConnectionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: onPremConnectionType
+        required: false
+        schema:
+          allOf:
+          - $ref: '#/components/schemas/OnPremConnectionType'
+        style: form
+      - description: The Transaction Id.
+        explode: false
+        in: header
+        name: Citrix-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: '#/components/schemas/ServiceEndpointsResponse'
+                type: object
+          description: OK
+        "500":
+          description: Internal Server Error
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "404":
+          description: Not Found
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "401":
+          description: Unauthorized
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "403":
+          description: Forbidden
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+      tags:
+      - ManagedCapacity
+    post:
+      description: "<b>Authorization</b> (Policy: RouteBasedMultiTenantKeyOnly)"
+      operationId: EnableServiceEndpointsForOnPremConnection
+      parameters:
+      - description: An identifier of the customer.
+        explode: false
+        in: path
+        name: customerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: An identifier of the customer's site that contains the managed
+          capacity.
+        explode: false
+        in: path
+        name: siteId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: An identifier of the on-prem connection within the managed capacity
+          site.
+        explode: false
+        in: path
+        name: onPremConnectionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The Transaction Id.
+        explode: false
+        in: header
+        name: Citrix-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/EnableServiceEndpointsForOnPremConnectionRequest'
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/EnableServiceEndpointsForOnPremConnectionRequest'
+          text/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/EnableServiceEndpointsForOnPremConnectionRequest'
+          application/*+json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/EnableServiceEndpointsForOnPremConnectionRequest'
+        description: A request that specifies the on-prem connection type and the
+          list of service endpoints to enable.
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Internal Server Error
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "404":
+          description: Not Found
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "401":
+          description: Unauthorized
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "403":
+          description: Forbidden
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+      summary: Enables service endpoints on the virtual network peering for the specified
+        on-prem connection.
+      tags:
+      - ManagedCapacity
   /{customerId}/{siteId}/managedCapacity/ports:
     get:
       description: "<b>Authorization</b> (Policy: RouteBasedMultiTenantKeyOnly)"
@@ -7223,6 +7363,64 @@ paths:
               explode: false
               style: simple
       summary: Perform operation to Delete Port For CMA Vnet
+      tags:
+      - ManagedCapacity
+  /{customerId}/{siteId}/managedCapacity/{subscriptionId}/personas:
+    get:
+      operationId: GetPersonasAsync
+      parameters:
+      - description: ID of the user
+        explode: false
+        in: path
+        name: customerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of the customer's site
+        explode: false
+        in: path
+        name: siteId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of the subscription
+        explode: false
+        in: path
+        name: subscriptionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The Transaction Id.
+        explode: false
+        in: header
+        name: Citrix-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Persona'
+                type: array
+          description: OK
+        "400":
+          $ref: '#/components/responses/BadRequestResponse'
+        "401":
+          $ref: '#/components/responses/UnauthorizedResponse'
+        "403":
+          $ref: '#/components/responses/ForbiddenResponse'
+        "404":
+          $ref: '#/components/responses/NotFoundResponse'
+        "500":
+          $ref: '#/components/responses/InternalServerErrorResponse'
+      summary: Get available personas
       tags:
       - ManagedCapacity
   /{customerId}/sites:
@@ -9679,8 +9877,7 @@ components:
         minimumFunctionalLevel:
           allOf:
           - $ref: '#/components/schemas/FunctionalLevel'
-          description: The minimum functional level to be set for the catalog
-          nullable: true
+          description: Functional level for VDAs.
         enableEncryptionAtHost:
           description: Indicates whether encryption at the host level is enabled.
           type: boolean
@@ -9962,6 +10159,11 @@ components:
             type: string
           nullable: true
           type: array
+        osDiskSizeGB:
+          description: "OS disk size in GB for the Image Builder VM.\r\nAllowed values:\
+            \ 128, 256, 512. Defaults to 128 GB."
+          format: int32
+          type: integer
         cspCustomerId:
           description: Name of tenant customer ID if partner-tenant relationship exists
             otherwise null
@@ -10082,6 +10284,11 @@ components:
             type: string
           nullable: true
           type: array
+        osDiskSizeGB:
+          description: "OS disk size in GB for the Image Builder VM.\r\nAllowed values:\
+            \ 128, 256, 512. Defaults to 128 GB."
+          format: int32
+          type: integer
         cspCustomerId:
           description: Name of tenant customer ID if partner-tenant relationship exists
             otherwise null
@@ -10373,6 +10580,99 @@ components:
       - storageAccount
       - subscriptionId
       type: object
+    AddVWanConnectionModel:
+      additionalProperties: false
+      description: "Model for creating a Virtual WAN hub connection between a Citrix-managed\
+        \ VNet and a customer's Virtual Hub.\r\nThis is a unidirectional connection\
+        \ from the managed VNet to the Virtual Hub."
+      properties:
+        name:
+          description: Name to assign the VWAN connection
+          maxLength: 64
+          minLength: 1
+          pattern: "^[\\p{L}0-9-_.\\(\\)]*$"
+          type: string
+        subnet:
+          description: Subnet to assign to the Citrix-managed VNet that will be created
+          minLength: 1
+          type: string
+        subnetMask:
+          description: Mask for the created subnet in the managed VNet
+          format: int32
+          maximum: 32
+          minimum: 1
+          type: integer
+        managedVnetRegion:
+          description: "The region where the Citrix-managed VNet will be located.\r\
+            \nIf unspecified, the Virtual Hub's location is used."
+          nullable: true
+          type: string
+        cspCustomerId:
+          description: "Name of tenant customer ID if partner-tenant relationship\
+            \ exists, otherwise null"
+          nullable: true
+          type: string
+        cspSiteId:
+          description: "Name of tenant site ID if partner-tenant relationship exists,\
+            \ otherwise null"
+          nullable: true
+          type: string
+        managedSubscriptionId:
+          description: ID of the managed subscription where the Citrix-managed VNet
+            should be created.
+          nullable: true
+          type: string
+        dnsServers:
+          description: An array containing the DNS servers for the managed VNet
+          items:
+            type: string
+          nullable: true
+          type: array
+        routes:
+          description: Gets or sets a list of user-defined routes to add to the managed
+            VNet subnet via a route table.
+          items:
+            $ref: '#/components/schemas/AzureRoute'
+          nullable: true
+          type: array
+        disableRoutePropagation:
+          description: "Gets or sets a value indicating whether BGP route propagation\
+            \ is disabled on the route table\r\nattached to the managed VNet subnet.\r\
+            \nOnly meaningful when Citrix.XenDesktop.Cloud.CatalogCommon.Models.Configuration.ManagedCapacity.AddVWanConnectionModel.Routes\
+            \ is non-empty."
+          type: boolean
+        virtualHubId:
+          description: "Azure Resource ID of the Virtual Hub where the connection\
+            \ will be created.\r\nFormat: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Network/virtualHubs/{hubName}"
+          minLength: 1
+          type: string
+        virtualHubResourceGroup:
+          description: "Resource group containing the Virtual Hub.\r\nMust match the\
+            \ resource group in VirtualHubId."
+          minLength: 1
+          type: string
+        virtualHubName:
+          description: "Name of the Virtual Hub.\r\nMust match the hub name in VirtualHubId."
+          minLength: 1
+          type: string
+        enableInternetSecurity:
+          description: "Enable internet security for the VWAN connection.\r\nWhen\
+            \ true, forces all internet-bound traffic through Azure Firewall (if configured\
+            \ in the hub)."
+          type: boolean
+        routingConfiguration:
+          description: "Routing configuration for the VWAN connection (JSON string).\r\
+            \nDefines custom routing behavior for the connection."
+          nullable: true
+          type: string
+      required:
+      - name
+      - subnet
+      - subnetMask
+      - virtualHubId
+      - virtualHubName
+      - virtualHubResourceGroup
+      type: object
     AddVnetPeeringModel:
       additionalProperties: false
       properties:
@@ -10453,6 +10753,31 @@ components:
           - $ref: '#/components/schemas/NatGatewayModel'
           description: The NAT config.
           nullable: true
+        virtualHubId:
+          description: "Azure Resource ID of the Virtual Hub (for VWAN connections).\r\
+            \nIf populated, creates a VWAN hub connection instead of traditional VNet\
+            \ peering.\r\nIf null/empty, creates traditional bidirectional VNet peering."
+          nullable: true
+          type: string
+        virtualHubResourceGroup:
+          description: "Resource group containing the Virtual Hub (for VWAN connections).\r\
+            \nOnly used when VirtualHubId is populated."
+          nullable: true
+          type: string
+        virtualHubName:
+          description: "Name of the Virtual Hub (for VWAN connections).\r\nOnly used\
+            \ when VirtualHubId is populated."
+          nullable: true
+          type: string
+        enableInternetSecurity:
+          description: "Enable internet security for VWAN connection (forces traffic\
+            \ through Azure Firewall).\r\nOnly used when VirtualHubId is populated."
+          type: boolean
+        routingConfiguration:
+          description: "Routing configuration for VWAN connection (JSON string).\r\
+            \nOnly used when VirtualHubId is populated."
+          nullable: true
+          type: string
       required:
       - name
       - resourceGroup
@@ -10495,60 +10820,6 @@ components:
       - ControllerAreaNetwork
       - Unknown
       type: string
-    AlertContext:
-      additionalProperties: false
-      properties:
-        authorization:
-          allOf:
-          - $ref: '#/components/schemas/Authorization'
-          nullable: true
-        channels:
-          nullable: true
-          type: string
-        claims:
-          nullable: true
-          type: string
-        caller:
-          nullable: true
-          type: string
-        correlationId:
-          nullable: true
-          type: string
-        eventSource:
-          nullable: true
-          type: string
-        eventTimestamp:
-          format: date-time
-          type: string
-        httpRequest:
-          nullable: true
-          type: string
-        eventDataId:
-          nullable: true
-          type: string
-        level:
-          nullable: true
-          type: string
-        operationName:
-          nullable: true
-          type: string
-        operationId:
-          nullable: true
-          type: string
-        properties:
-          allOf:
-          - $ref: '#/components/schemas/Properties'
-          nullable: true
-        status:
-          nullable: true
-          type: string
-        subStatus:
-          nullable: true
-          type: string
-        submissionTimestamp:
-          format: date-time
-          type: string
-      type: object
     AotSettingResponseModel:
       additionalProperties: false
       properties:
@@ -10743,16 +11014,6 @@ components:
       - BasicAndSmartCard
       - All
       type: string
-    Authorization:
-      additionalProperties: false
-      properties:
-        action:
-          nullable: true
-          type: string
-        scope:
-          nullable: true
-          type: string
-      type: object
     AzureADUser:
       additionalProperties: false
       description: Details for a managed user account to resent invitation
@@ -10774,17 +11035,6 @@ components:
             otherwise null
           nullable: true
           type: string
-      type: object
-    AzureAlertModel:
-      additionalProperties: false
-      properties:
-        schemaId:
-          nullable: true
-          type: string
-        data:
-          allOf:
-          - $ref: '#/components/schemas/Data'
-          nullable: true
       type: object
     AzureApps:
       additionalProperties: false
@@ -11066,8 +11316,8 @@ components:
           description: Id of the subscription being onboarded
           nullable: true
           type: string
-        multitenantEntraId:
-          description: Indicates if this subscriptions uses the new unified/MT Entra
+        unifiedEntraId:
+          description: Indicates if this subscriptions uses the new unified Entra
             ID
           type: boolean
         state:
@@ -11879,31 +12129,82 @@ components:
       - resourceGroup
       - subscriptionId
       type: object
-    AzureVNetPeeringModel:
+    AzureVirtualHub:
       additionalProperties: false
+      description: Represents an Azure Virtual Hub (part of Virtual WAN)
+      example:
+        resourceGroup: resourceGroup
+        resourceId: resourceId
+        name: name
+        location: location
+        virtualWanId: virtualWanId
+        subscriptionId: subscriptionId
       properties:
-        peeringName:
-          description: A unique name for this vnet peering
+        subscriptionId:
+          description: ID of the Azure Subscription where the Virtual Hub is configured
+          minLength: 1
+          type: string
+        resourceGroup:
+          description: Name of the Resource Group the Virtual Hub is associated with
+          minLength: 1
+          type: string
+        name:
+          description: Name of the Virtual Hub
+          minLength: 1
+          type: string
+        resourceId:
+          description: Azure resource ID of the Virtual Hub
           nullable: true
           type: string
-        citrixVNet:
-          allOf:
-          - $ref: '#/components/schemas/AzureVNet'
-          description: "The first VNet, the one owned by Citrix"
+        location:
+          description: Azure region where the Virtual Hub is located
           nullable: true
-        customerVNet:
-          allOf:
-          - $ref: '#/components/schemas/AzureVNet'
-          description: The second VNet which the customers owns
+          type: string
+        virtualWanId:
+          description: Resource ID of the parent Virtual WAN
           nullable: true
-        useCustomerGateway:
-          description: Indicates if the vpn peering will use the customer's gateway
-          type: boolean
-        allowForwardedTraffic:
-          description: "Indicates if traffic forwarded from another peer should be\
-            \ allowed into the citrix created vnet\r\nThis does not apply to traffic\
-            \ from a gateway on a customer side\r\nWhen using this feature, a route\
-            \ table entry will need to be added"
+          type: string
+      required:
+      - name
+      - resourceGroup
+      - subscriptionId
+      type: object
+    AzureVirtualHubVnetConnection:
+      additionalProperties: false
+      description: Represents a VNet connection attached to an Azure Virtual Hub.
+      example:
+        resourceId: resourceId
+        remoteVnetName: remoteVnetName
+        enableInternetSecurity: true
+        name: name
+        remoteVnetId: remoteVnetId
+        provisioningState: provisioningState
+      properties:
+        name:
+          description: Gets or sets the name of the hub VNet connection.
+          nullable: true
+          type: string
+        resourceId:
+          description: Gets or sets the Azure resource ID of the connection.
+          nullable: true
+          type: string
+        remoteVnetId:
+          description: Gets or sets the resource ID of the remote VNet connected to
+            the hub.
+          nullable: true
+          type: string
+        remoteVnetName:
+          description: Gets or sets the name of the remote VNet.
+          nullable: true
+          type: string
+        provisioningState:
+          description: Gets or sets the provisioning state of the connection.
+          nullable: true
+          type: string
+        enableInternetSecurity:
+          description: Gets or sets a value indicating whether internet security is
+            enabled for this connection.
+          nullable: true
           type: boolean
       type: object
     AzureVirtualNetworkGatewayMetrics:
@@ -11939,6 +12240,42 @@ components:
           format: double
           readOnly: true
           type: number
+      type: object
+    AzureVirtualWanModel:
+      additionalProperties: false
+      description: Represents an Azure Virtual WAN resource.
+      example:
+        resourceGroup: resourceGroup
+        name: name
+        location: location
+        id: id
+        provisioningState: provisioningState
+        wanType: wanType
+      properties:
+        id:
+          description: Gets or sets the Azure resource ID of the Virtual WAN.
+          nullable: true
+          type: string
+        name:
+          description: Gets or sets the name of the Virtual WAN.
+          nullable: true
+          type: string
+        resourceGroup:
+          description: Gets or sets the resource group containing the Virtual WAN.
+          nullable: true
+          type: string
+        location:
+          description: Gets or sets the Azure region where the Virtual WAN is located.
+          nullable: true
+          type: string
+        wanType:
+          description: "Gets or sets the type of Virtual WAN (e.g. Standard, Basic)."
+          nullable: true
+          type: string
+        provisioningState:
+          description: Gets or sets the provisioning state of the Virtual WAN.
+          nullable: true
+          type: string
       type: object
     AzureVmOperation:
       enum:
@@ -12501,10 +12838,8 @@ components:
         vmTypeInstanceType: vmTypeInstanceType
         taskCompletionPercentage: 5
         vnetPeeringId: vnetPeeringId
-        templateSpecResourceGroup: templateSpecResourceGroup
         id: id
         state: ""
-        serviceAccountUid: serviceAccountUid
         offeringIdDesktop: offeringIdDesktop
         vNetName: vNetName
         imageId: imageId
@@ -12516,6 +12851,7 @@ components:
         domainJoined: true
         domainName: domainName
         totalMachinesInCatalog: 0
+        minimumFunctionalLevel: ""
         name: name
         numOfUsers: 6
         isSecureBrowserCatalog: true
@@ -12674,11 +13010,6 @@ components:
           description: Name of the resource group used for this catalog
           minLength: 1
           type: string
-        templateSpecResourceGroup:
-          description: Resource Group for the Template Specs used by the catalog
-          nullable: true
-          readOnly: true
-          type: string
         vdaResourceGroup:
           description: The resource group for the VDAs in Azure
           nullable: true
@@ -12724,12 +13055,6 @@ components:
         domainServiceAccount:
           description: Name of the service account that will perform domain join opperations
           nullable: true
-          type: string
-        serviceAccountUid:
-          description: "Service account to associate to the IdentityPool.\r\nUsed\
-            \ for Pure Entra ID joined catalogs."
-          nullable: true
-          readOnly: true
           type: string
         vmTypeInstanceType:
           description: Type of the VM machines used to create VDAs
@@ -12822,6 +13147,11 @@ components:
         enableEncryptionAtHost:
           description: Indicates whether encryption at the host level is enabled.
           type: boolean
+        minimumFunctionalLevel:
+          allOf:
+          - $ref: '#/components/schemas/FunctionalLevel'
+          description: The minimum functional level to be set for the catalog
+          nullable: true
         catalogType:
           allOf:
           - $ref: '#/components/schemas/CatalogType'
@@ -12916,7 +13246,6 @@ components:
           description: Domain the VMs will join
           maxLength: 63
           minLength: 1
-          nullable: true
           pattern: "^[\\p{L}0-9-_.]*$"
           type: string
         domainOu:
@@ -12930,16 +13259,13 @@ components:
           nullable: true
           pattern: "^[^/\\[\\]:;\\\\|=\\^,+*?<>]*$"
           type: string
-        serviceAccountUid:
-          description: "Service account to associate to the IdentityPool.\r\nUsed\
-            \ for Pure Entra ID joined catalogs."
-          nullable: true
-          type: string
         isSecureBrowser:
           type: boolean
         cspCustomer:
           nullable: true
           type: string
+      required:
+      - domainName
       type: object
     CatalogJobState:
       enum:
@@ -13159,7 +13485,6 @@ components:
       - RemoveCustomerRegion
       - DownloadVdaEffectiveRoutes
       - SetMaxManagedSubscriptions
-      - RemoveBastionNsgRuleBasedOnPrefix
       type: string
     CatalogOperationsModel:
       additionalProperties: false
@@ -13211,7 +13536,6 @@ components:
       - ErrorInsufficientDomainPermissions
       - ErrorDomainJoinFailed
       - ErrorCatalogSubscriptionAtCapacity
-      - ErrorDownloadingScript
       - ErrorConnectorInstallFailed
       - ErrorConnectorNotInConnectedState
       - ErrorConnectorInstallUnknown
@@ -13275,10 +13599,8 @@ components:
         vmTypeInstanceType: vmTypeInstanceType
         taskCompletionPercentage: 5
         vnetPeeringId: vnetPeeringId
-        templateSpecResourceGroup: templateSpecResourceGroup
         id: id
         state: ""
-        serviceAccountUid: serviceAccountUid
         offeringIdDesktop: offeringIdDesktop
         vNetName: vNetName
         imageId: imageId
@@ -13291,6 +13613,7 @@ components:
         domainJoined: true
         domainName: domainName
         totalMachinesInCatalog: 0
+        minimumFunctionalLevel: ""
         name: name
         numOfUsers: 6
         isSecureBrowserCatalog: true
@@ -13454,11 +13777,6 @@ components:
           description: Name of the resource group used for this catalog
           minLength: 1
           type: string
-        templateSpecResourceGroup:
-          description: Resource Group for the Template Specs used by the catalog
-          nullable: true
-          readOnly: true
-          type: string
         vdaResourceGroup:
           description: The resource group for the VDAs in Azure
           nullable: true
@@ -13504,12 +13822,6 @@ components:
         domainServiceAccount:
           description: Name of the service account that will perform domain join opperations
           nullable: true
-          type: string
-        serviceAccountUid:
-          description: "Service account to associate to the IdentityPool.\r\nUsed\
-            \ for Pure Entra ID joined catalogs."
-          nullable: true
-          readOnly: true
           type: string
         vmTypeInstanceType:
           description: Type of the VM machines used to create VDAs
@@ -13602,6 +13914,11 @@ components:
         enableEncryptionAtHost:
           description: Indicates whether encryption at the host level is enabled.
           type: boolean
+        minimumFunctionalLevel:
+          allOf:
+          - $ref: '#/components/schemas/FunctionalLevel'
+          description: The minimum functional level to be set for the catalog
+          nullable: true
         catalogType:
           allOf:
           - $ref: '#/components/schemas/CatalogType'
@@ -13931,7 +14248,6 @@ components:
       - CustomerNonDomainJoined
       - CustomerAzureAdJoined
       - ManagedHybridEntraIdJoined
-      - ManagedPureEntraIdJoined
       type: string
     CatalogWarning:
       additionalProperties: false
@@ -14417,10 +14733,8 @@ components:
           vmTypeInstanceType: vmTypeInstanceType
           taskCompletionPercentage: 5
           vnetPeeringId: vnetPeeringId
-          templateSpecResourceGroup: templateSpecResourceGroup
           id: id
           state: ""
-          serviceAccountUid: serviceAccountUid
           offeringIdDesktop: offeringIdDesktop
           vNetName: vNetName
           imageId: imageId
@@ -14432,6 +14746,7 @@ components:
           domainJoined: true
           domainName: domainName
           totalMachinesInCatalog: 0
+          minimumFunctionalLevel: ""
           name: name
           numOfUsers: 6
           isSecureBrowserCatalog: true
@@ -14500,10 +14815,8 @@ components:
           vmTypeInstanceType: vmTypeInstanceType
           taskCompletionPercentage: 5
           vnetPeeringId: vnetPeeringId
-          templateSpecResourceGroup: templateSpecResourceGroup
           id: id
           state: ""
-          serviceAccountUid: serviceAccountUid
           offeringIdDesktop: offeringIdDesktop
           vNetName: vNetName
           imageId: imageId
@@ -14515,6 +14828,7 @@ components:
           domainJoined: true
           domainName: domainName
           totalMachinesInCatalog: 0
+          minimumFunctionalLevel: ""
           name: name
           numOfUsers: 6
           isSecureBrowserCatalog: true
@@ -14584,10 +14898,8 @@ components:
           vmTypeInstanceType: vmTypeInstanceType
           taskCompletionPercentage: 5
           vnetPeeringId: vnetPeeringId
-          templateSpecResourceGroup: templateSpecResourceGroup
           id: id
           state: ""
-          serviceAccountUid: serviceAccountUid
           offeringIdDesktop: offeringIdDesktop
           vNetName: vNetName
           imageId: imageId
@@ -14599,6 +14911,7 @@ components:
           domainJoined: true
           domainName: domainName
           totalMachinesInCatalog: 0
+          minimumFunctionalLevel: ""
           name: name
           numOfUsers: 6
           isSecureBrowserCatalog: true
@@ -14667,10 +14980,8 @@ components:
           vmTypeInstanceType: vmTypeInstanceType
           taskCompletionPercentage: 5
           vnetPeeringId: vnetPeeringId
-          templateSpecResourceGroup: templateSpecResourceGroup
           id: id
           state: ""
-          serviceAccountUid: serviceAccountUid
           offeringIdDesktop: offeringIdDesktop
           vNetName: vNetName
           imageId: imageId
@@ -14682,6 +14993,7 @@ components:
           domainJoined: true
           domainName: domainName
           totalMachinesInCatalog: 0
+          minimumFunctionalLevel: ""
           name: name
           numOfUsers: 6
           isSecureBrowserCatalog: true
@@ -14853,10 +15165,8 @@ components:
           vmTypeInstanceType: vmTypeInstanceType
           taskCompletionPercentage: 5
           vnetPeeringId: vnetPeeringId
-          templateSpecResourceGroup: templateSpecResourceGroup
           id: id
           state: ""
-          serviceAccountUid: serviceAccountUid
           offeringIdDesktop: offeringIdDesktop
           vNetName: vNetName
           imageId: imageId
@@ -14868,6 +15178,7 @@ components:
           domainJoined: true
           domainName: domainName
           totalMachinesInCatalog: 0
+          minimumFunctionalLevel: ""
           name: name
           numOfUsers: 6
           isSecureBrowserCatalog: true
@@ -14936,10 +15247,8 @@ components:
           vmTypeInstanceType: vmTypeInstanceType
           taskCompletionPercentage: 5
           vnetPeeringId: vnetPeeringId
-          templateSpecResourceGroup: templateSpecResourceGroup
           id: id
           state: ""
-          serviceAccountUid: serviceAccountUid
           offeringIdDesktop: offeringIdDesktop
           vNetName: vNetName
           imageId: imageId
@@ -14951,6 +15260,7 @@ components:
           domainJoined: true
           domainName: domainName
           totalMachinesInCatalog: 0
+          minimumFunctionalLevel: ""
           name: name
           numOfUsers: 6
           isSecureBrowserCatalog: true
@@ -15020,10 +15330,8 @@ components:
           vmTypeInstanceType: vmTypeInstanceType
           taskCompletionPercentage: 5
           vnetPeeringId: vnetPeeringId
-          templateSpecResourceGroup: templateSpecResourceGroup
           id: id
           state: ""
-          serviceAccountUid: serviceAccountUid
           offeringIdDesktop: offeringIdDesktop
           vNetName: vNetName
           imageId: imageId
@@ -15035,6 +15343,7 @@ components:
           domainJoined: true
           domainName: domainName
           totalMachinesInCatalog: 0
+          minimumFunctionalLevel: ""
           name: name
           numOfUsers: 6
           isSecureBrowserCatalog: true
@@ -15103,10 +15412,8 @@ components:
           vmTypeInstanceType: vmTypeInstanceType
           taskCompletionPercentage: 5
           vnetPeeringId: vnetPeeringId
-          templateSpecResourceGroup: templateSpecResourceGroup
           id: id
           state: ""
-          serviceAccountUid: serviceAccountUid
           offeringIdDesktop: offeringIdDesktop
           vNetName: vNetName
           imageId: imageId
@@ -15118,6 +15425,7 @@ components:
           domainJoined: true
           domainName: domainName
           totalMachinesInCatalog: 0
+          minimumFunctionalLevel: ""
           name: name
           numOfUsers: 6
           isSecureBrowserCatalog: true
@@ -15478,18 +15786,6 @@ components:
           type: boolean
       required:
       - items
-      type: object
-    Data:
-      additionalProperties: false
-      properties:
-        essentials:
-          allOf:
-          - $ref: '#/components/schemas/Essentials'
-          nullable: true
-        alertContext:
-          allOf:
-          - $ref: '#/components/schemas/AlertContext'
-          nullable: true
       type: object
     DataStoreAzureSubscriptionUpdateCredentialsJobModel:
       additionalProperties: false
@@ -15925,25 +16221,6 @@ components:
           readOnly: true
           type: boolean
       type: object
-    DisableFlowLogsModel:
-      additionalProperties: false
-      properties:
-        deleteFlowLog:
-          description: "Whether to delete the flow log resource from Azure.\r\nDefault\
-            \ is false - flow log is disabled (Enabled = false) but not deleted.\r\
-            \nSet to true to permanently delete the flow log resource."
-          type: boolean
-        deleteStorageAccount:
-          description: "Whether to delete the storage account when disabling flow\
-            \ logs.\r\nDefault is false - storage account is retained for other VNets\
-            \ in the region."
-          type: boolean
-        force:
-          description: "Force disable by checking Azure for flow logs even if not\
-            \ found in DataStore.\r\nUseful for cleanup when DataStore is out of sync\
-            \ with Azure.\r\nDefault is false."
-          type: boolean
-      type: object
     DomainUserState:
       enum:
       - Ready
@@ -16065,28 +16342,21 @@ components:
         aotSetting:
           allOf:
           - $ref: '#/components/schemas/EditAotSettingRequestModel'
-          description: ""
           nullable: true
-        entraIdSetting:
+      type: object
+    EnableServiceEndpointsForOnPremConnectionRequest:
+      additionalProperties: false
+      example:
+        onPremConnectionType: ""
+        serviceEndpoints:
+        - serviceEndpoints
+        - serviceEndpoints
+      properties:
+        onPremConnectionType:
           allOf:
-          - $ref: '#/components/schemas/EntraIdSettingModel'
-          description: Entra ID settings.
-          nullable: true
-      type: object
-    EnableFlowLogsModel:
-      additionalProperties: false
-      properties:
-        retentionDays:
-          description: Retention policy in days (1-365)
-          format: int32
-          maximum: 365
-          minimum: 1
-          type: integer
-      type: object
-    EnableServiceEndpointsRequest:
-      additionalProperties: false
-      description: Request model for enabling service endpoints on a resource location
-      properties:
+          - $ref: '#/components/schemas/OnPremConnectionType'
+          description: Type of on-premises connection for which to enable service
+            endpoints
         serviceEndpoints:
           description: "List of service endpoint types to enable (e.g., Microsoft.Storage,\
             \ Microsoft.Sql)"
@@ -16094,74 +16364,8 @@ components:
             type: string
           type: array
       required:
+      - onPremConnectionType
       - serviceEndpoints
-      type: object
-    EntraIdSettingModel:
-      additionalProperties: false
-      description: Represents the model for editing Entra ID settings.
-      properties:
-        azureGlobalCloudId:
-          description: The Azure Global Cloud Identifier.
-          nullable: true
-          type: string
-        azureSSOnAuthorizeUrl:
-          description: The Azure Single Sign-On (SSO) Authorization URL.
-          nullable: true
-          type: string
-        azureSSOnClientId:
-          description: The Azure Single Sign-On (SSO) Client Identifier.
-          nullable: true
-          type: string
-        azureSSOnRedirectUrl:
-          description: The Azure Single Sign-On (SSO) Redirect URL.
-          nullable: true
-          type: string
-        azureSSOnResourceAppId:
-          description: The Azure Single Sign-On (SSO) Resource Application Identifier.
-          nullable: true
-          type: string
-      type: object
-    Essentials:
-      additionalProperties: false
-      properties:
-        alertId:
-          nullable: true
-          type: string
-        alertRule:
-          nullable: true
-          type: string
-        severity:
-          nullable: true
-          type: string
-        signalType:
-          nullable: true
-          type: string
-        monitorCondition:
-          nullable: true
-          type: string
-        monitoringService:
-          nullable: true
-          type: string
-        alertTargetIDs:
-          items:
-            type: string
-          nullable: true
-          type: array
-        originAlertId:
-          nullable: true
-          type: string
-        firedDateTime:
-          format: date-time
-          type: string
-        description:
-          nullable: true
-          type: string
-        essentialsVersion:
-          nullable: true
-          type: string
-        alertContextVersion:
-          nullable: true
-          type: string
       type: object
     EstimatePersonaCreditsRequestModel:
       additionalProperties: false
@@ -16170,7 +16374,6 @@ components:
         diskSizeInGB: 0
         sessionsPerVM: 6
         vmSku: vmSku
-        allocationType: ""
         sessionSupport: ""
       properties:
         vmSku:
@@ -16189,9 +16392,6 @@ components:
         sessionsPerVM:
           format: int32
           type: integer
-        allocationType:
-          allOf:
-          - $ref: '#/components/schemas/CatalogAllocationType'
       type: object
     EventDataHttpRequestInfo:
       additionalProperties: false
@@ -16347,72 +16547,6 @@ components:
         iconFileBytes:
           description: The bytes of the file that contains the icon to be extracted
           format: byte
-          nullable: true
-          type: string
-      type: object
-    FlowLogAccessResponseModel:
-      additionalProperties: false
-      description: Response model for flow log direct access URL
-      properties:
-        sasUrl:
-          description: SAS URL for accessing the flow log container
-          nullable: true
-          type: string
-        containerName:
-          description: Name of the container containing flow logs
-          nullable: true
-          type: string
-        storageAccountName:
-          description: Storage account name for reference
-          nullable: true
-          type: string
-        expiresAt:
-          description: When the SAS URL expires
-          format: date-time
-          type: string
-        validForMinutes:
-          description: How many minutes the URL is valid for (remaining time until
-            expiry)
-          format: int32
-          type: integer
-        isNewlyGenerated:
-          description: Whether this URL was newly generated (true) or returned from
-            cache (false)
-          type: boolean
-      type: object
-    FlowLogConfigurationModel:
-      additionalProperties: false
-      properties:
-        flowLogId:
-          description: Resource ID of the flow log
-          nullable: true
-          type: string
-        vnetPeeringId:
-          description: VNet Peering ID
-          nullable: true
-          type: string
-        citrixVnetId:
-          description: Citrix-managed VNet resource ID
-          nullable: true
-          type: string
-        storageAccountId:
-          description: Storage account resource ID
-          nullable: true
-          type: string
-        isEnabled:
-          description: Whether flow logs are enabled
-          type: boolean
-        retentionDays:
-          description: Retention days
-          format: int32
-          type: integer
-        region:
-          description: Storage account region
-          nullable: true
-          type: string
-        enabledAt:
-          description: When flow logs were enabled
-          format: date-time
           nullable: true
           type: string
       type: object
@@ -16938,654 +17072,6 @@ components:
       - name
       - vhdUri
       type: object
-    JobErrorCode:
-      description: Possible error codes returned from a job.
-      enum:
-      - Unknown
-      - UnknownError
-      - AccessDenied
-      - PermissionDenied
-      - UserNotAuthorized
-      - AuthorizationFailed
-      - AuthorizationError
-      - DeniedByConfigurationLogging
-      - DataStoreUnconfigured
-      - SiteUnconfigured
-      - MissingDbSchemaFeature
-      - DatabaseNotConfigured
-      - ObjectNotFound
-      - UnknownObject
-      - UnknownAccount
-      - UnknownCatalog
-      - UnknownController
-      - UnknownMachine
-      - UnknownDesktop
-      - ScopeNotFound
-      - UnknownMachineName
-      - UnknownApplication
-      - UnknownIcon
-      - UnknownPolicyRule
-      - UnknownFileTypeExtension
-      - UnknownConfiguredFTA
-      - UnknownImportedFTA
-      - UnknownDesktopTag
-      - DesktopTagInUse
-      - UnknownHypervisorConnection
-      - UnknownPowerTimeScheme
-      - UnknownDumScheme
-      - UnknownPowerAction
-      - UnknownSession
-      - UnknownConfigurationSlot
-      - UnknownRebootSchedule
-      - LACNotFound
-      - HypervisorConnectionObjectNotFound
-      - PathNotFound
-      - DriveNotFound
-      - IdentityPoolOUInvalid
-      - ProvisioningSchemeNotFound
-      - IdentityPoolObjectNotFound
-      - HostingUnitNotFound
-      - AppDNASolutionNotFound
-      - BrokerMachineNotFound
-      - MCSDiskCopyTaskNotFound
-      - AppDiskNotFound
-      - AppDNAOperatingSystemNotFound
-      - MultipleRelationshipsSpecified
-      - NoRelationshipSpecified
-      - NoMatchingItems
-      - InvalidTimeZone
-      - InvalidScheduleStartTime
-      - InvalidStatusUpdatingFTA
-      - UserAccountRequired
-      - MustSupplyNameOrSID
-      - MustNotSupplyBothNameAndSID
-      - ConstraintViolation
-      - UnsupportedWildcard
-      - InvalidSecurityIdentifier
-      - InvalidIconData
-      - PvsForVMInvalid
-      - PvsDetailsRequired
-      - PvsDetailsInvalid
-      - MachinesArePhysicalRequired
-      - MachinesArePhysicalConflict
-      - MissingHostingData
-      - SuperfluousHostingData
-      - MultiSessionPoolManagementNotSupported
-      - MultipleUserAssignments
-      - MultipleDesktopAssignments
-      - PolicyRuleAppliedToMultipleApps
-      - ImportedFTACorrupted
-      - PowerTimeSchemeDaysOverlap
-      - SidMissingForEvictScript
-      - SidSuppliedForNonEvictScript
-      - MachineHypMcIdAlone
-      - InvalidRebootScheduleDay
-      - InvalidCommandRecipient
-      - InvalidAccount
-      - LACNotSupported
-      - WebkeyNotSupported
-      - InvalidLicenseFile
-      - EmptyLicenseFile
-      - InvalidLicenseFileExtension
-      - PollingIntervalMoreThanMaxValue
-      - PollingIntervalLessThanMinValue
-      - RetentionPeriodLessThanMinValue
-      - InvalidStartDateOrEndDate
-      - InvalidProductEditionModelFormat
-      - InvalidCEIPOption
-      - IdentityPoolOUOfWrongDomain
-      - NamingSchemeHasMoreThanOneSetOfHashes
-      - NamingSchemeIllegalCharacter
-      - NamingSchemeIllegalComputerName
-      - NamingSchemeMayNotBeAllNumbers
-      - NamingSchemeMayNotStartWithPeriod
-      - NamingSchemeMissingNumericSpecifications
-      - NamingSchemeNotEnoughCharacters
-      - NamingSchemeTooManyCharacters
-      - NamingSchemeUnicodeCharactersNotEnabled
-      - MCSCopyFailureInvalidVirtualDiskId
-      - InvalidMachineId
-      - DuplicateAppDisplayName
-      - DuplicateAppBrowserName
-      - DuplicateAdministrator
-      - DuplicateRebootSchedule
-      - DuplicateObject
-      - AdminAlreadyExists
-      - RoleAlreadyExists
-      - ScopeAlreadyExists
-      - HostingUnitDuplicateObjectExists
-      - ProvisioningSchemeNameAlreadyExists
-      - IdentityPoolDuplicateObjectExists
-      - AppDiskNameAlreadyExists
-      - DuplicateAutoscaleGroupPluginName
-      - CommunicationError
-      - NoServerErrorId
-      - InvalidServerPortString
-      - InvalidPortNumber
-      - InvalidServerGuid
-      - InvalidServerVersion
-      - ServerTimeout
-      - InvalidIPAddress
-      - NoSuitableServiceInstanceErrorId
-      - CommunicationsError
-      - CitrixLicensingVendorOrServiceDown
-      - CanNotImportStartUpLic
-      - CommunicationSecurityError
-      - InvalidArgument
-      - UpdateCacheInvalidArgument
-      - DataStoreException
-      - UnknownOperation
-      - DataStoreAlreadyConfigured
-      - MachineNotRegistered
-      - PowerManagedController
-      - DesktopGroupInUse
-      - MachineInUse
-      - CatalogInUse
-      - ApplicationInUse
-      - MachineAlreadyAllocated
-      - MachineNotInDesktopGroup
-      - MachineInDesktopGroup
-      - IncompatibleMachine
-      - IncompatibleDesktopUsage
-      - IncompatibleDesktopAssignment
-      - IncompatibleDesktopGroup
-      - IncompatibleCatalog
-      - DesktopAssigned
-      - InMaintenanceMode
-      - GroupInMaintenanceMode
-      - IconInUse
-      - NoAvailableMachine
-      - PowerTimeSchemeInUse
-      - IncompatibleDumScheme
-      - HypervisorInMaintenanceMode
-      - PowerActionsNotSupported
-      - PowerActionInProgress
-      - PowerActionComplete
-      - PowerActionIgnored
-      - PowerActionNotStarted
-      - ServiceGroupNotAllowed
-      - MachineConfigurationInUse
-      - NoEntitlements
-      - LastFullAdmin
-      - HypervisorConnectionForHostingUnitIsVirtual
-      - HostingUnitNetworkPathInvalid
-      - HostingUnitRootPathInvalid
-      - HostingUnitStoragePathInvalid
-      - InvalidHypervisorItem
-      - VMAlreadyUnlocked
-      - AppDiskInUse
-      - TaskActive
-      - AppDiskAlreadySealed
-      - AppVPackageImportError
-      - NoRemainingDeliveryGroups
-      - NameResolutionFailure
-      - HypervisorAddressInvalidFormat
-      - HypervisorPermissionDenied
-      - SCVMMConsoleNotInstalled
-      - ConnectionNotVCenter
-      - ConnectionExpiredCredentials
-      - ConnectionInvalidCredentials
-      - VCenterConnectionSslFailure
-      - XenServerConnectionSslFailure
-      - HypervisorNotContactable
-      - NoWorkspaceCloudConnectorFound
-      - WorkspaceCloudConnectorTimeout
-      - WorkspaceCloudConnectorEndpointNotFound
-      - VCenterHttpsConnectionRequiredForEndpoint
-      - MoonshotConnectionSslFailure
-      - MoonshotConnectionSslPrivateCASignedFailure
-      - MoonshotConnectionSslPublicCASignedFailure
-      - OpenShiftConnectionSslPublicCASignedFailure
-      - AWSAssumeRoleAuthenticationFailure
-      - AmuletHotkeyCoreStationConnectionSslFailure
-      - AmuletHotkeyCoreStationConnectionSslPrivateCASignedFailure
-      - AmuletHotkeyCoreStationConnectionSslPublicCASignedFailure
-      type: string
-    JobResponseModel:
-      additionalProperties: false
-      description: Response object indicating status of an asynchronous job.
-      properties:
-        id:
-          description: Id of the job in progress.
-          minLength: 1
-          type: string
-        type:
-          allOf:
-          - $ref: '#/components/schemas/JobType'
-          description: Type of job that is being performed.
-        overallProgressPercent:
-          description: "Overall progress percent; 0..100.\r\n\r\nMay be null if the\
-            \ job does not support progress reporting."
-          format: int32
-          nullable: true
-          type: integer
-        isCancellable:
-          description: "Indicates whether the job may be cancelled.\r\n\r\nDeleteJob"
-          nullable: true
-          type: boolean
-        parameters:
-          description: "Indicators to the caller about what object(s) the job\r\n\r\
-            \nis affecting.  Consult the documentation for APIs that\r\n\r\ninitiate\
-            \ jobs to see the properties expected to be present."
-          items:
-            $ref: '#/components/schemas/NameValueStringPairModel'
-          type: array
-        subJobs:
-          description: List of sub-jobs contained within the job.
-          items:
-            $ref: '#/components/schemas/JobResponseModel'
-          nullable: true
-          type: array
-        status:
-          allOf:
-          - $ref: '#/components/schemas/JobStatus'
-          description: State of the job or subjob.
-        resultLocation:
-          description: URL where the job results can be obtained.
-          nullable: true
-          type: string
-        errorString:
-          description: "If a job or subjob failed, this will be the reason why\r\n\
-            \r\nthe failure occurred, presented in a human-readable\r\n\r\nformat."
-          nullable: true
-          type: string
-        errorCode:
-          allOf:
-          - $ref: '#/components/schemas/JobErrorCode'
-          description: "If a job or subjob failed, this will be the reason why\r\n\
-            \r\nthe failure occurred."
-          nullable: true
-        errorParameters:
-          description: "If a job or subjob failed, this will be information\r\n\r\n\
-            about related objects that were involved in the\r\n\r\nfailure."
-          items:
-            $ref: '#/components/schemas/NameValueStringPairModel'
-          nullable: true
-          type: array
-        creationTime:
-          description: Time when the job was created.
-          minLength: 1
-          type: string
-        formattedCreationTime:
-          description: "Formatted time when the job was created.\r\n\r\nRFC 3339 compatible\
-            \ format."
-          minLength: 1
-          type: string
-        startTime:
-          description: "Time when the job was started.\r\n\r\nWill be null if the\
-            \ job has not yet started."
-          nullable: true
-          type: string
-        formattedStartTime:
-          description: "Formatted time when the job was started.\r\n\r\nWill be null\
-            \ if the job has not yet started.\r\n\r\nRFC 3339 compatible format."
-          nullable: true
-          type: string
-        endTime:
-          description: "Time when the job was completed.\r\n\r\nWill be null if the\
-            \ job has not yet completed."
-          nullable: true
-          type: string
-        formattedEndTime:
-          description: "Formatted time when the job was completed.\r\n\r\nWill be\
-            \ null if the job has not yet completed.\r\n\r\nRFC 3339 compatible format."
-          nullable: true
-          type: string
-      required:
-      - creationTime
-      - formattedCreationTime
-      - id
-      - parameters
-      - status
-      - type
-      type: object
-    JobStatus:
-      description: Status of a job.
-      enum:
-      - Unknown
-      - NotStarted
-      - InProgress
-      - Complete
-      - CompleteWithWarning
-      - Failed
-      - Canceled
-      - NonTerminatingError
-      type: string
-    JobType:
-      description: Types of long-running jobs that may be executing.
-      enum:
-      - Unknown
-      - Batch
-      - CreateDeliveryGroup
-      - UpdateDeliveryGroup
-      - DeleteDeliveryGroup
-      - AddDeliveryGroupMachines
-      - RemoveDeliveryGroupMachines
-      - AddDeliveryGroupApplications
-      - RemoveDeliveryGroupApplications
-      - RemoveDeliveryGroupApplicationGroups
-      - GetAdminFolders
-      - GetApplicationFolders
-      - GetAdminFolderApplications
-      - GetAdminFolderMachineCatalogs
-      - GetApplicationFolderApplications
-      - GetApplications
-      - GetApplicationSessions
-      - GetDeliveryGroups
-      - SearchApplications
-      - RefreshAppVApplications
-      - TestDeliveryGroup
-      - CreateTag
-      - UpdateTag
-      - DeleteTag
-      - AddIcon
-      - RemoveIcon
-      - SetTagApplications
-      - SetTagApplicationGroups
-      - SetTagDeliveryGroups
-      - SetTagDesktops
-      - SetTagMachineCatalogs
-      - SetTagMachines
-      - GetStartMenuApplications
-      - GetDeliveryGroupApplications
-      - GetDeliveryGroupsDesktops
-      - RebootMachines
-      - ShutDownMachines
-      - StartMachines
-      - SuspendMachines
-      - ResumeMachines
-      - CreateAdminFolder
-      - CreateApplicationFolder
-      - CreateRebootSchedule
-      - UpdateRebootSchedule
-      - DeleteRebootSchedule
-      - CreatePowerTimeScheme
-      - UpdatePowerTimeScheme
-      - DeletePowerTimeScheme
-      - CreateAdvancedAccessPolicy
-      - UpdateAdvancedAccessPolicy
-      - DeleteAdvancedAccessPolicy
-      - CreateResourceAccessPolicy
-      - UpdateResourceAccessPolicy
-      - DeleteResourceAccessPolicy
-      - AddMachineCatalogMachine
-      - UpdateMachineCatalogProvisioningScheme
-      - CreateMachineCatalog
-      - CreateMachineIdentity
-      - DeleteMachineIdentity
-      - UpdateMachineIdentity
-      - UpdateUserIdentity
-      - UpdateMachineCatalog
-      - DeleteMachineCatalog
-      - TestMachineCatalog
-      - LogoffSessions
-      - DisconnectSessions
-      - LogoffMachineSessions
-      - DeleteMachine
-      - SendSessionMessage
-      - AddApplications
-      - GetApplicationGroups
-      - GetApplicationGroup
-      - GetApplicationGroupApplications
-      - GetApplicationGroupDeliveryGroups
-      - CreateApplicationGroup
-      - DeleteApplication
-      - DeleteApplicationGroup
-      - SearchApplicationGroups
-      - DeleteAdminFolder
-      - DeleteApplicationFolder
-      - RemoveApplicationGroupApplications
-      - GetApplicationApplicationGroups
-      - GetApplicationDeliveryGroups
-      - UpdateApplication
-      - UpdateApplicationGroup
-      - UpdateAdminFolder
-      - UpdateApplicationFolder
-      - SearchStartMenuApplications
-      - ApplicationsDiscovery
-      - ModifyFTA
-      - ImportFTA
-      - GetSiteStatus
-      - TestSite
-      - CreateHypervisor
-      - CreateHypervisorResourcePool
-      - UpdateHypervisor
-      - UpdateHypervisorResourcePool
-      - HypervisorVmValidation
-      - TestHypervisor
-      - GetHypervisorOrphanedResources
-      - TestHypervisorResourcePool
-      - CreateStoreFrontServer
-      - DeleteStoreFrontServer
-      - UpdateStoreFrontServer
-      - UpdateImage
-      - SetProvScheme
-      - AddMachines
-      - UpdateMachineCatalogMachine
-      - RollbackMachineCatalogProvisioningScheme
-      - GetHypervisorResourcePool
-      - GetHypervisorsAndResourcePools
-      - GetHypervisorResourcePoolResources
-      - SearchHypervisorResourcePoolResources
-      - GetHypervisorAllResources
-      - SearchHypervisorAllResources
-      - GetHypervisorAllResourcesWithoutConnection
-      - SearchHypervisorAllResourcesWithoutConnection
-      - GetHypervisorResourcePools
-      - GetHypervisor
-      - GetHypervisors
-      - DeleteHypervisor
-      - DeleteResourcePool
-      - GetHypervisorSupportedPlugins
-      - GetHypervisorServerHAAddresses
-      - GetSessionApplications
-      - GetOperations
-      - DoOperationSearch
-      - FetchExistingOperationLabels
-      - ExportOperationReport
-      - DeleteAllOperations
-      - UpdateOperation
-      - NewOperation
-      - GetSessions
-      - DoSessionSearch
-      - GetMachines
-      - DoMachineSearch
-      - GetPvsSites
-      - GetPvsCollections
-      - GetPvsMachinesForCatalog
-      - GetMachineCatalogMachineAccounts
-      - GetMachineStartMenuShortcutIcon
-      - GetMachineCatalogs
-      - SearchMachineCatalogs
-      - GetMachineCatalogDetails
-      - GetAppVServers
-      - ImportAppVPackages
-      - AddAppVServer
-      - UpdateAppVServer
-      - RemoveAppVServer
-      - GetAppVPackages
-      - RemoveAppVPackage
-      - GetAppVIsolationGroups
-      - GetAppVPackageBrokerApplications
-      - GetAppVPackageDelveryGroups
-      - DeleteAppVIsolationGroup
-      - CreateAppVIsolationGroup
-      - UpdateAppVIsolationGroup
-      - GetAppVIsolationGroup
-      - GetApplicationFtas
-      - GetDeliveryGroupFtas
-      - GetAppVPackageApplicationFileTypes
-      - GetMachineCatalogMachines
-      - GetMachineCatalogDeliveryGroupAssociations
-      - DoDeliveryGroupSearch
-      - GetMachineCatalogLastMasterImage
-      - DoZoneSearch
-      - CreateZone
-      - EditZone
-      - DeleteZone
-      - AddItemsIntoZone
-      - MoveItemsIntoZone
-      - RemoveItemsFromZone
-      - StartDeliveryGroupRebootCycle
-      - GetAdminAdministrators
-      - CreateAdminScope
-      - DeleteAdminScope
-      - CreateAdminRole
-      - UpdateAdminRole
-      - DeleteAdminRole
-      - UpdateAdminScope
-      - SetBrokerHypervisorConnection
-      - ResetBrokerHypervisorConnection
-      - GetAllCatalogActions
-      - GetCatalogAction
-      - GetSingleCatalogAction
-      - CancelCatalogAction
-      - DeleteAllCatalogActions
-      - DeleteCatalogActions
-      - HideSession
-      - UnhideSession
-      - CreateMachineCatalogUpgradeSchedule
-      - RemoveMachineCatalogUpgradeSchedule
-      - UpdateMachineCatalogUpgradeSchedule
-      - GetVMConfigurationResultantSet
-      - ResetProvisionedVirtualMachineOSDisk
-      - GetHypervisorMachineCatalogs
-      - GetHypervisorResourcePoolMachineCatalogs
-      - GetHypervisorAdministrators
-      - GetHypervisorResourcePoolAdministrators
-      - CreateMachineUpgradeSchedule
-      - UpdateMachineUpgradeSchedule
-      - RemoveMachineUpgradeSchedule
-      - CreateMachinesUpgradeScheudle
-      - GetAppLibPackageDiscoveryProfiles
-      - GetAppLibPackageDiscoveryProfile
-      - CreateAppLibPackageDiscoveryProfile
-      - UpdateAppLibPackageDiscoveryProfile
-      - RemoveAppLibPackageDiscoveryProfile
-      - ValidateHypervisorResourcePoolResource
-      - CreateAppLibPackageDiscovery
-      - GetAppLibPackageDiscovery
-      - GetAppLibPackageDiscoveries
-      - SendCasEvent
-      - AddDeliveryGroupPolicySet
-      - RemoveDeliveryGroupPolicySet
-      - StartSessionRecording
-      - StopSessionRecording
-      - GetLicenseSummary
-      - GetDomainsIdentity
-      - GetForestsIdentity
-      - GetLicensePermission
-      - RemoveMachinePowerActionSchedule
-      - GetLicenseCertificate
-      - SetLicenseServer
-      - GetLicenseAlert
-      - AddLicense
-      - DeleteDeliveryController
-      - GenerateDeliveryControllerDeleteScript
-      - ChangeDatabase
-      - GetLicenseEntitlement
-      - AllocateLicense
-      - ValidateMachineCatalogVDAComponentsAndFeaturesSelection
-      - RemoveImageDefinition
-      - CreateImageVersion
-      - SetImageVersion
-      - DeleteImageVersion
-      - GetAllMachineIdentityPools
-      - GetAllMachineIdentityPool
-      - GetProvSchemeReferences
-      - RequestProvVmUpdate
-      - CreateAdmin
-      - UpdateAdmin
-      - DeleteAdmin
-      - GetBackups
-      - GetBackupHistory
-      - GetBackupMembers
-      - PinBackup
-      - GetPvsSite
-      - GetPvsVDisk
-      - GetPvsStore
-      - ResetVMDisk
-      - GetGpoPolicySets
-      - GetGpoPolicies
-      - GetGpoFilters
-      - GetGpoSettings
-      - RepairMachineCatalogAccounts
-      - ImportProvisionedVirtualMachines
-      - ValidateMachineCatalogCreation
-      - SearchProvisionedVirtualMachines
-      - GetProvisionedVirtualMachineDetails
-      - GetUsersIdentity
-      - GetPrintersIdentity
-      - GetServiceAccounts
-      - SearchProvisioningOperationEvent
-      - RemoveProvisioningOperationEvent
-      - ConfirmProvisioningOperationEvent
-      - TestServiceAccount
-      - GetSiteErrorWarning
-      - UpdateImageVersionResourcePools
-      - DoImageDefinitionAndImageVersionSearch
-      - CreateImageDefinition
-      - GetPatchPreviewServiceAccount
-      - GetHypervisorResourcePrices
-      - ValidateVDAComponentsAndFeaturesSelection
-      - UpdateProvisionedVirtualMachine
-      - GetTagsAssociatedWithDeliveryGroup
-      - GetTagsAssociatedWithEntitlementRule
-      - GetProvRecommendation
-      - GetHypervisorResourcePoolAllAvailableNetworks
-      - ApplyProvisionedVirtualMachineConfigurationUpdate
-      - GetAutoscalePluginTemplates
-      - GetAutoscalePluginTemplate
-      - NewAutoscalePluginTemplate
-      - UpdateAutoscalePluginTemplate
-      - DeleteAutoscalePluginTemplate
-      - GetDeliveryGroupAutoscaleGroupPlugins
-      - NewDeliveryGroupAutoscaleGroupPlugin
-      - UpdateDeliveryGroupAutoscaleGroupPlugin
-      - DeleteDeliveryGroupAutoscaleGroupPluginByUid
-      - GetMachineCatalogDailyCost
-      - GetMachineCatalogCostSummary
-      - GenerateAdvisorRecommendation
-      - SearchProvisioningScheme
-      - GroupMachine
-      - GetHypervisorAllResourcePools
-      - CreateServiceAccount
-      - SetServiceAccount
-      - SyncCloudConnectors
-      - TestMachine
-      - GetProvisioningSchemesDetails
-      - CreateProvisioningSchemeConfiguration
-      - RemoveProvisioningSchemeConfiguration
-      - CreateProvisionedVirtualMachineConfiguration
-      - RemoveProvisionedVirtualMachineConfiguration
-      - ScheduleProvisioningSchemeHardwareUpdate
-      - ScheduleProvisionedVirtualMachineHardwareUpdate
-      - CreateProvisionedVMConfigurationAndScheduleUpdate
-      - UpdateMachineCatalogPvsSchemeVDisk
-      - UpdateMachineCatalogPvsSchemeBdm
-      - IconDiscovery
-      - UpdateProvisionedBackup
-      - DeleteProvisionedBackup
-      - ScheduleTakeProvisionedBackup
-      - ScheduleRestoreToProvisionedBackup
-      - GetTasks
-      - DeleteTask
-      - CancelTask
-      - GetTaskDetails
-      - RestartTask
-      - UpdateTask
-      - ScheduleResetProvisionedVirtualMachineOSDisk
-      - GetTaskSubJobs
-      - SelectAllAction
-      - DoTaskSearch
-      - DoTaskSubJobSearch
-      - DoScheduleSearch
-      - DeleteSchedule
-      - ConfirmProvisioningSchemeOperationEvents
-      - ConfirmProvisionedVirtualMachineOperationEvents
-      - ScheduleProvisioningSchemeImageUpdate
-      - GetDirectories
-      type: string
     LinkAzureActiveDirectoryModel:
       additionalProperties: false
       properties:
@@ -18008,17 +17494,11 @@ components:
           minLength: 1
           type: string
         deliveryControllers:
-          description: "The Orchestration servers belongs to the site, only applicable\
-            \ for On-Prem."
+          description: The Orchestration servers belongs to the site
           items:
             type: string
           nullable: true
           type: array
-        webServerAddress:
-          description: "The On-Prem web studio server address, this setting is only\
-            \ applicable for Cloud deployment."
-          nullable: true
-          type: string
         default:
           description: Indicate if it is the default site.
           nullable: true
@@ -18319,6 +17799,7 @@ components:
       - VnetPeering
       - AzureVpn
       - SdWan
+      - VWanConnection
       type: string
     OnPremConnectionsModel:
       additionalProperties: false
@@ -18432,6 +17913,28 @@ components:
       type: object
     Persona:
       additionalProperties: false
+      example:
+        diskSku: diskSku
+        addOns:
+        - values:
+            key: 5
+          property: ""
+        - values:
+            key: 5
+          property: ""
+        disabledRegions:
+        - disabledRegions
+        - disabledRegions
+        description: description
+        allocationType: ""
+        sessionSupport: ""
+        diskSize: 5
+        gpuMemoryInMB: 6
+        estimatedCredits: 1
+        sessionsPerVm: 0
+        name: name
+        id: id
+        azureVmSku: ""
       properties:
         id:
           description: The Id of the persona
@@ -18486,7 +17989,40 @@ components:
             $ref: '#/components/schemas/SupportedPersonaAddOn'
           nullable: true
           type: array
+        disabledRegions:
+          description: Azure regions in which this persona is explicitly disabled.
+          items:
+            type: string
+          nullable: true
+          type: array
+          uniqueItems: true
       type: object
+    SupportedPersonaAddOn:
+      additionalProperties: false
+      example:
+        values:
+          key: 5
+        property: ""
+      properties:
+        property:
+          allOf:
+          - $ref: '#/components/schemas/SupportedPersonaAddOnProperty'
+          description: The property of the add-on. Eg. AllocationType
+        values:
+          additionalProperties:
+            format: int32
+            type: integer
+          description: "The value of the add-on property. This is a dictionary where\
+            \ the key is the value of the property and the value is the add-on credits.\r\
+            \nFor Eg. if the property is AllocationType, the key could be \"Random\"\
+            \ and the value could be 10."
+          nullable: true
+          type: object
+      type: object
+    SupportedPersonaAddOnProperty:
+      enum:
+      - AllocationType
+      type: string
     PowerActionScheduleResponseModel:
       additionalProperties: false
       description: Power action schedule.
@@ -18564,19 +18100,6 @@ components:
       - Complete
       - Failed
       type: string
-    Properties:
-      additionalProperties: false
-      properties:
-        responseBody:
-          nullable: true
-          type: string
-        statusCode:
-          nullable: true
-          type: string
-        serviceRequestId:
-          nullable: true
-          type: string
-      type: object
     ProvisionConnectorsModel:
       additionalProperties: false
       properties:
@@ -18623,95 +18146,6 @@ components:
           format: int32
           type: integer
       type: object
-    ProvisionedBackupResponseModel:
-      additionalProperties: false
-      description: Response model for a provisioned backup of a vm.
-      properties:
-        id:
-          description: Id of the backup.
-          nullable: true
-          type: string
-        name:
-          description: Name of the backup.
-          nullable: true
-          type: string
-        description:
-          description: Description of the backup.
-          nullable: true
-          type: string
-        version:
-          description: Version of the backup.
-          format: int32
-          nullable: true
-          type: integer
-        creationTime:
-          description: "Time the backup was created.\r\n\r\nRFC 3339 compatible format."
-          nullable: true
-          type: string
-        vmSid:
-          description: Provisioned Virtual Machine Sid.
-          nullable: true
-          type: string
-        vmName:
-          description: Provisioned virtual machine name on hypervisor.
-          nullable: true
-          type: string
-        vmId:
-          description: "Id of the VM, as defined by the hypervisor."
-          nullable: true
-          type: string
-        provisioningSchemeName:
-          description: Name of the provisioning scheme which the vm is a member of.
-          nullable: true
-          type: string
-        provisioningSchemeId:
-          description: Id of the provisioning scheme which the vm is a member of.
-          nullable: true
-          type: string
-        provisionedVmConfigurationVersion:
-          description: The VM configuration version associated to this backup.
-          format: int32
-          nullable: true
-          type: integer
-        provisioningSchemeConfigurationVersion:
-          description: The provisioning scheme configuration version associated to
-            this backup.
-          format: int32
-          nullable: true
-          type: integer
-      type: object
-    ProvisionedBackupResponseModelCollection:
-      additionalProperties: false
-      description: Response object for collections of ProvisionedBackupResponseModel.
-      properties:
-        items:
-          description: List of items.
-          items:
-            $ref: '#/components/schemas/ProvisionedBackupResponseModel'
-          type: array
-        continuationToken:
-          description: "If present, indicates to the caller that the query was not\
-            \ complete,\r\n\r\nand they should call the API again specifying the continuation\
-            \ token\r\n\r\nas a query parameter."
-          nullable: true
-          type: string
-        totalItems:
-          description: "Indicates the total number of items in the collection, which\
-            \ may be\r\n\r\nmore than the number of Items returned, if there is a\r\
-            \n\r\nContinuationToken.  Only returned in the response to `$search` APIs."
-          format: int32
-          nullable: true
-          type: integer
-      required:
-      - items
-      type: object
-    ProvisionedBackupRestoreType:
-      description: Types indicating how the backup being restored
-      enum:
-      - Unknown
-      - DiskOnly
-      - RestoreHardware
-      type: string
     PublishedApplication:
       additionalProperties: false
       example:
@@ -19134,18 +18568,6 @@ components:
             with
           nullable: true
           type: string
-        subnetNames:
-          description: The subnet names within the VNet
-          items:
-            type: string
-          nullable: true
-          type: array
-        managedSubnetIds:
-          description: The full Azure resource IDs of the managed subnets
-          items:
-            type: string
-          nullable: true
-          type: array
         organizationalUnit:
           description: The most recently used OU for the connectors of a BYOA RL
           nullable: true
@@ -19456,107 +18878,6 @@ components:
       - catalogResourceType
       - scriptName
       type: object
-    ScheduleProvisionedVMBackupRequestModel:
-      additionalProperties: false
-      description: Request model for scheduling a backup for a provisioned virtual
-        machine
-      properties:
-        backupName:
-          description: "The name of the backup (required, max 64 characters)"
-          nullable: true
-          type: string
-        backupDescription:
-          description: "The description of the backup (optional, max 512 characters)"
-          nullable: true
-          type: string
-        doNotShutdownMachine:
-          description: Whether to shutdown the virtual machine when taking backup
-            (optional)
-          nullable: true
-          type: boolean
-        description:
-          description: "The description of the maintenance cycle (optional, max 512\
-            \ characters)"
-          nullable: true
-          type: string
-        scheduledStartTime:
-          description: "Maintenance cycle start time. If not set, the operation will\
-            \ start immediately (optional)\r\nRFC 3339 compatible format."
-          nullable: true
-          type: string
-        maxDurationInMinutes:
-          description: The max duration allowed for maintenance cycle in minutes (optional)
-          format: int32
-          nullable: true
-          type: integer
-        purgeDBAfterInDays:
-          description: Purge history data after a certain number of days (optional)
-          format: int32
-          nullable: true
-          type: integer
-        sessionWarningLogOffTitle:
-          description: "The title of session log off warning (optional, max 512 characters)"
-          nullable: true
-          type: string
-        sessionWarningLogOffMessage:
-          description: "The message of session log off warning (optional, max 512\
-            \ characters)"
-          nullable: true
-          type: string
-        sessionWarningTimeInMinutes:
-          description: The countdown duration for session log off in minutes (optional)
-          format: int32
-          nullable: true
-          type: integer
-      type: object
-    ScheduleProvisionedVMRestoreRequestModel:
-      additionalProperties: false
-      description: Request model for scheduling a restore from backup for a provisioned
-        virtual machine
-      properties:
-        provisionedBackupId:
-          description: The id of the backup (required)
-          format: uuid
-          type: string
-        provisionedBackupRestoreType:
-          allOf:
-          - $ref: '#/components/schemas/ProvisionedBackupRestoreType'
-          description: The type of how the backup being restored
-        description:
-          description: "The description of the maintenance cycle (optional, max 512\
-            \ characters)"
-          nullable: true
-          type: string
-        scheduledStartTime:
-          description: "Maintenance cycle start time. If not set, the operation will\
-            \ start immediately (optional)\r\nRFC 3339 compatible format."
-          nullable: true
-          type: string
-        maxDurationInMinutes:
-          description: The max duration allowed for maintenance cycle in minutes (optional)
-          format: int32
-          nullable: true
-          type: integer
-        purgeDBAfterInDays:
-          description: Purge history data after a certain number of days (optional)
-          format: int32
-          nullable: true
-          type: integer
-        sessionWarningLogOffTitle:
-          description: "The title of session log off warning (optional, max 512 characters)"
-          nullable: true
-          type: string
-        sessionWarningLogOffMessage:
-          description: "The message of session log off warning (optional, max 512\
-            \ characters)"
-          nullable: true
-          type: string
-        sessionWarningTimeInMinutes:
-          description: The countdown duration for session log off in minutes (optional)
-          format: int32
-          nullable: true
-          type: integer
-      type: object
     ScheduledBackupModel:
       additionalProperties: false
       properties:
@@ -19823,11 +19144,6 @@ components:
           - $ref: '#/components/schemas/AotSettingResponseModel'
           description: The AOT setting
           nullable: true
-        entraIdSetting:
-          allOf:
-          - $ref: '#/components/schemas/EntraIdSettingModel'
-          description: The Entra ID settings.
-          nullable: true
       type: object
     SitesOverview:
       additionalProperties: false
@@ -20077,10 +19393,6 @@ components:
           description: The name of the Persona
           minLength: 1
           type: string
-        description:
-          description: The description of the Persona
-          nullable: true
-          type: string
         vmSku:
           description: "Internal only: The VM SKU string for the persona"
           minLength: 1
@@ -20110,16 +19422,6 @@ components:
           description: The Disk size associated with the persona
           format: int32
           type: integer
-        allocationType:
-          allOf:
-          - $ref: '#/components/schemas/CatalogAllocationType'
-          description: The allocation type for the persona
-        addOns:
-          description: The add-ons supported by the persona
-          items:
-            $ref: '#/components/schemas/SupportedPersonaAddOn'
-          nullable: true
-          type: array
         isDeprecated:
           description: Specifies if the persona is deprecated
           type: boolean
@@ -20129,28 +19431,6 @@ components:
       - sessionSupport
       - vmSku
       type: object
-    SupportedPersonaAddOn:
-      additionalProperties: false
-      properties:
-        property:
-          allOf:
-          - $ref: '#/components/schemas/SupportedPersonaAddOnProperty'
-          description: The property of the add-on. Eg. AllocationType
-        values:
-          additionalProperties:
-            format: int32
-            type: integer
-          description: "The value of the add-on property. This is a dictionary where\
-            \ the key is the value of the property and the value is the add-on credits.\r\
-            \nFor Eg. if the property is AllocationType, the key could be \"Random\"\
-            \ and the value could be 10."
-          nullable: true
-          type: object
-      type: object
-    SupportedPersonaAddOnProperty:
-      enum:
-      - AllocationType
-      type: string
     SupportedPowerAction:
       description: Power actions which may be supported by a machine.
       enum:
@@ -21255,7 +20535,7 @@ components:
           type: string
         metadata:
           description: "The metadata of machine. Set the value of the NameValueStringPairModel\
-            \ is null or empty will remove this metadata.\r\n\r\nNot existing Name\
+            \ is null or empty will be remove this metadata.\r\n\r\nNot existing Name\
             \ and Value NameValueStringPairModel object will be added.\r\n\r\nThe\
             \ same Name but different value object will be updated."
           items:
@@ -21752,6 +21032,32 @@ components:
           description: The Azure Resource ID of the VNet Peering
           nullable: true
           type: string
+        virtualHubId:
+          description: "Azure Resource ID of the Virtual Hub (for VWAN connections).\r\
+            \nIf populated, this is a VWAN connection instead of traditional VNet\
+            \ peering."
+          nullable: true
+          type: string
+        virtualHubResourceGroup:
+          description: "Resource group containing the Virtual Hub.\r\nOnly used when\
+            \ VirtualHubId is populated."
+          nullable: true
+          type: string
+        virtualHubName:
+          description: "Name of the Virtual Hub.\r\nOnly used when VirtualHubId is\
+            \ populated."
+          nullable: true
+          type: string
+        enableInternetSecurity:
+          description: "Enable internet security (firewall) for the VWAN connection.\r\
+            \nOnly used when VirtualHubId is populated."
+          nullable: true
+          type: boolean
+        routingConfiguration:
+          description: "JSON configuration for routing in the VWAN connection.\r\n\
+            Only used when VirtualHubId is populated."
+          nullable: true
+          type: string
         id:
           description: ID of the connection
           nullable: true
@@ -21793,6 +21099,8 @@ components:
       - DisablingNatGateway
       - NatGatewayFailed
       - RouteTableAndNatGatewayFailed
+      - ConnectingToVWan
+      - VWanConnectionFailed
       type: string
     WbcConfig:
       additionalProperties: false

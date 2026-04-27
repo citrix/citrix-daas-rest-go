@@ -1,6 +1,6 @@
 # \CatalogDesktopsCMD
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://catalogs.apps.cloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

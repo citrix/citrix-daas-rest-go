@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **DiskSize** | Pointer to **int32** | The Disk size associated with the persona | [optional] 
 **AllocationType** | Pointer to [**CatalogAllocationType**](CatalogAllocationType.md) | The allocation type for the persona | [optional] 
 **AddOns** | Pointer to [**[]SupportedPersonaAddOn**](SupportedPersonaAddOn.md) | The add-ons supported by the persona | [optional] 
+**DisabledRegions** | Pointer to **[]string** | Azure regions in which this persona is explicitly disabled. | [optional] 
 
 ## Methods
 
@@ -406,6 +407,41 @@ HasAddOns returns a boolean if a field has been set.
 `func (o *Persona) UnsetAddOns()`
 
 UnsetAddOns ensures that no value is present for AddOns, not even an explicit nil
+### GetDisabledRegions
+
+`func (o *Persona) GetDisabledRegions() []string`
+
+GetDisabledRegions returns the DisabledRegions field if non-nil, zero value otherwise.
+
+### GetDisabledRegionsOk
+
+`func (o *Persona) GetDisabledRegionsOk() (*[]string, bool)`
+
+GetDisabledRegionsOk returns a tuple with the DisabledRegions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisabledRegions
+
+`func (o *Persona) SetDisabledRegions(v []string)`
+
+SetDisabledRegions sets DisabledRegions field to given value.
+
+### HasDisabledRegions
+
+`func (o *Persona) HasDisabledRegions() bool`
+
+HasDisabledRegions returns a boolean if a field has been set.
+
+### SetDisabledRegionsNil
+
+`func (o *Persona) SetDisabledRegionsNil(b bool)`
+
+ SetDisabledRegionsNil sets the value for DisabledRegions to be an explicit nil
+
+### UnsetDisabledRegions
+`func (o *Persona) UnsetDisabledRegions()`
+
+UnsetDisabledRegions ensures that no value is present for DisabledRegions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

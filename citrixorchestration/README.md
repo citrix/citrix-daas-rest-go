@@ -74,7 +74,7 @@ ctx = context.WithValue(context.Background(), citrixorchestration.ContextOperati
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://DdcServerAddress/cvad/manage*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

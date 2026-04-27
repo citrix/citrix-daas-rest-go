@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -23,8 +23,8 @@ type AzurePoolSubscriptionDetails struct {
 	TenantId NullableString `json:"tenantId,omitempty"`
 	// Id of the subscription being onboarded
 	SubscriptionId NullableString `json:"subscriptionId,omitempty"`
-	// Indicates if this subscriptions uses the new unified/MT Entra ID
-	MultitenantEntraId *bool `json:"multitenantEntraId,omitempty"`
+	// Indicates if this subscriptions uses the new unified Entra ID
+	UnifiedEntraId *bool `json:"unifiedEntraId,omitempty"`
 	// Current state of subscription onboarding process
 	State *DirectoryState `json:"state,omitempty"`
 	// Failure details if any
@@ -107,27 +107,27 @@ func (o *AzurePoolSubscriptionDetails) UnsetSubscriptionId() {
 	o.SubscriptionId.Unset()
 }
 
-// GetMultitenantEntraId returns the MultitenantEntraId field value if set, zero value otherwise.
-func (o *AzurePoolSubscriptionDetails) GetMultitenantEntraId() bool {
-	if o == nil || IsNil(o.MultitenantEntraId) {
+// GetUnifiedEntraId returns the UnifiedEntraId field value if set, zero value otherwise.
+func (o *AzurePoolSubscriptionDetails) GetUnifiedEntraId() bool {
+	if o == nil || IsNil(o.UnifiedEntraId) {
 		var ret bool
 		return ret
 	}
-	return *o.MultitenantEntraId
+	return *o.UnifiedEntraId
 }
 
-// GetMultitenantEntraIdOk returns a tuple with the MultitenantEntraId field value if set, nil otherwise
+// GetUnifiedEntraIdOk returns a tuple with the UnifiedEntraId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AzurePoolSubscriptionDetails) GetMultitenantEntraIdOk() (*bool, bool) {
-	if o == nil || IsNil(o.MultitenantEntraId) {
+func (o *AzurePoolSubscriptionDetails) GetUnifiedEntraIdOk() (*bool, bool) {
+	if o == nil || IsNil(o.UnifiedEntraId) {
 		return nil, false
 	}
-	return o.MultitenantEntraId, true
+	return o.UnifiedEntraId, true
 }
 
-// SetMultitenantEntraId gets a reference to the given bool and assigns it to the MultitenantEntraId field.
-func (o *AzurePoolSubscriptionDetails) SetMultitenantEntraId(v bool) {
-	o.MultitenantEntraId = &v
+// SetUnifiedEntraId gets a reference to the given bool and assigns it to the UnifiedEntraId field.
+func (o *AzurePoolSubscriptionDetails) SetUnifiedEntraId(v bool) {
+	o.UnifiedEntraId = &v
 }
 
 // GetState returns the State field value if set, zero value otherwise.
@@ -203,8 +203,8 @@ func (o AzurePoolSubscriptionDetails) ToMap() (map[string]interface{}, error) {
 	if o.SubscriptionId.IsSet() {
 		toSerialize["subscriptionId"] = o.SubscriptionId.Get()
 	}
-	if !IsNil(o.MultitenantEntraId) {
-		toSerialize["multitenantEntraId"] = o.MultitenantEntraId
+	if !IsNil(o.UnifiedEntraId) {
+		toSerialize["unifiedEntraId"] = o.UnifiedEntraId
 	}
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State

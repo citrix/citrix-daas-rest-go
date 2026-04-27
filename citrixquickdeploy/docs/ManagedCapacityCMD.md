@@ -1,15 +1,18 @@
 # \ManagedCapacityCMD
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://catalogs.apps.cloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeletePortForNetworkSecurityGroup**](ManagedCapacityCMD.md#DeletePortForNetworkSecurityGroup) | **Delete** /{customerId}/{siteId}/managedCapacity/resourcelocations/{resourceLocationId}/port/{port} | Perform operation to Delete Port For CMA Vnet
+[**EnableServiceEndpointsForOnPremConnection**](ManagedCapacityCMD.md#EnableServiceEndpointsForOnPremConnection) | **Post** /{customerId}/{siteId}/managedCapacity/onPremConnections/{onPremConnectionId}/serviceEndpoints | Enables service endpoints on the virtual network peering for the specified on-prem connection.
 [**GetAllPortsForNetworkSecurityGroup**](ManagedCapacityCMD.md#GetAllPortsForNetworkSecurityGroup) | **Get** /{customerId}/{siteId}/managedCapacity/ports | Get details of all ports in CMA VNet
 [**GetDeploymentRegions**](ManagedCapacityCMD.md#GetDeploymentRegions) | **Get** /{customerId}/{siteId}/managedCapacity/regions | Get the regions that are available for deployment by the customer
 [**GetEstimatedCreditsForPersona**](ManagedCapacityCMD.md#GetEstimatedCreditsForPersona) | **Post** /{customerId}/{siteId}/managedCapacity/personas/estimateCredits | Get estimated credits for a specific persona
 [**GetOnPremConnections**](ManagedCapacityCMD.md#GetOnPremConnections) | **Get** /{customerId}/{siteId}/managedCapacity/onPremConnections | Get the On-Prem connections configured for the customer
 [**GetOpenPortsForNetworkSecurityGroup**](ManagedCapacityCMD.md#GetOpenPortsForNetworkSecurityGroup) | **Get** /{customerId}/{siteId}/managedCapacity/resourcelocations/{resourceLocationId}/openPorts | Get list of open ports in CMA Vnet for provided resource location
+[**GetPersonasAsync**](ManagedCapacityCMD.md#GetPersonasAsync) | **Get** /{customerId}/{siteId}/managedCapacity/{subscriptionId}/personas | Get available personas
+[**GetServiceEndpointsForOnPremConnection**](ManagedCapacityCMD.md#GetServiceEndpointsForOnPremConnection) | **Get** /{customerId}/{siteId}/managedCapacity/onPremConnections/{onPremConnectionId}/serviceEndpoints | 
 [**OpenPortForNetworkSecurityGroup**](ManagedCapacityCMD.md#OpenPortForNetworkSecurityGroup) | **Post** /{customerId}/{siteId}/managedCapacity/resourcelocations/{resourceLocationId}/port/{port}/openPort | Perform operation to Open Port For CMA Vnet
 
 
@@ -84,6 +87,84 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EnableServiceEndpointsForOnPremConnection
+
+> EnableServiceEndpointsForOnPremConnection(ctx, customerId, siteId, onPremConnectionId).CitrixTransactionId(citrixTransactionId).EnableServiceEndpointsForOnPremConnectionRequest(enableServiceEndpointsForOnPremConnectionRequest).Execute()
+
+Enables service endpoints on the virtual network peering for the specified on-prem connection.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickdeploy"
+)
+
+func main() {
+    customerId := "customerId_example" // string | An identifier of the customer.
+    siteId := "siteId_example" // string | An identifier of the customer's site that contains the managed capacity.
+    onPremConnectionId := "onPremConnectionId_example" // string | An identifier of the on-prem connection within the managed capacity site.
+    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+    enableServiceEndpointsForOnPremConnectionRequest := *openapiclient.NewEnableServiceEndpointsForOnPremConnectionRequest(openapiclient.OnPremConnectionType("VnetPeering"), []string{"ServiceEndpoints_example"}) // EnableServiceEndpointsForOnPremConnectionRequest | A request that specifies the on-prem connection type and the list of service endpoints to enable. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ManagedCapacityCMD.EnableServiceEndpointsForOnPremConnection(context.Background(), customerId, siteId, onPremConnectionId).CitrixTransactionId(citrixTransactionId).EnableServiceEndpointsForOnPremConnectionRequest(enableServiceEndpointsForOnPremConnectionRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ManagedCapacityCMD.EnableServiceEndpointsForOnPremConnection``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**customerId** | **string** | An identifier of the customer. | 
+**siteId** | **string** | An identifier of the customer&#39;s site that contains the managed capacity. | 
+**onPremConnectionId** | **string** | An identifier of the on-prem connection within the managed capacity site. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEnableServiceEndpointsForOnPremConnectionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **citrixTransactionId** | **string** | The Transaction Id. | 
+ **enableServiceEndpointsForOnPremConnectionRequest** | [**EnableServiceEndpointsForOnPremConnectionRequest**](EnableServiceEndpointsForOnPremConnectionRequest.md) | A request that specifies the on-prem connection type and the list of service endpoints to enable. | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[CWSAuth](../README.md#CWSAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -456,6 +537,162 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**VNetResourceLocation**](VNetResourceLocation.md)
+
+### Authorization
+
+[CWSAuth](../README.md#CWSAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetPersonasAsync
+
+> []Persona GetPersonasAsync(ctx, customerId, siteId, subscriptionId).CitrixTransactionId(citrixTransactionId).Execute()
+
+Get available personas
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickdeploy"
+)
+
+func main() {
+    customerId := "customerId_example" // string | ID of the user
+    siteId := "siteId_example" // string | ID of the customer's site
+    subscriptionId := "subscriptionId_example" // string | ID of the subscription
+    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ManagedCapacityCMD.GetPersonasAsync(context.Background(), customerId, siteId, subscriptionId).CitrixTransactionId(citrixTransactionId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ManagedCapacityCMD.GetPersonasAsync``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetPersonasAsync`: []Persona
+    fmt.Fprintf(os.Stdout, "Response from `ManagedCapacityCMD.GetPersonasAsync`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**customerId** | **string** | ID of the user | 
+**siteId** | **string** | ID of the customer&#39;s site | 
+**subscriptionId** | **string** | ID of the subscription | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPersonasAsyncRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **citrixTransactionId** | **string** | The Transaction Id. | 
+
+### Return type
+
+[**[]Persona**](Persona.md)
+
+### Authorization
+
+[CWSAuth](../README.md#CWSAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetServiceEndpointsForOnPremConnection
+
+> map[string]ServiceEndpointsResponse GetServiceEndpointsForOnPremConnection(ctx, customerId, siteId, onPremConnectionId).OnPremConnectionType(onPremConnectionType).CitrixTransactionId(citrixTransactionId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickdeploy"
+)
+
+func main() {
+    customerId := "customerId_example" // string | 
+    siteId := "siteId_example" // string | 
+    onPremConnectionId := "onPremConnectionId_example" // string | 
+    onPremConnectionType := openapiclient.OnPremConnectionType("VnetPeering") // OnPremConnectionType |  (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ManagedCapacityCMD.GetServiceEndpointsForOnPremConnection(context.Background(), customerId, siteId, onPremConnectionId).OnPremConnectionType(onPremConnectionType).CitrixTransactionId(citrixTransactionId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ManagedCapacityCMD.GetServiceEndpointsForOnPremConnection``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetServiceEndpointsForOnPremConnection`: map[string]ServiceEndpointsResponse
+    fmt.Fprintf(os.Stdout, "Response from `ManagedCapacityCMD.GetServiceEndpointsForOnPremConnection`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**customerId** | **string** |  | 
+**siteId** | **string** |  | 
+**onPremConnectionId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetServiceEndpointsForOnPremConnectionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **onPremConnectionType** | [**OnPremConnectionType**](OnPremConnectionType.md) |  | 
+ **citrixTransactionId** | **string** | The Transaction Id. | 
+
+### Return type
+
+[**map[string]ServiceEndpointsResponse**](ServiceEndpointsResponse.md)
 
 ### Authorization
 

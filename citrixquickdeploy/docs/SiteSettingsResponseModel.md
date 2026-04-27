@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **XmlServicesSslConfigurations** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | XML service configurations of enabling listening for https/http requests. Only applicable for On-Premise deployments. | [optional] 
 **MultiTenantServicesAccess** | Pointer to [**NullableMultiTenantServicesAccessModel**](MultiTenantServicesAccessModel.md) | Indicate whether Citrix Cloud Services are allowed to access the DaaS. | [optional] 
 **AotSetting** | Pointer to [**NullableAotSettingResponseModel**](AotSettingResponseModel.md) | The AOT setting | [optional] 
-**EntraIdSetting** | Pointer to [**NullableEntraIdSettingModel**](EntraIdSettingModel.md) | The Entra ID settings. | [optional] 
 
 ## Methods
 
@@ -565,41 +564,6 @@ HasAotSetting returns a boolean if a field has been set.
 `func (o *SiteSettingsResponseModel) UnsetAotSetting()`
 
 UnsetAotSetting ensures that no value is present for AotSetting, not even an explicit nil
-### GetEntraIdSetting
-
-`func (o *SiteSettingsResponseModel) GetEntraIdSetting() EntraIdSettingModel`
-
-GetEntraIdSetting returns the EntraIdSetting field if non-nil, zero value otherwise.
-
-### GetEntraIdSettingOk
-
-`func (o *SiteSettingsResponseModel) GetEntraIdSettingOk() (*EntraIdSettingModel, bool)`
-
-GetEntraIdSettingOk returns a tuple with the EntraIdSetting field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEntraIdSetting
-
-`func (o *SiteSettingsResponseModel) SetEntraIdSetting(v EntraIdSettingModel)`
-
-SetEntraIdSetting sets EntraIdSetting field to given value.
-
-### HasEntraIdSetting
-
-`func (o *SiteSettingsResponseModel) HasEntraIdSetting() bool`
-
-HasEntraIdSetting returns a boolean if a field has been set.
-
-### SetEntraIdSettingNil
-
-`func (o *SiteSettingsResponseModel) SetEntraIdSettingNil(b bool)`
-
- SetEntraIdSettingNil sets the value for EntraIdSetting to be an explicit nil
-
-### UnsetEntraIdSetting
-`func (o *SiteSettingsResponseModel) UnsetEntraIdSetting()`
-
-UnsetEntraIdSetting ensures that no value is present for EntraIdSetting, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

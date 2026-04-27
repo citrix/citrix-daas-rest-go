@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -19,12 +19,28 @@ import (
 	"strings"
 )
 
+type SitesCMD interface {
+
+	/*
+		GetSiteIds Get all the sites for a customer
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@return ApiGetSiteIdsRequest
+	*/
+	GetSiteIds(ctx context.Context, customerId string) ApiGetSiteIdsRequest
+
+	// GetSiteIdsExecute executes the request
+	//  @return SitesOverview
+	GetSiteIdsExecute(r ApiGetSiteIdsRequest) (*SitesOverview, *http.Response, error)
+}
+
 // SitesCMDService SitesCMD service
 type SitesCMDService service
 
 type ApiGetSiteIdsRequest struct {
 	ctx                 context.Context
-	ApiService          *SitesCMDService
+	ApiService          SitesCMD
 	customerId          string
 	citrixTransactionId *string
 }

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -35,7 +35,7 @@ type UpdateMachineRequestModel struct {
 	PublishedName NullableString `json:"publishedName,omitempty"`
 	// Specifies the image data of the icon used to display the published    desktop to the user, and of assigned desktop(s) in the case    where SharingKind    is equal to Private.
 	Icon NullableString `json:"icon,omitempty"`
-	// The metadata of machine. Set the value of the NameValueStringPairModel is null or empty will remove this metadata.    Not existing Name and Value NameValueStringPairModel object will be added.    The same Name but different value object will be updated.
+	// The metadata of machine. Set the value of the NameValueStringPairModel is null or empty will be remove this metadata.    Not existing Name and Value NameValueStringPairModel object will be added.    The same Name but different value object will be updated.
 	Metadata []NameValueStringPairModel `json:"metadata,omitempty"`
 }
 

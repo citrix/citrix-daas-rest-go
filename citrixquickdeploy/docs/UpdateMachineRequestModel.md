@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **InMaintenanceMode** | Pointer to **NullableBool** | Specifies whether the machine is initially in maintenance mode.  A machine in maintenance mode is    not available for new sessions, and for managed machines all automatic power management is disabled.    If &#x60;null&#x60;, will not be changed. | [optional] 
 **PublishedName** | Pointer to **NullableString** | Customized name of the machine that is displayed in StoreFront, if the machine has been published.    It can be set only for private desktops.    If &#x60;null&#x60;, will not be changed.    If empty string (&#x60;\&quot;\&quot;&#x60;), the machine will be unassigned from any published name. | [optional] 
 **Icon** | Pointer to **NullableString** | Specifies the image data of the icon used to display the published    desktop to the user, and of assigned desktop(s) in the case    where SharingKind    is equal to Private. | [optional] 
-**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of machine. Set the value of the NameValueStringPairModel is null or empty will remove this metadata.    Not existing Name and Value NameValueStringPairModel object will be added.    The same Name but different value object will be updated. | [optional] 
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of machine. Set the value of the NameValueStringPairModel is null or empty will be remove this metadata.    Not existing Name and Value NameValueStringPairModel object will be added.    The same Name but different value object will be updated. | [optional] 
 
 ## Methods
 

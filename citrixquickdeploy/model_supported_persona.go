@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -23,8 +23,6 @@ type SupportedPersona struct {
 	Id NullableString `json:"id,omitempty"`
 	// The name of the Persona
 	Name string `json:"name"`
-	// The description of the Persona
-	Description NullableString `json:"description,omitempty"`
 	// Internal only: The VM SKU string for the persona
 	VmSku string `json:"vmSku"`
 	// Quantity of sessions supported per-machine.
@@ -39,10 +37,6 @@ type SupportedPersona struct {
 	DiskSku NullableString `json:"diskSku,omitempty"`
 	// The Disk size associated with the persona
 	DiskSize *int32 `json:"diskSize,omitempty"`
-	// The allocation type for the persona
-	AllocationType *CatalogAllocationType `json:"allocationType,omitempty"`
-	// The add-ons supported by the persona
-	AddOns []SupportedPersonaAddOn `json:"addOns,omitempty"`
 	// Specifies if the persona is deprecated
 	IsDeprecated *bool `json:"isDeprecated,omitempty"`
 }
@@ -111,40 +105,6 @@ func (o *SupportedPersona) GetNameOk() (*string, bool) {
 // SetName sets field value
 func (o *SupportedPersona) SetName(v string) {
 	o.Name = v
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SupportedPersona) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Description.Get()
-}
-
-// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SupportedPersona) GetDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Description.Get(), o.Description.IsSet()
-}
-
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
-func (o *SupportedPersona) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *SupportedPersona) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *SupportedPersona) UnsetDescription() {
-	o.Description.Unset()
 }
 
 // GetVmSku returns the VmSku field value
@@ -333,53 +293,6 @@ func (o *SupportedPersona) SetDiskSize(v int32) {
 	o.DiskSize = &v
 }
 
-// GetAllocationType returns the AllocationType field value if set, zero value otherwise.
-func (o *SupportedPersona) GetAllocationType() CatalogAllocationType {
-	if o == nil || IsNil(o.AllocationType) {
-		var ret CatalogAllocationType
-		return ret
-	}
-	return *o.AllocationType
-}
-
-// GetAllocationTypeOk returns a tuple with the AllocationType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SupportedPersona) GetAllocationTypeOk() (*CatalogAllocationType, bool) {
-	if o == nil || IsNil(o.AllocationType) {
-		return nil, false
-	}
-	return o.AllocationType, true
-}
-
-// SetAllocationType gets a reference to the given CatalogAllocationType and assigns it to the AllocationType field.
-func (o *SupportedPersona) SetAllocationType(v CatalogAllocationType) {
-	o.AllocationType = &v
-}
-
-// GetAddOns returns the AddOns field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SupportedPersona) GetAddOns() []SupportedPersonaAddOn {
-	if o == nil {
-		var ret []SupportedPersonaAddOn
-		return ret
-	}
-	return o.AddOns
-}
-
-// GetAddOnsOk returns a tuple with the AddOns field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SupportedPersona) GetAddOnsOk() ([]SupportedPersonaAddOn, bool) {
-	if o == nil || IsNil(o.AddOns) {
-		return nil, false
-	}
-	return o.AddOns, true
-}
-
-// SetAddOns gets a reference to the given []SupportedPersonaAddOn and assigns it to the AddOns field.
-func (o *SupportedPersona) SetAddOns(v []SupportedPersonaAddOn) {
-	o.AddOns = v
-}
-
 // GetIsDeprecated returns the IsDeprecated field value if set, zero value otherwise.
 func (o *SupportedPersona) GetIsDeprecated() bool {
 	if o == nil || IsNil(o.IsDeprecated) {
@@ -417,9 +330,6 @@ func (o SupportedPersona) ToMap() (map[string]interface{}, error) {
 		toSerialize["id"] = o.Id.Get()
 	}
 	toSerialize["name"] = o.Name
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
-	}
 	toSerialize["vmSku"] = o.VmSku
 	toSerialize["sessionSupport"] = o.SessionSupport
 	if !IsNil(o.SessionsPerVm) {
@@ -434,12 +344,6 @@ func (o SupportedPersona) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DiskSize) {
 		toSerialize["diskSize"] = o.DiskSize
-	}
-	if !IsNil(o.AllocationType) {
-		toSerialize["allocationType"] = o.AllocationType
-	}
-	if o.AddOns != nil {
-		toSerialize["addOns"] = o.AddOns
 	}
 	if !IsNil(o.IsDeprecated) {
 		toSerialize["isDeprecated"] = o.IsDeprecated

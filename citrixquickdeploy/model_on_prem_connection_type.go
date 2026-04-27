@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -20,9 +20,10 @@ type OnPremConnectionType string
 
 // List of OnPremConnectionType
 const (
-	ONPREMCONNECTIONTYPE_VNET_PEERING OnPremConnectionType = "VnetPeering"
-	ONPREMCONNECTIONTYPE_AZURE_VPN    OnPremConnectionType = "AzureVpn"
-	ONPREMCONNECTIONTYPE_SD_WAN       OnPremConnectionType = "SdWan"
+	ONPREMCONNECTIONTYPE_VNET_PEERING     OnPremConnectionType = "VnetPeering"
+	ONPREMCONNECTIONTYPE_AZURE_VPN        OnPremConnectionType = "AzureVpn"
+	ONPREMCONNECTIONTYPE_SD_WAN           OnPremConnectionType = "SdWan"
+	ONPREMCONNECTIONTYPE_V_WAN_CONNECTION OnPremConnectionType = "VWanConnection"
 )
 
 // All allowed values of OnPremConnectionType enum
@@ -30,6 +31,7 @@ var AllowedOnPremConnectionTypeEnumValues = []OnPremConnectionType{
 	"VnetPeering",
 	"AzureVpn",
 	"SdWan",
+	"VWanConnection",
 }
 
 func (v *OnPremConnectionType) UnmarshalJSON(src []byte) error {

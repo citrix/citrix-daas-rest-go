@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -23,9 +23,8 @@ type EstimatePersonaCreditsRequestModel struct {
 	DiskSku      NullableString `json:"diskSku,omitempty"`
 	DiskSizeInGB *int32         `json:"diskSizeInGB,omitempty"`
 	// Quantity of sessions supported per-machine.
-	SessionSupport *SessionSupport        `json:"sessionSupport,omitempty"`
-	SessionsPerVM  *int32                 `json:"sessionsPerVM,omitempty"`
-	AllocationType *CatalogAllocationType `json:"allocationType,omitempty"`
+	SessionSupport *SessionSupport `json:"sessionSupport,omitempty"`
+	SessionsPerVM  *int32          `json:"sessionsPerVM,omitempty"`
 }
 
 // NewEstimatePersonaCreditsRequestModelWithDefaults instantiates a new EstimatePersonaCreditsRequestModel object
@@ -173,29 +172,6 @@ func (o *EstimatePersonaCreditsRequestModel) SetSessionsPerVM(v int32) {
 	o.SessionsPerVM = &v
 }
 
-// GetAllocationType returns the AllocationType field value if set, zero value otherwise.
-func (o *EstimatePersonaCreditsRequestModel) GetAllocationType() CatalogAllocationType {
-	if o == nil || IsNil(o.AllocationType) {
-		var ret CatalogAllocationType
-		return ret
-	}
-	return *o.AllocationType
-}
-
-// GetAllocationTypeOk returns a tuple with the AllocationType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EstimatePersonaCreditsRequestModel) GetAllocationTypeOk() (*CatalogAllocationType, bool) {
-	if o == nil || IsNil(o.AllocationType) {
-		return nil, false
-	}
-	return o.AllocationType, true
-}
-
-// SetAllocationType gets a reference to the given CatalogAllocationType and assigns it to the AllocationType field.
-func (o *EstimatePersonaCreditsRequestModel) SetAllocationType(v CatalogAllocationType) {
-	o.AllocationType = &v
-}
-
 func (o EstimatePersonaCreditsRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -220,9 +196,6 @@ func (o EstimatePersonaCreditsRequestModel) ToMap() (map[string]interface{}, err
 	}
 	if !IsNil(o.SessionsPerVM) {
 		toSerialize["sessionsPerVM"] = o.SessionsPerVM
-	}
-	if !IsNil(o.AllocationType) {
-		toSerialize["allocationType"] = o.AllocationType
 	}
 	return toSerialize, nil
 }

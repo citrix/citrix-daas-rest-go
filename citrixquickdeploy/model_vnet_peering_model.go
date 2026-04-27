@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -62,6 +62,16 @@ type VnetPeeringModel struct {
 	RemoteTenantId NullableString `json:"remoteTenantId,omitempty"`
 	// The Azure Resource ID of the VNet Peering
 	ResourceId NullableString `json:"resourceId,omitempty"`
+	// Azure Resource ID of the Virtual Hub (for VWAN connections).  If populated, this is a VWAN connection instead of traditional VNet peering.
+	VirtualHubId NullableString `json:"virtualHubId,omitempty"`
+	// Resource group containing the Virtual Hub.  Only used when VirtualHubId is populated.
+	VirtualHubResourceGroup NullableString `json:"virtualHubResourceGroup,omitempty"`
+	// Name of the Virtual Hub.  Only used when VirtualHubId is populated.
+	VirtualHubName NullableString `json:"virtualHubName,omitempty"`
+	// Enable internet security (firewall) for the VWAN connection.  Only used when VirtualHubId is populated.
+	EnableInternetSecurity NullableBool `json:"enableInternetSecurity,omitempty"`
+	// JSON configuration for routing in the VWAN connection.  Only used when VirtualHubId is populated.
+	RoutingConfiguration NullableString `json:"routingConfiguration,omitempty"`
 	// ID of the connection
 	Id NullableString `json:"id,omitempty"`
 	// The type of connection
@@ -702,6 +712,176 @@ func (o *VnetPeeringModel) UnsetResourceId() {
 	o.ResourceId.Unset()
 }
 
+// GetVirtualHubId returns the VirtualHubId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *VnetPeeringModel) GetVirtualHubId() string {
+	if o == nil || IsNil(o.VirtualHubId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VirtualHubId.Get()
+}
+
+// GetVirtualHubIdOk returns a tuple with the VirtualHubId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *VnetPeeringModel) GetVirtualHubIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VirtualHubId.Get(), o.VirtualHubId.IsSet()
+}
+
+// SetVirtualHubId gets a reference to the given NullableString and assigns it to the VirtualHubId field.
+func (o *VnetPeeringModel) SetVirtualHubId(v string) {
+	o.VirtualHubId.Set(&v)
+}
+
+// SetVirtualHubIdNil sets the value for VirtualHubId to be an explicit nil
+func (o *VnetPeeringModel) SetVirtualHubIdNil() {
+	o.VirtualHubId.Set(nil)
+}
+
+// UnsetVirtualHubId ensures that no value is present for VirtualHubId, not even an explicit nil
+func (o *VnetPeeringModel) UnsetVirtualHubId() {
+	o.VirtualHubId.Unset()
+}
+
+// GetVirtualHubResourceGroup returns the VirtualHubResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *VnetPeeringModel) GetVirtualHubResourceGroup() string {
+	if o == nil || IsNil(o.VirtualHubResourceGroup.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VirtualHubResourceGroup.Get()
+}
+
+// GetVirtualHubResourceGroupOk returns a tuple with the VirtualHubResourceGroup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *VnetPeeringModel) GetVirtualHubResourceGroupOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VirtualHubResourceGroup.Get(), o.VirtualHubResourceGroup.IsSet()
+}
+
+// SetVirtualHubResourceGroup gets a reference to the given NullableString and assigns it to the VirtualHubResourceGroup field.
+func (o *VnetPeeringModel) SetVirtualHubResourceGroup(v string) {
+	o.VirtualHubResourceGroup.Set(&v)
+}
+
+// SetVirtualHubResourceGroupNil sets the value for VirtualHubResourceGroup to be an explicit nil
+func (o *VnetPeeringModel) SetVirtualHubResourceGroupNil() {
+	o.VirtualHubResourceGroup.Set(nil)
+}
+
+// UnsetVirtualHubResourceGroup ensures that no value is present for VirtualHubResourceGroup, not even an explicit nil
+func (o *VnetPeeringModel) UnsetVirtualHubResourceGroup() {
+	o.VirtualHubResourceGroup.Unset()
+}
+
+// GetVirtualHubName returns the VirtualHubName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *VnetPeeringModel) GetVirtualHubName() string {
+	if o == nil || IsNil(o.VirtualHubName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VirtualHubName.Get()
+}
+
+// GetVirtualHubNameOk returns a tuple with the VirtualHubName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *VnetPeeringModel) GetVirtualHubNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VirtualHubName.Get(), o.VirtualHubName.IsSet()
+}
+
+// SetVirtualHubName gets a reference to the given NullableString and assigns it to the VirtualHubName field.
+func (o *VnetPeeringModel) SetVirtualHubName(v string) {
+	o.VirtualHubName.Set(&v)
+}
+
+// SetVirtualHubNameNil sets the value for VirtualHubName to be an explicit nil
+func (o *VnetPeeringModel) SetVirtualHubNameNil() {
+	o.VirtualHubName.Set(nil)
+}
+
+// UnsetVirtualHubName ensures that no value is present for VirtualHubName, not even an explicit nil
+func (o *VnetPeeringModel) UnsetVirtualHubName() {
+	o.VirtualHubName.Unset()
+}
+
+// GetEnableInternetSecurity returns the EnableInternetSecurity field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *VnetPeeringModel) GetEnableInternetSecurity() bool {
+	if o == nil || IsNil(o.EnableInternetSecurity.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.EnableInternetSecurity.Get()
+}
+
+// GetEnableInternetSecurityOk returns a tuple with the EnableInternetSecurity field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *VnetPeeringModel) GetEnableInternetSecurityOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EnableInternetSecurity.Get(), o.EnableInternetSecurity.IsSet()
+}
+
+// SetEnableInternetSecurity gets a reference to the given NullableBool and assigns it to the EnableInternetSecurity field.
+func (o *VnetPeeringModel) SetEnableInternetSecurity(v bool) {
+	o.EnableInternetSecurity.Set(&v)
+}
+
+// SetEnableInternetSecurityNil sets the value for EnableInternetSecurity to be an explicit nil
+func (o *VnetPeeringModel) SetEnableInternetSecurityNil() {
+	o.EnableInternetSecurity.Set(nil)
+}
+
+// UnsetEnableInternetSecurity ensures that no value is present for EnableInternetSecurity, not even an explicit nil
+func (o *VnetPeeringModel) UnsetEnableInternetSecurity() {
+	o.EnableInternetSecurity.Unset()
+}
+
+// GetRoutingConfiguration returns the RoutingConfiguration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *VnetPeeringModel) GetRoutingConfiguration() string {
+	if o == nil || IsNil(o.RoutingConfiguration.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.RoutingConfiguration.Get()
+}
+
+// GetRoutingConfigurationOk returns a tuple with the RoutingConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *VnetPeeringModel) GetRoutingConfigurationOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RoutingConfiguration.Get(), o.RoutingConfiguration.IsSet()
+}
+
+// SetRoutingConfiguration gets a reference to the given NullableString and assigns it to the RoutingConfiguration field.
+func (o *VnetPeeringModel) SetRoutingConfiguration(v string) {
+	o.RoutingConfiguration.Set(&v)
+}
+
+// SetRoutingConfigurationNil sets the value for RoutingConfiguration to be an explicit nil
+func (o *VnetPeeringModel) SetRoutingConfigurationNil() {
+	o.RoutingConfiguration.Set(nil)
+}
+
+// UnsetRoutingConfiguration ensures that no value is present for RoutingConfiguration, not even an explicit nil
+func (o *VnetPeeringModel) UnsetRoutingConfiguration() {
+	o.RoutingConfiguration.Unset()
+}
+
 // GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VnetPeeringModel) GetId() string {
 	if o == nil || IsNil(o.Id.Get()) {
@@ -933,6 +1113,21 @@ func (o VnetPeeringModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ResourceId.IsSet() {
 		toSerialize["resourceId"] = o.ResourceId.Get()
+	}
+	if o.VirtualHubId.IsSet() {
+		toSerialize["virtualHubId"] = o.VirtualHubId.Get()
+	}
+	if o.VirtualHubResourceGroup.IsSet() {
+		toSerialize["virtualHubResourceGroup"] = o.VirtualHubResourceGroup.Get()
+	}
+	if o.VirtualHubName.IsSet() {
+		toSerialize["virtualHubName"] = o.VirtualHubName.Get()
+	}
+	if o.EnableInternetSecurity.IsSet() {
+		toSerialize["enableInternetSecurity"] = o.EnableInternetSecurity.Get()
+	}
+	if o.RoutingConfiguration.IsSet() {
+		toSerialize["routingConfiguration"] = o.RoutingConfiguration.Get()
 	}
 	if o.Id.IsSet() {
 		toSerialize["id"] = o.Id.Get()

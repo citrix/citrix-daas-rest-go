@@ -21,8 +21,6 @@ Name | Type | Description | Notes
 **AssociatedCatalogs** | Pointer to [**[]AssociatedCatalog**](AssociatedCatalog.md) | List of catalogs that are associate with the Resource Location. | [optional] 
 **ConnectorResourceGroup** | Pointer to **NullableString** | The most recently used resource group for connectors of a BYOA RL | [optional] 
 **VnetResourceGroup** | Pointer to **NullableString** | The resource group containing the vnet the RL is associated with | [optional] 
-**SubnetNames** | Pointer to **[]string** | The subnet names within the VNet | [optional] 
-**ManagedSubnetIds** | Pointer to **[]string** | The full Azure resource IDs of the managed subnets | [optional] 
 **OrganizationalUnit** | Pointer to **NullableString** | The most recently used OU for the connectors of a BYOA RL | [optional] 
 **IsSecureBrowser** | Pointer to **NullableBool** | Indicates if the Resource Location is for Secure Browser | [optional] 
 **IsForConnectorlessCatalogs** | Pointer to **bool** | Indicates if the Resource Location is for connectorless catalogs | [optional] 
@@ -613,76 +611,6 @@ HasVnetResourceGroup returns a boolean if a field has been set.
 `func (o *ResourceLocationDetails) UnsetVnetResourceGroup()`
 
 UnsetVnetResourceGroup ensures that no value is present for VnetResourceGroup, not even an explicit nil
-### GetSubnetNames
-
-`func (o *ResourceLocationDetails) GetSubnetNames() []string`
-
-GetSubnetNames returns the SubnetNames field if non-nil, zero value otherwise.
-
-### GetSubnetNamesOk
-
-`func (o *ResourceLocationDetails) GetSubnetNamesOk() (*[]string, bool)`
-
-GetSubnetNamesOk returns a tuple with the SubnetNames field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSubnetNames
-
-`func (o *ResourceLocationDetails) SetSubnetNames(v []string)`
-
-SetSubnetNames sets SubnetNames field to given value.
-
-### HasSubnetNames
-
-`func (o *ResourceLocationDetails) HasSubnetNames() bool`
-
-HasSubnetNames returns a boolean if a field has been set.
-
-### SetSubnetNamesNil
-
-`func (o *ResourceLocationDetails) SetSubnetNamesNil(b bool)`
-
- SetSubnetNamesNil sets the value for SubnetNames to be an explicit nil
-
-### UnsetSubnetNames
-`func (o *ResourceLocationDetails) UnsetSubnetNames()`
-
-UnsetSubnetNames ensures that no value is present for SubnetNames, not even an explicit nil
-### GetManagedSubnetIds
-
-`func (o *ResourceLocationDetails) GetManagedSubnetIds() []string`
-
-GetManagedSubnetIds returns the ManagedSubnetIds field if non-nil, zero value otherwise.
-
-### GetManagedSubnetIdsOk
-
-`func (o *ResourceLocationDetails) GetManagedSubnetIdsOk() (*[]string, bool)`
-
-GetManagedSubnetIdsOk returns a tuple with the ManagedSubnetIds field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetManagedSubnetIds
-
-`func (o *ResourceLocationDetails) SetManagedSubnetIds(v []string)`
-
-SetManagedSubnetIds sets ManagedSubnetIds field to given value.
-
-### HasManagedSubnetIds
-
-`func (o *ResourceLocationDetails) HasManagedSubnetIds() bool`
-
-HasManagedSubnetIds returns a boolean if a field has been set.
-
-### SetManagedSubnetIdsNil
-
-`func (o *ResourceLocationDetails) SetManagedSubnetIdsNil(b bool)`
-
- SetManagedSubnetIdsNil sets the value for ManagedSubnetIds to be an explicit nil
-
-### UnsetManagedSubnetIds
-`func (o *ResourceLocationDetails) UnsetManagedSubnetIds()`
-
-UnsetManagedSubnetIds ensures that no value is present for ManagedSubnetIds, not even an explicit nil
 ### GetOrganizationalUnit
 
 `func (o *ResourceLocationDetails) GetOrganizationalUnit() string`

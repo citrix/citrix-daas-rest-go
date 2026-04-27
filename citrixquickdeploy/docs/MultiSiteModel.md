@@ -6,8 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** | Site Name | [optional] 
 **DisplayName** | **string** | The site&#39;s friendly name | 
-**DeliveryControllers** | Pointer to **[]string** | The Orchestration servers belongs to the site, only applicable for On-Prem. | [optional] 
-**WebServerAddress** | Pointer to **NullableString** | The On-Prem web studio server address, this setting is only applicable for Cloud deployment. | [optional] 
+**DeliveryControllers** | Pointer to **[]string** | The Orchestration servers belongs to the site | [optional] 
 **Default** | Pointer to **NullableBool** | Indicate if it is the default site. | [optional] 
 
 ## Methods
@@ -119,41 +118,6 @@ HasDeliveryControllers returns a boolean if a field has been set.
 `func (o *MultiSiteModel) UnsetDeliveryControllers()`
 
 UnsetDeliveryControllers ensures that no value is present for DeliveryControllers, not even an explicit nil
-### GetWebServerAddress
-
-`func (o *MultiSiteModel) GetWebServerAddress() string`
-
-GetWebServerAddress returns the WebServerAddress field if non-nil, zero value otherwise.
-
-### GetWebServerAddressOk
-
-`func (o *MultiSiteModel) GetWebServerAddressOk() (*string, bool)`
-
-GetWebServerAddressOk returns a tuple with the WebServerAddress field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetWebServerAddress
-
-`func (o *MultiSiteModel) SetWebServerAddress(v string)`
-
-SetWebServerAddress sets WebServerAddress field to given value.
-
-### HasWebServerAddress
-
-`func (o *MultiSiteModel) HasWebServerAddress() bool`
-
-HasWebServerAddress returns a boolean if a field has been set.
-
-### SetWebServerAddressNil
-
-`func (o *MultiSiteModel) SetWebServerAddressNil(b bool)`
-
- SetWebServerAddressNil sets the value for WebServerAddress to be an explicit nil
-
-### UnsetWebServerAddress
-`func (o *MultiSiteModel) UnsetWebServerAddress()`
-
-UnsetWebServerAddress ensures that no value is present for WebServerAddress, not even an explicit nil
 ### GetDefault
 
 `func (o *MultiSiteModel) GetDefault() bool`

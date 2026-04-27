@@ -43,8 +43,6 @@
 
 * `SET_MAX_MANAGED_SUBSCRIPTIONS` (value: `"SetMaxManagedSubscriptions"`)
 
-* `REMOVE_BASTION_NSG_RULE_BASED_ON_PREFIX` (value: `"RemoveBastionNsgRuleBasedOnPrefix"`)
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

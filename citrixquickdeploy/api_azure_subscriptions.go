@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -19,12 +19,76 @@ import (
 	"strings"
 )
 
+type AzureSubscriptionsCMD interface {
+
+	/*
+		GetSubscriptions Method for GetSubscriptions
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId
+		@param siteId
+		@return ApiGetSubscriptionsRequest
+	*/
+	GetSubscriptions(ctx context.Context, customerId string, siteId string) ApiGetSubscriptionsRequest
+
+	// GetSubscriptionsExecute executes the request
+	//  @return AzureSubscriptionsModel
+	GetSubscriptionsExecute(r ApiGetSubscriptionsRequest) (*AzureSubscriptionsModel, *http.Response, error)
+
+	/*
+		GetVirtualHubVnetConnections Returns the VNet connections attached to the specified Virtual Hub.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customer id
+		@param siteId ID of the customer's site
+		@param subscriptionId ID of the Azure Subscription
+		@param resourceGroup Name of the Resource Group where the Virtual Hub is located
+		@param virtualHubName Name of the Virtual Hub
+		@return ApiGetVirtualHubVnetConnectionsRequest
+	*/
+	GetVirtualHubVnetConnections(ctx context.Context, customerId string, siteId string, subscriptionId string, resourceGroup string, virtualHubName string) ApiGetVirtualHubVnetConnectionsRequest
+
+	// GetVirtualHubVnetConnectionsExecute executes the request
+	//  @return []AzureVirtualHubVnetConnection
+	GetVirtualHubVnetConnectionsExecute(r ApiGetVirtualHubVnetConnectionsRequest) ([]AzureVirtualHubVnetConnection, *http.Response, error)
+
+	/*
+		GetVirtualHubs Returns the Virtual Hubs available in the specified Azure subscription, optionally filtered by resource group.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customer id
+		@param siteId ID of the customer's site
+		@param subscriptionId ID of the Azure Subscription
+		@return ApiGetVirtualHubsRequest
+	*/
+	GetVirtualHubs(ctx context.Context, customerId string, siteId string, subscriptionId string) ApiGetVirtualHubsRequest
+
+	// GetVirtualHubsExecute executes the request
+	//  @return []AzureVirtualHub
+	GetVirtualHubsExecute(r ApiGetVirtualHubsRequest) ([]AzureVirtualHub, *http.Response, error)
+
+	/*
+		GetVirtualWans Returns the Virtual WANs available in the specified Azure subscription.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customer id
+		@param siteId ID of the customer's site
+		@param subscriptionId ID of the Azure Subscription
+		@return ApiGetVirtualWansRequest
+	*/
+	GetVirtualWans(ctx context.Context, customerId string, siteId string, subscriptionId string) ApiGetVirtualWansRequest
+
+	// GetVirtualWansExecute executes the request
+	//  @return []AzureVirtualWanModel
+	GetVirtualWansExecute(r ApiGetVirtualWansRequest) ([]AzureVirtualWanModel, *http.Response, error)
+}
+
 // AzureSubscriptionsCMDService AzureSubscriptionsCMD service
 type AzureSubscriptionsCMDService service
 
 type ApiGetSubscriptionsRequest struct {
 	ctx                    context.Context
-	ApiService             *AzureSubscriptionsCMDService
+	ApiService             AzureSubscriptionsCMD
 	customerId             string
 	siteId                 string
 	skipCache              *bool
@@ -125,6 +189,576 @@ func (a *AzureSubscriptionsCMDService) GetSubscriptionsExecute(r ApiGetSubscript
 	if r.skipCache != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "skipCache", r.skipCache, "")
 	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.xAZUREACCESSTOKEN != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-ACCESS-TOKEN", r.xAZUREACCESSTOKEN, "")
+	}
+	if r.xAZUREGRAPHACCESSTOKEN != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-GRAPH-ACCESS-TOKEN", r.xAZUREGRAPHACCESSTOKEN, "")
+	}
+	if r.xAZURETENANTID != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-TENANT-ID", r.xAZURETENANTID, "")
+	}
+	if r.xAZUREAPPCLIENTID != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-APP-CLIENT-ID", r.xAZUREAPPCLIENTID, "")
+	}
+	if r.xAZUREAPPCLIENTSECRET != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-APP-CLIENT-SECRET", r.xAZUREAPPCLIENTSECRET, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["CWSAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetVirtualHubVnetConnectionsRequest struct {
+	ctx                    context.Context
+	ApiService             AzureSubscriptionsCMD
+	customerId             string
+	siteId                 string
+	subscriptionId         string
+	resourceGroup          string
+	virtualHubName         string
+	citrixTransactionId    *string
+	xAZUREACCESSTOKEN      *string
+	xAZUREGRAPHACCESSTOKEN *string
+	xAZURETENANTID         *string
+	xAZUREAPPCLIENTID      *string
+	xAZUREAPPCLIENTSECRET  *string
+}
+
+// The Transaction Id.
+func (r ApiGetVirtualHubVnetConnectionsRequest) CitrixTransactionId(citrixTransactionId string) ApiGetVirtualHubVnetConnectionsRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Azure Access Token.
+func (r ApiGetVirtualHubVnetConnectionsRequest) XAZUREACCESSTOKEN(xAZUREACCESSTOKEN string) ApiGetVirtualHubVnetConnectionsRequest {
+	r.xAZUREACCESSTOKEN = &xAZUREACCESSTOKEN
+	return r
+}
+
+// Azure Graph Access Token.
+func (r ApiGetVirtualHubVnetConnectionsRequest) XAZUREGRAPHACCESSTOKEN(xAZUREGRAPHACCESSTOKEN string) ApiGetVirtualHubVnetConnectionsRequest {
+	r.xAZUREGRAPHACCESSTOKEN = &xAZUREGRAPHACCESSTOKEN
+	return r
+}
+
+// Azure Tenant Id.
+func (r ApiGetVirtualHubVnetConnectionsRequest) XAZURETENANTID(xAZURETENANTID string) ApiGetVirtualHubVnetConnectionsRequest {
+	r.xAZURETENANTID = &xAZURETENANTID
+	return r
+}
+
+// Azure Application Key.
+func (r ApiGetVirtualHubVnetConnectionsRequest) XAZUREAPPCLIENTID(xAZUREAPPCLIENTID string) ApiGetVirtualHubVnetConnectionsRequest {
+	r.xAZUREAPPCLIENTID = &xAZUREAPPCLIENTID
+	return r
+}
+
+// Azure Application Secret.
+func (r ApiGetVirtualHubVnetConnectionsRequest) XAZUREAPPCLIENTSECRET(xAZUREAPPCLIENTSECRET string) ApiGetVirtualHubVnetConnectionsRequest {
+	r.xAZUREAPPCLIENTSECRET = &xAZUREAPPCLIENTSECRET
+	return r
+}
+
+func (r ApiGetVirtualHubVnetConnectionsRequest) Execute() ([]AzureVirtualHubVnetConnection, *http.Response, error) {
+	return r.ApiService.GetVirtualHubVnetConnectionsExecute(r)
+}
+
+/*
+GetVirtualHubVnetConnections Returns the VNet connections attached to the specified Virtual Hub.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId Specific customer id
+	@param siteId ID of the customer's site
+	@param subscriptionId ID of the Azure Subscription
+	@param resourceGroup Name of the Resource Group where the Virtual Hub is located
+	@param virtualHubName Name of the Virtual Hub
+	@return ApiGetVirtualHubVnetConnectionsRequest
+*/
+func (a *AzureSubscriptionsCMDService) GetVirtualHubVnetConnections(ctx context.Context, customerId string, siteId string, subscriptionId string, resourceGroup string, virtualHubName string) ApiGetVirtualHubVnetConnectionsRequest {
+	return ApiGetVirtualHubVnetConnectionsRequest{
+		ApiService:     a,
+		ctx:            ctx,
+		customerId:     customerId,
+		siteId:         siteId,
+		subscriptionId: subscriptionId,
+		resourceGroup:  resourceGroup,
+		virtualHubName: virtualHubName,
+	}
+}
+
+// Execute executes the request
+//
+//	@return []AzureVirtualHubVnetConnection
+func (a *AzureSubscriptionsCMDService) GetVirtualHubVnetConnectionsExecute(r ApiGetVirtualHubVnetConnectionsRequest) ([]AzureVirtualHubVnetConnection, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AzureVirtualHubVnetConnection
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AzureSubscriptionsCMDService.GetVirtualHubVnetConnections")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/{customerId}/{siteId}/subscriptions/{subscriptionId}/virtualhubs/{resourceGroup}/{virtualHubName}/vnets"
+	localVarPath = strings.Replace(localVarPath, "{"+"customerId"+"}", url.PathEscape(parameterValueToString(r.customerId, "customerId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"siteId"+"}", url.PathEscape(parameterValueToString(r.siteId, "siteId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"subscriptionId"+"}", url.PathEscape(parameterValueToString(r.subscriptionId, "subscriptionId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"resourceGroup"+"}", url.PathEscape(parameterValueToString(r.resourceGroup, "resourceGroup")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"virtualHubName"+"}", url.PathEscape(parameterValueToString(r.virtualHubName, "virtualHubName")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.xAZUREACCESSTOKEN != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-ACCESS-TOKEN", r.xAZUREACCESSTOKEN, "")
+	}
+	if r.xAZUREGRAPHACCESSTOKEN != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-GRAPH-ACCESS-TOKEN", r.xAZUREGRAPHACCESSTOKEN, "")
+	}
+	if r.xAZURETENANTID != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-TENANT-ID", r.xAZURETENANTID, "")
+	}
+	if r.xAZUREAPPCLIENTID != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-APP-CLIENT-ID", r.xAZUREAPPCLIENTID, "")
+	}
+	if r.xAZUREAPPCLIENTSECRET != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-APP-CLIENT-SECRET", r.xAZUREAPPCLIENTSECRET, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["CWSAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetVirtualHubsRequest struct {
+	ctx                    context.Context
+	ApiService             AzureSubscriptionsCMD
+	customerId             string
+	siteId                 string
+	subscriptionId         string
+	resourceGroup          *string
+	citrixTransactionId    *string
+	xAZUREACCESSTOKEN      *string
+	xAZUREGRAPHACCESSTOKEN *string
+	xAZURETENANTID         *string
+	xAZUREAPPCLIENTID      *string
+	xAZUREAPPCLIENTSECRET  *string
+}
+
+// Optional resource group name to filter results
+func (r ApiGetVirtualHubsRequest) ResourceGroup(resourceGroup string) ApiGetVirtualHubsRequest {
+	r.resourceGroup = &resourceGroup
+	return r
+}
+
+// The Transaction Id.
+func (r ApiGetVirtualHubsRequest) CitrixTransactionId(citrixTransactionId string) ApiGetVirtualHubsRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Azure Access Token.
+func (r ApiGetVirtualHubsRequest) XAZUREACCESSTOKEN(xAZUREACCESSTOKEN string) ApiGetVirtualHubsRequest {
+	r.xAZUREACCESSTOKEN = &xAZUREACCESSTOKEN
+	return r
+}
+
+// Azure Graph Access Token.
+func (r ApiGetVirtualHubsRequest) XAZUREGRAPHACCESSTOKEN(xAZUREGRAPHACCESSTOKEN string) ApiGetVirtualHubsRequest {
+	r.xAZUREGRAPHACCESSTOKEN = &xAZUREGRAPHACCESSTOKEN
+	return r
+}
+
+// Azure Tenant Id.
+func (r ApiGetVirtualHubsRequest) XAZURETENANTID(xAZURETENANTID string) ApiGetVirtualHubsRequest {
+	r.xAZURETENANTID = &xAZURETENANTID
+	return r
+}
+
+// Azure Application Key.
+func (r ApiGetVirtualHubsRequest) XAZUREAPPCLIENTID(xAZUREAPPCLIENTID string) ApiGetVirtualHubsRequest {
+	r.xAZUREAPPCLIENTID = &xAZUREAPPCLIENTID
+	return r
+}
+
+// Azure Application Secret.
+func (r ApiGetVirtualHubsRequest) XAZUREAPPCLIENTSECRET(xAZUREAPPCLIENTSECRET string) ApiGetVirtualHubsRequest {
+	r.xAZUREAPPCLIENTSECRET = &xAZUREAPPCLIENTSECRET
+	return r
+}
+
+func (r ApiGetVirtualHubsRequest) Execute() ([]AzureVirtualHub, *http.Response, error) {
+	return r.ApiService.GetVirtualHubsExecute(r)
+}
+
+/*
+GetVirtualHubs Returns the Virtual Hubs available in the specified Azure subscription, optionally filtered by resource group.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId Specific customer id
+	@param siteId ID of the customer's site
+	@param subscriptionId ID of the Azure Subscription
+	@return ApiGetVirtualHubsRequest
+*/
+func (a *AzureSubscriptionsCMDService) GetVirtualHubs(ctx context.Context, customerId string, siteId string, subscriptionId string) ApiGetVirtualHubsRequest {
+	return ApiGetVirtualHubsRequest{
+		ApiService:     a,
+		ctx:            ctx,
+		customerId:     customerId,
+		siteId:         siteId,
+		subscriptionId: subscriptionId,
+	}
+}
+
+// Execute executes the request
+//
+//	@return []AzureVirtualHub
+func (a *AzureSubscriptionsCMDService) GetVirtualHubsExecute(r ApiGetVirtualHubsRequest) ([]AzureVirtualHub, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AzureVirtualHub
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AzureSubscriptionsCMDService.GetVirtualHubs")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/{customerId}/{siteId}/subscriptions/{subscriptionId}/virtualhubs"
+	localVarPath = strings.Replace(localVarPath, "{"+"customerId"+"}", url.PathEscape(parameterValueToString(r.customerId, "customerId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"siteId"+"}", url.PathEscape(parameterValueToString(r.siteId, "siteId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"subscriptionId"+"}", url.PathEscape(parameterValueToString(r.subscriptionId, "subscriptionId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.resourceGroup != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "resourceGroup", r.resourceGroup, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.xAZUREACCESSTOKEN != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-ACCESS-TOKEN", r.xAZUREACCESSTOKEN, "")
+	}
+	if r.xAZUREGRAPHACCESSTOKEN != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-GRAPH-ACCESS-TOKEN", r.xAZUREGRAPHACCESSTOKEN, "")
+	}
+	if r.xAZURETENANTID != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-TENANT-ID", r.xAZURETENANTID, "")
+	}
+	if r.xAZUREAPPCLIENTID != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-APP-CLIENT-ID", r.xAZUREAPPCLIENTID, "")
+	}
+	if r.xAZUREAPPCLIENTSECRET != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AZURE-APP-CLIENT-SECRET", r.xAZUREAPPCLIENTSECRET, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["CWSAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetVirtualWansRequest struct {
+	ctx                    context.Context
+	ApiService             AzureSubscriptionsCMD
+	customerId             string
+	siteId                 string
+	subscriptionId         string
+	citrixTransactionId    *string
+	xAZUREACCESSTOKEN      *string
+	xAZUREGRAPHACCESSTOKEN *string
+	xAZURETENANTID         *string
+	xAZUREAPPCLIENTID      *string
+	xAZUREAPPCLIENTSECRET  *string
+}
+
+// The Transaction Id.
+func (r ApiGetVirtualWansRequest) CitrixTransactionId(citrixTransactionId string) ApiGetVirtualWansRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Azure Access Token.
+func (r ApiGetVirtualWansRequest) XAZUREACCESSTOKEN(xAZUREACCESSTOKEN string) ApiGetVirtualWansRequest {
+	r.xAZUREACCESSTOKEN = &xAZUREACCESSTOKEN
+	return r
+}
+
+// Azure Graph Access Token.
+func (r ApiGetVirtualWansRequest) XAZUREGRAPHACCESSTOKEN(xAZUREGRAPHACCESSTOKEN string) ApiGetVirtualWansRequest {
+	r.xAZUREGRAPHACCESSTOKEN = &xAZUREGRAPHACCESSTOKEN
+	return r
+}
+
+// Azure Tenant Id.
+func (r ApiGetVirtualWansRequest) XAZURETENANTID(xAZURETENANTID string) ApiGetVirtualWansRequest {
+	r.xAZURETENANTID = &xAZURETENANTID
+	return r
+}
+
+// Azure Application Key.
+func (r ApiGetVirtualWansRequest) XAZUREAPPCLIENTID(xAZUREAPPCLIENTID string) ApiGetVirtualWansRequest {
+	r.xAZUREAPPCLIENTID = &xAZUREAPPCLIENTID
+	return r
+}
+
+// Azure Application Secret.
+func (r ApiGetVirtualWansRequest) XAZUREAPPCLIENTSECRET(xAZUREAPPCLIENTSECRET string) ApiGetVirtualWansRequest {
+	r.xAZUREAPPCLIENTSECRET = &xAZUREAPPCLIENTSECRET
+	return r
+}
+
+func (r ApiGetVirtualWansRequest) Execute() ([]AzureVirtualWanModel, *http.Response, error) {
+	return r.ApiService.GetVirtualWansExecute(r)
+}
+
+/*
+GetVirtualWans Returns the Virtual WANs available in the specified Azure subscription.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId Specific customer id
+	@param siteId ID of the customer's site
+	@param subscriptionId ID of the Azure Subscription
+	@return ApiGetVirtualWansRequest
+*/
+func (a *AzureSubscriptionsCMDService) GetVirtualWans(ctx context.Context, customerId string, siteId string, subscriptionId string) ApiGetVirtualWansRequest {
+	return ApiGetVirtualWansRequest{
+		ApiService:     a,
+		ctx:            ctx,
+		customerId:     customerId,
+		siteId:         siteId,
+		subscriptionId: subscriptionId,
+	}
+}
+
+// Execute executes the request
+//
+//	@return []AzureVirtualWanModel
+func (a *AzureSubscriptionsCMDService) GetVirtualWansExecute(r ApiGetVirtualWansRequest) ([]AzureVirtualWanModel, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AzureVirtualWanModel
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AzureSubscriptionsCMDService.GetVirtualWans")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/{customerId}/{siteId}/subscriptions/{subscriptionId}/virtualwans"
+	localVarPath = strings.Replace(localVarPath, "{"+"customerId"+"}", url.PathEscape(parameterValueToString(r.customerId, "customerId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"siteId"+"}", url.PathEscape(parameterValueToString(r.siteId, "siteId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"subscriptionId"+"}", url.PathEscape(parameterValueToString(r.subscriptionId, "subscriptionId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

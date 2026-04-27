@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Region** | Pointer to **NullableString** | The region where the catalog should be deployed, if it does not have any on-prem connectivity | [optional] 
 **EnableAcceleratedNetworking** | Pointer to **bool** | Specifies whether to enable accelerated networking on the VM NIC | [optional] 
-**MinimumFunctionalLevel** | Pointer to [**NullableFunctionalLevel**](FunctionalLevel.md) | The minimum functional level to be set for the catalog | [optional] 
+**MinimumFunctionalLevel** | Pointer to [**FunctionalLevel**](FunctionalLevel.md) | Functional level for VDAs. | [optional] 
 **EnableEncryptionAtHost** | Pointer to **bool** | Indicates whether encryption at the host level is enabled. | [optional] 
 **Name** | **string** | Name of the catalog | 
 **Type** | Pointer to [**AddCatalogType**](AddCatalogType.md) | Indicates if the catalog VDAs run a single session or multiple sessions | [optional] [default to ADDCATALOGTYPE_MULTI_SESSION]
@@ -121,16 +121,6 @@ SetMinimumFunctionalLevel sets MinimumFunctionalLevel field to given value.
 
 HasMinimumFunctionalLevel returns a boolean if a field has been set.
 
-### SetMinimumFunctionalLevelNil
-
-`func (o *AddCitrixManagedCatalogModel) SetMinimumFunctionalLevelNil(b bool)`
-
- SetMinimumFunctionalLevelNil sets the value for MinimumFunctionalLevel to be an explicit nil
-
-### UnsetMinimumFunctionalLevel
-`func (o *AddCitrixManagedCatalogModel) UnsetMinimumFunctionalLevel()`
-
-UnsetMinimumFunctionalLevel ensures that no value is present for MinimumFunctionalLevel, not even an explicit nil
 ### GetEnableEncryptionAtHost
 
 `func (o *AddCitrixManagedCatalogModel) GetEnableEncryptionAtHost() bool`

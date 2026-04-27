@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -19,12 +19,282 @@ import (
 	"strings"
 )
 
+type CatalogCMD interface {
+
+	/*
+		AddRemotePcCatalogMachineAssignments Add machine assignments to a remote pc catalog.  New machines will be added to the catalog with the specified users  Existing machines will be updated with the included assignments
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site ID of the customer
+		@param catalogId Id of the catalog to add machines to.
+		@return ApiAddRemotePcCatalogMachineAssignmentsRequest
+	*/
+	AddRemotePcCatalogMachineAssignments(ctx context.Context, customerId string, siteId string, catalogId string) ApiAddRemotePcCatalogMachineAssignmentsRequest
+
+	// AddRemotePcCatalogMachineAssignmentsExecute executes the request
+	//  @return string
+	AddRemotePcCatalogMachineAssignmentsExecute(r ApiAddRemotePcCatalogMachineAssignmentsRequest) (string, *http.Response, error)
+
+	/*
+		ConfigureAndDeployCitrixManagedCatalogApi Configure all the Citrix managed catalog deployment steps and initiate the catalog deployment
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site ID of the customer
+		@return ApiConfigureAndDeployCitrixManagedCatalogApiRequest
+	*/
+	ConfigureAndDeployCitrixManagedCatalogApi(ctx context.Context, customerId string, siteId string) ApiConfigureAndDeployCitrixManagedCatalogApiRequest
+
+	// ConfigureAndDeployCitrixManagedCatalogApiExecute executes the request
+	//  @return string
+	ConfigureAndDeployCitrixManagedCatalogApiExecute(r ApiConfigureAndDeployCitrixManagedCatalogApiRequest) (string, *http.Response, error)
+
+	/*
+		CreateRemotePcCatalog Create a Remote PC catalog.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site ID of the customer
+		@return ApiCreateRemotePcCatalogRequest
+	*/
+	CreateRemotePcCatalog(ctx context.Context, customerId string, siteId string) ApiCreateRemotePcCatalogRequest
+
+	// CreateRemotePcCatalogExecute executes the request
+	//  @return string
+	CreateRemotePcCatalogExecute(r ApiCreateRemotePcCatalogRequest) (string, *http.Response, error)
+
+	/*
+		DeleteCustomerCatalog Delete a catalog along with all the pubhishd apps for the catalog
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId
+		@param catalogId ID of the catalog to be deleted
+		@return ApiDeleteCustomerCatalogRequest
+	*/
+	DeleteCustomerCatalog(ctx context.Context, customerId string, siteId string, catalogId string) ApiDeleteCustomerCatalogRequest
+
+	// DeleteCustomerCatalogExecute executes the request
+	DeleteCustomerCatalogExecute(r ApiDeleteCustomerCatalogRequest) (*http.Response, error)
+
+	/*
+		GetAllTroubleshootScripts Get the statuses of all the troubleshoot scripts associated with a vda
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site Id pf the customer
+		@param catalogId ID of the catalog
+		@param machineName Name of the machine
+		@return ApiGetAllTroubleshootScriptsRequest
+	*/
+	GetAllTroubleshootScripts(ctx context.Context, customerId string, siteId string, catalogId string, machineName string) ApiGetAllTroubleshootScriptsRequest
+
+	// GetAllTroubleshootScriptsExecute executes the request
+	//  @return TroubleshootScriptsOverviewsModel
+	GetAllTroubleshootScriptsExecute(r ApiGetAllTroubleshootScriptsRequest) (*TroubleshootScriptsOverviewsModel, *http.Response, error)
+
+	/*
+		GetCatalogCapacityConfiguration Get the performance information configured for this catalog
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId
+		@param catalogId ID of the catalog
+		@return ApiGetCatalogCapacityConfigurationRequest
+	*/
+	GetCatalogCapacityConfiguration(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetCatalogCapacityConfigurationRequest
+
+	// GetCatalogCapacityConfigurationExecute executes the request
+	//  @return CatalogCapacitySettingsModel
+	GetCatalogCapacityConfigurationExecute(r ApiGetCatalogCapacityConfigurationRequest) (*CatalogCapacitySettingsModel, *http.Response, error)
+
+	/*
+		GetCustomerCatalog Returns a specific catalog for a specific customer
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customerId to retrieve catalog for
+		@param siteId
+		@param catalogId ID of the catalog to retrieve
+		@return ApiGetCustomerCatalogRequest
+	*/
+	GetCustomerCatalog(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetCustomerCatalogRequest
+
+	// GetCustomerCatalogExecute executes the request
+	//  @return CatalogOverview
+	GetCustomerCatalogExecute(r ApiGetCustomerCatalogRequest) (*CatalogOverview, *http.Response, error)
+
+	/*
+		GetCustomerCatalogs Returns all the catalogs that the specified customer has created
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customerId to retrieve catalogs for
+		@param siteId The site ID of the customer
+		@return ApiGetCustomerCatalogsRequest
+	*/
+	GetCustomerCatalogs(ctx context.Context, customerId string, siteId string) ApiGetCustomerCatalogsRequest
+
+	// GetCustomerCatalogsExecute executes the request
+	//  @return CustomerCatalogOverviewsModel
+	GetCustomerCatalogsExecute(r ApiGetCustomerCatalogsRequest) (*CustomerCatalogOverviewsModel, *http.Response, error)
+
+	/*
+		GetCustomerManagedCatalogs Returns all the catalogs that the specified Citrix managed customer has created
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customerId to retrieve catalogs for
+		@param siteId The site ID of the customer
+		@return ApiGetCustomerManagedCatalogsRequest
+	*/
+	GetCustomerManagedCatalogs(ctx context.Context, customerId string, siteId string) ApiGetCustomerManagedCatalogsRequest
+
+	// GetCustomerManagedCatalogsExecute executes the request
+	//  @return CustomerManagedCatalogOverviewsModel
+	GetCustomerManagedCatalogsExecute(r ApiGetCustomerManagedCatalogsRequest) (*CustomerManagedCatalogOverviewsModel, *http.Response, error)
+
+	/*
+		GetCustomerManagedCatalogsById Returns all the catalogs that the specified Citrix managed customer has created
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customerId to retrieve catalogs for
+		@param siteId The site ID of the customer
+		@param catalogId The catalog ids for which to get the status
+		@return ApiGetCustomerManagedCatalogsByIdRequest
+	*/
+	GetCustomerManagedCatalogsById(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetCustomerManagedCatalogsByIdRequest
+
+	// GetCustomerManagedCatalogsByIdExecute executes the request
+	//  @return CatalogOverview
+	GetCustomerManagedCatalogsByIdExecute(r ApiGetCustomerManagedCatalogsByIdRequest) (*CatalogOverview, *http.Response, error)
+
+	/*
+		GetScriptsAndParameters Gets available scripts and corresponding default parameters for available operations
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId
+		@param siteId
+		@param catalogId
+		@return ApiGetScriptsAndParametersRequest
+	*/
+	GetScriptsAndParameters(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetScriptsAndParametersRequest
+
+	// GetScriptsAndParametersExecute executes the request
+	GetScriptsAndParametersExecute(r ApiGetScriptsAndParametersRequest) (*http.Response, error)
+
+	/*
+		GetTroubleshootScriptStatus Get the status of the troubleshoot script
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site Id pf the customer
+		@param catalogId ID of the catalog
+		@param machineName Name of the machine
+		@param troubleshootId Id of the troubleshoot script
+		@return ApiGetTroubleshootScriptStatusRequest
+	*/
+	GetTroubleshootScriptStatus(ctx context.Context, customerId string, siteId string, catalogId string, machineName string, troubleshootId string) ApiGetTroubleshootScriptStatusRequest
+
+	// GetTroubleshootScriptStatusExecute executes the request
+	//  @return TroubleshootScriptOverview
+	GetTroubleshootScriptStatusExecute(r ApiGetTroubleshootScriptStatusRequest) (*TroubleshootScriptOverview, *http.Response, error)
+
+	/*
+		GetTroubleshootScriptsOnlyForFailedConnectorInstalls Get the statuses of all the troubleshoot scripts associated with catalog connectors
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site Id pf the customer
+		@param catalogId ID of the catalog
+		@return ApiGetTroubleshootScriptsOnlyForFailedConnectorInstallsRequest
+	*/
+	GetTroubleshootScriptsOnlyForFailedConnectorInstalls(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetTroubleshootScriptsOnlyForFailedConnectorInstallsRequest
+
+	// GetTroubleshootScriptsOnlyForFailedConnectorInstallsExecute executes the request
+	//  @return TroubleshootScriptsOverviewsModel
+	GetTroubleshootScriptsOnlyForFailedConnectorInstallsExecute(r ApiGetTroubleshootScriptsOnlyForFailedConnectorInstallsRequest) (*TroubleshootScriptsOverviewsModel, *http.Response, error)
+
+	/*
+		RunScriptOnVm Run a troubleshoot script on a VDA
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site ID of the customer
+		@param catalogId ID of the catalog
+		@param machineName Name of the VDA
+		@return ApiRunScriptOnVmRequest
+	*/
+	RunScriptOnVm(ctx context.Context, customerId string, siteId string, catalogId string, machineName string) ApiRunScriptOnVmRequest
+
+	// RunScriptOnVmExecute executes the request
+	//  @return bool
+	RunScriptOnVmExecute(r ApiRunScriptOnVmRequest) (bool, *http.Response, error)
+
+	/*
+		UpdateCatalogImage Update the catalog's master image.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId Specific customerId to update image for
+		@param siteId The site ID of the customer
+		@param catalogId ID of the catalog to update
+		@return ApiUpdateCatalogImageRequest
+	*/
+	UpdateCatalogImage(ctx context.Context, customerId string, siteId string, catalogId string) ApiUpdateCatalogImageRequest
+
+	// UpdateCatalogImageExecute executes the request
+	//  @return string
+	UpdateCatalogImageExecute(r ApiUpdateCatalogImageRequest) (string, *http.Response, error)
+
+	/*
+		UpdateCatalogImageApi Update the catalog's master image.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site ID of the customer
+		@param catalogId ID of the catalog to deploy
+		@return ApiUpdateCatalogImageApiRequest
+	*/
+	UpdateCatalogImageApi(ctx context.Context, customerId string, siteId string, catalogId string) ApiUpdateCatalogImageApiRequest
+
+	// UpdateCatalogImageApiExecute executes the request
+	//  @return string
+	UpdateCatalogImageApiExecute(r ApiUpdateCatalogImageApiRequest) (string, *http.Response, error)
+
+	/*
+		UpdateCatalogScaleConfiguration Update the performance information configured for this catalog
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId
+		@param catalogId ID of the catalog
+		@return ApiUpdateCatalogScaleConfigurationRequest
+	*/
+	UpdateCatalogScaleConfiguration(ctx context.Context, customerId string, siteId string, catalogId string) ApiUpdateCatalogScaleConfigurationRequest
+
+	// UpdateCatalogScaleConfigurationExecute executes the request
+	UpdateCatalogScaleConfigurationExecute(r ApiUpdateCatalogScaleConfigurationRequest) (*http.Response, error)
+
+	/*
+		UpdateRemotePcCatalogScopes Configure all the Citrix managed catalog deployment steps and initiate the catalog deployment
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param customerId ID of the customer
+		@param siteId The site ID of the customer
+		@param catalogId
+		@return ApiUpdateRemotePcCatalogScopesRequest
+	*/
+	UpdateRemotePcCatalogScopes(ctx context.Context, customerId string, siteId string, catalogId string) ApiUpdateRemotePcCatalogScopesRequest
+
+	// UpdateRemotePcCatalogScopesExecute executes the request
+	//  @return string
+	UpdateRemotePcCatalogScopesExecute(r ApiUpdateRemotePcCatalogScopesRequest) (string, *http.Response, error)
+}
+
 // CatalogCMDService CatalogCMD service
 type CatalogCMDService service
 
 type ApiAddRemotePcCatalogMachineAssignmentsRequest struct {
 	ctx                          context.Context
-	ApiService                   *CatalogCMDService
+	ApiService                   CatalogCMD
 	customerId                   string
 	siteId                       string
 	catalogId                    string
@@ -167,7 +437,7 @@ func (a *CatalogCMDService) AddRemotePcCatalogMachineAssignmentsExecute(r ApiAdd
 
 type ApiConfigureAndDeployCitrixManagedCatalogApiRequest struct {
 	ctx                                   context.Context
-	ApiService                            *CatalogCMDService
+	ApiService                            CatalogCMD
 	customerId                            string
 	siteId                                string
 	citrixTransactionId                   *string
@@ -306,7 +576,7 @@ func (a *CatalogCMDService) ConfigureAndDeployCitrixManagedCatalogApiExecute(r A
 
 type ApiCreateRemotePcCatalogRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	citrixTransactionId *string
@@ -445,7 +715,7 @@ func (a *CatalogCMDService) CreateRemotePcCatalogExecute(r ApiCreateRemotePcCata
 
 type ApiDeleteCustomerCatalogRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -576,8 +846,9 @@ func (a *CatalogCMDService) DeleteCustomerCatalogExecute(r ApiDeleteCustomerCata
 
 type ApiGetAllTroubleshootScriptsRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
+	siteId              string
 	catalogId           string
 	machineName         string
 	citrixTransactionId *string
@@ -594,19 +865,21 @@ func (r ApiGetAllTroubleshootScriptsRequest) Execute() (*TroubleshootScriptsOver
 }
 
 /*
-GetAllTroubleshootScripts Get the statuses of all the troubleshoot scripts assocaited with a vda
+GetAllTroubleshootScripts Get the statuses of all the troubleshoot scripts associated with a vda
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param customerId ID of the customer
+	@param siteId The site Id pf the customer
 	@param catalogId ID of the catalog
 	@param machineName Name of the machine
 	@return ApiGetAllTroubleshootScriptsRequest
 */
-func (a *CatalogCMDService) GetAllTroubleshootScripts(ctx context.Context, customerId string, catalogId string, machineName string) ApiGetAllTroubleshootScriptsRequest {
+func (a *CatalogCMDService) GetAllTroubleshootScripts(ctx context.Context, customerId string, siteId string, catalogId string, machineName string) ApiGetAllTroubleshootScriptsRequest {
 	return ApiGetAllTroubleshootScriptsRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		customerId:  customerId,
+		siteId:      siteId,
 		catalogId:   catalogId,
 		machineName: machineName,
 	}
@@ -624,143 +897,6 @@ func (a *CatalogCMDService) GetAllTroubleshootScriptsExecute(r ApiGetAllTroubles
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatalogCMDService.GetAllTroubleshootScripts")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/{customerId}/catalogs/{catalogId}/jobs/troubleshoot/{machineName}"
-	localVarPath = strings.Replace(localVarPath, "{"+"customerId"+"}", url.PathEscape(parameterValueToString(r.customerId, "customerId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"catalogId"+"}", url.PathEscape(parameterValueToString(r.catalogId, "catalogId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"machineName"+"}", url.PathEscape(parameterValueToString(r.machineName, "machineName")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["CWSAuth"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetAllTroubleshootScripts_0Request struct {
-	ctx                 context.Context
-	ApiService          *CatalogCMDService
-	customerId          string
-	siteId              string
-	catalogId           string
-	machineName         string
-	citrixTransactionId *string
-}
-
-// The Transaction Id.
-func (r ApiGetAllTroubleshootScripts_0Request) CitrixTransactionId(citrixTransactionId string) ApiGetAllTroubleshootScripts_0Request {
-	r.citrixTransactionId = &citrixTransactionId
-	return r
-}
-
-func (r ApiGetAllTroubleshootScripts_0Request) Execute() (*TroubleshootScriptsOverviewsModel, *http.Response, error) {
-	return r.ApiService.GetAllTroubleshootScripts_1Execute(r)
-}
-
-/*
-GetAllTroubleshootScripts_0 Get the statuses of all the troubleshoot scripts associated with a vda
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param customerId ID of the customer
-	@param siteId The site Id pf the customer
-	@param catalogId ID of the catalog
-	@param machineName Name of the machine
-	@return ApiGetAllTroubleshootScripts_0Request
-*/
-func (a *CatalogCMDService) GetAllTroubleshootScripts_1(ctx context.Context, customerId string, siteId string, catalogId string, machineName string) ApiGetAllTroubleshootScripts_0Request {
-	return ApiGetAllTroubleshootScripts_0Request{
-		ApiService:  a,
-		ctx:         ctx,
-		customerId:  customerId,
-		siteId:      siteId,
-		catalogId:   catalogId,
-		machineName: machineName,
-	}
-}
-
-// Execute executes the request
-//
-//	@return TroubleshootScriptsOverviewsModel
-func (a *CatalogCMDService) GetAllTroubleshootScripts_1Execute(r ApiGetAllTroubleshootScripts_0Request) (*TroubleshootScriptsOverviewsModel, *http.Response, error) {
-	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TroubleshootScriptsOverviewsModel
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatalogCMDService.GetAllTroubleshootScripts_1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -848,7 +984,7 @@ func (a *CatalogCMDService) GetAllTroubleshootScripts_1Execute(r ApiGetAllTroubl
 
 type ApiGetCatalogCapacityConfigurationRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -982,7 +1118,7 @@ func (a *CatalogCMDService) GetCatalogCapacityConfigurationExecute(r ApiGetCatal
 
 type ApiGetCustomerCatalogRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -1116,7 +1252,7 @@ func (a *CatalogCMDService) GetCustomerCatalogExecute(r ApiGetCustomerCatalogReq
 
 type ApiGetCustomerCatalogsRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogIdsOnly      *bool
@@ -1256,7 +1392,7 @@ func (a *CatalogCMDService) GetCustomerCatalogsExecute(r ApiGetCustomerCatalogsR
 
 type ApiGetCustomerManagedCatalogsRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	cspCustomerId       *string
@@ -1406,7 +1542,7 @@ func (a *CatalogCMDService) GetCustomerManagedCatalogsExecute(r ApiGetCustomerMa
 
 type ApiGetCustomerManagedCatalogsByIdRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
 	siteId              string
 	catalogId           string
@@ -1540,8 +1676,9 @@ func (a *CatalogCMDService) GetCustomerManagedCatalogsByIdExecute(r ApiGetCustom
 
 type ApiGetScriptsAndParametersRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
+	siteId              string
 	catalogId           string
 	vmType              *CatalogResourceType
 	operationType       *ScriptOperationType
@@ -1573,14 +1710,16 @@ GetScriptsAndParameters Gets available scripts and corresponding default paramet
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param customerId
+	@param siteId
 	@param catalogId
 	@return ApiGetScriptsAndParametersRequest
 */
-func (a *CatalogCMDService) GetScriptsAndParameters(ctx context.Context, customerId string, catalogId string) ApiGetScriptsAndParametersRequest {
+func (a *CatalogCMDService) GetScriptsAndParameters(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetScriptsAndParametersRequest {
 	return ApiGetScriptsAndParametersRequest{
 		ApiService: a,
 		ctx:        ctx,
 		customerId: customerId,
+		siteId:     siteId,
 		catalogId:  catalogId,
 	}
 }
@@ -1594,145 +1733,6 @@ func (a *CatalogCMDService) GetScriptsAndParametersExecute(r ApiGetScriptsAndPar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatalogCMDService.GetScriptsAndParameters")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/{customerId}/catalogs/{catalogId}/scripts"
-	localVarPath = strings.Replace(localVarPath, "{"+"customerId"+"}", url.PathEscape(parameterValueToString(r.customerId, "customerId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"catalogId"+"}", url.PathEscape(parameterValueToString(r.catalogId, "catalogId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.vmType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "vmType", r.vmType, "")
-	}
-	if r.operationType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "operationType", r.operationType, "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["CWSAuth"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGetScriptsAndParameters_0Request struct {
-	ctx                 context.Context
-	ApiService          *CatalogCMDService
-	customerId          string
-	siteId              string
-	catalogId           string
-	vmType              *CatalogResourceType
-	operationType       *ScriptOperationType
-	citrixTransactionId *string
-}
-
-func (r ApiGetScriptsAndParameters_0Request) VmType(vmType CatalogResourceType) ApiGetScriptsAndParameters_0Request {
-	r.vmType = &vmType
-	return r
-}
-
-func (r ApiGetScriptsAndParameters_0Request) OperationType(operationType ScriptOperationType) ApiGetScriptsAndParameters_0Request {
-	r.operationType = &operationType
-	return r
-}
-
-// The Transaction Id.
-func (r ApiGetScriptsAndParameters_0Request) CitrixTransactionId(citrixTransactionId string) ApiGetScriptsAndParameters_0Request {
-	r.citrixTransactionId = &citrixTransactionId
-	return r
-}
-
-func (r ApiGetScriptsAndParameters_0Request) Execute() (*http.Response, error) {
-	return r.ApiService.GetScriptsAndParameters_2Execute(r)
-}
-
-/*
-GetScriptsAndParameters_0 Gets available scripts and corresponding default parameters for available operations
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param customerId
-	@param siteId
-	@param catalogId
-	@return ApiGetScriptsAndParameters_0Request
-*/
-func (a *CatalogCMDService) GetScriptsAndParameters_2(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetScriptsAndParameters_0Request {
-	return ApiGetScriptsAndParameters_0Request{
-		ApiService: a,
-		ctx:        ctx,
-		customerId: customerId,
-		siteId:     siteId,
-		catalogId:  catalogId,
-	}
-}
-
-// Execute executes the request
-func (a *CatalogCMDService) GetScriptsAndParameters_2Execute(r ApiGetScriptsAndParameters_0Request) (*http.Response, error) {
-	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatalogCMDService.GetScriptsAndParameters_2")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1816,8 +1816,9 @@ func (a *CatalogCMDService) GetScriptsAndParameters_2Execute(r ApiGetScriptsAndP
 
 type ApiGetTroubleshootScriptStatusRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
+	siteId              string
 	catalogId           string
 	machineName         string
 	troubleshootId      string
@@ -1839,16 +1840,18 @@ GetTroubleshootScriptStatus Get the status of the troubleshoot script
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param customerId ID of the customer
+	@param siteId The site Id pf the customer
 	@param catalogId ID of the catalog
 	@param machineName Name of the machine
 	@param troubleshootId Id of the troubleshoot script
 	@return ApiGetTroubleshootScriptStatusRequest
 */
-func (a *CatalogCMDService) GetTroubleshootScriptStatus(ctx context.Context, customerId string, catalogId string, machineName string, troubleshootId string) ApiGetTroubleshootScriptStatusRequest {
+func (a *CatalogCMDService) GetTroubleshootScriptStatus(ctx context.Context, customerId string, siteId string, catalogId string, machineName string, troubleshootId string) ApiGetTroubleshootScriptStatusRequest {
 	return ApiGetTroubleshootScriptStatusRequest{
 		ApiService:     a,
 		ctx:            ctx,
 		customerId:     customerId,
+		siteId:         siteId,
 		catalogId:      catalogId,
 		machineName:    machineName,
 		troubleshootId: troubleshootId,
@@ -1867,147 +1870,6 @@ func (a *CatalogCMDService) GetTroubleshootScriptStatusExecute(r ApiGetTroublesh
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatalogCMDService.GetTroubleshootScriptStatus")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/{customerId}/catalogs/{catalogId}/jobs/troubleshoot/{machineName}/{troubleshootId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"customerId"+"}", url.PathEscape(parameterValueToString(r.customerId, "customerId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"catalogId"+"}", url.PathEscape(parameterValueToString(r.catalogId, "catalogId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"machineName"+"}", url.PathEscape(parameterValueToString(r.machineName, "machineName")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"troubleshootId"+"}", url.PathEscape(parameterValueToString(r.troubleshootId, "troubleshootId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["CWSAuth"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetTroubleshootScriptStatus_0Request struct {
-	ctx                 context.Context
-	ApiService          *CatalogCMDService
-	customerId          string
-	siteId              string
-	catalogId           string
-	machineName         string
-	troubleshootId      string
-	citrixTransactionId *string
-}
-
-// The Transaction Id.
-func (r ApiGetTroubleshootScriptStatus_0Request) CitrixTransactionId(citrixTransactionId string) ApiGetTroubleshootScriptStatus_0Request {
-	r.citrixTransactionId = &citrixTransactionId
-	return r
-}
-
-func (r ApiGetTroubleshootScriptStatus_0Request) Execute() (*TroubleshootScriptOverview, *http.Response, error) {
-	return r.ApiService.GetTroubleshootScriptStatus_3Execute(r)
-}
-
-/*
-GetTroubleshootScriptStatus_0 Get the status of the troubleshoot script
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param customerId ID of the customer
-	@param siteId The site Id pf the customer
-	@param catalogId ID of the catalog
-	@param machineName Name of the machine
-	@param troubleshootId Id of the troubleshoot script
-	@return ApiGetTroubleshootScriptStatus_0Request
-*/
-func (a *CatalogCMDService) GetTroubleshootScriptStatus_3(ctx context.Context, customerId string, siteId string, catalogId string, machineName string, troubleshootId string) ApiGetTroubleshootScriptStatus_0Request {
-	return ApiGetTroubleshootScriptStatus_0Request{
-		ApiService:     a,
-		ctx:            ctx,
-		customerId:     customerId,
-		siteId:         siteId,
-		catalogId:      catalogId,
-		machineName:    machineName,
-		troubleshootId: troubleshootId,
-	}
-}
-
-// Execute executes the request
-//
-//	@return TroubleshootScriptOverview
-func (a *CatalogCMDService) GetTroubleshootScriptStatus_3Execute(r ApiGetTroubleshootScriptStatus_0Request) (*TroubleshootScriptOverview, *http.Response, error) {
-	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TroubleshootScriptOverview
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatalogCMDService.GetTroubleshootScriptStatus_3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2096,8 +1958,9 @@ func (a *CatalogCMDService) GetTroubleshootScriptStatus_3Execute(r ApiGetTrouble
 
 type ApiGetTroubleshootScriptsOnlyForFailedConnectorInstallsRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
+	siteId              string
 	catalogId           string
 	citrixTransactionId *string
 }
@@ -2113,18 +1976,20 @@ func (r ApiGetTroubleshootScriptsOnlyForFailedConnectorInstallsRequest) Execute(
 }
 
 /*
-GetTroubleshootScriptsOnlyForFailedConnectorInstalls Get the statuses of all the troubleshoot scripts assocaited with catalog connectors
+GetTroubleshootScriptsOnlyForFailedConnectorInstalls Get the statuses of all the troubleshoot scripts associated with catalog connectors
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param customerId ID of the customer
+	@param siteId The site Id pf the customer
 	@param catalogId ID of the catalog
 	@return ApiGetTroubleshootScriptsOnlyForFailedConnectorInstallsRequest
 */
-func (a *CatalogCMDService) GetTroubleshootScriptsOnlyForFailedConnectorInstalls(ctx context.Context, customerId string, catalogId string) ApiGetTroubleshootScriptsOnlyForFailedConnectorInstallsRequest {
+func (a *CatalogCMDService) GetTroubleshootScriptsOnlyForFailedConnectorInstalls(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetTroubleshootScriptsOnlyForFailedConnectorInstallsRequest {
 	return ApiGetTroubleshootScriptsOnlyForFailedConnectorInstallsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		customerId: customerId,
+		siteId:     siteId,
 		catalogId:  catalogId,
 	}
 }
@@ -2141,139 +2006,6 @@ func (a *CatalogCMDService) GetTroubleshootScriptsOnlyForFailedConnectorInstalls
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatalogCMDService.GetTroubleshootScriptsOnlyForFailedConnectorInstalls")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/{customerId}/catalogs/{catalogId}/jobs/troubleshoot/failedConnectorInstalls"
-	localVarPath = strings.Replace(localVarPath, "{"+"customerId"+"}", url.PathEscape(parameterValueToString(r.customerId, "customerId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"catalogId"+"}", url.PathEscape(parameterValueToString(r.catalogId, "catalogId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["CWSAuth"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetTroubleshootScriptsOnlyForFailedConnectorInstalls_0Request struct {
-	ctx                 context.Context
-	ApiService          *CatalogCMDService
-	customerId          string
-	siteId              string
-	catalogId           string
-	citrixTransactionId *string
-}
-
-// The Transaction Id.
-func (r ApiGetTroubleshootScriptsOnlyForFailedConnectorInstalls_0Request) CitrixTransactionId(citrixTransactionId string) ApiGetTroubleshootScriptsOnlyForFailedConnectorInstalls_0Request {
-	r.citrixTransactionId = &citrixTransactionId
-	return r
-}
-
-func (r ApiGetTroubleshootScriptsOnlyForFailedConnectorInstalls_0Request) Execute() (*TroubleshootScriptsOverviewsModel, *http.Response, error) {
-	return r.ApiService.GetTroubleshootScriptsOnlyForFailedConnectorInstalls_4Execute(r)
-}
-
-/*
-GetTroubleshootScriptsOnlyForFailedConnectorInstalls_0 Get the statuses of all the troubleshoot scripts associated with catalog connectors
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param customerId ID of the customer
-	@param siteId The site Id pf the customer
-	@param catalogId ID of the catalog
-	@return ApiGetTroubleshootScriptsOnlyForFailedConnectorInstalls_0Request
-*/
-func (a *CatalogCMDService) GetTroubleshootScriptsOnlyForFailedConnectorInstalls_4(ctx context.Context, customerId string, siteId string, catalogId string) ApiGetTroubleshootScriptsOnlyForFailedConnectorInstalls_0Request {
-	return ApiGetTroubleshootScriptsOnlyForFailedConnectorInstalls_0Request{
-		ApiService: a,
-		ctx:        ctx,
-		customerId: customerId,
-		siteId:     siteId,
-		catalogId:  catalogId,
-	}
-}
-
-// Execute executes the request
-//
-//	@return TroubleshootScriptsOverviewsModel
-func (a *CatalogCMDService) GetTroubleshootScriptsOnlyForFailedConnectorInstalls_4Execute(r ApiGetTroubleshootScriptsOnlyForFailedConnectorInstalls_0Request) (*TroubleshootScriptsOverviewsModel, *http.Response, error) {
-	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TroubleshootScriptsOverviewsModel
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatalogCMDService.GetTroubleshootScriptsOnlyForFailedConnectorInstalls_4")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2360,8 +2092,9 @@ func (a *CatalogCMDService) GetTroubleshootScriptsOnlyForFailedConnectorInstalls
 
 type ApiRunScriptOnVmRequest struct {
 	ctx                 context.Context
-	ApiService          *CatalogCMDService
+	ApiService          CatalogCMD
 	customerId          string
+	siteId              string
 	catalogId           string
 	machineName         string
 	citrixTransactionId *string
@@ -2389,15 +2122,17 @@ RunScriptOnVm Run a troubleshoot script on a VDA
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param customerId ID of the customer
+	@param siteId The site ID of the customer
 	@param catalogId ID of the catalog
 	@param machineName Name of the VDA
 	@return ApiRunScriptOnVmRequest
 */
-func (a *CatalogCMDService) RunScriptOnVm(ctx context.Context, customerId string, catalogId string, machineName string) ApiRunScriptOnVmRequest {
+func (a *CatalogCMDService) RunScriptOnVm(ctx context.Context, customerId string, siteId string, catalogId string, machineName string) ApiRunScriptOnVmRequest {
 	return ApiRunScriptOnVmRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		customerId:  customerId,
+		siteId:      siteId,
 		catalogId:   catalogId,
 		machineName: machineName,
 	}
@@ -2415,152 +2150,6 @@ func (a *CatalogCMDService) RunScriptOnVmExecute(r ApiRunScriptOnVmRequest) (boo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatalogCMDService.RunScriptOnVm")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/{customerId}/catalogs/{catalogId}/vmresources/{machineName}/$runscriptWithModel"
-	localVarPath = strings.Replace(localVarPath, "{"+"customerId"+"}", url.PathEscape(parameterValueToString(r.customerId, "customerId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"catalogId"+"}", url.PathEscape(parameterValueToString(r.catalogId, "catalogId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"machineName"+"}", url.PathEscape(parameterValueToString(r.machineName, "machineName")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
-	}
-	// body params
-	localVarPostBody = r.runScriptOnVmModel
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["CWSAuth"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiRunScriptOnVm_0Request struct {
-	ctx                 context.Context
-	ApiService          *CatalogCMDService
-	customerId          string
-	siteId              string
-	catalogId           string
-	machineName         string
-	citrixTransactionId *string
-	runScriptOnVmModel  *RunScriptOnVmModel
-}
-
-// The Transaction Id.
-func (r ApiRunScriptOnVm_0Request) CitrixTransactionId(citrixTransactionId string) ApiRunScriptOnVm_0Request {
-	r.citrixTransactionId = &citrixTransactionId
-	return r
-}
-
-// The model containing the details required to run script on the specific VM resource
-func (r ApiRunScriptOnVm_0Request) RunScriptOnVmModel(runScriptOnVmModel RunScriptOnVmModel) ApiRunScriptOnVm_0Request {
-	r.runScriptOnVmModel = &runScriptOnVmModel
-	return r
-}
-
-func (r ApiRunScriptOnVm_0Request) Execute() (bool, *http.Response, error) {
-	return r.ApiService.RunScriptOnVm_5Execute(r)
-}
-
-/*
-RunScriptOnVm_0 Run a troubleshoot script on a VDA
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param customerId ID of the customer
-	@param siteId The site ID of the customer
-	@param catalogId ID of the catalog
-	@param machineName Name of the VDA
-	@return ApiRunScriptOnVm_0Request
-*/
-func (a *CatalogCMDService) RunScriptOnVm_5(ctx context.Context, customerId string, siteId string, catalogId string, machineName string) ApiRunScriptOnVm_0Request {
-	return ApiRunScriptOnVm_0Request{
-		ApiService:  a,
-		ctx:         ctx,
-		customerId:  customerId,
-		siteId:      siteId,
-		catalogId:   catalogId,
-		machineName: machineName,
-	}
-}
-
-// Execute executes the request
-//
-//	@return bool
-func (a *CatalogCMDService) RunScriptOnVm_5Execute(r ApiRunScriptOnVm_0Request) (bool, *http.Response, error) {
-	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue bool
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatalogCMDService.RunScriptOnVm_5")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2650,7 +2239,7 @@ func (a *CatalogCMDService) RunScriptOnVm_5Execute(r ApiRunScriptOnVm_0Request) 
 
 type ApiUpdateCatalogImageRequest struct {
 	ctx                             context.Context
-	ApiService                      *CatalogCMDService
+	ApiService                      CatalogCMD
 	customerId                      string
 	siteId                          string
 	catalogId                       string
@@ -2793,7 +2382,7 @@ func (a *CatalogCMDService) UpdateCatalogImageExecute(r ApiUpdateCatalogImageReq
 
 type ApiUpdateCatalogImageApiRequest struct {
 	ctx                             context.Context
-	ApiService                      *CatalogCMDService
+	ApiService                      CatalogCMD
 	customerId                      string
 	siteId                          string
 	catalogId                       string
@@ -2936,7 +2525,7 @@ func (a *CatalogCMDService) UpdateCatalogImageApiExecute(r ApiUpdateCatalogImage
 
 type ApiUpdateCatalogScaleConfigurationRequest struct {
 	ctx                          context.Context
-	ApiService                   *CatalogCMDService
+	ApiService                   CatalogCMD
 	customerId                   string
 	siteId                       string
 	catalogId                    string
@@ -3067,7 +2656,7 @@ func (a *CatalogCMDService) UpdateCatalogScaleConfigurationExecute(r ApiUpdateCa
 
 type ApiUpdateRemotePcCatalogScopesRequest struct {
 	ctx                              context.Context
-	ApiService                       *CatalogCMDService
+	ApiService                       CatalogCMD
 	customerId                       string
 	siteId                           string
 	catalogId                        string

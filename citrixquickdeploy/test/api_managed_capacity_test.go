@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Testing ManagedCapacityCMDService
 
@@ -33,6 +33,21 @@ func Test_citrixquickdeploy_ManagedCapacityCMDService(t *testing.T) {
 		var port string
 
 		httpRes, err := apiClient.ManagedCapacityCMD.DeletePortForNetworkSecurityGroup(context.Background(), customerId, siteId, resourceLocationId, port).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ManagedCapacityCMDService EnableServiceEndpointsForOnPremConnection", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var siteId string
+		var onPremConnectionId string
+
+		httpRes, err := apiClient.ManagedCapacityCMD.EnableServiceEndpointsForOnPremConnection(context.Background(), customerId, siteId, onPremConnectionId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -108,6 +123,38 @@ func Test_citrixquickdeploy_ManagedCapacityCMDService(t *testing.T) {
 		var resourceLocationId string
 
 		resp, httpRes, err := apiClient.ManagedCapacityCMD.GetOpenPortsForNetworkSecurityGroup(context.Background(), customerId, siteId, resourceLocationId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ManagedCapacityCMDService GetPersonasAsync", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var siteId string
+		var subscriptionId string
+
+		resp, httpRes, err := apiClient.ManagedCapacityCMD.GetPersonasAsync(context.Background(), customerId, siteId, subscriptionId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ManagedCapacityCMDService GetServiceEndpointsForOnPremConnection", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var siteId string
+		var onPremConnectionId string
+
+		resp, httpRes, err := apiClient.ManagedCapacityCMD.GetServiceEndpointsForOnPremConnection(context.Background(), customerId, siteId, onPremConnectionId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

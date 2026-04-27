@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -46,8 +46,6 @@ type SiteSettingsResponseModel struct {
 	MultiTenantServicesAccess NullableMultiTenantServicesAccessModel `json:"multiTenantServicesAccess,omitempty"`
 	// The AOT setting
 	AotSetting NullableAotSettingResponseModel `json:"aotSetting,omitempty"`
-	// The Entra ID settings.
-	EntraIdSetting NullableEntraIdSettingModel `json:"entraIdSetting,omitempty"`
 }
 
 // NewSiteSettingsResponseModelWithDefaults instantiates a new SiteSettingsResponseModel object
@@ -538,40 +536,6 @@ func (o *SiteSettingsResponseModel) UnsetAotSetting() {
 	o.AotSetting.Unset()
 }
 
-// GetEntraIdSetting returns the EntraIdSetting field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SiteSettingsResponseModel) GetEntraIdSetting() EntraIdSettingModel {
-	if o == nil || IsNil(o.EntraIdSetting.Get()) {
-		var ret EntraIdSettingModel
-		return ret
-	}
-	return *o.EntraIdSetting.Get()
-}
-
-// GetEntraIdSettingOk returns a tuple with the EntraIdSetting field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SiteSettingsResponseModel) GetEntraIdSettingOk() (*EntraIdSettingModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EntraIdSetting.Get(), o.EntraIdSetting.IsSet()
-}
-
-// SetEntraIdSetting gets a reference to the given NullableEntraIdSettingModel and assigns it to the EntraIdSetting field.
-func (o *SiteSettingsResponseModel) SetEntraIdSetting(v EntraIdSettingModel) {
-	o.EntraIdSetting.Set(&v)
-}
-
-// SetEntraIdSettingNil sets the value for EntraIdSetting to be an explicit nil
-func (o *SiteSettingsResponseModel) SetEntraIdSettingNil() {
-	o.EntraIdSetting.Set(nil)
-}
-
-// UnsetEntraIdSetting ensures that no value is present for EntraIdSetting, not even an explicit nil
-func (o *SiteSettingsResponseModel) UnsetEntraIdSetting() {
-	o.EntraIdSetting.Unset()
-}
-
 func (o SiteSettingsResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -626,9 +590,6 @@ func (o SiteSettingsResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AotSetting.IsSet() {
 		toSerialize["aotSetting"] = o.AotSetting.Get()
-	}
-	if o.EntraIdSetting.IsSet() {
-		toSerialize["entraIdSetting"] = o.EntraIdSetting.Get()
 	}
 	return toSerialize, nil
 }

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TenantId** | Pointer to **NullableString** | Id of the tenant being onboarded | [optional] 
 **SubscriptionId** | Pointer to **NullableString** | Id of the subscription being onboarded | [optional] 
-**MultitenantEntraId** | Pointer to **bool** | Indicates if this subscriptions uses the new unified/MT Entra ID | [optional] 
+**UnifiedEntraId** | Pointer to **bool** | Indicates if this subscriptions uses the new unified Entra ID | [optional] 
 **State** | Pointer to [**DirectoryState**](DirectoryState.md) | Current state of subscription onboarding process | [optional] 
 **ErrorDetails** | Pointer to **NullableString** | Failure details if any | [optional] 
 
@@ -99,30 +99,30 @@ HasSubscriptionId returns a boolean if a field has been set.
 `func (o *AzurePoolSubscriptionDetails) UnsetSubscriptionId()`
 
 UnsetSubscriptionId ensures that no value is present for SubscriptionId, not even an explicit nil
-### GetMultitenantEntraId
+### GetUnifiedEntraId
 
-`func (o *AzurePoolSubscriptionDetails) GetMultitenantEntraId() bool`
+`func (o *AzurePoolSubscriptionDetails) GetUnifiedEntraId() bool`
 
-GetMultitenantEntraId returns the MultitenantEntraId field if non-nil, zero value otherwise.
+GetUnifiedEntraId returns the UnifiedEntraId field if non-nil, zero value otherwise.
 
-### GetMultitenantEntraIdOk
+### GetUnifiedEntraIdOk
 
-`func (o *AzurePoolSubscriptionDetails) GetMultitenantEntraIdOk() (*bool, bool)`
+`func (o *AzurePoolSubscriptionDetails) GetUnifiedEntraIdOk() (*bool, bool)`
 
-GetMultitenantEntraIdOk returns a tuple with the MultitenantEntraId field if it's non-nil, zero value otherwise
+GetUnifiedEntraIdOk returns a tuple with the UnifiedEntraId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMultitenantEntraId
+### SetUnifiedEntraId
 
-`func (o *AzurePoolSubscriptionDetails) SetMultitenantEntraId(v bool)`
+`func (o *AzurePoolSubscriptionDetails) SetUnifiedEntraId(v bool)`
 
-SetMultitenantEntraId sets MultitenantEntraId field to given value.
+SetUnifiedEntraId sets UnifiedEntraId field to given value.
 
-### HasMultitenantEntraId
+### HasUnifiedEntraId
 
-`func (o *AzurePoolSubscriptionDetails) HasMultitenantEntraId() bool`
+`func (o *AzurePoolSubscriptionDetails) HasUnifiedEntraId() bool`
 
-HasMultitenantEntraId returns a boolean if a field has been set.
+HasUnifiedEntraId returns a boolean if a field has been set.
 
 ### GetState
 

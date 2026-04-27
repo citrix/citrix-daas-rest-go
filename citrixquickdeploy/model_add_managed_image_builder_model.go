@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -47,6 +47,8 @@ type AddManagedImageBuilderModel struct {
 	Notes NullableString `json:"notes,omitempty"`
 	// Ip Addresses allowed to RDP
 	AllowedIPs []string `json:"allowedIPs,omitempty"`
+	// OS disk size in GB for the Image Builder VM.  Allowed values: 128, 256, 512. Defaults to 128 GB.
+	OsDiskSizeGB *int32 `json:"osDiskSizeGB,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
 	CspCustomerId NullableString `json:"cspCustomerId,omitempty"`
 	// Name of tenant customer ID if partner-tenant relationship exists otherwise null
@@ -466,6 +468,29 @@ func (o *AddManagedImageBuilderModel) SetAllowedIPs(v []string) {
 	o.AllowedIPs = v
 }
 
+// GetOsDiskSizeGB returns the OsDiskSizeGB field value if set, zero value otherwise.
+func (o *AddManagedImageBuilderModel) GetOsDiskSizeGB() int32 {
+	if o == nil || IsNil(o.OsDiskSizeGB) {
+		var ret int32
+		return ret
+	}
+	return *o.OsDiskSizeGB
+}
+
+// GetOsDiskSizeGBOk returns a tuple with the OsDiskSizeGB field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AddManagedImageBuilderModel) GetOsDiskSizeGBOk() (*int32, bool) {
+	if o == nil || IsNil(o.OsDiskSizeGB) {
+		return nil, false
+	}
+	return o.OsDiskSizeGB, true
+}
+
+// SetOsDiskSizeGB gets a reference to the given int32 and assigns it to the OsDiskSizeGB field.
+func (o *AddManagedImageBuilderModel) SetOsDiskSizeGB(v int32) {
+	o.OsDiskSizeGB = &v
+}
+
 // GetCspCustomerId returns the CspCustomerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddManagedImageBuilderModel) GetCspCustomerId() string {
 	if o == nil || IsNil(o.CspCustomerId.Get()) {
@@ -575,6 +600,9 @@ func (o AddManagedImageBuilderModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AllowedIPs != nil {
 		toSerialize["allowedIPs"] = o.AllowedIPs
+	}
+	if !IsNil(o.OsDiskSizeGB) {
+		toSerialize["osDiskSizeGB"] = o.OsDiskSizeGB
 	}
 	if o.CspCustomerId.IsSet() {
 		toSerialize["cspCustomerId"] = o.CspCustomerId.Get()
