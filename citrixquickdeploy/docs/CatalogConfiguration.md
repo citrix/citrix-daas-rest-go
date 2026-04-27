@@ -27,7 +27,6 @@ Name | Type | Description | Notes
 **SubscriptionId** | Pointer to **NullableString** | Id of the Subscription that catalog VMs will be deployed to | [optional] 
 **SubscriptionName** | **string** | Name of the Subscription that catalog VMs will be deployed to | 
 **ResourceGroup** | **string** | Name of the resource group used for this catalog | 
-**TemplateSpecResourceGroup** | Pointer to **NullableString** | Resource Group for the Template Specs used by the catalog | [optional] [readonly] 
 **VdaResourceGroup** | Pointer to **NullableString** | The resource group for the VDAs in Azure | [optional] 
 **VdaProvisioningSchemeId** | Pointer to **NullableString** | The resource groups for the VDAs in Azure | [optional] 
 **AreMcsVdaResourceGroupsUsed** | Pointer to **NullableBool** | The resource groups for the VDAs in Azure | [optional] 
@@ -39,7 +38,6 @@ Name | Type | Description | Notes
 **DomainName** | Pointer to **NullableString** | Name of the domain that the catalog&#39;s VMs will join | [optional] 
 **DomainOU** | Pointer to **NullableString** | OU of the domain we are joining | [optional] 
 **DomainServiceAccount** | Pointer to **NullableString** | Name of the service account that will perform domain join opperations | [optional] 
-**ServiceAccountUid** | Pointer to **NullableString** | Service account to associate to the IdentityPool.  Used for Pure Entra ID joined catalogs. | [optional] [readonly] 
 **VmTypeInstanceType** | Pointer to **NullableString** | Type of the VM machines used to create VDAs | [optional] [readonly] 
 **ImageId** | Pointer to **NullableString** | ID of the image that is used by the catalog | [optional] 
 **TemplateImageName** | Pointer to **NullableString** | Name of the template image that we are using for this catalog | [optional] 
@@ -60,6 +58,7 @@ Name | Type | Description | Notes
 **SupportsHibernation** | Pointer to **bool** | Indicates whether machines in catalog support hibernation | [optional] 
 **EnableAcceleratedNetworking** | Pointer to **bool** | Specifies whether to enable accelerated networking on the VM NIC | [optional] 
 **EnableEncryptionAtHost** | Pointer to **bool** | Indicates whether encryption at the host level is enabled. | [optional] 
+**MinimumFunctionalLevel** | Pointer to [**NullableFunctionalLevel**](FunctionalLevel.md) | The minimum functional level to be set for the catalog | [optional] 
 **CatalogType** | Pointer to [**CatalogType**](CatalogType.md) | The type of catalog | [optional] [readonly] 
 
 ## Methods
@@ -716,41 +715,6 @@ and a boolean to check if the value has been set.
 SetResourceGroup sets ResourceGroup field to given value.
 
 
-### GetTemplateSpecResourceGroup
-
-`func (o *CatalogConfiguration) GetTemplateSpecResourceGroup() string`
-
-GetTemplateSpecResourceGroup returns the TemplateSpecResourceGroup field if non-nil, zero value otherwise.
-
-### GetTemplateSpecResourceGroupOk
-
-`func (o *CatalogConfiguration) GetTemplateSpecResourceGroupOk() (*string, bool)`
-
-GetTemplateSpecResourceGroupOk returns a tuple with the TemplateSpecResourceGroup field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTemplateSpecResourceGroup
-
-`func (o *CatalogConfiguration) SetTemplateSpecResourceGroup(v string)`
-
-SetTemplateSpecResourceGroup sets TemplateSpecResourceGroup field to given value.
-
-### HasTemplateSpecResourceGroup
-
-`func (o *CatalogConfiguration) HasTemplateSpecResourceGroup() bool`
-
-HasTemplateSpecResourceGroup returns a boolean if a field has been set.
-
-### SetTemplateSpecResourceGroupNil
-
-`func (o *CatalogConfiguration) SetTemplateSpecResourceGroupNil(b bool)`
-
- SetTemplateSpecResourceGroupNil sets the value for TemplateSpecResourceGroup to be an explicit nil
-
-### UnsetTemplateSpecResourceGroup
-`func (o *CatalogConfiguration) UnsetTemplateSpecResourceGroup()`
-
-UnsetTemplateSpecResourceGroup ensures that no value is present for TemplateSpecResourceGroup, not even an explicit nil
 ### GetVdaResourceGroup
 
 `func (o *CatalogConfiguration) GetVdaResourceGroup() string`
@@ -1106,41 +1070,6 @@ HasDomainServiceAccount returns a boolean if a field has been set.
 `func (o *CatalogConfiguration) UnsetDomainServiceAccount()`
 
 UnsetDomainServiceAccount ensures that no value is present for DomainServiceAccount, not even an explicit nil
-### GetServiceAccountUid
-
-`func (o *CatalogConfiguration) GetServiceAccountUid() string`
-
-GetServiceAccountUid returns the ServiceAccountUid field if non-nil, zero value otherwise.
-
-### GetServiceAccountUidOk
-
-`func (o *CatalogConfiguration) GetServiceAccountUidOk() (*string, bool)`
-
-GetServiceAccountUidOk returns a tuple with the ServiceAccountUid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetServiceAccountUid
-
-`func (o *CatalogConfiguration) SetServiceAccountUid(v string)`
-
-SetServiceAccountUid sets ServiceAccountUid field to given value.
-
-### HasServiceAccountUid
-
-`func (o *CatalogConfiguration) HasServiceAccountUid() bool`
-
-HasServiceAccountUid returns a boolean if a field has been set.
-
-### SetServiceAccountUidNil
-
-`func (o *CatalogConfiguration) SetServiceAccountUidNil(b bool)`
-
- SetServiceAccountUidNil sets the value for ServiceAccountUid to be an explicit nil
-
-### UnsetServiceAccountUid
-`func (o *CatalogConfiguration) UnsetServiceAccountUid()`
-
-UnsetServiceAccountUid ensures that no value is present for ServiceAccountUid, not even an explicit nil
 ### GetVmTypeInstanceType
 
 `func (o *CatalogConfiguration) GetVmTypeInstanceType() string`
@@ -1781,6 +1710,41 @@ SetEnableEncryptionAtHost sets EnableEncryptionAtHost field to given value.
 
 HasEnableEncryptionAtHost returns a boolean if a field has been set.
 
+### GetMinimumFunctionalLevel
+
+`func (o *CatalogConfiguration) GetMinimumFunctionalLevel() FunctionalLevel`
+
+GetMinimumFunctionalLevel returns the MinimumFunctionalLevel field if non-nil, zero value otherwise.
+
+### GetMinimumFunctionalLevelOk
+
+`func (o *CatalogConfiguration) GetMinimumFunctionalLevelOk() (*FunctionalLevel, bool)`
+
+GetMinimumFunctionalLevelOk returns a tuple with the MinimumFunctionalLevel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMinimumFunctionalLevel
+
+`func (o *CatalogConfiguration) SetMinimumFunctionalLevel(v FunctionalLevel)`
+
+SetMinimumFunctionalLevel sets MinimumFunctionalLevel field to given value.
+
+### HasMinimumFunctionalLevel
+
+`func (o *CatalogConfiguration) HasMinimumFunctionalLevel() bool`
+
+HasMinimumFunctionalLevel returns a boolean if a field has been set.
+
+### SetMinimumFunctionalLevelNil
+
+`func (o *CatalogConfiguration) SetMinimumFunctionalLevelNil(b bool)`
+
+ SetMinimumFunctionalLevelNil sets the value for MinimumFunctionalLevel to be an explicit nil
+
+### UnsetMinimumFunctionalLevel
+`func (o *CatalogConfiguration) UnsetMinimumFunctionalLevel()`
+
+UnsetMinimumFunctionalLevel ensures that no value is present for MinimumFunctionalLevel, not even an explicit nil
 ### GetCatalogType
 
 `func (o *CatalogConfiguration) GetCatalogType() CatalogType`

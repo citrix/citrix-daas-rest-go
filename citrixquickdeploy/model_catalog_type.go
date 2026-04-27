@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -26,7 +26,6 @@ const (
 	CATALOGTYPE_CUSTOMER_NON_DOMAIN_JOINED     CatalogType = "CustomerNonDomainJoined"
 	CATALOGTYPE_CUSTOMER_AZURE_AD_JOINED       CatalogType = "CustomerAzureAdJoined"
 	CATALOGTYPE_MANAGED_HYBRID_ENTRA_ID_JOINED CatalogType = "ManagedHybridEntraIdJoined"
-	CATALOGTYPE_MANAGED_PURE_ENTRA_ID_JOINED   CatalogType = "ManagedPureEntraIdJoined"
 )
 
 // All allowed values of CatalogType enum
@@ -37,7 +36,6 @@ var AllowedCatalogTypeEnumValues = []CatalogType{
 	"CustomerNonDomainJoined",
 	"CustomerAzureAdJoined",
 	"ManagedHybridEntraIdJoined",
-	"ManagedPureEntraIdJoined",
 }
 
 func (v *CatalogType) UnmarshalJSON(src []byte) error {

@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -43,6 +43,8 @@ type Persona struct {
 	AllocationType *CatalogAllocationType `json:"allocationType,omitempty"`
 	// The add-ons supported by the persona
 	AddOns []SupportedPersonaAddOn `json:"addOns,omitempty"`
+	// Azure regions in which this persona is explicitly disabled.
+	DisabledRegions []string `json:"disabledRegions,omitempty"`
 }
 
 // NewPersonaWithDefaults instantiates a new Persona object
@@ -396,6 +398,30 @@ func (o *Persona) SetAddOns(v []SupportedPersonaAddOn) {
 	o.AddOns = v
 }
 
+// GetDisabledRegions returns the DisabledRegions field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Persona) GetDisabledRegions() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.DisabledRegions
+}
+
+// GetDisabledRegionsOk returns a tuple with the DisabledRegions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Persona) GetDisabledRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.DisabledRegions) {
+		return nil, false
+	}
+	return o.DisabledRegions, true
+}
+
+// SetDisabledRegions gets a reference to the given []string and assigns it to the DisabledRegions field.
+func (o *Persona) SetDisabledRegions(v []string) {
+	o.DisabledRegions = v
+}
+
 func (o Persona) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -441,6 +467,9 @@ func (o Persona) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AddOns != nil {
 		toSerialize["addOns"] = o.AddOns
+	}
+	if o.DisabledRegions != nil {
+		toSerialize["disabledRegions"] = o.DisabledRegions
 	}
 	return toSerialize, nil
 }

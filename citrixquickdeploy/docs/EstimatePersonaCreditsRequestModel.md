@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **DiskSizeInGB** | Pointer to **int32** |  | [optional] 
 **SessionSupport** | Pointer to [**SessionSupport**](SessionSupport.md) | Quantity of sessions supported per-machine. | [optional] 
 **SessionsPerVM** | Pointer to **int32** |  | [optional] 
-**AllocationType** | Pointer to [**CatalogAllocationType**](CatalogAllocationType.md) |  | [optional] 
 
 ## Methods
 
@@ -174,31 +173,6 @@ SetSessionsPerVM sets SessionsPerVM field to given value.
 `func (o *EstimatePersonaCreditsRequestModel) HasSessionsPerVM() bool`
 
 HasSessionsPerVM returns a boolean if a field has been set.
-
-### GetAllocationType
-
-`func (o *EstimatePersonaCreditsRequestModel) GetAllocationType() CatalogAllocationType`
-
-GetAllocationType returns the AllocationType field if non-nil, zero value otherwise.
-
-### GetAllocationTypeOk
-
-`func (o *EstimatePersonaCreditsRequestModel) GetAllocationTypeOk() (*CatalogAllocationType, bool)`
-
-GetAllocationTypeOk returns a tuple with the AllocationType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAllocationType
-
-`func (o *EstimatePersonaCreditsRequestModel) SetAllocationType(v CatalogAllocationType)`
-
-SetAllocationType sets AllocationType field to given value.
-
-### HasAllocationType
-
-`func (o *EstimatePersonaCreditsRequestModel) HasAllocationType() bool`
-
-HasAllocationType returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

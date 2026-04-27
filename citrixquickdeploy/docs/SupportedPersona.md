@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** | the Id of the Persona | [optional] 
 **Name** | **string** | The name of the Persona | 
-**Description** | Pointer to **NullableString** | The description of the Persona | [optional] 
 **VmSku** | **string** | Internal only: The VM SKU string for the persona | 
 **SessionSupport** | [**SessionSupport**](SessionSupport.md) | Quantity of sessions supported per-machine. | 
 **SessionsPerVm** | Pointer to **int32** | Number of sessions per vm. Value is 1 for Single Session Personas | [optional] 
@@ -14,8 +13,6 @@ Name | Type | Description | Notes
 **EstimatedCredits** | **int32** | The cost per user per month for the persona | 
 **DiskSku** | Pointer to **NullableString** | The Disk SKU for the persona | [optional] 
 **DiskSize** | Pointer to **int32** | The Disk size associated with the persona | [optional] 
-**AllocationType** | Pointer to [**CatalogAllocationType**](CatalogAllocationType.md) | The allocation type for the persona | [optional] 
-**AddOns** | Pointer to [**[]SupportedPersonaAddOn**](SupportedPersonaAddOn.md) | The add-ons supported by the persona | [optional] 
 **IsDeprecated** | Pointer to **bool** | Specifies if the persona is deprecated | [optional] 
 
 ## Methods
@@ -92,41 +89,6 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
-### GetDescription
-
-`func (o *SupportedPersona) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *SupportedPersona) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *SupportedPersona) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-### HasDescription
-
-`func (o *SupportedPersona) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
-
-### SetDescriptionNil
-
-`func (o *SupportedPersona) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *SupportedPersona) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetVmSku
 
 `func (o *SupportedPersona) GetVmSku() string`
@@ -307,66 +269,6 @@ SetDiskSize sets DiskSize field to given value.
 
 HasDiskSize returns a boolean if a field has been set.
 
-### GetAllocationType
-
-`func (o *SupportedPersona) GetAllocationType() CatalogAllocationType`
-
-GetAllocationType returns the AllocationType field if non-nil, zero value otherwise.
-
-### GetAllocationTypeOk
-
-`func (o *SupportedPersona) GetAllocationTypeOk() (*CatalogAllocationType, bool)`
-
-GetAllocationTypeOk returns a tuple with the AllocationType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAllocationType
-
-`func (o *SupportedPersona) SetAllocationType(v CatalogAllocationType)`
-
-SetAllocationType sets AllocationType field to given value.
-
-### HasAllocationType
-
-`func (o *SupportedPersona) HasAllocationType() bool`
-
-HasAllocationType returns a boolean if a field has been set.
-
-### GetAddOns
-
-`func (o *SupportedPersona) GetAddOns() []SupportedPersonaAddOn`
-
-GetAddOns returns the AddOns field if non-nil, zero value otherwise.
-
-### GetAddOnsOk
-
-`func (o *SupportedPersona) GetAddOnsOk() (*[]SupportedPersonaAddOn, bool)`
-
-GetAddOnsOk returns a tuple with the AddOns field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAddOns
-
-`func (o *SupportedPersona) SetAddOns(v []SupportedPersonaAddOn)`
-
-SetAddOns sets AddOns field to given value.
-
-### HasAddOns
-
-`func (o *SupportedPersona) HasAddOns() bool`
-
-HasAddOns returns a boolean if a field has been set.
-
-### SetAddOnsNil
-
-`func (o *SupportedPersona) SetAddOnsNil(b bool)`
-
- SetAddOnsNil sets the value for AddOns to be an explicit nil
-
-### UnsetAddOns
-`func (o *SupportedPersona) UnsetAddOns()`
-
-UnsetAddOns ensures that no value is present for AddOns, not even an explicit nil
 ### GetIsDeprecated
 
 `func (o *SupportedPersona) GetIsDeprecated() bool`

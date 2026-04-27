@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -23,8 +23,8 @@ type AddCitrixManagedCatalogModel struct {
 	Region NullableString `json:"region,omitempty"`
 	// Specifies whether to enable accelerated networking on the VM NIC
 	EnableAcceleratedNetworking *bool `json:"enableAcceleratedNetworking,omitempty"`
-	// The minimum functional level to be set for the catalog
-	MinimumFunctionalLevel NullableFunctionalLevel `json:"minimumFunctionalLevel,omitempty"`
+	// Functional level for VDAs.
+	MinimumFunctionalLevel *FunctionalLevel `json:"minimumFunctionalLevel,omitempty"`
 	// Indicates whether encryption at the host level is enabled.
 	EnableEncryptionAtHost *bool `json:"enableEncryptionAtHost,omitempty"`
 	// Name of the catalog
@@ -111,38 +111,27 @@ func (o *AddCitrixManagedCatalogModel) SetEnableAcceleratedNetworking(v bool) {
 	o.EnableAcceleratedNetworking = &v
 }
 
-// GetMinimumFunctionalLevel returns the MinimumFunctionalLevel field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMinimumFunctionalLevel returns the MinimumFunctionalLevel field value if set, zero value otherwise.
 func (o *AddCitrixManagedCatalogModel) GetMinimumFunctionalLevel() FunctionalLevel {
-	if o == nil || IsNil(o.MinimumFunctionalLevel.Get()) {
+	if o == nil || IsNil(o.MinimumFunctionalLevel) {
 		var ret FunctionalLevel
 		return ret
 	}
-	return *o.MinimumFunctionalLevel.Get()
+	return *o.MinimumFunctionalLevel
 }
 
 // GetMinimumFunctionalLevelOk returns a tuple with the MinimumFunctionalLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AddCitrixManagedCatalogModel) GetMinimumFunctionalLevelOk() (*FunctionalLevel, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MinimumFunctionalLevel) {
 		return nil, false
 	}
-	return o.MinimumFunctionalLevel.Get(), o.MinimumFunctionalLevel.IsSet()
+	return o.MinimumFunctionalLevel, true
 }
 
-// SetMinimumFunctionalLevel gets a reference to the given NullableFunctionalLevel and assigns it to the MinimumFunctionalLevel field.
+// SetMinimumFunctionalLevel gets a reference to the given FunctionalLevel and assigns it to the MinimumFunctionalLevel field.
 func (o *AddCitrixManagedCatalogModel) SetMinimumFunctionalLevel(v FunctionalLevel) {
-	o.MinimumFunctionalLevel.Set(&v)
-}
-
-// SetMinimumFunctionalLevelNil sets the value for MinimumFunctionalLevel to be an explicit nil
-func (o *AddCitrixManagedCatalogModel) SetMinimumFunctionalLevelNil() {
-	o.MinimumFunctionalLevel.Set(nil)
-}
-
-// UnsetMinimumFunctionalLevel ensures that no value is present for MinimumFunctionalLevel, not even an explicit nil
-func (o *AddCitrixManagedCatalogModel) UnsetMinimumFunctionalLevel() {
-	o.MinimumFunctionalLevel.Unset()
+	o.MinimumFunctionalLevel = &v
 }
 
 // GetEnableEncryptionAtHost returns the EnableEncryptionAtHost field value if set, zero value otherwise.
@@ -391,8 +380,8 @@ func (o AddCitrixManagedCatalogModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EnableAcceleratedNetworking) {
 		toSerialize["enableAcceleratedNetworking"] = o.EnableAcceleratedNetworking
 	}
-	if o.MinimumFunctionalLevel.IsSet() {
-		toSerialize["minimumFunctionalLevel"] = o.MinimumFunctionalLevel.Get()
+	if !IsNil(o.MinimumFunctionalLevel) {
+		toSerialize["minimumFunctionalLevel"] = o.MinimumFunctionalLevel
 	}
 	if !IsNil(o.EnableEncryptionAtHost) {
 		toSerialize["enableEncryptionAtHost"] = o.EnableEncryptionAtHost

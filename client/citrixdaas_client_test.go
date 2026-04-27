@@ -56,7 +56,7 @@ func TestExecuteWithRetry(t *testing.T) {
 					Return((*citrixorchestration.ZoneDetailResponseModel)(nil), &http.Response{StatusCode: tt.statusCode}, fmt.Errorf("zone not found")).Once()
 
 				request := mockAPI.ZonesGetZone(ctx, "non-existent-zone")
-				result, httpResp, err := citrixclient.ExecuteWithRetryContext[*citrixorchestration.ZoneDetailResponseModel](ctx, request, citrixClient)
+				result, httpResp, err := citrixclient.ExecuteWithRetryContext[*citrixorchestration.ZoneDetailResponseModel](ctx, request, citrixClient, false)
 
 				assert.Error(t, err)
 				assert.Nil(t, result)
@@ -71,7 +71,7 @@ func TestExecuteWithRetry(t *testing.T) {
 					Return(expectedZone, &http.Response{StatusCode: tt.statusCode}, nil).Once()
 
 				request := mockAPI.ZonesGetZone(ctx, tt.expectedZoneId)
-				result, httpResp, err := citrixclient.ExecuteWithRetryContext[*citrixorchestration.ZoneDetailResponseModel](ctx, request, citrixClient)
+				result, httpResp, err := citrixclient.ExecuteWithRetryContext[*citrixorchestration.ZoneDetailResponseModel](ctx, request, citrixClient, false)
 
 				require.NoError(t, err)
 				require.NotNil(t, result)
@@ -154,7 +154,44 @@ func TestRetryOperationWithExponentialBackOff_Success(t *testing.T) {
 				return expectedResult, &http.Response{StatusCode: 200, Body: http.NoBody}, nil
 			}
 
-			result, httpResp, err := citrixclient.RetryOperationWithExponentialBackOff(operation, 0, 3)
+			result, httpResp, err := citrixclient.RetryOperationWithExponentialBackOff(operation, 0, 3, false)
+
+			require.NoError(t, err)
+			assert.Equal(t, expectedResult, result)
+			assert.Equal(t, 200, httpResp.StatusCode)
+			assert.Equal(t, tt.expectedCallCount, callCount)
+		})
+	}
+}
+
+func TestRetryOperationWithExponentialBackOffOnNotFound_Success(t *testing.T) {
+	tests := []struct {
+		name              string
+		failuresBeforeOk  int
+		expectedCallCount int
+	}{
+		{
+			name:              "Success After Retries on Not Found",
+			failuresBeforeOk:  2,
+			expectedCallCount: 3,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			callCount := 0
+			expectedResult := "success"
+
+			operation := func() (string, *http.Response, error) {
+				callCount++
+				// Simulate retryable failures (404) before succeeding
+				if callCount <= tt.failuresBeforeOk {
+					return "", &http.Response{StatusCode: 404, Body: http.NoBody}, fmt.Errorf("Not Found")
+				}
+				return expectedResult, &http.Response{StatusCode: 200, Body: http.NoBody}, nil
+			}
+
+			result, httpResp, err := citrixclient.RetryOperationWithExponentialBackOff(operation, 0, 3, true)
 
 			require.NoError(t, err)
 			assert.Equal(t, expectedResult, result)
@@ -192,7 +229,7 @@ func TestRetryOperationWithExponentialBackOff_Failure(t *testing.T) {
 				return "", &http.Response{StatusCode: tt.statusCode, Body: http.NoBody}, expectedError
 			}
 
-			result, httpResp, err := citrixclient.RetryOperationWithExponentialBackOff(operation, 0, 3)
+			result, httpResp, err := citrixclient.RetryOperationWithExponentialBackOff(operation, 0, 3, false)
 
 			assert.Error(t, err)
 			assert.Equal(t, expectedError, err)
@@ -212,7 +249,7 @@ func TestRetryOperationWithExponentialBackOffDefault(t *testing.T) {
 		return expectedResult, &http.Response{StatusCode: 200}, nil
 	}
 
-	result, httpResp, err := citrixclient.RetryOperationWithExponentialBackOffDefault(test.DaaSTestContext(), operation)
+	result, httpResp, err := citrixclient.RetryOperationWithExponentialBackOffDefault(test.DaaSTestContext(), operation, false)
 
 	require.NoError(t, err)
 	assert.Equal(t, expectedResult, result)

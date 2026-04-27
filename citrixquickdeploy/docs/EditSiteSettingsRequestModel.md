@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **DefaultDomain** | Pointer to **NullableString** | The default domain to be used in the login page. | [optional] 
 **MultiTenantServicesAccess** | Pointer to [**NullableMultiTenantServicesAccessModel**](MultiTenantServicesAccessModel.md) | Cloud Services access to DaaS. | [optional] 
 **AotSetting** | Pointer to [**NullableEditAotSettingRequestModel**](EditAotSettingRequestModel.md) |  | [optional] 
-**EntraIdSetting** | Pointer to [**NullableEntraIdSettingModel**](EntraIdSettingModel.md) | Entra ID settings. | [optional] 
 
 ## Methods
 
@@ -529,41 +528,6 @@ HasAotSetting returns a boolean if a field has been set.
 `func (o *EditSiteSettingsRequestModel) UnsetAotSetting()`
 
 UnsetAotSetting ensures that no value is present for AotSetting, not even an explicit nil
-### GetEntraIdSetting
-
-`func (o *EditSiteSettingsRequestModel) GetEntraIdSetting() EntraIdSettingModel`
-
-GetEntraIdSetting returns the EntraIdSetting field if non-nil, zero value otherwise.
-
-### GetEntraIdSettingOk
-
-`func (o *EditSiteSettingsRequestModel) GetEntraIdSettingOk() (*EntraIdSettingModel, bool)`
-
-GetEntraIdSettingOk returns a tuple with the EntraIdSetting field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEntraIdSetting
-
-`func (o *EditSiteSettingsRequestModel) SetEntraIdSetting(v EntraIdSettingModel)`
-
-SetEntraIdSetting sets EntraIdSetting field to given value.
-
-### HasEntraIdSetting
-
-`func (o *EditSiteSettingsRequestModel) HasEntraIdSetting() bool`
-
-HasEntraIdSetting returns a boolean if a field has been set.
-
-### SetEntraIdSettingNil
-
-`func (o *EditSiteSettingsRequestModel) SetEntraIdSettingNil(b bool)`
-
- SetEntraIdSettingNil sets the value for EntraIdSetting to be an explicit nil
-
-### UnsetEntraIdSetting
-`func (o *EditSiteSettingsRequestModel) UnsetEntraIdSetting()`
-
-UnsetEntraIdSetting ensures that no value is present for EntraIdSetting, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

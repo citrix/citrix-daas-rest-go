@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -67,8 +67,6 @@ type CatalogOverview struct {
 	SubscriptionName string `json:"subscriptionName"`
 	// Name of the resource group used for this catalog
 	ResourceGroup string `json:"resourceGroup"`
-	// Resource Group for the Template Specs used by the catalog
-	TemplateSpecResourceGroup NullableString `json:"templateSpecResourceGroup,omitempty"`
 	// The resource group for the VDAs in Azure
 	VdaResourceGroup NullableString `json:"vdaResourceGroup,omitempty"`
 	// The resource groups for the VDAs in Azure
@@ -91,8 +89,6 @@ type CatalogOverview struct {
 	DomainOU NullableString `json:"domainOU,omitempty"`
 	// Name of the service account that will perform domain join opperations
 	DomainServiceAccount NullableString `json:"domainServiceAccount,omitempty"`
-	// Service account to associate to the IdentityPool.  Used for Pure Entra ID joined catalogs.
-	ServiceAccountUid NullableString `json:"serviceAccountUid,omitempty"`
 	// Type of the VM machines used to create VDAs
 	VmTypeInstanceType NullableString `json:"vmTypeInstanceType,omitempty"`
 	// ID of the image that is used by the catalog
@@ -133,6 +129,8 @@ type CatalogOverview struct {
 	EnableAcceleratedNetworking *bool `json:"enableAcceleratedNetworking,omitempty"`
 	// Indicates whether encryption at the host level is enabled.
 	EnableEncryptionAtHost *bool `json:"enableEncryptionAtHost,omitempty"`
+	// The minimum functional level to be set for the catalog
+	MinimumFunctionalLevel NullableFunctionalLevel `json:"minimumFunctionalLevel,omitempty"`
 	// The type of catalog
 	CatalogType *CatalogType `json:"catalogType,omitempty"`
 }
@@ -829,40 +827,6 @@ func (o *CatalogOverview) SetResourceGroup(v string) {
 	o.ResourceGroup = v
 }
 
-// GetTemplateSpecResourceGroup returns the TemplateSpecResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CatalogOverview) GetTemplateSpecResourceGroup() string {
-	if o == nil || IsNil(o.TemplateSpecResourceGroup.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TemplateSpecResourceGroup.Get()
-}
-
-// GetTemplateSpecResourceGroupOk returns a tuple with the TemplateSpecResourceGroup field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CatalogOverview) GetTemplateSpecResourceGroupOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TemplateSpecResourceGroup.Get(), o.TemplateSpecResourceGroup.IsSet()
-}
-
-// SetTemplateSpecResourceGroup gets a reference to the given NullableString and assigns it to the TemplateSpecResourceGroup field.
-func (o *CatalogOverview) SetTemplateSpecResourceGroup(v string) {
-	o.TemplateSpecResourceGroup.Set(&v)
-}
-
-// SetTemplateSpecResourceGroupNil sets the value for TemplateSpecResourceGroup to be an explicit nil
-func (o *CatalogOverview) SetTemplateSpecResourceGroupNil() {
-	o.TemplateSpecResourceGroup.Set(nil)
-}
-
-// UnsetTemplateSpecResourceGroup ensures that no value is present for TemplateSpecResourceGroup, not even an explicit nil
-func (o *CatalogOverview) UnsetTemplateSpecResourceGroup() {
-	o.TemplateSpecResourceGroup.Unset()
-}
-
 // GetVdaResourceGroup returns the VdaResourceGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CatalogOverview) GetVdaResourceGroup() string {
 	if o == nil || IsNil(o.VdaResourceGroup.Get()) {
@@ -1215,40 +1179,6 @@ func (o *CatalogOverview) SetDomainServiceAccountNil() {
 // UnsetDomainServiceAccount ensures that no value is present for DomainServiceAccount, not even an explicit nil
 func (o *CatalogOverview) UnsetDomainServiceAccount() {
 	o.DomainServiceAccount.Unset()
-}
-
-// GetServiceAccountUid returns the ServiceAccountUid field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CatalogOverview) GetServiceAccountUid() string {
-	if o == nil || IsNil(o.ServiceAccountUid.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ServiceAccountUid.Get()
-}
-
-// GetServiceAccountUidOk returns a tuple with the ServiceAccountUid field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CatalogOverview) GetServiceAccountUidOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ServiceAccountUid.Get(), o.ServiceAccountUid.IsSet()
-}
-
-// SetServiceAccountUid gets a reference to the given NullableString and assigns it to the ServiceAccountUid field.
-func (o *CatalogOverview) SetServiceAccountUid(v string) {
-	o.ServiceAccountUid.Set(&v)
-}
-
-// SetServiceAccountUidNil sets the value for ServiceAccountUid to be an explicit nil
-func (o *CatalogOverview) SetServiceAccountUidNil() {
-	o.ServiceAccountUid.Set(nil)
-}
-
-// UnsetServiceAccountUid ensures that no value is present for ServiceAccountUid, not even an explicit nil
-func (o *CatalogOverview) UnsetServiceAccountUid() {
-	o.ServiceAccountUid.Unset()
 }
 
 // GetVmTypeInstanceType returns the VmTypeInstanceType field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1855,6 +1785,40 @@ func (o *CatalogOverview) SetEnableEncryptionAtHost(v bool) {
 	o.EnableEncryptionAtHost = &v
 }
 
+// GetMinimumFunctionalLevel returns the MinimumFunctionalLevel field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CatalogOverview) GetMinimumFunctionalLevel() FunctionalLevel {
+	if o == nil || IsNil(o.MinimumFunctionalLevel.Get()) {
+		var ret FunctionalLevel
+		return ret
+	}
+	return *o.MinimumFunctionalLevel.Get()
+}
+
+// GetMinimumFunctionalLevelOk returns a tuple with the MinimumFunctionalLevel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CatalogOverview) GetMinimumFunctionalLevelOk() (*FunctionalLevel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MinimumFunctionalLevel.Get(), o.MinimumFunctionalLevel.IsSet()
+}
+
+// SetMinimumFunctionalLevel gets a reference to the given NullableFunctionalLevel and assigns it to the MinimumFunctionalLevel field.
+func (o *CatalogOverview) SetMinimumFunctionalLevel(v FunctionalLevel) {
+	o.MinimumFunctionalLevel.Set(&v)
+}
+
+// SetMinimumFunctionalLevelNil sets the value for MinimumFunctionalLevel to be an explicit nil
+func (o *CatalogOverview) SetMinimumFunctionalLevelNil() {
+	o.MinimumFunctionalLevel.Set(nil)
+}
+
+// UnsetMinimumFunctionalLevel ensures that no value is present for MinimumFunctionalLevel, not even an explicit nil
+func (o *CatalogOverview) UnsetMinimumFunctionalLevel() {
+	o.MinimumFunctionalLevel.Unset()
+}
+
 // GetCatalogType returns the CatalogType field value if set, zero value otherwise.
 func (o *CatalogOverview) GetCatalogType() CatalogType {
 	if o == nil || IsNil(o.CatalogType) {
@@ -1940,9 +1904,6 @@ func (o CatalogOverview) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["subscriptionName"] = o.SubscriptionName
 	toSerialize["resourceGroup"] = o.ResourceGroup
-	if o.TemplateSpecResourceGroup.IsSet() {
-		toSerialize["templateSpecResourceGroup"] = o.TemplateSpecResourceGroup.Get()
-	}
 	if o.VdaResourceGroup.IsSet() {
 		toSerialize["vdaResourceGroup"] = o.VdaResourceGroup.Get()
 	}
@@ -1971,9 +1932,6 @@ func (o CatalogOverview) ToMap() (map[string]interface{}, error) {
 	}
 	if o.DomainServiceAccount.IsSet() {
 		toSerialize["domainServiceAccount"] = o.DomainServiceAccount.Get()
-	}
-	if o.ServiceAccountUid.IsSet() {
-		toSerialize["serviceAccountUid"] = o.ServiceAccountUid.Get()
 	}
 	if o.VmTypeInstanceType.IsSet() {
 		toSerialize["vmTypeInstanceType"] = o.VmTypeInstanceType.Get()
@@ -2034,6 +1992,9 @@ func (o CatalogOverview) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.EnableEncryptionAtHost) {
 		toSerialize["enableEncryptionAtHost"] = o.EnableEncryptionAtHost
+	}
+	if o.MinimumFunctionalLevel.IsSet() {
+		toSerialize["minimumFunctionalLevel"] = o.MinimumFunctionalLevel.Get()
 	}
 	if !IsNil(o.CatalogType) {
 		toSerialize["catalogType"] = o.CatalogType

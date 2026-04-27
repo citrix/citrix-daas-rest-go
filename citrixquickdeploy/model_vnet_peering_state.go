@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -36,6 +36,8 @@ const (
 	VNETPEERINGSTATE_DISABLING_NAT_GATEWAY              VnetPeeringState = "DisablingNatGateway"
 	VNETPEERINGSTATE_NAT_GATEWAY_FAILED                 VnetPeeringState = "NatGatewayFailed"
 	VNETPEERINGSTATE_ROUTE_TABLE_AND_NAT_GATEWAY_FAILED VnetPeeringState = "RouteTableAndNatGatewayFailed"
+	VNETPEERINGSTATE_CONNECTING_TO_V_WAN                VnetPeeringState = "ConnectingToVWan"
+	VNETPEERINGSTATE_V_WAN_CONNECTION_FAILED            VnetPeeringState = "VWanConnectionFailed"
 )
 
 // All allowed values of VnetPeeringState enum
@@ -56,6 +58,8 @@ var AllowedVnetPeeringStateEnumValues = []VnetPeeringState{
 	"DisablingNatGateway",
 	"NatGatewayFailed",
 	"RouteTableAndNatGatewayFailed",
+	"ConnectingToVWan",
+	"VWanConnectionFailed",
 }
 
 func (v *VnetPeeringState) UnmarshalJSON(src []byte) error {

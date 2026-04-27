@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -53,10 +53,6 @@ type ResourceLocationDetails struct {
 	ConnectorResourceGroup NullableString `json:"connectorResourceGroup,omitempty"`
 	// The resource group containing the vnet the RL is associated with
 	VnetResourceGroup NullableString `json:"vnetResourceGroup,omitempty"`
-	// The subnet names within the VNet
-	SubnetNames []string `json:"subnetNames,omitempty"`
-	// The full Azure resource IDs of the managed subnets
-	ManagedSubnetIds []string `json:"managedSubnetIds,omitempty"`
 	// The most recently used OU for the connectors of a BYOA RL
 	OrganizationalUnit NullableString `json:"organizationalUnit,omitempty"`
 	// Indicates if the Resource Location is for Secure Browser
@@ -592,54 +588,6 @@ func (o *ResourceLocationDetails) UnsetVnetResourceGroup() {
 	o.VnetResourceGroup.Unset()
 }
 
-// GetSubnetNames returns the SubnetNames field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ResourceLocationDetails) GetSubnetNames() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.SubnetNames
-}
-
-// GetSubnetNamesOk returns a tuple with the SubnetNames field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ResourceLocationDetails) GetSubnetNamesOk() ([]string, bool) {
-	if o == nil || IsNil(o.SubnetNames) {
-		return nil, false
-	}
-	return o.SubnetNames, true
-}
-
-// SetSubnetNames gets a reference to the given []string and assigns it to the SubnetNames field.
-func (o *ResourceLocationDetails) SetSubnetNames(v []string) {
-	o.SubnetNames = v
-}
-
-// GetManagedSubnetIds returns the ManagedSubnetIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ResourceLocationDetails) GetManagedSubnetIds() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.ManagedSubnetIds
-}
-
-// GetManagedSubnetIdsOk returns a tuple with the ManagedSubnetIds field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ResourceLocationDetails) GetManagedSubnetIdsOk() ([]string, bool) {
-	if o == nil || IsNil(o.ManagedSubnetIds) {
-		return nil, false
-	}
-	return o.ManagedSubnetIds, true
-}
-
-// SetManagedSubnetIds gets a reference to the given []string and assigns it to the ManagedSubnetIds field.
-func (o *ResourceLocationDetails) SetManagedSubnetIds(v []string) {
-	o.ManagedSubnetIds = v
-}
-
 // GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceLocationDetails) GetOrganizationalUnit() string {
 	if o == nil || IsNil(o.OrganizationalUnit.Get()) {
@@ -848,12 +796,6 @@ func (o ResourceLocationDetails) ToMap() (map[string]interface{}, error) {
 	}
 	if o.VnetResourceGroup.IsSet() {
 		toSerialize["vnetResourceGroup"] = o.VnetResourceGroup.Get()
-	}
-	if o.SubnetNames != nil {
-		toSerialize["subnetNames"] = o.SubnetNames
-	}
-	if o.ManagedSubnetIds != nil {
-		toSerialize["managedSubnetIds"] = o.ManagedSubnetIds
 	}
 	if o.OrganizationalUnit.IsSet() {
 		toSerialize["organizationalUnit"] = o.OrganizationalUnit.Get()

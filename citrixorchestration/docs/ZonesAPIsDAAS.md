@@ -1,6 +1,6 @@
 # \ZonesAPIsDAAS
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://DdcServerAddress/cvad/manage*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

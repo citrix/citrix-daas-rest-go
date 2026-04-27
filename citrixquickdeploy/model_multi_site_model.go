@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -23,10 +23,8 @@ type MultiSiteModel struct {
 	Name NullableString `json:"name,omitempty"`
 	// The site's friendly name
 	DisplayName string `json:"displayName"`
-	// The Orchestration servers belongs to the site, only applicable for On-Prem.
+	// The Orchestration servers belongs to the site
 	DeliveryControllers []string `json:"deliveryControllers,omitempty"`
-	// The On-Prem web studio server address, this setting is only applicable for Cloud deployment.
-	WebServerAddress NullableString `json:"webServerAddress,omitempty"`
 	// Indicate if it is the default site.
 	Default NullableBool `json:"default,omitempty"`
 }
@@ -121,40 +119,6 @@ func (o *MultiSiteModel) SetDeliveryControllers(v []string) {
 	o.DeliveryControllers = v
 }
 
-// GetWebServerAddress returns the WebServerAddress field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MultiSiteModel) GetWebServerAddress() string {
-	if o == nil || IsNil(o.WebServerAddress.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.WebServerAddress.Get()
-}
-
-// GetWebServerAddressOk returns a tuple with the WebServerAddress field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MultiSiteModel) GetWebServerAddressOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.WebServerAddress.Get(), o.WebServerAddress.IsSet()
-}
-
-// SetWebServerAddress gets a reference to the given NullableString and assigns it to the WebServerAddress field.
-func (o *MultiSiteModel) SetWebServerAddress(v string) {
-	o.WebServerAddress.Set(&v)
-}
-
-// SetWebServerAddressNil sets the value for WebServerAddress to be an explicit nil
-func (o *MultiSiteModel) SetWebServerAddressNil() {
-	o.WebServerAddress.Set(nil)
-}
-
-// UnsetWebServerAddress ensures that no value is present for WebServerAddress, not even an explicit nil
-func (o *MultiSiteModel) UnsetWebServerAddress() {
-	o.WebServerAddress.Unset()
-}
-
 // GetDefault returns the Default field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MultiSiteModel) GetDefault() bool {
 	if o == nil || IsNil(o.Default.Get()) {
@@ -205,9 +169,6 @@ func (o MultiSiteModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["displayName"] = o.DisplayName
 	if o.DeliveryControllers != nil {
 		toSerialize["deliveryControllers"] = o.DeliveryControllers
-	}
-	if o.WebServerAddress.IsSet() {
-		toSerialize["webServerAddress"] = o.WebServerAddress.Get()
 	}
 	if o.Default.IsSet() {
 		toSerialize["default"] = o.Default.Get()

@@ -35,6 +35,10 @@
 
 * `ROUTE_TABLE_AND_NAT_GATEWAY_FAILED` (value: `"RouteTableAndNatGatewayFailed"`)
 
+* `CONNECTING_TO_V_WAN` (value: `"ConnectingToVWan"`)
+
+* `V_WAN_CONNECTION_FAILED` (value: `"VWanConnectionFailed"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

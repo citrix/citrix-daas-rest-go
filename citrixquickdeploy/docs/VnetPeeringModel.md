@@ -25,6 +25,11 @@ Name | Type | Description | Notes
 **NatGatewayConfig** | Pointer to [**NullableNatGatewayModelOverview**](NatGatewayModelOverview.md) | The NAT gateway config | [optional] 
 **RemoteTenantId** | Pointer to **NullableString** | The TenantId of the VNet we are peered into | [optional] 
 **ResourceId** | Pointer to **NullableString** | The Azure Resource ID of the VNet Peering | [optional] 
+**VirtualHubId** | Pointer to **NullableString** | Azure Resource ID of the Virtual Hub (for VWAN connections).  If populated, this is a VWAN connection instead of traditional VNet peering. | [optional] 
+**VirtualHubResourceGroup** | Pointer to **NullableString** | Resource group containing the Virtual Hub.  Only used when VirtualHubId is populated. | [optional] 
+**VirtualHubName** | Pointer to **NullableString** | Name of the Virtual Hub.  Only used when VirtualHubId is populated. | [optional] 
+**EnableInternetSecurity** | Pointer to **NullableBool** | Enable internet security (firewall) for the VWAN connection.  Only used when VirtualHubId is populated. | [optional] 
+**RoutingConfiguration** | Pointer to **NullableString** | JSON configuration for routing in the VWAN connection.  Only used when VirtualHubId is populated. | [optional] 
 **Id** | Pointer to **NullableString** | ID of the connection | [optional] 
 **Type** | Pointer to [**OnPremConnectionType**](OnPremConnectionType.md) | The type of connection | [optional] 
 **Name** | Pointer to **NullableString** | Name of the connection | [optional] 
@@ -745,6 +750,181 @@ HasResourceId returns a boolean if a field has been set.
 `func (o *VnetPeeringModel) UnsetResourceId()`
 
 UnsetResourceId ensures that no value is present for ResourceId, not even an explicit nil
+### GetVirtualHubId
+
+`func (o *VnetPeeringModel) GetVirtualHubId() string`
+
+GetVirtualHubId returns the VirtualHubId field if non-nil, zero value otherwise.
+
+### GetVirtualHubIdOk
+
+`func (o *VnetPeeringModel) GetVirtualHubIdOk() (*string, bool)`
+
+GetVirtualHubIdOk returns a tuple with the VirtualHubId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVirtualHubId
+
+`func (o *VnetPeeringModel) SetVirtualHubId(v string)`
+
+SetVirtualHubId sets VirtualHubId field to given value.
+
+### HasVirtualHubId
+
+`func (o *VnetPeeringModel) HasVirtualHubId() bool`
+
+HasVirtualHubId returns a boolean if a field has been set.
+
+### SetVirtualHubIdNil
+
+`func (o *VnetPeeringModel) SetVirtualHubIdNil(b bool)`
+
+ SetVirtualHubIdNil sets the value for VirtualHubId to be an explicit nil
+
+### UnsetVirtualHubId
+`func (o *VnetPeeringModel) UnsetVirtualHubId()`
+
+UnsetVirtualHubId ensures that no value is present for VirtualHubId, not even an explicit nil
+### GetVirtualHubResourceGroup
+
+`func (o *VnetPeeringModel) GetVirtualHubResourceGroup() string`
+
+GetVirtualHubResourceGroup returns the VirtualHubResourceGroup field if non-nil, zero value otherwise.
+
+### GetVirtualHubResourceGroupOk
+
+`func (o *VnetPeeringModel) GetVirtualHubResourceGroupOk() (*string, bool)`
+
+GetVirtualHubResourceGroupOk returns a tuple with the VirtualHubResourceGroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVirtualHubResourceGroup
+
+`func (o *VnetPeeringModel) SetVirtualHubResourceGroup(v string)`
+
+SetVirtualHubResourceGroup sets VirtualHubResourceGroup field to given value.
+
+### HasVirtualHubResourceGroup
+
+`func (o *VnetPeeringModel) HasVirtualHubResourceGroup() bool`
+
+HasVirtualHubResourceGroup returns a boolean if a field has been set.
+
+### SetVirtualHubResourceGroupNil
+
+`func (o *VnetPeeringModel) SetVirtualHubResourceGroupNil(b bool)`
+
+ SetVirtualHubResourceGroupNil sets the value for VirtualHubResourceGroup to be an explicit nil
+
+### UnsetVirtualHubResourceGroup
+`func (o *VnetPeeringModel) UnsetVirtualHubResourceGroup()`
+
+UnsetVirtualHubResourceGroup ensures that no value is present for VirtualHubResourceGroup, not even an explicit nil
+### GetVirtualHubName
+
+`func (o *VnetPeeringModel) GetVirtualHubName() string`
+
+GetVirtualHubName returns the VirtualHubName field if non-nil, zero value otherwise.
+
+### GetVirtualHubNameOk
+
+`func (o *VnetPeeringModel) GetVirtualHubNameOk() (*string, bool)`
+
+GetVirtualHubNameOk returns a tuple with the VirtualHubName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVirtualHubName
+
+`func (o *VnetPeeringModel) SetVirtualHubName(v string)`
+
+SetVirtualHubName sets VirtualHubName field to given value.
+
+### HasVirtualHubName
+
+`func (o *VnetPeeringModel) HasVirtualHubName() bool`
+
+HasVirtualHubName returns a boolean if a field has been set.
+
+### SetVirtualHubNameNil
+
+`func (o *VnetPeeringModel) SetVirtualHubNameNil(b bool)`
+
+ SetVirtualHubNameNil sets the value for VirtualHubName to be an explicit nil
+
+### UnsetVirtualHubName
+`func (o *VnetPeeringModel) UnsetVirtualHubName()`
+
+UnsetVirtualHubName ensures that no value is present for VirtualHubName, not even an explicit nil
+### GetEnableInternetSecurity
+
+`func (o *VnetPeeringModel) GetEnableInternetSecurity() bool`
+
+GetEnableInternetSecurity returns the EnableInternetSecurity field if non-nil, zero value otherwise.
+
+### GetEnableInternetSecurityOk
+
+`func (o *VnetPeeringModel) GetEnableInternetSecurityOk() (*bool, bool)`
+
+GetEnableInternetSecurityOk returns a tuple with the EnableInternetSecurity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableInternetSecurity
+
+`func (o *VnetPeeringModel) SetEnableInternetSecurity(v bool)`
+
+SetEnableInternetSecurity sets EnableInternetSecurity field to given value.
+
+### HasEnableInternetSecurity
+
+`func (o *VnetPeeringModel) HasEnableInternetSecurity() bool`
+
+HasEnableInternetSecurity returns a boolean if a field has been set.
+
+### SetEnableInternetSecurityNil
+
+`func (o *VnetPeeringModel) SetEnableInternetSecurityNil(b bool)`
+
+ SetEnableInternetSecurityNil sets the value for EnableInternetSecurity to be an explicit nil
+
+### UnsetEnableInternetSecurity
+`func (o *VnetPeeringModel) UnsetEnableInternetSecurity()`
+
+UnsetEnableInternetSecurity ensures that no value is present for EnableInternetSecurity, not even an explicit nil
+### GetRoutingConfiguration
+
+`func (o *VnetPeeringModel) GetRoutingConfiguration() string`
+
+GetRoutingConfiguration returns the RoutingConfiguration field if non-nil, zero value otherwise.
+
+### GetRoutingConfigurationOk
+
+`func (o *VnetPeeringModel) GetRoutingConfigurationOk() (*string, bool)`
+
+GetRoutingConfigurationOk returns a tuple with the RoutingConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoutingConfiguration
+
+`func (o *VnetPeeringModel) SetRoutingConfiguration(v string)`
+
+SetRoutingConfiguration sets RoutingConfiguration field to given value.
+
+### HasRoutingConfiguration
+
+`func (o *VnetPeeringModel) HasRoutingConfiguration() bool`
+
+HasRoutingConfiguration returns a boolean if a field has been set.
+
+### SetRoutingConfigurationNil
+
+`func (o *VnetPeeringModel) SetRoutingConfigurationNil(b bool)`
+
+ SetRoutingConfigurationNil sets the value for RoutingConfiguration to be an explicit nil
+
+### UnsetRoutingConfiguration
+`func (o *VnetPeeringModel) UnsetRoutingConfiguration()`
+
+UnsetRoutingConfiguration ensures that no value is present for RoutingConfiguration, not even an explicit nil
 ### GetId
 
 `func (o *VnetPeeringModel) GetId() string`

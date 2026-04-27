@@ -525,10 +525,14 @@ func AddRequestData[T any](request T, c *CitrixDaasClient) T {
 }
 
 func ExecuteWithRetry[ResponseBodyType any](request any, c *CitrixDaasClient) (ResponseBodyType, *http.Response, error) {
-	return ExecuteWithRetryContext[ResponseBodyType](context.Background(), request, c)
+	return ExecuteWithRetryContext[ResponseBodyType](context.Background(), request, c, false)
 }
 
-func ExecuteWithRetryContext[ResponseBodyType any](ctx context.Context, request any, c *CitrixDaasClient) (ResponseBodyType, *http.Response, error) {
+func ExecuteWithRetryOnNotFound[ResponseBodyType any](request any, c *CitrixDaasClient) (ResponseBodyType, *http.Response, error) {
+	return ExecuteWithRetryContext[ResponseBodyType](context.Background(), request, c, true)
+}
+
+func ExecuteWithRetryContext[ResponseBodyType any](ctx context.Context, request any, c *CitrixDaasClient, retryOnNotFound bool) (ResponseBodyType, *http.Response, error) {
 	request = AddRequestData(request, c)
 	requestValue := reflect.ValueOf(request)
 	requestType := reflect.TypeOf(request)
@@ -552,13 +556,13 @@ func ExecuteWithRetryContext[ResponseBodyType any](ctx context.Context, request 
 
 			return responseBody, httpResp, err
 		}
-		return RetryOperationWithExponentialBackOffDefault(ctx, operation)
+		return RetryOperationWithExponentialBackOffDefault(ctx, operation, retryOnNotFound)
 	}
 
 	return result, nil, fmt.Errorf("an unexpected error occurred")
 }
 
-func RetryOperationWithExponentialBackOffDefault[T any](ctx context.Context, operation func() (T, *http.Response, error)) (T, *http.Response, error) {
+func RetryOperationWithExponentialBackOffDefault[T any](ctx context.Context, operation func() (T, *http.Response, error), retryOnNotFound bool) (T, *http.Response, error) {
 	baseDelay := DefaultRetryBaseDelay
 	if val := ctx.Value(RetryBaseDelayKey); val != nil {
 		if delay, ok := val.(int); ok {
@@ -573,10 +577,10 @@ func RetryOperationWithExponentialBackOffDefault[T any](ctx context.Context, ope
 		}
 	}
 
-	return RetryOperationWithExponentialBackOff(operation, baseDelay, maxRetries)
+	return RetryOperationWithExponentialBackOff(operation, baseDelay, maxRetries, retryOnNotFound)
 }
 
-func RetryOperationWithExponentialBackOff[T any](operation func() (T, *http.Response, error), baseDelayInSeconds int, maxRetries int) (T, *http.Response, error) {
+func RetryOperationWithExponentialBackOff[T any](operation func() (T, *http.Response, error), baseDelayInSeconds int, maxRetries int, retryOnNotFound bool) (T, *http.Response, error) {
 
 	var resp *http.Response
 	var err error
@@ -594,7 +598,7 @@ func RetryOperationWithExponentialBackOff[T any](operation func() (T, *http.Resp
 			return responseBody, resp, err
 		}
 
-		if resp.StatusCode == 429 || resp.StatusCode >= 500 {
+		if resp.StatusCode == 429 || resp.StatusCode >= 500 || (resp.StatusCode == 404 && retryOnNotFound) {
 			defer resp.Body.Close()
 			delay := math.Pow(2, float64(i))
 			time.Sleep(time.Duration(delay) * baseDelay)

@@ -107,7 +107,7 @@ func (c *CitrixDaasClient) SignInWithContext(ctx context.Context) (string, *http
 			return performCCAuth(c.AuthConfig.AuthUrl, url.Values{"grant_type": {grant_type}, "client_id": {c.AuthConfig.ClientId}, "client_secret": {c.AuthConfig.ClientSecret}})
 		}
 
-		ccAuthResponse, resp, err := RetryOperationWithExponentialBackOffDefault(ctx, operation)
+		ccAuthResponse, resp, err := RetryOperationWithExponentialBackOffDefault(ctx, operation, false)
 
 		if err != nil {
 			return "", resp, err
@@ -125,7 +125,7 @@ func (c *CitrixDaasClient) SignInWithContext(ctx context.Context) (string, *http
 			return performCCTrustAuth(client, c.AuthConfig.AuthUrl, []byte(fmt.Sprintf(`{"ClientId":"%s", "ClientSecret":"%s"}`, c.AuthConfig.ClientId, c.AuthConfig.ClientSecret)))
 		}
 
-		ccTrustAuthResponse, resp, err := RetryOperationWithExponentialBackOffDefault(ctx, operation)
+		ccTrustAuthResponse, resp, err := RetryOperationWithExponentialBackOffDefault(ctx, operation, false)
 
 		if err != nil {
 			return "", resp, err

@@ -105,7 +105,7 @@ func NewConfiguration() *Configuration {
 		Debug:         false,
 		Servers: ServerConfigurations{
 			{
-				URL:         "https://[DdcServerAddress]/cvad/manage",
+				URL:         "https://DdcServerAddress/cvad/manage",
 				Description: "Use on-premises DDC server address",
 			},
 		},

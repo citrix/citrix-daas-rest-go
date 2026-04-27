@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **ServiceAccountPassword** | **string** | The service account password | 
 **Notes** | Pointer to **NullableString** | Customer notes about template image | [optional] 
 **AllowedIPs** | Pointer to **[]string** | Ip Addresses allowed to RDP | [optional] 
+**OsDiskSizeGB** | Pointer to **int32** | OS disk size in GB for the Image Builder VM.  Allowed values: 128, 256, 512. Defaults to 128 GB. | [optional] 
 **CspCustomerId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
 **CspSiteId** | Pointer to **NullableString** | Name of tenant customer ID if partner-tenant relationship exists otherwise null | [optional] 
 
@@ -359,6 +360,31 @@ HasAllowedIPs returns a boolean if a field has been set.
 `func (o *AddImageBuilderModel) UnsetAllowedIPs()`
 
 UnsetAllowedIPs ensures that no value is present for AllowedIPs, not even an explicit nil
+### GetOsDiskSizeGB
+
+`func (o *AddImageBuilderModel) GetOsDiskSizeGB() int32`
+
+GetOsDiskSizeGB returns the OsDiskSizeGB field if non-nil, zero value otherwise.
+
+### GetOsDiskSizeGBOk
+
+`func (o *AddImageBuilderModel) GetOsDiskSizeGBOk() (*int32, bool)`
+
+GetOsDiskSizeGBOk returns a tuple with the OsDiskSizeGB field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOsDiskSizeGB
+
+`func (o *AddImageBuilderModel) SetOsDiskSizeGB(v int32)`
+
+SetOsDiskSizeGB sets OsDiskSizeGB field to given value.
+
+### HasOsDiskSizeGB
+
+`func (o *AddImageBuilderModel) HasOsDiskSizeGB() bool`
+
+HasOsDiskSizeGB returns a boolean if a field has been set.
+
 ### GetCspCustomerId
 
 `func (o *AddImageBuilderModel) GetCspCustomerId() string`

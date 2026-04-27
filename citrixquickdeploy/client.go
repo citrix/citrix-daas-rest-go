@@ -1,5 +1,5 @@
 /*
-Citrix Virtual App & Desktop Catalog Service 151.0.27036.33751
+Citrix Virtual App & Desktop Catalog Service 151.0.27088.3309
 
 Catalog Service
 
@@ -40,7 +40,7 @@ var (
 	queryDescape    = strings.NewReplacer("%5B", "[", "%5D", "]")
 )
 
-// APIClient manages communication with the Citrix Virtual App &amp; Desktop Catalog Service 151.0.27036.33751 API vv1
+// APIClient manages communication with the Citrix Virtual App &amp; Desktop Catalog Service 151.0.27088.3309 API vv1
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -48,21 +48,21 @@ type APIClient struct {
 
 	// API Services
 
-	AzureSubscriptionsCMD *AzureSubscriptionsCMDService
+	AzureSubscriptionsCMD AzureSubscriptionsCMD
 
-	CatalogCMD *CatalogCMDService
+	CatalogCMD CatalogCMD
 
-	CatalogApplicationsCMD *CatalogApplicationsCMDService
+	CatalogApplicationsCMD CatalogApplicationsCMD
 
-	CatalogDesktopsCMD *CatalogDesktopsCMDService
+	CatalogDesktopsCMD CatalogDesktopsCMD
 
-	IconCMD *IconCMDService
+	IconCMD IconCMD
 
-	ManagedCapacityCMD *ManagedCapacityCMDService
+	ManagedCapacityCMD ManagedCapacityCMD
 
-	MasterImageCMD *MasterImageCMDService
+	MasterImageCMD MasterImageCMD
 
-	SitesCMD *SitesCMDService
+	SitesCMD SitesCMD
 }
 
 type service struct {
