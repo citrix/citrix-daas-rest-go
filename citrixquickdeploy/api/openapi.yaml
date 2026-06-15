@@ -5684,6 +5684,169 @@ paths:
       summary: Get the status of the troubleshoot script
       tags:
       - Catalog
+  /{customerId}/{siteId}/catalogs/status:
+    get:
+      operationId: GetCustomerCatalogsStatus
+      parameters:
+      - description: Specific customer id have catalogs retrieved for
+        explode: false
+        in: path
+        name: customerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: siteId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The catalog ids for which to get the status
+        explode: true
+        in: query
+        name: catalogId
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: The Transaction Id.
+        explode: false
+        in: header
+        name: Citrix-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerCatalogsStatusOverview'
+          description: OK
+        "500":
+          description: Internal Server Error
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "400":
+          description: Bad Request
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "404":
+          description: Not Found
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "401":
+          description: Unauthorized
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+        "403":
+          description: Forbidden
+          headers:
+            citrix-transactionid:
+              description: Globally-unique identifier (usually a GUID) that allows
+                the flow of a call to be traced through all components within the
+                system.
+              explode: false
+              style: simple
+            content-type:
+              description: Tells the type of the content in the request body.
+              explode: false
+              style: simple
+            cache-control:
+              description: Holds directives for caching response.
+              explode: false
+              style: simple
+            x-content-type-options:
+              description: Marker used by the server to indicate that the MIME types
+                advertised in the Content-Type headers should not be changed and be
+                followed.
+              explode: false
+              style: simple
+      summary: Returns the Catalogs that the specified customer has created in the
+        specified site
+      tags:
+      - Catalog
   /{customerId}/{siteId}/icons:
     post:
       operationId: ExtractIcon
@@ -14163,6 +14326,24 @@ components:
       type: object
     CatalogStatusOverview:
       additionalProperties: false
+      example:
+        subState: ""
+        warnings:
+        - isError: true
+          warningMessage: warningMessage
+          isDismissible: true
+          type: ""
+        - isError: true
+          warningMessage: warningMessage
+          isDismissible: true
+          type: ""
+        estimatedTimeInMinute: 0
+        startedAt: 2000-01-23T04:56:07.000+00:00
+        state: ""
+        statusMessage: statusMessage
+        transactionId: transactionId
+        catalogErrorDetails: catalogErrorDetails
+        extraInfo: extraInfo
       properties:
         state:
           allOf:
@@ -15078,6 +15259,26 @@ components:
       type: object
     CustomerCatalogsStatusOverview:
       additionalProperties: false
+      example:
+        catalogsStatus:
+          key:
+            subState: ""
+            warnings:
+            - isError: true
+              warningMessage: warningMessage
+              isDismissible: true
+              type: ""
+            - isError: true
+              warningMessage: warningMessage
+              isDismissible: true
+              type: ""
+            estimatedTimeInMinute: 0
+            startedAt: 2000-01-23T04:56:07.000+00:00
+            state: ""
+            statusMessage: statusMessage
+            transactionId: transactionId
+            catalogErrorDetails: catalogErrorDetails
+            extraInfo: extraInfo
       properties:
         catalogsStatus:
           additionalProperties:

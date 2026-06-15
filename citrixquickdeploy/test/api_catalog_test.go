@@ -148,6 +148,21 @@ func Test_citrixquickdeploy_CatalogCMDService(t *testing.T) {
 
 	})
 
+	t.Run("Test CatalogCMDService GetCustomerCatalogsStatus", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var customerId string
+		var siteId string
+
+		resp, httpRes, err := apiClient.CatalogCMD.GetCustomerCatalogsStatus(context.Background(), customerId, siteId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test CatalogCMDService GetCustomerManagedCatalogs", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test

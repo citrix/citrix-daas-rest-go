@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**GetCatalogCapacityConfiguration**](CatalogCMD.md#GetCatalogCapacityConfiguration) | **Get** /{customerId}/{siteId}/catalogs/{catalogId}/capacity | Get the performance information configured for this catalog
 [**GetCustomerCatalog**](CatalogCMD.md#GetCustomerCatalog) | **Get** /{customerId}/{siteId}/catalogs/{catalogId} | Returns a specific catalog for a specific customer
 [**GetCustomerCatalogs**](CatalogCMD.md#GetCustomerCatalogs) | **Get** /{customerId}/{siteId}/catalogs | Returns all the catalogs that the specified customer has created
+[**GetCustomerCatalogsStatus**](CatalogCMD.md#GetCustomerCatalogsStatus) | **Get** /{customerId}/{siteId}/catalogs/status | Returns the Catalogs that the specified customer has created in the specified site
 [**GetCustomerManagedCatalogs**](CatalogCMD.md#GetCustomerManagedCatalogs) | **Get** /{customerId}/{siteId}/managedcatalogs | Returns all the catalogs that the specified Citrix managed customer has created
 [**GetCustomerManagedCatalogsById**](CatalogCMD.md#GetCustomerManagedCatalogsById) | **Get** /{customerId}/{siteId}/managedcatalogs/{catalogId} | Returns all the catalogs that the specified Citrix managed customer has created
 [**GetScriptsAndParameters**](CatalogCMD.md#GetScriptsAndParameters) | **Get** /{customerId}/{siteId}/catalogs/{catalogId}/scripts | Gets available scripts and corresponding default parameters for available operations
@@ -620,6 +621,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomerCatalogOverviewsModel**](CustomerCatalogOverviewsModel.md)
+
+### Authorization
+
+[CWSAuth](../README.md#CWSAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCustomerCatalogsStatus
+
+> CustomerCatalogsStatusOverview GetCustomerCatalogsStatus(ctx, customerId, siteId).CatalogId(catalogId).CitrixTransactionId(citrixTransactionId).Execute()
+
+Returns the Catalogs that the specified customer has created in the specified site
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickdeploy"
+)
+
+func main() {
+    customerId := "customerId_example" // string | Specific customer id have catalogs retrieved for
+    siteId := "siteId_example" // string | 
+    catalogId := []string{"Inner_example"} // []string | The catalog ids for which to get the status (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CatalogCMD.GetCustomerCatalogsStatus(context.Background(), customerId, siteId).CatalogId(catalogId).CitrixTransactionId(citrixTransactionId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CatalogCMD.GetCustomerCatalogsStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetCustomerCatalogsStatus`: CustomerCatalogsStatusOverview
+    fmt.Fprintf(os.Stdout, "Response from `CatalogCMD.GetCustomerCatalogsStatus`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**customerId** | **string** | Specific customer id have catalogs retrieved for | 
+**siteId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetCustomerCatalogsStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **catalogId** | **[]string** | The catalog ids for which to get the status | 
+ **citrixTransactionId** | **string** | The Transaction Id. | 
+
+### Return type
+
+[**CustomerCatalogsStatusOverview**](CustomerCatalogsStatusOverview.md)
 
 ### Authorization
 
