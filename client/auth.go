@@ -12,6 +12,8 @@ import (
 	"net/url"
 	"strconv"
 	"time"
+
+	"github.com/golang-jwt/jwt/v5"
 )
 
 // AuthResponse -
@@ -46,6 +48,42 @@ type WemOnPremAuthResponse struct {
 	Sid       string `json:"sid"`
 	UserName  string `json:"userName"`
 	SessionId string `json:"sessionId"`
+}
+
+// SeedAccessToken primes the client with a caller-supplied access token so many short-lived processes can share
+// one sign-in instead of each tripping the Citrix Cloud token rate limit. Expiry comes from the token's JWT exp
+// claim; once it lapses, SignIn falls back to a client_id/client_secret sign-in.
+func (c *CitrixDaasClient) SeedAccessToken(accessToken string) error {
+	expiresAt, err := getAccessTokenExpiry(accessToken)
+	if err != nil {
+		return err
+	}
+
+	c.AuthToken = &AuthTokenModel{
+		Token:     fmt.Sprintf("CWSAuth bearer=%s", accessToken),
+		ExpiresAt: expiresAt,
+	}
+	return nil
+}
+
+// getAccessTokenExpiry reads the exp claim from a JWT access token and returns it as an RFC3339 timestamp.
+// The signature is intentionally not verified: the value only schedules local token reuse and is never used
+// for an authorization decision.
+func getAccessTokenExpiry(accessToken string) (string, error) {
+	var claims jwt.RegisteredClaims
+	if _, _, err := jwt.NewParser().ParseUnverified(accessToken, &claims); err != nil {
+		return "", fmt.Errorf("could not parse access token: %w", err)
+	}
+
+	expiration, err := claims.GetExpirationTime()
+	if err != nil {
+		return "", fmt.Errorf("could not read access token expiry: %w", err)
+	}
+	if expiration == nil {
+		return "", fmt.Errorf("access token has no exp claim")
+	}
+
+	return expiration.UTC().Format(time.RFC3339), nil
 }
 
 // SignIn - Get a new token for user (uses default retry configuration)
