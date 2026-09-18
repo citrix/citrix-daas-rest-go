@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## LocationsGetAll
 
-> CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel LocationsGetAll(ctx).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
+> CitrixCloudServicesRegistryApiModelsLocationsResourceLocationsResultsModel LocationsGetAll(ctx).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
 
 Get all resource locations for a customer.
 
@@ -247,12 +247,13 @@ import (
 )
 
 func main() {
+	accept := "accept_example" // string | Only supports application/json
 	authorization := "authorization_example" // string | The access token.
 	citrixCustomerId := "citrixCustomerId_example" // string | ID of the customer.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LocationsDAAS.LocationsGetAll(context.Background()).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
+	resp, r, err := apiClient.LocationsDAAS.LocationsGetAll(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LocationsDAAS.LocationsGetAll``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -273,6 +274,7 @@ Other parameters are passed through a pointer to a apiLocationsGetAllRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accept** | **string** | Only supports application/json | 
  **authorization** | **string** | The access token. | 
  **citrixCustomerId** | **string** | ID of the customer. | 
 

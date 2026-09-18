@@ -15,6 +15,12 @@ paths:
     get:
       operationId: Locations_GetAll
       parameters:
+      - description: Only supports application/json
+        in: header
+        name: Accept
+        required: true
+        schema:
+          type: string
       - description: The access token.
         in: header
         name: Authorization

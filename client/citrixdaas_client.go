@@ -16,6 +16,7 @@ import (
 	"time"
 
 	ccadmins "github.com/citrix/citrix-daas-rest-go/ccadmins"
+	ccconnectors "github.com/citrix/citrix-daas-rest-go/ccconnectors"
 	resourcelocations "github.com/citrix/citrix-daas-rest-go/ccresourcelocations"
 	"github.com/citrix/citrix-daas-rest-go/citrixcws"
 	"github.com/citrix/citrix-daas-rest-go/citrixorchestration"
@@ -41,6 +42,7 @@ type CitrixDaasClient struct {
 	CwsClient               *citrixcws.APIClient
 	GacClient               *globalappconfiguration.APIClient
 	ResourceLocationsClient *resourcelocations.APIClient
+	ConnectorsClient        *ccconnectors.APIClient
 }
 
 type AuthTokenModel struct {
@@ -70,6 +72,12 @@ func getMiddlewareWithResourceLocationsClient(authClient *CitrixDaasClient, midd
 }
 
 func getMiddlewareWithCCAdminsClient(authClient *CitrixDaasClient, middlewareAuthFunc MiddlewareAuthFunction) ccadmins.MiddlewareFunction {
+	return func(r *http.Request) {
+		middlewareAuthFunc(authClient, r)
+	}
+}
+
+func getMiddlewareWithConnectorsClient(authClient *CitrixDaasClient, middlewareAuthFunc MiddlewareAuthFunction) ccconnectors.MiddlewareFunction {
 	return func(r *http.Request) {
 		middlewareAuthFunc(authClient, r)
 	}
@@ -140,18 +148,14 @@ func (daasClient *CitrixDaasClient) InitializeQuickCreateClient(ctx context.Cont
 		},
 	}
 
-	// Disable ssl check
-	tr := http.DefaultTransport.(*http.Transport).Clone()
-	tr.TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
-	tr.Proxy = http.ProxyFromEnvironment
-	localQuickCreateCfg.HTTPClient = &http.Client{Transport: tr}
-
+	// QuickCreate is a Citrix Cloud service, so leave HTTPClient nil and let the generated client
+	// fall back to http.DefaultClient — full certificate verification plus ProxyFromEnvironment.
 	localQuickCreateCfg.Middleware = getMiddlewareWithQuickcreateClient(daasClient, middlewareFunc)
 	daasClient.QuickCreateClient = citrixquickcreate.NewAPIClient(localQuickCreateCfg)
 }
 
 func (daasClient *CitrixDaasClient) InitializeQuickDeployClient(ctx context.Context, catalogServiceHostName string, middlewareFunc MiddlewareAuthFunction) {
-	/* ------ Setup QuickCreate Client ------ */
+	/* ------ Setup QuickDeploy Client ------ */
 	localQuickDeployCfg := citrixquickdeploy.NewConfiguration()
 	localQuickDeployCfg.Scheme = "https"
 
@@ -161,12 +165,8 @@ func (daasClient *CitrixDaasClient) InitializeQuickDeployClient(ctx context.Cont
 		},
 	}
 
-	// Disable ssl check
-	tr := http.DefaultTransport.(*http.Transport).Clone()
-	tr.TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
-	tr.Proxy = http.ProxyFromEnvironment
-	localQuickDeployCfg.HTTPClient = &http.Client{Transport: tr}
-
+	// QuickDeploy (catalog service) is a Citrix Cloud service, so leave HTTPClient nil and let the
+	// generated client fall back to http.DefaultClient — verification plus ProxyFromEnvironment.
 	localQuickDeployCfg.Middleware = getMiddlewareWithQuickdeployClient(daasClient, middlewareFunc)
 	daasClient.QuickDeployClient = citrixquickdeploy.NewAPIClient(localQuickDeployCfg)
 }
@@ -227,6 +227,19 @@ func (daasClient *CitrixDaasClient) SetupResourceLocationsClient(ccUrl string, m
 	}
 	localResourceLocationsCfg.Middleware = getMiddlewareWithResourceLocationsClient(daasClient, middlewareFunc)
 	daasClient.ResourceLocationsClient = resourcelocations.NewAPIClient(localResourceLocationsCfg)
+}
+
+/* ------ Setup Connectors Client ------ */
+func (daasClient *CitrixDaasClient) SetupConnectorsClient(ccUrl string, middlewareFunc MiddlewareAuthFunction) {
+	localConnectorsCfg := ccconnectors.NewConfiguration()
+	localConnectorsCfg.Scheme = "https"
+	localConnectorsCfg.Servers = ccconnectors.ServerConfigurations{
+		{
+			URL: localConnectorsCfg.Scheme + "://" + ccUrl + "/connectors",
+		},
+	}
+	localConnectorsCfg.Middleware = getMiddlewareWithConnectorsClient(daasClient, middlewareFunc)
+	daasClient.ConnectorsClient = ccconnectors.NewAPIClient(localConnectorsCfg)
 }
 
 /* ------ Setup CC Admin Client ------ */
@@ -309,6 +322,7 @@ func (daasClient *CitrixDaasClient) SetupCitrixClientsContext(ctx context.Contex
 
 func (daasClient *CitrixDaasClient) InitializeCitrixCloudClients(ctx context.Context, ccUrl, hostname string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) {
 	daasClient.SetupResourceLocationsClient(ccUrl, middlewareFuncWithCustomerIdHeader)
+	daasClient.SetupConnectorsClient(ccUrl, middlewareFuncWithCustomerIdHeader)
 	daasClient.SetupCCAdminClient(ccUrl, middlewareFuncWithCustomerIdHeader)
 	daasClient.SetupGacClient(hostname, middlewareFunc)
 }
@@ -560,6 +574,153 @@ func ExecuteWithRetryContext[ResponseBodyType any](ctx context.Context, request 
 	}
 
 	return result, nil, fmt.Errorf("an unexpected error occurred")
+}
+
+// GetAllPagesWithRetry runs a paginated GET request and follows the response page token
+// (ContinuationToken for CVAD/DaaS, NextToken for Global App Configuration) until every page has
+// been retrieved, returning the collection populated with the full item set. It is a drop-in
+// replacement for ExecuteWithRetry on list endpoints so callers do not hand-write the paging loop.
+// Endpoints whose request builder cannot carry a page token are returned as-is after the first page.
+func GetAllPagesWithRetry[ResponseBodyType any](request any, c *CitrixDaasClient) (ResponseBodyType, *http.Response, error) {
+	return GetAllPagesWithRetryContext[ResponseBodyType](context.Background(), request, c)
+}
+
+func GetAllPagesWithRetryContext[ResponseBodyType any](ctx context.Context, request any, c *CitrixDaasClient) (ResponseBodyType, *http.Response, error) {
+	response, httpResp, err := ExecuteWithRetryContext[ResponseBodyType](ctx, request, c, false)
+	if err != nil {
+		return response, httpResp, err
+	}
+
+	aggregatedItems, ok := getPageItems(response)
+	if !ok {
+		// Not a paginated collection, so there is nothing to follow.
+		return response, httpResp, nil
+	}
+
+	previousToken := ""
+	for {
+		token := getPageToken(response)
+		if token == "" {
+			break
+		}
+
+		// Some endpoints (for example filtered policy queries) can return the same token every page;
+		// stop when it stops advancing so a non-progressing token cannot spin this into an infinite loop.
+		if token == previousToken {
+			break
+		}
+		previousToken = token
+
+		nextRequest, ok := setPageToken(request, token)
+		if !ok {
+			// The request cannot carry a page token, so the endpoint returns everything in one call.
+			break
+		}
+		request = nextRequest
+
+		nextResponse, nextHttpResp, nextErr := ExecuteWithRetryContext[ResponseBodyType](ctx, request, c, false)
+		if nextErr != nil {
+			return nextResponse, nextHttpResp, nextErr
+		}
+
+		pageItems, ok := getPageItems(nextResponse)
+		if !ok {
+			// A later page returned an unusable body; keep the pages gathered so far rather than
+			// overwriting response with something callers cannot read.
+			break
+		}
+		response = nextResponse
+		httpResp = nextHttpResp
+		aggregatedItems = reflect.AppendSlice(aggregatedItems, pageItems)
+	}
+
+	// Collapse every page onto the final response so callers see the complete set via GetItems().
+	setPageItems(response, aggregatedItems)
+	return response, httpResp, err
+}
+
+// reflectValue returns a usable reflect.Value for v, or ok=false when v is nil or a nil pointer/interface,
+// so callers can guard against calling MethodByName on an invalid value (which would panic).
+func reflectValue(v any) (reflect.Value, bool) {
+	value := reflect.ValueOf(v)
+	if !value.IsValid() {
+		return reflect.Value{}, false
+	}
+	switch value.Kind() {
+	case reflect.Ptr, reflect.Interface:
+		if value.IsNil() {
+			return reflect.Value{}, false
+		}
+	}
+	return value, true
+}
+
+// getPageItems returns the slice produced by response.GetItems(), if the response exposes it.
+func getPageItems(response any) (reflect.Value, bool) {
+	value, ok := reflectValue(response)
+	if !ok {
+		return reflect.Value{}, false
+	}
+	method := value.MethodByName("GetItems")
+	if !method.IsValid() {
+		return reflect.Value{}, false
+	}
+	results := method.Call(nil)
+	if len(results) != 1 || results[0].Kind() != reflect.Slice {
+		return reflect.Value{}, false
+	}
+	return results[0], true
+}
+
+// setPageItems replaces the response's items via response.SetItems(items), if available.
+func setPageItems(response any, items reflect.Value) {
+	value, ok := reflectValue(response)
+	if !ok {
+		return
+	}
+	method := value.MethodByName("SetItems")
+	if method.IsValid() {
+		method.Call([]reflect.Value{items})
+	}
+}
+
+// getPageToken reads the response page token, supporting both the ContinuationToken and NextToken conventions.
+func getPageToken(response any) string {
+	value, ok := reflectValue(response)
+	if !ok {
+		return ""
+	}
+	for _, name := range []string{"GetContinuationToken", "GetNextToken"} {
+		method := value.MethodByName(name)
+		if !method.IsValid() {
+			continue
+		}
+		results := method.Call(nil)
+		if len(results) == 1 && results[0].Kind() == reflect.String {
+			return results[0].String()
+		}
+	}
+	return ""
+}
+
+// setPageToken returns the request updated with the page token, or ok=false when the request is nil or
+// its builder has no token setter (i.e. the endpoint does not paginate).
+func setPageToken(request any, token string) (any, bool) {
+	value, ok := reflectValue(request)
+	if !ok {
+		return request, false
+	}
+	for _, name := range []string{"ContinuationToken", "NextToken"} {
+		method := value.MethodByName(name)
+		if !method.IsValid() {
+			continue
+		}
+		results := method.Call([]reflect.Value{reflect.ValueOf(token)})
+		if len(results) == 1 {
+			return results[0].Interface(), true
+		}
+	}
+	return request, false
 }
 
 func RetryOperationWithExponentialBackOffDefault[T any](ctx context.Context, operation func() (T, *http.Response, error), retryOnNotFound bool) (T, *http.Response, error) {

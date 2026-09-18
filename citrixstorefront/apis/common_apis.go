@@ -8,18 +8,29 @@ import (
 	"strings"
 )
 
+// escapePowerShellSingleQuote makes a value safe to embed inside a single-quoted PowerShell literal.
+// A literal single quote is represented by doubling it, so a quote in an input value can no longer close the literal and inject commands.
+func escapePowerShellSingleQuote(value string) string {
+	return strings.ReplaceAll(value, "'", "''")
+}
+
 func BuildAuth(remoteCompName string, username string, password string, disableSSL bool) string {
 	if remoteCompName == "" {
 		return ""
-	} else if strings.Contains(remoteCompName, "https") {
-		if disableSSL {
-			return fmt.Sprintf("-ConnectionUri '%s' -Credential ( New-Object -TypeName System.Management.Automation.PSCredential  -ArgumentList '%s',(ConvertTo-SecureString -Force -AsPlainText '%s') ) -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate", remoteCompName, username, password)
-		} else {
-			return fmt.Sprintf("-ConnectionUri '%s' -Credential ( New-Object -TypeName System.Management.Automation.PSCredential  -ArgumentList '%s',(ConvertTo-SecureString -Force -AsPlainText '%s') )  -Authentication Negotiate", remoteCompName, username, password)
-		}
+	}
 
+	escapedRemoteCompName := escapePowerShellSingleQuote(remoteCompName)
+	escapedUsername := escapePowerShellSingleQuote(username)
+	escapedPassword := escapePowerShellSingleQuote(password)
+
+	if strings.Contains(remoteCompName, "https") {
+		if disableSSL {
+			return fmt.Sprintf("-ConnectionUri '%s' -Credential ( New-Object -TypeName System.Management.Automation.PSCredential  -ArgumentList '%s',(ConvertTo-SecureString -Force -AsPlainText '%s') ) -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate", escapedRemoteCompName, escapedUsername, escapedPassword)
+		} else {
+			return fmt.Sprintf("-ConnectionUri '%s' -Credential ( New-Object -TypeName System.Management.Automation.PSCredential  -ArgumentList '%s',(ConvertTo-SecureString -Force -AsPlainText '%s') )  -Authentication Negotiate", escapedRemoteCompName, escapedUsername, escapedPassword)
+		}
 	} else {
-		return fmt.Sprintf("-ComputerName  '%s' -Credential ( New-Object -TypeName System.Management.Automation.PSCredential  -ArgumentList '%s',(ConvertTo-SecureString -Force -AsPlainText '%s') )", remoteCompName, username, password)
+		return fmt.Sprintf("-ComputerName  '%s' -Credential ( New-Object -TypeName System.Management.Automation.PSCredential  -ArgumentList '%s',(ConvertTo-SecureString -Force -AsPlainText '%s') )", escapedRemoteCompName, escapedUsername, escapedPassword)
 	}
 }
 
@@ -51,6 +62,9 @@ func ExecuteCommandBase(credential string, jsonDepth int, command string, args .
 	return output, nil
 }
 
+// StructToString renders a request model as PowerShell parameter arguments. Every string value is
+// wrapped in a single-quoted literal with embedded quotes doubled, so an attribute value can never
+// close the literal and inject commands into the remote StoreFront session.
 func StructToString(s interface{}) string {
 	v := reflect.ValueOf(s)
 	t := v.Type()
@@ -88,7 +102,7 @@ func StructToString(s interface{}) string {
 				case "NullableString":
 					stringValue := reflect.Indirect(value.FieldByName("value"))
 					if stringValue.IsValid() && stringValue.String() != "" {
-						result = append(result, fmt.Sprintf("-%s '%s'", field.Name, stringValue.String()))
+						result = append(result, fmt.Sprintf("-%s '%s'", field.Name, escapePowerShellSingleQuote(stringValue.String())))
 					}
 				default:
 					result = append(result, fmt.Sprintf("-%s %v", field.Name, value.Interface()))
@@ -100,10 +114,12 @@ func StructToString(s interface{}) string {
 			} else {
 				var strArr []string
 				for i := 0; i < value.Len(); i++ {
-					strArr = append(strArr, fmt.Sprintf("'%v'", value.Index(i).String()))
+					strArr = append(strArr, fmt.Sprintf("'%v'", escapePowerShellSingleQuote(value.Index(i).String())))
 				}
 				result = append(result, fmt.Sprintf("-%s @(%v)", field.Name, strings.Join(strArr, ", ")))
 			}
+		} else if value.Kind() == reflect.String {
+			result = append(result, fmt.Sprintf("-%s '%s'", field.Name, escapePowerShellSingleQuote(value.String())))
 		} else {
 			result = append(result, fmt.Sprintf("-%s %v", field.Name, value.Interface()))
 		}
