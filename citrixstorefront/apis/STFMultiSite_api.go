@@ -35,7 +35,7 @@ func (a *STFMultiSite) AddSTFUserFarmMappingExecute(r ApiAddSTFUserFarmMappingRe
 	equivalentFarmSets := BuildEquivalentFarmSetsInput(r.NewSTFEquivalentFarmSetRequestModels)
 	userFarmMappingGroupHashTable := BuildUserFarmMappingGroupHashTable(r.NewSTFUserFarmMappingGroups)
 
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Add-STFUserFarmMapping", fmt.Sprintf("-StoreService (Get-STFStoreService -VirtualPath '%s')", *r.StoreVirtualPath.Get()), fmt.Sprintf("-Name '%s'", *r.UserFarmMappingName.Get()), fmt.Sprintf("-EquivalentFarmSet %s", equivalentFarmSets), fmt.Sprintf("-GroupMembers %s", userFarmMappingGroupHashTable))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Add-STFUserFarmMapping", fmt.Sprintf("-StoreService (Get-STFStoreService -VirtualPath '%s')", escapePowerShellSingleQuote(*r.StoreVirtualPath.Get())), fmt.Sprintf("-Name '%s'", escapePowerShellSingleQuote(*r.UserFarmMappingName.Get())), fmt.Sprintf("-EquivalentFarmSet %s", equivalentFarmSets), fmt.Sprintf("-GroupMembers %s", userFarmMappingGroupHashTable))
 }
 
 func (a *STFMultiSite) STFMultiSiteAddUserFarmMapping(ctx context.Context, storeVirtualPath models.NullableString, userFarmMappingName models.NullableString, newSTFEquivalentFarmSetRequestModels []models.STFEquivalentFarmSetRequestModel, newSTFUserFarmMappingGroups []models.STFUserFarmMappingGroup) ApiAddSTFUserFarmMappingRequest {
@@ -121,7 +121,7 @@ func (r ApiGetSTFUserFarmMappingRequest) Execute() (models.STFUserFarmMappingRes
 }
 
 func (a *STFMultiSite) GetSTFUserFarmMappingExecute(r ApiGetSTFUserFarmMappingRequest) ([]byte, error) {
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFUserFarmMapping", fmt.Sprintf("-StoreService (Get-STFStoreService -VirtualPath '%s')", *r.StoreVirtualPath.Get()), fmt.Sprintf("-Name '%s'", *r.STFUserFarmMappingName.Get()))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFUserFarmMapping", fmt.Sprintf("-StoreService (Get-STFStoreService -VirtualPath '%s')", escapePowerShellSingleQuote(*r.StoreVirtualPath.Get())), fmt.Sprintf("-Name '%s'", escapePowerShellSingleQuote(*r.STFUserFarmMappingName.Get())))
 }
 
 func (a *STFMultiSite) STFMultiSiteGetUserFarmMapping(ctx context.Context, storeVirtualPath models.NullableString, getSTFUserFarmMappingName models.NullableString) ApiGetSTFUserFarmMappingRequest {
@@ -155,7 +155,7 @@ func (a *STFMultiSite) SetSTFUserFarmMappingExecute(r ApiSetSTFUserFarmMappingRe
 	equivalentFarmSets := BuildEquivalentFarmSetsInput(r.SetSTFEquivalentFarmSetRequestModels)
 	userFarmMappingGroups := BuildUserFarmMappingGroupHashTable(r.SetSTFUserFarmMappingGroups)
 
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFUserFarmMapping", fmt.Sprintf("-StoreService (Get-STFStoreService -VirtualPath '%s')", *r.StoreVirtualPath.Get()), fmt.Sprintf("-UserFarmMapping (Get-STFUserFarmMapping -StoreService (Get-STFStoreService -VirtualPath '%s') -Name '%s')", *r.StoreVirtualPath.Get(), *r.UserFarmMappingName.Get()), fmt.Sprintf("-EquivalentFarmSet %s", equivalentFarmSets), fmt.Sprintf("-GroupMembers %s", userFarmMappingGroups))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFUserFarmMapping", fmt.Sprintf("-StoreService (Get-STFStoreService -VirtualPath '%s')", escapePowerShellSingleQuote(*r.StoreVirtualPath.Get())), fmt.Sprintf("-UserFarmMapping (Get-STFUserFarmMapping -StoreService (Get-STFStoreService -VirtualPath '%s') -Name '%s')", escapePowerShellSingleQuote(*r.StoreVirtualPath.Get()), escapePowerShellSingleQuote(*r.UserFarmMappingName.Get())), fmt.Sprintf("-EquivalentFarmSet %s", equivalentFarmSets), fmt.Sprintf("-GroupMembers %s", userFarmMappingGroups))
 }
 
 func (a *STFMultiSite) STFMultiSiteSetUserFarmMapping(ctx context.Context, storeVirtualPath models.NullableString, userFarmMappingName models.NullableString, setSTFEquivalentFarmSetRequestModels []models.STFEquivalentFarmSetRequestModel, setSTFUserFarmMappingGroups []models.STFUserFarmMappingGroup) ApiSetSTFUserFarmMappingRequest {
@@ -186,7 +186,7 @@ func (r ApiRemoveSTFUserFarmMappingRequest) Execute() ([]byte, error) {
 }
 
 func (a *STFMultiSite) RemoveSTFUserFarmMappingExecute(r ApiRemoveSTFUserFarmMappingRequest) ([]byte, error) {
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Remove-STFUserFarmMapping", fmt.Sprintf("-StoreService (Get-STFStoreService -VirtualPath '%s')", *r.StoreVirtualPath.Get()), fmt.Sprintf("-Name '%s'", *r.UserFarmMappingName.Get()), "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Remove-STFUserFarmMapping", fmt.Sprintf("-StoreService (Get-STFStoreService -VirtualPath '%s')", escapePowerShellSingleQuote(*r.StoreVirtualPath.Get())), fmt.Sprintf("-Name '%s'", escapePowerShellSingleQuote(*r.UserFarmMappingName.Get())), "-Confirm:$false")
 }
 
 func (a *STFMultiSite) STFMultiSiteRemoveUserFarmMapping(ctx context.Context, storeVirtualPath models.NullableString, userFarmMappingName models.NullableString) ApiRemoveSTFUserFarmMappingRequest {
@@ -203,7 +203,7 @@ func BuildEquivalentFarmSetsInput(equivalentFarmSetModels []models.STFEquivalent
 	for _, equivalentFarmSet := range equivalentFarmSetModels {
 		primaryFarms := "@("
 		for _, primaryFarm := range equivalentFarmSet.PrimaryFarms {
-			primaryFarms += fmt.Sprintf("'%s';", primaryFarm)
+			primaryFarms += fmt.Sprintf("'%s';", escapePowerShellSingleQuote(primaryFarm))
 		}
 		primaryFarms += ")"
 
@@ -211,12 +211,12 @@ func BuildEquivalentFarmSetsInput(equivalentFarmSetModels []models.STFEquivalent
 		if len(equivalentFarmSet.BackupFarms) > 0 {
 			backupFarms += "-BackupFarms @(@("
 			for _, backupFarm := range equivalentFarmSet.BackupFarms {
-				backupFarms += fmt.Sprintf("'%s';", backupFarm)
+				backupFarms += fmt.Sprintf("'%s';", escapePowerShellSingleQuote(backupFarm))
 			}
 			backupFarms += "))"
 		}
 
-		equivalentFarmSets += fmt.Sprintf("(New-STFEquivalentFarmset -Name '%s' -LoadBalanceMode %s -FarmsAreIdentical $%t -AggregationGroupName '%s' -PrimaryFarms @(%s) %s);", *equivalentFarmSet.Name.Get(), *equivalentFarmSet.LoadBalanceMode.Get(), *equivalentFarmSet.FarmsAreIdentical.Get(), *equivalentFarmSet.AggregationGroupName.Get(), primaryFarms, backupFarms)
+		equivalentFarmSets += fmt.Sprintf("(New-STFEquivalentFarmset -Name '%s' -LoadBalanceMode '%s' -FarmsAreIdentical $%t -AggregationGroupName '%s' -PrimaryFarms @(%s) %s);", escapePowerShellSingleQuote(*equivalentFarmSet.Name.Get()), escapePowerShellSingleQuote(*equivalentFarmSet.LoadBalanceMode.Get()), *equivalentFarmSet.FarmsAreIdentical.Get(), escapePowerShellSingleQuote(*equivalentFarmSet.AggregationGroupName.Get()), primaryFarms, backupFarms)
 	}
 	equivalentFarmSets += ")"
 	return equivalentFarmSets
@@ -228,7 +228,7 @@ func BuildUserFarmMappingGroupHashTable(userFarmMappingGroups []models.STFUserFa
 		userFarmMappingGroupHashTable += "'Everyone' = 'Everyone'"
 	} else {
 		for _, userFarmMappingGroup := range userFarmMappingGroups {
-			userFarmMappingGroupHashTable += fmt.Sprintf("'%s' = '%s';", *userFarmMappingGroup.GroupName.Get(), *userFarmMappingGroup.AccountSid.Get())
+			userFarmMappingGroupHashTable += fmt.Sprintf("'%s' = '%s';", escapePowerShellSingleQuote(*userFarmMappingGroup.GroupName.Get()), escapePowerShellSingleQuote(*userFarmMappingGroup.AccountSid.Get()))
 		}
 	}
 	userFarmMappingGroupHashTable += "}"
