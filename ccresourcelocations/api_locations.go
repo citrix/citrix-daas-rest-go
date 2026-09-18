@@ -554,8 +554,15 @@ func (a *LocationsDAASService) LocationsGetExecute(r ApiLocationsGetRequest) (*C
 type ApiLocationsGetAllRequest struct {
 	ctx              context.Context
 	ApiService       LocationsDAAS
+	accept           *string
 	authorization    *string
 	citrixCustomerId *string
+}
+
+// Only supports application/json
+func (r ApiLocationsGetAllRequest) Accept(accept string) ApiLocationsGetAllRequest {
+	r.accept = &accept
+	return r
 }
 
 // The access token.
@@ -608,6 +615,9 @@ func (a *LocationsDAASService) LocationsGetAllExecute(r ApiLocationsGetAllReques
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.accept == nil {
+		return localVarReturnValue, nil, reportError("accept is required and must be specified")
+	}
 	if r.authorization == nil {
 		return localVarReturnValue, nil, reportError("authorization is required and must be specified")
 	}
@@ -632,6 +642,7 @@ func (a *LocationsDAASService) LocationsGetAllExecute(r ApiLocationsGetAllReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "", "")
 	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "", "")
 	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "", "")
 	if r.ctx != nil {

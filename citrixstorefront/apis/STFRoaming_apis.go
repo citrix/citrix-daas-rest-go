@@ -74,7 +74,7 @@ func (a *STFRoaming) AddSTFRoamingGatewayExecute(r ApiAddSTFRoamingGatewayReques
 	if len(r.STFStaUrls) > 0 {
 		staUrlParam = " -SecureTicketAuthorityObjs @("
 		for _, staUrl := range r.STFStaUrls {
-			staUrlParam += fmt.Sprintf("(New-STFSecureTicketAuthority -StaUrl '%s' -StaValidationEnabled $%t -StaValidationSecret '%s');", *staUrl.StaUrl.Get(), *staUrl.StaValidationEnabled.Get(), *staUrl.StaValidationSecret.Get())
+			staUrlParam += fmt.Sprintf("(New-STFSecureTicketAuthority -StaUrl '%s' -StaValidationEnabled $%t -StaValidationSecret '%s');", escapePowerShellSingleQuote(*staUrl.StaUrl.Get()), *staUrl.StaValidationEnabled.Get(), escapePowerShellSingleQuote(*staUrl.StaValidationSecret.Get()))
 		}
 		staUrlParam += ")"
 	}
@@ -208,7 +208,7 @@ func (a *STFRoaming) SetSTFRoamingGatewayExecute(r ApiSetSTFRoamingGatewayReques
 	if len(r.STFStaUrls) > 0 {
 		staUrlParam = " -SecureTicketAuthorityObjs @("
 		for _, staUrl := range r.STFStaUrls {
-			staUrlParam += fmt.Sprintf("(New-STFSecureTicketAuthority -StaUrl '%s' -StaValidationEnabled $%t -StaValidationSecret '%s');", *staUrl.StaUrl.Get(), *staUrl.StaValidationEnabled.Get(), *staUrl.StaValidationSecret.Get())
+			staUrlParam += fmt.Sprintf("(New-STFSecureTicketAuthority -StaUrl '%s' -StaValidationEnabled $%t -StaValidationSecret '%s');", escapePowerShellSingleQuote(*staUrl.StaUrl.Get()), *staUrl.StaValidationEnabled.Get(), escapePowerShellSingleQuote(*staUrl.StaValidationSecret.Get()))
 		}
 		staUrlParam += ")"
 	}

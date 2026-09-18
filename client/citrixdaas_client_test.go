@@ -5,8 +5,11 @@ package citrixclient_test
 // Tests for utility functions in citrixdaas_client.go
 
 import (
+	"context"
+	"crypto/tls"
 	"fmt"
 	"net/http"
+	"net/http/httptest"
 	"testing"
 
 	"github.com/citrix/citrix-daas-rest-go/citrixorchestration"
@@ -513,4 +516,90 @@ func TestWaitForJob_Failure(t *testing.T) {
 		assert.NotNil(t, result)
 		assert.Equal(t, jobId, result.Id)
 	})
+}
+
+// noopMiddleware satisfies citrixclient.MiddlewareAuthFunction without touching the request,
+// so these tests exercise transport configuration rather than auth.
+func noopMiddleware(_ *citrixclient.CitrixDaasClient, _ *http.Request) {}
+
+// skipsTLSVerification reports whether the client would accept an untrusted certificate.
+// A nil Transport means http.DefaultTransport, which always verifies.
+func skipsTLSVerification(c *http.Client) bool {
+	transport, ok := c.Transport.(*http.Transport)
+	if !ok || transport.TLSClientConfig == nil {
+		return false
+	}
+	return transport.TLSClientConfig.InsecureSkipVerify
+}
+
+func TestInitializeClients_TLSVerification(t *testing.T) {
+	ctx := context.Background()
+	tests := []struct {
+		name           string
+		initialize     func(*citrixclient.CitrixDaasClient) *http.Client
+		wantSkipVerify bool
+	}{
+		{
+			name: "QuickCreate verifies certificates",
+			initialize: func(c *citrixclient.CitrixDaasClient) *http.Client {
+				c.InitializeQuickCreateClient(ctx, "api.cloud.com/quickcreateservice", noopMiddleware)
+				return c.QuickCreateClient.GetConfig().HTTPClient
+			},
+			wantSkipVerify: false,
+		},
+		{
+			name: "QuickDeploy verifies certificates",
+			initialize: func(c *citrixclient.CitrixDaasClient) *http.Client {
+				c.InitializeQuickDeployClient(ctx, "api.cloud.com/catalogservice", noopMiddleware)
+				return c.QuickDeployClient.GetConfig().HTTPClient
+			},
+			wantSkipVerify: false,
+		},
+		// The next two rows pin the on-premises escape hatch. It is intentional: on-premises DDCs
+		// may present self-signed certificates, and the provider gates it behind disable_ssl_verification.
+		{
+			name: "WEM on-premises honours disable_ssl_verification",
+			initialize: func(c *citrixclient.CitrixDaasClient) *http.Client {
+				c.InitializeWemClient(ctx, "wem.example.com", noopMiddleware, true, true)
+				return c.WemClient.GetConfig().HTTPClient
+			},
+			wantSkipVerify: true,
+		},
+		{
+			name: "WEM on-premises verifies when the flag is off",
+			initialize: func(c *citrixclient.CitrixDaasClient) *http.Client {
+				c.InitializeWemClient(ctx, "wem.example.com", noopMiddleware, true, false)
+				return c.WemClient.GetConfig().HTTPClient
+			},
+			wantSkipVerify: false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			httpClient := tt.initialize(&citrixclient.CitrixDaasClient{})
+			require.NotNil(t, httpClient)
+			assert.Equal(t, tt.wantSkipVerify, skipsTLSVerification(httpClient))
+		})
+	}
+}
+
+// Anchors the structural assertions above to real behaviour: httptest.NewTLSServer presents a
+// self-signed certificate, so a verifying client must refuse the connection.
+func TestInitializeQuickDeployClient_RejectsUntrustedCertificate(t *testing.T) {
+	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer server.Close()
+
+	daasClient := &citrixclient.CitrixDaasClient{}
+	daasClient.InitializeQuickDeployClient(context.Background(), "api.cloud.com/catalogservice", noopMiddleware)
+
+	resp, err := daasClient.QuickDeployClient.GetConfig().HTTPClient.Get(server.URL)
+	if resp != nil {
+		defer resp.Body.Close() //nolint:errcheck // Error not actionable in defer
+	}
+	require.Error(t, err)
+	certErr := new(tls.CertificateVerificationError)
+	assert.ErrorAs(t, err, &certErr)
 }

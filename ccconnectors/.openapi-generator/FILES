@@ -1,0 +1,17 @@
+.gitignore
+.openapi-generator-ignore
+.travis.yml
+README.md
+api/openapi.yaml
+api_connectors.go
+client.go
+configuration.go
+docs/CitrixCloudServicesAgentHubApiEdgeServersGetResultModel.md
+docs/ConnectorsDAAS.md
+git_push.sh
+go.mod
+go.sum
+model_citrix_cloud_services_agent_hub_api_edge_servers_get_result_model.go
+response.go
+test/api_connectors_test.go
+utils.go

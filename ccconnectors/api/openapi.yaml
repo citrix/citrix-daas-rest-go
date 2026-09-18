@@ -1,0 +1,175 @@
+openapi: 3.0.1
+info:
+  title: Connectors APIs
+  version: v1
+servers:
+- url: https://api.cloud.com/connectors
+security:
+- CWSAuth: []
+- Basic: []
+tags:
+- description: Requests for Connectors.
+  name: Connectors
+paths:
+  /:
+    get:
+      operationId: Connectors_GetAll
+      parameters:
+      - description: Only supports application/json
+        in: header
+        name: Accept
+        required: true
+        schema:
+          type: string
+      - description: The access token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: ID of the customer.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: Location
+        schema:
+          maxLength: 256
+          minLength: 0
+          type: string
+      - in: query
+        name: ExtendedData
+        schema:
+          type: boolean
+      - in: query
+        name: ConnectorType
+        schema:
+          maxLength: 256
+          minLength: 0
+          type: string
+      - in: query
+        name: RetrieveExpectedVersion
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Citrix.CloudServices.AgentHub.Api.EdgeServersGetResultModel'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Citrix.CloudServices.AgentHub.Api.EdgeServersGetResultModel'
+                type: array
+          description: OK
+      summary: Get all Edge Servers (Connectors) for a customer.
+      tags:
+      - Connectors
+  /{Id}:
+    delete:
+      operationId: Connectors_Delete
+      parameters:
+      - description: Only supports application/json
+        in: header
+        name: Accept
+        required: true
+        schema:
+          type: string
+      - description: The access token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: ID of the customer.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: The connector id.
+        in: path
+        name: Id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: boolean
+          description: OK
+      summary: Delete a connector.
+      tags:
+      - Connectors
+components:
+  schemas:
+    Citrix.CloudServices.AgentHub.Api.EdgeServersGetResultModel:
+      example:
+        connectorType: connectorType
+        role: role
+        versionState: versionState
+        upgradeDisabled: true
+        fqdn: fqdn
+        inMaintenance: true
+        leaseEndDateTime: 2000-01-23T04:56:07.000+00:00
+        expectedVersion: expectedVersion
+        currentVersion: currentVersion
+        currentBootstrapperVersion: currentBootstrapperVersion
+        windowsSid: windowsSid
+        location: location
+        id: id
+        expectedBootStrapperVersion: expectedBootStrapperVersion
+        status: status
+        lastContactDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        fqdn:
+          type: string
+        role:
+          type: string
+        windowsSid:
+          type: string
+        location:
+          type: string
+        currentVersion:
+          type: string
+        currentBootstrapperVersion:
+          type: string
+        expectedVersion:
+          type: string
+        expectedBootStrapperVersion:
+          type: string
+        versionState:
+          type: string
+        inMaintenance:
+          type: boolean
+        leaseEndDateTime:
+          format: date-time
+          type: string
+        upgradeDisabled:
+          type: boolean
+        connectorType:
+          type: string
+        status:
+          type: string
+        lastContactDate:
+          format: date-time
+          type: string
+      type: object
+  securitySchemes:
+    CWSAuth:
+      in: header
+      name: Authorization
+      type: apiKey
+    Basic:
+      scheme: basic
+      type: http
+x-original-swagger-version: "2.0"
