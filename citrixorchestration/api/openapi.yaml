@@ -479382,6 +479382,25 @@ components:
           ScopeId: ScopeId
         - ScopeName: ScopeName
           ScopeId: ScopeId
+        Scopes:
+        - Uid: 1
+          TenantId: TenantId
+          Description: Description
+          IsAllScope: true
+          TenantName: TenantName
+          IsTenantScope: true
+          Id: Id
+          IsBuiltIn: true
+          Name: Name
+        - Uid: 1
+          TenantId: TenantId
+          Description: Description
+          IsAllScope: true
+          TenantName: TenantName
+          IsTenantScope: true
+          Id: Id
+          IsBuiltIn: true
+          Name: Name
         NumUnknownRestrictedObjects: 3
         RestrictedDeliveryGroups:
         - Uid: 0
@@ -479452,6 +479471,25 @@ components:
           ScopeId: ScopeId
         - ScopeName: ScopeName
           ScopeId: ScopeId
+        Scopes:
+        - Uid: 1
+          TenantId: TenantId
+          Description: Description
+          IsAllScope: true
+          TenantName: TenantName
+          IsTenantScope: true
+          Id: Id
+          IsBuiltIn: true
+          Name: Name
+        - Uid: 1
+          TenantId: TenantId
+          Description: Description
+          IsAllScope: true
+          TenantName: TenantName
+          IsTenantScope: true
+          Id: Id
+          IsBuiltIn: true
+          Name: Name
         Id: Id
       properties:
         Name:
@@ -479535,6 +479573,13 @@ components:
           nullable: true
           title: "ScopeReferenceModel[]"
           type: array
+        Scopes:
+          description: Administrative scopes which the tag is part of.
+          items:
+            $ref: '#/components/schemas/ScopeResponseModel'
+          nullable: true
+          title: "ScopeResponseModel[]"
+          type: array
       required:
       - Id
       - Name
@@ -479571,6 +479616,25 @@ components:
             ScopeId: ScopeId
           - ScopeName: ScopeName
             ScopeId: ScopeId
+          Scopes:
+          - Uid: 1
+            TenantId: TenantId
+            Description: Description
+            IsAllScope: true
+            TenantName: TenantName
+            IsTenantScope: true
+            Id: Id
+            IsBuiltIn: true
+            Name: Name
+          - Uid: 1
+            TenantId: TenantId
+            Description: Description
+            IsAllScope: true
+            TenantName: TenantName
+            IsTenantScope: true
+            Id: Id
+            IsBuiltIn: true
+            Name: Name
           Id: Id
         - IsUsedByGpo: true
           NumApplications: 1
@@ -479588,6 +479652,25 @@ components:
             ScopeId: ScopeId
           - ScopeName: ScopeName
             ScopeId: ScopeId
+          Scopes:
+          - Uid: 1
+            TenantId: TenantId
+            Description: Description
+            IsAllScope: true
+            TenantName: TenantName
+            IsTenantScope: true
+            Id: Id
+            IsBuiltIn: true
+            Name: Name
+          - Uid: 1
+            TenantId: TenantId
+            Description: Description
+            IsAllScope: true
+            TenantName: TenantName
+            IsTenantScope: true
+            Id: Id
+            IsBuiltIn: true
+            Name: Name
           Id: Id
         TotalItems: 3
       title: TagResponseModelCollection

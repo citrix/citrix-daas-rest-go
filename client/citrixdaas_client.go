@@ -431,6 +431,7 @@ func (daasClient *CitrixDaasClient) InitializeCitrixDaasClient(ctx context.Conte
 
 	daasClient.ClientConfig.ProductVersion = siteResp.GetProductVersion()
 	daasClient.ClientConfig.OrchestrationApiVersion = siteResp.GetOrchestationApiVersion()
+	daasClient.ClientConfig.EnabledFeatures = siteResp.GetEnabledFeatures()
 
 	if onPremises || !apiGateway {
 		// add CustomerId and SiteId to base path for on-prem. The Sites API will no longer work.

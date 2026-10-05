@@ -23,6 +23,7 @@ type ClientConfiguration struct {
 	OrchestrationApiVersion int32
 	ProductVersion          string
 	IsCspCustomer           bool
+	EnabledFeatures         []string
 }
 
 // WemOnPremAuthentication provides authentication settings for WEM on-premises service
