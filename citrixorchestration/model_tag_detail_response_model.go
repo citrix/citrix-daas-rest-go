@@ -46,6 +46,8 @@ type TagDetailResponseModel struct {
 	NumUnknownObjects int32 `json:"NumUnknownObjects"`
 	// The list of the delegated admin scopes to which the tag belongs.
 	ScopeReferences []ScopeReferenceModel `json:"ScopeReferences,omitempty"`
+	// Administrative scopes which the tag is part of.
+	Scopes []ScopeResponseModel `json:"Scopes,omitempty"`
 	// Desktops which are restricted to be used with machines that are tagged with this tag.
 	RestrictedDesktops []RefResponseModel `json:"RestrictedDesktops"`
 	// Application groups which are restricted such that the applications contained within will be launched only on machines that are tagged with this tag.
@@ -470,6 +472,39 @@ func (o *TagDetailResponseModel) SetScopeReferences(v []ScopeReferenceModel) {
 	o.ScopeReferences = v
 }
 
+// GetScopes returns the Scopes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TagDetailResponseModel) GetScopes() []ScopeResponseModel {
+	if o == nil {
+		var ret []ScopeResponseModel
+		return ret
+	}
+	return o.Scopes
+}
+
+// GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TagDetailResponseModel) GetScopesOk() ([]ScopeResponseModel, bool) {
+	if o == nil || IsNil(o.Scopes) {
+		return nil, false
+	}
+	return o.Scopes, true
+}
+
+// HasScopes returns a boolean if a field has been set.
+func (o *TagDetailResponseModel) HasScopes() bool {
+	if o != nil && !IsNil(o.Scopes) {
+		return true
+	}
+
+	return false
+}
+
+// SetScopes gets a reference to the given []ScopeResponseModel and assigns it to the Scopes field.
+func (o *TagDetailResponseModel) SetScopes(v []ScopeResponseModel) {
+	o.Scopes = v
+}
+
 // GetRestrictedDesktops returns the RestrictedDesktops field value
 func (o *TagDetailResponseModel) GetRestrictedDesktops() []RefResponseModel {
 	if o == nil {
@@ -655,6 +690,9 @@ func (o TagDetailResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["NumUnknownObjects"] = o.NumUnknownObjects
 	if o.ScopeReferences != nil {
 		toSerialize["ScopeReferences"] = o.ScopeReferences
+	}
+	if o.Scopes != nil {
+		toSerialize["Scopes"] = o.Scopes
 	}
 	toSerialize["RestrictedDesktops"] = o.RestrictedDesktops
 	toSerialize["RestrictedApplicationGroups"] = o.RestrictedApplicationGroups

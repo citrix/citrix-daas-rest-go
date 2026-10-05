@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **NumAutoscale** | Pointer to **int32** | Number of delivery groups using this tag for Autoscale, within the context of the query. | [optional] 
 **NumUnknownObjects** | **int32** | The number of objects of all types that are tagged with this tag and that are *not* visible to the calling delegated administrator. | 
 **ScopeReferences** | Pointer to [**[]ScopeReferenceModel**](ScopeReferenceModel.md) | The list of the delegated admin scopes to which the tag belongs. | [optional] 
+**Scopes** | Pointer to [**[]ScopeResponseModel**](ScopeResponseModel.md) | Administrative scopes which the tag is part of. | [optional] 
 
 ## Methods
 
@@ -352,6 +353,41 @@ HasScopeReferences returns a boolean if a field has been set.
 `func (o *TagResponseModel) UnsetScopeReferences()`
 
 UnsetScopeReferences ensures that no value is present for ScopeReferences, not even an explicit nil
+### GetScopes
+
+`func (o *TagResponseModel) GetScopes() []ScopeResponseModel`
+
+GetScopes returns the Scopes field if non-nil, zero value otherwise.
+
+### GetScopesOk
+
+`func (o *TagResponseModel) GetScopesOk() (*[]ScopeResponseModel, bool)`
+
+GetScopesOk returns a tuple with the Scopes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScopes
+
+`func (o *TagResponseModel) SetScopes(v []ScopeResponseModel)`
+
+SetScopes sets Scopes field to given value.
+
+### HasScopes
+
+`func (o *TagResponseModel) HasScopes() bool`
+
+HasScopes returns a boolean if a field has been set.
+
+### SetScopesNil
+
+`func (o *TagResponseModel) SetScopesNil(b bool)`
+
+ SetScopesNil sets the value for Scopes to be an explicit nil
+
+### UnsetScopes
+`func (o *TagResponseModel) UnsetScopes()`
+
+UnsetScopes ensures that no value is present for Scopes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

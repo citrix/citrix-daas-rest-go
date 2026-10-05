@@ -46,6 +46,8 @@ type TagResponseModel struct {
 	NumUnknownObjects int32 `json:"NumUnknownObjects"`
 	// The list of the delegated admin scopes to which the tag belongs.
 	ScopeReferences []ScopeReferenceModel `json:"ScopeReferences,omitempty"`
+	// Administrative scopes which the tag is part of.
+	Scopes []ScopeResponseModel `json:"Scopes,omitempty"`
 }
 
 type _TagResponseModel TagResponseModel
@@ -453,6 +455,39 @@ func (o *TagResponseModel) SetScopeReferences(v []ScopeReferenceModel) {
 	o.ScopeReferences = v
 }
 
+// GetScopes returns the Scopes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TagResponseModel) GetScopes() []ScopeResponseModel {
+	if o == nil {
+		var ret []ScopeResponseModel
+		return ret
+	}
+	return o.Scopes
+}
+
+// GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TagResponseModel) GetScopesOk() ([]ScopeResponseModel, bool) {
+	if o == nil || IsNil(o.Scopes) {
+		return nil, false
+	}
+	return o.Scopes, true
+}
+
+// HasScopes returns a boolean if a field has been set.
+func (o *TagResponseModel) HasScopes() bool {
+	if o != nil && !IsNil(o.Scopes) {
+		return true
+	}
+
+	return false
+}
+
+// SetScopes gets a reference to the given []ScopeResponseModel and assigns it to the Scopes field.
+func (o *TagResponseModel) SetScopes(v []ScopeResponseModel) {
+	o.Scopes = v
+}
+
 func (o TagResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -485,6 +520,9 @@ func (o TagResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["NumUnknownObjects"] = o.NumUnknownObjects
 	if o.ScopeReferences != nil {
 		toSerialize["ScopeReferences"] = o.ScopeReferences
+	}
+	if o.Scopes != nil {
+		toSerialize["Scopes"] = o.Scopes
 	}
 	return toSerialize, nil
 }

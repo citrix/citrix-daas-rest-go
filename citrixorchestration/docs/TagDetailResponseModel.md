@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **NumAutoscale** | Pointer to **int32** | Number of delivery groups using this tag for Autoscale, within the context of the query. | [optional] 
 **NumUnknownObjects** | **int32** | The number of objects of all types that are tagged with this tag and that are *not* visible to the calling delegated administrator. | 
 **ScopeReferences** | Pointer to [**[]ScopeReferenceModel**](ScopeReferenceModel.md) | The list of the delegated admin scopes to which the tag belongs. | [optional] 
+**Scopes** | Pointer to [**[]ScopeResponseModel**](ScopeResponseModel.md) | Administrative scopes which the tag is part of. | [optional] 
 **RestrictedDesktops** | [**[]RefResponseModel**](RefResponseModel.md) | Desktops which are restricted to be used with machines that are tagged with this tag. | 
 **RestrictedApplicationGroups** | [**[]RefResponseModel**](RefResponseModel.md) | Application groups which are restricted such that the applications contained within will be launched only on machines that are tagged with this tag. | 
 **RestrictedDeliveryGroups** | [**[]RefResponseModel**](RefResponseModel.md) | Delivery groups with reboot schedules that are restricted to machines that are tagged with this tag. | 
@@ -358,6 +359,41 @@ HasScopeReferences returns a boolean if a field has been set.
 `func (o *TagDetailResponseModel) UnsetScopeReferences()`
 
 UnsetScopeReferences ensures that no value is present for ScopeReferences, not even an explicit nil
+### GetScopes
+
+`func (o *TagDetailResponseModel) GetScopes() []ScopeResponseModel`
+
+GetScopes returns the Scopes field if non-nil, zero value otherwise.
+
+### GetScopesOk
+
+`func (o *TagDetailResponseModel) GetScopesOk() (*[]ScopeResponseModel, bool)`
+
+GetScopesOk returns a tuple with the Scopes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScopes
+
+`func (o *TagDetailResponseModel) SetScopes(v []ScopeResponseModel)`
+
+SetScopes sets Scopes field to given value.
+
+### HasScopes
+
+`func (o *TagDetailResponseModel) HasScopes() bool`
+
+HasScopes returns a boolean if a field has been set.
+
+### SetScopesNil
+
+`func (o *TagDetailResponseModel) SetScopesNil(b bool)`
+
+ SetScopesNil sets the value for Scopes to be an explicit nil
+
+### UnsetScopes
+`func (o *TagDetailResponseModel) UnsetScopes()`
+
+UnsetScopes ensures that no value is present for Scopes, not even an explicit nil
 ### GetRestrictedDesktops
 
 `func (o *TagDetailResponseModel) GetRestrictedDesktops() []RefResponseModel`
