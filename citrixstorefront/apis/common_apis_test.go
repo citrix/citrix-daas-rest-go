@@ -11,6 +11,9 @@ import (
 // injection is a value that would break out of a single-quoted PowerShell literal and run an arbitrary command.
 const injection = "x'; Remove-Item C:\\ -Recurse -Force; '"
 
+// typographicInjection breaks out of a single-quoted PowerShell literal with U+2019, which PowerShell treats as a single quote.
+const typographicInjection = "x\u2019; Remove-Item C:\\ -Recurse -Force; \u2019"
+
 func TestEscapePowerShellSingleQuote(t *testing.T) {
 	testCases := []struct {
 		name     string
@@ -21,6 +24,29 @@ func TestEscapePowerShellSingleQuote(t *testing.T) {
 		{name: "single quote is doubled", input: "o'brien", expected: "o''brien"},
 		{name: "injection attempt is neutralized", input: injection, expected: "x''; Remove-Item C:\\ -Recurse -Force; ''"},
 		{name: "empty string", input: "", expected: ""},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			if got := escapePowerShellSingleQuote(tc.input); got != tc.expected {
+				t.Errorf("escapePowerShellSingleQuote(%q) = %q, want %q", tc.input, got, tc.expected)
+			}
+		})
+	}
+}
+
+func TestEscapePowerShellSingleQuote_TypographicQuotes(t *testing.T) {
+	testCases := []struct {
+		name     string
+		input    string
+		expected string
+	}{
+		{name: "left single quotation mark is doubled", input: "a\u2018b", expected: "a\u2018\u2018b"},
+		{name: "right single quotation mark is doubled", input: "a\u2019b", expected: "a\u2019\u2019b"},
+		{name: "single low-9 quotation mark is doubled", input: "a\u201ab", expected: "a\u201a\u201ab"},
+		{name: "single high-reversed-9 quotation mark is doubled", input: "a\u201bb", expected: "a\u201b\u201bb"},
+		{name: "typographic injection attempt is neutralized", input: typographicInjection, expected: "x\u2019\u2019; Remove-Item C:\\ -Recurse -Force; \u2019\u2019"},
+		{name: "mixed ASCII and typographic quotes are each doubled", input: "'\u2019", expected: "''\u2019\u2019"},
 	}
 
 	for _, tc := range testCases {

@@ -103,6 +103,12 @@
 
 * `DELETE_ADVANCED_ACCESS_POLICY` (value: `"DeleteAdvancedAccessPolicy"`)
 
+* `CREATE_RESOURCE_ACCESS_POLICY` (value: `"CreateResourceAccessPolicy"`)
+
+* `UPDATE_RESOURCE_ACCESS_POLICY` (value: `"UpdateResourceAccessPolicy"`)
+
+* `DELETE_RESOURCE_ACCESS_POLICY` (value: `"DeleteResourceAccessPolicy"`)
+
 * `ADD_MACHINE_CATALOG_MACHINE` (value: `"AddMachineCatalogMachine"`)
 
 * `UPDATE_MACHINE_CATALOG_PROVISIONING_SCHEME` (value: `"UpdateMachineCatalogProvisioningScheme"`)

@@ -163380,6 +163380,3745 @@ paths:
         plugin type.
       tags:
       - DeliveryGroups APIs
+  /DeliveryGroups/ResourceAccessPolicies:
+    get:
+      operationId: DeliveryGroups_GetResourceAccessPolicies
+      parameters:
+      - description: Citrix Customer ID. Default is 'CitrixOnPremises'
+        example: CitrixOnPremises
+        explode: false
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Citrix Instance (Site) ID.
+        explode: false
+        in: header
+        name: Citrix-InstanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: User Agent type of the request.
+        example: Mozilla/5.0
+        explode: false
+        in: header
+        name: User-Agent
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Citrix authorization header: CWSAuth Bearer={token}"
+        explode: false
+        in: header
+        name: Authorization
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Transaction ID that will be used to track this request. If not\
+          \ provided, a new GUID will be generated and returned."
+        explode: false
+        in: header
+        name: Citrix-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Must accept application/json.
+        example: application/json
+        explode: false
+        in: header
+        name: Accept
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Locale of the request.
+        example: en-US
+        explode: false
+        in: header
+        name: Citrix-Locale
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceAccessPolicyResponseModelCollection'
+          description: List of resource access policies in the site.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/outOfRange:
+                  value:
+                    type: https://errors-api.cloud.com/common/outOfRange
+                    detail: A parameter in the request is out of range
+                    parameters:
+                    - name: property
+                      value: startTime
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller passed an invalid input.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/authentication:
+                  value:
+                    type: https://errors-api.cloud.com/common/authentication
+                    detail: Missing or invalid authentication details
+                    parameters:
+                    - name: reason
+                      value: missing
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller did not present a valid bearer token.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/authorization:
+                  value:
+                    type: https://errors-api.cloud.com/common/authorization
+                    detail: Access denied
+                    parameters:
+                    - name: entityType
+                      value: https://identifiers-api.cloud.com/example/widget
+                    - name: id
+                      value: guid1
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller is not authorized to perform the operation.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/notAcceptable:
+                  value:
+                    type: https://errors-api.cloud.com/common/notAcceptable
+                    detail: Must accept application/json media type
+                    parameters:
+                    - name: contentType
+                      value: application/json
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller must specify utf-8 charset with the Accept header.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/rateLimitExceeded:
+                  value:
+                    type: https://errors-api.cloud.com/common/rateLimitExceeded
+                    detail: Rate limit exceeded; try again in 4 seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller has made too many requests in a short period of time
+            and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/serviceUnavailable:
+                  value:
+                    type: https://errors-api.cloud.com/common/serviceUnavailable
+                    detail: Service is unavailable; try again in 4 seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Service is temporarily unable to process the request.  Caller\
+            \ may attempt the operation again, with exponential back-off."
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/internalServerError:
+                  value:
+                    type: https://errors-api.cloud.com/common/internalServerError
+                    detail: An internal server error has occurred; try again in 4
+                      seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: An unexpected server error occurred.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Get the resource access policies in the site.
+      tags:
+      - DeliveryGroups APIs
+    post:
+      operationId: DeliveryGroups_CreateResourceAccessPolicy
+      parameters:
+      - description: Citrix Customer ID. Default is 'CitrixOnPremises'
+        example: CitrixOnPremises
+        explode: false
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Citrix Instance (Site) ID.
+        explode: false
+        in: header
+        name: Citrix-InstanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: User Agent type of the request.
+        example: Mozilla/5.0
+        explode: false
+        in: header
+        name: User-Agent
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Citrix authorization header: CWSAuth Bearer={token}"
+        explode: false
+        in: header
+        name: Authorization
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Transaction ID that will be used to track this request. If not\
+          \ provided, a new GUID will be generated and returned."
+        explode: false
+        in: header
+        name: Citrix-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Must accept application/json.
+        example: application/json
+        explode: false
+        in: header
+        name: Accept
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Locale of the request.
+        example: en-US
+        explode: false
+        in: header
+        name: Citrix-Locale
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "If `true`, the resource access policy will be created as a background\
+          \ task."
+        explode: true
+        in: query
+        name: async
+        required: false
+        schema:
+          default: false
+          title: Boolean
+          type: boolean
+        style: form
+        x-position: 2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceAccessPolicyRequestModel'
+        description: Details of the resource access policy to create.
+        required: true
+        x-name: request
+        x-position: 1
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceAccessPolicyResponseModel'
+          description: The created resource access policy.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "202":
+          description: Async request was accepted and is being processed.
+          headers:
+            Location:
+              description: Location where the async job completion status can be queried.
+              example: "Jobs/{id}"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/outOfRange:
+                  value:
+                    type: https://errors-api.cloud.com/common/outOfRange
+                    detail: A parameter in the request is out of range
+                    parameters:
+                    - name: property
+                      value: startTime
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller passed an invalid input.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/authentication:
+                  value:
+                    type: https://errors-api.cloud.com/common/authentication
+                    detail: Missing or invalid authentication details
+                    parameters:
+                    - name: reason
+                      value: missing
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller did not present a valid bearer token.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/authorization:
+                  value:
+                    type: https://errors-api.cloud.com/common/authorization
+                    detail: Access denied
+                    parameters:
+                    - name: entityType
+                      value: https://identifiers-api.cloud.com/example/widget
+                    - name: id
+                      value: guid1
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller is not authorized to perform the operation.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/notAcceptable:
+                  value:
+                    type: https://errors-api.cloud.com/common/notAcceptable
+                    detail: Must accept application/json media type
+                    parameters:
+                    - name: contentType
+                      value: application/json
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller must specify utf-8 charset with the Accept header.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "409":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/optimisticConcurrency:
+                  value:
+                    type: https://errors-api.cloud.com/common/optimisticConcurrency
+                    detail: "Widget X was modified, please try your changes again"
+                    parameters: null
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller requested an invalid relation to be created or deleted.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "415":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/unsupportedMediaType:
+                  value:
+                    type: https://errors-api.cloud.com/common/unsupportedMediaType
+                    detail: Must use application/json;charset=utf-8 media type
+                    parameters:
+                    - name: mediaType
+                      value: application/xml
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller must send request body in utf-8 and specify request
+            Content-Type as utf-8.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/rateLimitExceeded:
+                  value:
+                    type: https://errors-api.cloud.com/common/rateLimitExceeded
+                    detail: Rate limit exceeded; try again in 4 seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller has made too many requests in a short period of time
+            and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/serviceUnavailable:
+                  value:
+                    type: https://errors-api.cloud.com/common/serviceUnavailable
+                    detail: Service is unavailable; try again in 4 seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Service is temporarily unable to process the request.  Caller\
+            \ may attempt the operation again, with exponential back-off."
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/internalServerError:
+                  value:
+                    type: https://errors-api.cloud.com/common/internalServerError
+                    detail: An internal server error has occurred; try again in 4
+                      seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: An unexpected server error occurred.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Create a resource access policy in the site.
+      tags:
+      - DeliveryGroups APIs
+  /DeliveryGroups/ResourceAccessPolicies/{policyId}:
+    delete:
+      operationId: DeliveryGroups_DeleteResourceAccessPolicy
+      parameters:
+      - description: Citrix Customer ID. Default is 'CitrixOnPremises'
+        example: CitrixOnPremises
+        explode: false
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Citrix Instance (Site) ID.
+        explode: false
+        in: header
+        name: Citrix-InstanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: User Agent type of the request.
+        example: Mozilla/5.0
+        explode: false
+        in: header
+        name: User-Agent
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Citrix authorization header: CWSAuth Bearer={token}"
+        explode: false
+        in: header
+        name: Authorization
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Transaction ID that will be used to track this request. If not\
+          \ provided, a new GUID will be generated and returned."
+        explode: false
+        in: header
+        name: Citrix-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Must accept application/json.
+        example: application/json
+        explode: false
+        in: header
+        name: Accept
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Locale of the request.
+        example: en-US
+        explode: false
+        in: header
+        name: Citrix-Locale
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: UID of the resource access policy.
+        explode: false
+        in: path
+        name: policyId
+        required: true
+        schema:
+          format: int32
+          title: Int32
+          type: integer
+        style: simple
+        x-position: 1
+      - description: "If `true`, the resource access policy will be deleted as a background\
+          \ task."
+        explode: true
+        in: query
+        name: async
+        required: false
+        schema:
+          default: false
+          title: Boolean
+          type: boolean
+        style: form
+        x-position: 2
+      responses:
+        "204":
+          description: Operation is successful with no response content.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "202":
+          description: Async request was accepted and is being processed.
+          headers:
+            Location:
+              description: Location where the async job completion status can be queried.
+              example: "Jobs/{id}"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/outOfRange:
+                  value:
+                    type: https://errors-api.cloud.com/common/outOfRange
+                    detail: A parameter in the request is out of range
+                    parameters:
+                    - name: property
+                      value: startTime
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller passed an invalid input.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/authentication:
+                  value:
+                    type: https://errors-api.cloud.com/common/authentication
+                    detail: Missing or invalid authentication details
+                    parameters:
+                    - name: reason
+                      value: missing
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller did not present a valid bearer token.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/authorization:
+                  value:
+                    type: https://errors-api.cloud.com/common/authorization
+                    detail: Access denied
+                    parameters:
+                    - name: entityType
+                      value: https://identifiers-api.cloud.com/example/widget
+                    - name: id
+                      value: guid1
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller is not authorized to perform the operation.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          description: A referenced entity was not found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/notAcceptable:
+                  value:
+                    type: https://errors-api.cloud.com/common/notAcceptable
+                    detail: Must accept application/json media type
+                    parameters:
+                    - name: contentType
+                      value: application/json
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller must specify utf-8 charset with the Accept header.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "409":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/optimisticConcurrency:
+                  value:
+                    type: https://errors-api.cloud.com/common/optimisticConcurrency
+                    detail: "Widget X was modified, please try your changes again"
+                    parameters: null
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller requested an invalid relation to be created or deleted.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/rateLimitExceeded:
+                  value:
+                    type: https://errors-api.cloud.com/common/rateLimitExceeded
+                    detail: Rate limit exceeded; try again in 4 seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller has made too many requests in a short period of time
+            and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/serviceUnavailable:
+                  value:
+                    type: https://errors-api.cloud.com/common/serviceUnavailable
+                    detail: Service is unavailable; try again in 4 seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Service is temporarily unable to process the request.  Caller\
+            \ may attempt the operation again, with exponential back-off."
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/internalServerError:
+                  value:
+                    type: https://errors-api.cloud.com/common/internalServerError
+                    detail: An internal server error has occurred; try again in 4
+                      seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: An unexpected server error occurred.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Delete a resource access policy in the site.
+      tags:
+      - DeliveryGroups APIs
+    get:
+      operationId: DeliveryGroups_GetResourceAccessPolicy
+      parameters:
+      - description: Citrix Customer ID. Default is 'CitrixOnPremises'
+        example: CitrixOnPremises
+        explode: false
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Citrix Instance (Site) ID.
+        explode: false
+        in: header
+        name: Citrix-InstanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: User Agent type of the request.
+        example: Mozilla/5.0
+        explode: false
+        in: header
+        name: User-Agent
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Citrix authorization header: CWSAuth Bearer={token}"
+        explode: false
+        in: header
+        name: Authorization
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Transaction ID that will be used to track this request. If not\
+          \ provided, a new GUID will be generated and returned."
+        explode: false
+        in: header
+        name: Citrix-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Must accept application/json.
+        example: application/json
+        explode: false
+        in: header
+        name: Accept
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Locale of the request.
+        example: en-US
+        explode: false
+        in: header
+        name: Citrix-Locale
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: UID of the resource access policy.
+        explode: false
+        in: path
+        name: policyId
+        required: true
+        schema:
+          format: int32
+          title: Int32
+          type: integer
+        style: simple
+        x-position: 1
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceAccessPolicyResponseModel'
+          description: Details of the access policy.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/outOfRange:
+                  value:
+                    type: https://errors-api.cloud.com/common/outOfRange
+                    detail: A parameter in the request is out of range
+                    parameters:
+                    - name: property
+                      value: startTime
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller passed an invalid input.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/authentication:
+                  value:
+                    type: https://errors-api.cloud.com/common/authentication
+                    detail: Missing or invalid authentication details
+                    parameters:
+                    - name: reason
+                      value: missing
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller did not present a valid bearer token.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/authorization:
+                  value:
+                    type: https://errors-api.cloud.com/common/authorization
+                    detail: Access denied
+                    parameters:
+                    - name: entityType
+                      value: https://identifiers-api.cloud.com/example/widget
+                    - name: id
+                      value: guid1
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller is not authorized to perform the operation.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/notFound:
+                  value:
+                    type: https://errors-api.cloud.com/common/notFound
+                    detail: Widget not found
+                    parameters:
+                    - name: entityType
+                      value: https://identifiers-api.cloud.com/example/widget
+                    - name: id
+                      value: guid1
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: A referenced entity was not found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/notAcceptable:
+                  value:
+                    type: https://errors-api.cloud.com/common/notAcceptable
+                    detail: Must accept application/json media type
+                    parameters:
+                    - name: contentType
+                      value: application/json
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller must specify utf-8 charset with the Accept header.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/rateLimitExceeded:
+                  value:
+                    type: https://errors-api.cloud.com/common/rateLimitExceeded
+                    detail: Rate limit exceeded; try again in 4 seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller has made too many requests in a short period of time
+            and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/serviceUnavailable:
+                  value:
+                    type: https://errors-api.cloud.com/common/serviceUnavailable
+                    detail: Service is unavailable; try again in 4 seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Service is temporarily unable to process the request.  Caller\
+            \ may attempt the operation again, with exponential back-off."
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/internalServerError:
+                  value:
+                    type: https://errors-api.cloud.com/common/internalServerError
+                    detail: An internal server error has occurred; try again in 4
+                      seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: An unexpected server error occurred.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Get the details of a single resource access policy.
+      tags:
+      - DeliveryGroups APIs
+    patch:
+      operationId: DeliveryGroups_PatchResourceAccessPolicy
+      parameters:
+      - description: Citrix Customer ID. Default is 'CitrixOnPremises'
+        example: CitrixOnPremises
+        explode: false
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Citrix Instance (Site) ID.
+        explode: false
+        in: header
+        name: Citrix-InstanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: User Agent type of the request.
+        example: Mozilla/5.0
+        explode: false
+        in: header
+        name: User-Agent
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Citrix authorization header: CWSAuth Bearer={token}"
+        explode: false
+        in: header
+        name: Authorization
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Transaction ID that will be used to track this request. If not\
+          \ provided, a new GUID will be generated and returned."
+        explode: false
+        in: header
+        name: Citrix-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Must accept application/json.
+        example: application/json
+        explode: false
+        in: header
+        name: Accept
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Locale of the request.
+        example: en-US
+        explode: false
+        in: header
+        name: Citrix-Locale
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: UID of the resource access policy.
+        explode: false
+        in: path
+        name: policyId
+        required: true
+        schema:
+          format: int32
+          title: Int32
+          type: integer
+        style: simple
+        x-position: 1
+      - description: "If `true`, the resource access policy will be updated as a background\
+          \ task. "
+        explode: true
+        in: query
+        name: async
+        required: false
+        schema:
+          default: false
+          title: Boolean
+          type: boolean
+        style: form
+        x-position: 3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceAccessPolicyRequestModel'
+        description: Details of the resource access policy to update.
+        required: true
+        x-name: request
+        x-position: 2
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceAccessPolicyResponseModel'
+          description: The updated resource access policy.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "202":
+          description: Async request was accepted and is being processed.
+          headers:
+            Location:
+              description: Location where the async job completion status can be queried.
+              example: "Jobs/{id}"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "204":
+          description: Operation is successful with no response content.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/outOfRange:
+                  value:
+                    type: https://errors-api.cloud.com/common/outOfRange
+                    detail: A parameter in the request is out of range
+                    parameters:
+                    - name: property
+                      value: startTime
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller passed an invalid input.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/authentication:
+                  value:
+                    type: https://errors-api.cloud.com/common/authentication
+                    detail: Missing or invalid authentication details
+                    parameters:
+                    - name: reason
+                      value: missing
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller did not present a valid bearer token.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/authorization:
+                  value:
+                    type: https://errors-api.cloud.com/common/authorization
+                    detail: Access denied
+                    parameters:
+                    - name: entityType
+                      value: https://identifiers-api.cloud.com/example/widget
+                    - name: id
+                      value: guid1
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller is not authorized to perform the operation.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/notFound:
+                  value:
+                    type: https://errors-api.cloud.com/common/notFound
+                    detail: Widget not found
+                    parameters:
+                    - name: entityType
+                      value: https://identifiers-api.cloud.com/example/widget
+                    - name: id
+                      value: guid1
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: A referenced entity was not found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/notAcceptable:
+                  value:
+                    type: https://errors-api.cloud.com/common/notAcceptable
+                    detail: Must accept application/json media type
+                    parameters:
+                    - name: contentType
+                      value: application/json
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller must specify utf-8 charset with the Accept header.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "415":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/unsupportedMediaType:
+                  value:
+                    type: https://errors-api.cloud.com/common/unsupportedMediaType
+                    detail: Must use application/json;charset=utf-8 media type
+                    parameters:
+                    - name: mediaType
+                      value: application/xml
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller must send request body in utf-8 and specify request
+            Content-Type as utf-8.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/rateLimitExceeded:
+                  value:
+                    type: https://errors-api.cloud.com/common/rateLimitExceeded
+                    detail: Rate limit exceeded; try again in 4 seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Caller has made too many requests in a short period of time
+            and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/serviceUnavailable:
+                  value:
+                    type: https://errors-api.cloud.com/common/serviceUnavailable
+                    detail: Service is unavailable; try again in 4 seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Service is temporarily unable to process the request.  Caller\
+            \ may attempt the operation again, with exponential back-off."
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              example:
+                https://errors-api.cloud.com/common/internalServerError:
+                  value:
+                    type: https://errors-api.cloud.com/common/internalServerError
+                    detail: An internal server error has occurred; try again in 4
+                      seconds
+                    parameters:
+                    - name: retryDelay
+                      value: "4"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: An unexpected server error occurred.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that is either provided by caller with the
+                same request header or newly created.
+              example: 57AB53D9-589A-4AA8-8879-6B1DACF3A868
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Type:
+              description: Response Content Type. Value is always 'application/json'.
+              example: application/json
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-Content-Type-Options:
+              description: Content type options. Value is always 'nosniff'.
+              example: nosniff
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Content-Language:
+              description: Content language. Value is either 'en-US' or based on client
+                language setting.
+              example: en-US
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Cache-Control:
+              description: "Cache Control. Value is always 'no-cache, no-store, must-revalidate.'"
+              example: "no-cache, no-store, must-revalidate"
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Pragma:
+              description: Pragma. Value is always 'no-cache'.
+              example: no-cache
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Citrix-FilterScope:
+              description: Optional filter scope for getting scoped objects.
+              example: b79aadf4-a0e6-11eb-bcbc-0242ac130002
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Update a resource access policy in the site.
+      tags:
+      - DeliveryGroups APIs
   /DeliveryGroupsV2:
     get:
       description: Get delivery groups in the site with default response fields if
@@ -426835,6 +430574,37 @@ components:
       - Items
       title: CollectionModel`1
       type: object
+    CollectionModelOfResourceAccessPolicyResponseModel:
+      additionalProperties: false
+      description: Response object for collections of items.
+      properties:
+        Items:
+          description: List of items.
+          items:
+            $ref: '#/components/schemas/ResourceAccessPolicyResponseModel'
+          title: "ResourceAccessPolicyResponseModel[]"
+          type: array
+        ContinuationToken:
+          description: |-
+            If present, indicates to the caller that the query was not complete,
+            and they should call the API again specifying the continuation token
+            as a query parameter.
+          nullable: true
+          title: String
+          type: string
+        TotalItems:
+          description: |-
+            Indicates the total number of items in the collection, which may be
+            more than the number of Items returned, if there is a
+            ContinuationToken.  Only returned in the response to `$search` APIs.
+          format: int32
+          nullable: true
+          title: Int32
+          type: integer
+      required:
+      - Items
+      title: CollectionModel`1
+      type: object
     CollectionModelOfResourceCostItemResponseModel:
       additionalProperties: false
       description: Response object for collections of items.
@@ -457351,6 +461121,9 @@ components:
       - CreateAdvancedAccessPolicy
       - UpdateAdvancedAccessPolicy
       - DeleteAdvancedAccessPolicy
+      - CreateResourceAccessPolicy
+      - UpdateResourceAccessPolicy
+      - DeleteResourceAccessPolicy
       - AddMachineCatalogMachine
       - UpdateMachineCatalogProvisioningScheme
       - CreateMachineCatalog
@@ -457655,6 +461428,9 @@ components:
       - CreateAdvancedAccessPolicy
       - UpdateAdvancedAccessPolicy
       - DeleteAdvancedAccessPolicy
+      - CreateResourceAccessPolicy
+      - UpdateResourceAccessPolicy
+      - DeleteResourceAccessPolicy
       - AddMachineCatalogMachine
       - UpdateMachineCatalogProvisioningScheme
       - CreateMachineCatalog
@@ -473119,6 +476895,285 @@ components:
           type: string
       title: ReservationResponseModel
       type: object
+    ResourceAccessPolicyRequestModel:
+      additionalProperties: false
+      description: Request object for creating or updating a resource access policy
+        rule.
+      example:
+        ExcludedSmartAccessFilterEnabled: true
+        IncludedSmartAccessFilterType: Unknown
+        Description: Description
+        ExcludedSmartAccessTags:
+        - Filter: Filter name
+          Farm: Farm name
+        - Filter: Filter name
+          Farm: Farm name
+        IncludedSmartAccessFilterEnabled: true
+        TagUid: 0
+        Metadata:
+        - Value: Value
+          Name: Name
+        - Value: Value
+          Name: Name
+        Enabled: true
+        ResourceType: Unknown
+        IncludedSmartAccessTags:
+        - Filter: Filter name
+          Farm: Farm name
+        - Filter: Filter name
+          Farm: Farm name
+        Name: Name
+      properties:
+        Name:
+          description: Name of the resource access policy rule.
+          nullable: true
+          title: String
+          type: string
+        Description:
+          description: Description of the resource access policy rule.
+          nullable: true
+          title: String
+          type: string
+        Enabled:
+          default: true
+          description: |-
+            Whether the resource access policy rule is enabled. If a policy rule is disabled
+            it is not considered when evaluating resource access.
+          nullable: true
+          title: Boolean
+          type: boolean
+        ExcludedSmartAccessFilterEnabled:
+          description: |-
+            Specifies whether the ExcludedSmartAccessTags
+            filter is enabled.  If the filter is disabled, it is ignored
+            when the access policy is evaluated.
+          nullable: true
+          title: Boolean
+          type: boolean
+        ExcludedSmartAccessTags:
+          description: |-
+            Specifies the SmartAccess tags which will be denied access to
+            the resource.
+          items:
+            $ref: '#/components/schemas/SmartAccessTagRequestModel'
+          nullable: true
+          title: "SmartAccessTagRequestModel[]"
+          type: array
+        IncludedSmartAccessFilterEnabled:
+          description: |-
+            Specifies whether the IncludedSmartAccessTags
+            filter is enabled.  If the filter is disabled, it is ignored
+            when the access policy is evaluated.
+          nullable: true
+          title: Boolean
+          type: boolean
+        IncludedSmartAccessTags:
+          description: |-
+            Specifies the SmartAccess tags which grant access to
+            the resource.
+          items:
+            $ref: '#/components/schemas/SmartAccessTagRequestModel'
+          nullable: true
+          title: "SmartAccessTagRequestModel[]"
+          type: array
+        IncludedSmartAccessFilterType:
+          $ref: '#/components/schemas/FilterMatchType'
+        ResourceType:
+          $ref: '#/components/schemas/ResourceAccessPolicyResourceType'
+        TagUid:
+          description: The UID of the tag associated with this policy rule.
+          format: int32
+          nullable: true
+          title: Int32
+          type: integer
+        Metadata:
+          description: Additional metadata for the resource access policy rule.
+          items:
+            $ref: '#/components/schemas/NameValueStringPairModel'
+          nullable: true
+          title: "NameValueStringPairModel[]"
+          type: array
+      title: ResourceAccessPolicyRequestModel
+      type: object
+    ResourceAccessPolicyResourceType:
+      description: Specifies the type of resource that a resource access policy rule
+        applies to.
+      enum:
+      - Unknown
+      - Application
+      - Desktop
+      - Content
+      title: ResourceAccessPolicyResourceType
+      type: string
+      x-enumNames:
+      - Unknown
+      - Application
+      - Desktop
+      - Content
+    ResourceAccessPolicyResponseModel:
+      additionalProperties: false
+      description: Response object for a resource access policy rule
+      example:
+        ExcludedSmartAccessFilterEnabled: true
+        IncludedSmartAccessFilterType: Unknown
+        Description: Description
+        TagName: TagName
+        Metadata:
+        - Value: Value
+          Name: Name
+        - Value: Value
+          Name: Name
+        TagUid: 6
+        Enabled: true
+        ResourceType: Unknown
+        Name: Name
+        ExcludedSmartAccessTags:
+        - Filter: Filter
+          Farm: Farm
+        - Filter: Filter
+          Farm: Farm
+        IncludedSmartAccessFilterEnabled: true
+        Id: 0
+        IncludedSmartAccessTags:
+        - Filter: Filter
+          Farm: Farm
+        - Filter: Filter
+          Farm: Farm
+      properties:
+        Id:
+          description: Uid of the resouce access policy rule.
+          format: int32
+          title: Int32
+          type: integer
+        Name:
+          description: Name of the resource access policy rule.
+          nullable: true
+          title: String
+          type: string
+        Description:
+          description: Description of the resource access policy rule.
+          nullable: true
+          title: String
+          type: string
+        Enabled:
+          description: |-
+            Whether the resource access policy rule is enabled. If a policy rule is disabled
+            it is not considered when evaluating resource access.
+          title: Boolean
+          type: boolean
+        ExcludedSmartAccessFilterEnabled:
+          description: |-
+            Specifies whether the excluded SmartAccess filter is enabled.
+            If the filter is disabled, it is ignored when the access policy is evaluated.
+          title: Boolean
+          type: boolean
+        ExcludedSmartAccessTags:
+          description: Specifies the SmartAccess tags which will be denied access
+            to resources.
+          items:
+            $ref: '#/components/schemas/SmartAccessTagResponseModel'
+          nullable: true
+          title: "SmartAccessTagResponseModel[]"
+          type: array
+        IncludedSmartAccessFilterEnabled:
+          description: |-
+            Specifies whether the included SmartAccess filter is enabled.
+            If the filter is disabled, it is ignored when the access policy is evaluated.
+          title: Boolean
+          type: boolean
+        IncludedSmartAccessFilterType:
+          $ref: '#/components/schemas/FilterMatchType'
+        IncludedSmartAccessTags:
+          description: Specifies the SmartAccess tags which will be allowed access
+            to resources.
+          items:
+            $ref: '#/components/schemas/SmartAccessTagResponseModel'
+          nullable: true
+          title: "SmartAccessTagResponseModel[]"
+          type: array
+        Metadata:
+          description: Additional metadata for the resource access policy rule.
+          items:
+            $ref: '#/components/schemas/NameValueStringPairModel'
+          nullable: true
+          title: "NameValueStringPairModel[]"
+          type: array
+        ResourceType:
+          $ref: '#/components/schemas/ResourceAccessPolicyResourceType'
+        TagName:
+          description: The name of the tag associated with this policy rule.
+          nullable: true
+          title: String
+          type: string
+        TagUid:
+          description: The UID of the tag associated with this policy rule.
+          format: int32
+          nullable: true
+          title: Int32
+          type: integer
+      title: ResourceAccessPolicyResponseModel
+      type: object
+    ResourceAccessPolicyResponseModelCollection:
+      allOf:
+      - $ref: '#/components/schemas/CollectionModelOfResourceAccessPolicyResponseModel'
+      - additionalProperties: false
+        description: Resource access policy response model collection
+        type: object
+      example:
+        ContinuationToken: ContinuationToken
+        Items:
+        - ExcludedSmartAccessFilterEnabled: true
+          IncludedSmartAccessFilterType: Unknown
+          Description: Description
+          TagName: TagName
+          Metadata:
+          - Value: Value
+            Name: Name
+          - Value: Value
+            Name: Name
+          TagUid: 6
+          Enabled: true
+          ResourceType: Unknown
+          Name: Name
+          ExcludedSmartAccessTags:
+          - Filter: Filter
+            Farm: Farm
+          - Filter: Filter
+            Farm: Farm
+          IncludedSmartAccessFilterEnabled: true
+          Id: 0
+          IncludedSmartAccessTags:
+          - Filter: Filter
+            Farm: Farm
+          - Filter: Filter
+            Farm: Farm
+        - ExcludedSmartAccessFilterEnabled: true
+          IncludedSmartAccessFilterType: Unknown
+          Description: Description
+          TagName: TagName
+          Metadata:
+          - Value: Value
+            Name: Name
+          - Value: Value
+            Name: Name
+          TagUid: 6
+          Enabled: true
+          ResourceType: Unknown
+          Name: Name
+          ExcludedSmartAccessTags:
+          - Filter: Filter
+            Farm: Farm
+          - Filter: Filter
+            Farm: Farm
+          IncludedSmartAccessFilterEnabled: true
+          Id: 0
+          IncludedSmartAccessTags:
+          - Filter: Filter
+            Farm: Farm
+          - Filter: Filter
+            Farm: Farm
+        TotalItems: 1
+      title: ResourceAccessPolicyResponseModelCollection
     ResourceCostItemResponseModel:
       additionalProperties: false
       description: The response model for the resource cost item.

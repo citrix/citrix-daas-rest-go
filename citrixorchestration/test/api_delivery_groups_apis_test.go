@@ -159,6 +159,18 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateResourceAccessPolicy", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateResourceAccessPolicy(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteAutoscalePluginTemplate", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
@@ -236,6 +248,19 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 		var scheduleNameOrId string
 
 		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteDeliveryGroupRebootSchedule(context.Background(), nameOrId, scheduleNameOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteResourceAccessPolicy", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var policyId int32
+
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteResourceAccessPolicy(context.Background(), policyId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -672,6 +697,32 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetResourceAccessPolicies", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetResourceAccessPolicies(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetResourceAccessPolicy", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var policyId int32
+
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetResourceAccessPolicy(context.Background(), policyId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsPatchDeliveryGroup", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
@@ -723,6 +774,20 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 		var scheduleNameOrId string
 
 		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsPatchDeliveryGroupRebootSchedule(context.Background(), nameOrId, scheduleNameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsPatchResourceAccessPolicy", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var policyId int32
+
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsPatchResourceAccessPolicy(context.Background(), policyId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
