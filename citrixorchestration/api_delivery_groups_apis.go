@@ -177,6 +177,18 @@ type DeliveryGroupsAPIsDAAS interface {
 	DeliveryGroupsCreateDeliveryGroupRebootScheduleExecute(r ApiDeliveryGroupsCreateDeliveryGroupRebootScheduleRequest) (*RebootScheduleResponseModel, *http.Response, error)
 
 	/*
+		DeliveryGroupsCreateResourceAccessPolicy Create a resource access policy in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiDeliveryGroupsCreateResourceAccessPolicyRequest
+	*/
+	DeliveryGroupsCreateResourceAccessPolicy(ctx context.Context) ApiDeliveryGroupsCreateResourceAccessPolicyRequest
+
+	// DeliveryGroupsCreateResourceAccessPolicyExecute executes the request
+	//  @return ResourceAccessPolicyResponseModel
+	DeliveryGroupsCreateResourceAccessPolicyExecute(r ApiDeliveryGroupsCreateResourceAccessPolicyRequest) (*ResourceAccessPolicyResponseModel, *http.Response, error)
+
+	/*
 		DeliveryGroupsDeleteAutoscalePluginTemplate Delete the autoscale plugin configuration template for the specified plugin type and name.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -254,6 +266,18 @@ type DeliveryGroupsAPIsDAAS interface {
 
 	// DeliveryGroupsDeleteDeliveryGroupRebootScheduleExecute executes the request
 	DeliveryGroupsDeleteDeliveryGroupRebootScheduleExecute(r ApiDeliveryGroupsDeleteDeliveryGroupRebootScheduleRequest) (*http.Response, error)
+
+	/*
+		DeliveryGroupsDeleteResourceAccessPolicy Delete a resource access policy in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param policyId UID of the resource access policy.
+		@return ApiDeliveryGroupsDeleteResourceAccessPolicyRequest
+	*/
+	DeliveryGroupsDeleteResourceAccessPolicy(ctx context.Context, policyId int32) ApiDeliveryGroupsDeleteResourceAccessPolicyRequest
+
+	// DeliveryGroupsDeleteResourceAccessPolicyExecute executes the request
+	DeliveryGroupsDeleteResourceAccessPolicyExecute(r ApiDeliveryGroupsDeleteResourceAccessPolicyRequest) (*http.Response, error)
 
 	/*
 		DeliveryGroupsDoAddApplications Add applications and/or application groups to a delivery group.
@@ -687,6 +711,31 @@ type DeliveryGroupsAPIsDAAS interface {
 	DeliveryGroupsGetDeliveryGroupsV2Execute(r ApiDeliveryGroupsGetDeliveryGroupsV2Request) (*DeliveryGroupResponseModelCollection, *http.Response, error)
 
 	/*
+		DeliveryGroupsGetResourceAccessPolicies Get the resource access policies in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiDeliveryGroupsGetResourceAccessPoliciesRequest
+	*/
+	DeliveryGroupsGetResourceAccessPolicies(ctx context.Context) ApiDeliveryGroupsGetResourceAccessPoliciesRequest
+
+	// DeliveryGroupsGetResourceAccessPoliciesExecute executes the request
+	//  @return ResourceAccessPolicyResponseModelCollection
+	DeliveryGroupsGetResourceAccessPoliciesExecute(r ApiDeliveryGroupsGetResourceAccessPoliciesRequest) (*ResourceAccessPolicyResponseModelCollection, *http.Response, error)
+
+	/*
+		DeliveryGroupsGetResourceAccessPolicy Get the details of a single resource access policy.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param policyId UID of the resource access policy.
+		@return ApiDeliveryGroupsGetResourceAccessPolicyRequest
+	*/
+	DeliveryGroupsGetResourceAccessPolicy(ctx context.Context, policyId int32) ApiDeliveryGroupsGetResourceAccessPolicyRequest
+
+	// DeliveryGroupsGetResourceAccessPolicyExecute executes the request
+	//  @return ResourceAccessPolicyResponseModel
+	DeliveryGroupsGetResourceAccessPolicyExecute(r ApiDeliveryGroupsGetResourceAccessPolicyRequest) (*ResourceAccessPolicyResponseModel, *http.Response, error)
+
+	/*
 		DeliveryGroupsPatchDeliveryGroup Modify a delivery group.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -741,6 +790,19 @@ type DeliveryGroupsAPIsDAAS interface {
 	// DeliveryGroupsPatchDeliveryGroupRebootScheduleExecute executes the request
 	//  @return RebootScheduleResponseModel
 	DeliveryGroupsPatchDeliveryGroupRebootScheduleExecute(r ApiDeliveryGroupsPatchDeliveryGroupRebootScheduleRequest) (*RebootScheduleResponseModel, *http.Response, error)
+
+	/*
+		DeliveryGroupsPatchResourceAccessPolicy Update a resource access policy in the site.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param policyId UID of the resource access policy.
+		@return ApiDeliveryGroupsPatchResourceAccessPolicyRequest
+	*/
+	DeliveryGroupsPatchResourceAccessPolicy(ctx context.Context, policyId int32) ApiDeliveryGroupsPatchResourceAccessPolicyRequest
+
+	// DeliveryGroupsPatchResourceAccessPolicyExecute executes the request
+	//  @return ResourceAccessPolicyResponseModel
+	DeliveryGroupsPatchResourceAccessPolicyExecute(r ApiDeliveryGroupsPatchResourceAccessPolicyRequest) (*ResourceAccessPolicyResponseModel, *http.Response, error)
 
 	/*
 			DeliveryGroupsRemoveDeliveryGroupMachineCatalog Disassociate a machine catalog from a RemotePC delivery group.
@@ -4650,6 +4712,380 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiDeliveryGroupsCreateResourceAccessPolicyRequest struct {
+	ctx                              context.Context
+	ApiService                       DeliveryGroupsAPIsDAAS
+	citrixCustomerId                 *string
+	citrixInstanceId                 *string
+	resourceAccessPolicyRequestModel *ResourceAccessPolicyRequestModel
+	userAgent                        *string
+	authorization                    *string
+	citrixTransactionId              *string
+	accept                           *string
+	citrixLocale                     *string
+	async                            *bool
+}
+
+// MockApiDeliveryGroupsCreateResourceAccessPolicyRequest wraps the request struct to provide getter methods for testing
+type MockApiDeliveryGroupsCreateResourceAccessPolicyRequest struct {
+	ApiDeliveryGroupsCreateResourceAccessPolicyRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiDeliveryGroupsCreateResourceAccessPolicyRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiDeliveryGroupsCreateResourceAccessPolicyRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiDeliveryGroupsCreateResourceAccessPolicyRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetResourceAccessPolicyRequestModel returns the resourceAccessPolicyRequestModel parameter
+func (r MockApiDeliveryGroupsCreateResourceAccessPolicyRequest) GetResourceAccessPolicyRequestModel() *ResourceAccessPolicyRequestModel {
+	return r.resourceAccessPolicyRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiDeliveryGroupsCreateResourceAccessPolicyRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiDeliveryGroupsCreateResourceAccessPolicyRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiDeliveryGroupsCreateResourceAccessPolicyRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiDeliveryGroupsCreateResourceAccessPolicyRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiDeliveryGroupsCreateResourceAccessPolicyRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiDeliveryGroupsCreateResourceAccessPolicyRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiDeliveryGroupsCreateResourceAccessPolicyRequest) Execute() (*ResourceAccessPolicyResponseModel, *http.Response, error) {
+	return r.ApiDeliveryGroupsCreateResourceAccessPolicyRequest.Execute()
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsCreateResourceAccessPolicyRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsCreateResourceAccessPolicyRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsCreateResourceAccessPolicyRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsCreateResourceAccessPolicyRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// Details of the resource access policy to create.
+func (r ApiDeliveryGroupsCreateResourceAccessPolicyRequest) ResourceAccessPolicyRequestModel(resourceAccessPolicyRequestModel ResourceAccessPolicyRequestModel) ApiDeliveryGroupsCreateResourceAccessPolicyRequest {
+	r.resourceAccessPolicyRequestModel = &resourceAccessPolicyRequestModel
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsCreateResourceAccessPolicyRequest) UserAgent(userAgent string) ApiDeliveryGroupsCreateResourceAccessPolicyRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsCreateResourceAccessPolicyRequest) Authorization(authorization string) ApiDeliveryGroupsCreateResourceAccessPolicyRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsCreateResourceAccessPolicyRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsCreateResourceAccessPolicyRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsCreateResourceAccessPolicyRequest) Accept(accept string) ApiDeliveryGroupsCreateResourceAccessPolicyRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsCreateResourceAccessPolicyRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsCreateResourceAccessPolicyRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#x60;true&#x60;, the resource access policy will be created as a background task.
+func (r ApiDeliveryGroupsCreateResourceAccessPolicyRequest) Async(async bool) ApiDeliveryGroupsCreateResourceAccessPolicyRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiDeliveryGroupsCreateResourceAccessPolicyRequest) Execute() (*ResourceAccessPolicyResponseModel, *http.Response, error) {
+	return r.ApiService.DeliveryGroupsCreateResourceAccessPolicyExecute(r)
+}
+
+/*
+DeliveryGroupsCreateResourceAccessPolicy Create a resource access policy in the site.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeliveryGroupsCreateResourceAccessPolicyRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateResourceAccessPolicy(ctx context.Context) ApiDeliveryGroupsCreateResourceAccessPolicyRequest {
+	return ApiDeliveryGroupsCreateResourceAccessPolicyRequest{
+		ApiService: a,
+		ctx:        ctx,
+	}
+}
+
+// Execute executes the request
+//
+//	@return ResourceAccessPolicyResponseModel
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateResourceAccessPolicyExecute(r ApiDeliveryGroupsCreateResourceAccessPolicyRequest) (*ResourceAccessPolicyResponseModel, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ResourceAccessPolicyResponseModel
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsCreateResourceAccessPolicy")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/ResourceAccessPolicies"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+	if r.resourceAccessPolicyRequestModel == nil {
+		return localVarReturnValue, nil, reportError("resourceAccessPolicyRequestModel is required and must be specified")
+	}
+
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.resourceAccessPolicyRequestModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest struct {
 	ctx                 context.Context
 	ApiService          DeliveryGroupsAPIsDAAS
@@ -6585,6 +7021,349 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupRebootS
 		return nil, reportError("citrixInstanceId is required and must be specified")
 	}
 
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiDeliveryGroupsDeleteResourceAccessPolicyRequest struct {
+	ctx                 context.Context
+	ApiService          DeliveryGroupsAPIsDAAS
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policyId            int32
+	userAgent           *string
+	authorization       *string
+	citrixTransactionId *string
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+}
+
+// MockApiDeliveryGroupsDeleteResourceAccessPolicyRequest wraps the request struct to provide getter methods for testing
+type MockApiDeliveryGroupsDeleteResourceAccessPolicyRequest struct {
+	ApiDeliveryGroupsDeleteResourceAccessPolicyRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiDeliveryGroupsDeleteResourceAccessPolicyRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiDeliveryGroupsDeleteResourceAccessPolicyRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiDeliveryGroupsDeleteResourceAccessPolicyRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicyId returns the policyId parameter
+func (r MockApiDeliveryGroupsDeleteResourceAccessPolicyRequest) GetPolicyId() int32 {
+	return r.policyId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiDeliveryGroupsDeleteResourceAccessPolicyRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiDeliveryGroupsDeleteResourceAccessPolicyRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiDeliveryGroupsDeleteResourceAccessPolicyRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiDeliveryGroupsDeleteResourceAccessPolicyRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiDeliveryGroupsDeleteResourceAccessPolicyRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiDeliveryGroupsDeleteResourceAccessPolicyRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiDeliveryGroupsDeleteResourceAccessPolicyRequest) Execute() (*http.Response, error) {
+	return r.ApiDeliveryGroupsDeleteResourceAccessPolicyRequest.Execute()
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsDeleteResourceAccessPolicyRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsDeleteResourceAccessPolicyRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsDeleteResourceAccessPolicyRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsDeleteResourceAccessPolicyRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsDeleteResourceAccessPolicyRequest) UserAgent(userAgent string) ApiDeliveryGroupsDeleteResourceAccessPolicyRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsDeleteResourceAccessPolicyRequest) Authorization(authorization string) ApiDeliveryGroupsDeleteResourceAccessPolicyRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsDeleteResourceAccessPolicyRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsDeleteResourceAccessPolicyRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsDeleteResourceAccessPolicyRequest) Accept(accept string) ApiDeliveryGroupsDeleteResourceAccessPolicyRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsDeleteResourceAccessPolicyRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsDeleteResourceAccessPolicyRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#x60;true&#x60;, the resource access policy will be deleted as a background task.
+func (r ApiDeliveryGroupsDeleteResourceAccessPolicyRequest) Async(async bool) ApiDeliveryGroupsDeleteResourceAccessPolicyRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiDeliveryGroupsDeleteResourceAccessPolicyRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DeliveryGroupsDeleteResourceAccessPolicyExecute(r)
+}
+
+/*
+DeliveryGroupsDeleteResourceAccessPolicy Delete a resource access policy in the site.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param policyId UID of the resource access policy.
+	@return ApiDeliveryGroupsDeleteResourceAccessPolicyRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteResourceAccessPolicy(ctx context.Context, policyId int32) ApiDeliveryGroupsDeleteResourceAccessPolicyRequest {
+	return ApiDeliveryGroupsDeleteResourceAccessPolicyRequest{
+		ApiService: a,
+		ctx:        ctx,
+		policyId:   policyId,
+	}
+}
+
+// Execute executes the request
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteResourceAccessPolicyExecute(r ApiDeliveryGroupsDeleteResourceAccessPolicyRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDeleteResourceAccessPolicy")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/ResourceAccessPolicies/{policyId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"policyId"+"}", url.PathEscape(parameterValueToString(r.policyId, "policyId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -18216,6 +18995,660 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupsV2Execute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiDeliveryGroupsGetResourceAccessPoliciesRequest struct {
+	ctx                 context.Context
+	ApiService          DeliveryGroupsAPIsDAAS
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
+	citrixTransactionId *string
+	accept              *string
+	citrixLocale        *string
+}
+
+// MockApiDeliveryGroupsGetResourceAccessPoliciesRequest wraps the request struct to provide getter methods for testing
+type MockApiDeliveryGroupsGetResourceAccessPoliciesRequest struct {
+	ApiDeliveryGroupsGetResourceAccessPoliciesRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiDeliveryGroupsGetResourceAccessPoliciesRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPoliciesRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPoliciesRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPoliciesRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPoliciesRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPoliciesRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPoliciesRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPoliciesRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiDeliveryGroupsGetResourceAccessPoliciesRequest) Execute() (*ResourceAccessPolicyResponseModelCollection, *http.Response, error) {
+	return r.ApiDeliveryGroupsGetResourceAccessPoliciesRequest.Execute()
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsGetResourceAccessPoliciesRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsGetResourceAccessPoliciesRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsGetResourceAccessPoliciesRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsGetResourceAccessPoliciesRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsGetResourceAccessPoliciesRequest) UserAgent(userAgent string) ApiDeliveryGroupsGetResourceAccessPoliciesRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsGetResourceAccessPoliciesRequest) Authorization(authorization string) ApiDeliveryGroupsGetResourceAccessPoliciesRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsGetResourceAccessPoliciesRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsGetResourceAccessPoliciesRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsGetResourceAccessPoliciesRequest) Accept(accept string) ApiDeliveryGroupsGetResourceAccessPoliciesRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsGetResourceAccessPoliciesRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsGetResourceAccessPoliciesRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+func (r ApiDeliveryGroupsGetResourceAccessPoliciesRequest) Execute() (*ResourceAccessPolicyResponseModelCollection, *http.Response, error) {
+	return r.ApiService.DeliveryGroupsGetResourceAccessPoliciesExecute(r)
+}
+
+/*
+DeliveryGroupsGetResourceAccessPolicies Get the resource access policies in the site.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeliveryGroupsGetResourceAccessPoliciesRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetResourceAccessPolicies(ctx context.Context) ApiDeliveryGroupsGetResourceAccessPoliciesRequest {
+	return ApiDeliveryGroupsGetResourceAccessPoliciesRequest{
+		ApiService: a,
+		ctx:        ctx,
+	}
+}
+
+// Execute executes the request
+//
+//	@return ResourceAccessPolicyResponseModelCollection
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetResourceAccessPoliciesExecute(r ApiDeliveryGroupsGetResourceAccessPoliciesRequest) (*ResourceAccessPolicyResponseModelCollection, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ResourceAccessPolicyResponseModelCollection
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetResourceAccessPolicies")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/ResourceAccessPolicies"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeliveryGroupsGetResourceAccessPolicyRequest struct {
+	ctx                 context.Context
+	ApiService          DeliveryGroupsAPIsDAAS
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policyId            int32
+	userAgent           *string
+	authorization       *string
+	citrixTransactionId *string
+	accept              *string
+	citrixLocale        *string
+}
+
+// MockApiDeliveryGroupsGetResourceAccessPolicyRequest wraps the request struct to provide getter methods for testing
+type MockApiDeliveryGroupsGetResourceAccessPolicyRequest struct {
+	ApiDeliveryGroupsGetResourceAccessPolicyRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiDeliveryGroupsGetResourceAccessPolicyRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPolicyRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPolicyRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicyId returns the policyId parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPolicyRequest) GetPolicyId() int32 {
+	return r.policyId
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPolicyRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPolicyRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPolicyRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPolicyRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiDeliveryGroupsGetResourceAccessPolicyRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiDeliveryGroupsGetResourceAccessPolicyRequest) Execute() (*ResourceAccessPolicyResponseModel, *http.Response, error) {
+	return r.ApiDeliveryGroupsGetResourceAccessPolicyRequest.Execute()
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsGetResourceAccessPolicyRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsGetResourceAccessPolicyRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsGetResourceAccessPolicyRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsGetResourceAccessPolicyRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsGetResourceAccessPolicyRequest) UserAgent(userAgent string) ApiDeliveryGroupsGetResourceAccessPolicyRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsGetResourceAccessPolicyRequest) Authorization(authorization string) ApiDeliveryGroupsGetResourceAccessPolicyRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsGetResourceAccessPolicyRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsGetResourceAccessPolicyRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsGetResourceAccessPolicyRequest) Accept(accept string) ApiDeliveryGroupsGetResourceAccessPolicyRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsGetResourceAccessPolicyRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsGetResourceAccessPolicyRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+func (r ApiDeliveryGroupsGetResourceAccessPolicyRequest) Execute() (*ResourceAccessPolicyResponseModel, *http.Response, error) {
+	return r.ApiService.DeliveryGroupsGetResourceAccessPolicyExecute(r)
+}
+
+/*
+DeliveryGroupsGetResourceAccessPolicy Get the details of a single resource access policy.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param policyId UID of the resource access policy.
+	@return ApiDeliveryGroupsGetResourceAccessPolicyRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetResourceAccessPolicy(ctx context.Context, policyId int32) ApiDeliveryGroupsGetResourceAccessPolicyRequest {
+	return ApiDeliveryGroupsGetResourceAccessPolicyRequest{
+		ApiService: a,
+		ctx:        ctx,
+		policyId:   policyId,
+	}
+}
+
+// Execute executes the request
+//
+//	@return ResourceAccessPolicyResponseModel
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetResourceAccessPolicyExecute(r ApiDeliveryGroupsGetResourceAccessPolicyRequest) (*ResourceAccessPolicyResponseModel, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ResourceAccessPolicyResponseModel
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetResourceAccessPolicy")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/ResourceAccessPolicies/{policyId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"policyId"+"}", url.PathEscape(parameterValueToString(r.policyId, "policyId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiDeliveryGroupsPatchDeliveryGroupRequest struct {
 	ctx                           context.Context
 	ApiService                    DeliveryGroupsAPIsDAAS
@@ -19591,6 +21024,389 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchDeliveryGroupRebootSc
 	}
 	// body params
 	localVarPostBody = r.rebootScheduleRequestModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeliveryGroupsPatchResourceAccessPolicyRequest struct {
+	ctx                              context.Context
+	ApiService                       DeliveryGroupsAPIsDAAS
+	citrixCustomerId                 *string
+	citrixInstanceId                 *string
+	policyId                         int32
+	resourceAccessPolicyRequestModel *ResourceAccessPolicyRequestModel
+	userAgent                        *string
+	authorization                    *string
+	citrixTransactionId              *string
+	accept                           *string
+	citrixLocale                     *string
+	async                            *bool
+}
+
+// MockApiDeliveryGroupsPatchResourceAccessPolicyRequest wraps the request struct to provide getter methods for testing
+type MockApiDeliveryGroupsPatchResourceAccessPolicyRequest struct {
+	ApiDeliveryGroupsPatchResourceAccessPolicyRequest
+}
+
+// GetCtx returns the context from the request
+func (r MockApiDeliveryGroupsPatchResourceAccessPolicyRequest) GetCtx() context.Context {
+	return r.ctx
+}
+
+// GetCitrixCustomerId returns the citrixCustomerId parameter
+func (r MockApiDeliveryGroupsPatchResourceAccessPolicyRequest) GetCitrixCustomerId() *string {
+	return r.citrixCustomerId
+}
+
+// GetCitrixInstanceId returns the citrixInstanceId parameter
+func (r MockApiDeliveryGroupsPatchResourceAccessPolicyRequest) GetCitrixInstanceId() *string {
+	return r.citrixInstanceId
+}
+
+// GetPolicyId returns the policyId parameter
+func (r MockApiDeliveryGroupsPatchResourceAccessPolicyRequest) GetPolicyId() int32 {
+	return r.policyId
+}
+
+// GetResourceAccessPolicyRequestModel returns the resourceAccessPolicyRequestModel parameter
+func (r MockApiDeliveryGroupsPatchResourceAccessPolicyRequest) GetResourceAccessPolicyRequestModel() *ResourceAccessPolicyRequestModel {
+	return r.resourceAccessPolicyRequestModel
+}
+
+// GetUserAgent returns the userAgent parameter
+func (r MockApiDeliveryGroupsPatchResourceAccessPolicyRequest) GetUserAgent() *string {
+	return r.userAgent
+}
+
+// GetAuthorization returns the authorization parameter
+func (r MockApiDeliveryGroupsPatchResourceAccessPolicyRequest) GetAuthorization() *string {
+	return r.authorization
+}
+
+// GetCitrixTransactionId returns the citrixTransactionId parameter
+func (r MockApiDeliveryGroupsPatchResourceAccessPolicyRequest) GetCitrixTransactionId() *string {
+	return r.citrixTransactionId
+}
+
+// GetAccept returns the accept parameter
+func (r MockApiDeliveryGroupsPatchResourceAccessPolicyRequest) GetAccept() *string {
+	return r.accept
+}
+
+// GetCitrixLocale returns the citrixLocale parameter
+func (r MockApiDeliveryGroupsPatchResourceAccessPolicyRequest) GetCitrixLocale() *string {
+	return r.citrixLocale
+}
+
+// GetAsync returns the async parameter
+func (r MockApiDeliveryGroupsPatchResourceAccessPolicyRequest) GetAsync() *bool {
+	return r.async
+}
+
+// Execute delegates to the embedded request's Execute method
+func (r MockApiDeliveryGroupsPatchResourceAccessPolicyRequest) Execute() (*ResourceAccessPolicyResponseModel, *http.Response, error) {
+	return r.ApiDeliveryGroupsPatchResourceAccessPolicyRequest.Execute()
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsPatchResourceAccessPolicyRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsPatchResourceAccessPolicyRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsPatchResourceAccessPolicyRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsPatchResourceAccessPolicyRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// Details of the resource access policy to update.
+func (r ApiDeliveryGroupsPatchResourceAccessPolicyRequest) ResourceAccessPolicyRequestModel(resourceAccessPolicyRequestModel ResourceAccessPolicyRequestModel) ApiDeliveryGroupsPatchResourceAccessPolicyRequest {
+	r.resourceAccessPolicyRequestModel = &resourceAccessPolicyRequestModel
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsPatchResourceAccessPolicyRequest) UserAgent(userAgent string) ApiDeliveryGroupsPatchResourceAccessPolicyRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsPatchResourceAccessPolicyRequest) Authorization(authorization string) ApiDeliveryGroupsPatchResourceAccessPolicyRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsPatchResourceAccessPolicyRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsPatchResourceAccessPolicyRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsPatchResourceAccessPolicyRequest) Accept(accept string) ApiDeliveryGroupsPatchResourceAccessPolicyRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsPatchResourceAccessPolicyRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsPatchResourceAccessPolicyRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#x60;true&#x60;, the resource access policy will be updated as a background task.
+func (r ApiDeliveryGroupsPatchResourceAccessPolicyRequest) Async(async bool) ApiDeliveryGroupsPatchResourceAccessPolicyRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiDeliveryGroupsPatchResourceAccessPolicyRequest) Execute() (*ResourceAccessPolicyResponseModel, *http.Response, error) {
+	return r.ApiService.DeliveryGroupsPatchResourceAccessPolicyExecute(r)
+}
+
+/*
+DeliveryGroupsPatchResourceAccessPolicy Update a resource access policy in the site.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param policyId UID of the resource access policy.
+	@return ApiDeliveryGroupsPatchResourceAccessPolicyRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchResourceAccessPolicy(ctx context.Context, policyId int32) ApiDeliveryGroupsPatchResourceAccessPolicyRequest {
+	return ApiDeliveryGroupsPatchResourceAccessPolicyRequest{
+		ApiService: a,
+		ctx:        ctx,
+		policyId:   policyId,
+	}
+}
+
+// Execute executes the request
+//
+//	@return ResourceAccessPolicyResponseModel
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsPatchResourceAccessPolicyExecute(r ApiDeliveryGroupsPatchResourceAccessPolicyRequest) (*ResourceAccessPolicyResponseModel, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ResourceAccessPolicyResponseModel
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsPatchResourceAccessPolicy")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/ResourceAccessPolicies/{policyId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"policyId"+"}", url.PathEscape(parameterValueToString(r.policyId, "policyId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+	if r.resourceAccessPolicyRequestModel == nil {
+		return localVarReturnValue, nil, reportError("resourceAccessPolicyRequestModel is required and must be specified")
+	}
+
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.async = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "simple", "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "simple", "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.resourceAccessPolicyRequestModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -22855,6 +24671,18 @@ func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsCreateDeliveryGroupRebootSche
 	return args.Get(0).(*RebootScheduleResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }
 
+func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsCreateResourceAccessPolicy(ctx context.Context) ApiDeliveryGroupsCreateResourceAccessPolicyRequest {
+	return ApiDeliveryGroupsCreateResourceAccessPolicyRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsCreateResourceAccessPolicyExecute(r ApiDeliveryGroupsCreateResourceAccessPolicyRequest) (*ResourceAccessPolicyResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ResourceAccessPolicyResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
 func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsDeleteAutoscalePluginTemplate(ctx context.Context, type_ string, name string) ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest {
 	return ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest{
 		ctx:        ctx,
@@ -22934,6 +24762,19 @@ func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsDeleteDeliveryGroupRebootSche
 }
 
 func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsDeleteDeliveryGroupRebootScheduleExecute(r ApiDeliveryGroupsDeleteDeliveryGroupRebootScheduleRequest) (*http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*http.Response), args.Error(1)
+}
+
+func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsDeleteResourceAccessPolicy(ctx context.Context, policyId int32) ApiDeliveryGroupsDeleteResourceAccessPolicyRequest {
+	return ApiDeliveryGroupsDeleteResourceAccessPolicyRequest{
+		ctx:        ctx,
+		ApiService: m,
+		policyId:   policyId,
+	}
+}
+
+func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsDeleteResourceAccessPolicyExecute(r ApiDeliveryGroupsDeleteResourceAccessPolicyRequest) (*http.Response, error) {
 	args := m.Called(r)
 	return args.Get(0).(*http.Response), args.Error(1)
 }
@@ -23345,6 +25186,31 @@ func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsGetDeliveryGroupsV2Execute(r 
 	return args.Get(0).(*DeliveryGroupResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
 }
 
+func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsGetResourceAccessPolicies(ctx context.Context) ApiDeliveryGroupsGetResourceAccessPoliciesRequest {
+	return ApiDeliveryGroupsGetResourceAccessPoliciesRequest{
+		ctx:        ctx,
+		ApiService: m,
+	}
+}
+
+func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsGetResourceAccessPoliciesExecute(r ApiDeliveryGroupsGetResourceAccessPoliciesRequest) (*ResourceAccessPolicyResponseModelCollection, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ResourceAccessPolicyResponseModelCollection), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsGetResourceAccessPolicy(ctx context.Context, policyId int32) ApiDeliveryGroupsGetResourceAccessPolicyRequest {
+	return ApiDeliveryGroupsGetResourceAccessPolicyRequest{
+		ctx:        ctx,
+		ApiService: m,
+		policyId:   policyId,
+	}
+}
+
+func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsGetResourceAccessPolicyExecute(r ApiDeliveryGroupsGetResourceAccessPolicyRequest) (*ResourceAccessPolicyResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ResourceAccessPolicyResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
 func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsPatchDeliveryGroup(ctx context.Context, nameOrId string) ApiDeliveryGroupsPatchDeliveryGroupRequest {
 	return ApiDeliveryGroupsPatchDeliveryGroupRequest{
 		ctx:        ctx,
@@ -23398,6 +25264,19 @@ func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsPatchDeliveryGroupRebootSched
 func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsPatchDeliveryGroupRebootScheduleExecute(r ApiDeliveryGroupsPatchDeliveryGroupRebootScheduleRequest) (*RebootScheduleResponseModel, *http.Response, error) {
 	args := m.Called(r)
 	return args.Get(0).(*RebootScheduleResponseModel), args.Get(1).(*http.Response), args.Error(2)
+}
+
+func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsPatchResourceAccessPolicy(ctx context.Context, policyId int32) ApiDeliveryGroupsPatchResourceAccessPolicyRequest {
+	return ApiDeliveryGroupsPatchResourceAccessPolicyRequest{
+		ctx:        ctx,
+		ApiService: m,
+		policyId:   policyId,
+	}
+}
+
+func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsPatchResourceAccessPolicyExecute(r ApiDeliveryGroupsPatchResourceAccessPolicyRequest) (*ResourceAccessPolicyResponseModel, *http.Response, error) {
+	args := m.Called(r)
+	return args.Get(0).(*ResourceAccessPolicyResponseModel), args.Get(1).(*http.Response), args.Error(2)
 }
 
 func (m *MockDeliveryGroupsAPIsDAAS) DeliveryGroupsRemoveDeliveryGroupMachineCatalog(ctx context.Context, nameOrId string, catalogNameOrId string) ApiDeliveryGroupsRemoveDeliveryGroupMachineCatalogRequest {

@@ -14,12 +14,14 @@ Method | HTTP request | Description
 [**DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin) | **Post** /DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins | Create an autoscale group plugin for the speicified delivery group.
 [**DeliveryGroupsCreateDeliveryGroupPowerTimeScheme**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsCreateDeliveryGroupPowerTimeScheme) | **Post** /DeliveryGroups/{nameOrId}/PowerTimeSchemes | Create a power time scheme for a delivery group.
 [**DeliveryGroupsCreateDeliveryGroupRebootSchedule**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsCreateDeliveryGroupRebootSchedule) | **Post** /DeliveryGroups/{nameOrId}/RebootSchedules | Create a reboot schedule for a delivery group.
+[**DeliveryGroupsCreateResourceAccessPolicy**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsCreateResourceAccessPolicy) | **Post** /DeliveryGroups/ResourceAccessPolicies | Create a resource access policy in the site.
 [**DeliveryGroupsDeleteAutoscalePluginTemplate**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDeleteAutoscalePluginTemplate) | **Delete** /DeliveryGroups/AutoscalePlugin/{type}/Templates/{name} | Delete the autoscale plugin configuration template for the specified plugin type and name.
 [**DeliveryGroupsDeleteDeliveryGroup**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDeleteDeliveryGroup) | **Delete** /DeliveryGroups/{nameOrId} | Delete a delivery group.
 [**DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy) | **Delete** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies/{policyId} | Delete an advanced access policy associated with a delivery group.
 [**DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin) | **Delete** /DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins/{uid} | Delete the autoscale group plugin by uid.
 [**DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme) | **Delete** /DeliveryGroups/{nameOrId}/PowerTimeSchemes/{schemeNameOrId} | Delete a power time scheme from a delivery group.
 [**DeliveryGroupsDeleteDeliveryGroupRebootSchedule**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDeleteDeliveryGroupRebootSchedule) | **Delete** /DeliveryGroups/{nameOrId}/RebootSchedules/{scheduleNameOrId} | Delete a reboot schedule from a delivery group.
+[**DeliveryGroupsDeleteResourceAccessPolicy**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDeleteResourceAccessPolicy) | **Delete** /DeliveryGroups/ResourceAccessPolicies/{policyId} | Delete a resource access policy in the site.
 [**DeliveryGroupsDoAddApplications**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDoAddApplications) | **Post** /DeliveryGroups/{nameOrId}/Applications | Add applications and/or application groups to a delivery group.
 [**DeliveryGroupsDoAddMachines**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDoAddMachines) | **Post** /DeliveryGroups/{nameOrId}/Machines | Add machines to a delivery group.
 [**DeliveryGroupsDoDeliveryGroupSearch**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDoDeliveryGroupSearch) | **Post** /DeliveryGroups/$search | Perform an advanced search for deliveryGroups.
@@ -51,10 +53,13 @@ Method | HTTP request | Description
 [**DeliveryGroupsGetDeliveryGroupsMachineCatalogs**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupsMachineCatalogs) | **Get** /DeliveryGroups/{nameOrId}/MachineCatalogs | Get machine catalogs associated with a delivery group.
 [**DeliveryGroupsGetDeliveryGroupsUsage**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupsUsage) | **Get** /DeliveryGroups/{nameOrId}/Usage | Get usage data about a delivery group.
 [**DeliveryGroupsGetDeliveryGroupsV2**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupsV2) | **Get** /DeliveryGroupsV2 | The V2 version of get all delivery groups.
+[**DeliveryGroupsGetResourceAccessPolicies**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetResourceAccessPolicies) | **Get** /DeliveryGroups/ResourceAccessPolicies | Get the resource access policies in the site.
+[**DeliveryGroupsGetResourceAccessPolicy**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetResourceAccessPolicy) | **Get** /DeliveryGroups/ResourceAccessPolicies/{policyId} | Get the details of a single resource access policy.
 [**DeliveryGroupsPatchDeliveryGroup**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsPatchDeliveryGroup) | **Patch** /DeliveryGroups/{nameOrId} | Modify a delivery group.
 [**DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy) | **Patch** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies/{policyId} | Update an advanced access policy associated with a delivery group.
 [**DeliveryGroupsPatchDeliveryGroupPowerTimeScheme**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsPatchDeliveryGroupPowerTimeScheme) | **Patch** /DeliveryGroups/{nameOrId}/PowerTimeSchemes/{schemeNameOrId} | Update a power time scheme for a delivery group.
 [**DeliveryGroupsPatchDeliveryGroupRebootSchedule**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsPatchDeliveryGroupRebootSchedule) | **Patch** /DeliveryGroups/{nameOrId}/RebootSchedules/{scheduleNameOrId} | Update a reboot schedule for a delivery group.
+[**DeliveryGroupsPatchResourceAccessPolicy**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsPatchResourceAccessPolicy) | **Patch** /DeliveryGroups/ResourceAccessPolicies/{policyId} | Update a resource access policy in the site.
 [**DeliveryGroupsRemoveDeliveryGroupMachineCatalog**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsRemoveDeliveryGroupMachineCatalog) | **Delete** /DeliveryGroups/{nameOrId}/MachineCatalogs/{catalogNameOrId} | Disassociate a machine catalog from a RemotePC delivery group.
 [**DeliveryGroupsRemoveDeliveryGroupTags**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsRemoveDeliveryGroupTags) | **Delete** /DeliveryGroups/{nameOrId}/Tags/{tagNameOrId} | Remove a tag from a delivery group.
 [**DeliveryGroupsSetDeliveryGroupTags**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsSetDeliveryGroupTags) | **Put** /DeliveryGroups/{nameOrId}/Tags | Set tags associated with a delivery group.
@@ -916,6 +921,86 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeliveryGroupsCreateResourceAccessPolicy
+
+> ResourceAccessPolicyResponseModel DeliveryGroupsCreateResourceAccessPolicy(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ResourceAccessPolicyRequestModel(resourceAccessPolicyRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Create a resource access policy in the site.
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	resourceAccessPolicyRequestModel := *openapiclient.NewResourceAccessPolicyRequestModel() // ResourceAccessPolicyRequestModel | Details of the resource access policy to create.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the resource access policy will be created as a background task. (optional) (default to false)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateResourceAccessPolicy(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ResourceAccessPolicyRequestModel(resourceAccessPolicyRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateResourceAccessPolicy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeliveryGroupsCreateResourceAccessPolicy`: ResourceAccessPolicyResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateResourceAccessPolicy`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsCreateResourceAccessPolicyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **resourceAccessPolicyRequestModel** | [**ResourceAccessPolicyRequestModel**](ResourceAccessPolicyRequestModel.md) | Details of the resource access policy to create. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the resource access policy will be created as a background task. | [default to false]
+
+### Return type
+
+[**ResourceAccessPolicyResponseModel**](ResourceAccessPolicyResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeliveryGroupsDeleteAutoscalePluginTemplate
 
 > DeliveryGroupsDeleteAutoscalePluginTemplate(ctx, type_, name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
@@ -1406,6 +1491,88 @@ Name | Type | Description  | Notes
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeliveryGroupsDeleteResourceAccessPolicy
+
+> DeliveryGroupsDeleteResourceAccessPolicy(ctx, policyId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Delete a resource access policy in the site.
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	policyId := int32(56) // int32 | UID of the resource access policy.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the resource access policy will be deleted as a background task. (optional) (default to false)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteResourceAccessPolicy(context.Background(), policyId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteResourceAccessPolicy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**policyId** | **int32** | UID of the resource access policy. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsDeleteResourceAccessPolicyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the resource access policy will be deleted as a background task. | [default to false]
 
 ### Return type
 
@@ -4098,6 +4265,164 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeliveryGroupsGetResourceAccessPolicies
+
+> ResourceAccessPolicyResponseModelCollection DeliveryGroupsGetResourceAccessPolicies(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+
+Get the resource access policies in the site.
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetResourceAccessPolicies(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetResourceAccessPolicies``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeliveryGroupsGetResourceAccessPolicies`: ResourceAccessPolicyResponseModelCollection
+	fmt.Fprintf(os.Stdout, "Response from `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetResourceAccessPolicies`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsGetResourceAccessPoliciesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+
+### Return type
+
+[**ResourceAccessPolicyResponseModelCollection**](ResourceAccessPolicyResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeliveryGroupsGetResourceAccessPolicy
+
+> ResourceAccessPolicyResponseModel DeliveryGroupsGetResourceAccessPolicy(ctx, policyId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+
+Get the details of a single resource access policy.
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	policyId := int32(56) // int32 | UID of the resource access policy.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetResourceAccessPolicy(context.Background(), policyId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetResourceAccessPolicy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeliveryGroupsGetResourceAccessPolicy`: ResourceAccessPolicyResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetResourceAccessPolicy`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**policyId** | **int32** | UID of the resource access policy. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsGetResourceAccessPolicyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+
+### Return type
+
+[**ResourceAccessPolicyResponseModel**](ResourceAccessPolicyResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeliveryGroupsPatchDeliveryGroup
 
 > DeliveryGroupsPatchDeliveryGroup(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditDeliveryGroupRequestModel(editDeliveryGroupRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
@@ -4434,6 +4759,92 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RebootScheduleResponseModel**](RebootScheduleResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeliveryGroupsPatchResourceAccessPolicy
+
+> ResourceAccessPolicyResponseModel DeliveryGroupsPatchResourceAccessPolicy(ctx, policyId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ResourceAccessPolicyRequestModel(resourceAccessPolicyRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Update a resource access policy in the site.
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+	citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+	citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+	policyId := int32(56) // int32 | UID of the resource access policy.
+	resourceAccessPolicyRequestModel := *openapiclient.NewResourceAccessPolicyRequestModel() // ResourceAccessPolicyRequestModel | Details of the resource access policy to update.
+	userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+	authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+	accept := "application/json" // string | Must accept application/json. (optional)
+	citrixLocale := "en-US" // string | Locale of the request. (optional)
+	async := true // bool | If `true`, the resource access policy will be updated as a background task.  (optional) (default to false)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsPatchResourceAccessPolicy(context.Background(), policyId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).ResourceAccessPolicyRequestModel(resourceAccessPolicyRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsPatchResourceAccessPolicy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeliveryGroupsPatchResourceAccessPolicy`: ResourceAccessPolicyResponseModel
+	fmt.Fprintf(os.Stdout, "Response from `DeliveryGroupsAPIsDAAS.DeliveryGroupsPatchResourceAccessPolicy`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**policyId** | **int32** | UID of the resource access policy. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsPatchResourceAccessPolicyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **resourceAccessPolicyRequestModel** | [**ResourceAccessPolicyRequestModel**](ResourceAccessPolicyRequestModel.md) | Details of the resource access policy to update. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the resource access policy will be updated as a background task.  | [default to false]
+
+### Return type
+
+[**ResourceAccessPolicyResponseModel**](ResourceAccessPolicyResponseModel.md)
 
 ### Authorization
 

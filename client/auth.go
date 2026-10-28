@@ -245,7 +245,10 @@ func performCCTrustAuth(client *http.Client, authUrl string, jsonStr []byte) (CC
 
 // SignIn to Wem OnPrem Host to get Session ID
 func (c *CitrixDaasClient) SignInWemOnPrem() (string, *http.Response, error) {
-	client := c.ApiClient.GetConfig().HTTPClient
+	if c.WemClient == nil {
+		return "", nil, fmt.Errorf("wem onPremises client is not initialized")
+	}
+	client := c.WemClient.GetConfig().HTTPClient
 	req, err := http.NewRequest(http.MethodPost, c.WemOnPremAuthConfig.AuthUrl, nil)
 	if err != nil {
 		return "", nil, err

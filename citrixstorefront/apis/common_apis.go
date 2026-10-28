@@ -8,10 +8,21 @@ import (
 	"strings"
 )
 
+// powerShellSingleQuoteEscaper doubles every character PowerShell treats as a single quote: the ASCII
+// apostrophe and the typographic quotes U+2018 to U+201B. Doubling only the apostrophe would let a
+// typographic quote close the literal.
+var powerShellSingleQuoteEscaper = strings.NewReplacer(
+	"'", "''",
+	"\u2018", "\u2018\u2018",
+	"\u2019", "\u2019\u2019",
+	"\u201a", "\u201a\u201a",
+	"\u201b", "\u201b\u201b",
+)
+
 // escapePowerShellSingleQuote makes a value safe to embed inside a single-quoted PowerShell literal.
 // A literal single quote is represented by doubling it, so a quote in an input value can no longer close the literal and inject commands.
 func escapePowerShellSingleQuote(value string) string {
-	return strings.ReplaceAll(value, "'", "''")
+	return powerShellSingleQuoteEscaper.Replace(value)
 }
 
 func BuildAuth(remoteCompName string, username string, password string, disableSSL bool) string {

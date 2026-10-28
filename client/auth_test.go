@@ -3,6 +3,8 @@
 package citrixclient_test
 
 import (
+	"context"
+	"crypto/tls"
 	"encoding/json"
 	"io"
 	"net/http"
@@ -24,6 +26,13 @@ func setupMockAuthServer(t *testing.T, handler http.HandlerFunc) *httptest.Serve
 	return server
 }
 
+// setupMockTLSAuthServer is setupMockAuthServer over HTTPS, presenting httptest's self-signed certificate.
+func setupMockTLSAuthServer(t *testing.T, handler http.HandlerFunc) *httptest.Server {
+	server := httptest.NewTLSServer(handler)
+	t.Cleanup(server.Close)
+	return server
+}
+
 func setupClientWithAuth(authUrl string, onPremises, isGov bool) *citrixclient.CitrixDaasClient {
 	client, _ := test.NewTestDaaSClient()
 	client.AuthConfig = &citrixclient.AuthenticationConfiguration{
@@ -36,13 +45,16 @@ func setupClientWithAuth(authUrl string, onPremises, isGov bool) *citrixclient.C
 	return client
 }
 
-func setupWemClient(authUrl, username, password string) *citrixclient.CitrixDaasClient {
-	client, _ := test.NewTestDaaSClient()
-	client.WemOnPremAuthConfig = &citrixclient.WemOnPremAuthentication{
-		AuthUrl:       authUrl,
-		AdminUserName: username,
-		AdminPassword: password,
-	}
+func setupWemClient(authUrl, username, password string, wemSkipVerify bool) *citrixclient.CitrixDaasClient {
+	client := &citrixclient.CitrixDaasClient{}
+	client.SetupWemOnPremClientContext(context.Background(), noopMiddleware, authUrl, "wem.example.com", username, password, wemSkipVerify)
+	return client
+}
+
+// setupWemClientWithDdc adds an on-premises DDC client whose TLS setting can disagree with WEM's.
+func setupWemClientWithDdc(authUrl string, ddcSkipVerify, wemSkipVerify bool) *citrixclient.CitrixDaasClient {
+	client := setupWemClient(authUrl, "wem-admin", "wem-password", wemSkipVerify)
+	client.SetupApiClient("ddc.example.com", noopMiddleware, true, ddcSkipVerify, false)
 	return client
 }
 
@@ -296,7 +308,7 @@ func TestSignInWemOnPrem_Success(t *testing.T) {
 		})
 	}))
 
-	client := setupWemClient(server.URL, "wem-admin", "wem-password")
+	client := setupWemClient(server.URL, "wem-admin", "wem-password", false)
 
 	sessionId, resp, err := client.SignInWemOnPrem()
 
@@ -311,7 +323,7 @@ func TestSignInWemOnPrem_AuthenticationFailed(t *testing.T) {
 		w.Write([]byte("Invalid username or password"))
 	}))
 
-	client := setupWemClient(server.URL, "wrong-user", "wrong-password")
+	client := setupWemClient(server.URL, "wrong-user", "wrong-password", false)
 
 	sessionId, resp, err := client.SignInWemOnPrem()
 
@@ -328,11 +340,55 @@ func TestSignInWemOnPrem_InvalidJson(t *testing.T) {
 		w.Write([]byte("not-valid-json"))
 	}))
 
-	client := setupWemClient(server.URL, "wem-admin", "wem-password")
+	client := setupWemClient(server.URL, "wem-admin", "wem-password", false)
 
 	sessionId, resp, err := client.SignInWemOnPrem()
 
 	require.Error(t, err)
+	assert.Empty(t, sessionId)
+	assert.Nil(t, resp)
+}
+
+func TestSignInWemOnPrem_WemVerificationRejectsUntrustedCertificate(t *testing.T) {
+	server := setupMockTLSAuthServer(t, http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		json.NewEncoder(w).Encode(citrixclient.WemOnPremAuthResponse{SessionId: "wem-session"})
+	}))
+
+	// The DDC skips verification, so only the WEM setting can make sign-in refuse the self-signed certificate.
+	client := setupWemClientWithDdc(server.URL, true, false)
+
+	sessionId, _, err := client.SignInWemOnPrem()
+
+	require.Error(t, err)
+	certErr := new(tls.CertificateVerificationError)
+	assert.ErrorAs(t, err, &certErr)
+	assert.Empty(t, sessionId)
+}
+
+func TestSignInWemOnPrem_WemSkipVerificationAcceptsUntrustedCertificate(t *testing.T) {
+	server := setupMockTLSAuthServer(t, http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		json.NewEncoder(w).Encode(citrixclient.WemOnPremAuthResponse{SessionId: "wem-session"})
+	}))
+
+	// The DDC verifies, so only the WEM setting can let sign-in accept the self-signed certificate.
+	client := setupWemClientWithDdc(server.URL, false, true)
+
+	sessionId, _, err := client.SignInWemOnPrem()
+
+	require.NoError(t, err)
+	assert.Equal(t, "session wem-session", sessionId)
+}
+
+func TestSignInWemOnPrem_WemClientNotInitialized(t *testing.T) {
+	client := &citrixclient.CitrixDaasClient{}
+	client.SetupWemOnPremAuthConfig("https://wem.example.com/services/wem/onPrem/LogIn", "wem-admin", "wem-password")
+
+	sessionId, resp, err := client.SignInWemOnPrem()
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "wem onPremises client is not initialized")
 	assert.Empty(t, sessionId)
 	assert.Nil(t, resp)
 }

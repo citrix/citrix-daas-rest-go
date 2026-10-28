@@ -70,6 +70,9 @@ const (
 	JOBTYPE_CREATE_ADVANCED_ACCESS_POLICY                                  JobType = "CreateAdvancedAccessPolicy"
 	JOBTYPE_UPDATE_ADVANCED_ACCESS_POLICY                                  JobType = "UpdateAdvancedAccessPolicy"
 	JOBTYPE_DELETE_ADVANCED_ACCESS_POLICY                                  JobType = "DeleteAdvancedAccessPolicy"
+	JOBTYPE_CREATE_RESOURCE_ACCESS_POLICY                                  JobType = "CreateResourceAccessPolicy"
+	JOBTYPE_UPDATE_RESOURCE_ACCESS_POLICY                                  JobType = "UpdateResourceAccessPolicy"
+	JOBTYPE_DELETE_RESOURCE_ACCESS_POLICY                                  JobType = "DeleteResourceAccessPolicy"
 	JOBTYPE_ADD_MACHINE_CATALOG_MACHINE                                    JobType = "AddMachineCatalogMachine"
 	JOBTYPE_UPDATE_MACHINE_CATALOG_PROVISIONING_SCHEME                     JobType = "UpdateMachineCatalogProvisioningScheme"
 	JOBTYPE_CREATE_MACHINE_CATALOG                                         JobType = "CreateMachineCatalog"
@@ -375,6 +378,9 @@ var AllowedJobTypeEnumValues = []JobType{
 	"CreateAdvancedAccessPolicy",
 	"UpdateAdvancedAccessPolicy",
 	"DeleteAdvancedAccessPolicy",
+	"CreateResourceAccessPolicy",
+	"UpdateResourceAccessPolicy",
+	"DeleteResourceAccessPolicy",
 	"AddMachineCatalogMachine",
 	"UpdateMachineCatalogProvisioningScheme",
 	"CreateMachineCatalog",

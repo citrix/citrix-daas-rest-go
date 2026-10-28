@@ -249,12 +249,14 @@ Class | Method | HTTP request | Description
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupscreatedeliverygroupautoscalegroupplugin) | **Post** /DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins | Create an autoscale group plugin for the speicified delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsCreateDeliveryGroupPowerTimeScheme**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupscreatedeliverygrouppowertimescheme) | **Post** /DeliveryGroups/{nameOrId}/PowerTimeSchemes | Create a power time scheme for a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsCreateDeliveryGroupRebootSchedule**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupscreatedeliverygrouprebootschedule) | **Post** /DeliveryGroups/{nameOrId}/RebootSchedules | Create a reboot schedule for a delivery group.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsCreateResourceAccessPolicy**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupscreateresourceaccesspolicy) | **Post** /DeliveryGroups/ResourceAccessPolicies | Create a resource access policy in the site.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDeleteAutoscalePluginTemplate**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdeleteautoscaleplugintemplate) | **Delete** /DeliveryGroups/AutoscalePlugin/{type}/Templates/{name} | Delete the autoscale plugin configuration template for the specified plugin type and name.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDeleteDeliveryGroup**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdeletedeliverygroup) | **Delete** /DeliveryGroups/{nameOrId} | Delete a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdeletedeliverygroupadvancedaccesspolicy) | **Delete** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies/{policyId} | Delete an advanced access policy associated with a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdeletedeliverygroupautoscalegroupplugin) | **Delete** /DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins/{uid} | Delete the autoscale group plugin by uid.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdeletedeliverygrouppowertimescheme) | **Delete** /DeliveryGroups/{nameOrId}/PowerTimeSchemes/{schemeNameOrId} | Delete a power time scheme from a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDeleteDeliveryGroupRebootSchedule**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdeletedeliverygrouprebootschedule) | **Delete** /DeliveryGroups/{nameOrId}/RebootSchedules/{scheduleNameOrId} | Delete a reboot schedule from a delivery group.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDeleteResourceAccessPolicy**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdeleteresourceaccesspolicy) | **Delete** /DeliveryGroups/ResourceAccessPolicies/{policyId} | Delete a resource access policy in the site.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDoAddApplications**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdoaddapplications) | **Post** /DeliveryGroups/{nameOrId}/Applications | Add applications and/or application groups to a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDoAddMachines**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdoaddmachines) | **Post** /DeliveryGroups/{nameOrId}/Machines | Add machines to a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDoDeliveryGroupSearch**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdodeliverygroupsearch) | **Post** /DeliveryGroups/$search | Perform an advanced search for deliveryGroups.
@@ -286,10 +288,13 @@ Class | Method | HTTP request | Description
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetDeliveryGroupsMachineCatalogs**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetdeliverygroupsmachinecatalogs) | **Get** /DeliveryGroups/{nameOrId}/MachineCatalogs | Get machine catalogs associated with a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetDeliveryGroupsUsage**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetdeliverygroupsusage) | **Get** /DeliveryGroups/{nameOrId}/Usage | Get usage data about a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetDeliveryGroupsV2**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetdeliverygroupsv2) | **Get** /DeliveryGroupsV2 | The V2 version of get all delivery groups.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetResourceAccessPolicies**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetresourceaccesspolicies) | **Get** /DeliveryGroups/ResourceAccessPolicies | Get the resource access policies in the site.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetResourceAccessPolicy**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetresourceaccesspolicy) | **Get** /DeliveryGroups/ResourceAccessPolicies/{policyId} | Get the details of a single resource access policy.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsPatchDeliveryGroup**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupspatchdeliverygroup) | **Patch** /DeliveryGroups/{nameOrId} | Modify a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupspatchdeliverygroupadvancedaccesspolicy) | **Patch** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies/{policyId} | Update an advanced access policy associated with a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsPatchDeliveryGroupPowerTimeScheme**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupspatchdeliverygrouppowertimescheme) | **Patch** /DeliveryGroups/{nameOrId}/PowerTimeSchemes/{schemeNameOrId} | Update a power time scheme for a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsPatchDeliveryGroupRebootSchedule**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupspatchdeliverygrouprebootschedule) | **Patch** /DeliveryGroups/{nameOrId}/RebootSchedules/{scheduleNameOrId} | Update a reboot schedule for a delivery group.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsPatchResourceAccessPolicy**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupspatchresourceaccesspolicy) | **Patch** /DeliveryGroups/ResourceAccessPolicies/{policyId} | Update a resource access policy in the site.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsRemoveDeliveryGroupMachineCatalog**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsremovedeliverygroupmachinecatalog) | **Delete** /DeliveryGroups/{nameOrId}/MachineCatalogs/{catalogNameOrId} | Disassociate a machine catalog from a RemotePC delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsRemoveDeliveryGroupTags**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsremovedeliverygrouptags) | **Delete** /DeliveryGroups/{nameOrId}/Tags/{tagNameOrId} | Remove a tag from a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsSetDeliveryGroupTags**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupssetdeliverygrouptags) | **Put** /DeliveryGroups/{nameOrId}/Tags | Set tags associated with a delivery group.
@@ -905,6 +910,7 @@ Class | Method | HTTP request | Description
  - [CollectionModelOfPvsStreamingVDiskResponseModel](docs/CollectionModelOfPvsStreamingVDiskResponseModel.md)
  - [CollectionModelOfRebootScheduleResponseModel](docs/CollectionModelOfRebootScheduleResponseModel.md)
  - [CollectionModelOfRecommendationModel](docs/CollectionModelOfRecommendationModel.md)
+ - [CollectionModelOfResourceAccessPolicyResponseModel](docs/CollectionModelOfResourceAccessPolicyResponseModel.md)
  - [CollectionModelOfResourceCostItemResponseModel](docs/CollectionModelOfResourceCostItemResponseModel.md)
  - [CollectionModelOfRoleResponseModel](docs/CollectionModelOfRoleResponseModel.md)
  - [CollectionModelOfScopeResponseModel](docs/CollectionModelOfScopeResponseModel.md)
@@ -1516,6 +1522,10 @@ Class | Method | HTTP request | Description
  - [RemotePCEnrollmentScopeResponseModel](docs/RemotePCEnrollmentScopeResponseModel.md)
  - [RequiredSleepCapability](docs/RequiredSleepCapability.md)
  - [ReservationResponseModel](docs/ReservationResponseModel.md)
+ - [ResourceAccessPolicyRequestModel](docs/ResourceAccessPolicyRequestModel.md)
+ - [ResourceAccessPolicyResourceType](docs/ResourceAccessPolicyResourceType.md)
+ - [ResourceAccessPolicyResponseModel](docs/ResourceAccessPolicyResponseModel.md)
+ - [ResourceAccessPolicyResponseModelCollection](docs/ResourceAccessPolicyResponseModelCollection.md)
  - [ResourceCostItemResponseModel](docs/ResourceCostItemResponseModel.md)
  - [ResourceCostResponseModelCollection](docs/ResourceCostResponseModelCollection.md)
  - [ResourcePriceResponseModel](docs/ResourcePriceResponseModel.md)
