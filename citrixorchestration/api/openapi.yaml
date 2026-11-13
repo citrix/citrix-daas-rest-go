@@ -445950,6 +445950,7 @@ components:
       - AzureArc
       - OpenShift
       - AmazonWorkSpacesCore
+      - NutanixAhvPC
       title: HypervisorConnectionType
       type: string
       x-enumNames:
@@ -445967,6 +445968,7 @@ components:
       - AzureArc
       - OpenShift
       - AmazonWorkSpacesCore
+      - NutanixAhvPC
     HypervisorDeletePreviewResponseModel:
       additionalProperties: false
       description: Hypervisor Delete Preview response model.
